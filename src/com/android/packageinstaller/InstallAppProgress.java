@@ -21,6 +21,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageInstallObserver;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -35,7 +38,8 @@ import android.widget.TextView;
  * when the user tries
  * to install an application bundled as an apk file. The result of the application install
  * is indicated in the result code that gets set to the corresponding installation status
- * codes defined in PackageManager
+ * codes defined in PackageManager. If the package being installed already exists,
+ * the existing package is replaced with the new one.
  */
 public class InstallAppProgress extends Activity {
     private final String TAG="InstallAppProgress";
@@ -45,7 +49,6 @@ public class InstallAppProgress extends Activity {
     private ProgressBar mProgressBar;
     private final int INSTALL_COMPLETE = 1;
     private Handler mHandler = new Handler() {
-        public static final String TAG = "InstallAppProgress.Handler";
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case INSTALL_COMPLETE:
@@ -76,12 +79,6 @@ public class InstallAppProgress extends Activity {
     }
     
     void setResultAndFinish(int retCode) {
-        try {
-            Log.i(TAG, "Sleeping for 5 seconds to display screen");
-            Thread.sleep(5*1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         Intent data = new Intent();
         setResult(retCode);
         finish();
@@ -97,7 +94,21 @@ public class InstallAppProgress extends Activity {
         installTextView.setText(R.string.installing);
         mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
         mProgressBar.setIndeterminate(true);
+        // Set flag to replace package if already existing
+        int installFlags = 0;
+        PackageManager pm = getPackageManager();
+        try {
+            PackageInfo pi = pm.getPackageInfo(mAppInfo.packageName, 
+                    PackageManager.GET_UNINSTALLED_PACKAGES);
+            if(pi != null) {
+                installFlags |= PackageManager.REPLACE_EXISTING_PACKAGE;
+            }
+        } catch (NameNotFoundException e) {
+        }
+        if((installFlags & PackageManager.REPLACE_EXISTING_PACKAGE )!= 0) {
+            Log.w(TAG, "Replacing package:"+mAppInfo.packageName);
+        }
         PackageInstallObserver observer = new PackageInstallObserver();
-        getPackageManager().installPackage(mPackageURI, observer, 0);
+        pm.installPackage(mPackageURI, observer, installFlags);
     }
 }

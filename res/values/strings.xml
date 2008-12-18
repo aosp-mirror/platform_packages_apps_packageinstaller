@@ -27,6 +27,7 @@
     <string name="install_application">Install application</string>
     <string name="installing">Installing\u2026</string>
     <string name="install_done">Application installed</string>
+    <string name="install_confirm_question">Do you want to install this application?</string>
     <string name="install_failed">Application install unsuccessful</string>
     <string name="launch">Launch</string>
     <string name="unknown_apps_dlg_title">Install blocked</string>
@@ -52,4 +53,7 @@ found in the list of installed applications.</string>
     <string name="uninstall_application">Uninstall</string>
     <string name="app_security_permission_title"><xliff:g id="app_name">%1$s</xliff:g> - security permissions</string>
 
+    <!-- Dialog attributes to indicate parse errors -->
+    <string name="Parse_error_dlg_title">Parse Error</string>
+    <string name="Parse_error_dlg_text">There is a problem parsing the package.</string>
 </resources>

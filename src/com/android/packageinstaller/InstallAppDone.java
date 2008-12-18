@@ -20,6 +20,8 @@ import com.android.packageinstaller.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -50,6 +52,7 @@ public class InstallAppDone extends Activity  implements View.OnClickListener {
         Intent intent = getIntent();
         mAppInfo = intent.getParcelableExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO);
         installFlag = intent.getBooleanExtra(PackageUtil.INTENT_ATTR_INSTALL_STATUS, true);
+        if(localLOGV) Log.i(TAG, "installFlag="+installFlag);
         initView();
     }
     
@@ -57,25 +60,37 @@ public class InstallAppDone extends Activity  implements View.OnClickListener {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         String unknown =  getString(R.string.unknown);
         setContentView(R.layout.install_done);
-        //initialize views
+        // Initialize views
         PackageUtil.initAppSnippet(this, mAppInfo, R.id.app_snippet);
         TextView centerText = (TextView)findViewById(R.id.center_text);
-        if(installFlag) {
-            centerText.setText(getString(R.string.install_done));
-        } else {
-            centerText.setText(R.string.install_failed);
-        }
         mDoneButton = (Button)findViewById(R.id.done_button);
-        mDoneButton.setOnClickListener(this);
         mLaunchButton = (Button)findViewById(R.id.launch_button);
-        //enable or disable launch buton
-        mLaunchIntent = PackageUtil.getLaunchIntentForPackage(this, 
-                mAppInfo.packageName);
-        if(mLaunchIntent != null) {
-            mLaunchButton.setOnClickListener(this);
+        int centerTextDrawableId;
+        int centerTextLabel;
+        if(installFlag) {
+            mLaunchButton.setVisibility(View.VISIBLE);
+            centerTextDrawableId = R.drawable.button_indicator_finish;
+            centerTextLabel = R.string.install_done;
+            // Enable or disable launch button
+            mLaunchIntent = PackageUtil.getLaunchIntentForPackage(this, 
+                    mAppInfo.packageName);
+            if(mLaunchIntent != null) {
+                mLaunchButton.setOnClickListener(this);
+            } else {
+                mLaunchButton.setEnabled(false);
+            }
         } else {
-            mLaunchButton.setEnabled(false);
+            centerTextDrawableId = com.android.internal.R.drawable.ic_bullet_key_permission;
+            centerTextLabel = R.string.install_failed;
+            mLaunchButton.setVisibility(View.INVISIBLE);
         }
+        Drawable centerTextDrawable = getResources().getDrawable(centerTextDrawableId);
+        centerTextDrawable.setBounds(0, 0, 
+                centerTextDrawable.getIntrinsicWidth(),
+                centerTextDrawable.getIntrinsicHeight());
+        centerText.setCompoundDrawables(centerTextDrawable, null, null, null);
+        centerText.setText(getString(centerTextLabel));
+        mDoneButton.setOnClickListener(this);
     }
 
     public void onClick(View v) {

@@ -20,10 +20,13 @@ import com.android.packageinstaller.R;
 import java.util.ArrayList;
 import android.widget.AppSecurityPermissions;
 import android.app.Activity;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageParser;
 import android.content.pm.PermissionInfo;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -78,11 +81,25 @@ public class InstallAppConfirmation extends Activity implements View.OnClickList
         if(desc != null) {
             ((TextView)findViewById(R.id.security_settings_desc)).setText(desc);
         }
-        //set permissions
-        AppSecurityPermissions asp = new AppSecurityPermissions(this);
-        asp.setSecurityPermissionsView(mPkgURI);
-        LinearLayout securityList = (LinearLayout) mContentView.findViewById(R.id.security_settings_list);
-        securityList.addView(asp.getPermissionsView());
+        
+        
+        LinearLayout permsView = (LinearLayout) mContentView.findViewById(
+                R.id.permissions_section);
+        boolean permVisible = false;
+        PackageParser.Package pkg = PackageUtil.getPackageInfo(mPkgURI);
+        if(pkg != null) {
+            AppSecurityPermissions asp = new AppSecurityPermissions(this, pkg);
+            if(asp.getPermissionCount() > 0) {
+                permVisible = true;
+                permsView.setVisibility(View.VISIBLE);
+                LinearLayout securityList = (LinearLayout) permsView.findViewById(
+                        R.id.security_settings_list);
+                securityList.addView(asp.getPermissionsView());
+            } 
+        }
+        if(!permVisible){
+            permsView.setVisibility(View.GONE);
+        }
         mOk = (Button)findViewById(R.id.ok_button);
         mCancel = (Button)findViewById(R.id.cancel_button);
         mOk.setOnClickListener(this);

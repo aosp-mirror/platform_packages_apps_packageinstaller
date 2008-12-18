@@ -27,14 +27,9 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageParser;
 import android.content.pm.ResolveInfo;
-import android.content.pm.PackageParser.Package;
-import android.content.res.AssetManager;
-import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.DisplayMetrics;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -60,7 +55,7 @@ public class PackageUtil {
         File sourceFile = new File(archiveFilePath);
         DisplayMetrics metrics = new DisplayMetrics();
         metrics.setToDefaults();
-        Package pkg = packageParser.parsePackage(sourceFile, archiveFilePath, metrics, 0);
+        PackageParser.Package pkg = packageParser.parsePackage(sourceFile, archiveFilePath, metrics, 0);
         if (pkg == null) {
             return null;
         }
@@ -70,7 +65,7 @@ public class PackageUtil {
     /*
      * Utility method to get package information for a given packageURI
      */
-    public static  Package getPackageInfo(Uri packageURI) {
+    public static  PackageParser.Package getPackageInfo(Uri packageURI) {
         final String archiveFilePath = packageURI.getPath();
         PackageParser packageParser = new PackageParser(archiveFilePath);
         File sourceFile = new File(archiveFilePath);
@@ -83,7 +78,7 @@ public class PackageUtil {
      * Utility method to get application label from package manager for a given context
      */
     public static CharSequence getApplicationLabel(Context context, ApplicationInfo appInfo) {
-        CharSequence appName = context.getPackageManager().getApplicationLabel(appInfo);
+        CharSequence appName = appInfo.loadLabel(context.getPackageManager());
         if(appName == null) {
             appName = context.getString(R.string.unknown);
         }
@@ -94,7 +89,7 @@ public class PackageUtil {
      * Utility method to getApplicationIcon from package manager for a given context
      */
     public static Drawable getApplicationIcon(Context context, ApplicationInfo appInfo) {
-        return context.getPackageManager().getApplicationIcon(appInfo);
+        return appInfo.loadIcon(context.getPackageManager());
     }
     
     /*
@@ -111,7 +106,8 @@ public class PackageUtil {
     }
     
     public static boolean isPackageAlreadyInstalled(Activity context, String pkgName) {
-        List<PackageInfo> installedList = context.getPackageManager().getInstalledPackages(0);
+        List<PackageInfo> installedList = context.getPackageManager().getInstalledPackages(
+                PackageManager.GET_UNINSTALLED_PACKAGES);
         int installedListSize = installedList.size();
         for(int i = 0; i < installedListSize; i++) {
             PackageInfo tmp = installedList.get(i);

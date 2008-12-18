@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:paddingLeft="20dip"
         android:paddingTop="36dip"
-        android:drawableLeft="@drawable/button_indicator_finish"
+        android:drawablePadding="6dip"
         android:layout_below="@id/app_snippet"
         android:textColor="?android:attr/textColorSecondary"
         android:textAppearance="?android:attr/textAppearanceMedium"/>

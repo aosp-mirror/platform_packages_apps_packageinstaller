@@ -16,7 +16,6 @@
 */
 package com.android.packageinstaller;
 
-import com.android.packageinstaller.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -24,8 +23,8 @@ import android.content.pm.IPackageDeleteObserver;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.Window;
+import android.view.ViewDebug;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -40,12 +39,10 @@ public class UninstallAppProgress extends Activity {
     private final String TAG="UninstallAppProgress";
     private boolean localLOGV = false;
     private ApplicationInfo mAppInfo;
-    private ProgressBar mProgressBar;
     private final int UNINSTALL_COMPLETE = 1;
     public final static int SUCCEEDED=1;
     public final static int FAILED=0;
     private Handler mHandler = new Handler() {
-        public static final String TAG = "UninstallAppProgress.Handler";
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case UNINSTALL_COMPLETE:
@@ -72,30 +69,22 @@ public class UninstallAppProgress extends Activity {
             msg.arg1 = succeeded?SUCCEEDED:FAILED;
             mHandler.sendMessage(msg);
         }
-    };
+    }
     
     void setResultAndFinish(int retCode) {
-        try {
-            Log.i(TAG, "Sleeping for some time to display screen");
-            Thread.sleep(5*1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        Intent data = new Intent();
         setResult(retCode);
         finish();
     }
     
     public void initView() {
-        String unknown =  getString(R.string.unknown);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.op_progress);
         //initialize views
         PackageUtil.initAppSnippet(this, mAppInfo, R.id.app_snippet);
         TextView installTextView = (TextView)findViewById(R.id.center_text);
         installTextView.setText(R.string.uninstalling);
-        mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
-        mProgressBar.setIndeterminate(true);
+        final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progress_bar);
+        progressBar.setIndeterminate(true);
         PackageDeleteObserver observer = new PackageDeleteObserver();
         getPackageManager().deletePackage(mAppInfo.packageName, observer, 0);
     }

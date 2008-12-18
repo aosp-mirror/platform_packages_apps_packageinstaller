@@ -25,6 +25,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:fillViewport="true"
     android:background="@color/view_background">
 
     <LinearLayout
@@ -36,22 +37,41 @@
         <include
             layout="@layout/app_details"
             android:id="@+id/app_snippet"/>
-        <!-- Security settings description. -->
         <TextView
-            android:id="@+id/security_settings_desc"
+            android:id="@+id/install_confirm_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:text="@string/install_confirm_question"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="?android:attr/textColorSecondary"
             android:paddingTop="20dip"
             android:paddingLeft="20dip"
             android:paddingBottom="20dip"/>
 
+        <!-- Security settings description. -->
         <LinearLayout
-            android:id="@+id/security_settings_list"
+            android:id="@+id/permissions_section"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical"/>
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/security_settings_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="?android:attr/textColorSecondary"
+                android:paddingTop="20dip"
+                android:paddingLeft="20dip"
+                android:paddingBottom="20dip"/>
+
+            <LinearLayout
+                android:id="@+id/security_settings_list"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:orientation="vertical"/>
+        </LinearLayout>
 
         <!-- OK confirm and cancel buttons.  -->
         <LinearLayout
@@ -86,4 +106,3 @@
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
-

@@ -22,17 +22,14 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
+import android.content.DialogInterface.OnCancelListener;
 import android.content.pm.IPackageDataObserver;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageParser;
-import android.content.pm.PermissionInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.FileUtils;
@@ -40,38 +37,40 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.RemoteException;
 import android.provider.Settings;
-import android.text.Html;
 import android.util.Log;
 import android.view.Window;
 import android.content.pm.IPackageDeleteObserver;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.content.pm.PackageParser.Package;
 
-public class PackageInstallerActivity extends Activity {
+/*
+ * This activity is launched when a new application is installed via side loading
+ * The package is first parsed and the user is notified of parse errors via a dialog.
+ * If the package is successfully parsed, the user is notified to turn on the install unknown
+ * applications setting. A memory check is made at this point and the user is notified of out
+ * of memory conditions if any. If the package is already existing on the device, 
+ * a confirmation dialog (to replace the existing package) is presented to the user.
+ * Based on the user response the package is then installed by launching InstallAppConfirm
+ * sub activity. All state transitions are handled in this activity
+ */
+public class PackageInstallerActivity extends Activity implements OnCancelListener {
     private static final int INSTALL_INITIAL=0;
     private static final int INSTALL_CONFIRM=1;
     private static final int INSTALL_PROGRESS=2;
     private static final int INSTALL_DONE=3;
     private static final String TAG = "PackageInstaller";
     private Uri mPackageURI;    
-    private boolean localLOGV = true;
+    private boolean localLOGV = false;
     private int mCurrentState = INSTALL_INITIAL;
     PackageManager mPm;
-    private Package mPkgInfo;
+    private PackageParser.Package mPkgInfo;
     private File mTmpFile;
     private Uri mPackageUri;
-    private static final int DELETE_COMPLETE=1;
     private static final int SUCCEEDED=1;
     private static final int FAILED=0;
-    private static final int FREE_SPACE = 2;
+    private static final int HANDLER_BASE_MSG_IDX = 0;
+    private static final int FREE_SPACE = HANDLER_BASE_MSG_IDX+1;
     private Handler mHandler = new Handler() {
-        public static final String TAG = "PackageInstallerActivity.Handler";
         public void handleMessage(Message msg) {
             switch (msg.what) {
-                case DELETE_COMPLETE:
-                    //finish the activity posting result
-                    startInstallConfirm();
-                    break;
                 case FREE_SPACE:
                     if(msg.arg1 == SUCCEEDED) {
                         makeTempCopyAndInstall();
@@ -124,15 +123,15 @@ public class PackageInstallerActivity extends Activity {
             .setMessage(R.string.dlg_app_replacement_statement)
             .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
-                   replacePackage();
+                    startInstallConfirm();
                 }})
             .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     Log.i(TAG, "Canceling installation");
                     finish();
                 }})
-                .setCancelable(false)
-        .show();
+            .setOnCancelListener(this)
+            .show();
     }
     
     
@@ -142,20 +141,37 @@ public class PackageInstallerActivity extends Activity {
      */
     private void displayUnknowAppsDialog() {        
         new AlertDialog.Builder(this)
-        .setTitle(R.string.unknown_apps_dlg_title)
-        .setMessage(R.string.unknown_apps_dlg_text)
-        .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                Log.i(TAG, "Finishing off activity so that user can navigate to settings manually");
-                finish();
+            .setTitle(R.string.unknown_apps_dlg_title)
+            .setMessage(R.string.unknown_apps_dlg_text)
+            .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    Log.i(TAG, "Finishing off activity so that user can navigate to settings manually");
+                    finish();
             }})
-        .setPositiveButton(R.string.settings, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                Log.i(TAG, "Launching settings");
-                launchSettingsAppAndFinish();
-            }})
-            .setCancelable(false)
-        .show();
+            .setPositiveButton(R.string.settings, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    Log.i(TAG, "Launching settings");
+                    launchSettingsAppAndFinish();
+                }
+            })
+            .setOnCancelListener(this)
+            .show();
+    }
+    
+    /*
+     * Utility method to display a dialog indicating a parse error when parsing the package
+     */
+    private void displayPackageErrorDialog() {
+        new AlertDialog.Builder(this)
+            .setTitle(R.string.Parse_error_dlg_title)
+            .setMessage(R.string.Parse_error_dlg_text)
+            .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            })
+            .setOnCancelListener(this)
+            .show();
     }    
     
     /*
@@ -168,27 +184,28 @@ public class PackageInstallerActivity extends Activity {
                                                           appTitle.toString());
         
         new AlertDialog.Builder(this)
-        .setTitle(R.string.out_of_space_dlg_title)
-        .setMessage(dlgText)
-        .setPositiveButton(R.string.manage_applications, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                //launch manage applications
-                Intent intent = new Intent("android.intent.action.MANAGE_PACKAGE_STORAGE");
-                startActivity(intent);   
-                finish();
-            }})
-        .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                Log.i(TAG, "Canceling installation");
-                finish();
-            }})
-            .setCancelable(false)
-        .show();
+            .setTitle(R.string.out_of_space_dlg_title)
+            .setMessage(dlgText)
+            .setPositiveButton(R.string.manage_applications, new DialogInterface.OnClickListener() {
+               public void onClick(DialogInterface dialog, int which) {
+                   //launch manage applications
+                   Intent intent = new Intent("android.intent.action.MANAGE_PACKAGE_STORAGE");
+                   startActivity(intent);   
+                   finish();
+               }
+            })
+            .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    Log.i(TAG, "Canceling installation");
+                    finish();
+                }
+            })
+            .setOnCancelListener(this)
+            .show();
     }
 
     private class PkgDataObserver extends  IPackageDataObserver.Stub {
-        public void onRemoveCompleted(String packageName, boolean succeeded)
-                throws RemoteException {
+        public void onRemoveCompleted(String packageName, boolean succeeded) {
             Message msg = mHandler.obtainMessage(FREE_SPACE);
             msg.arg1 = succeeded?SUCCEEDED:FAILED;
             mHandler.sendMessage(msg);
@@ -210,8 +227,8 @@ public class PackageInstallerActivity extends Activity {
     }
     
     private boolean isInstallingUnknownAppsAllowed() {
-        return Settings.System.getInt(getContentResolver(), 
-                Settings.System.INSTALL_NON_MARKET_APPS, 0) > 0;
+        return Settings.Secure.getInt(getContentResolver(), 
+            Settings.Secure.INSTALL_NON_MARKET_APPS, 0) > 0;
     }
     
     private File createTempPackageFile(String filePath) {
@@ -254,9 +271,13 @@ public class PackageInstallerActivity extends Activity {
             return;
         }
         mPackageURI = Uri.parse("file://"+mTmpFile.getPath());
-        //check out of space condition. display dialog if necessary
-        if(PackageUtil.isPackageAlreadyInstalled(this, mPkgInfo.applicationInfo.packageName)) {
-            displayReplaceAppDialog();            
+        // Check if package is already installed. display confirmation dialog if replacing pkg
+        boolean alreadyInstalled = PackageUtil.isPackageAlreadyInstalled(this,
+                mPkgInfo.applicationInfo.packageName);
+        if(alreadyInstalled) {
+            if(localLOGV) Log.i(TAG, "Replacing existing package:"+
+                    mPkgInfo.applicationInfo.packageName);
+            displayReplaceAppDialog();
         } else {
             startInstallConfirm();
         }
@@ -269,9 +290,10 @@ public class PackageInstallerActivity extends Activity {
         final Intent intent = getIntent();
         mPackageURI = intent.getData();
         mPkgInfo = PackageUtil.getPackageInfo(mPackageURI);
+        // Check for parse errors
         if(mPkgInfo == null) {
             Log.w(TAG, "Parse error when parsing manifest. Discontinuing installation");
-            finish();
+            displayPackageErrorDialog();
             return;
         }
         mPm = getPackageManager();
@@ -294,39 +316,38 @@ public class PackageInstallerActivity extends Activity {
         checkOutOfSpace(size);
     }
     
-    class PackageDeleteObserver extends IPackageDeleteObserver.Stub {
-        public void packageDeleted(boolean succeeded) throws RemoteException {
-            Message msg = mHandler.obtainMessage(DELETE_COMPLETE);
-            msg.arg1 = succeeded?SUCCEEDED:FAILED;
-            mHandler.sendMessage(msg);
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        // Delete the temporary file if it still exists
+        if (mTmpFile != null) {
+            deleteFile(mTmpFile.getName());
         }
-    }
-    
-    
-    void replacePackage() {
-        PackageDeleteObserver observer = new PackageDeleteObserver();
-        mPm.deletePackage(mPkgInfo.applicationInfo.packageName, observer, 
-                PackageManager.DONT_DELETE_DATA);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         boolean finish = true;
+        boolean removeTmpFile = false;
         switch(requestCode) {
         case INSTALL_CONFIRM:
-            if(resultCode == RESULT_OK) {
+            if (resultCode == RESULT_OK) {
                 finish = false;
-                mCurrentState = INSTALL_CONFIRM;
+                mCurrentState = INSTALL_PROGRESS;
                 startInstallProgress();
+            } else {
+                removeTmpFile = true;
             }
             break;
         case INSTALL_PROGRESS:
             boolean ok = false;
             finish = false;
             mCurrentState = INSTALL_DONE;
-            if(resultCode == PackageManager.INSTALL_SUCCEEDED) {
+            if (resultCode == PackageManager.INSTALL_SUCCEEDED) {
                 ok = true;
             }
+            // Now that the package is installed just delete the temp file
+            removeTmpFile = true;
             //start the next screen to show final status of installation
             startInstallDone(ok);
             break;
@@ -336,13 +357,18 @@ public class PackageInstallerActivity extends Activity {
         default:
             break;
         }
-        if(finish) {
-            if(mTmpFile != null) {
-                deleteFile(mTmpFile.getName());
-            }
+        if ((removeTmpFile) && (mTmpFile != null)) {
+            deleteFile(mTmpFile.getName());
+        }
+        if (finish) {
             //finish off this activity to return to the previous activity that launched it
-            Log.i(TAG, "Finishing off activity");
+            if (localLOGV) Log.i(TAG, "Finishing off activity");
             finish();
         }
+    }
+    
+    // Generic handling when pressing back key
+    public void onCancel(DialogInterface dialog) {
+        finish();
     }
 }

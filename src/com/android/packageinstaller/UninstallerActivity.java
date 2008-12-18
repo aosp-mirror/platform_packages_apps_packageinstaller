@@ -100,7 +100,7 @@ public class UninstallerActivity extends Activity implements OnClickListener {
         mPm = getPackageManager();
         boolean errFlag = false;
         try {
-            mAppInfo = mPm.getApplicationInfo(packageName, 0);
+            mAppInfo = mPm.getApplicationInfo(packageName, PackageManager.GET_UNINSTALLED_PACKAGES);
         } catch (NameNotFoundException e) {
             errFlag = true;
         }
