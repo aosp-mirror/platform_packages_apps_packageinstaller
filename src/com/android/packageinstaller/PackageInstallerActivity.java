@@ -24,8 +24,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.pm.IPackageDataObserver;
 import android.content.pm.PackageManager;
@@ -35,11 +39,9 @@ import android.os.Bundle;
 import android.os.FileUtils;
 import android.os.Handler;
 import android.os.Message;
-import android.os.RemoteException;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.Window;
-import android.content.pm.IPackageDeleteObserver;
 
 /*
  * This activity is launched when a new application is installed via side loading
@@ -66,12 +68,15 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     private Uri mPackageUri;
     private static final int SUCCEEDED=1;
     private static final int FAILED=0;
+    // Broadcast receiver for clearing cache
+    ClearCacheReceiver mClearCacheReceiver;
     private static final int HANDLER_BASE_MSG_IDX = 0;
     private static final int FREE_SPACE = HANDLER_BASE_MSG_IDX+1;
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case FREE_SPACE:
+                    unregisterReceiver(mClearCacheReceiver);
                     if(msg.arg1 == SUCCEEDED) {
                         makeTempCopyAndInstall();
                     } else {
@@ -210,13 +215,29 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             msg.arg1 = succeeded?SUCCEEDED:FAILED;
             mHandler.sendMessage(msg);
         }
-        
+    }
+    
+    private class ClearCacheReceiver extends BroadcastReceiver {
+        public static final String INTENT_CLEAR_CACHE = 
+                "com.android.packageinstaller.CLEAR_CACHE";
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Message msg = mHandler.obtainMessage(FREE_SPACE);
+            msg.arg1 = (getResultCode() ==1) ? SUCCEEDED : FAILED;
+            mHandler.sendMessage(msg);
+        }
     }
     
     private void checkOutOfSpace(long size) {
         if(localLOGV) Log.i(TAG, "Checking for "+size+" number of bytes");
-        PkgDataObserver observer = new PkgDataObserver();
-        mPm.freeApplicationCache(size, observer);
+        if (mClearCacheReceiver == null) {
+            mClearCacheReceiver = new ClearCacheReceiver();
+        }
+        registerReceiver(mClearCacheReceiver,
+                new IntentFilter(ClearCacheReceiver.INTENT_CLEAR_CACHE));
+        PendingIntent pi = PendingIntent.getBroadcast(this,
+                0,  new Intent(ClearCacheReceiver.INTENT_CLEAR_CACHE), 0);
+        mPm.freeStorage(size, pi);
     }
 
     private void launchSettingsAppAndFinish() {
