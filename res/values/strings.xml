@@ -16,26 +16,22 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Package Installer</string>
-    <string name="app_description">Application that installs/uninstalls packages</string>
     <string name="install">Install</string>
     <string name="done">Done</string>
     <!-- TODO REMOVE LATER -->
-    <string name="security_settings_header">Security permissions</string>
     <string name="security_settings_desc">Allow this application to:</string>
     <string name="cancel">Cancel</string>
     <string name="unknown">Unknown</string>
-    <string name="install_application">Install application</string>
     <string name="installing">Installing\u2026</string>
     <string name="install_done">Application installed</string>
     <string name="install_confirm_question">Do you want to install this application?</string>
     <string name="install_failed">Application install unsuccessful</string>
-    <string name="launch">Launch</string>
+    <string name="launch">Open</string>
     <string name="unknown_apps_dlg_title">Install blocked</string>
     <string name="unknown_apps_dlg_text">For security, your phone is set to block installation of applications not sourced in Android Market.</string>
     <string name="ok">OK</string>
     <string name="settings">Settings</string>
     <string name="manage_applications">Manage applications</string>
-    <string name="installation_question">Do you want to install this application?</string>
     <string name="dlg_app_replacement_title">Replace application</string>
     <string name="dlg_app_replacement_statement">The application you are installing will replace another application.\n\nAll previous user data will be saved.</string>
     <string name="out_of_space_dlg_title">Out of space</string>
@@ -50,8 +46,6 @@ found in the list of installed applications.</string>
     <string name="uninstalling">Uninstalling\u2026</string>
     <string name="uninstall_done">Uninstall finished!</string>
     <string name="uninstall_failed">Application uninstall not successful</string>
-    <string name="uninstall_application">Uninstall</string>
-    <string name="app_security_permission_title"><xliff:g id="app_name">%1$s</xliff:g> - security permissions</string>
 
     <!-- Dialog attributes to indicate parse errors -->
     <string name="Parse_error_dlg_title">Parse Error</string>
