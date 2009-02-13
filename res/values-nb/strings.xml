@@ -15,62 +15,34 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_name (1998766462707453166) -->
-    <skip />
-    <!-- no translation found for install (5896438203900042068) -->
-    <skip />
-    <!-- no translation found for done (3889387558374211719) -->
-    <skip />
-    <!-- no translation found for security_settings_desc (4984920898157282073) -->
-    <skip />
+    <string name="app_name">"Pakkeinstallering"</string>
+    <string name="install">"Installer"</string>
+    <string name="done">"Ferdig"</string>
+    <string name="security_settings_desc">"La denne applikasjonen:"</string>
     <string name="cancel">"Avbryt"</string>
-    <!-- no translation found for unknown (4742479012767208045) -->
-    <skip />
-    <!-- no translation found for installing (8613631001631998372) -->
-    <skip />
-    <!-- no translation found for install_done (5868979453936752120) -->
-    <skip />
-    <!-- no translation found for install_confirm_question (5512879835615493065) -->
-    <skip />
-    <!-- no translation found for install_failed (7705664799991233861) -->
-    <skip />
-    <!-- no translation found for launch (4826921505917605463) -->
-    <skip />
-    <!-- no translation found for unknown_apps_dlg_title (2855558586206583032) -->
-    <skip />
-    <!-- no translation found for unknown_apps_dlg_text (5022078090329832537) -->
-    <skip />
+    <string name="unknown">"Ukjent"</string>
+    <string name="installing">"Installerer…"</string>
+    <string name="install_done">"Applikasjon installert"</string>
+    <string name="install_confirm_question">"Ønsker du å installere denne applikasjonen?"</string>
+    <string name="install_failed">"Installasjon vellykket"</string>
+    <string name="launch">"Åpne"</string>
+    <string name="unknown_apps_dlg_title">"Installasjonen ble blokkert"</string>
+    <string name="unknown_apps_dlg_text">"Av sikkerhetsgrunner er telefonen satt til å blokkere installasjon av applikasjoner som ikke kommer fra Android-markedet."</string>
     <string name="ok">"OK"</string>
-    <!-- no translation found for settings (6743583734099755409) -->
-    <skip />
-    <!-- no translation found for manage_applications (2704331021611806557) -->
-    <skip />
-    <!-- no translation found for dlg_app_replacement_title (3438730820395482641) -->
-    <skip />
-    <!-- no translation found for dlg_app_replacement_statement (1175452362814803850) -->
-    <skip />
-    <!-- no translation found for out_of_space_dlg_title (7843674437613797326) -->
-    <skip />
-    <!-- no translation found for out_of_space_dlg_text (5817764827778985771) -->
-    <skip />
-    <!-- no translation found for dlg_ok (6944357727705699232) -->
-    <skip />
-    <!-- no translation found for app_not_found_dlg_title (1510267643973600726) -->
-    <skip />
-    <!-- no translation found for app_not_found_dlg_text (754013198108180241) -->
-    <skip />
-    <!-- no translation found for uninstall_application_question (7290302854905395978) -->
-    <skip />
-    <!-- no translation found for uninstall_application_text (9107842143723765782) -->
-    <skip />
-    <!-- no translation found for uninstalling (5556217435895938250) -->
-    <skip />
-    <!-- no translation found for uninstall_done (8730655660697216076) -->
-    <skip />
-    <!-- no translation found for uninstall_failed (3092672385508911097) -->
-    <skip />
-    <!-- no translation found for Parse_error_dlg_title (6784222986864864223) -->
-    <skip />
-    <!-- no translation found for Parse_error_dlg_text (1440309982917966479) -->
-    <skip />
+    <string name="settings">"Innstillinger"</string>
+    <string name="manage_applications">"Administrer applikasjoner"</string>
+    <string name="dlg_app_replacement_title">"Erstatt applikasjon"</string>
+    <string name="dlg_app_replacement_statement">"Applikasjonen du installerer vil erstatte en annen applikasjon."\n\n"Alle eksisterende brukerdata vil bli lagret."</string>
+    <string name="out_of_space_dlg_title">"Tom for plass"</string>
+    <string name="out_of_space_dlg_text">"Kunne ikke vise <xliff:g id="APP_NAME">%1$s</xliff:g>. Frigjør plass på telefonen og prøv igjen."</string>
+    <string name="dlg_ok">"OK"</string>
+    <string name="app_not_found_dlg_title">"Fant ikke applikasjonen"</string>
+    <string name="app_not_found_dlg_text">"Fant ikke applikasjonen i listen over installerte applikasjoner."</string>
+    <string name="uninstall_application_question">"Avinstaller applikasjonen?"</string>
+    <string name="uninstall_application_text">"Applikasjonen vil bli fjernet fra telefonen."</string>
+    <string name="uninstalling">"Avinstallerer…"</string>
+    <string name="uninstall_done">"Avintallasjon fullført!"</string>
+    <string name="uninstall_failed">"Avinstallasjonen var mislykket"</string>
+    <string name="Parse_error_dlg_title">"Parsefeil"</string>
+    <string name="Parse_error_dlg_text">"Det oppsto et problem under tolkningen av pakken."</string>
 </resources>
