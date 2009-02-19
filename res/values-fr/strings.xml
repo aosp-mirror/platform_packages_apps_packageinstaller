@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">"Programme d\'installation du kit"</string>
+    <string name="install">"Installer"</string>
+    <string name="done">"Terminé"</string>
+    <string name="security_settings_desc">"Autoriser cette application à :"</string>
+    <string name="cancel">"Annuler"</string>
+    <string name="unknown">"Inconnu"</string>
+    <string name="installing">"Installation..."</string>
+    <string name="install_done">"Application installée"</string>
+    <string name="install_confirm_question">"Voulez-vous installer cette application ?"</string>
+    <string name="install_failed">"Échec de l\'installation de l\'application"</string>
+    <string name="launch">"Ouvrir"</string>
+    <string name="unknown_apps_dlg_title">"Installation bloquée"</string>
+    <string name="unknown_apps_dlg_text">"Pour plus de sécurité, votre téléphone est configuré de sorte à bloquer l\'installation des applications ne provenant pas d\'Android Market."</string>
+    <string name="ok">"OK"</string>
+    <string name="settings">"Paramètres"</string>
+    <string name="manage_applications">"Gérer les applications"</string>
+    <string name="dlg_app_replacement_title">"Remplacer l\'application"</string>
+    <string name="dlg_app_replacement_statement">"L\'application que vous installez actuellement remplacera l\'autre application."\n\n"Toutes les données d\'utilisateur existantes seront enregistrées."</string>
+    <string name="out_of_space_dlg_title">"Mémoire insuffisante"</string>
+    <string name="out_of_space_dlg_text">"Impossible d\'afficher <xliff:g id="APP_NAME">%1$s</xliff:g>. Libérez de l\'espace sur votre téléphone, puis réessayez."</string>
+    <string name="dlg_ok">"OK"</string>
+    <string name="app_not_found_dlg_title">"Application introuvable"</string>
+    <string name="app_not_found_dlg_text">"Cette application ne figure pas dans la liste des applications installées."</string>
+    <string name="uninstall_application_question">"Désinstaller l\'application ?"</string>
+    <string name="uninstall_application_text">"Cette application va être supprimée de votre téléphone."</string>
+    <string name="uninstalling">"Désinstallation..."</string>
+    <string name="uninstall_done">"Désinstallation terminée !"</string>
+    <string name="uninstall_failed">"Échec de la désinstallation de l\'application"</string>
+    <string name="Parse_error_dlg_title">"Erreur d\'analyse"</string>
+    <string name="Parse_error_dlg_text">"Un problème est survenu lors de l\'analyse du kit."</string>
+</resources>

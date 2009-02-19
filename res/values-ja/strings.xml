@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">"パッケージインストーラ"</string>
+    <string name="install">"インストール"</string>
+    <string name="done">"完了"</string>
+    <string name="security_settings_desc">"このアプリケーションに許可する権限:"</string>
+    <string name="cancel">"キャンセル"</string>
+    <string name="unknown">"不明"</string>
+    <string name="installing">"インストール中..."</string>
+    <string name="install_done">"アプリケーションをインストールしました"</string>
+    <string name="install_confirm_question">"このアプリケーションをインストールしますか？"</string>
+    <string name="install_failed">"アプリケーションをインストールできませんでした"</string>
+    <string name="launch">"開く"</string>
+    <string name="unknown_apps_dlg_title">"インストールはブロックされました"</string>
+    <string name="unknown_apps_dlg_text">"セキュリティ保護のため、お使いの端末はAndroid Market以外から提供されたアプリケーションのインストールをブロックするよう設定されています。"</string>
+    <string name="ok">"OK"</string>
+    <string name="settings">"設定"</string>
+    <string name="manage_applications">"アプリケーションを管理"</string>
+    <string name="dlg_app_replacement_title">"アプリケーションを更新"</string>
+    <string name="dlg_app_replacement_statement">"このアプリケーションをインストールすると別のアプリケーションが上書きされます。"\n\n"過去のユーザーデータはすべて保存されます。"</string>
+    <string name="out_of_space_dlg_title">"容量不足です"</string>
+    <string name="out_of_space_dlg_text">"<xliff:g id="APP_NAME">%1$s</xliff:g>を表示できませんでした。端末の空き領域を増やしてもう一度試してください。"</string>
+    <string name="dlg_ok">"OK"</string>
+    <string name="app_not_found_dlg_title">"アプリケーションが見つかりません"</string>
+    <string name="app_not_found_dlg_text">"インストール済みアプリケーションのリストに、このアプリケーションはありません。"</string>
+    <string name="uninstall_application_question">"アプリケーションをアンインストールしますか？"</string>
+    <string name="uninstall_application_text">"このアプリケーションはお使いの端末から削除されます。"</string>
+    <string name="uninstalling">"アンインストール中..."</string>
+    <string name="uninstall_done">"アンインストールが完了しました。"</string>
+    <string name="uninstall_failed">"アプリケーションをアンインストールできませんでした"</string>
+    <string name="Parse_error_dlg_title">"解析エラー"</string>
+    <string name="Parse_error_dlg_text">"パッケージの解析中に問題が発生しました。"</string>
+</resources>

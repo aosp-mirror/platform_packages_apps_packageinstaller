@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">"Nástroj na instalaci balíčků"</string>
+    <string name="install">"Instalovat"</string>
+    <string name="done">"Hotovo"</string>
+    <string name="security_settings_desc">"Povolit této aplikaci:"</string>
+    <string name="cancel">"Zrušit"</string>
+    <string name="unknown">"Neznámé"</string>
+    <string name="installing">"Instalace..."</string>
+    <string name="install_done">"Aplikace byla nainstalována"</string>
+    <string name="install_confirm_question">"Chcete tuto aplikaci nainstalovat?"</string>
+    <string name="install_failed">"Instalace aplikace se nezdařila"</string>
+    <string name="launch">"Otevřít"</string>
+    <string name="unknown_apps_dlg_title">"Instalace byla zablokována"</string>
+    <string name="unknown_apps_dlg_text">"Váš telefon je z důvodu zabezpečení nastaven tak, aby blokoval instalaci aplikací, které nepocházejí z webu Android Market."</string>
+    <string name="ok">"OK"</string>
+    <string name="settings">"Nastavení"</string>
+    <string name="manage_applications">"Správa aplikací"</string>
+    <string name="dlg_app_replacement_title">"Nahradit aplikaci"</string>
+    <string name="dlg_app_replacement_statement">"Aplikace, kterou instalujete, nahradí jinou aplikaci."\n\n"Všechna dříve zadaná data uživatelů budou uložena."</string>
+    <string name="out_of_space_dlg_title">"Nedostatek místa"</string>
+    <string name="out_of_space_dlg_text">"Aplikaci <xliff:g id="APP_NAME">%1$s</xliff:g> nebylo možné zobrazit. Uvolněte v telefonu nějaké místo a zkuste to znovu."</string>
+    <string name="dlg_ok">"OK"</string>
+    <string name="app_not_found_dlg_title">"Aplikace nebyla nalezena"</string>
+    <string name="app_not_found_dlg_text">"Aplikace nebyla nalezena na seznamu nainstalovaných aplikací."</string>
+    <string name="uninstall_application_question">"Odinstalovat aplikaci?"</string>
+    <string name="uninstall_application_text">"Tato aplikace bude odstraněna z vašeho telefonu."</string>
+    <string name="uninstalling">"Probíhá odinstalace..."</string>
+    <string name="uninstall_done">"Odinstalace byla dokončena."</string>
+    <string name="uninstall_failed">"Odinstalace aplikace se nezdařila."</string>
+    <string name="Parse_error_dlg_title">"Chyba analýzy"</string>
+    <string name="Parse_error_dlg_text">"Při analýze balíčku došlo k problému."</string>
+</resources>
