@@ -24,7 +24,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -32,11 +31,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.DialogInterface.OnCancelListener;
-import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageDataObserver;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageParser;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.FileUtils;
@@ -57,10 +54,10 @@ import android.view.Window;
  * sub activity. All state transitions are handled in this activity
  */
 public class PackageInstallerActivity extends Activity implements OnCancelListener {
-    private static final int INSTALL_INITIAL = 0;
-    private static final int INSTALL_CONFIRM = 1;
-    private static final int INSTALL_PROGRESS = 2;
-    private static final int INSTALL_DONE = 3;
+    private static final int INSTALL_INITIAL=0;
+    private static final int INSTALL_CONFIRM=1;
+    private static final int INSTALL_PROGRESS=2;
+    private static final int INSTALL_DONE=3;
     private static final String TAG = "PackageInstaller";
     private Uri mPackageURI;    
     private boolean localLOGV = false;
@@ -68,24 +65,13 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     PackageManager mPm;
     private PackageParser.Package mPkgInfo;
     private File mTmpFile;
-    private static final int SUCCEEDED = 1;
-    private static final int FAILED = 0;
+    private Uri mPackageUri;
+    private static final int SUCCEEDED=1;
+    private static final int FAILED=0;
     // Broadcast receiver for clearing cache
     ClearCacheReceiver mClearCacheReceiver;
     private static final int HANDLER_BASE_MSG_IDX = 0;
-    private static final int FREE_SPACE = HANDLER_BASE_MSG_IDX + 1;
-
-    // ApplicationInfo object primarily used for already existing applications
-    private ApplicationInfo mAppInfo = null;
-
-    // Dialog identifiers used in showDialog
-    private static final int DLG_BASE = 0;
-    private static final int DLG_REPLACE_APP = DLG_BASE + 1;
-    private static final int DLG_UNKNOWN_APPS = DLG_BASE + 2;
-    private static final int DLG_PACKAGE_ERROR = DLG_BASE + 3;
-    private static final int DLG_OUT_OF_SPACE = DLG_BASE + 4;
-    private static final int DLG_INSTALL_ERROR = DLG_BASE + 5;
-
+    private static final int FREE_SPACE = HANDLER_BASE_MSG_IDX+1;
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -94,7 +80,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                     if(msg.arg1 == SUCCEEDED) {
                         makeTempCopyAndInstall();
                     } else {
-                        showDialogInner(DLG_OUT_OF_SPACE);
+                        displayOutOfSpaceDialog();
                     }
                     break;
                 default:
@@ -107,7 +93,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         Intent newIntent = new Intent();
         startInstallActivityClass(newIntent, requestCode, cls);
     }
-
     private void startInstallActivityClass(Intent newIntent, int requestCode, Class<?> cls) {
         newIntent.putExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO, 
                                                   mPkgInfo.applicationInfo);
@@ -116,7 +101,8 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         if(localLOGV) Log.i(TAG, "downloaded app uri="+mPackageURI);
         startActivityForResult(newIntent, requestCode);
     }
-
+    
+ 
     private void startInstallConfirm() {
         Intent newIntent = new Intent();
         newIntent.putExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO, 
@@ -130,112 +116,107 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         startInstallActivityClass(INSTALL_PROGRESS, InstallAppProgress.class);
     }
     
-    private void startInstallDone() {
+    private void startInstallDone(boolean result) {
         Intent newIntent = new Intent(Intent.ACTION_VIEW);
-        newIntent.putExtra(PackageUtil.INTENT_ATTR_INSTALL_STATUS, true);
+        newIntent.putExtra(PackageUtil.INTENT_ATTR_INSTALL_STATUS, result);
         startInstallActivityClass(newIntent, INSTALL_DONE, InstallAppDone.class);
     }
     
-    private void showDialogInner(int id) {
-        // TODO better fix for this? Remove dialog so that it gets created again
-        removeDialog(id);
-        showDialog(id);
+    private void displayReplaceAppDialog() {
+        new AlertDialog.Builder(this)
+            .setTitle(R.string.dlg_app_replacement_title)
+            .setMessage(R.string.dlg_app_replacement_statement)
+            .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    startInstallConfirm();
+                }})
+            .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    Log.i(TAG, "Canceling installation");
+                    finish();
+                }})
+            .setOnCancelListener(this)
+            .show();
+    }
+    
+    
+    /*
+     * Utility method to display a dialog prompting the user to turn on settings property
+     * before installing application
+     */
+    private void displayUnknowAppsDialog() {        
+        new AlertDialog.Builder(this)
+            .setTitle(R.string.unknown_apps_dlg_title)
+            .setMessage(R.string.unknown_apps_dlg_text)
+            .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    Log.i(TAG, "Finishing off activity so that user can navigate to settings manually");
+                    finish();
+            }})
+            .setPositiveButton(R.string.settings, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    Log.i(TAG, "Launching settings");
+                    launchSettingsAppAndFinish();
+                }
+            })
+            .setOnCancelListener(this)
+            .show();
+    }
+    
+    /*
+     * Utility method to display a dialog indicating a parse error when parsing the package
+     */
+    private void displayPackageErrorDialog() {
+        new AlertDialog.Builder(this)
+            .setTitle(R.string.Parse_error_dlg_title)
+            .setMessage(R.string.Parse_error_dlg_text)
+            .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            })
+            .setOnCancelListener(this)
+            .show();
+    }    
+    
+    /*
+     * Utility method to display dialog indicating out of disk space
+     */
+    private void displayOutOfSpaceDialog() {      
+        //guaranteed not to be null. will default to package name if not set by app
+        CharSequence appTitle = mPm.getApplicationLabel(mPkgInfo.applicationInfo);
+        String dlgText = getString(R.string.out_of_space_dlg_text, 
+                                                          appTitle.toString());
+        
+        new AlertDialog.Builder(this)
+            .setTitle(R.string.out_of_space_dlg_title)
+            .setMessage(dlgText)
+            .setPositiveButton(R.string.manage_applications, new DialogInterface.OnClickListener() {
+               public void onClick(DialogInterface dialog, int which) {
+                   //launch manage applications
+                   Intent intent = new Intent("android.intent.action.MANAGE_PACKAGE_STORAGE");
+                   startActivity(intent);   
+                   finish();
+               }
+            })
+            .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    Log.i(TAG, "Canceling installation");
+                    finish();
+                }
+            })
+            .setOnCancelListener(this)
+            .show();
     }
 
-    @Override
-    public Dialog onCreateDialog(int id) {
-        switch (id) {
-        case DLG_REPLACE_APP:
-            int msgId = R.string.dlg_app_replacement_statement;
-            // Customized text for system apps
-            if ((mAppInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
-                msgId = R.string.dlg_sys_app_replacement_statement;
-            }
-            return new AlertDialog.Builder(this)
-                    .setTitle(R.string.dlg_app_replacement_title)
-                    .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            startInstallConfirm();
-                        }})
-                    .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            Log.i(TAG, "Canceling installation");
-                            finish();
-                        }})
-                    .setMessage(msgId)
-                    .setOnCancelListener(this)
-                    .create();
-        case DLG_UNKNOWN_APPS:
-            return new AlertDialog.Builder(this)
-                    .setTitle(R.string.unknown_apps_dlg_title)
-                    .setMessage(R.string.unknown_apps_dlg_text)
-                    .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            Log.i(TAG, "Finishing off activity so that user can navigate to settings manually");
-                            finish();
-                        }})
-                    .setPositiveButton(R.string.settings, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            Log.i(TAG, "Launching settings");
-                            launchSettingsAppAndFinish();
-                        }
-                    })
-                    .setOnCancelListener(this)
-                    .create(); 
-        case DLG_PACKAGE_ERROR :
-            return new AlertDialog.Builder(this)
-                    .setTitle(R.string.Parse_error_dlg_title)
-                    .setMessage(R.string.Parse_error_dlg_text)
-                    .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            finish();
-                        }
-                    })
-                    .setOnCancelListener(this)
-                    .create();
-        case DLG_OUT_OF_SPACE:
-            // Guaranteed not to be null. will default to package name if not set by app
-            CharSequence appTitle = mPm.getApplicationLabel(mPkgInfo.applicationInfo);
-            String dlgText = getString(R.string.out_of_space_dlg_text, 
-                    appTitle.toString());
-            return new AlertDialog.Builder(this)
-                    .setTitle(R.string.out_of_space_dlg_title)
-                    .setMessage(dlgText)
-                    .setPositiveButton(R.string.manage_applications, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            //launch manage applications
-                            Intent intent = new Intent("android.intent.action.MANAGE_PACKAGE_STORAGE");
-                            startActivity(intent);   
-                            finish();
-                        }
-                    })
-                    .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            Log.i(TAG, "Canceling installation");
-                            finish();
-                        }
-                  })
-                  .setOnCancelListener(this)
-                  .create();
-        case DLG_INSTALL_ERROR :
-            // Guaranteed not to be null. will default to package name if not set by app
-            CharSequence appTitle1 = mPm.getApplicationLabel(mPkgInfo.applicationInfo);
-            String dlgText1 = getString(R.string.install_failed_msg,
-                    appTitle1.toString());
-            return new AlertDialog.Builder(this)
-                    .setTitle(R.string.install_failed)
-                    .setNeutralButton(R.string.ok, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            finish();
-                        }
-                    })
-                    .setMessage(dlgText1)
-                    .setOnCancelListener(this)
-                    .create();
-       }
-       return null;
-   }
-
+    private class PkgDataObserver extends  IPackageDataObserver.Stub {
+        public void onRemoveCompleted(String packageName, boolean succeeded) {
+            Message msg = mHandler.obtainMessage(FREE_SPACE);
+            msg.arg1 = succeeded?SUCCEEDED:FAILED;
+            mHandler.sendMessage(msg);
+        }
+    }
+    
     private class ClearCacheReceiver extends BroadcastReceiver {
         public static final String INTENT_CLEAR_CACHE = 
                 "com.android.packageinstaller.CLEAR_CACHE";
@@ -307,23 +288,19 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         if(mTmpFile == null) {
             //display a dialog
             Log.e(TAG, "Error copying file locally. Failed Installation");
-            showDialogInner(DLG_OUT_OF_SPACE);
+            displayOutOfSpaceDialog();
             return;
         }
         mPackageURI = Uri.parse("file://"+mTmpFile.getPath());
         // Check if package is already installed. display confirmation dialog if replacing pkg
-        try {
-            mAppInfo = mPm.getApplicationInfo(mPkgInfo.packageName,
-                    PackageManager.GET_UNINSTALLED_PACKAGES);
-        } catch (NameNotFoundException e) {
-            mAppInfo = null;
-        }
-        if (mAppInfo == null) {
-            startInstallConfirm();
-        } else {
+        boolean alreadyInstalled = PackageUtil.isPackageAlreadyInstalled(this,
+                mPkgInfo.applicationInfo.packageName);
+        if(alreadyInstalled) {
             if(localLOGV) Log.i(TAG, "Replacing existing package:"+
                     mPkgInfo.applicationInfo.packageName);
-            showDialogInner(DLG_REPLACE_APP);
+            displayReplaceAppDialog();
+        } else {
+            startInstallConfirm();
         }
     }
     
@@ -333,16 +310,14 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         //get intent information
         final Intent intent = getIntent();
         mPackageURI = intent.getData();
-        mPm = getPackageManager();
         mPkgInfo = PackageUtil.getPackageInfo(mPackageURI);
-        
         // Check for parse errors
         if(mPkgInfo == null) {
             Log.w(TAG, "Parse error when parsing manifest. Discontinuing installation");
-            showDialogInner(DLG_PACKAGE_ERROR);
+            displayPackageErrorDialog();
             return;
         }
-        
+        mPm = getPackageManager();
         //set view
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.install_start);
@@ -350,7 +325,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
        //check setting
         if(!isInstallingUnknownAppsAllowed()) {
             //ask user to enable setting first
-            showDialogInner(DLG_UNKNOWN_APPS);
+            displayUnknowAppsDialog();
             return;
         }
         //compute the size of the application. just an estimate
@@ -386,16 +361,16 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             }
             break;
         case INSTALL_PROGRESS:
+            boolean ok = false;
             finish = false;
             mCurrentState = INSTALL_DONE;
             if (resultCode == PackageManager.INSTALL_SUCCEEDED) {
-                //start the next screen to show final status of installation
-                startInstallDone();
-            } else {
-                showDialogInner(DLG_INSTALL_ERROR);
+                ok = true;
             }
             // Now that the package is installed just delete the temp file
             removeTmpFile = true;
+            //start the next screen to show final status of installation
+            startInstallDone(ok);
             break;
         case INSTALL_DONE:
             //neednt check for result code here

@@ -21,43 +21,46 @@
   user before it is installed.
 -->
 
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:fillViewport="true"
+    android:background="@color/view_background">
 
-    <include
-        layout="@layout/app_details"
-        android:id="@+id/app_snippet"/>
-    <TextView
-        android:id="@+id/install_confirm_question"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/install_confirm_question"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:paddingTop="20dip"
-        android:paddingLeft="20dip"
-        android:paddingBottom="20dip"/>
-
-    <ScrollView
+    <LinearLayout
+        android:id="@+id/all_details"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:fillViewport="true"
-        android:layout_weight="1">
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/app_details"
+            android:id="@+id/app_snippet"/>
+        <TextView
+            android:id="@+id/install_confirm_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:text="@string/install_confirm_question"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="?android:attr/textColorSecondary"
+            android:paddingTop="20dip"
+            android:paddingLeft="20dip"
+            android:paddingBottom="20dip"/>
 
         <!-- Security settings description. -->
         <LinearLayout
             android:id="@+id/permissions_section"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight = "2dip"
             android:orientation="vertical">
             <TextView
                 android:id="@+id/security_settings_desc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="?android:attr/textColorSecondary"
                 android:paddingTop="20dip"
                 android:paddingLeft="20dip"
                 android:paddingBottom="20dip"/>
@@ -69,40 +72,37 @@
                 android:layout_weight="1.0"
                 android:orientation="vertical"/>
         </LinearLayout>
-    </ScrollView>
 
-    <!-- OK confirm and cancel buttons.  -->
-    <LinearLayout
-        android:background="@color/title_background"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="bottom"
-        android:paddingTop="4dip"
-        android:paddingLeft="2dip"
-        android:paddingRight="2dip"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/ok_button"
-            android:text="@string/install"
-            android:layout_width="150dip"
-            android:paddingLeft="6dip"
-            android:layout_gravity="left"
-            android:layout_weight="0.4"
-            android:layout_height="wrap_content"/>
-        <!-- Spacer -->
-        <View
-            android:id="@+id/buttons_spacer_left"
-            android:layout_width="0dip"
+        <!-- OK confirm and cancel buttons.  -->
+        <LinearLayout
+            android:background="@color/title_background"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:layout_weight="0.2" />
-        <Button
-            android:id="@+id/cancel_button"
-            android:layout_width="150dip"
-            android:paddingRight="6dip"
-            android:layout_gravity="right"
-            android:text="@string/cancel"
-            android:layout_weight="0.4"
-            android:layout_height="wrap_content"/>
+            android:gravity="bottom"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/ok_button"
+                android:text="@string/install"
+                android:layout_width="150dip"
+                android:paddingLeft="6dip"
+                android:layout_gravity="left"
+                android:layout_weight="0.4"
+                android:layout_height="wrap_content"/>
+            <!-- Spacer -->
+            <View
+                android:id="@+id/buttons_spacer_left"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_weight="0.2" />
+            <Button
+                android:id="@+id/cancel_button"
+                android:layout_width="150dip"
+                android:paddingRight="6dip"
+                android:layout_gravity="right"
+                android:text="@string/cancel"
+                android:layout_weight="0.4"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</ScrollView>

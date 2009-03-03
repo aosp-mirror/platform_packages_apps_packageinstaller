@@ -19,7 +19,6 @@ package com.android.packageinstaller;
 import com.android.packageinstaller.R;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -41,59 +40,16 @@ import android.content.pm.PackageManager.NameNotFoundException;
 public class UninstallerActivity extends Activity implements OnClickListener {
     private static final String TAG = "UninstallerActivity";
     private boolean localLOGV = false;
-    // States indicating status of ui display when uninstalling application
-    private static final int UNINSTALL_CONFIRM = 1;
-    private static final int UNINSTALL_PROGRESS = 2;
-    private static final int UNINSTALL_DONE = 3;
+    //states indicating status of ui display when uninstalling application
+    private static final int UNINSTALL_CONFIRM=1;
+    private static final int UNINSTALL_PROGRESS=2;
+    private static final int UNINSTALL_DONE=3;
     private int mCurrentState = UNINSTALL_CONFIRM;
     PackageManager mPm;
     private ApplicationInfo mAppInfo;
     private Button mOk;
     private Button mCancel;
-
-    // Dialog identifiers used in showDialog
-    private static final int DLG_BASE = 0;
-    private static final int DLG_APP_NOT_FOUND = DLG_BASE + 1;
-    private static final int DLG_UNINSTALL_FAILED = DLG_BASE + 2;
     
-    private void showDialogInner(int id) {
-            showDialog(id);
-    }
-    
-    @Override
-    public Dialog onCreateDialog(int id) {
-        switch (id) {
-        case DLG_APP_NOT_FOUND :
-            return new AlertDialog.Builder(this)
-                    .setTitle(R.string.app_not_found_dlg_title)
-                    .setIcon(com.android.internal.R.drawable.ic_dialog_alert)
-                    .setMessage(R.string.app_not_found_dlg_text)
-                    .setNeutralButton(getString(R.string.dlg_ok), 
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-                                    finish();
-                                }})
-                    .create();
-        case DLG_UNINSTALL_FAILED :
-            // Guaranteed not to be null. will default to package name if not set by app
-           CharSequence appTitle = mPm.getApplicationLabel(mAppInfo);
-           String dlgText = getString(R.string.uninstall_failed_msg,
-                    appTitle.toString());
-            // Display uninstall failed dialog
-            return new AlertDialog.Builder(this)
-                    .setTitle(R.string.uninstall_failed)
-                    .setIcon(com.android.internal.R.drawable.ic_dialog_alert)
-                    .setMessage(dlgText)
-                    .setNeutralButton(getString(R.string.dlg_ok), 
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-                                    finish();
-                                }})
-                    .create();
-        }
-        return null;
-    }
-
     private void startUninstallProgress() {
         Intent newIntent = new Intent(Intent.ACTION_VIEW);
         newIntent.putExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO, 
@@ -102,15 +58,32 @@ public class UninstallerActivity extends Activity implements OnClickListener {
         startActivityForResult(newIntent, UNINSTALL_PROGRESS);
     }
     
-    private void startUninstallDone() {
+    private void startUninstallDone(boolean result) {
         Intent newIntent = new Intent(Intent.ACTION_VIEW);
         newIntent.putExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO, 
                                                   mAppInfo);
-        newIntent.putExtra(PackageUtil.INTENT_ATTR_INSTALL_STATUS, true);
+        newIntent.putExtra(PackageUtil.INTENT_ATTR_INSTALL_STATUS, result);
         newIntent.setClass(this, UninstallAppDone.class);
         startActivityForResult(newIntent, UNINSTALL_DONE);
     }
-
+    
+    private void displayErrorDialog(int msgId) {
+        //display confirmation dialog
+        new AlertDialog.Builder(this)
+        .setTitle(getString(R.string.app_not_found_dlg_title))
+        .setIcon(com.android.internal.R.drawable.ic_dialog_alert)
+        .setMessage(getString(msgId))
+        .setNeutralButton(getString(R.string.dlg_ok), 
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        //force to recompute changed value
+                        finish();
+                    }
+                }
+        )
+        .show();
+    }
+        
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -120,7 +93,7 @@ public class UninstallerActivity extends Activity implements OnClickListener {
         String packageName = packageURI.getEncodedSchemeSpecificPart();
         if(packageName == null) {
             Log.e(TAG, "Invalid package name:"+packageName);
-            showDialog(DLG_APP_NOT_FOUND);
+            displayErrorDialog(R.string.app_not_found_dlg_text);
             return;
         }
         //initialize package manager
@@ -133,7 +106,7 @@ public class UninstallerActivity extends Activity implements OnClickListener {
         }
         if(mAppInfo == null || errFlag) {
             Log.e(TAG, "Invalid application:"+packageName);
-            showDialog(DLG_APP_NOT_FOUND);
+            displayErrorDialog(R.string.app_not_found_dlg_text);
         } else {
             requestWindowFeature(Window.FEATURE_NO_TITLE);
             //set view
@@ -155,11 +128,7 @@ public class UninstallerActivity extends Activity implements OnClickListener {
             finish = false;
             mCurrentState = UNINSTALL_DONE;
             //start the next screen to show final status of installation
-            if (resultCode==UninstallAppProgress.SUCCEEDED) {
-                startUninstallDone();
-            } else {
-                showDialogInner(DLG_UNINSTALL_FAILED);
-            }
+            startUninstallDone(resultCode==UninstallAppProgress.SUCCEEDED);
             break;
         case UNINSTALL_DONE:
             //neednt check for result code here

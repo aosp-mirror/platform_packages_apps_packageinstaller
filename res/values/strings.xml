@@ -25,8 +25,7 @@
     <string name="installing">Installing\u2026</string>
     <string name="install_done">Application installed</string>
     <string name="install_confirm_question">Do you want to install this application?</string>
-    <string name="install_failed">Application not installed</string>
-    <string name="install_failed_msg"><xliff:g id="app_name">%1$s</xliff:g> could not be installed on this phone.</string>
+    <string name="install_failed">Application install unsuccessful</string>
     <string name="launch">Open</string>
     <string name="unknown_apps_dlg_title">Install blocked</string>
     <string name="unknown_apps_dlg_text">For security, your phone is set to block installation of applications not sourced in Android Market.</string>
@@ -35,8 +34,6 @@
     <string name="manage_applications">Manage applications</string>
     <string name="dlg_app_replacement_title">Replace application</string>
     <string name="dlg_app_replacement_statement">The application you are installing will replace another application.\n\nAll previous user data will be saved.</string>
-    <!-- Dialog attributes when replacing system app -->
-    <string name="dlg_sys_app_replacement_statement">This is a system application. Do you still want to replace it?\n\nAll previous user data will be saved.</string>
     <string name="out_of_space_dlg_title">Out of space</string>
     <string name="out_of_space_dlg_text"><xliff:g id="app_name">%1$s</xliff:g> could not be viewed. Free up some space on your phone and try again.</string>
     <!-- strings related to uninstall activity -->
@@ -48,8 +45,7 @@ found in the list of installed applications.</string>
     <string name="uninstall_application_text">This application will be removed from your phone.</string>
     <string name="uninstalling">Uninstalling\u2026</string>
     <string name="uninstall_done">Uninstall finished!</string>
-    <string name="uninstall_failed">Uninstall not successful</string>
-    <string name="uninstall_failed_msg"><xliff:g id="app_name">%1$s</xliff:g> could not be uninstalled!</string>
+    <string name="uninstall_failed">Application uninstall not successful</string>
 
     <!-- Dialog attributes to indicate parse errors -->
     <string name="Parse_error_dlg_title">Parse Error</string>
