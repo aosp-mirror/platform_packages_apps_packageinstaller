@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">"패키지 설치 프로그램"</string>
+    <string name="install">"설치"</string>
+    <string name="done">"완료"</string>
+    <string name="security_settings_desc">"이 응용프로그램에 다음을 수행할 권한을 부여:"</string>
+    <string name="cancel">"취소"</string>
+    <string name="unknown">"알 수 없음"</string>
+    <string name="installing">"설치 중..."</string>
+    <string name="install_done">"응용프로그램이 설치되었습니다."</string>
+    <string name="install_confirm_question">"이 응용프로그램을 설치하시겠습니까?"</string>
+    <!-- no translation found for install_failed (6644311739017660989) -->
+    <skip />
+    <!-- no translation found for install_failed_msg (5282789300118241924) -->
+    <skip />
+    <string name="launch">"열기"</string>
+    <string name="unknown_apps_dlg_title">"설치가 차단됨"</string>
+    <string name="unknown_apps_dlg_text">"보안을 위해 전화기가 Android Market에서 제공하지 않은 응용프로그램의 설치를 차단하도록 설정되어 있습니다."</string>
+    <string name="ok">"확인"</string>
+    <string name="settings">"설정"</string>
+    <string name="manage_applications">"응용프로그램 관리"</string>
+    <string name="dlg_app_replacement_title">"응용프로그램 교체"</string>
+    <string name="dlg_app_replacement_statement">"설치 중인 응용프로그램이 다른 응용프로그램을 대체합니다."\n\n"이전의 모든 사용자 데이터는 저장됩니다.\n."</string>
+    <!-- no translation found for dlg_sys_app_replacement_statement (8158736217122431465) -->
+    <skip />
+    <string name="out_of_space_dlg_title">"여유 공간이 없음"</string>
+    <string name="out_of_space_dlg_text">"<xliff:g id="APP_NAME">%1$s</xliff:g>을(를) 볼 수 없습니다. 전화기에서 여유 공간을 늘린 후에 다시 시도하세요."</string>
+    <string name="dlg_ok">"확인"</string>
+    <string name="app_not_found_dlg_title">"응용프로그램을 찾지 못했습니다."</string>
+    <string name="app_not_found_dlg_text">"응용프로그램이 설치된 응용프로그램 목록에 없습니다."</string>
+    <string name="uninstall_application_question">"응용프로그램을 제거하시겠습니까?"</string>
+    <string name="uninstall_application_text">"전화기에서 이 응용프로그램이 삭제됩니다."</string>
+    <string name="uninstalling">"제거 중..."</string>
+    <string name="uninstall_done">"제거가 완료되었습니다."</string>
+    <!-- no translation found for uninstall_failed (5725854598594371845) -->
+    <skip />
+    <!-- no translation found for uninstall_failed_msg (5480019148754200912) -->
+    <skip />
+    <string name="Parse_error_dlg_title">"구문 분석 오류"</string>
+    <string name="Parse_error_dlg_text">"패키지를 구문 분석하는 중 문제가 발생했습니다."</string>
+</resources>

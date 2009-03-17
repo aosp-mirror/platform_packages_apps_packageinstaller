@@ -118,29 +118,4 @@ public class PackageUtil {
         }
         return false;
     }
-    
-    /**
-     * Returns an intent that can be used to launch the main activity in the given package. 
-     * 
-     * @param ctx
-     * @param packageName
-     * @return an intent launching the main activity in the given package
-     */
-    public static Intent getLaunchIntentForPackage(Context ctx, String packageName) {
-        Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        PackageManager manager = ctx.getPackageManager();
-        Intent intentToResolve = new Intent(Intent.ACTION_MAIN, null);
-        intentToResolve.addCategory(Intent.CATEGORY_LAUNCHER);
-        final List<ResolveInfo> apps =
-                manager.queryIntentActivities(intentToResolve, 0);
-        // TODO in future add a new tag to application for launchable main activity
-        for (ResolveInfo app : apps) {
-            if (app.activityInfo.packageName.equals(packageName)) {
-                intent.setClassName(packageName, app.activityInfo.name);
-                return intent;
-            }
-        }
-        return null;
-    }
 }

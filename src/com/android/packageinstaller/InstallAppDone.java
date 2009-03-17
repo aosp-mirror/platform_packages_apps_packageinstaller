@@ -20,6 +20,7 @@ import com.android.packageinstaller.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -72,8 +73,11 @@ public class InstallAppDone extends Activity  implements View.OnClickListener {
             centerTextDrawableId = R.drawable.button_indicator_finish;
             centerTextLabel = R.string.install_done;
             // Enable or disable launch button
-            mLaunchIntent = PackageUtil.getLaunchIntentForPackage(this, 
-                    mAppInfo.packageName);
+            try {
+                mLaunchIntent = getPackageManager().getLaunchIntentForPackage( 
+                        mAppInfo.packageName);
+            } catch (PackageManager.NameNotFoundException e) {
+            }
             if(mLaunchIntent != null) {
                 mLaunchButton.setOnClickListener(this);
             } else {
