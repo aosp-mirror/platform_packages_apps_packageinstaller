@@ -24,10 +24,8 @@
     <string name="installing">"Installazione..."</string>
     <string name="install_done">"Applicazione installata"</string>
     <string name="install_confirm_question">"Installare questa applicazione?"</string>
-    <!-- no translation found for install_failed (6644311739017660989) -->
-    <skip />
-    <!-- no translation found for install_failed_msg (5282789300118241924) -->
-    <skip />
+    <string name="install_failed">"Applicazione non installata"</string>
+    <string name="install_failed_msg">"Impossibile installare <xliff:g id="APP_NAME">%1$s</xliff:g> sul cellulare."</string>
     <string name="launch">"Apri"</string>
     <string name="unknown_apps_dlg_title">"Installazione bloccata"</string>
     <string name="unknown_apps_dlg_text">"Per motivi di sicurezza, il telefono è impostato per bloccare l\'installazione di applicazioni non provenienti da Android Market."</string>
@@ -36,8 +34,7 @@
     <string name="manage_applications">"Gestisci applicazioni"</string>
     <string name="dlg_app_replacement_title">"Sostituisci applicazione"</string>
     <string name="dlg_app_replacement_statement">"L\'applicazione da installare sostituirà un\'altra applicazione."\n\n"Tutti i dati utente precedenti verranno salvati."</string>
-    <!-- no translation found for dlg_sys_app_replacement_statement (1047598434568470723) -->
-    <skip />
+    <string name="dlg_sys_app_replacement_statement">"Applicazione di sistema. Sostituirla comunque?"\n\n"Tutti i dati utente precedenti verranno salvati."</string>
     <string name="out_of_space_dlg_title">"Spazio esaurito"</string>
     <string name="out_of_space_dlg_text">"Impossibile visualizzare <xliff:g id="APP_NAME">%1$s</xliff:g>. Libera spazio sul telefono e riprova."</string>
     <string name="dlg_ok">"OK"</string>
@@ -47,10 +44,8 @@
     <string name="uninstall_application_text">"L\'applicazione verrà rimossa dal telefono."</string>
     <string name="uninstalling">"Disinstallazione..."</string>
     <string name="uninstall_done">"Disinstallazione completata"</string>
-    <!-- no translation found for uninstall_failed (5725854598594371845) -->
-    <skip />
-    <!-- no translation found for uninstall_failed_msg (5480019148754200912) -->
-    <skip />
+    <string name="uninstall_failed">"Disinstallazione non riuscita"</string>
+    <string name="uninstall_failed_msg">"Impossibile disinstallare <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
     <string name="Parse_error_dlg_title">"Errore di analisi"</string>
     <string name="Parse_error_dlg_text">"Errore durante l\'analisi del pacchetto."</string>
 </resources>
