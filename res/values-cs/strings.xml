@@ -24,10 +24,8 @@
     <string name="installing">"Instalace..."</string>
     <string name="install_done">"Aplikace byla nainstalována"</string>
     <string name="install_confirm_question">"Chcete tuto aplikaci nainstalovat?"</string>
-    <!-- no translation found for install_failed (6644311739017660989) -->
-    <skip />
-    <!-- no translation found for install_failed_msg (5282789300118241924) -->
-    <skip />
+    <string name="install_failed">"Aplikace není nainstalována"</string>
+    <string name="install_failed_msg">"Aplikaci <xliff:g id="APP_NAME">%1$s</xliff:g> nelze nainstalovat do tohoto telefonu."</string>
     <string name="launch">"Otevřít"</string>
     <string name="unknown_apps_dlg_title">"Instalace byla zablokována"</string>
     <string name="unknown_apps_dlg_text">"Váš telefon je z důvodu zabezpečení nastaven tak, aby blokoval instalaci aplikací, které nepocházejí z webu Android Market."</string>
@@ -36,8 +34,7 @@
     <string name="manage_applications">"Správa aplikací"</string>
     <string name="dlg_app_replacement_title">"Nahradit aplikaci"</string>
     <string name="dlg_app_replacement_statement">"Aplikace, kterou instalujete, nahradí jinou aplikaci."\n\n"Všechna dříve zadaná data uživatelů budou uložena."</string>
-    <!-- no translation found for dlg_sys_app_replacement_statement (1047598434568470723) -->
-    <skip />
+    <string name="dlg_sys_app_replacement_statement">"Toto je systémová aplikace. Opravdu ji chcete nahradit?"\n\n"Všechna předchozí data uživatele budou uložena."</string>
     <string name="out_of_space_dlg_title">"Nedostatek místa"</string>
     <string name="out_of_space_dlg_text">"Aplikaci <xliff:g id="APP_NAME">%1$s</xliff:g> nebylo možné zobrazit. Uvolněte v telefonu nějaké místo a zkuste to znovu."</string>
     <string name="dlg_ok">"OK"</string>
@@ -47,10 +44,8 @@
     <string name="uninstall_application_text">"Tato aplikace bude odstraněna z vašeho telefonu."</string>
     <string name="uninstalling">"Probíhá odinstalace..."</string>
     <string name="uninstall_done">"Odinstalace byla dokončena."</string>
-    <!-- no translation found for uninstall_failed (5725854598594371845) -->
-    <skip />
-    <!-- no translation found for uninstall_failed_msg (5480019148754200912) -->
-    <skip />
+    <string name="uninstall_failed">"Odinstalace nebyla úspěšná."</string>
+    <string name="uninstall_failed_msg">"Aplikaci <xliff:g id="APP_NAME">%1$s</xliff:g> nelze odinstalovat!"</string>
     <string name="Parse_error_dlg_title">"Chyba analýzy"</string>
     <string name="Parse_error_dlg_text">"Při analýze balíčku došlo k problému."</string>
 </resources>
