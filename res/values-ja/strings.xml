@@ -24,10 +24,8 @@
     <string name="installing">"インストール中..."</string>
     <string name="install_done">"アプリケーションをインストールしました"</string>
     <string name="install_confirm_question">"このアプリケーションをインストールしますか？"</string>
-    <!-- no translation found for install_failed (6644311739017660989) -->
-    <skip />
-    <!-- no translation found for install_failed_msg (5282789300118241924) -->
-    <skip />
+    <string name="install_failed">"インストールされていません"</string>
+    <string name="install_failed_msg">"<xliff:g id="APP_NAME">%1$s</xliff:g>はこの端末にインストールできません。"</string>
     <string name="launch">"開く"</string>
     <string name="unknown_apps_dlg_title">"インストールはブロックされました"</string>
     <string name="unknown_apps_dlg_text">"セキュリティ保護のため、お使いの端末はAndroidマーケット以外から提供されるアプリケーションのインストールをブロックするよう設定されています。"</string>
@@ -36,8 +34,7 @@
     <string name="manage_applications">"アプリケーションを管理"</string>
     <string name="dlg_app_replacement_title">"アプリケーションを更新"</string>
     <string name="dlg_app_replacement_statement">"このアプリケーションをインストールすると別のアプリケーションが上書きされます。"\n\n"過去のユーザーデータはすべて保存されます。"</string>
-    <!-- no translation found for dlg_sys_app_replacement_statement (1047598434568470723) -->
-    <skip />
+    <string name="dlg_sys_app_replacement_statement">"これはシステムアプリケーションです。本当に上書きしてもよろしいですか？"\n\n"過去のユーザーデータはすべて保存されます。"</string>
     <string name="out_of_space_dlg_title">"容量不足です"</string>
     <string name="out_of_space_dlg_text">"<xliff:g id="APP_NAME">%1$s</xliff:g>を表示できませんでした。端末の空き領域を増やしてもう一度試してください。"</string>
     <string name="dlg_ok">"OK"</string>
@@ -47,10 +44,8 @@
     <string name="uninstall_application_text">"このアプリケーションはお使いの端末から削除されます。"</string>
     <string name="uninstalling">"アンインストール中..."</string>
     <string name="uninstall_done">"アンインストールが完了しました。"</string>
-    <!-- no translation found for uninstall_failed (5725854598594371845) -->
-    <skip />
-    <!-- no translation found for uninstall_failed_msg (5480019148754200912) -->
-    <skip />
+    <string name="uninstall_failed">"アンインストールできませんでした"</string>
+    <string name="uninstall_failed_msg">"<xliff:g id="APP_NAME">%1$s</xliff:g>をアンインストールできませんでした。"</string>
     <string name="Parse_error_dlg_title">"解析エラー"</string>
     <string name="Parse_error_dlg_text">"パッケージの解析中に問題が発生しました。"</string>
 </resources>
