@@ -24,10 +24,8 @@
     <string name="installing">"安裝中..."</string>
     <string name="install_done">"已安裝的應用程式"</string>
     <string name="install_confirm_question">"要安裝此應用程式嗎？"</string>
-    <!-- no translation found for install_failed (6644311739017660989) -->
-    <skip />
-    <!-- no translation found for install_failed_msg (5282789300118241924) -->
-    <skip />
+    <string name="install_failed">"應用程式尚未安裝"</string>
+    <string name="install_failed_msg">"無法將 <xliff:g id="APP_NAME">%1$s</xliff:g> 安裝在此手機上。"</string>
     <string name="launch">"開啟"</string>
     <string name="unknown_apps_dlg_title">"安裝遭封鎖。"</string>
     <string name="unknown_apps_dlg_text">"為維護安全，您的手機設定不會安裝非 Android Market 所提供的應用程式。"</string>
@@ -36,8 +34,7 @@
     <string name="manage_applications">"管理應用程式"</string>
     <string name="dlg_app_replacement_title">"取代應用程式"</string>
     <string name="dlg_app_replacement_statement">"您所要安裝的應用程式將會取代其他的應用程式。"\n\n"將會儲存所有先前的使用者資料。"</string>
-    <!-- no translation found for dlg_sys_app_replacement_statement (8158736217122431465) -->
-    <skip />
+    <string name="dlg_sys_app_replacement_statement">"這是系統應用程式，確定要取代嗎？"\n\n"系統將儲存所有之前的使用者資料。"</string>
     <string name="out_of_space_dlg_title">"空間不足"</string>
     <string name="out_of_space_dlg_text">"無法檢視 <xliff:g id="APP_NAME">%1$s</xliff:g>。請先釋放手機上的部分空間，然後再試一次。"</string>
     <string name="dlg_ok">"確定"</string>
@@ -47,10 +44,8 @@
     <string name="uninstall_application_text">"此應用程式將從您的手機中移除。"</string>
     <string name="uninstalling">"解除安裝中..."</string>
     <string name="uninstall_done">"解除安裝完成！"</string>
-    <!-- no translation found for uninstall_failed (5725854598594371845) -->
-    <skip />
-    <!-- no translation found for uninstall_failed_msg (5480019148754200912) -->
-    <skip />
+    <string name="uninstall_failed">"解除安裝失敗"</string>
+    <string name="uninstall_failed_msg">"無法解除安裝 <xliff:g id="APP_NAME">%1$s</xliff:g>！"</string>
     <string name="Parse_error_dlg_title">"剖析錯誤"</string>
     <string name="Parse_error_dlg_text">"剖析程式時發生問題。"</string>
 </resources>

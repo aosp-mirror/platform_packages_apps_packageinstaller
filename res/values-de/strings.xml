@@ -24,10 +24,8 @@
     <string name="installing">"Installation..."</string>
     <string name="install_done">"Anwendung installiert"</string>
     <string name="install_confirm_question">"Möchten Sie diese Anwendung installieren?"</string>
-    <!-- no translation found for install_failed (6644311739017660989) -->
-    <skip />
-    <!-- no translation found for install_failed_msg (5282789300118241924) -->
-    <skip />
+    <string name="install_failed">"Anwendung nicht installiert"</string>
+    <string name="install_failed_msg">"<xliff:g id="APP_NAME">%1$s</xliff:g> konnte nicht auf diesem Telefon installiert werden."</string>
     <string name="launch">"Öffnen"</string>
     <string name="unknown_apps_dlg_title">"Installation gesperrt"</string>
     <string name="unknown_apps_dlg_text">"Aus Sicherheitsgründen ist Ihr Telefon so eingestellt, dass die Installation von Nicht-Android Market-Anwendungen gesperrt ist."</string>
@@ -36,8 +34,7 @@
     <string name="manage_applications">"Anwendungen verwalten"</string>
     <string name="dlg_app_replacement_title">"Anwendung ersetzen"</string>
     <string name="dlg_app_replacement_statement">"Die zu installierende Anwendung ersetzt eine andere Anwendung."\n\n"Alle vorhandenen Nutzerdaten werden gespeichert."</string>
-    <!-- no translation found for dlg_sys_app_replacement_statement (8158736217122431465) -->
-    <skip />
+    <string name="dlg_sys_app_replacement_statement">"Dies ist eine Systemanwendung. Möchten Sie sie dennoch ersetzen?"\n\n"Alle vorherigen Nutzerdaten werden gespeichert."</string>
     <string name="out_of_space_dlg_title">"Kein freier Speicher vorhanden"</string>
     <string name="out_of_space_dlg_text">"<xliff:g id="APP_NAME">%1$s</xliff:g> konnte nicht geprüft werden. Bereinigen Sie den Speicher Ihres Telefons und versuchen Sie es erneut."</string>
     <string name="dlg_ok">"OK"</string>
@@ -47,10 +44,8 @@
     <string name="uninstall_application_text">"Diese Anwendung wird von Ihrem Telefon entfernt."</string>
     <string name="uninstalling">"Deinstallation..."</string>
     <string name="uninstall_done">"Deinstallation abgeschlossen!"</string>
-    <!-- no translation found for uninstall_failed (5725854598594371845) -->
-    <skip />
-    <!-- no translation found for uninstall_failed_msg (5480019148754200912) -->
-    <skip />
+    <string name="uninstall_failed">"Deinstallation nicht erfolgreich"</string>
+    <string name="uninstall_failed_msg">"<xliff:g id="APP_NAME">%1$s</xliff:g> konnte nicht deinstalliert werden."</string>
     <string name="Parse_error_dlg_title">"Parsingfehler"</string>
     <string name="Parse_error_dlg_text">"Beim Parsen des Pakets ist ein Problem aufgetreten."</string>
 </resources>

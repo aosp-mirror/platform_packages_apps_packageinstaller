@@ -25,8 +25,7 @@
     <string name="install_done">"Applikasjon installert"</string>
     <string name="install_confirm_question">"Ønsker du å installere denne applikasjonen?"</string>
     <string name="install_failed">"Installasjon vellykket"</string>
-    <!-- no translation found for install_failed_msg (5282789300118241924) -->
-    <skip />
+    <string name="install_failed_msg">"Kunne ikke installere <xliff:g id="APP_NAME">%1$s</xliff:g> på telefonen."</string>
     <string name="launch">"Åpne"</string>
     <string name="unknown_apps_dlg_title">"Installasjonen ble blokkert"</string>
     <string name="unknown_apps_dlg_text">"Av sikkerhetsgrunner er telefonen satt til å blokkere installasjon av applikasjoner som ikke kommer fra Android-markedet."</string>
@@ -35,8 +34,7 @@
     <string name="manage_applications">"Administrer applikasjoner"</string>
     <string name="dlg_app_replacement_title">"Erstatt applikasjon"</string>
     <string name="dlg_app_replacement_statement">"Applikasjonen du installerer vil erstatte en annen applikasjon."\n\n"Alle eksisterende brukerdata vil bli lagret."</string>
-    <!-- no translation found for dlg_sys_app_replacement_statement (8158736217122431465) -->
-    <skip />
+    <string name="dlg_sys_app_replacement_statement">"Dette er en systemapplikasjon. Ønsker du fortsatt å erstatte den?"\n\n"Alle tidligere brukerdata vil bli lagret."</string>
     <string name="out_of_space_dlg_title">"Tom for plass"</string>
     <string name="out_of_space_dlg_text">"Kunne ikke vise <xliff:g id="APP_NAME">%1$s</xliff:g>. Frigjør plass på telefonen og prøv igjen."</string>
     <string name="dlg_ok">"OK"</string>
@@ -47,8 +45,7 @@
     <string name="uninstalling">"Avinstallerer…"</string>
     <string name="uninstall_done">"Avintallasjon fullført!"</string>
     <string name="uninstall_failed">"Avinstallasjonen var mislykket"</string>
-    <!-- no translation found for uninstall_failed_msg (5480019148754200912) -->
-    <skip />
+    <string name="uninstall_failed_msg">"Kunne ikke avinstallere <xliff:g id="APP_NAME">%1$s</xliff:g>!"</string>
     <string name="Parse_error_dlg_title">"Parsefeil"</string>
     <string name="Parse_error_dlg_text">"Det oppsto et problem under tolkningen av pakken."</string>
 </resources>
