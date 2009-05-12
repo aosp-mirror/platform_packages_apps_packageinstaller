@@ -353,7 +353,8 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         //set view
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.install_start);
-        PackageUtil.initAppSnippet(this, mPkgInfo.applicationInfo, R.id.app_snippet);
+        PackageUtil.initSnippetForNewApp(this, mPkgInfo.applicationInfo,
+                R.id.app_snippet, mPackageURI);
        //check setting
         if(!isInstallingUnknownAppsAllowed()) {
             //ask user to enable setting first

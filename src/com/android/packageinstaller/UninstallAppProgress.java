@@ -79,8 +79,8 @@ public class UninstallAppProgress extends Activity {
     public void initView() {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.op_progress);
-        //initialize views
-        PackageUtil.initAppSnippet(this, mAppInfo, R.id.app_snippet);
+        // Initialize views
+        PackageUtil.initSnippetForInstalledApp(this, mAppInfo, R.id.app_snippet);
         TextView installTextView = (TextView)findViewById(R.id.center_text);
         installTextView.setText(R.string.uninstalling);
         final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progress_bar);

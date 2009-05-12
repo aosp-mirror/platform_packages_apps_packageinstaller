@@ -77,7 +77,7 @@ public class InstallAppConfirmation extends Activity implements View.OnClickList
         mContentView = inflater.inflate(R.layout.install_confirm, null);
         setContentView(mContentView);
         //initialize views
-        PackageUtil.initAppSnippet(this, mAppInfo, R.id.app_snippet);
+        PackageUtil.initSnippetForNewApp(this, mAppInfo, R.id.app_snippet, mPkgURI);
         if(desc != null) {
             ((TextView)findViewById(R.id.security_settings_desc)).setText(desc);
         }
