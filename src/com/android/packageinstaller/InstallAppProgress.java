@@ -108,7 +108,10 @@ public class InstallAppProgress extends Activity {
         if((installFlags & PackageManager.INSTALL_REPLACE_EXISTING )!= 0) {
             Log.w(TAG, "Replacing package:"+mAppInfo.packageName);
         }
+        String installerPackageName = getIntent().getStringExtra(
+                Intent.EXTRA_INSTALLER_PACKAGE_NAME);
+        
         PackageInstallObserver observer = new PackageInstallObserver();
-        pm.installPackage(mPackageURI, observer, installFlags, null);
+        pm.installPackage(mPackageURI, observer, installFlags, installerPackageName);
     }
 }

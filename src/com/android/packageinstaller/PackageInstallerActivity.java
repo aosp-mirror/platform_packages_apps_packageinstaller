@@ -113,6 +113,13 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                                                   mPkgInfo.applicationInfo);
         newIntent.setData(mPackageURI);
         newIntent.setClass(this, cls);
+
+        String installerPackageName = getIntent().getStringExtra(
+                Intent.EXTRA_INSTALLER_PACKAGE_NAME);
+        if (installerPackageName != null) {
+            newIntent.putExtra(Intent.EXTRA_INSTALLER_PACKAGE_NAME, installerPackageName);
+        }
+
         if(localLOGV) Log.i(TAG, "downloaded app uri="+mPackageURI);
         startActivityForResult(newIntent, requestCode);
     }
