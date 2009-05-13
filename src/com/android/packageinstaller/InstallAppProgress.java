@@ -101,14 +101,14 @@ public class InstallAppProgress extends Activity {
             PackageInfo pi = pm.getPackageInfo(mAppInfo.packageName, 
                     PackageManager.GET_UNINSTALLED_PACKAGES);
             if(pi != null) {
-                installFlags |= PackageManager.REPLACE_EXISTING_PACKAGE;
+                installFlags |= PackageManager.INSTALL_REPLACE_EXISTING;
             }
         } catch (NameNotFoundException e) {
         }
-        if((installFlags & PackageManager.REPLACE_EXISTING_PACKAGE )!= 0) {
+        if((installFlags & PackageManager.INSTALL_REPLACE_EXISTING )!= 0) {
             Log.w(TAG, "Replacing package:"+mAppInfo.packageName);
         }
         PackageInstallObserver observer = new PackageInstallObserver();
-        pm.installPackage(mPackageURI, observer, installFlags);
+        pm.installPackage(mPackageURI, observer, installFlags, null);
     }
 }
