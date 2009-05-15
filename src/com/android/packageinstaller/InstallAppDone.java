@@ -73,11 +73,8 @@ public class InstallAppDone extends Activity  implements View.OnClickListener {
             centerTextDrawableId = R.drawable.button_indicator_finish;
             centerTextLabel = R.string.install_done;
             // Enable or disable launch button
-            try {
-                mLaunchIntent = getPackageManager().getLaunchIntentForPackage( 
-                        mAppInfo.packageName);
-            } catch (PackageManager.NameNotFoundException e) {
-            }
+            mLaunchIntent = getPackageManager().getLaunchIntentForPackage( 
+                    mAppInfo.packageName);
             if(mLaunchIntent != null) {
                 mLaunchButton.setOnClickListener(this);
             } else {
