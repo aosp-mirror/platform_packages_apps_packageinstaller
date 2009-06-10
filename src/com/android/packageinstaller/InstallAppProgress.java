@@ -89,7 +89,7 @@ public class InstallAppProgress extends Activity {
         String unknown =  getString(R.string.unknown);
         setContentView(R.layout.op_progress);
         //initialize views
-        PackageUtil.initAppSnippet(this, mAppInfo, R.id.app_snippet);
+        PackageUtil.initSnippetForNewApp(this, mAppInfo, R.id.app_snippet, mPackageURI);
         TextView installTextView = (TextView)findViewById(R.id.center_text);
         installTextView.setText(R.string.installing);
         mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);

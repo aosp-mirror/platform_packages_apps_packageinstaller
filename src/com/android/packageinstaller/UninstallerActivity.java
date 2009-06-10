@@ -138,7 +138,7 @@ public class UninstallerActivity extends Activity implements OnClickListener {
             requestWindowFeature(Window.FEATURE_NO_TITLE);
             //set view
             setContentView(R.layout.uninstall_confirm);
-            PackageUtil.initAppSnippet(this, mAppInfo, R.id.app_snippet);
+            PackageUtil.initSnippetForInstalledApp(this, mAppInfo, R.id.app_snippet);
             //initialize ui elements
             mOk = (Button)findViewById(R.id.ok_button);
             mCancel = (Button)findViewById(R.id.cancel_button);

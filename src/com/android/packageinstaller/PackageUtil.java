@@ -27,9 +27,14 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageParser;
 import android.content.pm.ResolveInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.AssetManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -73,38 +78,69 @@ public class PackageUtil {
         metrics.setToDefaults();
         return packageParser.parsePackage(sourceFile, archiveFilePath, metrics, 0);
     }
-    
+
     /*
-     * Utility method to get application label from package manager for a given context
+     * Utility method to display application snippet of an installed application.
+     * The content view should have been set on context before invoking this method.
+     * appSnippet view should include R.id.app_icon and R.id.app_name
+     * defined on it.
+     *
+     * @param pContext context of package that can load the resources
+     * @param appInfo ApplicationInfo object of package whose resources are to be loaded
+     * @param snippetId view id of app snippet view
      */
-    public static CharSequence getApplicationLabel(Context context, ApplicationInfo appInfo) {
-        CharSequence appName = appInfo.loadLabel(context.getPackageManager());
-        if(appName == null) {
-            appName = context.getString(R.string.unknown);
-        }
-        return appName;
-    }
-    
-    /*
-     * Utility method to getApplicationIcon from package manager for a given context
-     */
-    public static Drawable getApplicationIcon(Context context, ApplicationInfo appInfo) {
-        return appInfo.loadIcon(context.getPackageManager());
-    }
-    
-    /*
-     * Utility method to display application snippet. make sure to setContentView on context
-     * before invoking this method
-     */
-    public static View initAppSnippet(Activity context, ApplicationInfo appInfo, int snippetId) {        
-        View appSnippet = context.findViewById(snippetId);        
-        ((ImageView)appSnippet.findViewById(R.id.app_icon)).setImageDrawable(
-                getApplicationIcon(context, appInfo));
-        ((TextView)appSnippet.findViewById(R.id.app_name)).setText(
-                getApplicationLabel(context, appInfo));
+    public static View initSnippetForInstalledApp(Activity pContext,
+            ApplicationInfo appInfo, int snippetId) {
+        View appSnippet = pContext.findViewById(snippetId);
+        String pkgName = appInfo.packageName;
+        PackageManager pm = pContext.getPackageManager();
+        CharSequence label = appInfo.loadLabel(pm);
+        Drawable icon = appInfo.loadIcon(pm);
+        ((ImageView)appSnippet.findViewById(R.id.app_icon)).setImageDrawable(icon);
+        ((TextView)appSnippet.findViewById(R.id.app_name)).setText(label);
         return appSnippet;
     }
-    
+
+    /*
+     * Utility method to display application snippet of a new package.
+     * The content view should have been set on context before invoking this method.
+     * appSnippet view should include R.id.app_icon and R.id.app_name
+     * defined on it.
+     *
+     * @param pContext context of package that can load the resources
+     * @param appInfo ApplicationInfo object of package whose resources are to be loaded
+     * @param snippetId view id of app snippet view
+     */
+    public static View initSnippetForNewApp(Activity pContext, ApplicationInfo appInfo,
+            int snippetId, Uri packageURI) {
+        View appSnippet = pContext.findViewById(snippetId);
+        final String archiveFilePath = packageURI.getPath();
+        DisplayMetrics metrics = new DisplayMetrics();
+        metrics.setToDefaults();
+        AssetManager assmgr = new AssetManager();
+        assmgr.addAssetPath(archiveFilePath);
+        Resources res = new Resources(assmgr, metrics, null);
+        CharSequence label = null;
+        // Try to load the label from the package's resources. If an app has not explicitly
+        // specified any label, just use the package name.
+        try {
+            label = res.getText(appInfo.labelRes);
+        } catch (Resources.NotFoundException e) {
+            label = appInfo.packageName;
+        }
+        Drawable icon = null;
+        // Try to load the icon from the package's resources. If an app has not explicitly
+        // specified any resource, just use the default icon for now.
+        try {
+            icon = res.getDrawable(appInfo.icon);
+        } catch (Resources.NotFoundException e) {
+            icon = pContext.getPackageManager().getDefaultActivityIcon();
+        }
+        ((ImageView)appSnippet.findViewById(R.id.app_icon)).setImageDrawable(icon);
+        ((TextView)appSnippet.findViewById(R.id.app_name)).setText(label);
+        return appSnippet;
+    }
+
     public static boolean isPackageAlreadyInstalled(Activity context, String pkgName) {
         List<PackageInfo> installedList = context.getPackageManager().getInstalledPackages(
                 PackageManager.GET_UNINSTALLED_PACKAGES);
