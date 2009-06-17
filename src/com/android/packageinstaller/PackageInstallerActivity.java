@@ -263,7 +263,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                 new IntentFilter(ClearCacheReceiver.INTENT_CLEAR_CACHE));
         PendingIntent pi = PendingIntent.getBroadcast(this,
                 0,  new Intent(ClearCacheReceiver.INTENT_CLEAR_CACHE), 0);
-        mPm.freeStorage(size, pi);
+        mPm.freeStorage(size, pi.getIntentSender());
     }
 
     private void launchSettingsAppAndFinish() {
