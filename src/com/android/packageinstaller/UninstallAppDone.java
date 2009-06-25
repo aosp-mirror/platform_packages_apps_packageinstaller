@@ -51,7 +51,6 @@ public class UninstallAppDone extends Activity  implements View.OnClickListener 
     
     public void initView() {
         String unknown =  getString(R.string.unknown);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.uninstall_done);
         TextView centerText = (TextView)findViewById(R.id.center_text);
         if(uninstallFlag) {
