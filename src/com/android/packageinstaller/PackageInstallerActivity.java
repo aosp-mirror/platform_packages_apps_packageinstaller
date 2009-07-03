@@ -155,7 +155,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         case DLG_REPLACE_APP:
             int msgId = R.string.dlg_app_replacement_statement;
             // Customized text for system apps
-            if ((mAppInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
+            if ((mAppInfo != null) && (mAppInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
                 msgId = R.string.dlg_sys_app_replacement_statement;
             }
             return new AlertDialog.Builder(this)
