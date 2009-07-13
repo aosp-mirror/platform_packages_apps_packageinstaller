@@ -25,10 +25,10 @@
     <string name="install_done">"应用程序已安装"</string>
     <string name="install_confirm_question">"是否要安装该应用程序？"</string>
     <string name="install_failed">"应用程序未安装"</string>
-    <string name="install_failed_msg">"无法在此手机上安装 <xliff:g id="APP_NAME">%1$s</xliff:g>。"</string>
+    <string name="install_failed_msg">"无法在此手机上安装<xliff:g id="APP_NAME">%1$s</xliff:g>。"</string>
     <string name="launch">"打开"</string>
     <string name="unknown_apps_dlg_title">"禁止安装"</string>
-    <string name="unknown_apps_dlg_text">"为了安全起见，您的手机设置为禁止安装不是随 Android Market 提供的应用程序。"</string>
+    <string name="unknown_apps_dlg_text">"为了安全起见，您的手机设置为禁止安装非 Android 电子市场提供的应用程序。"</string>
     <string name="ok">"确定"</string>
     <string name="settings">"设置"</string>
     <string name="manage_applications">"管理应用程序"</string>
@@ -41,7 +41,11 @@
     <string name="app_not_found_dlg_title">"找不到应用程序"</string>
     <string name="app_not_found_dlg_text">"在已安装应用程序的列表中找不到该应用程序。"</string>
     <string name="uninstall_application_question">"是否卸载应用程序？"</string>
-    <string name="uninstall_application_text">"该应用程序会从您的手机中删除。"</string>
+    <!-- no translation found for uninstall_update_question (2600765438050721390) -->
+    <skip />
+    <string name="uninstall_application_text">"将从您的手机中删除该应用程序。"</string>
+    <!-- no translation found for uninstall_update_text (6695211142526505726) -->
+    <skip />
     <string name="uninstalling">"正在卸载..."</string>
     <string name="uninstall_done">"卸载完成！"</string>
     <string name="uninstall_failed">"卸载失败"</string>

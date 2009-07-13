@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">"Package Installer"</string>
+    <string name="install">"Εγκατάσταση"</string>
+    <string name="done">"Ολοκληρώθηκε"</string>
+    <string name="security_settings_desc">"Να επιτρέπεται σε αυτή την εφαρμογή να:"</string>
+    <string name="cancel">"Ακύρωση"</string>
+    <string name="unknown">"Άγνωστο"</string>
+    <string name="installing">"Εγκατάσταση..."</string>
+    <string name="install_done">"Πραγματοποιήθηκε εγκατάσταση της εφαρμογής"</string>
+    <string name="install_confirm_question">"Θέλετε να εγκαταστήσετε αυτήν την εφαρμογή;"</string>
+    <string name="install_failed">"Η εφαρμογή δεν είναι εγκατεστημένη"</string>
+    <string name="install_failed_msg">"Δεν ήταν δυνατή η εγκατάσταση του <xliff:g id="APP_NAME">%1$s</xliff:g> στο τηλέφωνο."</string>
+    <string name="launch">"Άνοιγμα"</string>
+    <string name="unknown_apps_dlg_title">"Η εγκατάσταση αποκλείστηκε"</string>
+    <string name="unknown_apps_dlg_text">"Για μεγαλύτερη ασφάλεια, το τηλέφωνό σας είναι ρυθμισμένο ώστε να αποκλείει την εγκατάσταση εφαρμογών που δεν βρίσκονται στο Android Market."</string>
+    <string name="ok">"OK"</string>
+    <string name="settings">"Ρυθμίσεις"</string>
+    <string name="manage_applications">"Διαχείριση εφαρμογών"</string>
+    <string name="dlg_app_replacement_title">"Αντικατάσταση εφαρμογής"</string>
+    <string name="dlg_app_replacement_statement">"Η εφαρμογή που εγκαθιστάτε θα αντικαταστήσει μια άλλη εφαρμογή"\n\n"Όλα τα προηγούμενα δεδομένα χρήστη θα αποθηκευτούν."</string>
+    <string name="dlg_sys_app_replacement_statement">"Αυτή είναι εφαρμογή συστήματος. Θέλετε παρ\' όλα αυτά να την αντικαταστήσετε;"\n\n"Όλα τα προηγούμενα δεδομένα χρήστη θα αποθηκευτούν."</string>
+    <string name="out_of_space_dlg_title">"Δεν υπάρχει χώρος"</string>
+    <string name="out_of_space_dlg_text">"Δεν ήταν δυνατή η προβολή του <xliff:g id="APP_NAME">%1$s</xliff:g>. Αυξήστε τον ελεύθερο χώρο αποθήκευσης στο τηλέφωνό σας και προσπαθήστε ξανά."</string>
+    <string name="dlg_ok">"OK"</string>
+    <string name="app_not_found_dlg_title">"Η εφαρμογή δεν βρέθηκε"</string>
+    <string name="app_not_found_dlg_text">"Η εφαρμογή δεν βρέθηκε στη λίστα των εγκατεστημένων εφαρμογών."</string>
+    <string name="uninstall_application_question">"Να γίνει κατάργηση εγκατάστασης της εφαρμογής;"</string>
+    <!-- no translation found for uninstall_update_question (2600765438050721390) -->
+    <skip />
+    <string name="uninstall_application_text">"Αυτή η εφαρμογή θα καταργηθεί από το τηλέφωνό σας."</string>
+    <!-- no translation found for uninstall_update_text (6695211142526505726) -->
+    <skip />
+    <string name="uninstalling">"Κατάργηση εγκατάστασης..."</string>
+    <string name="uninstall_done">"Η κατάργηση εγκατάστασης ολοκληρώθηκε!"</string>
+    <string name="uninstall_failed">"Η κατάργηση εγκατάστασης δεν ήταν επιτυχής"</string>
+    <string name="uninstall_failed_msg">"Δεν ήταν δυνατή η κατάργηση της εγκατάστασης του <xliff:g id="APP_NAME">%1$s</xliff:g>!"</string>
+    <string name="Parse_error_dlg_title">"Σφάλμα ανάλυσης"</string>
+    <string name="Parse_error_dlg_text">"Παρουσιάστηκε ένα πρόβλημα κατά την ανάλυση του πακέτου."</string>
+</resources>

@@ -28,24 +28,28 @@
     <string name="install_failed_msg">"Установить приложение <xliff:g id="APP_NAME">%1$s</xliff:g> на этом телефоне не удалось."</string>
     <string name="launch">"Открыть"</string>
     <string name="unknown_apps_dlg_title">"Установка заблокирована"</string>
-    <string name="unknown_apps_dlg_text">"Из соображений безопасности на вашем телефоне заблокирована установка приложений, источником которых не является Android Маркет."</string>
+    <string name="unknown_apps_dlg_text">"Из соображений безопасности на вашем телефоне заблокирована установка приложений, источником которых не является Android-маркет."</string>
     <string name="ok">"ОК"</string>
     <string name="settings">"Настройки"</string>
-    <string name="manage_applications">"Управлять приложениями"</string>
+    <string name="manage_applications">"Управление приложениями"</string>
     <string name="dlg_app_replacement_title">"Заменить приложение"</string>
     <string name="dlg_app_replacement_statement">"Приложение, которое вы устанавливаете, заменит другое приложение."\n\n"Все пользовательские данные будут сохранены."</string>
-    <string name="dlg_sys_app_replacement_statement">"Это системное приложение. Все равно заменить его?"\n\n"Все пользовательские данные будут сохранены."</string>
+    <string name="dlg_sys_app_replacement_statement">"Это системное приложение. Заменить?"\n\n"Все пользовательские данные будут сохранены."</string>
     <string name="out_of_space_dlg_title">"Недостаточно места"</string>
     <string name="out_of_space_dlg_text">"Невозможно просмотреть <xliff:g id="APP_NAME">%1$s</xliff:g>. Освободите место в памяти телефона и повторите попытку."</string>
     <string name="dlg_ok">"ОК"</string>
     <string name="app_not_found_dlg_title">"Приложение не найдено"</string>
     <string name="app_not_found_dlg_text">"Приложение не было найдено в списке установленных приложений."</string>
     <string name="uninstall_application_question">"Удалить приложение?"</string>
+    <!-- no translation found for uninstall_update_question (2600765438050721390) -->
+    <skip />
     <string name="uninstall_application_text">"Данное приложение будет удалено с вашего телефона."</string>
+    <!-- no translation found for uninstall_update_text (6695211142526505726) -->
+    <skip />
     <string name="uninstalling">"Удаление..."</string>
     <string name="uninstall_done">"Удаление завершено!"</string>
     <string name="uninstall_failed">"Ошибка при удалении"</string>
     <string name="uninstall_failed_msg">"Удалить приложение <xliff:g id="APP_NAME">%1$s</xliff:g> не удалось!"</string>
     <string name="Parse_error_dlg_title">"Синтаксическая ошибка"</string>
-    <string name="Parse_error_dlg_text">"При анализе пакета возникла проблема."</string>
+    <string name="Parse_error_dlg_text">"При синтаксическом анализе пакета возникла неполадка."</string>
 </resources>
