@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">"Pakkeinstallationsprogram"</string>
+    <string name="install">"Installer"</string>
+    <string name="done">"Færdig"</string>
+    <string name="security_settings_desc">"Tillad dette program at:"</string>
+    <string name="cancel">"Annuller"</string>
+    <string name="unknown">"Ukendt"</string>
+    <string name="installing">"Installerer ..."</string>
+    <string name="install_done">"Programmet er installeret"</string>
+    <string name="install_confirm_question">"Ønsker du at installere dette program?"</string>
+    <string name="install_failed">"Programmet er ikke installeret"</string>
+    <string name="install_failed_msg">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunne ikke installeres på denne telefon."</string>
+    <string name="launch">"Åbn"</string>
+    <string name="unknown_apps_dlg_title">"Installer blokeret"</string>
+    <string name="unknown_apps_dlg_text">"Din telefon er af sikkerhedsgrunde indstillet til at blokere installation af programmer, der ikke er anskaffet på Android Marked."</string>
+    <string name="ok">"OK"</string>
+    <string name="settings">"Indstillinger"</string>
+    <string name="manage_applications">"Administrer programmer"</string>
+    <string name="dlg_app_replacement_title">"Erstat program"</string>
+    <string name="dlg_app_replacement_statement">"Det program, du installerer, erstatter et andet program."\n\n"Alle tidligere brugerdata gemmes."</string>
+    <string name="dlg_sys_app_replacement_statement">"Dette er et systemprogram. Ønsker du stadig at erstatte det?"\n\n"Alle tidligere brugerdata gemmes."</string>
+    <string name="out_of_space_dlg_title">"Der er ikke mere plads"</string>
+    <string name="out_of_space_dlg_text">"<xliff:g id="APP_NAME">%1$s</xliff:g> kan ikke vises. Frigør noget plads på din telefon, og prøv igen."</string>
+    <string name="dlg_ok">"OK"</string>
+    <string name="app_not_found_dlg_title">"Programmet blev ikke fundet"</string>
+    <string name="app_not_found_dlg_text">"Programmet blev ikke fundet på listen over installerede programmer."</string>
+    <string name="uninstall_application_question">"Afinstaller program?"</string>
+    <!-- no translation found for uninstall_update_question (2600765438050721390) -->
+    <skip />
+    <string name="uninstall_application_text">"Dette program fjernes fra din telefon."</string>
+    <!-- no translation found for uninstall_update_text (6695211142526505726) -->
+    <skip />
+    <string name="uninstalling">"Afinstallerer ..."</string>
+    <string name="uninstall_done">"Afinstallation afsluttet!"</string>
+    <string name="uninstall_failed">"Afinstallationen mislykkedes"</string>
+    <string name="uninstall_failed_msg">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunne ikke afinstalleres!"</string>
+    <string name="Parse_error_dlg_title">"Parsingfejl"</string>
+    <string name="Parse_error_dlg_text">"Der er problemer med at parse pakken."</string>
+</resources>
