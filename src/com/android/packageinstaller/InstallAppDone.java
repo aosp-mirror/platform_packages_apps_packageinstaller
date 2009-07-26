@@ -23,6 +23,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -42,6 +43,7 @@ public class InstallAppDone extends Activity  implements View.OnClickListener {
     private final String TAG="InstallAppDone";
     private boolean localLOGV = false;
     private ApplicationInfo mAppInfo;
+    private Uri mPkgURI;
     private Button mDoneButton;
     private Button mLaunchButton;
     private boolean installFlag;
@@ -52,6 +54,7 @@ public class InstallAppDone extends Activity  implements View.OnClickListener {
         super.onCreate(icicle);
         Intent intent = getIntent();
         mAppInfo = intent.getParcelableExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO);
+        mPkgURI = intent.getData();
         installFlag = intent.getBooleanExtra(PackageUtil.INTENT_ATTR_INSTALL_STATUS, true);
         if(localLOGV) Log.i(TAG, "installFlag="+installFlag);
         initView();
@@ -62,7 +65,7 @@ public class InstallAppDone extends Activity  implements View.OnClickListener {
         String unknown =  getString(R.string.unknown);
         setContentView(R.layout.install_done);
         // Initialize views
-        PackageUtil.initAppSnippet(this, mAppInfo, R.id.app_snippet);
+        PackageUtil.initSnippetForInstalledApp(this, mAppInfo, R.id.app_snippet);
         TextView centerText = (TextView)findViewById(R.id.center_text);
         mDoneButton = (Button)findViewById(R.id.done_button);
         mLaunchButton = (Button)findViewById(R.id.launch_button);
@@ -73,11 +76,8 @@ public class InstallAppDone extends Activity  implements View.OnClickListener {
             centerTextDrawableId = R.drawable.button_indicator_finish;
             centerTextLabel = R.string.install_done;
             // Enable or disable launch button
-            try {
-                mLaunchIntent = getPackageManager().getLaunchIntentForPackage( 
-                        mAppInfo.packageName);
-            } catch (PackageManager.NameNotFoundException e) {
-            }
+            mLaunchIntent = getPackageManager().getLaunchIntentForPackage( 
+                    mAppInfo.packageName);
             if(mLaunchIntent != null) {
                 mLaunchButton.setOnClickListener(this);
             } else {

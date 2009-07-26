@@ -113,6 +113,13 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                                                   mPkgInfo.applicationInfo);
         newIntent.setData(mPackageURI);
         newIntent.setClass(this, cls);
+
+        String installerPackageName = getIntent().getStringExtra(
+                Intent.EXTRA_INSTALLER_PACKAGE_NAME);
+        if (installerPackageName != null) {
+            newIntent.putExtra(Intent.EXTRA_INSTALLER_PACKAGE_NAME, installerPackageName);
+        }
+
         if(localLOGV) Log.i(TAG, "downloaded app uri="+mPackageURI);
         startActivityForResult(newIntent, requestCode);
     }
@@ -148,7 +155,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         case DLG_REPLACE_APP:
             int msgId = R.string.dlg_app_replacement_statement;
             // Customized text for system apps
-            if ((mAppInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
+            if ((mAppInfo != null) && (mAppInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
                 msgId = R.string.dlg_sys_app_replacement_statement;
             }
             return new AlertDialog.Builder(this)
@@ -256,7 +263,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                 new IntentFilter(ClearCacheReceiver.INTENT_CLEAR_CACHE));
         PendingIntent pi = PendingIntent.getBroadcast(this,
                 0,  new Intent(ClearCacheReceiver.INTENT_CLEAR_CACHE), 0);
-        mPm.freeStorage(size, pi);
+        mPm.freeStorage(size, pi.getIntentSender());
     }
 
     private void launchSettingsAppAndFinish() {
@@ -346,7 +353,8 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         //set view
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.install_start);
-        PackageUtil.initAppSnippet(this, mPkgInfo.applicationInfo, R.id.app_snippet);
+        PackageUtil.initSnippetForNewApp(this, mPkgInfo.applicationInfo,
+                R.id.app_snippet, mPackageURI);
        //check setting
         if(!isInstallingUnknownAppsAllowed()) {
             //ask user to enable setting first

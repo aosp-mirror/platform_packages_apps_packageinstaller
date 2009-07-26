@@ -89,7 +89,7 @@ public class InstallAppProgress extends Activity {
         String unknown =  getString(R.string.unknown);
         setContentView(R.layout.op_progress);
         //initialize views
-        PackageUtil.initAppSnippet(this, mAppInfo, R.id.app_snippet);
+        PackageUtil.initSnippetForNewApp(this, mAppInfo, R.id.app_snippet, mPackageURI);
         TextView installTextView = (TextView)findViewById(R.id.center_text);
         installTextView.setText(R.string.installing);
         mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
@@ -101,14 +101,17 @@ public class InstallAppProgress extends Activity {
             PackageInfo pi = pm.getPackageInfo(mAppInfo.packageName, 
                     PackageManager.GET_UNINSTALLED_PACKAGES);
             if(pi != null) {
-                installFlags |= PackageManager.REPLACE_EXISTING_PACKAGE;
+                installFlags |= PackageManager.INSTALL_REPLACE_EXISTING;
             }
         } catch (NameNotFoundException e) {
         }
-        if((installFlags & PackageManager.REPLACE_EXISTING_PACKAGE )!= 0) {
+        if((installFlags & PackageManager.INSTALL_REPLACE_EXISTING )!= 0) {
             Log.w(TAG, "Replacing package:"+mAppInfo.packageName);
         }
+        String installerPackageName = getIntent().getStringExtra(
+                Intent.EXTRA_INSTALLER_PACKAGE_NAME);
+        
         PackageInstallObserver observer = new PackageInstallObserver();
-        pm.installPackage(mPackageURI, observer, installFlags);
+        pm.installPackage(mPackageURI, observer, installFlags, installerPackageName);
     }
 }

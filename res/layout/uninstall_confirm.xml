@@ -38,7 +38,6 @@
         android:id="@+id/uninstall_question"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/uninstall_application_question"
         android:textStyle="bold"
         android:paddingTop="16dip"
         android:paddingLeft="16dip"
@@ -50,9 +49,8 @@
     <!-- uninstall application confirmation text -->
     <TextView
         android:id="@+id/uninstall_confirm_text"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/uninstall_application_text"
         android:textColor="?android:attr/textColorSecondary"
         android:textAppearance="?android:attr/textAppearanceMedium"       
         android:layout_below="@id/uninstall_question"
