@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">"Instalador do pacote"</string>
+    <string name="install">"Instalar"</string>
+    <string name="done">"Concluído"</string>
+    <string name="security_settings_desc">"Permitir que este aplicativo:"</string>
+    <string name="cancel">"Cancelar"</string>
+    <string name="unknown">"Desconhecido"</string>
+    <string name="installing">"Instalando..."</string>
+    <string name="install_done">"Aplicativo instalado"</string>
+    <string name="install_confirm_question">"Deseja instalar este aplicativo?"</string>
+    <string name="install_failed">"O aplicativo não está instalado."</string>
+    <string name="install_failed_msg">"Não foi possível instalar o <xliff:g id="APP_NAME">%1$s</xliff:g> neste telefone."</string>
+    <string name="launch">"Abrir"</string>
+    <string name="unknown_apps_dlg_title">"Instalação bloqueada"</string>
+    <string name="unknown_apps_dlg_text">"Por segurança, o seu telefone está configurado para bloquear a instalação de aplicativos que não foram criados no Android Market."</string>
+    <string name="ok">"OK"</string>
+    <string name="settings">"Configurações"</string>
+    <string name="manage_applications">"Gerenciar aplicativos"</string>
+    <string name="dlg_app_replacement_title">"Substituir aplicativo"</string>
+    <string name="dlg_app_replacement_statement">"O aplicativo que você está instalando substituirá outro aplicativo."\n\n"Todos os dados de usuário anteriores serão salvos."</string>
+    <string name="dlg_sys_app_replacement_statement">"Este é um aplicativo do sistema. Ainda deseja substituí-lo?"\n\n"Todos os dados de usuário anteriores serão salvos."</string>
+    <string name="out_of_space_dlg_title">"Sem espaço"</string>
+    <string name="out_of_space_dlg_text">"Não foi possível visualizar o <xliff:g id="APP_NAME">%1$s</xliff:g>. Libere algum espaço no seu telefone e tente novamente."</string>
+    <string name="dlg_ok">"OK"</string>
+    <string name="app_not_found_dlg_title">"Aplicativo não encontrado"</string>
+    <string name="app_not_found_dlg_text">"O aplicativo não foi encontrado na lista de aplicativos instalados."</string>
+    <string name="uninstall_application_question">"Desinstalar aplicativo?"</string>
+    <!-- no translation found for uninstall_update_question (2600765438050721390) -->
+    <skip />
+    <string name="uninstall_application_text">"Este aplicativo será removido do seu telefone."</string>
+    <!-- no translation found for uninstall_update_text (6695211142526505726) -->
+    <skip />
+    <string name="uninstalling">"Desinstalando..."</string>
+    <string name="uninstall_done">"Desinstalação concluída!"</string>
+    <string name="uninstall_failed">"Falha na desinstalação"</string>
+    <string name="uninstall_failed_msg">"Não foi possível desinstalar <xliff:g id="APP_NAME">%1$s</xliff:g>!"</string>
+    <string name="Parse_error_dlg_title">"Erro de análise"</string>
+    <string name="Parse_error_dlg_text">"Há um problema com a análise do pacote."</string>
+</resources>

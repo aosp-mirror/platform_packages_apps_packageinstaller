@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">"Paket Yükleyici"</string>
+    <string name="install">"Yükle"</string>
+    <string name="done">"Bitti"</string>
+    <string name="security_settings_desc">"Bu uygulamanın şunları yapmasına izin ver:"</string>
+    <string name="cancel">"İptal"</string>
+    <string name="unknown">"Bilinmiyor"</string>
+    <string name="installing">"Yükleniyor…"</string>
+    <string name="install_done">"Uygulama yüklendi"</string>
+    <string name="install_confirm_question">"Bu uygulamayı yüklemek istiyor musunuz?"</string>
+    <string name="install_failed">"Uygulama yüklenmedi"</string>
+    <string name="install_failed_msg">"<xliff:g id="APP_NAME">%1$s</xliff:g> bu telefona yüklenemedi."</string>
+    <string name="launch">"Aç"</string>
+    <string name="unknown_apps_dlg_title">"Yükleme engellendi"</string>
+    <string name="unknown_apps_dlg_text">"Güvenlik nedeniyle telefonunuz, kaynağı Android Market olmayan uygulamaların yüklenmesini engellemeye ayarlıdır."</string>
+    <string name="ok">"Tamam"</string>
+    <string name="settings">"Ayarlar"</string>
+    <string name="manage_applications">"Uygulamaları yönet"</string>
+    <string name="dlg_app_replacement_title">"Uygulamayı değiştir"</string>
+    <string name="dlg_app_replacement_statement">"Yüklemekte olduğunuz uygulama başka bir uygulamanın yerine geçecek."\n\n"Önceki kullanıcı verilerinin tümü kaydedilecek."</string>
+    <string name="dlg_sys_app_replacement_statement">"Bu bir sistem uygulamasıdır. Yine de değiştirmek istiyor musunuz?"\n\n"Daha önceki tüm kullanıcı verileri kaydedilecektir."</string>
+    <string name="out_of_space_dlg_title">"Yer kalmadı"</string>
+    <string name="out_of_space_dlg_text">"<xliff:g id="APP_NAME">%1$s</xliff:g> görüntülenemedi. Telefonunuzda bir miktar yer açın ve yeniden deneyin."</string>
+    <string name="dlg_ok">"Tamam"</string>
+    <string name="app_not_found_dlg_title">"Uygulama bulunamadı"</string>
+    <string name="app_not_found_dlg_text">"Uygulama yüklü uygulamalar listesinde bulunamadı."</string>
+    <string name="uninstall_application_question">"Uygulama kaldırılsın mı?"</string>
+    <!-- no translation found for uninstall_update_question (2600765438050721390) -->
+    <skip />
+    <string name="uninstall_application_text">"Bu uygulama telefonunuzdan kaldırılacak."</string>
+    <!-- no translation found for uninstall_update_text (6695211142526505726) -->
+    <skip />
+    <string name="uninstalling">"Kaldırılıyor…"</string>
+    <string name="uninstall_done">"Kaldırma işlemi bitti!"</string>
+    <string name="uninstall_failed">"Yüklemeyi kaldırma işlemi başarısız"</string>
+    <string name="uninstall_failed_msg">"<xliff:g id="APP_NAME">%1$s</xliff:g> kaldırılamadı!"</string>
+    <string name="Parse_error_dlg_title">"Ayrıştırma Hatası"</string>
+    <string name="Parse_error_dlg_text">"Paketi ayrıştırmada bir sorun var."</string>
+</resources>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">"Installationsprogram för paket"</string>
+    <string name="install">"Installera"</string>
+    <string name="done">"Färdig"</string>
+    <string name="security_settings_desc">"Tillåt att det här programmet:"</string>
+    <string name="cancel">"Avbryt"</string>
+    <string name="unknown">"Okänd"</string>
+    <string name="installing">"Installerar…"</string>
+    <string name="install_done">"Program har installerats"</string>
+    <string name="install_confirm_question">"Vill du installera det här programmet?"</string>
+    <string name="install_failed">"Programmet har inte installerats"</string>
+    <string name="install_failed_msg">"Det gick inte att installera <xliff:g id="APP_NAME">%1$s</xliff:g> på den här telefonen."</string>
+    <string name="launch">"Öppna"</string>
+    <string name="unknown_apps_dlg_title">"Installation blockerad"</string>
+    <string name="unknown_apps_dlg_text">"Av säkerhetsskäl är din telefon inställd så att den blockerar installation av program som inte finns i Android-butiken."</string>
+    <string name="ok">"OK"</string>
+    <string name="settings">"Inställningar"</string>
+    <string name="manage_applications">"Hantera program"</string>
+    <string name="dlg_app_replacement_title">"Byt ut program"</string>
+    <string name="dlg_app_replacement_statement">"Programmet som du installerar ersätter ett annat program."\n\n"Alla tidigare användardata sparas."</string>
+    <string name="dlg_sys_app_replacement_statement">"Det här är ett systemprogram. Vill du byta ut det?"\n\n"Alla tidigare användardata sparas."</string>
+    <string name="out_of_space_dlg_title">"Slut på utrymme"</string>
+    <string name="out_of_space_dlg_text">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunde inte visas. Frigör utrymme på din telefon och försök igen."</string>
+    <string name="dlg_ok">"OK"</string>
+    <string name="app_not_found_dlg_title">"Programmet hittades inte"</string>
+    <string name="app_not_found_dlg_text">"Programmet hittades inte i listan över installerade program."</string>
+    <string name="uninstall_application_question">"Avinstallera program?"</string>
+    <!-- no translation found for uninstall_update_question (2600765438050721390) -->
+    <skip />
+    <string name="uninstall_application_text">"Programmet tas bort från din telefon."</string>
+    <!-- no translation found for uninstall_update_text (6695211142526505726) -->
+    <skip />
+    <string name="uninstalling">"Avinstallerar…"</string>
+    <string name="uninstall_done">"Avinstallationen slutförd!"</string>
+    <string name="uninstall_failed">"Det gick inte att avinstallera"</string>
+    <string name="uninstall_failed_msg">"Det gick inte att avinstallera <xliff:g id="APP_NAME">%1$s</xliff:g>!"</string>
+    <string name="Parse_error_dlg_title">"Analysfel"</string>
+    <string name="Parse_error_dlg_text">"Det uppstod ett problem när paketet analyserades."</string>
+</resources>
