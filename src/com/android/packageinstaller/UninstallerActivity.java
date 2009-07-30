@@ -39,14 +39,12 @@ import android.content.pm.PackageManager.NameNotFoundException;
  * Intent.ACTION_UNINSTALL_PKG_COMMAND and attribute 
  * com.android.packageinstaller.PackageName set to the application package name
  */
-public class UninstallerActivity extends Activity implements OnClickListener {
+public class UninstallerActivity extends Activity implements OnClickListener,
+        DialogInterface.OnCancelListener {
     private static final String TAG = "UninstallerActivity";
     private boolean localLOGV = false;
-    // States indicating status of ui display when uninstalling application
-    private static final int UNINSTALL_CONFIRM = 1;
-    private static final int UNINSTALL_PROGRESS = 2;
-    private static final int UNINSTALL_DONE = 3;
-    private int mCurrentState = UNINSTALL_CONFIRM;
+    // Request code
+    private static final int UNINSTALL_PROGRESS = 1;
     PackageManager mPm;
     private ApplicationInfo mAppInfo;
     private Button mOk;
@@ -58,7 +56,7 @@ public class UninstallerActivity extends Activity implements OnClickListener {
     private static final int DLG_UNINSTALL_FAILED = DLG_BASE + 2;
     
     private void showDialogInner(int id) {
-            showDialog(id);
+        showDialog(id);
     }
     
     @Override
@@ -101,15 +99,6 @@ public class UninstallerActivity extends Activity implements OnClickListener {
                                                   mAppInfo);
         newIntent.setClass(this, UninstallAppProgress.class);
         startActivityForResult(newIntent, UNINSTALL_PROGRESS);
-    }
-    
-    private void startUninstallDone() {
-        Intent newIntent = new Intent(Intent.ACTION_VIEW);
-        newIntent.putExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO, 
-                                                  mAppInfo);
-        newIntent.putExtra(PackageUtil.INTENT_ATTR_INSTALL_STATUS, true);
-        newIntent.setClass(this, UninstallAppDone.class);
-        startActivityForResult(newIntent, UNINSTALL_DONE);
     }
 
     @Override
@@ -159,33 +148,17 @@ public class UninstallerActivity extends Activity implements OnClickListener {
     
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        boolean finish = true;
-        switch(requestCode) {
-        case UNINSTALL_PROGRESS:
-            finish = false;
-            mCurrentState = UNINSTALL_DONE;
-            //start the next screen to show final status of installation
-            if (resultCode==UninstallAppProgress.SUCCEEDED) {
-                startUninstallDone();
-            } else {
-                showDialogInner(DLG_UNINSTALL_FAILED);
-            }
-            break;
-        case UNINSTALL_DONE:
-            //neednt check for result code here
-            break;
-        default:
-            break;
+        if (requestCode != UNINSTALL_PROGRESS) {
+            return;
         }
-        if(finish) {
-            //finish off this activity to return to the previous activity that launched it
-            Log.i(TAG, "Finishing off activity");
+        // Start the next screen to show final status of installation
+        if (resultCode != UninstallAppProgress.SUCCEEDED) {
+            showDialogInner(DLG_UNINSTALL_FAILED);
+        } else {
+            // Finish off this activity
+            if (localLOGV) Log.i(TAG, "Finishing off activity");
             finish();
         }
-    }
-    
-    private void finishAndReturn() {
-        finish();
     }
     
     public void onClick(View v) {
@@ -193,7 +166,11 @@ public class UninstallerActivity extends Activity implements OnClickListener {
             //initiate next screen
             startUninstallProgress();
         } else if(v == mCancel) {
-            finishAndReturn();
+            finish();
         }
+    }
+
+    public void onCancel(DialogInterface dialog) {
+        finish();
     }
 }
