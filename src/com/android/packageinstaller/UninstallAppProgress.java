@@ -23,8 +23,12 @@ import android.content.pm.IPackageDeleteObserver;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.view.View;
 import android.view.Window;
-import android.view.ViewDebug;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -35,10 +39,14 @@ import android.widget.TextView;
  * by an intent with the intent's class name explicitly set to UninstallAppProgress and expects
  * the application object of the application to uninstall.
  */
-public class UninstallAppProgress extends Activity {
+public class UninstallAppProgress extends Activity implements OnClickListener {
     private final String TAG="UninstallAppProgress";
     private boolean localLOGV = false;
     private ApplicationInfo mAppInfo;
+    private TextView mStatusTextView;
+    private Button mOkButton;
+    private ProgressBar mProgressBar;
+    private volatile int mResultCode = -1;
     private final int UNINSTALL_COMPLETE = 1;
     public final static int SUCCEEDED=1;
     public final static int FAILED=0;
@@ -46,8 +54,16 @@ public class UninstallAppProgress extends Activity {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case UNINSTALL_COMPLETE:
-                    //finish the activity posting result
-                    setResultAndFinish(msg.arg1);
+                    mResultCode = msg.arg1;
+                    // Update the status text
+                    if (msg.arg1 == SUCCEEDED) {
+                        mStatusTextView.setText(R.string.uninstall_done);
+                    } else {
+                        mStatusTextView.setText(R.string.uninstall_failed);
+                    }
+                    mProgressBar.setVisibility(View.GONE);
+                    // Show the ok button
+                    mOkButton.setVisibility(View.VISIBLE);
                     break;
                 default:
                     break;
@@ -78,14 +94,39 @@ public class UninstallAppProgress extends Activity {
     
     public void initView() {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.op_progress);
+        setContentView(R.layout.uninstall_progress);
         // Initialize views
         PackageUtil.initSnippetForInstalledApp(this, mAppInfo, R.id.app_snippet);
-        TextView installTextView = (TextView)findViewById(R.id.center_text);
-        installTextView.setText(R.string.uninstalling);
-        final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progress_bar);
-        progressBar.setIndeterminate(true);
+        mStatusTextView = (TextView)findViewById(R.id.center_text);
+        mStatusTextView.setText(R.string.uninstalling);
+        mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
+        mProgressBar.setIndeterminate(true);
+        // Hide button till progress is being displayed
+        mOkButton = (Button)findViewById(R.id.ok_button);
+        mOkButton.setOnClickListener(this);
+        mOkButton.setVisibility(View.GONE);
         PackageDeleteObserver observer = new PackageDeleteObserver();
         getPackageManager().deletePackage(mAppInfo.packageName, observer, 0);
+    }
+
+    public void onClick(View v) {
+        if(v == mOkButton) {
+            Log.i(TAG, "Finished uninstalling pkg: " + mAppInfo.packageName);
+            setResultAndFinish(mResultCode);
+        }
+    }
+    
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent ev) {
+        if (ev.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+            if (mResultCode == -1) {
+                // Ignore back key when installation is in progress
+                return true;
+            } else {
+                // If installation is done, just set the result code
+                setResult(mResultCode);
+            }
+        }
+        return super.dispatchKeyEvent(ev);
     }
 }
