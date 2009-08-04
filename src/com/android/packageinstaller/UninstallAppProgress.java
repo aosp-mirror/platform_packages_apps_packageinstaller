@@ -46,6 +46,7 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
     private TextView mStatusTextView;
     private Button mOkButton;
     private ProgressBar mProgressBar;
+    private View mOkPanel;
     private volatile int mResultCode = -1;
     private final int UNINSTALL_COMPLETE = 1;
     public final static int SUCCEEDED=1;
@@ -61,9 +62,9 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
                     } else {
                         mStatusTextView.setText(R.string.uninstall_failed);
                     }
-                    mProgressBar.setVisibility(View.GONE);
+                    mProgressBar.setVisibility(View.INVISIBLE);
                     // Show the ok button
-                    mOkButton.setVisibility(View.VISIBLE);
+                    mOkPanel.setVisibility(View.VISIBLE);
                     break;
                 default:
                     break;
@@ -102,9 +103,10 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
         mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
         mProgressBar.setIndeterminate(true);
         // Hide button till progress is being displayed
+        mOkPanel = (View)findViewById(R.id.ok_panel);
         mOkButton = (Button)findViewById(R.id.ok_button);
         mOkButton.setOnClickListener(this);
-        mOkButton.setVisibility(View.GONE);
+        mOkPanel.setVisibility(View.INVISIBLE);
         PackageDeleteObserver observer = new PackageDeleteObserver();
         getPackageManager().deletePackage(mAppInfo.packageName, observer, 0);
     }
