@@ -17,6 +17,7 @@
 package com.android.packageinstaller;
 
 import com.android.packageinstaller.R;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -24,12 +25,16 @@ import android.content.pm.IPackageInstallObserver;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -41,19 +46,56 @@ import android.widget.TextView;
  * codes defined in PackageManager. If the package being installed already exists,
  * the existing package is replaced with the new one.
  */
-public class InstallAppProgress extends Activity {
+public class InstallAppProgress extends Activity implements View.OnClickListener {
     private final String TAG="InstallAppProgress";
     private boolean localLOGV = false;
     private ApplicationInfo mAppInfo;
     private Uri mPackageURI;
     private ProgressBar mProgressBar;
+    private View mOkPanel;
+    private TextView mStatusTextView;
+    private Button mDoneButton;
+    private Button mLaunchButton;
+    final static int SUCCEEDED = 1;
+    final static int FAILED = 0;
     private final int INSTALL_COMPLETE = 1;
+    private Intent mLaunchIntent;
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case INSTALL_COMPLETE:
-                    //finish the activity posting result
-                    setResultAndFinish(msg.arg1);
+                    // Update the status text
+                    mProgressBar.setVisibility(View.INVISIBLE);
+                    // Show the ok button
+                    int centerTextLabel;
+                    Drawable centerTextDrawable = null;
+                    if(msg.arg1 == SUCCEEDED) {
+                        mLaunchButton.setVisibility(View.VISIBLE);
+                        centerTextDrawable = getResources().getDrawable(R.drawable.button_indicator_finish);
+                        centerTextLabel = R.string.install_done;
+                        // Enable or disable launch button
+                        mLaunchIntent = getPackageManager().getLaunchIntentForPackage(
+                                mAppInfo.packageName);
+                        if(mLaunchIntent != null) {
+                            mLaunchButton.setOnClickListener(InstallAppProgress.this);
+                        } else {
+                            mLaunchButton.setEnabled(false);
+                        }
+                    } else {
+                        centerTextDrawable = Resources.getSystem().getDrawable(
+                                com.android.internal.R.drawable.ic_bullet_key_permission);
+                        centerTextLabel = R.string.install_failed;
+                        mLaunchButton.setVisibility(View.INVISIBLE);
+                    }
+                    if (centerTextDrawable != null) {
+                    centerTextDrawable.setBounds(0, 0,
+                            centerTextDrawable.getIntrinsicWidth(),
+                            centerTextDrawable.getIntrinsicHeight());
+                        mStatusTextView.setCompoundDrawables(centerTextDrawable, null, null, null);
+                    }
+                    mStatusTextView.setText(centerTextLabel);
+                    mDoneButton.setOnClickListener(InstallAppProgress.this);
+                    mOkPanel.setVisibility(View.VISIBLE);
                     break;
                 default:
                     break;
@@ -77,23 +119,21 @@ public class InstallAppProgress extends Activity {
             mHandler.sendMessage(msg);
         }
     }
-    
-    void setResultAndFinish(int retCode) {
-        Intent data = new Intent();
-        setResult(retCode);
-        finish();
-    }
-    
+
     public void initView() {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        String unknown =  getString(R.string.unknown);
         setContentView(R.layout.op_progress);
-        //initialize views
-        PackageUtil.initSnippetForNewApp(this, mAppInfo, R.id.app_snippet, mPackageURI);
-        TextView installTextView = (TextView)findViewById(R.id.center_text);
-        installTextView.setText(R.string.installing);
+        // Initialize views
+        PackageUtil.initSnippetForInstalledApp(this, mAppInfo, R.id.app_snippet);
+        mStatusTextView = (TextView)findViewById(R.id.center_text);
+        mStatusTextView.setText(R.string.installing);
         mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
         mProgressBar.setIndeterminate(true);
+        // Hide button till progress is being displayed
+        mOkPanel = (View)findViewById(R.id.buttons_panel);
+        mDoneButton = (Button)findViewById(R.id.done_button);
+        mLaunchButton = (Button)findViewById(R.id.launch_button);
+        mOkPanel.setVisibility(View.INVISIBLE);
         // Set flag to replace package if already existing
         int installFlags = 0;
         PackageManager pm = getPackageManager();
@@ -106,12 +146,22 @@ public class InstallAppProgress extends Activity {
         } catch (NameNotFoundException e) {
         }
         if((installFlags & PackageManager.INSTALL_REPLACE_EXISTING )!= 0) {
-            Log.w(TAG, "Replacing package:"+mAppInfo.packageName);
+            Log.w(TAG, "Replacing package:" + mAppInfo.packageName);
         }
         String installerPackageName = getIntent().getStringExtra(
                 Intent.EXTRA_INSTALLER_PACKAGE_NAME);
         
         PackageInstallObserver observer = new PackageInstallObserver();
         pm.installPackage(mPackageURI, observer, installFlags, installerPackageName);
+    }
+
+    public void onClick(View v) {
+        if(v == mDoneButton) {
+            Log.i(TAG, "Finished installing "+mAppInfo);
+            finish();
+        } else if(v == mLaunchButton) {
+            startActivity(mLaunchIntent);
+            finish();
+        }
     }
 }

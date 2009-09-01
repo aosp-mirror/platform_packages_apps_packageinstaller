@@ -44,7 +44,13 @@ import android.os.Handler;
 import android.os.Message;
 import android.provider.Settings;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
+import android.view.View.OnClickListener;
+import android.widget.AppSecurityPermissions;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 /*
  * This activity is launched when a new application is installed via side loading
@@ -56,27 +62,29 @@ import android.view.Window;
  * Based on the user response the package is then installed by launching InstallAppConfirm
  * sub activity. All state transitions are handled in this activity
  */
-public class PackageInstallerActivity extends Activity implements OnCancelListener {
-    private static final int INSTALL_INITIAL = 0;
-    private static final int INSTALL_CONFIRM = 1;
-    private static final int INSTALL_PROGRESS = 2;
-    private static final int INSTALL_DONE = 3;
+public class PackageInstallerActivity extends Activity implements OnCancelListener, OnClickListener {
     private static final String TAG = "PackageInstaller";
     private Uri mPackageURI;    
     private boolean localLOGV = false;
-    private int mCurrentState = INSTALL_INITIAL;
     PackageManager mPm;
+    private boolean mReplacing = false;
     private PackageParser.Package mPkgInfo;
     private File mTmpFile;
     private static final int SUCCEEDED = 1;
     private static final int FAILED = 0;
     // Broadcast receiver for clearing cache
-    ClearCacheReceiver mClearCacheReceiver;
+    ClearCacheReceiver mClearCacheReceiver = null;
     private static final int HANDLER_BASE_MSG_IDX = 0;
     private static final int FREE_SPACE = HANDLER_BASE_MSG_IDX + 1;
 
     // ApplicationInfo object primarily used for already existing applications
     private ApplicationInfo mAppInfo = null;
+
+    // View for install progress
+    View mInstallConfirm;
+    // Buttons to indicate user acceptance
+    private Button mOk;
+    private Button mCancel;
 
     // Dialog identifiers used in showDialog
     private static final int DLG_BASE = 0;
@@ -90,7 +98,9 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case FREE_SPACE:
-                    unregisterReceiver(mClearCacheReceiver);
+                    if (mClearCacheReceiver != null) {
+                        unregisterReceiver(mClearCacheReceiver);
+                    }
                     if(msg.arg1 == SUCCEEDED) {
                         makeTempCopyAndInstall();
                     } else {
@@ -102,47 +112,29 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             }
         }
     };
-   
-    private void startInstallActivityClass(int requestCode, Class<?> cls) {
-        Intent newIntent = new Intent();
-        startInstallActivityClass(newIntent, requestCode, cls);
-    }
-
-    private void startInstallActivityClass(Intent newIntent, int requestCode, Class<?> cls) {
-        newIntent.putExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO, 
-                                                  mPkgInfo.applicationInfo);
-        newIntent.setData(mPackageURI);
-        newIntent.setClass(this, cls);
-
-        String installerPackageName = getIntent().getStringExtra(
-                Intent.EXTRA_INSTALLER_PACKAGE_NAME);
-        if (installerPackageName != null) {
-            newIntent.putExtra(Intent.EXTRA_INSTALLER_PACKAGE_NAME, installerPackageName);
-        }
-
-        if(localLOGV) Log.i(TAG, "downloaded app uri="+mPackageURI);
-        startActivityForResult(newIntent, requestCode);
-    }
 
     private void startInstallConfirm() {
-        Intent newIntent = new Intent();
-        newIntent.putExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO, 
-                mPkgInfo.applicationInfo);
-        newIntent.setData(mPackageURI);
-        newIntent.setClass(this, InstallAppConfirmation.class);
-        startActivityForResult(newIntent, INSTALL_CONFIRM);
+        LinearLayout permsSection = (LinearLayout) mInstallConfirm.findViewById(R.id.permissions_section);
+        LinearLayout securityList = (LinearLayout) permsSection.findViewById(
+                R.id.security_settings_list);
+        boolean permVisible = false;
+        if(mPkgInfo != null) {
+            AppSecurityPermissions asp = new AppSecurityPermissions(this, mPkgInfo);
+            if(asp.getPermissionCount() > 0) {
+                permVisible = true;
+                securityList.addView(asp.getPermissionsView());
+            }
+        }
+        if(!permVisible){
+            securityList.setVisibility(View.INVISIBLE);
+        }
+        mInstallConfirm.setVisibility(View.VISIBLE);
+        mOk = (Button)findViewById(R.id.ok_button);
+        mCancel = (Button)findViewById(R.id.cancel_button);
+        mOk.setOnClickListener(this);
+        mCancel.setOnClickListener(this);
     }
-    
-    private void startInstallProgress() {
-        startInstallActivityClass(INSTALL_PROGRESS, InstallAppProgress.class);
-    }
-    
-    private void startInstallDone() {
-        Intent newIntent = new Intent(Intent.ACTION_VIEW);
-        newIntent.putExtra(PackageUtil.INTENT_ATTR_INSTALL_STATUS, true);
-        startInstallActivityClass(newIntent, INSTALL_DONE, InstallAppDone.class);
-    }
-    
+
     private void showDialogInner(int id) {
         // TODO better fix for this? Remove dialog so that it gets created again
         removeDialog(id);
@@ -163,6 +155,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                     .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             startInstallConfirm();
+                            mReplacing = true;
                         }})
                     .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
@@ -335,7 +328,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     }
     
     @Override
-    public void onCreate(Bundle icicle) {
+    protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         //get intent information
         final Intent intent = getIntent();
@@ -353,6 +346,8 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         //set view
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.install_start);
+        mInstallConfirm = findViewById(R.id.install_confirm_panel);
+        mInstallConfirm.setVisibility(View.INVISIBLE);
         PackageUtil.initSnippetForNewApp(this, mPkgInfo.applicationInfo,
                 R.id.app_snippet, mPackageURI);
        //check setting
@@ -378,51 +373,30 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             deleteFile(mTmpFile.getName());
         }
     }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        boolean finish = true;
-        boolean removeTmpFile = false;
-        switch(requestCode) {
-        case INSTALL_CONFIRM:
-            if (resultCode == RESULT_OK) {
-                finish = false;
-                mCurrentState = INSTALL_PROGRESS;
-                startInstallProgress();
-            } else {
-                removeTmpFile = true;
-            }
-            break;
-        case INSTALL_PROGRESS:
-            finish = false;
-            mCurrentState = INSTALL_DONE;
-            if (resultCode == PackageManager.INSTALL_SUCCEEDED) {
-                //start the next screen to show final status of installation
-                startInstallDone();
-            } else {
-                showDialogInner(DLG_INSTALL_ERROR);
-            }
-            // Now that the package is installed just delete the temp file
-            removeTmpFile = true;
-            break;
-        case INSTALL_DONE:
-            //neednt check for result code here
-            break;
-        default:
-            break;
-        }
-        if ((removeTmpFile) && (mTmpFile != null)) {
-            deleteFile(mTmpFile.getName());
-        }
-        if (finish) {
-            //finish off this activity to return to the previous activity that launched it
-            if (localLOGV) Log.i(TAG, "Finishing off activity");
-            finish();
-        }
-    }
     
     // Generic handling when pressing back key
     public void onCancel(DialogInterface dialog) {
         finish();
+    }
+
+    public void onClick(View v) {
+        if(v == mOk) {
+            // Start subactivity to actually install the application
+            Intent newIntent = new Intent();
+            newIntent.putExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO,
+                    mPkgInfo.applicationInfo);
+            newIntent.setData(mPackageURI);
+            newIntent.setClass(this, InstallAppProgress.class);
+            String installerPackageName = getIntent().getStringExtra(Intent.EXTRA_INSTALLER_PACKAGE_NAME);
+            if (installerPackageName != null) {
+                newIntent.putExtra(Intent.EXTRA_INSTALLER_PACKAGE_NAME, installerPackageName);
+            }
+            if(localLOGV) Log.i(TAG, "downloaded app uri="+mPackageURI);
+            startActivity(newIntent);
+            finish();
+        } else if(v == mCancel) {
+            // Cancel and finish
+            finish();
+        }
     }
 }
