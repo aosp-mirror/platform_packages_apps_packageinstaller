@@ -26,27 +26,23 @@
         <include
             layout="@layout/app_details"
             android:id="@+id/app_snippet"/>
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="fill_parent"
-            android:paddingLeft="6dip"
+        <TextView
+            android:id="@+id/center_text"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true">
-            <TextView
-                android:id="@+id/center_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-            <ProgressBar
-                android:id="@+id/progress_bar"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="24dip"
-                android:max="100" />
-        </LinearLayout>
+            android:layout_centerVertical="true"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="24dip"
+            android:layout_below="@id/center_text"
+            android:max="100" />
         <RelativeLayout
+            android:id="@+id/ok_panel"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@color/title_background"
@@ -54,12 +50,8 @@
             <Button
                 android:id="@+id/ok_button"
                 android:paddingRight="6dip"
-                android:paddingBottom="6dip"
                 android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
                 android:text="@string/ok"
-                android:layout_centerVertical="true"
-                android:gravity="center"
                 android:layout_width="150dip"
                 android:layout_height="wrap_content"/>
         </RelativeLayout>
