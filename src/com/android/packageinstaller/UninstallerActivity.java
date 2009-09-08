@@ -43,8 +43,6 @@ public class UninstallerActivity extends Activity implements OnClickListener,
         DialogInterface.OnCancelListener {
     private static final String TAG = "UninstallerActivity";
     private boolean localLOGV = false;
-    // Request code
-    private static final int UNINSTALL_PROGRESS = 1;
     PackageManager mPm;
     private ApplicationInfo mAppInfo;
     private Button mOk;
@@ -54,11 +52,7 @@ public class UninstallerActivity extends Activity implements OnClickListener,
     private static final int DLG_BASE = 0;
     private static final int DLG_APP_NOT_FOUND = DLG_BASE + 1;
     private static final int DLG_UNINSTALL_FAILED = DLG_BASE + 2;
-    
-    private void showDialogInner(int id) {
-        showDialog(id);
-    }
-    
+
     @Override
     public Dialog onCreateDialog(int id) {
         switch (id) {
@@ -98,7 +92,7 @@ public class UninstallerActivity extends Activity implements OnClickListener,
         newIntent.putExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO, 
                                                   mAppInfo);
         newIntent.setClass(this, UninstallAppProgress.class);
-        startActivityForResult(newIntent, UNINSTALL_PROGRESS);
+        startActivity(newIntent);
     }
 
     @Override
@@ -143,21 +137,6 @@ public class UninstallerActivity extends Activity implements OnClickListener,
             mCancel = (Button)findViewById(R.id.cancel_button);
             mOk.setOnClickListener(this);
             mCancel.setOnClickListener(this);
-        }
-    }
-    
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode != UNINSTALL_PROGRESS) {
-            return;
-        }
-        // Start the next screen to show final status of installation
-        if (resultCode != UninstallAppProgress.SUCCEEDED) {
-            showDialogInner(DLG_UNINSTALL_FAILED);
-        } else {
-            // Finish off this activity
-            if (localLOGV) Log.i(TAG, "Finishing off activity");
-            finish();
         }
     }
     
