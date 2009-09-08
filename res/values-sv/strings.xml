@@ -15,41 +15,39 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">"Installationsprogram för paket"</string>
-    <string name="install">"Installera"</string>
-    <string name="done">"Färdig"</string>
-    <string name="security_settings_desc">"Tillåt att det här programmet:"</string>
-    <string name="cancel">"Avbryt"</string>
-    <string name="unknown">"Okänd"</string>
-    <string name="installing">"Installerar…"</string>
-    <string name="install_done">"Program har installerats"</string>
-    <string name="install_confirm_question">"Vill du installera det här programmet?"</string>
-    <string name="install_failed">"Programmet har inte installerats"</string>
-    <string name="install_failed_msg">"Det gick inte att installera <xliff:g id="APP_NAME">%1$s</xliff:g> på den här telefonen."</string>
-    <string name="launch">"Öppna"</string>
-    <string name="unknown_apps_dlg_title">"Installation blockerad"</string>
-    <string name="unknown_apps_dlg_text">"Av säkerhetsskäl är din telefon inställd så att den blockerar installation av program som inte finns i Android-butiken."</string>
-    <string name="ok">"OK"</string>
-    <string name="settings">"Inställningar"</string>
-    <string name="manage_applications">"Hantera program"</string>
-    <string name="dlg_app_replacement_title">"Byt ut program"</string>
-    <string name="dlg_app_replacement_statement">"Programmet som du installerar ersätter ett annat program."\n\n"Alla tidigare användardata sparas."</string>
-    <string name="dlg_sys_app_replacement_statement">"Det här är ett systemprogram. Vill du byta ut det?"\n\n"Alla tidigare användardata sparas."</string>
-    <string name="out_of_space_dlg_title">"Slut på utrymme"</string>
-    <string name="out_of_space_dlg_text">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunde inte visas. Frigör utrymme på din telefon och försök igen."</string>
-    <string name="dlg_ok">"OK"</string>
-    <string name="app_not_found_dlg_title">"Programmet hittades inte"</string>
-    <string name="app_not_found_dlg_text">"Programmet hittades inte i listan över installerade program."</string>
-    <string name="uninstall_application_question">"Avinstallera program?"</string>
-    <!-- no translation found for uninstall_update_question (2600765438050721390) -->
-    <skip />
-    <string name="uninstall_application_text">"Programmet tas bort från din telefon."</string>
-    <!-- no translation found for uninstall_update_text (6695211142526505726) -->
-    <skip />
-    <string name="uninstalling">"Avinstallerar…"</string>
-    <string name="uninstall_done">"Avinstallationen slutförd!"</string>
-    <string name="uninstall_failed">"Det gick inte att avinstallera"</string>
-    <string name="uninstall_failed_msg">"Det gick inte att avinstallera <xliff:g id="APP_NAME">%1$s</xliff:g>!"</string>
-    <string name="Parse_error_dlg_title">"Analysfel"</string>
-    <string name="Parse_error_dlg_text">"Det uppstod ett problem när paketet analyserades."</string>
+    <string name="app_name" msgid="1998766462707453166">"Installationsprogram för paket"</string>
+    <string name="install" msgid="5896438203900042068">"Installera"</string>
+    <string name="done" msgid="3889387558374211719">"Färdig"</string>
+    <string name="security_settings_desc" msgid="4984920898157282073">"Tillåt att det här programmet:"</string>
+    <string name="cancel" msgid="8360346460165114585">"Avbryt"</string>
+    <string name="unknown" msgid="4742479012767208045">"Okänd"</string>
+    <string name="installing" msgid="8613631001631998372">"Installerar…"</string>
+    <string name="install_done" msgid="5868979453936752120">"Program har installerats"</string>
+    <string name="install_confirm_question" msgid="5512879835615493065">"Vill du installera det här programmet?"</string>
+    <string name="install_failed" msgid="6644311739017660989">"Programmet har inte installerats"</string>
+    <string name="install_failed_msg" msgid="5282789300118241924">"Det gick inte att installera <xliff:g id="APP_NAME">%1$s</xliff:g> på den här telefonen."</string>
+    <string name="launch" msgid="4826921505917605463">"Öppna"</string>
+    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Installation blockerad"</string>
+    <string name="unknown_apps_dlg_text" msgid="5022078090329832537">"Av säkerhetsskäl är din telefon inställd så att den blockerar installation av program som inte finns i Android-butiken."</string>
+    <string name="ok" msgid="3468756155452870475">"OK"</string>
+    <string name="settings" msgid="6743583734099755409">"Inställningar"</string>
+    <string name="manage_applications" msgid="2704331021611806557">"Hantera program"</string>
+    <string name="dlg_app_replacement_title" msgid="3438730820395482641">"Byt ut program"</string>
+    <string name="dlg_app_replacement_statement" msgid="1175452362814803850">"Programmet som du installerar ersätter ett annat program."\n\n"Alla tidigare användardata sparas."</string>
+    <string name="dlg_sys_app_replacement_statement" msgid="1047598434568470723">"Det här är ett systemprogram. Vill du byta ut det?"\n\n"Alla tidigare användardata sparas."</string>
+    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Slut på utrymme"</string>
+    <string name="out_of_space_dlg_text" msgid="5817764827778985771">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunde inte visas. Frigör utrymme på din telefon och försök igen."</string>
+    <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
+    <string name="app_not_found_dlg_title" msgid="1510267643973600726">"Programmet hittades inte"</string>
+    <string name="app_not_found_dlg_text" msgid="754013198108180241">"Programmet hittades inte i listan över installerade program."</string>
+    <string name="uninstall_application_question" msgid="7290302854905395978">"Avinstallera program?"</string>
+    <string name="uninstall_update_question" msgid="2600765438050721390">"Vill du avinstallera uppdateringen?"</string>
+    <string name="uninstall_application_text" msgid="9107842143723765782">"Programmet tas bort från din telefon."</string>
+    <string name="uninstall_update_text" msgid="6695211142526505726">"Programuppdateringen avinstalleras. Du kan fortfarande använda fabriksversionen av programmet."</string>
+    <string name="uninstalling" msgid="5556217435895938250">"Avinstallerar…"</string>
+    <string name="uninstall_done" msgid="8730655660697216076">"Avinstallationen slutförd!"</string>
+    <string name="uninstall_failed" msgid="5725854598594371845">"Det gick inte att avinstallera"</string>
+    <string name="uninstall_failed_msg" msgid="5480019148754200912">"Det gick inte att avinstallera <xliff:g id="APP_NAME">%1$s</xliff:g>!"</string>
+    <string name="Parse_error_dlg_title" msgid="6784222986864864223">"Analysfel"</string>
+    <string name="Parse_error_dlg_text" msgid="1440309982917966479">"Det uppstod ett problem när paketet analyserades."</string>
 </resources>
