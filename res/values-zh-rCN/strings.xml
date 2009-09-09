@@ -15,41 +15,39 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">"打包安装程序"</string>
-    <string name="install">"安装"</string>
-    <string name="done">"完成"</string>
-    <string name="security_settings_desc">"允许该应用程序："</string>
-    <string name="cancel">"取消"</string>
-    <string name="unknown">"未知"</string>
-    <string name="installing">"正在安装..."</string>
-    <string name="install_done">"应用程序已安装"</string>
-    <string name="install_confirm_question">"是否要安装该应用程序？"</string>
-    <string name="install_failed">"应用程序未安装"</string>
-    <string name="install_failed_msg">"无法在此手机上安装<xliff:g id="APP_NAME">%1$s</xliff:g>。"</string>
-    <string name="launch">"打开"</string>
-    <string name="unknown_apps_dlg_title">"禁止安装"</string>
-    <string name="unknown_apps_dlg_text">"为了安全起见，您的手机设置为禁止安装非 Android 电子市场提供的应用程序。"</string>
-    <string name="ok">"确定"</string>
-    <string name="settings">"设置"</string>
-    <string name="manage_applications">"管理应用程序"</string>
-    <string name="dlg_app_replacement_title">"替换应用程序"</string>
-    <string name="dlg_app_replacement_statement">"您正在安装的应用程序会替换其他应用程序。"\n\n"会保存所有以前的用户数据。"</string>
-    <string name="dlg_sys_app_replacement_statement">"这是一个系统应用程序。您是否仍要替换它？"\n\n"之前的所有用户数据都会保存。"</string>
-    <string name="out_of_space_dlg_title">"空间不足"</string>
-    <string name="out_of_space_dlg_text">"无法查看<xliff:g id="APP_NAME">%1$s</xliff:g>。请释放部分手机空间，然后重试。"</string>
-    <string name="dlg_ok">"确定"</string>
-    <string name="app_not_found_dlg_title">"找不到应用程序"</string>
-    <string name="app_not_found_dlg_text">"在已安装应用程序的列表中找不到该应用程序。"</string>
-    <string name="uninstall_application_question">"是否卸载应用程序？"</string>
-    <!-- no translation found for uninstall_update_question (2600765438050721390) -->
-    <skip />
-    <string name="uninstall_application_text">"将从您的手机中删除该应用程序。"</string>
-    <!-- no translation found for uninstall_update_text (6695211142526505726) -->
-    <skip />
-    <string name="uninstalling">"正在卸载..."</string>
-    <string name="uninstall_done">"卸载完成！"</string>
-    <string name="uninstall_failed">"卸载失败"</string>
-    <string name="uninstall_failed_msg">"<xliff:g id="APP_NAME">%1$s</xliff:g> 无法卸载！"</string>
-    <string name="Parse_error_dlg_title">"解析错误"</string>
-    <string name="Parse_error_dlg_text">"解析包时出现问题。"</string>
+    <string name="app_name" msgid="1998766462707453166">"打包安装程序"</string>
+    <string name="install" msgid="5896438203900042068">"安装"</string>
+    <string name="done" msgid="3889387558374211719">"完成"</string>
+    <string name="security_settings_desc" msgid="4984920898157282073">"允许安装该应用程序："</string>
+    <string name="cancel" msgid="8360346460165114585">"取消"</string>
+    <string name="unknown" msgid="4742479012767208045">"未知"</string>
+    <string name="installing" msgid="8613631001631998372">"正在安装..."</string>
+    <string name="install_done" msgid="5868979453936752120">"应用程序已安装"</string>
+    <string name="install_confirm_question" msgid="5512879835615493065">"是否要安装该应用程序？"</string>
+    <string name="install_failed" msgid="6644311739017660989">"应用程序未安装"</string>
+    <string name="install_failed_msg" msgid="5282789300118241924">"无法在此手机上安装<xliff:g id="APP_NAME">%1$s</xliff:g>。"</string>
+    <string name="launch" msgid="4826921505917605463">"打开"</string>
+    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"禁止安装"</string>
+    <string name="unknown_apps_dlg_text" msgid="5022078090329832537">"为了安全起见，您的手机已设置为禁止安装不是由 Android 电子市场提供的应用程序。"</string>
+    <string name="ok" msgid="3468756155452870475">"确定"</string>
+    <string name="settings" msgid="6743583734099755409">"设置"</string>
+    <string name="manage_applications" msgid="2704331021611806557">"管理应用程序"</string>
+    <string name="dlg_app_replacement_title" msgid="3438730820395482641">"替换应用程序"</string>
+    <string name="dlg_app_replacement_statement" msgid="1175452362814803850">"您正在安装的应用程序会替换其他应用程序。"\n\n"会保存所有以前的用户数据。"</string>
+    <string name="dlg_sys_app_replacement_statement" msgid="1047598434568470723">"这是一个系统应用程序。您是否仍要替换它？"\n\n"之前的所有用户数据都会保存。"</string>
+    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"空间不足"</string>
+    <string name="out_of_space_dlg_text" msgid="5817764827778985771">"无法查看<xliff:g id="APP_NAME">%1$s</xliff:g>。请释放部分手机空间，然后重试。"</string>
+    <string name="dlg_ok" msgid="6944357727705699232">"确定"</string>
+    <string name="app_not_found_dlg_title" msgid="1510267643973600726">"找不到应用程序"</string>
+    <string name="app_not_found_dlg_text" msgid="754013198108180241">"在已安装应用程序的列表中找不到该应用程序。"</string>
+    <string name="uninstall_application_question" msgid="7290302854905395978">"是否卸载应用程序？"</string>
+    <string name="uninstall_update_question" msgid="2600765438050721390">"是否卸载更新？"</string>
+    <string name="uninstall_application_text" msgid="9107842143723765782">"将从您的手机中删除该应用程序。"</string>
+    <string name="uninstall_update_text" msgid="6695211142526505726">"此时将卸载该应用程序更新。仍可使用该应用程序的出厂版。"</string>
+    <string name="uninstalling" msgid="5556217435895938250">"正在卸载..."</string>
+    <string name="uninstall_done" msgid="8730655660697216076">"卸载完成！"</string>
+    <string name="uninstall_failed" msgid="5725854598594371845">"卸载失败"</string>
+    <string name="uninstall_failed_msg" msgid="5480019148754200912">"<xliff:g id="APP_NAME">%1$s</xliff:g> 无法卸载！"</string>
+    <string name="Parse_error_dlg_title" msgid="6784222986864864223">"解析错误"</string>
+    <string name="Parse_error_dlg_text" msgid="1440309982917966479">"解析包时出现问题。"</string>
 </resources>
