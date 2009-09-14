@@ -15,11 +15,7 @@
                 <data android:mimeType="application/vnd.android.package-archive" />
             </intent-filter>
         </activity>
-        <activity android:name=".InstallAppConfirmation">
-        </activity>
         <activity android:name=".InstallAppProgress">
-        </activity>
-        <activity android:name=".InstallAppDone">
         </activity>
         <activity android:name=".UninstallerActivity">
             <intent-filter>
@@ -30,8 +26,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".UninstallAppProgress">
-        </activity>
-        <activity android:name=".UninstallAppDone">
         </activity>
     </application>
 </manifest> 
