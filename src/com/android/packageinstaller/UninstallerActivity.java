@@ -93,6 +93,7 @@ public class UninstallerActivity extends Activity implements OnClickListener,
                                                   mAppInfo);
         newIntent.setClass(this, UninstallAppProgress.class);
         startActivity(newIntent);
+        finish();
     }
 
     @Override
