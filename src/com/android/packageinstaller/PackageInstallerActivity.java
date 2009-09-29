@@ -356,6 +356,8 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             showDialogInner(DLG_UNKNOWN_APPS);
             return;
         }
+        // Clear any other temporary files in data directory
+        mPm.clearApplicationUserData(getPackageName(), null);
         //compute the size of the application. just an estimate
         long size;
         String apkPath = mPackageURI.getPath();
