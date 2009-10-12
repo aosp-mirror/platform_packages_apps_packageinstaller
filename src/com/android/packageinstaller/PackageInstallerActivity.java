@@ -126,7 +126,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             }
         }
         if(!permVisible){
-            securityList.setVisibility(View.INVISIBLE);
+            permsSection.setVisibility(View.INVISIBLE);
         }
         mInstallConfirm.setVisibility(View.VISIBLE);
         mOk = (Button)findViewById(R.id.ok_button);
