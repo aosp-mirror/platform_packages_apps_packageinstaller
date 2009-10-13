@@ -15,41 +15,39 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">"Instalador do pacote"</string>
-    <string name="install">"Instalar"</string>
-    <string name="done">"Concluído"</string>
-    <string name="security_settings_desc">"Permitir que este aplicativo:"</string>
-    <string name="cancel">"Cancelar"</string>
-    <string name="unknown">"Desconhecido"</string>
-    <string name="installing">"Instalando..."</string>
-    <string name="install_done">"Aplicativo instalado"</string>
-    <string name="install_confirm_question">"Deseja instalar este aplicativo?"</string>
-    <string name="install_failed">"O aplicativo não está instalado."</string>
-    <string name="install_failed_msg">"Não foi possível instalar o <xliff:g id="APP_NAME">%1$s</xliff:g> neste telefone."</string>
-    <string name="launch">"Abrir"</string>
-    <string name="unknown_apps_dlg_title">"Instalação bloqueada"</string>
-    <string name="unknown_apps_dlg_text">"Por segurança, o seu telefone está configurado para bloquear a instalação de aplicativos que não foram criados no Android Market."</string>
-    <string name="ok">"OK"</string>
-    <string name="settings">"Configurações"</string>
-    <string name="manage_applications">"Gerenciar aplicativos"</string>
-    <string name="dlg_app_replacement_title">"Substituir aplicativo"</string>
-    <string name="dlg_app_replacement_statement">"O aplicativo que você está instalando substituirá outro aplicativo."\n\n"Todos os dados de usuário anteriores serão salvos."</string>
-    <string name="dlg_sys_app_replacement_statement">"Este é um aplicativo do sistema. Ainda deseja substituí-lo?"\n\n"Todos os dados de usuário anteriores serão salvos."</string>
-    <string name="out_of_space_dlg_title">"Sem espaço"</string>
-    <string name="out_of_space_dlg_text">"Não foi possível visualizar o <xliff:g id="APP_NAME">%1$s</xliff:g>. Libere algum espaço no seu telefone e tente novamente."</string>
-    <string name="dlg_ok">"OK"</string>
-    <string name="app_not_found_dlg_title">"Aplicativo não encontrado"</string>
-    <string name="app_not_found_dlg_text">"O aplicativo não foi encontrado na lista de aplicativos instalados."</string>
-    <string name="uninstall_application_question">"Desinstalar aplicativo?"</string>
-    <!-- no translation found for uninstall_update_question (2600765438050721390) -->
-    <skip />
-    <string name="uninstall_application_text">"Este aplicativo será removido do seu telefone."</string>
-    <!-- no translation found for uninstall_update_text (6695211142526505726) -->
-    <skip />
-    <string name="uninstalling">"Desinstalando..."</string>
-    <string name="uninstall_done">"Desinstalação concluída!"</string>
-    <string name="uninstall_failed">"Falha na desinstalação"</string>
-    <string name="uninstall_failed_msg">"Não foi possível desinstalar <xliff:g id="APP_NAME">%1$s</xliff:g>!"</string>
-    <string name="Parse_error_dlg_title">"Erro de análise"</string>
-    <string name="Parse_error_dlg_text">"Há um problema com a análise do pacote."</string>
+    <string name="app_name" msgid="1998766462707453166">"Instalador do pacote"</string>
+    <string name="install" msgid="5896438203900042068">"Instalar"</string>
+    <string name="done" msgid="3889387558374211719">"Concluído"</string>
+    <string name="security_settings_desc" msgid="4984920898157282073">"Permitir que este aplicativo:"</string>
+    <string name="cancel" msgid="8360346460165114585">"Cancelar"</string>
+    <string name="unknown" msgid="4742479012767208045">"Desconhecido"</string>
+    <string name="installing" msgid="8613631001631998372">"Instalando..."</string>
+    <string name="install_done" msgid="5868979453936752120">"Aplicativo instalado"</string>
+    <string name="install_confirm_question" msgid="5512879835615493065">"Deseja instalar este aplicativo?"</string>
+    <string name="install_failed" msgid="6644311739017660989">"O aplicativo não está instalado."</string>
+    <string name="install_failed_msg" msgid="5282789300118241924">"Não foi possível instalar o <xliff:g id="APP_NAME">%1$s</xliff:g> neste telefone."</string>
+    <string name="launch" msgid="4826921505917605463">"Abrir"</string>
+    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Instalação bloqueada"</string>
+    <string name="unknown_apps_dlg_text" msgid="5022078090329832537">"Por segurança, o seu telefone está configurado para bloquear a instalação de aplicativos que não foram criados no Android Market."</string>
+    <string name="ok" msgid="3468756155452870475">"OK"</string>
+    <string name="settings" msgid="6743583734099755409">"Configurações"</string>
+    <string name="manage_applications" msgid="2704331021611806557">"Gerenciar aplicativos"</string>
+    <string name="dlg_app_replacement_title" msgid="3438730820395482641">"Substituir aplicativo"</string>
+    <string name="dlg_app_replacement_statement" msgid="1175452362814803850">"O aplicativo que você está instalando substituirá outro aplicativo."\n\n"Todos os dados de usuário anteriores serão salvos."</string>
+    <string name="dlg_sys_app_replacement_statement" msgid="1047598434568470723">"Este é um aplicativo do sistema. Ainda deseja substituí-lo?"\n\n"Todos os dados de usuário anteriores serão salvos."</string>
+    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Sem espaço"</string>
+    <string name="out_of_space_dlg_text" msgid="5817764827778985771">"Não foi possível visualizar o <xliff:g id="APP_NAME">%1$s</xliff:g>. Libere algum espaço no seu telefone e tente novamente."</string>
+    <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
+    <string name="app_not_found_dlg_title" msgid="1510267643973600726">"Aplicativo não encontrado"</string>
+    <string name="app_not_found_dlg_text" msgid="754013198108180241">"O aplicativo não foi encontrado na lista de aplicativos instalados."</string>
+    <string name="uninstall_application_question" msgid="7290302854905395978">"Desinstalar aplicativo?"</string>
+    <string name="uninstall_update_question" msgid="2600765438050721390">"Desinstalar atualização?"</string>
+    <string name="uninstall_application_text" msgid="9107842143723765782">"Este aplicativo será removido do seu telefone."</string>
+    <string name="uninstall_update_text" msgid="6695211142526505726">"A atualização do aplicativo será desinstalada. Você ainda poderá usar a versão de fábrica do aplicativo."</string>
+    <string name="uninstalling" msgid="5556217435895938250">"Desinstalando..."</string>
+    <string name="uninstall_done" msgid="8730655660697216076">"Desinstalação concluída!"</string>
+    <string name="uninstall_failed" msgid="5725854598594371845">"Falha na desinstalação"</string>
+    <string name="uninstall_failed_msg" msgid="5480019148754200912">"Não foi possível desinstalar <xliff:g id="APP_NAME">%1$s</xliff:g>!"</string>
+    <string name="Parse_error_dlg_title" msgid="6784222986864864223">"Erro de análise"</string>
+    <string name="Parse_error_dlg_text" msgid="1440309982917966479">"Há um problema com a análise do pacote."</string>
 </resources>
