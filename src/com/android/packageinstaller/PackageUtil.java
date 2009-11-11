@@ -123,17 +123,27 @@ public class PackageUtil {
         CharSequence label = null;
         // Try to load the label from the package's resources. If an app has not explicitly
         // specified any label, just use the package name.
-        try {
-            label = res.getText(appInfo.labelRes);
-        } catch (Resources.NotFoundException e) {
+        if (appInfo.labelRes != 0) {
+            try {
+                label = res.getText(appInfo.labelRes);
+            } catch (Resources.NotFoundException e) {
+            }
+        }
+        if ((label == null) && (appInfo.nonLocalizedLabel != null)) {
+            label = appInfo.nonLocalizedLabel;
+        } else {
             label = appInfo.packageName;
         }
         Drawable icon = null;
         // Try to load the icon from the package's resources. If an app has not explicitly
         // specified any resource, just use the default icon for now.
-        try {
-            icon = res.getDrawable(appInfo.icon);
-        } catch (Resources.NotFoundException e) {
+        if (appInfo.icon != 0) {
+            try {
+                icon = res.getDrawable(appInfo.icon);
+            } catch (Resources.NotFoundException e) {
+            }
+        }
+        if (icon == null) {
             icon = pContext.getPackageManager().getDefaultActivityIcon();
         }
         ((ImageView)appSnippet.findViewById(R.id.app_icon)).setImageDrawable(icon);
