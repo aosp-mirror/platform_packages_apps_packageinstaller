@@ -123,18 +123,6 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
     public void initView() {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.op_progress);
-        // Initialize views
-        PackageUtil.initSnippetForInstalledApp(this, mAppInfo, R.id.app_snippet);
-        mStatusTextView = (TextView)findViewById(R.id.center_text);
-        mStatusTextView.setText(R.string.installing);
-        mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
-        mProgressBar.setIndeterminate(true);
-        // Hide button till progress is being displayed
-        mOkPanel = (View)findViewById(R.id.buttons_panel);
-        mDoneButton = (Button)findViewById(R.id.done_button);
-        mLaunchButton = (Button)findViewById(R.id.launch_button);
-        mOkPanel.setVisibility(View.INVISIBLE);
-        // Set flag to replace package if already existing
         int installFlags = 0;
         PackageManager pm = getPackageManager();
         try {
@@ -147,7 +135,23 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
         }
         if((installFlags & PackageManager.INSTALL_REPLACE_EXISTING )!= 0) {
             Log.w(TAG, "Replacing package:" + mAppInfo.packageName);
+            // Initialize views
+            PackageUtil.initSnippetForInstalledApp(this, mAppInfo,
+                    R.id.app_snippet);
+        } else {
+            PackageUtil.initSnippetForNewApp(this, mAppInfo,
+                    R.id.app_snippet, mPackageURI);
         }
+        mStatusTextView = (TextView)findViewById(R.id.center_text);
+        mStatusTextView.setText(R.string.installing);
+        mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
+        mProgressBar.setIndeterminate(true);
+        // Hide button till progress is being displayed
+        mOkPanel = (View)findViewById(R.id.buttons_panel);
+        mDoneButton = (Button)findViewById(R.id.done_button);
+        mLaunchButton = (Button)findViewById(R.id.launch_button);
+        mOkPanel.setVisibility(View.INVISIBLE);
+
         String installerPackageName = getIntent().getStringExtra(
                 Intent.EXTRA_INSTALLER_PACKAGE_NAME);
         
