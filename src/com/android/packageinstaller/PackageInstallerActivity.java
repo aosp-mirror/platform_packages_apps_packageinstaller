@@ -19,9 +19,6 @@ package com.android.packageinstaller;
 import com.android.packageinstaller.R;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -33,13 +30,11 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.IPackageDataObserver;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageParser;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.FileUtils;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.Settings;
@@ -50,7 +45,6 @@ import android.view.View.OnClickListener;
 import android.widget.AppSecurityPermissions;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 /*
  * This activity is launched when a new application is installed via side loading
@@ -69,7 +63,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     PackageManager mPm;
     private boolean mReplacing = false;
     private PackageParser.Package mPkgInfo;
-    private File mTmpFile;
     private static final int SUCCEEDED = 1;
     private static final int FAILED = 0;
     // Broadcast receiver for clearing cache
@@ -271,46 +264,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             Settings.Secure.INSTALL_NON_MARKET_APPS, 0) > 0;
     }
     
-    private File createTempPackageFile(String filePath) {
-        File tmpPackageFile;
-        int i = filePath.lastIndexOf("/");
-        String tmpFileName;
-        if(i != -1) {
-            tmpFileName = filePath.substring(i+1);
-        } else {
-            tmpFileName = filePath;
-        }
-        FileOutputStream fos;
-        try {
-            fos=openFileOutput(tmpFileName, MODE_WORLD_READABLE);
-        } catch (FileNotFoundException e1) {
-            Log.e(TAG, "Error opening file "+tmpFileName);
-            return null;
-        }
-        try {
-            fos.close();
-        } catch (IOException e) {
-            Log.e(TAG, "Error opening file "+tmpFileName);
-            return null;
-        }
-        tmpPackageFile=getFileStreamPath(tmpFileName);
-        File srcPackageFile = new File(filePath);
-        if (!FileUtils.copyFile(srcPackageFile, tmpPackageFile)) {
-            return null;
-        }
-        return tmpPackageFile;
-    }
-    
     private void makeTempCopyAndInstall() {
-        //copy file to tmp dir
-        mTmpFile = createTempPackageFile(mPackageURI.getPath());
-        if(mTmpFile == null) {
-            //display a dialog
-            Log.e(TAG, "Error copying file locally. Failed Installation");
-            showDialogInner(DLG_OUT_OF_SPACE);
-            return;
-        }
-        mPackageURI = Uri.parse("file://"+mTmpFile.getPath());
         // Check if package is already installed. display confirmation dialog if replacing pkg
         try {
             mAppInfo = mPm.getApplicationInfo(mPkgInfo.packageName,
@@ -356,8 +310,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             showDialogInner(DLG_UNKNOWN_APPS);
             return;
         }
-        // Clear any other temporary files in data directory
-        mPm.clearApplicationUserData(getPackageName(), null);
         //compute the size of the application. just an estimate
         long size;
         String apkPath = mPackageURI.getPath();
@@ -365,15 +317,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         //TODO? DEVISE BETTER HEAURISTIC
         size = 4*apkFile.length();
         checkOutOfSpace(size);
-    }
-    
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        // Delete the temporary file if it still exists
-        if (mTmpFile != null) {
-            deleteFile(mTmpFile.getName());
-        }
     }
     
     // Generic handling when pressing back key

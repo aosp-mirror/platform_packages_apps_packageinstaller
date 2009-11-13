@@ -29,6 +29,7 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.FileUtils;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -37,6 +38,11 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 /**
  * This activity corresponds to a download progress screen that is displayed 
@@ -60,6 +66,9 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
     final static int FAILED = 0;
     private final int INSTALL_COMPLETE = 1;
     private Intent mLaunchIntent;
+    private File mTmpFile;
+    private final String TMP_FILE_NAME="tmpCopy.apk";
+
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -152,6 +161,15 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
         mLaunchButton = (Button)findViewById(R.id.launch_button);
         mOkPanel.setVisibility(View.INVISIBLE);
 
+        // Create temp file before invoking install api
+        mTmpFile = createTempPackageFile(mPackageURI.getPath());
+        if (mTmpFile == null) {
+            Message msg = mHandler.obtainMessage(INSTALL_COMPLETE);
+            msg.arg1 = PackageManager.INSTALL_FAILED_INSUFFICIENT_STORAGE;
+            mHandler.sendMessage(msg);
+            return;
+        }
+        mPackageURI = Uri.parse("file://" + mTmpFile.getPath());
         String installerPackageName = getIntent().getStringExtra(
                 Intent.EXTRA_INSTALLER_PACKAGE_NAME);
         
@@ -159,13 +177,55 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
         pm.installPackage(mPackageURI, observer, installFlags, installerPackageName);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mTmpFile != null && mTmpFile.exists()) {
+            mTmpFile.delete();
+        }
+    }
+
     public void onClick(View v) {
         if(v == mDoneButton) {
-            Log.i(TAG, "Finished installing "+mAppInfo);
+            if (mAppInfo.packageName != null) {
+                Log.i(TAG, "Finished installing "+mAppInfo.packageName);
+            }
             finish();
         } else if(v == mLaunchButton) {
             startActivity(mLaunchIntent);
             finish();
         }
+    }
+
+    private File createTempPackageFile(String filePath) {
+        File tmpPackageFile  = getFileStreamPath(TMP_FILE_NAME);
+        if (tmpPackageFile == null) {
+            Log.w(TAG, "Failed to create temp file");
+            return null;
+        }
+        if (tmpPackageFile.exists()) {
+            tmpPackageFile.delete();
+        }
+        // Open file to make it world readable
+        FileOutputStream fos;
+        try {
+            fos = openFileOutput(TMP_FILE_NAME, MODE_WORLD_READABLE);
+        } catch (FileNotFoundException e1) {
+            Log.e(TAG, "Error opening file " + TMP_FILE_NAME);
+            return null;
+        }
+        try {
+            fos.close();
+        } catch (IOException e) {
+            Log.e(TAG, "Error opening file " + TMP_FILE_NAME);
+            return null;
+        }
+
+        File srcPackageFile = new File(filePath);
+        if (!FileUtils.copyFile(srcPackageFile, tmpPackageFile)) {
+            Log.w(TAG, "Failed to make copy of file: " + srcPackageFile);
+            return null;
+        }
+        return tmpPackageFile;
     }
 }
