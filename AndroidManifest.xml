@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.DELETE_PACKAGES" />
     <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CLEAR_APP_USER_DATA" />
     <application android:label="@string/app_name"> 
         <activity android:name=".PackageInstallerActivity">
             <intent-filter>
@@ -15,11 +16,7 @@
                 <data android:mimeType="application/vnd.android.package-archive" />
             </intent-filter>
         </activity>
-        <activity android:name=".InstallAppConfirmation">
-        </activity>
         <activity android:name=".InstallAppProgress">
-        </activity>
-        <activity android:name=".InstallAppDone">
         </activity>
         <activity android:name=".UninstallerActivity">
             <intent-filter>
@@ -30,8 +27,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".UninstallAppProgress">
-        </activity>
-        <activity android:name=".UninstallAppDone">
         </activity>
     </application>
 </manifest> 
