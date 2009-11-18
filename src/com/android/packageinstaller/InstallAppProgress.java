@@ -144,13 +144,9 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
         }
         if((installFlags & PackageManager.INSTALL_REPLACE_EXISTING )!= 0) {
             Log.w(TAG, "Replacing package:" + mAppInfo.packageName);
-            // Initialize views
-            PackageUtil.initSnippetForInstalledApp(this, mAppInfo,
-                    R.id.app_snippet);
-        } else {
-            PackageUtil.initSnippetForNewApp(this, mAppInfo,
-                    R.id.app_snippet, mPackageURI);
         }
+        PackageUtil.initSnippetForNewApp(this, mAppInfo,
+                R.id.app_snippet, mPackageURI);
         mStatusTextView = (TextView)findViewById(R.id.center_text);
         mStatusTextView.setText(R.string.installing);
         mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
