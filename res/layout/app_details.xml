@@ -22,7 +22,7 @@ installation screens
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/app_snippet"
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="65dip"
     android:background="@color/title_background">
     <ImageView android:id="@+id/app_icon"
