@@ -315,7 +315,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         String apkPath = mPackageURI.getPath();
         File apkFile = new File(apkPath);
         //TODO? DEVISE BETTER HEAURISTIC
-        size = 4*apkFile.length();
+        size = 1*apkFile.length();
         checkOutOfSpace(size);
     }
     
