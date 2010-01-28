@@ -29,7 +29,6 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.FileUtils;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -158,6 +157,16 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
         String installerPackageName = getIntent().getStringExtra(
                 Intent.EXTRA_INSTALLER_PACKAGE_NAME);
         
+        ApplicationInfo appInfo = PackageUtil.getApplicationInfo(mPackageURI);
+        int bestInstallLoc =
+                PackageManager.recommendAppInstallLocation(appInfo, mPackageURI);
+
+        // If best location is SD card, mark it in package flags.
+        // for the time being, ignore if the application does not fit.
+        if (bestInstallLoc != (-1)) {
+            installFlags = installFlags | bestInstallLoc;
+        }
+
         PackageInstallObserver observer = new PackageInstallObserver();
         pm.installPackage(mPackageURI, observer, installFlags, installerPackageName);
     }
