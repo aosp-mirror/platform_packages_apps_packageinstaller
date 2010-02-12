@@ -156,17 +156,6 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
 
         String installerPackageName = getIntent().getStringExtra(
                 Intent.EXTRA_INSTALLER_PACKAGE_NAME);
-        
-        int bestInstallLoc =
-                pm.recommendAppInstallLocation(PackageUtil.getPackageInfo(mPackageURI));
-
-        // If best location is SD card, mark it in package flags.
-        // for the time being, ignore if the application does not fit.
-        if ((bestInstallLoc != PackageManager.INSTALL_FAILED_INSUFFICIENT_STORAGE) &&
-                (bestInstallLoc != PackageManager.INSTALL_PARSE_FAILED_NOT_APK)) {
-            installFlags = installFlags | bestInstallLoc;
-        }
-
         PackageInstallObserver observer = new PackageInstallObserver();
         pm.installPackage(mPackageURI, observer, installFlags, installerPackageName);
     }
