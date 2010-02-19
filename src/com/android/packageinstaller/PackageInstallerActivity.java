@@ -30,13 +30,16 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageParser;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.os.StatFs;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
@@ -95,7 +98,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                         unregisterReceiver(mClearCacheReceiver);
                     }
                     if(msg.arg1 == SUCCEEDED) {
-                        makeTempCopyAndInstall();
+                        initiateInstall();
                     } else {
                         showDialogInner(DLG_OUT_OF_SPACE);
                     }
@@ -234,22 +237,38 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                 "com.android.packageinstaller.CLEAR_CACHE";
         @Override
         public void onReceive(Context context, Intent intent) {
-            Message msg = mHandler.obtainMessage(FREE_SPACE);
-            msg.arg1 = (getResultCode() ==1) ? SUCCEEDED : FAILED;
-            mHandler.sendMessage(msg);
+            sendFreeSpaceMessage(getResultCode());
         }
+    }
+
+    private void sendFreeSpaceMessage(int resultCode) {
+        Message msg = mHandler.obtainMessage(FREE_SPACE);
+        msg.arg1 = (resultCode == 1) ? SUCCEEDED : FAILED;
+        mHandler.sendMessage(msg);
     }
     
     private void checkOutOfSpace(long size) {
-        if(localLOGV) Log.i(TAG, "Checking for "+size+" number of bytes");
-        if (mClearCacheReceiver == null) {
-            mClearCacheReceiver = new ClearCacheReceiver();
+        if (mPkgInfo.installLocation != PackageInfo.INSTALL_LOCATION_PREFER_EXTERNAL) {
+            if(localLOGV) Log.i(TAG, "Checking for "+size+" number of bytes");
+            if (mClearCacheReceiver == null) {
+                mClearCacheReceiver = new ClearCacheReceiver();
+            }
+            registerReceiver(mClearCacheReceiver,
+                    new IntentFilter(ClearCacheReceiver.INTENT_CLEAR_CACHE));
+            PendingIntent pi = PendingIntent.getBroadcast(this,
+                    0,  new Intent(ClearCacheReceiver.INTENT_CLEAR_CACHE), 0);
+            mPm.freeStorage(size, pi.getIntentSender());
+        } else {
+            StatFs sdcardStats = new StatFs(Environment.getExternalStorageDirectory().getPath());
+            long availSDSize = (long)sdcardStats.getAvailableBlocks() *
+            (long)sdcardStats.getBlockSize();
+            int resultCode = 1;
+            if (size >= availSDSize) {
+                resultCode = 0;
+            }
+            // Send message right away. TODO do statfs on sdcard
+            sendFreeSpaceMessage(resultCode);
         }
-        registerReceiver(mClearCacheReceiver,
-                new IntentFilter(ClearCacheReceiver.INTENT_CLEAR_CACHE));
-        PendingIntent pi = PendingIntent.getBroadcast(this,
-                0,  new Intent(ClearCacheReceiver.INTENT_CLEAR_CACHE), 0);
-        mPm.freeStorage(size, pi.getIntentSender());
     }
 
     private void launchSettingsAppAndFinish() {
@@ -264,7 +283,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             Settings.Secure.INSTALL_NON_MARKET_APPS, 0) > 0;
     }
     
-    private void makeTempCopyAndInstall() {
+    private void initiateInstall() {
         // Check if package is already installed. display confirmation dialog if replacing pkg
         try {
             mAppInfo = mPm.getApplicationInfo(mPkgInfo.packageName,

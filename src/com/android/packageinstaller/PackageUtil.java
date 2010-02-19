@@ -76,7 +76,11 @@ public class PackageUtil {
         File sourceFile = new File(archiveFilePath);
         DisplayMetrics metrics = new DisplayMetrics();
         metrics.setToDefaults();
-        return packageParser.parsePackage(sourceFile, archiveFilePath, metrics, 0);
+        PackageParser.Package pkg =  packageParser.parsePackage(sourceFile,
+                archiveFilePath, metrics, 0);
+        // Nuke the parser reference.
+        packageParser = null;
+        return pkg;
     }
 
     /*
