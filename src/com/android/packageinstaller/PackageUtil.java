@@ -115,9 +115,44 @@ public class PackageUtil {
      * @param appInfo ApplicationInfo object of package whose resources are to be loaded
      * @param snippetId view id of app snippet view
      */
-    public static View initSnippetForNewApp(Activity pContext, ApplicationInfo appInfo,
-            int snippetId, Uri packageURI) {
+    public static View initSnippetForNewApp(Activity pContext, AppSnippet as,
+            int snippetId) {
         View appSnippet = pContext.findViewById(snippetId);
+        ((ImageView)appSnippet.findViewById(R.id.app_icon)).setImageDrawable(as.icon);
+        ((TextView)appSnippet.findViewById(R.id.app_name)).setText(as.label);
+        return appSnippet;
+    }
+
+    public static boolean isPackageAlreadyInstalled(Activity context, String pkgName) {
+        List<PackageInfo> installedList = context.getPackageManager().getInstalledPackages(
+                PackageManager.GET_UNINSTALLED_PACKAGES);
+        int installedListSize = installedList.size();
+        for(int i = 0; i < installedListSize; i++) {
+            PackageInfo tmp = installedList.get(i);
+            if(pkgName.equalsIgnoreCase(tmp.packageName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    static public class AppSnippet {
+        CharSequence label;
+        Drawable icon;
+        public AppSnippet(CharSequence label, Drawable icon) {
+            this.label = label;
+            this.icon = icon;
+        }
+    }
+    /*
+     * Utility method to load application label
+     *
+     * @param pContext context of package that can load the resources
+     * @param appInfo ApplicationInfo object of package whose resources are to be loaded
+     * @param snippetId view id of app snippet view
+     */
+    public static AppSnippet getAppSnippet(Activity pContext, ApplicationInfo appInfo,
+            Uri packageURI) {
         final String archiveFilePath = packageURI.getPath();
         Resources pRes = pContext.getResources();
         AssetManager assmgr = new AssetManager();
@@ -148,22 +183,6 @@ public class PackageUtil {
         if (icon == null) {
             icon = pContext.getPackageManager().getDefaultActivityIcon();
         }
-        ((ImageView)appSnippet.findViewById(R.id.app_icon)).setImageDrawable(icon);
-        ((TextView)appSnippet.findViewById(R.id.app_name)).setText(label);
-        return appSnippet;
-    }
-
-    public static boolean isPackageAlreadyInstalled(Activity context, String pkgName) {
-        List<PackageInfo> installedList = context.getPackageManager().getInstalledPackages(
-                PackageManager.GET_UNINSTALLED_PACKAGES);
-        int installedListSize = installedList.size();
-        for(int i = 0; i < installedListSize; i++) {
-            PackageInfo tmp = installedList.get(i);
-            if(pkgName.equalsIgnoreCase(tmp.packageName)) {
-                return true;
-            }
-            
-        }
-        return false;
+        return new PackageUtil.AppSnippet(label, icon);
     }
 }

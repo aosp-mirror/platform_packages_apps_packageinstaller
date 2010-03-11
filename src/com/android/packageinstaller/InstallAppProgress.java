@@ -19,7 +19,11 @@ package com.android.packageinstaller;
 import com.android.packageinstaller.R;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.DialogInterface.OnCancelListener;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageInstallObserver;
 import android.content.pm.PackageInfo;
@@ -39,10 +43,6 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.List;
 
 /**
@@ -53,7 +53,7 @@ import java.util.List;
  * codes defined in PackageManager. If the package being installed already exists,
  * the existing package is replaced with the new one.
  */
-public class InstallAppProgress extends Activity implements View.OnClickListener {
+public class InstallAppProgress extends Activity implements View.OnClickListener, OnCancelListener {
     private final String TAG="InstallAppProgress";
     private boolean localLOGV = false;
     private ApplicationInfo mAppInfo;
@@ -63,10 +63,10 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
     private TextView mStatusTextView;
     private Button mDoneButton;
     private Button mLaunchButton;
-    final static int SUCCEEDED = 1;
-    final static int FAILED = 0;
     private final int INSTALL_COMPLETE = 1;
     private Intent mLaunchIntent;
+    private static final int DLG_OUT_OF_SPACE = 1;
+    private CharSequence mLabel;
 
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
@@ -77,7 +77,7 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
                     // Show the ok button
                     int centerTextLabel;
                     Drawable centerTextDrawable = null;
-                    if(msg.arg1 == SUCCEEDED) {
+                    if(msg.arg1 == PackageManager.INSTALL_SUCCEEDED) {
                         mLaunchButton.setVisibility(View.VISIBLE);
                         centerTextDrawable = getResources().getDrawable(R.drawable.button_indicator_finish);
                         centerTextLabel = R.string.install_done;
@@ -97,7 +97,11 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
                         } else {
                             mLaunchButton.setEnabled(false);
                         }
+                    } else if (msg.arg1 == PackageManager.INSTALL_FAILED_INSUFFICIENT_STORAGE){
+                        showDialogInner(DLG_OUT_OF_SPACE);
+                        return;
                     } else {
+                        // Generic error handling for all other error codes.
                         centerTextDrawable = Resources.getSystem().getDrawable(
                                 com.android.internal.R.drawable.ic_bullet_key_permission);
                         centerTextLabel = R.string.install_failed;
@@ -127,7 +131,40 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
         mPackageURI = intent.getData();
         initView();
     }
-    
+
+    @Override
+    public Dialog onCreateDialog(int id, Bundle bundle) {
+        switch (id) {
+        case DLG_OUT_OF_SPACE:
+            String dlgText = getString(R.string.out_of_space_dlg_text, mLabel);
+            return new AlertDialog.Builder(this)
+                    .setTitle(R.string.out_of_space_dlg_title)
+                    .setMessage(dlgText)
+                    .setPositiveButton(R.string.manage_applications, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            //launch manage applications
+                            Intent intent = new Intent("android.intent.action.MANAGE_PACKAGE_STORAGE");
+                            startActivity(intent);
+                            finish();
+                        }
+                    })
+                    .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Log.i(TAG, "Canceling installation");
+                            finish();
+                        }
+                    })
+                    .setOnCancelListener(this)
+                    .create();
+        }
+       return null;
+   }
+
+    private void showDialogInner(int id) {
+        removeDialog(id);
+        showDialog(id);
+    }
+
     class PackageInstallObserver extends IPackageInstallObserver.Stub {
         public void packageInstalled(String packageName, int returnCode) {
             Message msg = mHandler.obtainMessage(INSTALL_COMPLETE);
@@ -152,8 +189,10 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
         if((installFlags & PackageManager.INSTALL_REPLACE_EXISTING )!= 0) {
             Log.w(TAG, "Replacing package:" + mAppInfo.packageName);
         }
-        PackageUtil.initSnippetForNewApp(this, mAppInfo,
-                R.id.app_snippet, mPackageURI);
+        PackageUtil.AppSnippet as = PackageUtil.getAppSnippet(this, mAppInfo,
+                mPackageURI);
+        mLabel = as.label;
+        PackageUtil.initSnippetForNewApp(this, as, R.id.app_snippet);
         mStatusTextView = (TextView)findViewById(R.id.center_text);
         mStatusTextView.setText(R.string.installing);
         mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
@@ -185,5 +224,9 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
             startActivity(mLaunchIntent);
             finish();
         }
+    }
+
+    public void onCancel(DialogInterface dialog) {
+        finish();
     }
 }

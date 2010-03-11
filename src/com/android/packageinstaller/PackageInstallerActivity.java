@@ -18,28 +18,18 @@ package com.android.packageinstaller;
 
 import com.android.packageinstaller.R;
 
-import java.io.File;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageParser;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.os.Handler;
-import android.os.Message;
-import android.os.StatFs;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
@@ -64,14 +54,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     private Uri mPackageURI;    
     private boolean localLOGV = false;
     PackageManager mPm;
-    private boolean mReplacing = false;
     private PackageParser.Package mPkgInfo;
-    private static final int SUCCEEDED = 1;
-    private static final int FAILED = 0;
-    // Broadcast receiver for clearing cache
-    ClearCacheReceiver mClearCacheReceiver = null;
-    private static final int HANDLER_BASE_MSG_IDX = 0;
-    private static final int FREE_SPACE = HANDLER_BASE_MSG_IDX + 1;
 
     // ApplicationInfo object primarily used for already existing applications
     private ApplicationInfo mAppInfo = null;
@@ -89,25 +72,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     private static final int DLG_PACKAGE_ERROR = DLG_BASE + 3;
     private static final int DLG_OUT_OF_SPACE = DLG_BASE + 4;
     private static final int DLG_INSTALL_ERROR = DLG_BASE + 5;
-
-    private Handler mHandler = new Handler() {
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case FREE_SPACE:
-                    if (mClearCacheReceiver != null) {
-                        unregisterReceiver(mClearCacheReceiver);
-                    }
-                    if(msg.arg1 == SUCCEEDED) {
-                        initiateInstall();
-                    } else {
-                        showDialogInner(DLG_OUT_OF_SPACE);
-                    }
-                    break;
-                default:
-                    break;
-            }
-        }
-    };
 
     private void startInstallConfirm() {
         LinearLayout permsSection = (LinearLayout) mInstallConfirm.findViewById(R.id.permissions_section);
@@ -138,7 +102,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     }
 
     @Override
-    public Dialog onCreateDialog(int id) {
+    public Dialog onCreateDialog(int id, Bundle bundle) {
         switch (id) {
         case DLG_REPLACE_APP:
             int msgId = R.string.dlg_app_replacement_statement;
@@ -151,7 +115,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                     .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             startInstallConfirm();
-                            mReplacing = true;
                         }})
                     .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
@@ -232,45 +195,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
        return null;
    }
 
-    private class ClearCacheReceiver extends BroadcastReceiver {
-        public static final String INTENT_CLEAR_CACHE = 
-                "com.android.packageinstaller.CLEAR_CACHE";
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            sendFreeSpaceMessage(getResultCode());
-        }
-    }
-
-    private void sendFreeSpaceMessage(int resultCode) {
-        Message msg = mHandler.obtainMessage(FREE_SPACE);
-        msg.arg1 = (resultCode == 1) ? SUCCEEDED : FAILED;
-        mHandler.sendMessage(msg);
-    }
-    
-    private void checkOutOfSpace(long size) {
-        if (mPkgInfo.installLocation != PackageInfo.INSTALL_LOCATION_PREFER_EXTERNAL) {
-            if(localLOGV) Log.i(TAG, "Checking for "+size+" number of bytes");
-            if (mClearCacheReceiver == null) {
-                mClearCacheReceiver = new ClearCacheReceiver();
-            }
-            registerReceiver(mClearCacheReceiver,
-                    new IntentFilter(ClearCacheReceiver.INTENT_CLEAR_CACHE));
-            PendingIntent pi = PendingIntent.getBroadcast(this,
-                    0,  new Intent(ClearCacheReceiver.INTENT_CLEAR_CACHE), 0);
-            mPm.freeStorage(size, pi.getIntentSender());
-        } else {
-            StatFs sdcardStats = new StatFs(Environment.getExternalStorageDirectory().getPath());
-            long availSDSize = (long)sdcardStats.getAvailableBlocks() *
-            (long)sdcardStats.getBlockSize();
-            int resultCode = 1;
-            if (size >= availSDSize) {
-                resultCode = 0;
-            }
-            // Send message right away. TODO do statfs on sdcard
-            sendFreeSpaceMessage(resultCode);
-        }
-    }
-
     private void launchSettingsAppAndFinish() {
         //Create an intent to launch SettingsTwo activity
         Intent launchSettingsIntent = new Intent(Settings.ACTION_APPLICATION_SETTINGS);
@@ -321,21 +245,16 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         setContentView(R.layout.install_start);
         mInstallConfirm = findViewById(R.id.install_confirm_panel);
         mInstallConfirm.setVisibility(View.INVISIBLE);
-        PackageUtil.initSnippetForNewApp(this, mPkgInfo.applicationInfo,
-                R.id.app_snippet, mPackageURI);
+        PackageUtil.AppSnippet as = PackageUtil.getAppSnippet(this,
+                mPkgInfo.applicationInfo, mPackageURI);
+        PackageUtil.initSnippetForNewApp(this, as, R.id.app_snippet);
        //check setting
         if(!isInstallingUnknownAppsAllowed()) {
             //ask user to enable setting first
             showDialogInner(DLG_UNKNOWN_APPS);
             return;
         }
-        //compute the size of the application. just an estimate
-        long size;
-        String apkPath = mPackageURI.getPath();
-        File apkFile = new File(apkPath);
-        //TODO? DEVISE BETTER HEAURISTIC
-        size = 1*apkFile.length();
-        checkOutOfSpace(size);
+        initiateInstall();
     }
     
     // Generic handling when pressing back key
