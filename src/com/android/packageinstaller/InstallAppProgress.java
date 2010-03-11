@@ -24,6 +24,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageInstallObserver;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
@@ -42,6 +43,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * This activity corresponds to a download progress screen that is displayed 
@@ -82,7 +84,15 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
                         // Enable or disable launch button
                         mLaunchIntent = getPackageManager().getLaunchIntentForPackage(
                                 mAppInfo.packageName);
+                        boolean enabled = false;
                         if(mLaunchIntent != null) {
+                            List<ResolveInfo> list = getPackageManager().
+                                    queryIntentActivities(mLaunchIntent, 0);
+                            if (list != null && list.size() > 0) {
+                                enabled = true;
+                            }
+                        }
+                        if (enabled) {
                             mLaunchButton.setOnClickListener(InstallAppProgress.this);
                         } else {
                             mLaunchButton.setEnabled(false);
