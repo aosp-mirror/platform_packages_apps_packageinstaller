@@ -41,22 +41,35 @@
             android:paddingTop="24dip"
             android:layout_below="@id/center_text"
             android:max="100" />
-        <RelativeLayout
-            android:id="@+id/ok_panel"
+
+        <!-- Button bar with OK button -->
+        <LinearLayout android:id="@+id/ok_panel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/title_background"
-            android:paddingTop="4dip"
-            android:paddingLeft="2dip"
-            android:paddingRight="2dip"
-            android:layout_alignParentBottom="true">
-            <Button
-                android:id="@+id/ok_button"
-                android:paddingRight="6dip"
-                android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            style="@android:style/ButtonBar"
+        >
+            <!-- Left spacer -->
+            <View
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+            />
+
+            <Button android:id="@+id/ok_button"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:text="@string/ok"
-                android:layout_width="150dip"
-                android:layout_height="wrap_content"/>
-        </RelativeLayout>
+            />
+
+            <!-- Right spacer -->
+            <View
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+            />
+        </LinearLayout>
     </RelativeLayout>
 </ScrollView>
