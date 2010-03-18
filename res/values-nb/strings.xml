@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright (C) 2009 The Android Open Source Project
+<!--  Copyright (C) 2007 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-
+  
           http://www.apache.org/licenses/LICENSE-2.0
-
+  
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
--->
+ -->
+
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="1998766462707453166">"Pakkeinstallering"</string>
+    <!-- no translation found for app_name (2738748390251381682) -->
+    <skip />
     <string name="install" msgid="5896438203900042068">"Installer"</string>
     <string name="done" msgid="3889387558374211719">"Ferdig"</string>
     <string name="security_settings_desc" msgid="4984920898157282073">"La denne applikasjonen:"</string>
@@ -28,7 +30,8 @@
     <string name="install_failed_msg" msgid="5282789300118241924">"Kunne ikke installere <xliff:g id="APP_NAME">%1$s</xliff:g> på telefonen."</string>
     <string name="launch" msgid="4826921505917605463">"Åpne"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Installasjonen ble blokkert"</string>
-    <string name="unknown_apps_dlg_text" msgid="5022078090329832537">"Av sikkerhetsgrunner er telefonen satt til å blokkere installasjon av applikasjoner som ikke kommer fra Android-markedet."</string>
+    <!-- no translation found for unknown_apps_dlg_text (5372999034845590289) -->
+    <skip />
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Innstillinger"</string>
     <string name="manage_applications" msgid="2704331021611806557">"Administrer applikasjoner"</string>
@@ -36,18 +39,23 @@
     <string name="dlg_app_replacement_statement" msgid="1175452362814803850">"Applikasjonen du installerer vil erstatte en annen applikasjon."\n\n"Alle eksisterende brukerdata vil bli lagret."</string>
     <string name="dlg_sys_app_replacement_statement" msgid="1047598434568470723">"Dette er en systemapplikasjon. Ønsker du fortsatt å erstatte den?"\n\n"Alle tidligere brukerdata vil bli lagret."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Tom for plass"</string>
-    <string name="out_of_space_dlg_text" msgid="5817764827778985771">"Kunne ikke vise <xliff:g id="APP_NAME">%1$s</xliff:g>. Frigjør plass på telefonen og prøv igjen."</string>
+    <!-- no translation found for out_of_space_dlg_text (7767221563720090883) -->
+    <skip />
     <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
     <string name="app_not_found_dlg_title" msgid="1510267643973600726">"Fant ikke applikasjonen"</string>
     <string name="app_not_found_dlg_text" msgid="754013198108180241">"Fant ikke applikasjonen i listen over installerte applikasjoner."</string>
     <string name="uninstall_application_question" msgid="7290302854905395978">"Avinstaller applikasjonen?"</string>
     <string name="uninstall_update_question" msgid="2600765438050721390">"Avinstaller oppdatering?"</string>
-    <string name="uninstall_application_text" msgid="9107842143723765782">"Applikasjonen vil bli fjernet fra telefonen."</string>
+    <!-- no translation found for uninstall_application_text (3730249522678487101) -->
+    <skip />
     <string name="uninstall_update_text" msgid="6695211142526505726">"Applikasjonsoppdateringen vil bli avinstallert. Du kan fortsatt bruke den opprinnelige versjonen av applikasjonen."</string>
     <string name="uninstalling" msgid="5556217435895938250">"Avinstallerer…"</string>
-    <string name="uninstall_done" msgid="8730655660697216076">"Avintallasjon fullført!"</string>
+    <!-- no translation found for uninstall_done (2270435276009022874) -->
+    <skip />
     <string name="uninstall_failed" msgid="5725854598594371845">"Avinstallasjonen var mislykket"</string>
-    <string name="uninstall_failed_msg" msgid="5480019148754200912">"Kunne ikke avinstallere <xliff:g id="APP_NAME">%1$s</xliff:g>!"</string>
-    <string name="Parse_error_dlg_title" msgid="6784222986864864223">"Parsefeil"</string>
+    <!-- no translation found for uninstall_failed_msg (3564704699891198935) -->
+    <skip />
+    <!-- no translation found for Parse_error_dlg_title (6079580916889596257) -->
+    <skip />
     <string name="Parse_error_dlg_text" msgid="1440309982917966479">"Det oppsto et problem under tolkningen av pakken."</string>
 </resources>

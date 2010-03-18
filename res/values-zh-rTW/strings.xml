@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright (C) 2009 The Android Open Source Project
+<!--  Copyright (C) 2007 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-
+  
           http://www.apache.org/licenses/LICENSE-2.0
-
+  
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
--->
+ -->
+
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="1998766462707453166">"程式安裝器"</string>
+    <!-- no translation found for app_name (2738748390251381682) -->
+    <skip />
     <string name="install" msgid="5896438203900042068">"安裝"</string>
     <string name="done" msgid="3889387558374211719">"完成"</string>
     <string name="security_settings_desc" msgid="4984920898157282073">"允許此應用程式："</string>
@@ -28,7 +30,8 @@
     <string name="install_failed_msg" msgid="5282789300118241924">"無法將 <xliff:g id="APP_NAME">%1$s</xliff:g> 安裝在此手機上。"</string>
     <string name="launch" msgid="4826921505917605463">"開啟"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"安裝遭封鎖。"</string>
-    <string name="unknown_apps_dlg_text" msgid="5022078090329832537">"為保障安全，您的手機設定不會安裝非 Android Market 所提供的應用程式。"</string>
+    <!-- no translation found for unknown_apps_dlg_text (5372999034845590289) -->
+    <skip />
     <string name="ok" msgid="3468756155452870475">"確定"</string>
     <string name="settings" msgid="6743583734099755409">"設定"</string>
     <string name="manage_applications" msgid="2704331021611806557">"管理應用程式"</string>
@@ -36,18 +39,23 @@
     <string name="dlg_app_replacement_statement" msgid="1175452362814803850">"您所要安裝的應用程式將會取代其他的應用程式。"\n\n"將會儲存所有先前的使用者資料。"</string>
     <string name="dlg_sys_app_replacement_statement" msgid="1047598434568470723">"這是系統應用程式，確定要取代嗎？"\n\n"系統將儲存所有之前的使用者資料。"</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"空間不足"</string>
-    <string name="out_of_space_dlg_text" msgid="5817764827778985771">"無法檢視 <xliff:g id="APP_NAME">%1$s</xliff:g>。請先釋放手機上的部分空間，然後再試一次。"</string>
+    <!-- no translation found for out_of_space_dlg_text (7767221563720090883) -->
+    <skip />
     <string name="dlg_ok" msgid="6944357727705699232">"確定"</string>
     <string name="app_not_found_dlg_title" msgid="1510267643973600726">"找不到應用程式"</string>
     <string name="app_not_found_dlg_text" msgid="754013198108180241">"已安裝的應用程式清單中沒有此應用程式。"</string>
     <string name="uninstall_application_question" msgid="7290302854905395978">"要解除安裝應用程式嗎？"</string>
     <string name="uninstall_update_question" msgid="2600765438050721390">"要解除安裝更新嗎？"</string>
-    <string name="uninstall_application_text" msgid="9107842143723765782">"此應用程式將從您的手機中移除。"</string>
+    <!-- no translation found for uninstall_application_text (3730249522678487101) -->
+    <skip />
     <string name="uninstall_update_text" msgid="6695211142526505726">"無法安裝應用程式更新，您可以繼續使用應用程式的出廠版本。"</string>
     <string name="uninstalling" msgid="5556217435895938250">"解除安裝中..."</string>
-    <string name="uninstall_done" msgid="8730655660697216076">"解除安裝完成！"</string>
+    <!-- no translation found for uninstall_done (2270435276009022874) -->
+    <skip />
     <string name="uninstall_failed" msgid="5725854598594371845">"解除安裝失敗"</string>
-    <string name="uninstall_failed_msg" msgid="5480019148754200912">"無法解除安裝 <xliff:g id="APP_NAME">%1$s</xliff:g>！"</string>
-    <string name="Parse_error_dlg_title" msgid="6784222986864864223">"剖析錯誤"</string>
+    <!-- no translation found for uninstall_failed_msg (3564704699891198935) -->
+    <skip />
+    <!-- no translation found for Parse_error_dlg_title (6079580916889596257) -->
+    <skip />
     <string name="Parse_error_dlg_text" msgid="1440309982917966479">"剖析程式時發生問題。"</string>
 </resources>
