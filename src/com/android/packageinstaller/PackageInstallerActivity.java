@@ -208,9 +208,17 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     }
     
     private void initiateInstall() {
+        String pkgName = mPkgInfo.packageName;
+        // Check if there is already a package on the device with this name
+        // but it has been renamed to something else.
+        String[] oldName = mPm.canonicalToCurrentPackageNames(new String[] { pkgName });
+        if (oldName != null && oldName.length > 0 && oldName[0] != null) {
+            pkgName = oldName[0];
+            mPkgInfo.setPackageName(pkgName);
+        }
         // Check if package is already installed. display confirmation dialog if replacing pkg
         try {
-            mAppInfo = mPm.getApplicationInfo(mPkgInfo.packageName,
+            mAppInfo = mPm.getApplicationInfo(pkgName,
                     PackageManager.GET_UNINSTALLED_PACKAGES);
         } catch (NameNotFoundException e) {
             mAppInfo = null;
