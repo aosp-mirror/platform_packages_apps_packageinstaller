@@ -16,8 +16,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_name (2738748390251381682) -->
-    <skip />
+    <string name="app_name" msgid="2738748390251381682">"패키지 설치 프로그램"</string>
     <string name="install" msgid="5896438203900042068">"설치"</string>
     <string name="done" msgid="3889387558374211719">"완료"</string>
     <string name="security_settings_desc" msgid="4984920898157282073">"이 응용프로그램에 다음을 수행할 권한을 부여:"</string>
@@ -30,8 +29,7 @@
     <string name="install_failed_msg" msgid="5282789300118241924">"휴대전화에 <xliff:g id="APP_NAME">%1$s</xliff:g>을(를) 설치할 수 없습니다."</string>
     <string name="launch" msgid="4826921505917605463">"열기"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"설치가 차단됨"</string>
-    <!-- no translation found for unknown_apps_dlg_text (5372999034845590289) -->
-    <skip />
+    <string name="unknown_apps_dlg_text" msgid="5372999034845590289">"보안을 위해 휴대전화는 Android 마켓에서 구입하지 않은 응용프로그램의 설치를 차단하도록 설정되어 있습니다."</string>
     <string name="ok" msgid="3468756155452870475">"확인"</string>
     <string name="settings" msgid="6743583734099755409">"설정"</string>
     <string name="manage_applications" msgid="2704331021611806557">"응용프로그램 관리"</string>
@@ -39,23 +37,18 @@
     <string name="dlg_app_replacement_statement" msgid="1175452362814803850">"설치 중인 응용프로그램이 다른 응용프로그램을 대체합니다."\n\n"이전의 모든 사용자 데이터는 저장됩니다."</string>
     <string name="dlg_sys_app_replacement_statement" msgid="1047598434568470723">"시스템 응용프로그램입니다. 그래도 바꾸시겠습니까?"\n\n"이전의 사용자 데이터는 모두 저장됩니다."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"여유 공간이 없음"</string>
-    <!-- no translation found for out_of_space_dlg_text (7767221563720090883) -->
-    <skip />
+    <string name="out_of_space_dlg_text" msgid="7767221563720090883">"<xliff:g id="APP_NAME">%1$s</xliff:g>을(를) 설치할 수 없습니다. 여유 공간을 늘린 후 다시 시도해 주세요."</string>
     <string name="dlg_ok" msgid="6944357727705699232">"확인"</string>
     <string name="app_not_found_dlg_title" msgid="1510267643973600726">"응용프로그램을 찾지 못했습니다."</string>
     <string name="app_not_found_dlg_text" msgid="754013198108180241">"응용프로그램이 설치된 응용프로그램 목록에 없습니다."</string>
     <string name="uninstall_application_question" msgid="7290302854905395978">"응용프로그램을 제거하시겠습니까?"</string>
     <string name="uninstall_update_question" msgid="2600765438050721390">"업데이트를 제거하시겠습니까?"</string>
-    <!-- no translation found for uninstall_application_text (3730249522678487101) -->
-    <skip />
+    <string name="uninstall_application_text" msgid="3730249522678487101">"이 응용프로그램을 제거합니다."</string>
     <string name="uninstall_update_text" msgid="6695211142526505726">"응용프로그램 업데이트가 제거됩니다. 하지만 응용프로그램의 초기 버전을 계속 사용할 수 있습니다."</string>
     <string name="uninstalling" msgid="5556217435895938250">"제거 중..."</string>
-    <!-- no translation found for uninstall_done (2270435276009022874) -->
-    <skip />
+    <string name="uninstall_done" msgid="2270435276009022874">"제거를 마쳤습니다."</string>
     <string name="uninstall_failed" msgid="5725854598594371845">"제거하지 못했습니다."</string>
-    <!-- no translation found for uninstall_failed_msg (3564704699891198935) -->
-    <skip />
-    <!-- no translation found for Parse_error_dlg_title (6079580916889596257) -->
-    <skip />
+    <string name="uninstall_failed_msg" msgid="3564704699891198935">"<xliff:g id="APP_NAME">%1$s</xliff:g>을(를) 제거할 수 없습니다."</string>
+    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"구문분석 오류"</string>
     <string name="Parse_error_dlg_text" msgid="1440309982917966479">"패키지를 구문 분석하는 중 문제가 발생했습니다."</string>
 </resources>

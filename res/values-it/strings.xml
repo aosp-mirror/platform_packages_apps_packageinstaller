@@ -16,8 +16,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_name (2738748390251381682) -->
-    <skip />
+    <string name="app_name" msgid="2738748390251381682">"Installazione pacchetti"</string>
     <string name="install" msgid="5896438203900042068">"Installa"</string>
     <string name="done" msgid="3889387558374211719">"Fine"</string>
     <string name="security_settings_desc" msgid="4984920898157282073">"Consenti all\'applicazione di:"</string>
@@ -30,8 +29,7 @@
     <string name="install_failed_msg" msgid="5282789300118241924">"Impossibile installare <xliff:g id="APP_NAME">%1$s</xliff:g> sul cellulare."</string>
     <string name="launch" msgid="4826921505917605463">"Apri"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Installazione bloccata"</string>
-    <!-- no translation found for unknown_apps_dlg_text (5372999034845590289) -->
-    <skip />
+    <string name="unknown_apps_dlg_text" msgid="5372999034845590289">"Per motivi di sicurezza, il telefono è impostato per bloccare l\'installazione di applicazioni non ottenute da Android Market."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Impostazioni"</string>
     <string name="manage_applications" msgid="2704331021611806557">"Gestisci applicazioni"</string>
@@ -39,23 +37,18 @@
     <string name="dlg_app_replacement_statement" msgid="1175452362814803850">"L\'applicazione da installare sostituirà un\'altra applicazione."\n\n"Tutti i dati utente precedenti verranno salvati."</string>
     <string name="dlg_sys_app_replacement_statement" msgid="1047598434568470723">"Applicazione di sistema. Sostituirla comunque?"\n\n"Tutti i dati utente precedenti verranno salvati."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Spazio esaurito"</string>
-    <!-- no translation found for out_of_space_dlg_text (7767221563720090883) -->
-    <skip />
+    <string name="out_of_space_dlg_text" msgid="7767221563720090883">"Impossibile installare <xliff:g id="APP_NAME">%1$s</xliff:g>. Libera dello spazio e riprova."</string>
     <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
     <string name="app_not_found_dlg_title" msgid="1510267643973600726">"Applicazione non trovata"</string>
     <string name="app_not_found_dlg_text" msgid="754013198108180241">"Impossibile trovare l\'applicazione \nnell\'elenco di applicazioni installate."</string>
     <string name="uninstall_application_question" msgid="7290302854905395978">"Disinstallare l\'applicazione?"</string>
     <string name="uninstall_update_question" msgid="2600765438050721390">"Disinstallare l\'aggiornamento?"</string>
-    <!-- no translation found for uninstall_application_text (3730249522678487101) -->
-    <skip />
+    <string name="uninstall_application_text" msgid="3730249522678487101">"Questa applicazione verrà disinstallata."</string>
     <string name="uninstall_update_text" msgid="6695211142526505726">"Verrà disinstallato l\'aggiornamento dell\'applicazione. Puoi comunque utilizzare la versione di fabbrica dell\'applicazione."</string>
     <string name="uninstalling" msgid="5556217435895938250">"Disinstallazione..."</string>
-    <!-- no translation found for uninstall_done (2270435276009022874) -->
-    <skip />
+    <string name="uninstall_done" msgid="2270435276009022874">"Disinstallazione completata"</string>
     <string name="uninstall_failed" msgid="5725854598594371845">"Disinstallazione non riuscita"</string>
-    <!-- no translation found for uninstall_failed_msg (3564704699891198935) -->
-    <skip />
-    <!-- no translation found for Parse_error_dlg_title (6079580916889596257) -->
-    <skip />
+    <string name="uninstall_failed_msg" msgid="3564704699891198935">"Impossibile disinstallare <xliff:g id="APP_NAME">%1$s</xliff:g>"</string>
+    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Errore di analisi"</string>
     <string name="Parse_error_dlg_text" msgid="1440309982917966479">"Errore durante l\'analisi del pacchetto."</string>
 </resources>

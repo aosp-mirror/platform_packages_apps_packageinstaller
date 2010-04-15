@@ -16,8 +16,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_name (2738748390251381682) -->
-    <skip />
+    <string name="app_name" msgid="2738748390251381682">"Nástroj k instalaci balíčků"</string>
     <string name="install" msgid="5896438203900042068">"Instalovat"</string>
     <string name="done" msgid="3889387558374211719">"Hotovo"</string>
     <string name="security_settings_desc" msgid="4984920898157282073">"Povolit této aplikaci:"</string>
@@ -30,8 +29,7 @@
     <string name="install_failed_msg" msgid="5282789300118241924">"Aplikaci <xliff:g id="APP_NAME">%1$s</xliff:g> nelze nainstalovat do tohoto telefonu."</string>
     <string name="launch" msgid="4826921505917605463">"Otevřít"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Instalace byla zablokována"</string>
-    <!-- no translation found for unknown_apps_dlg_text (5372999034845590289) -->
-    <skip />
+    <string name="unknown_apps_dlg_text" msgid="5372999034845590289">"Váš telefon je z důvodu zabezpečení nastaven tak, aby blokoval instalaci aplikací, které nepocházejí ze služby Android Market."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Nastavení"</string>
     <string name="manage_applications" msgid="2704331021611806557">"Správa aplikací"</string>
@@ -39,23 +37,18 @@
     <string name="dlg_app_replacement_statement" msgid="1175452362814803850">"Aplikace, kterou instalujete, nahradí jinou aplikaci."\n\n"Všechna dříve zadaná data uživatelů budou uložena."</string>
     <string name="dlg_sys_app_replacement_statement" msgid="1047598434568470723">"Toto je systémová aplikace. Opravdu ji chcete nahradit?"\n\n"Všechna předchozí data uživatele budou uložena."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Nedostatek místa"</string>
-    <!-- no translation found for out_of_space_dlg_text (7767221563720090883) -->
-    <skip />
+    <string name="out_of_space_dlg_text" msgid="7767221563720090883">"Aplikaci <xliff:g id="APP_NAME">%1$s</xliff:g> nelze nainstalovat. Uvolněte místo v paměti a zkuste to znovu."</string>
     <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
     <string name="app_not_found_dlg_title" msgid="1510267643973600726">"Aplikace nebyla nalezena"</string>
     <string name="app_not_found_dlg_text" msgid="754013198108180241">"Aplikace nebyla nalezena na seznamu nainstalovaných aplikací."</string>
     <string name="uninstall_application_question" msgid="7290302854905395978">"Odinstalovat aplikaci?"</string>
     <string name="uninstall_update_question" msgid="2600765438050721390">"Odinstalovat aktualizaci?"</string>
-    <!-- no translation found for uninstall_application_text (3730249522678487101) -->
-    <skip />
+    <string name="uninstall_application_text" msgid="3730249522678487101">"Tato aplikace bude odinstalována."</string>
     <string name="uninstall_update_text" msgid="6695211142526505726">"Aktualizace aplikace bude odinstalována. Můžete stále používat tovární verzi aplikace."</string>
     <string name="uninstalling" msgid="5556217435895938250">"Probíhá odinstalace..."</string>
-    <!-- no translation found for uninstall_done (2270435276009022874) -->
-    <skip />
+    <string name="uninstall_done" msgid="2270435276009022874">"Odinstalace byla dokončena."</string>
     <string name="uninstall_failed" msgid="5725854598594371845">"Odinstalace nebyla úspěšná."</string>
-    <!-- no translation found for uninstall_failed_msg (3564704699891198935) -->
-    <skip />
-    <!-- no translation found for Parse_error_dlg_title (6079580916889596257) -->
-    <skip />
+    <string name="uninstall_failed_msg" msgid="3564704699891198935">"Aplikaci <xliff:g id="APP_NAME">%1$s</xliff:g> nelze odinstalovat."</string>
+    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Chyba analýzy"</string>
     <string name="Parse_error_dlg_text" msgid="1440309982917966479">"Při analýze balíčku došlo k problému."</string>
 </resources>
