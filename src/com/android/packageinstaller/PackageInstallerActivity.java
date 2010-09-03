@@ -249,7 +249,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         }
         
         //set view
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.install_start);
         mInstallConfirm = findViewById(R.id.install_confirm_panel);
         mInstallConfirm.setVisibility(View.INVISIBLE);

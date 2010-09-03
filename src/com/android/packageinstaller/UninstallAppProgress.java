@@ -94,10 +94,13 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
     }
     
     public void initView() {
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        boolean isUpdate = ((mAppInfo.flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) != 0);
+        setTitle(isUpdate ? R.string.uninstall_update_title : R.string.uninstall_application_title);
+
         setContentView(R.layout.uninstall_progress);
         // Initialize views
-        PackageUtil.initSnippetForInstalledApp(this, mAppInfo, R.id.app_snippet);
+        View snippetView = findViewById(R.id.app_snippet);
+        PackageUtil.initSnippetForInstalledApp(this, mAppInfo, snippetView);
         mStatusTextView = (TextView)findViewById(R.id.center_text);
         mStatusTextView.setText(R.string.uninstalling);
         mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);

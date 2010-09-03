@@ -16,28 +16,23 @@
 */
 package com.android.packageinstaller;
 
-import java.io.File;
-import java.util.List;
-
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageParser;
-import android.content.pm.ResolveInfo;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.AssetManager;
-import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.io.File;
+import java.util.List;
 
 /**
  * This is a utility class for defining some utility methods and constants
@@ -83,26 +78,29 @@ public class PackageUtil {
         return pkg;
     }
 
+    public static View initSnippet(View snippetView, CharSequence label, Drawable icon) {
+        ((ImageView)snippetView.findViewById(R.id.app_icon)).setImageDrawable(icon);
+        ((TextView)snippetView.findViewById(R.id.app_name)).setText(label);
+        return snippetView;
+    }
+
     /*
-     * Utility method to display application snippet of an installed application.
+     * Utility method to display a snippet of an installed application.
      * The content view should have been set on context before invoking this method.
      * appSnippet view should include R.id.app_icon and R.id.app_name
      * defined on it.
      *
      * @param pContext context of package that can load the resources
-     * @param appInfo ApplicationInfo object of package whose resources are to be loaded
-     * @param snippetId view id of app snippet view
+     * @param componentInfo ComponentInfo object whose resources are to be loaded
+     * @param snippetView the snippet view
      */
     public static View initSnippetForInstalledApp(Activity pContext,
-            ApplicationInfo appInfo, int snippetId) {
-        View appSnippet = pContext.findViewById(snippetId);
-        String pkgName = appInfo.packageName;
-        PackageManager pm = pContext.getPackageManager();
-        CharSequence label = appInfo.loadLabel(pm);
-        Drawable icon = appInfo.loadIcon(pm);
-        ((ImageView)appSnippet.findViewById(R.id.app_icon)).setImageDrawable(icon);
-        ((TextView)appSnippet.findViewById(R.id.app_name)).setText(label);
-        return appSnippet;
+            ApplicationInfo appInfo, View snippetView) {
+        final PackageManager pm = pContext.getPackageManager();
+        return initSnippet(
+                snippetView,
+                appInfo.loadLabel(pm),
+                appInfo.loadIcon(pm));
     }
 
     /*

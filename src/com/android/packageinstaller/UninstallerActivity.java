@@ -16,23 +16,30 @@
 */
 package com.android.packageinstaller;
 
-import com.android.packageinstaller.R;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.pm.ResolveInfo;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
-import android.content.pm.PackageManager.NameNotFoundException;
+
+import java.util.List;
 
 /*
  * This activity presents UI to uninstall an application. Usually launched with intent
@@ -99,16 +106,18 @@ public class UninstallerActivity extends Activity implements OnClickListener,
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        //get intent information
+        // Get intent information.
+        // We expect an intent with URI of the form package://<packageName>#<className>
+        // className is optional; if specified, it is the activity the user chose to uninstall
         final Intent intent = getIntent();
         Uri packageURI = intent.getData();
         String packageName = packageURI.getEncodedSchemeSpecificPart();
         if(packageName == null) {
-            Log.e(TAG, "Invalid package name:"+packageName);
+            Log.e(TAG, "Invalid package name:" + packageName);
             showDialog(DLG_APP_NOT_FOUND);
             return;
         }
-        //initialize package manager
+
         mPm = getPackageManager();
         boolean errFlag = false;
         try {
@@ -116,23 +125,50 @@ public class UninstallerActivity extends Activity implements OnClickListener,
         } catch (NameNotFoundException e) {
             errFlag = true;
         }
+
+        // The class name may have been specified (e.g. when deleting an app from all apps)
+        String className = packageURI.getFragment();
+        ActivityInfo activityInfo = null;
+        if (className != null) {
+            try {
+                activityInfo = mPm.getActivityInfo(new ComponentName(packageName, className), 0);
+            } catch (NameNotFoundException e) {
+                errFlag = true;
+            }
+        }
+
         if(mAppInfo == null || errFlag) {
-            Log.e(TAG, "Invalid application:"+packageName);
+            Log.e(TAG, "Invalid packageName or componentName in " + packageURI.toString());
             showDialog(DLG_APP_NOT_FOUND);
         } else {
-            requestWindowFeature(Window.FEATURE_NO_TITLE);
-            //set view
+            boolean isUpdate = ((mAppInfo.flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) != 0);
+
             setContentView(R.layout.uninstall_confirm);
-            TextView question = (TextView) findViewById(R.id.uninstall_question);
-            TextView confirm = (TextView) findViewById(R.id.uninstall_confirm_text);
-            if ((mAppInfo.flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) != 0) {
-                question.setText(R.string.uninstall_update_question);
+
+            TextView confirm = (TextView) findViewById(R.id.uninstall_confirm);
+            if (isUpdate) {
+                setTitle(R.string.uninstall_update_title);
                 confirm.setText(R.string.uninstall_update_text);
             } else {
-                question.setText(R.string.uninstall_application_question);
+                setTitle(R.string.uninstall_application_title);
                 confirm.setText(R.string.uninstall_application_text);
             }
-            PackageUtil.initSnippetForInstalledApp(this, mAppInfo, R.id.app_snippet);
+
+            // If an activity was specified (e.g. when dragging from All Apps to trash can),
+            // give a bit more info if the activity label isn't the same as the package label.
+            if (activityInfo != null) {
+                CharSequence activityLabel = activityInfo.loadLabel(mPm);
+                if (!activityLabel.equals(mAppInfo.loadLabel(mPm))) {
+                    TextView activityText = (TextView) findViewById(R.id.activity_text);
+                    CharSequence text = getString(R.string.uninstall_activity_text, activityLabel);
+                    activityText.setText(text);
+                    activityText.setVisibility(View.VISIBLE);
+                }
+            }
+
+            View snippetView = findViewById(R.id.uninstall_activity_snippet);
+            PackageUtil.initSnippetForInstalledApp(this, mAppInfo, snippetView);
+
             //initialize ui elements
             mOk = (Button)findViewById(R.id.ok_button);
             mCancel = (Button)findViewById(R.id.cancel_button);

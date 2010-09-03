@@ -44,10 +44,11 @@
     <string name="app_not_found_dlg_title">Application not found</string>
     <string name="app_not_found_dlg_text"> The application was not
 found in the list of installed applications.</string>
-    <string name="uninstall_application_question">Uninstall application?</string>
-    <string name="uninstall_update_question">Uninstall update?</string>
+    <string name="uninstall_application_title">Uninstall Application</string>
+    <string name="uninstall_update_title">Uninstall Update</string>
+    <string name="uninstall_activity_text"><xliff:g id="activity_name">%1$s</xliff:g> is part of the following application:</string>
     <string name="uninstall_application_text">This application will be uninstalled.</string>
-    <string name="uninstall_update_text">The application update will be uninstalled. You can still use the factory version of the application.</string>
+    <string name="uninstall_update_text">The application will be replaced with the factory version.</string>
     <string name="uninstalling">Uninstalling\u2026</string>
     <string name="uninstall_done">Uninstall finished</string>
     <string name="uninstall_failed">Uninstall not successful</string>

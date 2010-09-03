@@ -174,7 +174,6 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
     }
 
     public void initView() {
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.op_progress);
         int installFlags = 0;
         PackageManager pm = getPackageManager();
