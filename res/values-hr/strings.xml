@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="2738748390251381682">"Alat za instaliranje paketa"</string>
+    <string name="install" msgid="5896438203900042068">"Instaliraj"</string>
+    <string name="done" msgid="3889387558374211719">"Gotovo"</string>
+    <string name="security_settings_desc" msgid="4984920898157282073">"Ovoj aplikaciji omogući sljedeće:"</string>
+    <string name="cancel" msgid="8360346460165114585">"Odustani"</string>
+    <string name="unknown" msgid="4742479012767208045">"Nepoznato"</string>
+    <string name="installing" msgid="8613631001631998372">"Instaliranje..."</string>
+    <string name="install_done" msgid="5868979453936752120">"Aplikacija je instalirana"</string>
+    <string name="install_confirm_question" msgid="5512879835615493065">"Želite li instalirati tu aplikaciju?"</string>
+    <string name="install_failed" msgid="6644311739017660989">"Aplikacija nije instalirana"</string>
+    <string name="install_failed_msg" msgid="5282789300118241924">"Značajku <xliff:g id="APP_NAME">%1$s</xliff:g> nije moguće instalirati na ovaj telefon."</string>
+    <string name="launch" msgid="4826921505917605463">"Otvori"</string>
+    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Instaliranje je blokirano"</string>
+    <string name="unknown_apps_dlg_text" msgid="5372999034845590289">"Iz sigurnosnih je razloga vaš telefon postavljen da blokira instaliranje aplikacija koje nisu dobivene s usluge Android Market."</string>
+    <string name="ok" msgid="3468756155452870475">"U redu"</string>
+    <string name="settings" msgid="6743583734099755409">"Postavke"</string>
+    <string name="manage_applications" msgid="2704331021611806557">"Upravljanje aplikacijama"</string>
+    <string name="dlg_app_replacement_title" msgid="3438730820395482641">"Zamijeni aplikaciju"</string>
+    <string name="dlg_app_replacement_statement" msgid="1175452362814803850">"Aplikacija koju instalirate zamijenit će drugu aplikaciju."\n\n"Svi prethodni korisnički podaci bit će spremljeni."</string>
+    <string name="dlg_sys_app_replacement_statement" msgid="1047598434568470723">"Ovo je sistemska aplikacija. Želite li je svejedno promijeniti?"\n\n"Svi prijašnji korisnički podaci bit će spremljeni."</string>
+    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Nema dovoljno mjesta"</string>
+    <string name="out_of_space_dlg_text" msgid="7767221563720090883">"Aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> nije moguće instalirati. Oslobodite dio prostora i pokušajte ponovo."</string>
+    <string name="dlg_ok" msgid="6944357727705699232">"U redu"</string>
+    <string name="app_not_found_dlg_title" msgid="1510267643973600726">"Aplikacija nije pronađena"</string>
+    <string name="app_not_found_dlg_text" msgid="754013198108180241">"Aplikacija nije pronađena na popisu instaliranja aplikacija."</string>
+    <!-- no translation found for uninstall_application_title (3783979083504504759) -->
+    <skip />
+    <!-- no translation found for uninstall_update_title (4347305704874439105) -->
+    <skip />
+    <!-- no translation found for uninstall_activity_text (7713436193470955261) -->
+    <skip />
+    <string name="uninstall_application_text" msgid="3730249522678487101">"Ova će aplikacija biti deinstalirana."</string>
+    <!-- outdated translation 6695211142526505726 -->     <string name="uninstall_update_text" msgid="1588440065985786844">"Ažuriranje aplikacije bit će deinstalirano. Još uvijek možete koristiti tvorničku verziju aplikacije."</string>
+    <string name="uninstalling" msgid="5556217435895938250">"Deinstaliranje..."</string>
+    <string name="uninstall_done" msgid="2270435276009022874">"Deinstalacija je završena"</string>
+    <string name="uninstall_failed" msgid="5725854598594371845">"Deinstalacija nije uspješna"</string>
+    <string name="uninstall_failed_msg" msgid="3564704699891198935">"Nije moguće instalirati aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
+    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Pogreška analize"</string>
+    <string name="Parse_error_dlg_text" msgid="1440309982917966479">"Došlo je do problema u analiziranju paketa."</string>
+</resources>

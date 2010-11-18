@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="2738748390251381682">"Nástroj na inštaláciu balíčkov"</string>
+    <string name="install" msgid="5896438203900042068">"Inštalovať"</string>
+    <string name="done" msgid="3889387558374211719">"Hotovo"</string>
+    <string name="security_settings_desc" msgid="4984920898157282073">"Povoliť tejto aplikácii:"</string>
+    <string name="cancel" msgid="8360346460165114585">"Zrušiť"</string>
+    <string name="unknown" msgid="4742479012767208045">"Neznáme"</string>
+    <string name="installing" msgid="8613631001631998372">"Prebieha inštalácia..."</string>
+    <string name="install_done" msgid="5868979453936752120">"Aplikácia bola nainštalovaná"</string>
+    <string name="install_confirm_question" msgid="5512879835615493065">"Chcete túto aplikáciu nainštalovať?"</string>
+    <string name="install_failed" msgid="6644311739017660989">"Aplikácia nie je nainštalovaná"</string>
+    <string name="install_failed_msg" msgid="5282789300118241924">"Aplikáciu <xliff:g id="APP_NAME">%1$s</xliff:g> sa nepodarilo nainštalovať do tohto telefónu."</string>
+    <string name="launch" msgid="4826921505917605463">"Otvoriť"</string>
+    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Inštalácia bola zablokovaná"</string>
+    <string name="unknown_apps_dlg_text" msgid="5372999034845590289">"Váš telefón je z dôvodu zabezpečenia nastavený tak, aby blokoval inštaláciu aplikácií, ktoré nepochádzajú zo služby Android Market."</string>
+    <string name="ok" msgid="3468756155452870475">"OK"</string>
+    <string name="settings" msgid="6743583734099755409">"Nastavenia"</string>
+    <string name="manage_applications" msgid="2704331021611806557">"Správa aplikácií"</string>
+    <string name="dlg_app_replacement_title" msgid="3438730820395482641">"Nahradiť aplikáciu"</string>
+    <string name="dlg_app_replacement_statement" msgid="1175452362814803850">"Aplikácia, ktorú inštalujete, nahradí inú aplikáciu."\n\n"Všetky predtým zadané údaje používateľov budú uložené."</string>
+    <string name="dlg_sys_app_replacement_statement" msgid="1047598434568470723">"Toto je systémová aplikácia. Naozaj ju chcete nahradiť?"\n\n"Všetky predchádzajúce údaje používateľa budú uložené."</string>
+    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Nedostatok miesta"</string>
+    <string name="out_of_space_dlg_text" msgid="7767221563720090883">"Aplikáciu <xliff:g id="APP_NAME">%1$s</xliff:g> sa nepodarilo nainštalovať. Uvoľnite miesto v pamäti a skúste to znova."</string>
+    <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
+    <string name="app_not_found_dlg_title" msgid="1510267643973600726">"Aplikácia nebola nájdená"</string>
+    <string name="app_not_found_dlg_text" msgid="754013198108180241">"Aplikáciu sa nepodarilo nájsť v zozname nainštalovaných aplikácií."</string>
+    <!-- no translation found for uninstall_application_title (3783979083504504759) -->
+    <skip />
+    <!-- no translation found for uninstall_update_title (4347305704874439105) -->
+    <skip />
+    <!-- no translation found for uninstall_activity_text (7713436193470955261) -->
+    <skip />
+    <string name="uninstall_application_text" msgid="3730249522678487101">"Táto aplikácia bude odinštalovaná."</string>
+    <!-- outdated translation 6695211142526505726 -->     <string name="uninstall_update_text" msgid="1588440065985786844">"Aktualizácia aplikácie bude odinštalovaná. Môžete stále používať továrenskú verziu aplikácie."</string>
+    <string name="uninstalling" msgid="5556217435895938250">"Prebieha odinštalovanie..."</string>
+    <string name="uninstall_done" msgid="2270435276009022874">"Odinštalovanie bolo dokončené."</string>
+    <string name="uninstall_failed" msgid="5725854598594371845">"Odinštalovanie nebolo úspešné."</string>
+    <string name="uninstall_failed_msg" msgid="3564704699891198935">"Aplikáciu <xliff:g id="APP_NAME">%1$s</xliff:g> sa nepodarilo odinštalovať"</string>
+    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Chyba analýzy"</string>
+    <string name="Parse_error_dlg_text" msgid="1440309982917966479">"Pri analýze balíčka sa vyskytol problém."</string>
+</resources>
