@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="2738748390251381682">"מתקין החפיסה"</string>
+    <string name="install" msgid="5896438203900042068">"התקן"</string>
+    <string name="done" msgid="3889387558374211719">"בוצע"</string>
+    <string name="security_settings_desc" msgid="4984920898157282073">"אפשר ליישום זה:"</string>
+    <string name="cancel" msgid="8360346460165114585">"ביטול"</string>
+    <string name="unknown" msgid="4742479012767208045">"לא ידוע"</string>
+    <string name="installing" msgid="8613631001631998372">"מתקין..."</string>
+    <string name="install_done" msgid="5868979453936752120">"היישום מותקן"</string>
+    <string name="install_confirm_question" msgid="5512879835615493065">"האם ברצונך להתקין יישום זה?"</string>
+    <string name="install_failed" msgid="6644311739017660989">"היישום לא מותקן"</string>
+    <string name="install_failed_msg" msgid="5282789300118241924">"לא הייתה אפשרות להתקין את <xliff:g id="APP_NAME">%1$s</xliff:g> בטלפון זה."</string>
+    <string name="launch" msgid="4826921505917605463">"פתח"</string>
+    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"ההתקנה חסומה"</string>
+    <string name="unknown_apps_dlg_text" msgid="5372999034845590289">"לצורך אבטחה, הטלפון מוגדר לחסום התקנה של יישומים שלא הושגו מ\'חנות Android\'."</string>
+    <string name="ok" msgid="3468756155452870475">"אישור"</string>
+    <string name="settings" msgid="6743583734099755409">"הגדרות"</string>
+    <string name="manage_applications" msgid="2704331021611806557">"נהל יישומים"</string>
+    <string name="dlg_app_replacement_title" msgid="3438730820395482641">"החלף יישום"</string>
+    <string name="dlg_app_replacement_statement" msgid="1175452362814803850">"היישום שאתה מתקין יחליף יישום אחר."\n\n"כל נתוני המשתמש הקודמים יישמרו."</string>
+    <string name="dlg_sys_app_replacement_statement" msgid="1047598434568470723">"זהו יישום מערכת. האם אתה עדיין רוצה להחליף אותו?"\n\n"כל נתוני המשתמש הקודמים יישמרו."</string>
+    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"אין מספיק שטח"</string>
+    <string name="out_of_space_dlg_text" msgid="7767221563720090883">"לא הייתה אפשרות להתקין את <xliff:g id="APP_NAME">%1$s</xliff:g>. פנה שטח ונסה שוב."</string>
+    <string name="dlg_ok" msgid="6944357727705699232">"אישור"</string>
+    <string name="app_not_found_dlg_title" msgid="1510267643973600726">"היישום לא נמצא"</string>
+    <string name="app_not_found_dlg_text" msgid="754013198108180241">"היישום לא נמצא ברשימת היישומים המותקנים."</string>
+    <string name="uninstall_application_question" msgid="7290302854905395978">"לבטל את התקנת היישום?"</string>
+    <string name="uninstall_update_question" msgid="2600765438050721390">"להסיר את התקנת העדכון?"</string>
+    <string name="uninstall_application_text" msgid="3730249522678487101">"התקנת יישום זה תוסר."</string>
+    <string name="uninstall_update_text" msgid="6695211142526505726">"התקנת עדכון היישום תוסר. תוכל עדיין להשתמש בגרסת היצרן של היישום."</string>
+    <string name="uninstalling" msgid="5556217435895938250">"מסיר התקנה..."</string>
+    <string name="uninstall_done" msgid="2270435276009022874">"הסרת ההתקנה הסתיימה"</string>
+    <string name="uninstall_failed" msgid="5725854598594371845">"הסרת ההתקנה נכשלה"</string>
+    <string name="uninstall_failed_msg" msgid="3564704699891198935">"אין אפשרות לבטל את ההתקנה של <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
+    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"שגיאת נתח"</string>
+    <string name="Parse_error_dlg_text" msgid="1440309982917966479">"יש בעיה בניתוח החבילה."</string>
+</resources>
