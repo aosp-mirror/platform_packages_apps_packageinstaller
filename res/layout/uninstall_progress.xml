@@ -14,62 +14,79 @@
      limitations under the License.
 -->
 
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true" >
-    <RelativeLayout
-        android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/padded"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <include
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+    <include
             layout="@layout/app_details"
             android:id="@+id/app_snippet"/>
-        <TextView
+    <TextView
             android:id="@+id/center_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:paddingTop="16dip"
+            android:paddingLeft="16dip"
+            android:paddingBottom="16dip"
             android:textAppearance="?android:attr/textAppearanceMedium" />
-        <ProgressBar
+    <ProgressBar
             android:id="@+id/progress_bar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="24dip"
-            android:layout_below="@id/center_text"
+            android:paddingLeft="16dip"
+            android:paddingRight="16dip"
             android:max="100" />
 
-        <!-- Button bar with OK button -->
-        <LinearLayout android:id="@+id/ok_panel"
+    <!-- Button bar with OK button -->
+    <LinearLayout android:id="@+id/ok_panel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:orientation="horizontal"
-            style="@android:style/ButtonBar"
-        >
-            <!-- Left spacer -->
-            <View
-                android:layout_width="0dip"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-            />
+            android:minHeight="54dip"
+            android:orientation="vertical"
+            android:divider="?android:attr/dividerHorizontal"
+            android:showDividers="beginning"
+            android:dividerPadding="16dip"
+            android:paddingTop="16dip">
+
+        <LinearLayout
+                style="?android:attr/buttonBarStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="2dip"
+                android:paddingRight="2dip"
+                android:measureWithLargestChild="true">
+
+            <LinearLayout android:id="@+id/leftSpacer"
+                    android:layout_weight="0.5"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone" />
 
             <Button android:id="@+id/ok_button"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:text="@string/ok"
-            />
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:text="@string/ok"
+                    android:maxLines="2"
+                    style="?android:attr/buttonBarButtonStyle" />
 
-            <!-- Right spacer -->
-            <View
-                android:layout_width="0dip"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-            />
+            <LinearLayout android:id="@+id/rightSpacer"
+                    android:layout_width="0dip"
+                    android:layout_weight="0.5"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone" />
+
         </LinearLayout>
-    </RelativeLayout>
-</ScrollView>
+    </LinearLayout>
+</LinearLayout>
