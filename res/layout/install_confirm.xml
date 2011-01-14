@@ -105,6 +105,7 @@
                     android:layout_weight="1"
                     android:text="@string/install"
                     android:maxLines="2"
+                    android:filterTouchesWhenObscured="true"
                     style="?android:attr/buttonBarButtonStyle" />
 
             <Button android:id="@+id/cancel_button"
