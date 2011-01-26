@@ -23,7 +23,6 @@
 
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        style="@style/padded"
         android:orientation="vertical"
         android:layout_weight="1"
         android:layout_width="match_parent"
@@ -35,8 +34,8 @@
             android:layout_height="wrap_content"
             android:text="@string/install_confirm_question"
             android:textAppearance="?android:attr/textAppearanceMedium"
+            style="@style/padded"
             android:paddingTop="16dip"
-            android:paddingLeft="16dip"
             android:paddingBottom="16dip"/>
 
     <ScrollView
@@ -50,7 +49,8 @@
                 android:id="@+id/permissions_section"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight = "2dip"
+                android:layout_marginRight="?android:attr/scrollbarSize"
+                style="@style/padded"
                 android:orientation="vertical">
             <TextView
                     android:id="@+id/security_settings_desc"
