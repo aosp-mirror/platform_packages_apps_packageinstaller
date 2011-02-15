@@ -164,6 +164,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                         public void onClick(DialogInterface dialog, int which) {
                             //launch manage applications
                             Intent intent = new Intent("android.intent.action.MANAGE_PACKAGE_STORAGE");
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);   
                             finish();
                         }
@@ -198,6 +199,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     private void launchSettingsAppAndFinish() {
         //Create an intent to launch SettingsTwo activity
         Intent launchSettingsIntent = new Intent(Settings.ACTION_APPLICATION_SETTINGS);
+        launchSettingsIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(launchSettingsIntent);
         finish();
     }
