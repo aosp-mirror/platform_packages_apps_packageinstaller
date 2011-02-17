@@ -26,10 +26,13 @@
     <string name="install_done" msgid="5868979453936752120">"Applicazione installata"</string>
     <string name="install_confirm_question" msgid="5512879835615493065">"Installare questa applicazione?"</string>
     <string name="install_failed" msgid="6644311739017660989">"Applicazione non installata"</string>
-    <string name="install_failed_msg" msgid="5282789300118241924">"Impossibile installare <xliff:g id="APP_NAME">%1$s</xliff:g> sul cellulare."</string>
+    <!-- no translation found for install_failed_msg (1338133677465935471) -->
+    <skip />
+    <string name="install_failed_msg" product="default" msgid="5282789300118241924">"Impossibile installare <xliff:g id="APP_NAME">%1$s</xliff:g> sul cellulare."</string>
     <string name="launch" msgid="4826921505917605463">"Apri"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Installazione bloccata"</string>
-    <string name="unknown_apps_dlg_text" msgid="5372999034845590289">"Per motivi di sicurezza, il telefono è impostato per bloccare l\'installazione di applicazioni non ottenute da Android Market."</string>
+    <!-- outdated translation 5372999034845590289 -->     <string name="unknown_apps_dlg_text" product="tablet" msgid="4206956723707981">"Per motivi di sicurezza, il telefono è impostato per bloccare l\'installazione di applicazioni non ottenute da Android Market."</string>
+    <string name="unknown_apps_dlg_text" product="default" msgid="5372999034845590289">"Per motivi di sicurezza, il telefono è impostato per bloccare l\'installazione di applicazioni non ottenute da Android Market."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Impostazioni"</string>
     <string name="manage_applications" msgid="2704331021611806557">"Gestisci applicazioni"</string>
