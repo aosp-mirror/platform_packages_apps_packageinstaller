@@ -20,13 +20,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageDeleteObserver;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -81,9 +81,9 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
     }
     
     class PackageDeleteObserver extends IPackageDeleteObserver.Stub {
-        public void packageDeleted(boolean succeeded) {
+        public void packageDeleted(String packageName, int returnCode) {
             Message msg = mHandler.obtainMessage(UNINSTALL_COMPLETE);
-            msg.arg1 = succeeded?SUCCEEDED:FAILED;
+            msg.arg1 = returnCode == PackageManager.DELETE_SUCCEEDED ? SUCCEEDED : FAILED;
             mHandler.sendMessage(msg);
         }
     }
