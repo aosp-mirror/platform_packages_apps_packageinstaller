@@ -31,8 +31,19 @@
             android:text="@string/installing"
             android:paddingTop="16dip"
             android:paddingLeft="16dip"
-            android:paddingBottom="16dip"
             android:textAppearance="?android:attr/textAppearanceMedium"/>
+    <TextView
+            android:id="@+id/center_explanation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone"
+            android:paddingTop="8dip"
+            android:paddingLeft="16dip"
+            android:paddingBottom="16dip"
+            android:textAppearance="?android:attr/textAppearanceSmall"/>
+
     <ProgressBar
             android:id="@+id/progress_bar"
             style="?android:attr/progressBarStyleHorizontal"
