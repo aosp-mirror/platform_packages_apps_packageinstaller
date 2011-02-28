@@ -26,6 +26,25 @@
     <string name="install_done">Application installed</string>
     <string name="install_confirm_question">Do you want to install this application?</string>
     <string name="install_failed">Application not installed</string>
+    <!-- Reason displayed when installation fails because the installation package itself is invalid
+        in some way (e.g., corrupt) [CHAR LIMIT=100] -->
+    <string name="install_failed_invalid_apk">The package appears to be corrupt.</string>
+    <!-- Reason displayed when installation fails because the package an existing package is
+        installed with a conflicting package author signature [CHAR LIMIT=100] -->
+    <string name="install_failed_inconsistent_certificates">An existing package by the same name
+        with a conflicting signature is already installed.</string>
+    <!-- Reason displayed when installation fails because the package specifies a minimum compatible
+        OS version that is newer than our current OS version. [CHAR LIMIT=100] -->
+    <string name="install_failed_older_sdk">The package only works on newer versions of
+        Android.</string>
+    <!-- Reason displayed when installation fails because the package specifies it is compatible
+        only with a CPU that the current tablet doesn't have. [CHAR LIMIT=100] -->
+    <string name="install_failed_cpu_abi_incompatible" product="tablet">This application is not
+        compatible with this tablet\'s CPU.</string>
+    <!-- Reason displayed when installation fails because the package specifies it is compatible
+        only with a CPU that the current phone doesn't have. [CHAR LIMIT=100] -->
+    <string name="install_failed_cpu_abi_incompatible" product="default">This application is not
+        compatible with this phone\'s CPU.</string>
     <!-- Message presented when an application could not be installed on the tablet for some reason. [CHAR LIMIT=100] -->
     <string name="install_failed_msg" product="tablet"><xliff:g id="app_name">%1$s</xliff:g> could not be installed on this tablet.</string>
     <!-- Message presented when an application could not be installed on the phone for some reason. [CHAR LIMIT=100] -->
@@ -58,6 +77,14 @@ found in the list of installed applications.</string>
     <string name="uninstalling">Uninstalling\u2026</string>
     <string name="uninstall_done">Uninstall finished</string>
     <string name="uninstall_failed">Uninstall not successful</string>
+    <!-- String presented to the user when uninstalling a package failed because the target package
+        is a current device administrator [CHAR LIMIT=80] -->
+    <string name="uninstall_failed_device_policy_manager">Cannot uninstall: this package is an
+        active device administrator.</string>
+    <!-- String on a button that leads to the "device administrator" configuration setting where a
+        user will be able to disable the device administrator in order to uninstall
+        it. [CHAR LIMIT=50] -->
+    <string name="manage_device_administrators">Manage device administrators</string>
     <string name="uninstall_failed_msg"><xliff:g id="app_name">%1$s</xliff:g> could not be uninstalled</string>
 
     <!-- Dialog attributes to indicate parse errors -->
