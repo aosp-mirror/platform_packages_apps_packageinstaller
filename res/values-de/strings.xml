@@ -26,12 +26,11 @@
     <string name="install_done" msgid="5868979453936752120">"Anwendung installiert"</string>
     <string name="install_confirm_question" msgid="5512879835615493065">"Möchten Sie diese Anwendung installieren?"</string>
     <string name="install_failed" msgid="6644311739017660989">"Anwendung nicht installiert"</string>
-    <!-- no translation found for install_failed_msg (1338133677465935471) -->
-    <skip />
+    <string name="install_failed_msg" product="tablet" msgid="1338133677465935471">"<xliff:g id="APP_NAME">%1$s</xliff:g> konnte nicht auf diesem Tablet installiert werden."</string>
     <string name="install_failed_msg" product="default" msgid="5282789300118241924">"<xliff:g id="APP_NAME">%1$s</xliff:g> konnte nicht auf diesem Telefon installiert werden."</string>
     <string name="launch" msgid="4826921505917605463">"Öffnen"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Installation gesperrt"</string>
-    <!-- outdated translation 4261179397786138877 -->     <string name="unknown_apps_dlg_text" product="tablet" msgid="4206956723707981">"Aus Sicherheitsgründen ist Ihr Telefon so eingestellt, dass die Installation von Nicht-Android Market-Anwendungen gesperrt ist."</string>
+    <string name="unknown_apps_dlg_text" product="tablet" msgid="4206956723707981">"Aus Sicherheitsgründen können Sie auf Ihrem Tablet keine Nicht-Android Market-Anwendungen installieren."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="5372999034845590289">"Aus Sicherheitsgründen ist Ihr Telefon so eingestellt, dass die Installation von Nicht-Android Market-Anwendungen gesperrt ist."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Einstellungen"</string>
