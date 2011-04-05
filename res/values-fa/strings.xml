@@ -26,16 +26,11 @@
     <string name="install_done" msgid="5868979453936752120">"برنامه کاربردی نصب شد"</string>
     <string name="install_confirm_question" msgid="5512879835615493065">"می خواهید این برنامه را نصب کنید؟"</string>
     <string name="install_failed" msgid="6644311739017660989">"برنامه کاربردی نصب نشد"</string>
-    <!-- no translation found for install_failed_invalid_apk (1287935707565682604) -->
-    <skip />
-    <!-- no translation found for install_failed_inconsistent_certificates (1517751954440692054) -->
-    <skip />
-    <!-- no translation found for install_failed_older_sdk (7947925824732917665) -->
-    <skip />
-    <!-- no translation found for install_failed_cpu_abi_incompatible (6692706907221501294) -->
-    <skip />
-    <!-- no translation found for install_failed_cpu_abi_incompatible (198065658681054957) -->
-    <skip />
+    <string name="install_failed_invalid_apk" msgid="1287935707565682604">"این بسته به نظر می رسد خراب است."</string>
+    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"بسته فعلی با همین نام اما با امضای مختلف قبلاً نصب شده است."</string>
+    <string name="install_failed_older_sdk" msgid="7947925824732917665">"این بسته فقط در نسخه های جدیدتر Android کار می کند."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="6692706907221501294">"این برنامه با این CPU رایانه لوحی سازگار نیست."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="198065658681054957">"این برنامه با CPU این تلفن سازگار نیست."</string>
     <string name="install_failed_msg" product="tablet" msgid="1338133677465935471">"<xliff:g id="APP_NAME">%1$s</xliff:g> در این رایانه لوحی نصب نشد."</string>
     <string name="install_failed_msg" product="default" msgid="5282789300118241924">"<xliff:g id="APP_NAME">%1$s</xliff:g> در این گوشی نصب نشد."</string>
     <string name="launch" msgid="4826921505917605463">"باز کردن"</string>
@@ -61,10 +56,8 @@
     <string name="uninstalling" msgid="5556217435895938250">"در حال حذف نصب..."</string>
     <string name="uninstall_done" msgid="2270435276009022874">"حذف نصب انجام شد"</string>
     <string name="uninstall_failed" msgid="5725854598594371845">"حذف نصب ناموفق بود"</string>
-    <!-- no translation found for uninstall_failed_device_policy_manager (5919295781337018536) -->
-    <skip />
-    <!-- no translation found for manage_device_administrators (891392489300312370) -->
-    <skip />
+    <string name="uninstall_failed_device_policy_manager" msgid="5919295781337018536">"حذف نصب ممکن نیست: این بسته یک سرپرست دستگاه فعال است."</string>
+    <string name="manage_device_administrators" msgid="891392489300312370">"مدیریت سرپرستان دستگاه"</string>
     <string name="uninstall_failed_msg" msgid="3564704699891198935">"<xliff:g id="APP_NAME">%1$s</xliff:g> نمی تواند حذف نصب شود"</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"خطای تجزیه"</string>
     <string name="Parse_error_dlg_text" msgid="1440309982917966479">"مشکلی در تجزیه بسته وجود دارد."</string>

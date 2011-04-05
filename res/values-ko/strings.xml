@@ -26,16 +26,11 @@
     <string name="install_done" msgid="5868979453936752120">"애플리케이션이 설치되었습니다."</string>
     <string name="install_confirm_question" msgid="5512879835615493065">"이 애플리케이션을 설치하시겠습니까?"</string>
     <string name="install_failed" msgid="6644311739017660989">"애플리케이션이 설치되지 않았습니다."</string>
-    <!-- no translation found for install_failed_invalid_apk (1287935707565682604) -->
-    <skip />
-    <!-- no translation found for install_failed_inconsistent_certificates (1517751954440692054) -->
-    <skip />
-    <!-- no translation found for install_failed_older_sdk (7947925824732917665) -->
-    <skip />
-    <!-- no translation found for install_failed_cpu_abi_incompatible (6692706907221501294) -->
-    <skip />
-    <!-- no translation found for install_failed_cpu_abi_incompatible (198065658681054957) -->
-    <skip />
+    <string name="install_failed_invalid_apk" msgid="1287935707565682604">"패키지가 손상된 것 같습니다."</string>
+    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"서명이 충돌하는 같은 이름의 기존 패키지가 이미 설치되어 있습니다."</string>
+    <string name="install_failed_older_sdk" msgid="7947925824732917665">"패키지는 상위 버전의 Android에서만 작동합니다."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="6692706907221501294">"애플리케이션이 태블릿의 CPU와 호환되지 않습니다."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="198065658681054957">"애플리케이션이 휴대전화의 CPU와 호환되지 않습니다."</string>
     <string name="install_failed_msg" product="tablet" msgid="1338133677465935471">"태블릿에 <xliff:g id="APP_NAME">%1$s</xliff:g>을(를) 설치할 수 없습니다."</string>
     <string name="install_failed_msg" product="default" msgid="5282789300118241924">"휴대전화에 <xliff:g id="APP_NAME">%1$s</xliff:g>을(를) 설치할 수 없습니다."</string>
     <string name="launch" msgid="4826921505917605463">"열기"</string>
@@ -61,10 +56,8 @@
     <string name="uninstalling" msgid="5556217435895938250">"제거 중..."</string>
     <string name="uninstall_done" msgid="2270435276009022874">"제거가 완료되었습니다."</string>
     <string name="uninstall_failed" msgid="5725854598594371845">"제거하지 못했습니다."</string>
-    <!-- no translation found for uninstall_failed_device_policy_manager (5919295781337018536) -->
-    <skip />
-    <!-- no translation found for manage_device_administrators (891392489300312370) -->
-    <skip />
+    <string name="uninstall_failed_device_policy_manager" msgid="5919295781337018536">"제거 실패: 이 패키지는 사용 중인 기기 관리자입니다."</string>
+    <string name="manage_device_administrators" msgid="891392489300312370">"기기 관리자 관리"</string>
     <string name="uninstall_failed_msg" msgid="3564704699891198935">"<xliff:g id="APP_NAME">%1$s</xliff:g>을(를) 제거할 수 없습니다."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"구문분석 오류"</string>
     <string name="Parse_error_dlg_text" msgid="1440309982917966479">"패키지를 구문 분석하는 중 문제가 발생했습니다."</string>

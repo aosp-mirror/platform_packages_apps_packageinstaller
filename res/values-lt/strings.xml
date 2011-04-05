@@ -26,16 +26,11 @@
     <string name="install_done" msgid="5868979453936752120">"Programa įdiegta"</string>
     <string name="install_confirm_question" msgid="5512879835615493065">"Ar norite įdiegti šią programą?"</string>
     <string name="install_failed" msgid="6644311739017660989">"Programa neįdiegta"</string>
-    <!-- no translation found for install_failed_invalid_apk (1287935707565682604) -->
-    <skip />
-    <!-- no translation found for install_failed_inconsistent_certificates (1517751954440692054) -->
-    <skip />
-    <!-- no translation found for install_failed_older_sdk (7947925824732917665) -->
-    <skip />
-    <!-- no translation found for install_failed_cpu_abi_incompatible (6692706907221501294) -->
-    <skip />
-    <!-- no translation found for install_failed_cpu_abi_incompatible (198065658681054957) -->
-    <skip />
+    <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Paketas sugadintas."</string>
+    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Jau įdiegtas esamas paketas tuo pačiu pavadinimu su prieštaringu parašu."</string>
+    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Paketas veikia tik naujesnėse „Android“ versijose."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="6692706907221501294">"Ši programa nesuderinama su šio planšetinio kompiuterio centriniu procesoriumi."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="198065658681054957">"Ši programa nesuderinama su šio telefono centriniu procesoriumi."</string>
     <string name="install_failed_msg" product="tablet" msgid="1338133677465935471">"Šiame planšetiniame kompiuteryje nepavyko įdiegti „<xliff:g id="APP_NAME">%1$s</xliff:g>“."</string>
     <string name="install_failed_msg" product="default" msgid="5282789300118241924">"<xliff:g id="APP_NAME">%1$s</xliff:g> nepavyko įdiegti šiame telefone."</string>
     <string name="launch" msgid="4826921505917605463">"Atidaryti"</string>
@@ -61,10 +56,8 @@
     <string name="uninstalling" msgid="5556217435895938250">"Pašalinama..."</string>
     <string name="uninstall_done" msgid="2270435276009022874">"Pašalinimas baigtas"</string>
     <string name="uninstall_failed" msgid="5725854598594371845">"Pašalinimas nesėkmingas"</string>
-    <!-- no translation found for uninstall_failed_device_policy_manager (5919295781337018536) -->
-    <skip />
-    <!-- no translation found for manage_device_administrators (891392489300312370) -->
-    <skip />
+    <string name="uninstall_failed_device_policy_manager" msgid="5919295781337018536">"Negalima pašalinti: šis paketas yra aktyvus įrenginio administratorius."</string>
+    <string name="manage_device_administrators" msgid="891392489300312370">"Valdyti įrenginio administratorius"</string>
     <string name="uninstall_failed_msg" msgid="3564704699891198935">"Nepavyko įdiegti <xliff:g id="APP_NAME">%1$s</xliff:g>"</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Analizės klaida"</string>
     <string name="Parse_error_dlg_text" msgid="1440309982917966479">"Analizuojant paketą iškilo problema."</string>

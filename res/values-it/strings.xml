@@ -26,16 +26,11 @@
     <string name="install_done" msgid="5868979453936752120">"Applicazione installata"</string>
     <string name="install_confirm_question" msgid="5512879835615493065">"Installare questa applicazione?"</string>
     <string name="install_failed" msgid="6644311739017660989">"Applicazione non installata"</string>
-    <!-- no translation found for install_failed_invalid_apk (1287935707565682604) -->
-    <skip />
-    <!-- no translation found for install_failed_inconsistent_certificates (1517751954440692054) -->
-    <skip />
-    <!-- no translation found for install_failed_older_sdk (7947925824732917665) -->
-    <skip />
-    <!-- no translation found for install_failed_cpu_abi_incompatible (6692706907221501294) -->
-    <skip />
-    <!-- no translation found for install_failed_cpu_abi_incompatible (198065658681054957) -->
-    <skip />
+    <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Il pacchetto potrebbe essere danneggiato."</string>
+    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"È già installato un pacchetto con lo stesso nome e con una firma in conflitto."</string>
+    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Il pacchetto funziona soltanto su versioni più recenti di Android."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="6692706907221501294">"Questa applicazione non è compatibile con la CPU del tablet."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="198065658681054957">"Questa applicazione non è compatibile con la CPU del telefono."</string>
     <string name="install_failed_msg" product="tablet" msgid="1338133677465935471">"Impossibile installare <xliff:g id="APP_NAME">%1$s</xliff:g> sul tablet."</string>
     <string name="install_failed_msg" product="default" msgid="5282789300118241924">"Impossibile installare <xliff:g id="APP_NAME">%1$s</xliff:g> sul cellulare."</string>
     <string name="launch" msgid="4826921505917605463">"Apri"</string>
@@ -61,10 +56,8 @@
     <string name="uninstalling" msgid="5556217435895938250">"Disinstallazione..."</string>
     <string name="uninstall_done" msgid="2270435276009022874">"Disinstallazione completata"</string>
     <string name="uninstall_failed" msgid="5725854598594371845">"Disinstallazione non riuscita"</string>
-    <!-- no translation found for uninstall_failed_device_policy_manager (5919295781337018536) -->
-    <skip />
-    <!-- no translation found for manage_device_administrators (891392489300312370) -->
-    <skip />
+    <string name="uninstall_failed_device_policy_manager" msgid="5919295781337018536">"Impossibile disinstallare: il pacchetto è un amministratore dispositivo attivo."</string>
+    <string name="manage_device_administrators" msgid="891392489300312370">"Gestisci amministratori dispositivo"</string>
     <string name="uninstall_failed_msg" msgid="3564704699891198935">"Impossibile disinstallare <xliff:g id="APP_NAME">%1$s</xliff:g>"</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Errore di analisi"</string>
     <string name="Parse_error_dlg_text" msgid="1440309982917966479">"Errore durante l\'analisi del pacchetto."</string>
