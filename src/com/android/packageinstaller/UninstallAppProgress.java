@@ -45,6 +45,7 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
     private ApplicationInfo mAppInfo;
     private TextView mStatusTextView;
     private Button mOkButton;
+    private Button mDeviceManagerButton;
     private ProgressBar mProgressBar;
     private View mOkPanel;
     private volatile int mResultCode = -1;
@@ -56,14 +57,30 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
             switch (msg.what) {
                 case UNINSTALL_COMPLETE:
                     mResultCode = msg.arg1;
+                    final String packageName = (String) msg.obj;
+
                     // Update the status text
-                    if (msg.arg1 == SUCCEEDED) {
-                        mStatusTextView.setText(R.string.uninstall_done);
-                    } else {
-                        mStatusTextView.setText(R.string.uninstall_failed);
+                    final int statusText;
+                    switch (msg.arg1) {
+                        case PackageManager.DELETE_SUCCEEDED:
+                            statusText = R.string.uninstall_done;
+                            break;
+                        case PackageManager.DELETE_FAILED_DEVICE_POLICY_MANAGER:
+                            Log.d(TAG, "Uninstall failed because " + packageName
+                                    + " is a device admin");
+                            mDeviceManagerButton.setVisibility(View.VISIBLE);
+                            statusText = R.string.uninstall_failed_device_policy_manager;
+                            break;
+                        default:
+                            Log.d(TAG, "Uninstall failed for " + packageName + " with code "
+                                    + msg.arg1);
+                            statusText = R.string.uninstall_failed;
+                            break;
                     }
+                    mStatusTextView.setText(statusText);
+
+                    // Hide the progress bar; Show the ok button
                     mProgressBar.setVisibility(View.INVISIBLE);
-                    // Show the ok button
                     mOkPanel.setVisibility(View.VISIBLE);
                     break;
                 default:
@@ -71,7 +88,7 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
             }
         }
     };
-    
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -83,7 +100,8 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
     class PackageDeleteObserver extends IPackageDeleteObserver.Stub {
         public void packageDeleted(String packageName, int returnCode) {
             Message msg = mHandler.obtainMessage(UNINSTALL_COMPLETE);
-            msg.arg1 = returnCode == PackageManager.DELETE_SUCCEEDED ? SUCCEEDED : FAILED;
+            msg.arg1 = returnCode;
+            msg.obj = packageName;
             mHandler.sendMessage(msg);
         }
     }
@@ -101,13 +119,26 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
         // Initialize views
         View snippetView = findViewById(R.id.app_snippet);
         PackageUtil.initSnippetForInstalledApp(this, mAppInfo, snippetView);
-        mStatusTextView = (TextView)findViewById(R.id.center_text);
+        mStatusTextView = (TextView) findViewById(R.id.center_text);
         mStatusTextView.setText(R.string.uninstalling);
+        mDeviceManagerButton = (Button) findViewById(R.id.device_manager_button);
+        mDeviceManagerButton.setVisibility(View.GONE);
+        mDeviceManagerButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClassName("com.android.settings",
+                        "com.android.settings.Settings$DeviceAdminSettingsActivity");
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
+            }
+        });
         mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
         mProgressBar.setIndeterminate(true);
         // Hide button till progress is being displayed
-        mOkPanel = (View)findViewById(R.id.ok_panel);
-        mOkButton = (Button)findViewById(R.id.ok_button);
+        mOkPanel = (View) findViewById(R.id.ok_panel);
+        mOkButton = (Button) findViewById(R.id.ok_button);
         mOkButton.setOnClickListener(this);
         mOkPanel.setVisibility(View.INVISIBLE);
         PackageDeleteObserver observer = new PackageDeleteObserver();

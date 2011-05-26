@@ -32,6 +32,15 @@
             style="@style/padded"
             android:paddingBottom="16dip"
             android:textAppearance="?android:attr/textAppearanceMedium" />
+    <Button android:id="@+id/device_manager_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_horizontal"
+            android:maxLines="2"
+            android:text="@string/manage_device_administrators"/>
     <ProgressBar
             android:id="@+id/progress_bar"
             style="?android:attr/progressBarStyleHorizontal"
