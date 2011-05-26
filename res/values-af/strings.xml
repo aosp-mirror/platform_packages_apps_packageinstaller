@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- outdated translation 1998766462707453166 -->     <string name="app_name" msgid="2738748390251381682">"Pakketinstalleerder"</string>
+    <string name="install" msgid="5896438203900042068">"Installeer"</string>
+    <string name="done" msgid="3889387558374211719">"Klaar"</string>
+    <string name="security_settings_desc" msgid="4984920898157282073">"Laat hierdie program toe om:"</string>
+    <string name="cancel" msgid="8360346460165114585">"Kanselleer"</string>
+    <string name="unknown" msgid="4742479012767208045">"Onbekend"</string>
+    <string name="installing" msgid="8613631001631998372">"Installeer tans…"</string>
+    <string name="install_done" msgid="5868979453936752120">"Program geïnstalleer"</string>
+    <string name="install_confirm_question" msgid="5512879835615493065">"Wil jy hierdie program installeer?"</string>
+    <string name="install_failed" msgid="6644311739017660989">"Program nie geïnstalleer nie"</string>
+    <!-- no translation found for install_failed_invalid_apk (1287935707565682604) -->
+    <skip />
+    <!-- no translation found for install_failed_inconsistent_certificates (1517751954440692054) -->
+    <skip />
+    <!-- no translation found for install_failed_older_sdk (7947925824732917665) -->
+    <skip />
+    <!-- no translation found for install_failed_cpu_abi_incompatible (6692706907221501294) -->
+    <skip />
+    <!-- no translation found for install_failed_cpu_abi_incompatible (198065658681054957) -->
+    <skip />
+    <!-- no translation found for install_failed_msg (1338133677465935471) -->
+    <skip />
+    <string name="install_failed_msg" product="default" msgid="5282789300118241924">"<xliff:g id="APP_NAME">%1$s</xliff:g> kon nie op hierdie foon geïnstalleer word nie."</string>
+    <string name="launch" msgid="4826921505917605463">"Open"</string>
+    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Installering geblokkeer"</string>
+    <!-- outdated translation 5022078090329832537 -->     <string name="unknown_apps_dlg_text" product="tablet" msgid="4206956723707981">"Vir sekuriteit is jou selfoon opgestel om die installering van programme wat nie in die Android Market is nie, te blokkeer."</string>
+    <!-- outdated translation 5022078090329832537 -->     <string name="unknown_apps_dlg_text" product="default" msgid="5372999034845590289">"Vir sekuriteit is jou selfoon opgestel om die installering van programme wat nie in die Android Market is nie, te blokkeer."</string>
+    <string name="ok" msgid="3468756155452870475">"OK"</string>
+    <string name="settings" msgid="6743583734099755409">"Instellings"</string>
+    <string name="manage_applications" msgid="2704331021611806557">"Bestuur programme"</string>
+    <string name="dlg_app_replacement_title" msgid="3438730820395482641">"Vervang program"</string>
+    <string name="dlg_app_replacement_statement" msgid="1175452362814803850">"Die program wat jy installeer, sal \'n ander program vervang."\n\n"Alle vorige gebruikerdata sal gestoor word."</string>
+    <string name="dlg_sys_app_replacement_statement" msgid="1047598434568470723">"Hierdie is \'n stelselprogram. Wil jy dit nog steeds vervang?"\n\n"Alle vorige gebruikerdata sal gestoor word."</string>
+    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Geen spasie oor nie"</string>
+    <!-- no translation found for out_of_space_dlg_text (7767221563720090883) -->
+    <skip />
+    <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
+    <string name="app_not_found_dlg_title" msgid="1510267643973600726">"Program nie gevind nie"</string>
+    <string name="app_not_found_dlg_text" msgid="754013198108180241">"Die program was nie in die lys geïnstalleerde programme nie."</string>
+    <!-- no translation found for uninstall_application_title (3783979083504504759) -->
+    <skip />
+    <!-- no translation found for uninstall_update_title (4347305704874439105) -->
+    <skip />
+    <!-- no translation found for uninstall_activity_text (7713436193470955261) -->
+    <skip />
+    <!-- outdated translation 9107842143723765782 -->     <string name="uninstall_application_text" msgid="3730249522678487101">"Hierdie program sal van jou selfoon verwyder word."</string>
+    <!-- outdated translation 6695211142526505726 -->     <string name="uninstall_update_text" msgid="1588440065985786844">"Die program-opdatering sal gedeïnstalleer word. Jy kan steeds die fabrieksweergawe van die program gebruik."</string>
+    <string name="uninstalling" msgid="5556217435895938250">"Deïnstalleer tans…"</string>
+    <!-- outdated translation 8730655660697216076 -->     <string name="uninstall_done" msgid="2270435276009022874">"Deïnstallering klaar!"</string>
+    <string name="uninstall_failed" msgid="5725854598594371845">"Deïnstallering nie suksesvol nie"</string>
+    <!-- no translation found for uninstall_failed_device_policy_manager (5919295781337018536) -->
+    <skip />
+    <!-- no translation found for manage_device_administrators (891392489300312370) -->
+    <skip />
+    <!-- no translation found for uninstall_failed_msg (3564704699891198935) -->
+    <skip />
+    <!-- outdated translation 6784222986864864223 -->     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Ontleedfout"</string>
+    <string name="Parse_error_dlg_text" msgid="1440309982917966479">"Kon nie die pakket ontleed nie."</string>
+</resources>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- no translation found for app_name (2738748390251381682) -->
+    <skip />
+    <string name="install" msgid="5896438203900042068">"Pasang"</string>
+    <string name="done" msgid="3889387558374211719">"Selesai"</string>
+    <string name="security_settings_desc" msgid="4984920898157282073">"Membenarkan aplikasi ini untuk:"</string>
+    <string name="cancel" msgid="8360346460165114585">"Batal"</string>
+    <string name="unknown" msgid="4742479012767208045">"Tidak diketahui"</string>
+    <string name="installing" msgid="8613631001631998372">"Memasang..."</string>
+    <string name="install_done" msgid="5868979453936752120">"Aplikasi dipasang"</string>
+    <string name="install_confirm_question" msgid="5512879835615493065">"Adakah anda ingin memasang aplikasi ini?"</string>
+    <string name="install_failed" msgid="6644311739017660989">"Aplikasi tidak dipasang"</string>
+    <!-- no translation found for install_failed_invalid_apk (1287935707565682604) -->
+    <skip />
+    <!-- no translation found for install_failed_inconsistent_certificates (1517751954440692054) -->
+    <skip />
+    <!-- no translation found for install_failed_older_sdk (7947925824732917665) -->
+    <skip />
+    <!-- no translation found for install_failed_cpu_abi_incompatible (6692706907221501294) -->
+    <skip />
+    <!-- no translation found for install_failed_cpu_abi_incompatible (198065658681054957) -->
+    <skip />
+    <!-- no translation found for install_failed_msg (1338133677465935471) -->
+    <skip />
+    <string name="install_failed_msg" product="default" msgid="5282789300118241924">"<xliff:g id="APP_NAME">%1$s</xliff:g> tidak boleh dipasangkan pada telefon ini."</string>
+    <string name="launch" msgid="4826921505917605463">"Buka"</string>
+    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Pemasangan disekat"</string>
+    <!-- no translation found for unknown_apps_dlg_text (4206956723707981) -->
+    <skip />
+    <!-- no translation found for unknown_apps_dlg_text (5372999034845590289) -->
+    <skip />
+    <string name="ok" msgid="3468756155452870475">"OK"</string>
+    <string name="settings" msgid="6743583734099755409">"Tetapan"</string>
+    <string name="manage_applications" msgid="2704331021611806557">"Urus aplikasi"</string>
+    <string name="dlg_app_replacement_title" msgid="3438730820395482641">"Ganti aplikasi"</string>
+    <string name="dlg_app_replacement_statement" msgid="1175452362814803850">"Aplikasi yang anda sedang pasang akan menggantikan aplikasi lain."\n\n"Semua data pengguna terdahulu akan disimpan."</string>
+    <string name="dlg_sys_app_replacement_statement" msgid="1047598434568470723">"Ini adalah aplikasi sistem. Adakah anda masih mahu menggantikannya?"\n\n"Semua data pengguna terdahulu akan disimpan."</string>
+    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Kehabisan ruang"</string>
+    <!-- no translation found for out_of_space_dlg_text (7767221563720090883) -->
+    <skip />
+    <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
+    <string name="app_not_found_dlg_title" msgid="1510267643973600726">"Aplikasi tidak ditemui"</string>
+    <string name="app_not_found_dlg_text" msgid="754013198108180241">"Aplikasi tidak ditemui dalam senarai aplikasi yang dipasang."</string>
+    <!-- no translation found for uninstall_application_title (3783979083504504759) -->
+    <skip />
+    <!-- no translation found for uninstall_update_title (4347305704874439105) -->
+    <skip />
+    <!-- no translation found for uninstall_activity_text (7713436193470955261) -->
+    <skip />
+    <!-- no translation found for uninstall_application_text (3730249522678487101) -->
+    <skip />
+    <!-- outdated translation 6695211142526505726 -->     <string name="uninstall_update_text" msgid="1588440065985786844">"Kemas kini aplikasi akan dinyahpasang. Anda masih boleh menggunakan aplikasi versi kilang."</string>
+    <string name="uninstalling" msgid="5556217435895938250">"Menyahpasang..."</string>
+    <!-- no translation found for uninstall_done (2270435276009022874) -->
+    <skip />
+    <string name="uninstall_failed" msgid="5725854598594371845">"Nyahpasang tidak berjaya"</string>
+    <!-- no translation found for uninstall_failed_device_policy_manager (5919295781337018536) -->
+    <skip />
+    <!-- no translation found for manage_device_administrators (891392489300312370) -->
+    <skip />
+    <!-- no translation found for uninstall_failed_msg (3564704699891198935) -->
+    <skip />
+    <!-- no translation found for Parse_error_dlg_title (6079580916889596257) -->
+    <skip />
+    <string name="Parse_error_dlg_text" msgid="1440309982917966479">"Terdapat masalah menghuraikan pakej."</string>
+</resources>
