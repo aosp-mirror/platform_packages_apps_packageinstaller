@@ -26,6 +26,11 @@
     <string name="install_done" msgid="5868979453936752120">"应用程序已安装"</string>
     <string name="install_confirm_question" msgid="5512879835615493065">"是否要安装该应用程序？"</string>
     <string name="install_failed" msgid="6644311739017660989">"应用程序未安装"</string>
+    <string name="install_failed_invalid_apk" msgid="1287935707565682604">"该数据包似乎已损坏。"</string>
+    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"已安装了存在签名冲突的同名数据包。"</string>
+    <string name="install_failed_older_sdk" msgid="7947925824732917665">"该数据包仅适用于较新版本的 Android。"</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="6692706907221501294">"该应用程序与此平板电脑的 CPU 不兼容。"</string>
+    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="198065658681054957">"该应用程序与此手机的 CPU 不兼容。"</string>
     <string name="install_failed_msg" product="tablet" msgid="1338133677465935471">"无法在此平板电脑上安装<xliff:g id="APP_NAME">%1$s</xliff:g>。"</string>
     <string name="install_failed_msg" product="default" msgid="5282789300118241924">"无法在此手机上安装<xliff:g id="APP_NAME">%1$s</xliff:g>。"</string>
     <string name="launch" msgid="4826921505917605463">"打开"</string>
@@ -51,6 +56,8 @@
     <string name="uninstalling" msgid="5556217435895938250">"正在卸载..."</string>
     <string name="uninstall_done" msgid="2270435276009022874">"卸载完成"</string>
     <string name="uninstall_failed" msgid="5725854598594371845">"卸载失败"</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="5919295781337018536">"无法卸载：该数据包是活动的设备管理器。"</string>
+    <string name="manage_device_administrators" msgid="891392489300312370">"管理设备管理器"</string>
     <string name="uninstall_failed_msg" msgid="3564704699891198935">"无法卸载<xliff:g id="APP_NAME">%1$s</xliff:g>"</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"解析错误"</string>
     <string name="Parse_error_dlg_text" msgid="1440309982917966479">"解析包时出现问题。"</string>

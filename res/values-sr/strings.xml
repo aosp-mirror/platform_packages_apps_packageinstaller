@@ -26,6 +26,11 @@
     <string name="install_done" msgid="5868979453936752120">"Апликација је инсталирана"</string>
     <string name="install_confirm_question" msgid="5512879835615493065">"Желите ли да инсталирате ову апликацију?"</string>
     <string name="install_failed" msgid="6644311739017660989">"Апликација није инсталирана"</string>
+    <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Изгледа да је пакет оштећен."</string>
+    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Већ је инсталиран пакет са истим именом и сукобљеним потписом."</string>
+    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Пакет функционише само на новијим верзијама Android-а."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="6692706907221501294">"Ова апликација није компатибилна са процесором овог таблета."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="198065658681054957">"Ова апликација није компатибилна са процесором овог телефона."</string>
     <string name="install_failed_msg" product="tablet" msgid="1338133677465935471">"Није било могуће инсталирати <xliff:g id="APP_NAME">%1$s</xliff:g> на овај таблет."</string>
     <string name="install_failed_msg" product="default" msgid="5282789300118241924">"Није било могуће инсталирати апликацију <xliff:g id="APP_NAME">%1$s</xliff:g> на овај телефон."</string>
     <string name="launch" msgid="4826921505917605463">"Отвори"</string>
@@ -51,6 +56,8 @@
     <string name="uninstalling" msgid="5556217435895938250">"Деинсталирање..."</string>
     <string name="uninstall_done" msgid="2270435276009022874">"Деинсталирање је довршено"</string>
     <string name="uninstall_failed" msgid="5725854598594371845">"Деинсталирање није успело"</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="5919295781337018536">"Није могуће деинсталирати: Oвај пакет је активни администратор уређаја."</string>
+    <string name="manage_device_administrators" msgid="891392489300312370">"Управљај администраторима уређаја"</string>
     <string name="uninstall_failed_msg" msgid="3564704699891198935">"Није било могуће деинсталирати апликацију <xliff:g id="APP_NAME">%1$s</xliff:g>"</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Грешка приликом рашчлањивања"</string>
     <string name="Parse_error_dlg_text" msgid="1440309982917966479">"Дошло је до проблема приликом рашчлањивања пакета."</string>
