@@ -26,6 +26,11 @@
     <string name="install_done" msgid="5868979453936752120">"Ứng dụng đã cài đặt"</string>
     <string name="install_confirm_question" msgid="5512879835615493065">"Bạn có muốn cài đặt ứng dụng này không?"</string>
     <string name="install_failed" msgid="6644311739017660989">"Ứng dụng chưa được cài đặt"</string>
+    <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Gói dường như bị hỏng."</string>
+    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Gói hiện có có cùng tên với chữ ký xung đột hiện đã được cài đặt."</string>
+    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Gói chỉ hoạt động trên các phiên bản mới hơn của Android."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="6692706907221501294">"Ứng dụng này không tương thích với CPU của máy tính bảng này."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="198065658681054957">"Ứng dụng này không tương thích với CPU của điện thoại này."</string>
     <string name="install_failed_msg" product="tablet" msgid="1338133677465935471">"Không thể cài đặt <xliff:g id="APP_NAME">%1$s</xliff:g> trên máy tính bảng này."</string>
     <string name="install_failed_msg" product="default" msgid="5282789300118241924">"Không thể cài đặt <xliff:g id="APP_NAME">%1$s</xliff:g> trên điện thoại này."</string>
     <string name="launch" msgid="4826921505917605463">"Mở"</string>
@@ -51,6 +56,8 @@
     <string name="uninstalling" msgid="5556217435895938250">"Đang gỡ cài đặt..."</string>
     <string name="uninstall_done" msgid="2270435276009022874">"Gỡ cài đặt đã hoàn tất"</string>
     <string name="uninstall_failed" msgid="5725854598594371845">"Gỡ cài đặt không thành công"</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="5919295781337018536">"Không thể cài đặt: gói này là của quản trị viên điện thoại hoạt động."</string>
+    <string name="manage_device_administrators" msgid="891392489300312370">"Quản lý quản trị viên điện thoại"</string>
     <string name="uninstall_failed_msg" msgid="3564704699891198935">"Không thể gỡ cài đặt <xliff:g id="APP_NAME">%1$s</xliff:g>"</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Lỗi phân tích cú pháp"</string>
     <string name="Parse_error_dlg_text" msgid="1440309982917966479">"Đã xảy ra sự cố khi phân tích cú pháp gói."</string>

@@ -26,6 +26,11 @@
     <string name="install_done" msgid="5868979453936752120">"Програму встановлено"</string>
     <string name="install_confirm_question" msgid="5512879835615493065">"Установити цю програму?"</string>
     <string name="install_failed" msgid="6644311739017660989">"Програму не встановлено"</string>
+    <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Імовірно, пакет пошкоджено."</string>
+    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Існуючий пакет із такою ж назвою з несумісним підписом уже встановлено."</string>
+    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Пакет працює лише на новіших версіях Android."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="6692706907221501294">"Ця програма несумісна з ЦП цього пристрою."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="198065658681054957">"Ця програма несумісна з ЦП цього телефону."</string>
     <string name="install_failed_msg" product="tablet" msgid="1338133677465935471">"Програму <xliff:g id="APP_NAME">%1$s</xliff:g> неможливо встановити в цьому пристрої."</string>
     <string name="install_failed_msg" product="default" msgid="5282789300118241924">"<xliff:g id="APP_NAME">%1$s</xliff:g> неможливо встановити в цьому телефоні."</string>
     <string name="launch" msgid="4826921505917605463">"Відкр."</string>
@@ -51,6 +56,8 @@
     <string name="uninstalling" msgid="5556217435895938250">"Видалення..."</string>
     <string name="uninstall_done" msgid="2270435276009022874">"Видалення завершено"</string>
     <string name="uninstall_failed" msgid="5725854598594371845">"Видалення не здійснено"</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="5919295781337018536">"Неможливо видалити. Цей пакет є активним адміністратором пристрою."</string>
+    <string name="manage_device_administrators" msgid="891392489300312370">"Керувати адміністраторами пристрою"</string>
     <string name="uninstall_failed_msg" msgid="3564704699891198935">"<xliff:g id="APP_NAME">%1$s</xliff:g> неможливо видалити"</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Помилка аналізу"</string>
     <string name="Parse_error_dlg_text" msgid="1440309982917966479">"Під час аналізу пакету виникла помилка."</string>

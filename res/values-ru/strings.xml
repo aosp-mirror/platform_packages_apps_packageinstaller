@@ -26,6 +26,11 @@
     <string name="install_done" msgid="5868979453936752120">"Приложение установлено"</string>
     <string name="install_confirm_question" msgid="5512879835615493065">"Установить это приложение?"</string>
     <string name="install_failed" msgid="6644311739017660989">"Приложение не установлено"</string>
+    <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Похоже, пакет поврежден."</string>
+    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Пакет с таким названием уже установлен и имеет конфликтующую подпись."</string>
+    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Этот пакет поддерживается только в системе Android более поздних версий."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="6692706907221501294">"Процессор планшетного ПК не поддерживает это приложение."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="198065658681054957">"Процессор телефона не поддерживает это приложение."</string>
     <string name="install_failed_msg" product="tablet" msgid="1338133677465935471">"Нельзя установить приложение <xliff:g id="APP_NAME">%1$s</xliff:g> на этот планшетный ПК."</string>
     <string name="install_failed_msg" product="default" msgid="5282789300118241924">"Установить приложение <xliff:g id="APP_NAME">%1$s</xliff:g> на этом телефоне не удалось."</string>
     <string name="launch" msgid="4826921505917605463">"Открыть"</string>
@@ -51,6 +56,8 @@
     <string name="uninstalling" msgid="5556217435895938250">"Удаление..."</string>
     <string name="uninstall_done" msgid="2270435276009022874">"Удаление завершено"</string>
     <string name="uninstall_failed" msgid="5725854598594371845">"Ошибка при удалении"</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="5919295781337018536">"Не удалось удалить пакет, так как он выбран для администрирования усройства."</string>
+    <string name="manage_device_administrators" msgid="891392489300312370">"Настройки администрирования"</string>
     <string name="uninstall_failed_msg" msgid="3564704699891198935">"Удалить приложение <xliff:g id="APP_NAME">%1$s</xliff:g> не удалось."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Синтаксическая ошибка"</string>
     <string name="Parse_error_dlg_text" msgid="1440309982917966479">"При синтаксическом анализе пакета возникла неполадка."</string>
