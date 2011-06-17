@@ -25,9 +25,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <LinearLayout
+        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -71,7 +72,8 @@
             android:orientation="vertical"
             android:divider="?android:attr/dividerHorizontal"
             android:showDividers="beginning"
-            android:dividerPadding="16dip">
+            android:dividerPadding="16dip"
+            android:paddingTop="16dip">
 
         <LinearLayout
                 style="?android:attr/buttonBarStyle"
