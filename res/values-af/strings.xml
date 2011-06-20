@@ -16,7 +16,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- outdated translation 1998766462707453166 -->     <string name="app_name" msgid="2738748390251381682">"Pakketinstalleerder"</string>
+    <string name="app_name" msgid="2738748390251381682">"Pakketinstalleerder"</string>
     <string name="install" msgid="5896438203900042068">"Installeer"</string>
     <string name="done" msgid="3889387558374211719">"Klaar"</string>
     <string name="security_settings_desc" msgid="4984920898157282073">"Laat hierdie program toe om:"</string>
@@ -41,8 +41,8 @@
     <string name="install_failed_msg" product="default" msgid="5282789300118241924">"<xliff:g id="APP_NAME">%1$s</xliff:g> kon nie op hierdie foon geïnstalleer word nie."</string>
     <string name="launch" msgid="4826921505917605463">"Open"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Installering geblokkeer"</string>
-    <!-- outdated translation 5022078090329832537 -->     <string name="unknown_apps_dlg_text" product="tablet" msgid="4206956723707981">"Vir sekuriteit is jou selfoon opgestel om die installering van programme wat nie in die Android Market is nie, te blokkeer."</string>
-    <!-- outdated translation 5022078090329832537 -->     <string name="unknown_apps_dlg_text" product="default" msgid="5372999034845590289">"Vir sekuriteit is jou selfoon opgestel om die installering van programme wat nie in die Android Market is nie, te blokkeer."</string>
+    <!-- outdated translation 5372999034845590289 -->     <string name="unknown_apps_dlg_text" product="tablet" msgid="4206956723707981">"Vir sekuriteit is jou selfoon gestel om die installering van programme wat nie in die Android Market is nie, te blokkeer."</string>
+    <string name="unknown_apps_dlg_text" product="default" msgid="5372999034845590289">"Vir sekuriteit is jou selfoon gestel om die installering van programme wat nie in die Android Market is nie, te blokkeer."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Instellings"</string>
     <string name="manage_applications" msgid="2704331021611806557">"Bestuur programme"</string>
@@ -50,28 +50,23 @@
     <string name="dlg_app_replacement_statement" msgid="1175452362814803850">"Die program wat jy installeer, sal \'n ander program vervang."\n\n"Alle vorige gebruikerdata sal gestoor word."</string>
     <string name="dlg_sys_app_replacement_statement" msgid="1047598434568470723">"Hierdie is \'n stelselprogram. Wil jy dit nog steeds vervang?"\n\n"Alle vorige gebruikerdata sal gestoor word."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Geen spasie oor nie"</string>
-    <!-- no translation found for out_of_space_dlg_text (7767221563720090883) -->
-    <skip />
+    <string name="out_of_space_dlg_text" msgid="7767221563720090883">"<xliff:g id="APP_NAME">%1$s</xliff:g> kon nie geïnstalleer word nie. Maak ruimte vry en probeer weer."</string>
     <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
     <string name="app_not_found_dlg_title" msgid="1510267643973600726">"Program nie gevind nie"</string>
     <string name="app_not_found_dlg_text" msgid="754013198108180241">"Die program was nie in die lys geïnstalleerde programme nie."</string>
-    <!-- no translation found for uninstall_application_title (3783979083504504759) -->
-    <skip />
-    <!-- no translation found for uninstall_update_title (4347305704874439105) -->
-    <skip />
-    <!-- no translation found for uninstall_activity_text (7713436193470955261) -->
-    <skip />
-    <!-- outdated translation 9107842143723765782 -->     <string name="uninstall_application_text" msgid="3730249522678487101">"Hierdie program sal van jou selfoon verwyder word."</string>
-    <!-- outdated translation 6695211142526505726 -->     <string name="uninstall_update_text" msgid="1588440065985786844">"Die program-opdatering sal gedeïnstalleer word. Jy kan steeds die fabrieksweergawe van die program gebruik."</string>
+    <string name="uninstall_application_title" msgid="3783979083504504759">"Deïnstalleer program"</string>
+    <string name="uninstall_update_title" msgid="4347305704874439105">"Deïnstalleer opdatering"</string>
+    <string name="uninstall_activity_text" msgid="7713436193470955261">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> is deel van die volgende program:"</string>
+    <string name="uninstall_application_text" msgid="3730249522678487101">"Hierdie program sal gedeïnstalleer word."</string>
+    <string name="uninstall_update_text" msgid="1588440065985786844">"Die program sal deur die fabrieksweergawe vervang word."</string>
     <string name="uninstalling" msgid="5556217435895938250">"Deïnstalleer tans…"</string>
-    <!-- outdated translation 8730655660697216076 -->     <string name="uninstall_done" msgid="2270435276009022874">"Deïnstallering klaar!"</string>
+    <string name="uninstall_done" msgid="2270435276009022874">"Deïnstallering klaar"</string>
     <string name="uninstall_failed" msgid="5725854598594371845">"Deïnstallering nie suksesvol nie"</string>
     <!-- no translation found for uninstall_failed_device_policy_manager (5919295781337018536) -->
     <skip />
     <!-- no translation found for manage_device_administrators (891392489300312370) -->
     <skip />
-    <!-- no translation found for uninstall_failed_msg (3564704699891198935) -->
-    <skip />
-    <!-- outdated translation 6784222986864864223 -->     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Ontleedfout"</string>
+    <string name="uninstall_failed_msg" msgid="3564704699891198935">"<xliff:g id="APP_NAME">%1$s</xliff:g> kon nie deïnstalleer word nie"</string>
+    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Ontledingsfout"</string>
     <string name="Parse_error_dlg_text" msgid="1440309982917966479">"Kon nie die pakket ontleed nie."</string>
 </resources>
