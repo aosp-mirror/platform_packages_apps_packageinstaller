@@ -33,7 +33,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:orientation="vertical"
-        style="@style/padded"
         android:paddingTop="6dip"
         android:paddingBottom="6dip">
 
@@ -44,7 +43,7 @@
             android:layout_height="wrap_content"
             android:textColor="?android:attr/textColorSecondary"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:paddingTop="16dip"
+            style="@style/padded"
             android:visibility="gone" />
 
         <!-- The snippet (title & icon) about the application being uninstalled. -->
@@ -59,8 +58,7 @@
             android:layout_height="wrap_content"
             android:textColor="?android:attr/textColorSecondary"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:paddingTop="16dip"
-            android:paddingBottom="16dip" />
+            android:padding="16dip" />
 
     </LinearLayout>
 

@@ -14,42 +14,10 @@
      limitations under the License.
 -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
         android:orientation="vertical">
-    <include
-            layout="@layout/app_details"
-            android:id="@+id/app_snippet"/>
-    <TextView
-            android:id="@+id/center_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:paddingTop="16dip"
-            style="@style/padded"
-            android:paddingBottom="16dip"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-    <Button android:id="@+id/device_manager_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="invisible"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_gravity="center_horizontal"
-            android:maxLines="2"
-            android:text="@string/manage_device_administrators"/>
-    <ProgressBar
-            android:id="@+id/progress_bar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="24dip"
-            android:paddingLeft="16dip"
-            android:paddingRight="16dip"
-            android:max="100" />
 
     <!-- Button bar with OK button -->
     <LinearLayout android:id="@+id/ok_panel"
@@ -97,4 +65,57 @@
 
         </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+
+    <include
+            layout="@layout/app_details"
+            android:id="@+id/app_snippet"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_alignParentTop="true" />
+
+    <LinearLayout
+            android:id="@+id/uninstall_holder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/ok_panel"
+            android:layout_below="@id/app_snippet"
+            android:orientation="vertical">
+                
+        <ScrollView
+                android:id="@+id/uninstalling_scrollview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:padding="16dip"
+                android:fillViewport="false">
+                
+            <TextView
+                    android:id="@+id/center_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/uninstalling"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+        </ScrollView>
+
+        <ProgressBar
+                android:id="@+id/progress_bar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="24dip"
+                android:paddingLeft="16dip"
+                android:paddingRight="16dip"
+                android:max="100" />
+
+        <Button android:id="@+id/device_manager_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:visibility="gone"
+                android:maxLines="2"
+                android:text="@string/manage_device_administrators" />
+                
+    </LinearLayout>
+
+</RelativeLayout>

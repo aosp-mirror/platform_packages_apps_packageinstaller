@@ -14,47 +14,11 @@
      limitations under the License.
 -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_height="match_parent"
         android:orientation="vertical">
-    <include
-            layout="@layout/app_details"
-            android:id="@+id/app_snippet"/>
-    <TextView
-            android:id="@+id/center_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="@string/installing"
-            android:paddingTop="16dip"
-            android:paddingLeft="16dip"
-            android:textAppearance="?android:attr/textAppearanceMedium"/>
-    <TextView
-            android:id="@+id/center_explanation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:visibility="gone"
-            android:paddingTop="8dip"
-            android:paddingLeft="16dip"
-            android:paddingBottom="16dip"
-            android:textAppearance="?android:attr/textAppearanceSmall"/>
-
-    <ProgressBar
-            android:id="@+id/progress_bar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="24dip"
-            android:paddingLeft="16dip"
-            android:paddingRight="16dip"
-            android:max="100" />
-
-    <!-- Launch and close buttons.  -->
+            <!-- Launch and close buttons.  -->
     <LinearLayout android:id="@+id/buttons_panel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -109,6 +73,55 @@
 
         </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+
+    <include
+            layout="@layout/app_details"
+            android:id="@+id/app_snippet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true" />
+
+    <TextView
+            android:id="@+id/center_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/app_snippet"
+            android:gravity="center_horizontal"
+            android:text="@string/installing"
+            android:paddingTop="16dip"
+            android:paddingLeft="16dip"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <!-- This explanation text is shown only after the progress bar below goes away. -->
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/buttons_panel"
+            android:layout_below="@id/center_text"
+            android:paddingTop="8dip"
+            android:paddingLeft="16dip"
+            android:paddingBottom="16dip">
+        <TextView
+                android:id="@+id/center_explanation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:visibility="gone"
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
+    </ScrollView>
+
+    <!-- This progress bar goes away when the explanation above is displayed. -->
+    <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/center_text"
+            android:paddingTop="24dip"
+            android:paddingLeft="16dip"
+            android:paddingRight="16dip"
+            android:max="100" />
+
+</RelativeLayout>
 
 
