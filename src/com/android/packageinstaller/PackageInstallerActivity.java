@@ -16,24 +16,21 @@
 */
 package com.android.packageinstaller;
 
-import com.android.packageinstaller.R;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.DialogInterface.OnCancelListener;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.PackageParser;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.pm.PackageParser;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.AppSecurityPermissions;
 import android.widget.Button;
@@ -197,8 +194,8 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
    }
 
     private void launchSettingsAppAndFinish() {
-        //Create an intent to launch SettingsTwo activity
-        Intent launchSettingsIntent = new Intent(Settings.ACTION_APPLICATION_SETTINGS);
+        // Create an intent to launch SettingsTwo activity
+        Intent launchSettingsIntent = new Intent(Settings.ACTION_SECURITY_SETTINGS);
         launchSettingsIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(launchSettingsIntent);
         finish();
