@@ -24,11 +24,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:minHeight="54dip"
             android:orientation="vertical"
             android:divider="?android:attr/dividerHorizontal"
             android:showDividers="beginning"
-            android:dividerPadding="16dip"
             android:paddingTop="16dip">
 
         <LinearLayout
@@ -36,8 +34,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingLeft="2dip"
-                android:paddingRight="2dip"
                 android:measureWithLargestChild="true">
 
             <LinearLayout android:id="@+id/leftSpacer"
