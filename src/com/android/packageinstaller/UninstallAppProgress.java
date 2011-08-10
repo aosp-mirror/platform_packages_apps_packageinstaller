@@ -56,6 +56,16 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case UNINSTALL_COMPLETE:
+                    if (getIntent().getBooleanExtra(Intent.EXTRA_RETURN_RESULT, false)) {
+                        Intent result = new Intent();
+                        result.putExtra(Intent.EXTRA_INSTALL_RESULT, msg.arg1);
+                        setResult(msg.arg1 == PackageManager.DELETE_SUCCEEDED
+                                ? Activity.RESULT_OK : Activity.RESULT_FIRST_USER,
+                                        result);
+                        finish();
+                        return;
+                    }
+
                     mResultCode = msg.arg1;
                     final String packageName = (String) msg.obj;
 

@@ -71,6 +71,7 @@ public class UninstallerActivity extends Activity implements OnClickListener,
                     .setNeutralButton(getString(R.string.dlg_ok), 
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
+                                    setResult(Activity.RESULT_FIRST_USER);
                                     finish();
                                 }})
                     .create();
@@ -87,6 +88,7 @@ public class UninstallerActivity extends Activity implements OnClickListener,
                     .setNeutralButton(getString(R.string.dlg_ok), 
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
+                                    setResult(Activity.RESULT_FIRST_USER);
                                     finish();
                                 }})
                     .create();
@@ -98,6 +100,10 @@ public class UninstallerActivity extends Activity implements OnClickListener,
         Intent newIntent = new Intent(Intent.ACTION_VIEW);
         newIntent.putExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO, 
                                                   mAppInfo);
+        if (getIntent().getBooleanExtra(Intent.EXTRA_RETURN_RESULT, false)) {
+            newIntent.putExtra(Intent.EXTRA_RETURN_RESULT, true);
+            newIntent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+        }
         newIntent.setClass(this, UninstallAppProgress.class);
         startActivity(newIntent);
         finish();

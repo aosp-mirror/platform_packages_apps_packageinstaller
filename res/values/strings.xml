@@ -57,6 +57,11 @@
     <string name="unknown_apps_dlg_text" product="default">For security, your phone is set to block installation of applications not obtained from Android Market.</string>
     <string name="ok">OK</string>
     <string name="settings">Settings</string>
+    <!-- Title of dialog asking user if they would allow an application to be an install source. -->
+    <string name="allow_source_dlg_title">Allow new source for apps?</string>
+    <!-- Message of dialog asking user if they would allow an application to be an install source. -->
+    <string name="allow_source_dlg_text"><xliff:g id="app_name">%1$s</xliff:g> wants to install other apps.\n\nAllow
+        this now and in the future?</string>
     <string name="manage_applications">Manage applications</string>
     <string name="dlg_app_replacement_title">Replace application</string>
     <string name="dlg_app_replacement_statement">The application you are installing will replace another application.\n\nAll previous user data will be saved.</string>

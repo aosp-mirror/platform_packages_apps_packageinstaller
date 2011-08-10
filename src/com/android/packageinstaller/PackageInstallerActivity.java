@@ -19,9 +19,11 @@ package com.android.packageinstaller;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -51,7 +53,8 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     private Uri mPackageURI;    
     private boolean localLOGV = false;
     PackageManager mPm;
-    private PackageParser.Package mPkgInfo;
+    PackageParser.Package mPkgInfo;
+    ApplicationInfo mSourceInfo;
 
     // ApplicationInfo object primarily used for already existing applications
     private ApplicationInfo mAppInfo = null;
@@ -62,6 +65,8 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     private Button mOk;
     private Button mCancel;
 
+    static final String PREFS_ALLOWED_SOURCES = "allowed_sources";
+
     // Dialog identifiers used in showDialog
     private static final int DLG_BASE = 0;
     private static final int DLG_REPLACE_APP = DLG_BASE + 1;
@@ -69,6 +74,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     private static final int DLG_PACKAGE_ERROR = DLG_BASE + 3;
     private static final int DLG_OUT_OF_SPACE = DLG_BASE + 4;
     private static final int DLG_INSTALL_ERROR = DLG_BASE + 5;
+    private static final int DLG_ALLOW_SOURCE = DLG_BASE + 6;
 
     private void startInstallConfirm() {
         LinearLayout permsSection = (LinearLayout) mInstallConfirm.findViewById(R.id.permissions_section);
@@ -116,6 +122,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                     .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Log.i(TAG, "Canceling installation");
+                            setResult(RESULT_CANCELED);
                             finish();
                         }})
                     .setMessage(msgId)
@@ -189,6 +196,28 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                     .setMessage(dlgText1)
                     .setOnCancelListener(this)
                     .create();
+        case DLG_ALLOW_SOURCE:
+            CharSequence appTitle2 = mPm.getApplicationLabel(mSourceInfo);
+            String dlgText2 = getString(R.string.allow_source_dlg_text,
+                    appTitle2.toString());
+            return new AlertDialog.Builder(this)
+                    .setTitle(R.string.allow_source_dlg_title)
+                    .setMessage(dlgText2)
+                    .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            setResult(RESULT_CANCELED);
+                            finish();
+                        }})
+                    .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            SharedPreferences prefs = getSharedPreferences(PREFS_ALLOWED_SOURCES,
+                                    Context.MODE_PRIVATE);
+                            prefs.edit().putBoolean(mSourceInfo.packageName, true).apply();
+                            startInstallConfirm();
+                        }
+                    })
+                    .setOnCancelListener(this)
+                    .create();
        }
        return null;
    }
@@ -222,7 +251,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         } catch (NameNotFoundException e) {
             mAppInfo = null;
         }
-        if (mAppInfo == null) {
+        if (mAppInfo == null || getIntent().getBooleanExtra(Intent.EXTRA_ALLOW_REPLACE, false)) {
             startInstallConfirm();
         } else {
             if(localLOGV) Log.i(TAG, "Replacing existing package:"+
@@ -230,7 +259,14 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             showDialogInner(DLG_REPLACE_APP);
         }
     }
-    
+
+    void setPmResult(int pmResult) {
+        Intent result = new Intent();
+        result.putExtra(Intent.EXTRA_INSTALL_RESULT, pmResult);
+        setResult(pmResult == PackageManager.INSTALL_SUCCEEDED
+                ? RESULT_OK : RESULT_FIRST_USER, result);
+    }
+
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -244,6 +280,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         if(mPkgInfo == null) {
             Log.w(TAG, "Parse error when parsing manifest. Discontinuing installation");
             showDialogInner(DLG_PACKAGE_ERROR);
+            setPmResult(PackageManager.INSTALL_FAILED_INVALID_APK);
             return;
         }
         
@@ -254,8 +291,40 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         PackageUtil.AppSnippet as = PackageUtil.getAppSnippet(this,
                 mPkgInfo.applicationInfo, mPackageURI);
         PackageUtil.initSnippetForNewApp(this, as, R.id.app_snippet);
-       //check setting
-        if(!isInstallingUnknownAppsAllowed()) {
+
+        // Deal with install source.
+        String callerPackage = getCallingPackage();
+        if (callerPackage != null && intent.getBooleanExtra(
+                Intent.EXTRA_NOT_UNKNOWN_SOURCE, false)) {
+            try {
+                mSourceInfo = mPm.getApplicationInfo(callerPackage, 0);
+                if (mSourceInfo != null) {
+                    if ((mSourceInfo.flags&ApplicationInfo.FLAG_SYSTEM) != 0) {
+                        // System apps don't need to be approved.
+                        initiateInstall();
+                        return;
+                    }
+                    /* for now this is disabled, since the user would need to
+                     * have enabled the global "unknown sources" setting in the
+                     * first place in order to get here.
+                    SharedPreferences prefs = getSharedPreferences(PREFS_ALLOWED_SOURCES,
+                            Context.MODE_PRIVATE);
+                    if (prefs.getBoolean(mSourceInfo.packageName, false)) {
+                        // User has already allowed this one.
+                        initiateInstall();
+                        return;
+                    }
+                    //ask user to enable setting first
+                    showDialogInner(DLG_ALLOW_SOURCE);
+                    return;
+                     */
+                }
+            } catch (NameNotFoundException e) {
+            }
+        }
+
+        // Check unknown sources.
+        if (!isInstallingUnknownAppsAllowed()) {
             //ask user to enable setting first
             showDialogInner(DLG_UNKNOWN_APPS);
             return;
@@ -280,11 +349,16 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             if (installerPackageName != null) {
                 newIntent.putExtra(Intent.EXTRA_INSTALLER_PACKAGE_NAME, installerPackageName);
             }
+            if (getIntent().getBooleanExtra(Intent.EXTRA_RETURN_RESULT, false)) {
+                newIntent.putExtra(Intent.EXTRA_RETURN_RESULT, true);
+                newIntent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+            }
             if(localLOGV) Log.i(TAG, "downloaded app uri="+mPackageURI);
             startActivity(newIntent);
             finish();
         } else if(v == mCancel) {
             // Cancel and finish
+            setResult(RESULT_CANCELED);
             finish();
         }
     }

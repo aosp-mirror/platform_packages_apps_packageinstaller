@@ -30,8 +30,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LevelListDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -39,7 +37,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -74,6 +71,15 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case INSTALL_COMPLETE:
+                    if (getIntent().getBooleanExtra(Intent.EXTRA_RETURN_RESULT, false)) {
+                        Intent result = new Intent();
+                        result.putExtra(Intent.EXTRA_INSTALL_RESULT, msg.arg1);
+                        setResult(msg.arg1 == PackageManager.INSTALL_SUCCEEDED
+                                ? Activity.RESULT_OK : Activity.RESULT_FIRST_USER,
+                                        result);
+                        finish();
+                        return;
+                    }
                     // Update the status text
                     mProgressBar.setVisibility(View.INVISIBLE);
                     // Show the ok button
