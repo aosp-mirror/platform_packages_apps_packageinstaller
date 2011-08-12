@@ -45,6 +45,18 @@
         only with a CPU that the current phone doesn't have. [CHAR LIMIT=100] -->
     <string name="install_failed_cpu_abi_incompatible" product="default">This application is not
         compatible with this phone\'s CPU.</string>
+    <!-- Reason displayed when installation fails because the package was deleted during the
+        installation process. [CHAR LIMIT=100] -->
+    <string name="install_failed_file_not_found">The package specified was deleted before
+        installation could be completed.</string>
+    <!-- Reason displayed when installation fails because the package could not be verified
+        because the package verifier rejected it. [CHAR LIMIT=100] -->
+    <string name="install_failed_verify_failed">The package did not pass verification and cannot
+        be installed.</string>
+    <!-- Reason displayed when installation fails because the package could not be verified
+        before the internal system timer expired. [CHAR LIMIT=100] -->
+    <string name="install_failed_verify_timeout">A timeout occured while trying to verify this
+        package. Please try to install it again later.</string>
     <!-- Message presented when an application could not be installed on the tablet for some reason. [CHAR LIMIT=100] -->
     <string name="install_failed_msg" product="tablet"><xliff:g id="app_name">%1$s</xliff:g> could not be installed on this tablet.</string>
     <!-- Message presented when an application could not be installed on the phone for some reason. [CHAR LIMIT=100] -->
