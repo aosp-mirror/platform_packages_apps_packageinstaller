@@ -16,9 +16,9 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2738748390251381682">"התקנת חבילת תוכנה"</string>
+    <string name="app_name" msgid="2738748390251381682">"מתקין החבילה"</string>
     <string name="install" msgid="5896438203900042068">"התקן"</string>
-    <string name="done" msgid="3889387558374211719">"בוצע"</string>
+    <string name="done" msgid="3889387558374211719">"סיום"</string>
     <string name="security_settings_desc" msgid="4984920898157282073">"אפשר ליישום זה:"</string>
     <string name="cancel" msgid="8360346460165114585">"ביטול"</string>
     <string name="unknown" msgid="4742479012767208045">"לא ידוע"</string>
@@ -38,11 +38,11 @@
     <!-- no translation found for install_failed_verify_timeout (7472659457385169757) -->
     <skip />
     <string name="install_failed_msg" product="tablet" msgid="1338133677465935471">"לא הייתה אפשרות להתקין את <xliff:g id="APP_NAME">%1$s</xliff:g> בטבלט זה."</string>
-    <string name="install_failed_msg" product="default" msgid="5282789300118241924">"לא הייתה אפשרות להתקין את <xliff:g id="APP_NAME">%1$s</xliff:g> בטלפון זה."</string>
+    <string name="install_failed_msg" product="default" msgid="5282789300118241924">"לא היתה אפשרות להתקין את <xliff:g id="APP_NAME">%1$s</xliff:g> בטלפון זה."</string>
     <string name="launch" msgid="4826921505917605463">"פתח"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"ההתקנה חסומה"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="4206956723707981">"מסיבות אבטחה, הטבלט מוגדר לחסום התקנה של יישומים שלא התקבלו מ\'חנות Android\'."</string>
-    <string name="unknown_apps_dlg_text" product="default" msgid="5372999034845590289">"לצורך אבטחה, הטלפון מוגדר לחסום התקנה של יישומים שלא הושגו מ\'חנות Android\'."</string>
+    <string name="unknown_apps_dlg_text" product="default" msgid="5372999034845590289">"מטעמי אבטחה, הטלפון מוגדר לחסום התקנה של יישומים שלא הושגו מ\'חנות Android\'."</string>
     <string name="ok" msgid="3468756155452870475">"אישור"</string>
     <string name="settings" msgid="6743583734099755409">"הגדרות"</string>
     <!-- no translation found for allow_source_dlg_title (6668811402605575022) -->
@@ -54,12 +54,12 @@
     <string name="dlg_app_replacement_statement" msgid="1175452362814803850">"היישום שאתה מתקין יחליף יישום אחר."\n\n"כל נתוני המשתמש הקודמים יישמרו."</string>
     <string name="dlg_sys_app_replacement_statement" msgid="1047598434568470723">"זהו יישום מערכת. האם אתה עדיין רוצה להחליף אותו?"\n\n"כל נתוני המשתמש הקודמים יישמרו."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"אין מספיק שטח"</string>
-    <string name="out_of_space_dlg_text" msgid="7767221563720090883">"לא הייתה אפשרות להתקין את <xliff:g id="APP_NAME">%1$s</xliff:g>. פנה שטח ונסה שוב."</string>
+    <string name="out_of_space_dlg_text" msgid="7767221563720090883">"לא היתה אפשרות להתקין את <xliff:g id="APP_NAME">%1$s</xliff:g>. פנה שטח ונסה שוב."</string>
     <string name="dlg_ok" msgid="6944357727705699232">"אישור"</string>
     <string name="app_not_found_dlg_title" msgid="1510267643973600726">"היישום לא נמצא"</string>
     <string name="app_not_found_dlg_text" msgid="754013198108180241">"היישום לא נמצא ברשימת היישומים המותקנים."</string>
     <string name="uninstall_application_title" msgid="3783979083504504759">"הסר התקנה של יישום"</string>
-    <string name="uninstall_update_title" msgid="4347305704874439105">"הסר התקנה של עדכון"</string>
+    <string name="uninstall_update_title" msgid="4347305704874439105">"הסרת התקנה של עדכון"</string>
     <string name="uninstall_activity_text" msgid="7713436193470955261">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> הוא חלק מהיישום הבא:"</string>
     <string name="uninstall_application_text" msgid="3730249522678487101">"התקנת יישום זה תוסר."</string>
     <string name="uninstall_update_text" msgid="1588440065985786844">"היישום יוחלף בגרסת היצרן."</string>
@@ -68,7 +68,7 @@
     <string name="uninstall_failed" msgid="5725854598594371845">"הסרת ההתקנה נכשלה"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="5919295781337018536">"לא ניתן להסיר התקנה: חבילה זו היא מנהל התקן פעיל."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"נהל מנהלי התקנים"</string>
-    <string name="uninstall_failed_msg" msgid="3564704699891198935">"אין אפשרות לבטל את ההתקנה של <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
-    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"שגיאת נתח"</string>
+    <string name="uninstall_failed_msg" msgid="3564704699891198935">"אין אפשרות לבטל את ההתקנה של <xliff:g id="APP_NAME">%1$s</xliff:g>"</string>
+    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"שגיאת ניתוח"</string>
     <string name="Parse_error_dlg_text" msgid="1440309982917966479">"יש בעיה בניתוח החבילה."</string>
 </resources>

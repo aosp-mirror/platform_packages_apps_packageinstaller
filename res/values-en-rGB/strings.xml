@@ -31,12 +31,9 @@
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"The package only works on newer versions of Android."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="6692706907221501294">"This application is not compatible with this tablet\'s CPU."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="198065658681054957">"This application is not compatible with this phone\'s CPU."</string>
-    <!-- no translation found for install_failed_file_not_found (1958430133396322619) -->
-    <skip />
-    <!-- no translation found for install_failed_verify_failed (5567372439890440205) -->
-    <skip />
-    <!-- no translation found for install_failed_verify_timeout (7472659457385169757) -->
-    <skip />
+    <string name="install_failed_file_not_found" msgid="1958430133396322619">"The package specified was deleted before installation could be completed."</string>
+    <string name="install_failed_verify_failed" msgid="5567372439890440205">"The package did not pass verification and cannot be installed."</string>
+    <string name="install_failed_verify_timeout" msgid="7472659457385169757">"A timeout occured while trying to verify this package. Please try to install it again later."</string>
     <string name="install_failed_msg" product="tablet" msgid="1338133677465935471">"<xliff:g id="APP_NAME">%1$s</xliff:g> could not be installed on this tablet."</string>
     <string name="install_failed_msg" product="default" msgid="5282789300118241924">"<xliff:g id="APP_NAME">%1$s</xliff:g> could not be installed on this phone."</string>
     <string name="launch" msgid="4826921505917605463">"Open"</string>
@@ -45,10 +42,8 @@
     <string name="unknown_apps_dlg_text" product="default" msgid="5372999034845590289">"For security, your phone is set to block installation of applications not obtained from Android Market."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Settings"</string>
-    <!-- no translation found for allow_source_dlg_title (6668811402605575022) -->
-    <skip />
-    <!-- no translation found for allow_source_dlg_text (3927580956764099076) -->
-    <skip />
+    <string name="allow_source_dlg_title" msgid="6668811402605575022">"Allow new source for apps?"</string>
+    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> wants to install other apps."\n\n"Allow this now and in the future?"</string>
     <string name="manage_applications" msgid="2704331021611806557">"Manage applications"</string>
     <string name="dlg_app_replacement_title" msgid="3438730820395482641">"Replace application"</string>
     <string name="dlg_app_replacement_statement" msgid="1175452362814803850">"The application that you are installing will replace another application."\n\n"All previous user data will be saved."</string>
