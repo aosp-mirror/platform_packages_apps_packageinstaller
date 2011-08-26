@@ -31,12 +31,9 @@
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Pakken virker kun på nyere versioner af Android."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="6692706907221501294">"Denne applikation er ikke kompatibelt med denne tablets CPU."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="198065658681054957">"Denne applikation er ikke kompatibelt med denne telefons CPU."</string>
-    <!-- no translation found for install_failed_file_not_found (1958430133396322619) -->
-    <skip />
-    <!-- no translation found for install_failed_verify_failed (5567372439890440205) -->
-    <skip />
-    <!-- no translation found for install_failed_verify_timeout (7472659457385169757) -->
-    <skip />
+    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Den angivne pakke blev slettet, før installationen var gennemført."</string>
+    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Pakken kunne ikke bekræftes og kan derfor ikke installeres."</string>
+    <string name="install_failed_verify_timeout" msgid="7472659457385169757">"Der opstod timeout under forsøg på at bekræfte denne pakke. Prøv at installere den igen senere."</string>
     <string name="install_failed_msg" product="tablet" msgid="1338133677465935471">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunne ikke installeres på denne tablet."</string>
     <string name="install_failed_msg" product="default" msgid="5282789300118241924">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunne ikke installeres på denne telefon."</string>
     <string name="launch" msgid="4826921505917605463">"Åbn"</string>
@@ -45,10 +42,8 @@
     <string name="unknown_apps_dlg_text" product="default" msgid="5372999034845590289">"Din telefon er af sikkerhedsgrunde indstillet til at blokere installation af applikationer, der ikke kommer fra Android Marked."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Indstillinger"</string>
-    <!-- no translation found for allow_source_dlg_title (6668811402605575022) -->
-    <skip />
-    <!-- no translation found for allow_source_dlg_text (3927580956764099076) -->
-    <skip />
+    <string name="allow_source_dlg_title" msgid="6668811402605575022">"Vil du tillade en ny kilde til apps?"</string>
+    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> ønsker at installere andre apps."\n\n"Vil du tillade dette nu og i fremtiden?"</string>
     <string name="manage_applications" msgid="2704331021611806557">"Administ. applikationer"</string>
     <string name="dlg_app_replacement_title" msgid="3438730820395482641">"Erstat applikationen"</string>
     <string name="dlg_app_replacement_statement" msgid="1175452362814803850">"Den applikation, du installerer, erstatter en anden applikation."\n\n"Alle tidligere brugerdata gemmes."</string>

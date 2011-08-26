@@ -28,27 +28,22 @@
     <string name="install_failed" msgid="6644311739017660989">"היישום לא מותקן"</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"נראה שהחבילה פגומה."</string>
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"כבר מותקנת חבילה קיימת באותו שם עם חתימה מתנגשת."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"החבילה פועלת רק בגירסאות חדשות יותר של Android."</string>
+    <string name="install_failed_older_sdk" msgid="7947925824732917665">"החבילה פועלת רק בגרסאות חדשות יותר של Android."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="6692706907221501294">"יישום זה אינו תואם ל-CPU של טבלט זה."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="198065658681054957">"יישום זה אינו תואם ל-CPU של טלפון זה."</string>
-    <!-- no translation found for install_failed_file_not_found (1958430133396322619) -->
-    <skip />
-    <!-- no translation found for install_failed_verify_failed (5567372439890440205) -->
-    <skip />
-    <!-- no translation found for install_failed_verify_timeout (7472659457385169757) -->
-    <skip />
+    <string name="install_failed_file_not_found" msgid="1958430133396322619">"החבילה שצוינה נמחקה לפני שההתקנה הושלמה."</string>
+    <string name="install_failed_verify_failed" msgid="5567372439890440205">"החבילה לא עברה אימות ולא ניתן להתקין אותה."</string>
+    <string name="install_failed_verify_timeout" msgid="7472659457385169757">"פג הזמן הקצוב בעת הניסיון לאמת חבילה זו. נסה להתקין אותה שוב במועד מאוחר יותר."</string>
     <string name="install_failed_msg" product="tablet" msgid="1338133677465935471">"לא הייתה אפשרות להתקין את <xliff:g id="APP_NAME">%1$s</xliff:g> בטבלט זה."</string>
     <string name="install_failed_msg" product="default" msgid="5282789300118241924">"לא היתה אפשרות להתקין את <xliff:g id="APP_NAME">%1$s</xliff:g> בטלפון זה."</string>
     <string name="launch" msgid="4826921505917605463">"פתח"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"ההתקנה חסומה"</string>
-    <string name="unknown_apps_dlg_text" product="tablet" msgid="4206956723707981">"מסיבות אבטחה, הטבלט מוגדר לחסום התקנה של יישומים שלא התקבלו מ\'חנות Android\'."</string>
+    <string name="unknown_apps_dlg_text" product="tablet" msgid="4206956723707981">"מטעמי אבטחה, הטבלט מוגדר לחסום התקנה של יישומים שלא התקבלו מ\'חנות Android\'."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="5372999034845590289">"מטעמי אבטחה, הטלפון מוגדר לחסום התקנה של יישומים שלא הושגו מ\'חנות Android\'."</string>
     <string name="ok" msgid="3468756155452870475">"אישור"</string>
     <string name="settings" msgid="6743583734099755409">"הגדרות"</string>
-    <!-- no translation found for allow_source_dlg_title (6668811402605575022) -->
-    <skip />
-    <!-- no translation found for allow_source_dlg_text (3927580956764099076) -->
-    <skip />
+    <string name="allow_source_dlg_title" msgid="6668811402605575022">"לאפשר מקור חדש עבור יישומים?"</string>
+    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> רוצה להתקין יישומים אחרים. "\n" "\n"לאפשר זאת עכשיו ובעתיד?"</string>
     <string name="manage_applications" msgid="2704331021611806557">"נהל יישומים"</string>
     <string name="dlg_app_replacement_title" msgid="3438730820395482641">"החלף יישום"</string>
     <string name="dlg_app_replacement_statement" msgid="1175452362814803850">"היישום שאתה מתקין יחליף יישום אחר."\n\n"כל נתוני המשתמש הקודמים יישמרו."</string>
@@ -66,8 +61,8 @@
     <string name="uninstalling" msgid="5556217435895938250">"מסיר התקנה..."</string>
     <string name="uninstall_done" msgid="2270435276009022874">"הסרת ההתקנה הסתיימה"</string>
     <string name="uninstall_failed" msgid="5725854598594371845">"הסרת ההתקנה נכשלה"</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="5919295781337018536">"לא ניתן להסיר התקנה: חבילה זו היא מנהל התקן פעיל."</string>
-    <string name="manage_device_administrators" msgid="891392489300312370">"נהל מנהלי התקנים"</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="5919295781337018536">"לא ניתן להסיר התקנה: חבילה זו היא מנהל מכשיר פעיל."</string>
+    <string name="manage_device_administrators" msgid="891392489300312370">"נהל מנהלי מכשירים"</string>
     <string name="uninstall_failed_msg" msgid="3564704699891198935">"אין אפשרות לבטל את ההתקנה של <xliff:g id="APP_NAME">%1$s</xliff:g>"</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"שגיאת ניתוח"</string>
     <string name="Parse_error_dlg_text" msgid="1440309982917966479">"יש בעיה בניתוח החבילה."</string>

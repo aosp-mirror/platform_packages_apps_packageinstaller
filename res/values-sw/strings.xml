@@ -36,12 +36,9 @@
     <skip />
     <!-- no translation found for install_failed_cpu_abi_incompatible (198065658681054957) -->
     <skip />
-    <!-- no translation found for install_failed_file_not_found (1958430133396322619) -->
-    <skip />
-    <!-- no translation found for install_failed_verify_failed (5567372439890440205) -->
-    <skip />
-    <!-- no translation found for install_failed_verify_timeout (7472659457385169757) -->
-    <skip />
+    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Furushi bainifu lilifutwa kabla ya usakinishaji uweze kukamilika."</string>
+    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Furushi halikupitia uthibitishaji na haliwezi kusakinishwa."</string>
+    <string name="install_failed_verify_timeout" msgid="7472659457385169757">"Kuisha kwa muda kulitokea wakati ulipokuwa ukijaribu kuthibitisha furushi hili. Tafadhali jaribu kulisakinisha tena baadaye."</string>
     <!-- no translation found for install_failed_msg (1338133677465935471) -->
     <skip />
     <string name="install_failed_msg" product="default" msgid="5282789300118241924">"<xliff:g id="APP_NAME">%1$s</xliff:g> haikuweza kusakinishwa kwenye simu hii."</string>
@@ -51,10 +48,8 @@
     <string name="unknown_apps_dlg_text" product="default" msgid="5372999034845590289">"Kwa usalama, simu yako inapangwa kwa kuzuia usakinishaji wa programu ambazo hazijatolewa kutoka kwa Soko la Android."</string>
     <string name="ok" msgid="3468756155452870475">"Sawa"</string>
     <string name="settings" msgid="6743583734099755409">"Mipangilio"</string>
-    <!-- no translation found for allow_source_dlg_title (6668811402605575022) -->
-    <skip />
-    <!-- no translation found for allow_source_dlg_text (3927580956764099076) -->
-    <skip />
+    <string name="allow_source_dlg_title" msgid="6668811402605575022">"Ruhusu chanzo kipya cha programu?"</string>
+    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> anataka kusakinisha programu nyingine. "\n" "\n" Ruhusu hii sasa na katika siku za usoni?"</string>
     <string name="manage_applications" msgid="2704331021611806557">"Simamia programu za kompyuta"</string>
     <string name="dlg_app_replacement_title" msgid="3438730820395482641">"Badilisha programu"</string>
     <string name="dlg_app_replacement_statement" msgid="1175452362814803850">"programu unayosakinisha itabadilisha programu zingine."\n\n" Data zote za awali za mtumiaji zitahifadhiwa."</string>

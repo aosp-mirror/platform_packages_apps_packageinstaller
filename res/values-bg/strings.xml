@@ -31,12 +31,9 @@
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Пакетът работи само на по-нови версии на Android."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="6692706907221501294">"Това приложение не е съвместимо с процесора на таблета."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="198065658681054957">"Това приложение не е съвместимо с процесора на телефона."</string>
-    <!-- no translation found for install_failed_file_not_found (1958430133396322619) -->
-    <skip />
-    <!-- no translation found for install_failed_verify_failed (5567372439890440205) -->
-    <skip />
-    <!-- no translation found for install_failed_verify_timeout (7472659457385169757) -->
-    <skip />
+    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Посоченият пакет бе изтрит преди завършване на инсталацията."</string>
+    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Пакетът не премина потвърждаването и не може да бъде инсталиран."</string>
+    <string name="install_failed_verify_timeout" msgid="7472659457385169757">"При опита за потвържд. на пакета изтече времето за изчакване. Опитайте да го инст. отново по-късно."</string>
     <string name="install_failed_msg" product="tablet" msgid="1338133677465935471">"<xliff:g id="APP_NAME">%1$s</xliff:g> не можа да се инсталира на този таблет."</string>
     <string name="install_failed_msg" product="default" msgid="5282789300118241924">"<xliff:g id="APP_NAME">%1$s</xliff:g> не можа да се инсталира на този телефон."</string>
     <string name="launch" msgid="4826921505917605463">"Отваряне"</string>
@@ -45,10 +42,8 @@
     <string name="unknown_apps_dlg_text" product="default" msgid="5372999034845590289">"От съображения за сигурност телефонът ви е настроен да блокира инсталирането на приложения, които не са получени от Android Market."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Настройки"</string>
-    <!-- no translation found for allow_source_dlg_title (6668811402605575022) -->
-    <skip />
-    <!-- no translation found for allow_source_dlg_text (3927580956764099076) -->
-    <skip />
+    <string name="allow_source_dlg_title" msgid="6668811402605575022">"Да се разреши ли нов източник за приложенията?"</string>
+    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> иска да инсталира други приложения."\n\n"Ще разрешите ли това сега и в бъдеще?"</string>
     <string name="manage_applications" msgid="2704331021611806557">"Управление на приложенията"</string>
     <string name="dlg_app_replacement_title" msgid="3438730820395482641">"Замяна на приложението"</string>
     <string name="dlg_app_replacement_statement" msgid="1175452362814803850">"Приложението, което инсталирате, ще замени друго."\n\n"Всички досегашни потребителски данни ще бъдат запазени."</string>

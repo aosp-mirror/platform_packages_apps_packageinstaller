@@ -31,12 +31,9 @@
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Aquest paquet només funciona a les versions més recents d\'Android."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="6692706907221501294">"Aquesta aplicació no és compatible amb la CPU d\'aquesta tauleta."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="198065658681054957">"Aquesta aplicació no és compatible amb la CPU d\'aquest telèfon."</string>
-    <!-- no translation found for install_failed_file_not_found (1958430133396322619) -->
-    <skip />
-    <!-- no translation found for install_failed_verify_failed (5567372439890440205) -->
-    <skip />
-    <!-- no translation found for install_failed_verify_timeout (7472659457385169757) -->
-    <skip />
+    <string name="install_failed_file_not_found" msgid="1958430133396322619">"El paquet especificat s\'ha suprimit abans que la instal·lació s\'hagi completat."</string>
+    <string name="install_failed_verify_failed" msgid="5567372439890440205">"El paquet no ha aprovat la verificació i no es pot instal·lar."</string>
+    <string name="install_failed_verify_timeout" msgid="7472659457385169757">"S\'ha esgotat el temps en provar de verificar aquest paquet. Prova d\'instal·lar-lo de nou més tard."</string>
     <string name="install_failed_msg" product="tablet" msgid="1338133677465935471">"<xliff:g id="APP_NAME">%1$s</xliff:g> no s\'ha pogut instal·lar en aquesta tauleta."</string>
     <string name="install_failed_msg" product="default" msgid="5282789300118241924">"<xliff:g id="APP_NAME">%1$s</xliff:g> no s\'ha pogut instal·lar en aquest telèfon."</string>
     <string name="launch" msgid="4826921505917605463">"Obre"</string>
@@ -45,10 +42,8 @@
     <string name="unknown_apps_dlg_text" product="default" msgid="5372999034845590289">"Per motius de seguretat, el telèfon està definit per bloquejar la instal·lació d\'aplicacions que no s\'obtenen d\'Android Market."</string>
     <string name="ok" msgid="3468756155452870475">"D\'acord"</string>
     <string name="settings" msgid="6743583734099755409">"Configuració"</string>
-    <!-- no translation found for allow_source_dlg_title (6668811402605575022) -->
-    <skip />
-    <!-- no translation found for allow_source_dlg_text (3927580956764099076) -->
-    <skip />
+    <string name="allow_source_dlg_title" msgid="6668811402605575022">"Vols permetre una font nova per a les aplicacions?"</string>
+    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> vol instal·lar altres aplicacions."\n" "\n"Vols permetre-ho ara i en el futur?"</string>
     <string name="manage_applications" msgid="2704331021611806557">"Gestiona les aplicacions"</string>
     <string name="dlg_app_replacement_title" msgid="3438730820395482641">"Substitueix l\'aplicació"</string>
     <string name="dlg_app_replacement_statement" msgid="1175452362814803850">"L\'aplicació que esteu instal·lant substituirà una altra aplicació."\n\n"Es desaran totes les dades d\'usuari anteriors."</string>

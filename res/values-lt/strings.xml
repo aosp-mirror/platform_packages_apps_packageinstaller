@@ -31,12 +31,9 @@
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Paketas veikia tik naujesnėse „Android“ versijose."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="6692706907221501294">"Ši programa nesuderinama su šio planšetinio kompiuterio centriniu procesoriumi."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="198065658681054957">"Ši programa nesuderinama su šio telefono centriniu procesoriumi."</string>
-    <!-- no translation found for install_failed_file_not_found (1958430133396322619) -->
-    <skip />
-    <!-- no translation found for install_failed_verify_failed (5567372439890440205) -->
-    <skip />
-    <!-- no translation found for install_failed_verify_timeout (7472659457385169757) -->
-    <skip />
+    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Nurodytas paketas ištrintas prieš baigiant diegti."</string>
+    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Patikrinus nustatyta, kad paketas netinkamas, todėl jo įdiegti negalima."</string>
+    <string name="install_failed_verify_timeout" msgid="7472659457385169757">"Bandant patikrinti šį paketą baigėsi skirtasis laikas. Bandykite jį įdiegti vėliau."</string>
     <string name="install_failed_msg" product="tablet" msgid="1338133677465935471">"Šiame planšetiniame kompiuteryje nepavyko įdiegti „<xliff:g id="APP_NAME">%1$s</xliff:g>“."</string>
     <string name="install_failed_msg" product="default" msgid="5282789300118241924">"<xliff:g id="APP_NAME">%1$s</xliff:g> nepavyko įdiegti šiame telefone."</string>
     <string name="launch" msgid="4826921505917605463">"Atidaryti"</string>
@@ -45,10 +42,8 @@
     <string name="unknown_apps_dlg_text" product="default" msgid="5372999034845590289">"Saugos sumetimais jūsų telefonas nustatytas blokuoti programų, įsigytų ne „Android“ prekyvietėje, įdiegimą."</string>
     <string name="ok" msgid="3468756155452870475">"Gerai"</string>
     <string name="settings" msgid="6743583734099755409">"Nustatymai"</string>
-    <!-- no translation found for allow_source_dlg_title (6668811402605575022) -->
-    <skip />
-    <!-- no translation found for allow_source_dlg_text (3927580956764099076) -->
-    <skip />
+    <string name="allow_source_dlg_title" msgid="6668811402605575022">"Leisti naują programų šaltinį?"</string>
+    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> nori įdiegti kitas programas."\n\n"Ar leisti tai dabar ir ateityje?"</string>
     <string name="manage_applications" msgid="2704331021611806557">"Valdyti programas"</string>
     <string name="dlg_app_replacement_title" msgid="3438730820395482641">"Pakeisti programą"</string>
     <string name="dlg_app_replacement_statement" msgid="1175452362814803850">"Programa, kurią diegiate, pakeis kitą programą."\n\n"Bus išsaugoti visi ankstesni naudotojo duomenys."</string>

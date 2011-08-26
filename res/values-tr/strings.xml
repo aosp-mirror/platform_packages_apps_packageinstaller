@@ -31,12 +31,9 @@
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Paket yalnızca, Android\'in daha yeni sürümlerinde çalışır."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="6692706907221501294">"Bu uygulama, bu tabletin CPU\'suyla uyumlu değil."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="198065658681054957">"Bu uygulama, bu telefonun CPU\'su ile uyumlu değil."</string>
-    <!-- no translation found for install_failed_file_not_found (1958430133396322619) -->
-    <skip />
-    <!-- no translation found for install_failed_verify_failed (5567372439890440205) -->
-    <skip />
-    <!-- no translation found for install_failed_verify_timeout (7472659457385169757) -->
-    <skip />
+    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Belirtilen paket, yükleme tamamlanamadan silindi."</string>
+    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Paket, doğrulamayı geçmedi ve yüklenemez."</string>
+    <string name="install_failed_verify_timeout" msgid="7472659457385169757">"Bu paket doğrulanırken zaman aşımı oluştu. Lütfen daha sonra tekrar deneyin."</string>
     <string name="install_failed_msg" product="tablet" msgid="1338133677465935471">"<xliff:g id="APP_NAME">%1$s</xliff:g> bu tablete yüklenemedi."</string>
     <string name="install_failed_msg" product="default" msgid="5282789300118241924">"<xliff:g id="APP_NAME">%1$s</xliff:g> bu telefona yüklenemedi."</string>
     <string name="launch" msgid="4826921505917605463">"Aç"</string>
@@ -45,10 +42,8 @@
     <string name="unknown_apps_dlg_text" product="default" msgid="5372999034845590289">"Güvenlik nedeniyle telefonunuz, kaynağı Android Market\'ten edinilmemiş olan uygulamaların yüklenmesini engellemeye ayarlıdır."</string>
     <string name="ok" msgid="3468756155452870475">"Tamam"</string>
     <string name="settings" msgid="6743583734099755409">"Ayarlar"</string>
-    <!-- no translation found for allow_source_dlg_title (6668811402605575022) -->
-    <skip />
-    <!-- no translation found for allow_source_dlg_text (3927580956764099076) -->
-    <skip />
+    <string name="allow_source_dlg_title" msgid="6668811402605575022">"Uygulamalar için yeni kaynaklara izin verilsin mi?"</string>
+    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> diğer uygulamaları yüklemek istiyor ."\n\n"Buna şimdi ve gelecekte izin vermek istiyor musunuz?"</string>
     <string name="manage_applications" msgid="2704331021611806557">"Uygulamaları yönet"</string>
     <string name="dlg_app_replacement_title" msgid="3438730820395482641">"Uygulamayı değiştir"</string>
     <string name="dlg_app_replacement_statement" msgid="1175452362814803850">"Yüklemekte olduğunuz uygulama başka bir uygulamanın yerine geçecek."\n\n"Önceki kullanıcı verilerinin tümü kaydedilecek."</string>

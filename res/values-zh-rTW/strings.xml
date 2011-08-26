@@ -31,12 +31,9 @@
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"套件只能在較新版本的 Android 上運作。"</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="6692706907221501294">"這個應用程式與這個平板電腦的 CPU 不相容。"</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="198065658681054957">"這個應用程式與這支手機的 CPU 不相容。"</string>
-    <!-- no translation found for install_failed_file_not_found (1958430133396322619) -->
-    <skip />
-    <!-- no translation found for install_failed_verify_failed (5567372439890440205) -->
-    <skip />
-    <!-- no translation found for install_failed_verify_timeout (7472659457385169757) -->
-    <skip />
+    <string name="install_failed_file_not_found" msgid="1958430133396322619">"指定套件在安裝程序完成之前遭到刪除。"</string>
+    <string name="install_failed_verify_failed" msgid="5567372439890440205">"這個套件未通過驗證，因此無法安裝。"</string>
+    <string name="install_failed_verify_timeout" msgid="7472659457385169757">"嘗試驗證這個套件時發生作業逾時，請稍後再嘗試安裝。"</string>
     <string name="install_failed_msg" product="tablet" msgid="1338133677465935471">"無法在這個平板電腦上安裝「<xliff:g id="APP_NAME">%1$s</xliff:g>」。"</string>
     <string name="install_failed_msg" product="default" msgid="5282789300118241924">"無法將 <xliff:g id="APP_NAME">%1$s</xliff:g> 安裝在此手機上。"</string>
     <string name="launch" msgid="4826921505917605463">"開啟"</string>
@@ -45,10 +42,8 @@
     <string name="unknown_apps_dlg_text" product="default" msgid="5372999034845590289">"為保障安全，已將您的手機設定為不會安裝非 Android Market 所提供的應用程式。"</string>
     <string name="ok" msgid="3468756155452870475">"確定"</string>
     <string name="settings" msgid="6743583734099755409">"設定"</string>
-    <!-- no translation found for allow_source_dlg_title (6668811402605575022) -->
-    <skip />
-    <!-- no translation found for allow_source_dlg_text (3927580956764099076) -->
-    <skip />
+    <string name="allow_source_dlg_title" msgid="6668811402605575022">"允許應用程式的新來源？"</string>
+    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g>要安裝其他應用程式。"\n\n"您現在及日後是否都允許這項作業？"</string>
     <string name="manage_applications" msgid="2704331021611806557">"管理應用程式"</string>
     <string name="dlg_app_replacement_title" msgid="3438730820395482641">"取代應用程式"</string>
     <string name="dlg_app_replacement_statement" msgid="1175452362814803850">"您所要安裝的應用程式將會取代其他的應用程式。"\n\n"將會儲存所有先前的使用者資料。"</string>

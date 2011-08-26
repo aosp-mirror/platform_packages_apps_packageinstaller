@@ -31,12 +31,9 @@
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Gói chỉ hoạt động trên các phiên bản mới hơn của Android."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="6692706907221501294">"Ứng dụng này không tương thích với CPU của máy tính bảng này."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="198065658681054957">"Ứng dụng này không tương thích với CPU của điện thoại này."</string>
-    <!-- no translation found for install_failed_file_not_found (1958430133396322619) -->
-    <skip />
-    <!-- no translation found for install_failed_verify_failed (5567372439890440205) -->
-    <skip />
-    <!-- no translation found for install_failed_verify_timeout (7472659457385169757) -->
-    <skip />
+    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Gói đã chỉ định bị xóa trước khi cài đặt hoàn tất."</string>
+    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Gói không vượt qua xác minh và không thể được cài đặt."</string>
+    <string name="install_failed_verify_timeout" msgid="7472659457385169757">"Đã hết thời gian chờ trong khi cố gắng xác minh gói này. Vui lòng thử cài đặt lại sau."</string>
     <string name="install_failed_msg" product="tablet" msgid="1338133677465935471">"Không thể cài đặt <xliff:g id="APP_NAME">%1$s</xliff:g> trên máy tính bảng này."</string>
     <string name="install_failed_msg" product="default" msgid="5282789300118241924">"Không thể cài đặt <xliff:g id="APP_NAME">%1$s</xliff:g> trên điện thoại này."</string>
     <string name="launch" msgid="4826921505917605463">"Mở"</string>
@@ -45,10 +42,8 @@
     <string name="unknown_apps_dlg_text" product="default" msgid="5372999034845590289">"Vì lý do bảo mật, điện thoại của bạn được đặt để chặn cài đặt các ứng dụng không được lấy từ Android Market."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Cài đặt"</string>
-    <!-- no translation found for allow_source_dlg_title (6668811402605575022) -->
-    <skip />
-    <!-- no translation found for allow_source_dlg_text (3927580956764099076) -->
-    <skip />
+    <string name="allow_source_dlg_title" msgid="6668811402605575022">"Cho phép nguồn mới đối với ứng dụng?"</string>
+    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> muốn cài đặt các ứng dụng khác."\n\n"Cho phép điều này ngay bây giờ và trong tương lai?"</string>
     <string name="manage_applications" msgid="2704331021611806557">"Quản lý ứng dụng"</string>
     <string name="dlg_app_replacement_title" msgid="3438730820395482641">"Thay thế ứng dụng"</string>
     <string name="dlg_app_replacement_statement" msgid="1175452362814803850">"Ứng dụng bạn đang cài đặt sẽ thay thế ứng dụng khác."\n\n"Tất cả dữ liệu người dùng trước đây sẽ được lưu."</string>

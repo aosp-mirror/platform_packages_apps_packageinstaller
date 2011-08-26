@@ -31,12 +31,9 @@
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"O pacote só funciona em versões mais recentes do Android."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="6692706907221501294">"A aplicação não é compatível com a CPU deste tablet."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="198065658681054957">"A aplicação não é compatível com a CPU deste telefone."</string>
-    <!-- no translation found for install_failed_file_not_found (1958430133396322619) -->
-    <skip />
-    <!-- no translation found for install_failed_verify_failed (5567372439890440205) -->
-    <skip />
-    <!-- no translation found for install_failed_verify_timeout (7472659457385169757) -->
-    <skip />
+    <string name="install_failed_file_not_found" msgid="1958430133396322619">"O pacote especificado foi eliminado antes da instalação poder ser concluída."</string>
+    <string name="install_failed_verify_failed" msgid="5567372439890440205">"O pacote não passou na verificação e não pode ser instalado."</string>
+    <string name="install_failed_verify_timeout" msgid="7472659457385169757">"O tempo limite foi excedido ao tentar verificar este pacote. Tente instalá-lo novamente mais tarde."</string>
     <string name="install_failed_msg" product="tablet" msgid="1338133677465935471">"Não foi possível instalar <xliff:g id="APP_NAME">%1$s</xliff:g> neste tablet."</string>
     <string name="install_failed_msg" product="default" msgid="5282789300118241924">"Não foi possível instalar <xliff:g id="APP_NAME">%1$s</xliff:g> neste telefone."</string>
     <string name="launch" msgid="4826921505917605463">"Abrir"</string>
@@ -45,10 +42,8 @@
     <string name="unknown_apps_dlg_text" product="default" msgid="5372999034845590289">"Por motivos de segurança, o seu telefone está definido para bloquear a instalação de aplicações não obtidas a partir do Android Market."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Definições"</string>
-    <!-- no translation found for allow_source_dlg_title (6668811402605575022) -->
-    <skip />
-    <!-- no translation found for allow_source_dlg_text (3927580956764099076) -->
-    <skip />
+    <string name="allow_source_dlg_title" msgid="6668811402605575022">"Permitir nova fonte para aplicações?"</string>
+    <string name="allow_source_dlg_text" msgid="3927580956764099076">"O <xliff:g id="APP_NAME">%1$s</xliff:g> pretende instalar outras aplicações."\n\n"Permitir a operação agora e no futuro?"</string>
     <string name="manage_applications" msgid="2704331021611806557">"Gerir aplicações"</string>
     <string name="dlg_app_replacement_title" msgid="3438730820395482641">"Substituir a aplicação"</string>
     <string name="dlg_app_replacement_statement" msgid="1175452362814803850">"A aplicação que está a instalar substituirá outra aplicação."\n\n"Todos os dados anteriores do utilizador serão guardados."</string>

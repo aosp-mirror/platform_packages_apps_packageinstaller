@@ -31,12 +31,9 @@
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Pachetul funcţionează numai pe versiunile Android mai recente."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="6692706907221501294">"Această aplicaţie nu este compatibilă cu procesorul acestei tablete."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="198065658681054957">"Această aplicaţie nu este compatibilă cu procesorul acestui telefon."</string>
-    <!-- no translation found for install_failed_file_not_found (1958430133396322619) -->
-    <skip />
-    <!-- no translation found for install_failed_verify_failed (5567372439890440205) -->
-    <skip />
-    <!-- no translation found for install_failed_verify_timeout (7472659457385169757) -->
-    <skip />
+    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Pachetul specificat a fost şters înainte ca instalarea să poată fi finalizată."</string>
+    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Pachetul nu a trecut de verificare şi nu pot fi instalat."</string>
+    <string name="install_failed_verify_timeout" msgid="7472659457385169757">"La verif. pachetului a avut loc o expirare a timpului limită. Încercaţi să instalaţi din nou."</string>
     <string name="install_failed_msg" product="tablet" msgid="1338133677465935471">"<xliff:g id="APP_NAME">%1$s</xliff:g> nu s-a putut instala pe această tabletă."</string>
     <string name="install_failed_msg" product="default" msgid="5282789300118241924">"<xliff:g id="APP_NAME">%1$s</xliff:g> nu a putut fi instalat pe acest telefon."</string>
     <string name="launch" msgid="4826921505917605463">"Deschideţi"</string>
@@ -45,10 +42,8 @@
     <string name="unknown_apps_dlg_text" product="default" msgid="5372999034845590289">"Din motive de securitate, telefonul dvs. este configurat pentru a bloca instalarea aplicaţiilor care nu sunt obţinute de la Android Market."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Setări"</string>
-    <!-- no translation found for allow_source_dlg_title (6668811402605575022) -->
-    <skip />
-    <!-- no translation found for allow_source_dlg_text (3927580956764099076) -->
-    <skip />
+    <string name="allow_source_dlg_title" msgid="6668811402605575022">"Permiteţi sursa nouă pentru aplicaţii?"</string>
+    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> doreşte să instaleze alte aplicaţii."\n\n"Permiteţi acest lucru acum şi pe viitor?"</string>
     <string name="manage_applications" msgid="2704331021611806557">"Gestionaţi aplicaţiile"</string>
     <string name="dlg_app_replacement_title" msgid="3438730820395482641">"Înlocuiţi aplicaţia"</string>
     <string name="dlg_app_replacement_statement" msgid="1175452362814803850">"Aplicaţia pe care o instalaţi va înlocui altă aplicaţie."\n\n"Toate datele anterioare ale utilizatorului vor fi salvate."</string>

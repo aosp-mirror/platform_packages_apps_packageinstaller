@@ -36,12 +36,9 @@
     <skip />
     <!-- no translation found for install_failed_cpu_abi_incompatible (198065658681054957) -->
     <skip />
-    <!-- no translation found for install_failed_file_not_found (1958430133396322619) -->
-    <skip />
-    <!-- no translation found for install_failed_verify_failed (5567372439890440205) -->
-    <skip />
-    <!-- no translation found for install_failed_verify_timeout (7472659457385169757) -->
-    <skip />
+    <string name="install_failed_file_not_found" msgid="1958430133396322619">"የተጠቀሰው ፓኬጅ ጫን መጠናቀቅ ከመቻሉ በፊት ተሰርዞ ነበር።"</string>
+    <string name="install_failed_verify_failed" msgid="5567372439890440205">"ፓኬጁ ማረጋገጫውን አላለፈም እና መጫን አይችልም።"</string>
+    <string name="install_failed_verify_timeout" msgid="7472659457385169757">"ይህን ፓኬጅ በማረጋገጥ ጊዜ ሰዓት አብቅቷል ተከስቷል። እባክዎ ኋላ እንደገና ለመጫን ይሞክሩ።"</string>
     <!-- no translation found for install_failed_msg (1338133677465935471) -->
     <skip />
     <string name="install_failed_msg" product="default" msgid="5282789300118241924">"<xliff:g id="APP_NAME">%1$s</xliff:g> በዚህ ስልክ ላይ መጫን አልተቻለም።"</string>
@@ -51,10 +48,8 @@
     <string name="unknown_apps_dlg_text" product="default" msgid="5372999034845590289">"ለጥበቃ፣ ስልክዎ ከAndroid Market  ያልተገኙ ትግበራዎችን መጫን ለማገድ ተዘጋጅቷል።"</string>
     <string name="ok" msgid="3468756155452870475">"እሺ"</string>
     <string name="settings" msgid="6743583734099755409">"ቅንብሮች"</string>
-    <!-- no translation found for allow_source_dlg_title (6668811402605575022) -->
-    <skip />
-    <!-- no translation found for allow_source_dlg_text (3927580956764099076) -->
-    <skip />
+    <string name="allow_source_dlg_title" msgid="6668811402605575022">"ለትግበራዎች አዲስ ምንጭ ይፈቀድ?"</string>
+    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> ሌሎች ትግበራዎች ለመጫን ይፈልጋል።"\n\n" ይህን ለአሁን እና ለወደፊት ይፈቀድ?"</string>
     <string name="manage_applications" msgid="2704331021611806557">"ትግበራዎች አዸራጅ"</string>
     <string name="dlg_app_replacement_title" msgid="3438730820395482641">"ትግበራ ተካ"</string>
     <string name="dlg_app_replacement_statement" msgid="1175452362814803850">"እየጫኑ ያሉት ትግበራ ሌላ ትግበራ ይተካል።"\n\n" ሁሉም የቀደመ የተጠቃሚ ውሂብ ይቀመጣል።"</string>

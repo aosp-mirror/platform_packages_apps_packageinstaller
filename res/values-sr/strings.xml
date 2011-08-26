@@ -31,12 +31,9 @@
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Пакет функционише само на новијим верзијама Android-а."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="6692706907221501294">"Ова апликација није компатибилна са процесором овог таблета."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="198065658681054957">"Ова апликација није компатибилна са процесором овог телефона."</string>
-    <!-- no translation found for install_failed_file_not_found (1958430133396322619) -->
-    <skip />
-    <!-- no translation found for install_failed_verify_failed (5567372439890440205) -->
-    <skip />
-    <!-- no translation found for install_failed_verify_timeout (7472659457385169757) -->
-    <skip />
+    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Наведени пакет је избрисан пре него што је инсталација завршена."</string>
+    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Пакет није прошао верификацију и не може да се инсталира."</string>
+    <string name="install_failed_verify_timeout" msgid="7472659457385169757">"Дошло је до прекида при покушају да се верификује пакет. Покушајте поново да га инсталирате касније."</string>
     <string name="install_failed_msg" product="tablet" msgid="1338133677465935471">"Није било могуће инсталирати <xliff:g id="APP_NAME">%1$s</xliff:g> на овај таблет."</string>
     <string name="install_failed_msg" product="default" msgid="5282789300118241924">"Није било могуће инсталирати апликацију <xliff:g id="APP_NAME">%1$s</xliff:g> на овај телефон."</string>
     <string name="launch" msgid="4826921505917605463">"Отвори"</string>
@@ -45,10 +42,8 @@
     <string name="unknown_apps_dlg_text" product="default" msgid="5372999034845590289">"Телефон је из безбедносних разлога подешен тако да блокира инсталирање апликација које нису преузете са Android Market-а."</string>
     <string name="ok" msgid="3468756155452870475">"Потврди"</string>
     <string name="settings" msgid="6743583734099755409">"Подешавања"</string>
-    <!-- no translation found for allow_source_dlg_title (6668811402605575022) -->
-    <skip />
-    <!-- no translation found for allow_source_dlg_text (3927580956764099076) -->
-    <skip />
+    <string name="allow_source_dlg_title" msgid="6668811402605575022">"Желите ли да дозволите нови извор за апликације?"</string>
+    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> жели да инсталира друге апликације."\n\n"Желите ли то да дозволите сада и у будућности?"</string>
     <string name="manage_applications" msgid="2704331021611806557">"Управљање апликацијама"</string>
     <string name="dlg_app_replacement_title" msgid="3438730820395482641">"Замена апликације"</string>
     <string name="dlg_app_replacement_statement" msgid="1175452362814803850">"Апликација коју инсталирате замениће другу апликацију."\n\n"Сви претходни подаци корисника биће сачувани."</string>
