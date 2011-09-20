@@ -26,25 +26,19 @@
     <string name="install_done" msgid="5868979453936752120">"ትግበራ ተጭኗል"</string>
     <string name="install_confirm_question" msgid="5512879835615493065">"ይህን መተግበሪያ መጫን ይፈልጋሉ?"</string>
     <string name="install_failed" msgid="6644311739017660989">"ትግበራ አልተጫነም"</string>
-    <!-- no translation found for install_failed_invalid_apk (1287935707565682604) -->
-    <skip />
-    <!-- no translation found for install_failed_inconsistent_certificates (1517751954440692054) -->
-    <skip />
-    <!-- no translation found for install_failed_older_sdk (7947925824732917665) -->
-    <skip />
-    <!-- no translation found for install_failed_cpu_abi_incompatible (6692706907221501294) -->
-    <skip />
-    <!-- no translation found for install_failed_cpu_abi_incompatible (198065658681054957) -->
-    <skip />
+    <string name="install_failed_invalid_apk" msgid="1287935707565682604">"ፓኬጁ ብልሹ ሆኖ ተገኝቷል።"</string>
+    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"በተመሳሳይ ስም ያለፓኬጅ በሚያምታታ ፊርማ አስቀድሞ ተጭኗል።"</string>
+    <string name="install_failed_older_sdk" msgid="7947925824732917665">"ፓኬጁ በአዲሱ የAndroid ሥሪቶች ላይ ብቻ ይሰራል።"</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="6692706907221501294">"ይህ ትግበራ ከጡባዊው CPU ጋር ተኳኋኝ አይደለም።"</string>
+    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="198065658681054957">"ይህ ትግበራ ከስልኩ CPU ጋር ተኳኋኝ አይደለም።"</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"የተጠቀሰው ፓኬጅ ጫን መጠናቀቅ ከመቻሉ በፊት ተሰርዞ ነበር።"</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"ፓኬጁ ማረጋገጫውን አላለፈም እና መጫን አይችልም።"</string>
     <string name="install_failed_verify_timeout" msgid="7472659457385169757">"ይህን ፓኬጅ በማረጋገጥ ጊዜ ሰዓት አብቅቷል ተከስቷል። እባክዎ ኋላ እንደገና ለመጫን ይሞክሩ።"</string>
-    <!-- no translation found for install_failed_msg (1338133677465935471) -->
-    <skip />
+    <string name="install_failed_msg" product="tablet" msgid="1338133677465935471">"<xliff:g id="APP_NAME">%1$s</xliff:g> በዚህ ስልክ ላይ መጫን አልተቻለም።"</string>
     <string name="install_failed_msg" product="default" msgid="5282789300118241924">"<xliff:g id="APP_NAME">%1$s</xliff:g> በዚህ ስልክ ላይ መጫን አልተቻለም።"</string>
     <string name="launch" msgid="4826921505917605463">"ክፈት"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"ጫን ታግዷል"</string>
-    <!-- outdated translation 5372999034845590289 -->     <string name="unknown_apps_dlg_text" product="tablet" msgid="4206956723707981">"ለጥበቃ፣ ስልክዎ ከAndroid Market  ያልተገኙ ትግበራዎችን መጫን ለማገድ ተዘጋጅቷል።"</string>
+    <string name="unknown_apps_dlg_text" product="tablet" msgid="4206956723707981">"ለጥበቃ፣ ጡባዊዎ ከAndroid Market  ያልተገኙ ትግበራዎችን መጫን ለማገድ ተዘጋጅቷል።"</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="5372999034845590289">"ለጥበቃ፣ ስልክዎ ከAndroid Market  ያልተገኙ ትግበራዎችን መጫን ለማገድ ተዘጋጅቷል።"</string>
     <string name="ok" msgid="3468756155452870475">"እሺ"</string>
     <string name="settings" msgid="6743583734099755409">"ቅንብሮች"</string>
@@ -67,10 +61,8 @@
     <string name="uninstalling" msgid="5556217435895938250">"ባለመጫንላይ"</string>
     <string name="uninstall_done" msgid="2270435276009022874">"አራግፍ ተጠናቋል"</string>
     <string name="uninstall_failed" msgid="5725854598594371845">"አራግፍ አልተሳካም"</string>
-    <!-- no translation found for uninstall_failed_device_policy_manager (5919295781337018536) -->
-    <skip />
-    <!-- no translation found for manage_device_administrators (891392489300312370) -->
-    <skip />
+    <string name="uninstall_failed_device_policy_manager" msgid="5919295781337018536">"ማራገፍ አልተቻለም፡ ይህ ፓኬጅ የገባሪ መሣሪያ አስተዳዳሪ ነው።"</string>
+    <string name="manage_device_administrators" msgid="891392489300312370">"የመሣሪያ አስተዳዳሪዎችን አደራጅ"</string>
     <string name="uninstall_failed_msg" msgid="3564704699891198935">"<xliff:g id="APP_NAME">%1$s</xliff:g> አለመጫን አልቻለም"</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"ስህተት ተንትን"</string>
     <string name="Parse_error_dlg_text" msgid="1440309982917966479">"አካታቹን መተንተን ችግር አለ።"</string>

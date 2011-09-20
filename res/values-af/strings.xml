@@ -26,25 +26,19 @@
     <string name="install_done" msgid="5868979453936752120">"Program geïnstalleer"</string>
     <string name="install_confirm_question" msgid="5512879835615493065">"Wil jy hierdie program installeer?"</string>
     <string name="install_failed" msgid="6644311739017660989">"Program nie geïnstalleer nie"</string>
-    <!-- no translation found for install_failed_invalid_apk (1287935707565682604) -->
-    <skip />
-    <!-- no translation found for install_failed_inconsistent_certificates (1517751954440692054) -->
-    <skip />
-    <!-- no translation found for install_failed_older_sdk (7947925824732917665) -->
-    <skip />
-    <!-- no translation found for install_failed_cpu_abi_incompatible (6692706907221501294) -->
-    <skip />
-    <!-- no translation found for install_failed_cpu_abi_incompatible (198065658681054957) -->
-    <skip />
+    <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Dit lyk asof die pakket korrup is."</string>
+    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"\'n Bestaande pakket met dieselfde naam en \'n botsende handtekening is reeds geïnstalleer."</string>
+    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Die pakket werk net op jonger weergawes van Android."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="6692706907221501294">"Hierdie program is nie versoenbaar met die tablet se CPU nie."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="198065658681054957">"Hierdie program is nie versoenbaar met die foon se CPU nie."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Die gespesifiseerde pakkie is uitgevee voordat installasie voltooi kon word."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"Die pakkie het nie verifikasie geslaag nie en kan nie geïnstalleer word nie."</string>
     <string name="install_failed_verify_timeout" msgid="7472659457385169757">"\'n Uittel het plaasgevind tydens verifikasie van hierdie pakkie. Probeer dit asseblief later weer installeer."</string>
-    <!-- no translation found for install_failed_msg (1338133677465935471) -->
-    <skip />
+    <string name="install_failed_msg" product="tablet" msgid="1338133677465935471">"<xliff:g id="APP_NAME">%1$s</xliff:g> kon nie op hierdie tablet geïnstalleer word nie."</string>
     <string name="install_failed_msg" product="default" msgid="5282789300118241924">"<xliff:g id="APP_NAME">%1$s</xliff:g> kon nie op hierdie foon geïnstalleer word nie."</string>
     <string name="launch" msgid="4826921505917605463">"Open"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Installering geblokkeer"</string>
-    <!-- outdated translation 5372999034845590289 -->     <string name="unknown_apps_dlg_text" product="tablet" msgid="4206956723707981">"Vir sekuriteit is jou selfoon gestel om die installering van programme wat nie in die Android Market is nie, te blokkeer."</string>
+    <string name="unknown_apps_dlg_text" product="tablet" msgid="4206956723707981">"Vir sekuriteit is jou tablet gestel om die installering van programme wat nie in die Android Market gekoop is nie, te blokkeer."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="5372999034845590289">"Vir sekuriteit is jou selfoon gestel om die installering van programme wat nie in die Android Market is nie, te blokkeer."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Instellings"</string>
@@ -67,10 +61,8 @@
     <string name="uninstalling" msgid="5556217435895938250">"Deïnstalleer tans…"</string>
     <string name="uninstall_done" msgid="2270435276009022874">"Deïnstallering klaar"</string>
     <string name="uninstall_failed" msgid="5725854598594371845">"Deïnstallering nie suksesvol nie"</string>
-    <!-- no translation found for uninstall_failed_device_policy_manager (5919295781337018536) -->
-    <skip />
-    <!-- no translation found for manage_device_administrators (891392489300312370) -->
-    <skip />
+    <string name="uninstall_failed_device_policy_manager" msgid="5919295781337018536">"Kan nie deïnstalleer nie: hierdie pakket is \'n aktiewe toesteladministrateur."</string>
+    <string name="manage_device_administrators" msgid="891392489300312370">"Bestuur toesteladministrateurs"</string>
     <string name="uninstall_failed_msg" msgid="3564704699891198935">"<xliff:g id="APP_NAME">%1$s</xliff:g> kon nie deïnstalleer word nie"</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Ontledingsfout"</string>
     <string name="Parse_error_dlg_text" msgid="1440309982917966479">"Kon nie die pakket ontleed nie."</string>
