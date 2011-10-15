@@ -82,10 +82,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/app_snippet"
-            android:gravity="center_horizontal"
+            android:gravity="left"
             android:text="@string/installing"
             android:paddingTop="16dip"
-            android:paddingLeft="16dip"
+            android:paddingLeft="32dip"
+            android:paddingRight="32dip"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <!-- This explanation text is shown only after the progress bar below goes away. -->
@@ -105,18 +106,6 @@
                 android:visibility="gone"
                 android:textAppearance="?android:attr/textAppearanceSmall"/>
     </ScrollView>
-
-    <!-- This progress bar goes away when the explanation above is displayed. -->
-    <ProgressBar
-            android:id="@+id/progress_bar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/center_text"
-            android:paddingTop="24dip"
-            android:paddingLeft="16dip"
-            android:paddingRight="16dip"
-            android:max="100" />
 
 </RelativeLayout>
 

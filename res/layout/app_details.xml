@@ -24,30 +24,45 @@ installation screens
     android:id="@+id/app_snippet"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="16dip"
-    android:layout_marginLeft="16dip"
+    android:paddingLeft="16dip"
+    android:paddingRight="16dip"
+    android:paddingTop="24dip"
     >
     <ImageView android:id="@+id/app_icon"
-        android:layout_width="54dip"
-        android:layout_height="54dip"
+        android:layout_width="32dip"
+        android:layout_height="32dip"
+        android:layout_marginLeft="8dip"
         android:background="@color/transparent"
         android:layout_alignParentLeft="true"
         android:gravity="left"
-        android:scaleType="centerCrop"
-        android:layout_marginLeft="8dip"/>
+        android:scaleType="centerCrop"/>
     <TextView android:id="@+id/app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="?android:attr/textColorPrimary"
         android:shadowColor="@color/shadow"
         android:shadowRadius="2"
         android:layout_toRightOf="@id/app_icon"
         android:singleLine="true"
-        android:gravity="center"
         android:layout_centerInParent="true"
         android:paddingRight="16dip"
+        android:paddingTop="3dip"
         android:paddingLeft="16dip"
         android:ellipsize="end"/>
+    <FrameLayout
+        android:id="@+id/top_divider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="4dip"
+        android:layout_below="@id/app_name">
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+    
 </RelativeLayout>
 
