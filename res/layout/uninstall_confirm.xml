@@ -33,8 +33,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:orientation="vertical"
-        android:paddingTop="6dip"
-        android:paddingBottom="6dip">
+        android:paddingTop="8dip"
+        android:paddingBottom="8dip">
 
         <!-- If an activity was specified, explains what package it's in. -->
         <TextView
@@ -58,7 +58,8 @@
             android:layout_height="wrap_content"
             android:textColor="?android:attr/textColorSecondary"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:padding="16dip" />
+            android:paddingLeft="24dip"
+            android:paddingRight="24dip" />
 
     </LinearLayout>
 
