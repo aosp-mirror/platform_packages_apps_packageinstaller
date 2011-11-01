@@ -15,7 +15,7 @@
 -->
 <level-list xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- success state -->
-    <item android:maxLevel="0" android:drawable="@drawable/button_indicator_finish"/>
+    <item android:maxLevel="0" android:drawable="@drawable/ic_success"/>
     <!-- failure state -->
-    <item android:maxLevel="1" android:drawable="@android:drawable/ic_delete"/>
+    <item android:maxLevel="1" android:drawable="@drawable/ic_fail"/>
 </level-list>
