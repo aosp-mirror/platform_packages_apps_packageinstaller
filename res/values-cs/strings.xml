@@ -19,56 +19,51 @@
     <string name="app_name" msgid="2738748390251381682">"Nástroj k instalaci balíčků"</string>
     <string name="install" msgid="5896438203900042068">"Instalovat"</string>
     <string name="done" msgid="3889387558374211719">"Hotovo"</string>
-    <!-- outdated translation 4984920898157282073 -->     <string name="security_settings_desc" msgid="2706691034244052604">"Povolit této aplikaci:"</string>
+    <string name="security_settings_desc" msgid="2706691034244052604">"Povolit aplikaci:"</string>
     <string name="cancel" msgid="8360346460165114585">"Zrušit"</string>
     <string name="unknown" msgid="4742479012767208045">"Neznámé"</string>
     <string name="installing" msgid="8613631001631998372">"Probíhá instalace..."</string>
-    <!-- outdated translation 5868979453936752120 -->     <string name="install_done" msgid="3682715442154357097">"Aplikace byla nainstalována"</string>
-    <!-- outdated translation 5512879835615493065 -->     <string name="install_confirm_question" msgid="5000329424275251786">"Chcete tuto aplikaci nainstalovat?"</string>
-    <!-- outdated translation 6644311739017660989 -->     <string name="install_failed" msgid="6579998651498970899">"Aplikace není nainstalována"</string>
+    <string name="install_done" msgid="3682715442154357097">"Aplikace je nainstalována."</string>
+    <string name="install_confirm_question" msgid="5000329424275251786">"Chcete tuto aplikaci nainstalovat?"</string>
+    <string name="install_failed" msgid="6579998651498970899">"Aplikace není nainstalována."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Zdá se, že je balíček poškozen."</string>
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Již je nainstalován balíček se stejným názvem a konfliktním podpisem."</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Balíček funguje pouze v novějších verzích systému Android."</string>
-    <!-- outdated translation 6692706907221501294 -->     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Tato aplikace není kompatibilní s procesorem tohoto tabletu."</string>
-    <!-- outdated translation 6692706907221501294 -->     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Tato aplikace není kompatibilní s procesorem tohoto tabletu."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Tato aplikace není kompatibilní s vaším tabletem."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Tato aplikace není kompatibilní s vaším telefonem."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Vybraný balíček byl smazán před dokončením instalace."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"Balíček neprošel ověřením a nemůže být nainstalován."</string>
-    <!-- outdated translation 1657557608958047423 -->     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Při ověřování tohoto balíčku vypršel časový limit. Zkuste jej nainstalovat znovu později."</string>
-    <!-- no translation found for install_failed_msg (8368835262605608787) -->
-    <skip />
-    <!-- no translation found for install_failed_msg (8554909560982962052) -->
-    <skip />
+    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Při ověřování tohoto balíčku vypršel časový limit. Zkuste jej nainstalovat znovu později."</string>
+    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Aplikaci <xliff:g id="APP_NAME">%1$s</xliff:g> do tohoto tabletu nelze nainstalovat."</string>
+    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Aplikaci <xliff:g id="APP_NAME">%1$s</xliff:g> do tohoto telefonu nelze nainstalovat."</string>
     <string name="launch" msgid="4826921505917605463">"Otevřít"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Instalace byla zablokována"</string>
-    <!-- outdated translation 4206956723707981 -->     <string name="unknown_apps_dlg_text" product="tablet" msgid="1710283014204879610">"Váš tablet je z důvodu zabezpečení nastaven tak, aby blokoval instalaci aplikací, které nepocházejí ze služby Android Market."</string>
-    <!-- outdated translation 4206956723707981 -->     <string name="unknown_apps_dlg_text" product="default" msgid="9159167487408561881">"Váš tablet je z důvodu zabezpečení nastaven tak, aby blokoval instalaci aplikací, které nepocházejí ze služby Android Market."</string>
+    <string name="unknown_apps_dlg_text" product="tablet" msgid="1710283014204879610">"Váš tablet je z důvodu zabezpečení nastaven tak, aby blokoval instalaci aplikací, které nepocházejí ze služby Android Market."</string>
+    <string name="unknown_apps_dlg_text" product="default" msgid="9159167487408561881">"Váš telefon je z důvodu zabezpečení nastaven tak, aby blokoval instalaci aplikací, které nepocházejí ze služby Android Market."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Nastavení"</string>
-    <!-- outdated translation 6668811402605575022 -->     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Povolit nový zdroj pro aplikace?"</string>
+    <string name="allow_source_dlg_title" msgid="7568985073502399415">"Nový zdroj pro aplikace"</string>
     <string name="allow_source_dlg_text" msgid="3927580956764099076">"Aplikace <xliff:g id="APP_NAME">%1$s</xliff:g> chce instalovat další aplikace."\n\n"Povolit nyní i v budoucnu?"</string>
-    <!-- outdated translation 2704331021611806557 -->     <string name="manage_applications" msgid="4033876279091996596">"Správa aplikací"</string>
-    <!-- outdated translation 3438730820395482641 -->     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Nahradit aplikaci"</string>
-    <!-- outdated translation 1175452362814803850 -->     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Aplikace, kterou instalujete, nahradí jinou aplikaci."\n\n"Všechna dříve zadaná data uživatelů budou uložena."</string>
-    <!-- outdated translation 1047598434568470723 -->     <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Toto je systémová aplikace. Opravdu ji chcete nahradit?"\n\n"Všechna předchozí data uživatele budou uložena."</string>
+    <string name="manage_applications" msgid="4033876279091996596">"Spravovat aplikace"</string>
+    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Chcete aplikaci nahradit?"</string>
+    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Aplikace, kterou instalujete, nahradí jinou aplikaci."\n\n"Všechny předchozí uživatelské údaje budou uloženy."</string>
+    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Toto je systémová aplikace."\n\n"Všechny předchozí uživatelské údaje budou uloženy."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Nedostatek místa"</string>
-    <!-- no translation found for out_of_space_dlg_text (4774775404294282216) -->
-    <skip />
+    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"Aplikaci <xliff:g id="APP_NAME">%1$s</xliff:g> nelze nainstalovat. Uvolněte místo v paměti a zkuste to znovu."</string>
     <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
-    <!-- outdated translation 1510267643973600726 -->     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Aplikace nebyla nalezena"</string>
-    <!-- outdated translation 754013198108180241 -->     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Aplikace nebyla nalezena na seznamu nainstalovaných aplikací."</string>
-    <!-- outdated translation 3783979083504504759 -->     <string name="uninstall_application_title" msgid="1860074100811653963">"Odinstalovat aplikaci"</string>
-    <!-- outdated translation 4347305704874439105 -->     <string name="uninstall_update_title" msgid="4146940097553335390">"Odinstalovat aktualizaci"</string>
-    <!-- no translation found for uninstall_activity_text (6680688689803932550) -->
-    <skip />
-    <!-- outdated translation 3730249522678487101 -->     <string name="uninstall_application_text" msgid="6691975835951187030">"Tato aplikace bude odinstalována."</string>
-    <!-- outdated translation 1588440065985786844 -->     <string name="uninstall_update_text" msgid="2056387942084605027">"Aplikace bude nahrazena výchozí verzí z výroby."</string>
+    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Aplikace nebyla nalezena"</string>
+    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Aplikaci se nepodařilo najít na seznamu nainstalovaných aplikací."</string>
+    <string name="uninstall_application_title" msgid="1860074100811653963">"Odinstalovat aplikaci"</string>
+    <string name="uninstall_update_title" msgid="4146940097553335390">"Odinstalovat aktualizaci"</string>
+    <string name="uninstall_activity_text" msgid="6680688689803932550">"Činnost <xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> je součástí následující aplikace:"</string>
+    <string name="uninstall_application_text" msgid="6691975835951187030">"Chcete tuto aplikaci odinstalovat?"</string>
+    <string name="uninstall_update_text" msgid="2056387942084605027">"Chcete tuto aplikaci nahradit tovární verzí?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Probíhá odinstalace..."</string>
-    <!-- outdated translation 2270435276009022874 -->     <string name="uninstall_done" msgid="3792487853420281888">"Odinstalace byla dokončena."</string>
-    <!-- outdated translation 5725854598594371845 -->     <string name="uninstall_failed" msgid="631122574306299512">"Odinstalace nebyla úspěšná."</string>
-    <!-- outdated translation 5919295781337018536 -->     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Nelze odinstalovat: tento balíček je aktivním správcem zařízení."</string>
+    <string name="uninstall_done" msgid="3792487853420281888">"Odinstalace byla dokončena."</string>
+    <string name="uninstall_failed" msgid="631122574306299512">"Odinstalace se nezdařila."</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Nelze odinstalovat, protože je tento balíček aktivním správcem zařízení."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Spravovat správce zařízení"</string>
-    <!-- no translation found for uninstall_failed_msg (8969754702803951175) -->
-    <skip />
+    <string name="uninstall_failed_msg" msgid="8969754702803951175">"Aplikaci <xliff:g id="APP_NAME">%1$s</xliff:g> nelze odinstalovat."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Chyba analýzy"</string>
-    <!-- outdated translation 1440309982917966479 -->     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Při analýze balíčku došlo k problému."</string>
+    <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Při analýze balíčku došlo k chybě."</string>
 </resources>

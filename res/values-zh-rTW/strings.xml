@@ -19,56 +19,51 @@
     <string name="app_name" msgid="2738748390251381682">"程式安裝器"</string>
     <string name="install" msgid="5896438203900042068">"安裝"</string>
     <string name="done" msgid="3889387558374211719">"完成"</string>
-    <!-- outdated translation 4984920898157282073 -->     <string name="security_settings_desc" msgid="2706691034244052604">"允許此應用程式："</string>
+    <string name="security_settings_desc" msgid="2706691034244052604">"允許這個應用程式："</string>
     <string name="cancel" msgid="8360346460165114585">"取消"</string>
     <string name="unknown" msgid="4742479012767208045">"不明"</string>
     <string name="installing" msgid="8613631001631998372">"安裝中..."</string>
-    <!-- outdated translation 5868979453936752120 -->     <string name="install_done" msgid="3682715442154357097">"已安裝的應用程式"</string>
-    <!-- outdated translation 5512879835615493065 -->     <string name="install_confirm_question" msgid="5000329424275251786">"要安裝此應用程式嗎？"</string>
-    <!-- outdated translation 6644311739017660989 -->     <string name="install_failed" msgid="6579998651498970899">"應用程式尚未安裝"</string>
+    <string name="install_done" msgid="3682715442154357097">"已安裝應用程式。"</string>
+    <string name="install_confirm_question" msgid="5000329424275251786">"您要安裝這個應用程式嗎？"</string>
+    <string name="install_failed" msgid="6579998651498970899">"未安裝應用程式。"</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"套件已毀損。"</string>
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"發生衝突，安裝套件所使用的簽名和現有套件的簽名相同。"</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"套件只能在較新版本的 Android 上運作。"</string>
-    <!-- outdated translation 6692706907221501294 -->     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"這個應用程式與這個平板電腦的 CPU 不相容。"</string>
-    <!-- outdated translation 6692706907221501294 -->     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"這個應用程式與這個平板電腦的 CPU 不相容。"</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"這個應用程式與您的平板電腦不相容。"</string>
+    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"這個應用程式與您的手機不相容。"</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"指定套件在安裝程序完成之前遭到刪除。"</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"這個套件未通過驗證，因此無法安裝。"</string>
-    <!-- outdated translation 1657557608958047423 -->     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"嘗試驗證這個套件時發生作業逾時，請稍後再嘗試安裝。"</string>
-    <!-- no translation found for install_failed_msg (8368835262605608787) -->
-    <skip />
-    <!-- no translation found for install_failed_msg (8554909560982962052) -->
-    <skip />
+    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"嘗試驗證這個套件時發生逾時，請稍後再嘗試安裝。"</string>
+    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"無法在您的平板電腦上安裝「<xliff:g id="APP_NAME">%1$s</xliff:g>」。"</string>
+    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"無法在您的手機上安裝「<xliff:g id="APP_NAME">%1$s</xliff:g>」。"</string>
     <string name="launch" msgid="4826921505917605463">"開啟"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"安裝遭封鎖。"</string>
-    <!-- outdated translation 4206956723707981 -->     <string name="unknown_apps_dlg_text" product="tablet" msgid="1710283014204879610">"為保障安全，您的平板電腦已設定為不會安裝非 Android Market 所提供的應用程式。"</string>
-    <!-- outdated translation 4206956723707981 -->     <string name="unknown_apps_dlg_text" product="default" msgid="9159167487408561881">"為保障安全，您的平板電腦已設定為不會安裝非 Android Market 所提供的應用程式。"</string>
+    <string name="unknown_apps_dlg_text" product="tablet" msgid="1710283014204879610">"為保障安全，您的平板電腦已設定為不安裝 Android Market 以外的管道提供的應用程式。"</string>
+    <string name="unknown_apps_dlg_text" product="default" msgid="9159167487408561881">"為保障安全，您的手機已設定為不安裝 Android Market 以外的管道提供的應用程式。"</string>
     <string name="ok" msgid="3468756155452870475">"確定"</string>
     <string name="settings" msgid="6743583734099755409">"設定"</string>
-    <!-- outdated translation 6668811402605575022 -->     <string name="allow_source_dlg_title" msgid="7568985073502399415">"允許應用程式的新來源？"</string>
+    <string name="allow_source_dlg_title" msgid="7568985073502399415">"應用程式的新來源"</string>
     <string name="allow_source_dlg_text" msgid="3927580956764099076">"「<xliff:g id="APP_NAME">%1$s</xliff:g>」要安裝其他應用程式。"\n\n"您是否允許現在及日後都執行這項作業？"</string>
-    <!-- outdated translation 2704331021611806557 -->     <string name="manage_applications" msgid="4033876279091996596">"管理應用程式"</string>
-    <!-- outdated translation 3438730820395482641 -->     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"取代應用程式"</string>
-    <!-- outdated translation 1175452362814803850 -->     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"您所要安裝的應用程式將會取代其他的應用程式。"\n\n"將會儲存所有先前的使用者資料。"</string>
-    <!-- outdated translation 1047598434568470723 -->     <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"這是系統應用程式，確定要取代嗎？"\n\n"系統將儲存所有之前的使用者資料。"</string>
+    <string name="manage_applications" msgid="4033876279091996596">"管理應用程式"</string>
+    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"取代應用程式？"</string>
+    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"您所要安裝的應用程式將取代其他應用程式。"\n\n"系統將儲存所有先前的使用者資料。"</string>
+    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"這是系統應用程式。"\n\n"系統將儲存所有先前的使用者資料。"</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"空間不足"</string>
-    <!-- no translation found for out_of_space_dlg_text (4774775404294282216) -->
-    <skip />
+    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"無法安裝「<xliff:g id="APP_NAME">%1$s</xliff:g>」。請先釋出部分空間，然後再試一次。"</string>
     <string name="dlg_ok" msgid="6944357727705699232">"確定"</string>
-    <!-- outdated translation 1510267643973600726 -->     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"找不到應用程式"</string>
-    <!-- outdated translation 754013198108180241 -->     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"已安裝的應用程式清單中沒有此應用程式。"</string>
-    <!-- outdated translation 3783979083504504759 -->     <string name="uninstall_application_title" msgid="1860074100811653963">"解除安裝應用程式"</string>
-    <!-- outdated translation 4347305704874439105 -->     <string name="uninstall_update_title" msgid="4146940097553335390">"解除安裝更新"</string>
-    <!-- no translation found for uninstall_activity_text (6680688689803932550) -->
-    <skip />
-    <!-- outdated translation 3730249522678487101 -->     <string name="uninstall_application_text" msgid="6691975835951187030">"將會解除安裝此應用程式。"</string>
-    <!-- outdated translation 1588440065985786844 -->     <string name="uninstall_update_text" msgid="2056387942084605027">"此應用程式將會恢復原廠設定。"</string>
+    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"找不到應用程式"</string>
+    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"在已安裝的應用程式清單中找不到這個應用程式。"</string>
+    <string name="uninstall_application_title" msgid="1860074100811653963">"解除安裝應用程式"</string>
+    <string name="uninstall_update_title" msgid="4146940097553335390">"解除安裝更新"</string>
+    <string name="uninstall_activity_text" msgid="6680688689803932550">"「<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g>」屬於下列應用程式："</string>
+    <string name="uninstall_application_text" msgid="6691975835951187030">"您要解除安裝這個應用程式嗎？"</string>
+    <string name="uninstall_update_text" msgid="2056387942084605027">"您要將這個應用程式重設成原廠設定嗎？"</string>
     <string name="uninstalling" msgid="5556217435895938250">"解除安裝中..."</string>
-    <!-- outdated translation 2270435276009022874 -->     <string name="uninstall_done" msgid="3792487853420281888">"解除安裝完成"</string>
-    <!-- outdated translation 5725854598594371845 -->     <string name="uninstall_failed" msgid="631122574306299512">"解除安裝失敗"</string>
-    <!-- outdated translation 5919295781337018536 -->     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"無法解除安裝：這個套件是目前的裝置管理員。"</string>
+    <string name="uninstall_done" msgid="3792487853420281888">"解除安裝完成。"</string>
+    <string name="uninstall_failed" msgid="631122574306299512">"解除安裝失敗。"</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"這個套件是目前的裝置管理員，因此無法解除安裝。"</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"管理裝置管理員"</string>
-    <!-- no translation found for uninstall_failed_msg (8969754702803951175) -->
-    <skip />
+    <string name="uninstall_failed_msg" msgid="8969754702803951175">"無法解除安裝「<xliff:g id="APP_NAME">%1$s</xliff:g>」。"</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"剖析錯誤"</string>
-    <!-- outdated translation 1440309982917966479 -->     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"剖析程式時發生問題。"</string>
+    <string name="Parse_error_dlg_text" msgid="7623286983621067011">"剖析套件時發生問題。"</string>
 </resources>

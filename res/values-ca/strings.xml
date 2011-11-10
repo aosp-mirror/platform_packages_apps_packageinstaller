@@ -33,26 +33,25 @@
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Aquesta aplicació no és compatible amb el teu telèfon."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"El paquet especificat s\'ha suprimit abans que la instal·lació s\'hagi completat."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"El paquet no ha aprovat la verificació i no es pot instal·lar."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"S\'ha esgotat el temps d\'espera en provar de verificar aquest paquet. Prova d\'instal·lar-lo de nou més tard."</string>
-    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> no s\'ha pogut instal·lar en la tauleta."</string>
-    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> no s\'ha pogut instal·lar en el telèfon."</string>
+    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"S\'ha esgotat el temps d\'espera en provar de verif. el paquet. Prova de tornar-lo a instal·lar."</string>
+    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> no s\'ha pogut instal·lar a la tauleta."</string>
+    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> no s\'ha pogut instal·lar al telèfon."</string>
     <string name="launch" msgid="4826921505917605463">"Obre"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Instal·lació bloquejada"</string>
-    <string name="unknown_apps_dlg_text" product="tablet" msgid="1710283014204879610">"Per motius de seguretat, la tauleta està definida per bloquejar la instal·lació d\'aplicacions que no s\'obtenen d\'Android Market."</string>
-    <string name="unknown_apps_dlg_text" product="default" msgid="9159167487408561881">"Per motius de seguretat, el telèfon està definit per bloquejar la instal·lació d\'aplicacions que no s\'obtenen d\'Android Market."</string>
+    <string name="unknown_apps_dlg_text" product="tablet" msgid="1710283014204879610">"Per seguretat, la tauleta està def. per bloq. instal·lació d\'apl. que no s\'obtenen d\'Android Market."</string>
+    <string name="unknown_apps_dlg_text" product="default" msgid="9159167487408561881">"Per seguretat, el telèfon està def. per bloq. instal·lació d\'apl. que no s\'obtenen d\'Android Market."</string>
     <string name="ok" msgid="3468756155452870475">"D\'acord"</string>
     <string name="settings" msgid="6743583734099755409">"Configuració"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Nova font per a aplicacions"</string>
     <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> vol instal·lar altres aplicacions."\n" "\n"Vols permetre-ho ara i en el futur?"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Gestiona les aplicacions"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Vols substituir l\'aplicació?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"L\'aplicació que estàs instal·lant en substituirà una altra."\n" "\n"Totes les dades de l\'usuari anterior es desaran."</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Aquesta és una aplicació del sistema."\n" "\n"Totes les dades de l\'usuari anterior es desaran."</string>
+    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"L\'aplicació que estàs instal·lant en substituirà una altra."\n" "\n"Totes les dades d\'usuari anteriors es desaran."</string>
+    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Aquesta és una aplicació del sistema."\n" "\n"Totes les dades d\'usuari anteriors es desaran."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Espai esgotat"</string>
-    <!-- no translation found for out_of_space_dlg_text (4774775404294282216) -->
-    <skip />
+    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"No s\'ha pogut instal·lar <xliff:g id="APP_NAME">%1$s</xliff:g>. Allibera espai i torna-ho a provar."</string>
     <string name="dlg_ok" msgid="6944357727705699232">"D\'acord"</string>
-    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"L\'aplicació no es troba"</string>
+    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"No s\'ha trobat l\'aplicació"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"No s\'ha trobat l\'aplicació a la llista d\'aplicacions instal·lades."</string>
     <string name="uninstall_application_title" msgid="1860074100811653963">"Desinstal·la l\'aplicació"</string>
     <string name="uninstall_update_title" msgid="4146940097553335390">"Desinstal·la l\'actualització"</string>
@@ -62,9 +61,9 @@
     <string name="uninstalling" msgid="5556217435895938250">"S\'està desinstal·lant..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Desinstal·lació finalitzada."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"S\'ha produït un error en la desinstal·lació."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"No es pot desinstal·lar perquè aquest paquet és l\'administrador d\'un dispositiu actiu."</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"No es pot desinstal·lar perquè aquest paquet és administ. actiu d\'un dispositiu."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Gestiona els administradors del dispositiu"</string>
-    <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> no s\'ha pogut desinstal·lar"</string>
+    <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> no s\'ha pogut desinstal·lar."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Error d\'anàlisi"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"S\'ha produït un problema en analitzar el paquet."</string>
 </resources>

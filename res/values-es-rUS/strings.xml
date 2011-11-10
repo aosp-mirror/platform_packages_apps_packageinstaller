@@ -19,56 +19,51 @@
     <string name="app_name" msgid="2738748390251381682">"Programa de instalación del paquete"</string>
     <string name="install" msgid="5896438203900042068">"Instalar"</string>
     <string name="done" msgid="3889387558374211719">"Finalizado"</string>
-    <!-- outdated translation 4984920898157282073 -->     <string name="security_settings_desc" msgid="2706691034244052604">"Permitir que esta aplicación:"</string>
+    <string name="security_settings_desc" msgid="2706691034244052604">"Permitir que esta aplicación:"</string>
     <string name="cancel" msgid="8360346460165114585">"Cancelar"</string>
     <string name="unknown" msgid="4742479012767208045">"Desconocido"</string>
     <string name="installing" msgid="8613631001631998372">"Instalando…"</string>
-    <!-- outdated translation 5868979453936752120 -->     <string name="install_done" msgid="3682715442154357097">"Aplicación instalada"</string>
-    <!-- outdated translation 5512879835615493065 -->     <string name="install_confirm_question" msgid="5000329424275251786">"¿Deseas instalar la aplicación?"</string>
-    <!-- outdated translation 6644311739017660989 -->     <string name="install_failed" msgid="6579998651498970899">"No se ha instalado la aplicación"</string>
+    <string name="install_done" msgid="3682715442154357097">"Se instaló la aplicación."</string>
+    <string name="install_confirm_question" msgid="5000329424275251786">"¿Deseas instalar esta aplicación?"</string>
+    <string name="install_failed" msgid="6579998651498970899">"No se instaló la aplicación."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Parece que el paquete está dañado."</string>
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Un paquete existente del mismo nombre con una firma conflictiva ya está instalado."</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"El paquete sólo funciona en las versiones más recientes de Android."</string>
-    <!-- outdated translation 6692706907221501294 -->     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Esta aplicación no es compatible con la CPU de esta tableta."</string>
-    <!-- outdated translation 6692706907221501294 -->     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Esta aplicación no es compatible con la CPU de esta tableta."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Tu tableta no admite esta aplicación."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Tu teléfono no admite esta aplicación."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Se eliminó el paquete especificado antes de que la instalación pudiera completarse."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"El paquete no pasó la verificación y no se puede instalar."</string>
-    <!-- outdated translation 1657557608958047423 -->     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Se ha agotado el tiempo de espera al intentar verificar este paquete. Prueba a instalarlo más tarde."</string>
-    <!-- no translation found for install_failed_msg (8368835262605608787) -->
-    <skip />
-    <!-- no translation found for install_failed_msg (8554909560982962052) -->
-    <skip />
+    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"El tiempo de espera caducó durante la verificación de este paquete. Vuelve a intentarlo más tarde."</string>
+    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"No se pudo instalar <xliff:g id="APP_NAME">%1$s</xliff:g> en tu tableta."</string>
+    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"No se pudo instalar <xliff:g id="APP_NAME">%1$s</xliff:g> en tu teléfono."</string>
     <string name="launch" msgid="4826921505917605463">"Abrir"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Instalación bloqueada"</string>
-    <!-- outdated translation 4206956723707981 -->     <string name="unknown_apps_dlg_text" product="tablet" msgid="1710283014204879610">"Por seguridad, tu tableta está configurada para bloquear la instalación de aplicaciones no obtenidas de Tienda Android."</string>
-    <!-- outdated translation 4206956723707981 -->     <string name="unknown_apps_dlg_text" product="default" msgid="9159167487408561881">"Por seguridad, tu tableta está configurada para bloquear la instalación de aplicaciones no obtenidas de Tienda Android."</string>
+    <string name="unknown_apps_dlg_text" product="tablet" msgid="1710283014204879610">"Tu tableta se configuró para bloquear instalación de aplicaciones no adquiridas en Android Market."</string>
+    <string name="unknown_apps_dlg_text" product="default" msgid="9159167487408561881">"Tu teléfono se configuró para bloquear instalación de aplicaciones no adquiridas en Android Market."</string>
     <string name="ok" msgid="3468756155452870475">"Aceptar"</string>
     <string name="settings" msgid="6743583734099755409">"Configuración"</string>
-    <!-- outdated translation 6668811402605575022 -->     <string name="allow_source_dlg_title" msgid="7568985073502399415">"¿Deseas permitir una nueva fuente para las aplicaciones?"</string>
+    <string name="allow_source_dlg_title" msgid="7568985073502399415">"Nueva fuente de aplicaciones"</string>
     <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> desea instalar otras aplicaciones."\n\n"¿Deseas permitirlo ahora y en el futuro?"</string>
-    <!-- outdated translation 2704331021611806557 -->     <string name="manage_applications" msgid="4033876279091996596">"Administrar aplicaciones"</string>
-    <!-- outdated translation 3438730820395482641 -->     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Reemplazar aplicación"</string>
-    <!-- outdated translation 1175452362814803850 -->     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"La aplicación que estás instalando reemplazará a otra aplicación."\n\n"Se guardarán todos los datos previos del usuario."</string>
-    <!-- outdated translation 1047598434568470723 -->     <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Esta es una aplicación del sistema. ¿Aún deseas reemplazarla?"\n\n"Se guardarán todos los datos previos del usuario."</string>
+    <string name="manage_applications" msgid="4033876279091996596">"Administrar aplicaciones"</string>
+    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"¿Deseas reemplazar la aplicación?"</string>
+    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"La aplicación que estás instalando reemplazará a otra aplicación."\n\n"Se guardarán todos tus datos de usuario anteriores."</string>
+    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Esta es una aplicación del sistema."\n\n"Se guardarán todos tus datos de usuario anteriores."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Sin espacio"</string>
-    <!-- no translation found for out_of_space_dlg_text (4774775404294282216) -->
-    <skip />
+    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"No se pudo instalar <xliff:g id="APP_NAME">%1$s</xliff:g>. Libera espacio y vuelve a intentarlo."</string>
     <string name="dlg_ok" msgid="6944357727705699232">"Aceptar"</string>
-    <!-- outdated translation 1510267643973600726 -->     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"No se ha encontrado la aplicación"</string>
-    <!-- outdated translation 754013198108180241 -->     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"No se ha encontrado la aplicación en la lista de aplicaciones instaladas."</string>
-    <!-- outdated translation 3783979083504504759 -->     <string name="uninstall_application_title" msgid="1860074100811653963">"Desinstalar la aplicación"</string>
-    <!-- outdated translation 4347305704874439105 -->     <string name="uninstall_update_title" msgid="4146940097553335390">"Desinstalar la actualización"</string>
-    <!-- no translation found for uninstall_activity_text (6680688689803932550) -->
-    <skip />
-    <!-- outdated translation 3730249522678487101 -->     <string name="uninstall_application_text" msgid="6691975835951187030">"Esta aplicación se desinstalará."</string>
-    <!-- outdated translation 1588440065985786844 -->     <string name="uninstall_update_text" msgid="2056387942084605027">"Esta aplicación se reemplazará con la versión de fábrica."</string>
+    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"No se encontró la aplicación."</string>
+    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"La aplicación no se encontró en la lista de aplicaciones instaladas."</string>
+    <string name="uninstall_application_title" msgid="1860074100811653963">"Desinstalar la aplicación"</string>
+    <string name="uninstall_update_title" msgid="4146940097553335390">"Desinstalar la actualización"</string>
+    <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> es parte de la siguiente aplicación:"</string>
+    <string name="uninstall_application_text" msgid="6691975835951187030">"¿Deseas desinstalar esta aplicación?"</string>
+    <string name="uninstall_update_text" msgid="2056387942084605027">"¿Deseas reemplazar esta aplicación con la versión de fábrica?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Desinstalando…"</string>
-    <!-- outdated translation 2270435276009022874 -->     <string name="uninstall_done" msgid="3792487853420281888">"Finalizó la desinstalación."</string>
-    <!-- outdated translation 5725854598594371845 -->     <string name="uninstall_failed" msgid="631122574306299512">"La desinstalación no se ha realizado correctamente"</string>
-    <!-- outdated translation 5919295781337018536 -->     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"No se puede desinstalar: este paquete es un administrador de dispositivo activo."</string>
+    <string name="uninstall_done" msgid="3792487853420281888">"La desinstalación finalizó."</string>
+    <string name="uninstall_failed" msgid="631122574306299512">"Desinstalación incorrecta"</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"No se puede desinstalar este paquete porque es un admin. de dispositivos activo."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Administrar los administradores de dispositivos"</string>
-    <!-- no translation found for uninstall_failed_msg (8969754702803951175) -->
-    <skip />
+    <string name="uninstall_failed_msg" msgid="8969754702803951175">"No se pudo desinstalar <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Error de análisis"</string>
-    <!-- outdated translation 1440309982917966479 -->     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Hay un problema para analizar el paquete."</string>
+    <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Se produjo un error durante el análisis del paquete."</string>
 </resources>
