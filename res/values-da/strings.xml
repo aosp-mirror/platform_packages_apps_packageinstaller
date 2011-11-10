@@ -19,56 +19,51 @@
     <string name="app_name" msgid="2738748390251381682">"Pakkeinstallationsprogram"</string>
     <string name="install" msgid="5896438203900042068">"Installer"</string>
     <string name="done" msgid="3889387558374211719">"Udfør"</string>
-    <!-- outdated translation 4984920898157282073 -->     <string name="security_settings_desc" msgid="2706691034244052604">"Tillad, at denne applikation:"</string>
+    <string name="security_settings_desc" msgid="2706691034244052604">"Giv denne app tilladelse til at:"</string>
     <string name="cancel" msgid="8360346460165114585">"Annuller"</string>
     <string name="unknown" msgid="4742479012767208045">"Ukendt"</string>
     <string name="installing" msgid="8613631001631998372">"Installerer ..."</string>
-    <!-- outdated translation 5868979453936752120 -->     <string name="install_done" msgid="3682715442154357097">"Programmet er installeret"</string>
-    <!-- outdated translation 5512879835615493065 -->     <string name="install_confirm_question" msgid="5000329424275251786">"Ønsker du at installere denne applikation?"</string>
-    <!-- outdated translation 6644311739017660989 -->     <string name="install_failed" msgid="6579998651498970899">"Programmet er ikke installeret"</string>
+    <string name="install_done" msgid="3682715442154357097">"Appen er installeret."</string>
+    <string name="install_confirm_question" msgid="5000329424275251786">"Vil du installere denne app?"</string>
+    <string name="install_failed" msgid="6579998651498970899">"Appen blev ikke installeret."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Pakken ser ud til at være beskadiget."</string>
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Der er allerede installeret en eksisterende pakke med det samme navn og en modstridende signatur."</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Pakken virker kun på nyere versioner af Android."</string>
-    <!-- outdated translation 6692706907221501294 -->     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Denne applikation er ikke kompatibelt med denne tablets CPU."</string>
-    <!-- outdated translation 6692706907221501294 -->     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Denne applikation er ikke kompatibelt med denne tablets CPU."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Denne app er ikke kompatibel med din tablet."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Denne app er ikke kompatibel med din telefon."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Den angivne pakke blev slettet, før installationen var gennemført."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"Pakken kunne ikke bekræftes og kan derfor ikke installeres."</string>
-    <!-- outdated translation 1657557608958047423 -->     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Der opstod timeout under forsøg på at bekræfte denne pakke. Prøv at installere den igen senere."</string>
-    <!-- no translation found for install_failed_msg (8368835262605608787) -->
-    <skip />
-    <!-- no translation found for install_failed_msg (8554909560982962052) -->
-    <skip />
+    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Der opstod timeout under forsøg på at bekræfte denne pakke. Prøv at installere den igen senere."</string>
+    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunne ikke installeres på din tablet."</string>
+    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunne ikke installeres på din telefon."</string>
     <string name="launch" msgid="4826921505917605463">"Åbn"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Installationen er blokeret"</string>
-    <!-- outdated translation 4206956723707981 -->     <string name="unknown_apps_dlg_text" product="tablet" msgid="1710283014204879610">"Tabletten kan af hensyn til din sikkerhed ikke installere applikationer fra andre steder end Marked."</string>
-    <!-- outdated translation 4206956723707981 -->     <string name="unknown_apps_dlg_text" product="default" msgid="9159167487408561881">"Tabletten kan af hensyn til din sikkerhed ikke installere applikationer fra andre steder end Marked."</string>
+    <string name="unknown_apps_dlg_text" product="tablet" msgid="1710283014204879610">"Tabletten kan af hensyn til din sikkerhed ikke installere apps fra andre steder end Android Marked."</string>
+    <string name="unknown_apps_dlg_text" product="default" msgid="9159167487408561881">"Din telefon er af sikkerhedsgrunde indstillet til at blokere installation af apps, der ikke kommer fra Android Marked."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Indstillinger"</string>
-    <!-- outdated translation 6668811402605575022 -->     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Vil du tillade en ny kilde til apps?"</string>
+    <string name="allow_source_dlg_title" msgid="7568985073502399415">"Ny kilde til apps"</string>
     <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> ønsker at installere andre apps."\n\n"Vil du tillade dette nu og i fremtiden?"</string>
-    <!-- outdated translation 2704331021611806557 -->     <string name="manage_applications" msgid="4033876279091996596">"Administ. applikationer"</string>
-    <!-- outdated translation 3438730820395482641 -->     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Erstat applikationen"</string>
-    <!-- outdated translation 1175452362814803850 -->     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Den applikation, du installerer, erstatter en anden applikation."\n\n"Alle tidligere brugerdata gemmes."</string>
-    <!-- outdated translation 1047598434568470723 -->     <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Dette er et systemprogram. Ønsker du stadig at erstatte det?"\n\n"Alle tidligere brugerdata gemmes."</string>
+    <string name="manage_applications" msgid="4033876279091996596">"Administrer apps"</string>
+    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Vil du udskifte appen?"</string>
+    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Den app, du installerer, vil afløse en anden app."\n\n"Alle dine tidligere brugerdata vil blive gemt."</string>
+    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Dette er en systemapp."\n\n"Alle dine tidligere brugerdata vil blive gemt."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Der er ikke mere plads"</string>
-    <!-- no translation found for out_of_space_dlg_text (4774775404294282216) -->
-    <skip />
+    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunne ikke installeres. Frigør noget plads, og prøv igen."</string>
     <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
-    <!-- outdated translation 1510267643973600726 -->     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Programmet blev ikke fundet"</string>
-    <!-- outdated translation 754013198108180241 -->     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Programmet blev ikke fundet på listen over installerede applikationer."</string>
-    <!-- outdated translation 3783979083504504759 -->     <string name="uninstall_application_title" msgid="1860074100811653963">"Afinstaller applikation"</string>
-    <!-- outdated translation 4347305704874439105 -->     <string name="uninstall_update_title" msgid="4146940097553335390">"Afinstaller opdatering"</string>
-    <!-- no translation found for uninstall_activity_text (6680688689803932550) -->
-    <skip />
-    <!-- outdated translation 3730249522678487101 -->     <string name="uninstall_application_text" msgid="6691975835951187030">"Denne applikation afinstalleres."</string>
-    <!-- outdated translation 1588440065985786844 -->     <string name="uninstall_update_text" msgid="2056387942084605027">"Programmet erstattes med fabriksversionen."</string>
+    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Appen blev ikke fundet"</string>
+    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Appen blev ikke fundet på listen over installerede apps."</string>
+    <string name="uninstall_application_title" msgid="1860074100811653963">"Afinstaller appen"</string>
+    <string name="uninstall_update_title" msgid="4146940097553335390">"Afinstaller opdatering"</string>
+    <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> er en del af følgende app:"</string>
+    <string name="uninstall_application_text" msgid="6691975835951187030">"Vil du afinstallere denne app?"</string>
+    <string name="uninstall_update_text" msgid="2056387942084605027">"Vil du erstatte denne app med fabriksversionen?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Afinstallerer ..."</string>
-    <!-- outdated translation 2270435276009022874 -->     <string name="uninstall_done" msgid="3792487853420281888">"Afinstallationen er afsluttet"</string>
-    <!-- outdated translation 5725854598594371845 -->     <string name="uninstall_failed" msgid="631122574306299512">"Afinstallationen mislykkedes"</string>
-    <!-- outdated translation 5919295781337018536 -->     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Der kan ikke afinstalleres. Denne pakke er en aktiv enhedsadministrator."</string>
+    <string name="uninstall_done" msgid="3792487853420281888">"Afinstallationen er afsluttet."</string>
+    <string name="uninstall_failed" msgid="631122574306299512">"Afinstallationen mislykkedes."</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Der kan ikke afinstalleres, fordi denne pakke er en aktiv enhedsadministrator."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Administrer enhedsadministratorer"</string>
-    <!-- no translation found for uninstall_failed_msg (8969754702803951175) -->
-    <skip />
+    <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunne ikke afinstalleres."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Parsingfejl"</string>
-    <!-- outdated translation 1440309982917966479 -->     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Der er problemer med at parse pakken."</string>
+    <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Der opstod et problem med parsing af pakken."</string>
 </resources>

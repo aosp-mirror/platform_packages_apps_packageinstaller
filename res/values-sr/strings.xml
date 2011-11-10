@@ -19,56 +19,51 @@
     <string name="app_name" msgid="2738748390251381682">"Упаковани програм за инсталацију"</string>
     <string name="install" msgid="5896438203900042068">"Инсталирај"</string>
     <string name="done" msgid="3889387558374211719">"Готово"</string>
-    <!-- outdated translation 4984920898157282073 -->     <string name="security_settings_desc" msgid="2706691034244052604">"Дозволи овој апликацији да:"</string>
+    <string name="security_settings_desc" msgid="2706691034244052604">"Дозволи да ова апликација:"</string>
     <string name="cancel" msgid="8360346460165114585">"Откажи"</string>
     <string name="unknown" msgid="4742479012767208045">"Непознато"</string>
     <string name="installing" msgid="8613631001631998372">"Инсталирање..."</string>
-    <!-- outdated translation 5868979453936752120 -->     <string name="install_done" msgid="3682715442154357097">"Апликација је инсталирана"</string>
-    <!-- outdated translation 5512879835615493065 -->     <string name="install_confirm_question" msgid="5000329424275251786">"Желите ли да инсталирате ову апликацију?"</string>
-    <!-- outdated translation 6644311739017660989 -->     <string name="install_failed" msgid="6579998651498970899">"Апликација није инсталирана"</string>
+    <string name="install_done" msgid="3682715442154357097">"Апликација је инсталирана."</string>
+    <string name="install_confirm_question" msgid="5000329424275251786">"Желите ли да инсталирате ову апликацију?"</string>
+    <string name="install_failed" msgid="6579998651498970899">"Апликација није инсталирана."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Изгледа да је пакет оштећен."</string>
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Већ је инсталиран пакет са истим именом и сукобљеним потписом."</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Пакет функционише само на новијим верзијама Android-а."</string>
-    <!-- outdated translation 6692706907221501294 -->     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Ова апликација није компатибилна са процесором овог таблета."</string>
-    <!-- outdated translation 6692706907221501294 -->     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Ова апликација није компатибилна са процесором овог таблета."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Ова апликација није компатибилна са таблетом."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Ова апликација није компатибилна са телефоном."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Наведени пакет је избрисан пре него што је инсталација завршена."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"Пакет није прошао верификацију и не може да се инсталира."</string>
-    <!-- outdated translation 1657557608958047423 -->     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Дошло је до прекида при покушају да се верификује пакет. Покушајте поново да га инсталирате касније."</string>
-    <!-- no translation found for install_failed_msg (8368835262605608787) -->
-    <skip />
-    <!-- no translation found for install_failed_msg (8554909560982962052) -->
-    <skip />
+    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Време је истекло при покушају да се верификује пакет. Покушајте поново да га инсталирате касније."</string>
+    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Није било могуће инсталирати апликацију <xliff:g id="APP_NAME">%1$s</xliff:g> на таблет."</string>
+    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Није било могуће инсталирати апликацију <xliff:g id="APP_NAME">%1$s</xliff:g> на телефон."</string>
     <string name="launch" msgid="4826921505917605463">"Отвори"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Инсталирање је блокирано"</string>
-    <!-- outdated translation 4206956723707981 -->     <string name="unknown_apps_dlg_text" product="tablet" msgid="1710283014204879610">" Таблет је из безбедносних разлога подешен тако да блокира инсалирање апликација које нису са Android Market-а."</string>
-    <!-- outdated translation 4206956723707981 -->     <string name="unknown_apps_dlg_text" product="default" msgid="9159167487408561881">" Таблет је из безбедносних разлога подешен тако да блокира инсалирање апликација које нису са Android Market-а."</string>
+    <string name="unknown_apps_dlg_text" product="tablet" msgid="1710283014204879610">"Таблет је из безб. разлога подешен да блокира инсталирање апликација које нису са Android Market-а."</string>
+    <string name="unknown_apps_dlg_text" product="default" msgid="9159167487408561881">"Телефон је из безб. разлога подешен да блокира инсталацију апликација које нису са Android Market-а."</string>
     <string name="ok" msgid="3468756155452870475">"Потврди"</string>
     <string name="settings" msgid="6743583734099755409">"Подешавања"</string>
-    <!-- outdated translation 6668811402605575022 -->     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Желите ли да дозволите нови извор за апликације?"</string>
+    <string name="allow_source_dlg_title" msgid="7568985073502399415">"Нови извор за апликације"</string>
     <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> жели да инсталира друге апликације."\n\n"Желите ли то да дозволите сада и у будућности?"</string>
-    <!-- outdated translation 2704331021611806557 -->     <string name="manage_applications" msgid="4033876279091996596">"Управљање апликацијама"</string>
-    <!-- outdated translation 3438730820395482641 -->     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Замена апликације"</string>
-    <!-- outdated translation 1175452362814803850 -->     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Апликација коју инсталирате замениће другу апликацију."\n\n"Сви претходни подаци корисника биће сачувани."</string>
-    <!-- outdated translation 1047598434568470723 -->     <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Ово је системска апликација. Желите ли ипак да је замените?"\n\n"Сви претходни подаци корисника биће сачувани."</string>
+    <string name="manage_applications" msgid="4033876279091996596">"Управљање апликацијама"</string>
+    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Желите ли да замените апликацију?"</string>
+    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Апликација коју инсталирате замениће другу апликацију."\n\n"Сви претходни кориснички подаци биће сачувани."</string>
+    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Ово је системска апликација."\n\n"Сви претходни кориснички подаци биће сачувани."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Нема више места"</string>
-    <!-- no translation found for out_of_space_dlg_text (4774775404294282216) -->
-    <skip />
+    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"Није било могуће инсталирати апликацију <xliff:g id="APP_NAME">%1$s</xliff:g>. Ослободите додатни простор и покушајте поново."</string>
     <string name="dlg_ok" msgid="6944357727705699232">"Потврди"</string>
-    <!-- outdated translation 1510267643973600726 -->     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Апликација није пронађена"</string>
-    <!-- outdated translation 754013198108180241 -->     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Апликација није пронађена на листи инсталираних апликација."</string>
-    <!-- outdated translation 3783979083504504759 -->     <string name="uninstall_application_title" msgid="1860074100811653963">"Деинсталирај апликацију"</string>
-    <!-- outdated translation 4347305704874439105 -->     <string name="uninstall_update_title" msgid="4146940097553335390">"Деинсталирање ажурирања"</string>
-    <!-- no translation found for uninstall_activity_text (6680688689803932550) -->
-    <skip />
-    <!-- outdated translation 3730249522678487101 -->     <string name="uninstall_application_text" msgid="6691975835951187030">"Ова апликација биће деинсталирана."</string>
-    <!-- outdated translation 1588440065985786844 -->     <string name="uninstall_update_text" msgid="2056387942084605027">"Апликација ће бити замењена фабричком верзијом."</string>
+    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Апликација није пронађена"</string>
+    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Апликација није пронађена на листи инсталираних апликација."</string>
+    <string name="uninstall_application_title" msgid="1860074100811653963">"Деинсталирање апликације"</string>
+    <string name="uninstall_update_title" msgid="4146940097553335390">"Деинсталирање ажурирања"</string>
+    <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> је део следеће апликације:"</string>
+    <string name="uninstall_application_text" msgid="6691975835951187030">"Да ли желите да деинсталирате ову апликацију?"</string>
+    <string name="uninstall_update_text" msgid="2056387942084605027">"Да ли желите да замените ову апликацију фабричком верзијом?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Деинсталирање..."</string>
-    <!-- outdated translation 2270435276009022874 -->     <string name="uninstall_done" msgid="3792487853420281888">"Деинсталирање је довршено"</string>
-    <!-- outdated translation 5725854598594371845 -->     <string name="uninstall_failed" msgid="631122574306299512">"Деинсталирање није успело"</string>
-    <!-- outdated translation 5919295781337018536 -->     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Није могуће деинсталирати: Oвај пакет је активни администратор уређаја."</string>
+    <string name="uninstall_done" msgid="3792487853420281888">"Деинсталирање је завршено."</string>
+    <string name="uninstall_failed" msgid="631122574306299512">"Деинсталирање није успело."</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Није могуће деинсталирати зато што је овај пакет активан администратор уређаја."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Управљај администраторима уређаја"</string>
-    <!-- no translation found for uninstall_failed_msg (8969754702803951175) -->
-    <skip />
+    <string name="uninstall_failed_msg" msgid="8969754702803951175">"Није било могуће деинсталирати апликацију <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Грешка приликом рашчлањивања"</string>
-    <!-- outdated translation 1440309982917966479 -->     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Дошло је до проблема приликом рашчлањивања пакета."</string>
+    <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Дошло је до проблема при рашчлањивању пакета."</string>
 </resources>

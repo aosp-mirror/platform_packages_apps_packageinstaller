@@ -19,56 +19,51 @@
     <string name="app_name" msgid="2738748390251381682">"Инсталираща програма за пакети"</string>
     <string name="install" msgid="5896438203900042068">"Инсталиране"</string>
     <string name="done" msgid="3889387558374211719">"Готово"</string>
-    <!-- outdated translation 4984920898157282073 -->     <string name="security_settings_desc" msgid="2706691034244052604">"Да се разреши на това приложение следното:"</string>
+    <string name="security_settings_desc" msgid="2706691034244052604">"Да се разреши на това приложение следното:"</string>
     <string name="cancel" msgid="8360346460165114585">"Отказ"</string>
     <string name="unknown" msgid="4742479012767208045">"Неизвестно"</string>
     <string name="installing" msgid="8613631001631998372">"Инсталира се..."</string>
-    <!-- outdated translation 5868979453936752120 -->     <string name="install_done" msgid="3682715442154357097">"Приложението бе инсталирано"</string>
-    <!-- outdated translation 5512879835615493065 -->     <string name="install_confirm_question" msgid="5000329424275251786">"Искате ли да инсталирате това приложение?"</string>
-    <!-- outdated translation 6644311739017660989 -->     <string name="install_failed" msgid="6579998651498970899">"Приложението не бе инсталирано"</string>
+    <string name="install_done" msgid="3682715442154357097">"Приложението бе инсталирано."</string>
+    <string name="install_confirm_question" msgid="5000329424275251786">"Искате ли да инсталирате това приложение?"</string>
+    <string name="install_failed" msgid="6579998651498970899">"Приложението не бе инсталирано."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Изглежда, че пакетът е повреден."</string>
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Вече е инсталиран съществуващ пакет под същото име с несъвместим подпис."</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Пакетът работи само на по-нови версии на Android."</string>
-    <!-- outdated translation 6692706907221501294 -->     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Това приложение не е съвместимо с процесора на таблета."</string>
-    <!-- outdated translation 6692706907221501294 -->     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Това приложение не е съвместимо с процесора на таблета."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Това приложение не е съвместимо с таблета ви."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Това приложение не е съвместимо с телeфона ви."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Посоченият пакет бе изтрит преди завършване на инсталацията."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"Пакетът не премина потвърждаването и не може да бъде инсталиран."</string>
-    <!-- outdated translation 1657557608958047423 -->     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"При опита за потвържд. на пакета изтече времето за изчакване. Опитайте да го инст. отново по-късно."</string>
-    <!-- no translation found for install_failed_msg (8368835262605608787) -->
-    <skip />
-    <!-- no translation found for install_failed_msg (8554909560982962052) -->
-    <skip />
+    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"При потвърждаването на пакета времето за изчакване изтече. Опитайте да инсталирате отново по-късно."</string>
+    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> не можа да се инсталира на таблета ви."</string>
+    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> не можа да се инсталира на телефона ви."</string>
     <string name="launch" msgid="4826921505917605463">"Отваряне"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Инсталирането е блокирано"</string>
-    <!-- outdated translation 4206956723707981 -->     <string name="unknown_apps_dlg_text" product="tablet" msgid="1710283014204879610">"За сигурност таблетът блокира инсталирането на приложения, които не са от Android Market."</string>
-    <!-- outdated translation 4206956723707981 -->     <string name="unknown_apps_dlg_text" product="default" msgid="9159167487408561881">"За сигурност таблетът блокира инсталирането на приложения, които не са от Android Market."</string>
+    <string name="unknown_apps_dlg_text" product="tablet" msgid="1710283014204879610">"За сигурност таблетът блокира инсталирането на приложения, които не са получени от Android Market."</string>
+    <string name="unknown_apps_dlg_text" product="default" msgid="9159167487408561881">"За сигурност телефонът блокира инсталирането на приложения, които не са получени от Android Market."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Настройки"</string>
-    <!-- outdated translation 6668811402605575022 -->     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Да се разреши ли нов източник за приложения?"</string>
+    <string name="allow_source_dlg_title" msgid="7568985073502399415">"Нов източник за приложения"</string>
     <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> иска да инсталира други приложения."\n\n"Ще разрешите ли това сега и в бъдеще?"</string>
-    <!-- outdated translation 2704331021611806557 -->     <string name="manage_applications" msgid="4033876279091996596">"Управление на приложенията"</string>
-    <!-- outdated translation 3438730820395482641 -->     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Замяна на приложението"</string>
-    <!-- outdated translation 1175452362814803850 -->     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Приложението, което инсталирате, ще замени друго."\n\n"Всички досегашни потребителски данни ще бъдат запазени."</string>
-    <!-- outdated translation 1047598434568470723 -->     <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Това е системно приложение. Наистина ли искате да го замените?"\n\n"Всички досегашни потребителски данни ще бъдат запазени."</string>
+    <string name="manage_applications" msgid="4033876279091996596">"Управление на приложенията"</string>
+    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Да се замени ли приложението?"</string>
+    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Приложението, което инсталирате, ще замени друго."\n\n"Всичките ви досегашни потребителски данни ще бъдат запазени."</string>
+    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Това е системно приложение."\n\n"Всичките ви досегашни потребителски данни ще бъдат запазени."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Няма място"</string>
-    <!-- no translation found for out_of_space_dlg_text (4774775404294282216) -->
-    <skip />
+    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> не можа да се инсталира. Освободете място и опитайте отново."</string>
     <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
-    <!-- outdated translation 1510267643973600726 -->     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Приложението не бе намерено"</string>
-    <!-- outdated translation 754013198108180241 -->     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Приложението не бе намерено в списъка с инсталирани приложения."</string>
-    <!-- outdated translation 3783979083504504759 -->     <string name="uninstall_application_title" msgid="1860074100811653963">"Деинсталиране на приложението"</string>
-    <!-- outdated translation 4347305704874439105 -->     <string name="uninstall_update_title" msgid="4146940097553335390">"Деинсталиране на актуализацията"</string>
-    <!-- no translation found for uninstall_activity_text (6680688689803932550) -->
-    <skip />
-    <!-- outdated translation 3730249522678487101 -->     <string name="uninstall_application_text" msgid="6691975835951187030">"Това приложение ще бъде деинсталирано."</string>
-    <!-- outdated translation 1588440065985786844 -->     <string name="uninstall_update_text" msgid="2056387942084605027">"Приложението ще бъде заменено с фабричната му версия."</string>
+    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Приложението не бе намерено"</string>
+    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Приложението не бе намерено в списъка с инсталирани приложения."</string>
+    <string name="uninstall_application_title" msgid="1860074100811653963">"Деинсталиране на приложението"</string>
+    <string name="uninstall_update_title" msgid="4146940097553335390">"Деинсталиране на актуализацията"</string>
+    <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> е част от следното приложение:"</string>
+    <string name="uninstall_application_text" msgid="6691975835951187030">"Искате ли да деинсталирате това приложение?"</string>
+    <string name="uninstall_update_text" msgid="2056387942084605027">"Искате ли да замените това приложение с фабричната му версия?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Деинсталира се..."</string>
-    <!-- outdated translation 2270435276009022874 -->     <string name="uninstall_done" msgid="3792487853420281888">"Деинсталирането завърши"</string>
-    <!-- outdated translation 5725854598594371845 -->     <string name="uninstall_failed" msgid="631122574306299512">"Деинсталирането не бе успешно"</string>
-    <!-- outdated translation 5919295781337018536 -->     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Не може да се деинсталира: Този пакет е активен администратор на устройството."</string>
+    <string name="uninstall_done" msgid="3792487853420281888">"Деинсталирането завърши."</string>
+    <string name="uninstall_failed" msgid="631122574306299512">"Деинсталирането не бе успешно."</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Не може да се деинсталира: Този пакет е активен администратор на устройството."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Управление на администраторите на устройства"</string>
-    <!-- no translation found for uninstall_failed_msg (8969754702803951175) -->
-    <skip />
+    <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> не можа да се деинсталира."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Грешка при синтактичния разбор"</string>
-    <!-- outdated translation 1440309982917966479 -->     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"При синтактичния анализ на пакета възникна проблем."</string>
+    <string name="Parse_error_dlg_text" msgid="7623286983621067011">"При синтактичния анализ на пакета възникна проблем."</string>
 </resources>
