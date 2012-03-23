@@ -19,18 +19,18 @@
     <string name="app_name" msgid="2738748390251381682">"打包安装程序"</string>
     <string name="install" msgid="5896438203900042068">"安装"</string>
     <string name="done" msgid="3889387558374211719">"完成"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"允许此应用程序执行以下操作："</string>
+    <string name="security_settings_desc" msgid="2706691034244052604">"允许此应用执行以下操作："</string>
     <string name="cancel" msgid="8360346460165114585">"取消"</string>
     <string name="unknown" msgid="4742479012767208045">"未知"</string>
     <string name="installing" msgid="8613631001631998372">"正在安装..."</string>
-    <string name="install_done" msgid="3682715442154357097">"应用程序已安装。"</string>
-    <string name="install_confirm_question" msgid="5000329424275251786">"要安装此应用程序吗？"</string>
-    <string name="install_failed" msgid="6579998651498970899">"应用程序未安装。"</string>
+    <string name="install_done" msgid="3682715442154357097">"应用已安装。"</string>
+    <string name="install_confirm_question" msgid="5000329424275251786">"要安装此应用吗？"</string>
+    <string name="install_failed" msgid="6579998651498970899">"应用未安装。"</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"该数据包似乎已损坏。"</string>
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"已安装了存在签名冲突的同名数据包。"</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"该数据包仅适用于较新版本的 Android。"</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"此应用程序与您的平板电脑不兼容。"</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"此应用程序与您的手机不兼容。"</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"此应用与您的平板电脑不兼容。"</string>
+    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"此应用与您的手机不兼容。"</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"指定的程序包已被删除，安装无法完成。"</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"该程序包未通过验证，无法安装。"</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"尝试验证此程序包时发生超时。请稍后尝试重新安装。"</string>
@@ -38,26 +38,26 @@
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"无法在您的手机上安装“<xliff:g id="APP_NAME">%1$s</xliff:g>”。"</string>
     <string name="launch" msgid="4826921505917605463">"打开"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"禁止安装"</string>
-    <string name="unknown_apps_dlg_text" product="tablet" msgid="1710283014204879610">"为安全起见，系统已将您的平板电脑设置为禁止安装不是从 Android 电子市场获取的应用程序。"</string>
-    <string name="unknown_apps_dlg_text" product="default" msgid="9159167487408561881">"为安全起见，系统已将您的手机设置为禁止安装不是从 Android 电子市场获取的应用程序。"</string>
+    <string name="unknown_apps_dlg_text" product="tablet" msgid="1710283014204879610">"为安全起见，系统已将您的平板电脑设置为禁止安装不是从 Android 电子市场获取的应用。"</string>
+    <string name="unknown_apps_dlg_text" product="default" msgid="9159167487408561881">"为安全起见，系统已将您的手机设置为禁止安装不是从 Android 电子市场获取的应用。"</string>
     <string name="ok" msgid="3468756155452870475">"确定"</string>
     <string name="settings" msgid="6743583734099755409">"设置"</string>
-    <string name="allow_source_dlg_title" msgid="7568985073502399415">"新的应用程序来源"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g>要求安装其他应用程序。"\n\n"从现在起允许此操作吗？"</string>
-    <string name="manage_applications" msgid="4033876279091996596">"管理应用程序"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"要替换该应用程序吗？"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"您要安装的应用程序将替换另一应用程序。"\n\n"系统将保存您以前的所有用户数据。"</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"这是系统应用程序。"\n\n"系统将保存您以前的所有用户数据。"</string>
+    <string name="allow_source_dlg_title" msgid="7568985073502399415">"新的应用来源"</string>
+    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g>要求安装其他应用。"\n\n"从现在起允许此操作吗？"</string>
+    <string name="manage_applications" msgid="4033876279091996596">"管理应用"</string>
+    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"要替换该应用吗？"</string>
+    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"您要安装的应用将替换另一应用。"\n\n"系统将保存您以前的所有用户数据。"</string>
+    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"这是系统应用。"\n\n"系统将保存您以前的所有用户数据。"</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"没有存储空间"</string>
     <string name="out_of_space_dlg_text" msgid="4774775404294282216">"无法安装“<xliff:g id="APP_NAME">%1$s</xliff:g>”，请释放一些存储空间并重试。"</string>
     <string name="dlg_ok" msgid="6944357727705699232">"确定"</string>
-    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"未找到应用程序"</string>
-    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"未在已安装应用程序的列表中找到该应用程序。"</string>
-    <string name="uninstall_application_title" msgid="1860074100811653963">"卸载应用程序"</string>
+    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"未找到应用"</string>
+    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"未在已安装应用的列表中找到该应用。"</string>
+    <string name="uninstall_application_title" msgid="1860074100811653963">"卸载应用"</string>
     <string name="uninstall_update_title" msgid="4146940097553335390">"卸载更新"</string>
-    <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g>属于以下应用程序："</string>
-    <string name="uninstall_application_text" msgid="6691975835951187030">"要卸载此应用程序吗？"</string>
-    <string name="uninstall_update_text" msgid="2056387942084605027">"您要将此应用程序替换成出厂版本吗？"</string>
+    <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g>属于以下应用："</string>
+    <string name="uninstall_application_text" msgid="6691975835951187030">"要卸载此应用吗？"</string>
+    <string name="uninstall_update_text" msgid="2056387942084605027">"您要将此应用替换成出厂版本吗？"</string>
     <string name="uninstalling" msgid="5556217435895938250">"正在卸载..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"卸载完成。"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"卸载失败。"</string>
