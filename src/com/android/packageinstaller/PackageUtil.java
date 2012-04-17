@@ -14,10 +14,10 @@
 ** See the License for the specific language governing permissions and
 ** limitations under the License.
 */
+
 package com.android.packageinstaller;
 
 import android.app.Activity;
-import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -25,7 +25,6 @@ import android.content.pm.PackageParser;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
@@ -45,30 +44,30 @@ public class PackageUtil {
     public static final String INTENT_ATTR_PERMISSIONS_LIST=PREFIX+"PermissionsList";
     //intent attribute strings related to uninstall
     public static final String INTENT_ATTR_PACKAGE_NAME=PREFIX+"PackageName";
-    
-    /*
-     * Utility method to get application information for a given packageURI
+
+    /**
+     * Utility method to get application information for a given {@link File}
      */
-    public static  ApplicationInfo getApplicationInfo(Uri packageURI) {
-        final String archiveFilePath = packageURI.getPath();
+    public static ApplicationInfo getApplicationInfo(File sourcePath) {
+        final String archiveFilePath = sourcePath.getAbsolutePath();
         PackageParser packageParser = new PackageParser(archiveFilePath);
         File sourceFile = new File(archiveFilePath);
         DisplayMetrics metrics = new DisplayMetrics();
         metrics.setToDefaults();
-        PackageParser.Package pkg = packageParser.parsePackage(sourceFile, archiveFilePath, metrics, 0);
+        PackageParser.Package pkg = packageParser.parsePackage(
+                sourceFile, archiveFilePath, metrics, 0);
         if (pkg == null) {
             return null;
         }
         return pkg.applicationInfo;
     }
-    
-    /*
-     * Utility method to get package information for a given packageURI
+
+    /**
+     * Utility method to get package information for a given {@link File}
      */
-    public static  PackageParser.Package getPackageInfo(Uri packageURI) {
-        final String archiveFilePath = packageURI.getPath();
+    public static PackageParser.Package getPackageInfo(File sourceFile) {
+        final String archiveFilePath = sourceFile.getAbsolutePath();
         PackageParser packageParser = new PackageParser(archiveFilePath);
-        File sourceFile = new File(archiveFilePath);
         DisplayMetrics metrics = new DisplayMetrics();
         metrics.setToDefaults();
         PackageParser.Package pkg =  packageParser.parsePackage(sourceFile,
@@ -84,7 +83,7 @@ public class PackageUtil {
         return snippetView;
     }
 
-    /*
+    /**
      * Utility method to display a snippet of an installed application.
      * The content view should have been set on context before invoking this method.
      * appSnippet view should include R.id.app_icon and R.id.app_name
@@ -103,7 +102,7 @@ public class PackageUtil {
                 appInfo.loadIcon(pm));
     }
 
-    /*
+    /**
      * Utility method to display application snippet of a new package.
      * The content view should have been set on context before invoking this method.
      * appSnippet view should include R.id.app_icon and R.id.app_name
@@ -142,16 +141,17 @@ public class PackageUtil {
             this.icon = icon;
         }
     }
-    /*
+
+    /**
      * Utility method to load application label
      *
      * @param pContext context of package that can load the resources
      * @param appInfo ApplicationInfo object of package whose resources are to be loaded
      * @param snippetId view id of app snippet view
      */
-    public static AppSnippet getAppSnippet(Activity pContext, ApplicationInfo appInfo,
-            Uri packageURI) {
-        final String archiveFilePath = packageURI.getPath();
+    public static AppSnippet getAppSnippet(
+            Activity pContext, ApplicationInfo appInfo, File sourceFile) {
+        final String archiveFilePath = sourceFile.getAbsolutePath();
         Resources pRes = pContext.getResources();
         AssetManager assmgr = new AssetManager();
         assmgr.addAssetPath(archiveFilePath);

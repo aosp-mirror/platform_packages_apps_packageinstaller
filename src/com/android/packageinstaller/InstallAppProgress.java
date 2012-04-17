@@ -16,20 +16,18 @@
 */
 package com.android.packageinstaller;
 
-import com.android.packageinstaller.R;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.DialogInterface.OnCancelListener;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageInstallObserver;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.pm.ResolveInfo;
 import android.graphics.drawable.LevelListDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -41,6 +39,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -161,6 +160,12 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
         Intent intent = getIntent();
         mAppInfo = intent.getParcelableExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO);
         mPackageURI = intent.getData();
+
+        final String scheme = mPackageURI.getScheme();
+        if (!"file".equals(scheme)) {
+            throw new IllegalArgumentException("unexpected scheme " + scheme);
+        }
+
         initView();
     }
 
@@ -220,8 +225,9 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
         if((installFlags & PackageManager.INSTALL_REPLACE_EXISTING )!= 0) {
             Log.w(TAG, "Replacing package:" + mAppInfo.packageName);
         }
-        PackageUtil.AppSnippet as = PackageUtil.getAppSnippet(this, mAppInfo,
-                mPackageURI);
+
+        final File sourceFile = new File(mPackageURI.getPath());
+        PackageUtil.AppSnippet as = PackageUtil.getAppSnippet(this, mAppInfo, sourceFile);
         mLabel = as.label;
         PackageUtil.initSnippetForNewApp(this, as, R.id.app_snippet);
         mStatusTextView = (TextView)findViewById(R.id.center_text);

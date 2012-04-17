@@ -38,6 +38,8 @@ import android.widget.AppSecurityPermissions;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import java.io.File;
+
 /*
  * This activity is launched when a new application is installed via side loading
  * The package is first parsed and the user is notified of parse errors via a dialog.
@@ -270,14 +272,22 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        //get intent information
+
+        // get intent information
         final Intent intent = getIntent();
         mPackageURI = intent.getData();
         mPm = getPackageManager();
-        mPkgInfo = PackageUtil.getPackageInfo(mPackageURI);
-        
+
+        final String scheme = mPackageURI.getScheme();
+        if (!"file".equals(scheme)) {
+            throw new IllegalArgumentException("unexpected scheme " + scheme);
+        }
+
+        final File sourceFile = new File(mPackageURI.getPath());
+        mPkgInfo = PackageUtil.getPackageInfo(sourceFile);
+
         // Check for parse errors
-        if(mPkgInfo == null) {
+        if (mPkgInfo == null) {
             Log.w(TAG, "Parse error when parsing manifest. Discontinuing installation");
             showDialogInner(DLG_PACKAGE_ERROR);
             setPmResult(PackageManager.INSTALL_FAILED_INVALID_APK);
@@ -288,8 +298,8 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         setContentView(R.layout.install_start);
         mInstallConfirm = findViewById(R.id.install_confirm_panel);
         mInstallConfirm.setVisibility(View.INVISIBLE);
-        PackageUtil.AppSnippet as = PackageUtil.getAppSnippet(this,
-                mPkgInfo.applicationInfo, mPackageURI);
+        final PackageUtil.AppSnippet as = PackageUtil.getAppSnippet(
+                this, mPkgInfo.applicationInfo, sourceFile);
         PackageUtil.initSnippetForNewApp(this, as, R.id.app_snippet);
 
         // Deal with install source.
