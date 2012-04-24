@@ -14,7 +14,7 @@
             android:allowBackup="false"
             android:theme="@android:style/Theme.Holo.DialogWhenLarge.NoActionBar">
         <activity android:name=".PackageInstallerActivity"
-                android:configChanges="orientation|keyboardHidden"
+                android:configChanges="orientation|keyboardHidden|screenSize"
                 android:excludeFromRecents="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -31,10 +31,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".InstallAppProgress"
-                android:configChanges="orientation|keyboardHidden">
+                android:configChanges="orientation|keyboardHidden|screenSize">
         </activity>
         <activity android:name=".UninstallerActivity"
-                android:configChanges="orientation|keyboardHidden"
+                android:configChanges="orientation|keyboardHidden|screenSize"
                 android:excludeFromRecents="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
