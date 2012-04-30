@@ -45,7 +45,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".UninstallAppProgress"
-                android:configChanges="orientation|keyboardHidden">
+                android:configChanges="orientation|keyboardHidden|screenSize">
         </activity>
         <!--
         <receiver android:name=".RemoveReceiver">
