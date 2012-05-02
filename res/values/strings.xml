@@ -24,7 +24,20 @@
     <string name="unknown">Unknown</string>
     <string name="installing">Installing\u2026</string>
     <string name="install_done">App installed.</string>
-    <string name="install_confirm_question">Do you want to install this app?</string>
+    <!-- Message for installing a new app that requires some permissions [CHAR LIMIT=NONE] -->
+    <string name="install_confirm_question">Do you want to install this application?
+            It will get access to:</string>
+    <!-- Message for installing a new app that does not require permissions [CHAR LIMIT=NONE] -->
+    <string name="install_confirm_question_no_perms">Do you want to install this application?
+            It does not require any special access.</string>
+    <!-- Message for updating an existing app [CHAR LIMIT=NONE] -->
+    <string name="install_confirm_question_update">Do you want to install an update
+            to this existing application?  Your existing data will not
+            be lost.  The updated application will get access to:</string>
+    <!-- Message for updating an existing system app [CHAR LIMIT=NONE] -->
+    <string name="install_confirm_question_update_system">Do you want to install an update
+            to this built-in application?  Your existing data will not
+            be lost.  The updated application will get access to:</string>
     <string name="install_failed">App not installed.</string>
     <!-- Reason displayed when installation fails because the installation package itself is invalid
         in some way (e.g., corrupt) [CHAR LIMIT=100] -->
@@ -106,4 +119,14 @@
     <!-- Dialog attributes to indicate parse errors -->
     <string name="Parse_error_dlg_title">Parse error</string>
     <string name="Parse_error_dlg_text">There was a problem parsing the package.</string>
+
+    <!-- Tab label for new permissions being added to an existing app [CHAR LIMIT=20] -->
+    <string name="newPerms">New</string>
+    <!-- Tab label for permissions related to user privacy [CHAR LIMIT=20] -->
+    <string name="privacyPerms">Privacy</string>
+    <!-- Tab label for permissions related to device behavior [CHAR LIMIT=20] -->
+    <string name="devicePerms">Device Access</string>
+
+    <!-- Body text for new tab when there are no new permissions [CHAR LIMIT=NONE] -->
+    <string name="no_new_perms">This update requires no new permissions.</string>
 </resources>

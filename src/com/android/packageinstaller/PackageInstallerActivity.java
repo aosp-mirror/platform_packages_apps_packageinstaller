@@ -31,14 +31,23 @@ import android.content.pm.PackageParser;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.util.AttributeSet;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.AppSecurityPermissions;
 import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.ScrollView;
+import android.widget.TabHost;
+import android.widget.TabWidget;
+import android.widget.TextView;
 
 import java.io.File;
+import java.util.ArrayList;
 
 /*
  * This activity is launched when a new application is installed via side loading
@@ -71,27 +80,180 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
 
     // Dialog identifiers used in showDialog
     private static final int DLG_BASE = 0;
-    private static final int DLG_REPLACE_APP = DLG_BASE + 1;
-    private static final int DLG_UNKNOWN_APPS = DLG_BASE + 2;
-    private static final int DLG_PACKAGE_ERROR = DLG_BASE + 3;
-    private static final int DLG_OUT_OF_SPACE = DLG_BASE + 4;
-    private static final int DLG_INSTALL_ERROR = DLG_BASE + 5;
-    private static final int DLG_ALLOW_SOURCE = DLG_BASE + 6;
+    private static final int DLG_UNKNOWN_APPS = DLG_BASE + 1;
+    private static final int DLG_PACKAGE_ERROR = DLG_BASE + 2;
+    private static final int DLG_OUT_OF_SPACE = DLG_BASE + 3;
+    private static final int DLG_INSTALL_ERROR = DLG_BASE + 4;
+    private static final int DLG_ALLOW_SOURCE = DLG_BASE + 5;
 
-    private void startInstallConfirm() {
-        LinearLayout permsSection = (LinearLayout) mInstallConfirm.findViewById(R.id.permissions_section);
-        LinearLayout securityList = (LinearLayout) permsSection.findViewById(
-                R.id.security_settings_list);
-        boolean permVisible = false;
-        if(mPkgInfo != null) {
-            AppSecurityPermissions asp = new AppSecurityPermissions(this, mPkgInfo);
-            if(asp.getPermissionCount() > 0) {
-                permVisible = true;
-                securityList.addView(asp.getPermissionsView());
+    /**
+     * This is a helper class that implements the management of tabs and all
+     * details of connecting a ViewPager with associated TabHost.  It relies on a
+     * trick.  Normally a tab host has a simple API for supplying a View or
+     * Intent that each tab will show.  This is not sufficient for switching
+     * between pages.  So instead we make the content part of the tab host
+     * 0dp high (it is not shown) and the TabsAdapter supplies its own dummy
+     * view to show as the tab content.  It listens to changes in tabs, and takes
+     * care of switch to the correct paged in the ViewPager whenever the selected
+     * tab changes.
+     */
+    public static class TabsAdapter extends PagerAdapter
+            implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener {
+        private final Context mContext;
+        private final TabHost mTabHost;
+        private final ViewPager mViewPager;
+        private final ArrayList<TabInfo> mTabs = new ArrayList<TabInfo>();
+
+        static final class TabInfo {
+            private final String tag;
+            private final View view;
+
+            TabInfo(String _tag, View _view) {
+                tag = _tag;
+                view = _view;
             }
         }
-        if(!permVisible){
-            permsSection.setVisibility(View.INVISIBLE);
+
+        static class DummyTabFactory implements TabHost.TabContentFactory {
+            private final Context mContext;
+
+            public DummyTabFactory(Context context) {
+                mContext = context;
+            }
+
+            @Override
+            public View createTabContent(String tag) {
+                View v = new View(mContext);
+                v.setMinimumWidth(0);
+                v.setMinimumHeight(0);
+                return v;
+            }
+        }
+
+        public TabsAdapter(Activity activity, TabHost tabHost, ViewPager pager) {
+            mContext = activity;
+            mTabHost = tabHost;
+            mViewPager = pager;
+            mTabHost.setOnTabChangedListener(this);
+            mViewPager.setAdapter(this);
+            mViewPager.setOnPageChangeListener(this);
+        }
+
+        public void addTab(TabHost.TabSpec tabSpec, View view) {
+            tabSpec.setContent(new DummyTabFactory(mContext));
+            String tag = tabSpec.getTag();
+
+            TabInfo info = new TabInfo(tag, view);
+            mTabs.add(info);
+            mTabHost.addTab(tabSpec);
+            notifyDataSetChanged();
+        }
+
+        @Override
+        public int getCount() {
+            return mTabs.size();
+        }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            View view = mTabs.get(position).view;
+            container.addView(view);
+            return view;
+        }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            container.removeView((View)object);
+        }
+
+        @Override
+        public boolean isViewFromObject(View view, Object object) {
+            return view == object;
+        }
+
+        @Override
+        public void onTabChanged(String tabId) {
+            int position = mTabHost.getCurrentTab();
+            mViewPager.setCurrentItem(position);
+        }
+
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        }
+
+        @Override
+        public void onPageSelected(int position) {
+            // Unfortunately when TabHost changes the current tab, it kindly
+            // also takes care of putting focus on it when not in touch mode.
+            // The jerk.
+            // This hack tries to prevent this from pulling focus out of our
+            // ViewPager.
+            TabWidget widget = mTabHost.getTabWidget();
+            int oldFocusability = widget.getDescendantFocusability();
+            widget.setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);
+            mTabHost.setCurrentTab(position);
+            widget.setDescendantFocusability(oldFocusability);
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int state) {
+        }
+    }
+
+    private void startInstallConfirm() {
+        TabHost tabHost = (TabHost)findViewById(android.R.id.tabhost);
+        tabHost.setup();
+        ViewPager viewPager = (ViewPager)findViewById(R.id.pager);
+        TabsAdapter adapter = new TabsAdapter(this, tabHost, viewPager);
+
+        boolean permVisible = false;
+        int msg = 0;
+        if (mPkgInfo != null) {
+            AppSecurityPermissions perms = new AppSecurityPermissions(this, mPkgInfo);
+            if (mAppInfo != null) {
+                permVisible = true;
+                msg = (mAppInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0
+                        ? R.string.install_confirm_question_update_system
+                        : R.string.install_confirm_question_update;
+                ScrollView scrollView = new ScrollView(this);
+                scrollView.setFillViewport(true);
+                if (perms.getPermissionCount(AppSecurityPermissions.WHICH_NEW) > 0) {
+                    scrollView.addView(perms.getPermissionsView(AppSecurityPermissions.WHICH_NEW));
+                } else {
+                    LayoutInflater inflater = (LayoutInflater)getSystemService(
+                            Context.LAYOUT_INFLATER_SERVICE);
+                    TextView label = (TextView)inflater.inflate(R.layout.label, null);
+                    label.setText(R.string.no_new_perms);
+                    scrollView.addView(label);
+                }
+                adapter.addTab(tabHost.newTabSpec("new").setIndicator(
+                        getText(R.string.newPerms)), scrollView);
+            }
+            if (perms.getPermissionCount(AppSecurityPermissions.WHICH_PERSONAL) > 0) {
+                permVisible = true;
+                ScrollView scrollView = new ScrollView(this);
+                scrollView.setFillViewport(true);
+                scrollView.addView(perms.getPermissionsView(AppSecurityPermissions.WHICH_PERSONAL));
+                adapter.addTab(tabHost.newTabSpec("personal").setIndicator(
+                        getText(R.string.privacyPerms)), scrollView);
+            }
+            if (perms.getPermissionCount(AppSecurityPermissions.WHICH_DEVICE) > 0) {
+                permVisible = true;
+                ScrollView scrollView = new ScrollView(this);
+                scrollView.setFillViewport(true);
+                scrollView.addView(perms.getPermissionsView(AppSecurityPermissions.WHICH_DEVICE));
+                adapter.addTab(tabHost.newTabSpec("device").setIndicator(
+                        getText(R.string.devicePerms)), scrollView);
+            }
+        }
+        if (!permVisible) {
+            if (msg == 0) {
+                msg = R.string.install_confirm_question_no_perms;
+            }
+            tabHost.setVisibility(View.INVISIBLE);
+        }
+        if (msg != 0) {
+            ((TextView)findViewById(R.id.install_confirm_question)).setText(msg);
         }
         mInstallConfirm.setVisibility(View.VISIBLE);
         mOk = (Button)findViewById(R.id.ok_button);
@@ -109,27 +271,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     @Override
     public Dialog onCreateDialog(int id, Bundle bundle) {
         switch (id) {
-        case DLG_REPLACE_APP:
-            int msgId = R.string.dlg_app_replacement_statement;
-            // Customized text for system apps
-            if ((mAppInfo != null) && (mAppInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
-                msgId = R.string.dlg_sys_app_replacement_statement;
-            }
-            return new AlertDialog.Builder(this)
-                    .setTitle(R.string.dlg_app_replacement_title)
-                    .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            startInstallConfirm();
-                        }})
-                    .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            Log.i(TAG, "Canceling installation");
-                            setResult(RESULT_CANCELED);
-                            finish();
-                        }})
-                    .setMessage(msgId)
-                    .setOnCancelListener(this)
-                    .create();
         case DLG_UNKNOWN_APPS:
             return new AlertDialog.Builder(this)
                     .setTitle(R.string.unknown_apps_dlg_title)
@@ -253,13 +394,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         } catch (NameNotFoundException e) {
             mAppInfo = null;
         }
-        if (mAppInfo == null || getIntent().getBooleanExtra(Intent.EXTRA_ALLOW_REPLACE, false)) {
-            startInstallConfirm();
-        } else {
-            if(localLOGV) Log.i(TAG, "Replacing existing package:"+
-                    mPkgInfo.applicationInfo.packageName);
-            showDialogInner(DLG_REPLACE_APP);
-        }
+        startInstallConfirm();
     }
 
     void setPmResult(int pmResult) {
