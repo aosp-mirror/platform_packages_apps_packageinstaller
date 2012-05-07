@@ -24,14 +24,10 @@
     <string name="unknown" msgid="4742479012767208045">"Desconocida"</string>
     <string name="installing" msgid="8613631001631998372">"Instalando…"</string>
     <string name="install_done" msgid="3682715442154357097">"Aplicación instalada"</string>
-    <!-- no translation found for install_confirm_question (7295206719219043890) -->
-    <skip />
-    <!-- no translation found for install_confirm_question_no_perms (5918305641302873520) -->
-    <skip />
-    <!-- no translation found for install_confirm_question_update (4624159567361487964) -->
-    <skip />
-    <!-- no translation found for install_confirm_question_update_system (1302330093676416336) -->
-    <skip />
+    <string name="install_confirm_question" msgid="7295206719219043890">"¿Quieres instalar esta aplicación? Podrá acceder a:"</string>
+    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"¿Quieres instalar esta aplicación? No requiere accesos especiales."</string>
+    <string name="install_confirm_question_update" msgid="4624159567361487964">"¿Quieres instalar una actualización de la aplicación? Tus datos no se perderán. La aplicación actualizada podrá acceder a:"</string>
+    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"¿Quieres instalar una actualización de esta aplicación integrada? Tus datos no se perderán. La aplicación actualizada podrá acceder a:"</string>
     <string name="install_failed" msgid="6579998651498970899">"Aplicación no instalada"</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Parece que el paquete está dañado."</string>
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Ya se ha instalado un paquete con el mismo nombre con una firma en conflicto."</string>
@@ -73,12 +69,8 @@
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"No se ha podido desinstalar <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Error de análisis"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Se ha producido un error al analizar el paquete."</string>
-    <!-- no translation found for newPerms (6039428254474104210) -->
-    <skip />
-    <!-- no translation found for privacyPerms (1850527049572617) -->
-    <skip />
-    <!-- no translation found for devicePerms (6733560207731294504) -->
-    <skip />
-    <!-- no translation found for no_new_perms (6657813692169565975) -->
-    <skip />
+    <string name="newPerms" msgid="6039428254474104210">"Nuevo"</string>
+    <string name="privacyPerms" msgid="1850527049572617">"Privacidad"</string>
+    <string name="devicePerms" msgid="6733560207731294504">"Acceso dispositivo"</string>
+    <string name="no_new_perms" msgid="6657813692169565975">"Esta actualización no requiere permisos nuevos."</string>
 </resources>
