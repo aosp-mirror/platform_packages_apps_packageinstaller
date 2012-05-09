@@ -24,14 +24,10 @@
     <string name="unknown" msgid="4742479012767208045">"Непознато"</string>
     <string name="installing" msgid="8613631001631998372">"Инсталирање..."</string>
     <string name="install_done" msgid="3682715442154357097">"Апликација је инсталирана."</string>
-    <!-- no translation found for install_confirm_question (7295206719219043890) -->
-    <skip />
-    <!-- no translation found for install_confirm_question_no_perms (5918305641302873520) -->
-    <skip />
-    <!-- no translation found for install_confirm_question_update (4624159567361487964) -->
-    <skip />
-    <!-- no translation found for install_confirm_question_update_system (1302330093676416336) -->
-    <skip />
+    <string name="install_confirm_question" msgid="7295206719219043890">"Желите ли да инсталирате ову апликацију? Имаће приступ следећем:"</string>
+    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Желите ли да инсталирате ову апликацију? Не захтева посебан приступ."</string>
+    <string name="install_confirm_question_update" msgid="4624159567361487964">"Желите ли да инсталирате ажурирање за ову постојећу апликацију? Постојећи подаци неће бити изгубљени. Ажурирана апликација имаће приступ следећем:"</string>
+    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Желите ли да инсталирате ажурирање за ову уграђену апликацију? Постојећи подаци неће бити изгубљени. Ажурирана апликација ће имати приступ следећем:"</string>
     <string name="install_failed" msgid="6579998651498970899">"Апликација није инсталирана."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Изгледа да је пакет оштећен."</string>
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Већ је инсталиран пакет са истим именом и сукобљеним потписом."</string>
@@ -73,12 +69,8 @@
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Није било могуће деинсталирати апликацију <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Грешка приликом рашчлањивања"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Дошло је до проблема при рашчлањивању пакета."</string>
-    <!-- no translation found for newPerms (6039428254474104210) -->
-    <skip />
-    <!-- no translation found for privacyPerms (1850527049572617) -->
-    <skip />
-    <!-- no translation found for devicePerms (6733560207731294504) -->
-    <skip />
-    <!-- no translation found for no_new_perms (6657813692169565975) -->
-    <skip />
+    <string name="newPerms" msgid="6039428254474104210">"Ново"</string>
+    <string name="privacyPerms" msgid="1850527049572617">"Приватност"</string>
+    <string name="devicePerms" msgid="6733560207731294504">"Приступ уређају"</string>
+    <string name="no_new_perms" msgid="6657813692169565975">"Ово ажурирање не захтева нове дозволе."</string>
 </resources>
