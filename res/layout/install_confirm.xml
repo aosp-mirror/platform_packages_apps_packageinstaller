@@ -47,17 +47,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <FrameLayout
+            <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@*android:drawable/tab_unselected_holo">
-                <TabWidget
-                    android:id="@android:id/tabs"
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center" />
-            </FrameLayout>
+                android:background="@*android:drawable/tab_unselected_holo"
+                android:fillViewport="true"
+                android:scrollbars="none">
+                <FrameLayout android:layout_width="match_parent"
+                             android:layout_height="wrap_content">
+                    <TabWidget
+                        android:id="@android:id/tabs"
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+            </HorizontalScrollView>
 
             <FrameLayout
                 android:id="@android:id/tabcontent"
