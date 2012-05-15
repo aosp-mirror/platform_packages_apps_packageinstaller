@@ -28,17 +28,17 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PackageParser;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.AppSecurityPermissions;
 import android.widget.Button;
 import android.widget.ScrollView;
@@ -103,6 +103,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         private final TabHost mTabHost;
         private final ViewPager mViewPager;
         private final ArrayList<TabInfo> mTabs = new ArrayList<TabInfo>();
+        private final Rect mTempRect = new Rect();
 
         static final class TabInfo {
             private final String tag;
@@ -193,6 +194,11 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             widget.setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);
             mTabHost.setCurrentTab(position);
             widget.setDescendantFocusability(oldFocusability);
+
+            // Scroll the current tab into visibility if needed.
+            View tab = widget.getChildTabViewAt(position);
+            mTempRect.set(tab.getLeft(), tab.getTop(), tab.getRight(), tab.getBottom());
+            widget.requestRectangleOnScreen(mTempRect, false);
         }
 
         @Override
