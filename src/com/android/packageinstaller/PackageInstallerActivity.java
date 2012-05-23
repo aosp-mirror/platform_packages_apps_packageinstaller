@@ -199,6 +199,12 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             View tab = widget.getChildTabViewAt(position);
             mTempRect.set(tab.getLeft(), tab.getTop(), tab.getRight(), tab.getBottom());
             widget.requestRectangleOnScreen(mTempRect, false);
+
+            // Make sure the scrollbars are visible for a moment after selection
+            final View contentView = mTabs.get(position).view;
+            if (contentView instanceof CaffeinatedScrollView) {
+                ((CaffeinatedScrollView) contentView).awakenScrollBars();
+            }
         }
 
         @Override
@@ -221,7 +227,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                 msg = (mAppInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0
                         ? R.string.install_confirm_question_update_system
                         : R.string.install_confirm_question_update;
-                ScrollView scrollView = new ScrollView(this);
+                ScrollView scrollView = new CaffeinatedScrollView(this);
                 scrollView.setFillViewport(true);
                 if (perms.getPermissionCount(AppSecurityPermissions.WHICH_NEW) > 0) {
                     scrollView.addView(perms.getPermissionsView(AppSecurityPermissions.WHICH_NEW));
@@ -237,7 +243,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             }
             if (perms.getPermissionCount(AppSecurityPermissions.WHICH_PERSONAL) > 0) {
                 permVisible = true;
-                ScrollView scrollView = new ScrollView(this);
+                ScrollView scrollView = new CaffeinatedScrollView(this);
                 scrollView.setFillViewport(true);
                 scrollView.addView(perms.getPermissionsView(AppSecurityPermissions.WHICH_PERSONAL));
                 adapter.addTab(tabHost.newTabSpec("personal").setIndicator(
@@ -245,7 +251,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             }
             if (perms.getPermissionCount(AppSecurityPermissions.WHICH_DEVICE) > 0) {
                 permVisible = true;
-                ScrollView scrollView = new ScrollView(this);
+                ScrollView scrollView = new CaffeinatedScrollView(this);
                 scrollView.setFillViewport(true);
                 scrollView.addView(perms.getPermissionsView(AppSecurityPermissions.WHICH_DEVICE));
                 adapter.addTab(tabHost.newTabSpec("device").setIndicator(
@@ -511,6 +517,23 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             // Cancel and finish
             setResult(RESULT_CANCELED);
             finish();
+        }
+    }
+
+    /**
+     * It's a ScrollView that knows how to stay awake.
+     */
+    static class CaffeinatedScrollView extends ScrollView {
+        public CaffeinatedScrollView(Context context) {
+            super(context);
+        }
+
+        /**
+         * Make this visible so we can call it
+         */
+        @Override
+        public boolean awakenScrollBars() {
+            return super.awakenScrollBars();
         }
     }
 }
