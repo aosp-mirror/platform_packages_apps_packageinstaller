@@ -420,7 +420,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         mPm = getPackageManager();
 
         final String scheme = mPackageURI.getScheme();
-        if (!"file".equals(scheme)) {
+        if (scheme != null && !"file".equals(scheme)) {
             throw new IllegalArgumentException("unexpected scheme " + scheme);
         }
 
