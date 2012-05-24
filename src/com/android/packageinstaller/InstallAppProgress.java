@@ -162,7 +162,7 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
         mPackageURI = intent.getData();
 
         final String scheme = mPackageURI.getScheme();
-        if (!"file".equals(scheme)) {
+        if (scheme != null && !"file".equals(scheme)) {
             throw new IllegalArgumentException("unexpected scheme " + scheme);
         }
 
