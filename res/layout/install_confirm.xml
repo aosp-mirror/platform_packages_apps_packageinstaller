@@ -25,7 +25,9 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingLeft="8dip"
+        android:paddingRight="8dip">
 
     <TextView
             android:id="@+id/install_confirm_question"
@@ -34,50 +36,38 @@
             android:text="@string/install_confirm_question"
             android:textAppearance="?android:attr/textAppearanceMedium"
             style="@style/padded"
-            android:paddingTop="12dip" />
+            android:paddingTop="12dip"
+            android:paddingBottom="16dip"/>
 
-    <TabHost
-        android:id="@android:id/tabhost"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-
-        <LinearLayout
-            android:orientation="vertical"
+    <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:layout_weight="1">
 
-            <HorizontalScrollView
+        <!-- Security settings description. -->
+        <LinearLayout
+                android:id="@+id/permissions_section"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@*android:drawable/tab_unselected_holo"
-                android:fillViewport="true"
-                android:scrollbars="none">
-                <FrameLayout android:layout_width="match_parent"
-                             android:layout_height="wrap_content">
-                    <TabWidget
-                        android:id="@android:id/tabs"
-                        android:orientation="horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center" />
-                </FrameLayout>
-            </HorizontalScrollView>
-
-            <FrameLayout
-                android:id="@android:id/tabcontent"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="0"/>
-
-            <android.support.v4.view.ViewPager
-                android:id="@+id/pager"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"/>
-
+                android:layout_marginRight="?android:attr/scrollbarSize"
+                style="@style/padded"
+                android:orientation="vertical">
+            <TextView
+                    android:id="@+id/security_settings_desc"
+                    android:text="@string/security_settings_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    />
+            <LinearLayout
+                    android:id="@+id/security_settings_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:orientation="vertical"/>
         </LinearLayout>
-    </TabHost>
+    </ScrollView>
 
     <!-- OK confirm and cancel buttons.  -->
     <LinearLayout
@@ -85,7 +75,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:divider="?android:attr/dividerHorizontal"
-            android:showDividers="beginning">
+            android:showDividers="beginning"
+            android:paddingTop="16dip">
 
         <LinearLayout
                 style="?android:attr/buttonBarStyle"
