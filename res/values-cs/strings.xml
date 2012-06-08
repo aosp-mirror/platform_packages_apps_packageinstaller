@@ -26,8 +26,8 @@
     <string name="install_done" msgid="3682715442154357097">"Aplikace je nainstalována."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Chcete tuto aplikaci nainstalovat? Aplikace získá přístup k těmto oprávněním:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Chcete tuto aplikaci nainstalovat? Aplikace nevyžaduje žádná zvláštní oprávnění."</string>
-    <string name="install_confirm_question_update" msgid="4624159567361487964">"Chcete nainstalovat aktualizaci této existující aplikace? Stávající data nebudu ztracena. Aktualizovaná aplikace získá přístup k těmto oprávněním:"</string>
-    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Chcete nainstalovat aktualizaci této integrované aplikace? Stávající data nebudou ztracena. Aktualizovaná aplikace získá přístup k těmto oprávněním:"</string>
+    <string name="install_confirm_question_update" msgid="4624159567361487964">"Chcete nainstalovat aktualizaci této existující aplikace? Stávající data nebudu ztracena. Aktualizovaná aplikace získá přístup k následujícímu:"</string>
+    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Chcete nainstalovat aktualizaci této integrované aplikace? Stávající data nebudou ztracena. Aktualizovaná aplikace získá přístup k následujícímu:"</string>
     <string name="install_failed" msgid="6579998651498970899">"Aplikace není nainstalována."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Zdá se, že je balíček poškozen."</string>
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Již je nainstalován balíček se stejným názvem a konfliktním podpisem."</string>
@@ -41,8 +41,10 @@
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Aplikaci <xliff:g id="APP_NAME">%1$s</xliff:g> do tohoto telefonu nelze nainstalovat."</string>
     <string name="launch" msgid="4826921505917605463">"Otevřít"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Instalace byla zablokována"</string>
-    <string name="unknown_apps_dlg_text" product="tablet" msgid="1710283014204879610">"Váš tablet je z důvodu zabezpečení nastaven tak, aby blokoval instalaci aplikací, které nepocházejí ze služby Android Market."</string>
-    <string name="unknown_apps_dlg_text" product="default" msgid="9159167487408561881">"Váš telefon je z důvodu zabezpečení nastaven tak, aby blokoval instalaci aplikací, které nepocházejí ze služby Android Market."</string>
+    <!-- no translation found for unknown_apps_dlg_text (7504186369474734767) -->
+    <skip />
+    <!-- no translation found for unknown_apps_dlg_text (133213135679009316) -->
+    <skip />
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Nastavení"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Nový zdroj pro aplikace"</string>
