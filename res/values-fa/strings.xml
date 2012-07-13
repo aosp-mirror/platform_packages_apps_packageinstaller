@@ -19,19 +19,19 @@
     <string name="app_name" msgid="2738748390251381682">"نصب کننده بسته"</string>
     <string name="install" msgid="5896438203900042068">"نصب"</string>
     <string name="done" msgid="3889387558374211719">"انجام شد"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"این برنامه میتواند این کارها را انجام دهد:"</string>
+    <string name="security_settings_desc" msgid="2706691034244052604">"به این برنامه اجازه داده شود که:"</string>
     <string name="cancel" msgid="8360346460165114585">"لغو"</string>
     <string name="unknown" msgid="4742479012767208045">"ناشناس"</string>
     <string name="installing" msgid="8613631001631998372">"در حال نصب…"</string>
     <string name="install_done" msgid="3682715442154357097">"برنامه نصب شد."</string>
-    <string name="install_confirm_question" msgid="7295206719219043890">"آیا شما میٰ‌خواهید این برنامه را نصب کنید؟ این برنامه دسترسی خواهد داشت به:"</string>
-    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"آیا شما می‌خواهید این برنامه را نصب کنید؟ این برنامه به دسترسی خاصی نیاز ندارد."</string>
+    <string name="install_confirm_question" msgid="7295206719219043890">"آیا می‌خواهید این برنامه را نصب کنید؟ این برنامه به این موارد دسترسی خواهد یافت:"</string>
+    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"آیا می‌خواهید این برنامه را نصب کنید؟ این برنامه به دسترسی خاصی نیاز ندارد."</string>
     <string name="install_confirm_question_update" msgid="4624159567361487964">"آیا میٰ‌خواهید بهٰ‌روزرسانی این برنامه کنونی را نصب کنید؟ داده کنونی شما از بین نمی‌رود. برنامه به‌روزرسانی شده دسترسی خواهد داشت به:"</string>
     <string name="install_confirm_question_update_system" msgid="1302330093676416336">"آیا می‌خواهید به‌روزرسانی این برنامه جاسازی شده را نصب کنید؟ داده‌های کنونی شما از بین نمی‌رود. برنامه به‌روزرسانی شده دسترسی خواهد داشت به:"</string>
     <string name="install_failed" msgid="6579998651498970899">"برنامه نصب نشد."</string>
-    <string name="install_failed_invalid_apk" msgid="1287935707565682604">"این بسته به نظر می رسد خراب است."</string>
+    <string name="install_failed_invalid_apk" msgid="1287935707565682604">"این بسته به نظر می‌رسد خراب است."</string>
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"بسته فعلی با همین نام اما با امضای مختلف قبلاً نصب شده است."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"این بسته فقط در نسخه های جدیدتر Android کار می کند."</string>
+    <string name="install_failed_older_sdk" msgid="7947925824732917665">"این بسته فقط در نسخه های جدیدتر Android کار می‌کند."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"این برنامه با رایانه لوحی شما سازگار نیست."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"این برنامه با تلفن شما سازگار نیست."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"بسته مشخص شده قبل از تکمیل نصب حذف شده است."</string>
@@ -49,10 +49,10 @@
     <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> می‌خواهد برنامه‌های دیگری نصب کند."\n\n"آیا اکنون و در آینده این اجازه را می‌دهید؟"</string>
     <string name="manage_applications" msgid="4033876279091996596">"مدیریت برنامه‌ها"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"برنامه جایگزین شود؟"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"برنامه‌ای که نصب میکنید جایگزین یک برنامه دیگر میشود."\n\n"تمام داده‌های کاربری قبلی شما ذخیره میشود."</string>
+    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"برنامه‌ای که دارید نصب می‌کنید جایگزین یک برنامهٔ دیگر خواهد شد."\n\n"تمام داده‌های کاربری قبلی شما ذخیره خواهد شد."</string>
     <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"این یک برنامه سیستمی است."\n\n"تمام داده‌های کاربری قبلی شما ذخیره خواهد شد."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"فضا کافی نیست"</string>
-    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> نصب نمی شود. مقداری از فضا را آزاد کرده و دوباره امتحان کنید."</string>
+    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> نصب نمی‌شود. مقداری از فضا را آزاد کرده و دوباره امتحان کنید."</string>
     <string name="dlg_ok" msgid="6944357727705699232">"تأیید"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"برنامه یافت نشد"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"برنامه در لیست برنامه‌های نصب شده یافت نشد."</string>
@@ -60,7 +60,7 @@
     <string name="uninstall_update_title" msgid="4146940097553335390">"حذف نصب به‌روزرسانی"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> قسمتی از برنامه زیر است:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"می‌خواهید این برنامه را حذف نصب کنید؟"</string>
-    <string name="uninstall_update_text" msgid="2056387942084605027">"آیا میخواهید این برنامه را با یک نسخه کارخانه جایگزین کنید؟"</string>
+    <string name="uninstall_update_text" msgid="2056387942084605027">"آیا می‌خواهید این برنامه را با یک نسخه کارخانه جایگزین کنید؟"</string>
     <string name="uninstalling" msgid="5556217435895938250">"در حال حذف نصب..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"حذف نصب پایان یافت."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"حذف نصب انجام نشد."</string>
