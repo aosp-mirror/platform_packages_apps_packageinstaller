@@ -26,7 +26,6 @@
             <intent-filter>
                 <action android:name="android.intent.action.INSTALL_PACKAGE" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <data android:scheme="content" />
                 <data android:scheme="file" />
             </intent-filter>
         </activity>
