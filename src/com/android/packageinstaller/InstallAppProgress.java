@@ -28,6 +28,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
+import android.content.pm.VerificationParams;
 import android.graphics.drawable.LevelListDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -243,8 +244,14 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
 
         String installerPackageName = getIntent().getStringExtra(
                 Intent.EXTRA_INSTALLER_PACKAGE_NAME);
+        Uri originatingURI = getIntent().getParcelableExtra(Intent.EXTRA_ORIGINATING_URI);
+        Uri referrer = getIntent().getParcelableExtra(Intent.EXTRA_REFERRER);
+        VerificationParams verificationParams = new VerificationParams(null, originatingURI,
+                referrer, null);
         PackageInstallObserver observer = new PackageInstallObserver();
-        pm.installPackage(mPackageURI, observer, installFlags, installerPackageName);
+
+        pm.installPackageWithVerificationAndEncryption(mPackageURI, observer, installFlags,
+                installerPackageName, verificationParams, null);
     }
 
     @Override
