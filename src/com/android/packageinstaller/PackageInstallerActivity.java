@@ -61,6 +61,8 @@ import java.util.ArrayList;
 public class PackageInstallerActivity extends Activity implements OnCancelListener, OnClickListener {
     private static final String TAG = "PackageInstaller";
     private Uri mPackageURI;    
+    private Uri mOriginatingURI;
+    private Uri mReferrerURI;
     private boolean localLOGV = false;
     PackageManager mPm;
     PackageParser.Package mPkgInfo;
@@ -284,6 +286,8 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         // get intent information
         final Intent intent = getIntent();
         mPackageURI = intent.getData();
+        mOriginatingURI = intent.getParcelableExtra(Intent.EXTRA_ORIGINATING_URI);
+        mReferrerURI = intent.getParcelableExtra(Intent.EXTRA_REFERRER);
         mPm = getPackageManager();
 
         final String scheme = mPackageURI.getScheme();
@@ -364,6 +368,12 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             newIntent.setData(mPackageURI);
             newIntent.setClass(this, InstallAppProgress.class);
             String installerPackageName = getIntent().getStringExtra(Intent.EXTRA_INSTALLER_PACKAGE_NAME);
+            if (mOriginatingURI != null) {
+                newIntent.putExtra(Intent.EXTRA_ORIGINATING_URI, mOriginatingURI);
+            }
+            if (mReferrerURI != null) {
+                newIntent.putExtra(Intent.EXTRA_REFERRER, mReferrerURI);
+            }
             if (installerPackageName != null) {
                 newIntent.putExtra(Intent.EXTRA_INSTALLER_PACKAGE_NAME, installerPackageName);
             }
