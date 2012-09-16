@@ -77,6 +77,8 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     // Buttons to indicate user acceptance
     private Button mOk;
     private Button mCancel;
+    CaffeinatedScrollView mScrollView = null;
+    private boolean mOkCanInstall = false;
 
     static final String PREFS_ALLOWED_SOURCES = "allowed_sources";
 
@@ -221,48 +223,71 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         TabsAdapter adapter = new TabsAdapter(this, tabHost, viewPager);
 
         boolean permVisible = false;
+        mScrollView = null;
+        mOkCanInstall = false;
         int msg = 0;
         if (mPkgInfo != null) {
             AppSecurityPermissions perms = new AppSecurityPermissions(this, mPkgInfo);
+            final int NP = perms.getPermissionCount(AppSecurityPermissions.WHICH_PERSONAL);
+            final int ND = perms.getPermissionCount(AppSecurityPermissions.WHICH_DEVICE);
             if (mAppInfo != null) {
-                permVisible = true;
                 msg = (mAppInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0
                         ? R.string.install_confirm_question_update_system
                         : R.string.install_confirm_question_update;
-                ScrollView scrollView = new CaffeinatedScrollView(this);
-                scrollView.setFillViewport(true);
+                mScrollView = new CaffeinatedScrollView(this);
+                mScrollView.setFillViewport(true);
                 if (perms.getPermissionCount(AppSecurityPermissions.WHICH_NEW) > 0) {
-                    scrollView.addView(perms.getPermissionsView(AppSecurityPermissions.WHICH_NEW));
+                    permVisible = true;
+                    mScrollView.addView(perms.getPermissionsView(
+                            AppSecurityPermissions.WHICH_NEW));
                 } else {
                     LayoutInflater inflater = (LayoutInflater)getSystemService(
                             Context.LAYOUT_INFLATER_SERVICE);
                     TextView label = (TextView)inflater.inflate(R.layout.label, null);
                     label.setText(R.string.no_new_perms);
-                    scrollView.addView(label);
+                    mScrollView.addView(label);
                 }
                 adapter.addTab(tabHost.newTabSpec("new").setIndicator(
-                        getText(R.string.newPerms)), scrollView);
+                        getText(R.string.newPerms)), mScrollView);
+            } else  {
+                findViewById(R.id.tabscontainer).setVisibility(View.GONE);
             }
-            if (perms.getPermissionCount(AppSecurityPermissions.WHICH_PERSONAL) > 0) {
+            if (NP > 0 || ND > 0) {
                 permVisible = true;
-                ScrollView scrollView = new CaffeinatedScrollView(this);
-                scrollView.setFillViewport(true);
-                scrollView.addView(perms.getPermissionsView(AppSecurityPermissions.WHICH_PERSONAL));
-                adapter.addTab(tabHost.newTabSpec("personal").setIndicator(
-                        getText(R.string.privacyPerms)), scrollView);
-            }
-            if (perms.getPermissionCount(AppSecurityPermissions.WHICH_DEVICE) > 0) {
-                permVisible = true;
-                ScrollView scrollView = new CaffeinatedScrollView(this);
-                scrollView.setFillViewport(true);
-                scrollView.addView(perms.getPermissionsView(AppSecurityPermissions.WHICH_DEVICE));
-                adapter.addTab(tabHost.newTabSpec("device").setIndicator(
-                        getText(R.string.devicePerms)), scrollView);
+                LayoutInflater inflater = (LayoutInflater)getSystemService(
+                        Context.LAYOUT_INFLATER_SERVICE);
+                View root = inflater.inflate(R.layout.permissions_list, null);
+                if (mScrollView == null) {
+                    mScrollView = (CaffeinatedScrollView)root.findViewById(R.id.scrollview);
+                }
+                if (NP > 0) {
+                    ((ViewGroup)root.findViewById(R.id.privacylist)).addView(
+                            perms.getPermissionsView(AppSecurityPermissions.WHICH_PERSONAL));
+                } else {
+                    root.findViewById(R.id.privacylist).setVisibility(View.GONE);
+                }
+                if (ND > 0) {
+                    ((ViewGroup)root.findViewById(R.id.devicelist)).addView(
+                            perms.getPermissionsView(AppSecurityPermissions.WHICH_DEVICE));
+                } else {
+                    root.findViewById(R.id.devicelist).setVisibility(View.GONE);
+                }
+                adapter.addTab(tabHost.newTabSpec("all").setIndicator(
+                        getText(R.string.allPerms)), root);
             }
         }
         if (!permVisible) {
             if (msg == 0) {
-                msg = R.string.install_confirm_question_no_perms;
+                if (mAppInfo != null) {
+                    // This is an update to an application, but there are no
+                    // permissions at all.
+                    msg = (mAppInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0
+                            ? R.string.install_confirm_question_update_system_no_perms
+                            : R.string.install_confirm_question_update_no_perms;
+                } else {
+                    // This is a new application with no permissions.
+                    msg = R.string.install_confirm_question_no_perms;
+                }
             }
             tabHost.setVisibility(View.INVISIBLE);
         }
@@ -274,6 +299,20 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         mCancel = (Button)findViewById(R.id.cancel_button);
         mOk.setOnClickListener(this);
         mCancel.setOnClickListener(this);
+        if (mScrollView == null) {
+            // There is nothing to scroll view, so the ok button is immediately
+            // set to install.
+            mOk.setText(R.string.install);
+            mOkCanInstall = true;
+        } else {
+            mScrollView.setFullScrollAction(new Runnable() {
+                @Override
+                public void run() {
+                    mOk.setText(R.string.install);
+                    mOkCanInstall = true;
+                }
+            });
+        }
     }
 
     private void showDialogInner(int id) {
@@ -500,50 +539,39 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
 
     public void onClick(View v) {
         if(v == mOk) {
-            // Start subactivity to actually install the application
-            Intent newIntent = new Intent();
-            newIntent.putExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO,
-                    mPkgInfo.applicationInfo);
-            newIntent.setData(mPackageURI);
-            newIntent.setClass(this, InstallAppProgress.class);
-            String installerPackageName = getIntent().getStringExtra(Intent.EXTRA_INSTALLER_PACKAGE_NAME);
-            if (mOriginatingURI != null) {
-                newIntent.putExtra(Intent.EXTRA_ORIGINATING_URI, mOriginatingURI);
+            if (mOkCanInstall || mScrollView == null) {
+                // Start subactivity to actually install the application
+                Intent newIntent = new Intent();
+                newIntent.putExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO,
+                        mPkgInfo.applicationInfo);
+                newIntent.setData(mPackageURI);
+                newIntent.setClass(this, InstallAppProgress.class);
+                String installerPackageName = getIntent().getStringExtra(
+                        Intent.EXTRA_INSTALLER_PACKAGE_NAME);
+                if (mOriginatingURI != null) {
+                    newIntent.putExtra(Intent.EXTRA_ORIGINATING_URI, mOriginatingURI);
+                }
+                if (mReferrerURI != null) {
+                    newIntent.putExtra(Intent.EXTRA_REFERRER, mReferrerURI);
+                }
+                if (installerPackageName != null) {
+                    newIntent.putExtra(Intent.EXTRA_INSTALLER_PACKAGE_NAME,
+                            installerPackageName);
+                }
+                if (getIntent().getBooleanExtra(Intent.EXTRA_RETURN_RESULT, false)) {
+                    newIntent.putExtra(Intent.EXTRA_RETURN_RESULT, true);
+                    newIntent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+                }
+                if(localLOGV) Log.i(TAG, "downloaded app uri="+mPackageURI);
+                startActivity(newIntent);
+                finish();
+            } else {
+                mScrollView.pageScroll(View.FOCUS_DOWN);
             }
-            if (mReferrerURI != null) {
-                newIntent.putExtra(Intent.EXTRA_REFERRER, mReferrerURI);
-            }
-            if (installerPackageName != null) {
-                newIntent.putExtra(Intent.EXTRA_INSTALLER_PACKAGE_NAME, installerPackageName);
-            }
-            if (getIntent().getBooleanExtra(Intent.EXTRA_RETURN_RESULT, false)) {
-                newIntent.putExtra(Intent.EXTRA_RETURN_RESULT, true);
-                newIntent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
-            }
-            if(localLOGV) Log.i(TAG, "downloaded app uri="+mPackageURI);
-            startActivity(newIntent);
-            finish();
         } else if(v == mCancel) {
             // Cancel and finish
             setResult(RESULT_CANCELED);
             finish();
-        }
-    }
-
-    /**
-     * It's a ScrollView that knows how to stay awake.
-     */
-    static class CaffeinatedScrollView extends ScrollView {
-        public CaffeinatedScrollView(Context context) {
-            super(context);
-        }
-
-        /**
-         * Make this visible so we can call it
-         */
-        @Override
-        public boolean awakenScrollBars() {
-            return super.awakenScrollBars();
         }
     }
 }

@@ -16,6 +16,7 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Package installer</string>
+    <string name="next">Next</string>
     <string name="install">Install</string>
     <string name="done">Done</string>
     <!-- TODO REMOVE LATER -->
@@ -38,6 +39,14 @@
     <string name="install_confirm_question_update_system">Do you want to install an update
             to this built-in application?  Your existing data will not
             be lost.  The updated application will get access to:</string>
+    <!-- Message for updating an existing app, no permissions [CHAR LIMIT=NONE] -->
+    <string name="install_confirm_question_update_no_perms">Do you want to install an update
+            to this existing application?  Your existing data will not
+            be lost.  It does not require any special access.</string>
+    <!-- Message for updating an existing system app, no permissions [CHAR LIMIT=NONE] -->
+    <string name="install_confirm_question_update_system_no_perms">Do you want to install an update
+            to this built-in application?  Your existing data will not
+            be lost.  It does not require any special access.</string>
     <string name="install_failed">App not installed.</string>
     <!-- Reason displayed when installation fails because the installation package itself is invalid
         in some way (e.g., corrupt) [CHAR LIMIT=100] -->
@@ -122,6 +131,8 @@
 
     <!-- Tab label for new permissions being added to an existing app [CHAR LIMIT=20] -->
     <string name="newPerms">New</string>
+    <!-- Tab label for all permissions of an app being installed [CHAR LIMIT=20] -->
+    <string name="allPerms">All</string>
     <!-- Tab label for permissions related to user privacy [CHAR LIMIT=20] -->
     <string name="privacyPerms">Privacy</string>
     <!-- Tab label for permissions related to device behavior [CHAR LIMIT=20] -->
