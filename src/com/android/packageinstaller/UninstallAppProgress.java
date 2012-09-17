@@ -45,6 +45,7 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
     private final String TAG="UninstallAppProgress";
     private boolean localLOGV = false;
     private ApplicationInfo mAppInfo;
+    private boolean mAllUsers;
     private TextView mStatusTextView;
     private Button mOkButton;
     private Button mDeviceManagerButton;
@@ -110,6 +111,7 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
         super.onCreate(icicle);
         Intent intent = getIntent();
         mAppInfo = intent.getParcelableExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO);
+        mAllUsers = intent.getBooleanExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, false);
         initView();
     }
     
@@ -158,7 +160,8 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
         mOkButton.setOnClickListener(this);
         mOkPanel.setVisibility(View.INVISIBLE);
         PackageDeleteObserver observer = new PackageDeleteObserver();
-        getPackageManager().deletePackage(mAppInfo.packageName, observer, 0);
+        getPackageManager().deletePackage(mAppInfo.packageName, observer,
+                mAllUsers ? PackageManager.DELETE_ALL_USERS : 0);
     }
 
     public void onClick(View v) {
