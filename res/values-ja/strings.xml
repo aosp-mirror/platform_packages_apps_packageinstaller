@@ -17,6 +17,8 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="2738748390251381682">"パッケージインストーラ"</string>
+    <!-- no translation found for next (3057143178373252333) -->
+    <skip />
     <string name="install" msgid="5896438203900042068">"インストール"</string>
     <string name="done" msgid="3889387558374211719">"完了"</string>
     <string name="security_settings_desc" msgid="2706691034244052604">"このアプリに許可する権限:"</string>
@@ -28,6 +30,10 @@
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"このアプリケーションをインストールしてもよろしいですか？このアプリケーションは特別なアクセス許可を必要としません。"</string>
     <string name="install_confirm_question_update" msgid="4624159567361487964">"この既存のアプリケーションへのアップデートをインストールしてもよろしいですか？既存のデータは失われません。アップデート後のアプリケーションは下記にアクセスする場合があります:"</string>
     <string name="install_confirm_question_update_system" msgid="1302330093676416336">"この内蔵アプリケーションへのアップデートをインストールしてもよろしいですか？既存のデータは失われません。アップデート後のアプリケーションは下記にアクセスする場合があります:"</string>
+    <!-- no translation found for install_confirm_question_update_no_perms (4885928136844618944) -->
+    <skip />
+    <!-- no translation found for install_confirm_question_update_system_no_perms (7676593512694724374) -->
+    <skip />
     <string name="install_failed" msgid="6579998651498970899">"アプリはインストールされていません。"</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"パッケージが破損しているようです。"</string>
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"名前が同じで、署名が競合するパッケージが既にインストールされています。"</string>
@@ -49,7 +55,7 @@
     <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g>が他のアプリをインストールしようとしています。"\n\n"今後この操作を許可しますか？"</string>
     <string name="manage_applications" msgid="4033876279091996596">"アプリを管理"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"アプリを更新しますか？"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"このアプリをインストールすると別のアプリが上書きされます。"\n\n"過去のユーザーデータはすべて保存されます。"</string>
+    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"このアプリは既存のアプリを上書きします。"\n\n"過去のユーザーデータはすべて保存されます。"</string>
     <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"これはシステムアプリです。"\n\n"過去のユーザーデータはすべて保存されます。"</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"容量不足です"</string>
     <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g>をインストールできませんでした。空き容量を増やしてもう一度お試しください。"</string>
@@ -60,6 +66,8 @@
     <string name="uninstall_update_title" msgid="4146940097553335390">"アップデートをアンインストール"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g>は次のアプリの一部です:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"このアプリをアンインストールしますか？"</string>
+    <!-- no translation found for uninstall_application_text_all_users (5574704453233525222) -->
+    <skip />
     <string name="uninstall_update_text" msgid="2056387942084605027">"アプリを出荷時の状態に更新しますか？"</string>
     <string name="uninstalling" msgid="5556217435895938250">"アンインストール中..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"アンインストールが完了しました。"</string>
@@ -70,6 +78,8 @@
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"解析エラー"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"パッケージの解析中に問題が発生しました。"</string>
     <string name="newPerms" msgid="6039428254474104210">"New"</string>
+    <!-- no translation found for allPerms (1024385515840703981) -->
+    <skip />
     <string name="privacyPerms" msgid="1850527049572617">"プライバシー"</string>
     <string name="devicePerms" msgid="6733560207731294504">"端末アクセス"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"このアップデートでは新たな許可は必要ありません。"</string>
