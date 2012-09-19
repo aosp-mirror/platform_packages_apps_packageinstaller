@@ -25,7 +25,9 @@ import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageUserState;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PackageParser;
 import android.graphics.Rect;
@@ -66,7 +68,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     private Uri mReferrerURI;
     private boolean localLOGV = false;
     PackageManager mPm;
-    PackageParser.Package mPkgInfo;
+    PackageInfo mPkgInfo;
     ApplicationInfo mSourceInfo;
 
     // ApplicationInfo object primarily used for already existing applications
@@ -438,12 +440,19 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         String[] oldName = mPm.canonicalToCurrentPackageNames(new String[] { pkgName });
         if (oldName != null && oldName.length > 0 && oldName[0] != null) {
             pkgName = oldName[0];
-            mPkgInfo.setPackageName(pkgName);
+            mPkgInfo.packageName = pkgName;
+            mPkgInfo.applicationInfo.packageName = pkgName;
         }
         // Check if package is already installed. display confirmation dialog if replacing pkg
         try {
+            // This is a little convoluted because we want to get all uninstalled
+            // apps, but this may include apps with just data, and if it is just
+            // data we still want to count it as "installed".
             mAppInfo = mPm.getApplicationInfo(pkgName,
                     PackageManager.GET_UNINSTALLED_PACKAGES);
+            if ((mAppInfo.flags&ApplicationInfo.FLAG_INSTALLED) == 0) {
+                mAppInfo = null;
+            }
         } catch (NameNotFoundException e) {
             mAppInfo = null;
         }
@@ -469,27 +478,49 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         mPm = getPackageManager();
 
         final String scheme = mPackageURI.getScheme();
-        if (scheme != null && !"file".equals(scheme)) {
-            throw new IllegalArgumentException("unexpected scheme " + scheme);
+        if (scheme != null && !"file".equals(scheme) && !"package".equals(scheme)) {
+            Log.w(TAG, "Unsupported scheme " + scheme);
+            setPmResult(PackageManager.INSTALL_FAILED_INVALID_URI);
+            return;
         }
 
-        final File sourceFile = new File(mPackageURI.getPath());
-        mPkgInfo = PackageUtil.getPackageInfo(sourceFile);
+        final PackageUtil.AppSnippet as;
+        if ("package".equals(mPackageURI.getScheme())) {
+            try {
+                mPkgInfo = mPm.getPackageInfo(mPackageURI.getSchemeSpecificPart(),
+                        PackageManager.GET_PERMISSIONS | PackageManager.GET_UNINSTALLED_PACKAGES);
+            } catch (NameNotFoundException e) {
+            }
+            if (mPkgInfo == null) {
+                Log.w(TAG, "Requested package " + mPackageURI.getScheme()
+                        + " not available. Discontinuing installation");
+                showDialogInner(DLG_PACKAGE_ERROR);
+                setPmResult(PackageManager.INSTALL_FAILED_INVALID_APK);
+                return;
+            }
+            as = new PackageUtil.AppSnippet(mPm.getApplicationLabel(mPkgInfo.applicationInfo),
+                    mPm.getApplicationIcon(mPkgInfo.applicationInfo));
+        } else {
+            final File sourceFile = new File(mPackageURI.getPath());
+            PackageParser.Package parsed = PackageUtil.getPackageInfo(sourceFile);
 
-        // Check for parse errors
-        if (mPkgInfo == null) {
-            Log.w(TAG, "Parse error when parsing manifest. Discontinuing installation");
-            showDialogInner(DLG_PACKAGE_ERROR);
-            setPmResult(PackageManager.INSTALL_FAILED_INVALID_APK);
-            return;
+            // Check for parse errors
+            if (parsed == null) {
+                Log.w(TAG, "Parse error when parsing manifest. Discontinuing installation");
+                showDialogInner(DLG_PACKAGE_ERROR);
+                setPmResult(PackageManager.INSTALL_FAILED_INVALID_APK);
+                return;
+            }
+            mPkgInfo = PackageParser.generatePackageInfo(parsed, null,
+                    PackageManager.GET_PERMISSIONS, 0, 0, null,
+                    new PackageUserState());
+            as = PackageUtil.getAppSnippet(this, mPkgInfo.applicationInfo, sourceFile);
         }
         
         //set view
         setContentView(R.layout.install_start);
         mInstallConfirm = findViewById(R.id.install_confirm_panel);
         mInstallConfirm.setVisibility(View.INVISIBLE);
-        final PackageUtil.AppSnippet as = PackageUtil.getAppSnippet(
-                this, mPkgInfo.applicationInfo, sourceFile);
         PackageUtil.initSnippetForNewApp(this, as, R.id.app_snippet);
 
         // Deal with install source.
