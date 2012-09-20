@@ -17,8 +17,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="2738748390251381682">"Installatieprogramma van pakket"</string>
-    <!-- no translation found for next (3057143178373252333) -->
-    <skip />
+    <string name="next" msgid="3057143178373252333">"Volgende"</string>
     <string name="install" msgid="5896438203900042068">"Installeren"</string>
     <string name="done" msgid="3889387558374211719">"Gereed"</string>
     <string name="security_settings_desc" msgid="2706691034244052604">"Toestaan dat deze app:"</string>
@@ -30,10 +29,8 @@
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Wilt u deze app installeren? Hiervoor is geen speciale toegang vereist."</string>
     <string name="install_confirm_question_update" msgid="4624159567361487964">"Wilt u een update voor deze bestaande app installeren? Uw huidige gegevens gaan niet verloren. De bijgewerkte app krijgt toegang tot:"</string>
     <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Wilt u een update van deze ingebouwde app installeren? Uw huidige gegevens gaan niet verloren. De bijgewerkte app krijgt toegang tot:"</string>
-    <!-- no translation found for install_confirm_question_update_no_perms (4885928136844618944) -->
-    <skip />
-    <!-- no translation found for install_confirm_question_update_system_no_perms (7676593512694724374) -->
-    <skip />
+    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Wilt u een update voor deze bestaande app installeren? Uw huidige gegevens gaan niet verloren. Hiervoor is geen speciale toegang vereist."</string>
+    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Wilt u een update voor deze ingebouwde app installeren? Uw huidige gegevens gaan niet verloren. Hiervoor is geen speciale toegang vereist."</string>
     <string name="install_failed" msgid="6579998651498970899">"App niet geïnstalleerd."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Het pakket lijkt beschadigd."</string>
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Een bestaand pakket met dezelfde naam en een conflicterende handtekening is al geïnstalleerd."</string>
@@ -66,8 +63,7 @@
     <string name="uninstall_update_title" msgid="4146940097553335390">"Update verwijderen"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> maakt deel uit van de volgende app:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"Wilt u deze app verwijderen?"</string>
-    <!-- no translation found for uninstall_application_text_all_users (5574704453233525222) -->
-    <skip />
+    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Wilt u deze app verwijderen voor "<b>"alle"</b>" gebruikers? Deze app en de gegevens ervan worden verwijderd voor "<b>"alle"</b>" gebruikers van het apparaat."</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"Wilt u deze app vervangen door de fabrieksversie?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Verwijderen..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Verwijdering voltooid."</string>
@@ -78,8 +74,7 @@
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Parseerfout"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Er is een probleem opgetreden bij het parseren van het pakket."</string>
     <string name="newPerms" msgid="6039428254474104210">"Nieuw"</string>
-    <!-- no translation found for allPerms (1024385515840703981) -->
-    <skip />
+    <string name="allPerms" msgid="1024385515840703981">"Alle"</string>
     <string name="privacyPerms" msgid="1850527049572617">"Privacy"</string>
     <string name="devicePerms" msgid="6733560207731294504">"Apparaattoegang"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"Voor deze update zijn geen nieuwe rechten vereist."</string>
