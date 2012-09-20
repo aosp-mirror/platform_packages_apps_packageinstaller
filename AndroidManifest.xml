@@ -27,6 +27,7 @@
                 <action android:name="android.intent.action.INSTALL_PACKAGE" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:scheme="file" />
+                <data android:scheme="package" />
             </intent-filter>
         </activity>
         <activity android:name=".InstallAppProgress"
@@ -37,7 +38,6 @@
                 android:excludeFromRecents="true"
                 android:theme="@android:style/Theme.DeviceDefault.Dialog.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.DELETE" />
                 <action android:name="android.intent.action.UNINSTALL_PACKAGE" />
                 <category android:name="android.intent.category.DEFAULT" />
