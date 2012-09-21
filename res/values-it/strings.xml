@@ -17,8 +17,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="2738748390251381682">"Installazione pacchetti"</string>
-    <!-- no translation found for next (3057143178373252333) -->
-    <skip />
+    <string name="next" msgid="3057143178373252333">"Avanti"</string>
     <string name="install" msgid="5896438203900042068">"Installa"</string>
     <string name="done" msgid="3889387558374211719">"Fine"</string>
     <string name="security_settings_desc" msgid="2706691034244052604">"Consenti a questa applicazione di:"</string>
@@ -30,10 +29,8 @@
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Vuoi installare questa applicazione? Non richiede alcun accesso speciale."</string>
     <string name="install_confirm_question_update" msgid="4624159567361487964">"Vuoi installare un aggiornamento per questa applicazione esistente? I tuoi dati esistenti non andranno persi. L\'applicazione aggiornata avrà accesso a:"</string>
     <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Vuoi installare un aggiornamento per questa applicazione integrata? I tuoi dati esistenti non andranno persi. L\'applicazione aggiornata avrà accesso a:"</string>
-    <!-- no translation found for install_confirm_question_update_no_perms (4885928136844618944) -->
-    <skip />
-    <!-- no translation found for install_confirm_question_update_system_no_perms (7676593512694724374) -->
-    <skip />
+    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Vuoi installare un aggiornamento di questa applicazione esistente? I dati correnti verranno conservati. Non occorrono accessi speciali."</string>
+    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Vuoi installare un aggiornamento di questa applicazione integrata? I dati correnti verranno conservati. Non occorrono accessi speciali."</string>
     <string name="install_failed" msgid="6579998651498970899">"Applicazione non installata."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Il pacchetto potrebbe essere danneggiato."</string>
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"È già installato un pacchetto con lo stesso nome e con una firma in conflitto."</string>
@@ -66,8 +63,7 @@
     <string name="uninstall_update_title" msgid="4146940097553335390">"Disinstalla aggiornamento"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> fa parte della seguente applicazione:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"Vuoi disinstallare questa applicazione?"</string>
-    <!-- no translation found for uninstall_application_text_all_users (5574704453233525222) -->
-    <skip />
+    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Vuoi disinstallare questa applicazione per "<b>"tutti"</b>" gli utenti? L\'applicazione e i relativi dati verranno rimossi da "<b>"tutti"</b>" gli utenti configurati sul dispositivo."</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"Vuoi sostituire questa applicazione con la versione di fabbrica?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Disinstallazione..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Disinstallazione completata."</string>
@@ -78,8 +74,7 @@
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Errore di analisi"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Errore durante l\'analisi del pacchetto."</string>
     <string name="newPerms" msgid="6039428254474104210">"Nuove"</string>
-    <!-- no translation found for allPerms (1024385515840703981) -->
-    <skip />
+    <string name="allPerms" msgid="1024385515840703981">"Tutte"</string>
     <string name="privacyPerms" msgid="1850527049572617">"Privacy"</string>
     <string name="devicePerms" msgid="6733560207731294504">"Accesso dispositivo"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"Questo aggiornamento non richiede nuove autorizzazioni."</string>
