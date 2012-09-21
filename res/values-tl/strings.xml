@@ -17,8 +17,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="2738748390251381682">"Installer ng package"</string>
-    <!-- no translation found for next (3057143178373252333) -->
-    <skip />
+    <string name="next" msgid="3057143178373252333">"Susunod"</string>
     <string name="install" msgid="5896438203900042068">"Mag-install"</string>
     <string name="done" msgid="3889387558374211719">"Tapos na"</string>
     <string name="security_settings_desc" msgid="2706691034244052604">"Payagan ang app na ito na:"</string>
@@ -30,10 +29,8 @@
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Nais mo bang i-install ang application na ito? Hindi ito nangangailangan ng anumang espesyal na access."</string>
     <string name="install_confirm_question_update" msgid="4624159567361487964">"Nais mo bang mag-install ng update sa umiiral nang application na ito? Hindi mawawala ang iyong umiiral nang data. Magkakaroon ng access ang na-update na application sa:"</string>
     <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Nais mo bang mag-install ng update sa built-in na application na ito? Hindi mawawala ang iyong umiiral nang data. Magkakaroon ng access ang na-update na application sa:"</string>
-    <!-- no translation found for install_confirm_question_update_no_perms (4885928136844618944) -->
-    <skip />
-    <!-- no translation found for install_confirm_question_update_system_no_perms (7676593512694724374) -->
-    <skip />
+    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Nais mo bang mag-install ng update sa umiiral na application na ito? Hindi mawawala ang iyong umiiral na data. Hindi ito nangangailangan ng anumang espesyal na access."</string>
+    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Nais mo bang mag-install ng update sa built-in na application na ito? Hindi mawawala ang iyong umiiral na data. Hindi ito nangangailangan ng anumang espesyal na access."</string>
     <string name="install_failed" msgid="6579998651498970899">"Hindi na-install ang app."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Lumilitaw na corrupt ang package."</string>
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Naka-install na ang isang umiiral na package na may parehong pangalan na may sumasalungat na lagda."</string>
@@ -66,8 +63,7 @@
     <string name="uninstall_update_title" msgid="4146940097553335390">"I-uninstall ang update"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"Bahagi ang <xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> ng sumusunod na app:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"Nais mo bang i-uninstall ang app na ito?"</string>
-    <!-- no translation found for uninstall_application_text_all_users (5574704453233525222) -->
-    <skip />
+    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Nais mo bang i-uninstall ang app na ito para sa "<b>"lahat"</b>" ng user? Aalisin ang application at ang data nito mula sa "<b>"lahat"</b>" ng user sa device."</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"Nais mo bang palitan ang app na ito ng bersyon ng factory?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Ina-uninstall…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Natapos ang pag-uninstall."</string>
@@ -78,8 +74,7 @@
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Error sa pag-parse"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Nagkaroon ng problema sa pag-parse sa package."</string>
     <string name="newPerms" msgid="6039428254474104210">"Bago"</string>
-    <!-- no translation found for allPerms (1024385515840703981) -->
-    <skip />
+    <string name="allPerms" msgid="1024385515840703981">"Lahat"</string>
     <string name="privacyPerms" msgid="1850527049572617">"Privacy"</string>
     <string name="devicePerms" msgid="6733560207731294504">"Access sa Device"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"Walang kinakailangang mga bagong pagpapahintulot ang update na ito."</string>

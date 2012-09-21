@@ -17,8 +17,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="2738748390251381682">"程式安裝器"</string>
-    <!-- no translation found for next (3057143178373252333) -->
-    <skip />
+    <string name="next" msgid="3057143178373252333">"下一步"</string>
     <string name="install" msgid="5896438203900042068">"安裝"</string>
     <string name="done" msgid="3889387558374211719">"完成"</string>
     <string name="security_settings_desc" msgid="2706691034244052604">"允許這個應用程式："</string>
@@ -30,10 +29,8 @@
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"您要安裝這個應用程式嗎？應用程式不需任何特殊權限。"</string>
     <string name="install_confirm_question_update" msgid="4624159567361487964">"您要為這個現有的應用程式安裝更新嗎？您的現有資料不會遺失，而更新後的應用程式將取得以下權限："</string>
     <string name="install_confirm_question_update_system" msgid="1302330093676416336">"您要為這個內建的應用程式安裝更新嗎？您的現有資料不會遺失，而更新後的應用程式將取得以下權限："</string>
-    <!-- no translation found for install_confirm_question_update_no_perms (4885928136844618944) -->
-    <skip />
-    <!-- no translation found for install_confirm_question_update_system_no_perms (7676593512694724374) -->
-    <skip />
+    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"您要為這個現有的應用程式安裝更新嗎？您不會遺失現有的資料，且應用程式不需任何特殊權限。"</string>
+    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"您要為這個現有的內建應用程式安裝更新嗎？您不會遺失現有的資料，且應用程式不需任何特殊權限。"</string>
     <string name="install_failed" msgid="6579998651498970899">"未安裝應用程式。"</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"套件已毀損。"</string>
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"發生衝突，安裝套件所使用的簽名和現有套件的簽名相同。"</string>
@@ -66,8 +63,7 @@
     <string name="uninstall_update_title" msgid="4146940097553335390">"解除安裝更新"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"「<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g>」屬於下列應用程式："</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"您要解除安裝這個應用程式嗎？"</string>
-    <!-- no translation found for uninstall_application_text_all_users (5574704453233525222) -->
-    <skip />
+    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"您要為"<b>"所有"</b>"使用者解除安裝這個應用程式嗎？該應用程式及其資料會從裝置上的"<b>"所有"</b>"使用者設定檔移除。"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"您要將這個應用程式重設成原廠設定嗎？"</string>
     <string name="uninstalling" msgid="5556217435895938250">"解除安裝中…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"解除安裝完成。"</string>
@@ -78,8 +74,7 @@
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"剖析錯誤"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"剖析套件時發生問題。"</string>
     <string name="newPerms" msgid="6039428254474104210">"新增"</string>
-    <!-- no translation found for allPerms (1024385515840703981) -->
-    <skip />
+    <string name="allPerms" msgid="1024385515840703981">"全部"</string>
     <string name="privacyPerms" msgid="1850527049572617">"隱私權"</string>
     <string name="devicePerms" msgid="6733560207731294504">"裝置存取權"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"這項更新不需新權限。"</string>
