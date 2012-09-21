@@ -17,8 +17,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="2738748390251381682">"Pakkeinstallasjon"</string>
-    <!-- no translation found for next (3057143178373252333) -->
-    <skip />
+    <string name="next" msgid="3057143178373252333">"Neste"</string>
     <string name="install" msgid="5896438203900042068">"Installer"</string>
     <string name="done" msgid="3889387558374211719">"Ferdig"</string>
     <string name="security_settings_desc" msgid="2706691034244052604">"Gi appen følgende tillatelser:"</string>
@@ -30,10 +29,8 @@
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Ønsker du å installere denne appen? Den krever ingen spesiell tilgang."</string>
     <string name="install_confirm_question_update" msgid="4624159567361487964">"Ønsker du å installere en oppdatering for denne eksisterende appen? Du mister ingen eksisterende data. Den oppdaterte appen får tilgangen spesifisert under."</string>
     <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Ønsker du å installere en oppdatering for denne innebygde appen? Du mister ingen eksisterende data. Den oppdaterte appen får tilgangen spesifisert under."</string>
-    <!-- no translation found for install_confirm_question_update_no_perms (4885928136844618944) -->
-    <skip />
-    <!-- no translation found for install_confirm_question_update_system_no_perms (7676593512694724374) -->
-    <skip />
+    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Vil du installere en oppdatering av denne eksisterende appen? De eksisterende dataene dine går ikke tapt. Dette krever ingen spesiell tilgang."</string>
+    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Vil du installere en oppdatering av denne innebygde appen? De eksisterende dataene dine går ikke tapt. Dette krever ingen spesiell tilgang."</string>
     <string name="install_failed" msgid="6579998651498970899">"Appen ble ikke installert."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Pakken virker å være skadet."</string>
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Det er allerede installert en eksisterende pakke med samme navn som har en motstridende signatur."</string>
@@ -66,8 +63,7 @@
     <string name="uninstall_update_title" msgid="4146940097553335390">"Avinstaller oppdateringen"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> er del av følgende app:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"Vil du avinstallere denne appen?"</string>
-    <!-- no translation found for uninstall_application_text_all_users (5574704453233525222) -->
-    <skip />
+    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Vil du avinstallere denne appen for "<b>"alle"</b>" brukere? Appen og tilhørende data blir fjernet fra "<b>"alle"</b>" brukere på enheten."</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"Vil du erstatte denne appen med den opprinnelige versjonen?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Avinstallerer…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Avinstalleringen er  fullført."</string>
@@ -78,8 +74,7 @@
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Analysefeil"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Det oppsto et problem med analysen av pakken."</string>
     <string name="newPerms" msgid="6039428254474104210">"Nye"</string>
-    <!-- no translation found for allPerms (1024385515840703981) -->
-    <skip />
+    <string name="allPerms" msgid="1024385515840703981">"Alle"</string>
     <string name="privacyPerms" msgid="1850527049572617">"Personvern"</string>
     <string name="devicePerms" msgid="6733560207731294504">"Enhetstilgang"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"Denne oppdateringen krever ingen nye tillatelser."</string>
