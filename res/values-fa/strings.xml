@@ -17,8 +17,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="2738748390251381682">"نصب کننده بسته"</string>
-    <!-- no translation found for next (3057143178373252333) -->
-    <skip />
+    <string name="next" msgid="3057143178373252333">"بعدی"</string>
     <string name="install" msgid="5896438203900042068">"نصب"</string>
     <string name="done" msgid="3889387558374211719">"انجام شد"</string>
     <string name="security_settings_desc" msgid="2706691034244052604">"به این برنامه اجازه داده شود که:"</string>
@@ -30,10 +29,8 @@
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"آیا می‌خواهید این برنامه را نصب کنید؟ این برنامه به دسترسی خاصی نیاز ندارد."</string>
     <string name="install_confirm_question_update" msgid="4624159567361487964">"آیا میٰ‌خواهید بهٰ‌روزرسانی این برنامه کنونی را نصب کنید؟ داده کنونی شما از بین نمی‌رود. برنامه به‌روزرسانی شده دسترسی خواهد داشت به:"</string>
     <string name="install_confirm_question_update_system" msgid="1302330093676416336">"آیا می‌خواهید به‌روزرسانی این برنامه جاسازی شده را نصب کنید؟ داده‌های کنونی شما از بین نمی‌رود. برنامه به‌روزرسانی شده دسترسی خواهد داشت به:"</string>
-    <!-- no translation found for install_confirm_question_update_no_perms (4885928136844618944) -->
-    <skip />
-    <!-- no translation found for install_confirm_question_update_system_no_perms (7676593512694724374) -->
-    <skip />
+    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"آیا می‌خواهید یک به‌روزرسانی برای این برنامه کاربردی موجود نصب کنید؟ داده‌های موجود شما از دست نخواهد رفت. به دسترسی ویژه‌ای نیاز ندارد."</string>
+    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"آیا می‌خواهید یک به‌روزرسانی برای این برنامه کاربردی داخلی نصب کنید؟ داده‌های موجود شما از دست نخواهد رفت. به دسترسی ویژه‌ای نیاز ندارد."</string>
     <string name="install_failed" msgid="6579998651498970899">"برنامه نصب نشد."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"این بسته به نظر می‌رسد خراب است."</string>
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"بسته فعلی با همین نام اما با امضای مختلف قبلاً نصب شده است."</string>
@@ -66,8 +63,7 @@
     <string name="uninstall_update_title" msgid="4146940097553335390">"حذف نصب به‌روزرسانی"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> قسمتی از برنامه زیر است:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"می‌خواهید این برنامه را حذف نصب کنید؟"</string>
-    <!-- no translation found for uninstall_application_text_all_users (5574704453233525222) -->
-    <skip />
+    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"آیا می‌خواهید این برنامه را برای "<b>"همه"</b>" کاربران حذف کنید؟ این برنامه کاربردی و داده‌های آن برای "<b>"همه"</b>" کاربران این دستگاه حذف خواهد شد."</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"آیا می‌خواهید این برنامه را با یک نسخه کارخانه جایگزین کنید؟"</string>
     <string name="uninstalling" msgid="5556217435895938250">"در حال حذف نصب..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"حذف نصب پایان یافت."</string>
@@ -78,8 +74,7 @@
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"خطای تجزیه"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"مشکلی در تجزیه این بسته وجود داشت."</string>
     <string name="newPerms" msgid="6039428254474104210">"جدید"</string>
-    <!-- no translation found for allPerms (1024385515840703981) -->
-    <skip />
+    <string name="allPerms" msgid="1024385515840703981">"همه موارد"</string>
     <string name="privacyPerms" msgid="1850527049572617">"حریم خصوصی"</string>
     <string name="devicePerms" msgid="6733560207731294504">"دسترسی به دستگاه"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"این به‌روزرسانی به مجوز جدیدی نیاز ندارد."</string>
