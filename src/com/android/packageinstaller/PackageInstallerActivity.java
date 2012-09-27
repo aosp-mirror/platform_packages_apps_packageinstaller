@@ -17,6 +17,7 @@
 package com.android.packageinstaller;
 
 import android.app.Activity;
+import android.app.ActivityManagerNative;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -30,6 +31,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageUserState;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PackageParser;
+import android.content.pm.VerificationParams;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
@@ -66,6 +68,8 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     private Uri mPackageURI;    
     private Uri mOriginatingURI;
     private Uri mReferrerURI;
+    private int mOriginatingUid = VerificationParams.NO_UID;
+
     private boolean localLOGV = false;
     PackageManager mPm;
     PackageInfo mPkgInfo;
@@ -523,6 +527,8 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         mInstallConfirm.setVisibility(View.INVISIBLE);
         PackageUtil.initSnippetForNewApp(this, as, R.id.app_snippet);
 
+        mOriginatingUid = getOriginatingUid(intent);
+
         // Deal with install source.
         String callerPackage = getCallingPackage();
         if (callerPackage != null && intent.getBooleanExtra(
@@ -562,7 +568,78 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         }
         initiateInstall();
     }
-    
+
+    /** Get the ApplicationInfo for the calling package, if available */
+    private ApplicationInfo getSourceInfo() {
+        String callingPackage = getCallingPackage();
+        if (callingPackage != null) {
+            try {
+                return mPm.getApplicationInfo(callingPackage, 0);
+            } catch (NameNotFoundException ex) {
+                // ignore
+            }
+        }
+        return null;
+    }
+
+
+    /** Get the originating uid if possible, or VerificationParams.NO_UID if not available */
+    private int getOriginatingUid(Intent intent) {
+        // The originating uid from the intent. We only trust/use this if it comes from a
+        // system application
+        int uidFromIntent = intent.getIntExtra(Intent.EXTRA_ORIGINATING_UID,
+                VerificationParams.NO_UID);
+
+        // Get the source info from the calling package, if available. This will be the
+        // definitive calling package, but it only works if the intent was started using
+        // startActivityForResult,
+        ApplicationInfo sourceInfo = getSourceInfo();
+        if (sourceInfo != null) {
+            if (uidFromIntent != VerificationParams.NO_UID &&
+                    (mSourceInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
+                return uidFromIntent;
+
+            }
+            // We either didn't get a uid in the intent, or we don't trust it. Use the
+            // uid of the calling package instead.
+            return sourceInfo.uid;
+        }
+
+        // We couldn't get the specific calling package. Let's get the uid instead
+        int callingUid;
+        try {
+            callingUid = ActivityManagerNative.getDefault()
+                    .getLaunchedFromUid(getActivityToken());
+        } catch (android.os.RemoteException ex) {
+            Log.w(TAG, "Could not determine the launching uid.");
+            // nothing else we can do
+            return VerificationParams.NO_UID;
+        }
+
+        // If we got a uid from the intent, we need to verify that the caller is a
+        // system package before we use it
+        if (uidFromIntent != VerificationParams.NO_UID) {
+            String[] callingPackages = mPm.getPackagesForUid(callingUid);
+            if (callingPackages != null) {
+                for (String packageName: callingPackages) {
+                    try {
+                        ApplicationInfo applicationInfo =
+                                mPm.getApplicationInfo(packageName, 0);
+
+                        if ((applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
+                            return uidFromIntent;
+                        }
+                    } catch (NameNotFoundException ex) {
+                        // ignore it, and try the next package
+                    }
+                }
+            }
+        }
+        // We either didn't get a uid from the intent, or we don't trust it. Use the
+        // calling uid instead.
+        return callingUid;
+    }
+
     // Generic handling when pressing back key
     public void onCancel(DialogInterface dialog) {
         finish();
@@ -584,6 +661,9 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                 }
                 if (mReferrerURI != null) {
                     newIntent.putExtra(Intent.EXTRA_REFERRER, mReferrerURI);
+                }
+                if (mOriginatingUid != VerificationParams.NO_UID) {
+                    newIntent.putExtra(Intent.EXTRA_ORIGINATING_UID, mOriginatingUid);
                 }
                 if (installerPackageName != null) {
                     newIntent.putExtra(Intent.EXTRA_INSTALLER_PACKAGE_NAME,
