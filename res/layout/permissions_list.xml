@@ -28,19 +28,25 @@ This is the structure for the list of all permissions.
         <LinearLayout android:id="@+id/privacylist"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp">
             <TextView
                 style="?android:attr/listSeparatorTextViewStyle"
-                android:layout_marginTop="8dip"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:text="@string/privacyPerms" />
         </LinearLayout>
         <LinearLayout android:id="@+id/devicelist"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp">
             <TextView
                 style="?android:attr/listSeparatorTextViewStyle"
-                android:layout_marginTop="8dip"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:text="@string/devicePerms" />
         </LinearLayout>
     </LinearLayout>
