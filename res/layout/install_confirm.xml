@@ -34,7 +34,15 @@
             android:text="@string/install_confirm_question"
             android:textAppearance="?android:attr/textAppearanceMedium"
             style="@style/padded"
-            android:paddingTop="12dip" />
+            android:paddingTop="4dip" />
+
+    <ImageView
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="?android:attr/dividerHorizontal"
+            android:visibility="gone" />
 
     <TabHost
         android:id="@android:id/tabhost"
