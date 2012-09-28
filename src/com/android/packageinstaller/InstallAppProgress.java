@@ -252,8 +252,10 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
                 Intent.EXTRA_INSTALLER_PACKAGE_NAME);
         Uri originatingURI = getIntent().getParcelableExtra(Intent.EXTRA_ORIGINATING_URI);
         Uri referrer = getIntent().getParcelableExtra(Intent.EXTRA_REFERRER);
+        int originatingUid = getIntent().getIntExtra(Intent.EXTRA_ORIGINATING_UID,
+                VerificationParams.NO_UID);
         VerificationParams verificationParams = new VerificationParams(null, originatingURI,
-                referrer, null);
+                referrer, originatingUid, null);
         PackageInstallObserver observer = new PackageInstallObserver();
 
         if ("package".equals(mPackageURI.getScheme())) {
