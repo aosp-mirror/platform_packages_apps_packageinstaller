@@ -253,6 +253,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                         getText(R.string.newPerms)), mScrollView);
             } else  {
                 findViewById(R.id.tabscontainer).setVisibility(View.GONE);
+                findViewById(R.id.divider).setVisibility(View.VISIBLE);
             }
             if (NP > 0 || ND > 0) {
                 permVisible = true;
@@ -291,7 +292,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                     msg = R.string.install_confirm_question_no_perms;
                 }
             }
-            tabHost.setVisibility(View.INVISIBLE);
+            tabHost.setVisibility(View.GONE);
         }
         if (msg != 0) {
             ((TextView)findViewById(R.id.install_confirm_question)).setText(msg);
