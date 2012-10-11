@@ -44,6 +44,14 @@
             android:background="?android:attr/dividerHorizontal"
             android:visibility="gone" />
 
+    <FrameLayout
+        android:id="@+id/filler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:visibility="gone">
+    </FrameLayout>
+
     <TabHost
         android:id="@android:id/tabhost"
         android:layout_width="match_parent"
