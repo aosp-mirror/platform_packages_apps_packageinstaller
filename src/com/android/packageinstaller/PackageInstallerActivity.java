@@ -284,19 +284,20 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             }
         }
         if (!permVisible) {
-            if (msg == 0) {
-                if (mAppInfo != null) {
-                    // This is an update to an application, but there are no
-                    // permissions at all.
-                    msg = (mAppInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0
-                            ? R.string.install_confirm_question_update_system_no_perms
-                            : R.string.install_confirm_question_update_no_perms;
-                } else {
-                    // This is a new application with no permissions.
-                    msg = R.string.install_confirm_question_no_perms;
-                }
+            if (mAppInfo != null) {
+                // This is an update to an application, but there are no
+                // permissions at all.
+                msg = (mAppInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0
+                        ? R.string.install_confirm_question_update_system_no_perms
+                        : R.string.install_confirm_question_update_no_perms;
+            } else {
+                // This is a new application with no permissions.
+                msg = R.string.install_confirm_question_no_perms;
             }
             tabHost.setVisibility(View.GONE);
+            findViewById(R.id.filler).setVisibility(View.VISIBLE);
+            findViewById(R.id.divider).setVisibility(View.GONE);
+            mScrollView = null;
         }
         if (msg != 0) {
             ((TextView)findViewById(R.id.install_confirm_question)).setText(msg);
