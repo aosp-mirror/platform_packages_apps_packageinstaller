@@ -24,6 +24,7 @@ import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageInstallObserver;
+import android.content.pm.ManifestDigest;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -54,6 +55,8 @@ import java.util.List;
 public class InstallAppProgress extends Activity implements View.OnClickListener, OnCancelListener {
     private final String TAG="InstallAppProgress";
     private boolean localLOGV = false;
+    static final String EXTRA_MANIFEST_DIGEST =
+            "com.android.packageinstaller.extras.manifest_digest";
     private ApplicationInfo mAppInfo;
     private Uri mPackageURI;
     private ProgressBar mProgressBar;
@@ -254,8 +257,9 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
         Uri referrer = getIntent().getParcelableExtra(Intent.EXTRA_REFERRER);
         int originatingUid = getIntent().getIntExtra(Intent.EXTRA_ORIGINATING_UID,
                 VerificationParams.NO_UID);
+        ManifestDigest manifestDigest = getIntent().getParcelableExtra(EXTRA_MANIFEST_DIGEST);
         VerificationParams verificationParams = new VerificationParams(null, originatingURI,
-                referrer, originatingUid, null);
+                referrer, originatingUid, manifestDigest);
         PackageInstallObserver observer = new PackageInstallObserver();
 
         if ("package".equals(mPackageURI.getScheme())) {
