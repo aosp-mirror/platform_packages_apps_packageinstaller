@@ -72,9 +72,12 @@ public class PackageUtil {
         metrics.setToDefaults();
         PackageParser.Package pkg =  packageParser.parsePackage(sourceFile,
                 archiveFilePath, metrics, 0);
-        packageParser.collectCertificates(pkg, 0);
-        // Nuke the parser reference.
-        packageParser = null;
+        if (pkg == null) {
+            return null;
+        }
+        if (!packageParser.collectCertificates(pkg, 0)) {
+            return null;
+        }
         return pkg;
     }
 
