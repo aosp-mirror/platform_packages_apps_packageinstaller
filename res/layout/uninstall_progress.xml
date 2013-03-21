@@ -82,8 +82,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:paddingLeft="24dip"
-                android:paddingRight="24dip"
+                android:paddingStart="24dip"
+                android:paddingEnd="24dip"
                 android:paddingTop="8dip"
                 android:paddingBottom="8dip"
                 android:fillViewport="false">
@@ -92,7 +92,7 @@
                     android:id="@+id/center_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="left"
+                    android:gravity="start"
                     android:text="@string/uninstalling"
                     android:textAppearance="?android:attr/textAppearanceMedium"/>
         </ScrollView>

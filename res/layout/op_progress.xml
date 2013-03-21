@@ -45,7 +45,7 @@
             <Button android:id="@+id/done_button"
                     android:layout_width="0dip"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="left"
+                    android:layout_gravity="start"
                     android:layout_weight="1"
                     android:text="@string/done"
                     android:maxLines="2"
@@ -54,7 +54,7 @@
             <Button android:id="@+id/launch_button"
                     android:layout_width="0dip"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right"
+                    android:layout_gravity="end"
                     android:layout_weight="1"
                     android:text="@string/launch"
                     android:maxLines="2"
@@ -82,11 +82,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/app_snippet"
-            android:gravity="left"
+            android:gravity="start"
             android:text="@string/installing"
             android:paddingTop="16dip"
-            android:paddingLeft="32dip"
-            android:paddingRight="32dip"
+            android:paddingStart="32dip"
+            android:paddingEnd="32dip"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <!-- This explanation text is shown only after the progress bar below goes away. -->
@@ -96,7 +96,7 @@
             android:layout_above="@id/buttons_panel"
             android:layout_below="@id/center_text"
             android:paddingTop="8dip"
-            android:paddingLeft="16dip"
+            android:paddingStart="16dip"
             android:paddingBottom="16dip">
         <TextView
                 android:id="@+id/center_explanation"
