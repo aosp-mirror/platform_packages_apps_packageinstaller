@@ -57,8 +57,8 @@
             android:layout_height="wrap_content"
             android:textColor="?android:attr/textColorSecondary"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:paddingLeft="24dip"
-            android:paddingRight="24dip" />
+            android:paddingStart="24dip"
+            android:paddingEnd="24dip" />
 
     </LinearLayout>
 
@@ -88,7 +88,7 @@
             <Button android:id="@+id/cancel_button"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
-                android:layout_gravity="left"
+                android:layout_gravity="start"
                 android:layout_weight="1"
                 android:text="@string/cancel"
                 android:maxLines="2"
@@ -97,7 +97,7 @@
             <Button android:id="@+id/ok_button"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
+                android:layout_gravity="end"
                 android:layout_weight="1"
                 android:text="@string/ok"
                 android:maxLines="2"
