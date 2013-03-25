@@ -29,15 +29,13 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.ManifestDigest;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.PackageUserState;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PackageParser;
+import android.content.pm.PackageUserState;
 import android.content.pm.VerificationParams;
-import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -46,13 +44,10 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AppSecurityPermissions;
 import android.widget.Button;
-import android.widget.ScrollView;
 import android.widget.TabHost;
-import android.widget.TabWidget;
 import android.widget.TextView;
 
 import java.io.File;
-import java.util.ArrayList;
 
 /*
  * This activity is launched when a new application is installed via side loading
@@ -97,132 +92,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     private static final int DLG_OUT_OF_SPACE = DLG_BASE + 3;
     private static final int DLG_INSTALL_ERROR = DLG_BASE + 4;
     private static final int DLG_ALLOW_SOURCE = DLG_BASE + 5;
-
-    /**
-     * This is a helper class that implements the management of tabs and all
-     * details of connecting a ViewPager with associated TabHost.  It relies on a
-     * trick.  Normally a tab host has a simple API for supplying a View or
-     * Intent that each tab will show.  This is not sufficient for switching
-     * between pages.  So instead we make the content part of the tab host
-     * 0dp high (it is not shown) and the TabsAdapter supplies its own dummy
-     * view to show as the tab content.  It listens to changes in tabs, and takes
-     * care of switch to the correct paged in the ViewPager whenever the selected
-     * tab changes.
-     */
-    public static class TabsAdapter extends PagerAdapter
-            implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener {
-        private final Context mContext;
-        private final TabHost mTabHost;
-        private final ViewPager mViewPager;
-        private final ArrayList<TabInfo> mTabs = new ArrayList<TabInfo>();
-        private final Rect mTempRect = new Rect();
-
-        static final class TabInfo {
-            private final String tag;
-            private final View view;
-
-            TabInfo(String _tag, View _view) {
-                tag = _tag;
-                view = _view;
-            }
-        }
-
-        static class DummyTabFactory implements TabHost.TabContentFactory {
-            private final Context mContext;
-
-            public DummyTabFactory(Context context) {
-                mContext = context;
-            }
-
-            @Override
-            public View createTabContent(String tag) {
-                View v = new View(mContext);
-                v.setMinimumWidth(0);
-                v.setMinimumHeight(0);
-                return v;
-            }
-        }
-
-        public TabsAdapter(Activity activity, TabHost tabHost, ViewPager pager) {
-            mContext = activity;
-            mTabHost = tabHost;
-            mViewPager = pager;
-            mTabHost.setOnTabChangedListener(this);
-            mViewPager.setAdapter(this);
-            mViewPager.setOnPageChangeListener(this);
-        }
-
-        public void addTab(TabHost.TabSpec tabSpec, View view) {
-            tabSpec.setContent(new DummyTabFactory(mContext));
-            String tag = tabSpec.getTag();
-
-            TabInfo info = new TabInfo(tag, view);
-            mTabs.add(info);
-            mTabHost.addTab(tabSpec);
-            notifyDataSetChanged();
-        }
-
-        @Override
-        public int getCount() {
-            return mTabs.size();
-        }
-
-        @Override
-        public Object instantiateItem(ViewGroup container, int position) {
-            View view = mTabs.get(position).view;
-            container.addView(view);
-            return view;
-        }
-
-        @Override
-        public void destroyItem(ViewGroup container, int position, Object object) {
-            container.removeView((View)object);
-        }
-
-        @Override
-        public boolean isViewFromObject(View view, Object object) {
-            return view == object;
-        }
-
-        @Override
-        public void onTabChanged(String tabId) {
-            int position = mTabHost.getCurrentTab();
-            mViewPager.setCurrentItem(position);
-        }
-
-        @Override
-        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-        }
-
-        @Override
-        public void onPageSelected(int position) {
-            // Unfortunately when TabHost changes the current tab, it kindly
-            // also takes care of putting focus on it when not in touch mode.
-            // The jerk.
-            // This hack tries to prevent this from pulling focus out of our
-            // ViewPager.
-            TabWidget widget = mTabHost.getTabWidget();
-            int oldFocusability = widget.getDescendantFocusability();
-            widget.setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);
-            mTabHost.setCurrentTab(position);
-            widget.setDescendantFocusability(oldFocusability);
-
-            // Scroll the current tab into visibility if needed.
-            View tab = widget.getChildTabViewAt(position);
-            mTempRect.set(tab.getLeft(), tab.getTop(), tab.getRight(), tab.getBottom());
-            widget.requestRectangleOnScreen(mTempRect, false);
-
-            // Make sure the scrollbars are visible for a moment after selection
-            final View contentView = mTabs.get(position).view;
-            if (contentView instanceof CaffeinatedScrollView) {
-                ((CaffeinatedScrollView) contentView).awakenScrollBars();
-            }
-        }
-
-        @Override
-        public void onPageScrollStateChanged(int state) {
-        }
-    }
 
     private void startInstallConfirm() {
         TabHost tabHost = (TabHost)findViewById(android.R.id.tabhost);
