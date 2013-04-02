@@ -75,7 +75,7 @@ public class PackageUtil {
         if (pkg == null) {
             return null;
         }
-        if (!packageParser.collectCertificates(pkg, 0)) {
+        if (!packageParser.collectManifestDigest(pkg)) {
             return null;
         }
         return pkg;
