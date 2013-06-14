@@ -410,8 +410,8 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             try {
                 mSourceInfo = mPm.getApplicationInfo(callerPackage, 0);
                 if (mSourceInfo != null) {
-                    if ((mSourceInfo.flags&ApplicationInfo.FLAG_SYSTEM) != 0) {
-                        // System apps don't need to be approved.
+                    if ((mSourceInfo.flags&ApplicationInfo.FLAG_PRIVILEGED) != 0) {
+                        // Privileged apps don't need to be approved.
                         initiateInstall();
                         return;
                     }
@@ -470,7 +470,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         ApplicationInfo sourceInfo = getSourceInfo();
         if (sourceInfo != null) {
             if (uidFromIntent != VerificationParams.NO_UID &&
-                    (mSourceInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
+                    (mSourceInfo.flags & ApplicationInfo.FLAG_PRIVILEGED) != 0) {
                 return uidFromIntent;
 
             }
@@ -491,7 +491,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         }
 
         // If we got a uid from the intent, we need to verify that the caller is a
-        // system package before we use it
+        // privileged system package before we use it
         if (uidFromIntent != VerificationParams.NO_UID) {
             String[] callingPackages = mPm.getPackagesForUid(callingUid);
             if (callingPackages != null) {
@@ -500,7 +500,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                         ApplicationInfo applicationInfo =
                                 mPm.getApplicationInfo(packageName, 0);
 
-                        if ((applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
+                        if ((applicationInfo.flags & ApplicationInfo.FLAG_PRIVILEGED) != 0) {
                             return uidFromIntent;
                         }
                     } catch (NameNotFoundException ex) {
