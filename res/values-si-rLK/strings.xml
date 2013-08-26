@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="2738748390251381682">"පැකේජ ස්ථාපනකරු"</string>
+    <string name="next" msgid="3057143178373252333">"මීලඟ"</string>
+    <string name="install" msgid="5896438203900042068">"ස්ථාපනය"</string>
+    <string name="done" msgid="3889387558374211719">"හරි"</string>
+    <string name="security_settings_desc" msgid="2706691034244052604">"මෙම යෙදුමට අවසර දෙන්න:"</string>
+    <string name="cancel" msgid="8360346460165114585">"අවලංගු කරන්න"</string>
+    <string name="unknown" msgid="4742479012767208045">"නොදනී"</string>
+    <string name="installing" msgid="8613631001631998372">"ස්ථාපනය කරමින්…"</string>
+    <string name="install_done" msgid="3682715442154357097">"යෙදුම ස්ථාපනය කරන ලදි."</string>
+    <string name="install_confirm_question" msgid="7295206719219043890">"ඔබට මෙම යෙදුම ස්ථාපනය කිරීමට අවශ්‍යද? පහත ඒවා වෙත එයට ප්‍රවේශය ලැබෙනු ඇත:"</string>
+    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"මෙම යෙදුම ස්ථාපනය කිරීමට ඔබට අවශ්‍යද? වෙනත් විශේෂ ප්‍රවේශයක් එයට අවශ්‍ය නොවෙයි."</string>
+    <string name="install_confirm_question_update" msgid="4624159567361487964">"දැනට පවතින මෙම යෙදුමට යාවත්කාලීනයක් ස්ථාපනය කිරීමට ඔබට අවශ්‍යද? ඔබගේ පවතින දත්ත නැති නොවේ. යාවත්කාලීන කළ යෙදුම පිවිසීම ලබා ගනී:"</string>
+    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"ඔබට මෙම තිළැලි යෙදුමට යාවත්කාලීනය ස්ථාපනය කිරීමට අවශ්‍යද? ඔබගේ දැනට පවතින දත්ත නැති නොවේ. යාවත්කාලීන කරන ලද යෙදුම පහත සඳහා ප්‍රවේශය ලබාගනු ඇත:"</string>
+    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"මෙම පවතින යෙදුමට යාවත්කාලීනයක් ස්ථාපනය කිරීමට ඔබට අවශ්‍යද? ඔබගේ පවතින දත්ත නැති නොවේ. එයට විශේෂ ප්‍රවේශයක් අවශ්‍ය නොවේ."</string>
+    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"පවතින මෙම යෙදුමට යාවත්කාලීනයක් ස්ථාපනය කිරීමට ඔබට අවශ්‍යද? ඔබගේ පවතින දත්ත නැති නොවේ. එයට විශේෂ ප්‍රවේශයක් අවශ්‍ය නොවේ."</string>
+    <string name="install_failed" msgid="6579998651498970899">"යෙදුම ස්ථාපනය කරේ නැත."</string>
+    <string name="install_failed_invalid_apk" msgid="1287935707565682604">"පැකේජය සදොස් වී ඇති බව පෙනෙයි."</string>
+    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"සංඝටන වන අත්සනක් සමග එකම නාමය ඇති පවතින පැකේජයක් දැනටමත් ස්ථාපනය කර ඇත."</string>
+    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Android හි නව සංස්කරණ සමග පමණක් පැකේජය වැඩ කරයි."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"ඔබගේ ටැබ්ලටය සමග මෙම යෙදුම නොගැලපේ."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"මෙම යෙදුම ඔබගේ දුරකථනයට නොගැළපේ."</string>
+    <string name="install_failed_file_not_found" msgid="1958430133396322619">"ස්ථාපනය සම්පූර්ණ වීමට පෙර සඳහන් පැකේජය මකන ලදි."</string>
+    <string name="install_failed_verify_failed" msgid="5567372439890440205">"මෙම පැකේජය සත්‍යාපනය කිරීම අසමත් වුණු අතර ස්ථාපනය කිරීමට නොහැකි විය."</string>
+    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"පැකේජය සත්‍යාපනය කිරීමට උත්සාහ කරද්දී කාලය ඉකුත්වීමක් සිදුවුණි. පසුව එය නැවතත් ස්ථාපනය කිරීමට උත්සාහ කරන්න."</string>
+    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"ඔබගේ ටැබ්ලටයේ <xliff:g id="APP_NAME">%1$s</xliff:g> ස්ථාපනය කළ නොහැක."</string>
+    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> දුරකථනයට ස්ථාපිත කිරීමට නොහැකි විය."</string>
+    <string name="launch" msgid="4826921505917605463">"විවෘත කරන්න"</string>
+    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"ස්ථාපනය කිරීම අවහිර කරන ලදි"</string>
+    <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"ආරක්ෂාව සඳහා, නොදන්නා මූලාශ්‍රවලින් පැමිණෙන යෙදුම් ස්ථාපනය අවහිර කරන ලෙස ඔබගේ ටැබ්ලටය සකසා ඇත."</string>
+    <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"ආරක්ෂාව සඳහා, නොදන්නා මූලාශ්‍රවලින් පැමිණෙන යෙදුම් ස්ථාපනය අවහිර කරන ලෙස ඔබගේ දුරකථනය සකසා ඇත."</string>
+    <string name="ok" msgid="3468756155452870475">"හරි"</string>
+    <string name="settings" msgid="6743583734099755409">"සැකසීම්"</string>
+    <string name="allow_source_dlg_title" msgid="7568985073502399415">"යෙදුම් සඳහා නව මූලාශ්‍ර"</string>
+    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> හට වෙනත් යෙදුම් ස්ථාපනය කිරීමට අවශ්‍යයි.\n\nදැන් සහ අනාගතයේදී මෙයට අවසර දෙනවාද?"</string>
+    <string name="manage_applications" msgid="4033876279091996596">"යෙදුම් කළමනාකරණය කරන්න"</string>
+    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"යෙදුම ප්‍රතිස්ථාපනය කරනවාද?"</string>
+    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"ඔබ ස්ථාපනය කරන යෙදුම අනෙක් යෙදුමෙන් ප්‍රතිස්ථාපනය කෙරේ.\n\nඔබගේ සියලුම පෙර පරිශීලක දත්ත සුරැකෙනු ඇත."</string>
+    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"මෙය පද්ධති යෙදුමකි.\n\n}ඔබගේ සියලුම පෙර පරිශීලක දත්ත සුරැකෙනු ඇත."</string>
+    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"ඉඩ නොමැත"</string>
+    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> ස්ථාපිත කිරීමට නොහැකි විය. ඉඩ පොඩ්ඩක් නිදහස් කොට නැවත උත්සාහ කරන්න."</string>
+    <string name="dlg_ok" msgid="6944357727705699232">"හරි"</string>
+    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"යෙදුම හමුවී නැත"</string>
+    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"ස්ථාපිත යෙදුම් ලැයිස්තුවේ යෙදුම සොයා ගත නොහැකි විය."</string>
+    <string name="uninstall_application_title" msgid="1860074100811653963">"යෙදුම අස්ථාපනය කරන්න"</string>
+    <string name="uninstall_update_title" msgid="4146940097553335390">"යාවත්කාලිනය අස්ථාපනය කරන්න"</string>
+    <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> පහත යෙදුමේ කොටසකි:"</string>
+    <string name="uninstall_application_text" msgid="6691975835951187030">"ඔබට මෙම යෙදුම අස්ථාපනය කිරීමට අවශ්‍යද?"</string>
+    <string name="uninstall_application_text_all_users" msgid="5574704453233525222"><b>"සියලු"</b>" පරිශීලකයන්  සඳහා මෙම යෙදුම අස්ථාපනය කිරීමට ඔබට අවශ්‍යද? උපාංගයෙහි "<b>"සියලු"</b>" පරිශීලකයන් සඳහා යෙදුම සහ එහි දත්ත ඉවත්වනු ඇත."</string>
+    <string name="uninstall_update_text" msgid="2056387942084605027">"කර්මාන්ත ශාලා අනුවාදය සමග මෙම යෙදුම ප්‍රතිස්ථාපනය කිරීමට ඔබට අවශ්‍යද?"</string>
+    <string name="uninstalling" msgid="5556217435895938250">"අස්ථාපනය කරමින්…"</string>
+    <string name="uninstall_done" msgid="3792487853420281888">"අස්ථාපනය අවසන්."</string>
+    <string name="uninstall_failed" msgid="631122574306299512">"අස්ථාපිත විම අසාර්ථකයි."</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"මෙම පැකේජය ක්‍රියාකාරී උපාංග පරිපාලකයෙක් බැවින් අස්ථාපනය කළ නොහැක."</string>
+    <string name="manage_device_administrators" msgid="891392489300312370">"උපාංග පරිපාලකයන් කළමනාකරණය කරන්න"</string>
+    <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> අස්ථාපනය කල නොහැක."</string>
+    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"විග්‍රහ කිරීමේ දෝෂයකි"</string>
+    <string name="Parse_error_dlg_text" msgid="7623286983621067011">"පැකේජය විග්‍රහ කිරීමේදී ගැටළුවක් ඇති විය."</string>
+    <string name="newPerms" msgid="6039428254474104210">"නව"</string>
+    <string name="allPerms" msgid="1024385515840703981">"සියල්ල"</string>
+    <string name="privacyPerms" msgid="1850527049572617">"පෞද්ගලිකත්වය"</string>
+    <string name="devicePerms" msgid="6733560207731294504">"උපාංගය ප්‍රවේශය"</string>
+    <string name="no_new_perms" msgid="6657813692169565975">"මෙම යාවත්කාලිනයට අලුත් අවසරයන් අවශ්‍ය නොවේ."</string>
+    <string name="grant_confirm_question" msgid="4690289297029223742">"ඔබට පහත සඳහන් අවසර පිරිනැමීමට අවශ්‍ය ද? එය පහත සඳහා ප්‍රවේශය ලබා ගනියි:"</string>
+</resources>
