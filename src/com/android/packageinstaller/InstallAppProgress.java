@@ -57,8 +57,11 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
     private boolean localLOGV = false;
     static final String EXTRA_MANIFEST_DIGEST =
             "com.android.packageinstaller.extras.manifest_digest";
+    static final String EXTRA_INSTALL_FLOW_ANALYTICS =
+            "com.android.packageinstaller.extras.install_flow_analytics";
     private ApplicationInfo mAppInfo;
     private Uri mPackageURI;
+    private InstallFlowAnalytics mInstallFlowAnalytics;
     private ProgressBar mProgressBar;
     private View mOkPanel;
     private TextView mStatusTextView;
@@ -74,6 +77,7 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case INSTALL_COMPLETE:
+                    mInstallFlowAnalytics.setFlowFinishedWithPackageManagerResult(msg.arg1);
                     if (getIntent().getBooleanExtra(Intent.EXTRA_RETURN_RESULT, false)) {
                         Intent result = new Intent();
                         result.putExtra(Intent.EXTRA_INSTALL_RESULT, msg.arg1);
@@ -163,10 +167,13 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
         super.onCreate(icicle);
         Intent intent = getIntent();
         mAppInfo = intent.getParcelableExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO);
+        mInstallFlowAnalytics = intent.getParcelableExtra(EXTRA_INSTALL_FLOW_ANALYTICS);
         mPackageURI = intent.getData();
 
         final String scheme = mPackageURI.getScheme();
         if (scheme != null && !"file".equals(scheme) && !"package".equals(scheme)) {
+            mInstallFlowAnalytics.setFlowFinished(
+                    InstallFlowAnalytics.RESULT_FAILED_UNSUPPORTED_SCHEME);
             throw new IllegalArgumentException("unexpected scheme " + scheme);
         }
 
