@@ -124,7 +124,8 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
                     centerTextDrawable.setBounds(0, 0,
                             centerTextDrawable.getIntrinsicWidth(),
                             centerTextDrawable.getIntrinsicHeight());
-                        mStatusTextView.setCompoundDrawables(centerTextDrawable, null, null, null);
+                        mStatusTextView.setCompoundDrawablesRelative(centerTextDrawable, null,
+                                null, null);
                     }
                     mStatusTextView.setText(centerTextLabel);
                     if (centerExplanationLabel != -1) {
