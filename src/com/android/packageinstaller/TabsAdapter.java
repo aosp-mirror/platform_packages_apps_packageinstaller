@@ -46,6 +46,7 @@ public class TabsAdapter extends PagerAdapter
     private final ViewPager mViewPager;
     private final ArrayList<TabInfo> mTabs = new ArrayList<TabInfo>();
     private final Rect mTempRect = new Rect();
+    private TabHost.OnTabChangeListener mOnTabChangeListener;
 
     static final class TabInfo {
         private final String tag;
@@ -114,10 +115,17 @@ public class TabsAdapter extends PagerAdapter
         return view == object;
     }
 
+    public void setOnTabChangedListener(TabHost.OnTabChangeListener listener) {
+        mOnTabChangeListener = listener;
+    }
+
     @Override
     public void onTabChanged(String tabId) {
         int position = mTabHost.getCurrentTab();
         mViewPager.setCurrentItem(position);
+        if (mOnTabChangeListener != null) {
+            mOnTabChangeListener.onTabChanged(tabId);
+        }
     }
 
     @Override
