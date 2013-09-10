@@ -115,7 +115,7 @@ public class InstallFlowAnalytics implements Parcelable {
     /**
      * Time instant when the user clicked the Install button, measured in elapsed realtime
      * milliseconds. See {@link SystemClock#elapsedRealtime()}. This field is only valid if the
-     * Install button has been clicked as recorded in {@link #mInstallButtonClicked}.
+     * Install button has been clicked, as signaled by {@link #FLAG_INSTALL_BUTTON_CLICKED}.
      */
     private long mInstallButtonClickTimestampMillis;
 
@@ -385,12 +385,45 @@ public class InstallFlowAnalytics implements Parcelable {
     }
 
     private void writeToEventLog() {
-        Object[] value = getEventLogEventValue();
-        EventLog.writeEvent(EventLogTags.INSTALL_PACKAGE_ATTEMPT, value);
+        byte packageManagerInstallResultByte = 0;
+        if (mResult == RESULT_PACKAGE_MANAGER_INSTALL_FAILED) {
+            // PackageManager install error codes are negative, starting from -1 and going to
+            // -111 (at the moment). We thus store them in negated form.
+            packageManagerInstallResultByte = clipUnsignedValueToUnsignedByte(
+                    -mPackageManagerInstallResult);
+        }
+
+        int resultAndFlags = (mResult & 0xff)
+                | ((packageManagerInstallResultByte & 0xff) << 8)
+                | ((mFlags & 0xffff) << 16);
+
+        // Total elapsed time from start to end, in milliseconds.
+        int totalElapsedTime =
+                clipUnsignedLongToUnsignedInt(mEndTimestampMillis - mStartTimestampMillis);
+
+        // Total elapsed time from start till information about the package being installed was
+        // obtained, in milliseconds.
+        int elapsedTimeTillPackageInfoObtained = (isPackageInfoObtained())
+                ? clipUnsignedLongToUnsignedInt(
+                        mPackageInfoObtainedTimestampMillis - mStartTimestampMillis)
+                : 0;
+
+        // Total elapsed time from start till Install button clicked, in milliseconds
+        // milliseconds.
+        int elapsedTimeTillInstallButtonClick = (isInstallButtonClicked())
+                ? clipUnsignedLongToUnsignedInt(
+                            mInstallButtonClickTimestampMillis - mStartTimestampMillis)
+                : 0;
+
+        EventLogTags.writeInstallPackageAttempt(
+                resultAndFlags,
+                totalElapsedTime,
+                elapsedTimeTillPackageInfoObtained,
+                elapsedTimeTillInstallButtonClick);
         mLogged = true;
 
         if (Log.isLoggable(TAG, Log.VERBOSE)) {
-            Log.v(TAG, "Aalytics:"
+            Log.v(TAG, "Analytics:"
                     + "\n\tinstallsFromUnknownSourcesPermitted: "
                         + isInstallsFromUnknownSourcesPermitted()
                     + "\n\tinstallRequestFromUnknownSource: " + isInstallRequestFromUnknownSource()
@@ -417,67 +450,11 @@ public class InstallFlowAnalytics implements Parcelable {
                         + ((isInstallButtonClicked())
                             ? ((mInstallButtonClickTimestampMillis - mStartTimestampMillis) + " ms")
                             : "n/a"));
-            StringBuilder dump = new StringBuilder();
-            for (Object element : value) {
-                if (dump.length() > 0) {
-                    dump.append(", ");
-                }
-                if (element instanceof Integer) {
-                    dump.append("0x")
-                            .append(Long.toString(((Integer) element) & 0xffffffffL, 16));
-                } else {
-                    dump.append(element);
-                }
-            }
-            Log.v(TAG, "Wrote to Event Log: " + dump);
+            Log.v(TAG, "Wrote to Event Log: 0x" + Long.toString(resultAndFlags & 0xffffffffL, 16)
+                    + ", " + totalElapsedTime
+                    + ", " + elapsedTimeTillPackageInfoObtained
+                    + ", " + elapsedTimeTillInstallButtonClick);
         }
-    }
-
-    private Object[] getEventLogEventValue() {
-        // IMPLEMENTATION NOTE: Analytics are packed into the following list:
-        // * 32-bit int (ordered from least significant to most significant bits):
-        //   * 1 byte:  outcome of the flow (see RESULT_... constants)
-        //   * 1 byte:  PackageManager install error code (negated) or 0 if it didn't run
-        //   * 2 bytes: flags (see FLAG_... constants)
-        // * 32-bit unsigned int: total elapsed time (milliseconds)
-        // * 32-bit unsigned int: time elapsed from start till information about the package being
-        //   installed was obtained (milliseconds)
-        // * 32-bit unsigned int: time elapsed from start till Install button click (milliseconds)
-
-        byte packageManagerInstallResultByte = 0;
-        if (mResult == RESULT_PACKAGE_MANAGER_INSTALL_FAILED) {
-            // PackageManager install error codes are negative, starting from -1 and going to
-            // -111 (at the moment). We thus store them in negated form.
-            packageManagerInstallResultByte = clipUnsignedValueToUnsignedByte(
-                    -mPackageManagerInstallResult);
-        }
-
-        // Total elapsed time from start to end, in milliseconds.
-        int totalElapsedTime =
-                clipUnsignedLongToUnsignedInt(mEndTimestampMillis - mStartTimestampMillis);
-
-        // Total elapsed time from start till information about the package being installed was
-        // obtained, in milliseconds.
-        int elapsedTimeTillPackageInfoObtained = (isPackageInfoObtained())
-                ? clipUnsignedLongToUnsignedInt(
-                        mPackageInfoObtainedTimestampMillis - mStartTimestampMillis)
-                : 0;
-
-        // Total elapsed time from start till Install button clicked, in milliseconds
-        // milliseconds.
-        int elapsedTimeTillInstallButtonClick = (isInstallButtonClicked())
-                ? clipUnsignedLongToUnsignedInt(
-                            mInstallButtonClickTimestampMillis - mStartTimestampMillis)
-                : 0;
-
-        return new Object[] {
-                (int) ((mResult & 0xff)
-                        | ((packageManagerInstallResultByte & 0xff) << 8)
-                        | ((mFlags & 0xffffL) << 16)),
-                 totalElapsedTime,
-                 elapsedTimeTillPackageInfoObtained,
-                 elapsedTimeTillInstallButtonClick,
-        };
     }
 
     private static final byte clipUnsignedValueToUnsignedByte(long value) {
