@@ -16,12 +16,26 @@
 */
 package com.android.packageinstaller;
 
+import android.content.Context;
 import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.SystemClock;
+import android.provider.Settings;
 import android.util.EventLog;
 import android.util.Log;
+
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+import libcore.io.IoUtils;
 
 /**
  * Analytics about an attempt to install a package via {@link PackageInstallerActivity}.
@@ -125,8 +139,13 @@ public class InstallFlowAnalytics implements Parcelable {
      */
     private long mEndTimestampMillis;
 
+    /** URI of the package being installed. */
+    private String mPackageUri;
+
     /** Whether this attempt has been logged to the Event Log. */
     private boolean mLogged;
+
+    private Context mContext;
 
     public static final Parcelable.Creator<InstallFlowAnalytics> CREATOR =
             new Parcelable.Creator<InstallFlowAnalytics>() {
@@ -151,6 +170,7 @@ public class InstallFlowAnalytics implements Parcelable {
         mPackageInfoObtainedTimestampMillis = in.readLong();
         mInstallButtonClickTimestampMillis = in.readLong();
         mEndTimestampMillis = in.readLong();
+        mPackageUri = in.readString();
         mLogged = readBoolean(in);
     }
 
@@ -163,6 +183,7 @@ public class InstallFlowAnalytics implements Parcelable {
         dest.writeLong(mPackageInfoObtainedTimestampMillis);
         dest.writeLong(mInstallButtonClickTimestampMillis);
         dest.writeLong(mEndTimestampMillis);
+        dest.writeString(mPackageUri);
         writeBoolean(dest, mLogged);
     }
 
@@ -177,6 +198,10 @@ public class InstallFlowAnalytics implements Parcelable {
     @Override
     public int describeContents() {
         return 0;
+    }
+
+    void setContext(Context context) {
+        mContext = context;
     }
 
     /** Sets whether the Unknown Sources setting is checked. */
@@ -227,6 +252,13 @@ public class InstallFlowAnalytics implements Parcelable {
      */
     void setFileUri(boolean fileUri) {
         setFlagState(FLAG_FILE_URI, fileUri);
+    }
+
+    /**
+     * Sets the URI of the package being installed.
+     */
+    void setPackageUri(String packageUri) {
+        mPackageUri = packageUri;
     }
 
     /**
@@ -393,33 +425,65 @@ public class InstallFlowAnalytics implements Parcelable {
                     -mPackageManagerInstallResult);
         }
 
-        int resultAndFlags = (mResult & 0xff)
+        final int resultAndFlags = (mResult & 0xff)
                 | ((packageManagerInstallResultByte & 0xff) << 8)
                 | ((mFlags & 0xffff) << 16);
 
         // Total elapsed time from start to end, in milliseconds.
-        int totalElapsedTime =
+        final int totalElapsedTime =
                 clipUnsignedLongToUnsignedInt(mEndTimestampMillis - mStartTimestampMillis);
 
         // Total elapsed time from start till information about the package being installed was
         // obtained, in milliseconds.
-        int elapsedTimeTillPackageInfoObtained = (isPackageInfoObtained())
+        final int elapsedTimeTillPackageInfoObtained = (isPackageInfoObtained())
                 ? clipUnsignedLongToUnsignedInt(
                         mPackageInfoObtainedTimestampMillis - mStartTimestampMillis)
                 : 0;
 
         // Total elapsed time from start till Install button clicked, in milliseconds
         // milliseconds.
-        int elapsedTimeTillInstallButtonClick = (isInstallButtonClicked())
+        final int elapsedTimeTillInstallButtonClick = (isInstallButtonClicked())
                 ? clipUnsignedLongToUnsignedInt(
                             mInstallButtonClickTimestampMillis - mStartTimestampMillis)
                 : 0;
 
-        EventLogTags.writeInstallPackageAttempt(
-                resultAndFlags,
-                totalElapsedTime,
-                elapsedTimeTillPackageInfoObtained,
-                elapsedTimeTillInstallButtonClick);
+        // If this user has consented to app verification, augment the logged event with the hash of
+        // the contents of the APK.
+        if (((mFlags & FLAG_FILE_URI) != 0)
+                && ((mFlags & FLAG_VERIFY_APPS_ENABLED) != 0)
+                && (isUserConsentToVerifyAppsGranted())) {
+            // Log the hash of the APK's contents.
+            // Reading the APK may take a while -- perform in background.
+            AsyncTask.THREAD_POOL_EXECUTOR.execute(new Runnable() {
+                @Override
+                public void run() {
+                    byte[] digest = null;
+                    try {
+                        digest = getPackageContentsDigest();
+                    } catch (IOException e) {
+                        Log.w(TAG, "Failed to hash APK contents", e);
+                    } finally {
+                        String digestHex = (digest != null)
+                                ? IntegralToString.bytesToHexString(digest, false)
+                                : "";
+                        EventLogTags.writeInstallPackageAttempt(
+                                resultAndFlags,
+                                totalElapsedTime,
+                                elapsedTimeTillPackageInfoObtained,
+                                elapsedTimeTillInstallButtonClick,
+                                digestHex);
+                    }
+                }
+            });
+        } else {
+            // Do not log the hash of the APK's contents
+            EventLogTags.writeInstallPackageAttempt(
+                    resultAndFlags,
+                    totalElapsedTime,
+                    elapsedTimeTillPackageInfoObtained,
+                    elapsedTimeTillInstallButtonClick,
+                    "");
+        }
         mLogged = true;
 
         if (Log.isLoggable(TAG, Log.VERBOSE)) {
@@ -493,5 +557,47 @@ public class InstallFlowAnalytics implements Parcelable {
      */
     private boolean isFlagSet(int flag) {
         return (mFlags & flag) == flag;
+    }
+
+    /**
+     * Checks whether the user has consented to app verification.
+     */
+    private boolean isUserConsentToVerifyAppsGranted() {
+        return Settings.Secure.getInt(
+                mContext.getContentResolver(),
+                Settings.Secure.PACKAGE_VERIFIER_USER_CONSENT, 0) != 0;
+    }
+
+    /**
+     * Gets the digest of the contents of the package being installed.
+     */
+    private byte[] getPackageContentsDigest() throws IOException {
+        File file = new File(Uri.parse(mPackageUri).getPath());
+        return getSha256ContentsDigest(file);
+    }
+
+    /**
+     * Gets the SHA-256 digest of the contents of the specified file.
+     */
+    private static byte[] getSha256ContentsDigest(File file) throws IOException {
+        MessageDigest digest;
+        try {
+            digest = MessageDigest.getInstance("SHA-256");
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException("SHA-256 not available", e);
+        }
+
+        byte[] buf = new byte[8192];
+        InputStream in = null;
+        try {
+            in = new BufferedInputStream(new FileInputStream(file), buf.length);
+            int chunkSize;
+            while ((chunkSize = in.read(buf)) != -1) {
+                digest.update(buf, 0, chunkSize);
+            }
+        } finally {
+            IoUtils.closeQuietly(in);
+        }
+        return digest.digest();
     }
 }
