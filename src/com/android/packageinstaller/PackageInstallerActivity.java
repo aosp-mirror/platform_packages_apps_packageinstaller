@@ -39,7 +39,6 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.provider.Settings;
 import android.support.v4.view.ViewPager;
-import android.util.EventLog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,7 +50,6 @@ import android.widget.TabHost;
 import android.widget.TextView;
 
 import java.io.File;
-import java.io.Serializable;
 import java.util.List;
 
 /*
@@ -422,12 +420,14 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
 
         boolean requestFromUnknownSource = isInstallRequestFromUnknownSource(intent);
         mInstallFlowAnalytics = new InstallFlowAnalytics();
+        mInstallFlowAnalytics.setContext(this);
         mInstallFlowAnalytics.setStartTimestampMillis(SystemClock.elapsedRealtime());
         mInstallFlowAnalytics.setInstallsFromUnknownSourcesPermitted(
                 isInstallingUnknownAppsAllowed());
         mInstallFlowAnalytics.setInstallRequestFromUnknownSource(requestFromUnknownSource);
         mInstallFlowAnalytics.setVerifyAppsEnabled(isVerifyAppsEnabled());
         mInstallFlowAnalytics.setAppVerifierInstalled(isAppVerifierInstalled());
+        mInstallFlowAnalytics.setPackageUri(mPackageURI.toString());
 
         final String scheme = mPackageURI.getScheme();
         if (scheme != null && !"file".equals(scheme) && !"package".equals(scheme)) {

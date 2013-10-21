@@ -169,6 +169,7 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
         Intent intent = getIntent();
         mAppInfo = intent.getParcelableExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO);
         mInstallFlowAnalytics = intent.getParcelableExtra(EXTRA_INSTALL_FLOW_ANALYTICS);
+        mInstallFlowAnalytics.setContext(this);
         mPackageURI = intent.getData();
 
         final String scheme = mPackageURI.getScheme();
