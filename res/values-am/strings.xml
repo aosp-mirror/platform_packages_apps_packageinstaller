@@ -25,10 +25,10 @@
     <string name="unknown" msgid="4742479012767208045">"ያልታወቀ"</string>
     <string name="installing" msgid="8613631001631998372">"በመጫን ላይ…"</string>
     <string name="install_done" msgid="3682715442154357097">"መተግበሪያ ተጭኗል፡፡"</string>
-    <string name="install_confirm_question" msgid="7295206719219043890">"ይህንን መተግበሪያ መጫን ትፈልጋለህ? ወደዚህ መዳረሻ ያገኛል፦"</string>
-    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"ይህንን መተግበሪያ መጫን ትፈልጋለህ? ምንም የተለየ መዳረሻ አይጠይቅም።"</string>
-    <string name="install_confirm_question_update" msgid="4624159567361487964">"ለእዚህ ነባር መተግበሪያ ማዘመኛ መጫን ትፈልጋለህ? የነበረው ውሂብህ አይጠፋም። የዘመነው መተግበሪያ ወደዚህ መዳረሻ ያገኛል፦"</string>
-    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"ለእዚህ አብሮ ለተሰራ መተግበሪያ ማዘመኛ መጫን ትፈልጋለህ? የነበረው ውሂብህ አይጠፋም። የዘመነው መተግበሪያ ወደዚህ መዳረሻ ያገኛል፦"</string>
+    <string name="install_confirm_question" msgid="7295206719219043890">"ይህንን መተግበሪያ መጫን ይፈልጋሉ? ወደዚህ መዳረሻ ያገኛል፦"</string>
+    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"ይህንን መተግበሪያ መጫን ይፈልጋሉ? ምንም የተለየ መዳረሻ አይጠይቅም።"</string>
+    <string name="install_confirm_question_update" msgid="4624159567361487964">"ለእዚህ ነባር መተግበሪያ ማዘመኛ መጫን ይፈልጋሉ? የነበረው ውሂብህ አይጠፋም። የዘመነው መተግበሪያ ወደዚህ መዳረሻ ያገኛል፦"</string>
+    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"ለእዚህ አብሮ ለተሰራ መተግበሪያ ማዘመኛ መጫን ይፈልጋሉ? የነበረው ውሂብዎ አይጠፋም። የዘመነው መተግበሪያ ወደዚህ መዳረሻ ያገኛል፦"</string>
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"ለዚህ ነባር መተግበሪያ ዝማኔ መጫን ይፈልጋሉ? ነባር ውሂብዎ አይጠፉም። ምንም የተለየ መዳረሻ አይፈልግም።"</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"ለዚህ አብሮ ለተሰራ መተግበሪያ ዝማኔ መጫን ይፈልጋሉ? ነባር ውሂብዎ አይጠፉም። ምንም የተለየ መዳረሻ አይፈልግም።"</string>
     <string name="install_failed" msgid="6579998651498970899">"ትግበራ አልተጫነም።"</string>
@@ -45,15 +45,15 @@
     <string name="launch" msgid="4826921505917605463">"ክፈት"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"ጫን ታግዷል"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"ለደህንነት ሲባል ጡባዊ ቱኮህ ካልታወቁ ምንጮች የመጡ መተግበሪያዎች እንዳይጭን ታግዷል።"</string>
-    <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"ለደህንነት ሲባል ስልክህ ካልታወቁ ምንጮች የመጡ መተግበሪያዎች እንዳይጭን ታግዷል።"</string>
+    <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"ለደህንነት ሲባል ስልክዎ ከአልታወቁ ምንጮች የመጡ መተግበሪያዎች እንዳይጭን ታግዷል።"</string>
     <string name="ok" msgid="3468756155452870475">"እሺ"</string>
     <string name="settings" msgid="6743583734099755409">"ቅንብሮች"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"ለትግበራዎች አዲስ ምንጭ"</string>
     <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> ሌሎች ትግበራዎች ለመጫን ይፈልጋል።\n\n ይህን ለአሁን እና ለወደፊት ይፈቀድ?"</string>
     <string name="manage_applications" msgid="4033876279091996596">"መተግበሪያዎች አስተዳድር"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"መተግበሪያን ለውጥ ?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"እየጫንከው ያለው መተግበሪያ ሌላ መተግበሪያን ይለውጣል፡፡ \n\nሁሉም የቀድሞ የተጠቃሚ ውሂብህ ይቀመጣል፡፡"</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"ይሄ የስርዓት መተግበሪያ ነው፡፡ \n\nሁሉም የቀድሞ የተጠቃሚ ውሂብህ ይቀመጣል፡፡"</string>
+    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"መተግበሪያ ይለውጥ?"</string>
+    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"እየጫኑት ያለው መተግበሪያ ሌላ መተግበሪያን ይለውጣል። \n\nሁሉም የቀድሞ የተጠቃሚ ውሂብዎ ይቀመጣል።"</string>
+    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"ይሄ የስርዓት መተግበሪያ ነው። \n\nሁሉም የቀድሞ የተጠቃሚ ውሂብዎ ይቀመጣል።"</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"ቦታ ሞልቷል"</string>
     <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g>ለመጫን አልቻለም። ትንሽ ቦታ አስለቅቅ እና እንደገና ሞክር፡፡"</string>
     <string name="dlg_ok" msgid="6944357727705699232">"እሺ"</string>
@@ -62,7 +62,7 @@
     <string name="uninstall_application_title" msgid="1860074100811653963">"ትግበራ አራግፍ"</string>
     <string name="uninstall_update_title" msgid="4146940097553335390">"ማዘመን አራግፍ"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g>የሚከተለው ትግበራ አካል ነው፡"</string>
-    <string name="uninstall_application_text" msgid="6691975835951187030">"ይሄን መተግበሪያ ማራገፍ ትፈልጋለህ?"</string>
+    <string name="uninstall_application_text" msgid="6691975835951187030">"ይሄን መተግበሪያ ማራገፍ ይፈልጋሉ?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"ይህን መተግበሪያ "<b>"ለሁሉም"</b>" ተጠቃሚዎች መጫን ይፈልጋሉ? መተግበሪያው እና ውሂቡ በመሣሪያው ላይ ካሉ "<b>"ሁሉም"</b>" ተጠቃሚዎች ይሰረዛሉ።"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"ከፋብሪካ ስሪት ጋር ይሄን መተግበሪያ መለወጥ ትፈልጋለህ?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"ባለመጫንላይ"</string>

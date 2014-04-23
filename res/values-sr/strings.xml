@@ -40,8 +40,8 @@
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Наведени пакет је избрисан пре него што је инсталација завршена."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"Пакет није прошао верификацију и не може да се инсталира."</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Време је истекло при покушају да се верификује пакет. Покушајте поново да га инсталирате касније."</string>
-    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Није било могуће инсталирати апликацију <xliff:g id="APP_NAME">%1$s</xliff:g> на таблет."</string>
-    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Није било могуће инсталирати апликацију <xliff:g id="APP_NAME">%1$s</xliff:g> на телефон."</string>
+    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Није могуће инсталирати апликацију <xliff:g id="APP_NAME">%1$s</xliff:g> на таблет."</string>
+    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Није могуће инсталирати апликацију <xliff:g id="APP_NAME">%1$s</xliff:g> на телефон."</string>
     <string name="launch" msgid="4826921505917605463">"Отвори"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Инсталирање је блокирано"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Из безбедносних разлога на таблету је блокирана инсталација апликација са непознатих извора."</string>
@@ -55,7 +55,7 @@
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Апликација коју инсталирате замениће другу апликацију.\n\nСви претходни кориснички подаци биће сачувани."</string>
     <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Ово је системска апликација.\n\nСви претходни кориснички подаци биће сачувани."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Нема више места"</string>
-    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"Није било могуће инсталирати апликацију <xliff:g id="APP_NAME">%1$s</xliff:g>. Ослободите додатни простор и покушајте поново."</string>
+    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"Није могуће инсталирати апликацију <xliff:g id="APP_NAME">%1$s</xliff:g>. Ослободите додатни простор и покушајте поново."</string>
     <string name="dlg_ok" msgid="6944357727705699232">"Потврди"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Апликација није пронађена"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Апликација није пронађена на листи инсталираних апликација."</string>
@@ -70,7 +70,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Деинсталирање није успело."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Није могуће деинсталирати зато што је овај пакет активан администратор уређаја."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Управљај администраторима уређаја"</string>
-    <string name="uninstall_failed_msg" msgid="8969754702803951175">"Није било могуће деинсталирати апликацију <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
+    <string name="uninstall_failed_msg" msgid="8969754702803951175">"Није могуће деинсталирати апликацију <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Грешка приликом рашчлањивања"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Дошло је до проблема при рашчлањивању пакета."</string>
     <string name="newPerms" msgid="6039428254474104210">"Ново"</string>
