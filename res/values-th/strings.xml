@@ -16,7 +16,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2738748390251381682">"โปรแกรมติดตั้งแพคเกจ"</string>
+    <string name="app_name" msgid="2738748390251381682">"โปรแกรมติดตั้งแพ็กเกจ"</string>
     <string name="next" msgid="3057143178373252333">"ถัดไป"</string>
     <string name="install" msgid="5896438203900042068">"ติดตั้ง"</string>
     <string name="done" msgid="3889387558374211719">"เสร็จสิ้น"</string>
@@ -32,14 +32,14 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"คุณต้องการติดตั้งการอัปเดตไปยังแอปพลิเคชันที่มีอยู่นี้หรือไม่ ข้อมูลที่มีอยู่ของคุณจะไม่สูญหาย การอัปเดตนี้ไม่จำเป็นต้องใช้การเข้าถึงใดๆ เป็นพิเศษ"</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"คุณต้องการติดตั้งการอัปเดตไปยังแอปพลิเคชันในตัวนี้หรือไม่ ข้อมูลที่มีอยู่ของคุณจะไม่สูญหาย การอัปเดตนี้ไม่จำเป็นต้องใช้การเข้าถึงใดๆ เป็นพิเศษ"</string>
     <string name="install_failed" msgid="6579998651498970899">"ไม่ได้ติดตั้งแอปพลิเคชัน"</string>
-    <string name="install_failed_invalid_apk" msgid="1287935707565682604">"แพคเกจเกิดความเสียหาย"</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"มีแพคเกจชื่อเดียวกันซึ่งมีลายเซ็นที่ขัดแย้งติดตั้งไว้อยู่แล้ว"</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"แพคเกจนี้จะทำงานบน Android รุ่นใหม่กว่านี้เท่านั้น"</string>
+    <string name="install_failed_invalid_apk" msgid="1287935707565682604">"แพ็กเกจเกิดความเสียหาย"</string>
+    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"มีแพ็กเกจชื่อเดียวกันซึ่งมีลายเซ็นที่ขัดแย้งติดตั้งไว้อยู่แล้ว"</string>
+    <string name="install_failed_older_sdk" msgid="7947925824732917665">"แพ็กเกจนี้จะทำงานบน Android รุ่นใหม่กว่านี้เท่านั้น"</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"แอปพลิเคชันนี้ไม่สามารถทำงานร่วมกับแท็บเล็ตของคุณได้"</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"แอปพลิเคชันนี้ไม่สามารถทำงานร่วมกับโทรศัพท์ของคุณได้"</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"แพคเกจที่ระบุไว้ถูกลบออกก่อนที่การติดตั้งจะเสร็จสมบูรณ์"</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"แพคเกจไม่ผ่านการยืนยันและไม่สามารถติดตั้ง"</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"ถึงระยะหมดเวลาขณะที่พยายามยืนยันแพคเกจนี้ โปรดลองติดตั้งอีกครั้งในภายหลัง"</string>
+    <string name="install_failed_file_not_found" msgid="1958430133396322619">"แพ็กเกจที่ระบุไว้ถูกลบออกก่อนที่การติดตั้งจะเสร็จสมบูรณ์"</string>
+    <string name="install_failed_verify_failed" msgid="5567372439890440205">"แพ็กเกจไม่ผ่านการยืนยันและไม่สามารถติดตั้ง"</string>
+    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"ถึงระยะหมดเวลาขณะที่พยายามยืนยันแพ็กเกจนี้ โปรดลองติดตั้งอีกครั้งในภายหลัง"</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"ไม่สามารถติดตั้ง <xliff:g id="APP_NAME">%1$s</xliff:g> บนแท็บเล็ตของคุณ"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"ไม่สามารถติดตั้ง <xliff:g id="APP_NAME">%1$s</xliff:g> บนโทรศัพท์ของคุณ"</string>
     <string name="launch" msgid="4826921505917605463">"เปิด"</string>
@@ -68,11 +68,11 @@
     <string name="uninstalling" msgid="5556217435895938250">"กำลังถอนการติดตั้ง..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"ถอนการติดตั้งเสร็จแล้ว"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"ถอนการติดตั้งไม่สำเร็จ"</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"ไม่สามารถถอนการติดตั้งเนื่องจากแพคเกจนี้เป็นโปรแกรมควบคุมอุปกรณ์ที่ใช้งานอยู่"</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"ไม่สามารถถอนการติดตั้งเนื่องจากแพ็กเกจนี้เป็นโปรแกรมควบคุมอุปกรณ์ที่ใช้งานอยู่"</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"จัดการโปรแกรมควบคุมอุปกรณ์"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"ไม่สามารถถอดการติดตั้ง <xliff:g id="APP_NAME">%1$s</xliff:g>"</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"ข้อผิดพลาดในการแยกวิเคราะห์"</string>
-    <string name="Parse_error_dlg_text" msgid="7623286983621067011">"พบปัญหาในการแยกวิเคราะห์แพคเกจ"</string>
+    <string name="Parse_error_dlg_text" msgid="7623286983621067011">"พบปัญหาในการแยกวิเคราะห์แพ็กเกจ"</string>
     <string name="newPerms" msgid="6039428254474104210">"ใหม่"</string>
     <string name="allPerms" msgid="1024385515840703981">"ทั้งหมด"</string>
     <string name="privacyPerms" msgid="1850527049572617">"ข้อมูลส่วนบุคคล"</string>
