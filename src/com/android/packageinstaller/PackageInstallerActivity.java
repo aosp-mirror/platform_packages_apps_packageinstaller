@@ -37,6 +37,7 @@ import android.content.pm.VerificationParams;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.os.UserManager;
 import android.provider.Settings;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -330,12 +331,18 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         startActivity(launchSettingsIntent);
         finish();
     }
-    
+
     private boolean isInstallingUnknownAppsAllowed() {
-        return Settings.Global.getInt(getContentResolver(),
-            Settings.Global.INSTALL_NON_MARKET_APPS, 0) > 0;
+        UserManager um = (UserManager) getSystemService(USER_SERVICE);
+
+        boolean disallowedByUserManager = um.getUserRestrictions()
+                .getBoolean(UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES, false);
+        boolean allowedBySecureSettings = Settings.Secure.getInt(getContentResolver(),
+            Settings.Secure.INSTALL_NON_MARKET_APPS, 0) > 0;
+
+        return (allowedBySecureSettings && (!disallowedByUserManager));
     }
-    
+
     private boolean isInstallRequestFromUnknownSource(Intent intent) {
         String callerPackage = getCallingPackage();
         if (callerPackage != null && intent.getBooleanExtra(
