@@ -25,23 +25,19 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.IPackageManager;
 import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.content.pm.ResolveInfo;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.RemoteException;
+import android.os.ServiceManager;
+import android.os.UserHandle;
 import android.os.UserManager;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
-
-import java.util.List;
 
 /*
  * This activity presents UI to uninstall an application. Usually launched with intent
@@ -53,10 +49,12 @@ public class UninstallerActivity extends Activity implements OnClickListener,
     private static final String TAG = "UninstallerActivity";
     private boolean localLOGV = false;
     PackageManager mPm;
+    private IPackageManager mIpm;
     private ApplicationInfo mAppInfo;
     private boolean mAllUsers;
     private Button mOk;
     private Button mCancel;
+    private UserHandle mUserHandle;
 
     // Dialog identifiers used in showDialog
     private static final int DLG_BASE = 0;
@@ -104,6 +102,7 @@ public class UninstallerActivity extends Activity implements OnClickListener,
         newIntent.putExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO, 
                                                   mAppInfo);
         newIntent.putExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, mAllUsers);
+        newIntent.putExtra(Intent.EXTRA_USER, mUserHandle);
         if (getIntent().getBooleanExtra(Intent.EXTRA_RETURN_RESULT, false)) {
             newIntent.putExtra(Intent.EXTRA_RETURN_RESULT, true);
             newIntent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
@@ -128,11 +127,19 @@ public class UninstallerActivity extends Activity implements OnClickListener,
             return;
         }
 
+        mUserHandle = intent.getParcelableExtra(Intent.EXTRA_USER);
+        if (mUserHandle == null) {
+            mUserHandle = android.os.Process.myUserHandle();
+        }
+
         mPm = getPackageManager();
+        mIpm = IPackageManager.Stub.asInterface(ServiceManager.getService("package"));
+
         boolean errFlag = false;
         try {
-            mAppInfo = mPm.getApplicationInfo(packageName, PackageManager.GET_UNINSTALLED_PACKAGES);
-        } catch (NameNotFoundException e) {
+            mAppInfo = mIpm.getApplicationInfo(packageName, PackageManager.GET_UNINSTALLED_PACKAGES,
+                    mUserHandle.getIdentifier());
+        } catch (RemoteException e) {
             errFlag = true;
         }
 
@@ -143,8 +150,9 @@ public class UninstallerActivity extends Activity implements OnClickListener,
         ActivityInfo activityInfo = null;
         if (className != null) {
             try {
-                activityInfo = mPm.getActivityInfo(new ComponentName(packageName, className), 0);
-            } catch (NameNotFoundException e) {
+                activityInfo = mIpm.getActivityInfo(new ComponentName(packageName, className), 0,
+                        mUserHandle.getIdentifier());
+            } catch (RemoteException e) {
                 errFlag = true;
             }
         }
@@ -162,10 +170,14 @@ public class UninstallerActivity extends Activity implements OnClickListener,
                 setTitle(R.string.uninstall_update_title);
                 confirm.setText(R.string.uninstall_update_text);
             } else {
+                UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
                 setTitle(R.string.uninstall_application_title);
-                if (mAllUsers && ((UserManager)getSystemService(
-                        Context.USER_SERVICE)).getUsers().size() >= 2) {
+                if (mAllUsers && userManager.getUsers().size() >= 2) {
                     confirm.setText(R.string.uninstall_application_text_all_users);
+                } else if (!mUserHandle.equals(android.os.Process.myUserHandle())) {
+                    String userName = userManager.getUserInfo(mUserHandle.getIdentifier()).name;
+                    confirm.setText(String.format(
+                            getString(R.string.uninstall_application_text_user), userName));
                 } else {
                     confirm.setText(R.string.uninstall_application_text);
                 }
@@ -184,7 +196,7 @@ public class UninstallerActivity extends Activity implements OnClickListener,
             }
 
             View snippetView = findViewById(R.id.uninstall_activity_snippet);
-            PackageUtil.initSnippetForInstalledApp(this, mAppInfo, snippetView);
+            PackageUtil.initSnippetForInstalledApp(this, mAppInfo, snippetView, mUserHandle);
 
             //initialize ui elements
             mOk = (Button)findViewById(R.id.ok_button);

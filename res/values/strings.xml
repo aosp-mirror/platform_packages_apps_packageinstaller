@@ -113,6 +113,7 @@
     <string name="uninstall_application_text">Do you want to uninstall this app?</string>
     <string name="uninstall_application_text_all_users">Do you want to uninstall this app for <b>all</b>
         users?  The application and its data will be removed from <b>all</b> users on the device.</string>
+    <string name="uninstall_application_text_user">Do you want to uninstall this app for the user <xliff:g id="username">%1$s</xliff:g>?</string>
     <string name="uninstall_update_text">Do you want to replace this app with the factory version?</string>
     <string name="uninstalling">Uninstalling\u2026</string>
     <string name="uninstall_done">Uninstall finished.</string>
@@ -121,6 +122,14 @@
         is a current device administrator [CHAR LIMIT=80] -->
     <string name="uninstall_failed_device_policy_manager">Can\'t uninstall because this package is an
         active device administrator.</string>
+    <!-- String presented to the user when uninstalling a package failed because a profile owner
+         has marked the the target package as not able to be uninstalled [CHAR LIMIT=80] -->
+    <string name="uninstall_blocked_profile_owner">This app is needed for
+        your <xliff:g id="username">%1$s</xliff:g> profile and can\'t be uninstalled.</string>
+    <!-- String presented to the user when uninstalling a package failed because a device owner
+         has marked the the target package as not able to be uninstalled [CHAR LIMIT=80] -->
+    <string name="uninstall_blocked_device_owner">This app is required
+        by your device administrator and can\'t be uninstalled.</string>
     <!-- String on a button that leads to the "device administrator" configuration setting where a
         user will be able to disable the device administrator in order to uninstall
         it. [CHAR LIMIT=50] -->

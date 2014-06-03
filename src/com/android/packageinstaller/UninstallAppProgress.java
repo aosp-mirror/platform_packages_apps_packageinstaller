@@ -21,10 +21,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageDeleteObserver;
+import android.content.pm.IPackageManager;
 import android.content.pm.PackageManager;
+import android.content.pm.UserInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.RemoteException;
+import android.os.ServiceManager;
+import android.os.UserHandle;
+import android.os.UserManager;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -33,6 +39,8 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.List;
 
 /**
  * This activity corresponds to a download progress screen that is displayed 
@@ -46,6 +54,7 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
     private boolean localLOGV = false;
     private ApplicationInfo mAppInfo;
     private boolean mAllUsers;
+    private UserHandle mUser;
     private TextView mStatusTextView;
     private Button mOkButton;
     private Button mDeviceManagerButton;
@@ -73,10 +82,10 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
                     final String packageName = (String) msg.obj;
 
                     // Update the status text
-                    final int statusText;
+                    final String statusText;
                     switch (msg.arg1) {
                         case PackageManager.DELETE_SUCCEEDED:
-                            statusText = R.string.uninstall_done;
+                            statusText = getString(R.string.uninstall_done);
                             // Show a Toast and finish the activity
                             Context ctx = getBaseContext();
                             Toast.makeText(ctx, statusText, Toast.LENGTH_LONG).show();
@@ -86,12 +95,46 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
                             Log.d(TAG, "Uninstall failed because " + packageName
                                     + " is a device admin");
                             mDeviceManagerButton.setVisibility(View.VISIBLE);
-                            statusText = R.string.uninstall_failed_device_policy_manager;
+                            statusText = getString(R.string.uninstall_failed_device_policy_manager);
+                            break;
+                        case PackageManager.DELETE_FAILED_OWNER_BLOCKED:
+                            UserManager userManager =
+                                    (UserManager) getSystemService(Context.USER_SERVICE);
+                            IPackageManager packageManager = IPackageManager.Stub.asInterface(
+                                    ServiceManager.getService("package"));
+                            List<UserInfo> users = userManager.getUsers();
+                            int blockingUserId = UserHandle.USER_NULL;
+                            for (int i = 0; i < users.size(); ++i) {
+                                final UserInfo user = users.get(i);
+                                try {
+                                    if (packageManager.getBlockUninstallForUser(packageName,
+                                            user.id)) {
+                                        blockingUserId = user.id;
+                                        break;
+                                    }
+                                } catch (RemoteException e) {
+                                    // Shouldn't happen.
+                                    Log.e(TAG, "Failed to talk to package manager", e);
+                                }
+                            }
+                            mDeviceManagerButton.setVisibility(View.VISIBLE);
+                            if (blockingUserId == UserHandle.USER_OWNER) {
+                                statusText = getString(R.string.uninstall_blocked_device_owner);
+                            } else if (blockingUserId == UserHandle.USER_NULL) {
+                                Log.d(TAG, "Uninstall failed for " + packageName + " with code "
+                                        + msg.arg1 + " no blocking user");
+                                statusText = getString(R.string.uninstall_failed);
+                            } else {
+                                String userName = userManager.getUserInfo(blockingUserId).name;
+                                statusText = String.format(
+                                        getString(R.string.uninstall_blocked_profile_owner),
+                                        userName);
+                            }
                             break;
                         default:
                             Log.d(TAG, "Uninstall failed for " + packageName + " with code "
                                     + msg.arg1);
-                            statusText = R.string.uninstall_failed;
+                            statusText = getString(R.string.uninstall_failed);
                             break;
                     }
                     mStatusTextView.setText(statusText);
@@ -112,6 +155,20 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
         Intent intent = getIntent();
         mAppInfo = intent.getParcelableExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO);
         mAllUsers = intent.getBooleanExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, false);
+        if (mAllUsers && UserHandle.myUserId() != UserHandle.USER_OWNER) {
+            throw new SecurityException("Only owner user can request uninstall for all users");
+        }
+        mUser = intent.getParcelableExtra(Intent.EXTRA_USER);
+        if (mUser == null) {
+            mUser = android.os.Process.myUserHandle();
+        } else {
+            UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
+            List<UserHandle> profiles = userManager.getUserProfiles();
+            if (!profiles.contains(mUser)) {
+                throw new SecurityException("User " + android.os.Process.myUserHandle() + " can't "
+                        + "request uninstall for user " + mUser);
+            }
+        }
         initView();
     }
     
@@ -159,9 +216,17 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
         mOkButton = (Button) findViewById(R.id.ok_button);
         mOkButton.setOnClickListener(this);
         mOkPanel.setVisibility(View.INVISIBLE);
+        IPackageManager packageManager =
+                IPackageManager.Stub.asInterface(ServiceManager.getService("package"));
         PackageDeleteObserver observer = new PackageDeleteObserver();
-        getPackageManager().deletePackage(mAppInfo.packageName, observer,
-                mAllUsers ? PackageManager.DELETE_ALL_USERS : 0);
+        try {
+            packageManager.deletePackageAsUser(mAppInfo.packageName, observer,
+                    mUser.getIdentifier(),
+                    mAllUsers ? PackageManager.DELETE_ALL_USERS : 0);
+        } catch (RemoteException e) {
+            // Shouldn't happen.
+            Log.e(TAG, "Failed to talk to package manager", e);
+        }
     }
 
     public void onClick(View v) {

@@ -18,6 +18,7 @@
 package com.android.packageinstaller;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -30,6 +31,8 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.os.UserHandle;
+import android.os.UserManager;
 
 import java.io.File;
 import java.util.List;
@@ -91,11 +94,33 @@ public class PackageUtil {
      */
     public static View initSnippetForInstalledApp(Activity pContext,
             ApplicationInfo appInfo, View snippetView) {
+        return initSnippetForInstalledApp(pContext, appInfo, snippetView, null);
+    }
+
+    /**
+     * Utility method to display a snippet of an installed application.
+     * The content view should have been set on context before invoking this method.
+     * appSnippet view should include R.id.app_icon and R.id.app_name
+     * defined on it.
+     *
+     * @param pContext context of package that can load the resources
+     * @param componentInfo ComponentInfo object whose resources are to be loaded
+     * @param snippetView the snippet view
+     * @param UserHandle user that the app si installed for.
+     */
+    public static View initSnippetForInstalledApp(Activity pContext,
+            ApplicationInfo appInfo, View snippetView, UserHandle user) {
         final PackageManager pm = pContext.getPackageManager();
+        Drawable icon = appInfo.loadIcon(pm);
+        if (user != null) {
+            final UserManager userManager = (UserManager) pContext.getSystemService(
+                    Context.USER_SERVICE);
+            icon = userManager.getBadgedDrawableForUser(icon, user);
+        }
         return initSnippet(
                 snippetView,
                 appInfo.loadLabel(pm),
-                appInfo.loadIcon(pm));
+                icon);
     }
 
     /**
