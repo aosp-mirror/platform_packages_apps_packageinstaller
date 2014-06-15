@@ -22,6 +22,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageParser;
+import android.content.pm.PackageParser.PackageParserException;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
@@ -49,36 +50,35 @@ public class PackageUtil {
      * Utility method to get application information for a given {@link File}
      */
     public static ApplicationInfo getApplicationInfo(File sourcePath) {
-        final String archiveFilePath = sourcePath.getAbsolutePath();
-        PackageParser packageParser = new PackageParser(archiveFilePath);
-        File sourceFile = new File(archiveFilePath);
+        PackageParser packageParser = new PackageParser(sourcePath);
         DisplayMetrics metrics = new DisplayMetrics();
         metrics.setToDefaults();
-        PackageParser.Package pkg = packageParser.parsePackage(
-                sourceFile, archiveFilePath, metrics, 0);
-        if (pkg == null) {
+
+        try {
+            PackageParser.Package pkg = packageParser.parseMonolithicPackage(sourcePath, metrics,
+                    0);
+            return pkg.applicationInfo;
+        } catch (PackageParserException e) {
             return null;
         }
-        return pkg.applicationInfo;
     }
 
     /**
      * Utility method to get package information for a given {@link File}
      */
     public static PackageParser.Package getPackageInfo(File sourceFile) {
-        final String archiveFilePath = sourceFile.getAbsolutePath();
-        PackageParser packageParser = new PackageParser(archiveFilePath);
+        PackageParser packageParser = new PackageParser(sourceFile);
         DisplayMetrics metrics = new DisplayMetrics();
         metrics.setToDefaults();
-        PackageParser.Package pkg =  packageParser.parsePackage(sourceFile,
-                archiveFilePath, metrics, 0);
-        if (pkg == null) {
+
+        try {
+            PackageParser.Package pkg = packageParser.parseMonolithicPackage(sourceFile, metrics,
+                    0);
+            packageParser.collectManifestDigest(pkg);
+            return pkg;
+        } catch (PackageParserException e) {
             return null;
         }
-        if (!packageParser.collectManifestDigest(pkg)) {
-            return null;
-        }
-        return pkg;
     }
 
     public static View initSnippet(View snippetView, CharSequence label, Drawable icon) {
