@@ -50,13 +50,9 @@ public class PackageUtil {
      * Utility method to get application information for a given {@link File}
      */
     public static ApplicationInfo getApplicationInfo(File sourcePath) {
-        PackageParser packageParser = new PackageParser(sourcePath);
-        DisplayMetrics metrics = new DisplayMetrics();
-        metrics.setToDefaults();
-
+        final PackageParser parser = new PackageParser();
         try {
-            PackageParser.Package pkg = packageParser.parseMonolithicPackage(sourcePath, metrics,
-                    0);
+            PackageParser.Package pkg = parser.parseMonolithicPackage(sourcePath, 0);
             return pkg.applicationInfo;
         } catch (PackageParserException e) {
             return null;
@@ -67,14 +63,10 @@ public class PackageUtil {
      * Utility method to get package information for a given {@link File}
      */
     public static PackageParser.Package getPackageInfo(File sourceFile) {
-        PackageParser packageParser = new PackageParser(sourceFile);
-        DisplayMetrics metrics = new DisplayMetrics();
-        metrics.setToDefaults();
-
+        final PackageParser parser = new PackageParser();
         try {
-            PackageParser.Package pkg = packageParser.parseMonolithicPackage(sourceFile, metrics,
-                    0);
-            packageParser.collectManifestDigest(pkg);
+            PackageParser.Package pkg = parser.parseMonolithicPackage(sourceFile, 0);
+            parser.collectManifestDigest(pkg);
             return pkg;
         } catch (PackageParserException e) {
             return null;
