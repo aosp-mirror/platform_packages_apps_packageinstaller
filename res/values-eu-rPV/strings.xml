@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="2738748390251381682">"Pakete-instalatzailea"</string>
+    <string name="next" msgid="3057143178373252333">"Hurrengoa"</string>
+    <string name="install" msgid="5896438203900042068">"Instalatu"</string>
+    <string name="done" msgid="3889387558374211719">"Eginda"</string>
+    <string name="security_settings_desc" msgid="2706691034244052604">"Eman baimen hauek aplikazioari:"</string>
+    <string name="cancel" msgid="8360346460165114585">"Utzi"</string>
+    <string name="unknown" msgid="4742479012767208045">"Ezezaguna"</string>
+    <string name="installing" msgid="8613631001631998372">"Instalatzen…"</string>
+    <string name="install_done" msgid="3682715442154357097">"Aplikazioa instalatu da."</string>
+    <string name="install_confirm_question" msgid="7295206719219043890">"Aplikazioa instalatu nahi duzu? Elementu hauetarako sarbidea izango du:"</string>
+    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Aplikazioa instalatu nahi duzu? Ez du sarbide berezirik behar."</string>
+    <string name="install_confirm_question_update" msgid="4624159567361487964">"Aplikazioaren eguneratzea instalatu nahi duzu? Lehendik dauden datuak ez dira galduko. Eguneratutako aplikazioak elementu hauetarako sarbidea izango du:"</string>
+    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Aplikazio integratu honen eguneratzea instalatu nahi duzu? Lehendik dauden datuak ez dira galduko. Eguneratutako aplikazioak elementu hauetarako sarbidea izango du:"</string>
+    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Aplikazioaren eguneratzea instalatu nahi duzu? Lehendik dauden datuak ez dira galduko. Ez du sarbide berezirik behar."</string>
+    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Aplikazio integratu honen eguneratzea instalatu nahi duzu? Lehendik dauden datuak ez dira galduko. Ez du sarbide berezirik behar."</string>
+    <string name="install_failed" msgid="6579998651498970899">"Ez da aplikazioa instalatu."</string>
+    <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Paketea hondatuta dagoela dirudi."</string>
+    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Izen bereko pakete bat instalatuta dago lehendik eta haren sinadurak gatazkak sortzen ditu."</string>
+    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Paketeak Android bertsio berriagoekin funtzionatzen du soilik."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Aplikazioa ez da zure tabletarekin bateragarria."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Aplikazioa ez da zure telefonoarekin bateragarria."</string>
+    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Zehaztutako paketea instalazioa osatu aurretik ezabatu da."</string>
+    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Paketeak ez du egiaztapena gainditu eta ezin da instalatu."</string>
+    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Denbora-muga gainditu da paketea egiaztatzen saiatzean. Saiatu berriro instalatzen geroago."</string>
+    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Ezin izan da <xliff:g id="APP_NAME">%1$s</xliff:g> tabletan instalatu."</string>
+    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Ezin izan da <xliff:g id="APP_NAME">%1$s</xliff:g> telefonoan instalatu."</string>
+    <string name="launch" msgid="4826921505917605463">"Ireki"</string>
+    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Instalazioa blokeatu da"</string>
+    <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Segurtasuna bermatzeko, iturburu ezezagunetako aplikazioak blokeatzeko dago konfiguratuta tableta."</string>
+    <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Segurtasuna bermatzeko, iturburu ezezagunetako aplikazioak blokeatzeko dago konfiguratuta telefonoa."</string>
+    <string name="ok" msgid="3468756155452870475">"Ados"</string>
+    <string name="settings" msgid="6743583734099755409">"Ezarpenak"</string>
+    <string name="allow_source_dlg_title" msgid="7568985073502399415">"Aplikazioen iturburu berria"</string>
+    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> aplikazioak beste aplikazio batzuk instalatu nahi ditu.\n\nOrain eta aurrerantzean hori egitea onartu nahi duzu?"</string>
+    <string name="manage_applications" msgid="4033876279091996596">"Kudeatu aplikazioak"</string>
+    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Aplikazioa ordeztu nahi duzu?"</string>
+    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Instalatzen ari zaren aplikazioak beste aplikazio bat ordezkatuko du.\n\nLehendik dituzun erabiltzaile-datu guztiak gordeko dira."</string>
+    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Sistemaren aplikazio bat da hau.\n\nLehendik dituzun erabiltzaile-datu guztiak gordeko dira."</string>
+    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Ez dago behar adina toki"</string>
+    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"Ezin izan da <xliff:g id="APP_NAME">%1$s</xliff:g> instalatu. Egin toki pixka bat eta saiatu berriro."</string>
+    <string name="dlg_ok" msgid="6944357727705699232">"Ados"</string>
+    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Ez da aplikazioa aurkitu"</string>
+    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Aplikazioa ez da aurkitu instalatutako aplikazioen zerrendan."</string>
+    <string name="uninstall_application_title" msgid="1860074100811653963">"Desinstalatu aplikazioa"</string>
+    <string name="uninstall_update_title" msgid="4146940097553335390">"Desinstalatu eguneratzea"</string>
+    <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> aplikazio honen zati da:"</string>
+    <string name="uninstall_application_text" msgid="6691975835951187030">"Aplikazioa desinstalatu nahi duzu?"</string>
+    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Aplikazioa erabiltzaile "<b>"guztientzat"</b>" desinstalatu nahi duzu? Aplikazioa eta bere datu guztiak gailuko erabiltzaile "<b>"guztiei"</b>" ezabatuko zaizkie."</string>
+    <string name="uninstall_update_text" msgid="2056387942084605027">"Aplikazioa jatorrizko bertsioarekin ordeztu nahi duzu?"</string>
+    <string name="uninstalling" msgid="5556217435895938250">"Desinstalatzen…"</string>
+    <string name="uninstall_done" msgid="3792487853420281888">"Desinstalatu da."</string>
+    <string name="uninstall_failed" msgid="631122574306299512">"Ezin izan da desinstalatu."</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Ezin izan da desinstalatu paketea gailu-administratzaile aktiboa delako."</string>
+    <string name="manage_device_administrators" msgid="891392489300312370">"Kudeatu gailu-administratzaileak"</string>
+    <string name="uninstall_failed_msg" msgid="8969754702803951175">"Ezin izan da <xliff:g id="APP_NAME">%1$s</xliff:g> desinstalatu."</string>
+    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Analisi-errorea"</string>
+    <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Arazo bat izan da paketea analizatzean."</string>
+    <string name="newPerms" msgid="6039428254474104210">"Berriak"</string>
+    <string name="allPerms" msgid="1024385515840703981">"Guztiak"</string>
+    <string name="privacyPerms" msgid="1850527049572617">"Pribatutasuna"</string>
+    <string name="devicePerms" msgid="6733560207731294504">"Gailurako sarbidea"</string>
+    <string name="no_new_perms" msgid="6657813692169565975">"Eguneratze honek ez du baimen berririk behar."</string>
+    <string name="grant_confirm_question" msgid="4690289297029223742">"Baimen hauek eman nahi dituzu? Hauetarako sarbidea lortzeko balioko dute:"</string>
+</resources>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- no translation found for app_name (2738748390251381682) -->
+    <skip />
+    <string name="next" msgid="3057143178373252333">"Кийинки"</string>
+    <!-- no translation found for install (5896438203900042068) -->
+    <skip />
+    <!-- no translation found for done (3889387558374211719) -->
+    <skip />
+    <string name="security_settings_desc" msgid="2706691034244052604">"Бул колдонмого кийинки уруксаттар берилсин:"</string>
+    <!-- no translation found for cancel (8360346460165114585) -->
+    <skip />
+    <!-- no translation found for unknown (4742479012767208045) -->
+    <skip />
+    <!-- no translation found for installing (8613631001631998372) -->
+    <skip />
+    <string name="install_done" msgid="3682715442154357097">"Колдонмо орнотулду."</string>
+    <string name="install_confirm_question" msgid="7295206719219043890">"Бул колдонмону орнотоюн дегениңиз аныкпы? Ал кийинкилерге жетки алат:"</string>
+    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Бул колдонмону орнотоюн дегениңиз аныкпы? Ал эч бир атайын жетки уруксаттарын талап кылбайт."</string>
+    <string name="install_confirm_question_update" msgid="4624159567361487964">"Учурда иштеп турган бул колдонмого жаңыртуу орнотоюн дегениңиз аныкпы? Сиздин сакталган берилиштериңиз өчүрүлбөйт. Жаңыртылган колдонмо кийинкилерге жетки алат:"</string>
+    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Бул камтылган колдонмого жаңыртуу орнотоюн дегениңиз аныкпы? Сиздин сакталган берилиштериңиз өчүрүлбөйт. Жаңыртылган колдонмо кийинкилерге жетки алат:"</string>
+    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Учурда иштпе турган бул колдонмого жаңыртуу орнотоюн дегениңиз аныкпы? Сиздин сакталган берилиштериңиз өчүрүлбөйт. Ал эч бир атайын жетки уруксаттарын талап кылбайт."</string>
+    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Бул камтылган колдонмого жаңыртуу орнотоюн дегениңиз аныкпы? Сиздин сакталган берилиштериңиз өчүрүлбөйт. Ал эч бир атайын жетки уруксаттарын  талап кылбайт."</string>
+    <string name="install_failed" msgid="6579998651498970899">"Колдонмо орнотулган жок."</string>
+    <!-- no translation found for install_failed_invalid_apk (1287935707565682604) -->
+    <skip />
+    <!-- no translation found for install_failed_inconsistent_certificates (1517751954440692054) -->
+    <skip />
+    <!-- no translation found for install_failed_older_sdk (7947925824732917665) -->
+    <skip />
+    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Бул колдонмо планшетиңизге шайкеш эмес."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Бул колдонмо телефонуңузга шайкеш эмес."</string>
+    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Көрсөтүлгөн таңгак орнотуу аяктай электе жок кылынды."</string>
+    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Таңгак текшерүүдөн өткөн жок жана аны орнотууга болбойт."</string>
+    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Бул таңгакты ырастоого бөлүнгөн убакыт өтүп кетти. Аны кийинчерээк кайта орнотуп көрүңүз."</string>
+    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> колдонмосун планшетиңизге орнотуу мүмкүн эмес."</string>
+    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> колдонмосун телефонуңузга орнотуу мүмкүн эмес."</string>
+    <!-- no translation found for launch (4826921505917605463) -->
+    <skip />
+    <!-- no translation found for unknown_apps_dlg_title (2855558586206583032) -->
+    <skip />
+    <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Коопсуздукту камсыздоо үчүн, планшетиңизде белгисиз булактардан келген колдонмолорду орнотуу бөгөттөлгөн."</string>
+    <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Коопсуздукту камсыздоо үчүн, телефонуңузда белгисиз булактардан келген колдонмолорду орнотуу бөгөттөлгөн."</string>
+    <!-- no translation found for ok (3468756155452870475) -->
+    <skip />
+    <!-- no translation found for settings (6743583734099755409) -->
+    <skip />
+    <string name="allow_source_dlg_title" msgid="7568985073502399415">"Колдонмолордун жаңы булагы"</string>
+    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> башка колдонмо орноткусу келет.\n\nАзыр жана кийин буга уруксат берилсинби?"</string>
+    <string name="manage_applications" msgid="4033876279091996596">"Колдонмолорду башкаруу"</string>
+    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Колдонмо алмаштырылсынбы?"</string>
+    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Сиз орнотуп жаткан колдонмо башка колдонмону жок кылат.\n\nМурунку колдонуучу берилиштериңиздин бардыгы сакталат."</string>
+    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Бул системалык колдонмо.\n\nМурунку колдонуучу берилиштериңиздин бардыгы сакталат."</string>
+    <!-- no translation found for out_of_space_dlg_title (7843674437613797326) -->
+    <skip />
+    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> колдонмосун телефонуңузга орнотуу мүмкүн эмес. Орун бошотуп, кайталап орнотуп көрүңүз."</string>
+    <!-- no translation found for dlg_ok (6944357727705699232) -->
+    <skip />
+    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Колдонмо табылган жок"</string>
+    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Колдонмо орнотулган колдонмолор тизмегинен табылган жок."</string>
+    <string name="uninstall_application_title" msgid="1860074100811653963">"Колдонмону чечип салуу"</string>
+    <string name="uninstall_update_title" msgid="4146940097553335390">"Жаңыртууну чечип салуу"</string>
+    <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> кийинки колдонмонун бөлүгү:"</string>
+    <string name="uninstall_application_text" msgid="6691975835951187030">"Бул колдонмону чечип салгыңыз келеби?"</string>
+    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Бул колдонмо "<b>"бардык"</b>" колдонуучулардан алынып салынсынбы? Бул колдонмо жана анын берилиштери бул түзмөктүн "<b>"бардык"</b>" колдонуучуларынан алынат."</string>
+    <string name="uninstall_update_text" msgid="2056387942084605027">"Бул колдонмону абалкы орнотулган версиясы менен алмаштырасызбы?"</string>
+    <!-- no translation found for uninstalling (5556217435895938250) -->
+    <skip />
+    <string name="uninstall_done" msgid="3792487853420281888">"Чечилип бүттү."</string>
+    <string name="uninstall_failed" msgid="631122574306299512">"Чечүү ийгиликсиз болду."</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Чечүү кыйрады, анткени бул таңгак түзмөктүн учурдагы администратору."</string>
+    <!-- no translation found for manage_device_administrators (891392489300312370) -->
+    <skip />
+    <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> колдонмосун чечип салуу мүмкүн эмес."</string>
+    <!-- no translation found for Parse_error_dlg_title (6079580916889596257) -->
+    <skip />
+    <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Таңгакты окууда маселе пайда болду."</string>
+    <string name="newPerms" msgid="6039428254474104210">"Жаңы"</string>
+    <string name="allPerms" msgid="1024385515840703981">"Бардыгы"</string>
+    <string name="privacyPerms" msgid="1850527049572617">"Купуялуулук"</string>
+    <string name="devicePerms" msgid="6733560207731294504">"Жетүү уруксаттары"</string>
+    <string name="no_new_perms" msgid="6657813692169565975">"Бул жаңыртуу жаңы уруксаттарды талап кылбайт."</string>
+    <string name="grant_confirm_question" msgid="4690289297029223742">"Кийинки уруксаттарды берейин дегениңиз аныкпы? Ал кийинкилерге жетки алат:"</string>
+</resources>
