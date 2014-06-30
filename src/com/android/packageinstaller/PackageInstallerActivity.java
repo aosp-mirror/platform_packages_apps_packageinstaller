@@ -363,6 +363,10 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     }
 
     private boolean isVerifyAppsEnabled() {
+        UserManager um = (UserManager) getSystemService(USER_SERVICE);
+        if (um.hasUserRestriction(UserManager.ENSURE_VERIFY_APPS)) {
+            return true;
+        }
         return Settings.Global.getInt(getContentResolver(),
                 Settings.Global.PACKAGE_VERIFIER_ENABLE, 1) > 0;
     }
