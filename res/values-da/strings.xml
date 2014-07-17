@@ -64,11 +64,14 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> er en del af følgende app:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"Vil du afinstallere denne app?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Vil du afinstallere denne app for "<b>"alle"</b>" brugere? Applikationen og dens data vil blive fjernet fra "<b>"alle"</b>" brugere på denne enhed."</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Vil du afinstallere denne app for brugeren <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"Vil du erstatte denne app med fabriksversionen?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Afinstallerer..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Afinstallationen er afsluttet."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Afinstallationen mislykkedes."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Der kan ikke afinstalleres, fordi denne pakke er en aktiv enhedsadministrator."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Denne app er nødvendig for din profil <xliff:g id="USERNAME">%1$s</xliff:g> og ikke kan afinstalleres."</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Denne app er påkrævet af din enhedsadministrator og kan ikke afinstalleres."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Administrer enhedsadministratorer"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunne ikke afinstalleres."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Parsingfejl"</string>

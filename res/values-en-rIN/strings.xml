@@ -64,11 +64,14 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> is part of the following app:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"Do you want to uninstall this app?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Do you want to uninstall this app for "<b>"all"</b>" users? The application and its data will be removed from "<b>"all"</b>" users on the device."</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Do you want to uninstall this app for the user <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"Do you want to replace this app with the factory version?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Uninstalling…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Uninstall finished"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Uninstall unsuccessful."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Can\'t uninstall because this package is an active device administrator."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"This app is needed for your <xliff:g id="USERNAME">%1$s</xliff:g> profile and can\'t be uninstalled."</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"This app is required by your device administrator and can\'t be uninstalled."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Manage device administrators"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> couldn\'t be uninstalled."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Parse error"</string>
