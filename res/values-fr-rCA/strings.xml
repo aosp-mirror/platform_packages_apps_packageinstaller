@@ -64,11 +64,14 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> fait partie de l\'application suivante :"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"Voulez-vous désinstaller cette application?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Voulez-vous désinstaller cette application pour "<b>"tous"</b>" les utilisateurs? L\'application et ses données seront supprimées pour "<b>"tous"</b>" les utilisateurs de l\'appareil."</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Voulez-vous désinstaller cette application pour l\'utilisateur <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"Voulez-vous rétablir la configuration d\'usine de cette application?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Désinstallation..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Désinstallation terminée."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Échec de la désinstallation."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Impossible de désinstaller ce paquet, car il s\'agit d\'un administrateur actif."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Impossible de désinstaller l\'application : nécessaire pour votre profil « <xliff:g id="USERNAME">%1$s</xliff:g> »."</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Impossible de désinstaller l\'application : requise par administrateur appareil."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Gérer les administrateurs de l\'appareil"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Impossible de désinstaller <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Erreur d\'analyse"</string>

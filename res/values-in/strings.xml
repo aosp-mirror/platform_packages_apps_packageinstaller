@@ -64,11 +64,14 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> adalah bagian dari apl berikut:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"Apakah Anda ingin mencopot pemasangan apl ini?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Anda ingin mencopot aplikasi ini untuk "<b>"semua"</b>" pengguna? Aplikasi dan datanya akan dihapus dari "<b>"semua"</b>" pengguna pada perangkat."</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Ingin mencopot pemasangan aplikasi ini untuk pengguna <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"Apakah Anda ingin mengganti apl ini dengan versi pabrik?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Mencopot pemasangan..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Pencopotan pemasangan selesai."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Pencopotan pemasangan tidak berhasil."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Tdk dpt mencopot pemasangan krn paket ini adlh administrator perangkat yg aktif."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Aplikasi diperlukan untuk profil <xliff:g id="USERNAME">%1$s</xliff:g> Anda dan pemasangannya tidak bisa dicopot."</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Aplikasi diwajibkan administrator perangkat &amp; pemasangannya tidak bisa dicopot."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Kelola administrator perangkat"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> tidak dapat dicopot pemasangannya."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Kesalahan parse"</string>
