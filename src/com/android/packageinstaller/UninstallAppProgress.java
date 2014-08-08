@@ -21,11 +21,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageDeleteObserver;
+import android.content.pm.IPackageDeleteObserver2;
 import android.content.pm.IPackageManager;
+import android.content.pm.PackageInstaller;
 import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.IBinder;
 import android.os.Message;
 import android.os.RemoteException;
 import android.os.ServiceManager;
@@ -52,34 +55,49 @@ import java.util.List;
 public class UninstallAppProgress extends Activity implements OnClickListener {
     private final String TAG="UninstallAppProgress";
     private boolean localLOGV = false;
+
     private ApplicationInfo mAppInfo;
     private boolean mAllUsers;
     private UserHandle mUser;
+    private IBinder mCallback;
+
     private TextView mStatusTextView;
     private Button mOkButton;
     private Button mDeviceManagerButton;
     private ProgressBar mProgressBar;
     private View mOkPanel;
     private volatile int mResultCode = -1;
-    private final int UNINSTALL_COMPLETE = 1;
-    public final static int SUCCEEDED=1;
-    public final static int FAILED=0;
+
+    private static final int UNINSTALL_COMPLETE = 1;
+
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case UNINSTALL_COMPLETE:
+                    mResultCode = msg.arg1;
+                    final String packageName = (String) msg.obj;
+
+                    if (mCallback != null) {
+                        final IPackageDeleteObserver2 observer = IPackageDeleteObserver2.Stub
+                                .asInterface(mCallback);
+                        try {
+                            observer.onPackageDeleted(mAppInfo.packageName, mResultCode,
+                                    packageName);
+                        } catch (RemoteException ignored) {
+                        }
+                        finish();
+                        return;
+                    }
+
                     if (getIntent().getBooleanExtra(Intent.EXTRA_RETURN_RESULT, false)) {
                         Intent result = new Intent();
-                        result.putExtra(Intent.EXTRA_INSTALL_RESULT, msg.arg1);
-                        setResult(msg.arg1 == PackageManager.DELETE_SUCCEEDED
+                        result.putExtra(Intent.EXTRA_INSTALL_RESULT, mResultCode);
+                        setResult(mResultCode == PackageManager.DELETE_SUCCEEDED
                                 ? Activity.RESULT_OK : Activity.RESULT_FIRST_USER,
                                         result);
                         finish();
                         return;
                     }
-
-                    mResultCode = msg.arg1;
-                    final String packageName = (String) msg.obj;
 
                     // Update the status text
                     final String statusText;
@@ -169,6 +187,7 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
                         + "request uninstall for user " + mUser);
             }
         }
+        mCallback = intent.getIBinderExtra(PackageInstaller.EXTRA_CALLBACK);
         initView();
     }
     
