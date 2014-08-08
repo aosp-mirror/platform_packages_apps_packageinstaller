@@ -25,10 +25,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.IPackageDeleteObserver2;
 import android.content.pm.IPackageManager;
+import android.content.pm.PackageInstaller;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserHandle;
@@ -44,22 +47,24 @@ import android.widget.TextView;
  * Intent.ACTION_UNINSTALL_PKG_COMMAND and attribute 
  * com.android.packageinstaller.PackageName set to the application package name
  */
-public class UninstallerActivity extends Activity implements OnClickListener,
-        DialogInterface.OnCancelListener {
+public class UninstallerActivity extends Activity implements OnClickListener {
     private static final String TAG = "UninstallerActivity";
     private boolean localLOGV = false;
-    PackageManager mPm;
+
+    private PackageManager mPm;
     private IPackageManager mIpm;
+
+    private UserHandle mUserHandle;
     private ApplicationInfo mAppInfo;
     private boolean mAllUsers;
+    private IBinder mCallback;
+
     private Button mOk;
     private Button mCancel;
-    private UserHandle mUserHandle;
 
     // Dialog identifiers used in showDialog
     private static final int DLG_BASE = 0;
     private static final int DLG_APP_NOT_FOUND = DLG_BASE + 1;
-    private static final int DLG_UNINSTALL_FAILED = DLG_BASE + 2;
 
     @Override
     public Dialog onCreateDialog(int id) {
@@ -76,33 +81,16 @@ public class UninstallerActivity extends Activity implements OnClickListener,
                                     finish();
                                 }})
                     .create();
-        case DLG_UNINSTALL_FAILED :
-            // Guaranteed not to be null. will default to package name if not set by app
-           CharSequence appTitle = mPm.getApplicationLabel(mAppInfo);
-           String dlgText = getString(R.string.uninstall_failed_msg,
-                    appTitle.toString());
-            // Display uninstall failed dialog
-            return new AlertDialog.Builder(this)
-                    .setTitle(R.string.uninstall_failed)
-                    .setIcon(com.android.internal.R.drawable.ic_dialog_alert)
-                    .setMessage(dlgText)
-                    .setNeutralButton(getString(R.string.dlg_ok), 
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-                                    setResult(Activity.RESULT_FIRST_USER);
-                                    finish();
-                                }})
-                    .create();
         }
         return null;
     }
 
     private void startUninstallProgress() {
         Intent newIntent = new Intent(Intent.ACTION_VIEW);
-        newIntent.putExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO, 
-                                                  mAppInfo);
-        newIntent.putExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, mAllUsers);
         newIntent.putExtra(Intent.EXTRA_USER, mUserHandle);
+        newIntent.putExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, mAllUsers);
+        newIntent.putExtra(PackageInstaller.EXTRA_CALLBACK, mCallback);
+        newIntent.putExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO, mAppInfo);
         if (getIntent().getBooleanExtra(Intent.EXTRA_RETURN_RESULT, false)) {
             newIntent.putExtra(Intent.EXTRA_RETURN_RESULT, true);
             newIntent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
@@ -127,13 +115,15 @@ public class UninstallerActivity extends Activity implements OnClickListener,
             return;
         }
 
+        mPm = getPackageManager();
+        mIpm = IPackageManager.Stub.asInterface(ServiceManager.getService("package"));
+
         mUserHandle = intent.getParcelableExtra(Intent.EXTRA_USER);
         if (mUserHandle == null) {
             mUserHandle = android.os.Process.myUserHandle();
         }
-
-        mPm = getPackageManager();
-        mIpm = IPackageManager.Stub.asInterface(ServiceManager.getService("package"));
+        mAllUsers = intent.getBooleanExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, false);
+        mCallback = intent.getIBinderExtra(PackageInstaller.EXTRA_CALLBACK);
 
         boolean errFlag = false;
         try {
@@ -142,8 +132,6 @@ public class UninstallerActivity extends Activity implements OnClickListener,
         } catch (RemoteException e) {
             errFlag = true;
         }
-
-        mAllUsers = intent.getBooleanExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, false);
 
         // The class name may have been specified (e.g. when deleting an app from all apps)
         String className = packageURI.getFragment();
@@ -205,17 +193,33 @@ public class UninstallerActivity extends Activity implements OnClickListener,
             mCancel.setOnClickListener(this);
         }
     }
-    
+
+    @Override
+    public void onBackPressed() {
+        dispatchAborted();
+        super.onBackPressed();
+    }
+
+    @Override
     public void onClick(View v) {
         if(v == mOk) {
             //initiate next screen
             startUninstallProgress();
-        } else if(v == mCancel) {
+        } else if (v == mCancel) {
+            dispatchAborted();
             finish();
         }
     }
 
-    public void onCancel(DialogInterface dialog) {
-        finish();
+    private void dispatchAborted() {
+        if (mCallback != null) {
+            final IPackageDeleteObserver2 observer = IPackageDeleteObserver2.Stub.asInterface(
+                    mCallback);
+            try {
+                observer.onPackageDeleted(mAppInfo.packageName,
+                        PackageManager.DELETE_FAILED_ABORTED, "Cancelled by user");
+            } catch (RemoteException ignored) {
+            }
+        }
     }
 }
