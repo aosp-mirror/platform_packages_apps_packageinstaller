@@ -26,7 +26,6 @@ import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.InstallSessionInfo;
 import android.content.pm.ManifestDigest;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageInstaller;
@@ -433,7 +432,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         final Intent intent = getIntent();
         if (PackageInstaller.ACTION_CONFIRM_PERMISSIONS.equals(intent.getAction())) {
             final int sessionId = intent.getIntExtra(PackageInstaller.EXTRA_SESSION_ID, -1);
-            final InstallSessionInfo info = mInstaller.getSessionInfo(sessionId);
+            final PackageInstaller.SessionInfo info = mInstaller.getSessionInfo(sessionId);
             if (info == null || !info.sealed || info.resolvedBaseCodePath == null) {
                 Log.w(TAG, "Session " + mSessionId + " in funky state; ignoring");
                 finish();

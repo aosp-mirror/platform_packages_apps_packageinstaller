@@ -77,6 +77,7 @@ public class UninstallerActivity extends Activity implements OnClickListener {
                     .setNeutralButton(getString(R.string.dlg_ok), 
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
+                                    dispatchAborted();
                                     setResult(Activity.RESULT_FIRST_USER);
                                     finish();
                                 }})
