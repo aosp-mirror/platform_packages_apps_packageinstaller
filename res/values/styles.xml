@@ -19,6 +19,8 @@
         <item name="android:paddingStart">16dip</item>
         <item name="android:paddingEnd">16dip</item>
     </style>
-    <style name="DialogWhenLarge" parent="@android:style/Theme.DeviceDefault.NoActionBar">
+    <style name="Theme.DialogWhenLarge" parent="@android:style/Theme.DeviceDefault.Light.DialogWhenLarge.NoActionBar"/>
+    <style name="Theme.AlertDialogActivity" parent="@android:style/Theme.DeviceDefault.Light.Panel">
+        <item name="android:backgroundDimEnabled">true</item>
     </style>
 </resources>
