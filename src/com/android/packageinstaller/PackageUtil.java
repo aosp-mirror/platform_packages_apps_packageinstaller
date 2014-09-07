@@ -110,7 +110,7 @@ public class PackageUtil {
         final PackageManager pm = pContext.getPackageManager();
         Drawable icon = appInfo.loadIcon(pm);
         if (user != null) {
-            icon = pContext.getPackageManager().getUserBadgedDrawableForDensity(icon, user, null, 0);
+            icon = pContext.getPackageManager().getUserBadgedIcon(icon, user);
         }
         return initSnippet(
                 snippetView,
