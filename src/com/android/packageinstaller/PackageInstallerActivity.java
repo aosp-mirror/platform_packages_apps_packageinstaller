@@ -59,7 +59,7 @@ import java.util.List;
  * The package is first parsed and the user is notified of parse errors via a dialog.
  * If the package is successfully parsed, the user is notified to turn on the install unknown
  * applications setting. A memory check is made at this point and the user is notified of out
- * of memory conditions if any. If the package is already existing on the device, 
+ * of memory conditions if any. If the package is already existing on the device,
  * a confirmation dialog (to replace the existing package) is presented to the user.
  * Based on the user response the package is then installed by launching InstallAppConfirm
  * sub activity. All state transitions are handled in this activity
@@ -68,7 +68,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     private static final String TAG = "PackageInstaller";
 
     private int mSessionId = -1;
-    private Uri mPackageURI;    
+    private Uri mPackageURI;
     private Uri mOriginatingURI;
     private Uri mReferrerURI;
     private int mOriginatingUid = VerificationParams.NO_UID;
@@ -76,6 +76,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
 
     private boolean localLOGV = false;
     PackageManager mPm;
+    UserManager mUserManager;
     PackageInstaller mInstaller;
     PackageInfo mPkgInfo;
     ApplicationInfo mSourceInfo;
@@ -102,11 +103,12 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
 
     // Dialog identifiers used in showDialog
     private static final int DLG_BASE = 0;
-    private static final int DLG_UNKNOWN_APPS = DLG_BASE + 1;
+    private static final int DLG_UNKNOWN_SOURCES = DLG_BASE + 1;
     private static final int DLG_PACKAGE_ERROR = DLG_BASE + 2;
     private static final int DLG_OUT_OF_SPACE = DLG_BASE + 3;
     private static final int DLG_INSTALL_ERROR = DLG_BASE + 4;
     private static final int DLG_ALLOW_SOURCE = DLG_BASE + 5;
+    private static final int DLG_ADMIN_RESTRICTS_UNKNOWN_SOURCES = DLG_BASE + 6;
 
     private void startInstallConfirm() {
         TabHost tabHost = (TabHost)findViewById(android.R.id.tabhost);
@@ -234,7 +236,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     @Override
     public Dialog onCreateDialog(int id, Bundle bundle) {
         switch (id) {
-        case DLG_UNKNOWN_APPS:
+        case DLG_UNKNOWN_SOURCES:
             return new AlertDialog.Builder(this)
                     .setTitle(R.string.unknown_apps_dlg_title)
                     .setMessage(R.string.unknown_apps_dlg_text)
@@ -250,7 +252,18 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                         }
                     })
                     .setOnCancelListener(this)
-                    .create(); 
+                    .create();
+        case DLG_ADMIN_RESTRICTS_UNKNOWN_SOURCES:
+            return new AlertDialog.Builder(this)
+                    .setTitle(R.string.unknown_apps_dlg_title)
+                    .setMessage(R.string.unknown_apps_admin_dlg_text)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+                    })
+                    .setOnCancelListener(this)
+                    .create();
         case DLG_PACKAGE_ERROR :
             return new AlertDialog.Builder(this)
                     .setTitle(R.string.Parse_error_dlg_title)
@@ -265,7 +278,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         case DLG_OUT_OF_SPACE:
             // Guaranteed not to be null. will default to package name if not set by app
             CharSequence appTitle = mPm.getApplicationLabel(mPkgInfo.applicationInfo);
-            String dlgText = getString(R.string.out_of_space_dlg_text, 
+            String dlgText = getString(R.string.out_of_space_dlg_text,
                     appTitle.toString());
             return new AlertDialog.Builder(this)
                     .setTitle(R.string.out_of_space_dlg_title)
@@ -275,7 +288,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                             //launch manage applications
                             Intent intent = new Intent("android.intent.action.MANAGE_PACKAGE_STORAGE");
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            startActivity(intent);   
+                            startActivity(intent);
                             finish();
                         }
                     })
@@ -336,17 +349,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         finish();
     }
 
-    private boolean isInstallingUnknownAppsAllowed() {
-        UserManager um = (UserManager) getSystemService(USER_SERVICE);
-
-        boolean disallowedByUserManager = um.getUserRestrictions()
-                .getBoolean(UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES, false);
-        boolean allowedBySecureSettings = Settings.Secure.getInt(getContentResolver(),
-            Settings.Secure.INSTALL_NON_MARKET_APPS, 0) > 0;
-
-        return (allowedBySecureSettings && (!disallowedByUserManager));
-    }
-
     private boolean isInstallRequestFromUnknownSource(Intent intent) {
         String callerPackage = getCallingPackage();
         if (callerPackage != null && intent.getBooleanExtra(
@@ -367,8 +369,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     }
 
     private boolean isVerifyAppsEnabled() {
-        UserManager um = (UserManager) getSystemService(USER_SERVICE);
-        if (um.hasUserRestriction(UserManager.ENSURE_VERIFY_APPS)) {
+        if (mUserManager.hasUserRestriction(UserManager.ENSURE_VERIFY_APPS)) {
             return true;
         }
         return Settings.Global.getInt(getContentResolver(),
@@ -382,6 +383,21 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         verification.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         final List<ResolveInfo> receivers = pm.queryBroadcastReceivers(verification, 0);
         return (receivers.size() > 0) ? true : false;
+    }
+
+    /**
+     * @return whether unknown sources is enabled by user in Settings
+     */
+    private boolean isUnknownSourcesEnabled() {
+        return Settings.Secure.getInt(getContentResolver(),
+                Settings.Secure.INSTALL_NON_MARKET_APPS, 0) > 0;
+    }
+
+    /**
+     * @return whether the device admin restricts installation from unknown sources
+     */
+    private boolean isUnknownSourcesAllowedByAdmin() {
+        return !mUserManager.hasUserRestriction(UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES);
     }
 
     private void initiateInstall() {
@@ -428,6 +444,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
 
         mPm = getPackageManager();
         mInstaller = mPm.getPackageInstaller();
+        mUserManager = (UserManager) getSystemService(Context.USER_SERVICE);
 
         final Intent intent = getIntent();
         if (PackageInstaller.ACTION_CONFIRM_PERMISSIONS.equals(intent.getAction())) {
@@ -450,12 +467,15 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             mReferrerURI = intent.getParcelableExtra(Intent.EXTRA_REFERRER);
         }
 
+        final boolean unknownSourcesAllowedByAdmin = isUnknownSourcesAllowedByAdmin();
+        final boolean unknownSourcesAllowedByUser = isUnknownSourcesEnabled();
+
         boolean requestFromUnknownSource = isInstallRequestFromUnknownSource(intent);
         mInstallFlowAnalytics = new InstallFlowAnalytics();
         mInstallFlowAnalytics.setContext(this);
         mInstallFlowAnalytics.setStartTimestampMillis(SystemClock.elapsedRealtime());
-        mInstallFlowAnalytics.setInstallsFromUnknownSourcesPermitted(
-                isInstallingUnknownAppsAllowed());
+        mInstallFlowAnalytics.setInstallsFromUnknownSourcesPermitted(unknownSourcesAllowedByAdmin
+                && unknownSourcesAllowedByUser);
         mInstallFlowAnalytics.setInstallRequestFromUnknownSource(requestFromUnknownSource);
         mInstallFlowAnalytics.setVerifyAppsEnabled(isVerifyAppsEnabled());
         mInstallFlowAnalytics.setAppVerifierInstalled(isAppVerifierInstalled());
@@ -513,7 +533,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             as = PackageUtil.getAppSnippet(this, mPkgInfo.applicationInfo, sourceFile);
         }
         mInstallFlowAnalytics.setPackageInfoObtained();
-        
+
         //set view
         setContentView(R.layout.install_start);
         mInstallConfirm = findViewById(R.id.install_confirm_panel);
@@ -523,14 +543,25 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         mOriginatingUid = getOriginatingUid(intent);
 
         // Block the install attempt on the Unknown Sources setting if necessary.
-        if ((requestFromUnknownSource) && (!isInstallingUnknownAppsAllowed())) {
-            //ask user to enable setting first
-            showDialogInner(DLG_UNKNOWN_APPS);
-            mInstallFlowAnalytics.setFlowFinished(
-                    InstallFlowAnalytics.RESULT_BLOCKED_BY_UNKNOWN_SOURCES_SETTING);
+        if (!requestFromUnknownSource) {
+            initiateInstall();
             return;
         }
-        initiateInstall();
+
+        // If the admin prohibits it, or we're running in a managed profile, just show error
+        // and exit. Otherwise show an option to take the user to Settings to change the setting.
+        final boolean isManagedProfile = mUserManager.isManagedProfile();
+        if (!unknownSourcesAllowedByAdmin
+                || (!unknownSourcesAllowedByUser && isManagedProfile)) {
+            showDialogInner(DLG_ADMIN_RESTRICTS_UNKNOWN_SOURCES);
+            mInstallFlowAnalytics.setFlowFinished(
+                    InstallFlowAnalytics.RESULT_BLOCKED_BY_UNKNOWN_SOURCES_SETTING);
+        } else if (!unknownSourcesAllowedByUser) {
+            // Ask user to enable setting first
+            showDialogInner(DLG_UNKNOWN_SOURCES);
+            mInstallFlowAnalytics.setFlowFinished(
+                    InstallFlowAnalytics.RESULT_BLOCKED_BY_UNKNOWN_SOURCES_SETTING);
+        }
     }
 
     /** Get the ApplicationInfo for the calling package, if available */
@@ -620,7 +651,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     }
 
     public void onClick(View v) {
-        if(v == mOk) {
+        if (v == mOk) {
             if (mOkCanInstall || mScrollView == null) {
                 mInstallFlowAnalytics.setInstallButtonClicked();
                 if (mSessionId != -1) {
