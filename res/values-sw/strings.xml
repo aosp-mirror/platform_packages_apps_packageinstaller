@@ -64,12 +64,15 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> ni sehemu ya programu ifuatayo:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"Unataka kusanidua programu hii?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Je, unataka kusanidua programu hii kwa "<b>"watumiaji"</b>" wote? Programu na data yake zitaondolewa kutoka kwa "<b>"watumiaji"</b>" kwenye kifaa."</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Je, unataka kuondoa programu hii kwa mtumiaji <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"Ungependa kubadilisha programu hii na toleo ililotoka nalo kiwandani?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Inasanidua..."</string>
-    <string name="uninstall_done" msgid="3792487853420281888">"Kusanidua kumemalizika."</string>
+    <string name="uninstall_done" msgid="3792487853420281888">"Imesaniduliwa."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Kusanidua hakukufaulu."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Haiwezi kusanidua kwa sababu furushi hili ni kifaa amilifu cha usimamizi."</string>
-    <string name="manage_device_administrators" msgid="891392489300312370">"Dhibiti wasimamizi wa kifaa"</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Furushi hili haliwezi kusaniduliwa kwa sababu ni kidhibiti kinachosimamia kifaa."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Programu hii inahitajika kwa ajili ya wasifu wako <xliff:g id="USERNAME">%1$s</xliff:g> na haiwezi kuondolewa."</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Programu hii inahitajika na msimamizi wako wa kifaa na haiwezi kuondolewa."</string>
+    <string name="manage_device_administrators" msgid="891392489300312370">"Simamia vidhibiti vya kifaa"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> haingeweza kusaniduliwa."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Changanua hitilafu"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Kulikuwa na tatizo la kuchanganua furushi."</string>

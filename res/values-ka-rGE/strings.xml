@@ -65,11 +65,14 @@
     <string name="uninstall_application_text" msgid="6691975835951187030">"გსურთ, ამ აპის დეინსტალაცია?"</string>
     <!-- syntax error in translation for uninstall_application_text_all_users (5574704453233525222) org.xmlpull.v1.XmlPullParserException: expected: /string read: b (position:END_TAG </b>@1:122 in     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"გსურთ ამ აპის დეინსტალაცია ყველა"</b>" მომხმარებილის "<b>"-თვის? აპლიკაცია და მისი მონაცემენბი წაიშლება ყველა"</b>" მომხმარებლის "<b>"-თვის მოწყობილობაზე."</string>
 )  -->
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"გსურთ <xliff:g id="USERNAME">%1$s</xliff:g> მომხმარებლისათვის ამ აპის დეინსტალაცია?"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"გნებავთ ამ აპის ჩანაცვლება მწარმოებლის ვერსიით?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"დეინსტალაცია…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"დეინსტალაცია დასრულდა."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"დეინსტალაცია წარუმატებელია."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"დეინსტალაცია ვერ ხერხდება, რადგან ეს პაკეტი არის მოწყობილობის აქტიური ადმინისტრატორი."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"ეს აპი საჭიროა თქვენი <xliff:g id="USERNAME">%1$s</xliff:g> პროფილისათვის და მისი დეინსტალაცია ვერ მოხერხდება."</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"ეს აპი საჭიროა თქვენი მოწყ. ადმინისტრატორისათვის და დეინსტალაცია ვერ გამოვა."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"მოწყობილობის ადმინისტრატორების მართვა"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> -ის დეინსტალაცია ვერ მოხერხდა."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"შეცდომა კოდის ანალიზისას"</string>

@@ -17,11 +17,11 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="2738748390251381682">"Package ထည့်သွင်းခြင်း"</string>
-    <string name="next" msgid="3057143178373252333">"အရှေ့သို့"</string>
+    <string name="next" msgid="3057143178373252333">"ရှေ့သို့"</string>
     <string name="install" msgid="5896438203900042068">"ထည့်သွင်းပါ"</string>
     <string name="done" msgid="3889387558374211719">"ပြီးပါပြီ"</string>
     <string name="security_settings_desc" msgid="2706691034244052604">"ဒီအပလီကေးရှင်းကို ခွင့်ပြုရမှာကတော့:"</string>
-    <string name="cancel" msgid="8360346460165114585">"ပယ်ဖျက်ရန်"</string>
+    <string name="cancel" msgid="8360346460165114585">"ထားတော့"</string>
     <string name="unknown" msgid="4742479012767208045">"အကြောင်းအရာ မသိရှိ"</string>
     <string name="installing" msgid="8613631001631998372">"ထည့်သွင်းနေပါသည်"</string>
     <string name="install_done" msgid="3682715442154357097">"အပလီကေးရှင်း ထည့်သွင်းပြီး"</string>
@@ -46,7 +46,7 @@
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"ထည့်သွင်းခြင်းမပြုလုပ်နိုင်ရန် ပိတ်ပင်ထားသည်"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"လုံခြုံရေးအတွက်, ဇစ်မြစ် မသိသော အပလီကေးရှင်းများ တက်ဘလက်ထဲ သွင်းခြင်းကို ပိတ်ပင်ထားပါသည်"</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"လုံခြုံရေးအတွက်, ဇစ်မြစ် မသိသော အပလီကေးရှင်းများ ဖုန်းထဲ သွင်းခြင်းကို ပိတ်ပင်မှု ပြုလုပ်ထားပါသည်"</string>
-    <string name="ok" msgid="3468756155452870475">"သဘောတူသည်"</string>
+    <string name="ok" msgid="3468756155452870475">"ကောင်းပြီ"</string>
     <string name="settings" msgid="6743583734099755409">"အပြင်အဆင်များ"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"အပလီကေးရှင်းထည့်သွင်းရန် ပင်မနေရာသစ်"</string>
     <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g>သည် တခြားအပ်ပလီကေးရှင်းအားထည့်သွင်းချင်ပါသည်.\n\nယခု နှင့် နောင်တွင်လဲ ခွင့်ပြုမည်လား"</string>
@@ -56,7 +56,7 @@
     <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"ဒီဟာသည် စနစ်၏အပလီကေးရှင်း ဖြစ်ပါသည်။ \n\nယခင် သုံးစွဲသူအချက်အလက်များ ကို သိမ်းဆည်းပေးပါမည်။"</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"နေရာလွတ်မရှိပါ"</string>
     <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> ကို ထည့်သွင်းလို့ မရနိုင်ပါ။ နေရာအပိုရအောင် ရှင်းလင်းပြီး ပြန်ကြိုးစားပါ"</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"သဘောတူသည်"</string>
+    <string name="dlg_ok" msgid="6944357727705699232">"ကောင်းပြီ"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"အပလီကေးရှင်း အားမတွေ့ပါ"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"ထည့်သွင်းထားသော အပလီကေးရှင်းထဲတွင် ဤအပလီကေးရှင်း မတွေ့ရှိပါ"</string>
     <string name="uninstall_application_title" msgid="1860074100811653963">"အပလီကေးရှင်းကို ဖယ်ရှားပါ"</string>
@@ -64,11 +64,14 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> ကတော့ အောက်ပါ အပလီကေးရှင်း၏အစိတ်အပိုင်း တစ်ခု ဖြစ်ပါသည်:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"ဤအပလီကေးရှင်းကို သင်ဖယ်ရှားချင်ပါသလား"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"ဤအပလီကေးရှင်းကို အသုံးပြုသူ"<b>" အားလုံး"</b>" အတွက် ဖယ်ရှားချင်ပါသလား? ဤအပလီကေးရှင်း နှင့် သက်ဆိုင်ရာ အချက်အလက်များ အားလုံးကို "<b>" မှ  အားလုံးသော "</b>" စက်အသုံးပြုသူတွေအတွက် ဖယ်ရှားပစ်ပါလိမ့်မည်"</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"သင်သည် အသုံးပြုသူ <xliff:g id="USERNAME">%1$s</xliff:g> အတွက် ဒီအကောင့်ကို ဖြုတ်ပစ်လိုပါသလား?"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"ဒီ အပလီကေးရှင်းကို မူလ စက်ရုံထုတ်မူကွဲနှင့် အစားထိုးချင်ပါသလား"</string>
     <string name="uninstalling" msgid="5556217435895938250">"ဖယ်ထုတ်သည်"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"ဖယ်ရှားခြင်း ပြီးပါပြီ"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"ဖယ်ရှားမှု မအောင်မြင်ပါ"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"ဤ အချက်အလက်အစုသည်လက်ရှိ စက်၏ အက်ဒ်မင် ဖြစ်နေသောကြောင့် ဖယ်ရှားလို့ မရပါ"</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"ဒီappမှာ သင်၏ <xliff:g id="USERNAME">%1$s</xliff:g> ပရိုဖိုင် အတွက် လိုအပ်သောကြောင့် ဖြုတ်၍ မရနိုင်ပါ။"</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"ဒီappမှာ သင်၏ ကိရိယာ စီမံအုပ်ချုပ်သူက လိုအပ်သောကြောင့် ဖြုတ်၍ မရနိုင်ပါ။"</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"စက်ပစ္စည်းထိန်းချုပ်မှုအား စီမံရန်"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> ကို ဖယ်ရှားလို့ မရပါ"</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"ဖတ်ရှုရာတွင် မှားယွင်းမှု"</string>

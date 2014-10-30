@@ -64,11 +64,14 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> هو جزء من التطبيق التالي:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"هل تريد إزالة هذا التطبيق؟"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"هل تريد إزالة هذا التطبيق "<b>"لكل"</b>" المستخدمين؟ ستتم إزالة التطبيق وبياناته من "<b>"كل"</b>" المستخدمين على هذا الجهاز."</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"هل تريد إزالة هذا التطبيق للمستخدم <xliff:g id="USERNAME">%1$s</xliff:g>؟"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"هل تريد استبدال هذا التطبيق بإصدار المصنع؟"</string>
     <string name="uninstalling" msgid="5556217435895938250">"جارٍ الإزالة..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"انتهت الإزالة."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"أخفقت الإزالة."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"تتعذر الإزالة نظرًا لأن هذه الحزمة تمثل مشرفًا نشطًا للجهاز."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"هذا التطبيق مطلوب لملفك الشخصي في <xliff:g id="USERNAME">%1$s</xliff:g> ولا يمكن إزالته."</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"مشرف الجهاز يحتاج إلى هذا التطبيق ولا يمكن إزالته."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"إدارة مشرفي الجهاز"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"تعذرت إزالة <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"خطأ في التحليل"</string>

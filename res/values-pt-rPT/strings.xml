@@ -44,8 +44,8 @@
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Não foi possível instalar <xliff:g id="APP_NAME">%1$s</xliff:g> no telemóvel."</string>
     <string name="launch" msgid="4826921505917605463">"Abrir"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Instalação bloqueada"</string>
-    <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Por segurança, o tablet está definido p/ bloquear inst. aplicações obtidas de fontes desconhecidas."</string>
-    <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Por segurança, o telemóvel está definido p/ bloquear inst. aplicações obtidas de fontes desconhecidas."</string>
+    <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Por segurança, o tablet está definido para bloquear a inst. de aplicações obtidas de fontes desconhecidas."</string>
+    <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Por segurança, o telemóvel está definido para bloquear a inst. de aplicações obtidas de fontes desconhecidas."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Definições"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Nova fonte para aplicações"</string>
@@ -64,11 +64,14 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> faz parte da seguinte aplicação:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"Pretende desinstalar esta aplicação?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Pretende desinstalar esta aplicação para "<b>"todos"</b>" os utilizadores? A aplicação e os respetivos dados serão removidos de "<b>"todos"</b>" os utilizadores do dispositivo."</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Pretende desinstalar esta aplicação para o utilizador <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"Pretende substituir esta aplicação pela versão de fábrica?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"A desinstalar..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Desinstalação concluída."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Desinstalação sem êxito."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Não é possível desinstalar porque este pacote é um admin. de aparelho ativo."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Esta aplicação é necessária para o seu perfil <xliff:g id="USERNAME">%1$s</xliff:g> e não pode ser desinstalada."</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Esta aplic. é exigida pelo administrador do disp. e não pode ser desinstalada."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Gerir administradores de aparelhos"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Não foi possível desinstalar <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Erro de análise"</string>

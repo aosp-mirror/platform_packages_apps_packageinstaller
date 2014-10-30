@@ -47,7 +47,7 @@
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"பாதுகாப்பிற்கு, தெரியாத மூலங்களிலிருந்து பெறப்படும் பயன்பாடுகளின் நிறுவலைத் தடுக்கும்படி உங்கள் டேப்லெட் அமைக்கப்பட்டுள்ளது."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"பாதுகாப்பிற்கு, தெரியாத மூலங்களிலிருந்து பெறப்படும் பயன்பாடுகளின் நிறுவலைத் தடுக்கும்படி உங்கள் மொபைல் அமைக்கப்பட்டுள்ளது."</string>
     <string name="ok" msgid="3468756155452870475">"சரி"</string>
-    <string name="settings" msgid="6743583734099755409">"அமைப்புகள்"</string>
+    <string name="settings" msgid="6743583734099755409">"அமைப்பு"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"பயன்பாடுகளுக்கான புதிய மூலம்"</string>
     <string name="allow_source_dlg_text" msgid="3927580956764099076">"பிற பயன்பாடுகளை நிறுவுவதற்கும் <xliff:g id="APP_NAME">%1$s</xliff:g> பயன்பாடு விரும்புகிறது.\n\nஇதை இப்போதும், எதிர்காலத்திலும் அனுமதிக்கவா?"</string>
     <string name="manage_applications" msgid="4033876279091996596">"பயன்பாடுகளை நிர்வகிக்கவும்"</string>
@@ -64,11 +64,14 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> ஆனது பின்வரும் பயன்பாட்டின் பகுதியாகும்:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"இந்தப் பயன்பாட்டை நிறுவல் நீக்க விரும்புகிறீர்களா?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"இந்தப் பயன்பாட்டை "<b>"எல்லா"</b>" பயனர்களுக்கும் நிறுவல் நீக்க விரும்புகிறீர்களா? பயன்பாடும், அதன் தரவும் சாதனத்தில் உள்ள "<b>"எல்லா"</b>" பயனர்களிடமிருந்தும் அகற்றப்படும்."</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"<xliff:g id="USERNAME">%1$s</xliff:g> பயனருக்கான இந்தப் பயன்பாட்டை நிறுவல்நீக்க விரும்புகிறீர்களா?"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"ஆரம்பநிலைப் பதிப்பைக் கொண்டு இந்தப் பயன்பாட்டை மாற்ற விரும்புகிறீர்களா?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"நிறுவலை நீக்குகிறது…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"நிறுவல் நீக்குவது முடிந்தது."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"நிறுவல் நீக்குவதில் தோல்வி."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"இந்தத் தொகுப்பு, செயலில் உள்ள சாதன நிர்வாகி என்பதால் நிறுவல் நீக்க முடியாது."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"உங்கள் <xliff:g id="USERNAME">%1$s</xliff:g> சுயவிவரத்திற்கு இந்தப் பயன்பாடு தேவைப்படுவதால், நிறுவல்நீக்க முடியாது."</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"சாதன நிர்வாகிக்கு இந்தப் பயன்பாடு தேவைப்படுவதால், நிறுவல்நீக்க முடியாது."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"சாதன நிர்வாகிகளை நிர்வகி"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> பயன்பாட்டை நிறுவல் நீக்க முடியாது."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"குறியீட்டுப் பிழை"</string>
