@@ -561,6 +561,8 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             showDialogInner(DLG_UNKNOWN_SOURCES);
             mInstallFlowAnalytics.setFlowFinished(
                     InstallFlowAnalytics.RESULT_BLOCKED_BY_UNKNOWN_SOURCES_SETTING);
+        } else {
+            initiateInstall();
         }
     }
 
