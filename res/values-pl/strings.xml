@@ -36,21 +36,18 @@
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Jest już zainstalowany istniejący pakiet o takiej nazwie, ale z innym podpisem."</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Ten pakiet działa tylko w nowszych wersjach systemu Android."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Aplikacja jest niezgodna z Twoim tabletem."</string>
-    <!-- no translation found for install_failed_cpu_abi_incompatible (1309625657882930450) -->
-    <skip />
+    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Ta aplikacja nie jest zgodna z Twoim telewizorem."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Aplikacja jest niezgodna z Twoim telefonem."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Określony pakiet został usunięty przed ukończeniem instalacji."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"Pakiet nie przeszedł weryfikacji i nie można go zainstalować."</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Podczas próby weryfikacji pakietu przekroczono czas oczekiwania. Spróbuj zainstalować go później."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Nie można zainstalować aplikacji <xliff:g id="APP_NAME">%1$s</xliff:g> na Twoim tablecie."</string>
-    <!-- no translation found for install_failed_msg (3990457938384021566) -->
-    <skip />
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Nie udało się zainstalować <xliff:g id="APP_NAME">%1$s</xliff:g> na Twoim telewizorze."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Nie można zainstalować aplikacji <xliff:g id="APP_NAME">%1$s</xliff:g> na Twoim telefonie."</string>
     <string name="launch" msgid="4826921505917605463">"Otwórz"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Instalowanie zablokowane"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Dla bezpieczeństwa w tablecie zablokowano możliwość instalowania aplikacji z nieznanych źródeł."</string>
-    <!-- no translation found for unknown_apps_dlg_text (7195713985140602351) -->
-    <skip />
+    <string name="unknown_apps_dlg_text" product="TV" msgid="7195713985140602351">"Ustawienia telewizora nie pozwalają instalować aplikacji z nieznanych źródeł (dla bezpieczeństwa)."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Dla bezpieczeństwa w telefonie zablokowano możliwość instalowania aplikacji z nieznanych źródeł."</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Twój administrator nie zezwala na instalowanie aplikacji pochodzących z nieznanych źródeł."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
