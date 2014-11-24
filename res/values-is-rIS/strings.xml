@@ -36,16 +36,20 @@
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Pakki með sama heiti og með undirskrift sem rekst á er þegar uppsettur."</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Pakkinn virkar aðeins í nýrri útgáfum af Android."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Þetta forrit er ekki samhæft við spjaldtölvuna."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Þetta forrit er ekki samhæft við sjónvarpið."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Þetta forrit er ekki samhæft við símann."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Tilgreindum pakka var eytt áður en tókst að ljúka uppsetningunni."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"Pakkinn stóðst ekki sannprófun og ekki er hægt að setja hann upp."</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Staðfesting þessa pakka rann út á tíma. Prófaðu uppsetningu aftur síðar."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Ekki tókst að setja <xliff:g id="APP_NAME">%1$s</xliff:g> upp í spjaldtölvunni."</string>
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Ekki var hægt að setja <xliff:g id="APP_NAME">%1$s</xliff:g> upp í sjónvarpinu."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Ekki tókst að setja <xliff:g id="APP_NAME">%1$s</xliff:g> upp í símanum."</string>
     <string name="launch" msgid="4826921505917605463">"Opna"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Uppsetning læst"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Af öryggisástæðum er spjaldtölvan stillt á að loka á uppsetningu forrita af óþekktum uppruna."</string>
+    <string name="unknown_apps_dlg_text" product="TV" msgid="7195713985140602351">"Af öryggisástæðum er sjónvarpið stillt á að loka á uppsetningu forrita af óþekktum uppruna."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Af öryggisástæðum er síminn stilltur á að loka á uppsetningu forrita af óþekktum uppruna."</string>
+    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Kerfisstjórinn þinn leyfir ekki uppsetningu forrita af óþekktum uppruna."</string>
     <string name="ok" msgid="3468756155452870475">"Í lagi"</string>
     <string name="settings" msgid="6743583734099755409">"Stillingar"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Ný forritaveita"</string>
@@ -70,7 +74,7 @@
     <string name="uninstall_done" msgid="3792487853420281888">"Forritið hefur verið fjarlægt."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Ekki tókst að fjarlægja forritið."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Ekki er hægt að fjarlægja forritið því að pakkinn er virkur stjórnandi tækis."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Prófíllinn þinn, <xliff:g id="USERNAME">%1$s</xliff:g>, krefst þessa forrits og ekki er hægt að fjarlægja það."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Sniðið þitt, <xliff:g id="USERNAME">%1$s</xliff:g>, krefst þessa forrits og ekki er hægt að fjarlægja það."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Stjórnandi tækisins krefst þessa forrits og ekki er hægt að fjarlægja það."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Hafa umsjón með stjórnendum tækis"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Ekki tókst að fjarlægja <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
