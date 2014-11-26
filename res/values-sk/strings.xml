@@ -36,21 +36,18 @@
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Už je nainštalovaný existujúci balík s rovnakým názvom a kolidujúcim podpisom."</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Balík funguje iba v novších verziách systému Android."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Táto aplikácia nie je kompatibilná s vaším tabletom."</string>
-    <!-- no translation found for install_failed_cpu_abi_incompatible (1309625657882930450) -->
-    <skip />
+    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Táto aplikácia nie je kompatibilná s vaším televízorom."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Táto aplikácia nie je kompatibilná s vaším telefónom."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Pred dokončením inštalácie bol vybratý balík odstránený."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"Balík neprešiel overením a nemôže byť nainštalovaný."</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Pri verifikácii tohto balíka vypršal časový limit. Skúste ho nainštalovať neskôr."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Aplikáciu <xliff:g id="APP_NAME">%1$s</xliff:g> sa do vášho tabletu nepodarilo nainštalovať."</string>
-    <!-- no translation found for install_failed_msg (3990457938384021566) -->
-    <skip />
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Aplikáciu <xliff:g id="APP_NAME">%1$s</xliff:g> sa nepodarilo nainštalovať na vašom televízore."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Aplikáciu <xliff:g id="APP_NAME">%1$s</xliff:g> sa do vášho telefónu nepodarilo nainštalovať."</string>
     <string name="launch" msgid="4826921505917605463">"Otvoriť"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Inštalácia bola zablokovaná"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Tablet je z dôvodu zabezpečenia nastavený tak, aby blokoval inštalácie aplikácií z neznámych zdrojov."</string>
-    <!-- no translation found for unknown_apps_dlg_text (7195713985140602351) -->
-    <skip />
+    <string name="unknown_apps_dlg_text" product="TV" msgid="7195713985140602351">"Váš televízor blokuje z bezpečnostných dôvodov inštaláciu aplikácií získaných z neznámych zdrojov."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Telefón je z dôvodu zabezpečenia nastavený tak, aby blokoval inštalácie aplikácií z neznámych zdrojov."</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Váš správca zakázal inštaláciu aplikácií z neznámych zdrojov."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
