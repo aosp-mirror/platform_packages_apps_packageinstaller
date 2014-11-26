@@ -36,21 +36,18 @@
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Пакет с таким названием уже установлен и имеет конфликтующую подпись."</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Этот пакет поддерживается только в системе Android более поздних версий."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Приложение несовместимо с вашим устройством."</string>
-    <!-- no translation found for install_failed_cpu_abi_incompatible (1309625657882930450) -->
-    <skip />
+    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Это приложение несовместимо с вашим телевизором."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Приложение несовместимо с вашим устройством."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Указанный пакет удален до завершения установки."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"Пакет не проверен и не может быть установлен."</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Не удалось проверить пакет. Попробуйте установить его позже."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Не удалось установить приложение \"<xliff:g id="APP_NAME">%1$s</xliff:g>\"."</string>
-    <!-- no translation found for install_failed_msg (3990457938384021566) -->
-    <skip />
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Приложение \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" нельзя установить на ваш телевизор."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Не удалось установить приложение \"<xliff:g id="APP_NAME">%1$s</xliff:g>\"."</string>
     <string name="launch" msgid="4826921505917605463">"Открыть"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Установка заблокирована"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"В целях безопасности на устройстве заблокирована установка приложений из неизвестных источников."</string>
-    <!-- no translation found for unknown_apps_dlg_text (7195713985140602351) -->
-    <skip />
+    <string name="unknown_apps_dlg_text" product="TV" msgid="7195713985140602351">"В целях безопасности ваш телевизор блокирует установку приложений из неизвестных источников."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"В целях безопасности на устройстве заблокирована установка приложений из неизвестных источников."</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Ваш администратор запретил устанавливать приложения из неизвестных источников."</string>
     <string name="ok" msgid="3468756155452870475">"ОК"</string>
