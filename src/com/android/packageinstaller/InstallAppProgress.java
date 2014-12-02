@@ -92,8 +92,8 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
                     // Show the ok button
                     int centerTextLabel;
                     int centerExplanationLabel = -1;
-                    LevelListDrawable centerTextDrawable = (LevelListDrawable) getResources()
-                            .getDrawable(R.drawable.ic_result_status);
+                    LevelListDrawable centerTextDrawable =
+                            (LevelListDrawable) getDrawable(R.drawable.ic_result_status);
                     if (msg.arg1 == PackageManager.INSTALL_SUCCEEDED) {
                         mLaunchButton.setVisibility(View.VISIBLE);
                         centerTextDrawable.setLevel(0);
