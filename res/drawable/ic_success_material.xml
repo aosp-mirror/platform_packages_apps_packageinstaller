@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2011 The Android Open Source Project
+<!-- Copyright (C) 2014 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,9 +13,6 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<level-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- success state -->
-    <item android:maxLevel="0" android:drawable="@drawable/ic_success_material"/>
-    <!-- failure state -->
-    <item android:maxLevel="1" android:drawable="@drawable/ic_fail_material"/>
-</level-list>
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+    android:src="@drawable/ic_success"
+    android:tint="?android:attr/colorControlNormal" />
