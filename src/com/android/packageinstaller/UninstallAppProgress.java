@@ -17,6 +17,7 @@
 package com.android.packageinstaller;
 
 import android.app.Activity;
+import android.app.admin.IDevicePolicyManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -54,7 +55,6 @@ import java.util.List;
  */
 public class UninstallAppProgress extends Activity implements OnClickListener {
     private final String TAG="UninstallAppProgress";
-    private boolean localLOGV = false;
 
     private ApplicationInfo mAppInfo;
     private boolean mAllUsers;
@@ -109,13 +109,46 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
                             Toast.makeText(ctx, statusText, Toast.LENGTH_LONG).show();
                             setResultAndFinish(mResultCode);
                             return;
-                        case PackageManager.DELETE_FAILED_DEVICE_POLICY_MANAGER:
-                            Log.d(TAG, "Uninstall failed because " + packageName
-                                    + " is a device admin");
-                            mDeviceManagerButton.setVisibility(View.VISIBLE);
-                            statusText = getString(R.string.uninstall_failed_device_policy_manager);
+                        case PackageManager.DELETE_FAILED_DEVICE_POLICY_MANAGER: {
+                            UserManager userManager =
+                                    (UserManager) getSystemService(Context.USER_SERVICE);
+                            IDevicePolicyManager dpm = IDevicePolicyManager.Stub.asInterface(
+                                    ServiceManager.getService(Context.DEVICE_POLICY_SERVICE));
+                            // Find out if the package is an active admin for some non-current user.
+                            int myUserId = UserHandle.myUserId();
+                            UserInfo otherBlockingUser = null;
+                            for (UserInfo user : userManager.getUsers()) {
+                                if (user.id == myUserId) continue;
+                                UserInfo parentUser = userManager.getProfileParent(user.id);
+                                // User in question is a profile of current user
+                                if (parentUser != null && parentUser.id == myUserId) continue;
+
+                                try {
+                                    if (dpm.packageHasActiveAdmins(packageName, user.id)) {
+                                        otherBlockingUser = user;
+                                        break;
+                                    }
+                                } catch (RemoteException e) {
+                                    Log.e(TAG, "Failed to talk to package manager", e);
+                                }
+                            }
+                            if (otherBlockingUser == null) {
+                                Log.d(TAG, "Uninstall failed because " + packageName
+                                        + " is a device admin");
+                                mDeviceManagerButton.setVisibility(View.VISIBLE);
+                                statusText = getString(
+                                        R.string.uninstall_failed_device_policy_manager);
+                            } else {
+                                Log.d(TAG, "Uninstall failed because " + packageName
+                                        + " is a device admin of user " + otherBlockingUser);
+                                mDeviceManagerButton.setVisibility(View.GONE);
+                                statusText = String.format(
+                                        getString(R.string.uninstall_failed_device_policy_manager_of_user),
+                                        otherBlockingUser.name);
+                            }
                             break;
-                        case PackageManager.DELETE_FAILED_OWNER_BLOCKED:
+                        }
+                        case PackageManager.DELETE_FAILED_OWNER_BLOCKED: {
                             UserManager userManager =
                                     (UserManager) getSystemService(Context.USER_SERVICE);
                             IPackageManager packageManager = IPackageManager.Stub.asInterface(
@@ -149,6 +182,7 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
                                         userName);
                             }
                             break;
+                        }
                         default:
                             Log.d(TAG, "Uninstall failed for " + packageName + " with code "
                                     + msg.arg1);
