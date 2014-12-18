@@ -70,6 +70,14 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
 
     private static final int UNINSTALL_COMPLETE = 1;
 
+    private boolean isProfileOfOrSame(UserManager userManager, int userId, int profileId) {
+        if (userId == profileId) {
+            return true;
+        }
+        UserInfo parentUser = userManager.getProfileParent(profileId);
+        return parentUser != null && parentUser.id == userId;
+    }
+
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -118,10 +126,9 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
                             int myUserId = UserHandle.myUserId();
                             UserInfo otherBlockingUser = null;
                             for (UserInfo user : userManager.getUsers()) {
-                                if (user.id == myUserId) continue;
-                                UserInfo parentUser = userManager.getProfileParent(user.id);
-                                // User in question is a profile of current user
-                                if (parentUser != null && parentUser.id == myUserId) continue;
+                                // We only catch the case when the user in question is neither the
+                                // current user nor its profile.
+                                if (isProfileOfOrSame(userManager, myUserId, user.id)) continue;
 
                                 try {
                                     if (dpm.packageHasActiveAdmins(packageName, user.id)) {
@@ -168,7 +175,12 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
                                     Log.e(TAG, "Failed to talk to package manager", e);
                                 }
                             }
-                            mDeviceManagerButton.setVisibility(View.VISIBLE);
+                            int myUserId = UserHandle.myUserId();
+                            if (isProfileOfOrSame(userManager, myUserId, blockingUserId)) {
+                                mDeviceManagerButton.setVisibility(View.VISIBLE);
+                            } else {
+                                mDeviceManagerButton.setVisibility(View.GONE);
+                            }
                             if (blockingUserId == UserHandle.USER_OWNER) {
                                 statusText = getString(R.string.uninstall_blocked_device_owner);
                             } else if (blockingUserId == UserHandle.USER_NULL) {
