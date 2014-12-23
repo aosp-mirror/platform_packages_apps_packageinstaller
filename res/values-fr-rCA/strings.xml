@@ -74,6 +74,7 @@
     <string name="uninstall_done" msgid="3792487853420281888">"Désinstallation terminée."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Échec de la désinstallation."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Impossible de désinstaller ce paquet, car il s\'agit d\'un administrateur actif."</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Désinst. imposs., car ce paquet est un administrateur d\'appareil actif pour <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
     <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Impossible de désinstaller l\'application : nécessaire pour votre profil « <xliff:g id="USERNAME">%1$s</xliff:g> »."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Impossible de désinstaller l\'application : requise par administrateur appareil."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Gérer les administrateurs de l\'appareil"</string>
