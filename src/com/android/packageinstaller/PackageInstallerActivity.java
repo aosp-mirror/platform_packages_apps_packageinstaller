@@ -356,7 +356,8 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             try {
                 mSourceInfo = mPm.getApplicationInfo(callerPackage, 0);
                 if (mSourceInfo != null) {
-                    if ((mSourceInfo.flags & ApplicationInfo.FLAG_PRIVILEGED) != 0) {
+                    if ((mSourceInfo.privateFlags & ApplicationInfo.PRIVATE_FLAG_PRIVILEGED)
+                            != 0) {
                         // Privileged apps are not considered an unknown source.
                         return false;
                     }
@@ -593,7 +594,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         ApplicationInfo sourceInfo = getSourceInfo();
         if (sourceInfo != null) {
             if (uidFromIntent != VerificationParams.NO_UID &&
-                    (mSourceInfo.flags & ApplicationInfo.FLAG_PRIVILEGED) != 0) {
+                    (mSourceInfo.privateFlags & ApplicationInfo.PRIVATE_FLAG_PRIVILEGED) != 0) {
                 return uidFromIntent;
 
             }
@@ -623,7 +624,8 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                         ApplicationInfo applicationInfo =
                                 mPm.getApplicationInfo(packageName, 0);
 
-                        if ((applicationInfo.flags & ApplicationInfo.FLAG_PRIVILEGED) != 0) {
+                        if ((applicationInfo.privateFlags & ApplicationInfo.PRIVATE_FLAG_PRIVILEGED)
+                                != 0) {
                             return uidFromIntent;
                         }
                     } catch (NameNotFoundException ex) {
