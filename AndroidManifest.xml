@@ -50,7 +50,7 @@
                 android:configChanges="orientation|keyboardHidden|screenSize"
                 android:excludeFromRecents="true"
                 android:theme="@style/Theme.AlertDialogActivity">
-            <intent-filter>
+            <intent-filter android:priority="1">
                 <action android:name="android.intent.action.DELETE" />
                 <action android:name="android.intent.action.UNINSTALL_PACKAGE" />
                 <category android:name="android.intent.category.DEFAULT" />
