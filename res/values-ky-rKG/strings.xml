@@ -45,18 +45,22 @@
     <!-- no translation found for install_failed_older_sdk (7947925824732917665) -->
     <skip />
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Бул колдонмо планшетиңизге шайкеш эмес."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Бул колдонмо сыналгыңызга шайкеш келбейт."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Бул колдонмо телефонуңузга шайкеш эмес."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Көрсөтүлгөн таңгак орнотуу аяктай электе жок кылынды."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"Таңгак текшерүүдөн өткөн жок жана аны орнотууга болбойт."</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Бул таңгакты ырастоого бөлүнгөн убакыт өтүп кетти. Аны кийинчерээк кайта орнотуп көрүңүз."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> колдонмосун планшетиңизге орнотуу мүмкүн эмес."</string>
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> сыналгыңызга орнотулбай койду."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> колдонмосун телефонуңузга орнотуу мүмкүн эмес."</string>
     <!-- no translation found for launch (4826921505917605463) -->
     <skip />
     <!-- no translation found for unknown_apps_dlg_title (2855558586206583032) -->
     <skip />
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Коопсуздукту камсыздоо үчүн, планшетиңизде белгисиз булактардан келген колдонмолорду орнотуу бөгөттөлгөн."</string>
+    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Коопсуздукту камсыз кылуу үчн, сыналгыңызда белгисз булактардн алынгн колдонмлрду орнтуу бөгөттөлгн."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Коопсуздукту камсыздоо үчүн, телефонуңузда белгисиз булактардан келген колдонмолорду орнотуу бөгөттөлгөн."</string>
+    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Администраторуңуз белгисиз булактардан алынган колдонмолордун орнотулушуна жол бербейт."</string>
     <!-- no translation found for ok (3468756155452870475) -->
     <skip />
     <!-- no translation found for settings (6743583734099755409) -->
@@ -79,12 +83,15 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> кийинки колдонмонун бөлүгү:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"Бул колдонмону чечип салгыңыз келеби?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Бул колдонмо "<b>"бардык"</b>" колдонуучулардан алынып салынсынбы? Бул колдонмо жана анын берилиштери бул түзмөктүн "<b>"бардык"</b>" колдонуучуларынан алынат."</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Бул колдонмону <xliff:g id="USERNAME">%1$s</xliff:g> колдонуучусу үчүн орнотуудан чыгаргыңыз келеби?"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"Бул колдонмону абалкы орнотулган версиясы менен алмаштырасызбы?"</string>
     <!-- no translation found for uninstalling (5556217435895938250) -->
     <skip />
     <string name="uninstall_done" msgid="3792487853420281888">"Чечилип бүттү."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Чечүү ийгиликсиз болду."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Чечүү кыйрады, анткени бул таңгак түзмөктүн учурдагы администратору."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Бул түзмөк <xliff:g id="USERNAME">%1$s</xliff:g> профилиңизге керек жана орнотуудан чыгаруу мүмкүн эмес."</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Бул колдонмо түзмөк администраторуңузга керектелет жана орнотуудан чыгаруу мүмкүн эмес."</string>
     <!-- no translation found for manage_device_administrators (891392489300312370) -->
     <skip />
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> колдонмосун чечип салуу мүмкүн эмес."</string>

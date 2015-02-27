@@ -36,16 +36,20 @@
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">" Iphakheji enegama elifanayo nesiginisha ephikisayo isivele ifakiwe."</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Iphasela lisebenza kuphela kunguqulo entsha ye-Android"</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Lolu hlelo lokusebenza alihambelani nethebulethi yakho."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Lolu hlelo lokusebenza aluhambisani ne-TV yakho."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Le app ayihambelani nocingo lakho."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Iphakheji echaziwe yasuswa ngaphambi kokuba uhlelo lokufaka luqedelwe."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"Iphakheji ayizange idlule ekuqinisekisweni ngakho angeke ifakwe."</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Kwenzeke isikhathi sokuvala kusaqinisekiswa le phakheji. Sicela uzame ukuyifaka futhi."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"I-<xliff:g id="APP_NAME">%1$s</xliff:g> ayikwazanga ukufakwa kuthebhulethi."</string>
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"I-<xliff:g id="APP_NAME">%1$s</xliff:g> ayikwazanga ukufakwa ku-TV yakho."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"I-<xliff:g id="APP_NAME">%1$s</xliff:g> ayikwazanga ukufakwa efonini."</string>
     <string name="launch" msgid="4826921505917605463">"Vula"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Ukufaka kuvimbelwe"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Ngokuphepha, ithebhulethi yakho isethelwe ukuvimbela ukufakwa kwezinhlelo zokusebenza ezitholwa emithonjeni engaziwa."</string>
+    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Ukuze kuvikelwe, i-TV yakho isethelwe ukuthi ivimbele ukufakwa kwezinhlelo zokusebenza ezithathwe kumithombo engaziwa."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Ngokuphepha, ifoni yakho isethelwe ukuvimbela ukufakwa kwezinhlelo zokusebenza ezitholwa emithonjeni engaziwa."</string>
+    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Umlawuli wakho akavumeli ukufakwa kwezinhlelo zokusebenza okutholwe kusukela kumithombo engaziwa."</string>
     <string name="ok" msgid="3468756155452870475">"KULUNGILE"</string>
     <string name="settings" msgid="6743583734099755409">"Izilungiselelo"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Umthombo omusha wama-apps"</string>
@@ -64,11 +68,14 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"I-<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> ingxenye yohlelo lokusebenza olulandelayo:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"Ufuna ukukhipha le-app?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Ingabe ufuna ukukhipha lolu hlelo lokusebenza kubo "<b>"bonke"</b>" abasebenzisi? Uhlelo lokusebenza nedatha yalo kuzosuswa kubo "<b>"bonke"</b>" abasebenzisi kudivayisi."</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Ingabe ufuna ukukhiphela lolu hlelo lokusebenza kumsebenzisi ongu-<xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"Ufuna ukumiselela le app ngenguqulo yenkampani?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Iyakhipha..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Ukukhipha kuqedile"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Ukukhipha akuphumelelanga."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Ayikwazi ukukhupha: leliphasela liwumqondisi wedivayisi osebenzayo"</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Lolu hlelo lokusebenza luyadingeka kuphrofayela yakho ye-<xliff:g id="USERNAME">%1$s</xliff:g> futhi alikwazi ukukhishwa."</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Lolu hlelo lokusebenza ludingwa umlawuli wedivayisi yakho futhi alukwazi ukukhishwa."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Phatha amadivayisi abaqondisi"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"I-<xliff:g id="APP_NAME">%1$s</xliff:g> ayikwazanga ukukhishwa"</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Iphutha lokuhlwaya"</string>

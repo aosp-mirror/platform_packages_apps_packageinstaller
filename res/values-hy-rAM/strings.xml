@@ -36,16 +36,20 @@
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Նույն անունով առկա փաթեթը հակասական ստորագրությամբ արդեն տեղադրված է:"</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Փաթեթը աշխատում է միայն Android-ի ավելի նոր տարբերակներում:"</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Այս հավելվածը համատեղելի չէ ձեր գրասալիկի հետ:"</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Այս հավելվածը համատեղելի չէ ձեր հեռուստացույցի հետ:"</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Այս հավելվածը համատեղելի չէ ձեր հեռախոսի հետ:"</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Նշված փաթեթը ջնջված է նախքան տեղադրման ավարտը:"</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"Փաթեթը հաստատում չի անցել և չի կարող տեղադրվել:"</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Տեղի ունեցավ ժամանակի սպառում այս փաթեթի հաստատման փորձի ժամանակ: Մի փոքր ուշ կրկին փորձեք այն տեղադրել:"</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g>-ը չհաջողվեց տեղադրել ձեր գրասալիկում:"</string>
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Չհաջողվեց տեղադրել <xliff:g id="APP_NAME">%1$s</xliff:g> հավելվածը ձեր հեռուստացույցի վրա:"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g>-ը չհաջողվեց տեղադրել ձեր հեռախոսում:"</string>
     <string name="launch" msgid="4826921505917605463">"Բացել"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Տեղադրումը արգելափակված է"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Անվտանգության նկատառումներով ձեր գրասալիկը կարգավորված է կասեցնել այն հավելվածների տեղադրումը, որոնք ձեռք են բերվել անհայտ աղբյուրներից:"</string>
+    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Անվտանգության նկատառումներից ելնելով՝ ձեր հեռուստացույցը արգելափակում է անհայտ աղբյուրներից ձեռք բերած հավելվածների տեղադրումը:"</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Անվտանգության նկատառումներով ձեր հեռախոսը կարգավորված է կասեցնել այն հավելվածների տեղադրումը, որոնք ձեռք են բերվել անհայտ աղբյուրներից:"</string>
+    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Ձեր ադմինիստրատորը թույլ չի տալիս տեղադրել հավելվածներ անհայտ աղբյուրներից:"</string>
     <string name="ok" msgid="3468756155452870475">"Լավ"</string>
     <string name="settings" msgid="6743583734099755409">"Կարգավորումներ"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Հավելվածների նոր աղբյուր"</string>
@@ -64,11 +68,14 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g>-ը հետևյալ հավելվածի մասն է`"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"Ցանկանու՞մ եք ապատեղադրել այս ծրագիրը:"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Ցանկանու՞մ եք ապատեղադրել այս հավելվածը "<b>"բոլոր"</b>" օգտվողների համար:  Հավելվածը և դրա տվյալները կհեռացվեն սարքի "<b>"բոլոր"</b>" օգտվողներից:"</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Ցանկանում եք ապատեղադրե՞լ այս ծրագիրը <xliff:g id="USERNAME">%1$s</xliff:g> օգտվողի համար:"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"Ցանկանու՞մ եք փոխարինել այս հավելվածը գործարանային տարբերակով:"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Ապատեղադրում է..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Ապատեղադրումը ավարտված է:"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Ապատեղադրումն անհաջող է:"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Հնարավոր չէ ապատեղադրել, քանի որ այս փաթեթն ակտիվ սարքի ադմինիստրատոր է:"</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Այս ծրագիրն անհրաժեշտ է ձեր <xliff:g id="USERNAME">%1$s</xliff:g> պրոֆիլի համար և չի կարող հեռացվել:"</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Ծրագիրը ձեր սարքի ադմինիստրատորի կողմից նշվել է որպես պարտադիր և չի կարող հեռացվել:"</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Կառավարել սարքի ադմինիստրատորներին"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g>-ը չհաջողվեց ապատեղադրել:"</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Վերլուծման սխալ"</string>

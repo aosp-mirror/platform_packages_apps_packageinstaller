@@ -36,16 +36,20 @@
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"একটি বিবাদী স্বাক্ষর সহ একই নামের একটি বিদ্যমান প্যাকেজ ইতিমধ্যেই ইনস্টল রয়েছে৷"</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"প্যাকেজটি শুধুমাত্র Android এর নতুন সংস্করণে কাজ করে৷"</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"এই অ্যাপ্লিকেশানটি আপনার ট্যাবলেটের জন্য উপযুক্ত নয়৷"</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"এই অ্যাপ্লিকেশানটি আপনার টিভির জন্য উপযুক্ত নয়৷"</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"এই অ্যাপ্লিকেশানটি আপনার ফোনের জন্য উপযুক্ত নয়৷"</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"ইনস্টলেশান প্রক্রিয়া সম্পন্ন হওয়ার পূর্বে উল্লিখিত প্যাকেজ মুছে ফেলা হয়েছে৷"</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"প্যাকেজটি যাচাইকরণে উত্তীর্ণ হয়নি এবং ইনস্টল করা যাবে না৷"</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"এই প্যাকেজটিকে যাচাই করার জন্য নির্ধারিত সময়কালের মেয়াদ ফুরিয়ে গেছে৷ এটিকে পরে আবার ইনস্টল করার চেষ্টা করুন৷"</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> আপনার ট্যাবলেটে ইনস্টল করা যায়নি৷"</string>
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g>-কে আপনার টিভিতে ইনস্টল করা যাবে না৷"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> আপনার ফোনে ইনস্টল করা যায়নি৷"</string>
     <string name="launch" msgid="4826921505917605463">"খুলুন"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"ইনস্টল করা অবরুদ্ধ করা হয়েছে"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"সুরক্ষা জনিত কারণে, অজানা উৎসগুলি থেকে প্রাপ্ত অ্যাপ্লিকেশানগুলির আপনার ট্যাবলেটে ইনস্টল হওয়াকে অবরুদ্ধ করে রাখা হয়েছে৷"</string>
+    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"সুরক্ষা জনিত কারণে, অজানা উৎসগুলি থেকে প্রাপ্ত অ্যাপ্লিকেশানগুলির আপনার টিভিতে ইনস্টল হওয়াকে অবরুদ্ধ করে রাখা হয়েছে৷"</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"সুরক্ষা জনিত কারণে, অজানা উৎসগুলি থেকে প্রাপ্ত অ্যাপ্লিকেশানগুলির আপনার ফোনে ইনস্টল হওয়াকে অবরুদ্ধ করে রাখা হয়েছে৷"</string>
+    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"আপনার প্রশাসক অজানা উৎসগুলি থেকে প্রাপ্ত অ্যাপ্লিকেশানগুলি ইনস্টল করাকে মঞ্জুর করে না৷"</string>
     <string name="ok" msgid="3468756155452870475">"ঠিক আছে"</string>
     <string name="settings" msgid="6743583734099755409">"সেটিংস"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"অ্যাপ্লিকেশানগুলির নতুন উৎস"</string>
@@ -64,11 +68,14 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> হল নিম্নলিখিত অ্যাপ্লিকেশানগুলির অংশ বিশেষ:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"আপনি কি এই অ্যাপ্লিকেশানটিকে আনইনস্টল করতে চান?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"আপনি কি "<b>"সমস্ত"</b>" ব্যবহারকারীর জন্য এই অ্যাপ্লিকেশানটিকে আনইনস্টল করতে চান? এই ডিভাইসের "<b>"সমস্ত"</b>" ব্যবহারকারীর কাছ থেকে অ্যাপ্লিকেশানটি ও এর ডেটা হারিয়ে যাবে৷"</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"আপনি কি ব্যবহারকারী <xliff:g id="USERNAME">%1$s</xliff:g> এর জন্য এই অ্যাপ্লিকেশানটি আনইনস্টল করতে চান?"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"আপনি কি ফ্যাক্টরি সংস্করণের মাধ্যমে এই অ্যাপ্লিকেশানটি প্রতিস্থাপন করতে চান?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"আনইনস্টল করা হচ্ছে ..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"আনইনস্টল সমাপ্ত হয়েছে৷"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"আনইনস্টল সফল হয়নি৷"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"আনইনস্টল করা যায়নি কারণ এই প্যাকেজটি হল একটি সক্রিয় ডিভাইস প্রশাসক৷"</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"আপনার <xliff:g id="USERNAME">%1$s</xliff:g> প্রোফাইলের জন্য এই অ্যাপ্লিকেশানটি প্রয়োজন এবং এটি আনইনস্টল করা যাবে না।"</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"আপনার ডিভাইস প্রশাসকের চাহিদা অনুযায়ী এই অ্যাপ্লিকেশানটি আবশ্যক এবং এটি আনইনস্টল করা যাবে না।"</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"ডিভাইস প্রশাসকদের পরিচালনা করুন"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> আনইনস্টল করা যায়নি৷"</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"বিশ্লেষণ ত্রুটি"</string>

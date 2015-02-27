@@ -36,16 +36,20 @@
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Det finns redan ett paket med samma namn och en signatur som är i konflikt."</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Paketet fungerar bara med nyare versioner av Android."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Appen är inte kompatibel med din surfplatta."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Appen är inte kompatibel med din tv."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Appen är inte kompatibel med din mobil."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Paketet som angavs togs bort innan installationen var slutförd."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"Paketet klarade inte verifieringen och får inte installeras."</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"En timeout inträffade när paketet skulle verifieras. Prova att installera paketet senare."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Det gick inte att installera <xliff:g id="APP_NAME">%1$s</xliff:g> på surfplattan."</string>
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunde inte installeras på tv:n."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Det gick inte att installera <xliff:g id="APP_NAME">%1$s</xliff:g> på mobilen."</string>
     <string name="launch" msgid="4826921505917605463">"Öppna"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Installation blockerad"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Av säkerhetsskäl går det inte att installera appar från okända källor på din surfplatta."</string>
+    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Tv:n är av säkerhetsskäl inställd på att blockera installationer av appar från okända källor."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Av säkerhetsskäl går det inte att installera appar från okända källor på din mobil."</string>
+    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Administratören tillåter inte installation av appar från okända källor."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Inställningar"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Ny källa för appar"</string>
@@ -64,11 +68,14 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> är en del av följande app:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"Vill du avinstallera appen?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Vill du avinstallera den här appen för "<b>"alla"</b>" användare? Appen och alla data i den tas bort från "<b>"alla"</b>" användare på enheten."</string>
-    <string name="uninstall_update_text" msgid="2056387942084605027">"Vill du att ersätta den här appen med fabriksversionen?"</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Vill du avinstallera appen för användaren <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
+    <string name="uninstall_update_text" msgid="2056387942084605027">"Vill du ersätta den här appen med fabriksversionen?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Avinstallerar…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Avinstallationen har slutförts."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Det gick inte att avinstallera."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Det går inte att avinstallera eftersom paketet är en aktiv enhetsadministratör."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Appen behövs i profilen för <xliff:g id="USERNAME">%1$s</xliff:g> och kan inte avinstalleras."</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Appen krävs av enhetsadministratören och kan därför inte avinstalleras."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Hantera enhetsadministratörer"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Det gick inte att avinstallera <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Analysfel"</string>

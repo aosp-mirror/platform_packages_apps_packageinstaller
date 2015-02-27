@@ -36,16 +36,20 @@
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"\'n Bestaande pakket met dieselfde naam en \'n botsende handtekening is reeds geïnstalleer."</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Die pakket werk net op jonger weergawes van Android."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Hierdie program werk nie op jou tablet nie."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Hierdie program is nie met jou TV versoenbaar nie."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Hierdie program werk nie op jou foon nie."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Die gespesifiseerde pakkie is uitgevee voordat installasie voltooi kon word."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"Die pakkie het nie verifikasie geslaag nie en kan nie geïnstalleer word nie."</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"\'n Uittel het plaasgevind tydens verifiëring van hierdie pakket. Probeer dit later weer installeer."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> kon nie op jou tablet geïnstalleer word nie."</string>
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> kon nie op jou TV geïnstalleer word nie."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> kon nie op jou foon geïnstalleer word nie."</string>
     <string name="launch" msgid="4826921505917605463">"Open"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Installering geblokkeer"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Om veiligheidsredes, is jou tablet gestel om installering van programme van onbekende bronne te blokkeer."</string>
+    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Jou TV is vir veiligheid gestel om te keer dat programme van onbekende bronne af geïnstalleer word."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Om veiligheidsredes, is jou foon gestel om installering van programme van onbekende bronne te blokkeer."</string>
+    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Jou administrateur laat nie toe dat programme van onbekende bronne af geïnstalleer word nie."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Instellings"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Nuwe bron vir programme"</string>
@@ -64,11 +68,14 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> is deel van die volgende program:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"Wil jy hierdie program deïnstalleer?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Wil jy hierdie program vir "<b>"alle"</b>" gebruikers deïnstalleer? Die program en sy data sal vir "<b>"alle"</b>" gebruikers op hierdie toestel verwyder word."</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Wil jy hierdie program vir die gebruiker <xliff:g id="USERNAME">%1$s</xliff:g> deïnstalleer?"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"Wil jy hierdie program vervang met die fabrieksweergawe?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Deïnstalleer tans…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Deïnstallering klaar."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Deïnstallasie onsuksesvol."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Kan nie deïnstalleer nie omdat hierdie pakket \'n aktiewe toesteladministrateur is."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Hierdie program is nodig vir jou <xliff:g id="USERNAME">%1$s</xliff:g>-profiel en kan nie gedeïnstalleer word nie."</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Jou toesteladministrateur vereis die program; dit kan nie deïnstalleer word nie."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Bestuur toesteladministrateurs"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> kon nie deïnstalleer word nie."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Ontledingsfout"</string>

@@ -36,16 +36,20 @@
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Вече е инсталиран съществуващ пакет под същото име с несъвместим подпис."</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Пакетът работи само на по-нови версии на Android."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Това приложение не е съвместимо с таблета ви."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Това приложение не е съвместимо с телевизора ви."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Това приложение не е съвместимо с телeфона ви."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Посоченият пакет бе изтрит преди завършване на инсталацията."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"Пакетът не премина потвърждаването и не може да бъде инсталиран."</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"При потвърждаването на пакета времето за изчакване изтече. Опитайте да инсталирате отново по-късно."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> не можа да се инсталира на таблета ви."</string>
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> не можа да се инсталира на телевизора ви."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> не можа да се инсталира на телефона ви."</string>
     <string name="launch" msgid="4826921505917605463">"Отваряне"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Инсталирането е блокирано"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"За сигурност таблетът ви блокира инсталирането на приложения, получени от неизвестни източници."</string>
+    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"От съображения за сигурност телевизорът блокира инсталирането на приложения от неизвестни източници."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"За сигурност телефонът ви блокира инсталирането на приложения, получени от неизвестни източници."</string>
+    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Администраторът ви не разрешава инсталирането на приложения, получени от неизвестни източници."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Настройки"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Нов източник за приложения"</string>
@@ -64,11 +68,14 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> е част от следното приложение:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"Искате ли да деинсталирате това приложение?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Искате ли да деинсталирате това приложение за "<b>"всички"</b>" потребители? Приложението и данните му ще бъдат премахнати от "<b>"всички"</b>" потребители на устройството."</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Искате ли да деинсталирате това приложение за потребителя <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"Искате ли да замените това приложение с фабричната му версия?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Деинсталира се..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Деинсталирането завърши."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Деинсталирането не бе успешно."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Не може да се деинсталира: Този пакет е активен администратор на устройството."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Приложението е необходимо за потр. ви профил <xliff:g id="USERNAME">%1$s</xliff:g> и не може да се деинсталира."</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Приложението се изисква от администратора на у-вото и не може да се деинсталира."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Управление на администраторите на устройства"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> не можа да се деинсталира."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Грешка при синтактичния разбор"</string>

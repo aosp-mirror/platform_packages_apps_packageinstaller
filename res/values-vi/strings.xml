@@ -36,16 +36,20 @@
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Gói hiện có có cùng tên với chữ ký xung đột hiện đã được cài đặt."</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Gói chỉ hoạt động trên các phiên bản mới hơn của Android."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Ứng dụng này không tương thích với máy tính bảng của bạn."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Ứng dụng này không tương thích với TV của bạn."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Ứng dụng này không tương thích với điện thoại của bạn."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Gói đã chỉ định bị xóa trước khi cài đặt hoàn tất."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"Gói không vượt qua xác minh và không thể được cài đặt."</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Đã hết thời gian chờ trong khi cố gắng xác minh gói này. Hãy cố gắng cài đặt lại sau."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Không thể cài đặt <xliff:g id="APP_NAME">%1$s</xliff:g> trên máy tính bảng của bạn."</string>
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Không cài đặt được <xliff:g id="APP_NAME">%1$s</xliff:g> trên TV của bạn."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Không thể cài đặt <xliff:g id="APP_NAME">%1$s</xliff:g> trên điện thoại này."</string>
     <string name="launch" msgid="4826921505917605463">"Mở"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Cài đặt đã chặn"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Để bảo mật, máy tính bảng của bạn được đặt để chặn cài đặt ứng dụng từ nguồn không xác định."</string>
+    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Để bảo mật, TV của bạn được đặt để chặn cài đặt ứng dụng từ nguồn không xác định."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Để bảo mật, điện thoại của bạn được đặt để chặn cài đặt ứng dụng từ nguồn không xác định."</string>
+    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Quản trị viên của bạn không cho phép cài đặt ứng dụng từ nguồn không xác định."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Cài đặt"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Nguồn mới cho ứng dụng"</string>
@@ -64,11 +68,14 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> là một phần của ứng dụng sau:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"Bạn có muốn gỡ cài đặt ứng dụng này không?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Bạn có muốn gỡ cài đặt ứng dụng này cho "<b>"tất cả"</b>" người dùng không? Ứng dụng và dữ liệu của ứng dụng sẽ bị xóa khỏi "<b>"tất cả"</b>" người dùng trên thiết bị."</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Bạn có muốn gỡ cài đặt ứng dụng này cho người dùng <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"Bạn có muốn thay thế ứng dụng này bằng phiên bản gốc không?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Đang gỡ cài đặt..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Gỡ cài đặt đã hoàn tất."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Gỡ cài đặt không thành công."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Không thể cài đặt vì gói này là của quản trị viên thiết bị đang hoạt động."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Ứng dụng này là cần thiết cho tiểu sử <xliff:g id="USERNAME">%1$s</xliff:g> của bạn và không thể gỡ cài đặt."</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Ứng dụng này được quản trị viên thiết bị của bạn yêu cầu và không thể gỡ cài đặt."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Quản lý quản trị viên điện thoại"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Không thể gỡ cài đặt <xliff:g id="APP_NAME">%1$s</xliff:g>"</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Lỗi phân tích cú pháp"</string>

@@ -24,28 +24,32 @@
     <string name="cancel" msgid="8360346460165114585">"Скасувати"</string>
     <string name="unknown" msgid="4742479012767208045">"Невідомо"</string>
     <string name="installing" msgid="8613631001631998372">"Встановлення…"</string>
-    <string name="install_done" msgid="3682715442154357097">"Програму встановлено."</string>
-    <string name="install_confirm_question" msgid="7295206719219043890">"Дійсно встановити цю програму? Вона отримає доступ до:"</string>
-    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Дійсно встановити цю програму? Їй не потрібні жодні особливі доступи."</string>
+    <string name="install_done" msgid="3682715442154357097">"Додаток установлено."</string>
+    <string name="install_confirm_question" msgid="7295206719219043890">"Установити цей додаток? Він отримає такі дозволи:"</string>
+    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Установити цей додаток? Йому не потрібні спеціальні дозволи."</string>
     <string name="install_confirm_question_update" msgid="4624159567361487964">"Дійсно встановити оновлення для цієї наявної програми? Існуючі дані втрачено не буде. Оновлена програма отримає доступ до:"</string>
     <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Дійсно встановити оновлення для цієї вбудованої програми? Існуючі дані втрачено не буде. Оновлена програма отримає доступ до:"</string>
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Хочете встановити оновлення для наявної програми? Ваші наявні дані не зникнуть. Спеціальний доступ не потрібен."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Хочете встановити оновлення для цієї вбудованої програми? Ваші наявні дані не зникнуть. Спеціальний доступ не потрібен."</string>
-    <string name="install_failed" msgid="6579998651498970899">"Програму не встановлено."</string>
+    <string name="install_failed" msgid="6579998651498970899">"Додаток не встановлено."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Імовірно, пакет пошкоджено."</string>
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Існуючий пакет із такою ж назвою з несумісним підписом уже встановлено."</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Пакет працює лише на новіших версіях Android."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Ця програма не сумісна з вашим планшетним ПК."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Цей додаток несумісний із вашим телевізором."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Ця програма не сумісна з вашим телефоном."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Указаний пакет було видалено до ще закінчення процесу встановлення."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"Пакет не пройшов перевірку та не може бути встановлений."</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Під час спроби перевірки цього пакета виникла затримка. Повторіть спробу встановити його пізніше."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Програму <xliff:g id="APP_NAME">%1$s</xliff:g> неможливо встановити у вашому планшетному ПК."</string>
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Не вдалося встановити додаток <xliff:g id="APP_NAME">%1$s</xliff:g> на ваш телевізор."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Програму <xliff:g id="APP_NAME">%1$s</xliff:g> неможливо встановити у вашому телефоні."</string>
     <string name="launch" msgid="4826921505917605463">"Відкр."</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Встановл. заблок."</string>
-    <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Задля безпеки планшет. ПК налаштовано блокувати встановлення програм, отриманих із невідомих джерел."</string>
-    <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Задля безпеки ваш телефон налаштовано блокувати встановлення програм, отриманих із невідомих джерел."</string>
+    <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Задля безпеки на вашому планшеті заблоковане встановлення додатків із невідомих джерел."</string>
+    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"З міркувань безпеки налаштування телевізора блокують встановлення додатків із невідомих джерел."</string>
+    <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Задля безпеки на вашому телефоні заблоковане встановлення додатків із невідомих джерел."</string>
+    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Ваш адміністратор не дозволяє встановлювати додатки з невідомих джерел."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Налаштування"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Нове джерело для програм"</string>
@@ -64,11 +68,14 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"Дія <xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> є частиною такої програми:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"Видалити цю програму?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Хочете видалити цю програму для "<b>"всіх"</b>" користувачів? Програму та її дані буде видалено для "<b>"всіх"</b>" користувачів цього пристрою."</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Видалити цей додаток для користувача <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"Замінити цю програму на заводську версію?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Видалення..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Видалення завершено."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Видалення не здійснено."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Неможливо видалити. Цей пакет є активним адміністратором пристрою."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Цей додаток не можна видалити – він потрібен для профілю користувача <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Цей додаток не можна видалити – не дозволяє адміністратор пристрою."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Керувати адміністраторами пристрою"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Програму <xliff:g id="APP_NAME">%1$s</xliff:g> неможливо видалити."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Помилка аналізу"</string>

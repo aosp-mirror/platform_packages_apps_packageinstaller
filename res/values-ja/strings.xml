@@ -36,16 +36,20 @@
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"名前が同じで、署名が競合するパッケージが既にインストールされています。"</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"このパッケージは新しいバージョンのAndroidでのみ機能します。"</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"このアプリはお使いのタブレットに対応していません。"</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"このアプリはお使いのテレビに対応していません。"</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"このアプリはお使いの端末に対応していません。"</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"インストールが完了する前に指定されたパッケージが削除されました。"</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"パッケージの検証に失敗したため、インストールできませんでした。"</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"このパッケージを検証している間にタイムアウトが発生しました。後で再度インストールしてください。"</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g>をタブレットにインストールできませんでした。"</string>
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g>をテレビにインストールできませんでした。"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g>を端末にインストールできませんでした。"</string>
     <string name="launch" msgid="4826921505917605463">"開く"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"インストールはブロックされました"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"タブレットのセキュリティ上の設定で、提供元不明のアプリのインストールをブロックしています。"</string>
+    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"セキュリティ上、お使いのテレビは提供元が不明なアプリをインストールできないように設定されています。"</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"携帯端末のセキュリティ上の設定で、提供元不明のアプリのインストールをブロックしています。"</string>
+    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"不明なソースから取得したアプリをインストールすることは、管理者により禁止されています。"</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"設定"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"アプリのための新しいソース"</string>
@@ -64,11 +68,14 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g>は次のアプリの一部です:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"このアプリをアンインストールしますか？"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"このアプリを"<b>"すべての"</b>"ユーザーからアンインストールしますか？このアプリとそのデータは端末の"<b>"すべての"</b>"ユーザーから削除されます。"</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"<xliff:g id="USERNAME">%1$s</xliff:g>さんのアプリをアンインストールしますか？"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"アプリを出荷時の状態に更新しますか？"</string>
     <string name="uninstalling" msgid="5556217435895938250">"アンインストール中..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"アンインストールが完了しました。"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"アンインストールできませんでした。"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"このパッケージは現在デバイスを管理しているため、アンインストールできません。"</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"このアプリは<xliff:g id="USERNAME">%1$s</xliff:g>さんのプロフィールに必要なため、アンインストールできません。"</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"このアプリは端末管理者が必要としているため、アンインストールできません。"</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"デバイス管理者を管理"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g>をアンインストールできませんでした。"</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"解析エラー"</string>

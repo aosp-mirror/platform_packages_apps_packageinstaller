@@ -36,16 +36,20 @@
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Izen bereko pakete bat instalatuta dago lehendik eta haren sinadurak gatazkak sortzen ditu."</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Paketeak Android bertsio berriagoekin funtzionatzen du soilik."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Aplikazioa ez da zure tabletarekin bateragarria."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Aplikazioa ez da telebistarekin bateragarria."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Aplikazioa ez da zure telefonoarekin bateragarria."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Zehaztutako paketea instalazioa osatu aurretik ezabatu da."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"Paketeak ez du egiaztapena gainditu eta ezin da instalatu."</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Denbora-muga gainditu da paketea egiaztatzen saiatzean. Saiatu berriro instalatzen geroago."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Ezin izan da <xliff:g id="APP_NAME">%1$s</xliff:g> tabletan instalatu."</string>
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Ezin izan da instalatu <xliff:g id="APP_NAME">%1$s</xliff:g> telebistan."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Ezin izan da <xliff:g id="APP_NAME">%1$s</xliff:g> telefonoan instalatu."</string>
     <string name="launch" msgid="4826921505917605463">"Ireki"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Instalazioa blokeatu da"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Segurtasuna bermatzeko, iturburu ezezagunetako aplikazioak blokeatzeko dago konfiguratuta tableta."</string>
+    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Segurtasuna bermatzeko, iturburu ezezagunetako aplikazioak blokeatzeko dago konfiguratuta telebista."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Segurtasuna bermatzeko, iturburu ezezagunetako aplikazioak blokeatzeko dago konfiguratuta telefonoa."</string>
+    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Administratzaileak ez du onartzen iturburu ezezagunetako aplikazioak instalatzea."</string>
     <string name="ok" msgid="3468756155452870475">"Ados"</string>
     <string name="settings" msgid="6743583734099755409">"Ezarpenak"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Aplikazioen iturburu berria"</string>
@@ -64,11 +68,14 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> aplikazio honen zati da:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"Aplikazioa desinstalatu nahi duzu?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Aplikazioa erabiltzaile "<b>"guztientzat"</b>" desinstalatu nahi duzu? Aplikazioa eta bere datu guztiak gailuko erabiltzaile "<b>"guztiei"</b>" ezabatuko zaizkie."</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"<xliff:g id="USERNAME">%1$s</xliff:g> erabiltzailearen aplikazioa desinstalatu nahi duzu?"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"Aplikazioa jatorrizko bertsioarekin ordeztu nahi duzu?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Desinstalatzen…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Desinstalatu da."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Ezin izan da desinstalatu."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Ezin izan da desinstalatu paketea gailu-administratzaile aktiboa delako."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Aplikazioa <xliff:g id="USERNAME">%1$s</xliff:g> erabiltzailearen profilerako behar da eta ezin da desinstalatu."</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Gailuaren administratzaileak aplikazio hori behar du eta ezin da desinstalatu."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Kudeatu gailu-administratzaileak"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Ezin izan da <xliff:g id="APP_NAME">%1$s</xliff:g> desinstalatu."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Analisi-errorea"</string>

@@ -36,16 +36,20 @@
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Een bestaand pakket met dezelfde naam en een conflicterende handtekening is al geïnstalleerd."</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Het pakket werkt alleen met nieuwe versies van Android."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Deze app is niet compatibel met uw tablet."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Deze app is niet compatibel met uw tv."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Deze app is niet compatibel met uw telefoon."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Het opgegeven pakket is verwijderd voordat de installatie was voltooid."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"De verificatie van het pakket is niet voltooid. Het pakket kan niet worden geïnstalleerd."</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Tijdens het verifiëren van dit pakket is een time-out opgetreden. Installeer het pakket later."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> kan niet worden geïnstalleerd op uw tablet."</string>
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> kan niet worden geïnstalleerd op uw tv."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> kan niet worden geïnstalleerd op uw telefoon."</string>
     <string name="launch" msgid="4826921505917605463">"Openen"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"De installatie is geblokkeerd"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Voor de veiligheid blokkeert uw tablet de installatie van apps uit onbekende bronnen."</string>
+    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Om veiligheidsredenen is uw tv ingesteld om de installatie te blokkeren van apps die zijn verkregen van onbekende bronnen."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Voor de veiligheid blokkeert uw telefoon de installatie van apps uit onbekende bronnen."</string>
+    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Uw beheerder staat de installatie van apps afkomstig van onbekende bronnen niet toe."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Instellingen"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Nieuwe bron voor apps"</string>
@@ -64,11 +68,14 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> maakt deel uit van de volgende app:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"Wilt u deze app verwijderen?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Wilt u deze app verwijderen voor "<b>"alle"</b>" gebruikers? Deze app en de gegevens ervan worden verwijderd voor "<b>"alle"</b>" gebruikers van het apparaat."</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Wilt u deze app verwijderen voor de gebruiker <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"Wilt u deze app vervangen door de fabrieksversie?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Verwijderen..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Verwijdering voltooid."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Verwijdering mislukt."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Kan niet verwijderen omdat dit pakket een actieve apparaatbeheerder is."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Deze app is vereist voor uw profiel <xliff:g id="USERNAME">%1$s</xliff:g> en kan niet worden verwijderd."</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Deze app is vereist door uw apparaatbeheerder en kan niet worden verwijderd."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Apparaatbeheerders beheren"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> kan niet worden verwijderd."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Parseerfout"</string>
@@ -77,6 +84,6 @@
     <string name="allPerms" msgid="1024385515840703981">"Alle"</string>
     <string name="privacyPerms" msgid="1850527049572617">"Privacy"</string>
     <string name="devicePerms" msgid="6733560207731294504">"Apparaattoegang"</string>
-    <string name="no_new_perms" msgid="6657813692169565975">"Voor deze update zijn geen nieuwe rechten vereist."</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"Wilt u de volgende rechten verlenen? Hiermee kan toegang worden verkregen tot:"</string>
+    <string name="no_new_perms" msgid="6657813692169565975">"Voor deze update zijn geen nieuwe machtigingen vereist."</string>
+    <string name="grant_confirm_question" msgid="4690289297029223742">"Wilt u de volgende machtigingen verlenen? Hiermee kan toegang worden verkregen tot:"</string>
 </resources>

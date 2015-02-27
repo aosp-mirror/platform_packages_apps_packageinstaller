@@ -36,16 +36,20 @@
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"అదే పేరుతో వైరుధ్య సంతకం గల ప్రస్తుత ప్యాకేజీ ఇప్పటికే ఇన్‌స్టాల్ చేయబడింది."</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"ప్యాకేజీ Android యొక్క సరికొత్త సంస్కరణల్లో మాత్రమే పని చేస్తుంది."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"ఈ అనువర్తనం మీ టాబ్లెట్‌కు అనుకూలంగా లేదు."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"ఈ అనువర్తనం మీ టీవీకి అనుకూలంగా లేదు."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"ఈ అనువర్తనం మీ ఫోన్‌కు అనుకూలంగా లేదు."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"ఇన్‌స్టాలేషన్ పూర్తవడానికి ముందే పేర్కొనబడిన ప్యాకేజీ తొలగించబడింది."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"ప్యాకేజీ ధృవీకరణలో ఉత్తీర్ణత సాధించలేదు, ఆ కారణంగా ఇన్‌స్టాల్ చేయబడదు."</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"ఈ ప్యాకేజీని ధృవీకరించడానికి ప్రయత్నిస్తున్నప్పుడు సమయం ముగిసింది. దీన్ని తర్వాత మళ్లీ ఇన్‌స్టాల్ చేయడానికి ప్రయత్నించండి."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g>ను మీ టాబ్లెట్‌లో ఇన్‌స్టాల్ చేయడం సాధ్యపడలేదు."</string>
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g>ని మీ టీవీలో ఇన్‌స్టాల్ చేయడం సాధ్యపడలేదు."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g>ను మీ ఫోన్‌లో ఇన్‌స్టాల్ చేయడం సాధ్యపడలేదు."</string>
     <string name="launch" msgid="4826921505917605463">"తెరవండి"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"ఇన్‌స్టాల్ బ్లాక్ చేయబడింది"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"భద్రత కోసం, మీ టాబ్లెట్ తెలియని మూలాల నుండి పొందిన అను. ఇన్‌స్టా. బ్లాక్ చేయబడేలా సెట్ చేయబడింది."</string>
+    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"భద్రత కోసం, మీ టీవీ తెలియని మూలాల నుండి పొందే అనువర్తనాల ఇన్‌స్టా. బ్లాక్ చేయడానికి సెట్ చేయబడింది."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"భద్రత కోసం, మీ ఫోన్ తెలియని మూలాల నుండి పొందిన అను. ఇన్‌స్టాలేషన్ బ్లాక్ చేయబడేలా సెట్ చేయబడింది."</string>
+    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"మీ నిర్వాహకుడు తెలియని మూలాల నుండి పొందిన అనువర్తనాల ఇన్‌స్టలేషన్‌ను అనుమతించలేదు."</string>
     <string name="ok" msgid="3468756155452870475">"సరే"</string>
     <string name="settings" msgid="6743583734099755409">"సెట్టింగ్‌లు"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"అనువర్తనాల కోసం కొత్త మూలం"</string>
@@ -64,11 +68,14 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> అనేది క్రింది అనువర్తనంలో ఒక భాగం:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"మీరు ఈ అనువర్తనాన్ని అన్‌ఇన్‌స్టాల్ చేయాలనుకుంటున్నారా?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"మీరు ఈ అనువర్తనాన్ని "<b>"మొత్తం"</b>" వినియోగదారులకు అన్‌ఇన్‌స్టాల్ చేయాలనుకుంటున్నారా? అనువర్తనం మరియు దీని డేటా పరికరంలోని "<b>"మొత్తం"</b>" వినియోగదారుల నుండి తీసివేయబడుతుంది."</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"మీరు వినియోగదారు <xliff:g id="USERNAME">%1$s</xliff:g> కోసం ఈ అనువర్తనాన్ని అన్‌ఇన్‌స్టాల్ చేయాలనుకుంటున్నారా?"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"మీరు ఈ అనువర్తనాన్ని ఫ్యాక్టరీ సంస్కరణతో భర్తీ చేయాలనుకుంటున్నారా?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"అన్‌ఇన్‌స్టాల్ చేస్తోంది…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"అన్‌ఇన్‌స్టాల్ చేయడం ముగిసింది."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"అన్‌ఇన్‌స్టాల్ చేయడం విజయవంతం కాలేదు."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"ఈ ప్యాకేజీ సక్రియ పరికర నిర్వాహికి అయినందున అన్‌ఇన్‌స్టాల్ చేయడం సాధ్యపడదు."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"మీ <xliff:g id="USERNAME">%1$s</xliff:g> ప్రొఫైల్ కోసం ఈ అనువర్తనం అవసరం, అందువల్ల దీన్ని అన్‌ఇన్‌స్టాల్ చేయడం కుదరదు."</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"మీ పరికర నిర్వాహకుడికి ఈ అనువర్తనం అవసరం, అందువల్ల దీన్ని అన్‌ఇన్‌స్టాల్ చేయడం కుదరదు."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"పరికర నిర్వాహకులను నిర్వహించండి"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g>ని అన్‌ఇన్‌స్టాల్ చేయడం సాధ్యపడలేదు."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"అన్వయ దోషం"</string>

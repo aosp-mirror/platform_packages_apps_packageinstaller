@@ -36,16 +36,20 @@
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"មាន​កញ្ចប់​ដែល​មាន​ឈ្មោះ​ដូច​គ្នា​​​ជាន់​​ហត្ថលេខា​ត្រូវ​បាន​ដំឡើង​រួច​ហើយ។"</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"កញ្ចប់​​ដំណើរការ​តែ​នៅ​លើ​កំណែ​ថ្មីៗ​របស់​ Android ប៉ុណ្ណោះ ។"</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"កម្មវិធី​នេះ​មិន​ត្រូវ​គ្នា​​​ជា​មួយ​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក​ទេ។"</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"កម្មវិធីនេះមិនត្រូវគ្នាជាមួយទូរទស្សន៍របស់អ្នកទេ។"</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"កម្មវិធី​នេះ​មិន​ត្រូវ​គ្នា​ជា​មួយ​ទូរស័ព្ទ​របស់​អ្នក។"</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"កញ្ចប់​បាន​បញ្ជាក់​ត្រូវ​បាន​លុប​មុន​ការ​​ដំឡើង​​បាន​បញ្ចប់។"</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"កញ្ចប់​មិន​​ទាន់បាន​ផ្ទៀងផ្ទាត់ និង​មិន​អាច​ដំឡើង​បាន​ទេ។"</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"អស់​ពេល​ខណៈ​ដែល​កំពុង​ផ្ទៀងផ្ទាត់​កញ្ចប់​នេះ។ ព្យាយាម​ដំឡើង​វា​ម្ដង​ទៀត​ពេល​ក្រោយ។"</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"មិន​អាច​ដំឡើង <xliff:g id="APP_NAME">%1$s</xliff:g> ក្នុង​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក។"</string>
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> មិនអាចដំឡើងនៅលើទូរទស្សន៍របស់អ្នកទេ។"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"មិន​អាច​ដំឡើង <xliff:g id="APP_NAME">%1$s</xliff:g> ក្នុង​ទូរស័ព្ទ​របស់​អ្នក។"</string>
     <string name="launch" msgid="4826921505917605463">"បើក"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"បាន​ទប់ស្កាត់​ការ​ដំឡើង"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"ដើម្បី​សុវត្ថិភាព ទូរស័ព្ទ​របស់​អ្នក​ត្រូវ​បាន​កំណត់ ដើម្បី​ទប់ស្កាត់​ការដំឡើង​កម្មវិធី​ដែល​បាន​មកពី​ប្រភព​មិន​ស្គាល់។"</string>
+    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"ដោយបញ្ហាសុវត្ថិភាព ទូរទស្សន៍របស់អ្នកត្រូវបានកំណត់ឲ្យរារាំងការដំឡើងកម្មវិធីដែលចេញមកពីប្រភពមិនស្គាល់។"</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"ដើម្បី​សុវត្ថិភាព ទូរស័ព្ទ​របស់​អ្នក​ត្រូវ​បាន​កំណត់ ដើម្បី​ទប់ស្កាត់​ការដំឡើង​កម្មវិធី​ដែល​បាន​មកពី​ប្រភព​មិន​ស្គាល់។"</string>
+    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"អ្នក​គ្រប់គ្រង​របស់​អ្នក​មិន​អនុញ្ញាត​ឲ្យ​ដំឡើង​កម្មវិធី​ដែល​បាន​ទទួល​ពី​ប្រភព​មិន​ស្គាល់។"</string>
     <string name="ok" msgid="3468756155452870475">"យល់​ព្រម​"</string>
     <string name="settings" msgid="6743583734099755409">"ការ​កំណត់"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"ប្រភព​ថ្មី​សម្រាប់​កម្មវិធី"</string>
@@ -64,11 +68,14 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g>​ ​ជា​ផ្នែក​មួយ​នៃ​កម្មវិធី​ដូច​ខាង​ក្រោម​នេះ​៖"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"តើ​អ្នក​ចង់​លុប​កម្មវិធី​នេះ​ឬ?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"តើ​អ្នក​ចង់​លុប​កម្មវិធី​នេះ​សម្រាប់​អ្នកប្រើ "<b>"ទាំងអស់"</b>"? កម្មវិធី និង​ទិន្នន័យ​របស់​វា​នឹង​ត្រូវ​បាន​លុប​ចេញ​ពី​អ្នកប្រើ "<b>"ទាំងអស់"</b>" ក្នុង​ឧបករណ៍​នេះ។"</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"តើ​អ្នក​ចង់​លុប​កម្មវិធី​នេះ​សម្រាប់​អ្នកប្រើ <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"តើ​អ្នក​ចង់​ជំនួស​កម្មវិធី​នេះ​​ដោយ​កំណែ​រោងចក្រ​ឬ?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"កំពុង​លុប..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"បាន​បញ្ចប់​ការ​លុប។"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"ការ​លុប​បរាជ័យ។"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"មិន​អាច​លុប​ព្រោះ​កញ្ចប់​នេះ​ជា​ឧបករណ៍​សកម្ម។"</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"កម្មវិធី​នេះ​​​ចាំបាច់​សម្រាប់​ប្រវត្តិរូប <xliff:g id="USERNAME">%1$s</xliff:g> របស់​អ្នក ហើយ​មិន​អាច​លុប​បាន​ទេ។"</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"កម្មវិធីនេះត្រូវបានទាមទារដោយអ្នកគ្រប់គ្រងឧបករណ៍របស់អ្នក ហើយមិនអាចលុប​ចេញបាន​ទេ។"</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"គ្រប់គ្រង​អ្នក​គ្រប់គ្រង​ឧបករណ៍"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"មិន​អាច​លុប <xliff:g id="APP_NAME">%1$s</xliff:g> ។"</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"កំហុស​ញែក"</string>

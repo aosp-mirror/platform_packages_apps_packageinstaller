@@ -36,16 +36,20 @@
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"ມີແພັກເກດທີ່ໃຊ້ຊື່ດຽວກັນ ແລະລາຍເຊັນທີ່ຂັດແຍ່ງກັນຕິດຕັ້ງຢູ່ກ່ອນແລ້ວ."</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"ແພັກເກດເຮັດວຽກໄດ້ສະເພາະ Android ເວີຊັນໃໝ່ກວ່າເທົ່ານັ້ນ."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"ແອັບຯນີ້ບໍ່ສາມາດໃຊ້ໄດ້ກັບແທັບເລັດຂອງທ່ານ."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"ແອັບ​ນີ້​ບໍ່​ເຂົ້າ​ກັນ​ໄດ້​ກັບໂທລະພາບຂອງ​ທ່ານ."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"ແອັບຯນີ້ບໍ່ສາມາດໃຊ້ກັບໂທລະສັບຂອງທ່ານໄດ້."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"ແພັກເກດທີ່​ກໍາ​ນົດ​​ໄດ້ຖືກ​ລຶບ​ກ່ອນ​ການ​ຕິດ​ຕັ້ງຈະສຳເລັດ."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"ແພັກເກດບໍ່ຜ່ານການຢືນຢັນ ແລະບໍ່ສາມາດຕິດຕັ້ງໄດ້."</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"ເວລາໝົດໃນຂະນະທີ່ກຳລັງຢືນຢັນແພັກເກັດນີ້. ກະລຸນາລອງຕິດຕັ້ງມັນໃໝ່ອີກຄັ້ງພາຍຫຼັງ."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"ບໍ່ສາມາດຕິດຕັ້ງ <xliff:g id="APP_NAME">%1$s</xliff:g> ໃສ່ແທັບເລັດຂອງທ່ານໄດ້."</string>
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> ບໍ່​ສາ​ມາດ​ຕິດ​ຕັ້ງ​ໃສ່ໂທລະພາບຂອງ​ທ່ານ​ໄດ້."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"ບໍ່​ສາ​ມາດ​ຕິດ​ຕັ້ງ​ <xliff:g id="APP_NAME">%1$s</xliff:g> ໃນໂທລະສັບຂອງທ່ານໄດ້."</string>
     <string name="launch" msgid="4826921505917605463">"ເປີດ"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"ການຕິດຕັ້ງຖືກບລັອກໄວ້"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"ເພື່ອຄວາມປອດໄພ, ແທັບເລັດຂອງທ່ານ ຖືກຕັ້ງໃຫ້ບລັອກການຕິດຕັ້ງແອັບພລິເຄຊັນທີ່ມາຈາກແຫຼ່ງບໍ່ຮູ້ຈັກ."</string>
+    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"ເພື່ອ​ຄວາມ​ປອດ​ໄພ, ໂທລະພາບຂອງ​ທ່ານ​ຖືກ​ຕັ້ງ​ໃຫ້​ບ​ລັອກ​ການ​ຕິດ​ຕັ້ງ​ແອັບ​ທີ່​ໄດ້​ຮັບ​ມາ​ຈາກ​ແຫຼ່ງ​ທີ່​ບໍ່​ຮູ້​ຈັກ."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"ເພື່ອຄວາມປອດໄພ, ໂທລະສັບຂອງທ່ານຖືກຕັ້ງໃຫ້ບລັອກການຕິດຕັ້ງແອັບພລິເຄຊັນ ທີ່ມາຈາກແຫຼ່ງບໍ່ຮູ້ຈັກ."</string>
+    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ຂອງ​ທ່ານ​ບໍ່​ອາ​ນຸ​ຍາດ​ໃຫ້​ຕິດ​ຕັ້ງ​ແອັບຯ​ທີ່​ໄດ້​ມາ​ຈາກ​ແຫຼ່ງ​ທີ່​ບໍ່​ຮູ້​ຈັກ."</string>
     <string name="ok" msgid="3468756155452870475">"ຕົກລົງ"</string>
     <string name="settings" msgid="6743583734099755409">"ການຕັ້ງຄ່າ"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"ແຫຼ່ງຂໍ້ມູນໃໝ່ສຳລັບແອັບຯ"</string>
@@ -64,11 +68,14 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> ແມ່ນ​ສ່ວນ​ນຶ່ງ​ຂອງແອັບຯຂ້າງລຸ່ມ:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"ທ່ານຕ້ອງການຖອນການຕິດຕັ້ງແອັບຯນີ້ບໍ່?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"ທ່ານຕ້ອງການທີ່ຈະຖອນການຕິດຕັ້ງແອັບຯນີ້ ສຳລັງຜູ່ໃຊ້"<b>"ທຸກຄົນ"</b>"ບໍ່? ແອັບພລິເຄຊັນ ແລະຂໍ້ມູນຂອງມັນຈະຖືກລຶບອອກ ຈາກຜູ່ໃຊ້"<b>"ທັງໝົດ"</b>"ໃນອຸປະກອນນີ້."</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"ທ່ານ​ຕ້ອງ​ການ​ຖອນ​ການ​ຕິດ​ຕັ້ງ​ແອັບຯ​ນີ້​ສຳ​ລັບ​ຜູ່​ໃຊ້ <xliff:g id="USERNAME">%1$s</xliff:g> ບໍ່?"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"ທ່ານ​ຕ້ອງ​ການ​ແທນທີ່ແອັບຯນີ້​ດ້ວຍເວີຊັນທີ່ມາກັບ​ໂຮງ​ງານບໍ່​?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"ກຳລັງຖອນການຕິດຕັ້ງ..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"ຖອນການຕິດຕັ້ງສຳເລັດແລ້ວ."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"ການຖອນການຕິດຕັ້ງບໍ່ສຳເລັດ."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"ບໍ່ສາມາດຖອດການຕິດຕັ້ງໄດ້ ເນື່ອງຈາກແພັກເກດນີ້ເປັນຂອງຜູ່ເບິ່ງແຍງລະບົບອຸປະກອນ."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"ແອັບຯ​ນີ້​ຕ້ອງ​ໃຊ້​ໂດຍ​ໂປຣ​ໄຟລ໌ <xliff:g id="USERNAME">%1$s</xliff:g> ຂອງ​ທ່ານ​ແລະ​ບໍ່​ສາ​ມາດ​ຖອນ​ການ​ຕິດ​ຕັ້ງ​ໄດ້."</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"​ແອັບຯ​ນີ້​ຕ້ອງ​ໃຊ້​ໂດຍ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ຂອງ​ທ່ານ ແລະ​ບໍ່​ສາ​ມາດ​ຖອນ​ການ​ຕິດ​ຕັ້ງ​ໄດ້."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"ຈັດການຜູ່ເບິ່ງແຍງລະບົບອຸປະກອນ"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> ບໍ່ສາມາດຖອນອອກໄດ້."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"ການວິເຄາະຜິດພາດ"</string>

@@ -36,16 +36,20 @@
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"มีแพ็กเกจชื่อเดียวกันซึ่งมีลายเซ็นที่ขัดแย้งติดตั้งไว้อยู่แล้ว"</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"แพ็กเกจนี้จะทำงานบน Android รุ่นใหม่กว่านี้เท่านั้น"</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"แอปพลิเคชันนี้ไม่สามารถทำงานร่วมกับแท็บเล็ตของคุณได้"</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"แอปนี้ไม่สามารถใช้งานกับทีวีของคุณได้"</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"แอปพลิเคชันนี้ไม่สามารถทำงานร่วมกับโทรศัพท์ของคุณได้"</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"แพ็กเกจที่ระบุไว้ถูกนำออกออกก่อนที่การติดตั้งจะเสร็จสมบูรณ์"</string>
+    <string name="install_failed_file_not_found" msgid="1958430133396322619">"แพ็กเกจที่ระบุไว้ถูกลบออกก่อนที่การติดตั้งจะเสร็จสมบูรณ์"</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"แพ็กเกจไม่ผ่านการยืนยันและไม่สามารถติดตั้ง"</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"ถึงระยะหมดเวลาขณะที่พยายามยืนยันแพ็กเกจนี้ โปรดลองติดตั้งอีกครั้งในภายหลัง"</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"ไม่สามารถติดตั้ง <xliff:g id="APP_NAME">%1$s</xliff:g> บนแท็บเล็ตของคุณ"</string>
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> ไม่สามารถติดตั้งบนทีวีได้"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"ไม่สามารถติดตั้ง <xliff:g id="APP_NAME">%1$s</xliff:g> บนโทรศัพท์ของคุณ"</string>
     <string name="launch" msgid="4826921505917605463">"เปิด"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"ปิดกั้นการติดตั้งไว้"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"เพื่อความปลอดภัย แท็บเล็ตของคุณถูกตั้งค่าให้บล็อกการติดตั้งแอปพลิเคชันที่ได้มาจากแหล่งที่ไม่รู้จัก"</string>
+    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"เพื่อความปลอดภัย มีการกำหนดให้ทีวีของคุณบล็อกการติดตั้งแอปจากแหล่งที่มาที่ไม่รู้จัก"</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"เพื่อความปลอดภัย โทรศัพท์ของคุณถูกตั้งค่าให้บล็อกการติดตั้งแอปพลิเคชันที่ได้มาจากแหล่งที่ไม่รู้จัก"</string>
+    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"ผู้ดูแลระบบของคุณไม่อนุญาตให้ติดตั้งแอปที่ได้มาจากแหล่งที่มาที่ไม่รู้จัก"</string>
     <string name="ok" msgid="3468756155452870475">"ตกลง"</string>
     <string name="settings" msgid="6743583734099755409">"การตั้งค่า"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"แหล่งใหม่สำหรับแอปพลิเคชัน"</string>
@@ -63,12 +67,15 @@
     <string name="uninstall_update_title" msgid="4146940097553335390">"ถอนการติดตั้งการอัปเดต"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> เป็นส่วนหนึ่งของแอปพลิเคชันต่อไปนี้:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"คุณต้องการถอนการติดตั้งแอปพลิเคชันนี้หรือไม่"</string>
-    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"คุณต้องการถอนการติดตั้งแอปพลิเคชันนี้สำหรับผู้ใช้"<b>"ทั้งหมด"</b>"หรือไม่ แอปพลิเคชันนี้และข้อมูลในแอปพลิเคชันจะถูกนำออกจากผู้ใช้"<b>"ทั้งหมด"</b>"ในอุปกรณ์"</string>
+    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"คุณต้องการถอนการติดตั้งแอปพลิเคชันนี้สำหรับผู้ใช้"<b>"ทั้งหมด"</b>"หรือไม่ แอปพลิเคชันนี้และข้อมูลในแอปพลิเคชันจะถูกลบจากผู้ใช้"<b>"ทั้งหมด"</b>"ในอุปกรณ์"</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"คุณต้องการถอนการติดตั้งแอปนี้สำหรับผู้ใช้ <xliff:g id="USERNAME">%1$s</xliff:g> ไหม"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"คุณต้องการแทนที่แอปพลิเคชันนี้ด้วยรุ่นจากโรงงานหรือไม่"</string>
     <string name="uninstalling" msgid="5556217435895938250">"กำลังถอนการติดตั้ง..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"ถอนการติดตั้งเสร็จแล้ว"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"ถอนการติดตั้งไม่สำเร็จ"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"ไม่สามารถถอนการติดตั้งเนื่องจากแพ็กเกจนี้เป็นโปรแกรมควบคุมอุปกรณ์ที่ใช้งานอยู่"</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"ต้องใช้แอปนี้สำหรับโปรไฟล์ <xliff:g id="USERNAME">%1$s</xliff:g> ของคุณและไม่สามารถถอนการติดตั้งได้"</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"ผู้ดูแลระบบอุปกรณ์กำหนดให้ใช้แอปนี้ และไม่สามารถถอนการติดตั้งได้"</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"จัดการโปรแกรมควบคุมอุปกรณ์"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"ไม่สามารถถอดการติดตั้ง <xliff:g id="APP_NAME">%1$s</xliff:g>"</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"ข้อผิดพลาดในการแยกวิเคราะห์"</string>

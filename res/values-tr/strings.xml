@@ -36,16 +36,20 @@
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Adı aynı olan, farklı imzaya sahip mevcut bir paket zaten yüklü."</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Paket yalnızca, Android\'in daha yeni sürümlerinde çalışır."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Bu uygulama tabletinizle uyumlu değil."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Bu uygulama TV\'niz ile uyumlu değil."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Bu uygulama telefonunuzla uyumlu değil."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Belirtilen paket, yükleme tamamlanamadan silindi."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"Paket, doğrulamayı geçmedi ve yüklenemez."</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Bu paket doğrulanmaya çalışılırken zaman aşımı oluştu. Daha sonra tekrar yüklemeyi deneyin."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> bu tabletinize yüklenemedi."</string>
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> TV\'nize yüklenemedi."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> bu telefonunuza yüklenemedi."</string>
     <string name="launch" msgid="4826921505917605463">"Aç"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Yükleme engellendi"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Güvenlik amacıyla, tabletiniz bilinmeyen kaynaklardan alınan uygulamaların yüklenmesini engelleyecek şekilde ayarlandı."</string>
+    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Güvenlik amacıyla, TV\'niz bilinmeyen kaynaklardan alınan uygulamaların yüklenmesini engellemeye ayarlıdır."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Güvenlik amacıyla, telefonunuz bilinmeyen kaynaklardan alınan uygulamaların yüklenmesini engelleyecek şekilde ayarlandı."</string>
+    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Yöneticiniz, bilinmeyen kaynaklardan edinilen uygulamaların yüklenmesine izin vermiyor."</string>
     <string name="ok" msgid="3468756155452870475">"Tamam"</string>
     <string name="settings" msgid="6743583734099755409">"Ayarlar"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Uygulamalar için yeni kaynak"</string>
@@ -64,11 +68,14 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g>, şu uygulamanın bir parçasıdır:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"Bu uygulamanın yüklemesini kaldırmak istiyor musunuz?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Bu uygulamanın yüklemesini "<b>"tüm"</b>" kullanıcılar için kaldırmak istiyor musunuz? Uygulama ve verileri cihazdan "<b>"tüm"</b>" kullanıcılar için kaldırılacaktır."</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"<xliff:g id="USERNAME">%1$s</xliff:g> adlı kullanıcı için bu uygulamanın yüklemesini kaldırmak istiyor musunuz?"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"Bu uygulamayı fabrika sürümüyle değiştirmek istiyor musunuz?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Kaldırılıyor…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Kaldırma işlemi tamamlandı."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Yükleme kaldırılamadı."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Bu paket, etkin bir cihaz yöneticisi olduğundan yüklemesi kaldırılamıyor."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Bu uygulama, <xliff:g id="USERNAME">%1$s</xliff:g> profiliniz için gereklidir ve yüklemesi kaldırılamaz."</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Bu uygulama, cihazınızın yöneticisi için gereklidir ve yüklemesi kaldırılamaz."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Cihaz yöneticilerini yönet"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> kaldırılamadı."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Ayrıştırma hatası"</string>

@@ -23,12 +23,12 @@
     <string name="security_settings_desc" msgid="2706691034244052604">"Povoliť aplikácii nasledovné:"</string>
     <string name="cancel" msgid="8360346460165114585">"Zrušiť"</string>
     <string name="unknown" msgid="4742479012767208045">"Neznáme"</string>
-    <string name="installing" msgid="8613631001631998372">"Prebieha inštalácia..."</string>
+    <string name="installing" msgid="8613631001631998372">"Inštaluje sa..."</string>
     <string name="install_done" msgid="3682715442154357097">"Aplikácia bola nainštalovaná."</string>
-    <string name="install_confirm_question" msgid="7295206719219043890">"Chcete nainštalovať túto aplikáciu? Získa prístup k týmto povoleniam:"</string>
+    <string name="install_confirm_question" msgid="7295206719219043890">"Chcete nainštalovať túto aplikáciu? Získa nasledujúce povolenia:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Chcete nainštalovať túto aplikáciu? Nevyžaduje žiadny zvláštny prístup."</string>
-    <string name="install_confirm_question_update" msgid="4624159567361487964">"Chcete nainštalovať aktualizáciu existujúcej aplikácie? Existujúce údaje sa nestratia. Aktualizovaná aplikácia získa prístup k týmto povoleniam:"</string>
-    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Chcete nainštalovať aktualizáciu tejto integrovanej aplikácie? Existujúce údaje sa nestratia. Aktualizovaná aplikácia získa prístup k týmto povoleniam:"</string>
+    <string name="install_confirm_question_update" msgid="4624159567361487964">"Chcete nainštalovať aktualizáciu existujúcej aplikácie? Existujúce údaje sa nestratia. Aktualizovaná aplikácia získa nasledujúce povolenia:"</string>
+    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Chcete nainštalovať aktualizáciu tejto integrovanej aplikácie? Existujúce údaje sa nestratia. Aktualizovaná aplikácia získa nasledujúce povolenia:"</string>
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Chcete nainštalovať aktualizáciu tejto existujúcej aplikácie? Vaše údaje nebudú stratené. Táto akcia nevyžaduje žiadny zvláštny prístup."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Chcete nainštalovať aktualizáciu tejto vstavanej aplikácie? Vaše údaje sa nestratia. Táto akcia nevyžaduje žiadny zvláštny prístup."</string>
     <string name="install_failed" msgid="6579998651498970899">"Aplikácia nebola nainštalovaná."</string>
@@ -36,16 +36,20 @@
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Už je nainštalovaný existujúci balík s rovnakým názvom a kolidujúcim podpisom."</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Balík funguje iba v novších verziách systému Android."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Táto aplikácia nie je kompatibilná s vaším tabletom."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Táto aplikácia nie je kompatibilná s vaším televízorom."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Táto aplikácia nie je kompatibilná s vaším telefónom."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Pred dokončením inštalácie bol vybratý balík odstránený."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"Balík neprešiel overením a nemôže byť nainštalovaný."</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Pri verifikácii tohto balíka vypršal časový limit. Skúste ho nainštalovať neskôr."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Aplikáciu <xliff:g id="APP_NAME">%1$s</xliff:g> sa do vášho tabletu nepodarilo nainštalovať."</string>
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Aplikáciu <xliff:g id="APP_NAME">%1$s</xliff:g> sa nepodarilo nainštalovať na vašom televízore."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Aplikáciu <xliff:g id="APP_NAME">%1$s</xliff:g> sa do vášho telefónu nepodarilo nainštalovať."</string>
     <string name="launch" msgid="4826921505917605463">"Otvoriť"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Inštalácia bola zablokovaná"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Tablet je z dôvodu zabezpečenia nastavený tak, aby blokoval inštalácie aplikácií z neznámych zdrojov."</string>
+    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Váš televízor blokuje z bezpečnostných dôvodov inštaláciu aplikácií získaných z neznámych zdrojov."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Telefón je z dôvodu zabezpečenia nastavený tak, aby blokoval inštalácie aplikácií z neznámych zdrojov."</string>
+    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Váš správca zakázal inštaláciu aplikácií z neznámych zdrojov."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Nastavenia"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Nový zdroj pre aplikácie"</string>
@@ -64,11 +68,14 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"Aktivita <xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> je súčasťou nasledujúcej aplikácie:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"Chcete túto aplikáciu odinštalovať?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Chcete odinštalovať túto aplikáciu pre "<b>"všetkých"</b>" používateľov? Aplikácia a jej údaje sa odstránia z tohto zariadenia pre "<b>"všetkých"</b>" používateľov."</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Chcete túto aplikáciu odinštalovať pre používateľa <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"Chcete túto aplikáciu nahradiť továrenskou verziou?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Prebieha odinštalovanie..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Odinštalovanie bolo dokončené."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Odinštalovanie bolo neúspešné."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Nie je možné odinštalovať, pretože tento balík je aktívnym správcom zariadenia."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Táto aplikácia sa vyžaduje pre váš profil <xliff:g id="USERNAME">%1$s</xliff:g> a nie je ju možné odinštalovať."</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Túto aplikáciu vyžaduje správca vášho zariadenia a nie je ju možné odinštalovať."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Spravovať správcov zariadenia"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Aplikáciu <xliff:g id="APP_NAME">%1$s</xliff:g> sa nepodarilo odinštalovať."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Chyba analýzy"</string>

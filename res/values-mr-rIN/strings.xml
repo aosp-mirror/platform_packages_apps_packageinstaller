@@ -36,16 +36,20 @@
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"समान नावाद्वारे विवादित स्‍वाक्षरीसह अस्‍तित्‍वात असलेले पॅकेज आधीपासून स्‍थापित केले आहे."</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"पॅकेज Android च्या केवळ नवीनतम आवृत्त्‍यांवर कार्य करते."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"हा अॅप आपल्या टॅब्लेटशी सुसंगत नाही."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"हा अॅप आपल्या टीव्हीशी सुसंगत नाही."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"हा अॅप आपल्या फोनशी सुसंगत नाही."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"स्‍थापित करणे पूर्ण होण्‍यापूर्वी निर्दिष्‍ट केलेले पॅकेज हटविले गेले."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"पॅकेज सत्‍यापनात उत्तीर्ण झाले नाही आणि स्‍थापित केले जाऊ शकत नाही."</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"हे पॅकेज सत्यापित करण्याचा प्रयत्न करताना एक कालबाह्य त्रुटी आली. ते नंतर पुन्हा स्थापित करण्याचा प्रयत्न करा."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> आपल्या टॅब्लेटवर स्थापित केला जाऊ शकला नाही."</string>
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> आपल्या टीव्हीवर स्थापित केले जाऊ शकले नाही."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> आपल्या फोनवर स्थापित केला जाऊ शकला नाही."</string>
     <string name="launch" msgid="4826921505917605463">"उघडा"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"स्‍थापना अवरोधित केली"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"सुरक्षिततेसाठी, आपला टॅब्लेट अज्ञात स्त्रोतांकडून प्राप्त झालेल्या अॅप्सची स्थापना अवरोधित करण्यावर सेट केला आहे."</string>
+    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"सुरक्षिततेसाठी, आपला टीव्ही अज्ञात स्त्रोतांकडून प्राप्त झालेल्या अॅप्सची स्थापना अवरोधित करण्यावर सेट केला आहे."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"सुरक्षिततेसाठी, आपला फोन अज्ञात स्त्रोतांकडून प्राप्त झालेल्या अॅप्सची स्थापना अवरोधित करण्यावर सेट केला आहे."</string>
+    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"अज्ञात स्त्रोतांकडून मिळविलेल्या अॅप्सच्या स्थापनेस आपला प्रशासक अनुमती देत नाही."</string>
     <string name="ok" msgid="3468756155452870475">"ठीक"</string>
     <string name="settings" msgid="6743583734099755409">"सेटिंग्ज"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"अॅप्स साठी नवीन स्त्रोत"</string>
@@ -64,11 +68,14 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> खालील अॅप चा भाग आहे:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"आपण हा अॅप विस्थापित करू इच्छिता?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"आपण हा अॅप "<b>"सर्व"</b>" वापरकर्त्यांसाठी विस्थापित करू इच्छिता? अनुप्रयोग आणि त्याचा डेटा डिव्हाइसवरील "<b>"सर्व"</b>" वापरकर्त्यांवरून काढला जाईल."</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"आपण <xliff:g id="USERNAME">%1$s</xliff:g> वापरकर्त्यासाठी हा अ‍ॅप विस्‍थापित करु इच्‍छिता?"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"आपण फॅक्टरी आवृत्तीसह हा अॅप पुनर्स्थित करू इच्छिता?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"विस्थापित करीत आहे…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"विस्थापित करणे समाप्त."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"विस्थापित करणे अयशस्वी."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"हे पॅकेज सक्रिय डिव्हाइस प्रशासक असल्यामुळे विस्थापित करू शकत नाही."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"आपल्‍या <xliff:g id="USERNAME">%1$s</xliff:g> प्रोफाईलसाठी हा अ‍ॅप आवश्‍यक आहे आणि विस्‍थापित केला जाऊ शकत नाही."</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"आपल्‍या डिव्‍हाइस प्रशासकाद्वारे हा अ‍ॅप आवश्यक आहे आणि तो विस्‍थापित केला जाऊ शकत नाही."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"डिव्‍हाइस प्रशासकांना व्‍यवस्‍थापित करा"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> विस्थापित केला जाऊ शकला नाही."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"विश्लेषण त्रुटी"</string>

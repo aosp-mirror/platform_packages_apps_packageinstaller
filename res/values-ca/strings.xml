@@ -36,16 +36,20 @@
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Ja hi ha instal·lat un paquet amb el mateix nom i amb una signatura conflictiva."</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Aquest paquet només funciona a les versions més recents d\'Android."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Aquesta aplicació no és compatible amb la tauleta."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Aquesta aplicació no és compatible amb el televisor."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Aquesta aplicació no és compatible amb el teu telèfon."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"El paquet especificat s\'ha suprimit abans que la instal·lació s\'hagi completat."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"El paquet no ha aprovat la verificació i no es pot instal·lar."</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"S\'ha esgotat el temps d\'espera en provar de verif. el paquet. Prova de tornar-lo a instal·lar."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> no s\'ha pogut instal·lar a la tauleta."</string>
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> no s\'ha pogut instal·lar al televisor."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> no s\'ha pogut instal·lar al telèfon."</string>
     <string name="launch" msgid="4826921505917605463">"Obre"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Instal·lació bloquejada"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Per seguretat, la tauleta està def. per bloq. instal·lació d\'apl. que s\'obtenen de fonts desconegud."</string>
+    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Per seguretat, el televisor està configurat perquè no instal·li aplicacions de fonts desconegudes."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Per seguretat, el telèfon està configurat per bloquejar les aplicacions que procedeixin de fonts desconegudes."</string>
+    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"L\'administrador no permet instal·lar aplicacions que s\'hagin obtingut de fonts desconegudes."</string>
     <string name="ok" msgid="3468756155452870475">"D\'acord"</string>
     <string name="settings" msgid="6743583734099755409">"Configuració"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Nova font per a aplicacions"</string>
@@ -64,11 +68,14 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> forma part de l\'aplicació següent:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"Vols desinstal·lar aquesta aplicació?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Vols desinstal·lar aquesta aplicació per a "<b>"tots"</b>" els usuaris? L\'aplicació i les seves dades se suprimiran per a "<b>"tots"</b>" els usuaris del dispositiu."</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Vols desinstal·lar aquesta aplicació per a l\'usuari <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"Vols substituir aquesta aplicació per la versió de fàbrica?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"S\'està desinstal·lant..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Desinstal·lació finalitzada."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"S\'ha produït un error en la desinstal·lació."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"No es pot desinstal·lar perquè aquest paquet és administ. actiu d\'un dispositiu."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"El perfil de l\'usuari <xliff:g id="USERNAME">%1$s</xliff:g> necessita l\'aplicació i no la pots desinstal·lar."</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"L\'administrador del dispositiu necessita l\'aplicació i no la pots desinstal·lar."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Gestiona els administradors del dispositiu"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> no s\'ha pogut desinstal·lar."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Error d\'anàlisi"</string>

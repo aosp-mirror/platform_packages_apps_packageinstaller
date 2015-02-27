@@ -36,16 +36,20 @@
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Već je instaliran postojeći paket s istim imenom i konfliktnim potpisom."</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Paket funkcionira samo na novijim verzijama Androida."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Ova aplikacija nije kompatibilna s vašim tabletnim računalom."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Aplikacija nije kompatibilna s vašim televizorom."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Ova aplikacija nije kompatibilna s vašim telefonom."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Navedeni paket izbrisan je prije nego što se instalacija mogla dovršiti."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"Paket nije prošao provjeru i ne može se instalirati."</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Isteklo je vrijeme za pokušaj potvrde ovog paketa. Pokušajte ga kasnije ponovo instalirati."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> nije moguće instalirati na ovo tabletno računalo."</string>
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Nije bilo moguće instalirati aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> na vaš televizor."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> nije moguće instalirati na vaš telefon."</string>
     <string name="launch" msgid="4826921505917605463">"Otvori"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Instaliranje je blokirano"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Radi sigurnosti vaš je tablet postavljen da blokira instaliranje aplikacija iz nepoznatih izvora."</string>
+    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Iz sigurnosnih razloga televizor blokira instaliranje aplikacija iz nepoznatih izvora."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Radi sigurnosti vaš je telefon postavljen da blokira instaliranje aplikacija iz nepoznatih izvora."</string>
+    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Vaš administrator ne dopušta instaliranje aplikacija dobivenih iz nepoznatih izvora."</string>
     <string name="ok" msgid="3468756155452870475">"U redu"</string>
     <string name="settings" msgid="6743583734099755409">"Postavke"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Novi izvor za aplikacije"</string>
@@ -64,11 +68,14 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"Aktivnost <xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> dio je sljedeće aplikacije:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"Želite li deinstalirati ovu aplikaciju?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Želite li deinstalirati tu aplikaciju za "<b>"sve"</b>" korisnike? Aplikacija i njezini podaci bit će uklonjeni sa "<b>"svih"</b>" korisnika na uređaju."</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Želite li deinstalirati tu aplikaciju za korisnika <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"Želite li ovu aplikaciju zamijeniti tvorničkom verzijom?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Deinstaliranje..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Deinstalacija je završena."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Deinstalacija nije uspjela."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Deinstalacija nije moguća jer je ovaj paket aktivni administrator uređaja."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Ta je aplikacija neophodna za profil <xliff:g id="USERNAME">%1$s</xliff:g> i nije ju moguće deinstalirati."</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Ta je aplikacija neophodna administratoru uređaja i nije ju moguće deinstalirati."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Upravljanje administratorima uređaja"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> nije moguće instalirati."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Pogreška analize"</string>

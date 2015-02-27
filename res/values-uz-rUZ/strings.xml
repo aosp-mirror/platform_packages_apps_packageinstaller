@@ -36,16 +36,20 @@
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Xuddi shu nomdagi mavjud paket farqli imzo bilan allaqachon o‘rnatilgan."</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Paket faqatgina \"Android\"ning yangi versiyalarida ishlay oladi."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Ushbu ilova planshetingizga mos kelmaydi."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Bu ilova televizoringiz bilan mos emas."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Ushbu ilova telefoningizga mos kelmaydi."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Ko‘rsatilgan paket o‘rnatish jarayoni tugamasdan o‘chirib tashlangan."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"Paket tekshirishdan o‘tmadi, shuning uchun uni o‘rnatib bo‘lmaydi."</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Ushbu paketni tekshirish jarayonida kutish vaqti tugadi. Keyinroq qayta o‘rnatib ko‘ring."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> planshetingizga o‘rnatilmadi."</string>
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> ilovasini televizoringizga o‘rnatib bo‘lmadi."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> telefoningizga o‘rnatilmadi."</string>
     <string name="launch" msgid="4826921505917605463">"Ochish"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"O‘rnatish to‘xtatildi"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Xavfsizlik yuzasidan planshetingizga begona manbalardan olingan ilovalarni o‘rnatish taqiqlangan."</string>
+    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Xavfsizlik yuzasidan, televizoringizga begona manbalardan olingan ilovalarni o‘rnatish taqiqlangan."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Xavfsizlik yuzasidan telefoningizga begona manbalardan olingan ilovalarni o‘rnatish taqiqlangan."</string>
+    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Administratoringiz begona manbalardan olingan ilovalarni o‘rnatishga ruxsat bermagan."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Sozlamalar"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Ilovalar uchun yangi manba"</string>
@@ -64,11 +68,14 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> quyidagi ilovaning bir qismidir:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"Ushbu ilova o‘chirilsinmi?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Ushbu ilova "<b>"barcha"</b>" foydalanuvchilar uchun o‘chirilsinmi? Ilova va uning ma’lumotlari qurilmadagi "<b>"barcha"</b>" foydalanuvchilardan o‘chib ketadi."</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Haqiqatdan ham <xliff:g id="USERNAME">%1$s</xliff:g> foydalanuvchi uchun ushbu ilovani olib tashlamoqchimisiz?"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"Ushbu ilovani dastlabki versiyasi bilan almashtirmoqchimisiz?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"O‘chirilmoqda…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"O‘chirish yakunlandi."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"O‘chirish muvaffaqiyatsizlikka uchradi."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"O‘chirib bo‘lmadi, chunki ushbu paket faol qurilma administratoridir."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Bu ilova sizning <xliff:g id="USERNAME">%1$s</xliff:g> profilingiz uchun kerak va uni olib tashlab bo\'lmaydi."</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Ushbu ilova qurilmangiz ma\'muri tomonidan ishlatiladi, shuning uchun uni olib tashlab bo\'lmaydi."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Qurilma administratorlarini boshqarish"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> o‘chirilmadi."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Ajratishda xato"</string>
