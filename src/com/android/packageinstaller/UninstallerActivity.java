@@ -141,6 +141,7 @@ public class UninstallerActivity extends Activity {
         IBinder callback;
     }
 
+    private String mPackageName;
     private DialogInfo mDialogInfo;
 
     @Override
@@ -156,8 +157,8 @@ public class UninstallerActivity extends Activity {
             showAppNotFound();
             return;
         }
-        final String packageName = packageUri.getEncodedSchemeSpecificPart();
-        if (packageName == null) {
+        mPackageName = packageUri.getEncodedSchemeSpecificPart();
+        if (mPackageName == null) {
             Log.e(TAG, "Invalid package name in URI: " + packageUri);
             showAppNotFound();
             return;
@@ -177,14 +178,14 @@ public class UninstallerActivity extends Activity {
         mDialogInfo.callback = intent.getIBinderExtra(PackageInstaller.EXTRA_CALLBACK);
 
         try {
-            mDialogInfo.appInfo = pm.getApplicationInfo(packageName,
+            mDialogInfo.appInfo = pm.getApplicationInfo(mPackageName,
                     PackageManager.GET_UNINSTALLED_PACKAGES, mDialogInfo.user.getIdentifier());
         } catch (RemoteException e) {
             Log.e(TAG, "Unable to get packageName. Package manager is dead?");
         }
 
         if (mDialogInfo.appInfo == null) {
-            Log.e(TAG, "Invalid packageName: " + packageName);
+            Log.e(TAG, "Invalid packageName: " + mPackageName);
             showAppNotFound();
             return;
         }
@@ -194,7 +195,7 @@ public class UninstallerActivity extends Activity {
         if (className != null) {
             try {
                 mDialogInfo.activityInfo = pm.getActivityInfo(
-                        new ComponentName(packageName, className), 0,
+                        new ComponentName(mPackageName, className), 0,
                         mDialogInfo.user.getIdentifier());
             } catch (RemoteException e) {
                 Log.e(TAG, "Unable to get className. Package manager is dead?");
@@ -241,7 +242,7 @@ public class UninstallerActivity extends Activity {
             final IPackageDeleteObserver2 observer = IPackageDeleteObserver2.Stub.asInterface(
                     mDialogInfo.callback);
             try {
-                observer.onPackageDeleted(mDialogInfo.appInfo.packageName,
+                observer.onPackageDeleted(mPackageName,
                         PackageManager.DELETE_FAILED_ABORTED, "Cancelled by user");
             } catch (RemoteException ignored) {
             }
