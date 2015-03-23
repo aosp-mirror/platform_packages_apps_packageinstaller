@@ -170,4 +170,31 @@
     <string name="grant_confirm_question">Do you want to grant the following permissions?
         It will get access to:</string>
 
+
+    <!-- Title for the dialog button to allow a permission grant. -->
+    <string name="grant_dialog_button_allow">Allow</string>
+
+    <!-- Title for the dialog button to deny a permission grant. -->
+    <string name="grant_dialog_button_deny">Deny</string>
+
+    <!-- Template for the current permission from the total number of permissions. -->
+    <string name="current_permission_template">
+        <xliff:g id="current_permission_index" example="1">%1$s</xliff:g> of
+        <xliff:g id="permission_count" example="2">%2$s</xliff:g></string>
+
+    <!-- Template for the warning message when an app requests a permission. -->
+    <string name="permission_warning_template">Allow
+        <xliff:g id="app_name" example="Gmail">%1$s</xliff:g> to
+        <xliff:g id="action" example="do something">%2$s</xliff:g>?</string>
+
+    <!-- Permissions -->
+
+    <!-- Title of an application permission, listed so the user can choose whether they want
+         to allow the application to do this. -->
+    <string name="permlab_togglePermissions" translatable="false">toggle permissions</string>
+    <!-- Description of an application permission, listed so the user can choose whether
+         they want to allow the application to do this. -->
+    <string name="permdesc_togglePermissions" translatable="false">Allows the holder to launch
+        the UI for toggling app permissions. Should never be needed for normal apps.</string>
+
 </resources>

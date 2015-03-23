@@ -62,7 +62,7 @@
                 android:configChanges="orientation|keyboardHidden|screenSize"
                 android:exported="false" />
 
-        <activity android:name=".GrantActivity"
+        <activity android:name=".permission.GrantPermissionsActivity"
                 android:configChanges="orientation|keyboardHidden|screenSize"
                 android:excludeFromRecents="true"
                 android:theme="@android:style/Theme.DeviceDefault.Dialog.NoActionBar">
@@ -72,5 +72,16 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".permission.ManagePermissionsActivity"
+                  android:configChanges="orientation|keyboardHidden|screenSize"
+                  android:excludeFromRecents="true"
+                  android:permission="android.permission.GRANT_REVOKE_PERMISSIONS">
+            <intent-filter>
+                <action android:name="android.intent.action.MANAGE_APP_PERMISSIONS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
     </application>
-</manifest> 
+
+</manifest>
