@@ -93,7 +93,8 @@ public final class ManagePermissionsFragment extends SettingsWithHeader
                 SwitchPreference preference = new SwitchPreference(activity);
                 preference.setOnPreferenceChangeListener(this);
                 preference.setKey(group.getName());
-                preference.setIcon(group.getIconResId());
+                preference.setIcon(AppPermissions.loadDrawable(pm, group.getIconPkg(),
+                        group.getIconResId()));
                 preference.setTitle(group.getLabel());
                 preference.setPersistent(false);
                 screen.addPreference(preference);

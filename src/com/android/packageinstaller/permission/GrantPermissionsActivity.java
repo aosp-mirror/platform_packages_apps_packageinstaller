@@ -25,8 +25,12 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PermissionInfo;
+import android.graphics.Color;
 import android.hardware.camera2.utils.ArrayUtils;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
 import android.util.ArrayMap;
 import android.util.Log;
 import android.util.SparseArray;
@@ -114,14 +118,25 @@ public class GrantPermissionsActivity extends Activity implements
                 transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
                 transaction.commit();
 
-                CharSequence message = getString(R.string.permission_warning_template,
-                        mAppPermissions.getAppLabel(), groupState.mGroup.getLabel());
+                CharSequence appLabel = mAppPermissions.getAppLabel();
+                SpannableString message = new SpannableString(getString(
+                        R.string.permission_warning_template, appLabel,
+                        groupState.mGroup.getLabel()));
+                // Bold/color the app name.
+                int appLabelStart = message.toString().indexOf(appLabel.toString(), 0);
+                int appLabelLength = appLabel.length();
+                message.setSpan(new ForegroundColorSpan(Color.BLACK), appLabelStart,
+                        appLabelStart + appLabelLength, 0);
+                message.setSpan(new StyleSpan(android.graphics.Typeface.BOLD), appLabelStart,
+                        appLabelStart + appLabelLength, 0);
 
                 // Add the new grant fragment.
-                // TODO: Use a real message for the action and a real icon. We need group action APIs
+                // TODO: Use a real message for the action. We need group action APIs
+                String pkg = groupState.mGroup.getIconPkg();
+                int icon = groupState.mGroup.getIconResId();
                 DialogFragment newFragment = GrantPermissionFragment
                         .newInstance(groupState.mGroup.getName(), groupCount, i,
-                                android.R.drawable.ic_dialog_info, message);
+                                pkg, icon, message);
 
                 newFragment.show(getFragmentManager(), TAG_GRANT_PERMISSION_GROUP_FRAGMENT);
                 return  true;
