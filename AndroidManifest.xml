@@ -75,9 +75,12 @@
         <activity android:name=".permission.ManagePermissionsActivity"
                   android:configChanges="orientation|keyboardHidden|screenSize"
                   android:excludeFromRecents="true"
+                  android:label="@string/app_permissions"
+                  android:theme="@android:style/Theme.Material.Settings"
                   android:permission="android.permission.GRANT_REVOKE_PERMISSIONS">
             <intent-filter>
                 <action android:name="android.intent.action.MANAGE_APP_PERMISSIONS" />
+                <action android:name="android.intent.action.MANAGE_PERMISSION_APPS" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

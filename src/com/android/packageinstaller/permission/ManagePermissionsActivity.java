@@ -17,6 +17,7 @@
 package com.android.packageinstaller.permission;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,14 +29,30 @@ public final class ManagePermissionsActivity extends Activity {
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
-        String packageName = getIntent().getStringExtra(Intent.EXTRA_PACKAGE_NAME);
-        if (packageName == null) {
-            Log.i(LOG_TAG, "Missing mandatory argument ARG_PACKAGE_NAME");
+        Fragment fragment = null;
+        String action = getIntent().getAction();
+        if (Intent.ACTION_MANAGE_APP_PERMISSIONS.equals(action)) {
+            String packageName = getIntent().getStringExtra(Intent.EXTRA_PACKAGE_NAME);
+            if (packageName == null) {
+                Log.i(LOG_TAG, "Missing mandatory argument EXTRA_PACKAGE_NAME");
+                finish();
+                return;
+            }
+            fragment = ManagePermissionsFragment.newInstance(packageName);
+        } else if (Intent.ACTION_MANAGE_PERMISSION_APPS.equals(action)) {
+            String permissionName = getIntent().getStringExtra(Intent.EXTRA_PERMISSION_NAME);
+            if (permissionName == null) {
+                Log.i(LOG_TAG, "Missing mandatory argument EXTRA_PERMISSION_NAME");
+                finish();
+                return;
+            }
+            fragment = PermissionManagementFragment.newInstance(permissionName);
+        } else {
+            Log.w(LOG_TAG, "Unrecognized action " + action);
             finish();
             return;
         }
 
-        ManagePermissionsFragment fragment = ManagePermissionsFragment.newInstance(packageName);
         getFragmentManager().beginTransaction().replace(android.R.id.content, fragment).commit();
     }
 }

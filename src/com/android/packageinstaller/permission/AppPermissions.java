@@ -289,5 +289,9 @@ public final class AppPermissions {
         public boolean isGranted() {
             return mGranted;
         }
+
+        public void setGranted(boolean granted) {
+            mGranted = granted;
+        }
     }
 }
