@@ -16,17 +16,24 @@
 
 package com.android.packageinstaller.permission;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.Preference;
-import android.preference.PreferenceFragment;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.util.Log;
+import android.view.MenuItem;
+import android.widget.Toast;
 
-public final class ManagePermissionsFragment extends PreferenceFragment {
+import com.android.packageinstaller.R;
+
+public final class ManagePermissionsFragment extends SettingsWithHeader
+        implements OnPreferenceChangeListener {
     private static final String LOG_TAG = "ManagePermissionsFragment";
 
     private AppPermissions mAppPermissions;
@@ -42,6 +49,8 @@ public final class ManagePermissionsFragment extends PreferenceFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+        getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
         bindUi();
     }
 
@@ -51,45 +60,38 @@ public final class ManagePermissionsFragment extends PreferenceFragment {
         updateUi();
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                getActivity().finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private void bindUi() {
         String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
 
-        final PackageInfo packageInfo = getPackageInfo(packageName);
+        final Activity activity = getActivity();
+        PackageInfo packageInfo = getPackageInfo(packageName);
         if (packageInfo == null) {
-            getActivity().finish();
+            Toast.makeText(activity, R.string.app_not_found_dlg_title, Toast.LENGTH_LONG)
+                    .show();
+            activity.finish();
             return;
         }
+        final PackageManager pm = activity.getPackageManager();
+        ApplicationInfo appInfo = packageInfo.applicationInfo;
+        setHeader(appInfo.loadIcon(pm), appInfo.loadLabel(pm), null);
 
-        PreferenceScreen screen = getPreferenceManager().createPreferenceScreen(getActivity());
-        mAppPermissions = new AppPermissions(getActivity(),
-                packageInfo, null);
-
-        Preference.OnPreferenceChangeListener changeListener =
-                new Preference.OnPreferenceChangeListener() {
-                    @Override
-                    public boolean onPreferenceChange(Preference preference, Object newValue) {
-                        String groupName = preference.getKey();
-                        AppPermissions.PermissionGroup group = mAppPermissions
-                                .getPermissionGroup(groupName);
-
-                        if (group == null) {
-                            return false;
-                        }
-
-                        if (newValue == Boolean.TRUE) {
-                            group.grantRuntimePermissions();
-                        } else {
-                            group.revokeRuntimePermissions();
-                        }
-
-                        return true;
-                    }
-                };
+        PreferenceScreen screen = getPreferenceManager().createPreferenceScreen(activity);
+        mAppPermissions = new AppPermissions(activity, packageInfo, null);
 
         for (AppPermissions.PermissionGroup group : mAppPermissions.getPermissionGroups()) {
             if (group.hasRuntimePermissions()) {
-                SwitchPreference preference = new SwitchPreference(getActivity());
-                preference.setOnPreferenceChangeListener(changeListener);
+                SwitchPreference preference = new SwitchPreference(activity);
+                preference.setOnPreferenceChangeListener(this);
                 preference.setKey(group.getName());
                 preference.setIcon(group.getIconResId());
                 preference.setTitle(group.getLabel());
@@ -99,6 +101,24 @@ public final class ManagePermissionsFragment extends PreferenceFragment {
         }
 
         setPreferenceScreen(screen);
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        String groupName = preference.getKey();
+        AppPermissions.PermissionGroup group = mAppPermissions.getPermissionGroup(groupName);
+
+        if (group == null) {
+            return false;
+        }
+
+        if (newValue == Boolean.TRUE) {
+            group.grantRuntimePermissions();
+        } else {
+            group.revokeRuntimePermissions();
+        }
+
+        return true;
     }
 
     private void updateUi() {
