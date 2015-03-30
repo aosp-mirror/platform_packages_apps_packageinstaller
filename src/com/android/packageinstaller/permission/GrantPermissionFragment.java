@@ -17,14 +17,16 @@
 package com.android.packageinstaller.permission;
 
 import android.app.DialogFragment;
+import android.content.DialogInterface;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.android.packageinstaller.R;
 
 public final class GrantPermissionFragment extends DialogFragment {
@@ -32,14 +34,15 @@ public final class GrantPermissionFragment extends DialogFragment {
     public static final String ARG_GROUP_COUNT = "ARG_GROUP_COUNT";
     public static final String ARG_GROUP_INDEX = "ARG_GROUP_INDEX";
     public static final String ARG_GROUP_ICON_RES_ID = "ARG_GROUP_ICON";
+    public static final String ARG_GROUP_ICON_PKG = "ARG_GROUP_ICON_PKG";
     public static final String ARG_GROUP_MESSAGE = "ARG_GROUP_MESSAGE";
 
     public interface OnRequestGrantPermissionGroupResult {
         public void onRequestGrantPermissionGroupResult(String name, boolean granted);
     }
 
-    public static GrantPermissionFragment newInstance(String groupName,
-            int groupCount, int groupIndex, int iconResId, CharSequence message) {
+    public static GrantPermissionFragment newInstance(String groupName, int groupCount,
+            int groupIndex, String iconPkg, int iconResId, CharSequence message) {
         GrantPermissionFragment instance = new GrantPermissionFragment();
         instance.setStyle(STYLE_NORMAL,
                 android.R.style.Theme_DeviceDefault_Light_Dialog_NoActionBar);
@@ -49,19 +52,23 @@ public final class GrantPermissionFragment extends DialogFragment {
         arguments.putInt(ARG_GROUP_COUNT, groupCount);
         arguments.putInt(ARG_GROUP_INDEX, groupIndex);
         arguments.putInt(ARG_GROUP_ICON_RES_ID, iconResId);
+        arguments.putString(ARG_GROUP_ICON_PKG, iconPkg);
         arguments.putCharSequence(ARG_GROUP_MESSAGE, message);
         instance.setArguments(arguments);
 
         return instance;
     }
 
+    private String mGroupName;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View content = inflater.inflate(R.layout.grant_permissions, container, false);
 
-        final String groupName = getArguments().getString(ARG_GROUP_NAME);
-        final String message = getArguments().getString(ARG_GROUP_MESSAGE);
+        mGroupName = getArguments().getString(ARG_GROUP_NAME);
+        final CharSequence message = getArguments().getCharSequence(ARG_GROUP_MESSAGE);
+        final String iconPkg = getArguments().getString(ARG_GROUP_ICON_PKG);
         final int iconResId = getArguments().getInt(ARG_GROUP_ICON_RES_ID);
         final int groupCount = getArguments().getInt(ARG_GROUP_COUNT);
         final int groupIndex = getArguments().getInt(ARG_GROUP_INDEX);
@@ -78,17 +85,19 @@ public final class GrantPermissionFragment extends DialogFragment {
             public void onClick(View view) {
                 if (view == allowButton) {
                     ((OnRequestGrantPermissionGroupResult) getActivity())
-                            .onRequestGrantPermissionGroupResult(groupName, true);
+                            .onRequestGrantPermissionGroupResult(mGroupName, true);
                 } else if (view == denyButton) {
                     ((OnRequestGrantPermissionGroupResult) getActivity())
-                            .onRequestGrantPermissionGroupResult(groupName, false);
+                            .onRequestGrantPermissionGroupResult(mGroupName, false);
                 } else if (view == doNotAskCheckbox) {
                     //TODO: Implement me.
                 }
             }
         };
 
-        iconView.setImageResource(iconResId);
+        Drawable icon = AppPermissions.loadDrawable(getActivity().getPackageManager(), iconPkg,
+                iconResId);
+        iconView.setImageDrawable(icon);
 
         messageView.setText(message);
 
@@ -105,5 +114,11 @@ public final class GrantPermissionFragment extends DialogFragment {
         }
 
         return content;
+    }
+
+    @Override
+    public void onDismiss(DialogInterface dialog) {
+        ((OnRequestGrantPermissionGroupResult) getActivity())
+                .onRequestGrantPermissionGroupResult(mGroupName, false);
     }
 }

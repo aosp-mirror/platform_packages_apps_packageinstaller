@@ -18,13 +18,17 @@ package com.android.packageinstaller.permission;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
+import android.content.res.Resources.NotFoundException;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.UserHandle;
 import android.util.ArrayMap;
 import android.util.Log;
+
 import com.android.internal.util.ArrayUtils;
 
 import java.util.ArrayList;
@@ -109,10 +113,12 @@ public final class AppPermissions {
                     continue;
                 }
 
+                final String iconPkg = (groupInfo != null)
+                        ? groupInfo.packageName : permInfo.packageName;
                 final int iconResId = (groupInfo != null) ? groupInfo.icon : permInfo.icon;
 
                 group = new PermissionGroup(mContext, mPackageInfo.packageName,
-                        groupName, groupLabel, iconResId);
+                        groupName, groupLabel, iconPkg, iconResId);
                 mGroups.put(groupName, group);
             }
 
@@ -152,12 +158,17 @@ public final class AppPermissions {
         private final String mName;
         private final CharSequence mLabel;
         private final ArrayMap<String, Permission> mPermissions = new ArrayMap<>();
+        private final String mIconPkg;
         private final int mIconResId;
 
         private boolean mHasRuntimePermissions;
 
         public String getName() {
             return mName;
+        }
+
+        public String getIconPkg() {
+            return mIconPkg;
         }
 
         public int getIconResId() {
@@ -169,11 +180,12 @@ public final class AppPermissions {
         }
 
         public PermissionGroup(Context context, String packageName,
-                String name, CharSequence label, int iconResId) {
+                String name, CharSequence label, String iconPkg, int iconResId) {
             mPackageName = packageName;
             mContext = context;
             mName = name;
             mLabel = label;
+            mIconPkg = iconPkg;
             mIconResId = iconResId;
         }
 
@@ -292,6 +304,15 @@ public final class AppPermissions {
 
         public void setGranted(boolean granted) {
             mGranted = granted;
+        }
+    }
+
+    public static Drawable loadDrawable(PackageManager pm, String pkg, int resId) {
+        try {
+            return pm.getResourcesForApplication(pkg).getDrawable(resId, null);
+        } catch (NotFoundException | NameNotFoundException e) {
+            Log.d(LOG_TAG, "Couldn't get resource", e);
+            return null;
         }
     }
 }
