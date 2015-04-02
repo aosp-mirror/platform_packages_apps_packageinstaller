@@ -27,7 +27,11 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.android.packageinstaller.R;
@@ -68,6 +72,17 @@ public final class ManagePermissionsFragment extends SettingsWithHeader
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
+        ViewGroup rootView = (ViewGroup)
+                LayoutInflater.from(getActivity()).inflate(R.layout.permissions_frame, null);
+        rootView.addView(super.onCreateView(inflater, container, savedInstanceState));
+        View emptyView = rootView.findViewById(R.id.no_permissions);
+        ((ListView) rootView.findViewById(android.R.id.list)).setEmptyView(emptyView);
+        return rootView;
     }
 
     private void bindUi() {

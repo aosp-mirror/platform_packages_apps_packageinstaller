@@ -73,6 +73,9 @@ public final class AppPermissions {
 
     private void loadPermissionGroups() {
         mGroups.clear();
+        if (mPackageInfo.requestedPermissions == null) {
+            return;
+        }
 
         final boolean appSupportsRuntimePermissions = mPackageInfo.applicationInfo.targetSdkVersion
                 > Build.VERSION_CODES.LOLLIPOP_MR1;
