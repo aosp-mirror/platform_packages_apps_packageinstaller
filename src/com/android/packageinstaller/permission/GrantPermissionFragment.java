@@ -16,6 +16,8 @@
 
 package com.android.packageinstaller.permission;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
@@ -118,7 +120,10 @@ public final class GrantPermissionFragment extends DialogFragment {
 
     @Override
     public void onDismiss(DialogInterface dialog) {
-        ((OnRequestGrantPermissionGroupResult) getActivity())
-                .onRequestGrantPermissionGroupResult(mGroupName, false);
+        Activity activity = getActivity();
+        if (activity != null) {
+            ((OnRequestGrantPermissionGroupResult) getActivity())
+                    .onRequestGrantPermissionGroupResult(mGroupName, false);
+        }
     }
 }
