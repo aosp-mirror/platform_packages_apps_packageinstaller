@@ -17,19 +17,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:paddingTop="16dip"
-    android:paddingBottom="12dip"
-    android:paddingStart="16dip"
-    android:paddingEnd="16dip"
-    android:minHeight="108dip">
+    android:paddingTop="24dip"
+    android:paddingBottom="8dip"
+    android:paddingStart="22dip"
+    android:paddingEnd="16dip">
 
     <ImageView
         android:id="@+id/permission_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="36dip"
+        android:layout_height="36dip"
         android:tint="?android:attr/colorAccent"
-        android:paddingTop="6dip"
-        android:paddingEnd="10dip">
+        android:scaleType="fitCenter">
     </ImageView>
 
     <TextView
@@ -37,6 +35,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/permission_icon"
+        android:lineSpacingMultiplier="1.024"
+        android:fontFamily="@*android:string/font_family_body_2_material"
+        android:paddingStart="16dip"
+        android:paddingEnd="8dip"
         style="?android:attr/textAppearanceMedium">
     </TextView>
 
@@ -45,7 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/permission_message"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dip"
         android:text="@string/never_ask_again"
         style="?android:attr/textAppearanceSmall"
         android:visibility="gone">
@@ -56,13 +58,16 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/do_not_ask_checkbox"
         android:orientation="horizontal"
-        android:paddingTop="4dip">
+        android:paddingStart="2dip"
+        android:paddingTop="16dip">
 
         <TextView
             android:id="@+id/current_page_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            style="@android:style/TextAppearance.Material.Body2"
+            android:textColor="@color/grant_permissions_progress_color"
             android:visibility="invisible">
         </TextView>
 
@@ -71,7 +76,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="?android:attr/buttonBarButtonStyle"
-            android:text="@string/grant_dialog_button_deny">
+            android:text="@string/grant_dialog_button_deny"
+            android:layout_marginEnd="8dip">
         </Button>
 
         <Button
