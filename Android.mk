@@ -4,7 +4,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE_TAGS := optional
 
 LOCAL_SRC_FILES := \
-    $(call all-subdir-java-files) \
+    $(call all-java-files-under, src) \
     src/com/android/packageinstaller/EventLogTags.logtags
 
 LOCAL_STATIC_JAVA_LIBRARIES += android-support-v4
