@@ -15,17 +15,26 @@
  */
 package com.android.packageinstaller.permission;
 
+import android.annotation.Nullable;
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.android.packageinstaller.permission.PermissionApps.PermissionApp;
+import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.PermissionApps.Callback;
+import com.android.packageinstaller.permission.PermissionApps.PermissionApp;
 
 public class PermissionManagementFragment extends SettingsWithHeader implements Callback, OnPreferenceChangeListener {
 
@@ -43,8 +52,10 @@ public class PermissionManagementFragment extends SettingsWithHeader implements 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
-        bindUi();
+        final ActionBar ab = getActivity().getActionBar();
+        if (ab != null) {
+            ab.setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     @Override
@@ -63,10 +74,49 @@ public class PermissionManagementFragment extends SettingsWithHeader implements 
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.permissions_frame, container,
+                        false);
+        ViewGroup prefsContainer = (ViewGroup) rootView.findViewById(R.id.prefs_container);
+        if (prefsContainer == null) {
+            prefsContainer = rootView;
+        }
+        prefsContainer.addView(super.onCreateView(inflater, prefsContainer, savedInstanceState));
+        View emptyView = rootView.findViewById(R.id.no_permissions);
+        if (emptyView != null) {
+            emptyView.setVisibility(View.GONE);
+        }
+        return rootView;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        bindUi();
+    }
+
     private void bindUi() {
         String groupName = getArguments().getString(Intent.EXTRA_PERMISSION_NAME);
         mPermissionGroup = new PermissionApps(getActivity(), groupName, this);
-        setHeader(mPermissionGroup.getIcon(), mPermissionGroup.getLabel(), null);
+        final Drawable icon = mPermissionGroup.getIcon();
+        final CharSequence label = mPermissionGroup.getLabel();
+        setHeader(icon, label, null);
+
+        final ViewGroup rootView = (ViewGroup) getView();
+        final ImageView iconView = (ImageView) rootView.findViewById(R.id.lb_icon);
+        if (iconView != null) {
+            iconView.setImageDrawable(icon);
+        }
+        final TextView titleView = (TextView) rootView.findViewById(R.id.lb_title);
+        if (titleView != null) {
+            titleView.setText(label);
+        }
+        final TextView breadcrumbView = (TextView) rootView.findViewById(R.id.lb_breadcrumb);
+        if (breadcrumbView != null) {
+            breadcrumbView.setText(R.string.app_permissions);
+        }
     }
 
     @Override

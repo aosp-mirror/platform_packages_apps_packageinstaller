@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2015 The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/prefs_container"
+        android:layout_width="@dimen/lb_action_section_width"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:background="@color/lb_action_fragment_background">
+
+        <TextView
+            android:id="@+id/no_permissions"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/no_permissions"
+            android:gravity="center"
+            android:textAppearance="@android:style/TextAppearance.Large"
+            />
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="@dimen/lb_content_section_width"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:background="@color/lb_dialog_activity_background"
+        android:paddingStart="@dimen/lb_content_fragment_start_padding"
+        android:paddingEnd="@dimen/lb_content_fragment_delimiter_padding" >
+
+        <ImageView
+            android:id="@+id/lb_icon"
+            android:layout_width="@dimen/lb_content_fragment_icon_width"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/lb_content_fragment_delimiter_padding"
+            android:maxHeight="@dimen/lb_content_fragment_max_icon_height"
+            android:minHeight="@dimen/lb_content_fragment_icon_width"
+            android:scaleType="fitCenter"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/lb_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/lb_icon"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-light"
+            android:gravity="end"
+            android:maxLines="2"
+            android:paddingBottom="@dimen/lb_content_fragment_title_text_bottom_padding"
+            android:paddingTop="@dimen/lb_content_fragment_title_text_top_padding"
+            android:textColor="@color/lb_content_title_text_color"
+            android:textSize="@dimen/lb_content_fragment_title_text_size"/>
+
+        <TextView
+            android:id="@+id/lb_breadcrumb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/lb_title"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_toStartOf="@id/lb_icon"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-condensed"
+            android:singleLine="true"
+            android:textColor="@color/lb_content_breadcrumb_text_color"
+            android:textSize="@dimen/lb_content_fragment_breadcrumb_text_size" />
+
+        <TextView
+            android:id="@+id/lb_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_below="@id/lb_title"
+            android:layout_toStartOf="@id/lb_icon"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif"
+            android:gravity="end"
+            android:maxLines="6"
+            android:textColor="@color/lb_content_description_text_color"
+            android:textSize="@dimen/lb_content_fragment_description_text_size"
+            android:lineSpacingExtra="3dp"/>
+    </RelativeLayout>
+
+</RelativeLayout>
