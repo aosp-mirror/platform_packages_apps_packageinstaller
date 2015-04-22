@@ -16,11 +16,14 @@
 
 package com.android.packageinstaller.permission;
 
+import android.annotation.Nullable;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
@@ -31,14 +34,16 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.packageinstaller.R;
 
 public final class ManagePermissionsFragment extends SettingsWithHeader
         implements OnPreferenceChangeListener {
-    private static final String LOG_TAG = "ManagePermissionsFragment";
+    private static final String LOG_TAG = "ManagePermsFragment";
 
     private AppPermissions mAppPermissions;
 
@@ -54,8 +59,10 @@ public final class ManagePermissionsFragment extends SettingsWithHeader
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
-        bindUi();
+        final ActionBar ab = getActivity().getActionBar();
+        if (ab != null) {
+            ab.setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     @Override
@@ -77,12 +84,22 @@ public final class ManagePermissionsFragment extends SettingsWithHeader
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        ViewGroup rootView = (ViewGroup)
-                LayoutInflater.from(getActivity()).inflate(R.layout.permissions_frame, null);
-        rootView.addView(super.onCreateView(inflater, container, savedInstanceState));
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.permissions_frame, container,
+                        false);
+        ViewGroup prefsContainer = (ViewGroup) rootView.findViewById(R.id.prefs_container);
+        if (prefsContainer == null) {
+            prefsContainer = rootView;
+        }
+        prefsContainer.addView(super.onCreateView(inflater, prefsContainer, savedInstanceState));
         View emptyView = rootView.findViewById(R.id.no_permissions);
         ((ListView) rootView.findViewById(android.R.id.list)).setEmptyView(emptyView);
         return rootView;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        bindUi();
     }
 
     private void bindUi() {
@@ -98,7 +115,23 @@ public final class ManagePermissionsFragment extends SettingsWithHeader
         }
         final PackageManager pm = activity.getPackageManager();
         ApplicationInfo appInfo = packageInfo.applicationInfo;
-        setHeader(appInfo.loadIcon(pm), appInfo.loadLabel(pm), null);
+        final Drawable icon = appInfo.loadIcon(pm);
+        final CharSequence label = appInfo.loadLabel(pm);
+        setHeader(icon, label, null);
+
+        final ViewGroup rootView = (ViewGroup) getView();
+        final ImageView iconView = (ImageView) rootView.findViewById(R.id.lb_icon);
+        if (iconView != null) {
+            iconView.setImageDrawable(icon);
+        }
+        final TextView titleView = (TextView) rootView.findViewById(R.id.lb_title);
+        if (titleView != null) {
+            titleView.setText(R.string.app_permissions);
+        }
+        final TextView breadcrumbView = (TextView) rootView.findViewById(R.id.lb_breadcrumb);
+        if (breadcrumbView != null) {
+            breadcrumbView.setText(label);
+        }
 
         PreferenceScreen screen = getPreferenceManager().createPreferenceScreen(activity);
         mAppPermissions = new AppPermissions(activity, packageInfo, null);

@@ -7,7 +7,14 @@ LOCAL_SRC_FILES := \
     $(call all-java-files-under, src) \
     src/com/android/packageinstaller/EventLogTags.logtags
 
-LOCAL_STATIC_JAVA_LIBRARIES += android-support-v4
+LOCAL_STATIC_JAVA_LIBRARIES += android-support-v4 \
+    android-support-v17-leanback
+
+LOCAL_RESOURCE_DIR := \
+    $(TOP)/frameworks/support/v17/leanback/res \
+    $(LOCAL_PATH)/res
+
+LOCAL_AAPT_FLAGS := --auto-add-overlay --extra-packages android.support.v17.leanback
 
 LOCAL_PACKAGE_NAME := PackageInstaller
 LOCAL_CERTIFICATE := platform
