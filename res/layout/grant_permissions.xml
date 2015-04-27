@@ -20,7 +20,8 @@
     android:paddingTop="24dip"
     android:paddingBottom="8dip"
     android:paddingStart="22dip"
-    android:paddingEnd="16dip">
+    android:paddingEnd="16dip"
+    android:filterTouchesWhenObscured="true">
 
     <ImageView
         android:id="@+id/permission_icon"
