@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.packageinstaller.permission;
+package com.android.packageinstaller.permission.ui;
 
 import android.app.Activity;
 import android.app.DialogFragment;
@@ -25,19 +25,18 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PermissionInfo;
-import android.graphics.Color;
 import android.hardware.camera2.utils.ArrayUtils;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
-import android.text.style.StyleSpan;
 import android.util.ArrayMap;
 import android.util.Log;
 import android.util.SparseArray;
 
 import com.android.packageinstaller.R;
-import com.android.packageinstaller.permission.AppPermissions.Permission;
-import com.android.packageinstaller.permission.AppPermissions.PermissionGroup;
+import com.android.packageinstaller.permission.model.AppPermissions;
+import com.android.packageinstaller.permission.model.Permission;
+import com.android.packageinstaller.permission.model.PermissionGroup;
 
 public class GrantPermissionsActivity extends Activity implements
         GrantPermissionFragment.OnRequestGrantPermissionGroupResult {
@@ -87,7 +86,7 @@ public class GrantPermissionsActivity extends Activity implements
         mAppPermissions = new AppPermissions(this, callingPackageInfo, mRequestedPermissions);
 
         for (PermissionGroup group : mAppPermissions.getPermissionGroups()) {
-            if (group.hasRuntimePermissions() && !group.areRuntimePermissionsGranted()) {
+            if (!group.areRuntimePermissionsGranted()) {
                 mRequestGrantPermissionGroups.put(group.getName(), new GroupState(group));
             }
         }
@@ -102,8 +101,7 @@ public class GrantPermissionsActivity extends Activity implements
 
         for (int i = 0; i < groupCount; i++) {
             GroupState groupState = mRequestGrantPermissionGroups.valueAt(i);
-            if (groupState.mGroup.hasRuntimePermissions()
-                    && !groupState.mGroup.areRuntimePermissionsGranted()
+            if (!groupState.mGroup.areRuntimePermissionsGranted()
                     && groupState.mState == GroupState.STATE_UNKNOWN) {
                 // Make sure adding the fragment we will remove is not in flight.
                 getFragmentManager().executePendingTransactions();
