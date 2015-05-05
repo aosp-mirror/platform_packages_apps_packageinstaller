@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.packageinstaller.permission;
+package com.android.packageinstaller.permission.ui;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
