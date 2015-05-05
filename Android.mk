@@ -8,13 +8,15 @@ LOCAL_SRC_FILES := \
     src/com/android/packageinstaller/EventLogTags.logtags
 
 LOCAL_STATIC_JAVA_LIBRARIES += android-support-v4 \
-    android-support-v17-leanback
+    android-support-v17-leanback \
+    android-support-v7-recyclerview
 
 LOCAL_RESOURCE_DIR := \
-    $(TOP)/frameworks/support/v17/leanback/res \
-    $(LOCAL_PATH)/res
+    frameworks/support/v17/leanback/res \
+    frameworks/support/v7/recyclerview/res \
+    $(LOCAL_PATH)/res \
 
-LOCAL_AAPT_FLAGS := --auto-add-overlay --extra-packages android.support.v17.leanback
+LOCAL_AAPT_FLAGS := --auto-add-overlay --extra-packages android.support.v17.leanback:android.support.v7.recyclerview
 
 LOCAL_PACKAGE_NAME := PackageInstaller
 LOCAL_CERTIFICATE := platform
