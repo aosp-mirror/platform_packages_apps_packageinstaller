@@ -14,7 +14,7 @@
 * limitations under the License.
 */
 
-package com.android.packageinstaller.permission;
+package com.android.packageinstaller.permission.ui;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -38,7 +38,7 @@ public final class ManagePermissionsActivity extends Activity {
                 finish();
                 return;
             }
-            fragment = ManagePermissionsFragment.newInstance(packageName);
+            fragment = AppPermissionsFragment.newInstance(packageName);
         } else if (Intent.ACTION_MANAGE_PERMISSION_APPS.equals(action)) {
             String permissionName = getIntent().getStringExtra(Intent.EXTRA_PERMISSION_NAME);
             if (permissionName == null) {
@@ -46,7 +46,7 @@ public final class ManagePermissionsActivity extends Activity {
                 finish();
                 return;
             }
-            fragment = PermissionManagementFragment.newInstance(permissionName);
+            fragment = PermissionAppsFragment.newInstance(permissionName);
         } else {
             Log.w(LOG_TAG, "Unrecognized action " + action);
             finish();

@@ -14,10 +14,9 @@
  * limitations under the License.
  */
 
-package com.android.packageinstaller.permission;
+package com.android.packageinstaller.permission.ui;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
@@ -30,6 +29,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.packageinstaller.R;
+import com.android.packageinstaller.permission.utils.Utils;
 
 public final class GrantPermissionFragment extends DialogFragment {
     public static final String ARG_GROUP_NAME = "ARG_GROUP_NAME";
@@ -97,7 +97,7 @@ public final class GrantPermissionFragment extends DialogFragment {
             }
         };
 
-        Drawable icon = AppPermissions.loadDrawable(getActivity().getPackageManager(), iconPkg,
+        Drawable icon = Utils.loadDrawable(getActivity().getPackageManager(), iconPkg,
                 iconResId);
         iconView.setImageDrawable(icon);
 

@@ -14,7 +14,7 @@
 * limitations under the License.
 */
 
-package com.android.packageinstaller.permission;
+package com.android.packageinstaller.permission.ui;
 
 import android.annotation.Nullable;
 import android.app.ActionBar;
@@ -40,15 +40,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.packageinstaller.R;
+import com.android.packageinstaller.permission.utils.Utils;
+import com.android.packageinstaller.permission.model.AppPermissions;
+import com.android.packageinstaller.permission.model.PermissionGroup;
 
-public final class ManagePermissionsFragment extends SettingsWithHeader
+public final class AppPermissionsFragment extends SettingsWithHeader
         implements OnPreferenceChangeListener {
     private static final String LOG_TAG = "ManagePermsFragment";
 
     private AppPermissions mAppPermissions;
 
-    public static ManagePermissionsFragment newInstance(String packageName) {
-        ManagePermissionsFragment instance = new ManagePermissionsFragment();
+    public static AppPermissionsFragment newInstance(String packageName) {
+        AppPermissionsFragment instance = new AppPermissionsFragment();
         Bundle arguments = new Bundle();
         arguments.putString(Intent.EXTRA_PACKAGE_NAME, packageName);
         instance.setArguments(arguments);
@@ -136,17 +139,15 @@ public final class ManagePermissionsFragment extends SettingsWithHeader
         PreferenceScreen screen = getPreferenceManager().createPreferenceScreen(activity);
         mAppPermissions = new AppPermissions(activity, packageInfo, null);
 
-        for (AppPermissions.PermissionGroup group : mAppPermissions.getPermissionGroups()) {
-            if (group.hasRuntimePermissions()) {
-                SwitchPreference preference = new SwitchPreference(activity);
-                preference.setOnPreferenceChangeListener(this);
-                preference.setKey(group.getName());
-                preference.setIcon(AppPermissions.loadDrawable(pm, group.getIconPkg(),
-                        group.getIconResId()));
-                preference.setTitle(group.getLabel());
-                preference.setPersistent(false);
-                screen.addPreference(preference);
-            }
+        for (PermissionGroup group : mAppPermissions.getPermissionGroups()) {
+            SwitchPreference preference = new SwitchPreference(activity);
+            preference.setOnPreferenceChangeListener(this);
+            preference.setKey(group.getName());
+            preference.setIcon(Utils.loadDrawable(pm, group.getIconPkg(),
+                    group.getIconResId()));
+            preference.setTitle(group.getLabel());
+            preference.setPersistent(false);
+            screen.addPreference(preference);
         }
 
         setPreferenceScreen(screen);
@@ -155,7 +156,7 @@ public final class ManagePermissionsFragment extends SettingsWithHeader
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         String groupName = preference.getKey();
-        AppPermissions.PermissionGroup group = mAppPermissions.getPermissionGroup(groupName);
+        PermissionGroup group = mAppPermissions.getPermissionGroup(groupName);
 
         if (group == null) {
             return false;
@@ -177,7 +178,7 @@ public final class ManagePermissionsFragment extends SettingsWithHeader
         for (int i = 0; i < preferenceCount; i++) {
             SwitchPreference preference = (SwitchPreference)
                     getPreferenceScreen().getPreference(i);
-            AppPermissions.PermissionGroup group = mAppPermissions
+            PermissionGroup group = mAppPermissions
                     .getPermissionGroup(preference.getKey());
             if (group != null) {
                 preference.setChecked(group.areRuntimePermissionsGranted());
