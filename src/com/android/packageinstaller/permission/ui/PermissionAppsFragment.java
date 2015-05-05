@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.android.packageinstaller.permission;
+package com.android.packageinstaller.permission.ui;
 
 import android.annotation.Nullable;
 import android.app.ActionBar;
@@ -33,20 +33,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.packageinstaller.R;
-import com.android.packageinstaller.permission.PermissionApps.Callback;
-import com.android.packageinstaller.permission.PermissionApps.PermissionApp;
+import com.android.packageinstaller.permission.model.PermissionApps;
+import com.android.packageinstaller.permission.model.PermissionApps.Callback;
+import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
 
-public class PermissionManagementFragment extends SettingsWithHeader implements Callback, OnPreferenceChangeListener {
+public final class PermissionAppsFragment extends SettingsWithHeader implements Callback,
+        OnPreferenceChangeListener {
 
-    public static PermissionManagementFragment newInstance(String permissionName) {
-        PermissionManagementFragment instance = new PermissionManagementFragment();
+    public static PermissionAppsFragment newInstance(String permissionName) {
+        PermissionAppsFragment instance = new PermissionAppsFragment();
         Bundle arguments = new Bundle();
         arguments.putString(Intent.EXTRA_PERMISSION_NAME, permissionName);
         instance.setArguments(arguments);
         return instance;
     }
 
-    private PermissionApps mPermissionGroup;
+    private PermissionApps mPermissionApps;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,7 +63,7 @@ public class PermissionManagementFragment extends SettingsWithHeader implements 
     @Override
     public void onResume() {
         super.onResume();
-        mPermissionGroup.refresh();
+        mPermissionApps.refresh();
     }
 
     @Override
@@ -99,9 +101,9 @@ public class PermissionManagementFragment extends SettingsWithHeader implements 
 
     private void bindUi() {
         String groupName = getArguments().getString(Intent.EXTRA_PERMISSION_NAME);
-        mPermissionGroup = new PermissionApps(getActivity(), groupName, this);
-        final Drawable icon = mPermissionGroup.getIcon();
-        final CharSequence label = mPermissionGroup.getLabel();
+        mPermissionApps = new PermissionApps(getActivity(), groupName, this);
+        final Drawable icon = mPermissionApps.getIcon();
+        final CharSequence label = mPermissionApps.getLabel();
         setHeader(icon, label, null);
 
         final ViewGroup rootView = (ViewGroup) getView();
@@ -128,7 +130,7 @@ public class PermissionManagementFragment extends SettingsWithHeader implements 
             setPreferenceScreen(preferences);
         }
         preferences.removeAll();
-        for (PermissionApp app : mPermissionGroup.getApps()) {
+        for (PermissionApp app : mPermissionApps.getApps()) {
             SwitchPreference pref = (SwitchPreference) findPreference(app.getKey());
             if (pref == null) {
                 pref = new SwitchPreference(context);
@@ -139,14 +141,14 @@ public class PermissionManagementFragment extends SettingsWithHeader implements 
                 pref.setPersistent(false);
                 preferences.addPreference(pref);
             }
-            pref.setChecked(app.hasRuntimePermissions());
+            pref.setChecked(app.areRuntimePermissionsGranted());
         }
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         String pkg = preference.getKey();
-        PermissionApp app = mPermissionGroup.getApp(pkg);
+        PermissionApp app = mPermissionApps.getApp(pkg);
 
         if (app == null) {
             return false;
