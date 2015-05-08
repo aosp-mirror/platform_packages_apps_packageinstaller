@@ -17,14 +17,13 @@
 package com.android.packageinstaller.permission.ui;
 
 import android.app.Activity;
-import android.app.DialogFragment;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PermissionInfo;
+import android.content.res.Resources;
+import android.graphics.drawable.Icon;
 import android.hardware.camera2.utils.ArrayUtils;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -39,11 +38,8 @@ import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.model.PermissionGroup;
 
 public class GrantPermissionsActivity extends Activity implements
-        GrantPermissionFragment.OnRequestGrantPermissionGroupResult {
+        GrantPermissionViewHandler.OnRequestGrantPermissionGroupResult {
     private static final String LOG_TAG = "GrantPermissionsActivity";
-
-    private static final String TAG_GRANT_PERMISSION_GROUP_FRAGMENT =
-            "TAG_GRANT_PERMISSION_GROUP_FRAGMENT";
 
     private static final int PERMISSION_GRANTED = 1;
     private static final int PERMISSION_DENIED = 2;
@@ -55,11 +51,14 @@ public class GrantPermissionsActivity extends Activity implements
 
     private ArrayMap<String, GroupState> mRequestGrantPermissionGroups = new ArrayMap<>();
 
+    private final GrantPermissionViewHandler mViewHandler =
+            new GrantPermissionViewHandler(this, this);
     private AppPermissions mAppPermissions;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+        setFinishOnTouchOutside(false);
 
         mRequestedPermissions = getIntent().getStringArrayExtra(
                 PackageManager.EXTRA_REQUEST_PERMISSIONS_NAMES);
@@ -94,6 +93,19 @@ public class GrantPermissionsActivity extends Activity implements
         if (!showNextPermissionGroupFragment()) {
             setResultAndFinish();
         }
+        setContentView(mViewHandler.creatView());
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mViewHandler.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mViewHandler.loadSavedInstance(savedInstanceState);
     }
 
     private boolean showNextPermissionGroupFragment() {
@@ -103,19 +115,6 @@ public class GrantPermissionsActivity extends Activity implements
             GroupState groupState = mRequestGrantPermissionGroups.valueAt(i);
             if (!groupState.mGroup.areRuntimePermissionsGranted()
                     && groupState.mState == GroupState.STATE_UNKNOWN) {
-                // Make sure adding the fragment we will remove is not in flight.
-                getFragmentManager().executePendingTransactions();
-
-                // Remove old grant fragment if such exists.
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                Fragment oldFragment = getFragmentManager().findFragmentByTag(
-                        TAG_GRANT_PERMISSION_GROUP_FRAGMENT);
-                if (oldFragment != null) {
-                    transaction.remove(oldFragment);
-                }
-                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
-                transaction.commit();
-
                 CharSequence appLabel = mAppPermissions.getAppLabel();
                 SpannableString message = new SpannableString(getString(
                         R.string.permission_warning_template, appLabel,
@@ -127,15 +126,20 @@ public class GrantPermissionsActivity extends Activity implements
                 message.setSpan(new ForegroundColorSpan(color), appLabelStart,
                         appLabelStart + appLabelLength, 0);
 
-                // Add the new grant fragment.
+                // Set the new grant view
                 // TODO: Use a real message for the action. We need group action APIs
-                String pkg = groupState.mGroup.getIconPkg();
+                Resources resources;
+                try {
+                    resources = getPackageManager().getResourcesForApplication(
+                            groupState.mGroup.getIconPkg());
+                } catch (NameNotFoundException e) {
+                    // Fallback to system.
+                    resources = Resources.getSystem();
+                }
                 int icon = groupState.mGroup.getIconResId();
-                DialogFragment newFragment = GrantPermissionFragment
-                        .newInstance(groupState.mGroup.getName(), groupCount, i,
-                                pkg, icon, message);
 
-                newFragment.show(getFragmentManager(), TAG_GRANT_PERMISSION_GROUP_FRAGMENT);
+                mViewHandler.showPermission(groupState.mGroup.getName(), groupCount, i,
+                                Icon.createWithResource(resources, icon), message);
                 return  true;
             }
         }
