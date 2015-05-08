@@ -67,7 +67,7 @@
         <activity android:name=".permission.ui.GrantPermissionsActivity"
                 android:configChanges="orientation|keyboardHidden|screenSize"
                 android:excludeFromRecents="true"
-                android:theme="@android:style/Theme.DeviceDefault.Dialog.NoActionBar">
+                android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar">
             <intent-filter>
                 <action android:name="android.content.pm.action.REQUEST_PERMISSIONS" />
                 <category android:name="android.intent.category.DEFAULT" />
