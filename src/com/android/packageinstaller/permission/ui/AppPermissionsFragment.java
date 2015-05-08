@@ -24,11 +24,13 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -47,6 +49,8 @@ import com.android.packageinstaller.permission.model.PermissionGroup;
 public final class AppPermissionsFragment extends SettingsWithHeader
         implements OnPreferenceChangeListener {
     private static final String LOG_TAG = "ManagePermsFragment";
+
+    private static final String EXTRA_HIDE_INFO_BUTTON = "hideInfoButton";
 
     private AppPermissions mAppPermissions;
 
@@ -120,7 +124,12 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         ApplicationInfo appInfo = packageInfo.applicationInfo;
         final Drawable icon = appInfo.loadIcon(pm);
         final CharSequence label = appInfo.loadLabel(pm);
-        setHeader(icon, label, null);
+        Intent infoIntent = null;
+        if (!getActivity().getIntent().getBooleanExtra(EXTRA_HIDE_INFO_BUTTON, false)) {
+            infoIntent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                    .setData(Uri.fromParts("package", packageName, null));
+        }
+        setHeader(icon, label, infoIntent);
 
         final ViewGroup rootView = (ViewGroup) getView();
         final ImageView iconView = (ImageView) rootView.findViewById(R.id.lb_icon);
