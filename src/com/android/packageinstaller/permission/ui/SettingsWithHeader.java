@@ -68,6 +68,7 @@ public abstract class SettingsWithHeader extends PreferenceFragment implements O
             if (mInfoIntent == null) {
                 info.setVisibility(View.GONE);
             } else {
+                info.setVisibility(View.VISIBLE);
                 info.setClickable(true);
                 info.setOnClickListener(this);
             }
