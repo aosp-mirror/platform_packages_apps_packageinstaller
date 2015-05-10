@@ -139,6 +139,7 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
                 pref.setIcon(app.getIcon());
                 pref.setTitle(app.getLabel());
                 pref.setPersistent(false);
+                pref.setEnabled(!app.isPolicyFixed());
                 preferences.addPreference(pref);
             }
             pref.setChecked(app.areRuntimePermissionsGranted());
