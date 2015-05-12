@@ -131,6 +131,11 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
         }
         preferences.removeAll();
         for (PermissionApp app : mPermissionApps.getApps()) {
+            // We currently will not show permissions fixed by the system
+            // which is what the system does for system components.
+            if (app.isSystemFixed()) {
+                continue;
+            }
             SwitchPreference pref = (SwitchPreference) findPreference(app.getKey());
             if (pref == null) {
                 pref = new SwitchPreference(context);

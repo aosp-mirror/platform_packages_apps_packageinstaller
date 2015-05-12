@@ -72,6 +72,10 @@ public final class Permission {
         }
     }
 
+    public boolean isSystemFixed() {
+        return (mFlags & PackageManager.FLAG_PERMISSION_SYSTEM_FIXED) != 0;
+    }
+
     public boolean isPolicyFixed() {
         return (mFlags & PackageManager.FLAG_PERMISSION_POLICY_FIXED) != 0;
     }
