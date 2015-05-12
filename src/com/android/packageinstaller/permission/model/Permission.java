@@ -16,19 +16,24 @@
 
 package com.android.packageinstaller.permission.model;
 
+import android.app.AppOpsManager;
+import android.content.pm.PackageManager;
+
 public final class Permission {
     private final String mName;
     private final int mAppOp;
 
     private boolean mGranted;
     private boolean mAppOpAllowed;
+    private int mFlags;
 
     public Permission(String name, boolean granted,
-            int appOp, boolean appOpAllowed) {
+            int appOp, boolean appOpAllowed, int flags) {
         mName = name;
         mGranted = granted;
         mAppOp = appOp;
         mAppOpAllowed = appOpAllowed;
+        mFlags = flags;
     }
 
     public String getName() {
@@ -37,6 +42,10 @@ public final class Permission {
 
     public int getAppOp() {
         return mAppOp;
+    }
+
+    public boolean hasAppOp() {
+        return mAppOp != AppOpsManager.OP_NONE;
     }
 
     public boolean isGranted() {
@@ -49,6 +58,46 @@ public final class Permission {
 
     public boolean isAppOpAllowed() {
         return mAppOpAllowed;
+    }
+
+    public boolean isUserFixed() {
+        return (mFlags & PackageManager.FLAG_PERMISSION_USER_FIXED) != 0;
+    }
+
+    public void setUserFixed(boolean userFixed) {
+        if (userFixed) {
+            mFlags |= PackageManager.FLAG_PERMISSION_USER_FIXED;
+        } else {
+            mFlags &= ~PackageManager.FLAG_PERMISSION_USER_FIXED;
+        }
+    }
+
+    public boolean isPolicyFixed() {
+        return (mFlags & PackageManager.FLAG_PERMISSION_POLICY_FIXED) != 0;
+    }
+
+    public boolean isUserSet() {
+        return (mFlags & PackageManager.FLAG_PERMISSION_USER_SET) != 0;
+    }
+
+    public void setUserSet(boolean userSet) {
+        if (userSet) {
+            mFlags |= PackageManager.FLAG_PERMISSION_USER_SET;
+        } else {
+            mFlags &= ~PackageManager.FLAG_PERMISSION_USER_SET;
+        }
+    }
+
+    public boolean shouldRevokeOnUpgrade() {
+        return (mFlags & PackageManager.FLAG_PERMISSION_REVOKE_ON_UPGRADE) != 0;
+    }
+
+    public void setRevokeOnUpgrade(boolean revokeOnUpgrade) {
+        if (revokeOnUpgrade) {
+            mFlags |= PackageManager.FLAG_PERMISSION_REVOKE_ON_UPGRADE;
+        } else {
+            mFlags &= ~PackageManager.FLAG_PERMISSION_REVOKE_ON_UPGRADE;
+        }
     }
 
     public void setAppOpAllowed(boolean mAppOpAllowed) {

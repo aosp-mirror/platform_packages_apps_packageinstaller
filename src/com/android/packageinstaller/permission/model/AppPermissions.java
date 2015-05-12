@@ -18,6 +18,7 @@ package com.android.packageinstaller.permission.model;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.util.ArrayMap;
 
 import com.android.internal.util.ArrayUtils;
@@ -31,17 +32,21 @@ public final class AppPermissions {
 
     private final Context mContext;
 
-    private final PackageInfo mPackageInfo;
-
     private final String[] mFilterPermissions;
 
     private final CharSequence mAppLabel;
 
-    public AppPermissions(Context context, PackageInfo packageInfo, String[] permissions) {
+    private final Runnable mOnErrorCallback;
+
+    private PackageInfo mPackageInfo;
+
+    public AppPermissions(Context context, PackageInfo packageInfo, String[] permissions,
+            Runnable onErrorCallback) {
         mContext = context;
         mPackageInfo = packageInfo;
         mFilterPermissions = permissions;
         mAppLabel = packageInfo.applicationInfo.loadLabel(context.getPackageManager());
+        mOnErrorCallback = onErrorCallback;
         loadPermissionGroups();
     }
 
@@ -50,6 +55,7 @@ public final class AppPermissions {
     }
 
     public void refresh() {
+        loadPackageInfo();
         loadPermissionGroups();
     }
 
@@ -63,6 +69,18 @@ public final class AppPermissions {
 
     public List<PermissionGroup> getPermissionGroups() {
         return new ArrayList<>(mGroups.values());
+    }
+
+
+    private void loadPackageInfo() {
+        try {
+            mPackageInfo = mContext.getPackageManager().getPackageInfo(
+                    mPackageInfo.packageName, PackageManager.GET_PERMISSIONS);
+        } catch (PackageManager.NameNotFoundException e) {
+            if (mOnErrorCallback != null) {
+                mOnErrorCallback.run();
+            }
+        }
     }
 
     private void loadPermissionGroups() {
