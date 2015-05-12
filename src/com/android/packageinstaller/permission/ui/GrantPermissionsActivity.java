@@ -17,6 +17,7 @@
 package com.android.packageinstaller.permission.ui;
 
 import android.app.Activity;
+import android.app.admin.DevicePolicyManager;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -75,25 +76,54 @@ public class GrantPermissionsActivity extends Activity implements
         }
 
         PackageInfo callingPackageInfo = getCallingPackageInfo();
+
+        DevicePolicyManager devicePolicyManager = getSystemService(DevicePolicyManager.class);
+        final int permissionPolicy = devicePolicyManager.getPermissionPolicy(null);
+
+        // If calling package is null we default to deny all.
+        updateDefaultResults(callingPackageInfo, permissionPolicy);
+
         if (callingPackageInfo == null) {
             setResultAndFinish();
             return;
         }
 
-        updateDefaultResults(callingPackageInfo);
-
-        mAppPermissions = new AppPermissions(this, callingPackageInfo, mRequestedPermissions);
+        mAppPermissions = new AppPermissions(this, callingPackageInfo, mRequestedPermissions,
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        setResultAndFinish();
+                    }
+                });
 
         for (PermissionGroup group : mAppPermissions.getPermissionGroups()) {
-            if (!group.areRuntimePermissionsGranted()) {
-                mRequestGrantPermissionGroups.put(group.getName(), new GroupState(group));
+            // We allow the user to choose only non-fixed permissions. A permission
+            // is fixed either by device policy or the user denying with prejudice.
+            if (!group.areRuntimePermissionsGranted() &&
+                    !(group.isUserFixed() || group.isPolicyFixed())) {
+
+                switch (permissionPolicy) {
+                    case DevicePolicyManager.PERMISSION_POLICY_AUTO_GRANT: {
+                        group.grantRuntimePermissions(false);
+                    } break;
+
+                    case DevicePolicyManager.PERMISSION_POLICY_AUTO_DENY: {
+                        group.revokeRuntimePermissions(false);
+                    } break;
+
+                    default: {
+                        mRequestGrantPermissionGroups.put(
+                                group.getName(), new GroupState(group));
+                    } break;
+                }
             }
         }
 
-        if (!showNextPermissionGroupFragment()) {
+        setContentView(mViewHandler.creatView());
+
+        if (!showNextPermissionGroupGrantRequest()) {
             setResultAndFinish();
         }
-        setContentView(mViewHandler.creatView());
     }
 
     @Override
@@ -108,7 +138,7 @@ public class GrantPermissionsActivity extends Activity implements
         mViewHandler.loadSavedInstance(savedInstanceState);
     }
 
-    private boolean showNextPermissionGroupFragment() {
+    private boolean showNextPermissionGroupGrantRequest() {
         final int groupCount = mRequestGrantPermissionGroups.size();
 
         for (int i = 0; i < groupCount; i++) {
@@ -139,7 +169,8 @@ public class GrantPermissionsActivity extends Activity implements
                 int icon = groupState.mGroup.getIconResId();
 
                 mViewHandler.showPermission(groupState.mGroup.getName(), groupCount, i,
-                                Icon.createWithResource(resources, icon), message);
+                        Icon.createWithResource(resources, icon), message,
+                        groupState.mGroup.isUserSet());
                 return  true;
             }
         }
@@ -148,18 +179,20 @@ public class GrantPermissionsActivity extends Activity implements
     }
 
     @Override
-    public void onRequestGrantPermissionGroupResult(String name, boolean granted) {
+    public void onRequestGrantPermissionGroupResult(String name, boolean granted,
+            boolean doNotAskAgain) {
         GroupState groupState = mRequestGrantPermissionGroups.get(name);
         if (groupState.mGroup != null) {
             if (granted) {
-                groupState.mGroup.grantRuntimePermissions();
+                groupState.mGroup.grantRuntimePermissions(doNotAskAgain);
                 groupState.mState = GroupState.STATE_ALLOWED;
                 updateGrantResults(groupState.mGroup);
             } else {
+                groupState.mGroup.revokeRuntimePermissions(doNotAskAgain);
                 groupState.mState = GroupState.STATE_DENIED;
             }
         }
-        if (!showNextPermissionGroupFragment()) {
+        if (!showNextPermissionGroupGrantRequest()) {
             setResultAndFinish();
         }
     }
@@ -176,7 +209,8 @@ public class GrantPermissionsActivity extends Activity implements
         }
     }
 
-    private int computePermissionGrantState(PackageInfo callingPackageInfo, String permission) {
+    private int computePermissionGrantState(PackageInfo callingPackageInfo,
+            String permission, int permissionPolicy) {
         boolean permissionRequested = false;
 
         for (int i = 0; i < callingPackageInfo.requestedPermissions.length; i++) {
@@ -201,10 +235,22 @@ public class GrantPermissionsActivity extends Activity implements
                 return PERMISSION_DENIED;
             }
         } catch (NameNotFoundException e) {
-            /* ignore */
+            return PERMISSION_DENIED;
         }
 
-        return PERMISSION_DENIED_RUNTIME;
+        switch (permissionPolicy) {
+            case DevicePolicyManager.PERMISSION_POLICY_AUTO_GRANT: {
+                return PERMISSION_GRANTED;
+            }
+
+            case DevicePolicyManager.PERMISSION_POLICY_AUTO_DENY: {
+                return PERMISSION_DENIED;
+            }
+
+            default: {
+                return PERMISSION_DENIED_RUNTIME;
+            }
+        }
     }
 
     private PackageInfo getCallingPackageInfo() {
@@ -217,11 +263,14 @@ public class GrantPermissionsActivity extends Activity implements
         }
     }
 
-    private void updateDefaultResults(PackageInfo callingPackageInfo) {
+    private void updateDefaultResults(PackageInfo callingPackageInfo, int permissionPolicy) {
         final int requestedPermCount = mRequestedPermissions.length;
         for (int i = 0; i < requestedPermCount; i++) {
             String permission = mRequestedPermissions[i];
-            final int state = computePermissionGrantState(callingPackageInfo, permission);
+            final int state = callingPackageInfo != null
+                    ? computePermissionGrantState(callingPackageInfo, permission,
+                            permissionPolicy)
+                    : PackageManager.PERMISSION_DENIED;
             switch (state) {
                 case PERMISSION_GRANTED: {
                     mGrantResults[i] = PackageManager.PERMISSION_GRANTED;
