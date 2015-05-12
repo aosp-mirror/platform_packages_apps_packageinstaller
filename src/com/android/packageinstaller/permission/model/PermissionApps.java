@@ -130,11 +130,15 @@ public class PermissionApps {
         }
 
         public void grantRuntimePermissions() {
-            mPermissionGroup.grantRuntimePermissions();
+            mPermissionGroup.grantRuntimePermissions(false);
         }
 
         public void revokeRuntimePermissions() {
-            mPermissionGroup.revokeRuntimePermissions();
+            mPermissionGroup.revokeRuntimePermissions(false);
+        }
+
+        public boolean isPolicyFixed() {
+            return mPermissionGroup.isPolicyFixed();
         }
 
         @Override

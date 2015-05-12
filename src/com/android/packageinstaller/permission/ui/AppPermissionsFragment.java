@@ -146,7 +146,12 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         }
 
         PreferenceScreen screen = getPreferenceManager().createPreferenceScreen(activity);
-        mAppPermissions = new AppPermissions(activity, packageInfo, null);
+        mAppPermissions = new AppPermissions(activity, packageInfo, null, new Runnable() {
+            @Override
+            public void run() {
+                getActivity().finish();
+            }
+        });
 
         for (PermissionGroup group : mAppPermissions.getPermissionGroups()) {
             SwitchPreference preference = new SwitchPreference(activity);
@@ -156,6 +161,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
                     group.getIconResId()));
             preference.setTitle(group.getLabel());
             preference.setPersistent(false);
+            preference.setEnabled(!group.isPolicyFixed());
             screen.addPreference(preference);
         }
 
@@ -172,9 +178,9 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         }
 
         if (newValue == Boolean.TRUE) {
-            group.grantRuntimePermissions();
+            group.grantRuntimePermissions(false);
         } else {
-            group.revokeRuntimePermissions();
+            group.revokeRuntimePermissions(false);
         }
 
         return true;

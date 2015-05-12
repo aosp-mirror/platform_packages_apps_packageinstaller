@@ -30,6 +30,8 @@ import android.view.View.OnLayoutChangeListener;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -42,6 +44,8 @@ public final class GrantPermissionViewHandler implements OnClickListener {
     public static final String ARG_GROUP_INDEX = "ARG_GROUP_INDEX";
     public static final String ARG_GROUP_ICON = "ARG_GROUP_ICON";
     public static final String ARG_GROUP_MESSAGE = "ARG_GROUP_MESSAGE";
+    public static final String ARG_GROUP_SHOW_DO_NOT_ASK = "ARG_GROUP_SHOW_DO_NOT_ASK";
+    public static final String ARG_GROUP_DO_NOT_ASK_CHECKED = "ARG_GROUP_DO_NOT_ASK_CHECKED";
 
     // Animation parameters.
     private static final long SIZE_START_DELAY = 300;
@@ -60,10 +64,14 @@ public final class GrantPermissionViewHandler implements OnClickListener {
     private int mGroupIndex;
     private Icon mGroupIcon;
     private CharSequence mGroupMessage;
+    private boolean mShowDonNotAsk;
+    private boolean mDoNotAskChecked;
 
     private ImageView mIconView;
     private TextView mCurrentGroupView;
     private TextView mMessageView;
+    private CheckBox mDoNotAskCheckbox;
+    private Button mAllowButton;
 
     private ViewHeightController mRootViewHeightController;
     private ManualLayoutFrame mRootView;
@@ -83,7 +91,8 @@ public final class GrantPermissionViewHandler implements OnClickListener {
     };
 
     public interface OnRequestGrantPermissionGroupResult {
-        public void onRequestGrantPermissionGroupResult(String name, boolean granted);
+        public void onRequestGrantPermissionGroupResult(String name, boolean granted,
+                boolean doNotAskAgain);
     }
 
     public GrantPermissionViewHandler(OnRequestGrantPermissionGroupResult resultListener,
@@ -98,6 +107,8 @@ public final class GrantPermissionViewHandler implements OnClickListener {
         arguments.putInt(ARG_GROUP_INDEX, mGroupIndex);
         arguments.putParcelable(ARG_GROUP_ICON, mGroupIcon);
         arguments.putCharSequence(ARG_GROUP_MESSAGE, mGroupMessage);
+        arguments.putBoolean(ARG_GROUP_SHOW_DO_NOT_ASK, mShowDonNotAsk);
+        arguments.putBoolean(ARG_GROUP_DO_NOT_ASK_CHECKED, mDoNotAskCheckbox.isChecked());
     }
 
     public void loadSavedInstance(Bundle savedInstanceState) {
@@ -106,15 +117,19 @@ public final class GrantPermissionViewHandler implements OnClickListener {
         mGroupIcon = savedInstanceState.getParcelable(ARG_GROUP_ICON);
         mGroupCount = savedInstanceState.getInt(ARG_GROUP_COUNT);
         mGroupIndex = savedInstanceState.getInt(ARG_GROUP_INDEX);
+        mShowDonNotAsk = savedInstanceState.getBoolean(ARG_GROUP_SHOW_DO_NOT_ASK);
+        mDoNotAskChecked = savedInstanceState.getBoolean(ARG_GROUP_DO_NOT_ASK_CHECKED);
     }
 
     public void showPermission(String groupName, int groupCount, int groupIndex, Icon icon,
-            CharSequence message) {
+            CharSequence message, boolean showDonNotAsk) {
         mGroupName = groupName;
         mGroupCount = groupCount;
         mGroupIndex = groupIndex;
         mGroupIcon = icon;
         mGroupMessage = message;
+        mShowDonNotAsk = showDonNotAsk;
+        mDoNotAskChecked = false;
         // If this is a second (or later) permission and the views exist, then animate.
         if (mIconView != null) {
             if (mGroupIndex > 0) {
@@ -124,6 +139,8 @@ public final class GrantPermissionViewHandler implements OnClickListener {
                 updateGroup();
             }
         }
+
+        updateDoNotAskCheckBox();
     }
 
     private void animateToPermission() {
@@ -243,6 +260,8 @@ public final class GrantPermissionViewHandler implements OnClickListener {
         mMessageView = (TextView) mRootView.findViewById(R.id.permission_message);
         mIconView = (ImageView) mRootView.findViewById(R.id.permission_icon);
         mCurrentGroupView = (TextView) mRootView.findViewById(R.id.current_page_text);
+        mDoNotAskCheckbox = (CheckBox) mRootView.findViewById(R.id.do_not_ask_checkbox);
+        mAllowButton = (Button) mRootView.findViewById(R.id.permission_allow_button);
 
         mDescContainer = (ViewGroup) mRootView.findViewById(R.id.desc_container);
         mCurrentDesc = (ViewGroup) mRootView.findViewById(R.id.perm_desc_root);
@@ -254,6 +273,7 @@ public final class GrantPermissionViewHandler implements OnClickListener {
         if (mGroupName != null) {
             updateDescription();
             updateGroup();
+            updateDoNotAskCheckBox();
         }
 
         return mRootView;
@@ -274,19 +294,30 @@ public final class GrantPermissionViewHandler implements OnClickListener {
         }
     }
 
+    private void updateDoNotAskCheckBox() {
+        if (mShowDonNotAsk) {
+            mDoNotAskCheckbox.setVisibility(View.VISIBLE);
+            mDoNotAskCheckbox.setOnClickListener(this);
+            mDoNotAskCheckbox.setChecked(mDoNotAskChecked);
+        } else {
+            mDoNotAskCheckbox.setVisibility(View.GONE);
+            mDoNotAskCheckbox.setOnClickListener(null);
+        }
+    }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.permission_allow_button:
-                mResultListener.onRequestGrantPermissionGroupResult(mGroupName, true);
+                mResultListener.onRequestGrantPermissionGroupResult(mGroupName, true, false);
                 break;
             case R.id.permission_deny_button:
-                mResultListener.onRequestGrantPermissionGroupResult(mGroupName, false);
+                mResultListener.onRequestGrantPermissionGroupResult(mGroupName, false,
+                        mDoNotAskCheckbox.isChecked());
                 break;
             case R.id.do_not_ask_checkbox:
-                //TODO: Implement me.
+                mAllowButton.setEnabled(!mDoNotAskCheckbox.isChecked());
                 break;
-
         }
     }
 
