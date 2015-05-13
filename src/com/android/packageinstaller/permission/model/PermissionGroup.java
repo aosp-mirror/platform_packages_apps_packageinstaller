@@ -169,7 +169,8 @@ public final class PermissionGroup implements Comparable<PermissionGroup> {
         mName = name;
         mLabel = label;
         mIconPkg = iconPkg;
-        mIconResId = iconResId;
+        mIconResId = iconResId != 0 ? iconResId
+                : com.android.internal.R.drawable.ic_perm_device_info;
     }
 
     public boolean isAppOpPermission() {
