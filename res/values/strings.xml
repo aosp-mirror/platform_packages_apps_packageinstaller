@@ -206,4 +206,10 @@
     <!-- Label when app requests no permissions -->
     <string name="no_permissions">No permissions</string>
 
+    <!-- Label for button that leads to more permissions [CHAR LIMIT=40] -->
+    <string name="additional_permissions">Additional permissions</string>
+
+    <!-- Description of how many more permissions to view on next page [CHAR LIMIT=30] -->
+    <string name="additional_permissions_more"><xliff:g id="count" example="2">%1$d</xliff:g> more</string>
+
 </resources>
