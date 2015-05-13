@@ -19,6 +19,7 @@ package com.android.packageinstaller.permission.ui;
 import android.annotation.Nullable;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
@@ -28,6 +29,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
@@ -42,17 +44,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.packageinstaller.R;
-import com.android.packageinstaller.permission.utils.Utils;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.PermissionGroup;
+import com.android.packageinstaller.permission.utils.Utils;
 
 public final class AppPermissionsFragment extends SettingsWithHeader
         implements OnPreferenceChangeListener {
+
     private static final String LOG_TAG = "ManagePermsFragment";
+
+    private static final String OS_PKG = "android";
 
     private static final String EXTRA_HIDE_INFO_BUTTON = "hideInfoButton";
 
     private AppPermissions mAppPermissions;
+    private PreferenceScreen mExtraScreen;
 
     public static AppPermissionsFragment newInstance(String packageName) {
         AppPermissionsFragment instance = new AppPermissionsFragment();
@@ -153,6 +159,10 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             }
         });
 
+        final Preference extraPerms = new Preference(activity);
+        extraPerms.setIcon(R.drawable.ic_toc);
+        extraPerms.setTitle(R.string.additional_permissions);
+
         for (PermissionGroup group : mAppPermissions.getPermissionGroups()) {
             // We currently will not show permissions fixed by the system
             // which is what the system does for system components.
@@ -167,7 +177,31 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             preference.setTitle(group.getLabel());
             preference.setPersistent(false);
             preference.setEnabled(!group.isPolicyFixed());
-            screen.addPreference(preference);
+            if (group.getIconPkg().equals(OS_PKG)) {
+                screen.addPreference(preference);
+            } else {
+                if (mExtraScreen == null) {
+                    mExtraScreen = getPreferenceManager().createPreferenceScreen(activity);
+                }
+                mExtraScreen.addPreference(preference);
+            }
+        }
+        if (mExtraScreen != null) {
+            extraPerms.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    AdditionalPermissionsFragment frag = new AdditionalPermissionsFragment();
+                    frag.setTargetFragment(AppPermissionsFragment.this, 0);
+                    FragmentTransaction ft = getFragmentManager().beginTransaction();
+                    ft.replace(android.R.id.content, frag);
+                    ft.addToBackStack("AdditionalPerms");
+                    ft.commit();
+                    return true;
+                }
+            });
+            extraPerms.setSummary(getString(R.string.additional_permissions_more,
+                    mExtraScreen.getPreferenceCount()));
+            screen.addPreference(extraPerms);
         }
 
         setPreferenceScreen(screen);
@@ -194,14 +228,23 @@ public final class AppPermissionsFragment extends SettingsWithHeader
     private void updateUi() {
         mAppPermissions.refresh();
 
-        final int preferenceCount = getPreferenceScreen().getPreferenceCount();
+        updatePrefs(getPreferenceScreen());
+        if (mExtraScreen != null) {
+            updatePrefs(mExtraScreen);
+        }
+    }
+
+    private void updatePrefs(PreferenceScreen screen) {
+        final int preferenceCount = screen.getPreferenceCount();
         for (int i = 0; i < preferenceCount; i++) {
-            SwitchPreference preference = (SwitchPreference)
-                    getPreferenceScreen().getPreference(i);
-            PermissionGroup group = mAppPermissions
-                    .getPermissionGroup(preference.getKey());
-            if (group != null) {
-                preference.setChecked(group.areRuntimePermissionsGranted());
+            Preference preference = screen.getPreference(i);
+            if (preference instanceof SwitchPreference) {
+                SwitchPreference switchPref = (SwitchPreference) preference;
+                PermissionGroup group = mAppPermissions
+                        .getPermissionGroup(switchPref.getKey());
+                if (group != null) {
+                    switchPref.setChecked(group.areRuntimePermissionsGranted());
+                }
             }
         }
     }
@@ -213,6 +256,17 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         } catch (PackageManager.NameNotFoundException e) {
             Log.i(LOG_TAG, "No package:" + getActivity().getCallingPackage(), e);
             return null;
+        }
+    }
+
+    public static class AdditionalPermissionsFragment extends SettingsWithHeader {
+        @Override
+        public void onCreate(Bundle icicle) {
+            super.onCreate(icicle);
+            AppPermissionsFragment target = (AppPermissionsFragment) getTargetFragment();
+            setPreferenceScreen(target.mExtraScreen);
+            // Copy the header.
+            setHeader(target.mIcon, target.mLabel, target.mInfoIntent);
         }
     }
 }
