@@ -96,7 +96,11 @@ public class PermissionApps {
             }
         }
         mLabel = info.loadLabel(mPm);
-        mIcon = info.loadUnbadgedIcon(mPm);
+        if (info.icon != 0) {
+            mIcon = info.loadUnbadgedIcon(mPm);
+        } else {
+            mIcon = mContext.getDrawable(com.android.internal.R.drawable.ic_perm_device_info);
+        }
         LightingColorFilter filter = new LightingColorFilter(0, 0xffffffff);
         mIcon.setColorFilter(filter);
     }
