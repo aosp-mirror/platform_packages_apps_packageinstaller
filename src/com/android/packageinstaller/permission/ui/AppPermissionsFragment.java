@@ -154,6 +154,11 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         });
 
         for (PermissionGroup group : mAppPermissions.getPermissionGroups()) {
+            // We currently will not show permissions fixed by the system
+            // which is what the system does for system components.
+            if (group.isSystemFixed()) {
+                continue;
+            }
             SwitchPreference preference = new SwitchPreference(activity);
             preference.setOnPreferenceChangeListener(this);
             preference.setKey(group.getName());

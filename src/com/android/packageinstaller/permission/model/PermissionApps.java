@@ -141,6 +141,10 @@ public class PermissionApps {
             return mPermissionGroup.isPolicyFixed();
         }
 
+        public boolean isSystemFixed() {
+            return mPermissionGroup.isSystemFixed();
+        }
+
         @Override
         public int compareTo(PermissionApp another) {
             final int result = mLabel.compareTo(another.mLabel);
