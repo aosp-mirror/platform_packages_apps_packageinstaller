@@ -430,6 +430,17 @@ public final class PermissionGroup implements Comparable<PermissionGroup> {
         return true;
     }
 
+    public boolean isSystemFixed() {
+        final int permissionCount = mPermissions.size();
+        for (int i = 0; i < permissionCount; i++) {
+            Permission permission = mPermissions.valueAt(i);
+            if (permission.isSystemFixed()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public int compareTo(PermissionGroup another) {
         final int result = mLabel.toString().compareTo(another.mLabel.toString());
