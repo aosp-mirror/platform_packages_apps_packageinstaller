@@ -33,9 +33,9 @@ import com.android.packageinstaller.R;
 public abstract class SettingsWithHeader extends PreferenceFragment implements OnClickListener {
 
     private View mHeader;
-    private Intent mInfoIntent;
-    private Drawable mIcon;
-    private CharSequence mLabel;
+    protected Intent mInfoIntent;
+    protected Drawable mIcon;
+    protected CharSequence mLabel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
