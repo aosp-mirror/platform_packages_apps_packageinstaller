@@ -172,6 +172,10 @@ public final class PermissionGroup implements Comparable<PermissionGroup> {
         mIconResId = iconResId;
     }
 
+    public boolean isAppOpPermission() {
+        return !mAppSupportsRuntimePermissions;
+    }
+
     public PackageInfo getApp() {
         return mPackageInfo;
     }
