@@ -19,7 +19,10 @@ package com.android.packageinstaller.permission.ui;
 import android.annotation.Nullable;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.FragmentTransaction;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
@@ -60,6 +63,8 @@ public final class AppPermissionsFragment extends SettingsWithHeader
     private AppPermissions mAppPermissions;
     private PreferenceScreen mExtraScreen;
 
+    private boolean mHasConfirmedRevoke;
+
     public static AppPermissionsFragment newInstance(String packageName) {
         AppPermissionsFragment instance = new AppPermissionsFragment();
         Bundle arguments = new Bundle();
@@ -71,6 +76,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mHasConfirmedRevoke = false;
         setHasOptionsMenu(true);
         final ActionBar ab = getActivity().getActionBar();
         if (ab != null) {
@@ -208,9 +214,9 @@ public final class AppPermissionsFragment extends SettingsWithHeader
     }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
+    public boolean onPreferenceChange(final Preference preference, Object newValue) {
         String groupName = preference.getKey();
-        PermissionGroup group = mAppPermissions.getPermissionGroup(groupName);
+        final PermissionGroup group = mAppPermissions.getPermissionGroup(groupName);
 
         if (group == null) {
             return false;
@@ -219,7 +225,24 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         if (newValue == Boolean.TRUE) {
             group.grantRuntimePermissions(false);
         } else {
-            group.revokeRuntimePermissions(false);
+            if (group.isAppOpPermission() && !mHasConfirmedRevoke) {
+                new AlertDialog.Builder(getContext())
+                        .setMessage(R.string.old_sdk_deny_warning)
+                        .setNegativeButton(R.string.cancel, null)
+                        .setPositiveButton(R.string.grant_dialog_button_deny,
+                                new OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                ((SwitchPreference) preference).setChecked(false);
+                                group.revokeRuntimePermissions(false);
+                                mHasConfirmedRevoke = true;
+                            }
+                        })
+                        .show();
+                return false;
+            } else {
+                group.revokeRuntimePermissions(false);
+            }
         }
 
         return true;
