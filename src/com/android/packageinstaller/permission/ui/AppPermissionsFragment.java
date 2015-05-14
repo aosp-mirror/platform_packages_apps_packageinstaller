@@ -49,11 +49,7 @@ import android.widget.Toast;
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.PermissionGroup;
-import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.packageinstaller.permission.utils.Utils;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public final class AppPermissionsFragment extends SettingsWithHeader
         implements OnPreferenceChangeListener {
@@ -64,7 +60,6 @@ public final class AppPermissionsFragment extends SettingsWithHeader
 
     private static final String EXTRA_HIDE_INFO_BUTTON = "hideInfoButton";
 
-    private List<PermissionGroup> mToggledGroups;
     private AppPermissions mAppPermissions;
     private PreferenceScreen mExtraScreen;
 
@@ -227,8 +222,6 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             return false;
         }
 
-        addToggledGroup(group);
-
         if (newValue == Boolean.TRUE) {
             group.grantRuntimePermissions(false);
         } else {
@@ -253,32 +246,6 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         }
 
         return true;
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        logToggledGroups();
-    }
-
-    private void addToggledGroup(PermissionGroup group) {
-        if (mToggledGroups == null) {
-            mToggledGroups = new ArrayList<>();
-        }
-        // Double toggle is back to initial state.
-        if (mToggledGroups.contains(group)) {
-            mToggledGroups.remove(group);
-        } else {
-            mToggledGroups.add(group);
-        }
-    }
-
-    private void logToggledGroups() {
-        if (mToggledGroups != null) {
-            String packageName = mAppPermissions.getPackageInfo().packageName;
-            SafetyNetLogger.logPermissionsToggled(packageName, mToggledGroups);
-            mToggledGroups = null;
-        }
     }
 
     private void updateUi() {

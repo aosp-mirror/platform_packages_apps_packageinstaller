@@ -44,10 +44,6 @@ public final class Permission {
         return mAppOp;
     }
 
-    public int getFlags() {
-        return mFlags;
-    }
-
     public boolean hasAppOp() {
         return mAppOp != AppOpsManager.OP_NONE;
     }
