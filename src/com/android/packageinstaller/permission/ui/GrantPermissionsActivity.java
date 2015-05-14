@@ -37,10 +37,6 @@ import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.model.PermissionGroup;
-import com.android.packageinstaller.permission.utils.SafetyNetLogger;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class GrantPermissionsActivity extends Activity implements
         GrantPermissionViewHandler.OnRequestGrantPermissionGroupResult {
@@ -293,27 +289,11 @@ public class GrantPermissionsActivity extends Activity implements
     }
 
     private void setResultAndFinish() {
-        logRequestedPermissionGroups();
         Intent result = new Intent(PackageManager.ACTION_REQUEST_PERMISSIONS);
         result.putExtra(PackageManager.EXTRA_REQUEST_PERMISSIONS_NAMES, mRequestedPermissions);
         result.putExtra(PackageManager.EXTRA_REQUEST_PERMISSIONS_RESULTS, mGrantResults);
         setResult(RESULT_OK, result);
         finish();
-    }
-
-    private void logRequestedPermissionGroups() {
-        if (mRequestGrantPermissionGroups.isEmpty()) {
-            return;
-        }
-
-        final int groupCount = mRequestGrantPermissionGroups.size();
-        List<PermissionGroup> groups = new ArrayList<>(groupCount);
-        for (int i = 0; i < groupCount; i++) {
-            groups.add(mRequestGrantPermissionGroups.valueAt(i).mGroup);
-        }
-
-        SafetyNetLogger.logPermissionsRequested(mAppPermissions.getPackageInfo()
-                        .packageName, groups);
     }
 
     private static final class GroupState {
