@@ -25,7 +25,6 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
-import android.support.v4.util.ArrayMap;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -37,11 +36,6 @@ import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.PermissionApps;
 import com.android.packageinstaller.permission.model.PermissionApps.Callback;
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
-import com.android.packageinstaller.permission.model.PermissionGroup;
-import com.android.packageinstaller.permission.utils.SafetyNetLogger;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public final class PermissionAppsFragment extends SettingsWithHeader implements Callback,
         OnPreferenceChangeListener {
@@ -55,8 +49,6 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
     }
 
     private PermissionApps mPermissionApps;
-
-    private ArrayMap<String, PermissionGroup> mToggledGroups;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -164,8 +156,6 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
         String pkg = preference.getKey();
         PermissionApp app = mPermissionApps.getApp(pkg);
 
-        addToggledGroup(app.getPackageName(), app.getPermissionGroup());
-
         if (app == null) {
             return false;
         }
@@ -177,34 +167,4 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
         return true;
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        logToggledGroups();
-    }
-
-    private void addToggledGroup(String packageName, PermissionGroup group) {
-        if (mToggledGroups == null) {
-            mToggledGroups = new ArrayMap<>();
-        }
-        // Double toggle is back to initial state.
-        if (mToggledGroups.containsKey(packageName)) {
-            mToggledGroups.remove(packageName);
-        } else {
-            mToggledGroups.put(packageName, group);
-        }
-    }
-
-    private void logToggledGroups() {
-        if (mToggledGroups != null) {
-            final int groupCount = mToggledGroups.size();
-            for (int i = 0; i < groupCount; i++) {
-                String packageName = mToggledGroups.keyAt(i);
-                List<PermissionGroup> groups = new ArrayList<>();
-                groups.add(mToggledGroups.valueAt(i));
-                SafetyNetLogger.logPermissionsToggled(packageName, groups);
-            }
-            mToggledGroups = null;
-        }
-    }
 }
