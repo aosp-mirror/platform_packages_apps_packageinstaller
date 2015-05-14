@@ -402,6 +402,16 @@ public final class PermissionGroup implements Comparable<PermissionGroup> {
         return new ArrayList<>(mPermissions.values());
     }
 
+    public int getFlags() {
+        int flags = 0;
+        final int permissionCount = mPermissions.size();
+        for (int i = 0; i < permissionCount; i++) {
+            Permission permission = mPermissions.valueAt(i);
+            flags |= permission.getFlags();
+        }
+        return flags;
+    }
+
     public boolean isUserFixed() {
         final int permissionCount = mPermissions.size();
         for (int i = 0; i < permissionCount; i++) {
