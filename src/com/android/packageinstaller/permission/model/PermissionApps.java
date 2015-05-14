@@ -106,14 +106,12 @@ public class PermissionApps {
     }
 
     public static class PermissionApp implements Comparable<PermissionApp> {
-        private final String mPackageName;
         private final PermissionGroup mPermissionGroup;
         private final String mLabel;
         private final Drawable mIcon;
 
-        public PermissionApp(String packageName, PermissionGroup permissionGroup,
-                String label, Drawable icon) {
-            mPackageName = packageName;
+        public PermissionApp(PermissionGroup permissionGroup, String label,
+                Drawable icon) {
             mPermissionGroup = permissionGroup;
             mLabel = label;
             mIcon = icon;
@@ -149,14 +147,6 @@ public class PermissionApps {
 
         public boolean isSystemFixed() {
             return mPermissionGroup.isSystemFixed();
-        }
-
-        public String getPackageName() {
-            return mPackageName;
-        }
-
-        public PermissionGroup getPermissionGroup() {
-            return mPermissionGroup;
         }
 
         @Override
@@ -219,8 +209,8 @@ public class PermissionApps {
                         PermissionGroup group = PermissionGroup.create(mContext,
                                 app, groupInfo, groupPermInfos);
 
-                        PermissionApp permApp = new PermissionApp(app.packageName,
-                                group, app.applicationInfo.loadLabel(mPm).toString(),
+                        PermissionApp permApp = new PermissionApp(group,
+                                app.applicationInfo.loadLabel(mPm).toString(),
                                 getBadgedIcon(app.applicationInfo));
 
                         permApps.add(permApp);
