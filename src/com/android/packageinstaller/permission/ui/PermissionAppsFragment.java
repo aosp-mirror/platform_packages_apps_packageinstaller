@@ -17,7 +17,10 @@ package com.android.packageinstaller.permission.ui;
 
 import android.annotation.Nullable;
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -57,6 +60,7 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
     private PermissionApps mPermissionApps;
 
     private ArrayMap<String, PermissionGroup> mToggledGroups;
+    private boolean mHasConfirmedRevoke;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -168,9 +172,9 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
     }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
+    public boolean onPreferenceChange(final Preference preference, Object newValue) {
         String pkg = preference.getKey();
-        PermissionApp app = mPermissionApps.getApp(pkg);
+        final PermissionApp app = mPermissionApps.getApp(pkg);
 
         addToggledGroup(app.getPackageName(), app.getPermissionGroup());
 
@@ -180,7 +184,24 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
         if (newValue == Boolean.TRUE) {
             app.grantRuntimePermissions();
         } else {
-            app.revokeRuntimePermissions();
+            if (!app.hasRuntimePermissions() && !mHasConfirmedRevoke) {
+                new AlertDialog.Builder(getContext())
+                        .setMessage(R.string.old_sdk_deny_warning)
+                        .setNegativeButton(R.string.cancel, null)
+                        .setPositiveButton(R.string.grant_dialog_button_deny,
+                                new OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                ((SwitchPreference) preference).setChecked(false);
+                                app.revokeRuntimePermissions();
+                                mHasConfirmedRevoke = true;
+                            }
+                        })
+                        .show();
+                return false;
+            } else {
+                app.revokeRuntimePermissions();
+            }
         }
         return true;
     }
