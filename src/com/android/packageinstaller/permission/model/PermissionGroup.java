@@ -173,8 +173,19 @@ public final class PermissionGroup implements Comparable<PermissionGroup> {
                 : com.android.internal.R.drawable.ic_perm_device_info;
     }
 
-    public boolean isAppOpPermission() {
-        return !mAppSupportsRuntimePermissions;
+    public boolean hasRuntimePermission() {
+        return mAppSupportsRuntimePermissions;
+    }
+
+    public boolean hasAppOpPermission() {
+        final int permissionCount = mPermissions.size();
+        for (int i = 0; i < permissionCount; i++) {
+            Permission permission = mPermissions.valueAt(i);
+            if (permission.getAppOp() != AppOpsManager.OP_NONE) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public PackageInfo getApp() {
@@ -512,7 +523,7 @@ public final class PermissionGroup implements Comparable<PermissionGroup> {
         return builder.toString();
     }
 
-    void addPermission(Permission permission) {
+    private void addPermission(Permission permission) {
         mPermissions.put(permission.getName(), permission);
     }
 }

@@ -144,6 +144,14 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
             if (app.isSystemFixed()) {
                 continue;
             }
+
+            // Yes this is possible. We have leftover permissions that
+            // are not in the final groups and we want to get rid of,
+            // therefore we do not have app ops for legacy support.
+            if (!app.hasRuntimePermissions() && !app.hasAppOpPermissions()) {
+                continue;
+            }
+
             SwitchPreference pref = (SwitchPreference) findPreference(app.getKey());
             if (pref == null) {
                 pref = new SwitchPreference(context);
