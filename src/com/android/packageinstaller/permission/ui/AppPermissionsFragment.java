@@ -240,7 +240,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         if (newValue == Boolean.TRUE) {
             group.grantRuntimePermissions(false);
         } else {
-            if (group.hasAppOpPermission() && !mHasConfirmedRevoke) {
+            if (!group.hasRuntimePermission() && !mHasConfirmedRevoke) {
                 new AlertDialog.Builder(getContext())
                         .setMessage(R.string.old_sdk_deny_warning)
                         .setNegativeButton(R.string.cancel, null)
