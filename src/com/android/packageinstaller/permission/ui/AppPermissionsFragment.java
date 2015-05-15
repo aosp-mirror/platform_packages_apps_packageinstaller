@@ -180,6 +180,14 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             if (group.isSystemFixed()) {
                 continue;
             }
+
+            // Yes this is possible. We have leftover permissions that
+            // are not in the final groups and we want to get rid of,
+            // therefore we do not have app ops for legacy support.
+            if (!group.hasRuntimePermission() && !group.hasAppOpPermission()) {
+                continue;
+            }
+
             SwitchPreference preference = new SwitchPreference(activity);
             preference.setOnPreferenceChangeListener(this);
             preference.setKey(group.getName());
@@ -232,7 +240,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         if (newValue == Boolean.TRUE) {
             group.grantRuntimePermissions(false);
         } else {
-            if (group.isAppOpPermission() && !mHasConfirmedRevoke) {
+            if (group.hasAppOpPermission() && !mHasConfirmedRevoke) {
                 new AlertDialog.Builder(getContext())
                         .setMessage(R.string.old_sdk_deny_warning)
                         .setNegativeButton(R.string.cancel, null)

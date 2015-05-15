@@ -151,6 +151,14 @@ public class PermissionApps {
             return mPermissionGroup.isSystemFixed();
         }
 
+        public boolean hasRuntimePermissions() {
+            return mPermissionGroup.hasRuntimePermission();
+        }
+
+        public boolean hasAppOpPermissions() {
+            return mPermissionGroup.hasAppOpPermission();
+        }
+
         public String getPackageName() {
             return mPackageName;
         }
