@@ -16,6 +16,7 @@
 
 package com.android.packageinstaller.permission.utils;
 
+import android.Manifest;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
@@ -34,6 +35,25 @@ public class Utils {
         } catch (Resources.NotFoundException | PackageManager.NameNotFoundException e) {
             Log.d(LOG_TAG, "Couldn't get resource", e);
             return null;
+        }
+    }
+
+    public static boolean isModernPermissionGroup(String name) {
+        switch (name) {
+            case Manifest.permission_group.CALENDAR:
+            case Manifest.permission_group.CAMERA:
+            case Manifest.permission_group.CONTACTS:
+            case Manifest.permission_group.LOCATION:
+            case Manifest.permission_group.SENSORS:
+            case Manifest.permission_group.SMS:
+            case Manifest.permission_group.PHONE:
+            case Manifest.permission_group.MICROPHONE: {
+                return true;
+            }
+
+            default: {
+                return false;
+            }
         }
     }
 }

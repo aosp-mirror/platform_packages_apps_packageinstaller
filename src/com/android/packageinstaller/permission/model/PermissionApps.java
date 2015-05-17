@@ -107,14 +107,14 @@ public class PermissionApps {
 
     public static class PermissionApp implements Comparable<PermissionApp> {
         private final String mPackageName;
-        private final PermissionGroup mPermissionGroup;
+        private final AppPermissionGroup mAppPermissionGroup;
         private final String mLabel;
         private final Drawable mIcon;
 
-        public PermissionApp(String packageName, PermissionGroup permissionGroup,
+        public PermissionApp(String packageName, AppPermissionGroup appPermissionGroup,
                 String label, Drawable icon) {
             mPackageName = packageName;
-            mPermissionGroup = permissionGroup;
+            mAppPermissionGroup = appPermissionGroup;
             mLabel = label;
             mIcon = icon;
         }
@@ -132,39 +132,39 @@ public class PermissionApps {
         }
 
         public boolean areRuntimePermissionsGranted() {
-            return mPermissionGroup.areRuntimePermissionsGranted();
+            return mAppPermissionGroup.areRuntimePermissionsGranted();
         }
 
         public void grantRuntimePermissions() {
-            mPermissionGroup.grantRuntimePermissions(false);
+            mAppPermissionGroup.grantRuntimePermissions(false);
         }
 
         public void revokeRuntimePermissions() {
-            mPermissionGroup.revokeRuntimePermissions(false);
+            mAppPermissionGroup.revokeRuntimePermissions(false);
         }
 
         public boolean isPolicyFixed() {
-            return mPermissionGroup.isPolicyFixed();
+            return mAppPermissionGroup.isPolicyFixed();
         }
 
         public boolean isSystemFixed() {
-            return mPermissionGroup.isSystemFixed();
+            return mAppPermissionGroup.isSystemFixed();
         }
 
         public boolean hasRuntimePermissions() {
-            return mPermissionGroup.hasRuntimePermission();
+            return mAppPermissionGroup.hasRuntimePermission();
         }
 
         public boolean hasAppOpPermissions() {
-            return mPermissionGroup.hasAppOpPermission();
+            return mAppPermissionGroup.hasAppOpPermission();
         }
 
         public String getPackageName() {
             return mPackageName;
         }
 
-        public PermissionGroup getPermissionGroup() {
-            return mPermissionGroup;
+        public AppPermissionGroup getPermissionGroup() {
+            return mAppPermissionGroup;
         }
 
         @Override
@@ -178,7 +178,7 @@ public class PermissionApps {
         }
 
         private int getUid() {
-            return mPermissionGroup.getApp().applicationInfo.uid;
+            return mAppPermissionGroup.getApp().applicationInfo.uid;
         }
     }
 
@@ -224,7 +224,7 @@ public class PermissionApps {
                             continue;
                         }
 
-                        PermissionGroup group = PermissionGroup.create(mContext,
+                        AppPermissionGroup group = AppPermissionGroup.create(mContext,
                                 app, groupInfo, groupPermInfos);
 
                         PermissionApp permApp = new PermissionApp(app.packageName,

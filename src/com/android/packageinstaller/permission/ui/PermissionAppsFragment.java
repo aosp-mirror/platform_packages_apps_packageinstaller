@@ -37,10 +37,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.packageinstaller.R;
+import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionApps;
 import com.android.packageinstaller.permission.model.PermissionApps.Callback;
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
-import com.android.packageinstaller.permission.model.PermissionGroup;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 
 import java.util.ArrayList;
@@ -59,7 +59,7 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
 
     private PermissionApps mPermissionApps;
 
-    private ArrayMap<String, PermissionGroup> mToggledGroups;
+    private ArrayMap<String, AppPermissionGroup> mToggledGroups;
     private boolean mHasConfirmedRevoke;
 
     @Override
@@ -136,6 +136,11 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
     @Override
     public void onPermissionsLoaded() {
         Context context = getActivity();
+
+        if (context == null) {
+            return;
+        }
+
         PreferenceScreen preferences = getPreferenceScreen();
         if (preferences == null) {
             preferences = getPreferenceManager().createPreferenceScreen(getActivity());
@@ -212,7 +217,7 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
         logToggledGroups();
     }
 
-    private void addToggledGroup(String packageName, PermissionGroup group) {
+    private void addToggledGroup(String packageName, AppPermissionGroup group) {
         if (mToggledGroups == null) {
             mToggledGroups = new ArrayMap<>();
         }
@@ -229,7 +234,7 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
             final int groupCount = mToggledGroups.size();
             for (int i = 0; i < groupCount; i++) {
                 String packageName = mToggledGroups.keyAt(i);
-                List<PermissionGroup> groups = new ArrayList<>();
+                List<AppPermissionGroup> groups = new ArrayList<>();
                 groups.add(mToggledGroups.valueAt(i));
                 SafetyNetLogger.logPermissionsToggled(packageName, groups);
             }
