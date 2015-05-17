@@ -38,6 +38,8 @@ import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,8 +49,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.packageinstaller.R;
+import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
-import com.android.packageinstaller.permission.model.PermissionGroup;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.packageinstaller.permission.utils.Utils;
 
@@ -64,11 +66,12 @@ public final class AppPermissionsFragment extends SettingsWithHeader
 
     private static final String EXTRA_HIDE_INFO_BUTTON = "hideInfoButton";
 
-    private List<PermissionGroup> mToggledGroups;
+    private List<AppPermissionGroup> mToggledGroups;
     private AppPermissions mAppPermissions;
     private PreferenceScreen mExtraScreen;
 
     private boolean mHasConfirmedRevoke;
+    private boolean mShowLegacyPermissions;
 
     public static AppPermissionsFragment newInstance(String packageName) {
         AppPermissionsFragment instance = new AppPermissionsFragment();
@@ -98,9 +101,16 @@ public final class AppPermissionsFragment extends SettingsWithHeader
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:
+            case android.R.id.home: {
                 getActivity().finish();
                 return true;
+            }
+
+            case R.id.toggle_legacy_permissions: {
+                mShowLegacyPermissions = !mShowLegacyPermissions;
+                updatePermissionsUi();
+                return true;
+            }
         }
         return super.onOptionsItemSelected(item);
     }
@@ -124,6 +134,23 @@ public final class AppPermissionsFragment extends SettingsWithHeader
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         bindUi();
+        updatePermissionsUi();
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.toggle_legacy_permissions, menu);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        MenuItem item = menu.findItem(R.id.toggle_legacy_permissions);
+        if (!mShowLegacyPermissions) {
+            item.setTitle(R.string.show_legacy_permissions);
+        } else {
+            item.setTitle(R.string.hide_legacy_permissions);
+        }
     }
 
     private void bindUi() {
@@ -162,7 +189,6 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             breadcrumbView.setText(label);
         }
 
-        PreferenceScreen screen = getPreferenceManager().createPreferenceScreen(activity);
         mAppPermissions = new AppPermissions(activity, packageInfo, null, new Runnable() {
             @Override
             public void run() {
@@ -170,11 +196,26 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             }
         });
 
+        PreferenceScreen screen = getPreferenceManager().createPreferenceScreen(activity);
+        setPreferenceScreen(screen);
+    }
+
+    private void updatePermissionsUi() {
+        final Activity activity = getActivity();
+
+        if (activity == null) {
+            return;
+        }
+
+        final PreferenceScreen screen = getPreferenceScreen();
+        screen.removeAll();
+        mExtraScreen = null;
+
         final Preference extraPerms = new Preference(activity);
         extraPerms.setIcon(R.drawable.ic_toc);
         extraPerms.setTitle(R.string.additional_permissions);
 
-        for (PermissionGroup group : mAppPermissions.getPermissionGroups()) {
+        for (AppPermissionGroup group : mAppPermissions.getPermissionGroups()) {
             // We currently will not show permissions fixed by the system
             // which is what the system does for system components.
             if (group.isSystemFixed()) {
@@ -188,14 +229,20 @@ public final class AppPermissionsFragment extends SettingsWithHeader
                 continue;
             }
 
+            // Show legacy permissions only if the user chose that.
+            if (!mShowLegacyPermissions && !Utils.isModernPermissionGroup(group.getName())) {
+                continue;
+            }
+
             SwitchPreference preference = new SwitchPreference(activity);
             preference.setOnPreferenceChangeListener(this);
             preference.setKey(group.getName());
-            preference.setIcon(Utils.loadDrawable(pm, group.getIconPkg(),
-                    group.getIconResId()));
+            preference.setIcon(Utils.loadDrawable(activity.getPackageManager(),
+                    group.getIconPkg(), group.getIconResId()));
             preference.setTitle(group.getLabel());
             preference.setPersistent(false);
             preference.setEnabled(!group.isPolicyFixed());
+
             if (group.getIconPkg().equals(OS_PKG)) {
                 screen.addPreference(preference);
             } else {
@@ -205,6 +252,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
                 mExtraScreen.addPreference(preference);
             }
         }
+
         if (mExtraScreen != null) {
             extraPerms.setOnPreferenceClickListener(new OnPreferenceClickListener() {
                 @Override
@@ -222,14 +270,12 @@ public final class AppPermissionsFragment extends SettingsWithHeader
                     mExtraScreen.getPreferenceCount()));
             screen.addPreference(extraPerms);
         }
-
-        setPreferenceScreen(screen);
     }
 
     @Override
     public boolean onPreferenceChange(final Preference preference, Object newValue) {
         String groupName = preference.getKey();
-        final PermissionGroup group = mAppPermissions.getPermissionGroup(groupName);
+        final AppPermissionGroup group = mAppPermissions.getPermissionGroup(groupName);
 
         if (group == null) {
             return false;
@@ -269,7 +315,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         logToggledGroups();
     }
 
-    private void addToggledGroup(PermissionGroup group) {
+    private void addToggledGroup(AppPermissionGroup group) {
         if (mToggledGroups == null) {
             mToggledGroups = new ArrayList<>();
         }
@@ -304,7 +350,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             Preference preference = screen.getPreference(i);
             if (preference instanceof SwitchPreference) {
                 SwitchPreference switchPref = (SwitchPreference) preference;
-                PermissionGroup group = mAppPermissions
+                AppPermissionGroup group = mAppPermissions
                         .getPermissionGroup(switchPref.getKey());
                 if (group != null) {
                     switchPref.setChecked(group.areRuntimePermissionsGranted());

@@ -34,9 +34,9 @@ import android.util.Log;
 import android.util.SparseArray;
 
 import com.android.packageinstaller.R;
+import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.Permission;
-import com.android.packageinstaller.permission.model.PermissionGroup;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 
 import java.util.ArrayList;
@@ -100,7 +100,7 @@ public class GrantPermissionsActivity extends Activity implements
                     }
                 });
 
-        for (PermissionGroup group : mAppPermissions.getPermissionGroups()) {
+        for (AppPermissionGroup group : mAppPermissions.getPermissionGroups()) {
             // We allow the user to choose only non-fixed permissions. A permission
             // is fixed either by device policy or the user denying with prejudice.
             if (!group.areRuntimePermissionsGranted() &&
@@ -201,7 +201,7 @@ public class GrantPermissionsActivity extends Activity implements
         }
     }
 
-    private void updateGrantResults(PermissionGroup group) {
+    private void updateGrantResults(AppPermissionGroup group) {
         for (Permission permission : group.getPermissions()) {
             if (permission.isGranted()) {
                 final int index = ArrayUtils.getArrayIndex(
@@ -307,7 +307,7 @@ public class GrantPermissionsActivity extends Activity implements
         }
 
         final int groupCount = mRequestGrantPermissionGroups.size();
-        List<PermissionGroup> groups = new ArrayList<>(groupCount);
+        List<AppPermissionGroup> groups = new ArrayList<>(groupCount);
         for (int i = 0; i < groupCount; i++) {
             groups.add(mRequestGrantPermissionGroups.valueAt(i).mGroup);
         }
@@ -320,10 +320,10 @@ public class GrantPermissionsActivity extends Activity implements
         public static final int STATE_ALLOWED = 1;
         public static final int STATE_DENIED = 2;
 
-        public final PermissionGroup mGroup;
+        public final AppPermissionGroup mGroup;
         public int mState = STATE_UNKNOWN;
 
-        public GroupState(PermissionGroup group) {
+        public GroupState(AppPermissionGroup group) {
             mGroup = group;
         }
     }
