@@ -81,6 +81,7 @@
                   android:theme="@style/Settings"
                   android:permission="android.permission.GRANT_REVOKE_PERMISSIONS">
             <intent-filter>
+                <action android:name="android.intent.action.MANAGE_PERMISSIONS" />
                 <action android:name="android.intent.action.MANAGE_APP_PERMISSIONS" />
                 <action android:name="android.intent.action.MANAGE_PERMISSION_APPS" />
                 <category android:name="android.intent.category.DEFAULT" />

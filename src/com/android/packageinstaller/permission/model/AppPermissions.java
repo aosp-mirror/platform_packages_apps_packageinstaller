@@ -28,7 +28,7 @@ import java.util.Collections;
 import java.util.List;
 
 public final class AppPermissions {
-    private final ArrayMap<String, PermissionGroup> mGroups = new ArrayMap<>();
+    private final ArrayMap<String, AppPermissionGroup> mGroups = new ArrayMap<>();
 
     private final Context mContext;
 
@@ -63,11 +63,11 @@ public final class AppPermissions {
         return mAppLabel;
     }
 
-    public PermissionGroup getPermissionGroup(String name) {
+    public AppPermissionGroup getPermissionGroup(String name) {
         return mGroups.get(name);
     }
 
-    public List<PermissionGroup> getPermissionGroups() {
+    public List<AppPermissionGroup> getPermissionGroups() {
         return new ArrayList<>(mGroups.values());
     }
 
@@ -84,7 +84,7 @@ public final class AppPermissions {
     }
 
     private void loadPermissionGroups() {
-        List<PermissionGroup> groups = new ArrayList<>();
+        List<AppPermissionGroup> groups = new ArrayList<>();
 
         if (mPackageInfo.requestedPermissions == null) {
             return;
@@ -97,7 +97,7 @@ public final class AppPermissions {
                 continue;
             }
 
-            PermissionGroup group = PermissionGroup.create(mContext,
+            AppPermissionGroup group = AppPermissionGroup.create(mContext,
                     mPackageInfo, requestedPerm);
             if (group == null) {
                 continue;
@@ -109,7 +109,7 @@ public final class AppPermissions {
         if (!ArrayUtils.isEmpty(mFilterPermissions)) {
             final int groupCount = groups.size();
             for (int i = groupCount - 1; i >= 0; i--) {
-                PermissionGroup group = groups.get(i);
+                AppPermissionGroup group = groups.get(i);
                 boolean groupHasPermission = false;
                 for (String filterPerm : mFilterPermissions) {
                     if (group.hasPermission(filterPerm)) {
@@ -126,14 +126,14 @@ public final class AppPermissions {
         Collections.sort(groups);
 
         mGroups.clear();
-        for (PermissionGroup group : groups) {
+        for (AppPermissionGroup group : groups) {
             mGroups.put(group.getName(), group);
         }
     }
 
     private static boolean hasGroupForPermission(String permission,
-            List<PermissionGroup> groups) {
-        for (PermissionGroup group : groups) {
+            List<AppPermissionGroup> groups) {
+        for (AppPermissionGroup group : groups) {
             if (group.hasPermission(permission)) {
                 return true;
             }

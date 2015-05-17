@@ -18,7 +18,7 @@ package com.android.packageinstaller.permission.utils;
 
 import android.content.pm.PackageInfo;
 import android.util.EventLog;
-import com.android.packageinstaller.permission.model.PermissionGroup;
+import com.android.packageinstaller.permission.model.AppPermissionGroup;
 
 import java.util.List;
 
@@ -38,27 +38,27 @@ public final class SafetyNetLogger {
     }
 
     public static void logPermissionsRequested(PackageInfo packageInfo,
-            List<PermissionGroup> groups) {
+            List<AppPermissionGroup> groups) {
         EventLog.writeEvent(SNET_NET_EVENT_LOG_TAG, PERMISSIONS_REQUESTED,
                 packageInfo.applicationInfo.uid, buildChangedGroupForPackageMessage(
                         packageInfo.packageName, groups));
     }
 
-    public static void logPermissionsToggled(String packageName, List<PermissionGroup> groups) {
+    public static void logPermissionsToggled(String packageName, List<AppPermissionGroup> groups) {
         EventLog.writeEvent(SNET_NET_EVENT_LOG_TAG, PERMISSIONS_TOGGLED,
                 android.os.Process.myUid(), buildChangedGroupForPackageMessage(
                         packageName, groups));
     }
 
     private static String buildChangedGroupForPackageMessage(String packageName,
-            List<PermissionGroup> groups) {
+            List<AppPermissionGroup> groups) {
         StringBuilder builder = new StringBuilder();
 
         builder.append(packageName).append(':');
 
         final int groupCount = groups.size();
         for (int i = 0; i < groupCount; i++) {
-            PermissionGroup group = groups.get(i);
+            AppPermissionGroup group = groups.get(i);
             if (i > 0) {
                 builder.append(';');
             }
