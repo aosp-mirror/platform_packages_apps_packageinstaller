@@ -17,10 +17,13 @@
 package com.android.packageinstaller.permission.utils;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.content.res.Resources.Theme;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
+import android.util.TypedValue;
 
 public class Utils {
     private static final String LOG_TAG = "Utils";
@@ -55,5 +58,13 @@ public class Utils {
                 return false;
             }
         }
+    }
+
+    public static Drawable applyTint(Context context, Drawable icon, int attr) {
+        Theme theme = context.getTheme();
+        TypedValue typedValue = new TypedValue();
+        theme.resolveAttribute(attr, typedValue, true);
+        icon.setTint(context.getColor(typedValue.resourceId));
+        return icon;
     }
 }
