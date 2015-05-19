@@ -222,7 +222,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         extraPerms.setTitle(R.string.additional_permissions);
 
         for (AppPermissionGroup group : mAppPermissions.getPermissionGroups()) {
-            // We currently will not show permissions fixed by the system
+            // We currently will not show permissions fixed by the system.
             // which is what the system does for system components.
             if (group.isSystemFixed()) {
                 continue;
