@@ -171,8 +171,13 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         mDeclaringPackage = declaringPackage;
         mName = name;
         mLabel = label;
-        mIconPkg = iconPkg;
-        mIconResId = iconResId != 0 ? iconResId : R.drawable.ic_perm_device_info;
+        if (iconResId != 0) {
+            mIconPkg = iconPkg;
+            mIconResId = iconResId;
+        } else {
+            mIconPkg = context.getPackageName();
+            mIconResId = R.drawable.ic_perm_device_info;
+        }
     }
 
     public boolean hasRuntimePermission() {
