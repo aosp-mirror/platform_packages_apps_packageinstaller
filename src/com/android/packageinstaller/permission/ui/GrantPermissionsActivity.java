@@ -156,7 +156,7 @@ public class GrantPermissionsActivity extends Activity implements
                 // Bold/color the app name.
                 int appLabelStart = message.toString().indexOf(appLabel.toString(), 0);
                 int appLabelLength = appLabel.length();
-                int color = getResources().getColor(R.color.grant_permissions_app_color, null);
+                int color = getColor(R.color.grant_permissions_app_color);
                 message.setSpan(new ForegroundColorSpan(color), appLabelStart,
                         appLabelStart + appLabelLength, 0);
 
