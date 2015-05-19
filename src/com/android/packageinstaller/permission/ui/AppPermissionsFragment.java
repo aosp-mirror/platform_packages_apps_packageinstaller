@@ -250,7 +250,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             preference.setEnabled(!group.isPolicyFixed());
             preference.setChecked(group.areRuntimePermissionsGranted());
 
-            if (group.getIconPkg().equals(OS_PKG)) {
+            if (group.getDeclaringPackage().equals(OS_PKG)) {
                 screen.addPreference(preference);
             } else {
                 if (mExtraScreen == null) {
