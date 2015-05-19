@@ -108,7 +108,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
 
             case R.id.toggle_legacy_permissions: {
                 mShowLegacyPermissions = !mShowLegacyPermissions;
-                updatePermissionsUi();
+                bindPermissionsUi();
                 return true;
             }
         }
@@ -134,7 +134,6 @@ public final class AppPermissionsFragment extends SettingsWithHeader
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         bindUi();
-        updatePermissionsUi();
     }
 
     @Override
@@ -196,20 +195,27 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             }
         });
 
-        PreferenceScreen screen = getPreferenceManager().createPreferenceScreen(activity);
-        setPreferenceScreen(screen);
+        bindPermissionsUi();
     }
 
-    private void updatePermissionsUi() {
+    private void bindPermissionsUi() {
         final Activity activity = getActivity();
 
         if (activity == null) {
             return;
         }
 
-        final PreferenceScreen screen = getPreferenceScreen();
-        screen.removeAll();
-        mExtraScreen = null;
+        PreferenceScreen screen = getPreferenceScreen();
+        if (screen == null) {
+            screen = getPreferenceManager().createPreferenceScreen(activity);
+            setPreferenceScreen(screen);
+        } else {
+            screen.removeAll();
+        }
+
+        if (mExtraScreen != null) {
+            mExtraScreen.removeAll();
+        }
 
         final Preference extraPerms = new Preference(activity);
         extraPerms.setIcon(R.drawable.ic_toc);
@@ -242,6 +248,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             preference.setTitle(group.getLabel());
             preference.setPersistent(false);
             preference.setEnabled(!group.isPolicyFixed());
+            preference.setChecked(group.areRuntimePermissionsGranted());
 
             if (group.getIconPkg().equals(OS_PKG)) {
                 screen.addPreference(preference);
