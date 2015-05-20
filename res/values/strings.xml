@@ -224,4 +224,7 @@
     <!-- The default description of a permission, i.e. what it does.  [CHAR LIMIT=40] -->
     <string name="default_permission_description">perform an unknown action</string>
 
+    <!-- Summary of number of apps currently granted a single permission [CHAR LIMIT=45] -->
+   <string name="app_permissions_group_summary"><xliff:g id="count" example="10">%d</xliff:g> of <xliff:g id="count" example="10">%d</xliff:g> apps allowed</string>
+
 </resources>
