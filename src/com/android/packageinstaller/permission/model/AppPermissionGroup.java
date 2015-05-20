@@ -248,6 +248,11 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         // to the permission if the permission is granted to the app.
         for (Permission permission : mPermissions.values()) {
             if (mAppSupportsRuntimePermissions) {
+                // Do not touch permissions fixed by the system.
+                if (permission.isSystemFixed()) {
+                    return false;
+                }
+
                 // Grant the permission if needed.
                 if (!permission.isGranted()) {
                     permission.setGranted(true);
@@ -334,6 +339,11 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         // to the permission if the permission is granted to the app.
         for (Permission permission : mPermissions.values()) {
             if (mAppSupportsRuntimePermissions) {
+                // Do not touch permissions fixed by the system.
+                if (permission.isSystemFixed()) {
+                    return false;
+                }
+
                 // Revoke the permission if needed.
                 if (permission.isGranted()) {
                     permission.setGranted(false);
