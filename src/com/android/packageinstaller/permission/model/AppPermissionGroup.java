@@ -48,6 +48,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
     private final String mName;
     private final String mDeclaringPackage;
     private final CharSequence mLabel;
+    private final CharSequence mDescription;
     private final ArrayMap<String, Permission> mPermissions = new ArrayMap<>();
     private final String mIconPkg;
     private final int mIconResId;
@@ -95,7 +96,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
         AppPermissionGroup group = new AppPermissionGroup(context, packageInfo, groupInfo.name,
                 groupInfo.packageName, groupInfo.loadLabel(context.getPackageManager()),
-                groupInfo.packageName, groupInfo.icon);
+                loadGroupDescription(context, groupInfo), groupInfo.packageName, groupInfo.icon);
 
         if (groupInfo instanceof PermissionInfo) {
             permissionInfos = new ArrayList<>();
@@ -158,8 +159,26 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         return group;
     }
 
+    private static CharSequence loadGroupDescription(Context context, PackageItemInfo group) {
+        CharSequence description = null;
+        if (group instanceof PermissionGroupInfo) {
+            description = ((PermissionGroupInfo) group).loadDescription(
+                    context.getPackageManager());
+        } else if (group instanceof PermissionInfo) {
+            description = ((PermissionInfo) group).loadDescription(
+                    context.getPackageManager());
+        }
+
+        if (description == null || description.length() <= 0) {
+            description = context.getString(R.string.default_permission_description);
+        }
+
+        return description;
+    }
+
     private AppPermissionGroup(Context context, PackageInfo packageInfo, String name,
-            String declaringPackage, CharSequence label, String iconPkg, int iconResId) {
+            String declaringPackage, CharSequence label, CharSequence description,
+            String iconPkg, int iconResId) {
         mContext = context;
         mUserHandle = new UserHandle(mContext.getUserId());
         mPackageManager = mContext.getPackageManager();
@@ -171,6 +190,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         mDeclaringPackage = declaringPackage;
         mName = name;
         mLabel = label;
+        mDescription = description;
         if (iconResId != 0) {
             mIconPkg = iconPkg;
             mIconResId = iconResId;
@@ -219,6 +239,10 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         return mLabel;
     }
 
+    public CharSequence getDescription() {
+        return mDescription;
+    }
+
     public boolean hasPermission(String permission) {
         return mPermissions.get(permission) != null;
     }
@@ -264,15 +288,14 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                 if (!fixedByTheUser) {
                     // Now the apps can ask for the permission as the user
                     // no longer has it fixed in a denied state.
-                    if (permission.isUserFixed() || !permission.isUserSet()) {
+                    if (permission.isUserFixed() || permission.isUserSet()) {
                         permission.setUserFixed(false);
                         permission.setUserSet(true);
                         mPackageManager.updatePermissionFlags(permission.getName(),
                                 mPackageInfo.packageName,
                                 PackageManager.FLAG_PERMISSION_USER_FIXED
                                         | PackageManager.FLAG_PERMISSION_USER_SET,
-                                PackageManager.FLAG_PERMISSION_USER_SET,
-                                mUserHandle);
+                                0, mUserHandle);
                     }
                 }
 
