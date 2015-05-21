@@ -312,6 +312,7 @@ public final class GrantPermissionViewHandler implements OnClickListener {
                 mResultListener.onRequestGrantPermissionGroupResult(mGroupName, true, false);
                 break;
             case R.id.permission_deny_button:
+                mAllowButton.setEnabled(true);
                 mResultListener.onRequestGrantPermissionGroupResult(mGroupName, false,
                         mDoNotAskCheckbox.isChecked());
                 break;
