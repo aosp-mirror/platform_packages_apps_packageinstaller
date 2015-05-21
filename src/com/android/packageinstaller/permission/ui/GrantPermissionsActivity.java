@@ -152,7 +152,7 @@ public class GrantPermissionsActivity extends Activity implements
                 CharSequence appLabel = mAppPermissions.getAppLabel();
                 SpannableString message = new SpannableString(getString(
                         R.string.permission_warning_template, appLabel,
-                        groupState.mGroup.getLabel()));
+                        groupState.mGroup.getDescription()));
                 // Bold/color the app name.
                 int appLabelStart = message.toString().indexOf(appLabel.toString(), 0);
                 int appLabelLength = appLabel.length();
