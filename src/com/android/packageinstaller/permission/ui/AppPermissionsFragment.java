@@ -235,8 +235,11 @@ public final class AppPermissionsFragment extends SettingsWithHeader
                 continue;
             }
 
+            final boolean isPlatformPermission = group.getDeclaringPackage().equals(OS_PKG);
+
             // Show legacy permissions only if the user chose that.
-            if (!mShowLegacyPermissions && !Utils.isModernPermissionGroup(group.getName())) {
+            if (isPlatformPermission && !mShowLegacyPermissions
+                    && !Utils.isModernPermissionGroup(group.getName())) {
                 continue;
             }
 
@@ -252,7 +255,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             preference.setEnabled(!group.isPolicyFixed());
             preference.setChecked(group.areRuntimePermissionsGranted());
 
-            if (group.getDeclaringPackage().equals(OS_PKG)) {
+            if (isPlatformPermission) {
                 screen.addPreference(preference);
             } else {
                 if (mExtraScreen == null) {
