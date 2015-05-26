@@ -88,6 +88,11 @@
             </intent-filter>
         </activity>
 
+        <receiver android:name=".permission.model.PermissionStatusReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.GET_PERMISSIONS_COUNT" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

@@ -42,6 +42,7 @@ import com.android.packageinstaller.permission.model.PermissionApps;
 import com.android.packageinstaller.permission.model.PermissionApps.Callback;
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
+import com.android.packageinstaller.permission.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,7 +76,7 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
     @Override
     public void onResume() {
         super.onResume();
-        mPermissionApps.refresh();
+        mPermissionApps.refresh(true);
     }
 
     @Override
@@ -134,7 +135,7 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
     }
 
     @Override
-    public void onPermissionsLoaded() {
+    public void onPermissionsLoaded(PermissionApps permissionApps) {
         Context context = getActivity();
 
         if (context == null) {
@@ -148,16 +149,7 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
         }
         preferences.removeAll();
         for (PermissionApp app : mPermissionApps.getApps()) {
-            // We currently will not show permissions fixed by the system
-            // which is what the system does for system components.
-            if (app.isSystemFixed()) {
-                continue;
-            }
-
-            // Yes this is possible. We have leftover permissions that
-            // are not in the final groups and we want to get rid of,
-            // therefore we do not have app ops for legacy support.
-            if (!app.hasRuntimePermissions() && !app.hasAppOpPermissions()) {
+            if (!Utils.shouldShowPermission(app)) {
                 continue;
             }
 
