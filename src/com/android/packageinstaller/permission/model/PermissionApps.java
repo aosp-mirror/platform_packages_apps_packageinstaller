@@ -29,6 +29,9 @@ import android.os.UserHandle;
 import android.os.UserManager;
 import android.util.ArrayMap;
 import android.util.Log;
+import android.util.SparseArray;
+
+import com.android.packageinstaller.permission.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -43,23 +46,61 @@ public class PermissionApps {
     private final PackageManager mPm;
     private final Callback mCallback;
 
+    private final PmCache mCache;
+
     private CharSequence mLabel;
     private Drawable mIcon;
     private List<PermissionApp> mPermApps;
     // Map (pkg|uid) -> AppPermission
     private ArrayMap<String, PermissionApp> mAppLookup;
 
+    private boolean mSkipUi;
+
     public PermissionApps(Context context, String groupName, Callback callback) {
+        this(context, groupName, callback, null);
+    }
+
+    public PermissionApps(Context context, String groupName, Callback callback, PmCache cache) {
+        mCache = cache;
         mContext = context;
         mPm = mContext.getPackageManager();
         mGroupName = groupName;
         mCallback = callback;
         loadGroupInfo();
+    }
+
+    public void loadNowWithoutUi() {
+        mSkipUi = true;
+        createMap(loadPermissionApps());
+    }
+
+    public void refresh(boolean getUiInfo) {
+        mSkipUi = !getUiInfo;
         new PermissionAppsLoader().execute();
     }
 
-    public void refresh() {
-        new PermissionAppsLoader().execute();
+    public int getGrantedCount() {
+        int count = 0;
+        for (PermissionApp app : mPermApps) {
+            if (!Utils.shouldShowPermission(app)) {
+                continue;
+            }
+            if (app.areRuntimePermissionsGranted()) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public int getTotalCount() {
+        int count = 0;
+        for (PermissionApp app : mPermApps) {
+            if (!Utils.shouldShowPermission(app)) {
+                continue;
+            }
+            count++;
+        }
+        return count;
     }
 
     public Collection<PermissionApp> getApps() {
@@ -76,6 +117,114 @@ public class PermissionApps {
 
     public Drawable getIcon() {
         return mIcon;
+    }
+
+    private List<PermissionApp> loadPermissionApps() {
+        PackageItemInfo groupInfo = getGroupInfo(mGroupName);
+        if (groupInfo == null) {
+            return Collections.emptyList();
+        }
+
+        List<PermissionInfo> groupPermInfos = getGroupPermissionInfos(mGroupName);
+        if (groupPermInfos == null) {
+            return Collections.emptyList();
+        }
+
+        ArrayList<PermissionApp> permApps = new ArrayList<>();
+
+        for (UserHandle user : UserManager.get(mContext).getUserProfiles()) {
+            List<PackageInfo> apps = mCache != null ? mCache.getPackages(user.getIdentifier())
+                    : mPm.getInstalledPackages(PackageManager.GET_PERMISSIONS,
+                            user.getIdentifier());
+
+            final int N = apps.size();
+            for (int i = 0; i < N; i++) {
+                PackageInfo app = apps.get(i);
+                if (app.requestedPermissions == null) {
+                    continue;
+                }
+
+                for (int j = 0; j < app.requestedPermissions.length; j++) {
+                    String requestedPerm = app.requestedPermissions[j];
+
+                    boolean requestsPermissionInGroup = false;
+
+                    for (PermissionInfo groupPermInfo : groupPermInfos) {
+                        if (groupPermInfo.name.equals(requestedPerm)) {
+                            requestsPermissionInGroup = true;
+                            break;
+                        }
+                    }
+
+                    if (!requestsPermissionInGroup) {
+                        continue;
+                    }
+
+                    AppPermissionGroup group = AppPermissionGroup.create(mContext,
+                            app, groupInfo, groupPermInfos);
+
+                    String label = mSkipUi ? app.packageName
+                            : app.applicationInfo.loadLabel(mPm).toString();
+                    PermissionApp permApp = new PermissionApp(app.packageName,
+                            group, label, getBadgedIcon(app.applicationInfo));
+
+                    permApps.add(permApp);
+                }
+            }
+        }
+
+        Collections.sort(permApps);
+
+        return permApps;
+    }
+
+    private void createMap(List<PermissionApp> result) {
+        mAppLookup = new ArrayMap<>();
+        for (PermissionApp app : result) {
+            mAppLookup.put(app.getKey(), app);
+        }
+        mPermApps = result;
+    }
+
+    private PackageItemInfo getGroupInfo(String groupName) {
+        try {
+            return mContext.getPackageManager().getPermissionGroupInfo(groupName, 0);
+        } catch (NameNotFoundException e) {
+            /* ignore */
+        }
+        try {
+            return mContext.getPackageManager().getPermissionInfo(groupName, 0);
+        } catch (NameNotFoundException e2) {
+            /* ignore */
+        }
+        return null;
+    }
+
+    private List<PermissionInfo> getGroupPermissionInfos(String groupName) {
+        try {
+            return mContext.getPackageManager().queryPermissionsByGroup(groupName, 0);
+        } catch (NameNotFoundException e) {
+            /* ignore */
+        }
+        try {
+            PermissionInfo permissionInfo = mContext.getPackageManager()
+                    .getPermissionInfo(groupName, 0);
+            List<PermissionInfo> permissions = new ArrayList<>();
+            permissions.add(permissionInfo);
+            return permissions;
+        } catch (NameNotFoundException e2) {
+            /* ignore */
+        }
+        return null;
+    }
+
+    private Drawable getBadgedIcon(ApplicationInfo appInfo) {
+        if (mSkipUi) {
+            return null;
+        }
+        Drawable unbadged = appInfo.loadUnbadgedIcon(mPm);
+        return mPm.getUserBadgedIcon(unbadged,
+                new UserHandle(UserHandle.getUserId(appInfo.uid)));
     }
 
     private void loadGroupInfo() {
@@ -177,120 +326,51 @@ public class PermissionApps {
             return result;
         }
 
-        private int getUid() {
+        public int getUid() {
             return mAppPermissionGroup.getApp().applicationInfo.uid;
         }
     }
 
     private class PermissionAppsLoader extends AsyncTask<Void, Void, List<PermissionApp>> {
+
         @Override
         protected List<PermissionApp> doInBackground(Void... args) {
-            PackageItemInfo groupInfo = getGroupInfo(mGroupName);
-            if (groupInfo == null) {
-                return Collections.emptyList();
-            }
-
-            List<PermissionInfo> groupPermInfos = getGroupPermissionInfos(mGroupName);
-            if (groupPermInfos == null) {
-                return Collections.emptyList();
-            }
-
-            ArrayList<PermissionApp> permApps = new ArrayList<>();
-
-            for (UserHandle user : UserManager.get(mContext).getUserProfiles()) {
-                List<PackageInfo> apps = mPm.getInstalledPackages(
-                        PackageManager.GET_PERMISSIONS, user.getIdentifier());
-
-                final int N = apps.size();
-                for (int i = 0; i < N; i++) {
-                    PackageInfo app = apps.get(i);
-                    if (app.requestedPermissions == null) {
-                        continue;
-                    }
-
-                    for (int j = 0; j < app.requestedPermissions.length; j++) {
-                        String requestedPerm = app.requestedPermissions[j];
-
-                        boolean requestsPermissionInGroup = false;
-
-                        for (PermissionInfo groupPermInfo : groupPermInfos) {
-                            if (groupPermInfo.name.equals(requestedPerm)) {
-                                requestsPermissionInGroup = true;
-                                break;
-                            }
-                        }
-
-                        if (!requestsPermissionInGroup) {
-                            continue;
-                        }
-
-                        AppPermissionGroup group = AppPermissionGroup.create(mContext,
-                                app, groupInfo, groupPermInfos);
-
-                        PermissionApp permApp = new PermissionApp(app.packageName,
-                                group, app.applicationInfo.loadLabel(mPm).toString(),
-                                getBadgedIcon(app.applicationInfo));
-
-                        permApps.add(permApp);
-                    }
-                }
-            }
-
-            Collections.sort(permApps);
-
-            return permApps;
-        }
-
-        private PackageItemInfo getGroupInfo(String groupName) {
-            try {
-                return mContext.getPackageManager().getPermissionGroupInfo(groupName, 0);
-            } catch (NameNotFoundException e) {
-                /* ignore */
-            }
-            try {
-                return mContext.getPackageManager().getPermissionInfo(groupName, 0);
-            } catch (NameNotFoundException e2) {
-                /* ignore */
-            }
-            return null;
-        }
-
-        private List<PermissionInfo> getGroupPermissionInfos(String groupName) {
-            try {
-                return mContext.getPackageManager().queryPermissionsByGroup(groupName, 0);
-            } catch (NameNotFoundException e) {
-                /* ignore */
-            }
-            try {
-                PermissionInfo permissionInfo = mContext.getPackageManager()
-                        .getPermissionInfo(groupName, 0);
-                List<PermissionInfo> permissions = new ArrayList<>();
-                permissions.add(permissionInfo);
-                return permissions;
-            } catch (NameNotFoundException e2) {
-                /* ignore */
-            }
-            return null;
-        }
-
-        private Drawable getBadgedIcon(ApplicationInfo appInfo) {
-            Drawable unbadged = appInfo.loadUnbadgedIcon(mPm);
-            return mPm.getUserBadgedIcon(unbadged,
-                    new UserHandle(UserHandle.getUserId(appInfo.uid)));
+            return loadPermissionApps();
         }
 
         @Override
         protected void onPostExecute(List<PermissionApp> result) {
-            mAppLookup = new ArrayMap<>();
-            for (PermissionApp app : result) {
-                mAppLookup.put(app.getKey(), app);
+            createMap(result);
+            if (mCallback != null) {
+                mCallback.onPermissionsLoaded(PermissionApps.this);
             }
-            mPermApps = result;
-            mCallback.onPermissionsLoaded();
+        }
+    }
+
+    /**
+     * Class used to reduce the number of calls to the package manager.
+     * This caches app information so it should only be used across parallel PermissionApps
+     * instances, and should not be retained across UI refresh.
+     */
+    public static class PmCache {
+        private final SparseArray<List<PackageInfo>> mPackageInfoCache = new SparseArray<>();
+        private final PackageManager mPm;
+
+        public PmCache(PackageManager pm) {
+            mPm = pm;
+        }
+
+        public synchronized List<PackageInfo> getPackages(int userId) {
+            List<PackageInfo> ret = mPackageInfoCache.get(userId);
+            if (ret == null) {
+                ret = mPm.getInstalledPackages(PackageManager.GET_PERMISSIONS, userId);
+                mPackageInfoCache.put(userId, ret);
+            }
+            return ret;
         }
     }
 
     public interface Callback {
-        void onPermissionsLoaded();
+        void onPermissionsLoaded(PermissionApps permissionApps);
     }
 }
