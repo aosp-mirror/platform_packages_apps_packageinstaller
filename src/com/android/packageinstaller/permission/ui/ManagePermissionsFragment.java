@@ -22,14 +22,12 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.Resources.Theme;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -73,6 +71,7 @@ public final class ManagePermissionsFragment extends PreferenceFragment
     public void onResume() {
         super.onResume();
         mPermissions.refresh();
+        updatePermissionsUi();
     }
 
     @Override
