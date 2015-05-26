@@ -62,8 +62,6 @@ public final class AppPermissionsFragment extends SettingsWithHeader
 
     private static final String LOG_TAG = "ManagePermsFragment";
 
-    private static final String OS_PKG = "android";
-
     private static final String EXTRA_HIDE_INFO_BUTTON = "hideInfoButton";
 
     private List<AppPermissionGroup> mToggledGroups;
@@ -222,24 +220,8 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         extraPerms.setTitle(R.string.additional_permissions);
 
         for (AppPermissionGroup group : mAppPermissions.getPermissionGroups()) {
-            // We currently will not show permissions fixed by the system.
-            // which is what the system does for system components.
-            if (group.isSystemFixed()) {
-                continue;
-            }
-
-            // Yes this is possible. We have leftover permissions that
-            // are not in the final groups and we want to get rid of,
-            // therefore we do not have app ops for legacy support.
-            if (!group.hasRuntimePermission() && !group.hasAppOpPermission()) {
-                continue;
-            }
-
-            final boolean isPlatformPermission = group.getDeclaringPackage().equals(OS_PKG);
-
-            // Show legacy permissions only if the user chose that.
-            if (isPlatformPermission && !mShowLegacyPermissions
-                    && !Utils.isModernPermissionGroup(group.getName())) {
+            final boolean isPlatformPermission = group.getDeclaringPackage().equals(Utils.OS_PKG);
+            if (!Utils.shouldShowPermission(group, mShowLegacyPermissions)) {
                 continue;
             }
 

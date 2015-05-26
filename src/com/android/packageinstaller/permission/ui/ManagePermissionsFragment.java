@@ -34,8 +34,10 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.android.packageinstaller.R;
+import com.android.packageinstaller.permission.model.PermissionApps;
 import com.android.packageinstaller.permission.model.PermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionGroups;
+import com.android.packageinstaller.permission.model.PermissionApps.PmCache;
 import com.android.packageinstaller.permission.utils.Utils;
 
 import java.util.List;
@@ -152,6 +154,9 @@ public final class ManagePermissionsFragment extends PreferenceFragment
             }
         }
 
+        // Use this to speed up getting the info for all of the PermissionApps below.
+        // Create a new one for each refresh to make sure it has fresh data.
+        PmCache cache = new PmCache(getContext().getPackageManager());
         for (PermissionGroup group : groups) {
             // Show legacy permissions only if the user chose that.
             if (!mShowLegacyPermissions && group.getDeclaringPackage().equals(OS_PKG)
@@ -159,13 +164,22 @@ public final class ManagePermissionsFragment extends PreferenceFragment
                 continue;
             }
 
-            Preference preference = new Preference(activity);
+            final Preference preference = new Preference(activity);
             preference.setOnPreferenceClickListener(this);
             preference.setKey(group.getName());
             preference.setIcon(Utils.applyTint(getContext(), group.getIcon(),
                     android.R.attr.colorControlNormal));
             preference.setTitle(group.getLabel());
             preference.setPersistent(false);
+            new PermissionApps(getContext(), group.getName(), new PermissionApps.Callback() {
+                @Override
+                public void onPermissionsLoaded(PermissionApps permissionApps) {
+                    int granted = permissionApps.getGrantedCount();
+                    int total = permissionApps.getTotalCount();
+                    preference.setSummary(getString(R.string.app_permissions_group_summary,
+                            granted, total));
+                }
+            }, cache).refresh(false);
 
             if (group.getDeclaringPackage().equals(OS_PKG)) {
                 screen.addPreference(preference);
