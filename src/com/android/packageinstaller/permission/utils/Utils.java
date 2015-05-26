@@ -64,6 +64,7 @@ public class Utils {
         Theme theme = context.getTheme();
         TypedValue typedValue = new TypedValue();
         theme.resolveAttribute(attr, typedValue, true);
+        icon.clearColorFilter();
         icon.setTint(context.getColor(typedValue.resourceId));
         return icon;
     }
