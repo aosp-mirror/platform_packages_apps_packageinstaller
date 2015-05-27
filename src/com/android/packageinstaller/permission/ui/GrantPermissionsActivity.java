@@ -16,6 +16,11 @@
 
 package com.android.packageinstaller.permission.ui;
 
+import static android.content.pm.PackageManager.PERMISSION_DENIED;
+import static android.content.pm.PackageManager.PERMISSION_GRANTED;
+import static android.content.res.Configuration.UI_MODE_TYPE_MASK;
+import static android.content.res.Configuration.UI_MODE_TYPE_TELEVISION;
+
 import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.content.Intent;
@@ -31,7 +36,6 @@ import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.util.ArrayMap;
 import android.util.Log;
-import android.util.SparseArray;
 
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
@@ -42,22 +46,17 @@ import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GrantPermissionsActivity extends Activity implements
-        GrantPermissionViewHandler.OnRequestGrantPermissionGroupResult {
-    private static final String LOG_TAG = "GrantPermissionsActivity";
+public class GrantPermissionsActivity extends Activity
+        implements GrantPermissionsViewHandler.ResultListener {
 
-    private static final int PERMISSION_GRANTED = 1;
-    private static final int PERMISSION_DENIED = 2;
-    private static final int PERMISSION_DENIED_RUNTIME = 3;
+    private static final String LOG_TAG = "GrantPermissionsActivity";
 
     private String[] mRequestedPermissions;
     private int[] mGrantResults;
-    private final SparseArray<String> mRequestedRuntimePermissions = new SparseArray<>();
 
     private ArrayMap<String, GroupState> mRequestGrantPermissionGroups = new ArrayMap<>();
 
-    private final GrantPermissionViewHandler mViewHandler =
-            new GrantPermissionViewHandler(this, this);
+    private GrantPermissionsViewHandler mViewHandler;
     private AppPermissions mAppPermissions;
 
     @Override
@@ -65,15 +64,23 @@ public class GrantPermissionsActivity extends Activity implements
         super.onCreate(icicle);
         setFinishOnTouchOutside(false);
 
+        int uiMode = getResources().getConfiguration().uiMode & UI_MODE_TYPE_MASK;
+        if (uiMode == UI_MODE_TYPE_TELEVISION) {
+            // TODO(tvolkert): Create GrantPermissionsTvViewHandler
+            mViewHandler = new GrantPermissionsDefaultViewHandler(this).setResultListener(this);
+        } else {
+            mViewHandler = new GrantPermissionsDefaultViewHandler(this).setResultListener(this);
+        }
+
         mRequestedPermissions = getIntent().getStringArrayExtra(
                 PackageManager.EXTRA_REQUEST_PERMISSIONS_NAMES);
         if (mRequestedPermissions == null) {
             mRequestedPermissions = new String[0];
         }
 
-        mGrantResults = new int[mRequestedPermissions.length];
-
         final int requestedPermCount = mRequestedPermissions.length;
+        mGrantResults = new int[requestedPermCount];
+
         if (requestedPermCount == 0) {
             setResultAndFinish();
             return;
@@ -116,14 +123,13 @@ public class GrantPermissionsActivity extends Activity implements
                     } break;
 
                     default: {
-                        mRequestGrantPermissionGroups.put(
-                                group.getName(), new GroupState(group));
+                        mRequestGrantPermissionGroups.put(group.getName(), new GroupState(group));
                     } break;
                 }
             }
         }
 
-        setContentView(mViewHandler.creatView());
+        setContentView(mViewHandler.createView());
 
         if (!showNextPermissionGroupGrantRequest()) {
             setResultAndFinish();
@@ -133,13 +139,13 @@ public class GrantPermissionsActivity extends Activity implements
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        mViewHandler.onSaveInstanceState(outState);
+        mViewHandler.saveInstanceState(outState);
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        mViewHandler.loadSavedInstance(savedInstanceState);
+        mViewHandler.loadInstanceState(savedInstanceState);
     }
 
     private boolean showNextPermissionGroupGrantRequest() {
@@ -172,7 +178,7 @@ public class GrantPermissionsActivity extends Activity implements
                 }
                 int icon = groupState.mGroup.getIconResId();
 
-                mViewHandler.showPermission(groupState.mGroup.getName(), groupCount, i,
+                mViewHandler.updateUi(groupState.mGroup.getName(), groupCount, i,
                         Icon.createWithResource(resources, icon), message,
                         groupState.mGroup.isUserSet());
                 return  true;
@@ -183,8 +189,7 @@ public class GrantPermissionsActivity extends Activity implements
     }
 
     @Override
-    public void onRequestGrantPermissionGroupResult(String name, boolean granted,
-            boolean doNotAskAgain) {
+    public void onPermissionGrantResult(String name, boolean granted, boolean doNotAskAgain) {
         GroupState groupState = mRequestGrantPermissionGroups.get(name);
         if (groupState.mGroup != null) {
             if (granted) {
@@ -246,13 +251,8 @@ public class GrantPermissionsActivity extends Activity implements
             case DevicePolicyManager.PERMISSION_POLICY_AUTO_GRANT: {
                 return PERMISSION_GRANTED;
             }
-
-            case DevicePolicyManager.PERMISSION_POLICY_AUTO_DENY: {
-                return PERMISSION_DENIED;
-            }
-
             default: {
-                return PERMISSION_DENIED_RUNTIME;
+                return PERMISSION_DENIED;
             }
         }
     }
@@ -262,7 +262,7 @@ public class GrantPermissionsActivity extends Activity implements
             return getPackageManager().getPackageInfo(getCallingPackage(),
                     PackageManager.GET_PERMISSIONS);
         } catch (NameNotFoundException e) {
-            Log.i(LOG_TAG, "No package:" + getCallingPackage(), e);
+            Log.i(LOG_TAG, "No package: " + getCallingPackage(), e);
             return null;
         }
     }
@@ -271,24 +271,9 @@ public class GrantPermissionsActivity extends Activity implements
         final int requestedPermCount = mRequestedPermissions.length;
         for (int i = 0; i < requestedPermCount; i++) {
             String permission = mRequestedPermissions[i];
-            final int state = callingPackageInfo != null
-                    ? computePermissionGrantState(callingPackageInfo, permission,
-                            permissionPolicy)
-                    : PackageManager.PERMISSION_DENIED;
-            switch (state) {
-                case PERMISSION_GRANTED: {
-                    mGrantResults[i] = PackageManager.PERMISSION_GRANTED;
-                } break;
-
-                case PERMISSION_DENIED: {
-                    mGrantResults[i] = PackageManager.PERMISSION_DENIED;
-                } break;
-
-                case PERMISSION_DENIED_RUNTIME: {
-                    mGrantResults[i] = PackageManager.PERMISSION_DENIED;
-                    mRequestedRuntimePermissions.put(i, permission);
-                } break;
-            }
+            mGrantResults[i] = callingPackageInfo != null
+                    ? computePermissionGrantState(callingPackageInfo, permission, permissionPolicy)
+                    : PERMISSION_DENIED;
         }
     }
 
@@ -316,14 +301,14 @@ public class GrantPermissionsActivity extends Activity implements
     }
 
     private static final class GroupState {
-        public static final int STATE_UNKNOWN = 0;
-        public static final int STATE_ALLOWED = 1;
-        public static final int STATE_DENIED = 2;
+        static final int STATE_UNKNOWN = 0;
+        static final int STATE_ALLOWED = 1;
+        static final int STATE_DENIED = 2;
 
-        public final AppPermissionGroup mGroup;
-        public int mState = STATE_UNKNOWN;
+        final AppPermissionGroup mGroup;
+        int mState = STATE_UNKNOWN;
 
-        public GroupState(AppPermissionGroup group) {
+        GroupState(AppPermissionGroup group) {
             mGroup = group;
         }
     }
