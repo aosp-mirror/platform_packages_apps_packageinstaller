@@ -37,7 +37,8 @@ import android.widget.TextView;
 
 import com.android.packageinstaller.R;
 
-public final class GrantPermissionViewHandler implements OnClickListener {
+final class GrantPermissionsDefaultViewHandler
+        implements GrantPermissionsViewHandler, OnClickListener {
 
     public static final String ARG_GROUP_NAME = "ARG_GROUP_NAME";
     public static final String ARG_GROUP_COUNT = "ARG_GROUP_COUNT";
@@ -56,8 +57,9 @@ public final class GrantPermissionViewHandler implements OnClickListener {
     private static final long TRANSLATE_LENGTH = 317;
     private static final long GROUP_UPDATE_DELAY = 400;
 
-    private final OnRequestGrantPermissionGroupResult mResultListener;
     private final Context mContext;
+
+    private ResultListener mResultListener;
 
     private String mGroupName;
     private int mGroupCount;
@@ -90,18 +92,18 @@ public final class GrantPermissionViewHandler implements OnClickListener {
         }
     };
 
-    public interface OnRequestGrantPermissionGroupResult {
-        public void onRequestGrantPermissionGroupResult(String name, boolean granted,
-                boolean doNotAskAgain);
-    }
-
-    public GrantPermissionViewHandler(OnRequestGrantPermissionGroupResult resultListener,
-            Context context) {
-        mResultListener = resultListener;
+    GrantPermissionsDefaultViewHandler(Context context) {
         mContext = context;
     }
 
-    public void onSaveInstanceState(Bundle arguments) {
+    @Override
+    public GrantPermissionsDefaultViewHandler setResultListener(ResultListener listener) {
+        mResultListener = listener;
+        return this;
+    }
+
+    @Override
+    public void saveInstanceState(Bundle arguments) {
         arguments.putString(ARG_GROUP_NAME, mGroupName);
         arguments.putInt(ARG_GROUP_COUNT, mGroupCount);
         arguments.putInt(ARG_GROUP_INDEX, mGroupIndex);
@@ -111,7 +113,8 @@ public final class GrantPermissionViewHandler implements OnClickListener {
         arguments.putBoolean(ARG_GROUP_DO_NOT_ASK_CHECKED, mDoNotAskCheckbox.isChecked());
     }
 
-    public void loadSavedInstance(Bundle savedInstanceState) {
+    @Override
+    public void loadInstanceState(Bundle savedInstanceState) {
         mGroupName = savedInstanceState.getString(ARG_GROUP_NAME);
         mGroupMessage = savedInstanceState.getCharSequence(ARG_GROUP_MESSAGE);
         mGroupIcon = savedInstanceState.getParcelable(ARG_GROUP_ICON);
@@ -121,7 +124,8 @@ public final class GrantPermissionViewHandler implements OnClickListener {
         mDoNotAskChecked = savedInstanceState.getBoolean(ARG_GROUP_DO_NOT_ASK_CHECKED);
     }
 
-    public void showPermission(String groupName, int groupCount, int groupIndex, Icon icon,
+    @Override
+    public void updateUi(String groupName, int groupCount, int groupIndex, Icon icon,
             CharSequence message, boolean showDonNotAsk) {
         mGroupName = groupName;
         mGroupCount = groupCount;
@@ -252,7 +256,8 @@ public final class GrantPermissionViewHandler implements OnClickListener {
         mRootViewHeightController.animateAddHeight(heightDiff);
     }
 
-    public View creatView() {
+    @Override
+    public View createView() {
         mRootView = (ManualLayoutFrame) LayoutInflater.from(mContext)
                 .inflate(R.layout.grant_permissions, null);
 
@@ -266,9 +271,9 @@ public final class GrantPermissionViewHandler implements OnClickListener {
         mDescContainer = (ViewGroup) mRootView.findViewById(R.id.desc_container);
         mCurrentDesc = (ViewGroup) mRootView.findViewById(R.id.perm_desc_root);
 
-        mRootView.findViewById(R.id.permission_allow_button).setOnClickListener(this);
+        mAllowButton.setOnClickListener(this);
         mRootView.findViewById(R.id.permission_deny_button).setOnClickListener(this);
-        mRootView.findViewById(R.id.do_not_ask_checkbox).setOnClickListener(this);
+        mDoNotAskCheckbox.setOnClickListener(this);
 
         if (mGroupName != null) {
             updateDescription();
@@ -309,12 +314,16 @@ public final class GrantPermissionViewHandler implements OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.permission_allow_button:
-                mResultListener.onRequestGrantPermissionGroupResult(mGroupName, true, false);
+                if (mResultListener != null) {
+                    mResultListener.onPermissionGrantResult(mGroupName, true, false);
+                }
                 break;
             case R.id.permission_deny_button:
                 mAllowButton.setEnabled(true);
-                mResultListener.onRequestGrantPermissionGroupResult(mGroupName, false,
-                        mDoNotAskCheckbox.isChecked());
+                if (mResultListener != null) {
+                    mResultListener.onPermissionGrantResult(mGroupName, false,
+                            mDoNotAskCheckbox.isChecked());
+                }
                 break;
             case R.id.do_not_ask_checkbox:
                 mAllowButton.setEnabled(!mDoNotAskCheckbox.isChecked());
@@ -326,7 +335,7 @@ public final class GrantPermissionViewHandler implements OnClickListener {
      * Manually controls the height of a view through getBottom/setTop.  Also listens
      * for layout changes and sets the height again to be sure it doesn't change.
      */
-    public static final class ViewHeightController implements OnLayoutChangeListener {
+    private static final class ViewHeightController implements OnLayoutChangeListener {
         private final View mView;
         private int mHeight;
 
