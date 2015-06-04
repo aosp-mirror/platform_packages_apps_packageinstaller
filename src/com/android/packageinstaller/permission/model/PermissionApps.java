@@ -85,6 +85,10 @@ public class PermissionApps {
             if (!Utils.shouldShowPermission(app)) {
                 continue;
             }
+            if (app.isSystem()) {
+                // We default to not showing system apps, so hide them from count.
+                continue;
+            }
             if (app.areRuntimePermissionsGranted()) {
                 count++;
             }
@@ -96,6 +100,10 @@ public class PermissionApps {
         int count = 0;
         for (PermissionApp app : mPermApps) {
             if (!Utils.shouldShowPermission(app)) {
+                continue;
+            }
+            if (app.isSystem()) {
+                // We default to not showing system apps, so hide them from count.
                 continue;
             }
             count++;
@@ -166,7 +174,8 @@ public class PermissionApps {
                     String label = mSkipUi ? app.packageName
                             : app.applicationInfo.loadLabel(mPm).toString();
                     PermissionApp permApp = new PermissionApp(app.packageName,
-                            group, label, getBadgedIcon(app.applicationInfo));
+                            group, label, getBadgedIcon(app.applicationInfo),
+                            app.applicationInfo.isSystemApp());
 
                     permApps.add(permApp);
                 }
@@ -259,13 +268,19 @@ public class PermissionApps {
         private final AppPermissionGroup mAppPermissionGroup;
         private final String mLabel;
         private final Drawable mIcon;
+        private final boolean mSystem;
 
         public PermissionApp(String packageName, AppPermissionGroup appPermissionGroup,
-                String label, Drawable icon) {
+                String label, Drawable icon, boolean isSystem) {
             mPackageName = packageName;
             mAppPermissionGroup = appPermissionGroup;
             mLabel = label;
             mIcon = icon;
+            mSystem = isSystem;
+        }
+
+        public boolean isSystem() {
+            return mSystem;
         }
 
         public String getKey() {
