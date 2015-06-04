@@ -30,6 +30,8 @@ import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.support.v4.util.ArrayMap;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,6 +52,9 @@ import java.util.List;
 public final class PermissionAppsFragment extends SettingsWithHeader implements Callback,
         OnPreferenceChangeListener {
 
+    private static final int MENU_SHOW_SYSTEM = Menu.FIRST;
+    private static final int MENU_HIDE_SYSTEM = Menu.FIRST + 1;
+
     public static PermissionAppsFragment newInstance(String permissionName) {
         PermissionAppsFragment instance = new PermissionAppsFragment();
         Bundle arguments = new Bundle();
@@ -62,6 +67,10 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
 
     private ArrayMap<String, AppPermissionGroup> mToggledGroups;
     private boolean mHasConfirmedRevoke;
+
+    private boolean mShowSystem;
+    private MenuItem mShowSystemMenu;
+    private MenuItem mHideSystemMenu;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -80,13 +89,33 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
     }
 
     @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        mShowSystemMenu = menu.add(Menu.NONE, MENU_SHOW_SYSTEM, Menu.NONE,
+                R.string.menu_show_system);
+        mHideSystemMenu = menu.add(Menu.NONE, MENU_HIDE_SYSTEM, Menu.NONE,
+                R.string.menu_hide_system);
+        updateMenu();
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 getActivity().finish();
                 return true;
+            case MENU_SHOW_SYSTEM:
+            case MENU_HIDE_SYSTEM:
+                mShowSystem = item.getItemId() == MENU_SHOW_SYSTEM;
+                onPermissionsLoaded(mPermissionApps);
+                updateMenu();
+                break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void updateMenu() {
+        mShowSystemMenu.setVisible(!mShowSystem);
+        mHideSystemMenu.setVisible(mShowSystem);
     }
 
     @Override
@@ -154,6 +183,12 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
             }
 
             SwitchPreference pref = (SwitchPreference) findPreference(app.getKey());
+            if (!mShowSystem && app.isSystem()) {
+                if (pref != null) {
+                    preferences.removePreference(pref);
+                }
+                continue;
+            }
             if (pref == null) {
                 pref = new SwitchPreference(context);
                 pref.setOnPreferenceChangeListener(this);
