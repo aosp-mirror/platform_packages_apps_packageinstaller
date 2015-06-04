@@ -80,6 +80,10 @@ public class PermissionStatusReceiver extends BroadcastReceiver {
             permissionApps.loadNowWithoutUi();
             for (PermissionApp app : permissionApps.getApps()) {
                 int uid = app.getUid();
+                if (app.isSystem()) {
+                    // We default to not showing system apps, so hide them from count.
+                    continue;
+                }
                 if (app.areRuntimePermissionsGranted()) {
                     grantedApps.put(uid, true);
                 }
