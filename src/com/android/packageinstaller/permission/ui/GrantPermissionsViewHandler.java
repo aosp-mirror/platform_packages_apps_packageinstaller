@@ -19,6 +19,7 @@ package com.android.packageinstaller.permission.ui;
 import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 
 /**
  * Class for managing the presentation and user interaction of the "grant
@@ -39,6 +40,13 @@ interface GrantPermissionsViewHandler {
      * handler. This must be called before {@link #updateUi}.
      */
     View createView();
+
+    /**
+     * Updates the layout attributes of the current window. This is an optional
+     * operation; implementations only need to do work in this method if they
+     * need to alter the default styles provided by the activity's theme.
+     */
+    void updateWindowAttributes(WindowManager.LayoutParams outLayoutParams);
 
     /**
      * Updates the view hierarchy to reflect the specified state.
