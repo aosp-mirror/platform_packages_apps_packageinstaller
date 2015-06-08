@@ -174,6 +174,9 @@ public final class ManagePermissionsFragment extends PreferenceFragment
             new PermissionApps(getContext(), group.getName(), new PermissionApps.Callback() {
                 @Override
                 public void onPermissionsLoaded(PermissionApps permissionApps) {
+                    if (getActivity() == null) {
+                        return;
+                    }
                     int granted = permissionApps.getGrantedCount();
                     int total = permissionApps.getTotalCount();
                     preference.setSummary(getString(R.string.app_permissions_group_summary,
