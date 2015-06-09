@@ -186,7 +186,8 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             breadcrumbView.setText(label);
         }
 
-        mAppPermissions = new AppPermissions(activity, packageInfo, null, new Runnable() {
+        mAppPermissions = new AppPermissions(activity, packageInfo, null, true,
+                new Runnable() {
             @Override
             public void run() {
                 getActivity().finish();
