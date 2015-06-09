@@ -26,6 +26,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.support.v4.util.ArrayMap;
@@ -36,6 +37,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.packageinstaller.R;
@@ -49,7 +51,7 @@ import com.android.packageinstaller.permission.utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class PermissionAppsFragment extends SettingsWithHeader implements Callback,
+public final class PermissionAppsFragment extends PreferenceFragment implements Callback,
         OnPreferenceChangeListener {
 
     private static final int MENU_SHOW_SYSTEM = Menu.FIRST;
@@ -128,10 +130,9 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
             prefsContainer = rootView;
         }
         prefsContainer.addView(super.onCreateView(inflater, prefsContainer, savedInstanceState));
-        View emptyView = rootView.findViewById(R.id.no_permissions);
-        if (emptyView != null) {
-            emptyView.setVisibility(View.GONE);
-        }
+        TextView emptyView = (TextView) rootView.findViewById(R.id.no_permissions);
+        emptyView.setText(R.string.no_apps);
+        ((ListView) rootView.findViewById(android.R.id.list)).setEmptyView(emptyView);
         return rootView;
     }
 
@@ -146,7 +147,10 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
         mPermissionApps = new PermissionApps(getActivity(), groupName, this);
         final Drawable icon = mPermissionApps.getIcon();
         final CharSequence label = mPermissionApps.getLabel();
-        setHeader(icon, label, null);
+        final ActionBar ab = getActivity().getActionBar();
+        if (ab != null) {
+            ab.setTitle(getString(R.string.permission_title, label));
+        }
 
         final ViewGroup rootView = (ViewGroup) getView();
         final ImageView iconView = (ImageView) rootView.findViewById(R.id.lb_icon);

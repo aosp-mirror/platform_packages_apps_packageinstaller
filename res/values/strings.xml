@@ -232,4 +232,10 @@
    <!-- [CHAR LIMIT=NONE] Menu for manage permissions to control whether system apps are hidden -->
    <string name="menu_hide_system">Hide system</string>
 
+   <!-- [CHAR LIMIT=30] Title for page managing what apps have a permission granted -->
+   <string name="permission_title"><xliff:g id="permission" example="Camera">%1$s</xliff:g> permissions</string>
+
+   <!-- [CHAR LIMIT=NONE] Label when no apps requesting this permission -->
+   <string name="no_apps">No apps</string>
+
 </resources>
