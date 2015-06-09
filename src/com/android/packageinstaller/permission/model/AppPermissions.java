@@ -28,7 +28,9 @@ import java.util.Collections;
 import java.util.List;
 
 public final class AppPermissions {
-    private final ArrayMap<String, AppPermissionGroup> mGroups = new ArrayMap<>();
+    private final ArrayList<AppPermissionGroup> mGroups = new ArrayList<>();
+
+    private final ArrayMap<String, AppPermissionGroup> mNameToGroupMap = new ArrayMap<>();
 
     private final Context mContext;
 
@@ -38,14 +40,17 @@ public final class AppPermissions {
 
     private final Runnable mOnErrorCallback;
 
+    private final boolean mSortGroups;
+
     private PackageInfo mPackageInfo;
 
     public AppPermissions(Context context, PackageInfo packageInfo, String[] permissions,
-            Runnable onErrorCallback) {
+            boolean sortGroups, Runnable onErrorCallback) {
         mContext = context;
         mPackageInfo = packageInfo;
         mFilterPermissions = permissions;
         mAppLabel = packageInfo.applicationInfo.loadLabel(context.getPackageManager());
+        mSortGroups = sortGroups;
         mOnErrorCallback = onErrorCallback;
         loadPermissionGroups();
     }
@@ -64,11 +69,11 @@ public final class AppPermissions {
     }
 
     public AppPermissionGroup getPermissionGroup(String name) {
-        return mGroups.get(name);
+        return mNameToGroupMap.get(name);
     }
 
     public List<AppPermissionGroup> getPermissionGroups() {
-        return new ArrayList<>(mGroups.values());
+        return mGroups;
     }
 
 
@@ -84,7 +89,7 @@ public final class AppPermissions {
     }
 
     private void loadPermissionGroups() {
-        List<AppPermissionGroup> groups = new ArrayList<>();
+        mGroups.clear();
 
         if (mPackageInfo.requestedPermissions == null) {
             return;
@@ -93,7 +98,7 @@ public final class AppPermissions {
         for (int i = 0; i < mPackageInfo.requestedPermissions.length; i++) {
             String requestedPerm = mPackageInfo.requestedPermissions[i];
 
-            if (hasGroupForPermission(requestedPerm, groups)) {
+            if (hasGroupForPermission(requestedPerm)) {
                 continue;
             }
 
@@ -103,13 +108,13 @@ public final class AppPermissions {
                 continue;
             }
 
-            groups.add(group);
+            mGroups.add(group);
         }
 
         if (!ArrayUtils.isEmpty(mFilterPermissions)) {
-            final int groupCount = groups.size();
+            final int groupCount = mGroups.size();
             for (int i = groupCount - 1; i >= 0; i--) {
-                AppPermissionGroup group = groups.get(i);
+                AppPermissionGroup group = mGroups.get(i);
                 boolean groupHasPermission = false;
                 for (String filterPerm : mFilterPermissions) {
                     if (group.hasPermission(filterPerm)) {
@@ -118,22 +123,23 @@ public final class AppPermissions {
                     }
                 }
                 if (!groupHasPermission) {
-                    groups.remove(i);
+                    mGroups.remove(i);
                 }
             }
         }
 
-        Collections.sort(groups);
+        if (mSortGroups) {
+            Collections.sort(mGroups);
+        }
 
-        mGroups.clear();
-        for (AppPermissionGroup group : groups) {
-            mGroups.put(group.getName(), group);
+        mNameToGroupMap.clear();
+        for (AppPermissionGroup group : mGroups) {
+            mNameToGroupMap.put(group.getName(), group);
         }
     }
 
-    private static boolean hasGroupForPermission(String permission,
-            List<AppPermissionGroup> groups) {
-        for (AppPermissionGroup group : groups) {
+    private boolean hasGroupForPermission(String permission) {
+        for (AppPermissionGroup group : mGroups) {
             if (group.hasPermission(permission)) {
                 return true;
             }
