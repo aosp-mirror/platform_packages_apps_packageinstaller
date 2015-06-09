@@ -99,7 +99,7 @@ public class GrantPermissionsActivity extends Activity
             return;
         }
 
-        mAppPermissions = new AppPermissions(this, callingPackageInfo, mRequestedPermissions,
+        mAppPermissions = new AppPermissions(this, callingPackageInfo, mRequestedPermissions, false,
                 new Runnable() {
                     @Override
                     public void run() {
