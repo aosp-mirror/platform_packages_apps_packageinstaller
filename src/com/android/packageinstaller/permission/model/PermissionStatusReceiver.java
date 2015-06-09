@@ -51,7 +51,7 @@ public class PermissionStatusReceiver extends BroadcastReceiver {
             PackageInfo packageInfo =
                     context.getPackageManager().getPackageInfo(pkg, PackageManager.GET_PERMISSIONS);
             AppPermissions appPermissions =
-                    new AppPermissions(context, packageInfo, null, null);
+                    new AppPermissions(context, packageInfo, null, false, null);
             int grantedCount = 0;
             int totalCount = 0;
             for (AppPermissionGroup group : appPermissions.getPermissionGroups()) {
