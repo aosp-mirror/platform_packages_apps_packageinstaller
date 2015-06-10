@@ -28,6 +28,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLayoutChangeListener;
 import android.view.ViewGroup;
+import android.view.WindowManager.LayoutParams;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 import android.widget.Button;
@@ -282,6 +283,11 @@ final class GrantPermissionsDefaultViewHandler
         }
 
         return mRootView;
+    }
+
+    @Override
+    public void updateWindowAttributes(LayoutParams outLayoutParams) {
+        // No-op
     }
 
     private void updateDescription() {
