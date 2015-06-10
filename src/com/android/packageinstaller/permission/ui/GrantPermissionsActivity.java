@@ -36,6 +36,8 @@ import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.util.ArrayMap;
 import android.util.Log;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
@@ -66,8 +68,7 @@ public class GrantPermissionsActivity extends Activity
 
         int uiMode = getResources().getConfiguration().uiMode & UI_MODE_TYPE_MASK;
         if (uiMode == UI_MODE_TYPE_TELEVISION) {
-            // TODO(tvolkert): Create GrantPermissionsTvViewHandler
-            mViewHandler = new GrantPermissionsDefaultViewHandler(this).setResultListener(this);
+            mViewHandler = new GrantPermissionsTvViewHandler(this).setResultListener(this);
         } else {
             mViewHandler = new GrantPermissionsDefaultViewHandler(this).setResultListener(this);
         }
@@ -131,6 +132,11 @@ public class GrantPermissionsActivity extends Activity
 
         setContentView(mViewHandler.createView());
 
+        Window window = getWindow();
+        WindowManager.LayoutParams layoutParams = window.getAttributes();
+        mViewHandler.updateWindowAttributes(layoutParams);
+        window.setAttributes(layoutParams);
+
         if (!showNextPermissionGroupGrantRequest()) {
             setResultAndFinish();
         }
@@ -159,7 +165,7 @@ public class GrantPermissionsActivity extends Activity
                 SpannableString message = new SpannableString(getString(
                         R.string.permission_warning_template, appLabel,
                         groupState.mGroup.getDescription()));
-                // Bold/color the app name.
+                // Color the app name.
                 int appLabelStart = message.toString().indexOf(appLabel.toString(), 0);
                 int appLabelLength = appLabel.length();
                 int color = getColor(R.color.grant_permissions_app_color);
