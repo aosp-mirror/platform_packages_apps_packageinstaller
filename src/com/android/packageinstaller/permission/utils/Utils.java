@@ -43,6 +43,7 @@ public class Utils {
             Manifest.permission_group.SMS,
             Manifest.permission_group.PHONE,
             Manifest.permission_group.MICROPHONE,
+            Manifest.permission_group.STORAGE
     };
 
     private Utils() {
