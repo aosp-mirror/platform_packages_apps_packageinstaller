@@ -195,6 +195,7 @@ public final class PermissionAppsFragment extends PreferenceFragment implements 
             }
             if (pref == null) {
                 pref = new SwitchPreference(context);
+                pref.setLayoutResource(R.layout.preference_app);
                 pref.setOnPreferenceChangeListener(this);
                 pref.setKey(app.getKey());
                 pref.setIcon(app.getIcon());
