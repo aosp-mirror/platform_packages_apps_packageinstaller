@@ -225,24 +225,10 @@ public class GrantPermissionsActivity extends Activity
         }
     }
 
-
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            event.startTracking();
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-
-    @Override
-    public boolean onKeyUp(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK
-                && event.isTracking() && !event.isCanceled()) {
-            setResultAndFinish();
-            return true;
-        }
-        return super.onKeyUp(keyCode, event);
+    public void onBackPressed() {
+        setResultAndFinish();
+        super.onBackPressed();
     }
 
     private int computePermissionGrantState(PackageInfo callingPackageInfo,
