@@ -112,16 +112,18 @@ public class GrantPermissionsActivity extends Activity
         for (AppPermissionGroup group : mAppPermissions.getPermissionGroups()) {
             // We allow the user to choose only non-fixed permissions. A permission
             // is fixed either by device policy or the user denying with prejudice.
-            if (!group.areRuntimePermissionsGranted() &&
-                    !(group.isUserFixed() || group.isPolicyFixed())) {
-
+            if (!group.isUserFixed() && !group.isPolicyFixed()) {
                 switch (permissionPolicy) {
                     case DevicePolicyManager.PERMISSION_POLICY_AUTO_GRANT: {
-                        group.grantRuntimePermissions(false);
+                        if (!group.areRuntimePermissionsGranted()) {
+                            group.grantRuntimePermissions(false);
+                        }
                     } break;
 
                     case DevicePolicyManager.PERMISSION_POLICY_AUTO_DENY: {
-                        group.revokeRuntimePermissions(false);
+                        if (!group.areRuntimePermissionsGranted()) {
+                            group.revokeRuntimePermissions(false);
+                        }
                     } break;
 
                     default: {
@@ -160,8 +162,8 @@ public class GrantPermissionsActivity extends Activity
 
         for (int i = 0; i < groupCount; i++) {
             GroupState groupState = mRequestGrantPermissionGroups.valueAt(i);
-            if (!groupState.mGroup.areRuntimePermissionsGranted()
-                    && groupState.mState == GroupState.STATE_UNKNOWN) {
+            if (/*!groupState.mGroup.areRuntimePermissionsGranted()
+                    && */groupState.mState == GroupState.STATE_UNKNOWN) {
                 CharSequence appLabel = mAppPermissions.getAppLabel();
                 SpannableString message = new SpannableString(getString(
                         R.string.permission_warning_template, appLabel,
