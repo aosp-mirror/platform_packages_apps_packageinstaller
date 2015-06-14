@@ -302,8 +302,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                 // Enable the permission app op.
                 if (permission.hasAppOp() && !permission.isAppOpAllowed()) {
                     permission.setAppOpAllowed(true);
-                    mAppOps.setMode(permission.getAppOp(), android.os.Process.myUid(),
-                            mPackageInfo.packageName, AppOpsManager.MODE_ALLOWED);
+                    mAppOps.setMode(permission.getAppOp(), uid, mPackageInfo.packageName,
+                            AppOpsManager.MODE_ALLOWED);
                 }
             } else {
                 // Legacy apps cannot have a not granted permission but just in case.
@@ -402,8 +402,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                 // Disable the permission app op.
                 if (permission.hasAppOp() && permission.isAppOpAllowed()) {
                     permission.setAppOpAllowed(false);
-                    mAppOps.setMode(permission.getAppOp(), android.os.Process.myUid(),
-                            mPackageInfo.packageName, AppOpsManager.MODE_IGNORED);
+                    mAppOps.setMode(permission.getAppOp(), uid, mPackageInfo.packageName,
+                            AppOpsManager.MODE_IGNORED);
                 }
             } else {
                 // Legacy apps cannot have a non-granted permission but just in case.
