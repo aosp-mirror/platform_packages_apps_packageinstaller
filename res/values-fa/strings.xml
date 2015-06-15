@@ -46,9 +46,9 @@
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> در تلفن شما نصب نشد."</string>
     <string name="launch" msgid="4826921505917605463">"باز کردن"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"نصب مسدود شد"</string>
-    <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"به دلایل امنیتی، رایانهٔ لوحی شما طوری تنظیم شده است که نصب برنامه‌های دریافت شده از منابع ناشناخته را مسدود کند."</string>
+    <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"برای امنیت، رایانه لوحی‌تان تنظیم شده تا نصب برنامه‌های دریافت شده از منابع ناشناس را مسدود کند."</string>
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"برای امنیت، تلویزیون شما طوری تنظیم شده است که نصب برنامه‌های به دست آمده از منابع ناشناس را مسدود کند."</string>
-    <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"به دلایل امنیتی، تلقن شما طوری تنظیم شده است که نصب برنامه‌های دریافت شده از منابع ناشناخته را مسدود کند."</string>
+    <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"برای امنیت، تلقنتان تنظیم شده تا نصب برنامه‌های دریافت شده از منابع ناشناس را مسدود کند."</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"سرپرست شما اجازه نمی‌دهد برنامه‌های دریافت شده از منابع ناشناس نصب شوند."</string>
     <string name="ok" msgid="3468756155452870475">"تأیید"</string>
     <string name="settings" msgid="6743583734099755409">"تنظیمات"</string>
@@ -103,8 +103,6 @@
     <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%d</xliff:g> برنامه از <xliff:g id="COUNT_1">%d</xliff:g> برنامه مجاز است"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"نمایش سیستم"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"پنهان کردن سیستم"</string>
-    <!-- no translation found for permission_title (6495415273398916381) -->
-    <skip />
-    <!-- no translation found for no_apps (1965493419005012569) -->
-    <skip />
+    <string name="permission_title" msgid="6495415273398916381">"مجوزهای <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
+    <string name="no_apps" msgid="1965493419005012569">"برنامه‌ای موجود نیست"</string>
 </resources>
