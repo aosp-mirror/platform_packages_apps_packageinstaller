@@ -20,8 +20,6 @@ import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.content.res.Resources.Theme;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
@@ -31,13 +29,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.PermissionApps;
+import com.android.packageinstaller.permission.model.PermissionApps.PmCache;
 import com.android.packageinstaller.permission.model.PermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionGroups;
-import com.android.packageinstaller.permission.model.PermissionApps.PmCache;
 import com.android.packageinstaller.permission.utils.Utils;
 
 import java.util.List;
@@ -47,6 +44,8 @@ public final class ManagePermissionsFragment extends PreferenceFragment
     private static final String LOG_TAG = "ManagePermissionsFragment";
 
     private static final String OS_PKG = "android";
+
+    private static final String EXTRA_PREFS_KEY = "extra_prefs_key";
 
     private PermissionGroups mPermissions;
 
@@ -147,11 +146,6 @@ public final class ManagePermissionsFragment extends PreferenceFragment
         if (screen == null) {
             screen = getPreferenceManager().createPreferenceScreen(activity);
             setPreferenceScreen(screen);
-        } else {
-            screen.removeAll();
-            if (mExtraScreen != null) {
-                mExtraScreen.removeAll();
-            }
         }
 
         // Use this to speed up getting the info for all of the PermissionApps below.
@@ -164,13 +158,29 @@ public final class ManagePermissionsFragment extends PreferenceFragment
                 continue;
             }
 
-            final Preference preference = new Preference(activity);
-            preference.setOnPreferenceClickListener(this);
-            preference.setKey(group.getName());
-            preference.setIcon(Utils.applyTint(getContext(), group.getIcon(),
-                    android.R.attr.colorControlNormal));
-            preference.setTitle(group.getLabel());
-            preference.setPersistent(false);
+            Preference preference = findPreference(group.getName());
+            if (preference == null && mExtraScreen != null) {
+                preference = mExtraScreen.findPreference(group.getName());
+            }
+            if (preference == null) {
+                preference = new Preference(activity, null);
+                preference.setOnPreferenceClickListener(this);
+                preference.setKey(group.getName());
+                preference.setIcon(Utils.applyTint(activity, group.getIcon(),
+                        android.R.attr.colorControlNormal));
+                preference.setTitle(group.getLabel());
+                preference.setPersistent(false);
+                if (group.getDeclaringPackage().equals(OS_PKG)) {
+                    screen.addPreference(preference);
+                } else {
+                    if (mExtraScreen == null) {
+                        mExtraScreen = getPreferenceManager().createPreferenceScreen(activity);
+                    }
+                    mExtraScreen.addPreference(preference);
+                }
+            }
+            final Preference finalPref = preference;
+
             new PermissionApps(getContext(), group.getName(), new PermissionApps.Callback() {
                 @Override
                 public void onPermissionsLoaded(PermissionApps permissionApps) {
@@ -179,23 +189,16 @@ public final class ManagePermissionsFragment extends PreferenceFragment
                     }
                     int granted = permissionApps.getGrantedCount();
                     int total = permissionApps.getTotalCount();
-                    preference.setSummary(getString(R.string.app_permissions_group_summary,
+                    finalPref.setSummary(getString(R.string.app_permissions_group_summary,
                             granted, total));
                 }
             }, cache).refresh(false);
-
-            if (group.getDeclaringPackage().equals(OS_PKG)) {
-                screen.addPreference(preference);
-            } else {
-                if (mExtraScreen == null) {
-                    mExtraScreen = getPreferenceManager().createPreferenceScreen(activity);
-                }
-                mExtraScreen.addPreference(preference);
-            }
         }
 
-        if (mExtraScreen != null && mExtraScreen.getPreferenceCount() > 0) {
+        if (mExtraScreen != null && mExtraScreen.getPreferenceCount() > 0
+                && screen.findPreference(EXTRA_PREFS_KEY) == null) {
             Preference extraScreenPreference = new Preference(activity);
+            extraScreenPreference.setKey(EXTRA_PREFS_KEY);
             extraScreenPreference.setIcon(R.drawable.ic_toc);
             extraScreenPreference.setTitle(R.string.additional_permissions);
             extraScreenPreference.setOnPreferenceClickListener(new OnPreferenceClickListener() {
@@ -216,20 +219,30 @@ public final class ManagePermissionsFragment extends PreferenceFragment
         }
     }
 
-    public static class AdditionalPermissionsFragment extends SettingsWithHeader {
+    public static class AdditionalPermissionsFragment extends PreferenceFragment {
         @Override
         public void onCreate(Bundle icicle) {
             super.onCreate(icicle);
+            getActivity().setTitle(R.string.additional_permissions);
             setPreferenceScreen(((ManagePermissionsFragment) getTargetFragment()).mExtraScreen);
+            setHasOptionsMenu(true);
         }
 
         @Override
-        public void onViewCreated(View view, Bundle savedInstanceState) {
-            super.onViewCreated(view, savedInstanceState);
-            Resources resources = getResources();
-            Theme theme = getActivity().getTheme();
-            setHeader(resources.getDrawable(R.drawable.ic_toc, theme),
-                    getString(R.string.additional_permissions), null);
+        public void onDestroy() {
+            getActivity().setTitle(R.string.app_permissions);
+            super.onDestroy();
         }
+
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            switch (item.getItemId()) {
+                case android.R.id.home:
+                    getFragmentManager().popBackStack();
+                    return true;
+            }
+            return super.onOptionsItemSelected(item);
+        }
+
     }
 }
