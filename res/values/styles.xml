@@ -26,4 +26,12 @@
 
     <style name="Theme.Header.Settings" parent="@android:style/Theme.Material.Settings">
     </style>
+
+    <style name="Preference">
+        <item name="android:layout">@layout/preference</item>
+    </style>
+
+    <style name="ActionBar" parent="@android:style/Widget.Material.ActionBar.Solid">
+        <item name="android:contentInsetStart">72dp</item>
+    </style>
 </resources>
