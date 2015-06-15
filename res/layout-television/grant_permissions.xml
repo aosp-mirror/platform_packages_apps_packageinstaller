@@ -25,6 +25,7 @@
 
     <ImageView
         android:id="@+id/permission_icon"
+        android:tint="@color/grant_permissions_app_color"
         android:layout_width="@dimen/grant_permissions_app_icon_size"
         android:layout_height="@dimen/grant_permissions_app_icon_size"
         android:layout_marginTop="@dimen/grant_permissions_app_icon_margin_top"/>
