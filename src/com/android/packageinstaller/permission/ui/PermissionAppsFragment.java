@@ -45,6 +45,7 @@ import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionApps;
 import com.android.packageinstaller.permission.model.PermissionApps.Callback;
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
+import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.packageinstaller.permission.utils.Utils;
 
@@ -213,9 +214,13 @@ public final class PermissionAppsFragment extends PreferenceFragment implements 
         String pkg = preference.getKey();
         final PermissionApp app = mPermissionApps.getApp(pkg);
 
+        if (app == null) {
+            return false;
+        }
         addToggledGroup(app.getPackageName(), app.getPermissionGroup());
 
-        if (app == null) {
+        if (LocationUtils.isLocked(mPermissionApps.getGroupName(), app.getPackageName())) {
+            LocationUtils.showLocationDialog(getContext(), app.getLabel());
             return false;
         }
         if (newValue == Boolean.TRUE) {
