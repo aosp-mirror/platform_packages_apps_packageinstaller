@@ -17,6 +17,7 @@ package com.android.packageinstaller.permission.ui;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.FrameLayout;
 
 /**
@@ -29,6 +30,8 @@ public class ManualLayoutFrame extends FrameLayout {
 
     private int mDesiredHeight;
     private int mHeight;
+
+    private View mOffsetView;
 
     public ManualLayoutFrame(Context context, AttributeSet attrs) {
         super(context, attrs);
