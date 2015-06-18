@@ -231,9 +231,11 @@ public final class PermissionAppsFragment extends PreferenceFragment implements 
         if (newValue == Boolean.TRUE) {
             app.grantRuntimePermissions();
         } else {
-            if (!app.hasRuntimePermissions() && !mHasConfirmedRevoke) {
+            final boolean system = app.getAppInfo().isSystemApp();
+            if (system || (!app.hasRuntimePermissions() && !mHasConfirmedRevoke)) {
                 new AlertDialog.Builder(getContext())
-                        .setMessage(R.string.old_sdk_deny_warning)
+                        .setMessage(system ? R.string.system_warning
+                                : R.string.old_sdk_deny_warning)
                         .setNegativeButton(R.string.cancel, null)
                         .setPositiveButton(R.string.grant_dialog_button_deny,
                                 new OnClickListener() {
@@ -241,7 +243,9 @@ public final class PermissionAppsFragment extends PreferenceFragment implements 
                             public void onClick(DialogInterface dialog, int which) {
                                 ((SwitchPreference) preference).setChecked(false);
                                 app.revokeRuntimePermissions();
-                                mHasConfirmedRevoke = true;
+                                if (!system) {
+                                    mHasConfirmedRevoke = true;
+                                }
                             }
                         })
                         .show();

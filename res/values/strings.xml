@@ -244,4 +244,7 @@
    <!-- [CHAR LIMIT=NONE] Warning about how this app cannot have location permission disabled -->
    <string name="location_warning"><xliff:g id="app_name" example="Package Installer">%1$s</xliff:g> is a provider of location services for this device. Location access can be modified from location settings.</string>
 
+   <!-- [CHAR LIMIT=NONE] Warning message when turning off permission for system apps -->
+   <string name="system_warning">If you deny this permission, basic features of your device may no longer function as intended.</string>
+
 </resources>
