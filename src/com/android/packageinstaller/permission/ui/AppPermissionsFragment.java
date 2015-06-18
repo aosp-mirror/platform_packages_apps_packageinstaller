@@ -51,6 +51,7 @@ import android.widget.Toast;
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
+import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.packageinstaller.permission.utils.Utils;
 
@@ -278,6 +279,10 @@ public final class AppPermissionsFragment extends SettingsWithHeader
 
         addToggledGroup(group);
 
+        if (LocationUtils.isLocked(group.getName(), group.getApp().packageName)) {
+            LocationUtils.showLocationDialog(getContext(), group.getLabel());
+            return false;
+        }
         if (newValue == Boolean.TRUE) {
             group.grantRuntimePermissions(false);
         } else {

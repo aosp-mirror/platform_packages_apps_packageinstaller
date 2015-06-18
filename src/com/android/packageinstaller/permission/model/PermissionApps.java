@@ -70,6 +70,10 @@ public class PermissionApps {
         loadGroupInfo();
     }
 
+    public String getGroupName() {
+        return mGroupName;
+    }
+
     public void loadNowWithoutUi() {
         mSkipUi = true;
         createMap(loadPermissionApps());
