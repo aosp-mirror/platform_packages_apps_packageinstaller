@@ -28,6 +28,7 @@ import android.os.AsyncTask;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.util.ArrayMap;
+import android.util.ArraySet;
 import android.util.Log;
 import android.util.SparseArray;
 
@@ -79,13 +80,13 @@ public class PermissionApps {
         new PermissionAppsLoader().execute();
     }
 
-    public int getGrantedCount() {
+    public int getGrantedCount(ArraySet<String> launcherPkgs) {
         int count = 0;
         for (PermissionApp app : mPermApps) {
             if (!Utils.shouldShowPermission(app)) {
                 continue;
             }
-            if (app.isSystem()) {
+            if (Utils.isSystem(app, launcherPkgs)) {
                 // We default to not showing system apps, so hide them from count.
                 continue;
             }
@@ -96,13 +97,13 @@ public class PermissionApps {
         return count;
     }
 
-    public int getTotalCount() {
+    public int getTotalCount(ArraySet<String> launcherPkgs) {
         int count = 0;
         for (PermissionApp app : mPermApps) {
             if (!Utils.shouldShowPermission(app)) {
                 continue;
             }
-            if (app.isSystem()) {
+            if (Utils.isSystem(app, launcherPkgs)) {
                 // We default to not showing system apps, so hide them from count.
                 continue;
             }
@@ -175,7 +176,7 @@ public class PermissionApps {
                             : app.applicationInfo.loadLabel(mPm).toString();
                     PermissionApp permApp = new PermissionApp(app.packageName,
                             group, label, getBadgedIcon(app.applicationInfo),
-                            app.applicationInfo.isSystemApp());
+                            app.applicationInfo);
 
                     permApps.add(permApp);
                 }
@@ -268,19 +269,19 @@ public class PermissionApps {
         private final AppPermissionGroup mAppPermissionGroup;
         private final String mLabel;
         private final Drawable mIcon;
-        private final boolean mSystem;
+        private final ApplicationInfo mInfo;
 
         public PermissionApp(String packageName, AppPermissionGroup appPermissionGroup,
-                String label, Drawable icon, boolean isSystem) {
+                String label, Drawable icon, ApplicationInfo info) {
             mPackageName = packageName;
             mAppPermissionGroup = appPermissionGroup;
             mLabel = label;
             mIcon = icon;
-            mSystem = isSystem;
+            mInfo = info;
         }
 
-        public boolean isSystem() {
-            return mSystem;
+        public ApplicationInfo getAppInfo() {
+            return mInfo;
         }
 
         public String getKey() {
