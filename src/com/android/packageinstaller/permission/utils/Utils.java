@@ -18,10 +18,14 @@ package com.android.packageinstaller.permission.utils;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.content.res.Resources.Theme;
 import android.graphics.drawable.Drawable;
+import android.util.ArraySet;
 import android.util.Log;
 import android.util.TypedValue;
 
@@ -45,6 +49,9 @@ public class Utils {
             Manifest.permission_group.MICROPHONE,
             Manifest.permission_group.STORAGE
     };
+
+    private static final Intent LAUNCHER_INTENT = new Intent(Intent.ACTION_MAIN, null)
+                            .addCategory(Intent.CATEGORY_LAUNCHER);
 
     private Utils() {
         /* do nothing - hide constructor */
@@ -114,5 +121,21 @@ public class Utils {
         icon.clearColorFilter();
         icon.setTint(context.getColor(typedValue.resourceId));
         return icon;
+    }
+
+    public static ArraySet<String> getLauncherPackages(Context context) {
+        ArraySet<String> launcherPkgs = new ArraySet<>();
+        for (ResolveInfo info :
+            context.getPackageManager().queryIntentActivities(LAUNCHER_INTENT, 0)) {
+            launcherPkgs.add(info.activityInfo.packageName);
+        }
+
+        return launcherPkgs;
+    }
+
+    public static boolean isSystem(PermissionApp app, ArraySet<String> launcherPkgs) {
+        ApplicationInfo info = app.getAppInfo();
+        return info.isSystemApp() && (info.flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) == 0
+                && !launcherPkgs.contains(info.packageName);
     }
 }
