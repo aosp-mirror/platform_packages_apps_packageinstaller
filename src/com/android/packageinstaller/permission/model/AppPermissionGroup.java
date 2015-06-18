@@ -88,15 +88,18 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             }
         }
 
-        return create(context, packageInfo, groupInfo, permissionInfos);
+        return create(context, packageInfo, groupInfo, permissionInfos,
+                new UserHandle(context.getUserId()));
     }
 
     public static AppPermissionGroup create(Context context, PackageInfo packageInfo,
-            PackageItemInfo groupInfo, List<PermissionInfo> permissionInfos) {
+            PackageItemInfo groupInfo, List<PermissionInfo> permissionInfos,
+            UserHandle userHandle) {
 
         AppPermissionGroup group = new AppPermissionGroup(context, packageInfo, groupInfo.name,
                 groupInfo.packageName, groupInfo.loadLabel(context.getPackageManager()),
-                loadGroupDescription(context, groupInfo), groupInfo.packageName, groupInfo.icon);
+                loadGroupDescription(context, groupInfo), groupInfo.packageName, groupInfo.icon,
+                userHandle);
 
         if (groupInfo instanceof PermissionInfo) {
             permissionInfos = new ArrayList<>();
@@ -148,8 +151,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                     == AppOpsManager.MODE_ALLOWED;
 
             final int flags = context.getPackageManager().getPermissionFlags(
-                    requestedPermission, packageInfo.packageName,
-                    new UserHandle(context.getUserId()));
+                    requestedPermission, packageInfo.packageName, userHandle);
 
             Permission permission = new Permission(requestedPermission, granted,
                     appOp, appOpAllowed, flags);
@@ -178,9 +180,9 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
     private AppPermissionGroup(Context context, PackageInfo packageInfo, String name,
             String declaringPackage, CharSequence label, CharSequence description,
-            String iconPkg, int iconResId) {
+            String iconPkg, int iconResId, UserHandle userHandle) {
         mContext = context;
-        mUserHandle = new UserHandle(mContext.getUserId());
+        mUserHandle = userHandle;
         mPackageManager = mContext.getPackageManager();
         mPackageInfo = packageInfo;
         mAppSupportsRuntimePermissions = packageInfo.applicationInfo
@@ -281,7 +283,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                 if (!permission.isGranted()) {
                     permission.setGranted(true);
                     mPackageManager.grantRuntimePermission(mPackageInfo.packageName,
-                            permission.getName(), new UserHandle(mContext.getUserId()));
+                            permission.getName(), mUserHandle);
                 }
 
                 // Update the permission flags.
