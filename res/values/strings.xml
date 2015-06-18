@@ -238,4 +238,10 @@
    <!-- [CHAR LIMIT=NONE] Label when no apps requesting this permission -->
    <string name="no_apps">No apps</string>
 
+   <!-- [CHAR LIMIT=30] Title of button that leads to location settings -->
+   <string name="location_settings">Location Settings</string>
+
+   <!-- [CHAR LIMIT=NONE] Warning about how this app cannot have location permission disabled -->
+   <string name="location_warning"><xliff:g id="app_name" example="Package Installer">%1$s</xliff:g> is a provider of location services for this device. Location access can be modified from location settings.</string>
+
 </resources>

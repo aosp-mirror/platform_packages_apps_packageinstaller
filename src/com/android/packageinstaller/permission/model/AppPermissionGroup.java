@@ -29,6 +29,7 @@ import android.os.UserHandle;
 import android.util.ArrayMap;
 
 import com.android.packageinstaller.R;
+import com.android.packageinstaller.permission.utils.LocationUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -250,6 +251,9 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
     }
 
     public boolean areRuntimePermissionsGranted() {
+        if (LocationUtils.isLocked(mName, mPackageInfo.packageName)) {
+            return LocationUtils.isLocationEnabled(mContext);
+        }
         final int permissionCount = mPermissions.size();
         for (int i = 0; i < permissionCount; i++) {
             Permission permission = mPermissions.valueAt(i);
