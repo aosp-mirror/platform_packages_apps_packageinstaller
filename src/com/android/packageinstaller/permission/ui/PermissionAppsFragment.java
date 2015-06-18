@@ -108,7 +108,9 @@ public final class PermissionAppsFragment extends PreferenceFragment implements 
             case MENU_SHOW_SYSTEM:
             case MENU_HIDE_SYSTEM:
                 mShowSystem = item.getItemId() == MENU_SHOW_SYSTEM;
-                onPermissionsLoaded(mPermissionApps);
+                if (mPermissionApps.getApps() != null) {
+                    onPermissionsLoaded(mPermissionApps);
+                }
                 updateMenu();
                 break;
         }
@@ -181,7 +183,7 @@ public final class PermissionAppsFragment extends PreferenceFragment implements 
             setPreferenceScreen(preferences);
         }
         preferences.removeAll();
-        for (PermissionApp app : mPermissionApps.getApps()) {
+        for (PermissionApp app : permissionApps.getApps()) {
             if (!Utils.shouldShowPermission(app)) {
                 continue;
             }
