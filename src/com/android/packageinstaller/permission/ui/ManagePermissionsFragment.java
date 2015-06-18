@@ -25,6 +25,7 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
+import android.util.ArraySet;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -47,6 +48,8 @@ public final class ManagePermissionsFragment extends PreferenceFragment
 
     private static final String EXTRA_PREFS_KEY = "extra_prefs_key";
 
+    private ArraySet<String> mLauncherPkgs;
+
     private PermissionGroups mPermissions;
 
     private PreferenceScreen mExtraScreen;
@@ -65,6 +68,7 @@ public final class ManagePermissionsFragment extends PreferenceFragment
         if (ab != null) {
             ab.setDisplayHomeAsUpEnabled(true);
         }
+        mLauncherPkgs = Utils.getLauncherPackages(getContext());
         mPermissions = new PermissionGroups(getActivity(), getLoaderManager(), this);
     }
 
@@ -187,8 +191,8 @@ public final class ManagePermissionsFragment extends PreferenceFragment
                     if (getActivity() == null) {
                         return;
                     }
-                    int granted = permissionApps.getGrantedCount();
-                    int total = permissionApps.getTotalCount();
+                    int granted = permissionApps.getGrantedCount(mLauncherPkgs);
+                    int total = permissionApps.getTotalCount(mLauncherPkgs);
                     finalPref.setSummary(getString(R.string.app_permissions_group_summary,
                             granted, total));
                 }
