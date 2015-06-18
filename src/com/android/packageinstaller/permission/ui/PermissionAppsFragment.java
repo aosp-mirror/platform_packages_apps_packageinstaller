@@ -30,6 +30,7 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.support.v4.util.ArrayMap;
+import android.util.ArraySet;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -68,6 +69,7 @@ public final class PermissionAppsFragment extends PreferenceFragment implements 
     private PermissionApps mPermissionApps;
 
     private ArrayMap<String, AppPermissionGroup> mToggledGroups;
+    private ArraySet<String> mLauncherPkgs;
     private boolean mHasConfirmedRevoke;
 
     private boolean mShowSystem;
@@ -82,6 +84,7 @@ public final class PermissionAppsFragment extends PreferenceFragment implements 
         if (ab != null) {
             ab.setDisplayHomeAsUpEnabled(true);
         }
+        mLauncherPkgs = Utils.getLauncherPackages(getContext());
     }
 
     @Override
@@ -187,7 +190,7 @@ public final class PermissionAppsFragment extends PreferenceFragment implements 
             }
 
             SwitchPreference pref = (SwitchPreference) findPreference(app.getKey());
-            if (!mShowSystem && app.isSystem()) {
+            if (!mShowSystem && Utils.isSystem(app, mLauncherPkgs)) {
                 if (pref != null) {
                     preferences.removePreference(pref);
                 }
