@@ -169,7 +169,7 @@ public class PermissionApps {
                     }
 
                     AppPermissionGroup group = AppPermissionGroup.create(mContext,
-                            app, groupInfo, groupPermInfos);
+                            app, groupInfo, groupPermInfos, user);
 
                     String label = mSkipUi ? app.packageName
                             : app.applicationInfo.loadLabel(mPm).toString();
