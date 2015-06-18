@@ -28,6 +28,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLayoutChangeListener;
 import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.view.ViewRootImpl;
 import android.view.WindowManager.LayoutParams;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
@@ -37,6 +39,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.packageinstaller.R;
+
+import java.util.ArrayList;
 
 final class GrantPermissionsDefaultViewHandler
         implements GrantPermissionsViewHandler, OnClickListener {
@@ -76,7 +80,7 @@ final class GrantPermissionsDefaultViewHandler
     private CheckBox mDoNotAskCheckbox;
     private Button mAllowButton;
 
-    private ViewHeightController mRootViewHeightController;
+    private ArrayList<ViewHeightController> mHeightControllers;
     private ManualLayoutFrame mRootView;
 
     // Needed for animation
@@ -144,18 +148,29 @@ final class GrantPermissionsDefaultViewHandler
                 updateGroup();
             }
         }
-
         updateDoNotAskCheckBox();
+
     }
 
     private void animateToPermission() {
-        if (mRootViewHeightController == null) {
-            // Allow height control of the real root view, not the root of what we inflate.
-            // Need to do it on the root view so that the background drawable of the dialog
-            // moves with the animation.
-            View realRootView = mRootView.getViewRootImpl().getView();
-            mRootViewHeightController = new ViewHeightController(realRootView);
-            mRootViewHeightController.setHeight(realRootView.getHeight());
+        if (mHeightControllers == null) {
+            // We need to manually control the height of any views heigher than the root that
+            // we inflate.  Find all the views up to the root and create ViewHeightControllers for
+            // them.
+            mHeightControllers = new ArrayList<>();
+            ViewRootImpl viewRoot = mRootView.getViewRootImpl();
+            ViewParent v = mRootView.getParent();
+            addHeightController(mDialogContainer);
+            addHeightController(mRootView);
+            while (v != viewRoot) {
+                addHeightController((View) v);
+                v = v.getParent();
+            }
+            // On the heighest level view, we want to setTop rather than setBottom to control the
+            // height, this way the dialog will grow up rather than down.
+            ViewHeightController realRootView =
+                    mHeightControllers.get(mHeightControllers.size() - 1);
+            realRootView.setControlTop(true);
         }
 
         // Grab the current height/y positions, then wait for the layout to change,
@@ -205,7 +220,14 @@ final class GrantPermissionsDefaultViewHandler
         int width = mDescContainer.getRootView().getWidth();
         mDescContainer.addView(mNextDesc);
         mNextDesc.setTranslationX(width);
+
         final View oldDesc = mCurrentDesc;
+        // Remove the old view from the description, so that we can shrink if necessary.
+        mDescContainer.removeView(oldDesc);
+        oldDesc.setPadding(mDescContainer.getLeft(), mDescContainer.getTop(),
+                mRootView.getRight() - mDescContainer.getRight(), 0);
+        mRootView.addView(oldDesc);
+
         mCurrentDesc = mNextDesc;
         mNextDesc.animate()
                 .translationX(0)
@@ -217,10 +239,16 @@ final class GrantPermissionsDefaultViewHandler
                     @Override
                     public void onAnimationEnd(Animator animation) {
                         // This is the longest animation, when it finishes, we are done.
-                        mDescContainer.removeView(oldDesc);
+                        mRootView.removeView(oldDesc);
                     }
                 })
                 .start();
+    }
+
+    private void addHeightController(View v) {
+        ViewHeightController heightController = new ViewHeightController(v);
+        heightController.setHeight(v.getHeight());
+        mHeightControllers.add(heightController);
     }
 
     private SparseArray<Float> getViewPositions() {
@@ -254,7 +282,9 @@ final class GrantPermissionsDefaultViewHandler
                         .start();
             }
         }
-        mRootViewHeightController.animateAddHeight(heightDiff);
+        for (int i = 0; i < mHeightControllers.size(); i++) {
+            mHeightControllers.get(i).animateAddHeight(heightDiff);
+        }
     }
 
     @Override
@@ -344,38 +374,53 @@ final class GrantPermissionsDefaultViewHandler
     private static final class ViewHeightController implements OnLayoutChangeListener {
         private final View mView;
         private int mHeight;
+        private int mNextHeight;
+        private boolean mControlTop;
+        private ObjectAnimator mAnimator;
 
         public ViewHeightController(View view) {
             mView = view;
             mView.addOnLayoutChangeListener(this);
         }
 
+        public void setControlTop(boolean controlTop) {
+            mControlTop = controlTop;
+        }
+
         public void animateAddHeight(int heightDiff) {
             if (heightDiff != 0) {
-                final int startHeight = mHeight;
-                final int endHeight = startHeight + heightDiff;
-                ObjectAnimator animator = ObjectAnimator.ofInt(this, "height",
-                        startHeight, endHeight);
-                animator.setStartDelay(SIZE_START_DELAY);
-                animator.setDuration(SIZE_START_LENGTH);
-                animator.start();
+                if (mNextHeight == 0) {
+                    mNextHeight = mHeight;
+                }
+                mNextHeight += heightDiff;
+                if (mAnimator != null) {
+                    mAnimator.cancel();
+                }
+                mAnimator = ObjectAnimator.ofInt(this, "height", mHeight, mNextHeight);
+                mAnimator.setStartDelay(SIZE_START_DELAY);
+                mAnimator.setDuration(SIZE_START_LENGTH);
+                mAnimator.start();
             }
         }
 
         public void setHeight(int height) {
             mHeight = height;
-            updateTop();
+            updateHeight();
         }
 
         @Override
         public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft,
                 int oldTop, int oldRight, int oldBottom) {
             // Ensure that the height never changes.
-            updateTop();
+            updateHeight();
         }
 
-        private void updateTop() {
-            mView.setTop(mView.getBottom() - mHeight);
+        private void updateHeight() {
+            if (mControlTop) {
+                mView.setTop(mView.getBottom() - mHeight);
+            } else {
+                mView.setBottom(mView.getTop() + mHeight);
+            }
         }
     }
 }

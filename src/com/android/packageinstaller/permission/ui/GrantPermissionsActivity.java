@@ -37,6 +37,8 @@ import android.text.style.ForegroundColorSpan;
 import android.util.ArrayMap;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -143,6 +145,16 @@ public class GrantPermissionsActivity extends Activity
         if (!showNextPermissionGroupGrantRequest()) {
             setResultAndFinish();
         }
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        View rootView = getWindow().getDecorView();
+        if (rootView.getTop() != 0) {
+            // We are animating the top view, need to compensate for that in motion events.
+            ev.setLocation(ev.getX(), ev.getY() - rootView.getTop());
+        }
+        return super.dispatchTouchEvent(ev);
     }
 
     @Override
