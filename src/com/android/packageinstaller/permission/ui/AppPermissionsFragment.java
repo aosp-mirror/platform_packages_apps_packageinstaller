@@ -20,6 +20,7 @@ import android.annotation.Nullable;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -62,7 +63,9 @@ public final class AppPermissionsFragment extends SettingsWithHeader
 
     private static final String LOG_TAG = "ManagePermsFragment";
 
-    private static final String EXTRA_HIDE_INFO_BUTTON = "hideInfoButton";
+    static final String EXTRA_HIDE_INFO_BUTTON = "hideInfoButton";
+
+    private static final int MENU_ALL_PERMS = 0;
 
     private List<AppPermissionGroup> mToggledGroups;
     private AppPermissions mAppPermissions;
@@ -94,6 +97,10 @@ public final class AppPermissionsFragment extends SettingsWithHeader
     @Override
     public void onResume() {
         super.onResume();
+        final ActionBar ab = getActivity().getActionBar();
+        if (ab != null) {
+            ab.setTitle(R.string.app_permissions);
+        }
         updateUi();
     }
 
@@ -110,6 +117,16 @@ public final class AppPermissionsFragment extends SettingsWithHeader
                 bindPermissionsUi();
                 return true;
             }
+
+            case MENU_ALL_PERMS: {
+                Fragment frag = AllAppPermissionsFragment.newInstance(
+                        getArguments().getString(Intent.EXTRA_PACKAGE_NAME));
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(android.R.id.content, frag);
+                ft.addToBackStack("AllPerms");
+                ft.commit();
+                return true;
+            }
         }
         return super.onOptionsItemSelected(item);
     }
@@ -124,6 +141,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.toggle_legacy_permissions, menu);
+        menu.add(Menu.NONE, MENU_ALL_PERMS, Menu.NONE, R.string.all_permissions);
     }
 
     @Override
