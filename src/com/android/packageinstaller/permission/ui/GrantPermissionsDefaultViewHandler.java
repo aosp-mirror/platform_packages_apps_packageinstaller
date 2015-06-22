@@ -20,6 +20,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.util.SparseArray;
@@ -38,6 +39,7 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.internal.widget.ButtonBarLayout;
 import com.android.packageinstaller.R;
 
 import java.util.ArrayList;
@@ -291,6 +293,9 @@ final class GrantPermissionsDefaultViewHandler
     public View createView() {
         mRootView = (ManualLayoutFrame) LayoutInflater.from(mContext)
                 .inflate(R.layout.grant_permissions, null);
+        ((ButtonBarLayout) mRootView.findViewById(R.id.button_group)).setAllowStacking(
+                Resources.getSystem().getBoolean(
+                        com.android.internal.R.bool.allow_stacked_button_bar));
 
         mDialogContainer = (ViewGroup) mRootView.findViewById(R.id.dialog_container);
         mMessageView = (TextView) mRootView.findViewById(R.id.permission_message);
