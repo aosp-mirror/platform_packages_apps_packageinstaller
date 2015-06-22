@@ -173,6 +173,8 @@ public final class ManagePermissionsFragment extends PreferenceFragment
                 preference.setIcon(Utils.applyTint(activity, group.getIcon(),
                         android.R.attr.colorControlNormal));
                 preference.setTitle(group.getLabel());
+                // Set blank summary so that no resizing/jumping happens when the summary is loaded.
+                preference.setSummary(" ");
                 preference.setPersistent(false);
                 if (group.getDeclaringPackage().equals(OS_PKG)) {
                     screen.addPreference(preference);
