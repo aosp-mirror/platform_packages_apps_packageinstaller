@@ -183,6 +183,7 @@ public class PermissionApps {
                             app.applicationInfo);
 
                     permApps.add(permApp);
+                    break; // move to the next app.
                 }
             }
         }
