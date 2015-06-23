@@ -459,6 +459,19 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         return true;
     }
 
+    public void setPolicyFixed() {
+        final int permissionCount = mPermissions.size();
+        for (int i = 0; i < permissionCount; i++) {
+            Permission permission = mPermissions.valueAt(i);
+            permission.setPolicyFixed(true);
+            mPackageManager.updatePermissionFlags(permission.getName(),
+                    mPackageInfo.packageName,
+                    PackageManager.FLAG_PERMISSION_POLICY_FIXED,
+                    PackageManager.FLAG_PERMISSION_POLICY_FIXED,
+                    mUserHandle);
+        }
+    }
+
     public List<Permission> getPermissions() {
         return new ArrayList<>(mPermissions.values());
     }
