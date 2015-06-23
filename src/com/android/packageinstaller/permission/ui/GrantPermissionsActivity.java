@@ -119,12 +119,14 @@ public class GrantPermissionsActivity extends Activity
                     case DevicePolicyManager.PERMISSION_POLICY_AUTO_GRANT: {
                         if (!group.areRuntimePermissionsGranted()) {
                             group.grantRuntimePermissions(false);
+                            group.setPolicyFixed();
                         }
                     } break;
 
                     case DevicePolicyManager.PERMISSION_POLICY_AUTO_DENY: {
                         if (!group.areRuntimePermissionsGranted()) {
                             group.revokeRuntimePermissions(false);
+                            group.setPolicyFixed();
                         }
                     } break;
 
