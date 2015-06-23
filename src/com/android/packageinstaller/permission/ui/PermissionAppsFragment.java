@@ -161,7 +161,9 @@ public final class PermissionAppsFragment extends PreferenceFragment implements 
         final ViewGroup rootView = (ViewGroup) getView();
         final ImageView iconView = (ImageView) rootView.findViewById(R.id.lb_icon);
         if (iconView != null) {
-            iconView.setImageDrawable(icon);
+            // Set the icon as the background instead of the image because ImageView
+            // doesn't properly scale vector drawables beyond their intrinsic size
+            iconView.setBackground(icon);
         }
         final TextView titleView = (TextView) rootView.findViewById(R.id.lb_title);
         if (titleView != null) {
