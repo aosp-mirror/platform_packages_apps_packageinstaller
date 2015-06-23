@@ -96,6 +96,14 @@ public final class Permission {
         }
     }
 
+    public void setPolicyFixed(boolean policyFixed) {
+        if (policyFixed) {
+            mFlags |= PackageManager.FLAG_PERMISSION_POLICY_FIXED;
+        } else {
+            mFlags &= ~PackageManager.FLAG_PERMISSION_POLICY_FIXED;
+        }
+    }
+
     public boolean shouldRevokeOnUpgrade() {
         return (mFlags & PackageManager.FLAG_PERMISSION_REVOKE_ON_UPGRADE) != 0;
     }
