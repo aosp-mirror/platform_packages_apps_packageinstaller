@@ -50,7 +50,7 @@
         <ImageView
             android:id="@+id/lb_icon"
             android:layout_width="@dimen/lb_content_fragment_icon_width"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/lb_content_fragment_icon_width"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/lb_content_fragment_delimiter_padding"
