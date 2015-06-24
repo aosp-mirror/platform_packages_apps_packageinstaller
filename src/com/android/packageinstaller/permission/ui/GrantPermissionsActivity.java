@@ -64,6 +64,8 @@ public class GrantPermissionsActivity extends Activity
     private GrantPermissionsViewHandler mViewHandler;
     private AppPermissions mAppPermissions;
 
+    boolean mResultSet;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -242,9 +244,9 @@ public class GrantPermissionsActivity extends Activity
     }
 
     @Override
-    public void onBackPressed() {
-        setResultAndFinish();
-        super.onBackPressed();
+    public void finish() {
+        setResultIfNeeded(RESULT_CANCELED);
+        super.finish();
     }
 
     private int computePermissionGrantState(PackageInfo callingPackageInfo,
@@ -306,12 +308,19 @@ public class GrantPermissionsActivity extends Activity
         }
     }
 
+    private void setResultIfNeeded(int resultCode) {
+        if (!mResultSet) {
+            mResultSet = true;
+            logRequestedPermissionGroups();
+            Intent result = new Intent(PackageManager.ACTION_REQUEST_PERMISSIONS);
+            result.putExtra(PackageManager.EXTRA_REQUEST_PERMISSIONS_NAMES, mRequestedPermissions);
+            result.putExtra(PackageManager.EXTRA_REQUEST_PERMISSIONS_RESULTS, mGrantResults);
+            setResult(resultCode, result);
+        }
+    }
+
     private void setResultAndFinish() {
-        logRequestedPermissionGroups();
-        Intent result = new Intent(PackageManager.ACTION_REQUEST_PERMISSIONS);
-        result.putExtra(PackageManager.EXTRA_REQUEST_PERMISSIONS_NAMES, mRequestedPermissions);
-        result.putExtra(PackageManager.EXTRA_REQUEST_PERMISSIONS_RESULTS, mGrantResults);
-        setResult(RESULT_OK, result);
+        setResultIfNeeded(RESULT_OK);
         finish();
     }
 
