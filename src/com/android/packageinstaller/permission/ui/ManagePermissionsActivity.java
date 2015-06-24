@@ -29,7 +29,7 @@ public final class ManagePermissionsActivity extends Activity {
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
-        Fragment fragment = null;
+        Fragment fragment;
         String action = getIntent().getAction();
 
         switch (action) {

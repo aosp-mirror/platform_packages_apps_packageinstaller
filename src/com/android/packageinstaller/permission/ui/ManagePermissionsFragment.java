@@ -15,11 +15,13 @@
  */
 package com.android.packageinstaller.permission.ui;
 
+import android.annotation.Nullable;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
@@ -27,9 +29,15 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.util.ArraySet;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.PermissionApps;
@@ -137,11 +145,52 @@ public final class ManagePermissionsFragment extends PreferenceFragment
         updatePermissionsUi();
     }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.permissions_frame, container,
+                false);
+        ViewGroup prefsContainer = (ViewGroup) rootView.findViewById(R.id.prefs_container);
+        if (prefsContainer == null) {
+            prefsContainer = rootView;
+        }
+        prefsContainer.addView(super.onCreateView(inflater, prefsContainer, savedInstanceState));
+        View emptyView = rootView.findViewById(R.id.no_permissions);
+        ((ListView) rootView.findViewById(android.R.id.list)).setEmptyView(emptyView);
+        return rootView;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        updatePermissionsUi();
+    }
+
     private void updatePermissionsUi() {
         Activity activity = getActivity();
 
         if (activity == null) {
             return;
+        }
+
+        final ViewGroup rootView = (ViewGroup) getView();
+        if (rootView != null) {
+            final ImageView iconView = (ImageView) rootView.findViewById(R.id.lb_icon);
+            if (iconView != null) {
+                // Set the icon as the background instead of the image because ImageView
+                // doesn't properly scale vector drawables beyond their intrinsic size
+                Drawable icon = activity.getDrawable(R.drawable.ic_lock);
+                icon.setTint(activity.getColor(R.color.off_white));
+                iconView.setBackground(icon);
+            }
+            final TextView titleView = (TextView) rootView.findViewById(R.id.lb_title);
+            if (titleView != null) {
+                titleView.setText(R.string.app_permissions);
+            }
+            final TextView breadcrumbView = (TextView) rootView.findViewById(R.id.lb_breadcrumb);
+            if (breadcrumbView != null) {
+                breadcrumbView.setText(R.string.app_permissions_breadcrumb);
+            }
         }
 
         List<PermissionGroup> groups = mPermissions.getGroups();
