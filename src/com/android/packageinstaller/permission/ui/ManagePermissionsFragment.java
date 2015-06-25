@@ -20,23 +20,21 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceClickListener;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceScreen;
+import android.support.v14.preference.PreferenceFragment;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.Preference.OnPreferenceClickListener;
+import android.support.v7.preference.PreferenceScreen;
 import android.util.ArraySet;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.packageinstaller.R;
@@ -48,7 +46,7 @@ import com.android.packageinstaller.permission.utils.Utils;
 
 import java.util.List;
 
-public final class ManagePermissionsFragment extends PreferenceFragment
+public final class ManagePermissionsFragment extends PermissionsFrameFragment
         implements PermissionGroups.PermissionsGroupsChangeCallback, OnPreferenceClickListener {
     private static final String LOG_TAG = "ManagePermissionsFragment";
 
@@ -146,60 +144,46 @@ public final class ManagePermissionsFragment extends PreferenceFragment
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
-        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.permissions_frame, container,
-                false);
-        ViewGroup prefsContainer = (ViewGroup) rootView.findViewById(R.id.prefs_container);
-        if (prefsContainer == null) {
-            prefsContainer = rootView;
-        }
-        prefsContainer.addView(super.onCreateView(inflater, prefsContainer, savedInstanceState));
-        View emptyView = rootView.findViewById(R.id.no_permissions);
-        ((ListView) rootView.findViewById(android.R.id.list)).setEmptyView(emptyView);
-        return rootView;
-    }
-
-    @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        updatePermissionsUi();
-    }
 
-    private void updatePermissionsUi() {
         Activity activity = getActivity();
-
         if (activity == null) {
             return;
         }
 
-        final ViewGroup rootView = (ViewGroup) getView();
-        if (rootView != null) {
-            final ImageView iconView = (ImageView) rootView.findViewById(R.id.lb_icon);
-            if (iconView != null) {
-                // Set the icon as the background instead of the image because ImageView
-                // doesn't properly scale vector drawables beyond their intrinsic size
-                Drawable icon = activity.getDrawable(R.drawable.ic_lock);
-                icon.setTint(activity.getColor(R.color.off_white));
-                iconView.setBackground(icon);
-            }
-            final TextView titleView = (TextView) rootView.findViewById(R.id.lb_title);
-            if (titleView != null) {
-                titleView.setText(R.string.app_permissions);
-            }
-            final TextView breadcrumbView = (TextView) rootView.findViewById(R.id.lb_breadcrumb);
-            if (breadcrumbView != null) {
-                breadcrumbView.setText(R.string.app_permissions_breadcrumb);
-            }
+        View rootView = getView();
+        if (rootView == null) {
+            return;
+        }
+
+        ImageView iconView = (ImageView) rootView.findViewById(R.id.lb_icon);
+        if (iconView != null) {
+            // Set the icon as the background instead of the image because ImageView
+            // doesn't properly scale vector drawables beyond their intrinsic size
+            Drawable icon = activity.getDrawable(R.drawable.ic_lock);
+            icon.setTint(activity.getColor(R.color.off_white));
+            iconView.setBackground(icon);
+        }
+        TextView titleView = (TextView) rootView.findViewById(R.id.lb_title);
+        if (titleView != null) {
+            titleView.setText(R.string.app_permissions);
+        }
+        TextView breadcrumbView = (TextView) rootView.findViewById(R.id.lb_breadcrumb);
+        if (breadcrumbView != null) {
+            breadcrumbView.setText(R.string.app_permissions_breadcrumb);
+        }
+    }
+
+    private void updatePermissionsUi() {
+        Context context = getPreferenceManager().getContext();
+        if (context == null) {
+            return;
         }
 
         List<PermissionGroup> groups = mPermissions.getGroups();
 
         PreferenceScreen screen = getPreferenceScreen();
-        if (screen == null) {
-            screen = getPreferenceManager().createPreferenceScreen(activity);
-            setPreferenceScreen(screen);
-        }
 
         // Use this to speed up getting the info for all of the PermissionApps below.
         // Create a new one for each refresh to make sure it has fresh data.
@@ -216,10 +200,10 @@ public final class ManagePermissionsFragment extends PreferenceFragment
                 preference = mExtraScreen.findPreference(group.getName());
             }
             if (preference == null) {
-                preference = new Preference(activity, null);
+                preference = new Preference(context);
                 preference.setOnPreferenceClickListener(this);
                 preference.setKey(group.getName());
-                preference.setIcon(Utils.applyTint(activity, group.getIcon(),
+                preference.setIcon(Utils.applyTint(context, group.getIcon(),
                         android.R.attr.colorControlNormal));
                 preference.setTitle(group.getLabel());
                 // Set blank summary so that no resizing/jumping happens when the summary is loaded.
@@ -229,7 +213,7 @@ public final class ManagePermissionsFragment extends PreferenceFragment
                     screen.addPreference(preference);
                 } else {
                     if (mExtraScreen == null) {
-                        mExtraScreen = getPreferenceManager().createPreferenceScreen(activity);
+                        mExtraScreen = getPreferenceManager().createPreferenceScreen(context);
                     }
                     mExtraScreen.addPreference(preference);
                 }
@@ -252,9 +236,10 @@ public final class ManagePermissionsFragment extends PreferenceFragment
 
         if (mExtraScreen != null && mExtraScreen.getPreferenceCount() > 0
                 && screen.findPreference(EXTRA_PREFS_KEY) == null) {
-            Preference extraScreenPreference = new Preference(activity);
+            Preference extraScreenPreference = new Preference(context);
             extraScreenPreference.setKey(EXTRA_PREFS_KEY);
-            extraScreenPreference.setIcon(R.drawable.ic_toc);
+            extraScreenPreference.setIcon(Utils.applyTint(context, R.drawable.ic_toc,
+                    android.R.attr.colorControlNormal));
             extraScreenPreference.setTitle(R.string.additional_permissions);
             extraScreenPreference.setOnPreferenceClickListener(new OnPreferenceClickListener() {
                 @Override
@@ -279,7 +264,6 @@ public final class ManagePermissionsFragment extends PreferenceFragment
         public void onCreate(Bundle icicle) {
             super.onCreate(icicle);
             getActivity().setTitle(R.string.additional_permissions);
-            setPreferenceScreen(((ManagePermissionsFragment) getTargetFragment()).mExtraScreen);
             setHasOptionsMenu(true);
         }
 
@@ -299,5 +283,9 @@ public final class ManagePermissionsFragment extends PreferenceFragment
             return super.onOptionsItemSelected(item);
         }
 
+        @Override
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            setPreferenceScreen(((ManagePermissionsFragment) getTargetFragment()).mExtraScreen);
+        }
     }
 }
