@@ -178,8 +178,7 @@ public class GrantPermissionsActivity extends Activity
 
         for (int i = 0; i < groupCount; i++) {
             GroupState groupState = mRequestGrantPermissionGroups.valueAt(i);
-            if (/*!groupState.mGroup.areRuntimePermissionsGranted()
-                    && */groupState.mState == GroupState.STATE_UNKNOWN) {
+            if (groupState.mState == GroupState.STATE_UNKNOWN) {
                 CharSequence appLabel = mAppPermissions.getAppLabel();
                 SpannableString message = new SpannableString(getString(
                         R.string.permission_warning_template, appLabel,
@@ -241,6 +240,11 @@ public class GrantPermissionsActivity extends Activity
                 }
             }
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        mViewHandler.onBackPressed();
     }
 
     @Override
