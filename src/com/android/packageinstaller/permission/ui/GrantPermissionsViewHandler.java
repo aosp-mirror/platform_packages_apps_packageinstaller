@@ -81,4 +81,9 @@ interface GrantPermissionsViewHandler {
      * view handler from the specified bundle.
      */
     void loadInstanceState(Bundle savedInstanceState);
+
+    /**
+     * Gives a chance for handling the back key.
+     */
+    void onBackPressed();
 }
