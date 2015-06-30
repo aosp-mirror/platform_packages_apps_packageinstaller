@@ -372,6 +372,14 @@ final class GrantPermissionsDefaultViewHandler
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        if (mResultListener != null) {
+            final boolean doNotAskAgain = mDoNotAskCheckbox.isChecked();
+            mResultListener.onPermissionGrantResult(mGroupName, false, doNotAskAgain);
+        }
+    }
+
     /**
      * Manually controls the height of a view through getBottom/setTop.  Also listens
      * for layout changes and sets the height again to be sure it doesn't change.
