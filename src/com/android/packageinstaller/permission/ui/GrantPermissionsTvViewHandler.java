@@ -120,4 +120,11 @@ final class GrantPermissionsTvViewHandler implements GrantPermissionsViewHandler
             mResultListener.onPermissionGrantResult(mGroupName, granted, doNotAskAgain);
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        if (mResultListener != null) {
+            mResultListener.onPermissionGrantResult(mGroupName, false, false);
+        }
+    }
 }
