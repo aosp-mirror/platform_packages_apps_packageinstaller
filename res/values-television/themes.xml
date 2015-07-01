@@ -16,7 +16,9 @@
   -->
 
 <resources>
-    <style name="Settings" parent="Theme.Leanback" />
+    <style name="Settings" parent="Theme.Leanback">
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Permissions</item>
+    </style>
 
     <style name="GrantPermissions" parent="Theme.Leanback">
         <item name="android:windowIsFloating">true</item>

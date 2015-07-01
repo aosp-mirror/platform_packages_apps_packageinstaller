@@ -18,7 +18,7 @@
 <resources>
     <style name="Settings" parent="@android:style/Theme.Material.Settings">
         <item name="android:actionBarStyle">@style/ActionBar</item>
-        <item name="@*android:preferenceStyle">@style/Preference</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Permissions</item>
     </style>
 
     <style name="GrantPermissions"
