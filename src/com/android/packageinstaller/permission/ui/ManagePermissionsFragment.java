@@ -17,14 +17,13 @@ package com.android.packageinstaller.permission.ui;
 
 import android.annotation.Nullable;
 import android.app.ActionBar;
-import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v14.preference.PreferenceFragment;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceClickListener;
 import android.support.v7.preference.PreferenceScreen;
@@ -146,14 +145,11 @@ public final class ManagePermissionsFragment extends PermissionsFrameFragment
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        bindPermissionUi(getActivity(), getView());
+    }
 
-        Activity activity = getActivity();
-        if (activity == null) {
-            return;
-        }
-
-        View rootView = getView();
-        if (rootView == null) {
+    private static void bindPermissionUi(@Nullable Context context, @Nullable View rootView) {
+        if (context == null || rootView == null) {
             return;
         }
 
@@ -161,8 +157,8 @@ public final class ManagePermissionsFragment extends PermissionsFrameFragment
         if (iconView != null) {
             // Set the icon as the background instead of the image because ImageView
             // doesn't properly scale vector drawables beyond their intrinsic size
-            Drawable icon = activity.getDrawable(R.drawable.ic_lock);
-            icon.setTint(activity.getColor(R.color.off_white));
+            Drawable icon = context.getDrawable(R.drawable.ic_lock);
+            icon.setTint(context.getColor(R.color.off_white));
             iconView.setBackground(icon);
         }
         TextView titleView = (TextView) rootView.findViewById(R.id.lb_title);
@@ -182,16 +178,20 @@ public final class ManagePermissionsFragment extends PermissionsFrameFragment
         }
 
         List<PermissionGroup> groups = mPermissions.getGroups();
-
         PreferenceScreen screen = getPreferenceScreen();
+        int uiModeType = getResources().getConfiguration().uiMode & Configuration.UI_MODE_TYPE_MASK;
+        boolean isTelevision = uiModeType == Configuration.UI_MODE_TYPE_TELEVISION;
 
         // Use this to speed up getting the info for all of the PermissionApps below.
         // Create a new one for each refresh to make sure it has fresh data.
         PmCache cache = new PmCache(getContext().getPackageManager());
         for (PermissionGroup group : groups) {
-            // Show legacy permissions only if the user chose that.
-            if (!mShowLegacyPermissions && group.getDeclaringPackage().equals(OS_PKG)
-                    && !Utils.isModernPermissionGroup(group.getName())) {
+            boolean isModernGroup = Utils.isModernPermissionGroup(group.getName());
+            boolean isSystemPermission = group.getDeclaringPackage().equals(OS_PKG);
+
+            // Show legacy permissions only if the user chose that, except
+            // on TV, where they get grouped into the extra screen.
+            if (!mShowLegacyPermissions && !isTelevision && isSystemPermission && !isModernGroup) {
                 continue;
             }
 
@@ -209,7 +209,7 @@ public final class ManagePermissionsFragment extends PermissionsFrameFragment
                 // Set blank summary so that no resizing/jumping happens when the summary is loaded.
                 preference.setSummary(" ");
                 preference.setPersistent(false);
-                if (group.getDeclaringPackage().equals(OS_PKG)) {
+                if (isSystemPermission && (isModernGroup || !isTelevision)) {
                     screen.addPreference(preference);
                 } else {
                     if (mExtraScreen == null) {
@@ -259,7 +259,7 @@ public final class ManagePermissionsFragment extends PermissionsFrameFragment
         }
     }
 
-    public static class AdditionalPermissionsFragment extends PreferenceFragment {
+    public static class AdditionalPermissionsFragment extends PermissionsFrameFragment {
         @Override
         public void onCreate(Bundle icicle) {
             super.onCreate(icicle);
@@ -281,6 +281,12 @@ public final class ManagePermissionsFragment extends PermissionsFrameFragment
                     return true;
             }
             return super.onOptionsItemSelected(item);
+        }
+
+        @Override
+        public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+            super.onViewCreated(view, savedInstanceState);
+            bindPermissionUi(getActivity(), getView());
         }
 
         @Override
