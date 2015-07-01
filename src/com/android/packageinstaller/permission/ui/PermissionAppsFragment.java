@@ -208,6 +208,9 @@ public final class PermissionAppsFragment extends PreferenceFragment implements 
                 pref.setKey(app.getKey());
                 pref.setIcon(app.getIcon());
                 pref.setTitle(app.getLabel());
+                if (app.isPolicyFixed()) {
+                    pref.setSummary(getString(R.string.permission_summary_enforced_by_policy));
+                }
                 pref.setPersistent(false);
                 pref.setEnabled(!app.isPolicyFixed());
                 preferences.addPreference(pref);
