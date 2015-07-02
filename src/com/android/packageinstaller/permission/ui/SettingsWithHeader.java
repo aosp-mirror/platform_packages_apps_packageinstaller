@@ -20,18 +20,17 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.preference.PreferenceFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.packageinstaller.R;
 
-public abstract class SettingsWithHeader extends PreferenceFragment implements OnClickListener {
+public abstract class SettingsWithHeader extends PermissionsFrameFragment
+        implements OnClickListener {
 
     private View mHeader;
     protected Intent mInfoIntent;
@@ -41,16 +40,16 @@ public abstract class SettingsWithHeader extends PreferenceFragment implements O
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        LinearLayout contentParent =
-                (LinearLayout) super.onCreateView(inflater, container, savedInstanceState);
+        ViewGroup root = (ViewGroup) super.onCreateView(inflater, container, savedInstanceState);
+
         int uiMode = getResources().getConfiguration().uiMode;
         if ((uiMode & Configuration.UI_MODE_TYPE_MASK) != Configuration.UI_MODE_TYPE_TELEVISION) {
-            mHeader = inflater.inflate(R.layout.header, contentParent, false);
-            contentParent.addView(mHeader, 0);
+            mHeader = inflater.inflate(R.layout.header, root, false);
+            getPreferencesContainer().addView(mHeader, 0);
             updateHeader();
         }
 
-        return contentParent;
+        return root;
     }
 
     public void setHeader(Drawable icon, CharSequence label, Intent infoIntent) {

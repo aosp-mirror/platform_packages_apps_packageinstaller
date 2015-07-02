@@ -158,7 +158,7 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
             Set<String> requestedPermissions = new ArraySet<>();
             for (PackageInfo installedPackage : installedPackages) {
                 if (installedPackage.requestedPermissions == null) {
-                    break;
+                    continue;
                 }
                 for (String requestedPermission : installedPackage.requestedPermissions) {
                     requestedPermissions.add(requestedPermission);

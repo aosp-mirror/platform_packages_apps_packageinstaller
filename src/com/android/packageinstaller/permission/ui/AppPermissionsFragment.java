@@ -21,6 +21,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
@@ -30,21 +31,19 @@ import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.Preference.OnPreferenceClickListener;
-import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
 import android.provider.Settings;
+import android.support.v14.preference.SwitchPreference;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.Preference.OnPreferenceChangeListener;
+import android.support.v7.preference.Preference.OnPreferenceClickListener;
+import android.support.v7.preference.PreferenceScreen;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -112,21 +111,6 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             }
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
-        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.permissions_frame, container,
-                        false);
-        ViewGroup prefsContainer = (ViewGroup) rootView.findViewById(R.id.prefs_container);
-        if (prefsContainer == null) {
-            prefsContainer = rootView;
-        }
-        prefsContainer.addView(super.onCreateView(inflater, prefsContainer, savedInstanceState));
-        View emptyView = rootView.findViewById(R.id.no_permissions);
-        ((ListView) rootView.findViewById(android.R.id.list)).setEmptyView(emptyView);
-        return rootView;
     }
 
     @Override
@@ -199,25 +183,19 @@ public final class AppPermissionsFragment extends SettingsWithHeader
     }
 
     private void bindPermissionsUi() {
-        final Activity activity = getActivity();
-
-        if (activity == null) {
+        Context context = getPreferenceManager().getContext();
+        if (context == null) {
             return;
         }
 
         PreferenceScreen screen = getPreferenceScreen();
-        if (screen == null) {
-            screen = getPreferenceManager().createPreferenceScreen(activity);
-            setPreferenceScreen(screen);
-        } else {
-            screen.removeAll();
-        }
+        screen.removeAll();
 
         if (mExtraScreen != null) {
             mExtraScreen.removeAll();
         }
 
-        final Preference extraPerms = new Preference(activity);
+        final Preference extraPerms = new Preference(context);
         extraPerms.setIcon(R.drawable.ic_toc);
         extraPerms.setTitle(R.string.additional_permissions);
 
@@ -227,10 +205,10 @@ public final class AppPermissionsFragment extends SettingsWithHeader
                 continue;
             }
 
-            SwitchPreference preference = new SwitchPreference(activity);
+            SwitchPreference preference = new SwitchPreference(context);
             preference.setOnPreferenceChangeListener(this);
             preference.setKey(group.getName());
-            Drawable icon = Utils.loadDrawable(activity.getPackageManager(),
+            Drawable icon = Utils.loadDrawable(context.getPackageManager(),
                     group.getIconPkg(), group.getIconResId());
             preference.setIcon(Utils.applyTint(getContext(), icon,
                     android.R.attr.colorControlNormal));
@@ -243,7 +221,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
                 screen.addPreference(preference);
             } else {
                 if (mExtraScreen == null) {
-                    mExtraScreen = getPreferenceManager().createPreferenceScreen(activity);
+                    mExtraScreen = getPreferenceManager().createPreferenceScreen(context);
                 }
                 mExtraScreen.addPreference(preference);
             }
@@ -375,8 +353,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
 
     public static class AdditionalPermissionsFragment extends SettingsWithHeader {
         @Override
-        public void onCreate(Bundle icicle) {
-            super.onCreate(icicle);
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             AppPermissionsFragment target = (AppPermissionsFragment) getTargetFragment();
             setPreferenceScreen(target.mExtraScreen);
             // Copy the header.

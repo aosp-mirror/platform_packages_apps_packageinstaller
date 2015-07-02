@@ -22,7 +22,6 @@ import android.content.pm.PackageItemInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PermissionInfo;
-import android.graphics.LightingColorFilter;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.UserHandle;
@@ -265,8 +264,7 @@ public class PermissionApps {
         } else {
             mIcon = mContext.getDrawable(com.android.internal.R.drawable.ic_perm_device_info);
         }
-        LightingColorFilter filter = new LightingColorFilter(0, 0xffffffff);
-        mIcon.setColorFilter(filter);
+        mIcon = Utils.applyTint(mContext, mIcon, android.R.attr.colorControlNormal);
     }
 
     public static class PermissionApp implements Comparable<PermissionApp> {
