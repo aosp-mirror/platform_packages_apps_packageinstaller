@@ -24,21 +24,18 @@ import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
+import android.support.v14.preference.SwitchPreference;
 import android.support.v4.util.ArrayMap;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.Preference.OnPreferenceChangeListener;
+import android.support.v7.preference.PreferenceScreen;
 import android.util.ArraySet;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.packageinstaller.R;
@@ -53,7 +50,7 @@ import com.android.packageinstaller.permission.utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class PermissionAppsFragment extends PreferenceFragment implements Callback,
+public final class PermissionAppsFragment extends PermissionsFrameFragment implements Callback,
         OnPreferenceChangeListener {
 
     private static final int MENU_SHOW_SYSTEM = Menu.FIRST;
@@ -127,19 +124,8 @@ public final class PermissionAppsFragment extends PreferenceFragment implements 
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
-        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.permissions_frame, container,
-                        false);
-        ViewGroup prefsContainer = (ViewGroup) rootView.findViewById(R.id.prefs_container);
-        if (prefsContainer == null) {
-            prefsContainer = rootView;
-        }
-        prefsContainer.addView(super.onCreateView(inflater, prefsContainer, savedInstanceState));
-        TextView emptyView = (TextView) rootView.findViewById(R.id.no_permissions);
-        emptyView.setText(R.string.no_apps);
-        ((ListView) rootView.findViewById(android.R.id.list)).setEmptyView(emptyView);
-        return rootView;
+    protected void onSetEmptyText(TextView textView) {
+        textView.setText(R.string.no_apps);
     }
 
     @Override
@@ -177,17 +163,13 @@ public final class PermissionAppsFragment extends PreferenceFragment implements 
 
     @Override
     public void onPermissionsLoaded(PermissionApps permissionApps) {
-        Context context = getActivity();
+        Context context = getPreferenceManager().getContext();
 
         if (context == null) {
             return;
         }
 
         PreferenceScreen preferences = getPreferenceScreen();
-        if (preferences == null) {
-            preferences = getPreferenceManager().createPreferenceScreen(getActivity());
-            setPreferenceScreen(preferences);
-        }
         preferences.removeAll();
         for (PermissionApp app : permissionApps.getApps()) {
             if (!Utils.shouldShowPermission(app)) {
@@ -203,7 +185,6 @@ public final class PermissionAppsFragment extends PreferenceFragment implements 
             }
             if (pref == null) {
                 pref = new SwitchPreference(context);
-                pref.setLayoutResource(R.layout.preference_app);
                 pref.setOnPreferenceChangeListener(this);
                 pref.setKey(app.getKey());
                 pref.setIcon(app.getIcon());

@@ -123,6 +123,10 @@ public class Utils {
         return icon;
     }
 
+    public static Drawable applyTint(Context context, int iconResId, int attr) {
+        return applyTint(context, context.getDrawable(iconResId), attr);
+    }
+
     public static ArraySet<String> getLauncherPackages(Context context) {
         ArraySet<String> launcherPkgs = new ArraySet<>();
         for (ResolveInfo info :

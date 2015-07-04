@@ -27,8 +27,17 @@
     <style name="Theme.Header.Settings" parent="@android:style/Theme.Material.Settings">
     </style>
 
-    <style name="Preference">
-        <item name="android:layout">@layout/preference</item>
+    <style name="PreferenceThemeOverlay.v14.Permissions">
+        <item name="preferenceStyle">@style/Preference.Permissions</item>
+        <item name="switchPreferenceStyle">@style/Preference.SwitchPreference.Permissions</item>
+    </style>
+
+    <style name="Preference.Permissions">
+        <item name="layout">@layout/preference_permissions</item>
+    </style>
+
+    <style name="Preference.SwitchPreference.Permissions">
+        <item name="layout">@layout/preference_permissions_switch</item>
     </style>
 
     <style name="ActionBar" parent="@android:style/Widget.Material.ActionBar.Solid">
