@@ -319,6 +319,10 @@ public class PermissionApps {
             return mAppPermissionGroup.isSystemFixed();
         }
 
+        public boolean hasGrantedByDefaultPermissions() {
+            return mAppPermissionGroup.hasGrantedByDefaultPermission();
+        }
+
         public boolean hasRuntimePermissions() {
             return mAppPermissionGroup.hasRuntimePermission();
         }

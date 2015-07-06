@@ -88,6 +88,10 @@ public final class Permission {
         return (mFlags & PackageManager.FLAG_PERMISSION_USER_SET) != 0;
     }
 
+    public boolean isGrantedByDefault() {
+        return (mFlags & PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT) != 0;
+    }
+
     public void setUserSet(boolean userSet) {
         if (userSet) {
             mFlags |= PackageManager.FLAG_PERMISSION_USER_SET;
