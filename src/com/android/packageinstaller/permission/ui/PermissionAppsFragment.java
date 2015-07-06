@@ -214,10 +214,10 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
         if (newValue == Boolean.TRUE) {
             app.grantRuntimePermissions();
         } else {
-            final boolean system = app.getAppInfo().isSystemApp();
-            if (system || (!app.hasRuntimePermissions() && !mHasConfirmedRevoke)) {
+            final boolean grantedByDefault = app.hasGrantedByDefaultPermissions();
+            if (grantedByDefault || (!app.hasRuntimePermissions() && !mHasConfirmedRevoke)) {
                 new AlertDialog.Builder(getContext())
-                        .setMessage(system ? R.string.system_warning
+                        .setMessage(grantedByDefault ? R.string.system_warning
                                 : R.string.old_sdk_deny_warning)
                         .setNegativeButton(R.string.cancel, null)
                         .setPositiveButton(R.string.grant_dialog_button_deny,
@@ -226,7 +226,7 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
                             public void onClick(DialogInterface dialog, int which) {
                                 ((SwitchPreference) preference).setChecked(false);
                                 app.revokeRuntimePermissions();
-                                if (!system) {
+                                if (!grantedByDefault) {
                                     mHasConfirmedRevoke = true;
                                 }
                             }
