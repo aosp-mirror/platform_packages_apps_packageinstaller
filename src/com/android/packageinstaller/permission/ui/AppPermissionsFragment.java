@@ -213,6 +213,9 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             preference.setIcon(Utils.applyTint(getContext(), icon,
                     android.R.attr.colorControlNormal));
             preference.setTitle(group.getLabel());
+            if (group.isPolicyFixed()) {
+                preference.setSummary(getString(R.string.permission_summary_enforced_by_policy));
+            }
             preference.setPersistent(false);
             preference.setEnabled(!group.isPolicyFixed());
             preference.setChecked(group.areRuntimePermissionsGranted());
