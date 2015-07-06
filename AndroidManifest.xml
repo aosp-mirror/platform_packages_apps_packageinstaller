@@ -88,7 +88,8 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".permission.model.PermissionStatusReceiver" >
+        <receiver android:name=".permission.model.PermissionStatusReceiver"
+            android:permission="android.permission.GRANT_REVOKE_PERMISSIONS">
             <intent-filter>
                 <action android:name="android.intent.action.GET_PERMISSIONS_COUNT" />
             </intent-filter>
