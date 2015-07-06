@@ -159,16 +159,21 @@ public class PermissionApps {
                 for (int j = 0; j < app.requestedPermissions.length; j++) {
                     String requestedPerm = app.requestedPermissions[j];
 
-                    boolean requestsPermissionInGroup = false;
+                    PermissionInfo requestedPermissionInfo = null;
 
                     for (PermissionInfo groupPermInfo : groupPermInfos) {
-                        if (groupPermInfo.name.equals(requestedPerm)) {
-                            requestsPermissionInGroup = true;
+                        if (requestedPerm.equals(groupPermInfo.name)) {
+                            requestedPermissionInfo = groupPermInfo;
                             break;
                         }
                     }
 
-                    if (!requestsPermissionInGroup) {
+                    if (requestedPermissionInfo == null) {
+                        continue;
+                    }
+
+                    if (requestedPermissionInfo.protectionLevel
+                            != PermissionInfo.PROTECTION_DANGEROUS) {
                         continue;
                     }
 
