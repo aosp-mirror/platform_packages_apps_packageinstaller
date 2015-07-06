@@ -258,15 +258,15 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         for (int i = 0; i < permissionCount; i++) {
             Permission permission = mPermissions.valueAt(i);
             if (mAppSupportsRuntimePermissions) {
-                if (!permission.isGranted()) {
-                    return false;
+                if (permission.isGranted()) {
+                    return true;
                 }
             } else if (permission.isGranted() && permission.getAppOp()
-                    != AppOpsManager.OP_NONE && !permission.isAppOpAllowed()) {
-                return false;
+                    != AppOpsManager.OP_NONE && permission.isAppOpAllowed()) {
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     public boolean grantRuntimePermissions(boolean fixedByTheUser) {
