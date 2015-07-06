@@ -207,6 +207,18 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         return mAppSupportsRuntimePermissions;
     }
 
+
+    public boolean hasGrantedByDefaultPermission() {
+        final int permissionCount = mPermissions.size();
+        for (int i = 0; i < permissionCount; i++) {
+            Permission permission = mPermissions.valueAt(i);
+            if (permission.isGrantedByDefault()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean hasAppOpPermission() {
         final int permissionCount = mPermissions.size();
         for (int i = 0; i < permissionCount; i++) {
