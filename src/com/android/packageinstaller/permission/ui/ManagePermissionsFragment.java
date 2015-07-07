@@ -68,6 +68,7 @@ public final class ManagePermissionsFragment extends PermissionsFrameFragment
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+        setLoading(true, false);
         setHasOptionsMenu(true);
         final ActionBar ab = getActivity().getActionBar();
         if (ab != null) {
@@ -256,6 +257,9 @@ public final class ManagePermissionsFragment extends PermissionsFrameFragment
             extraScreenPreference.setSummary(getString(R.string.additional_permissions_more,
                     mExtraScreen.getPreferenceCount()));
             screen.addPreference(extraScreenPreference);
+        }
+        if (screen.getPreferenceCount() != 0) {
+            setLoading(false, true);
         }
     }
 
