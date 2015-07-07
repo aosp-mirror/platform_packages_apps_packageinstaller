@@ -219,11 +219,11 @@ public class GrantPermissionsActivity extends Activity
             if (granted) {
                 groupState.mGroup.grantRuntimePermissions(doNotAskAgain);
                 groupState.mState = GroupState.STATE_ALLOWED;
-                updateGrantResults(groupState.mGroup);
             } else {
                 groupState.mGroup.revokeRuntimePermissions(doNotAskAgain);
                 groupState.mState = GroupState.STATE_DENIED;
             }
+            updateGrantResults(groupState.mGroup);
         }
         if (!showNextPermissionGroupGrantRequest()) {
             setResultAndFinish();
