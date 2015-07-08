@@ -16,18 +16,26 @@
 
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/prefs_container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:filterTouchesWhenObscured="true">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/no_permissions"
+    <FrameLayout
+        android:id="@+id/prefs_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/no_permissions"
-        android:gravity="center"
-        android:textAppearance="@android:style/TextAppearance.Large"
-        />
+        android:filterTouchesWhenObscured="true">
+
+        <TextView
+            android:id="@+id/no_permissions"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/no_permissions"
+            android:gravity="center"
+            android:textAppearance="@android:style/TextAppearance.Large"
+            />
+
+    </FrameLayout>
+
+    <include layout="@layout/loading_container" />
 
 </FrameLayout>
