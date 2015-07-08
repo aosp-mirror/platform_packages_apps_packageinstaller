@@ -244,8 +244,9 @@ public final class AppPermissionsFragment extends SettingsWithHeader
                     return true;
                 }
             });
-            extraPerms.setSummary(getString(R.string.additional_permissions_more,
-                    mExtraScreen.getPreferenceCount()));
+            int count = mExtraScreen.getPreferenceCount();
+            extraPerms.setSummary(getResources().getQuantityString(
+                    R.plurals.additional_permissions_more, count, count));
             screen.addPreference(extraPerms);
         }
         if (screen.getPreferenceCount() != 0) {
