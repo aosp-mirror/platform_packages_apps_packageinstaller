@@ -77,6 +77,7 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setLoading(true, false);
         setHasOptionsMenu(true);
         final ActionBar ab = getActivity().getActionBar();
         if (ab != null) {
@@ -197,6 +198,9 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
                 preferences.addPreference(pref);
             }
             pref.setChecked(app.areRuntimePermissionsGranted());
+        }
+        if (preferences.getPreferenceCount() != 0) {
+            setLoading(false, true);
         }
     }
 
