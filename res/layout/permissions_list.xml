@@ -24,6 +24,7 @@ This is the structure for the list of all permissions.
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
+        android:paddingEnd="4dp"
         android:layout_height="wrap_content">
         <LinearLayout android:id="@+id/privacylist"
             android:orientation="vertical"
