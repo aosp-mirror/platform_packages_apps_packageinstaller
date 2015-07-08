@@ -11,6 +11,9 @@ import android.support.v7.widget.RecyclerView.AdapterDataObserver;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.android.packageinstaller.R;
@@ -23,6 +26,10 @@ public abstract class PermissionsFrameFragment extends PreferenceFragment {
 
     // TV-specific instance variables
     @Nullable private VerticalGridView mGridView;
+
+    private View mLoadingView;
+    private ViewGroup mPrefsView;
+    private boolean mIsLoading;
 
     /**
      * Returns the view group that holds the preferences objects. This will
@@ -37,13 +44,15 @@ public abstract class PermissionsFrameFragment extends PreferenceFragment {
             Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.permissions_frame, container,
                         false);
-        ViewGroup prefsContainer = (ViewGroup) rootView.findViewById(R.id.prefs_container);
-        if (prefsContainer == null) {
-            prefsContainer = rootView;
+        mPrefsView = (ViewGroup) rootView.findViewById(R.id.prefs_container);
+        if (mPrefsView == null) {
+            mPrefsView = rootView;
         }
+        mLoadingView = rootView.findViewById(R.id.loading_container);
         mPreferencesContainer = (ViewGroup) super.onCreateView(
-                inflater, prefsContainer, savedInstanceState);
-        prefsContainer.addView(mPreferencesContainer);
+                inflater, mPrefsView, savedInstanceState);
+        setLoading(mIsLoading, false, true /* force */);
+        mPrefsView.addView(mPreferencesContainer);
         return rootView;
     }
 
@@ -53,6 +62,50 @@ public abstract class PermissionsFrameFragment extends PreferenceFragment {
         if (preferences == null) {
             preferences = getPreferenceManager().createPreferenceScreen(getActivity());
             setPreferenceScreen(preferences);
+        }
+    }
+
+    protected void setLoading(boolean loading, boolean animate) {
+        setLoading(loading, animate, false);
+    }
+
+    private void setLoading(boolean loading, boolean animate, boolean force) {
+        if (mIsLoading != loading || force) {
+            mIsLoading = loading;
+            if (mLoadingView == null) {
+                return;
+            }
+            setViewShown(mPrefsView, !loading, animate);
+            setViewShown(mLoadingView, loading, animate);
+        }
+    }
+
+    private void setViewShown(final View view, boolean shown, boolean animate) {
+        if (animate) {
+            Animation animation = AnimationUtils.loadAnimation(getContext(),
+                    shown ? android.R.anim.fade_in : android.R.anim.fade_out);
+            if (shown) {
+                view.setVisibility(View.VISIBLE);
+            } else {
+                animation.setAnimationListener(new AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        view.setVisibility(View.INVISIBLE);
+                    }
+                });
+            }
+            view.startAnimation(animation);
+        } else {
+            view.clearAnimation();
+            view.setVisibility(shown ? View.VISIBLE : View.INVISIBLE);
         }
     }
 
