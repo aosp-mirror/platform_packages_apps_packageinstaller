@@ -31,6 +31,8 @@ LOCAL_AAPT_FLAGS := --auto-add-overlay \
 LOCAL_PACKAGE_NAME := PackageInstaller
 LOCAL_CERTIFICATE := platform
 
+LOCAL_PRIVILEGED_MODULE := true
+
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 
 include $(BUILD_PACKAGE)
