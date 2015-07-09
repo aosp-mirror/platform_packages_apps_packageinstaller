@@ -136,6 +136,9 @@ public class GrantPermissionsActivity extends Activity
                         mRequestGrantPermissionGroups.put(group.getName(), new GroupState(group));
                     } break;
                 }
+            } else {
+                // if the permission is fixed, ensure that we return the right request result
+                updateGrantResults(group);
             }
         }
 
@@ -232,12 +235,11 @@ public class GrantPermissionsActivity extends Activity
 
     private void updateGrantResults(AppPermissionGroup group) {
         for (Permission permission : group.getPermissions()) {
-            if (permission.isGranted()) {
-                final int index = ArrayUtils.getArrayIndex(
-                        mRequestedPermissions, permission.getName());
-                if (index >= 0) {
-                    mGrantResults[index] = PackageManager.PERMISSION_GRANTED;
-                }
+            final int index = ArrayUtils.getArrayIndex(
+                    mRequestedPermissions, permission.getName());
+            if (index >= 0) {
+                mGrantResults[index] = permission.isGranted() ? PackageManager.PERMISSION_GRANTED
+                        : PackageManager.PERMISSION_DENIED;
             }
         }
     }
