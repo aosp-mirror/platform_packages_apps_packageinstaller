@@ -2,4 +2,7 @@
 # Don't warn about those in case this app is linking against an older
 # platform version.  We know about them, and they are safe.
 
+-keep class android.support.v7.preference.Preference* {
+    *;
+}
 -dontwarn android.support.v4.**
