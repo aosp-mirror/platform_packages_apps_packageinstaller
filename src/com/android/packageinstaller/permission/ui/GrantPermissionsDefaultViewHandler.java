@@ -144,6 +144,9 @@ final class GrantPermissionsDefaultViewHandler
         // If this is a second (or later) permission and the views exist, then animate.
         if (mIconView != null) {
             if (mGroupIndex > 0) {
+                // The first message will be announced as the title of the activity, all others
+                // we need to announce ourselves.
+                mDescContainer.announceForAccessibility(message);
                 animateToPermission();
             } else {
                 updateDescription();
@@ -356,12 +359,14 @@ final class GrantPermissionsDefaultViewHandler
         switch (view.getId()) {
             case R.id.permission_allow_button:
                 if (mResultListener != null) {
+                    view.clearAccessibilityFocus();
                     mResultListener.onPermissionGrantResult(mGroupName, true, false);
                 }
                 break;
             case R.id.permission_deny_button:
                 mAllowButton.setEnabled(true);
                 if (mResultListener != null) {
+                    view.clearAccessibilityFocus();
                     mResultListener.onPermissionGrantResult(mGroupName, false,
                             mDoNotAskCheckbox.isChecked());
                 }
