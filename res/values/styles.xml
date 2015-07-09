@@ -29,11 +29,16 @@
 
     <style name="PreferenceThemeOverlay.v14.Permissions">
         <item name="preferenceStyle">@style/Preference.Permissions</item>
+        <item name="preferenceCategoryStyle">@style/Preference.Category.Permissions</item>
         <item name="switchPreferenceStyle">@style/Preference.SwitchPreference.Permissions</item>
     </style>
 
     <style name="Preference.Permissions">
         <item name="layout">@layout/preference_permissions</item>
+    </style>
+
+    <style name="Preference.Category.Permissions">
+        <item name="layout">@layout/preference_category_material</item>
     </style>
 
     <style name="Preference.SwitchPreference.Permissions">
