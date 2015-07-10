@@ -26,8 +26,12 @@ public final class ManagePermissionsActivity extends Activity {
     private static final String LOG_TAG = "ManagePermissionsActivity";
 
     @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        if (savedInstanceState != null) {
+            return;
+        }
 
         Fragment fragment;
         String action = getIntent().getAction();
