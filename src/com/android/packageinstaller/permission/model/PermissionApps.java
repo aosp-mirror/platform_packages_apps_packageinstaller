@@ -55,6 +55,7 @@ public class PermissionApps {
     private ArrayMap<String, PermissionApp> mAppLookup;
 
     private boolean mSkipUi;
+    private boolean mRefreshing;
 
     public PermissionApps(Context context, String groupName, Callback callback) {
         this(context, groupName, callback, null);
@@ -79,8 +80,11 @@ public class PermissionApps {
     }
 
     public void refresh(boolean getUiInfo) {
-        mSkipUi = !getUiInfo;
-        new PermissionAppsLoader().execute();
+        if (!mRefreshing) {
+            mRefreshing = true;
+            mSkipUi = !getUiInfo;
+            new PermissionAppsLoader().execute();
+        }
     }
 
     public int getGrantedCount(ArraySet<String> launcherPkgs) {
@@ -368,6 +372,7 @@ public class PermissionApps {
 
         @Override
         protected void onPostExecute(List<PermissionApp> result) {
+            mRefreshing = false;
             createMap(result);
             if (mCallback != null) {
                 mCallback.onPermissionsLoaded(PermissionApps.this);
