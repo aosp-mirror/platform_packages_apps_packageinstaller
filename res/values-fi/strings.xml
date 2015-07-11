@@ -90,13 +90,13 @@
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Salli"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Estä"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>/<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="5209102765005869454">"Onko sovelluksella <xliff:g id="APP_NAME">%1$s</xliff:g> lupa <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_warning_template" msgid="5209102765005869454">"Saako <xliff:g id="APP_NAME">%1$s</xliff:g> <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Sovellukset"</string>
     <string name="app_permissions" msgid="3146758905824597178">"Sovelluksen käyttöoikeudet"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"Älä kysy enää koskaan"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Ei käyttöoikeuksia"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Lisäkäyttöoikeudet"</string>
-    <string name="additional_permissions_more" msgid="5359708933519276635">"<xliff:g id="COUNT">%1$d</xliff:g> lisää"</string>
+    <!-- no translation found for additional_permissions_more (945127158155064388) -->
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Tämä sovellus on suunniteltu vanhemmalle Android-versiolle. Se ei välttämättä toimi oikein, jos käyttöoikeuksia ei sallita."</string>
     <string name="show_legacy_permissions" msgid="8564016242732902337">"Näytä vanhat käyttöoikeudet"</string>
     <string name="hide_legacy_permissions" msgid="663430183171847324">"Piilota vanhat käyttöoikeudet"</string>
@@ -109,4 +109,11 @@
     <string name="location_settings" msgid="1774875730854491297">"Sijaintiasetukset"</string>
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> on tämän laitteen sijaintipalveluiden tarjoaja. Sijainnin käyttöoikeutta voi muokata sijaintiasetuksissa."</string>
     <string name="system_warning" msgid="7103819124542305179">"Jos peruutat tämän käyttöoikeuden, laitteesi perustoiminnot eivät välttämättä enää toimi oikein."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Käytännön vahvistama"</string>
+    <!-- no translation found for loading (7811651799620593731) -->
+    <skip />
+    <!-- no translation found for all_permissions (5156669007784613042) -->
+    <skip />
+    <!-- no translation found for other_permissions (2016192512386091933) -->
+    <skip />
 </resources>

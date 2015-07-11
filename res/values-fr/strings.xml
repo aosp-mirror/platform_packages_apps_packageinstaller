@@ -90,13 +90,13 @@
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Autoriser"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Refuser"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> sur <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="5209102765005869454">"Autoriser <xliff:g id="APP_NAME">%1$s</xliff:g> à effectuer l\'action suivante : <xliff:g id="ACTION">%2$s</xliff:g> ?"</string>
+    <string name="permission_warning_template" msgid="5209102765005869454">"Autoriser <xliff:g id="APP_NAME">%1$s</xliff:g> à <xliff:g id="ACTION">%2$s</xliff:g> ?"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Applications"</string>
     <string name="app_permissions" msgid="3146758905824597178">"Autoris. des applis"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"Ne plus jamais demander"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Aucune autorisation"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Autorisations supplémentaires"</string>
-    <string name="additional_permissions_more" msgid="5359708933519276635">"<xliff:g id="COUNT">%1$d</xliff:g> autres"</string>
+    <!-- no translation found for additional_permissions_more (945127158155064388) -->
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Cette application a été conçue pour une ancienne version d\'Android. Si vous désactivez les autorisations, l\'application risque de ne plus fonctionner comme prévu."</string>
     <string name="show_legacy_permissions" msgid="8564016242732902337">"Afficher les anciennes autorisations"</string>
     <string name="hide_legacy_permissions" msgid="663430183171847324">"Masquer les anciennes autorisations"</string>
@@ -109,4 +109,11 @@
     <string name="location_settings" msgid="1774875730854491297">"Paramètres de géolocalisation"</string>
     <string name="location_warning" msgid="8778701356292735971">"Les services de localisation pour cet appareil sont fournis via <xliff:g id="APP_NAME">%1$s</xliff:g>. Vous pouvez modifier l\'accès aux données de localisation dans les paramètres de localisation."</string>
     <string name="system_warning" msgid="7103819124542305179">"Si vous rejetez cette autorisation, il est possible que cela affecte certaines fonctionnalités de base de votre appareil."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Activé conformément aux règles"</string>
+    <!-- no translation found for loading (7811651799620593731) -->
+    <skip />
+    <!-- no translation found for all_permissions (5156669007784613042) -->
+    <skip />
+    <!-- no translation found for other_permissions (2016192512386091933) -->
+    <skip />
 </resources>

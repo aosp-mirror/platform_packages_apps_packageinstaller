@@ -20,7 +20,7 @@
     <string name="next" msgid="3057143178373252333">"بعدی"</string>
     <string name="install" msgid="5896438203900042068">"نصب"</string>
     <string name="done" msgid="3889387558374211719">"انجام شد"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"به این برنامه اجازه داده شود که:"</string>
+    <string name="security_settings_desc" msgid="2706691034244052604">"این برنامه مجاز است که:"</string>
     <string name="cancel" msgid="8360346460165114585">"لغو"</string>
     <string name="unknown" msgid="4742479012767208045">"ناشناس"</string>
     <string name="installing" msgid="8613631001631998372">"در حال نصب…"</string>
@@ -87,8 +87,8 @@
     <string name="devicePerms" msgid="6733560207731294504">"دسترسی به دستگاه"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"این به‌روزرسانی به مجوز جدیدی نیاز ندارد."</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"آیا می‌خواهید مجوزهای زیر را اعطا کنید؟ این مجوزها دسترسی به این موارد را بوجود می‌آورند:"</string>
-    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"مجاز"</string>
-    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"رد کردن"</string>
+    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"مجاز است"</string>
+    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"اجازه ندارد"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> از <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"به <xliff:g id="APP_NAME">%1$s</xliff:g> برای <xliff:g id="ACTION">%2$s</xliff:g> اجازه می‌دهید؟"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"برنامه‌ها"</string>
@@ -96,7 +96,7 @@
     <string name="never_ask_again" msgid="3798895821072102967">"دیگر هرگز سؤال نشود"</string>
     <string name="no_permissions" msgid="3210542466245591574">"مجوزی موجود نیست"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"مجوزهای بیشتر"</string>
-    <string name="additional_permissions_more" msgid="5359708933519276635">"<xliff:g id="COUNT">%1$d</xliff:g> مورد دیگر"</string>
+    <!-- no translation found for additional_permissions_more (945127158155064388) -->
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"‏این برنامه برای یک نسخه قدیمی‌تر از Android طراحی شده بود. نپذیرفتن اجازه ممکن است باعث شود که برنامه دیگر به صورتی که مورد نظر است کار نکند."</string>
     <string name="show_legacy_permissions" msgid="8564016242732902337">"نمایش مجوزهای قدیمی"</string>
     <string name="hide_legacy_permissions" msgid="663430183171847324">"پنهان کردن مجوزهای قدیمی"</string>
@@ -109,4 +109,11 @@
     <string name="location_settings" msgid="1774875730854491297">"تنظیمات مکان"</string>
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> یکی از ارائه‌دهندگان سرویس‌های مکان برای این دستگاه است. با رفتن به تنظیمات مکان می‌توانید دسترسی به موقعیت مکانی را تغییر دهید."</string>
     <string name="system_warning" msgid="7103819124542305179">"اگر این اجازه را رد کنید، ممکن است قابلیت‌های اصلی دستگاهتان دیگر عملکرد موردانتظار را نداشته باشند."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"اجرا توسط خط‌مشی"</string>
+    <!-- no translation found for loading (7811651799620593731) -->
+    <skip />
+    <!-- no translation found for all_permissions (5156669007784613042) -->
+    <skip />
+    <!-- no translation found for other_permissions (2016192512386091933) -->
+    <skip />
 </resources>
