@@ -22,20 +22,26 @@
     android:filterTouchesWhenObscured="true">
 
     <FrameLayout
-        android:id="@+id/prefs_container"
         android:layout_width="@dimen/lb_action_section_width"
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
         android:background="@color/lb_action_fragment_background">
 
-        <TextView
-            android:id="@+id/no_permissions"
+        <FrameLayout
+            android:id="@+id/prefs_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/no_permissions"
-            android:gravity="center"
-            android:textAppearance="@android:style/TextAppearance.Large"
-            />
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/no_permissions"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/no_permissions"
+                android:gravity="center"
+                android:textAppearance="@android:style/TextAppearance.Large"
+                />
+
+        </FrameLayout>
 
     </FrameLayout>
 
