@@ -71,6 +71,8 @@ public class GrantPermissionsActivity extends Activity
         super.onCreate(icicle);
         setFinishOnTouchOutside(false);
 
+        setTitle(R.string.permission_request_title);
+
         int uiMode = getResources().getConfiguration().uiMode & UI_MODE_TYPE_MASK;
         if (uiMode == UI_MODE_TYPE_TELEVISION) {
             mViewHandler = new GrantPermissionsTvViewHandler(this).setResultListener(this);
