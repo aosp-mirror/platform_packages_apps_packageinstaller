@@ -96,7 +96,10 @@
     <string name="never_ask_again" msgid="3798895821072102967">"නැවත කිසිදා නොඅසන්න"</string>
     <string name="no_permissions" msgid="3210542466245591574">"අවසර නොමැත"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"අතිරේක අවසර"</string>
-    <!-- no translation found for additional_permissions_more (945127158155064388) -->
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="one">.තව <xliff:g id="COUNT_1">%1$d</xliff:g></item>
+      <item quantity="other">.තව <xliff:g id="COUNT_1">%1$d</xliff:g></item>
+    </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"මෙම යෙදුම නිර්මාණය කර ඇත්තේ Android වල පැරණි අනුවාදයකට වේ. අවසර නොදීම මඟින් එය බලාපොරොත්තු වන ආකාරයට වැඩ නොකිරීමට හැක."</string>
     <string name="show_legacy_permissions" msgid="8564016242732902337">"ලෙගසි පෙන්වන්න"</string>
     <string name="hide_legacy_permissions" msgid="663430183171847324">"ලෙගසි සඟවන්න"</string>
@@ -110,10 +113,7 @@
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> මෙම උපාංගය සඳහා ස්ථාන සේවාවන් සපයන්නෙකු වේ. ස්ථාන ප්‍රවේශය ස්ථාන සැකසීම් වෙතින් වෙනස් කළ හැක."</string>
     <string name="system_warning" msgid="7103819124542305179">"ඔබ මෙම අවසරය ප්‍රතික්ෂේප කරන්නේ නම්, සමහර යෙදුම් බලාපොරොත්තු පරිදි ක්‍රියා නොකරනු ඇත."</string>
     <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"ප්‍රතිපත්තිය මඟින් බලාත්මක කරයි"</string>
-    <!-- no translation found for loading (7811651799620593731) -->
-    <skip />
-    <!-- no translation found for all_permissions (5156669007784613042) -->
-    <skip />
-    <!-- no translation found for other_permissions (2016192512386091933) -->
-    <skip />
+    <string name="loading" msgid="7811651799620593731">"පූරණය කරමින්…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"සියලු අවසර"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"වෙනත් යෙදුම් හැකියාවන්"</string>
 </resources>
