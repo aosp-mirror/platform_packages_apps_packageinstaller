@@ -72,11 +72,12 @@ public abstract class PermissionsFrameFragment extends PreferenceFragment {
     private void setLoading(boolean loading, boolean animate, boolean force) {
         if (mIsLoading != loading || force) {
             mIsLoading = loading;
-            if (mLoadingView == null) {
-                return;
+            if (mPrefsView != null) {
+                setViewShown(mPrefsView, !loading, animate);
             }
-            setViewShown(mPrefsView, !loading, animate);
-            setViewShown(mLoadingView, loading, animate);
+            if (mLoadingView != null) {
+                setViewShown(mLoadingView, loading, animate);
+            }
         }
     }
 
