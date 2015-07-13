@@ -96,7 +96,10 @@
     <string name="never_ask_again" msgid="3798895821072102967">"Never ask again"</string>
     <string name="no_permissions" msgid="3210542466245591574">"No permissions"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Additional permissions"</string>
-    <!-- no translation found for additional_permissions_more (945127158155064388) -->
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> more</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> more</item>
+    </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"This app was designed for an older version of Android. Denying permission may cause it to no longer function as intended."</string>
     <string name="show_legacy_permissions" msgid="8564016242732902337">"Show legacy"</string>
     <string name="hide_legacy_permissions" msgid="663430183171847324">"Hide legacy"</string>
@@ -110,10 +113,7 @@
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> is a provider of location services for this device. Location access can be modified from location settings."</string>
     <string name="system_warning" msgid="7103819124542305179">"If you deny this permission, basic features of your device may no longer function as intended."</string>
     <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Enforced by policy"</string>
-    <!-- no translation found for loading (7811651799620593731) -->
-    <skip />
-    <!-- no translation found for all_permissions (5156669007784613042) -->
-    <skip />
-    <!-- no translation found for other_permissions (2016192512386091933) -->
-    <skip />
+    <string name="loading" msgid="7811651799620593731">"Loading…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"All permissions"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Other app capabilities"</string>
 </resources>
