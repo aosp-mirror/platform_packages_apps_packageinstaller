@@ -17,7 +17,6 @@
 package com.android.packageinstaller.permission.ui;
 
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -28,6 +27,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.packageinstaller.R;
+import com.android.packageinstaller.permission.utils.Utils;
 
 public abstract class SettingsWithHeader extends PermissionsFrameFragment
         implements OnClickListener {
@@ -42,8 +42,7 @@ public abstract class SettingsWithHeader extends PermissionsFrameFragment
             Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) super.onCreateView(inflater, container, savedInstanceState);
 
-        int uiMode = getResources().getConfiguration().uiMode;
-        if ((uiMode & Configuration.UI_MODE_TYPE_MASK) != Configuration.UI_MODE_TYPE_TELEVISION) {
+        if (!Utils.isTelevision(getContext())) {
             mHeader = inflater.inflate(R.layout.header, root, false);
             getPreferencesContainer().addView(mHeader, 0);
             updateHeader();

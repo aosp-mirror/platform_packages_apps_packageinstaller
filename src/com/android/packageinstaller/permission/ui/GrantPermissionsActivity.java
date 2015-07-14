@@ -18,8 +18,6 @@ package com.android.packageinstaller.permission.ui;
 
 import static android.content.pm.PackageManager.PERMISSION_DENIED;
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
-import static android.content.res.Configuration.UI_MODE_TYPE_MASK;
-import static android.content.res.Configuration.UI_MODE_TYPE_TELEVISION;
 
 import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
@@ -36,7 +34,6 @@ import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.util.ArrayMap;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -47,6 +44,7 @@ import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
+import com.android.packageinstaller.permission.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,8 +71,7 @@ public class GrantPermissionsActivity extends Activity
 
         setTitle(R.string.permission_request_title);
 
-        int uiMode = getResources().getConfiguration().uiMode & UI_MODE_TYPE_MASK;
-        if (uiMode == UI_MODE_TYPE_TELEVISION) {
+        if (Utils.isTelevision(this)) {
             mViewHandler = new GrantPermissionsTvViewHandler(this).setResultListener(this);
         } else {
             mViewHandler = new GrantPermissionsDefaultViewHandler(this).setResultListener(this);
