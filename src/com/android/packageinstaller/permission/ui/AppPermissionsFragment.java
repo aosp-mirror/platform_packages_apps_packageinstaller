@@ -383,6 +383,17 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             setPreferenceScreen(target.mExtraScreen);
             // Copy the header.
             setHeader(target.mIcon, target.mLabel, target.mInfoIntent);
+            setHasOptionsMenu(true);
+        }
+
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            switch (item.getItemId()) {
+            case android.R.id.home:
+                getFragmentManager().popBackStack();
+                return true;
+            }
+            return super.onOptionsItemSelected(item);
         }
     }
 }
