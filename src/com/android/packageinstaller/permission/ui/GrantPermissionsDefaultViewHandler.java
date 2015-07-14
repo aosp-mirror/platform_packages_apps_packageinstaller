@@ -32,6 +32,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.ViewRootImpl;
 import android.view.WindowManager.LayoutParams;
+import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 import android.widget.Button;
@@ -63,6 +64,7 @@ final class GrantPermissionsDefaultViewHandler
     private static final long TRANSLATE_START_DELAY = 367;
     private static final long TRANSLATE_LENGTH = 317;
     private static final long GROUP_UPDATE_DELAY = 400;
+    private static final long DO_NOT_ASK_CHECK_DELAY = 450;
 
     private final Context mContext;
 
@@ -151,10 +153,9 @@ final class GrantPermissionsDefaultViewHandler
             } else {
                 updateDescription();
                 updateGroup();
+                updateDoNotAskCheckBox();
             }
         }
-        updateDoNotAskCheckBox();
-
     }
 
     private void animateToPermission() {
@@ -189,6 +190,13 @@ final class GrantPermissionsDefaultViewHandler
                 mRootView.removeOnLayoutChangeListener(this);
                 SparseArray<Float> endPositions = getViewPositions();
                 int endHeight = mRootView.getLayoutHeight();
+                if (startPositions.get(R.id.do_not_ask_checkbox) == 0
+                        && endPositions.get(R.id.do_not_ask_checkbox) != 0) {
+                    // If the checkbox didn't have a position before but has one now then set
+                    // the start position to the end position because it just became visible.
+                    startPositions.put(R.id.do_not_ask_checkbox,
+                            endPositions.get(R.id.do_not_ask_checkbox));
+                }
                 animateYPos(startPositions, endPositions, endHeight - startHeight);
             }
         });
@@ -248,6 +256,16 @@ final class GrantPermissionsDefaultViewHandler
                     }
                 })
                 .start();
+
+        boolean visibleBefore = mDoNotAskCheckbox.getVisibility() == View.VISIBLE;
+        updateDoNotAskCheckBox();
+        boolean visibleAfter = mDoNotAskCheckbox.getVisibility() == View.VISIBLE;
+        if (visibleBefore != visibleAfter) {
+            Animation anim = AnimationUtils.loadAnimation(mContext,
+                    visibleAfter ? android.R.anim.fade_in : android.R.anim.fade_out);
+            anim.setStartOffset(visibleAfter ? DO_NOT_ASK_CHECK_DELAY : 0);
+            mDoNotAskCheckbox.startAnimation(anim);
+        }
     }
 
     private void addHeightController(View v) {
