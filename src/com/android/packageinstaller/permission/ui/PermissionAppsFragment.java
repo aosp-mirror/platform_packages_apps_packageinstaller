@@ -88,7 +88,7 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setLoading(true, false);
+        setLoading(true /* loading */, false /* animate */);
         setHasOptionsMenu(true);
         final ActionBar ab = getActivity().getActionBar();
         if (ab != null) {
@@ -295,9 +295,7 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
             }
         }
 
-        if (screen.getPreferenceCount() != 0) {
-            setLoading(false, true);
-        }
+        setLoading(false /* loading */, true /* animate */);
 
         if (mOnPermissionsLoadedListener != null) {
             mOnPermissionsLoadedListener.onPermissionsLoaded(permissionApps);
@@ -384,13 +382,14 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
         @Override
         public void onCreate(Bundle savedInstanceState) {
             mOuterFragment = (PermissionAppsFragment) getTargetFragment();
+            setLoading(true /* loading */, false /* animate */);
             super.onCreate(savedInstanceState);
         }
 
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             if (mOuterFragment.mExtraScreen != null) {
-                setPreferenceScreen(mOuterFragment.mExtraScreen);
+                setPreferenceScreen();
             } else {
                 mOuterFragment.setOnPermissionsLoadedListener(this);
             }
@@ -406,8 +405,13 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
 
         @Override
         public void onPermissionsLoaded(PermissionApps permissionApps) {
-            setPreferenceScreen(mOuterFragment.mExtraScreen);
+            setPreferenceScreen();
             mOuterFragment.setOnPermissionsLoadedListener(null);
+        }
+
+        private void setPreferenceScreen() {
+            setPreferenceScreen(mOuterFragment.mExtraScreen);
+            setLoading(false /* loading */, true /* animate */);
         }
     }
 }

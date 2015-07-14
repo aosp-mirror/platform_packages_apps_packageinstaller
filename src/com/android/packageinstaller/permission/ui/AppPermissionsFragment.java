@@ -85,7 +85,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setLoading(true, false);
+        setLoading(true /* loading */, false /* animate */);
         mHasConfirmedRevoke = false;
         setHasOptionsMenu(true);
         final ActionBar ab = getActivity().getActionBar();
@@ -267,9 +267,8 @@ public final class AppPermissionsFragment extends SettingsWithHeader
                     R.plurals.additional_permissions_more, count, count));
             screen.addPreference(extraPerms);
         }
-        if (screen.getPreferenceCount() != 0) {
-            setLoading(false, true);
-        }
+
+        setLoading(false /* loading */, true /* animate */);
     }
 
     @Override
