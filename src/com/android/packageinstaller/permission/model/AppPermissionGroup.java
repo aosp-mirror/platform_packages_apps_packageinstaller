@@ -295,6 +295,13 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                     return false;
                 }
 
+                // Enable the permission app op before the permission grant.
+                if (permission.hasAppOp() && !permission.isAppOpAllowed()) {
+                    permission.setAppOpAllowed(true);
+                    mAppOps.setMode(permission.getAppOp(), uid, mPackageInfo.packageName,
+                            AppOpsManager.MODE_ALLOWED);
+                }
+
                 // Grant the permission if needed.
                 if (!permission.isGranted()) {
                     permission.setGranted(true);
@@ -315,13 +322,6 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                                         | PackageManager.FLAG_PERMISSION_USER_SET,
                                 0, mUserHandle);
                     }
-                }
-
-                // Enable the permission app op.
-                if (permission.hasAppOp() && !permission.isAppOpAllowed()) {
-                    permission.setAppOpAllowed(true);
-                    mAppOps.setMode(permission.getAppOp(), uid, mPackageInfo.packageName,
-                            AppOpsManager.MODE_ALLOWED);
                 }
             } else {
                 // Legacy apps cannot have a not granted permission but just in case.
@@ -385,6 +385,13 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                     return false;
                 }
 
+                // Disable the permission app op before the permission.
+                if (permission.hasAppOp() && permission.isAppOpAllowed()) {
+                    permission.setAppOpAllowed(false);
+                    mAppOps.setMode(permission.getAppOp(), uid, mPackageInfo.packageName,
+                            AppOpsManager.MODE_IGNORED);
+                }
+
                 // Revoke the permission if needed.
                 if (permission.isGranted()) {
                     permission.setGranted(false);
@@ -415,13 +422,6 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                                 PackageManager.FLAG_PERMISSION_USER_SET,
                                 mUserHandle);
                     }
-                }
-
-                // Disable the permission app op.
-                if (permission.hasAppOp() && permission.isAppOpAllowed()) {
-                    permission.setAppOpAllowed(false);
-                    mAppOps.setMode(permission.getAppOp(), uid, mPackageInfo.packageName,
-                            AppOpsManager.MODE_IGNORED);
                 }
             } else {
                 // Legacy apps cannot have a non-granted permission but just in case.
