@@ -1,7 +1,6 @@
 package com.android.packageinstaller.permission.ui;
 
 import android.annotation.Nullable;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v14.preference.PreferenceFragment;
 import android.support.v17.leanback.widget.VerticalGridView;
@@ -17,6 +16,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.android.packageinstaller.R;
+import com.android.packageinstaller.permission.utils.Utils;
 
 public abstract class PermissionsFrameFragment extends PreferenceFragment {
 
@@ -113,8 +113,7 @@ public abstract class PermissionsFrameFragment extends PreferenceFragment {
     @Override
     public RecyclerView onCreateRecyclerView(LayoutInflater inflater, ViewGroup parent,
             Bundle savedInstanceState) {
-        int uiMode = getResources().getConfiguration().uiMode;
-        if ((uiMode & Configuration.UI_MODE_TYPE_MASK) == Configuration.UI_MODE_TYPE_TELEVISION) {
+        if (Utils.isTelevision(getContext())) {
             mGridView = (VerticalGridView) inflater.inflate(
                     R.layout.leanback_preferences_list, parent, false);
             mGridView.setWindowAlignmentOffset(0);

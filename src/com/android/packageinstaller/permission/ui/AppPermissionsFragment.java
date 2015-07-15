@@ -21,7 +21,6 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
@@ -75,33 +74,49 @@ public final class AppPermissionsFragment extends SettingsWithHeader
     private boolean mShowLegacyPermissions;
 
     public static AppPermissionsFragment newInstance(String packageName) {
-        AppPermissionsFragment instance = new AppPermissionsFragment();
+        return setPackageName(new AppPermissionsFragment(), packageName);
+    }
+
+    private static <T extends Fragment> T setPackageName(T fragment, String packageName) {
         Bundle arguments = new Bundle();
         arguments.putString(Intent.EXTRA_PACKAGE_NAME, packageName);
-        instance.setArguments(arguments);
-        return instance;
+        fragment.setArguments(arguments);
+        return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setLoading(true /* loading */, false /* animate */);
-        mHasConfirmedRevoke = false;
         setHasOptionsMenu(true);
         final ActionBar ab = getActivity().getActionBar();
         if (ab != null) {
             ab.setDisplayHomeAsUpEnabled(true);
         }
+
+        String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
+        Activity activity = getActivity();
+        PackageInfo packageInfo = getPackageInfo(activity, packageName);
+        if (packageInfo == null) {
+            Toast.makeText(activity, R.string.app_not_found_dlg_title, Toast.LENGTH_LONG).show();
+            activity.finish();
+            return;
+        }
+
+        mAppPermissions = new AppPermissions(activity, packageInfo, null, true, new Runnable() {
+            @Override
+            public void run() {
+                getActivity().finish();
+            }
+        });
+        mAppPermissions.refresh();
+        loadPreferences();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        final ActionBar ab = getActivity().getActionBar();
-        if (ab != null) {
-            ab.setTitle(R.string.app_permissions);
-        }
-        updateUi();
+        setPreferencesCheckedState();
     }
 
     @Override
@@ -114,17 +129,17 @@ public final class AppPermissionsFragment extends SettingsWithHeader
 
             case R.id.toggle_legacy_permissions: {
                 mShowLegacyPermissions = !mShowLegacyPermissions;
-                bindPermissionsUi();
+                loadPreferences();
                 return true;
             }
 
             case MENU_ALL_PERMS: {
                 Fragment frag = AllAppPermissionsFragment.newInstance(
                         getArguments().getString(Intent.EXTRA_PACKAGE_NAME));
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(android.R.id.content, frag);
-                ft.addToBackStack("AllPerms");
-                ft.commit();
+                getFragmentManager().beginTransaction()
+                        .replace(android.R.id.content, frag)
+                        .addToBackStack("AllPerms")
+                        .commit();
                 return true;
             }
         }
@@ -134,7 +149,9 @@ public final class AppPermissionsFragment extends SettingsWithHeader
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        bindUi();
+        if (mAppPermissions != null) {
+            bindUi(this, mAppPermissions.getPackageInfo());
+        }
     }
 
     @Override
@@ -154,54 +171,41 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         }
     }
 
-    private void bindUi() {
-        String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
-
-        final Activity activity = getActivity();
-        PackageInfo packageInfo = getPackageInfo(packageName);
-        if (packageInfo == null) {
-            Toast.makeText(activity, R.string.app_not_found_dlg_title, Toast.LENGTH_LONG)
-                    .show();
-            activity.finish();
-            return;
-        }
-        final PackageManager pm = activity.getPackageManager();
+    private static void bindUi(SettingsWithHeader fragment, PackageInfo packageInfo) {
+        Activity activity = fragment.getActivity();
+        PackageManager pm = activity.getPackageManager();
         ApplicationInfo appInfo = packageInfo.applicationInfo;
-        final Drawable icon = appInfo.loadIcon(pm);
-        final CharSequence label = appInfo.loadLabel(pm);
         Intent infoIntent = null;
-        if (!getActivity().getIntent().getBooleanExtra(EXTRA_HIDE_INFO_BUTTON, false)) {
+        if (!activity.getIntent().getBooleanExtra(EXTRA_HIDE_INFO_BUTTON, false)) {
             infoIntent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                    .setData(Uri.fromParts("package", packageName, null));
+                    .setData(Uri.fromParts("package", packageInfo.packageName, null));
         }
-        setHeader(icon, label, infoIntent);
 
-        final ViewGroup rootView = (ViewGroup) getView();
-        final ImageView iconView = (ImageView) rootView.findViewById(R.id.lb_icon);
+        Drawable icon = appInfo.loadIcon(pm);
+        CharSequence label = appInfo.loadLabel(pm);
+        fragment.setHeader(icon, label, infoIntent);
+
+        ActionBar ab = activity.getActionBar();
+        if (ab != null) {
+            ab.setTitle(R.string.app_permissions);
+        }
+
+        ViewGroup rootView = (ViewGroup) fragment.getView();
+        ImageView iconView = (ImageView) rootView.findViewById(R.id.lb_icon);
         if (iconView != null) {
             iconView.setImageDrawable(icon);
         }
-        final TextView titleView = (TextView) rootView.findViewById(R.id.lb_title);
+        TextView titleView = (TextView) rootView.findViewById(R.id.lb_title);
         if (titleView != null) {
             titleView.setText(R.string.app_permissions);
         }
-        final TextView breadcrumbView = (TextView) rootView.findViewById(R.id.lb_breadcrumb);
+        TextView breadcrumbView = (TextView) rootView.findViewById(R.id.lb_breadcrumb);
         if (breadcrumbView != null) {
             breadcrumbView.setText(label);
         }
-
-        mAppPermissions = new AppPermissions(activity, packageInfo, null, true,
-                new Runnable() {
-            @Override
-            public void run() {
-                getActivity().finish();
-            }
-        });
-
-        bindPermissionsUi();
     }
 
-    private void bindPermissionsUi() {
+    private void loadPreferences() {
         Context context = getPreferenceManager().getContext();
         if (context == null) {
             return;
@@ -219,8 +223,16 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         extraPerms.setTitle(R.string.additional_permissions);
 
         for (AppPermissionGroup group : mAppPermissions.getPermissionGroups()) {
-            final boolean isPlatformPermission = group.getDeclaringPackage().equals(Utils.OS_PKG);
-            if (!Utils.shouldShowPermission(group, mShowLegacyPermissions)) {
+            if (!Utils.shouldShowPermission(group, true /* showLegacy */)) {
+                continue;
+            }
+
+            boolean isPlatform = group.getDeclaringPackage().equals(Utils.OS_PKG);
+            boolean isLegacy = isPlatform && !Utils.isModernPermissionGroup(group.getName());
+            boolean isTelevision = Utils.isTelevision(context);
+
+            if (isLegacy && !mShowLegacyPermissions && !isTelevision) {
+                // Television shows legacy on the extra screen
                 continue;
             }
 
@@ -239,7 +251,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             preference.setEnabled(!group.isPolicyFixed());
             preference.setChecked(group.areRuntimePermissionsGranted());
 
-            if (isPlatformPermission) {
+            if (isPlatform && (!isLegacy || !isTelevision)) {
                 screen.addPreference(preference);
             } else {
                 if (mExtraScreen == null) {
@@ -254,11 +266,12 @@ public final class AppPermissionsFragment extends SettingsWithHeader
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
                     AdditionalPermissionsFragment frag = new AdditionalPermissionsFragment();
+                    setPackageName(frag, getArguments().getString(Intent.EXTRA_PACKAGE_NAME));
                     frag.setTargetFragment(AppPermissionsFragment.this, 0);
-                    FragmentTransaction ft = getFragmentManager().beginTransaction();
-                    ft.replace(android.R.id.content, frag);
-                    ft.addToBackStack("AdditionalPerms");
-                    ft.commit();
+                    getFragmentManager().beginTransaction()
+                            .replace(android.R.id.content, frag)
+                            .addToBackStack(null)
+                            .commit();
                     return true;
                 }
             });
@@ -342,23 +355,20 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         }
     }
 
-    private void updateUi() {
-        mAppPermissions.refresh();
-
-        updatePrefs(getPreferenceScreen());
+    private void setPreferencesCheckedState() {
+        setPreferencesCheckedState(getPreferenceScreen());
         if (mExtraScreen != null) {
-            updatePrefs(mExtraScreen);
+            setPreferencesCheckedState(mExtraScreen);
         }
     }
 
-    private void updatePrefs(PreferenceScreen screen) {
-        final int preferenceCount = screen.getPreferenceCount();
+    private void setPreferencesCheckedState(PreferenceScreen screen) {
+        int preferenceCount = screen.getPreferenceCount();
         for (int i = 0; i < preferenceCount; i++) {
             Preference preference = screen.getPreference(i);
             if (preference instanceof SwitchPreference) {
                 SwitchPreference switchPref = (SwitchPreference) preference;
-                AppPermissionGroup group = mAppPermissions
-                        .getPermissionGroup(switchPref.getKey());
+                AppPermissionGroup group = mAppPermissions.getPermissionGroup(switchPref.getKey());
                 if (group != null) {
                     switchPref.setChecked(group.areRuntimePermissionsGranted());
                 }
@@ -366,24 +376,37 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         }
     }
 
-    private PackageInfo getPackageInfo(String packageName) {
+    private static PackageInfo getPackageInfo(Activity activity, String packageName) {
         try {
-            return getActivity().getPackageManager().getPackageInfo(
+            return activity.getPackageManager().getPackageInfo(
                     packageName, PackageManager.GET_PERMISSIONS);
         } catch (PackageManager.NameNotFoundException e) {
-            Log.i(LOG_TAG, "No package:" + getActivity().getCallingPackage(), e);
+            Log.i(LOG_TAG, "No package:" + activity.getCallingPackage(), e);
             return null;
         }
     }
 
     public static class AdditionalPermissionsFragment extends SettingsWithHeader {
+        AppPermissionsFragment mOuterFragment;
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            mOuterFragment = (AppPermissionsFragment) getTargetFragment();
+            super.onCreate(savedInstanceState);
+            setHeader(mOuterFragment.mIcon, mOuterFragment.mLabel, mOuterFragment.mInfoIntent);
+            setHasOptionsMenu(true);
+        }
+
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-            AppPermissionsFragment target = (AppPermissionsFragment) getTargetFragment();
-            setPreferenceScreen(target.mExtraScreen);
-            // Copy the header.
-            setHeader(target.mIcon, target.mLabel, target.mInfoIntent);
-            setHasOptionsMenu(true);
+            setPreferenceScreen(mOuterFragment.mExtraScreen);
+        }
+
+        @Override
+        public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+            super.onViewCreated(view, savedInstanceState);
+            String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
+            bindUi(this, getPackageInfo(getActivity(), packageName));
         }
 
         @Override

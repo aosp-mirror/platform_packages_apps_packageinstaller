@@ -23,7 +23,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v14.preference.SwitchPreference;
@@ -187,8 +186,7 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
             return;
         }
 
-        int uiModeType = getResources().getConfiguration().uiMode & Configuration.UI_MODE_TYPE_MASK;
-        boolean isTelevision = uiModeType == Configuration.UI_MODE_TYPE_TELEVISION;
+        boolean isTelevision = Utils.isTelevision(context);
         PreferenceScreen screen = getPreferenceScreen();
 
         ArraySet<String> preferencesToRemove = new ArraySet<>();
