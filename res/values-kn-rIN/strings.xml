@@ -96,7 +96,10 @@
     <string name="never_ask_again" msgid="3798895821072102967">"ಎಂದಿಗೂ ಮತ್ತೊಮ್ಮೆ ಕೇಳಬೇಡಿ"</string>
     <string name="no_permissions" msgid="3210542466245591574">"ಯಾವುದೇ ಅನುಮತಿಗಳಿಲ್ಲ"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"ಹೆಚ್ಚುವರಿ ಅನುಮತಿಗಳು"</string>
-    <!-- no translation found for additional_permissions_more (945127158155064388) -->
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> ಇನ್ನಷ್ಟು</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> ಇನ್ನಷ್ಟು</item>
+    </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"ಈ ಅಪ್ಲಿಕೇಶನ್ Android ನ ಹಳೆಯ ಆವೃತ್ತಿಗೆ ವಿನ್ಯಾಸಗೊಳಿಸಲಾಗಿತ್ತು. ಅನುಮತಿ ನಿರಾಕರಿಸುವಿಕೆ ಇನ್ನು ಮುಂದೆ ಉದ್ದೇಶಿಸಲ್ಪಟ್ಟಂತೆ ಕಾರ್ಯನಿರ್ವಹಿಸದೆ ಇರುವುದಕ್ಕೆ ಇದು ಕಾರಣವಾಗಬಹುದು."</string>
     <string name="show_legacy_permissions" msgid="8564016242732902337">"ಹಳೆಯದನ್ನು ತೋರಿಸು"</string>
     <string name="hide_legacy_permissions" msgid="663430183171847324">"ಹಳೆಯದನ್ನು ಮರೆಮಾಡು"</string>
@@ -110,12 +113,8 @@
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> ಅಪ್ಲಿಕೇಶನ್ ಈ ಸಾಧನಕ್ಕೆ ಸ್ಥಳ ಸೇವೆಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ. ಸ್ಥಳ ಪ್ರವೇಶವನ್ನು ಸ್ಥಳ ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಂದ ಮಾರ್ಪಡಿಸಬಹುದು."</string>
     <string name="system_warning" msgid="7103819124542305179">"ನೀವು ಈ ಅನುಮತಿಯನ್ನು ನಿರಾಕರಿಸಿದರೆ, ಇನ್ನು ಮುಂದೆ ನಿಮ್ಮ ಸಾಧನದ ಮೂಲ ವೈಶಿಷ್ಟ್ಯಗಳು ಉದ್ದೇಶಿದಂತೆ ಕಾರ್ಯನಿರ್ವಹಿಸದಿರಬಹುದು."</string>
     <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"ನೀತಿಯ ಮೂಲಕ ಜಾರಿಗೊಳಿಸಲಾಗಿದೆ"</string>
-    <!-- no translation found for loading (7811651799620593731) -->
-    <skip />
-    <!-- no translation found for all_permissions (5156669007784613042) -->
-    <skip />
-    <!-- no translation found for other_permissions (2016192512386091933) -->
-    <skip />
-    <!-- no translation found for permission_request_title (1204446718549121199) -->
-    <skip />
+    <string name="loading" msgid="7811651799620593731">"ಲೋಡ್ ಆಗುತ್ತಿದೆ..."</string>
+    <string name="all_permissions" msgid="5156669007784613042">"ಎಲ್ಲ ಅನುಮತಿಗಳು"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"ಇತರ ಅಪ್ಲಿಕೇಶನ್ ಸಾಮರ್ಥ್ಯಗಳು"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"ಅನುಮತಿ ವಿನಂತಿ"</string>
 </resources>

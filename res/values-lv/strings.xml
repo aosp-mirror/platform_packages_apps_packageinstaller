@@ -96,7 +96,11 @@
     <string name="never_ask_again" msgid="3798895821072102967">"Vairs nejautāt"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Nav atļauju"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Papildu atļaujas"</string>
-    <!-- no translation found for additional_permissions_more (945127158155064388) -->
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="zero">Vēl <xliff:g id="COUNT_1">%1$d</xliff:g></item>
+      <item quantity="one">Vēl <xliff:g id="COUNT_1">%1$d</xliff:g></item>
+      <item quantity="other">Vēl <xliff:g id="COUNT_1">%1$d</xliff:g></item>
+    </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Šī lietotne ir paredzēta vecākai Android versijai. Ja noraidīsiet atļauju, iespējams, netiks nodrošināta paredzētā lietotnes darbība."</string>
     <string name="show_legacy_permissions" msgid="8564016242732902337">"Rādīt mantotās atļaujas"</string>
     <string name="hide_legacy_permissions" msgid="663430183171847324">"Slēpt mantotās atļaujas"</string>
@@ -110,12 +114,8 @@
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> nodrošina šai ierīcei atrašanās vietu pakalpojumus. Piekļuves iestatījumus atrašanās vietas datiem var mainīt atrašanās vietas iestatījumos."</string>
     <string name="system_warning" msgid="7103819124542305179">"Ja nepiešķirsiet šo atļauju, ierīces pamatfunkcijas, iespējams, vairs nedarbosies, kā paredzēts."</string>
     <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Īstenota saskaņā ar politiku"</string>
-    <!-- no translation found for loading (7811651799620593731) -->
-    <skip />
-    <!-- no translation found for all_permissions (5156669007784613042) -->
-    <skip />
-    <!-- no translation found for other_permissions (2016192512386091933) -->
-    <skip />
-    <!-- no translation found for permission_request_title (1204446718549121199) -->
-    <skip />
+    <string name="loading" msgid="7811651799620593731">"Notiek ielāde..."</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Visas atļaujas"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Citas lietotnes atļaujas"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Atļaujas pieprasījums"</string>
 </resources>

@@ -96,7 +96,10 @@
     <string name="never_ask_again" msgid="3798895821072102967">"다시 묻지 않기"</string>
     <string name="no_permissions" msgid="3210542466245591574">"권한이 없음"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"추가 권한"</string>
-    <!-- no translation found for additional_permissions_more (945127158155064388) -->
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g>개 더보기</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g>개 더보기</item>
+    </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"이 앱은 Android 이전 버전에 맞게 설계되었습니다. 권한이 거부되면 정상적으로 작동하지 않을 수 있습니다."</string>
     <string name="show_legacy_permissions" msgid="8564016242732902337">"이전 권한 표시"</string>
     <string name="hide_legacy_permissions" msgid="663430183171847324">"이전 권한 숨기기"</string>
@@ -110,12 +113,8 @@
     <string name="location_warning" msgid="8778701356292735971">"이 기기의 위치 서비스 제공업체는 <xliff:g id="APP_NAME">%1$s</xliff:g>입니다. 위치 정보 액세스는 위치 설정에서 수정할 수 있습니다."</string>
     <string name="system_warning" msgid="7103819124542305179">"이 권한을 거부하는 경우 기기의 기본 기능이 제대로 작동하지 않을 수 있습니다."</string>
     <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"정책에 의해 시행됨"</string>
-    <!-- no translation found for loading (7811651799620593731) -->
-    <skip />
-    <!-- no translation found for all_permissions (5156669007784613042) -->
-    <skip />
-    <!-- no translation found for other_permissions (2016192512386091933) -->
-    <skip />
-    <!-- no translation found for permission_request_title (1204446718549121199) -->
-    <skip />
+    <string name="loading" msgid="7811651799620593731">"로드 중..."</string>
+    <string name="all_permissions" msgid="5156669007784613042">"모든 권한"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"다른 앱 기능"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"권한 요청"</string>
 </resources>

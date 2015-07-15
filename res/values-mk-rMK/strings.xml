@@ -96,7 +96,10 @@
     <string name="never_ask_again" msgid="3798895821072102967">"Никогаш не прашувај повторно"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Нема дозволи"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Дополнителни дозволи"</string>
-    <!-- no translation found for additional_permissions_more (945127158155064388) -->
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="one">Уште <xliff:g id="COUNT_1">%1$d</xliff:g></item>
+      <item quantity="other">Уште <xliff:g id="COUNT_1">%1$d</xliff:g></item>
+    </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Оваа апликација е дизајнирана за постара верзија на Android. Одбивањето на дозволата може да предизвика веќе да не функционира како што треба."</string>
     <string name="show_legacy_permissions" msgid="8564016242732902337">"Прикажи наследено"</string>
     <string name="hide_legacy_permissions" msgid="663430183171847324">"Сокриј наследено"</string>
@@ -110,12 +113,8 @@
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> е давател на услуги според локација за овој уред. Пристапот до локацијата може да се смени од Поставките за локација."</string>
     <string name="system_warning" msgid="7103819124542305179">"Ако ја одбиете оваа дозвола, основните функции на вашиот уред можеби веќе нема да функционираат како што треба."</string>
     <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Наложено од политиката"</string>
-    <!-- no translation found for loading (7811651799620593731) -->
-    <skip />
-    <!-- no translation found for all_permissions (5156669007784613042) -->
-    <skip />
-    <!-- no translation found for other_permissions (2016192512386091933) -->
-    <skip />
-    <!-- no translation found for permission_request_title (1204446718549121199) -->
-    <skip />
+    <string name="loading" msgid="7811651799620593731">"Се вчитува..."</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Сите дозволи"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Други можности на апликацијата"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Барање дозвола"</string>
 </resources>

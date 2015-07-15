@@ -96,7 +96,10 @@
     <string name="never_ask_again" msgid="3798895821072102967">"不再询问"</string>
     <string name="no_permissions" msgid="3210542466245591574">"没有权限"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"其他权限"</string>
-    <!-- no translation found for additional_permissions_more (945127158155064388) -->
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="other">另外 <xliff:g id="COUNT_1">%1$d</xliff:g> 项</item>
+      <item quantity="one">另外 <xliff:g id="COUNT_0">%1$d</xliff:g> 项</item>
+    </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"此应用专为旧版 Android 打造。拒绝权限可能会导致其无法正常运行。"</string>
     <string name="show_legacy_permissions" msgid="8564016242732902337">"显示旧权限"</string>
     <string name="hide_legacy_permissions" msgid="663430183171847324">"隐藏旧权限"</string>
@@ -110,12 +113,8 @@
     <string name="location_warning" msgid="8778701356292735971">"“<xliff:g id="APP_NAME">%1$s</xliff:g>”是此设备的一个位置信息服务提供程序。您可以在位置信息设置中修改位置信息使用权。"</string>
     <string name="system_warning" msgid="7103819124542305179">"如果您拒绝此权限，您设备的基本功能可能会无法正常使用。"</string>
     <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"依据政策强制执行"</string>
-    <!-- no translation found for loading (7811651799620593731) -->
-    <skip />
-    <!-- no translation found for all_permissions (5156669007784613042) -->
-    <skip />
-    <!-- no translation found for other_permissions (2016192512386091933) -->
-    <skip />
-    <!-- no translation found for permission_request_title (1204446718549121199) -->
-    <skip />
+    <string name="loading" msgid="7811651799620593731">"正在加载…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"所有权限"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"其他应用功能"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"权限请求"</string>
 </resources>

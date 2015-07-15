@@ -96,7 +96,10 @@
     <string name="never_ask_again" msgid="3798895821072102967">"Ne plus demander"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Aucune autorisation"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Autorisations supplémentaires"</string>
-    <!-- no translation found for additional_permissions_more (945127158155064388) -->
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> autre</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> autres</item>
+    </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Cette application a été conçue pour une version antérieure d\'Android. Si vous n\'accordez pas l\'autorisation, il se peut qu\'elle ne fonctionne plus correctement."</string>
     <string name="show_legacy_permissions" msgid="8564016242732902337">"Afficher les autorisations antérieures"</string>
     <string name="hide_legacy_permissions" msgid="663430183171847324">"Masquer les autorisations antérieures"</string>
@@ -110,12 +113,8 @@
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> est un fournisseur de services de localisation pour cet appareil. L\'accès à la position peut être modifié dans le menu des paramètres de localisation."</string>
     <string name="system_warning" msgid="7103819124542305179">"Si vous rejetez cette autorisation, il est possible que cela touche certaines fonctionnalités de base de votre appareil."</string>
     <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Activé conformément à la politique"</string>
-    <!-- no translation found for loading (7811651799620593731) -->
-    <skip />
-    <!-- no translation found for all_permissions (5156669007784613042) -->
-    <skip />
-    <!-- no translation found for other_permissions (2016192512386091933) -->
-    <skip />
-    <!-- no translation found for permission_request_title (1204446718549121199) -->
-    <skip />
+    <string name="loading" msgid="7811651799620593731">"Chargement en cours…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Toutes les autorisations"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Autres autorisations de l\'application"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Demande d\'autorisation"</string>
 </resources>

@@ -96,7 +96,10 @@
     <string name="never_ask_again" msgid="3798895821072102967">"পরে কখনই জিজ্ঞাসাই করবেন না"</string>
     <string name="no_permissions" msgid="3210542466245591574">"কোনো অনুমতি নেই"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"অতিরিক্ত অনুমতিগুলি"</string>
-    <!-- no translation found for additional_permissions_more (945127158155064388) -->
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="one">আরো <xliff:g id="COUNT_1">%1$d</xliff:g>টি</item>
+      <item quantity="other">আরো <xliff:g id="COUNT_1">%1$d</xliff:g>টি</item>
+    </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"একটি পুরোনো সংস্করণের Android এর জন্য এই অ্যাপ্লিকেশানটি ডিজাইন করা হয়েছিল৷ অনুমতি অস্বীকার করলে এটিকে যে কাজের উদ্দেশ্যে তৈরি করা হয়েছিল সেটি নাও করতে পারে৷"</string>
     <string name="show_legacy_permissions" msgid="8564016242732902337">"লেগাসি দেখান"</string>
     <string name="hide_legacy_permissions" msgid="663430183171847324">"লেগাসি লুকান"</string>
@@ -110,12 +113,8 @@
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> এই ডিভাইসের জন্য একটি অবস্থান পরিষেবাগুলি প্রদান করে। অবস্থান সেটিংস থেকে অবস্থানের অ্যাক্সেস পরিবর্তন করা যায়।"</string>
     <string name="system_warning" msgid="7103819124542305179">"আপনি যদি এই অনুমতিটি অস্বীকার করেন, তবে আপনার ডিভাইসের প্রাথমিক বৈশিষ্ট্যগুলিকে যে কাজের উদ্দেশ্যে তৈরি করা হয়েছিল সেগুলি নাও করতে পারে৷"</string>
     <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"নীতি দ্বারা প্রয়োগ করা হয়েছে"</string>
-    <!-- no translation found for loading (7811651799620593731) -->
-    <skip />
-    <!-- no translation found for all_permissions (5156669007784613042) -->
-    <skip />
-    <!-- no translation found for other_permissions (2016192512386091933) -->
-    <skip />
-    <!-- no translation found for permission_request_title (1204446718549121199) -->
-    <skip />
+    <string name="loading" msgid="7811651799620593731">"লোড হচ্ছে..."</string>
+    <string name="all_permissions" msgid="5156669007784613042">"সমস্ত অনুমতি"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"অন্যান্য অ্যাপ্লিকেশান ক্ষমতা"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"অনুমতির অনুরোধ"</string>
 </resources>
