@@ -22,6 +22,7 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.Resources.Theme;
 import android.graphics.drawable.Drawable;
@@ -141,5 +142,10 @@ public class Utils {
         ApplicationInfo info = app.getAppInfo();
         return info.isSystemApp() && (info.flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) == 0
                 && !launcherPkgs.contains(info.packageName);
+    }
+
+    public static boolean isTelevision(Context context) {
+        int uiMode = context.getResources().getConfiguration().uiMode;
+        return (uiMode & Configuration.UI_MODE_TYPE_MASK) == Configuration.UI_MODE_TYPE_TELEVISION;
     }
 }
