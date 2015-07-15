@@ -21,7 +21,6 @@ import android.app.FragmentTransaction;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.preference.Preference;
@@ -180,8 +179,7 @@ public final class ManagePermissionsFragment extends PermissionsFrameFragment
 
         List<PermissionGroup> groups = mPermissions.getGroups();
         PreferenceScreen screen = getPreferenceScreen();
-        int uiModeType = getResources().getConfiguration().uiMode & Configuration.UI_MODE_TYPE_MASK;
-        boolean isTelevision = uiModeType == Configuration.UI_MODE_TYPE_TELEVISION;
+        boolean isTelevision = Utils.isTelevision(context);
 
         // Use this to speed up getting the info for all of the PermissionApps below.
         // Create a new one for each refresh to make sure it has fresh data.
@@ -249,7 +247,7 @@ public final class ManagePermissionsFragment extends PermissionsFrameFragment
                     frag.setTargetFragment(ManagePermissionsFragment.this, 0);
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
                     ft.replace(android.R.id.content, frag);
-                    ft.addToBackStack("AdditionalPerms");
+                    ft.addToBackStack(null);
                     ft.commit();
                     return true;
                 }
