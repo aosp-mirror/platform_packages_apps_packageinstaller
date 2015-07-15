@@ -52,8 +52,8 @@
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"તમારા વ્યવસ્થાપક અજાણ સ્રોતોથી મેળવેલ એપ્લિકેશન્સના ઇન્સ્ટોલેશનની મંજૂરી આપતાં નથી."</string>
     <string name="ok" msgid="3468756155452870475">"ઑકે"</string>
     <string name="settings" msgid="6743583734099755409">"સેટિંગ્સ"</string>
-    <string name="allow_source_dlg_title" msgid="7568985073502399415">"એપ્લિકેશન્સ માટે નવો સ્રોત"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> અન્ય એપ્લિકેશન્સ ઇન્સ્ટોલ કરવા માંગે છે.\n\nઆને હમણાં અને ભવિષ્યમાં મંજૂરી આપીએ?"</string>
+    <string name="allow_source_dlg_title" msgid="7568985073502399415">"એપ્લિકેશનો માટે નવો સ્રોત"</string>
+    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> અન્ય એપ્લિકેશનો ઇન્સ્ટોલ કરવા માંગે છે.\n\nઆને હમણાં અને ભવિષ્યમાં મંજૂરી આપીએ?"</string>
     <string name="manage_applications" msgid="4033876279091996596">"એપ્લિકેશન્સનું સંચાલન કરો"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"એપ્લિકેશન બદલીએ?"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"તમે ઇન્સ્ટોલ કરી રહ્યાં છો તે એપ્લિકેશન બીજી એપ્લિકેશનનું સ્થાન લેશે.\n\nતમારો અગાઉનો તમામ ડેટા સાચવવામાં આવશે."</string>
@@ -91,29 +91,30 @@
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"નકારો"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> માંથી <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="APP_NAME">%1$s</xliff:g> ને <xliff:g id="ACTION">%2$s</xliff:g> ની મંજૂરી આપીએ?"</string>
-    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"એપ્લિકેશન્સ"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"એપ્લિકેશનો"</string>
     <string name="app_permissions" msgid="3146758905824597178">"એપ્લિકેશન પરવાનગીઓ"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"ફરી ક્યારેય પૂછશો નહીં"</string>
     <string name="no_permissions" msgid="3210542466245591574">"કોઈ પરવાનગીઓ નથી"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"વધારાની પરવાનગીઓ"</string>
-    <!-- no translation found for additional_permissions_more (945127158155064388) -->
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> વધુ</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> વધુ</item>
+    </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"આ એપ્લિકેશન Android ના જુના સંસ્કરણ માટે તૈયાર કરવામાં આવી હતી. પરવાનગી નકારવાથી તે ધાર્યા પ્રમાણે બિલકુલ કાર્ય કરશે નહી."</string>
-    <string name="show_legacy_permissions" msgid="8564016242732902337">"લેગેસી દર્શાવો"</string>
+    <string name="show_legacy_permissions" msgid="8564016242732902337">"લેગેસી બતાવો"</string>
     <string name="hide_legacy_permissions" msgid="663430183171847324">"લેગેસી છુપાવો"</string>
     <string name="default_permission_description" msgid="4992892207044156668">"એક અજાણી ક્રિયા કરો"</string>
     <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_1">%d</xliff:g> માંથી <xliff:g id="COUNT_0">%d</xliff:g> એપ્લિકેશન્સને મંજૂરી છે"</string>
-    <string name="menu_show_system" msgid="6773743421743728921">"સિસ્ટમ દર્શાવો"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"સિસ્ટમ બતાવો"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"સિસ્ટમ છુપાવો"</string>
     <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> પરવાનગીઓ"</string>
-    <string name="no_apps" msgid="1965493419005012569">"કોઇ એપ્લિકેશન્સ નથી"</string>
+    <string name="no_apps" msgid="1965493419005012569">"કોઇ એપ્લિકેશનો નથી"</string>
     <string name="location_settings" msgid="1774875730854491297">"સ્થાન સેટિંગ્સ"</string>
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> એ આ ઉપકરણ માટે સ્થાન સેવાઓના પ્રદાતા છે. સ્થાન સેટિંગ્સમાંથી સ્થાન ઍક્સેસ સંશોધિત કરી શકાય છે."</string>
     <string name="system_warning" msgid="7103819124542305179">"જો તમે આ પરવાનગી નકારો છો, તો તમારા ઉપકરણની મૂળભૂત સુવિધાઓ અપેક્ષા પ્રમાણે કાર્ય કરી શકશે નહીં."</string>
     <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"નીતિ દ્વારા લાગુ"</string>
-    <!-- no translation found for loading (7811651799620593731) -->
-    <skip />
-    <!-- no translation found for all_permissions (5156669007784613042) -->
-    <skip />
-    <!-- no translation found for other_permissions (2016192512386091933) -->
-    <skip />
+    <string name="loading" msgid="7811651799620593731">"લોડ કરી રહ્યું છે..."</string>
+    <string name="all_permissions" msgid="5156669007784613042">"બધી પરવાનગીઓ"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"અન્ય એપ્લિકેશન ક્ષમતાઓ"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"પરવાનગીની વિનંતી"</string>
 </resources>

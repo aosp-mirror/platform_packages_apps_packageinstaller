@@ -96,7 +96,14 @@
     <string name="never_ask_again" msgid="3798895821072102967">"عدم السؤال مرة أخرى"</string>
     <string name="no_permissions" msgid="3210542466245591574">"ليست هناك أذونات"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"أذونات إضافية"</string>
-    <!-- no translation found for additional_permissions_more (945127158155064388) -->
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="zero"><xliff:g id="COUNT_1">%1$d</xliff:g>لا أذونات أخرى</item>
+      <item quantity="two">إذنان آخران (<xliff:g id="COUNT_1">%1$d</xliff:g>)</item>
+      <item quantity="few"><xliff:g id="COUNT_1">%1$d</xliff:g> أذونات أخرى</item>
+      <item quantity="many"><xliff:g id="COUNT_1">%1$d</xliff:g> إذنًا آخر</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> من الأذونات الأخرى</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g>إذن واحد آخر</item>
+    </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"‏تم تصميم هذا التطبيق لإصدار قديم من Android. وقد يؤدي رفض الإذن إلى عدم العمل على النحو المطلوب مرة أخرى."</string>
     <string name="show_legacy_permissions" msgid="8564016242732902337">"عرض الأذونات القديمة"</string>
     <string name="hide_legacy_permissions" msgid="663430183171847324">"إخفاء الأذونات القديمة"</string>
@@ -110,10 +117,8 @@
     <string name="location_warning" msgid="8778701356292735971">"يعد <xliff:g id="APP_NAME">%1$s</xliff:g> أحد مقدمي خدمات الموقع لهذا الجهاز. يمكن تعديل إمكانية الوصول إلى الموقع من إعدادات الموقع."</string>
     <string name="system_warning" msgid="7103819124542305179">"إذا رفضت هذا الإذن، ربما لا تعمل ميزات أساسية في جهازك على النحو المنشود."</string>
     <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"فرضته إحدى السياسات"</string>
-    <!-- no translation found for loading (7811651799620593731) -->
-    <skip />
-    <!-- no translation found for all_permissions (5156669007784613042) -->
-    <skip />
-    <!-- no translation found for other_permissions (2016192512386091933) -->
-    <skip />
+    <string name="loading" msgid="7811651799620593731">"جارٍ التحميل..."</string>
+    <string name="all_permissions" msgid="5156669007784613042">"كل الأذونات"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"إمكانات التطبيق الأخرى"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"طلب الإذن"</string>
 </resources>
