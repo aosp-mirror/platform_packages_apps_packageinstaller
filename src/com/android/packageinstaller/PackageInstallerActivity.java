@@ -126,53 +126,59 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                 }
             }
         });
-
+        // If the app supports runtime permissions the new permissions will
+        // be requested at runtime, hence we do not show them at install.
+        boolean supportsRuntimePermissions = mPkgInfo.applicationInfo.targetSdkVersion
+                >= Build.VERSION_CODES.MNC;
         boolean permVisible = false;
         mScrollView = null;
         mOkCanInstall = false;
         int msg = 0;
-        if (mPkgInfo != null) {
-            AppSecurityPermissions perms = new AppSecurityPermissions(this, mPkgInfo);
-            final int N = perms.getPermissionCount(AppSecurityPermissions.WHICH_ALL);
-            if (mAppInfo != null) {
-                msg = (mAppInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0
-                        ? R.string.install_confirm_question_update_system
-                        : R.string.install_confirm_question_update;
-                mScrollView = new CaffeinatedScrollView(this);
-                mScrollView.setFillViewport(true);
-                boolean newPermissionsFound =
+
+        AppSecurityPermissions perms = new AppSecurityPermissions(this, mPkgInfo);
+        final int N = perms.getPermissionCount(AppSecurityPermissions.WHICH_ALL);
+        if (mAppInfo != null) {
+            msg = (mAppInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0
+                    ? R.string.install_confirm_question_update_system
+                    : R.string.install_confirm_question_update;
+            mScrollView = new CaffeinatedScrollView(this);
+            mScrollView.setFillViewport(true);
+            boolean newPermissionsFound = false;
+            if (!supportsRuntimePermissions) {
+                newPermissionsFound =
                         (perms.getPermissionCount(AppSecurityPermissions.WHICH_NEW) > 0);
                 mInstallFlowAnalytics.setNewPermissionsFound(newPermissionsFound);
                 if (newPermissionsFound) {
                     permVisible = true;
                     mScrollView.addView(perms.getPermissionsView(
                             AppSecurityPermissions.WHICH_NEW));
-                } else {
-                    LayoutInflater inflater = (LayoutInflater)getSystemService(
-                            Context.LAYOUT_INFLATER_SERVICE);
-                    TextView label = (TextView)inflater.inflate(R.layout.label, null);
-                    label.setText(R.string.no_new_perms);
-                    mScrollView.addView(label);
                 }
-                adapter.addTab(tabHost.newTabSpec(TAB_ID_NEW).setIndicator(
-                        getText(R.string.newPerms)), mScrollView);
-            } else  {
-                findViewById(R.id.tabscontainer).setVisibility(View.GONE);
-                findViewById(R.id.divider).setVisibility(View.VISIBLE);
             }
-            if (N > 0) {
-                permVisible = true;
+            if (!supportsRuntimePermissions && !newPermissionsFound) {
                 LayoutInflater inflater = (LayoutInflater)getSystemService(
                         Context.LAYOUT_INFLATER_SERVICE);
-                View root = inflater.inflate(R.layout.permissions_list, null);
-                if (mScrollView == null) {
-                    mScrollView = (CaffeinatedScrollView)root.findViewById(R.id.scrollview);
-                }
-                ((ViewGroup)root.findViewById(R.id.permission_list)).addView(
-                            perms.getPermissionsView(AppSecurityPermissions.WHICH_ALL));
-                adapter.addTab(tabHost.newTabSpec(TAB_ID_ALL).setIndicator(
-                        getText(R.string.allPerms)), root);
+                TextView label = (TextView)inflater.inflate(R.layout.label, null);
+                label.setText(R.string.no_new_perms);
+                mScrollView.addView(label);
             }
+            adapter.addTab(tabHost.newTabSpec(TAB_ID_NEW).setIndicator(
+                    getText(R.string.newPerms)), mScrollView);
+        } else  {
+            findViewById(R.id.tabscontainer).setVisibility(View.GONE);
+            findViewById(R.id.divider).setVisibility(View.VISIBLE);
+        }
+        if (!supportsRuntimePermissions && N > 0) {
+            permVisible = true;
+            LayoutInflater inflater = (LayoutInflater)getSystemService(
+                    Context.LAYOUT_INFLATER_SERVICE);
+            View root = inflater.inflate(R.layout.permissions_list, null);
+            if (mScrollView == null) {
+                mScrollView = (CaffeinatedScrollView)root.findViewById(R.id.scrollview);
+            }
+            ((ViewGroup)root.findViewById(R.id.permission_list)).addView(
+                        perms.getPermissionsView(AppSecurityPermissions.WHICH_ALL));
+            adapter.addTab(tabHost.newTabSpec(TAB_ID_ALL).setIndicator(
+                    getText(R.string.allPerms)), root);
         }
         mInstallFlowAnalytics.setPermissionsDisplayed(permVisible);
         if (!permVisible) {
@@ -392,12 +398,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     }
 
     private void initiateInstall() {
-        if (mPkgInfo.applicationInfo
-                .targetSdkVersion > Build.VERSION_CODES.LOLLIPOP_MR1) {
-            startInstall();
-            return;
-        }
-
         String pkgName = mPkgInfo.packageName;
         // Check if there is already a package on the device with this name
         // but it has been renamed to something else.
