@@ -28,8 +28,6 @@ import android.support.v7.preference.Preference.OnPreferenceClickListener;
 import android.support.v7.preference.PreferenceScreen;
 import android.util.ArraySet;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -58,8 +56,6 @@ public final class ManagePermissionsFragment extends PermissionsFrameFragment
 
     private PreferenceScreen mExtraScreen;
 
-    private boolean mShowLegacyPermissions;
-
     public static ManagePermissionsFragment newInstance() {
         return new ManagePermissionsFragment();
     }
@@ -85,34 +81,10 @@ public final class ManagePermissionsFragment extends PermissionsFrameFragment
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.toggle_legacy_permissions, menu);
-    }
-
-    @Override
-    public void onPrepareOptionsMenu(Menu menu) {
-        MenuItem item = menu.findItem(R.id.toggle_legacy_permissions);
-        if (!mShowLegacyPermissions) {
-            item.setTitle(R.string.show_legacy_permissions);
-        } else {
-            item.setTitle(R.string.hide_legacy_permissions);
-        }
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home: {
-                getActivity().finish();
-                return true;
-            }
-
-            case R.id.toggle_legacy_permissions: {
-                mShowLegacyPermissions = !mShowLegacyPermissions;
-                updatePermissionsUi();
-                return true;
-            }
+        if (item.getItemId() == android.R.id.home) {
+            getActivity().finish();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -179,20 +151,12 @@ public final class ManagePermissionsFragment extends PermissionsFrameFragment
 
         List<PermissionGroup> groups = mPermissions.getGroups();
         PreferenceScreen screen = getPreferenceScreen();
-        boolean isTelevision = Utils.isTelevision(context);
 
         // Use this to speed up getting the info for all of the PermissionApps below.
         // Create a new one for each refresh to make sure it has fresh data.
         PmCache cache = new PmCache(getContext().getPackageManager());
         for (PermissionGroup group : groups) {
-            boolean isModernGroup = Utils.isModernPermissionGroup(group.getName());
             boolean isSystemPermission = group.getDeclaringPackage().equals(OS_PKG);
-
-            // Show legacy permissions only if the user chose that, except
-            // on TV, where they get grouped into the extra screen.
-            if (!mShowLegacyPermissions && !isTelevision && isSystemPermission && !isModernGroup) {
-                continue;
-            }
 
             Preference preference = findPreference(group.getName());
             if (preference == null && mExtraScreen != null) {
@@ -208,7 +172,7 @@ public final class ManagePermissionsFragment extends PermissionsFrameFragment
                 // Set blank summary so that no resizing/jumping happens when the summary is loaded.
                 preference.setSummary(" ");
                 preference.setPersistent(false);
-                if (isSystemPermission && (isModernGroup || !isTelevision)) {
+                if (isSystemPermission) {
                     screen.addPreference(preference);
                 } else {
                     if (mExtraScreen == null) {
