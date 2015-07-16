@@ -295,7 +295,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                     return false;
                 }
 
-                // Enable the permission app op before the permission grant.
+                // Ensure the permission app op enabled before the permission grant.
                 if (permission.hasAppOp() && !permission.isAppOpAllowed()) {
                     permission.setAppOpAllowed(true);
                     mAppOps.setMode(permission.getAppOp(), uid, mPackageInfo.packageName,
@@ -383,13 +383,6 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                 // Do not touch permissions fixed by the system.
                 if (permission.isSystemFixed()) {
                     return false;
-                }
-
-                // Disable the permission app op before the permission.
-                if (permission.hasAppOp() && permission.isAppOpAllowed()) {
-                    permission.setAppOpAllowed(false);
-                    mAppOps.setMode(permission.getAppOp(), uid, mPackageInfo.packageName,
-                            AppOpsManager.MODE_IGNORED);
                 }
 
                 // Revoke the permission if needed.
