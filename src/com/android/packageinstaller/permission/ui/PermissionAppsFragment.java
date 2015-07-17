@@ -15,7 +15,6 @@
  */
 package com.android.packageinstaller.permission.ui;
 
-import android.annotation.Nullable;
 import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -144,7 +143,7 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         bindUi(this, mPermissionApps);
     }
@@ -394,7 +393,7 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
         }
 
         @Override
-        public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        public void onViewCreated(View view, Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
             String groupName = getArguments().getString(Intent.EXTRA_PERMISSION_NAME);
             PermissionApps permissionApps = new PermissionApps(getActivity(), groupName, null);
