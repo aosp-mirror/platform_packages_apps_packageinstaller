@@ -71,7 +71,6 @@ public final class AppPermissionsFragment extends SettingsWithHeader
     private PreferenceScreen mExtraScreen;
 
     private boolean mHasConfirmedRevoke;
-    private boolean mShowLegacyPermissions;
 
     public static AppPermissionsFragment newInstance(String packageName) {
         return setPackageName(new AppPermissionsFragment(), packageName);
@@ -127,12 +126,6 @@ public final class AppPermissionsFragment extends SettingsWithHeader
                 return true;
             }
 
-            case R.id.toggle_legacy_permissions: {
-                mShowLegacyPermissions = !mShowLegacyPermissions;
-                loadPreferences();
-                return true;
-            }
-
             case MENU_ALL_PERMS: {
                 Fragment frag = AllAppPermissionsFragment.newInstance(
                         getArguments().getString(Intent.EXTRA_PACKAGE_NAME));
@@ -157,18 +150,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.toggle_legacy_permissions, menu);
         menu.add(Menu.NONE, MENU_ALL_PERMS, Menu.NONE, R.string.all_permissions);
-    }
-
-    @Override
-    public void onPrepareOptionsMenu(Menu menu) {
-        MenuItem item = menu.findItem(R.id.toggle_legacy_permissions);
-        if (!mShowLegacyPermissions) {
-            item.setTitle(R.string.show_legacy_permissions);
-        } else {
-            item.setTitle(R.string.hide_legacy_permissions);
-        }
     }
 
     private static void bindUi(SettingsWithHeader fragment, PackageInfo packageInfo) {
@@ -223,18 +205,11 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         extraPerms.setTitle(R.string.additional_permissions);
 
         for (AppPermissionGroup group : mAppPermissions.getPermissionGroups()) {
-            if (!Utils.shouldShowPermission(group, true /* showLegacy */)) {
+            if (!Utils.shouldShowPermission(group)) {
                 continue;
             }
 
             boolean isPlatform = group.getDeclaringPackage().equals(Utils.OS_PKG);
-            boolean isLegacy = isPlatform && !Utils.isModernPermissionGroup(group.getName());
-            boolean isTelevision = Utils.isTelevision(context);
-
-            if (isLegacy && !mShowLegacyPermissions && !isTelevision) {
-                // Television shows legacy on the extra screen
-                continue;
-            }
 
             SwitchPreference preference = new SwitchPreference(context);
             preference.setOnPreferenceChangeListener(this);
@@ -251,7 +226,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             preference.setEnabled(!group.isPolicyFixed());
             preference.setChecked(group.areRuntimePermissionsGranted());
 
-            if (isPlatform && (!isLegacy || !isTelevision)) {
+            if (isPlatform) {
                 screen.addPreference(preference);
             } else {
                 if (mExtraScreen == null) {

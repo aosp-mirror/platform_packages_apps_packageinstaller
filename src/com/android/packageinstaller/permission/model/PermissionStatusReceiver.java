@@ -75,7 +75,7 @@ public class PermissionStatusReceiver extends BroadcastReceiver {
             int additionalCount = 0;
 
             for (AppPermissionGroup group : appPermissions.getPermissionGroups()) {
-                if (Utils.shouldShowPermission(group, false)) {
+                if (Utils.shouldShowPermission(group)) {
                     totalCount++;
                     if (group.areRuntimePermissionsGranted()) {
                         grantedCount++;
