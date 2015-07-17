@@ -76,7 +76,7 @@ public class Utils {
         return false;
     }
 
-    public static boolean shouldShowPermission(AppPermissionGroup group, boolean showLegacy) {
+    public static boolean shouldShowPermission(AppPermissionGroup group) {
         // We currently will not show permissions fixed by the system.
         // which is what the system does for system components.
         if (group.isSystemFixed()) {
@@ -92,7 +92,7 @@ public class Utils {
 
         final boolean isPlatformPermission = group.getDeclaringPackage().equals(OS_PKG);
         // Show legacy permissions only if the user chose that.
-        if (isPlatformPermission && !showLegacy
+        if (isPlatformPermission
                 && !Utils.isModernPermissionGroup(group.getName())) {
             return false;
         }
