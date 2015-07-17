@@ -34,6 +34,7 @@ import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.util.ArrayMap;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -246,8 +247,15 @@ public class GrantPermissionsActivity extends Activity
     }
 
     @Override
-    public void onBackPressed() {
-        mViewHandler.onBackPressed();
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+        // We do not allow backing out.
+        return keyCode == KeyEvent.KEYCODE_BACK;
+    }
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event)  {
+        // We do not allow backing out.
+        return keyCode == KeyEvent.KEYCODE_BACK;
     }
 
     @Override
