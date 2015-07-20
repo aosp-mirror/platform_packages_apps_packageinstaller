@@ -80,7 +80,7 @@
                   android:excludeFromRecents="true"
                   android:label="@string/app_permissions"
                   android:theme="@style/Settings"
-                  android:permission="android.permission.GRANT_REVOKE_PERMISSIONS">
+                  android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS">
             <intent-filter>
                 <action android:name="android.intent.action.MANAGE_PERMISSIONS" />
                 <action android:name="android.intent.action.MANAGE_APP_PERMISSIONS" />
@@ -90,7 +90,7 @@
         </activity>
 
         <receiver android:name=".permission.model.PermissionStatusReceiver"
-            android:permission="android.permission.GRANT_REVOKE_PERMISSIONS">
+            android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS">
             <intent-filter>
                 <action android:name="android.intent.action.GET_PERMISSIONS_COUNT" />
             </intent-filter>
