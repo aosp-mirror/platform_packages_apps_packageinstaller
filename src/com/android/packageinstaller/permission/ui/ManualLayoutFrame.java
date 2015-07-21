@@ -30,6 +30,7 @@ public class ManualLayoutFrame extends FrameLayout {
 
     private int mDesiredHeight;
     private int mHeight;
+    private int mWidth;
 
     private View mOffsetView;
 
@@ -45,11 +46,16 @@ public class ManualLayoutFrame extends FrameLayout {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        if (mWidth != 0) {
+            // Keep the width constant to avoid weirdness.
+            widthMeasureSpec = MeasureSpec.makeMeasureSpec(mWidth, MeasureSpec.EXACTLY);
+        }
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         mDesiredHeight = getMeasuredHeight();
         if (mHeight == 0 && mDesiredHeight != 0) {
-            // Record the first non-zero height, this will be the height henceforth.
+            // Record the first non-zero width and height, this will be the height henceforth.
             mHeight = mDesiredHeight;
+            mWidth = getMeasuredWidth();
         }
         if (mHeight != 0) {
             // Always report the same height
