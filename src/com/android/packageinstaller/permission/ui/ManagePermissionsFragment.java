@@ -201,7 +201,8 @@ public final class ManagePermissionsFragment extends PermissionsFrameFragment
                 && screen.findPreference(EXTRA_PREFS_KEY) == null) {
             Preference extraScreenPreference = new Preference(context);
             extraScreenPreference.setKey(EXTRA_PREFS_KEY);
-            extraScreenPreference.setIcon(Utils.applyTint(context, R.drawable.ic_toc,
+            extraScreenPreference.setIcon(Utils.applyTint(context,
+                    com.android.internal.R.drawable.ic_more_items,
                     android.R.attr.colorControlNormal));
             extraScreenPreference.setTitle(R.string.additional_permissions);
             extraScreenPreference.setOnPreferenceClickListener(new OnPreferenceClickListener() {
