@@ -177,7 +177,9 @@ public class PermissionApps {
                     }
 
                     if (requestedPermissionInfo.protectionLevel
-                            != PermissionInfo.PROTECTION_DANGEROUS) {
+                                != PermissionInfo.PROTECTION_DANGEROUS
+                            || (requestedPermissionInfo.flags
+                                & PermissionInfo.FLAG_INSTALLED) == 0) {
                         continue;
                     }
 
