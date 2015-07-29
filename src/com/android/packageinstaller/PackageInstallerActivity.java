@@ -129,7 +129,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         // If the app supports runtime permissions the new permissions will
         // be requested at runtime, hence we do not show them at install.
         boolean supportsRuntimePermissions = mPkgInfo.applicationInfo.targetSdkVersion
-                >= Build.VERSION_CODES.MNC;
+                >= Build.VERSION_CODES.M;
         boolean permVisible = false;
         mScrollView = null;
         mOkCanInstall = false;
