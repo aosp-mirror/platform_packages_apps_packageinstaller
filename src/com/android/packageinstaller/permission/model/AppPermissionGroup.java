@@ -299,8 +299,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                 // Ensure the permission app op enabled before the permission grant.
                 if (permission.hasAppOp() && !permission.isAppOpAllowed()) {
                     permission.setAppOpAllowed(true);
-                    mAppOps.setMode(permission.getAppOp(), uid, mPackageInfo.packageName,
-                            AppOpsManager.MODE_ALLOWED);
+                    mAppOps.setUidMode(permission.getAppOp(), uid, AppOpsManager.MODE_ALLOWED);
                 }
 
                 // Grant the permission if needed.
@@ -341,13 +340,12 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                         // Enable the app op.
                         String[] packageNames = mPackageManager.getPackagesForUid(uid);
                         for (String packageName : packageNames) {
-                            mAppOps.setMode(permission.getAppOp(), uid, packageName,
+                            mAppOps.setUidMode(permission.getAppOp(), uid,
                                     AppOpsManager.MODE_ALLOWED);
                         }
                     } else {
                         // Enable the app op.
-                        mAppOps.setMode(permission.getAppOp(), uid, mPackageInfo.packageName,
-                                AppOpsManager.MODE_ALLOWED);
+                        mAppOps.setUidMode(permission.getAppOp(), uid, AppOpsManager.MODE_ALLOWED);
                     }
 
                     // Mark that the permission should not be be granted on upgrade
@@ -434,13 +432,12 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                         String[] packageNames = mPackageManager.getPackagesForUid(uid);
                         for (String packageName : packageNames) {
                             // Disable the app op.
-                            mAppOps.setMode(permission.getAppOp(), uid,
-                                    packageName, AppOpsManager.MODE_IGNORED);
+                            mAppOps.setUidMode(permission.getAppOp(), uid,
+                                    AppOpsManager.MODE_IGNORED);
                         }
                     } else {
                         // Disable the app op.
-                        mAppOps.setMode(permission.getAppOp(), uid,
-                                mPackageInfo.packageName, AppOpsManager.MODE_IGNORED);
+                        mAppOps.setUidMode(permission.getAppOp(), uid, AppOpsManager.MODE_IGNORED);
                     }
 
                     // Mark that the permission should not be granted on upgrade
