@@ -89,6 +89,10 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".permission.ui.OverlayWarningDialog"
+                android:excludeFromRecents="true"
+                android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar" />
+
         <receiver android:name=".permission.model.PermissionStatusReceiver"
             android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS">
             <intent-filter>

@@ -22,8 +22,7 @@
     <FrameLayout
         android:id="@+id/prefs_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:filterTouchesWhenObscured="true">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/no_permissions"
