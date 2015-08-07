@@ -48,41 +48,27 @@
             to this built-in application?  Your existing data will not
             be lost.  It does not require any special access.</string>
     <string name="install_failed">App not installed.</string>
+    <!-- Reason displayed when installation fails because the package was blocked
+        from being installed (e.g., device policy, verification, ...) [CHAR LIMIT=100] -->
+    <string name="install_failed_blocked">The package was blocked from being installed.</string>
+    <!-- Reason displayed when installation fails because the package conflicts with
+        an existing application (e.g., incompatible certificates) [CHAR LIMIT=100] -->
+    <string name="install_failed_conflict">The package conflicts with an existing package by the same name.</string>
+    <!-- Reason displayed when installation fails because the package is incompatible with
+       the current tablet (e.g., missing native code for the current ABI, newer SDK, ...) [CHAR LIMIT=100] -->
+    <string name="install_failed_incompatible" product="tablet">This app isn\'t
+        compatible with your tablet.</string>
+    <!-- Reason displayed when installation fails because the package is incompatible with
+       the current TV (e.g., missing native code for the current ABI, newer SDK, ...) [CHAR LIMIT=100] -->
+    <string name="install_failed_incompatible" product="tv">This app isn\'t
+        compatible with your TV.</string>
+    <!-- Reason displayed when installation fails because the package is incompatible with
+       the current phone (e.g., missing native code for the current ABI, newer SDK, ...) [CHAR LIMIT=100] -->
+    <string name="install_failed_incompatible" product="default">This app isn\'t
+        compatible with your phone.</string>
     <!-- Reason displayed when installation fails because the installation package itself is invalid
         in some way (e.g., corrupt) [CHAR LIMIT=100] -->
     <string name="install_failed_invalid_apk">The package appears to be corrupt.</string>
-    <!-- Reason displayed when installation fails because the package an existing package is
-        installed with a conflicting package author signature [CHAR LIMIT=100] -->
-    <string name="install_failed_inconsistent_certificates">An existing package by the same name
-        with a conflicting signature is already installed.</string>
-    <!-- Reason displayed when installation fails because the package specifies a minimum compatible
-        OS version that is newer than our current OS version. [CHAR LIMIT=100] -->
-    <string name="install_failed_older_sdk">The package only works on newer versions of
-        Android.</string>
-    <!-- Reason displayed when installation fails because the package specifies it is compatible
-        only with a CPU that the current tablet doesn't have. [CHAR LIMIT=100] -->
-    <string name="install_failed_cpu_abi_incompatible" product="tablet">This app isn\'t
-        compatible with your tablet.</string>
-    <!-- Reason displayed when installation fails because the package specifies it is compatible
-        only with a CPU that the current TV doesn't have. [CHAR LIMIT=100] -->
-    <string name="install_failed_cpu_abi_incompatible" product="tv">This app isn\'t
-        compatible with your TV.</string>
-    <!-- Reason displayed when installation fails because the package specifies it is compatible
-        only with a CPU that the current phone doesn't have. [CHAR LIMIT=100] -->
-    <string name="install_failed_cpu_abi_incompatible" product="default">This app isn\'t
-        compatible with your phone.</string>
-    <!-- Reason displayed when installation fails because the package was deleted during the
-        installation process. [CHAR LIMIT=100] -->
-    <string name="install_failed_file_not_found">The package specified was deleted before
-        installation could be completed.</string>
-    <!-- Reason displayed when installation fails because the package could not be verified
-        because the package verifier rejected it. [CHAR LIMIT=100] -->
-    <string name="install_failed_verify_failed">The package did not pass verification and cannot
-        be installed.</string>
-    <!-- Reason displayed when installation fails because the package could not be verified
-        before the internal system timer expired. [CHAR LIMIT=100] -->
-    <string name="install_failed_verify_timeout">A timeout occurred while trying to verify this
-        package. Try to install it again later.</string>
     <!-- Message presented when an application could not be installed on the tablet for some reason. [CHAR LIMIT=100] -->
     <string name="install_failed_msg" product="tablet"><xliff:g id="app_name">%1$s</xliff:g> couldn\'t be installed on your tablet.</string>
     <!-- Message presented when an application could not be installed on the TV for some reason. [CHAR LIMIT=100] -->
