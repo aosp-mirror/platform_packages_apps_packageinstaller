@@ -19,7 +19,6 @@ package com.android.packageinstaller.permission.ui;
 import static android.content.pm.PackageManager.PERMISSION_DENIED;
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 
-import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -50,7 +49,7 @@ import com.android.packageinstaller.permission.utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GrantPermissionsActivity extends Activity
+public class GrantPermissionsActivity extends OverlayTouchActivity
         implements GrantPermissionsViewHandler.ResultListener {
 
     private static final String LOG_TAG = "GrantPermissionsActivity";
@@ -219,6 +218,11 @@ public class GrantPermissionsActivity extends Activity
 
     @Override
     public void onPermissionGrantResult(String name, boolean granted, boolean doNotAskAgain) {
+        if (isObscuredTouch()) {
+            showOverlayDialog();
+            finish();
+            return;
+        }
         GroupState groupState = mRequestGrantPermissionGroups.get(name);
         if (groupState.mGroup != null) {
             if (granted) {

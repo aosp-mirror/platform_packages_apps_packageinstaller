@@ -16,13 +16,12 @@
 
 package com.android.packageinstaller.permission.ui;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
-public final class ManagePermissionsActivity extends Activity {
+public final class ManagePermissionsActivity extends OverlayTouchActivity {
     private static final String LOG_TAG = "ManagePermissionsActivity";
 
     @Override
