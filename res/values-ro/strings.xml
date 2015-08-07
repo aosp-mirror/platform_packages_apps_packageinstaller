@@ -40,7 +40,7 @@
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Această aplicație nu este compatibilă cu telefonul dvs."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Pachetul specificat a fost şters înainte ca instalarea să poată fi finalizată."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"Pachetul nu a trecut de verificare și nu pot fi instalat."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"La verificarea pachetului timpul limită a expirat. Încercaţi să instalaţi din nou ulterior."</string>
+    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"La verificarea pachetului timpul limită a expirat. Încercați să instalaţi din nou ulterior."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> nu a putut fi instalată pe tableta dvs."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Aplicația <xliff:g id="APP_NAME">%1$s</xliff:g> nu a putut fi instalată pe televizor."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> nu a putut fi instalată pe telefonul dvs."</string>
@@ -54,7 +54,7 @@
     <string name="settings" msgid="6743583734099755409">"Setări"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Sursă nouă pentru aplicații"</string>
     <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> doreşte să instaleze alte aplicații.\n\nPermiteţi acest lucru acum și pe viitor?"</string>
-    <string name="manage_applications" msgid="4033876279091996596">"Gestionaţi aplicații"</string>
+    <string name="manage_applications" msgid="4033876279091996596">"Gestionați aplicații"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Înlocuiţi aplicația?"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Aplicaţia pe care o instalaţi va înlocui o altă aplicație.\n \nToate datele dvs. anterioare de utilizator vor fi salvate."</string>
     <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Aceasta este o aplicație de sistem.\n \nToate datele dvs. anterioare de utilizator vor fi salvate."</string>
@@ -77,7 +77,7 @@
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Nu se poate dezinstala, pachetul este administrator de dispozitive activ pt. <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
     <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Aplicația este necesară pentru profilul de serviciu și nu poate fi dezinstalată."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Aplicație necesară administratorului dispozitivului. Nu poate fi dezinstalată."</string>
-    <string name="manage_device_administrators" msgid="891392489300312370">"Gestionaţi administratori de dispozitive"</string>
+    <string name="manage_device_administrators" msgid="891392489300312370">"Gestionați administratori de dispozitive"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> nu a putut fi dezinstalată."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Erori de analizare"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"A apărut o problemă la analizarea pachetului."</string>
@@ -116,5 +116,7 @@
     <string name="all_permissions" msgid="5156669007784613042">"Toate permisiunile"</string>
     <string name="other_permissions" msgid="2016192512386091933">"Alte funcții ale aplicației"</string>
     <string name="permission_request_title" msgid="1204446718549121199">"Solicitare de permisiune"</string>
-    <string name="screen_overlay_toast" msgid="463257543084935984">"Pentru a seta permisiunile, dezactivați suprapunerea pe ecran din Setări &gt; Aplicații"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"S-a detectat suprapunerea pe ecran"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Ca să schimbați această setare pentru permisiuni, mai întâi trebuie să dezactivați suprapunerea pe ecran din Setări &gt; Aplicații"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Deschideți setările"</string>
 </resources>
