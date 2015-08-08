@@ -123,6 +123,11 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
                         continue;
                     }
 
+                    if ((perm.flags & PermissionInfo.FLAG_INSTALLED) == 0
+                            || (perm.flags & PermissionInfo.FLAG_HIDDEN) != 0) {
+                        continue;
+                    }
+
                     if (perm.protectionLevel == PermissionInfo.PROTECTION_DANGEROUS) {
                         PermissionGroupInfo group = getGroup(perm.group, pm);
                         PreferenceGroup pref =
