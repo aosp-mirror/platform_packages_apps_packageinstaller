@@ -66,7 +66,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         }
 
         if (permissionInfo.protectionLevel != PermissionInfo.PROTECTION_DANGEROUS
-                || (permissionInfo.flags & PermissionInfo.FLAG_INSTALLED) == 0) {
+                || (permissionInfo.flags & PermissionInfo.FLAG_INSTALLED) == 0
+                || (permissionInfo.flags & PermissionInfo.FLAG_HIDDEN) != 0) {
             return null;
         }
 
