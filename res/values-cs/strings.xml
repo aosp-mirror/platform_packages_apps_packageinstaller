@@ -104,7 +104,7 @@
     </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Tato aplikace byla vytvořena pro starší verzi platformy Android. Pokud oprávnění neudělíte, může přestat fungovat podle původního záměru."</string>
     <string name="default_permission_description" msgid="4992892207044156668">"provést neznámou akci"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"Povoleno u <xliff:g id="COUNT_0">%d</xliff:g> z <xliff:g id="COUNT_1">%d</xliff:g> aplikací"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"Povoleno u <xliff:g id="COUNT_0">%1$d</xliff:g> z <xliff:g id="COUNT_1">%2$d</xliff:g> aplikací"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"Zobrazit systémové aplikace"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"Skrýt systémové aplikace"</string>
     <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> – oprávnění"</string>
@@ -117,10 +117,7 @@
     <string name="all_permissions" msgid="5156669007784613042">"Všechna oprávnění"</string>
     <string name="other_permissions" msgid="2016192512386091933">"Ostatní oprávnění aplikace"</string>
     <string name="permission_request_title" msgid="1204446718549121199">"Žádost o oprávnění"</string>
-    <!-- no translation found for screen_overlay_title (3021729846864038529) -->
-    <skip />
-    <!-- no translation found for screen_overlay_message (2141944461571677331) -->
-    <skip />
-    <!-- no translation found for screen_overlay_button (4344544843349937743) -->
-    <skip />
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Byla zjištěna překryvná vrstva obrazovky"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Chcete-li změnit nastavení tohoto oprávnění, v Nastavení &gt; Aplikace je třeba nejprve vypnout překryvnou vrstvu obrazovky"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Otevřít nastavení"</string>
 </resources>

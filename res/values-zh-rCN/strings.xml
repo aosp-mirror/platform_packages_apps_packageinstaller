@@ -102,7 +102,7 @@
     </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"此应用专为旧版 Android 打造。拒绝权限可能会导致其无法正常运行。"</string>
     <string name="default_permission_description" msgid="4992892207044156668">"执行未知操作"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"已授权 <xliff:g id="COUNT_0">%d</xliff:g> 个应用（共 <xliff:g id="COUNT_1">%d</xliff:g> 个）"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"已授权 <xliff:g id="COUNT_0">%1$d</xliff:g> 个应用（共 <xliff:g id="COUNT_1">%2$d</xliff:g> 个）"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"显示系统应用"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"隐藏系统应用"</string>
     <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g>权限"</string>
@@ -115,10 +115,7 @@
     <string name="all_permissions" msgid="5156669007784613042">"所有权限"</string>
     <string name="other_permissions" msgid="2016192512386091933">"其他应用功能"</string>
     <string name="permission_request_title" msgid="1204446718549121199">"权限请求"</string>
-    <!-- no translation found for screen_overlay_title (3021729846864038529) -->
-    <skip />
-    <!-- no translation found for screen_overlay_message (2141944461571677331) -->
-    <skip />
-    <!-- no translation found for screen_overlay_button (4344544843349937743) -->
-    <skip />
+    <string name="screen_overlay_title" msgid="3021729846864038529">"检测到屏幕叠加层"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"要更改此权限设置，您必须首先在“设置”&gt;“应用”中关闭屏幕叠加层"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"打开设置"</string>
 </resources>

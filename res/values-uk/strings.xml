@@ -104,7 +104,7 @@
     </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Цей додаток створено для старішої версії ОС Android. Якщо скасувати дозвіл, він може працювати неналежним чином."</string>
     <string name="default_permission_description" msgid="4992892207044156668">"виконувати невідому дію"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"Дозволено додатків: <xliff:g id="COUNT_0">%d</xliff:g> з <xliff:g id="COUNT_1">%d</xliff:g>"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"Дозволено додатків: <xliff:g id="COUNT_0">%1$d</xliff:g> з <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"Показати системні додатки"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"Сховати системні додатки"</string>
     <string name="permission_title" msgid="6495415273398916381">"Дозволи: <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
@@ -117,10 +117,7 @@
     <string name="all_permissions" msgid="5156669007784613042">"Усі дозволи"</string>
     <string name="other_permissions" msgid="2016192512386091933">"Інші дозволи додатка"</string>
     <string name="permission_request_title" msgid="1204446718549121199">"Запит на дозвіл"</string>
-    <!-- no translation found for screen_overlay_title (3021729846864038529) -->
-    <skip />
-    <!-- no translation found for screen_overlay_message (2141944461571677331) -->
-    <skip />
-    <!-- no translation found for screen_overlay_button (4344544843349937743) -->
-    <skip />
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Виявлено накладання на екрані"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Щоб змінити налаштування цього дозволу, спершу вимкніть накладання на екрані в меню \"Налаштування\" &gt; \"Додатки\""</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Відкрити налаштування"</string>
 </resources>

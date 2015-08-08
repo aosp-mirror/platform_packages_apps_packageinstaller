@@ -102,7 +102,7 @@
     </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Esta aplicación deseñouse para unha versión anterior de Android. Denegar o permiso pode provocar que non funcione como está previsto."</string>
     <string name="default_permission_description" msgid="4992892207044156668">"realiza unha acción descoñecida"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%d</xliff:g> de <xliff:g id="COUNT_1">%d</xliff:g> aplicacións con permiso"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> de <xliff:g id="COUNT_1">%2$d</xliff:g> aplicacións con permiso"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"Mostrar sistema"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"Ocultar sistema"</string>
     <string name="permission_title" msgid="6495415273398916381">"Permisos de <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
@@ -115,10 +115,7 @@
     <string name="all_permissions" msgid="5156669007784613042">"Todos os permisos"</string>
     <string name="other_permissions" msgid="2016192512386091933">"Outras funcionalidades da aplicación"</string>
     <string name="permission_request_title" msgid="1204446718549121199">"Solicitude de permiso"</string>
-    <!-- no translation found for screen_overlay_title (3021729846864038529) -->
-    <skip />
-    <!-- no translation found for screen_overlay_message (2141944461571677331) -->
-    <skip />
-    <!-- no translation found for screen_overlay_button (4344544843349937743) -->
-    <skip />
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Detectouse a superposición da pantalla"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Para cambiar a configuración deste permiso, primeiro tes que desactivar a superposición da pantalla en Configuración &gt; Aplicacións"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Abrir configuración"</string>
 </resources>
