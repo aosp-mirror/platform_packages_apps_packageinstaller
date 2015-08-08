@@ -130,7 +130,8 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
                 for (PermissionInfo groupPermission : groupPermissions) {
                     seenPermissions.add(groupPermission.name);
                     if (groupPermission.protectionLevel == PermissionInfo.PROTECTION_DANGEROUS
-                            && (groupPermission.flags & PermissionInfo.FLAG_INSTALLED) != 0) {
+                            && (groupPermission.flags & PermissionInfo.FLAG_INSTALLED) != 0
+                            && (groupPermission.flags & PermissionInfo.FLAG_HIDDEN) == 0) {
                         hasRuntimePermissions = true;
                     }
                 }
