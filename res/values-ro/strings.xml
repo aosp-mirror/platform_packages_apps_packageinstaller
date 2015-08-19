@@ -20,17 +20,17 @@
     <string name="next" msgid="3057143178373252333">"Înainte"</string>
     <string name="install" msgid="5896438203900042068">"Instalaţi"</string>
     <string name="done" msgid="3889387558374211719">"Terminat"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"Permiteţi acestei aplicații să:"</string>
+    <string name="security_settings_desc" msgid="2706691034244052604">"Permiteți acestei aplicații să:"</string>
     <string name="cancel" msgid="8360346460165114585">"Anulați"</string>
     <string name="unknown" msgid="4742479012767208045">"Necunoscut"</string>
     <string name="installing" msgid="8613631001631998372">"În curs de instalare..."</string>
     <string name="install_done" msgid="3682715442154357097">"Aplicaţie instalată."</string>
-    <string name="install_confirm_question" msgid="7295206719219043890">"Doriţi să instalaţi această aplicație? Aceasta va avea acces la:"</string>
-    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Doriţi să instalaţi această aplicație? Aplicaţia nu solicită un acces special."</string>
-    <string name="install_confirm_question_update" msgid="4624159567361487964">"Doriţi să instalaţi o actualizare pentru această aplicație existentă? Datele existente nu vor fi pierdute. Aplicaţia actualizată va avea acces la:"</string>
-    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Doriţi să instalaţi o actualizare pentru această aplicație încorporată? Datele existente nu vor fi pierdute. Aplicaţia actualizată va avea acces la:"</string>
-    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Doriţi să instalaţi o actualizare pentru această aplicație existentă? Datele existente nu vor fi pierdute. Actualizarea nu are nevoie de acces special."</string>
-    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Doriţi să instalaţi o actualizare pentru această aplicație încorporată? Datele existente nu vor fi pierdute. Actualizarea nu are nevoie de acces special."</string>
+    <string name="install_confirm_question" msgid="7295206719219043890">"Doriți să instalaţi această aplicație? Aceasta va avea acces la:"</string>
+    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Doriți să instalaţi această aplicație? Aplicaţia nu solicită un acces special."</string>
+    <string name="install_confirm_question_update" msgid="4624159567361487964">"Doriți să instalaţi o actualizare pentru această aplicație existentă? Datele existente nu vor fi pierdute. Aplicaţia actualizată va avea acces la:"</string>
+    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Doriți să instalaţi o actualizare pentru această aplicație încorporată? Datele existente nu vor fi pierdute. Aplicaţia actualizată va avea acces la:"</string>
+    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Doriți să instalaţi o actualizare pentru această aplicație existentă? Datele existente nu vor fi pierdute. Actualizarea nu are nevoie de acces special."</string>
+    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Doriți să instalaţi o actualizare pentru această aplicație încorporată? Datele existente nu vor fi pierdute. Actualizarea nu are nevoie de acces special."</string>
     <string name="install_failed" msgid="6579998651498970899">"Aplicaţia nu este instalată."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Pachetul pare a fi deteriorat."</string>
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Un pachet cu același nume și cu o semnătură conflictuală este deja instalat."</string>
@@ -53,7 +53,7 @@
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Setări"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Sursă nouă pentru aplicații"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> doreşte să instaleze alte aplicații.\n\nPermiteţi acest lucru acum și pe viitor?"</string>
+    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> doreşte să instaleze alte aplicații.\n\nPermiteți acest lucru acum și pe viitor?"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Gestionați aplicații"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Înlocuiţi aplicația?"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Aplicaţia pe care o instalaţi va înlocui o altă aplicație.\n \nToate datele dvs. anterioare de utilizator vor fi salvate."</string>
@@ -66,10 +66,10 @@
     <string name="uninstall_application_title" msgid="1860074100811653963">"Dezinstalaţi aplicația"</string>
     <string name="uninstall_update_title" msgid="4146940097553335390">"Dezinstalaţi actualizarea"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">" <xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> face parte din următoarea aplicație:"</string>
-    <string name="uninstall_application_text" msgid="6691975835951187030">"Doriţi să dezinstalaţi această aplicație?"</string>
-    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Doriţi să dezinstalaţi această aplicație pentru "<b>"toţi"</b>" utilizatorii? Aplicaţia și datele acesteia vor fi eliminate de la "<b>"toţi"</b>" utilizatorii de pe acest dispozitiv."</string>
+    <string name="uninstall_application_text" msgid="6691975835951187030">"Doriți să dezinstalaţi această aplicație?"</string>
+    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Doriți să dezinstalaţi această aplicație pentru "<b>"toţi"</b>" utilizatorii? Aplicaţia și datele acesteia vor fi eliminate de la "<b>"toţi"</b>" utilizatorii de pe acest dispozitiv."</string>
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"Dezinstalați această aplicație pentru utilizatorul <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
-    <string name="uninstall_update_text" msgid="2056387942084605027">"Doriţi să înlocuiţi această aplicație cu versiunea din fabrică?"</string>
+    <string name="uninstall_update_text" msgid="2056387942084605027">"Doriți să înlocuiţi această aplicație cu versiunea din fabrică?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"În curs de dezinstalare..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Dezinstalare finalizată."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Dezinstalare nefinalizată."</string>
