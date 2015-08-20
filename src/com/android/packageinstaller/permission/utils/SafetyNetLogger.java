@@ -63,7 +63,7 @@ public final class SafetyNetLogger {
                 builder.append(';');
             }
             builder.append(group.getName()).append('|');
-            builder.append(group.areRuntimePermissionsGranted()).append('|');
+            builder.append(group.areRuntimePermissionsGranted(null)).append('|');
             builder.append(group.getFlags());
         }
 
