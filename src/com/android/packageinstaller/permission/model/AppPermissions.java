@@ -19,18 +19,16 @@ package com.android.packageinstaller.permission.model;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.util.ArrayMap;
-
-import com.android.internal.util.ArrayUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 public final class AppPermissions {
     private final ArrayList<AppPermissionGroup> mGroups = new ArrayList<>();
 
-    private final ArrayMap<String, AppPermissionGroup> mNameToGroupMap = new ArrayMap<>();
+    private final LinkedHashMap<String, AppPermissionGroup> mNameToGroupMap = new LinkedHashMap<>();
 
     private final Context mContext;
 
@@ -95,36 +93,40 @@ public final class AppPermissions {
             return;
         }
 
-        for (int i = 0; i < mPackageInfo.requestedPermissions.length; i++) {
-            String requestedPerm = mPackageInfo.requestedPermissions[i];
+        if (mFilterPermissions != null) {
+            for (String filterPermission : mFilterPermissions) {
+                for (String requestedPerm : mPackageInfo.requestedPermissions) {
+                    if (!filterPermission.equals(requestedPerm)) {
+                        continue;
+                    }
 
-            if (hasGroupForPermission(requestedPerm)) {
-                continue;
-            }
-
-            AppPermissionGroup group = AppPermissionGroup.create(mContext,
-                    mPackageInfo, requestedPerm);
-            if (group == null) {
-                continue;
-            }
-
-            mGroups.add(group);
-        }
-
-        if (!ArrayUtils.isEmpty(mFilterPermissions)) {
-            final int groupCount = mGroups.size();
-            for (int i = groupCount - 1; i >= 0; i--) {
-                AppPermissionGroup group = mGroups.get(i);
-                boolean groupHasPermission = false;
-                for (String filterPerm : mFilterPermissions) {
-                    if (group.hasPermission(filterPerm)) {
-                        groupHasPermission = true;
+                    if (hasGroupForPermission(requestedPerm)) {
                         break;
                     }
+
+                    AppPermissionGroup group = AppPermissionGroup.create(mContext,
+                            mPackageInfo, requestedPerm);
+                    if (group == null) {
+                        break;
+                    }
+
+                    mGroups.add(group);
+                    break;
                 }
-                if (!groupHasPermission) {
-                    mGroups.remove(i);
+            }
+        } else {
+            for (String requestedPerm : mPackageInfo.requestedPermissions) {
+                if (hasGroupForPermission(requestedPerm)) {
+                    continue;
                 }
+
+                AppPermissionGroup group = AppPermissionGroup.create(mContext,
+                        mPackageInfo, requestedPerm);
+                if (group == null) {
+                    continue;
+                }
+
+                mGroups.add(group);
             }
         }
 
