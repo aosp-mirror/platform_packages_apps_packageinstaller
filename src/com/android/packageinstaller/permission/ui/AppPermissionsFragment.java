@@ -224,7 +224,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             }
             preference.setPersistent(false);
             preference.setEnabled(!group.isPolicyFixed());
-            preference.setChecked(group.areRuntimePermissionsGranted());
+            preference.setChecked(group.areRuntimePermissionsGranted(null));
 
             if (isPlatform) {
                 screen.addPreference(preference);
@@ -281,7 +281,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             return false;
         }
         if (newValue == Boolean.TRUE) {
-            group.grantRuntimePermissions(false);
+            group.grantRuntimePermissions(false, null);
         } else {
             final boolean grantedByDefault = group.hasGrantedByDefaultPermission();
             if (grantedByDefault || (!group.hasRuntimePermission() && !mHasConfirmedRevoke)) {
@@ -294,7 +294,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 ((SwitchPreference) preference).setChecked(false);
-                                group.revokeRuntimePermissions(false);
+                                group.revokeRuntimePermissions(false, null);
                                 if (!grantedByDefault) {
                                     mHasConfirmedRevoke = true;
                                 }
@@ -303,7 +303,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
                         .show();
                 return false;
             } else {
-                group.revokeRuntimePermissions(false);
+                group.revokeRuntimePermissions(false, null);
             }
         }
 
@@ -351,7 +351,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
                 SwitchPreference switchPref = (SwitchPreference) preference;
                 AppPermissionGroup group = mAppPermissions.getPermissionGroup(switchPref.getKey());
                 if (group != null) {
-                    switchPref.setChecked(group.areRuntimePermissionsGranted());
+                    switchPref.setChecked(group.areRuntimePermissionsGranted(null));
                 }
             }
         }

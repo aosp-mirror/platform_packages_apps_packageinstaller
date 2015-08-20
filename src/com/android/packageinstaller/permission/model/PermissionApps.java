@@ -313,15 +313,15 @@ public class PermissionApps {
         }
 
         public boolean areRuntimePermissionsGranted() {
-            return mAppPermissionGroup.areRuntimePermissionsGranted();
+            return mAppPermissionGroup.areRuntimePermissionsGranted(null);
         }
 
         public void grantRuntimePermissions() {
-            mAppPermissionGroup.grantRuntimePermissions(false);
+            mAppPermissionGroup.grantRuntimePermissions(false, null);
         }
 
         public void revokeRuntimePermissions() {
-            mAppPermissionGroup.revokeRuntimePermissions(false);
+            mAppPermissionGroup.revokeRuntimePermissions(false, null);
         }
 
         public boolean isPolicyFixed() {
