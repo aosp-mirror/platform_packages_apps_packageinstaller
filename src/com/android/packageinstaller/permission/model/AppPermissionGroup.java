@@ -28,7 +28,6 @@ import android.os.Build;
 import android.os.UserHandle;
 import android.util.ArrayMap;
 
-import com.android.internal.util.ArrayUtils;
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 
@@ -265,19 +264,13 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         return mPermissions.get(permission) != null;
     }
 
-    public boolean areRuntimePermissionsGranted(String[] filterPermissions) {
+    public boolean areRuntimePermissionsGranted() {
         if (LocationUtils.isLocked(mName, mPackageInfo.packageName)) {
             return LocationUtils.isLocationEnabled(mContext);
         }
         final int permissionCount = mPermissions.size();
         for (int i = 0; i < permissionCount; i++) {
             Permission permission = mPermissions.valueAt(i);
-
-            if (filterPermissions != null && !ArrayUtils.contains(
-                    filterPermissions, permission.getName())) {
-                continue;
-            }
-
             if (mAppSupportsRuntimePermissions) {
                 if (permission.isGranted()) {
                     return true;
@@ -290,7 +283,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         return false;
     }
 
-    public boolean grantRuntimePermissions(boolean fixedByTheUser, String[] filterPermissions) {
+    public boolean grantRuntimePermissions(boolean fixedByTheUser) {
         final boolean isSharedUser = mPackageInfo.sharedUserId != null;
         final int uid = mPackageInfo.applicationInfo.uid;
 
@@ -298,12 +291,6 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         // permissions, otherwise we toggle the app op corresponding
         // to the permission if the permission is granted to the app.
         for (Permission permission : mPermissions.values()) {
-
-            if (filterPermissions != null && !ArrayUtils.contains(
-                    filterPermissions, permission.getName())) {
-                continue;
-            }
-
             if (mAppSupportsRuntimePermissions) {
                 // Do not touch permissions fixed by the system.
                 if (permission.isSystemFixed()) {
@@ -384,7 +371,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         return true;
     }
 
-    public boolean revokeRuntimePermissions(boolean fixedByTheUser, String[] filterPermissions) {
+    public boolean revokeRuntimePermissions(boolean fixedByTheUser) {
         final boolean isSharedUser = mPackageInfo.sharedUserId != null;
         final int uid = mPackageInfo.applicationInfo.uid;
 
@@ -392,12 +379,6 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         // permissions, otherwise we toggle the app op corresponding
         // to the permission if the permission is granted to the app.
         for (Permission permission : mPermissions.values()) {
-
-            if (filterPermissions != null && !ArrayUtils.contains(
-                    filterPermissions, permission.getName())) {
-                continue;
-            }
-
             if (mAppSupportsRuntimePermissions) {
                 // Do not touch permissions fixed by the system.
                 if (permission.isSystemFixed()) {
