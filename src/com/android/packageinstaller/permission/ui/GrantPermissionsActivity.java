@@ -73,8 +73,6 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
 
         if (Utils.isTelevision(this)) {
             mViewHandler = new GrantPermissionsTvViewHandler(this).setResultListener(this);
-        } else if (isWatch()) {
-            mViewHandler = new GrantPermissionsWatchViewHandler(this).setResultListener(this);
         } else {
             mViewHandler = new GrantPermissionsDefaultViewHandler(this).setResultListener(this);
         }
@@ -368,11 +366,6 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
         }
 
         SafetyNetLogger.logPermissionsRequested(mAppPermissions.getPackageInfo(), groups);
-    }
-
-    private boolean isWatch() {
-        PackageManager pm = getPackageManager();
-        return pm.hasSystemFeature(pm.FEATURE_WATCH);
     }
 
     private static final class GroupState {
