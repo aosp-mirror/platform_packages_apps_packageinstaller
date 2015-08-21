@@ -79,7 +79,8 @@ public class Utils {
     public static boolean shouldShowPermission(AppPermissionGroup group) {
         // We currently will not show permissions fixed by the system.
         // which is what the system does for system components.
-        if (group.isSystemFixed()) {
+        if (group.isSystemFixed()
+                && !Manifest.permission_group.LOCATION.equals(group.getName())) {
             return false;
         }
 
@@ -102,7 +103,8 @@ public class Utils {
     public static boolean shouldShowPermission(PermissionApp app) {
         // We currently will not show permissions fixed by the system
         // which is what the system does for system components.
-        if (app.isSystemFixed()) {
+        if (app.isSystemFixed()
+                && !Manifest.permission_group.LOCATION.equals(app.getPermissionGroup().getName())) {
             return false;
         }
 
