@@ -108,13 +108,13 @@ public final class AppPermissionsFragment extends SettingsWithHeader
                 getActivity().finish();
             }
         });
-        mAppPermissions.refresh();
         loadPreferences();
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        mAppPermissions.refresh();
         setPreferencesCheckedState();
     }
 
