@@ -277,7 +277,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         addToggledGroup(group);
 
         if (LocationUtils.isLocked(group.getName(), group.getApp().packageName)) {
-            LocationUtils.showLocationDialog(getContext(), group.getLabel());
+            LocationUtils.showLocationDialog(getContext(), mAppPermissions.getAppLabel());
             return false;
         }
         if (newValue == Boolean.TRUE) {
