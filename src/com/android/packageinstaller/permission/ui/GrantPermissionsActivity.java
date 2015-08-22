@@ -120,30 +120,21 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
             if (!group.isUserFixed() && !group.isPolicyFixed()) {
                 switch (permissionPolicy) {
                     case DevicePolicyManager.PERMISSION_POLICY_AUTO_GRANT: {
-                        if (!group.areRuntimePermissionsGranted(mRequestedPermissions)) {
-                            group.grantRuntimePermissions(false, mRequestedPermissions);
+                        if (!group.areRuntimePermissionsGranted()) {
+                            group.grantRuntimePermissions(false);
                             group.setPolicyFixed();
                         }
                     } break;
 
                     case DevicePolicyManager.PERMISSION_POLICY_AUTO_DENY: {
-                        if (group.areRuntimePermissionsGranted(mRequestedPermissions)) {
-                            group.revokeRuntimePermissions(false, mRequestedPermissions);
+                        if (!group.areRuntimePermissionsGranted()) {
+                            group.revokeRuntimePermissions(false);
                             group.setPolicyFixed();
                         }
                     } break;
 
                     default: {
-                        if (group.areRuntimePermissionsGranted(null)
-                                && !group.areRuntimePermissionsGranted(mRequestedPermissions)) {
-                            // If the group is granted but requested permissions
-                            // in it not we auto grant the these permissions.
-                            group.grantRuntimePermissions(group.isUserFixed(),
-                                    mRequestedPermissions);
-                        } else {
-                            mRequestGrantPermissionGroups.put(group.getName(),
-                                    new GroupState(group));
-                        }
+                        mRequestGrantPermissionGroups.put(group.getName(), new GroupState(group));
                     } break;
                 }
             } else {
@@ -237,10 +228,10 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
         GroupState groupState = mRequestGrantPermissionGroups.get(name);
         if (groupState.mGroup != null) {
             if (granted) {
-                groupState.mGroup.grantRuntimePermissions(doNotAskAgain, mRequestedPermissions);
+                groupState.mGroup.grantRuntimePermissions(doNotAskAgain);
                 groupState.mState = GroupState.STATE_ALLOWED;
             } else {
-                groupState.mGroup.revokeRuntimePermissions(doNotAskAgain, mRequestedPermissions);
+                groupState.mGroup.revokeRuntimePermissions(doNotAskAgain);
                 groupState.mState = GroupState.STATE_DENIED;
             }
             updateGrantResults(groupState.mGroup);
