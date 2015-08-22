@@ -31,7 +31,6 @@ import android.hardware.camera2.utils.ArrayUtils;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
-import android.util.ArrayMap;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -47,6 +46,7 @@ import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.packageinstaller.permission.utils.Utils;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 public class GrantPermissionsActivity extends OverlayTouchActivity
@@ -57,7 +57,7 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
     private String[] mRequestedPermissions;
     private int[] mGrantResults;
 
-    private ArrayMap<String, GroupState> mRequestGrantPermissionGroups = new ArrayMap<>();
+    private LinkedHashMap<String, GroupState> mRequestGrantPermissionGroups = new LinkedHashMap<>();
 
     private GrantPermissionsViewHandler mViewHandler;
     private AppPermissions mAppPermissions;
@@ -180,8 +180,8 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
     private boolean showNextPermissionGroupGrantRequest() {
         final int groupCount = mRequestGrantPermissionGroups.size();
 
-        for (int i = 0; i < groupCount; i++) {
-            GroupState groupState = mRequestGrantPermissionGroups.valueAt(i);
+        int currentIndex = 0;
+        for (GroupState groupState : mRequestGrantPermissionGroups.values()) {
             if (groupState.mState == GroupState.STATE_UNKNOWN) {
                 CharSequence appLabel = mAppPermissions.getAppLabel();
                 SpannableString message = new SpannableString(getString(
@@ -208,11 +208,13 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
                 }
                 int icon = groupState.mGroup.getIconResId();
 
-                mViewHandler.updateUi(groupState.mGroup.getName(), groupCount, i,
+                mViewHandler.updateUi(groupState.mGroup.getName(), groupCount, currentIndex,
                         Icon.createWithResource(resources, icon), message,
                         groupState.mGroup.isUserSet());
-                return  true;
+                return true;
             }
+
+            currentIndex++;
         }
 
         return false;
@@ -352,8 +354,8 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
 
         final int groupCount = mRequestGrantPermissionGroups.size();
         List<AppPermissionGroup> groups = new ArrayList<>(groupCount);
-        for (int i = 0; i < groupCount; i++) {
-            groups.add(mRequestGrantPermissionGroups.valueAt(i).mGroup);
+        for (GroupState groupState : mRequestGrantPermissionGroups.values()) {
+            groups.add(groupState.mGroup);
         }
 
         SafetyNetLogger.logPermissionsRequested(mAppPermissions.getPackageInfo(), groups);
