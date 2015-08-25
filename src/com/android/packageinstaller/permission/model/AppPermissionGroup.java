@@ -149,7 +149,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                     : AppOpsManager.OP_NONE;
 
             final boolean appOpAllowed = appOp != AppOpsManager.OP_NONE
-                    && context.getSystemService(AppOpsManager.class).checkOp(appOp,
+                    && context.getSystemService(AppOpsManager.class).checkOpNoThrow(appOp,
                     packageInfo.applicationInfo.uid, packageInfo.packageName)
                     == AppOpsManager.MODE_ALLOWED;
 
