@@ -19,6 +19,9 @@ package com.android.packageinstaller.permission.model;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.text.BidiFormatter;
+import android.text.TextPaint;
+import android.text.TextUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -26,6 +29,16 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 public final class AppPermissions {
+    private static final float MAX_APP_LABEL_LENGTH_PIXELS = 500;
+
+    private static final TextPaint sAppLabelEllipsizePaint = new TextPaint();
+    static {
+        sAppLabelEllipsizePaint.setAntiAlias(true);
+        // Both text size and width are given in absolute pixels, for consistent truncation
+        // across devices; this value corresponds to the default 14dip size on an xdhpi device.
+        sAppLabelEllipsizePaint.setTextSize(42);
+    }
+
     private final ArrayList<AppPermissionGroup> mGroups = new ArrayList<>();
 
     private final LinkedHashMap<String, AppPermissionGroup> mNameToGroupMap = new LinkedHashMap<>();
@@ -47,7 +60,7 @@ public final class AppPermissions {
         mContext = context;
         mPackageInfo = packageInfo;
         mFilterPermissions = permissions;
-        mAppLabel = packageInfo.applicationInfo.loadLabel(context.getPackageManager());
+        mAppLabel = loadEllipsizedAppLabel(context, packageInfo);
         mSortGroups = sortGroups;
         mOnErrorCallback = onErrorCallback;
         loadPermissionGroups();
@@ -147,5 +160,14 @@ public final class AppPermissions {
             }
         }
         return false;
+    }
+
+    private static CharSequence loadEllipsizedAppLabel(Context context, PackageInfo packageInfo) {
+        String label = packageInfo.applicationInfo.loadLabel(
+                context.getPackageManager()).toString();
+        String noNewLineLabel = label.replace("\n", " ");
+        String ellipsizedLabel = TextUtils.ellipsize(noNewLineLabel, sAppLabelEllipsizePaint,
+                MAX_APP_LABEL_LENGTH_PIXELS, TextUtils.TruncateAt.END).toString();
+        return BidiFormatter.getInstance().unicodeWrap(ellipsizedLabel);
     }
 }
