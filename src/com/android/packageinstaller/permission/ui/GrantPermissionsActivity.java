@@ -122,15 +122,15 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
                     case DevicePolicyManager.PERMISSION_POLICY_AUTO_GRANT: {
                         if (!group.areRuntimePermissionsGranted()) {
                             group.grantRuntimePermissions(false);
-                            group.setPolicyFixed();
                         }
+                        group.setPolicyFixed();
                     } break;
 
                     case DevicePolicyManager.PERMISSION_POLICY_AUTO_DENY: {
-                        if (!group.areRuntimePermissionsGranted()) {
+                        if (group.areRuntimePermissionsGranted()) {
                             group.revokeRuntimePermissions(false);
-                            group.setPolicyFixed();
                         }
+                        group.setPolicyFixed();
                     } break;
 
                     default: {
