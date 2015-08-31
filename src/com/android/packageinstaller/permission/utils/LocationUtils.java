@@ -70,7 +70,7 @@ public class LocationUtils {
                 Settings.Secure.LOCATION_MODE_OFF) != Settings.Secure.LOCATION_MODE_OFF;
     }
 
-    public static boolean isLocked(String groupName, String packageName) {
+    public static boolean isLocationGroupAndProvider(String groupName, String packageName) {
         return LOCATION_PERMISSION.equals(groupName) && isNetworkLocationProvider(packageName);
     }
 
