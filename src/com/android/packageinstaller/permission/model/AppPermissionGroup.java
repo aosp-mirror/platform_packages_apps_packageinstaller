@@ -265,7 +265,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
     }
 
     public boolean areRuntimePermissionsGranted() {
-        if (LocationUtils.isLocked(mName, mPackageInfo.packageName)) {
+        if (LocationUtils.isLocationGroupAndProvider(mName, mPackageInfo.packageName)) {
             return LocationUtils.isLocationEnabled(mContext);
         }
         final int permissionCount = mPermissions.size();

@@ -219,6 +219,17 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
             }
 
             if (existingPref != null) {
+                // If existing preference - only update its state.
+                if (app.isPolicyFixed()) {
+                    existingPref.setSummary(getString(
+                            R.string.permission_summary_enforced_by_policy));
+                }
+                existingPref.setPersistent(false);
+                existingPref.setEnabled(!app.isPolicyFixed());
+                if (existingPref instanceof SwitchPreference) {
+                    ((SwitchPreference) existingPref)
+                            .setChecked(app.areRuntimePermissionsGranted());
+                }
                 continue;
             }
 
@@ -316,7 +327,8 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
 
         addToggledGroup(app.getPackageName(), app.getPermissionGroup());
 
-        if (LocationUtils.isLocked(mPermissionApps.getGroupName(), app.getPackageName())) {
+        if (LocationUtils.isLocationGroupAndProvider(mPermissionApps.getGroupName(),
+                app.getPackageName())) {
             LocationUtils.showLocationDialog(getContext(), app.getLabel());
             return false;
         }
