@@ -33,6 +33,8 @@ import android.util.TypedValue;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
 
+import java.util.List;
+
 public class Utils {
 
     private static final String LOG_TAG = "Utils";
@@ -125,6 +127,10 @@ public class Utils {
         }
 
         return launcherPkgs;
+    }
+
+    public static List<ApplicationInfo> getAllInstalledApplications(Context context) {
+        return context.getPackageManager().getInstalledApplications(0);
     }
 
     public static boolean isSystem(PermissionApp app, ArraySet<String> launcherPkgs) {
