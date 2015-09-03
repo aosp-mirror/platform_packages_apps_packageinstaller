@@ -84,13 +84,6 @@ public class Utils {
             return false;
         }
 
-        // Yes this is possible. We have leftover permissions that
-        // are not in the final groups and we want to get rid of,
-        // therefore we do not have app ops for legacy support.
-        if (!group.hasRuntimePermission() && !group.hasAppOpPermission()) {
-            return false;
-        }
-
         final boolean isPlatformPermission = group.getDeclaringPackage().equals(OS_PKG);
         // Show legacy permissions only if the user chose that.
         if (isPlatformPermission
@@ -108,12 +101,6 @@ public class Utils {
             return false;
         }
 
-        // Yes this is possible. We have leftover permissions that
-        // are not in the final groups and we want to get rid of,
-        // therefore we do not have app ops for legacy support.
-        if (!app.hasRuntimePermissions() && !app.hasAppOpPermissions()) {
-            return false;
-        }
         return true;
     }
 

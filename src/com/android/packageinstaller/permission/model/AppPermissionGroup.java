@@ -275,8 +275,9 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                 if (permission.isGranted()) {
                     return true;
                 }
-            } else if (permission.isGranted() && permission.getAppOp()
-                    != AppOpsManager.OP_NONE && permission.isAppOpAllowed()) {
+            } else if (permission.isGranted() && ((permission.getAppOp()
+                    != AppOpsManager.OP_NONE && permission.isAppOpAllowed())
+                    || permission.getAppOp() == AppOpsManager.OP_NONE)) {
                 return true;
             }
         }
