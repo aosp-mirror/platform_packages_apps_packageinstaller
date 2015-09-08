@@ -16,10 +16,7 @@
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
     <uses-permission android:name="android.permission.READ_INSTALL_SESSIONS" />
     <uses-permission android:name="android.permission.UPDATE_APP_OPS_STATS" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.KILL_UID" />
-
-    <uses-permission android:name="com.google.android.permission.INSTALL_WEARABLE_PACKAGES" />
 
     <application android:label="@string/app_name"
             android:allowBackup="false"
@@ -102,26 +99,6 @@
                 <action android:name="android.intent.action.GET_PERMISSIONS_COUNT" />
             </intent-filter>
         </receiver>
-
-        <!-- Wearable Components -->
-        <service android:name=".wear.WearPackageInstallerService"
-                 android:permission="com.google.android.permission.INSTALL_WEARABLE_PACKAGES"
-                 android:exported="true">
-            <intent-filter>
-                <action android:name="com.android.packageinstaller.wear.INSTALL_PACKAGE"/>
-                <data android:scheme="content" android:mimeType="vnd.android.cursor.item/*"/>
-            </intent-filter>
-            <intent-filter>
-                <action android:name="com.android.packageinstaller.wear.UNINSTALL_PACKAGE"/>
-            </intent-filter>
-        </service>
-
-        <provider android:name=".wear.WearPackageIconProvider"
-                  android:authorities="com.android.packageinstaller.wear.provider"
-                  android:grantUriPermissions="true"
-                  android:exported="true" />
-
-
     </application>
 
 </manifest>
