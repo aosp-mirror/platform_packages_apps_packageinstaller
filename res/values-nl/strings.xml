@@ -27,37 +27,37 @@
     <string name="install_done" msgid="3682715442154357097">"App geïnstalleerd."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Wilt u deze app installeren? Deze krijgt toegang tot:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Wilt u deze app installeren? Hiervoor is geen speciale toegang vereist."</string>
-    <string name="install_confirm_question_update" msgid="4624159567361487964">"Wilt u een update voor deze bestaande app installeren? Uw huidige gegevens gaan niet verloren. De bijgewerkte app krijgt toegang tot:"</string>
-    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Wilt u een update van deze ingebouwde app installeren? Uw huidige gegevens gaan niet verloren. De bijgewerkte app krijgt toegang tot:"</string>
-    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Wilt u een update voor deze bestaande app installeren? Uw huidige gegevens gaan niet verloren. Hiervoor is geen speciale toegang vereist."</string>
-    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Wilt u een update voor deze ingebouwde app installeren? Uw huidige gegevens gaan niet verloren. Hiervoor is geen speciale toegang vereist."</string>
+    <string name="install_confirm_question_update" msgid="4624159567361487964">"Wilt u een update voor deze bestaande app installeren? Je huidige gegevens gaan niet verloren. De bijgewerkte app krijgt toegang tot:"</string>
+    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Wilt u een update van deze ingebouwde app installeren? Je huidige gegevens gaan niet verloren. De bijgewerkte app krijgt toegang tot:"</string>
+    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Wilt u een update voor deze bestaande app installeren? Je huidige gegevens gaan niet verloren. Hiervoor is geen speciale toegang vereist."</string>
+    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Wilt u een update voor deze ingebouwde app installeren? Je huidige gegevens gaan niet verloren. Hiervoor is geen speciale toegang vereist."</string>
     <string name="install_failed" msgid="6579998651498970899">"App niet geïnstalleerd."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Het pakket lijkt beschadigd."</string>
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Een bestaand pakket met dezelfde naam en een conflicterende handtekening is al geïnstalleerd."</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Het pakket werkt alleen met nieuwe versies van Android."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Deze app is niet compatibel met uw tablet."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Deze app is niet compatibel met uw tv."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Deze app is niet compatibel met uw telefoon."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Deze app is niet compatibel met je tablet."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Deze app is niet compatibel met je tv."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Deze app is niet compatibel met je telefoon."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Het opgegeven pakket is verwijderd voordat de installatie was voltooid."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"De verificatie van het pakket is niet voltooid. Het pakket kan niet worden geïnstalleerd."</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Tijdens het verifiëren van dit pakket is een time-out opgetreden. Installeer het pakket later."</string>
-    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> kan niet worden geïnstalleerd op uw tablet."</string>
-    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> kan niet worden geïnstalleerd op uw tv."</string>
-    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> kan niet worden geïnstalleerd op uw telefoon."</string>
+    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> kan niet worden geïnstalleerd op je tablet."</string>
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> kan niet worden geïnstalleerd op je tv."</string>
+    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> kan niet worden geïnstalleerd op je telefoon."</string>
     <string name="launch" msgid="4826921505917605463">"Openen"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"De installatie is geblokkeerd"</string>
-    <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Voor de veiligheid blokkeert uw tablet de installatie van apps uit onbekende bronnen."</string>
-    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Om veiligheidsredenen is uw tv ingesteld om de installatie te blokkeren van apps die zijn verkregen van onbekende bronnen."</string>
-    <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Voor de veiligheid blokkeert uw telefoon de installatie van apps uit onbekende bronnen."</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Uw beheerder staat de installatie van apps afkomstig van onbekende bronnen niet toe."</string>
+    <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Voor de veiligheid blokkeert je tablet de installatie van apps uit onbekende bronnen."</string>
+    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Om veiligheidsredenen is je tv ingesteld om de installatie te blokkeren van apps die zijn verkregen van onbekende bronnen."</string>
+    <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Voor de veiligheid blokkeert je telefoon de installatie van apps uit onbekende bronnen."</string>
+    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Je beheerder staat de installatie van apps afkomstig van onbekende bronnen niet toe."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Instellingen"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Nieuwe bron voor apps"</string>
     <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> wil andere apps installeren.\n\nWilt u dit nu en in de toekomst toestaan?"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Apps beheren"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"App vervangen?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"De app die u installeert, vervangt een andere app.\n\nAl uw eerdere gebruikersgegevens worden opgeslagen."</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Dit is een systeemapp.\n\nAl uw eerdere gebruikersgegevens worden opgeslagen."</string>
+    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"De app die u installeert, vervangt een andere app.\n\nAl je eerdere gebruikersgegevens worden opgeslagen."</string>
+    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Dit is een systeemapp.\n\nAl je eerdere gebruikersgegevens worden opgeslagen."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Geen ruimte beschikbaar"</string>
     <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> kan niet worden geïnstalleerd. Maak ruimte vrij en probeer het opnieuw."</string>
     <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
@@ -75,8 +75,8 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Verwijdering mislukt."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Kan niet verwijderen omdat dit pakket een actieve apparaatbeheerder is."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Kan dit pakket niet verwijderen omdat het een actieve apparaatbeheerder is voor de gebruiker <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Deze app is vereist voor uw werkprofiel en kan niet worden verwijderd."</string>
-    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Deze app is vereist door uw apparaatbeheerder en kan niet worden verwijderd."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Deze app is vereist voor je werkprofiel en kan niet worden verwijderd."</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Deze app is vereist door je apparaatbeheerder en kan niet worden verwijderd."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Apparaatbeheerders beheren"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> kan niet worden verwijderd."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Parseerfout"</string>
@@ -109,7 +109,7 @@
     <string name="no_apps" msgid="1965493419005012569">"Geen apps"</string>
     <string name="location_settings" msgid="1774875730854491297">"Locatie-instellingen"</string>
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> is een leverancier van locatieservices voor dit apparaat. Locatietoegang kan worden aangepast via de locatie-instellingen."</string>
-    <string name="system_warning" msgid="7103819124542305179">"Als u deze toestemming weigert, functioneren basisfuncties van uw apparaat mogelijk niet meer zoals bedoeld."</string>
+    <string name="system_warning" msgid="7103819124542305179">"Als u deze toestemming weigert, functioneren basisfuncties van je apparaat mogelijk niet meer zoals bedoeld."</string>
     <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Afgedwongen door beleid"</string>
     <string name="loading" msgid="7811651799620593731">"Laden…"</string>
     <string name="all_permissions" msgid="5156669007784613042">"Alle rechten"</string>
