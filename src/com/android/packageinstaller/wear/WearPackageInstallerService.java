@@ -45,6 +45,7 @@ import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.android.packageinstaller.DeviceUtils;
 import com.android.packageinstaller.PackageUtil;
 
 import java.io.ByteArrayOutputStream;
@@ -172,7 +173,7 @@ public class WearPackageInstallerService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if (!WearPackageUtil.isWear(this)) {
+        if (!DeviceUtils.isWear(this)) {
             Log.w(TAG, "Not running on wearable");
             return START_NOT_STICKY;
         }
