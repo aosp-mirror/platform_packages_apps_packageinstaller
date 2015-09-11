@@ -21,8 +21,8 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.util.ArrayMap;
 import android.util.ArraySet;
-import android.util.SparseArray;
 
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
 import com.android.packageinstaller.permission.utils.Utils;
@@ -108,22 +108,22 @@ public class PermissionStatusReceiver extends BroadcastReceiver {
     public boolean getAppsWithPermissionsCount(Context context, int[] counts) {
         ArraySet<String> launcherPkgs = Utils.getLauncherPackages(context);
         // Indexed by uid.
-        SparseArray<Boolean> grantedApps = new SparseArray<>();
-        SparseArray<Boolean> allApps = new SparseArray<>();
+        ArrayMap<String, Boolean> grantedApps = new ArrayMap<>();
+        ArrayMap<String, Boolean> allApps = new ArrayMap<>();
         for (String group : Utils.MODERN_PERMISSION_GROUPS) {
             PermissionApps permissionApps = new PermissionApps(context,
                     group, null);
             permissionApps.loadNowWithoutUi();
             for (PermissionApp app : permissionApps.getApps()) {
-                int uid = app.getUid();
+                String key = app.getKey();
                 if (Utils.isSystem(app, launcherPkgs)) {
                     // We default to not showing system apps, so hide them from count.
                     continue;
                 }
                 if (app.areRuntimePermissionsGranted()) {
-                    grantedApps.put(uid, true);
+                    grantedApps.put(key, true);
                 }
-                allApps.put(uid, true);
+                allApps.put(key, true);
             }
         }
         counts[0] = grantedApps.size();
