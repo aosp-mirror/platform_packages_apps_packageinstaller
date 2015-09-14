@@ -14,18 +14,9 @@
      limitations under the License.
 -->
 
-<resources>
-    <color name="grant_permissions_app_color">@color/grant_permissions_white_text_alpha_100</color>
-    <color name="grant_permissions_progress_color">@color/grant_permissions_white_text_alpha_100</color>
-    <color name="grant_permissions_title_color">@color/grant_permissions_white_text_alpha_70</color>
-
-    <color name="grant_permissions_white_text_alpha_100">@color/off_white</color>
-    <color name="grant_permissions_white_text_alpha_70">#b2eeeeee</color>
-
-    <color name="off_white">#ffeeeeee</color>
-
-    <color name="primary_text_light">#424242</color>
-
-    <!-- Copied from wearable support -->
-    <color name="circular_button_disabled">#757575</color>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- START: Ported values -->
+    <integer name="short_title_length">13</integer>
+    <integer name="char_limit_per_line">18</integer>
+    <!-- END: Ported values -->
 </resources>
