@@ -38,6 +38,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.android.packageinstaller.DeviceUtils;
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
@@ -71,9 +72,9 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
 
         setTitle(R.string.permission_request_title);
 
-        if (Utils.isTelevision(this)) {
+        if (DeviceUtils.isTelevision(this)) {
             mViewHandler = new GrantPermissionsTvViewHandler(this).setResultListener(this);
-        } else if (isWatch()) {
+        } else if (DeviceUtils.isWear(this)) {
             mViewHandler = new GrantPermissionsWatchViewHandler(this).setResultListener(this);
         } else {
             mViewHandler = new GrantPermissionsDefaultViewHandler(this).setResultListener(this);
@@ -359,11 +360,6 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
         }
 
         SafetyNetLogger.logPermissionsRequested(mAppPermissions.getPackageInfo(), groups);
-    }
-
-    private boolean isWatch() {
-        PackageManager pm = getPackageManager();
-        return pm.hasSystemFeature(pm.FEATURE_WATCH);
     }
 
     private static final class GroupState {

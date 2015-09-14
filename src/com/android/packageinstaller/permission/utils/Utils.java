@@ -132,9 +132,4 @@ public class Utils {
         return info.isSystemApp() && (info.flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) == 0
                 && !launcherPkgs.contains(info.packageName);
     }
-
-    public static boolean isTelevision(Context context) {
-        int uiMode = context.getResources().getConfiguration().uiMode;
-        return (uiMode & Configuration.UI_MODE_TYPE_MASK) == Configuration.UI_MODE_TYPE_TELEVISION;
-    }
 }

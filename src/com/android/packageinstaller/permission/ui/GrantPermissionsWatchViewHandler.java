@@ -15,14 +15,14 @@ import com.android.packageinstaller.R;
  */
 final class GrantPermissionsWatchViewHandler extends PermissionConfirmationViewHandler
         implements GrantPermissionsViewHandler {
-    private static final String TAG = "GrantPermissionsViewH";
+    private static final String TAG = "GrantPermsWatchViewH";
 
     private static final String ARG_GROUP_NAME = "ARG_GROUP_NAME";
 
     private final Context mContext;
 
     private ResultListener mResultListener;
-
+    
     private String mGroupName;
     private boolean mShowDoNotAsk;
 
