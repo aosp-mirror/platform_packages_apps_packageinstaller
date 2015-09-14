@@ -39,6 +39,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.packageinstaller.DeviceUtils;
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionApps;
@@ -185,7 +186,7 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
             return;
         }
 
-        boolean isTelevision = Utils.isTelevision(context);
+        boolean isTelevision = DeviceUtils.isTelevision(context);
         PreferenceScreen screen = getPreferenceScreen();
 
         ArraySet<String> preferencesToRemove = new ArraySet<>();

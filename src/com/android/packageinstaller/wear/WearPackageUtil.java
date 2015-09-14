@@ -147,8 +147,4 @@ public class WearPackageUtil {
         }
         return false;
     }
-
-    public static boolean isWear(final Context context) {
-        return context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_WATCH);
-    }
 }

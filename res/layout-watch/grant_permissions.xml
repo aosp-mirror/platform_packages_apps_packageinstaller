@@ -15,12 +15,9 @@
 -->
 <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/confirmation"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
     <ScrollView
             android:id="@+id/scrolling_container"
@@ -32,6 +29,7 @@
         <LinearLayout
                 android:id="@+id/content"
                 android:orientation="vertical"
+                android:paddingBottom="@dimen/conf_diag_button_container_height"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -62,60 +60,62 @@
                     android:gravity="center"
                     android:fontFamily="sans-serif-condensed-light"
                     android:textAppearance="@style/GrantPermissions.TitleText"/>
-
-            <!-- TODO: Change this to use a ViewStub instead of show/hiding the two layouts -->
-            <FrameLayout android:layout_width="match_parent"
-                         android:layout_height="wrap_content"
-                         android:id="@+id/button_bar_container"
-                         android:layout_gravity="bottom"
-                         android:background="#FF606060">
-                <FrameLayout
-                        android:id="@+id/horizontal_button_bar"
-                        android:layout_width="match_parent"
-                        android:layout_height="72dp">
-                    <Button
-                            android:id="@+id/horizontal_deny_button"
-                            android:layout_width="54dp"
-                            android:layout_height="54dp"
-                            android:layout_gravity="top|left"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="9dp"
-                            android:background="@drawable/cancel_button"/>
-
-                    <Button
-                            android:id="@+id/horizontal_allow_button"
-                            android:layout_width="54dp"
-                            android:layout_height="54dp"
-                            android:layout_gravity="top|right"
-                            android:layout_marginRight="16dp"
-                            android:layout_marginTop="9dp"
-                            android:background="@drawable/confirm_button"/>
-                </FrameLayout>
-
-                <FrameLayout
-                        android:id="@+id/vertical_button_bar"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:visibility="gone">
-                    <LinearLayout
-                            android:id="@+id/buttonPanel"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-                        <Button
-                                android:id="@+id/vertical_allow_button"
-                                style="@style/Widget.WearDiag.Button"/>
-
-                        <Button
-                                android:id="@+id/vertical_deny_button"
-                                style="@style/Widget.WearDiag.Button"/>
-
-                        <Button
-                                android:id="@+id/vertical_deny_do_not_ask_again_button"
-                                style="@style/Widget.WearDiag.Button"/>
-                    </LinearLayout>
-                </FrameLayout>
-            </FrameLayout>
         </LinearLayout>
     </ScrollView>
+
+    <!-- TODO: Change this to use a ViewStub instead of show/hiding the two layouts -->
+    <FrameLayout android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:id="@+id/button_bar_container"
+                 android:layout_gravity="bottom"
+                 android:background="#FF606060">
+        <FrameLayout
+            android:id="@+id/horizontal_button_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/conf_diag_button_container_height">
+            <Button
+                android:id="@+id/horizontal_deny_button"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_gravity="top|left"
+                android:layout_marginLeft="@dimen/conf_diag_2button_margin_side"
+                android:layout_marginTop="@dimen/conf_diag_2button_margin_top"
+                android:background="@drawable/cancel_button"/>
+
+            <Button
+                android:id="@+id/horizontal_allow_button"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_gravity="top|right"
+                android:layout_marginRight="@dimen/conf_diag_2button_margin_side"
+                android:layout_marginTop="@dimen/conf_diag_2button_margin_top"
+                android:background="@drawable/confirm_button"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/vertical_button_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/conf_diag_3button_margin_left"
+            android:layout_marginBottom="@dimen/conf_diag_3button_margin_bottom"
+            android:visibility="gone">
+            <LinearLayout
+                android:id="@+id/buttonPanel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <Button
+                    android:id="@+id/vertical_allow_button"
+                    style="@style/Widget.WearDiag.Button"/>
+
+                <Button
+                    android:id="@+id/vertical_deny_button"
+                    style="@style/Widget.WearDiag.Button"/>
+
+                <Button
+                    android:id="@+id/vertical_deny_do_not_ask_again_button"
+                    style="@style/Widget.WearDiag.Button"/>
+            </LinearLayout>
+        </FrameLayout>
+    </FrameLayout>
 </FrameLayout>
