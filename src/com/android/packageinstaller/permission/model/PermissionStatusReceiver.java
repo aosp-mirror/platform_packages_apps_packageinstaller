@@ -18,6 +18,7 @@ package com.android.packageinstaller.permission.model;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -30,37 +31,52 @@ import com.android.packageinstaller.permission.utils.Utils;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class PermissionStatusReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        int[] counts = new int[3];
-        ArrayList<CharSequence> grantedGroups = new ArrayList<>();
-        boolean succeeded = false;
+        if (Intent.ACTION_GET_PERMISSIONS_COUNT.equals(intent.getAction())) {
+            Intent responseIntent = new Intent(intent.getStringExtra(
+                    Intent.EXTRA_GET_PERMISSIONS_RESPONSE_INTENT));
+            responseIntent.setFlags(Intent.FLAG_RECEIVER_FOREGROUND);
 
-        boolean isForPackage = intent.hasExtra(Intent.EXTRA_PACKAGE_NAME);
+            int[] counts = new int[3];
+            ArrayList<CharSequence> grantedGroups = new ArrayList<>();
+            boolean succeeded = false;
 
-        Intent responseIntent = new Intent(intent.getStringExtra(
-                Intent.EXTRA_GET_PERMISSIONS_RESPONSE_INTENT));
-        responseIntent.setFlags(Intent.FLAG_RECEIVER_FOREGROUND);
-
-
-        if (isForPackage) {
-            String pkg = intent.getStringExtra(Intent.EXTRA_PACKAGE_NAME);
-            succeeded = getPermissionsCount(context, pkg, counts, grantedGroups);
-        } else {
-            succeeded = getAppsWithPermissionsCount(context, counts);
-        }
-        if (succeeded) {
-            responseIntent.putExtra(Intent.EXTRA_GET_PERMISSIONS_COUNT_RESULT, counts);
+            boolean isForPackage = intent.hasExtra(Intent.EXTRA_PACKAGE_NAME);
 
             if (isForPackage) {
-                responseIntent.putExtra(Intent.EXTRA_GET_PERMISSIONS_GROUP_LIST_RESULT,
-                        grantedGroups.toArray(new CharSequence[grantedGroups.size()]));
+                String pkg = intent.getStringExtra(Intent.EXTRA_PACKAGE_NAME);
+                succeeded = getPermissionsCount(context, pkg, counts, grantedGroups);
+            } else {
+                succeeded = getAppsWithPermissionsCount(context, counts);
             }
-        }
+            if (succeeded) {
+                responseIntent.putExtra(Intent.EXTRA_GET_PERMISSIONS_COUNT_RESULT, counts);
 
-        context.sendBroadcast(responseIntent);
+                if (isForPackage) {
+                    responseIntent.putExtra(Intent.EXTRA_GET_PERMISSIONS_GROUP_LIST_RESULT,
+                            grantedGroups.toArray(new CharSequence[grantedGroups.size()]));
+                }
+            }
+            context.sendBroadcast(responseIntent);
+        } else if (Intent.ACTION_GET_PERMISSIONS_PACKAGES.equals(intent.getAction())) {
+            Intent responseIntent = new Intent(intent.getStringExtra(
+                    Intent.EXTRA_GET_PERMISSIONS_PACKAGES_RESPONSE_INTENT));
+            responseIntent.setFlags(Intent.FLAG_RECEIVER_FOREGROUND);
+
+            List<String> appsList = new ArrayList<>();
+            List<CharSequence> appLabelsList = new ArrayList<>();
+            if (getAppsWithRuntimePermissions(context, appsList, appLabelsList)) {
+                responseIntent.putExtra(Intent.EXTRA_GET_PERMISSIONS_APP_LIST_RESULT,
+                        appsList.toArray(new String[appsList.size()]));
+                responseIntent.putExtra(Intent.EXTRA_GET_PERMISSIONS_APP_LABEL_LIST_RESULT,
+                        appLabelsList.toArray(new String[appLabelsList.size()]));
+            }
+            context.sendBroadcast(responseIntent);
+        }
     }
 
     public boolean getPermissionsCount(Context context, String pkg, int[] counts,
@@ -103,6 +119,40 @@ public class PermissionStatusReceiver extends BroadcastReceiver {
         } catch (NameNotFoundException e) {
             return false;
         }
+    }
+
+    public boolean getAppsWithRuntimePermissions(Context context, List<String> appsList,
+            List<CharSequence> appLabelsList) {
+        final List<ApplicationInfo> appInfos = Utils.getAllInstalledApplications(context);
+        if (appInfos == null) {
+            return false;
+        }
+        final int appInfosSize = appInfos.size();
+        try {
+            for (int i = 0; i < appInfosSize; ++i) {
+                final String packageName = appInfos.get(i).packageName;
+                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(
+                        packageName, PackageManager.GET_PERMISSIONS);
+                AppPermissions appPermissions =
+                        new AppPermissions(context, packageInfo, null, false, null);
+
+                boolean shouldShow = false;
+                for (AppPermissionGroup group : appPermissions.getPermissionGroups()) {
+                    if (Utils.shouldShowPermission(group, packageName)) {
+                        shouldShow = true;
+                        break;
+                    }
+                }
+                if (shouldShow) {
+                    appsList.add(packageName);
+                    appLabelsList.add(appPermissions.getAppLabel());
+                }
+            }
+        } catch (NameNotFoundException e) {
+            return false;
+        }
+
+        return true;
     }
 
     public boolean getAppsWithPermissionsCount(Context context, int[] counts) {
