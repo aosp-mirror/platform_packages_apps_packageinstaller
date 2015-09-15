@@ -301,7 +301,7 @@ public class PermissionApps {
         }
 
         public String getKey() {
-            return Integer.toString(getUid());
+            return mPackageName + getUid();
         }
 
         public String getLabel() {
@@ -357,7 +357,7 @@ public class PermissionApps {
             final int result = mLabel.compareTo(another.mLabel);
             if (result == 0) {
                 // Unbadged before badged.
-                return getUid() - another.getUid();
+                return getKey().compareTo(another.getKey());
             }
             return result;
         }
