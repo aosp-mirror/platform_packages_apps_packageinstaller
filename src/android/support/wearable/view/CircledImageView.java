@@ -33,11 +33,12 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.wearable.R;
 import android.util.AttributeSet;
 import android.view.View;
 
 import java.util.Objects;
+
+import com.android.packageinstaller.R;
 
 /**
  * An image view surrounded by a circle.
