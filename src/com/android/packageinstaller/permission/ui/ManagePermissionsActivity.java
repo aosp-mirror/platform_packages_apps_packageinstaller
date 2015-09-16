@@ -21,6 +21,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.android.packageinstaller.permission.ui.wear.AppPermissionsFragmentWear;
+import com.android.packageinstaller.DeviceUtils;
+
 public final class ManagePermissionsActivity extends OverlayTouchActivity {
     private static final String LOG_TAG = "ManagePermissionsActivity";
 
@@ -47,7 +50,12 @@ public final class ManagePermissionsActivity extends OverlayTouchActivity {
                     finish();
                     return;
                 }
-                fragment = AppPermissionsFragment.newInstance(packageName);
+
+                if (DeviceUtils.isWatch(this)) {
+                    fragment = AppPermissionsFragmentWear.newInstance(packageName);
+                } else {
+                    fragment = AppPermissionsFragment.newInstance(packageName);
+                }
             } break;
 
             case Intent.ACTION_MANAGE_PERMISSION_APPS: {
