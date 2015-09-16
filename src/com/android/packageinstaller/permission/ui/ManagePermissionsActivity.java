@@ -51,7 +51,7 @@ public final class ManagePermissionsActivity extends OverlayTouchActivity {
                     return;
                 }
 
-                if (DeviceUtils.isWatch(this)) {
+                if (DeviceUtils.isWear(this)) {
                     fragment = AppPermissionsFragmentWear.newInstance(packageName);
                 } else {
                     fragment = AppPermissionsFragment.newInstance(packageName);
