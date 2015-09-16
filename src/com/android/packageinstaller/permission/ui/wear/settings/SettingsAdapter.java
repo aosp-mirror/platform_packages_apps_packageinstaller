@@ -228,7 +228,7 @@ public class SettingsAdapter<T> extends WearableListView.Adapter {
 
     protected static class SettingsItemHolder extends ExtendedViewHolder {
         public final CircledImageView imageView;
-        final TextView textView;
+        public final TextView textView;
 
         public SettingsItemHolder(View itemView) {
             super(itemView);
