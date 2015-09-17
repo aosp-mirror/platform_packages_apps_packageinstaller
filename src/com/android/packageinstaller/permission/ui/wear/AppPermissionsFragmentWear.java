@@ -66,7 +66,6 @@ public final class AppPermissionsFragmentWear extends TitledSettingsFragment {
         arguments.putString(Intent.EXTRA_PACKAGE_NAME, packageName);
         fragment.setArguments(arguments);
         return fragment;
-
     }
 
     @Override
@@ -126,11 +125,11 @@ public final class AppPermissionsFragmentWear extends TitledSettingsFragment {
         super.onViewCreated(view, savedInstanceState);
         if (mAppPermissions != null) {
             initializeLayout(mAdapter);
-            bindUi(mAppPermissions.getPackageInfo());
+            bindHeader(mAppPermissions.getPackageInfo());
         }
     }
 
-    private void bindUi(PackageInfo packageInfo) {
+    private void bindHeader(PackageInfo packageInfo) {
         Activity activity = getActivity();
         PackageManager pm = activity.getPackageManager();
         ApplicationInfo appInfo = packageInfo.applicationInfo;
@@ -141,6 +140,8 @@ public final class AppPermissionsFragmentWear extends TitledSettingsFragment {
     private void initializePermissionGroupList() {
         final String packageName = mAppPermissions.getPackageInfo().packageName;
         List<AppPermissionGroup> groups = mAppPermissions.getPermissionGroups();
+        List<SettingsAdapter.Setting<AppPermissionGroup>> nonSystemGroups = new ArrayList<>();
+
         final int count = groups.size();
         for (int i = 0; i < count; ++i) {
             final AppPermissionGroup group = groups.get(i);
@@ -148,12 +149,27 @@ public final class AppPermissionsFragmentWear extends TitledSettingsFragment {
                 continue;
             }
 
+            boolean isPlatform = group.getDeclaringPackage().equals(Utils.OS_PKG);
+
             SettingsAdapter.Setting<AppPermissionGroup> setting =
                     new SettingsAdapter.Setting<AppPermissionGroup>(
                             group.getLabel(),
                             getPermissionGroupIcon(group),
                             i);
             setting.data = group;
+
+            // The UI shows System settings first, then non-system settings
+            if (isPlatform) {
+                mAdapter.addSetting(setting);
+            } else {
+                nonSystemGroups.add(setting);
+            }
+        }
+
+        // Now add the non-system settings to the end of the list
+        final int nonSystemCount = nonSystemGroups.size();
+        for (int i = 0; i < nonSystemCount; ++i) {
+            final SettingsAdapter.Setting<AppPermissionGroup> setting = nonSystemGroups.get(i);
             mAdapter.addSetting(setting);
         }
     }
@@ -161,7 +177,7 @@ public final class AppPermissionsFragmentWear extends TitledSettingsFragment {
     @Override
     public void onPause() {
         super.onPause();
-        logToggledGroups();
+        logAndClearToggledGroups();
     }
 
     @Override
@@ -247,7 +263,7 @@ public final class AppPermissionsFragmentWear extends TitledSettingsFragment {
         }
     }
 
-    private void logToggledGroups() {
+    private void logAndClearToggledGroups() {
         if (mToggledGroups != null) {
             String packageName = mAppPermissions.getPackageInfo().packageName;
             SafetyNetLogger.logPermissionsToggled(packageName, mToggledGroups);
