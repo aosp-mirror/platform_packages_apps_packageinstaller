@@ -18,22 +18,13 @@ package com.android.packageinstaller.permission.ui.wear.settings;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.support.wearable.view.CircledImageView;
 import android.support.wearable.view.WearableListView;
-import android.text.SpannableStringBuilder;
-import android.text.Spanned;
-import android.text.style.TextAppearanceSpan;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
-
-import java.util.ArrayList;
 
 public final class PermissionsSettingsAdapter extends SettingsAdapter<AppPermissionGroup> {
     private Resources mRes;
@@ -45,7 +36,7 @@ public final class PermissionsSettingsAdapter extends SettingsAdapter<AppPermiss
 
     @Override
     public WearableListView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new PermissionsViewHolder(new SettingsAdapter.SettingsItem(parent.getContext()));
+        return new PermissionsViewHolder(new PermissionsSettingsItem(parent.getContext()));
     }
 
     @Override
@@ -79,6 +70,31 @@ public final class PermissionsSettingsAdapter extends SettingsAdapter<AppPermiss
         public PermissionsViewHolder(View view) {
             super(view);
             state = (TextView) view.findViewById(R.id.state);
+        }
+    }
+
+    private class PermissionsSettingsItem extends SettingsItem {
+        private final TextView mState;
+        private final float mCenteredAlpha = 1.0f;
+        private final float mNonCenteredAlpha = 0.5f;
+        
+        public PermissionsSettingsItem (Context context) {
+            super(context);
+            mState = (TextView) findViewById(R.id.state);
+        }
+
+        @Override
+        public void onCenterPosition(boolean animate) {
+            mImage.setAlpha(mImage.isEnabled() ? mCenteredAlpha : mNonCenteredAlpha);
+            mText.setAlpha(mText.isEnabled() ? mCenteredAlpha : mNonCenteredAlpha);
+            mState.setAlpha(mState.isEnabled() ? mCenteredAlpha : mNonCenteredAlpha);
+        }
+
+        @Override
+        public void onNonCenterPosition(boolean animate) {
+            mImage.setAlpha(mNonCenteredAlpha);
+            mText.setAlpha(mNonCenteredAlpha);
+            mState.setAlpha(mNonCenteredAlpha);
         }
     }
 }

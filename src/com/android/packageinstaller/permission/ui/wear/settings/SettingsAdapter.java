@@ -19,9 +19,6 @@ package com.android.packageinstaller.permission.ui.wear.settings;
 import android.content.Context;
 import android.support.wearable.view.CircledImageView;
 import android.support.wearable.view.WearableListView;
-import android.text.SpannableStringBuilder;
-import android.text.Spanned;
-import android.text.style.TextAppearanceSpan;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -40,22 +37,6 @@ import java.util.ArrayList;
 public class SettingsAdapter<T> extends WearableListView.Adapter {
     private static final String TAG = "SettingsAdapter";
     private final Context mContext;
-
-    protected static CharSequence generateLabelWithState(
-            Context context, int labelId, boolean enabled) {
-        return generateLabelWithState(context, labelId, R.string.generic_enabled, enabled);
-    }
-
-    protected static CharSequence generateLabelWithState(
-            Context context, int labelId, int onId, boolean enabled) {
-        SpannableStringBuilder ssb = new SpannableStringBuilder(context.getString(labelId));
-        ssb.append('\n');
-        ssb.append(
-                context.getString(enabled ? onId : R.string.generic_disabled),
-                new TextAppearanceSpan(context, R.style.TextAppearance_Settings_Label_Large),
-                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        return ssb;
-    }
 
     public static final class Setting<S> {
         public static final int ID_INVALID = -1;
@@ -240,8 +221,8 @@ public class SettingsAdapter<T> extends WearableListView.Adapter {
 
     protected class SettingsItem extends FrameLayout implements ExtendedOnCenterProximityListener {
 
-        private final CircledImageView mImage;
-        private final TextView mText;
+        protected final CircledImageView mImage;
+        protected final TextView mText;
 
         public SettingsItem(Context context) {
             super(context);
