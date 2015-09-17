@@ -48,10 +48,9 @@ public abstract class TitledSettingsFragment extends Fragment implements
     protected TextView mHeader;
     protected WearableListView mWheel;
 
-    private static boolean sInitialized;
-    private static int sCharLimitShortTitle;
-    private static int sCharLimitLine;
-    private static int mChinOffset;
+    private int mCharLimitShortTitle;
+    private int mCharLimitLine;
+    private int mChinOffset;
 
     private TextWatcher mHeaderTextWatcher = new TextWatcher() {
         @Override
@@ -64,7 +63,6 @@ public abstract class TitledSettingsFragment extends Fragment implements
         public void afterTextChanged(Editable editable) {
             adjustHeaderSize();
         }
-
     };
 
     private void adjustHeaderTranslation() {
@@ -88,11 +86,8 @@ public abstract class TitledSettingsFragment extends Fragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (!sInitialized) {
-            sCharLimitShortTitle = getResources().getInteger(R.integer.short_title_length);
-            sCharLimitLine = getResources().getInteger(R.integer.char_limit_per_line);
-            sInitialized = true;
-        }
+        mCharLimitShortTitle = getResources().getInteger(R.integer.short_title_length);
+        mCharLimitLine = getResources().getInteger(R.integer.char_limit_per_line);
     }
 
     @Override
@@ -142,7 +137,7 @@ public abstract class TitledSettingsFragment extends Fragment implements
         positionOnCircular(getContext(), mHeader, mWheel);
     }
 
-    public static void positionOnCircular(Context context, View header, final ViewGroup wheel) {
+    public void positionOnCircular(Context context, View header, final ViewGroup wheel) {
         if (ViewUtils.getIsCircular(context)) {
             FrameLayout.LayoutParams params =
                     (FrameLayout.LayoutParams) header.getLayoutParams();
@@ -196,7 +191,7 @@ public abstract class TitledSettingsFragment extends Fragment implements
     private void adjustHeaderSize() {
         int length = mHeader.length();
 
-        if (length <= sCharLimitShortTitle) {
+        if (length <= mCharLimitShortTitle) {
             mHeader.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                     getResources().getDimensionPixelSize(
                             R.dimen.setting_short_header_text_size));
@@ -206,7 +201,7 @@ public abstract class TitledSettingsFragment extends Fragment implements
                             R.dimen.setting_long_header_text_size));
         }
 
-        boolean singleLine = length <= sCharLimitLine;
+        boolean singleLine = length <= mCharLimitLine;
 
         float height = getResources().getDimension(R.dimen.settings_header_base_height);
         if (!singleLine) {
@@ -236,6 +231,4 @@ public abstract class TitledSettingsFragment extends Fragment implements
         }
         mHeader.setLayoutParams(params);
     }
-
-
 }
