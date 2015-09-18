@@ -118,11 +118,9 @@
         </service>
 
         <provider android:name=".wear.WearPackageIconProvider"
-                  android:authorities="com.android.packageinstaller.wear.provider"
+                  android:authorities="com.google.android.packageinstaller.wear.provider"
                   android:grantUriPermissions="true"
                   android:exported="true" />
-
-
     </application>
 
 </manifest>
