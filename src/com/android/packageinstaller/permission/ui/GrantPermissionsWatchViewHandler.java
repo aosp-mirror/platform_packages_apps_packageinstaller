@@ -2,6 +2,7 @@ package com.android.packageinstaller.permission.ui;
 
 import android.content.Context;
 import android.graphics.PixelFormat;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,18 +10,19 @@ import android.view.View;
 import android.view.WindowManager;
 
 import com.android.packageinstaller.R;
+import com.android.packageinstaller.permission.ui.wear.ConfirmationViewHandler;
 
 /**
  * Watch-specific view handler for the grant permissions activity.
  */
-final class GrantPermissionsWatchViewHandler extends PermissionConfirmationViewHandler
+final class GrantPermissionsWatchViewHandler extends ConfirmationViewHandler
         implements GrantPermissionsViewHandler {
     private static final String TAG = "GrantPermsWatchViewH";
 
     private static final String ARG_GROUP_NAME = "ARG_GROUP_NAME";
 
     private final Context mContext;
-
+    
     private ResultListener mResultListener;
     
     private String mGroupName;
@@ -101,54 +103,69 @@ final class GrantPermissionsWatchViewHandler extends PermissionConfirmationViewH
         }
     }
 
-    @Override // PermissionConfirmationViewHandler
-    public void onAllow() {
+    @Override // ConfirmationViewHandler
+    public void onButton1() {
         onClick(true /* granted */, false /* doNotAskAgain */);
     }
 
-    @Override // PermissionConfirmationViewHandler
-    public void onDeny() {
+    @Override // ConfirmationViewHandler
+    public void onButton2() {
         onClick(false /* granted */, false /* doNotAskAgain */);
     }
 
-    @Override // PermissionConfirmationViewHandler
-    public void onDenyDoNotAskAgain() {
+    @Override // ConfirmationViewHandler
+    public void onButton3() {
         onClick(false /* granted */, true /* doNotAskAgain */);
     }
 
-    @Override // PermissionConfirmationViewHandler
+    @Override // ConfirmationViewHandler
     public CharSequence getCurrentPageText() {
         return mCurrentPageText;
     }
 
-    @Override // PermissionConfirmationViewHandler
+    @Override // ConfirmationViewHandler
     public Icon getPermissionIcon() {
         return mIcon;
     }
 
-    @Override // PermissionConfirmationViewHandler
+    @Override // ConfirmationViewHandler
     public CharSequence getMessage() {
         return mMessage;
     }
 
-    @Override // PermissionConfirmationViewHandler
+    @Override // ConfirmationViewHandler
     public int getButtonBarMode() {
         return mShowDoNotAsk ? MODE_VERTICAL_BUTTONS : MODE_HORIZONTAL_BUTTONS;
     }
 
-    @Override // PermissionConfirmationViewHandler
-    public CharSequence getVerticalAllowText() {
+    @Override // ConfirmationViewHandler
+    public CharSequence getVerticalButton1Text() {
         return mContext.getString(R.string.grant_dialog_button_allow);
     }
 
-    @Override // PermissionConfirmationViewHandler
-    public CharSequence getVerticalDenyText() {
+    @Override // ConfirmationViewHandler
+    public CharSequence getVerticalButton2Text() {
         return mContext.getString(R.string.grant_dialog_button_deny);
     }
 
-    @Override // PermissionConfirmationViewHandler
-    public CharSequence getVerticalDenyDoNotAskAgainText() {
+    @Override // ConfirmationViewHandler
+    public CharSequence getVerticalButton3Text() {
         return mContext.getString(R.string.grant_dialog_button_deny_dont_ask_again);
+    }
+
+    @Override // ConfirmationViewHandler
+    public Drawable getVerticalButton1Icon(){
+        return mContext.getDrawable(R.drawable.confirm_button);
+    }
+
+    @Override // ConfirmationViewHandler
+    public Drawable getVerticalButton2Icon(){
+        return mContext.getDrawable(R.drawable.cancel_button);
+    }
+
+    @Override // ConfirmationViewHandler
+    public Drawable getVerticalButton3Icon(){
+        return mContext.getDrawable(R.drawable.deny_button);
     }
 
     private void onClick(boolean granted, boolean doNotAskAgain) {
