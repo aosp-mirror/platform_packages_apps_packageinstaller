@@ -18,10 +18,7 @@ package com.android.packageinstaller.permission.ui.wear;
 
 import android.annotation.Nullable;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Fragment;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
@@ -51,11 +48,13 @@ public final class AppPermissionsFragmentWear extends TitledSettingsFragment {
 
     private static final String LOG_TAG = "ManagePermsFragment";
 
+    private static final int WARNING_CONFIRMATION_REQUEST = 252;
     private List<AppPermissionGroup> mToggledGroups;
     private AppPermissions mAppPermissions;
     private PermissionsSettingsAdapter mAdapter;
 
     private boolean mHasConfirmedRevoke;
+    private int mPendingPermGroupIndex = -1;
 
     public static AppPermissionsFragmentWear newInstance(String packageName) {
         return setPackageName(new AppPermissionsFragmentWear(), packageName);
@@ -216,29 +215,39 @@ public final class AppPermissionsFragmentWear extends TitledSettingsFragment {
         } else {
             final boolean grantedByDefault = group.hasGrantedByDefaultPermission();
             if (grantedByDefault || (!group.hasRuntimePermission() && !mHasConfirmedRevoke)) {
-                new AlertDialog.Builder(getContext())
-                        .setMessage(grantedByDefault ? R.string.system_warning
-                                : R.string.old_sdk_deny_warning)
-                        .setNegativeButton(R.string.cancel, null)
-                        .setPositiveButton(R.string.grant_dialog_button_deny,
-                                new OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                group.revokeRuntimePermissions(false);
-                                if (!grantedByDefault) {
-                                    mHasConfirmedRevoke = true;
-                                }
-
-                                updatePermissionGroupSetting(index);
-                            }
-                        })
-                        .show();
+                mPendingPermGroupIndex = index;
+                Intent intent = new Intent(getActivity(), WarningConfirmationActivity.class);
+                intent.putExtra(WarningConfirmationActivity.EXTRA_WARNING_MESSAGE,
+                        getString(grantedByDefault ?
+                                R.string.system_warning : R.string.old_sdk_deny_warning));
+                startActivityForResult(intent, WARNING_CONFIRMATION_REQUEST);
             } else {
                 group.revokeRuntimePermissions(false);
             }
         }
 
         updatePermissionGroupSetting(index);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == WARNING_CONFIRMATION_REQUEST) {
+            if (resultCode == Activity.RESULT_OK) {
+                SettingsAdapter.Setting<AppPermissionGroup> setting =
+                        mAdapter.get(mPendingPermGroupIndex);
+                final AppPermissionGroup group = setting.data;
+                group.revokeRuntimePermissions(false);
+                if (!group.hasGrantedByDefaultPermission()) {
+                    mHasConfirmedRevoke = true;
+                }
+
+                updatePermissionGroupSetting(mPendingPermGroupIndex);
+            }
+
+            mPendingPermGroupIndex = -1;
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
     private void updatePermissionGroupSetting(int index) {
