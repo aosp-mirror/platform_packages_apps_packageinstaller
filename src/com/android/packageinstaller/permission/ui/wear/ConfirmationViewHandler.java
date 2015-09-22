@@ -1,8 +1,9 @@
-package com.android.packageinstaller.permission.ui;
+package com.android.packageinstaller.permission.ui.wear;
 
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Icon;
 import android.os.Handler;
 import android.os.Message;
@@ -20,7 +21,7 @@ import android.widget.TextView;
 
 import com.android.packageinstaller.R;
 
-public abstract class PermissionConfirmationViewHandler implements
+public abstract class ConfirmationViewHandler implements
         Handler.Callback,
         View.OnClickListener,
         ViewTreeObserver.OnScrollChangedListener  {
@@ -38,9 +39,9 @@ public abstract class PermissionConfirmationViewHandler implements
     private ViewGroup mContent;
     private ViewGroup mHorizontalButtonBar;
     private ViewGroup mVerticalButtonBar;
-    private Button mVerticalAllow;
-    private Button mVerticalDeny;
-    private Button mVerticalDenyDoNotAskAgain;
+    private Button mVerticalButton1;
+    private Button mVerticalButton2;
+    private Button mVerticalButton3;
     private View mButtonBarContainer;
 
     private Context mContext;
@@ -53,17 +54,22 @@ public abstract class PermissionConfirmationViewHandler implements
     private boolean mHiddenBefore;
 
     // TODO: Move these into a builder
-    public abstract void onAllow();
-    public abstract void onDeny();
-    public abstract void onDenyDoNotAskAgain();
-    public abstract CharSequence getVerticalAllowText();
-    public abstract CharSequence getVerticalDenyText();
-    public abstract CharSequence getVerticalDenyDoNotAskAgainText();
+    /** In the 2 button layout, this is allow button */
+    public abstract void onButton1();
+    /** In the 2 button layout, this is deny button */
+    public abstract void onButton2();
+    public abstract void onButton3();
+    public abstract CharSequence getVerticalButton1Text();
+    public abstract CharSequence getVerticalButton2Text();
+    public abstract CharSequence getVerticalButton3Text();
+    public abstract Drawable getVerticalButton1Icon();
+    public abstract Drawable getVerticalButton2Icon();
+    public abstract Drawable getVerticalButton3Icon();
     public abstract CharSequence getCurrentPageText();
     public abstract Icon getPermissionIcon();
     public abstract CharSequence getMessage();
 
-    public PermissionConfirmationViewHandler(Context context) {
+    public ConfirmationViewHandler(Context context) {
         mContext = context;
     }
 
@@ -84,13 +90,12 @@ public abstract class PermissionConfirmationViewHandler implements
         horizontalAllow.setOnClickListener(this);
         horizontalDeny.setOnClickListener(this);
 
-        mVerticalAllow = (Button) mRoot.findViewById(R.id.vertical_allow_button);
-        mVerticalDeny = (Button) mRoot.findViewById(R.id.vertical_deny_button);
-        mVerticalDenyDoNotAskAgain =
-                (Button) mRoot.findViewById(R.id.vertical_deny_do_not_ask_again_button);
-        mVerticalAllow.setOnClickListener(this);
-        mVerticalDeny.setOnClickListener(this);
-        mVerticalDenyDoNotAskAgain.setOnClickListener(this);
+        mVerticalButton1 = (Button) mRoot.findViewById(R.id.vertical_button1);
+        mVerticalButton2 = (Button) mRoot.findViewById(R.id.vertical_button2);
+        mVerticalButton3 = (Button) mRoot.findViewById(R.id.vertical_button3);
+        mVerticalButton1.setOnClickListener(this);
+        mVerticalButton2.setOnClickListener(this);
+        mVerticalButton3.setOnClickListener(this);
 
         mInterpolator = AnimationUtils.loadInterpolator(mContext,
                 android.R.interpolator.fast_out_slow_in);
@@ -116,7 +121,7 @@ public abstract class PermissionConfirmationViewHandler implements
             mCurrentPageText.setText(currentPageText);
             mCurrentPageText.setVisibility(View.VISIBLE);
         } else {
-            mCurrentPageText.setVisibility(View.INVISIBLE);
+            mCurrentPageText.setVisibility(View.GONE);
         }
 
         Icon icon = getPermissionIcon();
@@ -124,7 +129,7 @@ public abstract class PermissionConfirmationViewHandler implements
             mIcon.setImageIcon(icon);
             mIcon.setVisibility(View.VISIBLE);
         } else {
-            mIcon.setVisibility(View.INVISIBLE);
+            mIcon.setVisibility(View.GONE);
         }
         mMessage.setText(getMessage());
 
@@ -136,16 +141,16 @@ public abstract class PermissionConfirmationViewHandler implements
             case MODE_VERTICAL_BUTTONS:
                 mHorizontalButtonBar.setVisibility(View.GONE);
                 mVerticalButtonBar.setVisibility(View.VISIBLE);
-                mVerticalAllow.setText(getVerticalAllowText());
-                mVerticalDeny.setText(getVerticalDenyText());
-                mVerticalDenyDoNotAskAgain.setText(getVerticalDenyDoNotAskAgainText());
+                mVerticalButton1.setText(getVerticalButton1Text());
+                mVerticalButton2.setText(getVerticalButton2Text());
+                mVerticalButton3.setText(getVerticalButton3Text());
 
-                mVerticalAllow.setCompoundDrawablesWithIntrinsicBounds(
-                        mContext.getDrawable(R.drawable.confirm_button), null, null, null);
-                mVerticalDeny.setCompoundDrawablesWithIntrinsicBounds(
-                        mContext.getDrawable(R.drawable.cancel_button), null, null, null);
-                mVerticalDenyDoNotAskAgain.setCompoundDrawablesWithIntrinsicBounds(
-                        mContext.getDrawable(R.drawable.cancel_button), null, null, null);
+                mVerticalButton1.setCompoundDrawablesWithIntrinsicBounds(
+                        getVerticalButton1Icon(), null, null, null);
+                mVerticalButton2.setCompoundDrawablesWithIntrinsicBounds(
+                        getVerticalButton2Icon(), null, null, null);
+                mVerticalButton3.setCompoundDrawablesWithIntrinsicBounds(
+                        getVerticalButton3Icon(), null, null, null);
                 break;
         }
 
@@ -194,15 +199,15 @@ public abstract class PermissionConfirmationViewHandler implements
         int id = v.getId();
         switch (id) {
             case R.id.horizontal_allow_button:
-            case R.id.vertical_allow_button:
-                onAllow();
+            case R.id.vertical_button1:
+                onButton1();
                 break;
             case R.id.horizontal_deny_button:
-            case R.id.vertical_deny_button:
-                onDeny();
+            case R.id.vertical_button2:
+                onButton2();
                 break;
-            case R.id.vertical_deny_do_not_ask_again_button:
-                onDenyDoNotAskAgain();
+            case R.id.vertical_button3:
+                onButton3();
                 break;
         }
     }
@@ -227,8 +232,11 @@ public abstract class PermissionConfirmationViewHandler implements
         // get the offset to the top of the button bar
         int offset = mScrollingContainer.getHeight() + mButtonBarContainer.getHeight() -
                 mContent.getHeight() + Math.max(mScrollingContainer.getScrollY(), 0);
-        int translationY = offset > 0 ? mButtonBarContainer.getHeight() - offset :
-                mButtonBarContainer.getHeight();
+        // The desired margin space between the button bar and the bottom of the dialog text
+        int topMargin = mContext.getResources().getDimensionPixelSize(
+                R.dimen.conf_diag_button_container_top_margin);
+        int translationY = topMargin + (offset > 0 ?
+                mButtonBarContainer.getHeight() - offset : mButtonBarContainer.getHeight());
 
         if (!mHiddenBefore || mButtonBarAnimator == null) {
             // hasn't hidden the bar yet, just hide now to the right height

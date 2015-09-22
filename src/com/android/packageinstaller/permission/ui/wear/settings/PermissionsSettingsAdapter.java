@@ -77,7 +77,7 @@ public final class PermissionsSettingsAdapter extends SettingsAdapter<AppPermiss
         private final TextView mState;
         private final float mCenteredAlpha = 1.0f;
         private final float mNonCenteredAlpha = 0.5f;
-        
+
         public PermissionsSettingsItem (Context context) {
             super(context);
             mState = (TextView) findViewById(R.id.state);
