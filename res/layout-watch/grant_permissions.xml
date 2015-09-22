@@ -38,7 +38,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="@dimen/grant_permissions_app_breadcrumb_margin_bottom"
+                    android:layout_marginTop="@dimen/grant_permissions_app_breadcrumb_margin_top"
                     android:textAppearance="@style/GrantPermissions.BreadcrumbText" />
 
             <ImageView
@@ -53,20 +53,18 @@
                     android:id="@+id/message"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
-                    android:textSize="20sp"
+                    android:layout_marginTop="@dimen/grant_permissions_title_margin_top"
+                    android:paddingLeft="@dimen/grant_permissions_message_side_padding"
+                    android:paddingRight="@dimen/grant_permissions_message_side_padding"
                     android:gravity="center"
-                    android:fontFamily="sans-serif-condensed-light"
                     android:textAppearance="@style/GrantPermissions.TitleText"/>
         </LinearLayout>
     </ScrollView>
 
     <!-- TODO: Change this to use a ViewStub instead of show/hiding the two layouts -->
-    <FrameLayout android:layout_width="match_parent"
+    <FrameLayout android:id="@+id/button_bar_container"
+                 android:layout_width="match_parent"
                  android:layout_height="wrap_content"
-                 android:id="@+id/button_bar_container"
                  android:layout_gravity="bottom"
                  android:background="#FF606060">
         <FrameLayout
@@ -105,15 +103,15 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <Button
-                    android:id="@+id/vertical_allow_button"
+                    android:id="@+id/vertical_button1"
                     style="@style/Widget.WearDiag.Button"/>
 
                 <Button
-                    android:id="@+id/vertical_deny_button"
+                    android:id="@+id/vertical_button2"
                     style="@style/Widget.WearDiag.Button"/>
 
                 <Button
-                    android:id="@+id/vertical_deny_do_not_ask_again_button"
+                    android:id="@+id/vertical_button3"
                     style="@style/Widget.WearDiag.Button"/>
             </LinearLayout>
         </FrameLayout>

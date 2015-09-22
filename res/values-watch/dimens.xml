@@ -15,15 +15,18 @@
 -->
 
 <resources>
-    <dimen name="grant_permissions_app_icon_size">32dp</dimen>
-    <dimen name="grant_permissions_app_icon_margin_top">8dp</dimen>
+    <dimen name="grant_permissions_app_icon_size">20dp</dimen>
+    <dimen name="grant_permissions_app_icon_margin_top">6dp</dimen>
 
-    <dimen name="grant_permissions_app_breadcrumb_margin_bottom">3dp</dimen>
+    <dimen name="grant_permissions_app_breadcrumb_margin_top">6dp</dimen>
+    <dimen name="grant_permissions_title_margin_top">6dp</dimen>
+    <dimen name="grant_permissions_message_side_padding">32dp</dimen>
 
     <dimen name="action_dialog_z">16dp</dimen>
 
     <!-- Dimensions for the Grant permissions Confirmation Dialog -->
     <dimen name="conf_diag_floating_height">16dp</dimen>
+    <dimen name="conf_diag_button_container_top_margin">6dp</dimen>
     <dimen name="conf_diag_button_container_height">72dp</dimen>
     <dimen name="conf_diag_2button_margin_side">16dp</dimen>
     <dimen name="conf_diag_2button_margin_top">9dp</dimen>
