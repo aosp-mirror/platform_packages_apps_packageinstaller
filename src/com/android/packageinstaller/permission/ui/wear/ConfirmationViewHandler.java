@@ -74,7 +74,7 @@ public abstract class ConfirmationViewHandler implements
     }
 
     public View createView() {
-        mRoot = LayoutInflater.from(mContext).inflate(R.layout.grant_permissions, null);
+        mRoot = LayoutInflater.from(mContext).inflate(R.layout.confirmation_dialog, null);
 
         mMessage = (TextView) mRoot.findViewById(R.id.message);
         mCurrentPageText = (TextView) mRoot.findViewById(R.id.current_page_text);
@@ -141,16 +141,24 @@ public abstract class ConfirmationViewHandler implements
             case MODE_VERTICAL_BUTTONS:
                 mHorizontalButtonBar.setVisibility(View.GONE);
                 mVerticalButtonBar.setVisibility(View.VISIBLE);
+
                 mVerticalButton1.setText(getVerticalButton1Text());
                 mVerticalButton2.setText(getVerticalButton2Text());
-                mVerticalButton3.setText(getVerticalButton3Text());
 
                 mVerticalButton1.setCompoundDrawablesWithIntrinsicBounds(
                         getVerticalButton1Icon(), null, null, null);
                 mVerticalButton2.setCompoundDrawablesWithIntrinsicBounds(
                         getVerticalButton2Icon(), null, null, null);
-                mVerticalButton3.setCompoundDrawablesWithIntrinsicBounds(
-                        getVerticalButton3Icon(), null, null, null);
+
+                CharSequence verticalButton3Text = getVerticalButton3Text();
+                if (TextUtils.isEmpty(verticalButton3Text)) {
+                    mVerticalButton3.setVisibility(View.GONE);
+                } else {
+                    mVerticalButton3.setText(getVerticalButton3Text());
+                    mVerticalButton3.setCompoundDrawablesWithIntrinsicBounds(
+                            getVerticalButton3Icon(), null, null, null);
+                }
+
                 break;
         }
 
