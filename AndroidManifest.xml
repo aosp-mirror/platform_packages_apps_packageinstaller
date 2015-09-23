@@ -121,6 +121,10 @@
                   android:authorities="com.google.android.packageinstaller.wear.provider"
                   android:grantUriPermissions="true"
                   android:exported="true" />
+
+        <activity android:name=".permission.ui.wear.WarningConfirmationActivity"
+                  android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS"
+                  android:theme="@style/Settings"/>
     </application>
 
 </manifest>
