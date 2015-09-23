@@ -182,8 +182,14 @@ public abstract class ConfirmationViewHandler implements
                         if (mContent.getHeight() > mScrollingContainer.getHeight()) {
                             mButtonBarContainer.setTranslationZ(mButtonBarFloatingHeight);
                             mHideHandler.sendEmptyMessageDelayed(MSG_HIDE_BUTTON_BAR, 3000);
-                            generateButtonBarAnimator(mButtonBarContainer.getHeight(), 0, 0,
-                                    mButtonBarFloatingHeight, 1000);
+                            int maxButtonBarHeight = 0;
+                            if (mButtonBarContainer.getHeight() >= mRoot.getHeight() / 2) {
+                                // If the ButtonBar is bigger than half the screen, then don't
+                                // animate all the way.
+                                maxButtonBarHeight = mRoot.getHeight() / 2;
+                            }
+                            generateButtonBarAnimator(mButtonBarContainer.getHeight(),
+                                    maxButtonBarHeight, 0, mButtonBarFloatingHeight, 1000);
                         } else {
                             mButtonBarContainer.setTranslationY(0);
                             mButtonBarContainer.setTranslationZ(0);
