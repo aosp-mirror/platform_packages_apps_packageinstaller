@@ -85,8 +85,8 @@ public abstract class ConfirmationViewHandler implements
         mHorizontalButtonBar = (ViewGroup) mRoot.findViewById(R.id.horizontal_button_bar);
         mVerticalButtonBar = (ViewGroup) mRoot.findViewById(R.id.vertical_button_bar);
 
-        Button horizontalAllow = (Button) mRoot.findViewById(R.id.horizontal_allow_button);
-        Button horizontalDeny = (Button) mRoot.findViewById(R.id.horizontal_deny_button);
+        Button horizontalAllow = (Button) mRoot.findViewById(R.id.permission_allow_button);
+        Button horizontalDeny = (Button) mRoot.findViewById(R.id.permission_deny_button);
         horizontalAllow.setOnClickListener(this);
         horizontalDeny.setOnClickListener(this);
 
@@ -212,11 +212,11 @@ public abstract class ConfirmationViewHandler implements
     public void onClick(View v) {
         int id = v.getId();
         switch (id) {
-            case R.id.horizontal_allow_button:
+            case R.id.permission_allow_button:
             case R.id.vertical_button1:
                 onButton1();
                 break;
-            case R.id.horizontal_deny_button:
+            case R.id.permission_deny_button:
             case R.id.vertical_button2:
                 onButton2();
                 break;
