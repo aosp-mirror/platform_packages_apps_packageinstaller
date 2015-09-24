@@ -72,7 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/conf_diag_button_container_height">
             <Button
-                android:id="@+id/horizontal_deny_button"
+                android:id="@+id/permission_deny_button"
                 android:layout_width="54dp"
                 android:layout_height="54dp"
                 android:layout_gravity="top|left"
@@ -81,7 +81,7 @@
                 android:background="@drawable/cancel_button"/>
 
             <Button
-                android:id="@+id/horizontal_allow_button"
+                android:id="@+id/permission_allow_button"
                 android:layout_width="54dp"
                 android:layout_height="54dp"
                 android:layout_gravity="top|right"
@@ -89,7 +89,7 @@
                 android:layout_marginTop="@dimen/conf_diag_2button_margin_top"
                 android:background="@drawable/confirm_button"/>
         </FrameLayout>
-
+    
         <FrameLayout
             android:id="@+id/vertical_button_bar"
             android:layout_width="match_parent"
