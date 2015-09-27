@@ -16,6 +16,7 @@
 
 package com.android.packageinstaller.permission.ui.wear;
 
+import android.Manifest;
 import android.annotation.Nullable;
 import android.app.Activity;
 import android.app.Fragment;
@@ -281,7 +282,52 @@ public final class AppPermissionsFragmentWear extends TitledSettingsFragment {
     }
 
     private int getPermissionGroupIcon(AppPermissionGroup group) {
-        // TODO: Return the correct icon based on if permissions are granted
-        return group.getIconResId();
+        String groupName = group.getName();
+        boolean isEnabled = group.areRuntimePermissionsGranted();
+        int resId;
+
+        switch (groupName) {
+            case Manifest.permission_group.CALENDAR:
+                resId = isEnabled ? R.drawable.ic_permission_calendar
+                        : R.drawable.ic_permission_calendardisable;
+                break;
+            case Manifest.permission_group.CAMERA:
+                resId = isEnabled ? R.drawable.ic_permission_camera
+                        : R.drawable.ic_permission_cameradisable;
+                break;
+            case Manifest.permission_group.CONTACTS:
+                resId = isEnabled ? R.drawable.ic_permission_contact
+                        : R.drawable.ic_permission_contactdisable;
+                break;
+            case Manifest.permission_group.LOCATION:
+                resId = isEnabled ? R.drawable.ic_permission_location
+                        : R.drawable.ic_permission_locationdisable;
+                break;
+            case Manifest.permission_group.MICROPHONE:
+                resId = isEnabled ? R.drawable.ic_permission_mic
+                        : R.drawable.ic_permission_micdisable;
+                break;
+            case Manifest.permission_group.PHONE:
+                resId = isEnabled ? R.drawable.ic_permission_call
+                        : R.drawable.ic_permission_calldisable;
+                break;
+            case Manifest.permission_group.SENSORS:
+                resId = isEnabled ? R.drawable.ic_permission_sensor
+                        : R.drawable.ic_permission_sensordisable;
+                break;
+            case Manifest.permission_group.SMS:
+                resId = isEnabled ? R.drawable.ic_permission_sms
+                        : R.drawable.ic_permission_smsdisable;
+                break;
+            case Manifest.permission_group.STORAGE:
+                resId = isEnabled ? R.drawable.ic_permission_storage
+                        : R.drawable.ic_permission_storagedisable;
+                break;
+            default:
+                resId = isEnabled ? R.drawable.ic_permission_shield
+                        : R.drawable.ic_permission_shielddisable;
+        }
+
+        return resId;
     }
 }
