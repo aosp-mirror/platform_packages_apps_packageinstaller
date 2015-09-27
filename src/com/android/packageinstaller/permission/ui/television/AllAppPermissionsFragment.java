@@ -16,8 +16,10 @@
 
 package com.android.packageinstaller.permission.ui.television;
 
+import android.Manifest;
 import android.app.ActionBar;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
@@ -28,9 +30,12 @@ import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
+import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.Preference.OnPreferenceClickListener;
 import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.PreferenceGroup;
@@ -38,6 +43,8 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.android.packageinstaller.R;
+import com.android.packageinstaller.permission.model.AppPermissionGroup;
+import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.utils.Utils;
 
 import java.util.ArrayList;
@@ -49,6 +56,10 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
     private static final String LOG_TAG = "AllAppPermissionsFragment";
 
     private static final String KEY_OTHER = "other_perms";
+
+    private PackageInfo mPackageInfo;
+
+    private AppPermissions mAppPermissions;
 
     public static AllAppPermissionsFragment newInstance(String packageName) {
         AllAppPermissionsFragment instance = new AllAppPermissionsFragment();
@@ -67,6 +78,22 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
             ab.setTitle(R.string.all_permissions);
             ab.setDisplayHomeAsUpEnabled(true);
         }
+
+        String pkg = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
+        try {
+            mPackageInfo = getActivity().getPackageManager().getPackageInfo(pkg,
+                    PackageManager.GET_PERMISSIONS);
+        } catch (NameNotFoundException e) {
+            getActivity().finish();
+        }
+
+        mAppPermissions = new AppPermissions(getActivity(), mPackageInfo, null, false,
+                new Runnable() {
+            @Override
+            public void run() {
+                getActivity().finish();
+            }
+        });
     }
 
     @Override
@@ -86,62 +113,64 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
         return super.onOptionsItemSelected(item);
     }
 
-    private void updateUi() {
-        if (getPreferenceScreen() != null) {
-            getPreferenceScreen().removeAll();
-        }
-        addPreferencesFromResource(R.xml.all_permissions);
+    private PreferenceGroup getOtherGroup() {
         PreferenceGroup otherGroup = (PreferenceGroup) findPreference(KEY_OTHER);
+        if (otherGroup == null) {
+            otherGroup = new PreferenceCategory(getPreferenceManager().getContext());
+            otherGroup.setKey(KEY_OTHER);
+            otherGroup.setTitle(getString(R.string.other_permissions));
+            getPreferenceScreen().addPreference(otherGroup);
+        }
+        return otherGroup;
+    }
+
+    private void updateUi() {
+        getPreferenceScreen().removeAll();
+
         ArrayList<Preference> prefs = new ArrayList<>(); // Used for sorting.
-        prefs.add(otherGroup);
-        String pkg = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
-        otherGroup.removeAll();
-        PackageManager pm = getContext().getPackageManager();
+        PackageManager pm = getActivity().getPackageManager();
 
-        try {
-            PackageInfo info = pm.getPackageInfo(pkg, PackageManager.GET_PERMISSIONS);
+        ApplicationInfo appInfo = mPackageInfo.applicationInfo;
+        final Drawable icon = appInfo.loadIcon(pm);
+        final CharSequence label = appInfo.loadLabel(pm);
+        Intent infoIntent = null;
+        if (!getActivity().getIntent().getBooleanExtra(
+                AppPermissionsFragment.EXTRA_HIDE_INFO_BUTTON, false)) {
+            infoIntent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                    .setData(Uri.fromParts("package", mPackageInfo.packageName, null));
+        }
+        setHeader(icon, label, infoIntent);
 
-            ApplicationInfo appInfo = info.applicationInfo;
-            final Drawable icon = appInfo.loadIcon(pm);
-            final CharSequence label = appInfo.loadLabel(pm);
-            Intent infoIntent = null;
-            if (!getActivity().getIntent().getBooleanExtra(
-                    AppPermissionsFragment.EXTRA_HIDE_INFO_BUTTON, false)) {
-                infoIntent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                        .setData(Uri.fromParts("package", pkg, null));
-            }
-            setHeader(icon, label, infoIntent);
+        if (mPackageInfo.requestedPermissions != null) {
+            for (int i = 0; i < mPackageInfo.requestedPermissions.length; i++) {
+                PermissionInfo perm;
+                try {
+                    perm = pm.getPermissionInfo(mPackageInfo.requestedPermissions[i], 0);
+                } catch (NameNotFoundException e) {
+                    Log.e(LOG_TAG, "Can't get permission info for "
+                            + mPackageInfo.requestedPermissions[i], e);
+                    continue;
+                }
 
-            if (info.requestedPermissions != null) {
-                for (int i = 0; i < info.requestedPermissions.length; i++) {
-                    PermissionInfo perm;
-                    try {
-                        perm = pm.getPermissionInfo(info.requestedPermissions[i], 0);
-                    } catch (NameNotFoundException e) {
-                        Log.e(LOG_TAG,
-                                "Can't get permission info for " + info.requestedPermissions[i], e);
-                        continue;
+                if ((perm.flags & PermissionInfo.FLAG_INSTALLED) == 0
+                        || (perm.flags & PermissionInfo.FLAG_HIDDEN) != 0) {
+                    continue;
+                }
+
+                PermissionGroupInfo group = getGroup(perm.group, pm);
+                if (perm.protectionLevel == PermissionInfo.PROTECTION_DANGEROUS) {
+                    PreferenceGroup pref = findOrCreate(group != null ? group : perm, pm, prefs);
+                    pref.addPreference(getPreference(perm, group));
+                } else if (perm.protectionLevel == PermissionInfo.PROTECTION_NORMAL) {
+                    PreferenceGroup otherGroup = getOtherGroup();
+                    if (prefs.indexOf(otherGroup) < 0) {
+                        prefs.add(otherGroup);
                     }
-
-                    if ((perm.flags & PermissionInfo.FLAG_INSTALLED) == 0
-                            || (perm.flags & PermissionInfo.FLAG_HIDDEN) != 0) {
-                        continue;
-                    }
-
-                    if (perm.protectionLevel == PermissionInfo.PROTECTION_DANGEROUS) {
-                        PermissionGroupInfo group = getGroup(perm.group, pm);
-                        PreferenceGroup pref =
-                                findOrCreate(group != null ? group : perm, pm, prefs);
-                        pref.addPreference(getPreference(perm, group, pm));
-                    } else if (perm.protectionLevel == PermissionInfo.PROTECTION_NORMAL) {
-                        PermissionGroupInfo group = getGroup(perm.group, pm);
-                        otherGroup.addPreference(getPreference(perm, group, pm));
-                    }
+                    getOtherGroup().addPreference(getPreference(perm, group));
                 }
             }
-        } catch (NameNotFoundException e) {
-            Log.e(LOG_TAG, "Problem getting package info for " + pkg, e);
         }
+
         // Sort an ArrayList of the groups and then set the order from the sorting.
         Collections.sort(prefs, new Comparator<Preference>() {
             @Override
@@ -176,7 +205,7 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
             ArrayList<Preference> prefs) {
         PreferenceGroup pref = (PreferenceGroup) findPreference(group.name);
         if (pref == null) {
-            pref = new PreferenceCategory(getContext());
+            pref = new PreferenceCategory(getActivity());
             pref.setKey(group.name);
             pref.setLayoutResource(R.layout.preference_category_material);
             pref.setTitle(group.loadLabel(pm));
@@ -186,26 +215,57 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
         return pref;
     }
 
-    private Preference getPreference(PermissionInfo perm, PermissionGroupInfo group,
-            PackageManager pm) {
-        Preference pref = new Preference(getContext());
-        pref.setLayoutResource(R.layout.preference_permissions);
-        Drawable icon = null;
-        if (perm.icon != 0) {
-            icon = perm.loadIcon(pm);
-        } else if (group != null && group.icon != 0) {
-            icon = group.loadIcon(pm);
+    private Preference getPreference(final PermissionInfo perm, final PermissionGroupInfo group) {
+        if (isMutableGranularPermission(perm.name)) {
+            return getMutablePreference(perm, group);
         } else {
-            icon = getContext().getDrawable(R.drawable.ic_perm_device_info);
+            return getImmutablePreference(perm, group);
         }
-        pref.setIcon(Utils.applyTint(getContext(), icon, android.R.attr.colorControlNormal));
+    }
+
+    private Preference getMutablePreference(final PermissionInfo perm, PermissionGroupInfo group) {
+        final AppPermissionGroup permGroup = mAppPermissions.getPermissionGroup(group.name);
+        final String[] filterPermissions = new String[]{perm.name};
+
+        // TODO: No hardcoded layouts
+        SwitchPreference pref = new SwitchPreference(getPreferenceManager().getContext());
+        pref.setLayoutResource(R.layout.preference_permissions);
+        pref.setChecked(permGroup.areRuntimePermissionsGranted(filterPermissions));
+        pref.setIcon(getTintedPermissionIcon(getActivity(), perm, group));
+        pref.setTitle(perm.loadLabel(getActivity().getPackageManager()));
+        pref.setPersistent(false);
+
+        pref.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object value) {
+                if (value == Boolean.TRUE) {
+                    permGroup.grantRuntimePermissions(false, filterPermissions);
+                } else {
+                    permGroup.revokeRuntimePermissions(false, filterPermissions);
+                }
+                return true;
+            }
+        });
+
+        return pref;
+    }
+
+    private Preference getImmutablePreference(final PermissionInfo perm,
+            PermissionGroupInfo group) {
+        final PackageManager pm = getActivity().getPackageManager();
+
+        // TODO: No hardcoded layouts
+        Preference pref = new Preference(getActivity());
+        pref.setLayoutResource(R.layout.preference_permissions);
+        pref.setIcon(getTintedPermissionIcon(getActivity(), perm, group));
         pref.setTitle(perm.loadLabel(pm));
-        final CharSequence desc = perm.loadDescription(pm);
+        pref.setPersistent(false);
+
         pref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                new AlertDialog.Builder(getContext())
-                        .setMessage(desc)
+                new AlertDialog.Builder(getActivity())
+                        .setMessage(perm.loadDescription(pm))
                         .setPositiveButton(android.R.string.ok, null)
                         .show();
                 return true;
@@ -213,5 +273,34 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
         });
 
         return pref;
+    }
+
+    private static Drawable getTintedPermissionIcon(Context context, PermissionInfo perm,
+            PermissionGroupInfo group) {
+        final Drawable icon;
+        if (perm.icon != 0) {
+            icon = perm.loadIcon(context.getPackageManager());
+        } else if (group != null && group.icon != 0) {
+            icon = group.loadIcon(context.getPackageManager());
+        } else {
+            icon =  context.getDrawable(R.drawable.ic_perm_device_info);
+        }
+        return Utils.applyTint(context, icon, android.R.attr.colorControlNormal);
+    }
+
+    private static boolean isMutableGranularPermission(String name) {
+        if (!Build.PERMISSIONS_REVIEW_REQUIRED) {
+            return false;
+        }
+        switch (name) {
+            case Manifest.permission.READ_CONTACTS:
+            case Manifest.permission.WRITE_CONTACTS:
+            case Manifest.permission.READ_SMS:
+            case Manifest.permission.READ_CALL_LOG:
+            case Manifest.permission.CALL_PHONE: {
+                return true;
+            }
+        }
+        return false;
     }
 }

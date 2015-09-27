@@ -156,10 +156,6 @@
     <string name="grant_confirm_question">Do you want to grant the following permissions?
         It will get access to:</string>
 
-
-    <!-- Title for the dialog button to allow a permission grant. -->
-    <string name="grant_dialog_button_allow">Allow</string>
-
     <!-- Title for the dialog button to deny a permission grant. -->
     <string name="grant_dialog_button_deny">Deny</string>
 
@@ -264,5 +260,34 @@
     <string name="wear_not_allowed_dlg_title">Android Wear</string>
     <!-- Title of dialog telling users that Install/Uninstall action is not supported on Android Wear. -->
     <string name="wear_not_allowed_dlg_text">Instal/Uninstall actions not supported on Wear.</string>
+
+    <!-- Review of runtime permissions for legacy apps -->
+
+    <!-- Template for the warning title when an updated app's requested permissions are reviewed. -->
+    <string name="permission_review_warning_title_template_update">
+        <xliff:g id="app_name" example="Gmail">%1$s</xliff:g> has been updated.
+        Allow <xliff:g id="app_name" example="Gmail">%1$s</xliff:g> to
+        access the following?</string>
+
+    <!-- Template for the screen title when app permissions are reviewed on install. -->
+    <string name="permission_review_title_template_install">Choose what to allow
+        <xliff:g id="app_name" example="Gmail">%1$s</xliff:g> to access</string>
+
+    <!-- Template for the screen title when app permissions are reviewed on update. -->
+    <string name="permission_review_title_template_update">
+        <xliff:g id="app_name" example="Gmail">%1$s</xliff:g> has been updated.
+        Choose what to allow this app to access.</string>
+
+    <!-- Title for the dialog button to cancel the detailed permission review. -->
+    <string name="review_button_cancel">Cancel</string>
+
+    <!-- Title for the dialog button to continue accepting the detailed permission review. -->
+    <string name="review_button_continue">Continue</string>
+
+    <!-- Title for the category listing the new permissions used by an app. -->
+    <string name="new_permissions_category">New permissions</string>
+
+    <!-- Title for the category listing the current permissions used by an app. -->
+    <string name="current_permissions_category">Current permissions</string>
 
 </resources>

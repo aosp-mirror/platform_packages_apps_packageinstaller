@@ -109,6 +109,15 @@ public final class AppPermissionsFragment extends SettingsWithHeader
                 getActivity().finish();
             }
         });
+
+        if (mAppPermissions.isReviewRequired()) {
+            Intent intent = new Intent(getActivity(), ReviewPermissionsActivity.class);
+            intent.putExtra(Intent.EXTRA_PACKAGE_NAME, packageName);
+            startActivity(intent);
+            getActivity().finish();
+            return;
+        }
+
         loadPreferences();
     }
 
