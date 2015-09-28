@@ -85,6 +85,11 @@ public class InstallFlowAnalytics implements Parcelable {
      */
     static final byte RESULT_PACKAGE_MANAGER_INSTALL_FAILED = 6;
 
+    /**
+     * Installation blocked since this feature is not allowed on Android Wear devices yet.
+     */
+    static final byte RESULT_NOT_ALLOWED_ON_WEAR = 7;
+
     private static final int FLAG_INSTALLS_FROM_UNKNOWN_SOURCES_PERMITTED = 1 << 0;
     private static final int FLAG_INSTALL_REQUEST_FROM_UNKNOWN_SOURCE = 1 << 1;
     private static final int FLAG_VERIFY_APPS_ENABLED = 1 << 2;
