@@ -75,7 +75,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Ապատեղադրումն անհաջող է:"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Հնարավոր չէ ապատեղադրել, քանի որ այս փաթեթն ակտիվ սարքի ադմինիստրատոր է:"</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Հնարավոր չէ ապատեղադրել, քանի որ այս փաթեթը ակտիվ սարքի ադմինիստրատոր է <xliff:g id="USERNAME">%1$s</xliff:g> օգտվողի համար:"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Այս ծրագիրն անհրաժեշտ է ձեր <xliff:g id="USERNAME">%1$s</xliff:g> պրոֆիլի համար և չի կարող հեռացվել:"</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Այս հավելվածը հարկավոր է ձեր աշխատանքային պրոֆիլի համար: Չեք կարող հեռացնել այն:"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Ծրագիրը ձեր սարքի ադմինիստրատորի կողմից նշվել է որպես պարտադիր և չի կարող հեռացվել:"</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Կառավարել սարքի ադմինիստրատորներին"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g>-ը չհաջողվեց ապատեղադրել:"</string>
@@ -91,7 +91,29 @@
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Մերժել"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>-ը <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>-ից"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"Թույլատրե՞լ <xliff:g id="APP_NAME">%1$s</xliff:g>-ին <xliff:g id="ACTION">%2$s</xliff:g>:"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Հավելվածներ"</string>
     <string name="app_permissions" msgid="3146758905824597178">"Հավելվածների թույլտվությունները"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"Այլևս երբեք չհարցնել"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Թույլտվություններ չկան"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"Լրացուցիչ թույլտվություններ"</string>
+    <!-- no translation found for additional_permissions_more:one (8845294413599515719) -->
+    <!-- no translation found for additional_permissions_more:other (1823455952304633300) -->
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Այս հավելվածը նախատեսված է Android-ի ավելի հին տարբերակի համար: Եթե մերժեք թույլտվությունը, այն կարող է չաշխատել ինչպես հարկն է:"</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"թույլատրել անհայտ գործողություն"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"Թույլատրված է <xliff:g id="COUNT_0">%1$d</xliff:g> հավելվածի՝ <xliff:g id="COUNT_1">%2$d</xliff:g>-ից"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"Ցուցադրել համակարգայինները"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"Թաքցնել համակարգայինները"</string>
+    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> թույլտվություններ"</string>
+    <string name="no_apps" msgid="1965493419005012569">"Հավելվածներ չկան"</string>
+    <string name="location_settings" msgid="1774875730854491297">"Տեղադրության կարգավորումներ"</string>
+    <string name="location_warning" msgid="8778701356292735971">"Այս սարքի տեղադրության ծառայությունները տրամադրում է <xliff:g id="APP_NAME">%1$s</xliff:g> հավելվածը: Տեղադրության ցուցադրման կարգավորումները կարող եք փոխել տեղադրության կարգավորումներից:"</string>
+    <string name="system_warning" msgid="7103819124542305179">"Եթե չտրամադրեք այս թույլտվությունը, ձեր սարքի հիմնական գործառույթները հնարավոր է սխալ աշխատեն:"</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Սահմանված է կանոններով"</string>
+    <string name="loading" msgid="7811651799620593731">"Բեռնում…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Բոլոր թույլտվությունները"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Այլ հավելվածների հնարավորությունները"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Թույլտվության հարցում"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Հայտնաբերվել է էկրանի վերադրում"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Այս թույլտվության կարգավորումները փոխելու համար նախ անհրաժեշտ է անջատել էկրանի վերադրումը՝ անցնելով Կարգավորումներ &gt; Հավելվածներ"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Բացել կարգավորումները"</string>
 </resources>

@@ -75,7 +75,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"アンインストールできませんでした。"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"このパッケージは現在デバイスを管理しているため、アンインストールできません。"</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"このパッケージは、現在<xliff:g id="USERNAME">%1$s</xliff:g>さんの端末を管理しているため、アンインストールできません。"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"このアプリは<xliff:g id="USERNAME">%1$s</xliff:g>さんのプロフィールに必要なため、アンインストールできません。"</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"このアプリは仕事用プロファイルに必要なため、アンインストールできません。"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"このアプリは端末管理者が必要としているため、アンインストールできません。"</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"デバイス管理者を管理"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g>をアンインストールできませんでした。"</string>
@@ -90,8 +90,30 @@
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"許可"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"許可しない"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>/<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="5209102765005869454">"「<xliff:g id="APP_NAME">%1$s</xliff:g>」に「<xliff:g id="ACTION">%2$s</xliff:g>」の許可を付与しますか？"</string>
+    <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="APP_NAME">%1$s</xliff:g>に<xliff:g id="ACTION">%2$s</xliff:g>を許可しますか？"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"アプリ"</string>
     <string name="app_permissions" msgid="3146758905824597178">"アプリの権限"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"今後は確認しない"</string>
     <string name="no_permissions" msgid="3210542466245591574">"権限がありません"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"その他の権限"</string>
+    <!-- no translation found for additional_permissions_more:one (8845294413599515719) -->
+    <!-- no translation found for additional_permissions_more:other (1823455952304633300) -->
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"このアプリはAndroidの以前のバージョンを対象としています。権限を許可しないと、意図されたとおりに動作しなくなる可能性があります。"</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"不明な操作の実行"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g>個のアプリを許可"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"システムを表示"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"システムを表示しない"</string>
+    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g>の権限"</string>
+    <string name="no_apps" msgid="1965493419005012569">"アプリなし"</string>
+    <string name="location_settings" msgid="1774875730854491297">"位置情報の設定"</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g>はこの端末の位置情報サービスのプロバイダです。位置情報アクセスは位置情報の設定から変更できます。"</string>
+    <string name="system_warning" msgid="7103819124542305179">"この権限を許可しないと、お使いの端末の基本的な機能が意図されたとおりに動作しなくなる可能性があります。"</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"ポリシーにより適用"</string>
+    <string name="loading" msgid="7811651799620593731">"読み込んでいます…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"すべての権限"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"その他のアプリ機能"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"権限のリクエスト"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"画面オーバーレイを検出"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"この権限設定を変更するには、まず[設定]&gt;[アプリ]から画面オーバーレイをOFFにします"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"設定を開く"</string>
 </resources>

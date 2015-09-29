@@ -75,7 +75,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"O‘chirish muvaffaqiyatsizlikka uchradi."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"O‘chirib bo‘lmadi, chunki ushbu paket faol qurilma administratoridir."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Bu paketni o‘chirib bo‘lmaydi, chunki u <xliff:g id="USERNAME">%1$s</xliff:g> u-n qurilma administratori hisoblanadi."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Bu ilova sizning <xliff:g id="USERNAME">%1$s</xliff:g> profilingiz uchun kerak va uni olib tashlab bo\'lmaydi."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Bu ilova ishchi profilingiz uchun kerak va uni o‘chirib bo‘lmaydi."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Ushbu ilova qurilmangiz ma\'muri tomonidan ishlatiladi, shuning uchun uni olib tashlab bo\'lmaydi."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Qurilma administratorlarini boshqarish"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> o‘chirilmadi."</string>
@@ -91,7 +91,29 @@
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Rad etish"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> / <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="APP_NAME">%1$s</xliff:g> ilovasiga <xliff:g id="ACTION">%2$s</xliff:g> uchun ruxsat berilsinmi?"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"Ilova ruxsatnomalari"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Ilovalar"</string>
+    <string name="app_permissions" msgid="3146758905824597178">"Ilovalar uchun ruxsatlar"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"Boshqa so‘ralmasin"</string>
-    <string name="no_permissions" msgid="3210542466245591574">"Kirish huquqi yo‘q"</string>
+    <string name="no_permissions" msgid="3210542466245591574">"Hech qanday ruxsat talab qilinmaydi"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"Qo‘shimcha ruxsatlar"</string>
+    <!-- no translation found for additional_permissions_more:one (8845294413599515719) -->
+    <!-- no translation found for additional_permissions_more:other (1823455952304633300) -->
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Bu ilova Androidning eskiroq versiyasiga mo‘ljallab ishlab chiqilgan. Agar ruxsat bermasangiz, u kutilganidek ishlamasligi mumkin."</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"noma’lum amalni bajarish"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"Ruxsat berilgan: <xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"Tizimga oid jarayonlarni ko‘rsatish"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"Tizimga oid jarayonlarni berkitish"</string>
+    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> uchun ruxsatlar"</string>
+    <string name="no_apps" msgid="1965493419005012569">"Hech qanday ilova yo‘q"</string>
+    <string name="location_settings" msgid="1774875730854491297">"Joylashuv sozlamalari"</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> bu qurilma uchun joylashuvni aniqlash xizmatini taqdim etuvchi ilova hisoblanadi. Joylashuv ma’lumotlariga kirish vakolatini joylashuv sozlamalaridan o‘zgartirish mumkin."</string>
+    <string name="system_warning" msgid="7103819124542305179">"Agar bu ruxsatni rad qilsangiz, qurilmangizning asosiy funksiyalari bundan buyon kutilganidek ishlamasligi mumkin."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Qoidaga muvofiq"</string>
+    <string name="loading" msgid="7811651799620593731">"Yuklanmoqda…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Barcha ruxsatnomalar"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Ilovaning boshqa imkoniyatlari"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Ruxsatnoma so‘rovi"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Ekran ustidan ochiladigan ilova aniqlandi"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Bu ruxsatnoma parametrini o‘zgartirish uchun avval Sozlamalar &gt; Ilovalar bo‘limidan ekran ustidan ochilish funksiyasini o‘chirib qo‘ying"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Sozlamalarni ochish"</string>
 </resources>

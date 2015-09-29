@@ -75,7 +75,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"అన్‌ఇన్‌స్టాల్ చేయడం విజయవంతం కాలేదు."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"ఈ ప్యాకేజీ సక్రియ పరికర నిర్వాహికి అయినందున అన్‌ఇన్‌స్టాల్ చేయడం సాధ్యపడదు."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"ఈ ప్యాకేజీ <xliff:g id="USERNAME">%1$s</xliff:g> వినియోగదారుకి సక్రియ పరికర నిర్వాహికి అయినందున దీన్ని అన్ఇ. చేయలేరు."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"మీ <xliff:g id="USERNAME">%1$s</xliff:g> ప్రొఫైల్ కోసం ఈ అనువర్తనం అవసరం, అందువల్ల దీన్ని అన్‌ఇన్‌స్టాల్ చేయడం కుదరదు."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"మీ కార్యాలయ ప్రొఫైల్ కోసం ఈ అనువర్తనం అవసరం, కనుక దీన్ని అన్ఇన్‌స్టాల్ చేయలేరు."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"మీ పరికర నిర్వాహకుడికి ఈ అనువర్తనం అవసరం, అందువల్ల దీన్ని అన్‌ఇన్‌స్టాల్ చేయడం కుదరదు."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"పరికర నిర్వాహకులను నిర్వహించండి"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g>ని అన్‌ఇన్‌స్టాల్ చేయడం సాధ్యపడలేదు."</string>
@@ -90,8 +90,30 @@
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"అనుమతించు"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"తిరస్కరించు"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>లో <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="ACTION">%2$s</xliff:g> కోసం <xliff:g id="APP_NAME">%1$s</xliff:g>ని అనుమతించాలా?"</string>
+    <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="ACTION">%2$s</xliff:g> <xliff:g id="APP_NAME">%1$s</xliff:g>ని అనుమతించాలా?"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"అనువర్తనాలు"</string>
     <string name="app_permissions" msgid="3146758905824597178">"అనువర్తన అనుమతులు"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"మళ్లీ ఎప్పుడూ అడగవద్దు"</string>
     <string name="no_permissions" msgid="3210542466245591574">"అనుమతులు లేవు"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"అదనపు అనుమతులు"</string>
+    <!-- no translation found for additional_permissions_more:one (8845294413599515719) -->
+    <!-- no translation found for additional_permissions_more:other (1823455952304633300) -->
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"ఈ అనువర్తనం పాత Android సంస్కరణ కోసం రూపొందించబడింది. అనుమతిని నిరాకరించినట్లయితే ఇది ఇకపై ఉద్దేశించిన రీతిలో పని చేయకపోవచ్చు."</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"తెలియని చర్యను చేస్తుంది"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_1">%2$d</xliff:g>లో <xliff:g id="COUNT_0">%1$d</xliff:g> అనువర్తనాలు అనుమతించబడ్డాయి"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"సిస్టమ్‌ను చూపు"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"సిస్టమ్‌ను దాచు"</string>
+    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> అనుమతులు"</string>
+    <string name="no_apps" msgid="1965493419005012569">"అనువర్తనాలు లేవు"</string>
+    <string name="location_settings" msgid="1774875730854491297">"స్థాన సెట్టింగ్‌లు"</string>
+    <string name="location_warning" msgid="8778701356292735971">"ఈ పరికరం కోసం స్థాన సేవల ప్రదాత <xliff:g id="APP_NAME">%1$s</xliff:g>. స్థాన సెట్టింగ్‌ల నుండి స్థాన ప్రాప్యతను సవరించవచ్చు."</string>
+    <string name="system_warning" msgid="7103819124542305179">"మీరు ఈ అనుమతిని నిరాకరిస్తే, మీ పరికర ప్రాథమిక లక్షణాలు ఇకపై ఉద్దేశించిన రీతిలో పని చేయకపోవచ్చు."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"విధానం ద్వారా అమలు చేయబడింది"</string>
+    <string name="loading" msgid="7811651799620593731">"లోడ్ అవుతోంది..."</string>
+    <string name="all_permissions" msgid="5156669007784613042">"అన్ని అనుమతులు"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"ఇతర అనువర్తన సామర్థ్యాలు"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"అనుమతి అభ్యర్థన"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"స్క్రీన్ అతివ్యాప్తి గుర్తించబడింది"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"ఈ అనుమతి సెట్టింగ్‌ను మార్చడానికి, మీరు ముందుగా సెట్టింగ్‌లు &gt; అనువర్తనాల నుండి స్క్రీన్ అతివ్యాప్తిని ఆఫ్ చేయాలి"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"సెట్టింగ్‌లను తెరువు"</string>
 </resources>

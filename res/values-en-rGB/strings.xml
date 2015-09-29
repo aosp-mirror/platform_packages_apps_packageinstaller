@@ -75,7 +75,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Uninstall unsuccessful."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Can\'t uninstall because this package is an active device administrator."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Can\'t uninstall because this package is an active device administrator for the user <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"This app is needed for your <xliff:g id="USERNAME">%1$s</xliff:g> profile and can\'t be uninstalled."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"This app is needed for your work profile and can\'t be uninstalled."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"This app is required by your device administrator and can\'t be uninstalled."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Manage device administrators"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> couldn\'t be uninstalled."</string>
@@ -91,7 +91,29 @@
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Deny"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> of <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"Allow <xliff:g id="APP_NAME">%1$s</xliff:g> to <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Apps"</string>
     <string name="app_permissions" msgid="3146758905824597178">"App permissions"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"Never ask again"</string>
     <string name="no_permissions" msgid="3210542466245591574">"No permissions"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"Additional permissions"</string>
+    <!-- no translation found for additional_permissions_more:one (8845294413599515719) -->
+    <!-- no translation found for additional_permissions_more:other (1823455952304633300) -->
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"This app was designed for an older version of Android. Denying permission may cause it to no longer function as intended."</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"perform an unknown action"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> of <xliff:g id="COUNT_1">%2$d</xliff:g> apps allowed"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"Show system"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"Hide system"</string>
+    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> permissions"</string>
+    <string name="no_apps" msgid="1965493419005012569">"No apps"</string>
+    <string name="location_settings" msgid="1774875730854491297">"Location Settings"</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> is a provider of location services for this device. Location access can be modified from location settings."</string>
+    <string name="system_warning" msgid="7103819124542305179">"If you deny this permission, basic features of your device may no longer function as intended."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Enforced by policy"</string>
+    <string name="loading" msgid="7811651799620593731">"Loading…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"All permissions"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Other app capabilities"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Permission request"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Screen overlay detected"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"To change this permission setting, you first have to turn off the screen overlay from Settings &gt; Apps"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Open settings"</string>
 </resources>

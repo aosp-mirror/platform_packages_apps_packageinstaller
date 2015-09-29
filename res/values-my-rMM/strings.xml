@@ -75,7 +75,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"ဖယ်ရှားမှု မအောင်မြင်ပါ"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"ဤ အချက်အလက်အစုသည်လက်ရှိ စက်၏ အက်ဒ်မင် ဖြစ်နေသောကြောင့် ဖယ်ရှားလို့ မရပါ"</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"ဒီအထုပ်မှာ အသုံးပြုသူ<xliff:g id="USERNAME">%1$s</xliff:g>အတွက် လုပ်ကိုင်နေသည့် စီမံအုပ်ချုပ်သူဖြစ်၍ ဖြုတ်မရနိုင်ပါ။"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"ဒီappမှာ သင်၏ <xliff:g id="USERNAME">%1$s</xliff:g> ပရိုဖိုင် အတွက် လိုအပ်သောကြောင့် ဖြုတ်၍ မရနိုင်ပါ။"</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"ဤအပ်ဖ်သည် သင့်အလုပ်ကိုယ်ရေးအချက်အလက်အတွက်လိုအပ်ပြီး ဖြုတ်၍မရနိုင်ပါ။"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"ဒီappမှာ သင်၏ ကိရိယာ စီမံအုပ်ချုပ်သူက လိုအပ်သောကြောင့် ဖြုတ်၍ မရနိုင်ပါ။"</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"စက်ပစ္စည်းထိန်းချုပ်မှုအား စီမံရန်"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> ကို ဖယ်ရှားလို့ မရပါ"</string>
@@ -90,8 +90,30 @@
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"ခွင့်ပြုသည်"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"ငြင်းပယ်သည်"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> / <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="APP_NAME">%1$s</xliff:g> အား <xliff:g id="ACTION">%2$s</xliff:g> လုပ်ခွင့်ပြုသလား?"</string>
+    <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="APP_NAME">%1$s</xliff:g> အား <xliff:g id="ACTION">%2$s</xliff:g> ခွင့်ပြုသလား။"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Appများ"</string>
     <string name="app_permissions" msgid="3146758905824597178">"App ခွင့်ပြုချက်များ"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"ထပ်မမေးရန်"</string>
     <string name="no_permissions" msgid="3210542466245591574">"ခွင့်ပြုချက်မရှိ"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"ထပ်တိုး ခွင့်ပြုချက်များ"</string>
+    <!-- no translation found for additional_permissions_more:one (8845294413599515719) -->
+    <!-- no translation found for additional_permissions_more:other (1823455952304633300) -->
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"ဤapp အား Android ၏ ဗားရှင်းဟောင်းအတွက် ပုံဆွဲရေးဆွဲထား၏။ ခွင့်ပြုချက်ပေးရန် ငြင်းဆိုပါက ရည်ရွယ်ထားသကဲ့သို့ ဆောင်ရွက်လိမ့်မည် မဟုတ်ပါ။"</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"အမျိုးအမည်မသိ ဆောင်ရွက်ချက်တစ်ခု လုပ်ရန်"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> / <xliff:g id="COUNT_1">%2$d</xliff:g> app များ ခွင့်ပြုခဲ့၏"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"စနစ်ကိုပြသရန်"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"စနစ်ကို ဖျောက်မည်"</string>
+    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> ခွင့်ပြုချက်များ"</string>
+    <string name="no_apps" msgid="1965493419005012569">"အပ်ဖ်များမရှိ"</string>
+    <string name="location_settings" msgid="1774875730854491297">"တည်နေရာ ဆက်တင်များ"</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> သည် ဤစက်ပစ္စည်းအတွက် တည်နေရာ ဝန်ဆောင်မှုများ ထုတ်ပေးသူဖြစ်သည်။ တည်နေရာ အသုံးပြုမှုကို တည်နေရာချိန်ညှိမှုများတွင် ပြုပြင်နိုင်သည်။"</string>
+    <string name="system_warning" msgid="7103819124542305179">"ဤခွင့်ပြုချက်အား သင် ငြင်းဆိုပါက၊ သင့်စက်ကိရိယာ၏ အခြေခံလုပ်ဆောင်ချက်များသည် ရည်ရွယ်ထားသကဲ့သို့ အလုပ်လုပ်မည် မဟုတ်ပါ။"</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"မူဝါဒအားဖြင့်ပြဌာန်းရန်"</string>
+    <string name="loading" msgid="7811651799620593731">"တင်နေ…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"ခွင့်ပြုချက်များ အားလုံး"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"အခြားအပ်ဖ်၏ စွမ်းရည်များ"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"ခွင့်ပြုချက် တောင်းခံမှု"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"မျက်နှာပြင် ထပ်ပေးမှုကို ရှာတွေ့ခဲ့"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"ဒီခွင့်ပြုချက် ဆက်တင်ကို ပြောင်းရန်၊ သင်ဟာ ဦးစွာ ဆက်တင်များ &gt; Appများ ထဲတွင် မျက်နှာပြင် ထပ်ပေးမှုကို ပိတ်လိုက်ရန် လိုမယ်"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"ဆက်တင်းများ ဖွင့်ရန်"</string>
 </resources>

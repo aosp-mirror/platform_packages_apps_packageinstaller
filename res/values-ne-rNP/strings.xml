@@ -75,7 +75,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"अस्थापना गर्न असफल"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"अस्थापना गर्न सकिँदैन किनभने यो प्याकेज एउटा सक्रिय उपकरण प्रशासक हो।"</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"रद्द गर्न सकिदैन किनभने प्रयोगकर्ता <xliff:g id="USERNAME">%1$s</xliff:g> को लागि यो प्याकेज सक्रिय यन्त्र प्रशासक हो।"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"यो अनुप्रयोग आफ्नो <xliff:g id="USERNAME">%1$s</xliff:g> प्रोफाइलको लागि आवश्यक छ र स्थापना रद्द गर्न सकिँदैन।"</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"यो अनुप्रयोग तपाईँको कार्य प्रोफाइलको लागि आवश्यक छ र  यसको स्थापना रद्द गर्न सकिँदैन।"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"यो अनुप्रयोग तपाईँको उपकरण प्रशासकलाई आवश्यक छ र स्थापना रद्द गर्न सकिँदैन।"</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"उपकरण प्रशासकहरूको प्रबन्ध गर्नुहोस्"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> स्थापना रद्द गर्न सकिँदैन।"</string>
@@ -91,7 +91,29 @@
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"अस्वीकार गर्नुहोस्"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> को <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="APP_NAME">%1$s</xliff:g> लाई <xliff:g id="ACTION">%2$s</xliff:g> गर्न अनुमति दिने हो?"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"अनुप्रयोगहरू"</string>
     <string name="app_permissions" msgid="3146758905824597178">"अनुप्रयोग अनुमतिहरू"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"फेरि कहिल्यै नसोध्नुहोस्"</string>
     <string name="no_permissions" msgid="3210542466245591574">"कुनै अनुमतिहरू छैनन्"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"अतिरिक्त अनुमतिहरू"</string>
+    <!-- no translation found for additional_permissions_more:one (8845294413599515719) -->
+    <!-- no translation found for additional_permissions_more:other (1823455952304633300) -->
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"यो अनुप्रयोग Android को पुरानो संस्करणका लागि डिजाइन गरिएको थियो। अनुमति अस्वीकृत गर्नाले यसले चाहिएको जस्तो कार्य नगर्न सक्छ।"</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"एउटा अज्ञात कार्य गर्नुहोस्"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_1">%2$d</xliff:g> को <xliff:g id="COUNT_0">%1$d</xliff:g> अनुप्रयोगहरूलाई अनुमति छ"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"प्रणाली देखाउनुहोस्"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"प्रणाली लुकाउनुहोस्"</string>
+    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> अनुमतिहरु"</string>
+    <string name="no_apps" msgid="1965493419005012569">"कुनै अनुप्रयोगहरू छैनन्।"</string>
+    <string name="location_settings" msgid="1774875730854491297">"स्थान सेटिङहरू"</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> यो यन्त्रका लागि स्थान सेवाहरूको एउटा प्रदायक हो। स्थान पहुँच स्थान सेटिङहरूबाट परिमार्जन गर्न सकिन्छ।"</string>
+    <string name="system_warning" msgid="7103819124542305179">"तपाईँले यो अनुमति अस्वीकार गर्नुभयो भने तपाईँको यन्त्रका मूल विशेषताहरू अब चाहेअनुसार कार्य नगर्न सक्छ।"</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"नीतिद्वारा लागू गरियो"</string>
+    <string name="loading" msgid="7811651799620593731">"लोड हुँदैछ..."</string>
+    <string name="all_permissions" msgid="5156669007784613042">"सबै अनुमतिहरू"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"अन्य अनुप्रयोग क्षमताहरू"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"अनुमति अनुरोध"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"स्क्रिन ओभरले पत्ता लाग्यो"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"यो अनुमति सेटिङ परिवर्तन गर्न, तपाईँले पहिला सेटिङ अनुप्रयोगबाट स्क्रिन ओभरले बन्द गर्नु पर्दछ।"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"सेटिङहरू खोल्नुहोस्"</string>
 </resources>

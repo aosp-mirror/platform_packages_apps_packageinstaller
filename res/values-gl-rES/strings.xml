@@ -75,7 +75,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Desinstalación incorrecta"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Non se pode desinstalar porque o paquete é administrador de dispositivo activo."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Non se pode desinstalar porque este paquete actúa como un administrador de dispositivo activo para o usuario <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"O teu perfil <xliff:g id="USERNAME">%1$s</xliff:g> necesita esta aplicación e non se pode desinstalar."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"O teu perfil de traballo necesita esta aplicación e non se pode desinstalar."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"O administrador do teu dispositivo necesita esta aplicación e non se pode desinstalar."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Xestionar administradores do dispositivo"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Non se puido desinstalar <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
@@ -90,8 +90,30 @@
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Permitir"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Denegar"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> de <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="5209102765005869454">"Queres permitir a <xliff:g id="APP_NAME">%1$s</xliff:g> <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_warning_template" msgid="5209102765005869454">"Queres permitir que <xliff:g id="APP_NAME">%1$s</xliff:g> poida <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Aplicacións"</string>
     <string name="app_permissions" msgid="3146758905824597178">"Permisos de aplicacións"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"Non volver preguntar"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Sen permisos"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"Permisos adicionais"</string>
+    <!-- no translation found for additional_permissions_more:one (8845294413599515719) -->
+    <!-- no translation found for additional_permissions_more:other (1823455952304633300) -->
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Esta aplicación deseñouse para unha versión anterior de Android. Denegar o permiso pode provocar que non funcione como está previsto."</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"realiza unha acción descoñecida"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> de <xliff:g id="COUNT_1">%2$d</xliff:g> aplicacións con permiso"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"Mostrar sistema"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"Ocultar sistema"</string>
+    <string name="permission_title" msgid="6495415273398916381">"Permisos de <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
+    <string name="no_apps" msgid="1965493419005012569">"Ningunha aplicación"</string>
+    <string name="location_settings" msgid="1774875730854491297">"Configuración da localización"</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> é un fornecedor de servizos de localización para este dispositivo. O acceso de localización pode modificarse desde a configuración de localización."</string>
+    <string name="system_warning" msgid="7103819124542305179">"Se denegas este permiso, é posible que as funcións básicas do teu dispositivo deixen de funcionar segundo o previsto."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Aplicado pola política"</string>
+    <string name="loading" msgid="7811651799620593731">"Cargando…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Todos os permisos"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Outras funcionalidades da aplicación"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Solicitude de permiso"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Detectouse a superposición da pantalla"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Para cambiar a configuración deste permiso, primeiro tes que desactivar a superposición da pantalla en Configuración &gt; Aplicacións"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Abrir configuración"</string>
 </resources>

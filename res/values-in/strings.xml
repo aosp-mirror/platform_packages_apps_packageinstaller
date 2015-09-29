@@ -75,7 +75,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Pencopotan pemasangan tidak berhasil."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Tdk dpt mencopot pemasangan krn paket ini adlh administrator perangkat yg aktif."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Tidak dapat mencopot pemasangan karena paket ini adalah administrator perangkat aktif untuk pengguna <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Aplikasi diperlukan untuk profil <xliff:g id="USERNAME">%1$s</xliff:g> Anda dan pemasangannya tidak bisa dicopot."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Aplikasi ini diperlukan untuk profil kerja &amp; pemasangannya tidak bisa dicopot."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Aplikasi diwajibkan administrator perangkat &amp; pemasangannya tidak bisa dicopot."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Kelola administrator perangkat"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> tidak dapat dicopot pemasangannya."</string>
@@ -91,7 +91,29 @@
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Tolak"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> dari <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"Izinkan <xliff:g id="APP_NAME">%1$s</xliff:g> untuk <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Aplikasi"</string>
     <string name="app_permissions" msgid="3146758905824597178">"Izin aplikasi"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"Jangan tanya lagi"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Tidak ada izin"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"Izin tambahan"</string>
+    <!-- no translation found for additional_permissions_more:one (8845294413599515719) -->
+    <!-- no translation found for additional_permissions_more:other (1823455952304633300) -->
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Aplikasi ini dirancang untuk versi lama Android. Menolak izin dapat menyebabkan aplikasi tidak berfungsi lagi sesuai harapan."</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"melakukan tindakan yang tidak dikenal"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> dari <xliff:g id="COUNT_1">%2$d</xliff:g> aplikasi diizinkan"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"Tampilkan sistem"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"Sembunyikan sistem"</string>
+    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> izin"</string>
+    <string name="no_apps" msgid="1965493419005012569">"Tidak ada aplikasi"</string>
+    <string name="location_settings" msgid="1774875730854491297">"Setelan Lokasi"</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> adalah penyedia layanan lokasi untuk perangkat ini. Akses lokasi dapat diubah dari setelan lokasi."</string>
+    <string name="system_warning" msgid="7103819124542305179">"Jika Anda menolak izin ini, fitur dasar perangkat mungkin tidak berfungsi lagi sesuai harapan."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Diterapkan menurut kebijakan"</string>
+    <string name="loading" msgid="7811651799620593731">"Memuat…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Semua izin"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Kemampuan aplikasi lainnya"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Permintaan izin"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Hamparan layar terdeteksi"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Untuk mengubah setelan izin ini, terlebih dahulu Anda harus menonaktifkan hamparan layar dari Setelan &gt; Aplikasi"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Buka setelan"</string>
 </resources>
