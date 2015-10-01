@@ -110,6 +110,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     private static final int DLG_INSTALL_ERROR = DLG_BASE + 4;
     private static final int DLG_ALLOW_SOURCE = DLG_BASE + 5;
     private static final int DLG_ADMIN_RESTRICTS_UNKNOWN_SOURCES = DLG_BASE + 6;
+    private static final int DLG_NOT_SUPPORTED_ON_WEAR = DLG_BASE + 7;
 
     private void startInstallConfirm() {
         TabHost tabHost = (TabHost)findViewById(android.R.id.tabhost);
@@ -293,7 +294,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                             Log.i(TAG, "Canceling installation");
                             finish();
                         }
-                  })
+                })
                   .setOnCancelListener(this)
                   .create();
         case DLG_INSTALL_ERROR :
@@ -329,6 +330,18 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                                     Context.MODE_PRIVATE);
                             prefs.edit().putBoolean(mSourceInfo.packageName, true).apply();
                             startInstallConfirm();
+                        }
+                    })
+                    .setOnCancelListener(this)
+                    .create();
+        case DLG_NOT_SUPPORTED_ON_WEAR:
+            return new AlertDialog.Builder(this)
+                    .setTitle(R.string.wear_not_allowed_dlg_title)
+                    .setMessage(R.string.wear_not_allowed_dlg_text)
+                    .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            setResult(RESULT_OK);
+                            finish();
                         }
                     })
                     .setOnCancelListener(this)
@@ -477,6 +490,13 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         mInstallFlowAnalytics.setVerifyAppsEnabled(isVerifyAppsEnabled());
         mInstallFlowAnalytics.setAppVerifierInstalled(isAppVerifierInstalled());
         mInstallFlowAnalytics.setPackageUri(mPackageURI.toString());
+
+        if (DeviceUtils.isWear(this)) {
+            showDialogInner(DLG_NOT_SUPPORTED_ON_WEAR);
+            mInstallFlowAnalytics.setFlowFinished(
+                    InstallFlowAnalytics.RESULT_NOT_ALLOWED_ON_WEAR);
+            return;
+        }
 
         final String scheme = mPackageURI.getScheme();
         if (scheme != null && !"file".equals(scheme) && !"package".equals(scheme)) {
