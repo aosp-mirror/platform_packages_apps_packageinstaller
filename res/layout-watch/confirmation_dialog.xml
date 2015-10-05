@@ -29,7 +29,6 @@
         <LinearLayout
                 android:id="@+id/content"
                 android:orientation="vertical"
-                android:paddingBottom="@dimen/conf_diag_button_container_height"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -89,13 +88,13 @@
                 android:layout_marginTop="@dimen/conf_diag_2button_margin_top"
                 android:background="@drawable/confirm_button"/>
         </FrameLayout>
-    
+
         <FrameLayout
             android:id="@+id/vertical_button_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/conf_diag_3button_margin_left"
-            android:layout_marginBottom="@dimen/conf_diag_3button_margin_bottom"
+            android:paddingLeft="@dimen/conf_diag_3button_padding_side"
+            android:paddingRight="@dimen/conf_diag_3button_padding_side"
             android:visibility="gone">
             <LinearLayout
                 android:id="@+id/buttonPanel"
@@ -113,6 +112,11 @@
                 <Button
                     android:id="@+id/vertical_button3"
                     style="@style/Widget.WearDiag.Button"/>
+
+                <!-- Adding padding to the bottom button causes rendering issues, so add
+                     an empty view here instead -->
+                <Space android:layout_width="match_parent"
+                       android:layout_height="@dimen/conf_diag_3button_padding_bottom"/>
             </LinearLayout>
         </FrameLayout>
     </FrameLayout>
