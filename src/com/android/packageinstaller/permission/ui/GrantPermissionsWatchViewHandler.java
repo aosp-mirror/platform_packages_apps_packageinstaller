@@ -57,7 +57,7 @@ final class GrantPermissionsWatchViewHandler extends ConfirmationViewHandler
     @Override
     public void updateWindowAttributes(WindowManager.LayoutParams outLayoutParams) {
         outLayoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
-        outLayoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        outLayoutParams.height = WindowManager.LayoutParams.MATCH_PARENT;
         outLayoutParams.format = PixelFormat.OPAQUE;
         outLayoutParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_DIALOG;
         outLayoutParams.flags |= WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON;
