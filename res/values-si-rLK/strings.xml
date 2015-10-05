@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"මෙම පවතින යෙදුමට යාවත්කාලීනයක් ස්ථාපනය කිරීමට ඔබට අවශ්‍යද? ඔබගේ පවතින දත්ත නැති නොවේ. එයට විශේෂ ප්‍රවේශයක් අවශ්‍ය නොවේ."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"පවතින මෙම යෙදුමට යාවත්කාලීනයක් ස්ථාපනය කිරීමට ඔබට අවශ්‍යද? ඔබගේ පවතින දත්ත නැති නොවේ. එයට විශේෂ ප්‍රවේශයක් අවශ්‍ය නොවේ."</string>
     <string name="install_failed" msgid="6579998651498970899">"යෙදුම ස්ථාපනය කරේ නැත."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"මෙම පැකේජය ස්ථාපනය කිරීම අවහිර කරන ලදි."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"මෙම පැකේජය එම නම ඇති දැනට පවතින පැකේජය හා ගැටේ."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"ඔබගේ ටැබ්ලටය සමග මෙම යෙදුම නොගැලපේ."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"මෙම යෙදුම ඔබගේ රූපවාහිනිය හා නොගැළපේ."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"මෙම යෙදුම ඔබගේ දුරකථනයට නොගැළපේ."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"පැකේජය සදොස් වී ඇති බව පෙනෙයි."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"සංඝටන වන අත්සනක් සමග එකම නාමය ඇති පවතින පැකේජයක් දැනටමත් ස්ථාපනය කර ඇත."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Android හි නව සංස්කරණ සමග පමණක් පැකේජය වැඩ කරයි."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"ඔබගේ ටැබ්ලටය සමග මෙම යෙදුම නොගැලපේ."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"මෙම යෙදුම ඔබගේ රූපවාහිනිය හා නොගැළපේ."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"මෙම යෙදුම ඔබගේ දුරකථනයට නොගැළපේ."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"ස්ථාපනය සම්පූර්ණ වීමට පෙර සඳහන් පැකේජය මකන ලදි."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"මෙම පැකේජය සත්‍යාපනය කිරීම අසමත් වුණු අතර ස්ථාපනය කිරීමට නොහැකි විය."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"පැකේජය සත්‍යාපනය කිරීමට උත්සාහ කරද්දී කාලය ඉකුත්වීමක් සිදුවුණි. පසුව එය නැවතත් ස්ථාපනය කිරීමට උත්සාහ කරන්න."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"ඔබගේ ටැබ්ලටයේ <xliff:g id="APP_NAME">%1$s</xliff:g> ස්ථාපනය කළ නොහැක."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> මෙම රූපවාහිනියෙහි ස්ථාපනය කළ නොහැක."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> දුරකථනයට ස්ථාපිත කිරීමට නොහැකි විය."</string>
@@ -118,4 +115,6 @@
     <string name="screen_overlay_title" msgid="3021729846864038529">"තිර උඩැතිරියක් අනාවරණය කරන ලදි"</string>
     <string name="screen_overlay_message" msgid="2141944461571677331">"මෙම අවසර සැකසීම වෙනස් කිරීම සඳහා, ඔබට මුලින්ම සැකසීම් &gt; යෙදුම් වෙතින් තිර උඩැතිරිය අක්‍රිය කර යුතුයි"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"සැකසීම් විවෘත කරන්න"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Wear මත ස්ථාපන/අස්ථාපනය ක්‍රියා වෙත සහය දක්වන්නේ නැත."</string>
 </resources>

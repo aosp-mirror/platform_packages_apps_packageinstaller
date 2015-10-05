@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Kas soovite installida olemasoleva rakenduse värskenduse? Olemasolevad andmed ei lähe kaduma. See ei nõua erijuurdepääsu."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Kas soovite installida sisseehitatud rakenduse värskenduse? Olemasolevad andmed ei lähe kaduma. See ei nõua erijuurdepääsu."</string>
     <string name="install_failed" msgid="6579998651498970899">"Rakendus pole installitud."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"Paketi installimine blokeeriti."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"Pakett on vastuolus olemasoleva paketiga, millel on sama nimi."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"Rakendus ei ühildu teie tahvelarvutiga."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Rakendus ei ühildu teie teleriga."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"Rakendus ei ühildu teie telefoniga."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Pakett tundub olevat rikutud."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Sama nime ja vastuolus allkirjaga pakett on juba installitud."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Pakett töötab ainult Androidi uuemate versioonidega."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Rakendus ei ühildu teie tahvelarvutiga."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"See rakendus ei ühildu teie teleriga."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Rakendus ei ühildu teie telefoniga."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Määratud pakett kustutati enne, kui install lõpule jõudis."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Pakett ei läbinud kinnitamist ja seda ei saa installida."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Paketi kinnitamisel ilmnes ajalõpp. Proovige hiljem uuesti installida."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Rakendust <xliff:g id="APP_NAME">%1$s</xliff:g> ei saa teie tahvelarvutisse installida."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Rakendust <xliff:g id="APP_NAME">%1$s</xliff:g> ei saa teie telerisse installida."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Rakendust <xliff:g id="APP_NAME">%1$s</xliff:g> ei saa teie telefoni installida."</string>
@@ -118,4 +115,6 @@
     <string name="screen_overlay_title" msgid="3021729846864038529">"Tuvastati ekraani ülekate"</string>
     <string name="screen_overlay_message" msgid="2141944461571677331">"Selle loa seade muutmiseks peate esmalt välja lülitama ekraani ülekatte menüüs Seaded &gt; Rakendused"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Ava seaded"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Wear ei toeta installimist/desinstallimist."</string>
 </resources>

@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"നിലവിലുള്ള ഈ അപ്ലിക്കേഷന് ഒരു അപ്‌ഡേറ്റ് ഇൻസ്റ്റാളുചെയ്യണോ? നിങ്ങളുടെ നിലവിലെ ഡാറ്റ നഷ്‌ടപ്പെടില്ല. ഇതിന് പ്രത്യേക ആക്‌സസ്സൊന്നും ആവശ്യമില്ല."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"ഈ അന്തർ നിർമ്മിത അപ്ലിക്കേഷന് ഒരു അപ്‌ഡേറ്റ് ഇൻസ്റ്റാളുചെയ്യണോ? നിങ്ങളുടെ നിലവിലെ ഡാറ്റ നഷ്‌ടപ്പെടില്ല. ഇതിന് പ്രത്യേക ആക്‌സസ്സൊന്നും ആവശ്യമില്ല."</string>
     <string name="install_failed" msgid="6579998651498970899">"അപ്ലിക്കേഷൻ ഇൻസ്റ്റാളുചെയ്‌തില്ല."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"ഇൻസ്റ്റാൾ ചെയ്യുന്നതിൽ നിന്നും പാക്കേജിനെ തടഞ്ഞു."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"ഇതേ പേരിൽ നിലവിലുള്ള ഒരു പാക്കേജുമായി ഈ പാക്കേജിന് വൈരുദ്ധ്യമുണ്ട്."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"നിങ്ങളുടെ ടാബ്‌ലെറ്റിന് ഈ ആപ്പ് അനുയോജ്യമല്ല."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"നിങ്ങളുടെ ടിവിയ്‌ക്ക് ഈ ആപ്പ് അനുയോജ്യമല്ല."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"നിങ്ങളുടെ ഫോണിന് ഈ ആപ്പ് അനുയോജ്യമല്ല."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"പാക്കേജ് കേടായതായി തോന്നുന്നു."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"വൈരുദ്ധ്യമായ സിഗ്‌നേച്ചറുകളോടുകൂടിയ സമാന പേരിൽ നിലവിലുള്ള പാക്കേജ് ഇതിനകം ഇൻസ്റ്റാളുചെയ്‌തു."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Android-ന്റെ പുതിയ പതിപ്പുകളിൽ മാത്രമേ ഈ പാക്കേജ് പ്രവർത്തിക്കുകയുള്ളു."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"ഈ അപ്ലിക്കേഷൻ നിങ്ങളുടെ ടാബ്‌ലെറ്റിന് അനുയോജ്യമല്ല."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"ഈ അപ്ലിക്കേഷൻ നിങ്ങളുടെ ടിവിയ്‌ക്ക് അനുയോജ്യമല്ല."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"ഈ അപ്ലിക്കേഷൻ നിങ്ങളുടെ ഫോണിന് അനുയോജ്യമല്ല."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"ഇൻസ്റ്റാളുചെയ്യൽ പൂർത്തിയാക്കുന്നതിന് മുമ്പ് വ്യക്തമാക്കിയ പാക്കേജ് ഇല്ലാതാക്കിയിരിക്കാം."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"പാക്കേജ് പരിശോധിച്ചുറപ്പിക്കുന്നതിൽ പരാജയപ്പെട്ടതിനാൽ ഇൻസ്‌റ്റാൾ ചെയ്യാനാകില്ല."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"ഈ പാക്കേജ് പരിശോധിച്ചുറപ്പിക്കാൻ ശ്രമിക്കുമ്പോൾ കാലഹരണപ്പെടൽ സംഭവിച്ചു. പിന്നീട് ഇത് വീണ്ടും ഇൻസ്റ്റാളുചെയ്യുന്നത് പരീക്ഷിക്കുക."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"നിങ്ങളുടെ ടാബ്‌ലെറ്റിൽ <xliff:g id="APP_NAME">%1$s</xliff:g> ഇൻസ്റ്റാളുചെയ്യാനായില്ല."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g>, നിങ്ങളുടെ ടിവിയിൽ ഇൻസ്റ്റാളുചെയ്യാനായില്ല."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"നിങ്ങളുടെ ഫോണിൽ <xliff:g id="APP_NAME">%1$s</xliff:g> ഇൻസ്റ്റാളുചെയ്യാനായില്ല."</string>
@@ -118,4 +115,6 @@
     <string name="screen_overlay_title" msgid="3021729846864038529">"സ്ക്രീൻ ഓവർലേ കണ്ടെത്തി"</string>
     <string name="screen_overlay_message" msgid="2141944461571677331">"ഈ അനുമതി ക്രമീകരണം മാറ്റുന്നതിന്, ക്രമീകരണം &gt; ആപ്സ് എന്നതിൽ നിന്ന് നിങ്ങളാദ്യം സ്ക്രീൻ ഓവർലേ ഓഫാക്കേണ്ടതാണ്"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"ക്രമീകരണം തുറക്കുക"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"ഇൻസ്റ്റാളോ അൺഇൻസ്റ്റാളോ ചെയ്യുന്നതിന് Wear-ൽ പിന്തുണയില്ല."</string>
 </resources>

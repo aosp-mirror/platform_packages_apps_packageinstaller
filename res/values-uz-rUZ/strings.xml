@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Ushbu mavjud ilovaga yangilanish o‘rnatilsinmi? Mavjud ma’lumotlaringiz o‘chib ketmaydi. U hech qanday maxsus ruxsat talab qilmaydi."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Ushbu tizim ilovasiga yangilanish o‘rnatilsinmi? Mavjud ma’lumotlaringiz o‘chib ketmaydi. U hech qanday maxsus ruxsat talab qilmaydi."</string>
     <string name="install_failed" msgid="6579998651498970899">"Ilova o‘rnatilmadi."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"Paket o‘rnatilishga qarshi bloklangan."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"Ushbu paket bir xil nomdagi mavjud paket bilan zid."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"Ushbu ilova planshetingizga mos kelmaydi."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Bu ilova televizoringiz bilan mos emas."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"Ushbu ilova telefoningizga mos kelmaydi."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Paket buzilganga o‘xshaydi."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Xuddi shu nomdagi mavjud paket farqli imzo bilan allaqachon o‘rnatilgan."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Paket faqatgina \"Android\"ning yangi versiyalarida ishlay oladi."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Ushbu ilova planshetingizga mos kelmaydi."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Bu ilova televizoringiz bilan mos emas."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Ushbu ilova telefoningizga mos kelmaydi."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Ko‘rsatilgan paket o‘rnatish jarayoni tugamasdan o‘chirib tashlangan."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Paket tekshirishdan o‘tmadi, shuning uchun uni o‘rnatib bo‘lmaydi."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Ushbu paketni tekshirish jarayonida kutish vaqti tugadi. Keyinroq qayta o‘rnatib ko‘ring."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> planshetingizga o‘rnatilmadi."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> ilovasini televizoringizga o‘rnatib bo‘lmadi."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> telefoningizga o‘rnatilmadi."</string>
@@ -118,4 +115,6 @@
     <string name="screen_overlay_title" msgid="3021729846864038529">"Ekran ustidan ochiladigan ilova aniqlandi"</string>
     <string name="screen_overlay_message" msgid="2141944461571677331">"Bu ruxsatnoma parametrini o‘zgartirish uchun avval Sozlamalar &gt; Ilovalar bo‘limidan ekran ustidan ochilish funksiyasini o‘chirib qo‘ying"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Sozlamalarni ochish"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Wear qurilmasi o‘rnatish/o‘chirish amallarini qo‘llab-quvvatlamaydi."</string>
 </resources>

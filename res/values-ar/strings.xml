@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"هل تريد تثبيت تحديث لهذا التطبيق الحالي؟ لن يتم فقد بياناتك الحالية. كما أنه لا يتطلب أي دخول خاص."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"هل تريد تثبيت تحديث لهذا التطبيق المضمن؟ لن يتم فقد بياناتك الحالية. كما أنه لا يتطلب أي دخول خاص."</string>
     <string name="install_failed" msgid="6579998651498970899">"التطبيق ليس مثبتًا."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"تم حظر تثبيت الحزمة."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"تتعارض الحزمة مع حزمة حالية تحمل الاسم نفسه."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"هذا التطبيق ليس متوافقً مع جهازك اللوحي."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"هذا التطبيق لا يتوافق مع جهاز التلفزيون."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"لا يتوافق هذا التطبيق مع هاتفك."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"يبدو أن الحزمة تالفة."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"هناك حزمة حالية ذات توقيع متضارب، تم تثبيتها من قبل بالاسم نفسه."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"‏تعمل الحزمة فقط على إصدارات أحدث من Android."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"هذا التطبيق ليس متوافقًا مع جهازك اللوحي."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"هذا التطبيق لا يتوافق مع جهاز التلفزيون."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"لا يتوافق هذا التطبيق مع هاتفك."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"تم حذف الحزمة المحددة قبل اكتمال عملية التثبيت."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"لم تتجاوز هذه الحزمة عملية التحقق ولا يمكن تثبيتها."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"حدثت مهلة أثناء محاولة التحقق من هذه الحزمة. الرجاء محاولة إعادة تثبيتها لاحقًا."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"تعذر تثبيت <xliff:g id="APP_NAME">%1$s</xliff:g> على جهازك اللوحي."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"تعذر تثبيت <xliff:g id="APP_NAME">%1$s</xliff:g> على جهاز التلفزيون."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"تعذر تثبيت <xliff:g id="APP_NAME">%1$s</xliff:g> على هاتفك."</string>
@@ -122,4 +119,6 @@
     <string name="screen_overlay_title" msgid="3021729846864038529">"تم اكتشاف طبقة متراكبة للشاشة"</string>
     <string name="screen_overlay_message" msgid="2141944461571677331">"لتغيير إعداد هذا الإذن، يتعين عليك أولاً تعطيل الطبقة المتراكبة للشاشة من الإعدادات &gt; التطبيقات"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"فتح الإعدادات"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"‏لا تتوافق إجراءات التثبيت/إلغاء التثبيت مع Wear."</string>
 </resources>

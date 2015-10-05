@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"გსურთ განახლების დაყენება ამ არსებული აპლიკაციისთვის? არსებული მონაცემები არ დაიკარგება. ის არ საჭიროებს რაიმე განსაკუთრებულ წვდომას:"</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"გსურთ განახლების დაყენება ამ ჩაშენებული აპლიკაციისთვის? არსებული მონაცემები არ დაიკარგება. ის არ საჭიროებს რაიმე განსაკუთრებულ წვდომას:"</string>
     <string name="install_failed" msgid="6579998651498970899">"აპი არ არის დაყენებული."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"ამ პაკეტის ინსტალაცია დაბლოკილია."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"პაკეტი კონფლიქტშია იგივე სახელის მქონე არსებულ პაკეტთან."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"ეს აპი არ არის თავსებადი თქვენს ტაბლეტთან."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"ეს აპი არ არის თავსებადი თქვენს ტელევიზორთან."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"ეს აპი არ არის თავსებადი თქვენს ტელეფონთან."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"როგორც ჩანს, ეს პაკეტი დაზიანებულია."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"იმავე სახელის მქონე პაკეტი უკვე დაყენებულია და მას აქვს კონფლიქტური ხელმოწერა."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"პაკეტი მუშაობს მხოლოდ Android-ის ახალ ვერსიებში."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"ეს აპი არ არის თავსებადი თქვენს ტაბლეტთან."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"ეს აპლიკაცია არ არის თავსებადი თქვენს ტელევიზორთან."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"ეს აპი არ არის თავსებადი თქვენ ტელეფონთან."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"მითითებული პაკეტი წაშლილია ინსტალაციის დასრულებამდე."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"პაკეტმა არ გაიარა გადამოწმება და ვერ დაყენდება."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"დროის ლიმიტი ამოიწურა პაკეტის დადასტურების მცდელობისას. სცადეთ მისი დაყენება მოგვიანებით."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g>-ის დაყენება თქვენს ტაბლეტზე ვერ მოხერხდა."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> ვერ დაინსტალირდება თქვენს ტელევიზორში."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g>-ის დაყენება თქვენს ტელეფონზე ვერ მოხერხდა."</string>
@@ -119,4 +116,6 @@
     <string name="screen_overlay_title" msgid="3021729846864038529">"ეკრანის გადაფარვა გამოვლინდა"</string>
     <string name="screen_overlay_message" msgid="2141944461571677331">"ამ ნებართვის პარამეტრის შესაცვლელად, ჯერ უნდა გამორთოთ ეკრანის გადაფარვა პარამეტრებიდან &gt; აპებიდან"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"პარამეტრების გახსნა"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"ინსტალაციის/დეინსტალაციის მოქმედებები არ არის მხარდაჭერილი Wear-ზე."</string>
 </resources>

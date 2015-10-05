@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Ingabe ufuna ukufaka isibuyekezo kulolu hlelo lokusebenza olukhona? Idatha yakho ekhona ngeke ilahleke. Akudingi ukufinyelela okukhethekile."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Ungabe ufuna ukukhipha isibuyekezo kulolu hlelo lokusebenza olakhelwe ngaphakathi? Idatha yakho ekhona ngeke ilahleke. Akudingi ukufinyelela okukhethekile."</string>
     <string name="install_failed" msgid="6579998651498970899">"I-app ayifakiwe."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"Iphakheji livinjiwe kusukela ekufakweni."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"Iphakheji ishayisana nephakheji ekhona enegama elifanayo."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"Lolu hlelo lokusebenza aluhambisani nethebulethi yakho."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Lolu hlelo lokusebenza aluhambisani ne-TV yakho."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"Lolu hlelo lokusebenza aluhambisani nefoni yakho."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Iphasela libonakala lonakalisiwe"</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">" Iphakheji enegama elifanayo nesiginisha ephikisayo isivele ifakiwe."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Iphasela lisebenza kuphela kunguqulo entsha ye-Android"</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Lolu hlelo lokusebenza alihambelani nethebulethi yakho."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Lolu hlelo lokusebenza aluhambisani ne-TV yakho."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Le app ayihambelani nocingo lakho."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Iphakheji echaziwe yasuswa ngaphambi kokuba uhlelo lokufaka luqedelwe."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Iphakheji ayizange idlule ekuqinisekisweni ngakho angeke ifakwe."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Kwenzeke isikhathi sokuvala kusaqinisekiswa le phakheji. Sicela uzame ukuyifaka futhi."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"I-<xliff:g id="APP_NAME">%1$s</xliff:g> ayikwazanga ukufakwa kuthebhulethi."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"I-<xliff:g id="APP_NAME">%1$s</xliff:g> ayikwazanga ukufakwa ku-TV yakho."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"I-<xliff:g id="APP_NAME">%1$s</xliff:g> ayikwazanga ukufakwa efonini."</string>
@@ -118,4 +115,6 @@
     <string name="screen_overlay_title" msgid="3021729846864038529">"Kutholwe imbondela yesikrini"</string>
     <string name="screen_overlay_message" msgid="2141944461571677331">"Ukuze uguqule lesi silungiselelo semvume, kuzomele uqale uvale imbondela yesikrini kusukela ku-Izilungiselelo &gt; Izinhlelo zokusebenza"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Vula izilungiselelo"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"I-Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Izenzo zokufaka/ukukhipha azisekelwe ku-Wear."</string>
 </resources>

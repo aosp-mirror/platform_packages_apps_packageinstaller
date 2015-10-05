@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Ali želite namestiti posodobitev te obstoječe aplikacije? Obstoječi podatki ne bodo izgubljeni. Za namestitev ne potrebujete posebnega dostopa."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Ali želite namestiti posodobitev te vgrajene aplikacije? Obstoječi podatki ne bodo izgubljeni. Za namestitev ne potrebujete posebnega dostopa."</string>
     <string name="install_failed" msgid="6579998651498970899">"Aplikacija ni nameščena."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"Namestitev paketa je bila blokirana."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"Paket je v sporu z obstoječim paketom z enakim imenom."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"Ta aplikacija ni združljiva z vašim tabličnim računalnikom."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Ta aplikacija ni združljiva z vašim televizorjem."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"Ta aplikacija ni združljiva z vašim telefonom."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Kaže, da je paket poškodovan."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Paket z istim imenom s podpisom v navzkrižju je že nameščen."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Paket deluje samo v novejših različicah Androida."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Ta aplikacija ni združljiva s tabličnim računalnikom."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Ta aplikacija ni združljiva z vašim televizorjem."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Ta aplikacija ni združljiva z vašim telefonom."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Navedeni paket je bil izbrisan, preden je bilo mogoče končati namestitev."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Paket ni opravil preverjanja in ga ni mogoče namestiti."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Pri preverjanju tega paketa je potekla časovna omejitev. Poskusite ga znova namestiti pozneje."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Aplikacije <xliff:g id="APP_NAME">%1$s</xliff:g> ni bilo mogoče namestiti v tablični računalnik."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Aplikacije <xliff:g id="APP_NAME">%1$s</xliff:g> ni bilo mogoče namestiti v vašem televizorju."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Aplikacije <xliff:g id="APP_NAME">%1$s</xliff:g> ni bilo mogoče namestiti v telefon."</string>
@@ -120,4 +117,6 @@
     <string name="screen_overlay_title" msgid="3021729846864038529">"Zaznano prekrivanje zaslona"</string>
     <string name="screen_overlay_message" msgid="2141944461571677331">"Če želite spremeniti nastavitev tega dovoljenja, morate najprej izklopiti prekrivanje zaslona v »Nastavitve &gt; Aplikacije«"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Odpri nastavitve"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Dejanja namestitve in odstranitve v sistemu Android Wear niso podprta."</string>
 </resources>

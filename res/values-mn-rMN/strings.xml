@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Та энэ аппликешны шинэчлэлтийг суулгах уу? Таны хуучин дата устах болно. Энэ ямар нэгэн тусгай эрх шаардахгүй."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Та энэ үндсэн аппликешны шинэчлэлтийг суулгах уу? Таны хуучин дата устах болно. Энэ ямар нэгэн тусгай эрх шаардахгүй."</string>
     <string name="install_failed" msgid="6579998651498970899">"Апп суулгагдаагүй."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"Багц суулгахыг блоклосон байна."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"Энэ багц нь урьд нь суулгасан багцтай ижил нэртэй учир суулгах боломжгүй."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"Энэ апп нь таны таблеттэй нийцэхгүй."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Энэ апп нь таны ТВ-д нийцэхгүй."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"Энэ апп нь таны утастай нийцэхгүй."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Багц эвдэрсэн гэж гарч байна."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Зөрчилтэй гарын үсэгтэй адил нэртэй хуучин багц урд нь суулгагдсан байна."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Багц Андройдын шинэ хувилбар дээр л ажиллана."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Энэ апп таны таблеттэй тохирохгүй."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Энэхүү апп нь таны телевизэд тохирохгүй байна."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Энэ апп таны утастай тохирохгүй."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Суулгаж дуусгахаас өмнө тодорхойлогдсон багц устгагдсан байна."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Багц тулгалтыг давж чадаагүй ба суулгах боломжгүй."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Энэ багцийг тулгаж байхад хугацаа хэтрэв. Дараа дахин суулгана уу."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> таны таблет дээр суусангүй."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> нь таны телевизэд суурилуулах боломжгүй байна."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g>-г таны утсан дээр суулгах боломжгүй."</string>
@@ -118,4 +115,6 @@
     <string name="screen_overlay_title" msgid="3021729846864038529">"Дэлгэцийн давхарга илрүүллээ"</string>
     <string name="screen_overlay_message" msgid="2141944461571677331">"Зөвшөөрлийн тохиргоог өөрчлөхийн тулд, эхлээд Тохиргоо ба Апп хэсгээс дэлгэцийн давхаргыг унтраана уу."</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Тохиргоог нээх"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Суулгах/Устгах үйлдлийг Wear дэмжээгүй."</string>
 </resources>

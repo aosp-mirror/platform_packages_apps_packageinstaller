@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"முன்பே உள்ள இந்தப் பயன்பாட்டில் புதுப்பிப்பை நிறுவ விரும்புகிறீர்களா? ஏற்கனவே உள்ள உங்கள் தரவை இழக்கமாட்டீர்கள். இதற்குத் தனிப்பட்ட அணுகல் எதுவும் தேவையில்லை."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"உள்ளமைக்கப்பட்ட பயன்பாட்டில் புதுப்பிப்பை நிறுவ விரும்புகிறீர்களா? ஏற்கனவே உள்ள உங்கள் தரவை இழக்க மாட்டீர்கள். இதற்குத் தனிப்பட்ட அணுகல் எதுவும் தேவையில்லை."</string>
     <string name="install_failed" msgid="6579998651498970899">"பயன்பாடு நிறுவப்படவில்லை."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"இந்தத் தொகுப்பு நிறுவுவதிலிருந்து தடுக்கப்பட்டது."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"இந்தத் தொகுப்பு அதே பெயரில் ஏற்கனவே உள்ள தொகுப்புடன் முரண்படுகிறது."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"உங்கள் டேப்லெட்டுடன் இந்தப் பயன்பாடு இணங்கவில்லை."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"உங்கள் டிவியுடன் இந்தப் பயன்பாடு இணங்கவில்லை."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"உங்கள் மொபைலுடன் இந்தப் பயன்பாடு இணங்கவில்லை."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"தொகுப்பு சிதைந்ததுபோல் தெரிகிறது."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"கையொப்ப வேறுபாடுடைய இதே பெயருடைய தொகுப்பு ஏற்கனவே நிறுவப்பட்டுள்ளது."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Android இன் புதிய பதிப்புகளில் மட்டுமே தொகுப்பு வேலைசெய்யும்."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"இந்தப் பயன்பாடு உங்கள் டேப்லெட்டுடன் ஏற்புடையதாக இல்லை."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"உங்கள் டிவியுடன் இந்தப் பயன்பாடு இணங்கவில்லை."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"இந்தப் பயன்பாடு உங்கள் மொபைலுடன் ஏற்புடையதாக இல்லை."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"நிறுவல் முடியும் முன்பே குறிப்பிட்ட தொகுப்பு நீக்கப்பட்டது."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"தொகுப்பானது சரிபார்ப்பில் வெற்றி பெறாததால், அதை நிறுவ முடியாது."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"இந்தத் தொகுப்பைச் சரிபார்க்க முயற்சிக்கும்போது காலங்கடந்தது. பிறகு இதை மீண்டும் நிறுவ முயற்சிக்கவும்."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> பயன்பாட்டை உங்கள் டேப்லெட்டில் நிறுவ முடியாது."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"உங்கள் டிவியில் <xliff:g id="APP_NAME">%1$s</xliff:g>ஐ நிறுவ முடியவில்லை."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> பயன்பாட்டை உங்கள் மொபைலில் நிறுவ முடியாது."</string>
@@ -118,4 +115,6 @@
     <string name="screen_overlay_title" msgid="3021729846864038529">"திரையின் மேலே செயல்படும் பயன்பாடுகள் கண்டறியப்பட்டன"</string>
     <string name="screen_overlay_message" msgid="2141944461571677331">"இந்த அனுமதியை மாற்ற, அமைப்புகள் &gt; பயன்பாடுகள் என்பதற்குச் சென்று, திரையின் மேலே செயல்படும் பயன்பாடுகளை முதலில் முடக்கவும்"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"அமைப்புகளைத் திற"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Wear இல் நிறுவுதல்/நிறுவல் நீக்குதலுக்கு ஆதரவில்லை."</string>
 </resources>

@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Vai vēlaties instalēt šīs lietojumprogrammas atjauninājumu? Esošie dati netiks zaudēti. Tam nav nepieciešama īpaša piekļuves atļauja."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Vai vēlaties instalēt šīs iebūvētās lietojumprogrammas atjauninājumu? Esošie dati netiks zaudēti. Tam nav nepieciešama īpaša piekļuves atļauja."</string>
     <string name="install_failed" msgid="6579998651498970899">"Lietotne nav instalēta."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"Pakotnes instalēšana tika bloķēta."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"Pakotne ir konfliktā ar esošo pakotni, jo to nosaukumi ir vienādi."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"Šī lietotne nav saderīga ar jūsu planšetdatoru."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Šī lietotne nav saderīga ar jūsu televizoru."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"Šī lietotne nav saderīga ar jūsu tālruni."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Šķiet, ka pakotne ir bojāta."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Esoša pakotne ar tādu pašu nosaukumu un konfliktējošu parakstu jau ir instalēta."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Šī pakotne darbojas tikai jaunākās operētājsistēmas Android versijās."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Šī lietotne nav saderīga ar jūsu planšetdatoru."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Šī lietotne nav saderīga ar jūsu televizoru."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Šī lietotne nav saderīga ar jūsu tālruni."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Norādītā pakotne tika izdzēsta pirms instalēšanas pabeigšanas."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Pakotnes verificēšana neizdevās. Pakotni nevar instalēt."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Mēģinot verificēt šo pakotni, iestājās noildze. Vēlāk mēģiniet to instalēt vēlreiz."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Lietotni <xliff:g id="APP_NAME">%1$s</xliff:g> nevarēja instalēt planšetdatorā."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Lietotni <xliff:g id="APP_NAME">%1$s</xliff:g> nevarēja instalēt jūsu televizorā."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Lietotni <xliff:g id="APP_NAME">%1$s</xliff:g> nevarēja instalēt tālrunī."</string>
@@ -119,4 +116,6 @@
     <string name="screen_overlay_title" msgid="3021729846864038529">"Konstatēts ekrāna pārklājums"</string>
     <string name="screen_overlay_message" msgid="2141944461571677331">"Lai mainītu šo atļaujas iestatījumu, vispirms sadaļā “Iestatījumi un lietotnes” izslēdziet ekrāna pārklājumu."</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Atvērt iestatījumus"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Wear ierīcē netiek atbalstīta instalēšana/atinstalēšana."</string>
 </resources>

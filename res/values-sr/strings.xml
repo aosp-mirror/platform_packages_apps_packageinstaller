@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Да ли желите да инсталирате ажурирање ове постојеће апликације? Постојећи подаци неће бити изгубљени. Није потребан посебан приступ."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Да ли желите да инсталирате ажурирање ове уграђене апликације? Постојећи подаци неће бити изгубљени. Није потребан посебан приступ."</string>
     <string name="install_failed" msgid="6579998651498970899">"Апликација није инсталирана."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"Инсталирање пакета је блокирано."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"Пакет је у сукобу са постојећим пакетом истог назива."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"Ова апликација није компатибилна са таблетом."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Ова апликација није компатибилна са ТВ-ом."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"Ова апликација није компатибилна са телефоном."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Изгледа да је пакет оштећен."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Већ је инсталиран пакет са истим именом и сукобљеним потписом."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Пакет функционише само на новијим верзијама Android-а."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Ова апликација није компатибилна са таблетом."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Ова апликација није компатибилна са ТВ-ом."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Ова апликација није компатибилна са телефоном."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Наведени пакет је избрисан пре него што је инсталација завршена."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Пакет није прошао верификацију и не може да се инсталира."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Време је истекло при покушају да се верификује пакет. Покушајте поново да га инсталирате касније."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Није могуће инсталирати апликацију <xliff:g id="APP_NAME">%1$s</xliff:g> на таблет."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Нисмо успели да инсталирамо <xliff:g id="APP_NAME">%1$s</xliff:g> на ТВ."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Није могуће инсталирати апликацију <xliff:g id="APP_NAME">%1$s</xliff:g> на телефон."</string>
@@ -119,4 +116,6 @@
     <string name="screen_overlay_title" msgid="3021729846864038529">"Откривен је елемент који прекрива садржај екрана"</string>
     <string name="screen_overlay_message" msgid="2141944461571677331">"Да бисте променили подешавање ове дозволе, прво треба да искључите елемент који прекрива садржај екрана у одељку Подешавања &gt; Апликације"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Отвори подешавања"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Радње Инсталирај/Деинсталирај нису подржане у Wear-у."</string>
 </resources>

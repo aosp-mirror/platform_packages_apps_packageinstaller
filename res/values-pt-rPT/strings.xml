@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Pretende instalar uma atualização para a aplicação existente? Os dados existentes não serão perdidos. Não é necessário um acesso específico."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Pretende instalar uma atualização para a aplicação integrada? Os dados existentes não serão perdidos. Não é necessário um acesso específico."</string>
     <string name="install_failed" msgid="6579998651498970899">"Aplicação não instalada."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"Foi bloqueada a instalação do pacote."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"O pacote entra em conflito com um pacote existente com o mesmo nome."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"Esta aplicação não é compatível com o seu tablet."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Esta aplicação não é compatível com a sua TV."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"Esta aplicação não é compatível com o seu telemóvel."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"O pacote parece estar danificado."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Já está instalado um pacote com o mesmo nome e com uma assinatura em conflito."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"O pacote só funciona em versões mais recentes do Android."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Esta aplicação não é compatível com o tablet."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Esta aplicação não é compatível com a sua TV."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Esta aplicação não é compatível com o telemóvel."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"O pacote especificado foi eliminado antes da instalação poder ser concluída."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"O pacote não passou na verificação e não pode ser instalado."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"O tempo limite foi excedido ao tentar confirmar este pacote. Tente instalá-lo novamente mais tarde."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Não foi possível instalar <xliff:g id="APP_NAME">%1$s</xliff:g> no tablet."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Não foi possível instalar o <xliff:g id="APP_NAME">%1$s</xliff:g> na sua TV."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Não foi possível instalar <xliff:g id="APP_NAME">%1$s</xliff:g> no telemóvel."</string>
@@ -118,4 +115,6 @@
     <string name="screen_overlay_title" msgid="3021729846864038529">"Sobreposição de ecrã detetada"</string>
     <string name="screen_overlay_message" msgid="2141944461571677331">"Para alterar esta definição de autorização, primeiro tem de desativar a sobreposição do ecrã em Definições &gt; Aplicações"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Abrir definições"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"As ações de instalar/desinstalar não são compatíveis com o Android Wear."</string>
 </resources>

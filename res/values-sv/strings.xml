@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Vill du installera en uppdatering av den befintliga appen? Dina befintliga data försvinner inte. Ingen särskild åtkomst krävs."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Vill du installera en uppdatering av den inbyggda appen? Dina befintliga data försvinner inte. Ingen särskild åtkomst krävs."</string>
     <string name="install_failed" msgid="6579998651498970899">"Appen har inte installerats."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"Paketet har blockerats för installation."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"Det finns en konflikt mellan det här paketet och ett befintligt paket med samma namn."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"Appen är inte kompatibel med din surfplatta."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Appen är inte kompatibel med din TV."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"Appen är inte kompatibel med din mobil."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Paketet verkar vara skadat."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Det finns redan ett paket med samma namn och en signatur som är i konflikt."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Paketet fungerar bara med nyare versioner av Android."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Appen är inte kompatibel med din surfplatta."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Appen är inte kompatibel med din tv."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Appen är inte kompatibel med din mobil."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Paketet som angavs togs bort innan installationen var slutförd."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Paketet klarade inte verifieringen och får inte installeras."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"En timeout inträffade när paketet skulle verifieras. Prova att installera paketet senare."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Det gick inte att installera <xliff:g id="APP_NAME">%1$s</xliff:g> på surfplattan."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunde inte installeras på tv:n."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Det gick inte att installera <xliff:g id="APP_NAME">%1$s</xliff:g> på mobilen."</string>
@@ -118,4 +115,6 @@
     <string name="screen_overlay_title" msgid="3021729846864038529">"Skärmöverlagring har upptäckts"</string>
     <string name="screen_overlay_message" msgid="2141944461571677331">"Innan du kan ändra den här behörighetsinställningen måste du inaktivera skärmöverlagring under Inställningar &gt; Appar"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Öppna inställningarna"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Åtgärder för att installera/avinstallera stöds inte på Wear."</string>
 </resources>

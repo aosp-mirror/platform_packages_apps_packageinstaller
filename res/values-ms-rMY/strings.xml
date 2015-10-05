@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Adakah anda mahu memasang kemas kini untuk aplikasi sedia ada ini? Data sedia ada anda tidak akan hilang. Hal ini tidak memerlukan sebarang akses khas."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Adakah anda mahu memasang kemas kini untuk aplikasi terbina dalam ini? Data sedia ada anda tidak akan hilang. Hal ini tidak memerlukan sebarang akses khas."</string>
     <string name="install_failed" msgid="6579998651498970899">"Aplikasi tidak dipasang."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"Pakej ini telah disekat daripada dipasang."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"Pakej ini bercanggah dengan pakej yang sedia ada kerana mempunyai nama yang sama."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"Apl ini tidak serasi dengan tablet anda."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Apl ini tidak serasi dengan TV anda."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"Apl ini tidak serasi dengan telefon anda."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Pakej itu kelihatan seperti telah rosak."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Pakej sedia ada yang mempunyai nama yang sama dengan tandatangan yang bercanggah sudah pun dipasang."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Pakej ini hanya berfungsi pada Android versi terbaru."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Aplikasi ini tidak serasi dengan tablet anda."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Apl ini tidak serasi dengan TV anda."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Aplikasi ini tidak serasi dengan telefon anda."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Pakej yang dinyatakan telah dipadamkan sebelum pemasangan dapat dilengkapkan."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Pakej ini tidak lulus pengesahan dan tidak boleh dipasang."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Tamat masa berlaku semasa cuba mengesahkan pakej ini. Cuba pasangkannya lagi nanti."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> tidak dapat dipasangkan pada tablet anda."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> tidak boleh dipasang pada TV anda."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> tidak dapat dipasangkan pada telefon anda."</string>
@@ -118,4 +115,6 @@
     <string name="screen_overlay_title" msgid="3021729846864038529">"Tindanan skrin dikesan"</string>
     <string name="screen_overlay_message" msgid="2141944461571677331">"Untuk menukar tetapan kebenaran ini, anda perlu mematikan tindanan skrin daripada Tetapan &gt; Apl terlebih dahulu"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Buka tetapan"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Tindakan Pasang/Nyahpasang tidak disokong pada Wear."</string>
 </resources>

@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Θέλετε να εγκαταστήσετε μια ενημέρωση για αυτήν την υπάρχουσα εφαρμογή; Τα υπάρχοντα δεδομένα σας δεν θα χαθούν. Δεν απαιτείται ειδική πρόσβαση."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Θέλετε να εγκαταστήσετε μια ενημέρωση για αυτήν την ενσωματωμένη εφαρμογή; Τα υπάρχοντα δεδομένα σας δεν θα χαθούν. Δεν απαιτείται ειδική πρόσβαση."</string>
     <string name="install_failed" msgid="6579998651498970899">"Η εφαρμογή δεν έχει εγκατασταθεί."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"Η εγκατάσταση του πακέτου αποκλείστηκε."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"Παρουσιάζεται διένεξη του πακέτου με ένα υπάρχον πακέτο με το ίδιο όνομα."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"Αυτή η εφαρμογή δεν είναι συμβατή με το tablet σας."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Αυτή η εφαρμογή δεν είναι συμβατή με την τηλεόρασή σας."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"Αυτή η εφαρμογή δεν είναι συμβατή με το τηλέφωνό σας."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Το πακέτο ενδέχεται να είναι κατεστραμμένο."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Υπάρχει ήδη εγκατεστημένο ένα πακέτο με το ίδιο όνομα και με προβληματική υπογραφή."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Το πακέτο λειτουργεί μόνο με νεότερες εκδόσεις του Android."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Αυτή η εφαρμογή δεν είναι συμβατή με το tablet σας."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Αυτή η εφαρμογή δεν είναι συμβατή με την τηλεόρασή σας."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Αυτή η εφαρμογή δεν είναι συμβατή με το τηλέφωνό σας."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Το καθορ. πακέτο διεγράφη πριν από την ολοκλ. της εγκατ."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Ανεπιτυχής επαλήθευση και αδυναμία εγκατάστασης."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Λήξη χρονικού ορίου κατά την επαλήθευση του πακέτου. Προσπαθήστε να το εγκαταστήσετε ξανά αργότερα."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Δεν ήταν δυνατή η εγκατάσταση της εφαρμογής <xliff:g id="APP_NAME">%1$s</xliff:g> στο tablet σας."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Η εφαρμογή <xliff:g id="APP_NAME">%1$s</xliff:g> δεν ήταν δυνατό να εγκατασταθεί στην τηλεόρασή σας."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Δεν ήταν δυνατή η εγκατάσταση της εφαρμογής <xliff:g id="APP_NAME">%1$s</xliff:g> στο τηλέφωνό σας."</string>
@@ -118,4 +115,6 @@
     <string name="screen_overlay_title" msgid="3021729846864038529">"Εντοπίστηκε επικάλυψη οθόνης"</string>
     <string name="screen_overlay_message" msgid="2141944461571677331">"Για να αλλάξετε αυτή τη ρύθμιση άδειας, θα πρέπει πρώτα να απενεργοποιήσετε την επικάλυψη οθόνης από τις Ρυθμίσεις &gt; Εφαρμογές"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Άνοιγμα ρυθμίσεων"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Οι ενέργειες εγκατάστασης/απεγκατάστασης δεν υποστηρίζονται στο Wear."</string>
 </resources>

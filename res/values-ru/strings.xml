@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Установить обновление этого приложения? На текущих данных это никак не отразится. Специальных прав доступа не требуется."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Установить обновление этого встроенного приложения? На текущих данных это никак не отразится. Специальных прав доступа не требуется."</string>
     <string name="install_failed" msgid="6579998651498970899">"Приложение не установлено."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"Установка пакета заблокирована."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"Пакет с таким названием уже существует."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"Приложение несовместимо с вашим планшетом."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Приложение несовместимо с вашим телевизором."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"Приложение несовместимо с вашим телефоном."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Похоже, пакет поврежден."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Пакет с таким названием уже установлен и имеет конфликтующую подпись."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Этот пакет поддерживается только в системе Android более поздних версий."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Приложение несовместимо с вашим устройством."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Это приложение несовместимо с вашим телевизором."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Приложение несовместимо с вашим устройством."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Указанный пакет удален до завершения установки."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Пакет не проверен и не может быть установлен."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Не удалось проверить пакет. Попробуйте установить его позже."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Не удалось установить приложение \"<xliff:g id="APP_NAME">%1$s</xliff:g>\"."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Приложение \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" нельзя установить на ваш телевизор."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Не удалось установить приложение \"<xliff:g id="APP_NAME">%1$s</xliff:g>\"."</string>
@@ -120,4 +117,6 @@
     <string name="screen_overlay_title" msgid="3021729846864038529">"Обнаружены наложения"</string>
     <string name="screen_overlay_message" msgid="2141944461571677331">"Чтобы предоставить или отменить разрешение, сначала отключите наложения. Для этого нажмите \"Настройки &gt; Приложения\"."</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Открыть настройки"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Android Wear не поддерживает установку и удаление."</string>
 </resources>

@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"શું તમે આ અસ્તિત્વમાંની એપ્લિકેશનના અપડેટને ઇન્સ્ટોલ કરવા માગો છો? તમારો અસ્તિત્વમાંનો ડેટા ગુમ થશે નહીં. તેને કોઈ વિશિષ્ટ ઍક્સેસની જરૂર હોતી નથી."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"શું તમે આ બિલ્ટ-ઇન એપ્લિકેશનના અપડેટને ઇન્સ્ટોલ કરવા માગો છો? તમારો અસ્તિત્વમાંનો ડેટા ગુમ થશે નહીં. તેને કોઈ વિશિષ્ટ ઍક્સેસની જરૂર હોતી નથી."</string>
     <string name="install_failed" msgid="6579998651498970899">"એપ્લિકેશન ઇન્સ્ટોલ કરેલ નથી."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"પૅકેજને ઇન્સ્ટૉલ થવાથી અવરોધિત કરવામાં આવ્યું હતું."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"પૅકેજનો સમાન નામ દ્વારા અસ્તિત્વમાંના પૅકેજ સાથે વિરોધ છે."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"આ અ‍ૅપ્લિકેશન તમારા ટેબ્લેટ સાથે સુસંગત નથી."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"આ અ‍ૅપ્લિકેશન તમારા ટીવી સાથે સુસંગત નથી."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"આ અ‍ૅપ્લિકેશન તમારા ફોન સાથે સુસંગત નથી."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"પૅકેજ દૂષિત થયેલો દેખાય છે."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"વિરોધાભાસી સહી સાથેનું સમાન નામવાળું અસ્તિત્વમાંનું પૅકેજે પહેલાંથી ઇન્સ્ટોલ કરેલ છે."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"પૅકેજ ફક્ત Android ના નવા સંસ્કરણો પર જ કાર્ય કરે છે."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"આ એપ્લિકેશન તમારા ટેબ્લેટ સાથે સુસંગત નથી."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"આ એપ્લિકેશન તમારા ટીવી સાથે સુસંગત નથી."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"આ એપ્લિકેશન તમારા ફોન સાથે સુસંગત નથી."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"ઉલ્લેખિત પૅકેજ ઇન્સ્ટોલેશન પૂર્ણ થાય તે પહેલાં જ કાઢી નખાયું હતું."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"પૅકેજ એ ચકાસણી પસાર કરી નથી અને ઇન્સ્ટોલ કરી શકાશે નહીં."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"આ પૅકેજને ચકાસવાનો પ્રયાસ કરતી વખતે સમયસમાપ્તિ થઈ. તેને પછીથી ફરી ઇન્સ્ટોલ કરવાનો પ્રયાસ કરો."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"તમારા ટેબ્લેટ પર <xliff:g id="APP_NAME">%1$s</xliff:g> ઇન્સ્ટોલ કરી શકાયું નથી."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"તમારા ટીવી પર <xliff:g id="APP_NAME">%1$s</xliff:g> ઇન્સ્ટોલ કરી શકાયું નથી."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"તમારા ફોન પર <xliff:g id="APP_NAME">%1$s</xliff:g> ઇન્સ્ટોલ કરી શકાયું નથી."</string>
@@ -118,4 +115,6 @@
     <string name="screen_overlay_title" msgid="3021729846864038529">"સ્ક્રીન ઓવરલે મળ્યું"</string>
     <string name="screen_overlay_message" msgid="2141944461571677331">"આ પરવાનગી સેટિંગ બદલવા માટે, તમારે પહેલા સેટિંગ્સ &gt; Apps માંથી સ્ક્રીન ઓવરલે બંધ કરવું પડશે"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"સેટિંગ્સ ખોલો"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Wear પર ઇન્સ્ટૉલ/અનઇન્સ્ટૉલ ક્રિયાઓ સમર્થિત નથી."</string>
 </resources>

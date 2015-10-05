@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"आपण या विद्यमान अनुप्रयोगावर अद्यतन स्थापित करू इच्छिता? आपला विद्यमान डेटा गमावणार नाही. यासाठी कोणताही विशेष प्रवेश आवश्यक नसतो."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"आपण या अंगभूत अनुप्रयोगावर अद्यतन स्थापित करू इच्छिता? आपला विद्यमान डेटा गमावणार नाही. यास कोणत्याही विशेष प्रवेशाची आवश्यकता नसते."</string>
     <string name="install_failed" msgid="6579998651498970899">"अॅप स्थापित झाला नाही."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"पॅकेेच स्थापित होण्यास अवरोधित केलेले होते."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"पॅकेजचा विद्यमान असलेल्या समान नावाच्या पॅकेजशी संघर्ष होईल."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"हा अॅप आपल्या टॅब्लेटशी सुसंगत नाही."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"हा अॅप आपल्या टीव्हीशी सुसंगत नाही."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"हा अॅप आपल्या फोनशी सुसंगत नाही."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"पॅकेज कदाचित दूषित आहे."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"समान नावाद्वारे विवादित स्‍वाक्षरीसह अस्‍तित्‍वात असलेले पॅकेज आधीपासून स्‍थापित केले आहे."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"पॅकेज Android च्या केवळ नवीनतम आवृत्त्‍यांवर कार्य करते."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"हा अॅप आपल्या टॅब्लेटशी सुसंगत नाही."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"हा अॅप आपल्या टीव्हीशी सुसंगत नाही."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"हा अॅप आपल्या फोनशी सुसंगत नाही."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"स्‍थापित करणे पूर्ण होण्‍यापूर्वी निर्दिष्‍ट केलेले पॅकेज हटविले गेले."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"पॅकेज सत्‍यापनात उत्तीर्ण झाले नाही आणि स्‍थापित केले जाऊ शकत नाही."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"हे पॅकेज सत्यापित करण्याचा प्रयत्न करताना एक कालबाह्य त्रुटी आली. ते नंतर पुन्हा स्थापित करण्याचा प्रयत्न करा."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> आपल्या टॅब्लेटवर स्थापित केला जाऊ शकला नाही."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> आपल्या टीव्हीवर स्थापित केले जाऊ शकले नाही."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> आपल्या फोनवर स्थापित केला जाऊ शकला नाही."</string>
@@ -118,4 +115,6 @@
     <string name="screen_overlay_title" msgid="3021729846864038529">"स्क्रीन आच्छादन आढळले"</string>
     <string name="screen_overlay_message" msgid="2141944461571677331">"हे परवानगी सेटिंग बदलण्‍यासाठी, आपल्‍याला सेटिंग्ज &gt; Apps मधून स्क्रीन आच्छादन बंद करावे लागेल"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"सेटिंग्ज उघडा"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"स्थापित करा/विस्थापित करा क्रिया Wear वर समर्थित नाहीत."</string>
 </resources>

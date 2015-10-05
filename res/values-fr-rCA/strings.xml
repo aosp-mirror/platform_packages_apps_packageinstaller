@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Voulez-vous installer une mise à jour pour cette application? Vos données ne seront pas perdues. Aucun droit d\'accès spécial n\'est requis."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Voulez-vous installer une mise à jour pour cette application intégrée? Vos données existantes ne seront pas perdues. Aucun droit d\'accès spécial n\'est requis."</string>
     <string name="install_failed" msgid="6579998651498970899">"Application non installée."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"L\'installation du paquet a été bloquée."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"Le paquet est en conflit avec un paquet existant du même nom."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"Cette application n\'est pas compatible avec votre tablette."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Cette application n\'est pas compatible avec votre téléviseur."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"Cette application n\'est pas compatible avec votre téléphone."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Le paquet semble corrompu."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Un paquet portant le même nom accompagné d\'une signature différente est déjà installé."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Le paquet est uniquement compatible avec les dernières versions d\'Android."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Cette application n\'est pas compatible avec votre tablette."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Cette application n\'est pas compatible avec votre téléviseur."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Cette application n\'est pas compatible avec votre téléphone."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Le paquet spécifié a été supprimé avant la finalisation de l\'installation."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Impossible d\'installer le paquet, car il ne répond pas aux critères de validation."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Expiration du délai lors de la tentative de validation de ce paquet. Réinstallez-le plus tard."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Impossible d\'installer <xliff:g id="APP_NAME">%1$s</xliff:g> sur cette tablette."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> n\'a pas pu être installée sur votre téléviseur."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Impossible d\'installer <xliff:g id="APP_NAME">%1$s</xliff:g> sur ce téléphone."</string>
@@ -118,4 +115,6 @@
     <string name="screen_overlay_title" msgid="3021729846864038529">"La superposition d\'écran a été détectée"</string>
     <string name="screen_overlay_message" msgid="2141944461571677331">"Pour modifier ce paramètre d\'autorisation, vous devez tout d\'abord désactiver la superposition d\'écran en accédant à Paramètres &gt; Applications."</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Ouvrir les paramètres"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Les actions d\'installation et de désinstallation ne sont pas prises en charge par Android Wear."</string>
 </resources>

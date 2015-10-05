@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Doriți să instalaţi o actualizare pentru această aplicație existentă? Datele existente nu vor fi pierdute. Actualizarea nu are nevoie de acces special."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Doriți să instalaţi o actualizare pentru această aplicație încorporată? Datele existente nu vor fi pierdute. Actualizarea nu are nevoie de acces special."</string>
     <string name="install_failed" msgid="6579998651498970899">"Aplicaţia nu este instalată."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"Instalarea pachetului a fost blocată."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"Pachetul este în conflict cu un pachet existent cu același nume."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"Această aplicație nu este compatibilă cu tableta dvs."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Această aplicație nu este compatibilă cu televizorul dvs."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"Această aplicație nu este compatibilă cu telefonul dvs."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Pachetul pare a fi deteriorat."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Un pachet cu același nume și cu o semnătură conflictuală este deja instalat."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Pachetul funcţionează numai pe versiunile Android mai recente."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Această aplicație nu este compatibilă cu tableta dvs."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Aplicația nu este compatibilă cu televizorul."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Această aplicație nu este compatibilă cu telefonul dvs."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Pachetul specificat a fost șters înainte ca instalarea să poată fi finalizată."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Pachetul nu a trecut de verificare și nu pot fi instalat."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"La verificarea pachetului timpul limită a expirat. Încercați să instalaţi din nou ulterior."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> nu a putut fi instalată pe tableta dvs."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Aplicația <xliff:g id="APP_NAME">%1$s</xliff:g> nu a putut fi instalată pe televizor."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> nu a putut fi instalată pe telefonul dvs."</string>
@@ -119,4 +116,6 @@
     <string name="screen_overlay_title" msgid="3021729846864038529">"S-a detectat suprapunerea pe ecran"</string>
     <string name="screen_overlay_message" msgid="2141944461571677331">"Ca să schimbați această setare pentru permisiuni, mai întâi trebuie să dezactivați suprapunerea pe ecran din Setări &gt; Aplicații"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Deschideți setările"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Acțiunile Instalați/Dezinstalați nu sunt acceptate pe Wear."</string>
 </resources>

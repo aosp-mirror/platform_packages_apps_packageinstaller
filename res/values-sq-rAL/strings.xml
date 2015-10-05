@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Dëshiron të instalosh një përditësim të këtij aplikacioni ekzistues? Të dhënat e tua ekzistuese nuk do të humbasin. Aplikacioni nuk kërkon ndonjë qasje të veçantë."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Dëshiron të instalosh një përditësim të këtij aplikacioni ekzistues? Të dhënat e tua ekzistuese nuk do të humbasin. Aplikacioni nuk kërkon ndonjë qasje të veçantë."</string>
     <string name="install_failed" msgid="6579998651498970899">"Aplikacioni nuk u instalua."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"Instalimi paketës u bllokua."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"Paketa është në konflikt me një paketë ekzistuese nga i njëjti emër."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"Ky aplikacion është i papërshtatshëm me tabletin tënd."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Ky aplikacion është i papërshtatshëm me televizorin tënd."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"Ky aplikacion është i papërshtatshëm me telefonin tënd."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Paketa duket se është e dëmtuar."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Një paketë ekzistuese që mban të njëjtin emër me një nënshkrim kontradiktor, është instaluar tashmë."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Paketa punon vetëm në versionet më të reja \"android\"."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Ky aplikacion është i papërshtatshëm me tabletin tënd."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Ky aplikacion është i papërshtatshëm me televizorin tënd."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Ky aplikacion është i papërshtatshëm me telefonin tënd."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Paketa e specifikuar u fshi para se instalimi të përfundonte."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Paketa nuk e kaloi verifikimin dhe nuk mund të instalohet."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Koha e verifikimit të paketës skadoi. Provo ta instalosh sërish."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> nuk mund të instalohej në tablet."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> nuk mund të instalohej në televizor."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> nuk mundi të instalohej në telefon."</string>
@@ -118,4 +115,6 @@
     <string name="screen_overlay_title" msgid="3021729846864038529">"Mbivendosja e ekranit u zbulua"</string>
     <string name="screen_overlay_message" msgid="2141944461571677331">"Për të ndryshuar këtë cilësim të lejes, në fillim duhet të çaktivizosh mbivendosjen e ekranit nga Cilësimet &gt; Aplikacionet"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Hap cilësimet"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Teknologjia \"Android\" që vishet"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Instalo/çinstalo veprimet që nuk mbështeten në teknologjinë që vishet."</string>
 </resources>

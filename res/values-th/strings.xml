@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"คุณต้องการติดตั้งการอัปเดตไปยังแอปพลิเคชันที่มีอยู่นี้หรือไม่ ข้อมูลที่มีอยู่ของคุณจะไม่สูญหาย การอัปเดตนี้ไม่จำเป็นต้องใช้การเข้าถึงใดๆ เป็นพิเศษ"</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"คุณต้องการติดตั้งการอัปเดตไปยังแอปพลิเคชันในตัวนี้หรือไม่ ข้อมูลที่มีอยู่ของคุณจะไม่สูญหาย การอัปเดตนี้ไม่จำเป็นต้องใช้การเข้าถึงใดๆ เป็นพิเศษ"</string>
     <string name="install_failed" msgid="6579998651498970899">"ไม่ได้ติดตั้งแอปพลิเคชัน"</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"มีการบล็อกแพ็กเกจไม่ให้ติดตั้ง"</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"แพ็กเกจขัดแย้งกับแพ็กเกจที่มีอยู่โดยมีชื่อเดียวกัน"</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"แอปนี้ไม่สามารถใช้งานร่วมกับแท็บเล็ตของคุณได้"</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"แอปนี้ไม่สามารถใช้งานกับทีวีของคุณได้"</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"แอปนี้ไม่สามารถใช้งานร่วมกับโทรศัพท์ของคุณได้"</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"แพ็กเกจเกิดความเสียหาย"</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"มีแพ็กเกจชื่อเดียวกันซึ่งมีลายเซ็นที่ขัดแย้งติดตั้งไว้อยู่แล้ว"</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"แพ็กเกจนี้จะทำงานบน Android รุ่นใหม่กว่านี้เท่านั้น"</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"แอปพลิเคชันนี้ไม่สามารถทำงานร่วมกับแท็บเล็ตของคุณได้"</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"แอปนี้ไม่สามารถใช้งานกับทีวีของคุณได้"</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"แอปพลิเคชันนี้ไม่สามารถทำงานร่วมกับโทรศัพท์ของคุณได้"</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"แพ็กเกจที่ระบุไว้ถูกลบออกก่อนที่การติดตั้งจะเสร็จสมบูรณ์"</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"แพ็กเกจไม่ผ่านการยืนยันและไม่สามารถติดตั้ง"</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"ถึงระยะหมดเวลาขณะที่พยายามยืนยันแพ็กเกจนี้ โปรดลองติดตั้งอีกครั้งในภายหลัง"</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"ไม่สามารถติดตั้ง <xliff:g id="APP_NAME">%1$s</xliff:g> บนแท็บเล็ตของคุณ"</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> ไม่สามารถติดตั้งบนทีวีได้"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"ไม่สามารถติดตั้ง <xliff:g id="APP_NAME">%1$s</xliff:g> บนโทรศัพท์ของคุณ"</string>
@@ -118,4 +115,6 @@
     <string name="screen_overlay_title" msgid="3021729846864038529">"ตรวจพบการวางซ้อนหน้าจอ"</string>
     <string name="screen_overlay_message" msgid="2141944461571677331">"ในการเปลี่ยนแปลงการตั้งค่าสิทธิ์นี้ ก่อนอื่น คุณต้องปิดการวางซ้อนหน้าจอที่การตั้งค่า &gt; แอป"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"เปิดการตั้งค่า"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"ไม่สามารถติดตั้ง/ถอนการติดตั้งบน Wear"</string>
 </resources>

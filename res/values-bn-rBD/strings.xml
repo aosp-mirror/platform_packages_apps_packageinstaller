@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"আপনি কি এই বিদ্যমান অ্যাপ্লিকেশানের একটি আপডেট ইনস্টল করতে চান? আপনার বিদ্যমান ডেটাগুলি একই রকম থাকবে৷ এর জন্য কোনো বিশেষ অ্যাক্সেসের প্রয়োজন নেই৷"</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"আপনি কি ভেতরে থাকা অ্যাপ্লিকেশানের একটি আপডেট ইনস্টল করতে চান? আপনার বিদ্যমান ডেটাগুলি একই রকম থাকবে৷ এর জন্য কোনো বিশেষ অ্যাক্সেসের প্রয়োজন নেই৷"</string>
     <string name="install_failed" msgid="6579998651498970899">"অ্যাপ্লিকেশান ইনস্টল করা হয়নি৷"</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"ইনস্টল হওয়া থেকে প্যাকেজটিকে অবরুদ্ধ করা হয়েছে।"</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"প্যাকেজটির সাথে একই নামের আরেকটি বিদ্যমান প্যাকেজের দ্বন্দ্ব হচ্ছে।"</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"এই অ্যাপ্লিকেশানটি আপনার ট্যাবলেটের জন্য উপযুক্ত নয়৷"</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"এই অ্যাপ্লিকেশানটি আপনার টিভির জন্য উপযুক্ত নয়৷"</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"এই অ্যাপ্লিকেশানটি আপনার ফোনের জন্য উপযুক্ত নয়৷"</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"প্যাকেজটি ক্ষতিগ্রস্ত বলে মনে হচ্ছে৷"</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"একটি বিবাদী স্বাক্ষর সহ একই নামের একটি বিদ্যমান প্যাকেজ ইতিমধ্যেই ইনস্টল রয়েছে৷"</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"প্যাকেজটি শুধুমাত্র Android এর নতুন সংস্করণে কাজ করে৷"</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"এই অ্যাপ্লিকেশানটি আপনার ট্যাবলেটের জন্য উপযুক্ত নয়৷"</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"এই অ্যাপ্লিকেশানটি আপনার টিভির জন্য উপযুক্ত নয়৷"</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"এই অ্যাপ্লিকেশানটি আপনার ফোনের জন্য উপযুক্ত নয়৷"</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"ইনস্টলেশান প্রক্রিয়া সম্পন্ন হওয়ার পূর্বে উল্লিখিত প্যাকেজ মুছে ফেলা হয়েছে৷"</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"প্যাকেজটি যাচাইকরণে উত্তীর্ণ হয়নি এবং ইনস্টল করা যাবে না৷"</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"এই প্যাকেজটিকে যাচাই করার জন্য নির্ধারিত সময়কালের মেয়াদ ফুরিয়ে গেছে৷ এটিকে পরে আবার ইনস্টল করার চেষ্টা করুন৷"</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> আপনার ট্যাবলেটে ইনস্টল করা যায়নি৷"</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g>-কে আপনার টিভিতে ইনস্টল করা যাবে না৷"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> আপনার ফোনে ইনস্টল করা যায়নি৷"</string>
@@ -118,4 +115,6 @@
     <string name="screen_overlay_title" msgid="3021729846864038529">"স্ক্রীন আচ্ছাদন সনাক্ত করা হয়েছে"</string>
     <string name="screen_overlay_message" msgid="2141944461571677331">"এই অনুমতি সেটিংস পরিবর্তন করতে, আপনাকে প্রথমে সেটিংস &gt; এ গিয়ে অ্যাপ্লিকেশানগুলি থেকে স্ক্রীন ওভারলে বন্ধ করতে হবে"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"সেটিংস খুলুন"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Wearএ ইনস্টল/আনইনস্টল করার ক্রিয়াগুলি সমর্থিত নয়।"</string>
 </resources>

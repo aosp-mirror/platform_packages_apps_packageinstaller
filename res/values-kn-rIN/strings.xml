@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"ನೀವು ಈ ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ ಅಪ್ಲಿಕೇಶನ್‍ನ ಅಪ್‌ಡೇಟ್‌‌ ಆದ ಅಪ್ಲಿಕೇಶನ್ ಸ್ಥಾಪಿಸಲು ಬಯಸುವಿರಾ? ಈಗಿರುವ ನಿಮ್ಮ ಡೇಟಾ ಕಳೆದು ಹೋಗುವುದಿಲ್ಲ. ಇದಕ್ಕೆ ಯಾವುದೇ ವಿಶೇಷ ಪ್ರವೇಶದ ಅಗತ್ಯವಿಲ್ಲ."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"ನೀವು ಈ ಬಿಲ್ಟ್-ಇನ್-ಅಪ್ಲಿಕೇಶನ್‌ನ ಅಪ್‌ಡೇಟ್‌‌ ಆದ ಅಪ್ಲಿಕೇಶನ್ ಸ್ಥಾಪಿಸಿಕೊಳ್ಳಲು ಬಯಸುವಿರಾ? ಈಗಿರುವ ನಿಮ್ಮ ಡೇಟಾ ಕಳೆದು ಹೋಗುವುದಿಲ್ಲ. ಇದಕ್ಕೆ ಯಾವುದೇ ವಿಶೇಷ ಪ್ರವೇಶದ ಅಗತ್ಯವಿಲ್ಲ."</string>
     <string name="install_failed" msgid="6579998651498970899">"ಅಪ್ಲಿಕೇಶನ್ ಸ್ಥಾಪಿಸಲಾಗಿಲ್ಲ."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"ಸ್ಥಾಪಿಸುವಿಕೆಯಿಂದ ಪ್ಯಾಕೇಜ್‌ ಅನ್ನು ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"ಅದೇ ಹೆಸರಿನ ಮೂಲಕ ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ ಪ್ಯಾಕೇಜ್‌ನ ಜೊತೆಗೆ ಪ್ಯಾಕೇಜ್ ಸಂಘರ್ಷವಾಗುತ್ತದೆ."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"ಈ ಅಪ್ಲಿಕೇಶನ್ ನಿಮ್ಮ ಟ್ಯಾಬ್ಲೆಟ್‍ ಜೊತೆ ಹೊಂದಾಣಿಕೆಯಾಗುವುದಿಲ್ಲ."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"ಈ ಅಪ್ಲಿಕೇಶನ್ ನಿಮ್ಮ ಟಿವಿ ಜೊತೆ ಹೊಂದಾಣಿಕೆಯಾಗುವುದಿಲ್ಲ."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"ಈ ಅಪ್ಲಿಕೇಶನ್ ನಿಮ್ಮ ಫೋನ್‍ನೊಂದಿಗೆ ಹೊಂದಾಣಿಕೆಯಾಗುತ್ತಿಲ್ಲ."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"ಪ್ಯಾಕೇಜ್ ಹಾನಿಗೀಡಾಗಿರುವಂತೆ ತೋರುತ್ತಿದೆ."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"ಸಂಘರ್ಷನೀಯ ಸಹಿಯನ್ನು ಹೊಂದಿರುವ ಮತ್ತದೇ ಹೆಸರಿನ ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ ಪ್ಯಾಕೇಜ್ ಅನ್ನು ಈಗಾಗಲೇ ಸ್ಥಾಪಿಸಲಾಗಿದೆ."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Android ನ ನೂತನ ಆವೃತ್ತಿಗಳಲ್ಲಿ ಮಾತ್ರ ಪ್ಯಾಕೇಜ್ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"ಈ ಅಪ್ಲಿಕೇಶನ್ ನಿಮ್ಮ ಟ್ಯಾಬ್ಲೆಟ್‍ ಜೊತೆ ಹೊಂದಾಣಿಕೆಯಾಗುವುದಿಲ್ಲ."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"ಈ ಅಪ್ಲಿಕೇಶನ್ ನಿಮ್ಮ ಟಿವಿ ಜೊತೆ ಹೊಂದಾಣಿಕೆಯಾಗುವುದಿಲ್ಲ."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"ಈ ಅಪ್ಲಿಕೇಶನ್ ನಿಮ್ಮ ಫೋನ್‍ನೊಂದಿಗೆ ಹೊಂದಾಣಿಕೆಯಾಗುತ್ತಿಲ್ಲ."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"ಸ್ಥಾಪನೆಯನ್ನು ಪೂರ್ಣಗೊಳಿಸುವುದಕ್ಕೂ ಮೊದಲು ನಿರ್ದಿಷ್ಟಪಡಿಸಿರುವ ಪ್ಯಾಕೇಜ್ ಅನ್ನು ಅಳಿಸಲಾಗಿದೆ."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"ಪ್ಯಾಕೇಜ್ ಪರಿಶೀಲನೆಯನ್ನು ಪೂರೈಸಲಿಲ್ಲ ಮತ್ತು ಸ್ಥಾಪಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"ಈ ಪ್ಯಾಕೇಜ್ ಪರಿಶೀಲಿಸಲು ಪ್ರಯತ್ನಿಸುತ್ತಿರುವಲ್ಲಿ ಅವಧಿ ಮೀರಿದೆ. ಅದನ್ನು ನಂತರ ಮತ್ತೆ ಸ್ಥಾಪಿಸಲು ಪ್ರಯತ್ನಿಸಿ."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"ನಿಮ್ಮ ಟ್ಯಾಬ್ಲೆಟ್‌ನಲ್ಲಿ <xliff:g id="APP_NAME">%1$s</xliff:g> ಸ್ಥಾಪಿಸಲು ಸಾಧ್ಯವಾಗುವುದಿಲ್ಲ."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> ಅನ್ನು ನಿಮ್ಮ ಟಿವಿಗೆ ಸ್ಥಾಪಿಸಲಾಗುವುದಿಲ್ಲ."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"ನಿಮ್ಮ ಫೋನ್‌ನಲ್ಲಿ <xliff:g id="APP_NAME">%1$s</xliff:g> ಸ್ಥಾಪಿಸಲು ಸಾಧ್ಯವಾಗುವುದಿಲ್ಲ."</string>
@@ -118,4 +115,6 @@
     <string name="screen_overlay_title" msgid="3021729846864038529">"ಪರದೆ ಆವರಿಕೊಳ್ಳುವಿಕೆಯನ್ನು ಪತ್ತೆಹಚ್ಚಲಾಗಿದೆ"</string>
     <string name="screen_overlay_message" msgid="2141944461571677331">"ಈ ಅನುಮತಿ ಸೆಟ್ಟಿಂಗ್ ಬದಲಾಯಿಸಲು, ನೀವು ಮೊದಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳು &gt; ಅಪ್ಲಿಕೇಶನ್‌ಗಳಿಂದ ಪರದೆ ಆವರಿಸಿಕೊಳ್ಳುವಿಕೆಯನ್ನು ಆಫ್ ಮಾಡಬೇಕು"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"ಸೆಟ್ಟಿಂಗ್‍ಗಳನ್ನು ತೆರೆಯಿರಿ"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"ಸ್ಥಾಪಿಸುವಿಕೆ/ಅಸ್ಥಾಪಿಸುವಿಕೆ ಕ್ರಿಯೆಗಳು Wear ನಲ್ಲಿ ಬೆಂಬಲಿಸುವುದಿಲ್ಲ."</string>
 </resources>
