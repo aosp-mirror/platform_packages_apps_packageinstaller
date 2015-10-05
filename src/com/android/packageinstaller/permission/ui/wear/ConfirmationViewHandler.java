@@ -8,6 +8,7 @@ import android.graphics.drawable.Icon;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,11 +25,15 @@ import com.android.packageinstaller.R;
 public abstract class ConfirmationViewHandler implements
         Handler.Callback,
         View.OnClickListener,
-        ViewTreeObserver.OnScrollChangedListener  {
+        ViewTreeObserver.OnScrollChangedListener,
+        ViewTreeObserver.OnGlobalLayoutListener {
+    private static final String TAG = "ConfirmationViewHandler";
+    
     public static final int MODE_HORIZONTAL_BUTTONS = 0;
     public static final int MODE_VERTICAL_BUTTONS = 1;
 
-    private static final int MSG_HIDE_BUTTON_BAR = 1001;
+    private static final int MSG_SHOW_BUTTON_BAR = 1001;
+    private static final int MSG_HIDE_BUTTON_BAR = 1002;
     private static final long HIDE_ANIM_DURATION = 500;
 
     private View mRoot;
@@ -103,6 +108,9 @@ public abstract class ConfirmationViewHandler implements
                 R.dimen.conf_diag_floating_height);
         mHideHandler = new Handler(this);
 
+        mScrollingContainer.getViewTreeObserver().addOnScrollChangedListener(this);
+        mRoot.getViewTreeObserver().addOnGlobalLayoutListener(this);
+
         return mRoot;
     }
 
@@ -158,54 +166,41 @@ public abstract class ConfirmationViewHandler implements
                     mVerticalButton3.setCompoundDrawablesWithIntrinsicBounds(
                             getVerticalButton3Icon(), null, null, null);
                 }
-
                 break;
         }
 
         mScrollingContainer.scrollTo(0, 0);
 
-        mScrollingContainer.getViewTreeObserver().addOnScrollChangedListener(this);
+        mHideHandler.removeMessages(MSG_HIDE_BUTTON_BAR);
+        mHideHandler.removeMessages(MSG_SHOW_BUTTON_BAR);
+    }
 
-        mRoot.getViewTreeObserver().addOnGlobalLayoutListener(
-                new ViewTreeObserver.OnGlobalLayoutListener() {
-                    @Override
-                    public void onGlobalLayout() {
-                        // Setup Button animation.
-                        // pop the button bar back to full height, stop all animation
-                        if (mButtonBarAnimator != null) {
-                            mButtonBarAnimator.cancel();
-                        }
+    @Override
+    public void onGlobalLayout() {
+        if (Log.isLoggable(TAG, Log.DEBUG)) {
+            Log.d(TAG, "onGlobalLayout");
+            Log.d(TAG, "    contentHeight: " + mContent.getHeight());
+        }
 
-                        // In order to fake the buttons peeking at the bottom, need to do set the
-                        // padding properly.
-                        if (mContent.getPaddingBottom() != mButtonBarContainer.getHeight()) {
-                            mContent.setPadding(0, 0, 0, mButtonBarContainer.getHeight());
-                        }
+        if (mButtonBarAnimator != null) {
+            mButtonBarAnimator.cancel();
+        }
 
-                        // stop any calls to hide the button bar in the future
-                        mHideHandler.removeMessages(MSG_HIDE_BUTTON_BAR);
-                        mHiddenBefore = false;
+        // In order to fake the buttons peeking at the bottom, need to do set the
+        // padding properly.
+        if (mContent.getPaddingBottom() != mButtonBarContainer.getHeight()) {
+            mContent.setPadding(0, 0, 0, mButtonBarContainer.getHeight());
+            if (Log.isLoggable(TAG, Log.DEBUG)) {
+                Log.d(TAG, "    set mContent.PaddingBottom: " + mButtonBarContainer.getHeight());
+            }
+        }
 
-                        // determine which mode the scrolling should work at.
-                        if (mContent.getHeight() > mScrollingContainer.getHeight()) {
-                            mButtonBarContainer.setTranslationZ(mButtonBarFloatingHeight);
-                            mHideHandler.sendEmptyMessageDelayed(MSG_HIDE_BUTTON_BAR, 3000);
-                            int maxButtonBarHeight = 0;
-                            if (mButtonBarContainer.getHeight() >= mRoot.getHeight() / 2) {
-                                // If the ButtonBar is bigger than half the screen, then don't
-                                // animate all the way.
-                                maxButtonBarHeight = mRoot.getHeight() / 2;
-                            }
-                            generateButtonBarAnimator(mButtonBarContainer.getHeight(),
-                                    maxButtonBarHeight, 0, mButtonBarFloatingHeight, 1000);
-                        } else {
-                            mButtonBarContainer.setTranslationY(0);
-                            mButtonBarContainer.setTranslationZ(0);
-                        }
-                        mRoot.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                    }
-                });
+        mButtonBarContainer.setTranslationY(mButtonBarContainer.getHeight());
 
+        // Give everything a chance to render
+        mHideHandler.removeMessages(MSG_HIDE_BUTTON_BAR);
+        mHideHandler.removeMessages(MSG_SHOW_BUTTON_BAR);
+        mHideHandler.sendEmptyMessageDelayed(MSG_SHOW_BUTTON_BAR, 50);
     }
 
     @Override
@@ -229,6 +224,9 @@ public abstract class ConfirmationViewHandler implements
     @Override
     public boolean handleMessage (Message msg) {
         switch (msg.what) {
+            case MSG_SHOW_BUTTON_BAR:
+                showButtonBar();
+                return true;
             case MSG_HIDE_BUTTON_BAR:
                 hideButtonBar();
                 return true;
@@ -237,20 +235,71 @@ public abstract class ConfirmationViewHandler implements
     }
 
     @Override
-    public void onScrollChanged() {
+    public void onScrollChanged () {
         mHideHandler.removeMessages(MSG_HIDE_BUTTON_BAR);
         hideButtonBar();
     }
 
+    private void showButtonBar() {
+        if (Log.isLoggable(TAG, Log.DEBUG)) {
+            Log.d(TAG, "showButtonBar");
+        }
+
+        // Setup Button animation.
+        // pop the button bar back to full height, stop all animation
+        if (mButtonBarAnimator != null) {
+            mButtonBarAnimator.cancel();
+        }
+
+        // stop any calls to hide the button bar in the future
+        mHideHandler.removeMessages(MSG_HIDE_BUTTON_BAR);
+        mHiddenBefore = false;
+
+        // Evaluate the max height the button bar can go
+        final int screenHeight = mRoot.getHeight();
+        final int buttonBarHeight = mButtonBarContainer.getHeight();
+        final int buttonBarMaxHeight =
+                Math.min(buttonBarHeight, screenHeight / 2);
+
+        if (Log.isLoggable(TAG, Log.DEBUG)) {
+            final int contentHeight = mContent.getHeight() - buttonBarHeight;
+            Log.d(TAG, "    screenHeight: " + screenHeight);
+            Log.d(TAG, "    contentHeight: " + contentHeight);
+            Log.d(TAG, "    buttonBarHeight: " + buttonBarHeight);
+            Log.d(TAG, "    buttonBarMaxHeight: " + buttonBarMaxHeight);
+        }
+
+        mButtonBarContainer.setTranslationZ(mButtonBarFloatingHeight);
+        mHideHandler.sendEmptyMessageDelayed(MSG_HIDE_BUTTON_BAR, 3000);
+
+        generateButtonBarAnimator(buttonBarHeight,
+                buttonBarHeight - buttonBarMaxHeight, 0, mButtonBarFloatingHeight, 1000);
+    }
+
     private void hideButtonBar() {
-        // get the offset to the top of the button bar
-        int offset = mScrollingContainer.getHeight() + mButtonBarContainer.getHeight() -
-                mContent.getHeight() + Math.max(mScrollingContainer.getScrollY(), 0);
+        if (Log.isLoggable(TAG, Log.DEBUG)) {
+            Log.d(TAG, "hideButtonBar");
+        }
+
         // The desired margin space between the button bar and the bottom of the dialog text
-        int topMargin = mContext.getResources().getDimensionPixelSize(
+        final int topMargin = mContext.getResources().getDimensionPixelSize(
                 R.dimen.conf_diag_button_container_top_margin);
-        int translationY = topMargin + (offset > 0 ?
+        final int contentHeight = mContent.getHeight() + topMargin;
+        final int screenHeight = mRoot.getHeight();
+        final int buttonBarHeight = mButtonBarContainer.getHeight();
+
+        final int offset = screenHeight + buttonBarHeight
+                - contentHeight + Math.max(mScrollingContainer.getScrollY(), 0);
+        final int translationY = (offset > 0 ?
                 mButtonBarContainer.getHeight() - offset : mButtonBarContainer.getHeight());
+
+        if (Log.isLoggable(TAG, Log.DEBUG)) {
+            Log.d(TAG, "    contentHeight: " + contentHeight);
+            Log.d(TAG, "    buttonBarHeight: " + buttonBarHeight);
+            Log.d(TAG, "    mContent.getPaddingBottom(): " + mContent.getPaddingBottom());
+            Log.d(TAG, "    mScrollingContainer.getScrollY(): " + mScrollingContainer.getScrollY());
+            Log.d(TAG, "    translationY: " + translationY);
+        }
 
         if (!mHiddenBefore || mButtonBarAnimator == null) {
             // hasn't hidden the bar yet, just hide now to the right height
