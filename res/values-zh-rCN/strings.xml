@@ -32,16 +32,11 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"是否要为这一现有应用安装更新？您现有的数据不会丢失，且安装过程无需任何特殊权限。"</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"是否要为这一内置应用安装更新？您现有的数据不会丢失，且安装过程无需任何特殊权限。"</string>
     <string name="install_failed" msgid="6579998651498970899">"应用未安装。"</string>
-    <!-- no translation found for install_failed_blocked (1606870930588770025) -->
-    <skip />
-    <!-- no translation found for install_failed_conflict (5349055145440204106) -->
-    <skip />
-    <!-- no translation found for install_failed_incompatible (119054044615117271) -->
-    <skip />
-    <!-- no translation found for install_failed_incompatible (3553367270510072729) -->
-    <skip />
-    <!-- no translation found for install_failed_incompatible (6677057915876853610) -->
-    <skip />
+    <string name="install_failed_blocked" msgid="1606870930588770025">"系统禁止安装该文件包。"</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"该文件包与具有同一名称的现有文件包存在冲突。"</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"此应用与您的平板电脑不兼容。"</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"此应用与您的电视不兼容。"</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"此应用与您的手机不兼容。"</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"该软件包似乎已损坏。"</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"无法在您的平板电脑上安装“<xliff:g id="APP_NAME">%1$s</xliff:g>”。"</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"无法将<xliff:g id="APP_NAME">%1$s</xliff:g>安装到您的电视上。"</string>
@@ -120,8 +115,6 @@
     <string name="screen_overlay_title" msgid="3021729846864038529">"检测到屏幕叠加层"</string>
     <string name="screen_overlay_message" msgid="2141944461571677331">"要更改此权限设置，您必须首先在“设置”&gt;“应用”中关闭屏幕叠加层"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"打开设置"</string>
-    <!-- no translation found for wear_not_allowed_dlg_title (8104666773577525713) -->
-    <skip />
-    <!-- no translation found for wear_not_allowed_dlg_text (1618381127237173068) -->
-    <skip />
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Wear 不支持安装/卸载操作。"</string>
 </resources>
