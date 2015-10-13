@@ -362,17 +362,75 @@ public class WearPackageInstallerService extends Service {
     private boolean checkPermissions(PackageParser.Package pkg, int companionSdkVersion,
             int companionDeviceVersion, Uri permUri, List<String> wearablePermissions,
             File apkFile) {
+        // If the Wear App is targeted for M-release, since the permission model has been changed,
+        // permissions may not be granted on the phone yet. We need a different flow for user to
+        // accept these permissions.
+        //
+        // Assumption: Code is running on E-release, so Wear is always running M.
+        // - Case 1: If the Wear App(WA) is targeting 23, always choose the M model (4 cases)
+        // - Case 2: Else if the Phone App(PA) is targeting 23 and Phone App(P) is running on M,
+        // show a Dialog so that the user can accept all perms (1 case)
+        //   - Also show a warning to the developer if the watch is targeting M
+        // - Case 3: If Case 2 is false, then the behavior on the phone is pre-M. Stick to pre-M
+        // behavior on watch (as long as we don't hit case 1).
+        //   - 3a: WA(22) PA(22) P(22) -> watch app is not targeting 23
+        //   - 3b: WA(22) PA(22) P(23) -> watch app is not targeting 23
+        //   - 3c: WA(22) PA(23) P(22) -> watch app is not targeting 23
+        // - Case 4: We did not get Companion App's/Device's version, always show dialog to user to
+        // accept permissions. (This happens if the AndroidWear Companion App is really old).
+        boolean isWearTargetingM =
+                pkg.applicationInfo.targetSdkVersion > Build.VERSION_CODES.LOLLIPOP_MR1;
+        if (isWearTargetingM) { // Case 1
+            // Install the app if Wear App is ready for the new perms model.
+            return true;
+        }
+
+        List<String> unavailableWearablePerms = getWearPermsNotGrantedOnPhone(pkg.packageName,
+                permUri, wearablePermissions);
+        if (unavailableWearablePerms == null) {
+            return false;
+        }
+
+        if (unavailableWearablePerms.size() == 0) {
+            // All permissions requested by the watch are already granted on the phone, no need
+            // to do anything.
+            return true;
+        }
+
+        // Cases 2 and 4.
+        boolean isCompanionTargetingM = companionSdkVersion > Build.VERSION_CODES.LOLLIPOP_MR1;
+        boolean isCompanionRunningM = companionDeviceVersion > Build.VERSION_CODES.LOLLIPOP_MR1;
+        if (isCompanionTargetingM) { // Case 2 Warning
+            Log.w(TAG, "MNC: Wear app's targetSdkVersion should be at least 23, if " +
+                    "phone app is targeting at least 23, will continue.");
+        }
+        if ((isCompanionTargetingM && isCompanionRunningM) || // Case 2
+                companionSdkVersion == 0 || companionDeviceVersion == 0) { // Case 4
+            startPermsServiceForInstall(pkg, apkFile, unavailableWearablePerms);
+        }
+
+        // Case 3a-3c.
+        return false;
+    }
+
+    /**
+     * Given a {@string packageName} corresponding to a phone app, query the provider for all the
+     * perms that are granted.
+     * @return null if there is an error retrieving this info
+     *         else, a list of all the wearable perms that are not in the list of granted perms of
+     * the phone.
+     */
+    private List<String> getWearPermsNotGrantedOnPhone(String packageName, Uri permUri,
+            List<String> wearablePermissions) {
         if (permUri == null) {
             Log.e(TAG, "Permission URI is null");
-            return false;
+            return null;
         }
         Cursor permCursor = getContentResolver().query(permUri, null, null, null, null);
         if (permCursor == null) {
             Log.e(TAG, "Could not get the cursor for the permissions");
-            return false;
+            return null;
         }
-
-        final String packageName = pkg.packageName;
 
         Set<String> grantedPerms = new HashSet<>();
         Set<String> ungrantedPerms = new HashSet<>();
@@ -408,49 +466,7 @@ public class WearPackageInstallerService extends Service {
                 }
             }
         }
-
-
-        // If the Wear App is targeted for M-release, since the permission model has been changed,
-        // permissions may not be granted on the phone yet. We need a different flow for user to
-        // accept these permissions.
-        //
-        // Case 1: Companion App >= 23 (and running on M), Wear App targeting >= 23
-        //    - If Wear is running L (ie DMR1), show a dialog so that the user can accept all perms
-        //    - If Wear is running M (ie E-release), use new permission model.
-        // Case 2: Companion App <= 22, Wear App targeting <= 22
-        //    - Default to old behavior.
-        // Case 3: Companion App <= 22, Wear App targeting >= 23
-        //    - If Wear is running L (ie DMR1), install the app as before. In effect, pretend
-        //      like wear app is targeting 22.
-        //    - If Wear is running M (ie E-release), use new permission model.
-        // Case 4: Companion App >= 23 (and running on M), Wear App targeting <= 22
-        //    - Show a warning below to the developer.
-        //    - Show a dialog as in Case 1 with DMR1. This behavior will happen in E and DMR1.
-        // Case 5: We did not get Companion App's/Device's version (we have to guess here)
-        //    - Show dialog if Wear App targeting >= 23 and Wear is not running M
-        if (unavailableWearablePerms.size() > 0) {
-            boolean isCompanionTargetingM = companionSdkVersion > Build.VERSION_CODES.LOLLIPOP_MR1;
-            boolean isCompanionRunningM = companionDeviceVersion > Build.VERSION_CODES.LOLLIPOP_MR1;
-            boolean isWearTargetingM =
-                    pkg.applicationInfo.targetSdkVersion > Build.VERSION_CODES.LOLLIPOP_MR1;
-            boolean isWearRunningM = Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1;
-
-            if (companionSdkVersion == 0 || companionDeviceVersion == 0) { // Case 5
-                if (isWearTargetingM && !isWearRunningM) {
-                    startPermsServiceForInstall(pkg, apkFile, unavailableWearablePerms);
-                }
-            } else if (isCompanionTargetingM && isCompanionRunningM) {
-                if (!isWearTargetingM) {  // Case 4
-                    Log.w(TAG, "MNC: Wear app's targetSdkVersion should be at least 23, if phone " +
-                            "app is targeting at least 23.");
-                    startPermsServiceForInstall(pkg, apkFile, unavailableWearablePerms);
-                } else if (!isWearRunningM) {  // Case 1, part 1
-                    startPermsServiceForInstall(pkg, apkFile, unavailableWearablePerms);
-                }
-            }  // Else, nothing to do. See explanation above.
-        }
-
-        return unavailableWearablePerms.size() == 0;
+        return unavailableWearablePerms;
     }
 
     private void finishService(PowerManager.WakeLock lock, int startId) {
@@ -472,7 +488,7 @@ public class WearPackageInstallerService extends Service {
     }
 
     private void startPermsServiceForInstall(final PackageParser.Package pkg, final File apkFile,
-            ArrayList<String> unavailableWearablePerms) {
+            List<String> unavailableWearablePerms) {
         final String packageName = pkg.packageName;
 
         Intent showPermsIntent = new Intent()
