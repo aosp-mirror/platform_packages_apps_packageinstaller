@@ -17,7 +17,8 @@
     <TextView
         android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/settings_header_base_height"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/settings_header_base_height"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="@dimen/settings_header_top_margin"
         android:textSize="@dimen/setting_short_header_text_size"

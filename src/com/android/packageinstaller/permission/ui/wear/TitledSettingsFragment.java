@@ -207,9 +207,9 @@ public abstract class TitledSettingsFragment extends Fragment implements
         if (!singleLine) {
             height += getResources().getDimension(R.dimen.setting_header_extra_line_height);
         }
+        mHeader.setMinHeight((int) height);
 
         FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) mHeader.getLayoutParams();
-        params.height = (int) height;
         final Context context = getContext();
         if (!singleLine) {
             // Make the top margin a little bit smaller so there is more space for the title.
