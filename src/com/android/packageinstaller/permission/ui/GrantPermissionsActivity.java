@@ -107,7 +107,7 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
             return;
         }
 
-        mAppPermissions = new AppPermissions(this, callingPackageInfo, null, false,
+        mAppPermissions = new AppPermissions(this, callingPackageInfo, mRequestedPermissions, false,
                 new Runnable() {
                     @Override
                     public void run() {
@@ -116,16 +116,6 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
                 });
 
         for (AppPermissionGroup group : mAppPermissions.getPermissionGroups()) {
-            boolean groupHasRequestedPermission = false;
-            for (String requestedPermission : mRequestedPermissions) {
-                if (group.hasPermission(requestedPermission)) {
-                    groupHasRequestedPermission = true;
-                    break;
-                }
-            }
-            if (!groupHasRequestedPermission) {
-                continue;
-            }
             // We allow the user to choose only non-fixed permissions. A permission
             // is fixed either by device policy or the user denying with prejudice.
             if (!group.isUserFixed() && !group.isPolicyFixed()) {
@@ -145,13 +135,7 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
                     } break;
 
                     default: {
-                        if (!group.areRuntimePermissionsGranted()) {
-                            mRequestGrantPermissionGroups.put(group.getName(),
-                                    new GroupState(group));
-                        } else {
-                            group.grantRuntimePermissions(false);
-                            updateGrantResults(group);
-                        }
+                        mRequestGrantPermissionGroups.put(group.getName(), new GroupState(group));
                     } break;
                 }
             } else {
