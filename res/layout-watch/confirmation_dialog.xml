@@ -30,7 +30,8 @@
                 android:id="@+id/content"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/conf_diag_content_padding_top">
 
             <TextView
                     android:id="@+id/current_page_text"
