@@ -189,7 +189,8 @@ public abstract class ConfirmationViewHandler implements
         // In order to fake the buttons peeking at the bottom, need to do set the
         // padding properly.
         if (mContent.getPaddingBottom() != mButtonBarContainer.getHeight()) {
-            mContent.setPadding(0, mContent.getPaddingTop(), 0, mButtonBarContainer.getHeight());
+            mContent.setPadding(mContent.getPaddingLeft(), mContent.getPaddingTop(),
+                    mContent.getPaddingRight(), mButtonBarContainer.getHeight());
             if (Log.isLoggable(TAG, Log.DEBUG)) {
                 Log.d(TAG, "    set mContent.PaddingBottom: " + mButtonBarContainer.getHeight());
             }
