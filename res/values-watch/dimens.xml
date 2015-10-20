@@ -33,6 +33,8 @@
     <dimen name="conf_diag_3button_padding_side">32dp</dimen>
     <dimen name="conf_diag_3button_padding_bottom">22dp</dimen>
     <dimen name="conf_diag_content_padding_top">6dp</dimen>
+    <!-- On square screens, the message can be at the top of the screen. -->
+    <dimen name="conf_diag_min_space_above_message">0dp</dimen>
 
 
     <!-- START: Ported values -->

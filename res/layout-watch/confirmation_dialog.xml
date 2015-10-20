@@ -33,21 +33,28 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/conf_diag_content_padding_top">
 
-            <TextView
-                    android:id="@+id/current_page_text"
-                    android:layout_width="wrap_content"
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/grant_permissions_app_breadcrumb_margin_top"
-                    android:textAppearance="@style/GrantPermissions.BreadcrumbText" />
+                    android:minHeight="@dimen/conf_diag_min_space_above_message"
+                    android:gravity="bottom">
+                <TextView
+                        android:id="@+id/current_page_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/grant_permissions_app_breadcrumb_margin_top"
+                        android:textAppearance="@style/GrantPermissions.BreadcrumbText" />
 
-            <ImageView
-                    android:id="@+id/icon"
-                    android:layout_width="@dimen/grant_permissions_app_icon_size"
-                    android:layout_height="@dimen/grant_permissions_app_icon_size"
-                    android:tint="@color/grant_permissions_app_color"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/grant_permissions_app_icon_margin_top"/>
+                <ImageView
+                        android:id="@+id/icon"
+                        android:layout_width="@dimen/grant_permissions_app_icon_size"
+                        android:layout_height="@dimen/grant_permissions_app_icon_size"
+                        android:tint="@color/grant_permissions_app_color"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/grant_permissions_app_icon_margin_top"/>
+            </LinearLayout>
 
             <TextView
                     android:id="@+id/message"
