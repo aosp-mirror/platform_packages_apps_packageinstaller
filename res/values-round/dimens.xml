@@ -19,6 +19,8 @@
     <dimen name="conf_diag_button_container_height">96dp</dimen>
     <dimen name="conf_diag_2button_margin_side">32dp</dimen>
     <dimen name="conf_diag_2button_margin_top">10dp</dimen>
-    <dimen name="conf_diag_content_padding_top">32dp</dimen>
+    <!-- On round screens, the message can't be too close to the top or the corners will be
+         clipped. -->
+    <dimen name="conf_diag_min_space_above_message">26dp</dimen>
 
 </resources>
