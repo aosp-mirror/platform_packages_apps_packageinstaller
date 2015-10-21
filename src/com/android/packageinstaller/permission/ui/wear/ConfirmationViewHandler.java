@@ -6,6 +6,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Icon;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
@@ -106,7 +107,7 @@ public abstract class ConfirmationViewHandler implements
                 android.R.interpolator.fast_out_slow_in);
         mButtonBarFloatingHeight = mContext.getResources().getDimension(
                 R.dimen.conf_diag_floating_height);
-        mHideHandler = new Handler(this);
+        mHideHandler = new Handler(Looper.getMainLooper(), this);
 
         mScrollingContainer.getViewTreeObserver().addOnScrollChangedListener(this);
         mRoot.getViewTreeObserver().addOnGlobalLayoutListener(this);
@@ -237,6 +238,9 @@ public abstract class ConfirmationViewHandler implements
 
     @Override
     public void onScrollChanged () {
+        if (Log.isLoggable(TAG, Log.DEBUG)) {
+            Log.d(TAG, "onScrollChanged");
+        }
         mHideHandler.removeMessages(MSG_HIDE_BUTTON_BAR);
         hideButtonBar();
     }
@@ -258,12 +262,13 @@ public abstract class ConfirmationViewHandler implements
 
         // Evaluate the max height the button bar can go
         final int screenHeight = mRoot.getHeight();
+        final int halfScreenHeight = screenHeight / 2;
         final int buttonBarHeight = mButtonBarContainer.getHeight();
+        final int contentHeight = mContent.getHeight() - buttonBarHeight;
         final int buttonBarMaxHeight =
-                Math.min(buttonBarHeight, screenHeight / 2);
+                Math.min(buttonBarHeight, halfScreenHeight);
 
         if (Log.isLoggable(TAG, Log.DEBUG)) {
-            final int contentHeight = mContent.getHeight() - buttonBarHeight;
             Log.d(TAG, "    screenHeight: " + screenHeight);
             Log.d(TAG, "    contentHeight: " + contentHeight);
             Log.d(TAG, "    buttonBarHeight: " + buttonBarHeight);
@@ -271,7 +276,13 @@ public abstract class ConfirmationViewHandler implements
         }
 
         mButtonBarContainer.setTranslationZ(mButtonBarFloatingHeight);
-        mHideHandler.sendEmptyMessageDelayed(MSG_HIDE_BUTTON_BAR, 3000);
+
+        // Only hide the button bar if it is occluding the content or the button bar is bigger than
+        // half the screen
+        if (contentHeight > halfScreenHeight
+                || buttonBarHeight > halfScreenHeight) {
+            mHideHandler.sendEmptyMessageDelayed(MSG_HIDE_BUTTON_BAR, 3000);
+        }
 
         generateButtonBarAnimator(buttonBarHeight,
                 buttonBarHeight - buttonBarMaxHeight, 0, mButtonBarFloatingHeight, 1000);
@@ -295,7 +306,10 @@ public abstract class ConfirmationViewHandler implements
                 mButtonBarContainer.getHeight() - offset : mButtonBarContainer.getHeight());
 
         if (Log.isLoggable(TAG, Log.DEBUG)) {
+            Log.d(TAG, "    topMargin: " + topMargin);
             Log.d(TAG, "    contentHeight: " + contentHeight);
+            Log.d(TAG, "    screenHeight: " + screenHeight);
+            Log.d(TAG, "    offset: " + offset);
             Log.d(TAG, "    buttonBarHeight: " + buttonBarHeight);
             Log.d(TAG, "    mContent.getPaddingBottom(): " + mContent.getPaddingBottom());
             Log.d(TAG, "    mScrollingContainer.getScrollY(): " + mScrollingContainer.getScrollY());
@@ -303,6 +317,14 @@ public abstract class ConfirmationViewHandler implements
         }
 
         if (!mHiddenBefore || mButtonBarAnimator == null) {
+            // Remove previous call to MSG_SHOW_BUTTON_BAR if the user scrolled or something before
+            // the animation got a chance to play
+            mHideHandler.removeMessages(MSG_SHOW_BUTTON_BAR);
+
+            if(mButtonBarAnimator != null) {
+                mButtonBarAnimator.cancel(); // stop current animation if there is one playing
+            }
+
             // hasn't hidden the bar yet, just hide now to the right height
             generateButtonBarAnimator(
                     mButtonBarContainer.getTranslationY(), translationY,
@@ -317,6 +339,7 @@ public abstract class ConfirmationViewHandler implements
                             (float) HIDE_ANIM_DURATION
                                     * (translationY - mButtonBarContainer.getTranslationY())
                                     / mButtonBarContainer.getHeight()), 0);
+
                     generateButtonBarAnimator(
                             mButtonBarContainer.getTranslationY(), translationY,
                             mButtonBarFloatingHeight, 0, duration);
@@ -336,6 +359,15 @@ public abstract class ConfirmationViewHandler implements
 
     private void generateButtonBarAnimator(
             float startY, float endY, float startZ, float endZ, long duration) {
+        if (Log.isLoggable(TAG, Log.DEBUG)) {
+            Log.d(TAG, "generateButtonBarAnimator");
+            Log.d(TAG, "    startY: " + startY);
+            Log.d(TAG, "    endY: " + endY);
+            Log.d(TAG, "    startZ: " + startZ);
+            Log.d(TAG, "    endZ: " + endZ);
+            Log.d(TAG, "    duration: " + duration);
+        }
+
         mButtonBarAnimator =
                 ObjectAnimator.ofPropertyValuesHolder(
                         mButtonBarContainer,
