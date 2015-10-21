@@ -92,16 +92,17 @@
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> z <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"Povolit aplikaci <xliff:g id="APP_NAME">%1$s</xliff:g> <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Aplikace"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"Oprávnění aplikace"</string>
+    <string name="app_permissions" msgid="3146758905824597178">"Oprávnění aplikací"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"Již se znovu neptat"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Žádná oprávnění"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Další oprávnění"</string>
-    <string name="additional_permissions_more" msgid="5359708933519276635">"Ještě <xliff:g id="COUNT">%1$d</xliff:g>"</string>
+  <plurals name="additional_permissions_more">
+    <item quantity="one" msgid="8845294413599515719">"Ještě <xliff:g id="COUNT">%1$d</xliff:g>"</item>
+    <item quantity="other" msgid="1823455952304633300">"Ještě <xliff:g id="COUNT">%1$d</xliff:g>"</item>
+  </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Tato aplikace byla vytvořena pro starší verzi platformy Android. Pokud oprávnění neudělíte, může přestat fungovat podle původního záměru."</string>
-    <string name="show_legacy_permissions" msgid="8564016242732902337">"Zobrazit starší oprávnění"</string>
-    <string name="hide_legacy_permissions" msgid="663430183171847324">"Skrýt starší oprávnění"</string>
     <string name="default_permission_description" msgid="4992892207044156668">"provést neznámou akci"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"Povoleno u <xliff:g id="COUNT_0">%d</xliff:g> z <xliff:g id="COUNT_1">%d</xliff:g> aplikací"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"Povoleno u <xliff:g id="COUNT_0">%1$d</xliff:g> z <xliff:g id="COUNT_1">%2$d</xliff:g> aplikací"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"Zobrazit systémové aplikace"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"Skrýt systémové aplikace"</string>
     <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> – oprávnění"</string>
@@ -109,4 +110,14 @@
     <string name="location_settings" msgid="1774875730854491297">"Nastavení polohy"</string>
     <string name="location_warning" msgid="8778701356292735971">"Služby určování polohy v tomto zařízení poskytuje aplikace <xliff:g id="APP_NAME">%1$s</xliff:g>. Přístup k poloze lze upravit v nastavení polohy."</string>
     <string name="system_warning" msgid="7103819124542305179">"Pokud toto oprávnění zamítnete, základní funkce zařízení nemusejí fungovat správně."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Vynuceno zásadami"</string>
+    <string name="loading" msgid="7811651799620593731">"Načítání…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Všechna oprávnění"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Ostatní oprávnění aplikace"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Žádost o oprávnění"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Byla zjištěna překryvná vrstva obrazovky"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Chcete-li změnit nastavení tohoto oprávnění, v Nastavení &gt; Aplikace je třeba nejprve vypnout překryvnou vrstvu obrazovky"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Otevřít nastavení"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Akce instalace/odinstalace nejsou v zařízení Wear podporovány."</string>
 </resources>

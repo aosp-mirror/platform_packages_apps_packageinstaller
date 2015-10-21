@@ -96,12 +96,11 @@
     <string name="never_ask_again" msgid="3798895821072102967">"ຢ່າ​ຖາມ​ອີກ"</string>
     <string name="no_permissions" msgid="3210542466245591574">"​ບໍ່​ມີການ​ອະ​ນຸ​ຍາດ​"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"ການ​ອະ​ນຸ​ຍາດ​​ເພີ່ມ​ເຕີມ"</string>
-    <string name="additional_permissions_more" msgid="5359708933519276635">"<xliff:g id="COUNT">%1$d</xliff:g> ເພີ່ມ​ເຕີມ"</string>
+    <!-- no translation found for additional_permissions_more:one (8845294413599515719) -->
+    <!-- no translation found for additional_permissions_more:other (1823455952304633300) -->
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"ແອັບ​ນີ້​ຖືກ​ອອກ​ແບບ​ມາ​ສຳ​ລັບ Android ເວີ​ຊັນ​ເກົ່າ. ການ​ປະ​ຕິ​ເສດ​ການ​ອະ​ນຸ​ຍາດ​ອາດ​ຈະ​ເຮັດ​ໃຫ້​ມັນ​ບໍ່​ເຮັດ​ວຽກ​ຕາມ​ຕ້ອງ​ການ​ໄດ້​ອີກ."</string>
-    <string name="show_legacy_permissions" msgid="8564016242732902337">"ສະ​ແດງ​ຕຳ​ນານ"</string>
-    <string name="hide_legacy_permissions" msgid="663430183171847324">"ເຊື່ອງ​ຕຳ​ນານ"</string>
     <string name="default_permission_description" msgid="4992892207044156668">"ເຮັດ​ການ​ດຳ​ເນີນ​ການ​ທີ່​ບໍ່​ຮູ້​ຈັກ"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%d</xliff:g> ໃນ <xliff:g id="COUNT_1">%d</xliff:g> ແອັບ​ໄດ້​ຮັບ​ອະ​ນຸ​ຍາດ​ແລ້ວ"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> ໃນ <xliff:g id="COUNT_1">%2$d</xliff:g> ແອັບ​ໄດ້​ຮັບ​ອະ​ນຸ​ຍາດ​ແລ້ວ"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"ສະແດງລະບົບ"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"ເຊື່ອງ​ລະ​ບົບ"</string>
     <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> ການອະນຸຍາດ"</string>
@@ -109,4 +108,14 @@
     <string name="location_settings" msgid="1774875730854491297">"ການຕັ້ງຄ່າ​ທີ່​ຕັ້ງ"</string>
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> ແມ່ນ​ຜູ້​ໃຫ້​ບໍ​ລິ​ການ​ເລື່ອງ​ການ​ບໍ​ລິ​ການ​ທີ່​ຕັ້ງ​ສຳ​ລັບ​ອຸ​ປະ​ກອນ​ນີ້. ການ​ເຂົ້າ​ເຖິງ​ທີ່​ຕັ້ງ​ແມ່ນ​ສາ​ມາດ​ດັດ​ແປງ​ໄດ້​ຈາກ​ການ​ຕັ້ງ​ຄ່າ​ທີ່​ຕັ້ງ."</string>
     <string name="system_warning" msgid="7103819124542305179">"ຖ້າ​ທ່ານ​ປະ​ຕິ​ເສດ​ການ​ອະ​ນຸ​ຍາດ​ນີ້, ຄຸນສົມບັດໃຊ້ງານ​ພື້ນ​ຖານ​ຂອງ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ​ອາດ​ຈະ​ບໍ່​ເຮັດ​ໜ້າ​ທີ່​ຕາມທີ່ກຳນົດໄວ້."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"ບັງ​ຄັບ​ໃຊ້​ຕາມ​ນະ​ໂຍ​ບາຍ​ແລ້ວ"</string>
+    <string name="loading" msgid="7811651799620593731">"ກຳລັງ​ໂຫລດ..."</string>
+    <string name="all_permissions" msgid="5156669007784613042">"ທຸກ​ການ​ອະ​ນຸ​ຍາດ"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"ຄວາມ​​ສາ​ມາດ​​ອື່ນຂອງແອັບ"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"ການຮ້ອງຂໍການອະນຸຍາດ"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"ກວດ​ພົບ​ການ​ວາງ​ຊ້ອນ​ໜ້າ​ຈໍ​ແລ້ວ"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"ເພື່ອ​ປ່ຽນ​ແປງ​ການ​ຕັ້ງ​ຄ່າ​ການ​ອະ​ນຸ​ຍາດ​ນີ້, ກ່ອນ​ອື່ນ​ໝົດ​ທ່ານ​ຕ້ອງ​ປິດ​ການ​ວາງ​ຊ້ອນ​ໜ້າ​ຈໍ​ຈາກ​ແອັບ​ການ​ຕັ້ງ​ຄ່າ"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"ເປີດການຕັ້ງຄ່າ"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"ຕິດ​ຕັ້ງ/ຖອນ​ຕິດ​ຕັ້ງ​ການ​ກະ​ທຳ​ທີ່​ບໍ່​ຮອງ​ຮັບ​ຢູ່​ໃນ Wear."</string>
 </resources>

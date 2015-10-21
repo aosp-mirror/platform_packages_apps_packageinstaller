@@ -90,18 +90,19 @@
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Laat toe"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Weier"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> van <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="5209102765005869454">"Laat <xliff:g id="APP_NAME">%1$s</xliff:g> toe om te <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_warning_template" msgid="5209102765005869454">"Laat <xliff:g id="APP_NAME">%1$s</xliff:g> toe om <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Programme"</string>
     <string name="app_permissions" msgid="3146758905824597178">"Programtoestemmings"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"Moet nooit weer vra nie"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Geen toestemmings nie"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Bykomende toestemmings"</string>
-    <string name="additional_permissions_more" msgid="5359708933519276635">"nog <xliff:g id="COUNT">%1$d</xliff:g>"</string>
+  <plurals name="additional_permissions_more">
+    <item quantity="one" msgid="8845294413599515719">"nog <xliff:g id="COUNT">%1$d</xliff:g>"</item>
+    <item quantity="other" msgid="1823455952304633300">"nog <xliff:g id="COUNT">%1$d</xliff:g>"</item>
+  </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Hierdie program is vir \'n ouer weergawe van Android ontwerp. As toestemming geweier word, kan dit veroorsaak dat dit nie meer soos beplan funksioneer nie."</string>
-    <string name="show_legacy_permissions" msgid="8564016242732902337">"Wys vorige"</string>
-    <string name="hide_legacy_permissions" msgid="663430183171847324">"Versteek vorige"</string>
     <string name="default_permission_description" msgid="4992892207044156668">"voer \'n onbekende handeling uit"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%d</xliff:g> uit <xliff:g id="COUNT_1">%d</xliff:g> programme toegelaat"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> uit <xliff:g id="COUNT_1">%2$d</xliff:g> programme toegelaat"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"Wys stelsel"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"Versteek stelsel"</string>
     <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g>-toestemmings"</string>
@@ -109,4 +110,14 @@
     <string name="location_settings" msgid="1774875730854491297">"Ligginginstellings"</string>
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> is \'n verskaffer van liggingdienste vir hierdie toestel. Liggingtoegang kan vanuit ligginginstellings verander word."</string>
     <string name="system_warning" msgid="7103819124542305179">"As jy hierdie toestemming weier, sal basiese kenmerke van jou toestel dalk nie meer soos bedoel werk nie."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Afgedwing deur beleid"</string>
+    <string name="loading" msgid="7811651799620593731">"Laai tans …"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Alle toestemmings"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Ander programvermoëns"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Toestemmingsversoek"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Skermoorlegger bespeur"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Om hierdie toestemminginstelling te verander, moet jy eers die skermoorlegger by Instellings &gt; Programme afskakel"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Maak instellings oop"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Installeer- en deïnstalleerhandelinge word nie in Wear gesteun nie."</string>
 </resources>

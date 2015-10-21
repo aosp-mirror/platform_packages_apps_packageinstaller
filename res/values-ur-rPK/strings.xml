@@ -90,18 +90,17 @@
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"اجازت دیں"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"مسترد کریں"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> از <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="APP_NAME">%1$s</xliff:g> کو <xliff:g id="ACTION">%2$s</xliff:g> کی اجازت دیں؟"</string>
+    <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="APP_NAME">%1$s</xliff:g> کو \"<xliff:g id="ACTION">%2$s</xliff:g>\" کی اجازت دیں؟"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"ایپس"</string>
     <string name="app_permissions" msgid="3146758905824597178">"ایپ کی اجازتیں"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"دوبارہ کبھی نہ پوچھیں"</string>
     <string name="no_permissions" msgid="3210542466245591574">"کوئی اجازتیں نہیں ہیں"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"اضافی اجازتیں"</string>
-    <string name="additional_permissions_more" msgid="5359708933519276635">"<xliff:g id="COUNT">%1$d</xliff:g> مزید"</string>
+    <!-- no translation found for additional_permissions_more:one (8845294413599515719) -->
+    <!-- no translation found for additional_permissions_more:other (1823455952304633300) -->
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"‏یہ ایپ Android کے ایک پرانے ورژن کیلئے ڈیزائن کی گئی تھی۔ اجازت دینے سے انکار کرنے پر ممکن ہے کہ وہ مزید ٹھیک سے کام نہ کرے۔"</string>
-    <string name="show_legacy_permissions" msgid="8564016242732902337">"پرانی اجازتیں دکھائیں"</string>
-    <string name="hide_legacy_permissions" msgid="663430183171847324">"پرانی اجازتیں چھپائیں"</string>
     <string name="default_permission_description" msgid="4992892207044156668">"ایک نامعلوم کارروائی کو انجام دیں"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%d</xliff:g> میں سے <xliff:g id="COUNT_1">%d</xliff:g> ایپس کو اجازت دے دی گئی"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> میں سے <xliff:g id="COUNT_1">%2$d</xliff:g> ایپس کو اجازت دے دی گئی"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"سسٹم دکھائیں"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"سسٹم چھپائیں"</string>
     <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> اجازتیں"</string>
@@ -109,4 +108,14 @@
     <string name="location_settings" msgid="1774875730854491297">"مقام کی ترتیبات"</string>
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> اس آلہ کیلئے مقام کی سروسز کا فراہم کنندہ ہے۔ مقام کی رسائی میں مقام کی ترتیبات سے ترمیم کی جا سکتی ہے۔"</string>
     <string name="system_warning" msgid="7103819124542305179">"اگرآپ اس اجازت کو مسترد کرتے ہیں تو شاید آپ کے آلہ کی بنیادی خصوصیات ٹھیک سے کام نہ کریں۔"</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"پالیسی کی طرف سے نافذ کردہ"</string>
+    <string name="loading" msgid="7811651799620593731">"لوڈ ہورہا ہے…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"تمام اجازاتیں"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"دوسری ایپ اہلیتیں"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"اجازت کی درخواست"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"اسکرین اورلے کا پتہ چلا ہے"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"‏اس اجازت کی ترتیب کو تبدیل کرنے کیلئے آپ کو پہلے ترتیبات &gt; Apps سے سکرین اورلے آف کرنا ہوگا"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"ترتیبات کھولیں"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"‏Wear پر غیر تعاون یافتہ کاروائیاں انسٹال/ان انسٹال کریں۔"</string>
 </resources>

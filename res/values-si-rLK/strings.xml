@@ -90,18 +90,19 @@
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"ඉඩ දෙන්න"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"ප්‍රතික්ෂේප කරන්න"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> න් <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="APP_NAME">%1$s</xliff:g> හට <xliff:g id="ACTION">%2$s</xliff:g> ට ඉඩ දෙන්නද?"</string>
+    <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="ACTION">%2$s</xliff:g> කිරීමට <xliff:g id="APP_NAME">%1$s</xliff:g> ට ඉඩ දෙන්නද?"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"යෙදුම්"</string>
     <string name="app_permissions" msgid="3146758905824597178">"යෙදුම් අවසර"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"නැවත කිසිදා නොඅසන්න"</string>
     <string name="no_permissions" msgid="3210542466245591574">"අවසර නොමැත"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"අතිරේක අවසර"</string>
-    <string name="additional_permissions_more" msgid="5359708933519276635">"තවත් <xliff:g id="COUNT">%1$d</xliff:g>"</string>
+  <plurals name="additional_permissions_more">
+    <item quantity="one" msgid="8845294413599515719">"තවත් <xliff:g id="COUNT">%1$d</xliff:g>"</item>
+    <item quantity="other" msgid="1823455952304633300">"තවත් <xliff:g id="COUNT">%1$d</xliff:g>"</item>
+  </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"මෙම යෙදුම නිර්මාණය කර ඇත්තේ Android වල පැරණි අනුවාදයකට වේ. අවසර නොදීම මඟින් එය බලාපොරොත්තු වන ආකාරයට වැඩ නොකිරීමට හැක."</string>
-    <string name="show_legacy_permissions" msgid="8564016242732902337">"ලෙගසි පෙන්වන්න"</string>
-    <string name="hide_legacy_permissions" msgid="663430183171847324">"ලෙගසි සඟවන්න"</string>
     <string name="default_permission_description" msgid="4992892207044156668">"නොදන්නා ක්‍රියාවක් සිදු කරන්න"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"යෙදුම් <xliff:g id="COUNT_1">%d</xliff:g> න් <xliff:g id="COUNT_0">%d</xliff:g> කට ඉඩ දෙන ලදි"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"යෙදුම් <xliff:g id="COUNT_1">%2$d</xliff:g> න් <xliff:g id="COUNT_0">%1$d</xliff:g> කට ඉඩ දෙන ලදි"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"පද්ධතිය පෙන්වන්න"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"පද්ධතිය සඟවන්න"</string>
     <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> අවසර"</string>
@@ -109,4 +110,14 @@
     <string name="location_settings" msgid="1774875730854491297">"ස්ථාන සැකසීම්"</string>
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> මෙම උපාංගය සඳහා ස්ථාන සේවාවන් සපයන්නෙකු වේ. ස්ථාන ප්‍රවේශය ස්ථාන සැකසීම් වෙතින් වෙනස් කළ හැක."</string>
     <string name="system_warning" msgid="7103819124542305179">"ඔබ මෙම අවසරය ප්‍රතික්ෂේප කරන්නේ නම්, සමහර යෙදුම් බලාපොරොත්තු පරිදි ක්‍රියා නොකරනු ඇත."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"ප්‍රතිපත්තිය මඟින් බලාත්මක කරයි"</string>
+    <string name="loading" msgid="7811651799620593731">"පූරණය කරමින්…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"සියලු අවසර"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"වෙනත් යෙදුම් හැකියාවන්"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"අවසර ඉල්ලීම"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"තිර උඩැතිරියක් අනාවරණය කරන ලදි"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"මෙම අවසර සැකසීම වෙනස් කිරීම සඳහා, ඔබට මුලින්ම සැකසීම් &gt; යෙදුම් වෙතින් තිර උඩැතිරිය අක්‍රිය කර යුතුයි"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"සැකසීම් විවෘත කරන්න"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Wear මත ස්ථාපන/අස්ථාපනය ක්‍රියා වෙත සහය දක්වන්නේ නැත."</string>
 </resources>

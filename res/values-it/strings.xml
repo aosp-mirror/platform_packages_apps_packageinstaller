@@ -96,12 +96,13 @@
     <string name="never_ask_again" msgid="3798895821072102967">"Non chiedere più"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Nessuna autorizzazione"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Altre autorizzazioni"</string>
-    <string name="additional_permissions_more" msgid="5359708933519276635">"Altre <xliff:g id="COUNT">%1$d</xliff:g>"</string>
+  <plurals name="additional_permissions_more">
+    <item quantity="one" msgid="8845294413599515719">"Altre <xliff:g id="COUNT">%1$d</xliff:g>"</item>
+    <item quantity="other" msgid="1823455952304633300">"Altre <xliff:g id="COUNT">%1$d</xliff:g>"</item>
+  </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Questa app è stata sviluppata per una versione precedente di Android. Se l\'autorizzazione viene negata, l\'app potrebbe non funzionare più come previsto."</string>
-    <string name="show_legacy_permissions" msgid="8564016242732902337">"Mostra precedenti"</string>
-    <string name="hide_legacy_permissions" msgid="663430183171847324">"Nascondi precedenti"</string>
     <string name="default_permission_description" msgid="4992892207044156668">"esegue un\'azione sconosciuta"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"Sono consentite <xliff:g id="COUNT_0">%d</xliff:g> app su <xliff:g id="COUNT_1">%d</xliff:g>"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"Sono consentite <xliff:g id="COUNT_0">%1$d</xliff:g> app su <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"Mostra app di sistema"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"Nascondi app di sistema"</string>
     <string name="permission_title" msgid="6495415273398916381">"Autorizzazioni <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
@@ -109,4 +110,14 @@
     <string name="location_settings" msgid="1774875730854491297">"Impostazioni posizione"</string>
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> è un fornitore di servizi di localizzazione per questo dispositivo. È possibile modificare l\'accesso alla posizione dalle impostazioni sulla posizione."</string>
     <string name="system_warning" msgid="7103819124542305179">"Se neghi questa autorizzazione, le funzionalità di base del dispositivo potrebbero non funzionare più come previsto."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Applicata in base alle norme"</string>
+    <string name="loading" msgid="7811651799620593731">"Caricamento…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Tutte le autorizzazioni"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Altre funzionalità dell\'app"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Richiesta di autorizzazione"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Overlay schermo rilevato"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Per modificare questa impostazione di autorizzazione, devi innanzitutto disattivare l\'overlay schermo da Impostazioni &gt; App"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Apri impostazioni"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Le azioni di installazione/disinstallazione non sono supportate su Wear."</string>
 </resources>

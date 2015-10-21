@@ -96,12 +96,13 @@
     <string name="never_ask_again" msgid="3798895821072102967">"Jangan tanya lagi"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Tiada kebenaran"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Kebenaran tambahan"</string>
-    <string name="additional_permissions_more" msgid="5359708933519276635">"<xliff:g id="COUNT">%1$d</xliff:g> lagi"</string>
+  <plurals name="additional_permissions_more">
+    <item quantity="one" msgid="8845294413599515719">"<xliff:g id="COUNT">%1$d</xliff:g> lagi"</item>
+    <item quantity="other" msgid="1823455952304633300">"<xliff:g id="COUNT">%1$d</xliff:g> lagi"</item>
+  </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Apl ini direka bentuk untuk versi Android yang lebih lama. Tindakan menafikan kebenaran boleh menyebabkannya tidak berfungsi seperti yang dimaksudkan lagi."</string>
-    <string name="show_legacy_permissions" msgid="8564016242732902337">"Tunjukkan yang lama"</string>
-    <string name="hide_legacy_permissions" msgid="663430183171847324">"Sembunyikan yang lama"</string>
     <string name="default_permission_description" msgid="4992892207044156668">"laksanakan tindakan yang tidak diketahui"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%d</xliff:g> daripada <xliff:g id="COUNT_1">%d</xliff:g> apl dibenarkan"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> daripada <xliff:g id="COUNT_1">%2$d</xliff:g> apl dibenarkan"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"Tunjukkan sistem"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"Sembunyikan sistem"</string>
     <string name="permission_title" msgid="6495415273398916381">"Kebenaran <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
@@ -109,4 +110,14 @@
     <string name="location_settings" msgid="1774875730854491297">"Tetapan Lokasi"</string>
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> ialah pembekal perkhidmatan lokasi untuk peranti ini. Akses lokasi boleh diubah suai daripada tetapan lokasi."</string>
     <string name="system_warning" msgid="7103819124542305179">"Jika anda tolak kebenaran ini, ciri asas peranti anda mungkin tidak berfungsi seperti yang dimaksudkan lagi."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Dikuatkuasakan oleh dasar"</string>
+    <string name="loading" msgid="7811651799620593731">"Memuatkan…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Semua kebenaran"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Keupayaan apl yang lain"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Permintaan kebenaran"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Tindanan skrin dikesan"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Untuk menukar tetapan kebenaran ini, anda perlu mematikan tindanan skrin daripada Tetapan &gt; Apl terlebih dahulu"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Buka tetapan"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Tindakan Pasang/Nyahpasang tidak disokong pada Wear."</string>
 </resources>

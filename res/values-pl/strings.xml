@@ -96,12 +96,13 @@
     <string name="never_ask_again" msgid="3798895821072102967">"Nie pytaj ponownie"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Brak uprawnień"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Dodatkowe uprawnienia"</string>
-    <string name="additional_permissions_more" msgid="5359708933519276635">"<xliff:g id="COUNT">%1$d</xliff:g> więcej"</string>
+  <plurals name="additional_permissions_more">
+    <item quantity="one" msgid="8845294413599515719">"Jeszcze <xliff:g id="COUNT">%1$d</xliff:g>"</item>
+    <item quantity="other" msgid="1823455952304633300">"Jeszcze <xliff:g id="COUNT">%1$d</xliff:g>"</item>
+  </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Ta aplikacja jest przeznaczona na straszą wersję Androida. Odmówienie uprawnień może spowodować, że przestanie ona działać w zamierzony sposób."</string>
-    <string name="show_legacy_permissions" msgid="8564016242732902337">"Pokaż starsze"</string>
-    <string name="hide_legacy_permissions" msgid="663430183171847324">"Ukryj starsze"</string>
     <string name="default_permission_description" msgid="4992892207044156668">"wykonywanie nieznanych działań"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"Dozwolone: <xliff:g id="COUNT_0">%d</xliff:g> z <xliff:g id="COUNT_1">%d</xliff:g> aplikacji"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"Dozwolone: <xliff:g id="COUNT_0">%1$d</xliff:g> z <xliff:g id="COUNT_1">%2$d</xliff:g> aplikacji"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"Pokaż systemowe"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"Ukryj systemowe"</string>
     <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> – uprawnienia"</string>
@@ -109,4 +110,14 @@
     <string name="location_settings" msgid="1774875730854491297">"Ustawienia lokalizacji"</string>
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> jest dostawcą usług lokalizacyjnych dla tego urządzenia. Dostęp do danych lokalizacji można zmienić w ustawieniach lokalizacji."</string>
     <string name="system_warning" msgid="7103819124542305179">"Jeśli odmówisz tych uprawnień, podstawowe funkcje urządzenia mogą nie działać prawidłowo."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Narzucone przez zasady"</string>
+    <string name="loading" msgid="7811651799620593731">"Ładuję…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Wszystkie uprawnienia"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Inne funkcje aplikacji"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Prośba o pozwolenie"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Wykryto nakładkę ekranową"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Aby zmodyfikować te uprawnienia, musisz najpierw wyłączyć nakładkę ekranową, klikając Ustawienia &gt; Aplikacje"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Otwórz ustawienia"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Wear nie obsługuje instalowania ani odinstalowywania."</string>
 </resources>

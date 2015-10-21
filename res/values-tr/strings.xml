@@ -96,12 +96,11 @@
     <string name="never_ask_again" msgid="3798895821072102967">"Bir daha sorma"</string>
     <string name="no_permissions" msgid="3210542466245591574">"İzin yok"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Ek izinler"</string>
-    <string name="additional_permissions_more" msgid="5359708933519276635">"<xliff:g id="COUNT">%1$d</xliff:g> tane daha"</string>
+    <!-- no translation found for additional_permissions_more:one (8845294413599515719) -->
+    <!-- no translation found for additional_permissions_more:other (1823455952304633300) -->
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Bu uygulama, Android\'in daha eski bir sürümü için tasarlandı. İznin reddedilmesi, uygulamanın bundan sonra amaçlandığı gibi çalışmamasına neden olabilir."</string>
-    <string name="show_legacy_permissions" msgid="8564016242732902337">"Eskileri göster"</string>
-    <string name="hide_legacy_permissions" msgid="663430183171847324">"Eskileri gizle"</string>
     <string name="default_permission_description" msgid="4992892207044156668">"bilinmeyen bir işlem gerçekleştirme"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%d</xliff:g> / <xliff:g id="COUNT_1">%d</xliff:g> uygulamaya izin veriliyor"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> / <xliff:g id="COUNT_1">%2$d</xliff:g> uygulamaya izin veriliyor"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"Sistemi göster"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"Sistemi gizle"</string>
     <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> izinleri"</string>
@@ -109,4 +108,14 @@
     <string name="location_settings" msgid="1774875730854491297">"Konum Ayarları"</string>
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g>, bu cihaz için konum hizmetlerinin bir sağlayıcısıdır. Konum erişimi, konum ayarlarından değiştirilebilir."</string>
     <string name="system_warning" msgid="7103819124542305179">"Bu izni reddederseniz cihazınızın temel özellikleri artık beklendiği gibi çalışmayabilir."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Politika tarafından zorunlu tutuldu"</string>
+    <string name="loading" msgid="7811651799620593731">"Yükleniyor..."</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Tüm izinler"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Diğer uygulama özellikleri"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"İzin isteği"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Ekran yer paylaşımı tespit edildi"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Bu izin ayarını değiştirmek için ilk olarak Ayarlar &gt; Uygulamalar\'dan ekran yer paylaşımını kapatmanız gerekir"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Ayarları aç"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Yükleme/Yüklemeyi Kaldırma işlemleri Wear\'da desteklenmiyor."</string>
 </resources>

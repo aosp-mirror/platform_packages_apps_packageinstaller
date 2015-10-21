@@ -96,12 +96,11 @@
     <string name="never_ask_again" msgid="3798895821072102967">"Không bao giờ hỏi lại"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Không có quyền"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Quyền khác"</string>
-    <string name="additional_permissions_more" msgid="5359708933519276635">"<xliff:g id="COUNT">%1$d</xliff:g> khác"</string>
+    <!-- no translation found for additional_permissions_more:one (8845294413599515719) -->
+    <!-- no translation found for additional_permissions_more:other (1823455952304633300) -->
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Ứng dụng này được thiết kế cho các phiên bản Android cũ hơn. Từ chối quyền có thể làm cho ứng dụng không còn hoạt động như mong muốn."</string>
-    <string name="show_legacy_permissions" msgid="8564016242732902337">"Hiển thị quyền cũ"</string>
-    <string name="hide_legacy_permissions" msgid="663430183171847324">"Ẩn quyền cũ"</string>
     <string name="default_permission_description" msgid="4992892207044156668">"thực hiện hành động không xác định"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"Đã cho phép <xliff:g id="COUNT_0">%d</xliff:g> trong số <xliff:g id="COUNT_1">%d</xliff:g> ứng dụng"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"Đã cho phép <xliff:g id="COUNT_0">%1$d</xliff:g> trong số <xliff:g id="COUNT_1">%2$d</xliff:g> ứng dụng"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"Hiển thị hệ thống"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"Ẩn hệ thống"</string>
     <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> quyền"</string>
@@ -109,4 +108,14 @@
     <string name="location_settings" msgid="1774875730854491297">"Cài đặt vị trí"</string>
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> là nhà cung cấp dịch vụ vị trí cho thiết bị này. Bạn có thể sửa đổi quyền truy cập vị trí từ cài đặt vị trí."</string>
     <string name="system_warning" msgid="7103819124542305179">"Nếu bạn từ chối quyền này, các tính năng cơ bản trên thiết bị của bạn có thể không còn hoạt động như dự kiến."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Được thực thi bằng chính sách"</string>
+    <string name="loading" msgid="7811651799620593731">"Đang tải…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Tất cả các quyền"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Các khả năng khác của ứng dụng"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Yêu cầu quyền"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Đã phát hiện lớp phủ màn hình"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Để thay đổi cài đặt quyền này, trước tiên bạn phải tắt lớp phủ màn hình từ Cài đặt &gt; Ứng dụng"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Mở cài đặt"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Không hỗ trợ tác vụ Cài đặt/Gỡ cài đặt trên Wear."</string>
 </resources>
