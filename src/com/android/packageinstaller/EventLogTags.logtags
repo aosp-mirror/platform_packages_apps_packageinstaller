@@ -1,6 +1,0 @@
-# See system/core/logcat/event.logtags for a description of the format of this file.
-
-option java_package com.android.packageinstaller
-
-# APK install attempt via PackageInstaller (see InstallFlowAnalytics for format)
-90300 install_package_attempt (result_and_flags|1),(total_time|1|3),(time_till_pkg_info_obtained|1|3),(time_till_install_clicked|1|3),(package_digest|3)
