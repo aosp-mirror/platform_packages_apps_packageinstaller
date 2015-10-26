@@ -96,10 +96,10 @@
     <string name="never_ask_again" msgid="3798895821072102967">"Никога вече да не се извежда запитване"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Няма разрешения"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Допълнителни разрешения"</string>
-  <plurals name="additional_permissions_more">
-    <item quantity="one" msgid="8845294413599515719">"Още <xliff:g id="COUNT">%1$d</xliff:g>"</item>
-    <item quantity="other" msgid="1823455952304633300">"Още <xliff:g id="COUNT">%1$d</xliff:g>"</item>
-  </plurals>
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="other">Още <xliff:g id="COUNT_1">%1$d</xliff:g></item>
+      <item quantity="one">Още <xliff:g id="COUNT_0">%1$d</xliff:g></item>
+    </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Това приложение е създадено за по-стара версия на Android. То може да спре да функционира нормално при отказване на разрешението."</string>
     <string name="default_permission_description" msgid="4992892207044156668">"извършване на неизвестно действие"</string>
     <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> от <xliff:g id="COUNT_1">%2$d</xliff:g> приложения имат разрешение"</string>

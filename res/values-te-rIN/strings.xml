@@ -96,10 +96,10 @@
     <string name="never_ask_again" msgid="3798895821072102967">"మళ్లీ ఎప్పుడూ అడగవద్దు"</string>
     <string name="no_permissions" msgid="3210542466245591574">"అనుమతులు లేవు"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"అదనపు అనుమతులు"</string>
-  <plurals name="additional_permissions_more">
-    <item quantity="one" msgid="8845294413599515719">"మరో <xliff:g id="COUNT">%1$d</xliff:g>"</item>
-    <item quantity="other" msgid="1823455952304633300">"మరో <xliff:g id="COUNT">%1$d</xliff:g>"</item>
-  </plurals>
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="other">మరో <xliff:g id="COUNT_1">%1$d</xliff:g></item>
+      <item quantity="one">మరో <xliff:g id="COUNT_0">%1$d</xliff:g></item>
+    </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"ఈ అనువర్తనం పాత Android సంస్కరణ కోసం రూపొందించబడింది. అనుమతిని నిరాకరించినట్లయితే ఇది ఇకపై ఉద్దేశించిన రీతిలో పని చేయకపోవచ్చు."</string>
     <string name="default_permission_description" msgid="4992892207044156668">"తెలియని చర్యను చేస్తుంది"</string>
     <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_1">%2$d</xliff:g>లో <xliff:g id="COUNT_0">%1$d</xliff:g> అనువర్తనాలు అనుమతించబడ్డాయి"</string>

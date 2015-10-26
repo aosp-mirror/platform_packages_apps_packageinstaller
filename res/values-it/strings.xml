@@ -96,10 +96,10 @@
     <string name="never_ask_again" msgid="3798895821072102967">"Non chiedere più"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Nessuna autorizzazione"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Altre autorizzazioni"</string>
-  <plurals name="additional_permissions_more">
-    <item quantity="one" msgid="8845294413599515719">"Altre <xliff:g id="COUNT">%1$d</xliff:g>"</item>
-    <item quantity="other" msgid="1823455952304633300">"Altre <xliff:g id="COUNT">%1$d</xliff:g>"</item>
-  </plurals>
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="other">Altre <xliff:g id="COUNT_1">%1$d</xliff:g></item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> altra</item>
+    </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Questa app è stata sviluppata per una versione precedente di Android. Se l\'autorizzazione viene negata, l\'app potrebbe non funzionare più come previsto."</string>
     <string name="default_permission_description" msgid="4992892207044156668">"esegue un\'azione sconosciuta"</string>
     <string name="app_permissions_group_summary" msgid="4787239772223699263">"Sono consentite <xliff:g id="COUNT_0">%1$d</xliff:g> app su <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>

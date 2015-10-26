@@ -96,10 +96,10 @@
     <string name="never_ask_again" msgid="3798895821072102967">"កុំសួរទៀត"</string>
     <string name="no_permissions" msgid="3210542466245591574">"គ្មានសិទ្ធិអនុញ្ញាត"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"សិទ្ធិអនុញ្ញាតបន្ថែម"</string>
-  <plurals name="additional_permissions_more">
-    <item quantity="one" msgid="8845294413599515719">"<xliff:g id="COUNT">%1$d</xliff:g> ទៀត"</item>
-    <item quantity="other" msgid="1823455952304633300">"<xliff:g id="COUNT">%1$d</xliff:g> ទៀត"</item>
-  </plurals>
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> ទៀត</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> ទៀត</item>
+    </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"កម្មវិធីនេះត្រូវបានរចនាឡើងសម្រាប់កំណែចាស់របស់ Android។ ការបដិសេធសិទ្ធិអនុញ្ញាតអាចបណ្តាលឲ្យវាបំពេញមុខងារមិនដូចអ្វីដែលគេរំពឹងទុកតទៅទៀតទេ។"</string>
     <string name="default_permission_description" msgid="4992892207044156668">"ប្រតិបត្តិការសកម្មភាពមិនស្គាល់"</string>
     <string name="app_permissions_group_summary" msgid="4787239772223699263">"បានអនុញ្ញាតកម្មវិធី <xliff:g id="COUNT_0">%1$d</xliff:g> នៃ <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
