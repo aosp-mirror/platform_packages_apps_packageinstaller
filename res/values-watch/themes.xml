@@ -25,6 +25,7 @@
     <style name="GrantPermissions" parent="Settings">
         <item name="android:windowIsFloating">true</item>
         <item name="android:windowElevation">@dimen/action_dialog_z</item>
+        <item name="android:windowSwipeToDismiss">false</item>
     </style>
 
     <style name="GrantPermissions.BreadcrumbText">
