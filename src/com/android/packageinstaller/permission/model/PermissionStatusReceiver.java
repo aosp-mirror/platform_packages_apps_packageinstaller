@@ -69,11 +69,14 @@ public class PermissionStatusReceiver extends BroadcastReceiver {
 
             List<String> appsList = new ArrayList<>();
             List<CharSequence> appLabelsList = new ArrayList<>();
-            if (getAppsWithRuntimePermissions(context, appsList, appLabelsList)) {
+            List<Boolean> isSystemAppList = new ArrayList<>();
+            if (getAppsWithRuntimePermissions(context, appsList, appLabelsList, isSystemAppList)) {
                 responseIntent.putExtra(Intent.EXTRA_GET_PERMISSIONS_APP_LIST_RESULT,
                         appsList.toArray(new String[appsList.size()]));
                 responseIntent.putExtra(Intent.EXTRA_GET_PERMISSIONS_APP_LABEL_LIST_RESULT,
                         appLabelsList.toArray(new String[appLabelsList.size()]));
+                responseIntent.putExtra(Intent.EXTRA_GET_PERMISSIONS_IS_SYSTEM_APP_LIST_RESULT,
+                        toPrimitiveBoolArray(isSystemAppList));
             }
             context.sendBroadcast(responseIntent);
         }
@@ -122,13 +125,14 @@ public class PermissionStatusReceiver extends BroadcastReceiver {
     }
 
     public boolean getAppsWithRuntimePermissions(Context context, List<String> appsList,
-            List<CharSequence> appLabelsList) {
+            List<CharSequence> appLabelsList, List<Boolean> isSystemAppList) {
         final List<ApplicationInfo> appInfos = Utils.getAllInstalledApplications(context);
         if (appInfos == null) {
             return false;
         }
         final int appInfosSize = appInfos.size();
         try {
+            ArraySet<String> launcherPackages = Utils.getLauncherPackages(context);
             for (int i = 0; i < appInfosSize; ++i) {
                 final String packageName = appInfos.get(i).packageName;
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(
@@ -146,6 +150,7 @@ public class PermissionStatusReceiver extends BroadcastReceiver {
                 if (shouldShow) {
                     appsList.add(packageName);
                     appLabelsList.add(appPermissions.getAppLabel());
+                    isSystemAppList.add(Utils.isSystem(appPermissions, launcherPackages));
                 }
             }
         } catch (NameNotFoundException e) {
@@ -179,5 +184,15 @@ public class PermissionStatusReceiver extends BroadcastReceiver {
         counts[0] = grantedApps.size();
         counts[1] = allApps.size();
         return true;
+    }
+
+    private boolean[] toPrimitiveBoolArray(final List<Boolean> list) {
+        final int count = list.size();
+        final boolean[] result = new boolean[count];
+        for (int i = 0; i < count; ++i) {
+            result[i] = list.get(i);
+        }
+
+        return result;
     }
 }
