@@ -55,7 +55,6 @@ public final class AppPermissionsFragmentWear extends TitledSettingsFragment {
     private PermissionsSettingsAdapter mAdapter;
 
     private boolean mHasConfirmedRevoke;
-    private int mPendingPermGroupIndex = -1;
 
     public static AppPermissionsFragmentWear newInstance(String packageName) {
         return setPackageName(new AppPermissionsFragmentWear(), packageName);
@@ -216,11 +215,11 @@ public final class AppPermissionsFragmentWear extends TitledSettingsFragment {
         } else {
             final boolean grantedByDefault = group.hasGrantedByDefaultPermission();
             if (grantedByDefault || (!group.hasRuntimePermission() && !mHasConfirmedRevoke)) {
-                mPendingPermGroupIndex = index;
                 Intent intent = new Intent(getActivity(), WarningConfirmationActivity.class);
                 intent.putExtra(WarningConfirmationActivity.EXTRA_WARNING_MESSAGE,
                         getString(grantedByDefault ?
                                 R.string.system_warning : R.string.old_sdk_deny_warning));
+                intent.putExtra(WarningConfirmationActivity.EXTRA_INDEX, index);
                 startActivityForResult(intent, WARNING_CONFIRMATION_REQUEST);
             } else {
                 group.revokeRuntimePermissions(false);
@@ -234,18 +233,21 @@ public final class AppPermissionsFragmentWear extends TitledSettingsFragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == WARNING_CONFIRMATION_REQUEST) {
             if (resultCode == Activity.RESULT_OK) {
-                SettingsAdapter.Setting<AppPermissionGroup> setting =
-                        mAdapter.get(mPendingPermGroupIndex);
+                int index = data.getIntExtra(WarningConfirmationActivity.EXTRA_INDEX, -1);
+                if (index == -1) {
+                    Log.e(LOG_TAG, "Warning confirmation request came back with no index.");
+                    return;
+                }
+
+                SettingsAdapter.Setting<AppPermissionGroup> setting = mAdapter.get(index);
                 final AppPermissionGroup group = setting.data;
                 group.revokeRuntimePermissions(false);
                 if (!group.hasGrantedByDefaultPermission()) {
                     mHasConfirmedRevoke = true;
                 }
 
-                updatePermissionGroupSetting(mPendingPermGroupIndex);
+                updatePermissionGroupSetting(index);
             }
-
-            mPendingPermGroupIndex = -1;
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
