@@ -31,6 +31,7 @@ import android.util.Log;
 import android.util.TypedValue;
 
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
+import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
 
 import java.util.List;
@@ -134,7 +135,14 @@ public class Utils {
     }
 
     public static boolean isSystem(PermissionApp app, ArraySet<String> launcherPkgs) {
-        ApplicationInfo info = app.getAppInfo();
+        return isSystem(app.getAppInfo(), launcherPkgs);
+    }
+
+    public static boolean isSystem(AppPermissions app, ArraySet<String> launcherPkgs) {
+        return isSystem(app.getPackageInfo().applicationInfo, launcherPkgs);
+    }
+
+    public static boolean isSystem(ApplicationInfo info, ArraySet<String> launcherPkgs) {
         return info.isSystemApp() && (info.flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) == 0
                 && !launcherPkgs.contains(info.packageName);
     }
