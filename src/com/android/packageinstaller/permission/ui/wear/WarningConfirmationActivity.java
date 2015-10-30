@@ -17,6 +17,7 @@
 package com.android.packageinstaller.permission.ui.wear;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Icon;
 import android.os.Bundle;
@@ -25,6 +26,8 @@ import com.android.packageinstaller.R;
 
 public final class WarningConfirmationActivity extends Activity {
     public final static String EXTRA_WARNING_MESSAGE = "EXTRA_WARNING_MESSAGE";
+    // Saved index that will be returned in the onActivityResult() callback
+    public final static String EXTRA_INDEX = "EXTRA_INDEX";
 
     private ConfirmationViewHandler mViewHandler;
     private String mMessage;
@@ -43,14 +46,12 @@ public final class WarningConfirmationActivity extends Activity {
 
             @Override
             public void onButton1() {
-                setResult(Activity.RESULT_CANCELED);
-                finish();
+                setResultAndFinish(Activity.RESULT_CANCELED);
             }
 
             @Override
             public void onButton2() {
-                setResult(Activity.RESULT_OK);
-                finish();
+                setResultAndFinish(Activity.RESULT_OK);
             }
 
             @Override
@@ -106,5 +107,12 @@ public final class WarningConfirmationActivity extends Activity {
 
         setContentView(mViewHandler.createView());
         mViewHandler.invalidate();
+    }
+
+    private void setResultAndFinish(int result) {
+        Intent intent = new Intent();
+        intent.putExtra(EXTRA_INDEX, getIntent().getIntExtra(EXTRA_INDEX, -1));
+        setResult(result, intent);
+        finish();
     }
 }
