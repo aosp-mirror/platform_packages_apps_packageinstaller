@@ -279,7 +279,7 @@ public abstract class ConfirmationViewHandler implements
 
         // Only hide the button bar if it is occluding the content or the button bar is bigger than
         // half the screen
-        if (contentHeight > halfScreenHeight
+        if (contentHeight > (screenHeight - buttonBarHeight)
                 || buttonBarHeight > halfScreenHeight) {
             mHideHandler.sendEmptyMessageDelayed(MSG_HIDE_BUTTON_BAR, 3000);
         }
