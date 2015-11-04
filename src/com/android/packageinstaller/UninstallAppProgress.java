@@ -181,7 +181,8 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
                             } else {
                                 mDeviceManagerButton.setVisibility(View.GONE);
                             }
-                            if (blockingUserId == UserHandle.USER_OWNER) {
+                            // TODO: b/25442806
+                            if (blockingUserId == UserHandle.USER_SYSTEM) {
                                 statusText = getString(R.string.uninstall_blocked_device_owner);
                             } else if (blockingUserId == UserHandle.USER_NULL) {
                                 Log.d(TAG, "Uninstall failed for " + packageName + " with code "
@@ -216,8 +217,8 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
         Intent intent = getIntent();
         mAppInfo = intent.getParcelableExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO);
         mAllUsers = intent.getBooleanExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, false);
-        if (mAllUsers && UserHandle.myUserId() != UserHandle.USER_OWNER) {
-            throw new SecurityException("Only owner user can request uninstall for all users");
+        if (mAllUsers && !UserManager.get(this).isAdminUser()) {
+            throw new SecurityException("Only admin user can request uninstall for all users");
         }
         mUser = intent.getParcelableExtra(Intent.EXTRA_USER);
         if (mUser == null) {
