@@ -75,7 +75,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Échec de la désinstallation."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Impossible de désinstaller ce package, car il s\'agit d\'un administrateur actif."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Désinstallation imposs., car ce package est administrateur appareil actif pour <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Impossible de désinstaller appli, car elle est nécessaire pour votre profil \"<xliff:g id="USERNAME">%1$s</xliff:g>\"."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Impossible de désinstaller appli, car nécessaire pour profil professionnel."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Impossible désinstaller appli, car elle est requise par administrateur appareil."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Gérer les administrateurs de l\'appareil"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Impossible de désinstaller <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
@@ -90,8 +90,34 @@
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Autoriser"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Refuser"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> sur <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="5209102765005869454">"Autoriser <xliff:g id="APP_NAME">%1$s</xliff:g> à effectuer l\'action suivante : <xliff:g id="ACTION">%2$s</xliff:g> ?"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"Autorisations des applications"</string>
+    <string name="permission_warning_template" msgid="5209102765005869454">"Autoriser <xliff:g id="APP_NAME">%1$s</xliff:g> à <xliff:g id="ACTION">%2$s</xliff:g> ?"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Applications"</string>
+    <string name="app_permissions" msgid="3146758905824597178">"Autoris. des applis"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"Ne plus jamais demander"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Aucune autorisation"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"Autorisations supplémentaires"</string>
+  <plurals name="additional_permissions_more">
+    <item quantity="one" msgid="8845294413599515719">"<xliff:g id="COUNT">%1$d</xliff:g> autre"</item>
+    <item quantity="other" msgid="1823455952304633300">"<xliff:g id="COUNT">%1$d</xliff:g> autres"</item>
+  </plurals>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Cette application a été conçue pour une ancienne version d\'Android. Si vous désactivez les autorisations, l\'application risque de ne plus fonctionner comme prévu."</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"effectuer une action inconnue"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> application(s) autorisée(s) sur <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"Afficher les processus système"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"Masquer les processus système"</string>
+    <string name="permission_title" msgid="6495415273398916381">"Autorisations d\'accès aux données \"<xliff:g id="PERMISSION">%1$s</xliff:g>\""</string>
+    <string name="no_apps" msgid="1965493419005012569">"Aucune application"</string>
+    <string name="location_settings" msgid="1774875730854491297">"Paramètres de géolocalisation"</string>
+    <string name="location_warning" msgid="8778701356292735971">"Les services de localisation pour cet appareil sont fournis via <xliff:g id="APP_NAME">%1$s</xliff:g>. Vous pouvez modifier l\'accès aux données de localisation dans les paramètres de localisation."</string>
+    <string name="system_warning" msgid="7103819124542305179">"Si vous rejetez cette autorisation, il est possible que cela affecte certaines fonctionnalités de base de votre appareil."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Activé conformément aux règles"</string>
+    <string name="loading" msgid="7811651799620593731">"Chargement en cours…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Toutes les autorisations"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Autres autorisations de l\'application"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Demande d\'autorisation"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Superposition d\'écran détectée"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Pour modifier ce paramètre d\'autorisation, vous devez tout d\'abord désactiver la superposition d\'écran en accédant à Paramètres &gt; Applications."</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Ouvrir les paramètres"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Opérations d\'installation et de désinstallation impossibles sur Android Wear"</string>
 </resources>

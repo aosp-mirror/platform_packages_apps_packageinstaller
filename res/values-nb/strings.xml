@@ -75,7 +75,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Avinstalleringen mislyktes."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Kan ikke avinstallere fordi denne pakken er en aktiv enhetsadministrator."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Kan ikke avinstallere fordi denne pakken er en aktiv enhetsadministrator for brukeren <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Denne appen er nødvendig for <xliff:g id="USERNAME">%1$s</xliff:g>-profilen din og kan ikke avinstalleres."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Denne appen er nødvendig for Work-profilen din og kan ikke avinstalleres."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Denne appen kreves av enhetsadministratoren din og kan ikke avinstalleres."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Administrer enhetsadministratorer"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunne ikke installeres."</string>
@@ -91,7 +91,33 @@
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Ikke tillat"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> av <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"Vil du tillate <xliff:g id="APP_NAME">%1$s</xliff:g> å <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Apper"</string>
     <string name="app_permissions" msgid="3146758905824597178">"Apptillatelser"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"Spør aldri igjen"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Ingen tillatelser"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"Flere tillatelser"</string>
+  <plurals name="additional_permissions_more">
+    <item quantity="one" msgid="8845294413599515719">"<xliff:g id="COUNT">%1$d</xliff:g> til"</item>
+    <item quantity="other" msgid="1823455952304633300">"<xliff:g id="COUNT">%1$d</xliff:g> til"</item>
+  </plurals>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Denne appen er designet for en eldre versjon av Android. Hvis du nekter å gi tillatelse, kan det føre til at den ikke lenger fungerer etter hensikten."</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"utfør en ukjent handling"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> av <xliff:g id="COUNT_1">%2$d</xliff:g> apper er tillatt"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"Vis systemet"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"Skjul systemet"</string>
+    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> tillatelser"</string>
+    <string name="no_apps" msgid="1965493419005012569">"Ingen apper"</string>
+    <string name="location_settings" msgid="1774875730854491297">"Posisjonsinnstillinger"</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> er en leverandør av posisjonstjenester for denne enheten. Tilgang til posisjon kan endres fra posisjonsinnstillingene."</string>
+    <string name="system_warning" msgid="7103819124542305179">"Hvis du ikke gir denne tillatelsen, kan grunnleggende funksjoner på enheten slutte å fungere som de skal."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Påkrevd ifølge retningslinjene"</string>
+    <string name="loading" msgid="7811651799620593731">"Laster inn …"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Alle tillatelser"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Andre appfunksjoner"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Forespørsel om tillatelse"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Skjermoverlegg oppdaget"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"For å endre denne tillatelsesinnstilingen må du først slå av skjermoverlegget fra Innstillinger &gt; Apper"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Åpne innstillingene"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Handlingene for å installere og avinstallere er ikke støttet på Wear."</string>
 </resources>

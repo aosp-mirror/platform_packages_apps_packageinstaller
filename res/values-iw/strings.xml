@@ -66,16 +66,16 @@
     <string name="uninstall_application_title" msgid="1860074100811653963">"הסר את התקנת האפליקציה"</string>
     <string name="uninstall_update_title" msgid="4146940097553335390">"הסר את התקנת העדכון"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> הוא חלק מהאפליקציה הבאה:"</string>
-    <string name="uninstall_application_text" msgid="6691975835951187030">"האם אתה רוצה להסיר את ההתקנה של אפליקציה זו?"</string>
+    <string name="uninstall_application_text" msgid="6691975835951187030">"האם ברצונך להסיר את ההתקנה של אפליקציה זו?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"האם אתה רוצה להסיר את האפליקציה הזו עבור "<b>"כל"</b>" המשתמשים? האפליקציה והנתונים שלה יוסרו מ"<b>"כל"</b>" המשתמשים במכשיר."</string>
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"האם ברצונך להסיר את התקנתה של אפליקציה זו עבור המשתמש <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
-    <string name="uninstall_update_text" msgid="2056387942084605027">"האם אתה רוצה להחליף אפליקציה זו בגרסת היצרן?"</string>
+    <string name="uninstall_update_text" msgid="2056387942084605027">"האם ברצונך להחליף אפליקציה זו בגרסת היצרן?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"מסיר התקנה..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"הסרת ההתקנה הסתיימה."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"הסרת התקנה נכשלה."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"לא ניתן להסיר את ההתקנה מפני שחבילה זו היא מנהל מכשיר פעיל."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"לא ניתן להסיר את ההתקנה מפני שהחבילה הזו מוגדרת כעת לניהול המכשיר עבור המשתמש <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"אפליקציה זו נדרשת עבור פרופיל <xliff:g id="USERNAME">%1$s</xliff:g> שלך ולא ניתן להסירה."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"האפליקציה הזו נחוצה לפרופיל העבודה שלך ולא ניתן להסיר את ההתקנה שלה."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"מנהל המכשיר שלך מחייב את קיומה של אפליקציה זו, ולא ניתן להסירה."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"נהל מנהלי מכשירים"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"לא ניתן להסיר את ההתקנה של <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
@@ -91,7 +91,33 @@
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"דחה"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> מתוך <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"האם להתיר ל-<xliff:g id="APP_NAME">%1$s</xliff:g> <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"אפליקציות"</string>
     <string name="app_permissions" msgid="3146758905824597178">"הרשאות לאפליקציות"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"לעולם אל תבקש שוב"</string>
     <string name="no_permissions" msgid="3210542466245591574">"אין הרשאות"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"הרשאות נוספות"</string>
+  <plurals name="additional_permissions_more">
+    <item quantity="one" msgid="8845294413599515719">"<xliff:g id="COUNT">%1$d</xliff:g> נוספת"</item>
+    <item quantity="other" msgid="1823455952304633300">"<xliff:g id="COUNT">%1$d</xliff:g> נוספות"</item>
+  </plurals>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"‏האפליקציה הזו עוצבה בשביל גרסה ישנה יותר של Android. דחיית ההרשאה עשויה לגרום לה לתפקד בצורה לקויה."</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"ביצוע פעולה לא ידועה"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> מתוך <xliff:g id="COUNT_1">%2$d</xliff:g> אפליקציות קיבלו הרשאה"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"הצג מערכת"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"הסתר מערכת"</string>
+    <string name="permission_title" msgid="6495415273398916381">"הרשאות <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
+    <string name="no_apps" msgid="1965493419005012569">"אין אפליקציות"</string>
+    <string name="location_settings" msgid="1774875730854491297">"הגדרות מיקום"</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> הוא ספק של שירותי מיקום בשביל המכשיר הזה. אפשר לשנות את גישת המיקום בהגדרות המיקום."</string>
+    <string name="system_warning" msgid="7103819124542305179">"אם תדחה את ההרשאה הזו, ייתכן שתכונות בסיסיות במכשיר לא יפעלו כצפוי."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"נאכף באמצעות מדיניות"</string>
+    <string name="loading" msgid="7811651799620593731">"טוען..."</string>
+    <string name="all_permissions" msgid="5156669007784613042">"כל ההרשאות"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"הרשאות אחרות של האפליקציה"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"בקשת הרשאה"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"זוהתה שכבת על במסך"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"‏כדי לשנות את הגדרת ההרשאה הזו, ראשית עליך לכבות את שכבת העל במסך ב\'הגדרות\' &gt; \'אפליקציות\'"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"פתח הגדרות"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"‏פעולות התקנה/הסרת התקנה אינן נתמכות ב-Wear."</string>
 </resources>

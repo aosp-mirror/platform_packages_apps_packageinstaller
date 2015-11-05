@@ -75,7 +75,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"解除安裝失敗。"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"這個套件是目前的裝置管理員，因此無法解除安裝。"</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"這個套件是<xliff:g id="USERNAME">%1$s</xliff:g>目前使用中的裝置權限管理工具，因此無法解除安裝。"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"這是使用者 <xliff:g id="USERNAME">%1$s</xliff:g> 的個人資料所需的應用程式，因此無法解除安裝。"</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"這是 Work 設定檔所需的應用程式，因此無法解除安裝。"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"這是您的裝置管理員要求安裝的應用程式，因此無法解除安裝。"</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"管理裝置管理員"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"無法解除安裝「<xliff:g id="APP_NAME">%1$s</xliff:g>」。"</string>
@@ -90,8 +90,34 @@
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"允許"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"拒絕"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>/<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="5209102765005869454">"要允許「<xliff:g id="APP_NAME">%1$s</xliff:g>」<xliff:g id="ACTION">%2$s</xliff:g>嗎？"</string>
+    <string name="permission_warning_template" msgid="5209102765005869454">"允許「<xliff:g id="APP_NAME">%1$s</xliff:g>」<xliff:g id="ACTION">%2$s</xliff:g>嗎？"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"應用程式"</string>
     <string name="app_permissions" msgid="3146758905824597178">"應用程式權限"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"不要再詢問我"</string>
     <string name="no_permissions" msgid="3210542466245591574">"沒有權限"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"其他權限"</string>
+  <plurals name="additional_permissions_more">
+    <item quantity="one" msgid="8845294413599515719">"還有 <xliff:g id="COUNT">%1$d</xliff:g> 項"</item>
+    <item quantity="other" msgid="1823455952304633300">"還有 <xliff:g id="COUNT">%1$d</xliff:g> 項"</item>
+  </plurals>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"這個應用程式是為舊版 Android 所開發。拒絕授予權限可能導致應用程式無法正常運作。"</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"執行不明的動作"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"已授權 <xliff:g id="COUNT_0">%1$d</xliff:g> 個應用程式 (共 <xliff:g id="COUNT_1">%2$d</xliff:g> 個)"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"顯示系統"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"隱藏系統"</string>
+    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g>權限"</string>
+    <string name="no_apps" msgid="1965493419005012569">"沒有應用程式"</string>
+    <string name="location_settings" msgid="1774875730854491297">"位置資訊設定"</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> 是這台裝置的定位服務供應商。您可以在位置資訊設定中修改位置資訊存取權。"</string>
+    <string name="system_warning" msgid="7103819124542305179">"如果您拒絕這項權限，裝置的基本功能可能無法正常運作。"</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"依據政策規定執行"</string>
+    <string name="loading" msgid="7811651799620593731">"載入中…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"所有權限"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"其他應用程式功能"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"權限要求"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"偵測到畫面重疊圖層"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"如要變更這項權限設定，您必須先依序前往 [設定] &gt; [應用程式]，關閉裝置畫面重疊圖層"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"開啟設定"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Wear 不支援安裝及解除安裝操作。"</string>
 </resources>

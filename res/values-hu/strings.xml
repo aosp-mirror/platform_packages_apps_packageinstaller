@@ -75,7 +75,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Az eltávolítás sikertelen."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Nem lehet eltávolítani: a csomag aktív eszközkezelő."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Nem lehet eltávolítani, mert a csomag <xliff:g id="USERNAME">%1$s</xliff:g> aktív eszközadminisztrátora."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Ez az alkalmazás szükséges <xliff:g id="USERNAME">%1$s</xliff:g> profiljához, és nem távolítható el."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Ez az alkalmazás szükséges munkaprofiljához, és nem távolítható el."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Az alkalmazásra szüksége van az eszköz adminisztrátorának, és nem távolítható el."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Eszközadminisztrátorok kezelése"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Nem sikerült a(z) <xliff:g id="APP_NAME">%1$s</xliff:g> eltávolítása"</string>
@@ -91,7 +91,33 @@
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Elutasítás"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>/<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"Felhatalmazza a(z) <xliff:g id="APP_NAME">%1$s</xliff:g> szolgáltatást a következőre: <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Alkalmazások"</string>
     <string name="app_permissions" msgid="3146758905824597178">"Alkalmazásengedélyek"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"Ne kérdezzen rá többet"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Nincs engedély"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"További engedélyek"</string>
+  <plurals name="additional_permissions_more">
+    <item quantity="one" msgid="8845294413599515719">"<xliff:g id="COUNT">%1$d</xliff:g> további"</item>
+    <item quantity="other" msgid="1823455952304633300">"<xliff:g id="COUNT">%1$d</xliff:g> további"</item>
+  </plurals>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Ez az alkalmazás az Android egy korábbi verziójához készült. Az engedély megtagadása esetén előfordulhat, hogy a továbbiakban nem fog megfelelően működni."</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"végrehajt egy ismeretlen műveletet"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_1">%2$d</xliff:g>/<xliff:g id="COUNT_0">%1$d</xliff:g> alkalmazás engedélyezve"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"Rendszerfolyamatok megjelenítése"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"Rendszerfolyamatok elrejtése"</string>
+    <string name="permission_title" msgid="6495415273398916381">"A(z) <xliff:g id="PERMISSION">%1$s</xliff:g> jogosultságai"</string>
+    <string name="no_apps" msgid="1965493419005012569">"Nincsenek alkalmazások"</string>
+    <string name="location_settings" msgid="1774875730854491297">"Helybeállítások"</string>
+    <string name="location_warning" msgid="8778701356292735971">"A(z) <xliff:g id="APP_NAME">%1$s</xliff:g> helyszolgáltatásokat biztosít ennek az eszköznek. A helyhozzáférést a helybeállításokban lehet módosítani."</string>
+    <string name="system_warning" msgid="7103819124542305179">"Ha ezt nem engedélyezi, akkor előfordulhat, hogy az eszköz egyes alapfunkciói nem megfelelően fognak működni."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Irányelv által kényszerítve"</string>
+    <string name="loading" msgid="7811651799620593731">"Betöltés…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Az összes engedély"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Egyéb alkalmazáslehetőségek"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Engedélykérés"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Képernyőfedvény észlelve"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Ennek az engedélynek a módosításához először ki kell kapcsolnia a képernyőfedvényt a Beállítások &gt; Alkalmazások menüben"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Beállítások megnyitása"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"A Wear nem támogatja a telepítés/eltávolítás műveletet."</string>
 </resources>

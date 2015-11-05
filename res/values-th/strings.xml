@@ -75,7 +75,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"ถอนการติดตั้งไม่สำเร็จ"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"ไม่สามารถถอนการติดตั้งเนื่องจากแพ็กเกจนี้เป็นโปรแกรมควบคุมอุปกรณ์ที่ใช้งานอยู่"</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"ไม่สามารถถอนการติดตั้ง เนื่องจากปัจจุบันแพ็กเกจนี้ดูแลระบบอุปกรณ์สำหรับผู้ใช้ <xliff:g id="USERNAME">%1$s</xliff:g>"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"ต้องใช้แอปนี้สำหรับโปรไฟล์ <xliff:g id="USERNAME">%1$s</xliff:g> ของคุณและไม่สามารถถอนการติดตั้งได้"</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"จำเป็นต้องใช้แอปนี้สำหรับโปรไฟล์งานและไม่สามารถถอนการติดตั้งได้"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"ผู้ดูแลระบบอุปกรณ์กำหนดให้ใช้แอปนี้ และไม่สามารถถอนการติดตั้งได้"</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"จัดการโปรแกรมควบคุมอุปกรณ์"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"ไม่สามารถถอดการติดตั้ง <xliff:g id="APP_NAME">%1$s</xliff:g>"</string>
@@ -91,7 +91,33 @@
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"ปฏิเสธ"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> จาก <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> รายการ"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"อนุญาตให้ <xliff:g id="APP_NAME">%1$s</xliff:g> <xliff:g id="ACTION">%2$s</xliff:g> ไหม"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"แอป"</string>
     <string name="app_permissions" msgid="3146758905824597178">"สิทธิ์ของแอป"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"ไม่ต้องถามอีก"</string>
     <string name="no_permissions" msgid="3210542466245591574">"ไม่มีสิทธิ์"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"สิทธิ์เพิ่มเติม"</string>
+  <plurals name="additional_permissions_more">
+    <item quantity="one" msgid="8845294413599515719">"อีก <xliff:g id="COUNT">%1$d</xliff:g> รายการ"</item>
+    <item quantity="other" msgid="1823455952304633300">"อีก <xliff:g id="COUNT">%1$d</xliff:g> รายการ"</item>
+  </plurals>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"แอปนี้ออกแบบมาเพื่อ Android เวอร์ชันเก่า การปฏิเสธสิทธิ์อาจทำให้แอปไม่ทำงานตามที่ต้องการอีกต่อไป"</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"ดำเนินการทำงานที่ไม่รู้จัก"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"อนุญาตแล้ว <xliff:g id="COUNT_0">%1$d</xliff:g> จาก <xliff:g id="COUNT_1">%2$d</xliff:g> แอป"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"แสดงระบบ"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"ซ่อนระบบ"</string>
+    <string name="permission_title" msgid="6495415273398916381">"สิทธิ์ในการใช้<xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
+    <string name="no_apps" msgid="1965493419005012569">"ไม่มีแอป"</string>
+    <string name="location_settings" msgid="1774875730854491297">"การตั้งค่าตำแหน่ง"</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> เป็นผู้ให้บริการตำแหน่งสำหรับอุปกรณ์นี้ คุณสามารถแก้ไขสิทธิ์เข้าถึงตำแหน่งได้จากการตั้งค่าตำแหน่ง"</string>
+    <string name="system_warning" msgid="7103819124542305179">"หากคุณปฏิเสธสิทธิ์นี้ คุณลักษณะพื้นฐานของอุปกรณ์อาจไม่ทำงานตามที่ควรจะเป็นอีกต่อไป"</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"บังคับใช้โดยนโยบาย"</string>
+    <string name="loading" msgid="7811651799620593731">"กำลังโหลด…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"สิทธิ์ทั้งหมด"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"ความสามารถอื่นๆ ของแอป"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"คำขอสิทธิ์"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"ตรวจพบการวางซ้อนหน้าจอ"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"ในการเปลี่ยนแปลงการตั้งค่าสิทธิ์นี้ ก่อนอื่น คุณต้องปิดการวางซ้อนหน้าจอที่การตั้งค่า &gt; แอป"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"เปิดการตั้งค่า"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"ไม่สามารถติดตั้ง/ถอนการติดตั้งบน Wear"</string>
 </resources>

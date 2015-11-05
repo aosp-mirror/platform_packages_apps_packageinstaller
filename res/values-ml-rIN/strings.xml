@@ -75,7 +75,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"അൺഇൻസ്റ്റാളുചെയ്തു."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"ഈ പാക്കേജ് ഒരു സജീവ ഉപകരണ അഡ്‌മിനിസ്‌ട്രേറ്റർ ആയതിനാൽ അൺഇൻസ്റ്റാളുചെയ്യാനായില്ല."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"<xliff:g id="USERNAME">%1$s</xliff:g> എന്ന ഉപയോക്താവിനുള്ള ഒരു സജീവ ഉപകരണ അഡ്‌മിനിസ്‌ട്രേറ്ററായതിനാൽ ഈ പാക്കേജ് അൺഇൻസ്‌റ്റാളുചെയ്യാനാകില്ല."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"നിങ്ങളുടെ <xliff:g id="USERNAME">%1$s</xliff:g> പ്രൊഫൈലിന് ഈ അപ്ലിക്കേഷൻ ആവശ്യമുള്ളതിനാൽ ഇത് അൺഇൻസ്റ്റാൾ ചെയ്യാനാവില്ല."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈലിന് ഈ അപ്ലിക്കേഷൻ ആവശ്യമുള്ളതിനാൽ അത് അൺ‌ഇൻസ്റ്റാൾ ചെയ്യാനാവില്ല."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"നിങ്ങളുടെ ഉപകരണ അഡ്മിനിസ്ട്രേറ്ററിന് ഈ അപ്ലിക്കേഷൻ ആവശ്യമുള്ളതിനാൽ ഇത് അൺഇൻസ്റ്റാൾ ചെയ്യാനാവില്ല."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"ഉപകരണ അഡ്മിനിസ്ട്രേറ്റർമാരെ നിയന്ത്രിക്കുക"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> അൺഇൻസ്റ്റാളുചെയ്യാനായില്ല."</string>
@@ -90,8 +90,34 @@
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"അനുവദിക്കുക"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"നിരസിക്കുക"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> / <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="APP_NAME">%1$s</xliff:g> എന്നതിനെ <xliff:g id="ACTION">%2$s</xliff:g> ചെയ്യാൻ അനുവദിക്കണോ?"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"അപ്ലിക്കേഷൻ അനുമതികൾ"</string>
+    <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="APP_NAME">%1$s</xliff:g> ആപ്പിനെ <xliff:g id="ACTION">%2$s</xliff:g> എന്നതിന് അനുവദിക്കണോ?"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"ആപ്സ്"</string>
+    <string name="app_permissions" msgid="3146758905824597178">"ആപ്പ് അനുമതികൾ"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"വീണ്ടും ചോദിക്കരുത്"</string>
     <string name="no_permissions" msgid="3210542466245591574">"അനുമതികൾ ഇല്ല"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"അധിക അനുമതികൾ"</string>
+  <plurals name="additional_permissions_more">
+    <item quantity="one" msgid="8845294413599515719">"<xliff:g id="COUNT">%1$d</xliff:g> എണ്ണം കൂടി"</item>
+    <item quantity="other" msgid="1823455952304633300">"<xliff:g id="COUNT">%1$d</xliff:g> എണ്ണം കൂടി"</item>
+  </plurals>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"ഈ ആപ്പ് Android-ന്റെ പഴയ പതിപ്പിനായാണ് രൂപകൽപ്പന ചെയ്‌തിരിക്കുന്നത്. അനുമതി നിരസിക്കുന്നത് തുടർന്ന് ഉദ്ദേശിച്ചവിധം പ്രവർത്തിക്കാതിരിക്കാനിടയാക്കുന്നു."</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"ഒരു അജ്ഞാതപ്രവർത്തനം നടത്തുക"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> / <xliff:g id="COUNT_1">%2$d</xliff:g> ആപ്പ്‌സ് അനുവദനീയം"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"സിസ്റ്റം കാണിക്കുക"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"സിസ്റ്റം മറയ്‌ക്കുക"</string>
+    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> അനുമതികൾ"</string>
+    <string name="no_apps" msgid="1965493419005012569">"ആപ്സ് ഒന്നുമില്ല"</string>
+    <string name="location_settings" msgid="1774875730854491297">"ലൊക്കേഷൻ ക്രമീകരണം"</string>
+    <string name="location_warning" msgid="8778701356292735971">"ഈ ഉപകരണത്തിനായുള്ള ലൊക്കേഷൻ സേവനങ്ങളുടെ ദാതാവ് <xliff:g id="APP_NAME">%1$s</xliff:g> ആണ്. ലൊക്കേഷൻ ക്രമീകരണത്തിൽ നിന്ന് ലൊക്കേഷൻ ആക്സസ് പരിഷ്കരിക്കാവുന്നതാണ്."</string>
+    <string name="system_warning" msgid="7103819124542305179">"നിങ്ങൾ ഈ അനുമതി നിഷേധിക്കുന്നുവെങ്കിൽ, നിങ്ങളുടെ ഉപകരണത്തിന്റെ അടിസ്ഥാന ഫീച്ചറുകൾ ഉദ്ദേശിച്ചത് പോലെ തുടർന്ന് പ്രവർത്തിച്ചേക്കില്ല."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"നയം മുഖേനെ നടപ്പിലാക്കിയത്"</string>
+    <string name="loading" msgid="7811651799620593731">"ലോഡുചെയ്യുന്നു..."</string>
+    <string name="all_permissions" msgid="5156669007784613042">"എല്ലാ അനുമതികളും"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"മറ്റ് ആപ്പ് ശേഷികൾ"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"അനുമതി അഭ്യർത്ഥന"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"സ്ക്രീൻ ഓവർലേ കണ്ടെത്തി"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"ഈ അനുമതി ക്രമീകരണം മാറ്റുന്നതിന്, ക്രമീകരണം &gt; ആപ്സ് എന്നതിൽ നിന്ന് നിങ്ങളാദ്യം സ്ക്രീൻ ഓവർലേ ഓഫാക്കേണ്ടതാണ്"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"ക്രമീകരണം തുറക്കുക"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"ഇൻസ്റ്റാളോ അൺഇൻസ്റ്റാളോ ചെയ്യുന്നതിന് Wear-ൽ പിന്തുണയില്ല."</string>
 </resources>

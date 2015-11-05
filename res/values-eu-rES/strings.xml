@@ -75,7 +75,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Ezin izan da desinstalatu."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Ezin izan da desinstalatu paketea gailu-administratzaile aktiboa delako."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Ezin da desinstalatu, pakete hau <xliff:g id="USERNAME">%1$s</xliff:g> erabiltzailearen gailu-administratzaile aktiboa delako."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Aplikazioa <xliff:g id="USERNAME">%1$s</xliff:g> erabiltzailearen profilerako behar da eta ezin da desinstalatu."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Aplikazioa laneko profilerako behar da eta ezin da desinstalatu."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Gailuaren administratzaileak aplikazio hori behar du eta ezin da desinstalatu."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Kudeatu gailu-administratzaileak"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Ezin izan da <xliff:g id="APP_NAME">%1$s</xliff:g> desinstalatu."</string>
@@ -90,8 +90,34 @@
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Baimendu"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Eragotzi"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>/<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="APP_NAME">%1$s</xliff:g> aplikazioari \"<xliff:g id="ACTION">%2$s</xliff:g>\" ekintza egitea baimendu nahi diozu?"</string>
+    <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="APP_NAME">%1$s</xliff:g> aplikazioari \"<xliff:g id="ACTION">%2$s</xliff:g>\" baimena eman nahi diozu?"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Aplikazioak"</string>
     <string name="app_permissions" msgid="3146758905824597178">"Aplikaziorako baimenak"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"Ez galdetu berriro"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Ez dago baimenik"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"Baimen gehigarriak"</string>
+  <plurals name="additional_permissions_more">
+    <item quantity="one" msgid="8845294413599515719">"Beste <xliff:g id="COUNT">%1$d</xliff:g>"</item>
+    <item quantity="other" msgid="1823455952304633300">"Beste <xliff:g id="COUNT">%1$d</xliff:g>"</item>
+  </plurals>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Aplikazio hau Android-en bertsio zaharrago baterako diseinatuta dago. Baimena ukatzen baduzu, agian aurrerantzean ez du behar bezain ondo funtzionatuko."</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"Gauzatu ekintza ezezagunak"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> aplikaziok dute baimena"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"Erakutsi sistema"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"Ezkutatu sistema"</string>
+    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> erabiltzeko baimenak"</string>
+    <string name="no_apps" msgid="1965493419005012569">"Ez dago aplikaziorik"</string>
+    <string name="location_settings" msgid="1774875730854491297">"Kokapen-ezarpenak"</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> gailu honen kokapen-zerbitzuen hornitzailea da. Kokapenerako sarbidea kokapen-ezarpenetatik alda daiteke."</string>
+    <string name="system_warning" msgid="7103819124542305179">"Baimena ematen ez baduzu, baliteke gailuaren oinarrizko eginbide batzuek behar bezala ez funtzionatzea."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Gidalerroen bidez aplikatzen da"</string>
+    <string name="loading" msgid="7811651799620593731">"Kargatzen…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Baimen guztiak"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Aplikazioaren beste gaitasun batzuk"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Baimen-eskaera"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Pantailaren gainjartzea detektatu da"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Baimen-ezarpen hau aldatzeko, pantailaren gainjartzea desaktibatu behar duzu Ezarpenak &gt; Aplikazioak atalean"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Ireki ezarpenak"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Instalatzeko eta desinstalatzeko ekintzak ezin dira gauzatu Wear gailuetan."</string>
 </resources>

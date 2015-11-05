@@ -75,7 +75,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"विस्थापित करणे अयशस्वी."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"हे पॅकेज सक्रिय डिव्हाइस प्रशासक असल्यामुळे विस्थापित करू शकत नाही."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"हे पॅकेज <xliff:g id="USERNAME">%1$s</xliff:g> वापरकर्त्यासाठी सक्रिय डिव्‍हाइस प्रशासक असल्‍याने विस्‍थापित करू शकत नाही."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"आपल्‍या <xliff:g id="USERNAME">%1$s</xliff:g> प्रोफाईलसाठी हा अ‍ॅप आवश्‍यक आहे आणि विस्‍थापित केला जाऊ शकत नाही."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"आपल्‍या कार्य प्रोफाईलसाठी हा अ‍ॅप आवश्‍यक आहे आणि विस्थापित केला जाऊ शकत नाही."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"आपल्‍या डिव्‍हाइस प्रशासकाद्वारे हा अ‍ॅप आवश्यक आहे आणि तो विस्‍थापित केला जाऊ शकत नाही."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"डिव्‍हाइस प्रशासकांना व्‍यवस्‍थापित करा"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> विस्थापित केला जाऊ शकला नाही."</string>
@@ -91,7 +91,33 @@
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"नकार द्या"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> पैकी <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="APP_NAME">%1$s</xliff:g> ला <xliff:g id="ACTION">%2$s</xliff:g> करण्‍याची अनुमती द्यायची?"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"अॅप्स"</string>
     <string name="app_permissions" msgid="3146758905824597178">"अॅप परवानग्या"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"पुन्हा कधीही विचारू नका"</string>
     <string name="no_permissions" msgid="3210542466245591574">"परवानग्या नाहीत"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"अतिरिक्त परवानग्या"</string>
+  <plurals name="additional_permissions_more">
+    <item quantity="one" msgid="8845294413599515719">"आणखी <xliff:g id="COUNT">%1$d</xliff:g>"</item>
+    <item quantity="other" msgid="1823455952304633300">"आणखी <xliff:g id="COUNT">%1$d</xliff:g>"</item>
+  </plurals>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"हा अॅप Android च्या जुन्या आवृत्तीसाठी डिझाइन करण्यात आला होता. परवानगी नाकारल्यामुळे तो यापुढे उद्देशाप्रमाणे कार्य करणार नाही."</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"अज्ञात क्रिया करा"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_1">%2$d</xliff:g> पैकी <xliff:g id="COUNT_0">%1$d</xliff:g> अ‍ॅप्सना अनुमती दिली"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"सिस्टम दर्शवा"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"सिस्‍टीम लपवा"</string>
+    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> परवानग्या"</string>
+    <string name="no_apps" msgid="1965493419005012569">"कोणतेही अॅप्स नाहीत"</string>
+    <string name="location_settings" msgid="1774875730854491297">"स्थान सेटिंग्ज"</string>
+    <string name="location_warning" msgid="8778701356292735971">"या डिव्‍हाइससाठी <xliff:g id="APP_NAME">%1$s</xliff:g> स्थान सेवांचा प्रदाता आहे. स्थान प्रवेश स्थान सेटिंग्ज वरून सुधारित केला जाऊ शकतो."</string>
+    <string name="system_warning" msgid="7103819124542305179">"आपण ही परवानगी नाकारल्यास, आपल्‍या डिव्‍हाइसची मुलभूत वैशिष्ट्ये अपेक्षित असल्याप्रमाणे कदाचित कार्य करू शकणार नाहीत."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"धोरणाद्वारे सक्ती केली"</string>
+    <string name="loading" msgid="7811651799620593731">"लोड करत आहे..."</string>
+    <string name="all_permissions" msgid="5156669007784613042">"सर्व परवानग्या"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"अन्य अॅप क्षमता"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"परवानगीची विनंती"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"स्क्रीन आच्छादन आढळले"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"हे परवानगी सेटिंग बदलण्‍यासाठी, आपल्‍याला सेटिंग्ज &gt; Apps मधून स्क्रीन आच्छादन बंद करावे लागेल"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"सेटिंग्ज उघडा"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"स्थापित करा/विस्थापित करा क्रिया Wear वर समर्थित नाहीत."</string>
 </resources>

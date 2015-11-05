@@ -75,7 +75,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Odstranitev ni uspela."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Odstranitev ni mogoča, ker je ta paket aktivni skrbnik naprave."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Tega paketa ni mogoče odstraniti, ker je aktivni skrbnik naprav za uporabnika <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Ta aplikacija je potrebna za profil <xliff:g id="USERNAME">%1$s</xliff:g> in je ni mogoče odstraniti."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Ta aplikacija je potrebna za delovni profil in je ni mogoče odstraniti."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"To aplikacijo zahteva skrbnik naprave in je ni mogoče odstraniti."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Upravljanje skrbnikov naprav"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Aplikacije <xliff:g id="APP_NAME">%1$s</xliff:g> ni bilo mogoče odstraniti."</string>
@@ -90,8 +90,34 @@
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Dovoli"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Zavrni"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> od <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="5209102765005869454">"Dovolite aplikaciji <xliff:g id="APP_NAME">%1$s</xliff:g> to dejanje: <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_warning_template" msgid="5209102765005869454">"Dovolite aplikaciji <xliff:g id="APP_NAME">%1$s</xliff:g> izvesti to dejanje: <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Aplikacije"</string>
     <string name="app_permissions" msgid="3146758905824597178">"Dovoljenja za aplikacije"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"Ne vprašaj nikoli več"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Ni dovoljenj"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"Dodatna dovoljenja"</string>
+  <plurals name="additional_permissions_more">
+    <item quantity="one" msgid="8845294413599515719">"Še <xliff:g id="COUNT">%1$d</xliff:g>"</item>
+    <item quantity="other" msgid="1823455952304633300">"Še <xliff:g id="COUNT">%1$d</xliff:g>"</item>
+  </plurals>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Ta aplikacija je bila zasnovana za starejšo različico sistema Android. Če dovoljenje zavrnete, lahko preneha delovati, kot bi morala."</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"izvedba neznanega dejanja"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"Dovoljene aplikacije: <xliff:g id="COUNT_0">%1$d</xliff:g> od <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"Prikaz sistemskih aplikacij"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"Skrivanje sistemskih aplikacij"</string>
+    <string name="permission_title" msgid="6495415273398916381">"Dovoljenja za: <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
+    <string name="no_apps" msgid="1965493419005012569">"Ni aplikacij"</string>
+    <string name="location_settings" msgid="1774875730854491297">"Nastavitve lokacije"</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> je ponudnik lokacijskih storitev za to napravo. Dostop do lokacije je mogoče spremeniti v nastavitvah lokacije."</string>
+    <string name="system_warning" msgid="7103819124542305179">"Če zavrnete to dovoljenje, osnovne funkcije naprave morda ne bodo več delovale, kot bi morale."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Uveljavlja pravilnik"</string>
+    <string name="loading" msgid="7811651799620593731">"Nalaganje …"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Vsa dovoljenja"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Druge zmožnosti aplikacije"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Zahteva za dovoljenje"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Zaznano prekrivanje zaslona"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Če želite spremeniti nastavitev tega dovoljenja, morate najprej izklopiti prekrivanje zaslona v »Nastavitve &gt; Aplikacije«"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Odpri nastavitve"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Dejanja namestitve in odstranitve v sistemu Android Wear niso podprta."</string>
 </resources>
