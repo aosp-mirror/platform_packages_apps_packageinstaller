@@ -238,7 +238,7 @@ public class WearPackageInstallerService extends Service {
             PackageInfo existingPkgInfo = null;
             try {
                 existingPkgInfo = pm.getPackageInfo(packageName,
-                        PackageManager.GET_UNINSTALLED_PACKAGES);
+                        PackageManager.GET_UNINSTALLED_PACKAGES | PackageManager.GET_PERMISSIONS);
                 if(existingPkgInfo != null) {
                     installFlags |= PackageManager.INSTALL_REPLACE_EXISTING;
                 }
@@ -298,6 +298,10 @@ public class WearPackageInstallerService extends Service {
                         // If the permission is granted, then we will not ask to request it again.
                         if ((existingPkgInfo.requestedPermissionsFlags[i] &
                                 PackageInfo.REQUESTED_PERMISSION_GRANTED) != 0) {
+                            if (Log.isLoggable(TAG, Log.DEBUG)) {
+                                Log.d(TAG, existingPkgInfo.requestedPermissions[i] +
+                                        " is already granted for " + packageName);
+                            }
                             wearablePerms.remove(existingPkgInfo.requestedPermissions[i]);
                         }
                     }
