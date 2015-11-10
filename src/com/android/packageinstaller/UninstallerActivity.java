@@ -109,7 +109,9 @@ public class UninstallerActivity extends Activity {
         @Override
         public void onDismiss(DialogInterface dialog) {
             super.onDismiss(dialog);
-            getActivity().finish();
+            if (isAdded()) {
+                getActivity().finish();
+            }
         }
     }
 
@@ -127,9 +129,11 @@ public class UninstallerActivity extends Activity {
         @Override
         public void onDismiss(DialogInterface dialog) {
             super.onDismiss(dialog);
-            ((UninstallerActivity) getActivity()).dispatchAborted();
-            getActivity().setResult(Activity.RESULT_FIRST_USER);
-            getActivity().finish();
+            if (isAdded()) {
+                ((UninstallerActivity) getActivity()).dispatchAborted();
+                getActivity().setResult(Activity.RESULT_FIRST_USER);
+                getActivity().finish();
+            }
         }
     }
 
