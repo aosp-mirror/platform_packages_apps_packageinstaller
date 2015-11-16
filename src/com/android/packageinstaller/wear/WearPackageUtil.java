@@ -17,9 +17,9 @@
 package com.android.packageinstaller.wear;
 
 import android.annotation.Nullable;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.content.pm.PackageParser;
 import android.os.ParcelFileDescriptor;
 import android.system.ErrnoException;
@@ -41,6 +41,12 @@ public class WearPackageUtil {
 
     private static final String COMPRESSION_LZMA = "lzma";
     private static final String COMPRESSION_XZ = "xz";
+
+    private static final String SHOW_PERMS_SERVICE_PKG_NAME = "com.google.android.wearable.app";
+    private static final String SHOW_PERMS_SERVICE_CLASS_NAME =
+            "com.google.android.clockwork.packagemanager.ShowPermsService";
+    private static final String EXTRA_PACKAGE_NAME
+            = "com.google.android.clockwork.EXTRA_PACKAGE_NAME";
 
     public static File getTemporaryFile(Context context, String packageName) {
         try {
@@ -146,5 +152,16 @@ public class WearPackageUtil {
             }
         }
         return false;
+    }
+
+    public static void removeFromPermStore(Context context, String wearablePackageName) {
+        Intent newIntent = new Intent()
+                .setComponent(new ComponentName(
+                        SHOW_PERMS_SERVICE_PKG_NAME, SHOW_PERMS_SERVICE_CLASS_NAME))
+                .setAction(Intent.ACTION_UNINSTALL_PACKAGE);
+        newIntent.putExtra(EXTRA_PACKAGE_NAME, wearablePackageName);
+        Log.i(TAG, "Sending removeFromPermStore to ShowPermsService " + newIntent
+                + " for " + wearablePackageName);
+        context.startService(newIntent);
     }
 }
