@@ -337,7 +337,8 @@ public class WearPackageInstallerService extends Service {
 
             // Finally install the package.
             pm.installPackage(Uri.fromFile(tempFile),
-                    new PackageInstallObserver(this, lock, startId), installFlags, packageName);
+                    new PackageInstallObserver(this, lock, startId, packageName),
+                        installFlags, packageName);
             messageSent = true;
             Log.i(TAG, "Sent installation request for " + packageName);
         } catch (FileNotFoundException e) {
@@ -575,19 +576,25 @@ public class WearPackageInstallerService extends Service {
         private Context mContext;
         private PowerManager.WakeLock mWakeLock;
         private int mStartId;
+        private String mApplicationPackageName;
         private PackageInstallObserver(Context context, PowerManager.WakeLock wakeLock,
-                int startId) {
+                int startId, String applicationPackageName) {
             mContext = context;
             mWakeLock = wakeLock;
             mStartId = startId;
+            mApplicationPackageName = applicationPackageName;
         }
 
         public void packageInstalled(String packageName, int returnCode) {
-            if (returnCode >= 0) {
-                Log.i(TAG, "Package " + packageName + " was installed.");
-            } else {
-                Log.e(TAG, "Package install failed " + packageName + ", returnCode " + returnCode);
+            // If installation failed, bail out and remove the ShowPermsStore entry
+            if (returnCode < 0) {
+                Log.e(TAG, "Package install failed " + mApplicationPackageName
+                        + ", returnCode " + returnCode);
+                WearPackageUtil.removeFromPermStore(mContext, mApplicationPackageName);
+                return;
             }
+
+            Log.i(TAG, "Package " + packageName + " was installed.");
 
             // Delete tempFile from the file system.
             File tempFile = WearPackageUtil.getTemporaryFile(mContext, packageName);
