@@ -24,7 +24,9 @@
     <application android:label="@string/app_name"
             android:allowBackup="false"
             android:theme="@style/Theme.DialogWhenLarge"
-            android:supportsRtl="true">
+            android:supportsRtl="true"
+            android:forceDeviceEncrypted="true"
+            android:encryptionAware="true">
 
         <activity android:name=".PackageInstallerActivity"
                 android:configChanges="orientation|keyboardHidden|screenSize"
