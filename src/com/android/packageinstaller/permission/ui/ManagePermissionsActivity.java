@@ -21,9 +21,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import com.android.packageinstaller.permission.utils.Utils;
+<<<<<<< HEAD
 
 import com.android.packageinstaller.permission.ui.wear.AppPermissionsFragmentWear;
 import com.android.packageinstaller.DeviceUtils;
+=======
+>>>>>>> c10abb25f3864e56b2a24ef3661511cd78921225
 
 public final class ManagePermissionsActivity extends OverlayTouchActivity {
     private static final String LOG_TAG = "ManagePermissionsActivity";
