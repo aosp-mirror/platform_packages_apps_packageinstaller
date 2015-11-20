@@ -30,8 +30,8 @@
             android:layout_height="match_parent"
             android:text="@string/no_permissions"
             android:gravity="center"
-            android:textAppearance="@android:style/TextAppearance.Large"
-            />
+            style="?android:attr/textAppearanceLarge">
+        </TextView>
 
     </FrameLayout>
 
