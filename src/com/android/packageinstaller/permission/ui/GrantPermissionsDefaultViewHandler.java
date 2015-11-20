@@ -314,9 +314,6 @@ final class GrantPermissionsDefaultViewHandler
     public View createView() {
         mRootView = (ManualLayoutFrame) LayoutInflater.from(mContext)
                 .inflate(R.layout.grant_permissions, null);
-        ((ButtonBarLayout) mRootView.findViewById(R.id.button_group)).setAllowStacking(
-                Resources.getSystem().getBoolean(
-                        com.android.internal.R.bool.allow_stacked_button_bar));
 
         mDialogContainer = (ViewGroup) mRootView.findViewById(R.id.dialog_container);
         mMessageView = (TextView) mRootView.findViewById(R.id.permission_message);
