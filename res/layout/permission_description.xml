@@ -26,15 +26,14 @@
         android:layout_height="36dip"
         android:layout_marginTop="3dp"
         android:tint="?android:attr/colorAccent"
-        android:scaleType="fitCenter" />
+        android:scaleType="fitCenter" >
+    </ImageView>
 
     <TextView
         android:id="@+id/permission_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/permission_icon"
-        android:lineSpacingMultiplier="1.024"
-        android:fontFamily="@*android:string/font_family_body_2_material"
         android:paddingStart="16dip"
         android:paddingEnd="8dip"
         style="?android:attr/textAppearanceMedium">

@@ -36,23 +36,9 @@ public class LocationUtils {
 
     public static final String LOCATION_PERMISSION = Manifest.permission_group.LOCATION;
 
-    public static ArrayList<String> getLocationProviders() {
-        ArrayList<String> providers = new ArrayList<>();
-        Resources res = Resources.getSystem();
-        providers.add(res.getString(
-                com.android.internal.R.string.config_networkLocationProviderPackageName));
-
-        for (String provider :
-            res.getStringArray(com.android.internal.R.array.config_locationProviderPackageNames)) {
-            providers.add(provider);
-        }
-
-        return providers;
-    }
-
     public static void showLocationDialog(final Context context, CharSequence label) {
         new AlertDialog.Builder(context)
-                .setIcon(com.android.internal.R.drawable.ic_dialog_alert_material)
+                .setIcon(R.drawable.ic_dialog_alert_material)
                 .setTitle(android.R.string.dialog_alert_title)
                 .setMessage(context.getString(R.string.location_warning, label))
                 .setNegativeButton(R.string.ok, null)
@@ -83,5 +69,4 @@ public class LocationUtils {
             return false;
         }
     }
-
 }
