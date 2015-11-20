@@ -25,7 +25,7 @@ import android.view.WindowManager;
  * Class for managing the presentation and user interaction of the "grant
  * permissions" user interface.
  */
-interface GrantPermissionsViewHandler {
+public interface GrantPermissionsViewHandler {
 
     /**
      * Listener interface for getting notified when the user responds to a

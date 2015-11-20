@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.android.packageinstaller.permission.ui;
+package com.android.packageinstaller.permission.ui.television;
 
 import android.annotation.Nullable;
 import android.app.ActionBar;
@@ -202,7 +202,7 @@ public final class ManagePermissionsFragment extends PermissionsFrameFragment
             Preference extraScreenPreference = new Preference(context);
             extraScreenPreference.setKey(EXTRA_PREFS_KEY);
             extraScreenPreference.setIcon(Utils.applyTint(context,
-                    com.android.internal.R.drawable.ic_more_items,
+                    R.drawable.ic_more_items,
                     android.R.attr.colorControlNormal));
             extraScreenPreference.setTitle(R.string.additional_permissions);
             extraScreenPreference.setOnPreferenceClickListener(new OnPreferenceClickListener() {

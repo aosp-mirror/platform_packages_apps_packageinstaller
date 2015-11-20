@@ -20,6 +20,7 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import com.android.packageinstaller.permission.utils.Utils;
 
 import com.android.packageinstaller.permission.ui.wear.AppPermissionsFragmentWear;
 import com.android.packageinstaller.DeviceUtils;
@@ -40,7 +41,13 @@ public final class ManagePermissionsActivity extends OverlayTouchActivity {
 
         switch (action) {
             case Intent.ACTION_MANAGE_PERMISSIONS: {
-                fragment = ManagePermissionsFragment.newInstance();
+                if (Utils.isTelevision(this)) {
+                    fragment = com.android.packageinstaller.permission.ui.television
+                            .ManagePermissionsFragment.newInstance();
+                } else {
+                    fragment = com.android.packageinstaller.permission.ui.handheld
+                            .ManagePermissionsFragment.newInstance();
+                }
             } break;
 
             case Intent.ACTION_MANAGE_APP_PERMISSIONS: {
@@ -50,11 +57,14 @@ public final class ManagePermissionsActivity extends OverlayTouchActivity {
                     finish();
                     return;
                 }
-
                 if (DeviceUtils.isWear(this)) {
                     fragment = AppPermissionsFragmentWear.newInstance(packageName);
+                } else if (Utils.isTelevision(this)) {
+                    fragment = com.android.packageinstaller.permission.ui.television
+                            .AppPermissionsFragment.newInstance(packageName);
                 } else {
-                    fragment = AppPermissionsFragment.newInstance(packageName);
+                    fragment = com.android.packageinstaller.permission.ui.handheld
+                            .AppPermissionsFragment.newInstance(packageName);
                 }
             } break;
 
@@ -65,7 +75,13 @@ public final class ManagePermissionsActivity extends OverlayTouchActivity {
                     finish();
                     return;
                 }
-                fragment = PermissionAppsFragment.newInstance(permissionName);
+                if (Utils.isTelevision(this)) {
+                    fragment = com.android.packageinstaller.permission.ui.television
+                            .PermissionAppsFragment.newInstance(permissionName);
+                } else {
+                    fragment = com.android.packageinstaller.permission.ui.handheld
+                            .PermissionAppsFragment.newInstance(permissionName);
+                }
             } break;
 
             default: {

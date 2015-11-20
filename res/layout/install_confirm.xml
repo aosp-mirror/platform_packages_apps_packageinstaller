@@ -31,9 +31,10 @@
             android:id="@+id/install_confirm_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingStart="16dip"
+            android:paddingEnd="16dip"
             android:text="@string/install_confirm_question"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            style="@style/padded"
             android:paddingTop="4dip" />
 
     <ImageView
