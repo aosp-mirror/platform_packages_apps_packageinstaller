@@ -14,7 +14,7 @@
 * limitations under the License.
 */
 
-package com.android.packageinstaller.permission.ui;
+package com.android.packageinstaller.permission.ui.handheld;
 
 import android.app.ActionBar;
 import android.app.AlertDialog;
@@ -29,14 +29,13 @@ import android.content.pm.PermissionInfo;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceCategory;
+import android.preference.PreferenceGroup;
 import android.provider.Settings;
-import android.support.v7.preference.Preference;
-import android.support.v7.preference.Preference.OnPreferenceClickListener;
-import android.support.v7.preference.PreferenceCategory;
-import android.support.v7.preference.PreferenceGroup;
 import android.util.Log;
 import android.view.MenuItem;
-
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.utils.Utils;
 
@@ -178,7 +177,6 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
         if (pref == null) {
             pref = new PreferenceCategory(getContext());
             pref.setKey(group.name);
-            pref.setLayoutResource(R.layout.preference_category_material);
             pref.setTitle(group.loadLabel(pm));
             prefs.add(pref);
             getPreferenceScreen().addPreference(pref);
@@ -189,7 +187,6 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
     private Preference getPreference(PermissionInfo perm, PermissionGroupInfo group,
             PackageManager pm) {
         Preference pref = new Preference(getContext());
-        pref.setLayoutResource(R.layout.preference_permissions);
         Drawable icon = null;
         if (perm.icon != 0) {
             icon = perm.loadIcon(pm);

@@ -1,4 +1,4 @@
-package com.android.packageinstaller.permission.ui;
+package com.android.packageinstaller.permission.ui.television;
 
 import android.content.Context;
 import android.graphics.PixelFormat;
@@ -15,11 +15,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.packageinstaller.R;
+import com.android.packageinstaller.permission.ui.GrantPermissionsViewHandler;
 
 /**
  * TV-specific view handler for the grant permissions activity.
  */
-final class GrantPermissionsTvViewHandler implements GrantPermissionsViewHandler, OnClickListener {
+public final class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHandler, OnClickListener {
 
     private static final String ARG_GROUP_NAME = "ARG_GROUP_NAME";
 
@@ -37,12 +38,12 @@ final class GrantPermissionsTvViewHandler implements GrantPermissionsViewHandler
     private Button mSoftDenyButton;
     private Button mHardDenyButton;
 
-    GrantPermissionsTvViewHandler(Context context) {
+    public GrantPermissionsViewHandlerImpl(Context context) {
         mContext = context;
     }
 
     @Override
-    public GrantPermissionsTvViewHandler setResultListener(ResultListener listener) {
+    public GrantPermissionsViewHandlerImpl setResultListener(ResultListener listener) {
         mResultListener = listener;
         return this;
     }

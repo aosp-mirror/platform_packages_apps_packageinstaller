@@ -16,11 +16,13 @@
   -->
 
 <resources>
-    <style name="Settings" parent="@android:style/Theme.DeviceDefault.Settings">
-        <item name="android:actionBarStyle">@style/ActionBar</item>
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Permissions</item>
+
+    <style name="Settings"
+           parent="@android:style/Theme.DeviceDefault.Settings">
     </style>
 
     <style name="GrantPermissions"
-            parent="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar" />
+           parent="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar">
+    </style>
+
 </resources>
