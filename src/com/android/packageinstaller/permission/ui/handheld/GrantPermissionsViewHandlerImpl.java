@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.packageinstaller.permission.ui;
+package com.android.packageinstaller.permission.ui.handheld;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -40,12 +40,14 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.internal.widget.ButtonBarLayout;
 import com.android.packageinstaller.R;
+import com.android.packageinstaller.permission.ui.ButtonBarLayout;
+import com.android.packageinstaller.permission.ui.GrantPermissionsViewHandler;
+import com.android.packageinstaller.permission.ui.ManualLayoutFrame;
 
 import java.util.ArrayList;
 
-final class GrantPermissionsDefaultViewHandler
+public final class GrantPermissionsViewHandlerImpl
         implements GrantPermissionsViewHandler, OnClickListener {
 
     public static final String ARG_GROUP_NAME = "ARG_GROUP_NAME";
@@ -101,12 +103,12 @@ final class GrantPermissionsDefaultViewHandler
         }
     };
 
-    GrantPermissionsDefaultViewHandler(Context context) {
+    public GrantPermissionsViewHandlerImpl(Context context) {
         mContext = context;
     }
 
     @Override
-    public GrantPermissionsDefaultViewHandler setResultListener(ResultListener listener) {
+    public GrantPermissionsViewHandlerImpl setResultListener(ResultListener listener) {
         mResultListener = listener;
         return this;
     }
@@ -314,7 +316,7 @@ final class GrantPermissionsDefaultViewHandler
     public View createView() {
         mRootView = (ManualLayoutFrame) LayoutInflater.from(mContext)
                 .inflate(R.layout.grant_permissions, null);
-
+        ((ButtonBarLayout) mRootView.findViewById(R.id.button_group)).setAllowStacking(true);
         mDialogContainer = (ViewGroup) mRootView.findViewById(R.id.dialog_container);
         mMessageView = (TextView) mRootView.findViewById(R.id.permission_message);
         mIconView = (ImageView) mRootView.findViewById(R.id.permission_icon);

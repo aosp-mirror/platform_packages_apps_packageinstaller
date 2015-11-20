@@ -26,11 +26,12 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PermissionInfo;
 import android.content.res.Resources;
+import android.graphics.Typeface;
 import android.graphics.drawable.Icon;
 import android.hardware.camera2.utils.ArrayUtils;
 import android.os.Bundle;
 import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -73,11 +74,13 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
         setTitle(R.string.permission_request_title);
 
         if (DeviceUtils.isTelevision(this)) {
-            mViewHandler = new GrantPermissionsTvViewHandler(this).setResultListener(this);
+            mViewHandler = new com.android.packageinstaller.permission.ui.television
+                    .GrantPermissionsViewHandlerImpl(this).setResultListener(this);
         } else if (DeviceUtils.isWear(this)) {
             mViewHandler = new GrantPermissionsWatchViewHandler(this).setResultListener(this);
         } else {
-            mViewHandler = new GrantPermissionsDefaultViewHandler(this).setResultListener(this);
+            mViewHandler = new com.android.packageinstaller.permission.ui.handheld
+                    .GrantPermissionsViewHandlerImpl(this).setResultListener(this);
         }
 
         mRequestedPermissions = getIntent().getStringArrayExtra(
@@ -209,8 +212,7 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
                 // Color the app name.
                 int appLabelStart = message.toString().indexOf(appLabel.toString(), 0);
                 int appLabelLength = appLabel.length();
-                int color = getColor(R.color.grant_permissions_app_color);
-                message.setSpan(new ForegroundColorSpan(color), appLabelStart,
+                message.setSpan(new StyleSpan(Typeface.BOLD), appLabelStart,
                         appLabelStart + appLabelLength, 0);
 
                 // Set the new grant view
