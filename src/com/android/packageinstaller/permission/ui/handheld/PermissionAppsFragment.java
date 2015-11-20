@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.android.packageinstaller.permission.ui;
+package com.android.packageinstaller.permission.ui.handheld;
 
 import android.app.ActionBar;
 import android.app.AlertDialog;
@@ -24,12 +24,11 @@ import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v14.preference.SwitchPreference;
-import android.support.v4.util.ArrayMap;
-import android.support.v7.preference.Preference;
-import android.support.v7.preference.Preference.OnPreferenceChangeListener;
-import android.support.v7.preference.Preference.OnPreferenceClickListener;
-import android.support.v7.preference.PreferenceScreen;
+import android.preference.Preference;
+import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
+import android.util.ArrayMap;
 import android.util.ArraySet;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -38,12 +37,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionApps;
 import com.android.packageinstaller.permission.model.PermissionApps.Callback;
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
+import com.android.packageinstaller.permission.ui.OverlayTouchActivity;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.packageinstaller.permission.utils.Utils;
@@ -52,7 +51,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class PermissionAppsFragment extends PermissionsFrameFragment implements Callback,
-        OnPreferenceChangeListener {
+        Preference.OnPreferenceChangeListener {
 
     private static final int MENU_SHOW_SYSTEM = Menu.FIRST;
     private static final int MENU_HIDE_SYSTEM = Menu.FIRST + 1;
@@ -138,11 +137,6 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
     }
 
     @Override
-    protected void onSetEmptyText(TextView textView) {
-        textView.setText(R.string.no_apps);
-    }
-
-    @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         bindUi(this, mPermissionApps);
@@ -179,7 +173,7 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
 
     @Override
     public void onPermissionsLoaded(PermissionApps permissionApps) {
-        Context context = getPreferenceManager().getContext();
+        Context context = getActivity();
 
         if (context == null) {
             return;
@@ -187,6 +181,10 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
 
         boolean isTelevision = Utils.isTelevision(context);
         PreferenceScreen screen = getPreferenceScreen();
+        if (screen == null) {
+            screen = getPreferenceManager().createPreferenceScreen(getActivity());
+            setPreferenceScreen(screen);
+        }
 
         ArraySet<String> preferencesToRemove = new ArraySet<>();
         for (int i = 0, n = screen.getPreferenceCount(); i < n; i++) {
@@ -400,10 +398,6 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
             mOuterFragment = (PermissionAppsFragment) getTargetFragment();
             setLoading(true /* loading */, false /* animate */);
             super.onCreate(savedInstanceState);
-        }
-
-        @Override
-        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             if (mOuterFragment.mExtraScreen != null) {
                 setPreferenceScreen();
             } else {

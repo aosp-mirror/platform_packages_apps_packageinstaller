@@ -31,6 +31,7 @@ import android.util.ArraySet;
 import android.util.Log;
 import android.util.SparseArray;
 
+import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.utils.Utils;
 
 import java.util.ArrayList;
@@ -275,7 +276,7 @@ public class PermissionApps {
         if (info.icon != 0) {
             mIcon = info.loadUnbadgedIcon(mPm);
         } else {
-            mIcon = mContext.getDrawable(com.android.internal.R.drawable.ic_perm_device_info);
+            mIcon = mContext.getDrawable(R.drawable.ic_perm_device_info);
         }
         mIcon = Utils.applyTint(mContext, mIcon, android.R.attr.colorControlNormal);
     }

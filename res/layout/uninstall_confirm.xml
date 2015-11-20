@@ -40,9 +40,10 @@
             android:id="@+id/activity_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingStart="16dip"
+            android:paddingEnd="16dip"
             android:textColor="?android:attr/textColorSecondary"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            style="@style/padded"
             android:visibility="gone" />
 
         <!-- The snippet (title & icon) about the application being uninstalled. -->

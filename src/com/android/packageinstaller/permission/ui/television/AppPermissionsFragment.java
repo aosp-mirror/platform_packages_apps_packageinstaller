@@ -14,7 +14,7 @@
 * limitations under the License.
 */
 
-package com.android.packageinstaller.permission.ui;
+package com.android.packageinstaller.permission.ui.television;
 
 import android.annotation.Nullable;
 import android.app.ActionBar;
@@ -50,6 +50,7 @@ import android.widget.Toast;
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
+import com.android.packageinstaller.permission.ui.OverlayTouchActivity;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.packageinstaller.permission.utils.Utils;

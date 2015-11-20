@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.packageinstaller.permission.ui;
+package com.android.packageinstaller.permission.ui.handheld;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -81,5 +81,4 @@ public abstract class SettingsWithHeader extends PermissionsFrameFragment
     public void onClick(View v) {
         getActivity().startActivity(mInfoIntent);
     }
-
 }

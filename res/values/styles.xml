@@ -15,37 +15,22 @@
 -->
 
 <resources>
-    <style name="padded">
-        <item name="android:paddingStart">16dip</item>
-        <item name="android:paddingEnd">16dip</item>
+
+    <style name="Theme.DialogWhenLarge"
+           parent="@android:style/Theme.DeviceDefault.Light.DialogWhenLarge.NoActionBar">
     </style>
-    <style name="Theme.DialogWhenLarge" parent="@android:style/Theme.DeviceDefault.Light.DialogWhenLarge.NoActionBar"/>
-    <style name="Theme.AlertDialogActivity" parent="@android:style/Theme.DeviceDefault.Light.Panel">
+
+    <style name="Theme.AlertDialogActivity"
+           parent="@android:style/Theme.DeviceDefault.Light.Panel">
         <item name="android:backgroundDimEnabled">true</item>
     </style>
 
-    <style name="Theme.Header.Settings" parent="@android:style/Theme.DeviceDefault.Settings">
-    </style>
-
-    <style name="PreferenceThemeOverlay.v14.Permissions">
-        <item name="preferenceStyle">@style/Preference.Permissions</item>
-        <item name="preferenceCategoryStyle">@style/Preference.Category.Permissions</item>
-        <item name="switchPreferenceStyle">@style/Preference.SwitchPreference.Permissions</item>
-    </style>
-
-    <style name="Preference.Permissions">
-        <item name="layout">@layout/preference_permissions</item>
-    </style>
-
-    <style name="Preference.Category.Permissions">
-        <item name="layout">@layout/preference_category_material</item>
-    </style>
-
-    <style name="Preference.SwitchPreference.Permissions">
-        <item name="layout">@layout/preference_permissions_switch</item>
+    <style name="Theme.Header.Settings"
+           parent="@android:style/Theme.DeviceDefault.Settings">
     </style>
 
     <style name="ActionBar" parent="@android:style/Widget.Material.ActionBar.Solid">
         <item name="android:contentInsetStart">72dp</item>
     </style>
+
 </resources>
