@@ -31,6 +31,7 @@ import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
+import com.android.packageinstaller.DeviceUtils;
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.utils.Utils;
 
@@ -133,7 +134,7 @@ public abstract class PermissionsFrameFragment extends PreferenceFragment {
     @Override
     public RecyclerView onCreateRecyclerView(LayoutInflater inflater, ViewGroup parent,
             Bundle savedInstanceState) {
-        if (Utils.isTelevision(getContext())) {
+        if (DeviceUtils.isTelevision(getContext())) {
             mGridView = (VerticalGridView) inflater.inflate(
                     R.layout.leanback_preferences_list, parent, false);
             mGridView.setWindowAlignmentOffset(0);
