@@ -146,4 +146,8 @@ public class Utils {
         return info.isSystemApp() && (info.flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) == 0
                 && !launcherPkgs.contains(info.packageName);
     }
+
+    public static boolean isTelevision(Object o) {
+        return false;
+    }
 }
