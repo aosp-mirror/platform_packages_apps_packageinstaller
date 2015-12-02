@@ -94,6 +94,16 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".permission.ui.ReviewPermissionsActivity"
+                  android:excludeFromRecents="true"
+                  android:theme="@style/Settings.NoActionBar"
+                  android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS">
+            <intent-filter>
+                <action android:name="android.intent.action.REVIEW_PERMISSIONS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".permission.ui.OverlayWarningDialog"
                 android:excludeFromRecents="true"
                 android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar" />

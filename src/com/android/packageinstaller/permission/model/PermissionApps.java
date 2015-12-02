@@ -120,7 +120,7 @@ public class PermissionApps {
         return count;
     }
 
-    public Collection<PermissionApp> getApps() {
+    public List<PermissionApp> getApps() {
         return mPermApps;
     }
 
@@ -317,6 +317,10 @@ public class PermissionApps {
             return mAppPermissionGroup.areRuntimePermissionsGranted();
         }
 
+        public boolean isReviewRequired() {
+            return mAppPermissionGroup.isReviewRequired();
+        }
+
         public void grantRuntimePermissions() {
             mAppPermissionGroup.grantRuntimePermissions(false);
         }
@@ -339,10 +343,6 @@ public class PermissionApps {
 
         public boolean hasRuntimePermissions() {
             return mAppPermissionGroup.hasRuntimePermission();
-        }
-
-        public boolean hasAppOpPermissions() {
-            return mAppPermissionGroup.hasAppOpPermission();
         }
 
         public String getPackageName() {

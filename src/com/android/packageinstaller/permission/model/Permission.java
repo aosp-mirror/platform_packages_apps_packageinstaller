@@ -56,6 +56,14 @@ public final class Permission {
         return mGranted;
     }
 
+    public boolean isReviewRequired() {
+        return (mFlags & PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED) != 0;
+    }
+
+    public void resetReviewRequired() {
+        mFlags &= ~PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED;
+    }
+
     public void setGranted(boolean mGranted) {
         this.mGranted = mGranted;
     }

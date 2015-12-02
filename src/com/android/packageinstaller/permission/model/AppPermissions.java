@@ -19,6 +19,7 @@ package com.android.packageinstaller.permission.model;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.text.BidiFormatter;
 import android.text.TextPaint;
 import android.text.TextUtils;
@@ -89,6 +90,19 @@ public final class AppPermissions {
         return mGroups;
     }
 
+    public boolean isReviewRequired() {
+        if (!Build.PERMISSIONS_REVIEW_REQUIRED) {
+            return false;
+        }
+        final int groupCount = mGroups.size();
+        for (int i = 0; i < groupCount; i++) {
+            AppPermissionGroup group = mGroups.get(i);
+            if (group.isReviewRequired()) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     private void loadPackageInfo() {
         try {

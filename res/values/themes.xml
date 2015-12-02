@@ -21,6 +21,11 @@
            parent="@android:style/Theme.DeviceDefault.Settings">
     </style>
 
+    <style name="Settings.NoActionBar" parent="@style/Settings">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
     <style name="GrantPermissions"
            parent="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar">
     </style>

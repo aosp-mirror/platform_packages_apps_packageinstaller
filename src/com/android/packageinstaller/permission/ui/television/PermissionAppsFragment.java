@@ -271,7 +271,8 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
                     @Override
                     public boolean onPreferenceClick(Preference preference) {
                         SystemAppsFragment frag = new SystemAppsFragment();
-                        setPermissionName(frag, getArguments().getString(Intent.EXTRA_PERMISSION_NAME));
+                        setPermissionName(frag, getArguments().getString(
+                                Intent.EXTRA_PERMISSION_NAME));
                         frag.setTargetFragment(PermissionAppsFragment.this, 0);
                         getFragmentManager().beginTransaction()
                             .replace(android.R.id.content, frag)
@@ -327,13 +328,21 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
             return false;
         }
 
-        addToggledGroup(app.getPackageName(), app.getPermissionGroup());
-
         if (LocationUtils.isLocationGroupAndProvider(mPermissionApps.getGroupName(),
                 app.getPackageName())) {
             LocationUtils.showLocationDialog(getContext(), app.getLabel());
             return false;
         }
+
+        addToggledGroup(app.getPackageName(), app.getPermissionGroup());
+
+        if (app.isReviewRequired()) {
+            Intent intent = new Intent(getActivity(), ReviewPermissionsActivity.class);
+            intent.putExtra(Intent.EXTRA_PACKAGE_NAME, app.getPackageName());
+            startActivity(intent);
+            return false;
+        }
+
         if (newValue == Boolean.TRUE) {
             app.grantRuntimePermissions();
         } else {
