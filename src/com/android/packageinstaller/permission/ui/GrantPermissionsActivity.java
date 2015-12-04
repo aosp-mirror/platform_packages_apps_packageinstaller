@@ -29,6 +29,7 @@ import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.graphics.drawable.Icon;
 import android.hardware.camera2.utils.ArrayUtils;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.StyleSpan;
@@ -46,6 +47,7 @@ import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.packageinstaller.permission.utils.Utils;
+import libcore.util.EmptyArray;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -98,6 +100,15 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
         }
 
         PackageInfo callingPackageInfo = getCallingPackageInfo();
+
+        // Don't allow legacy apps to request runtime permissions.
+        if (callingPackageInfo.applicationInfo.targetSdkVersion < Build.VERSION_CODES.M) {
+            // Returning empty arrays means a cancellation.
+            mRequestedPermissions = EmptyArray.STRING;
+            mGrantResults = EmptyArray.INT;
+            setResultAndFinish();
+            return;
+        }
 
         DevicePolicyManager devicePolicyManager = getSystemService(DevicePolicyManager.class);
         final int permissionPolicy = devicePolicyManager.getPermissionPolicy(null);
