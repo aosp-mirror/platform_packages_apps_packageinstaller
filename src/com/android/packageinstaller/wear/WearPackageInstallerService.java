@@ -586,31 +586,33 @@ public class WearPackageInstallerService extends Service {
         }
 
         public void packageInstalled(String packageName, int returnCode) {
-            // If installation failed, bail out and remove the ShowPermsStore entry
-            if (returnCode < 0) {
-                Log.e(TAG, "Package install failed " + mApplicationPackageName
-                        + ", returnCode " + returnCode);
-                WearPackageUtil.removeFromPermStore(mContext, mApplicationPackageName);
-                return;
+            try {
+                // If installation failed, bail out and remove the ShowPermsStore entry
+                if (returnCode < 0) {
+                    Log.e(TAG, "Package install failed " + mApplicationPackageName
+                            + ", returnCode " + returnCode);
+                    WearPackageUtil.removeFromPermStore(mContext, mApplicationPackageName);
+                    return;
+                }
+
+                Log.i(TAG, "Package " + packageName + " was installed.");
+
+                // Delete tempFile from the file system.
+                File tempFile = WearPackageUtil.getTemporaryFile(mContext, packageName);
+                if (tempFile != null) {
+                    tempFile.delete();
+                }
+
+                // Broadcast the "UPDATED" gmscore intent, normally sent by play store.
+                // TODO: Remove this broadcast if/when we get the play store to do this for us.
+                if (GMS_PACKAGE_NAME.equals(packageName)) {
+                    Intent gmsInstalledIntent = new Intent(GMS_UPDATED_BROADCAST);
+                    gmsInstalledIntent.setPackage(GMS_PACKAGE_NAME);
+                    mContext.sendBroadcast(gmsInstalledIntent);
+                }
+            } finally {
+                finishService(mWakeLock, mStartId);
             }
-
-            Log.i(TAG, "Package " + packageName + " was installed.");
-
-            // Delete tempFile from the file system.
-            File tempFile = WearPackageUtil.getTemporaryFile(mContext, packageName);
-            if (tempFile != null) {
-                tempFile.delete();
-            }
-
-            // Broadcast the "UPDATED" gmscore intent, normally sent by play store.
-            // TODO: Remove this broadcast if/when we get the play store to do this for us.
-            if (GMS_PACKAGE_NAME.equals(packageName)) {
-                Intent gmsInstalledIntent = new Intent(GMS_UPDATED_BROADCAST);
-                gmsInstalledIntent.setPackage(GMS_PACKAGE_NAME);
-                mContext.sendBroadcast(gmsInstalledIntent);
-            }
-
-            finishService(mWakeLock, mStartId);
         }
     }
 
@@ -624,13 +626,16 @@ public class WearPackageInstallerService extends Service {
         }
 
         public void packageDeleted(String packageName, int returnCode) {
-            if (returnCode >= 0) {
-                Log.i(TAG, "Package " + packageName + " was uninstalled.");
-            } else {
-                Log.e(TAG, "Package uninstall failed " + packageName + ", returnCode " +
-                        returnCode);
+            try {
+                if (returnCode >= 0) {
+                    Log.i(TAG, "Package " + packageName + " was uninstalled.");
+                } else {
+                    Log.e(TAG, "Package uninstall failed " + packageName + ", returnCode " +
+                            returnCode);
+                }
+            } finally {
+                finishService(mWakeLock, mStartId);
             }
-            finishService(mWakeLock, mStartId);
         }
     }
 }
