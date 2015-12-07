@@ -117,18 +117,11 @@
     <string name="screen_overlay_button" msgid="4344544843349937743">"설정 열기"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Wear에서 지원하지 않는 설치/제거 작업입니다."</string>
-    <!-- no translation found for permission_review_warning_title_template_update (2569412700408535872) -->
-    <skip />
-    <!-- no translation found for permission_review_title_template_install (6535540493936469336) -->
-    <skip />
-    <!-- no translation found for permission_review_title_template_update (2548815248828051885) -->
-    <skip />
-    <!-- no translation found for review_button_cancel (957906817733578877) -->
-    <skip />
-    <!-- no translation found for review_button_continue (4809162078179371370) -->
-    <skip />
-    <!-- no translation found for new_permissions_category (3213523410139204183) -->
-    <skip />
-    <!-- no translation found for current_permissions_category (998210994450606094) -->
-    <skip />
+    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g>이(가) 업데이트되었습니다. <xliff:g id="APP_NAME_1">%1$s</xliff:g>이(가) 다음에 액세스하도록 허용하시겠습니까?"</string>
+    <string name="permission_review_title_template_install" msgid="6535540493936469336">"<xliff:g id="APP_NAME">%1$s</xliff:g>에서 액세스하도록 허용할 항목을 선택하세요."</string>
+    <string name="permission_review_title_template_update" msgid="2548815248828051885">"<xliff:g id="APP_NAME">%1$s</xliff:g>이(가) 업데이트되었습니다. 이 앱에서 액세스하도록 허용할 항목을 선택하세요."</string>
+    <string name="review_button_cancel" msgid="957906817733578877">"취소"</string>
+    <string name="review_button_continue" msgid="4809162078179371370">"계속"</string>
+    <string name="new_permissions_category" msgid="3213523410139204183">"새로운 권한"</string>
+    <string name="current_permissions_category" msgid="998210994450606094">"기존 권한"</string>
 </resources>

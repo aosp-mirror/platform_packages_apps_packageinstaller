@@ -117,18 +117,11 @@
     <string name="screen_overlay_button" msgid="4344544843349937743">"Abrir configuración"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"As accións de instalar e desinstalar non son compatibles con Wear."</string>
-    <!-- no translation found for permission_review_warning_title_template_update (2569412700408535872) -->
-    <skip />
-    <!-- no translation found for permission_review_title_template_install (6535540493936469336) -->
-    <skip />
-    <!-- no translation found for permission_review_title_template_update (2548815248828051885) -->
-    <skip />
-    <!-- no translation found for review_button_cancel (957906817733578877) -->
-    <skip />
-    <!-- no translation found for review_button_continue (4809162078179371370) -->
-    <skip />
-    <!-- no translation found for new_permissions_category (3213523410139204183) -->
-    <skip />
-    <!-- no translation found for current_permissions_category (998210994450606094) -->
-    <skip />
+    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"Actualizouse <xliff:g id="APP_NAME_0">%1$s</xliff:g>. Queres permitir que <xliff:g id="APP_NAME_1">%1$s</xliff:g> acceda ao seguinte?"</string>
+    <string name="permission_review_title_template_install" msgid="6535540493936469336">"Escolle a que lle queres permitir o acceso a <xliff:g id="APP_NAME">%1$s</xliff:g>"</string>
+    <string name="permission_review_title_template_update" msgid="2548815248828051885">"Actualizouse <xliff:g id="APP_NAME">%1$s</xliff:g>. Escolle a que lle queres permitir o acceso a esta aplicación."</string>
+    <string name="review_button_cancel" msgid="957906817733578877">"Cancelar"</string>
+    <string name="review_button_continue" msgid="4809162078179371370">"Continuar"</string>
+    <string name="new_permissions_category" msgid="3213523410139204183">"Novos permisos"</string>
+    <string name="current_permissions_category" msgid="998210994450606094">"Permisos actuais"</string>
 </resources>
