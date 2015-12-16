@@ -16,7 +16,6 @@
 
 package com.android.packageinstaller.wear;
 
-import android.annotation.Nullable;
 import android.app.Service;
 import android.content.ComponentName;
 import android.content.Context;
@@ -81,19 +80,6 @@ import java.util.Set;
 public class WearPackageInstallerService extends Service {
     private static final String TAG = "WearPkgInstallerService";
 
-    private static final String KEY_PERM_URI =
-            "com.google.android.clockwork.EXTRA_PERM_URI";
-    private static final String KEY_CHECK_PERMS =
-            "com.google.android.clockwork.EXTRA_CHECK_PERMS";
-    private static final String KEY_SKIP_IF_SAME_VERSION =
-            "com.google.android.clockwork.EXTRA_SKIP_IF_SAME_VERSION";
-    private static final String KEY_COMPRESSION_ALG =
-            "com.google.android.clockwork.EXTRA_KEY_COMPRESSION_ALG";
-    private static final String KEY_COMPANION_SDK_VERSION =
-            "com.google.android.clockwork.EXTRA_KEY_COMPANION_SDK_VERSION";
-    private static final String KEY_COMPANION_DEVICE_VERSION =
-            "com.google.android.clockwork.EXTRA_KEY_COMPANION_DEVICE_VERSION";
-
     private static final String KEY_PACKAGE_NAME =
             "com.google.android.clockwork.EXTRA_PACKAGE_NAME";
     private static final String KEY_APP_LABEL = "com.google.android.clockwork.EXTRA_APP_LABEL";
@@ -106,16 +92,6 @@ public class WearPackageInstallerService extends Service {
     private static final String HOME_APP_PACKAGE_NAME = "com.google.android.wearable.app";
     private static final String SHOW_PERMS_SERVICE_CLASS =
             "com.google.android.clockwork.packagemanager.ShowPermsService";
-
-    private static final String ASSET_URI_ARG = "assetUri";
-    private static final String PACKAGE_NAME_ARG = "packageName";
-    private static final String PERM_URI_ARG = "permUri";
-    private static final String START_ID_ARG = "startId";
-    private static final String CHECK_PERMS_ARG = "checkPerms";
-    private static final String SKIP_IF_SAME_VERSION_ARG = "skipIfSameVersion";
-    private static final String COMPRESSION_ALG = "compressionAlg";
-    private static final String COMPANION_SDK_VERSION = "companionSdkVersion";
-    private static final String COMPANION_DEVICE_VERSION = "companionDeviceVersion";
 
     /**
      * Normally sent by the Play store (See http://go/playstore-gms_updated), we instead
@@ -135,19 +111,10 @@ public class WearPackageInstallerService extends Service {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case START_INSTALL:
-                    installPackage(msg.getData().getString(PACKAGE_NAME_ARG),
-                            (Uri) msg.getData().getParcelable(ASSET_URI_ARG),
-                            (Uri) msg.getData().getParcelable(PERM_URI_ARG),
-                            msg.getData().getInt(START_ID_ARG),
-                            msg.getData().getBoolean(CHECK_PERMS_ARG),
-                            msg.getData().getBoolean(SKIP_IF_SAME_VERSION_ARG),
-                            msg.getData().getString(COMPRESSION_ALG),
-                            msg.getData().getInt(COMPANION_SDK_VERSION),
-                            msg.getData().getInt(COMPANION_DEVICE_VERSION));
+                    installPackage(msg.getData());
                     break;
                 case START_UNINSTALL:
-                    uninstallPackage(msg.getData().getString(PACKAGE_NAME_ARG),
-                            msg.getData().getInt(START_ID_ARG));
+                    uninstallPackage(msg.getData());
                     break;
             }
         }
@@ -185,45 +152,35 @@ public class WearPackageInstallerService extends Service {
             Log.d(TAG, "Got install/uninstall request " + intent);
         }
         if (intent != null) {
+            Bundle intentBundle = intent.getExtras();
+            WearPackageArgs.setStartId(intentBundle, startId);
             if (Intent.ACTION_INSTALL_PACKAGE.equals(intent.getAction())) {
                 final Message msg = mServiceHandler.obtainMessage(START_INSTALL);
-                final Bundle startInstallArgs = new Bundle();
-                startInstallArgs.putParcelable(ASSET_URI_ARG, intent.getData());
-                startInstallArgs.putString(PACKAGE_NAME_ARG, intent.getStringExtra(
-                        Intent.EXTRA_INSTALLER_PACKAGE_NAME));
-                startInstallArgs.putInt(START_ID_ARG, startId);
-                Uri permUri = intent.getParcelableExtra(KEY_PERM_URI);
-                startInstallArgs.putParcelable(PERM_URI_ARG, permUri);
-                startInstallArgs.putBoolean(CHECK_PERMS_ARG,
-                        intent.getBooleanExtra(KEY_CHECK_PERMS, true));
-                startInstallArgs.putBoolean(SKIP_IF_SAME_VERSION_ARG,
-                        intent.getBooleanExtra(KEY_SKIP_IF_SAME_VERSION, false));
-                startInstallArgs.putString(COMPRESSION_ALG,
-                        intent.getStringExtra(KEY_COMPRESSION_ALG));
-                startInstallArgs.putInt(COMPANION_SDK_VERSION,
-                        intent.getIntExtra(KEY_COMPANION_SDK_VERSION, 0));
-                startInstallArgs.putInt(COMPANION_DEVICE_VERSION,
-                        intent.getIntExtra(KEY_COMPANION_DEVICE_VERSION, 0));
-                msg.setData(startInstallArgs);
+                WearPackageArgs.setAssetUri(intentBundle, intent.getData());
+                msg.setData(intentBundle);
                 mServiceHandler.sendMessage(msg);
             } else if (Intent.ACTION_UNINSTALL_PACKAGE.equals(intent.getAction())) {
                 Message msg = mServiceHandler.obtainMessage(START_UNINSTALL);
-                Bundle startUninstallArgs = new Bundle();
-                startUninstallArgs.putString(PACKAGE_NAME_ARG, intent.getStringExtra(
-                        Intent.EXTRA_INSTALLER_PACKAGE_NAME));
-                startUninstallArgs.putInt(START_ID_ARG, startId);
-                msg.setData(startUninstallArgs);
+                msg.setData(intentBundle);
                 mServiceHandler.sendMessage(msg);
             }
         }
         return START_NOT_STICKY;
     }
 
-    private void installPackage(String packageName, Uri packageUri, Uri permUri, int startId,
-            boolean checkPerms, boolean skipIfSameVersion, @Nullable String compressionAlg,
-            int companionSdkVersion, int companionDeviceVersion) {
+    private void installPackage(Bundle argsBundle) {
+        int startId = WearPackageArgs.getStartId(argsBundle);
+        final String packageName = WearPackageArgs.getPackageName(argsBundle);
+        final Uri assetUri = WearPackageArgs.getAssetUri(argsBundle);
+        final Uri permUri = WearPackageArgs.getPermUri(argsBundle);
+        boolean checkPerms = WearPackageArgs.checkPerms(argsBundle);
+        boolean skipIfSameVersion = WearPackageArgs.skipIfSameVersion(argsBundle);
+        int companionSdkVersion = WearPackageArgs.getCompanionSdkVersion(argsBundle);
+        int companionDeviceVersion = WearPackageArgs.getCompanionDeviceVersion(argsBundle);
+        String compressionAlg = WearPackageArgs.getCompressionAlg(argsBundle);
+
         if (Log.isLoggable(TAG, Log.DEBUG)) {
-            Log.d(TAG, "Installing package: " + packageName + ", packageUri: " + packageUri +
+            Log.d(TAG, "Installing package: " + packageName + ", assetUri: " + assetUri +
                     ",permUri: " + permUri + ", startId: " + startId + ", checkPerms: " +
                     checkPerms + ", skipIfSameVersion: " + skipIfSameVersion +
                     ", compressionAlg: " + compressionAlg + ", companionSdkVersion: " +
@@ -252,7 +209,7 @@ public class WearPackageInstallerService extends Service {
                 }
             }
             ParcelFileDescriptor parcelFd = getContentResolver()
-                    .openFileDescriptor(packageUri, "r");
+                    .openFileDescriptor(assetUri, "r");
             tempFile = WearPackageUtil.getFileFromFd(WearPackageInstallerService.this,
                     parcelFd, packageName, compressionAlg);
             if (tempFile == null) {
@@ -339,10 +296,11 @@ public class WearPackageInstallerService extends Service {
             pm.installPackage(Uri.fromFile(tempFile),
                     new PackageInstallObserver(this, lock, startId, packageName),
                         installFlags, packageName);
+
             messageSent = true;
             Log.i(TAG, "Sent installation request for " + packageName);
         } catch (FileNotFoundException e) {
-            Log.e(TAG, "Could not find the file with URI " + packageUri, e);
+            Log.e(TAG, "Could not find the file with URI " + assetUri, e);
         } finally {
             if (!messageSent) {
                 // Some error happened. If the message has been sent, we can wait for the observer
@@ -355,7 +313,10 @@ public class WearPackageInstallerService extends Service {
         }
     }
 
-    private void uninstallPackage(String packageName, int startId) {
+    private void uninstallPackage(Bundle argsBundle) {
+        int startId = WearPackageArgs.getStartId(argsBundle);
+        final String packageName = WearPackageArgs.getPackageName(argsBundle);
+
         final PackageManager pm = getPackageManager();
         PowerManager.WakeLock lock = getLock(this.getApplicationContext());
         pm.deletePackage(packageName, new PackageDeleteObserver(lock, startId),
