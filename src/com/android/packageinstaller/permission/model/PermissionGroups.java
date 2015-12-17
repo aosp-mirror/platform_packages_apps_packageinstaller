@@ -212,11 +212,12 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
         }
 
         private Drawable loadItemInfoIcon(PackageItemInfo itemInfo) {
-            final Drawable icon;
+            Drawable icon = null;
             if (itemInfo.icon > 0) {
                 icon = Utils.loadDrawable(getContext().getPackageManager(),
                         itemInfo.packageName, itemInfo.icon);
-            } else {
+            }
+            if (icon == null) {
                 icon = getContext().getDrawable(R.drawable.ic_perm_device_info);
             }
             return icon;
