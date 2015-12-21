@@ -66,8 +66,6 @@ import java.util.List;
  */
 public class InstallAppProgress extends Activity implements View.OnClickListener, OnCancelListener {
     private final String TAG="InstallAppProgress";
-    static final String EXTRA_MANIFEST_DIGEST =
-            "com.android.packageinstaller.extras.manifest_digest";
     private static final String BROADCAST_ACTION =
             "com.android.packageinstaller.ACTION_INSTALL_COMMIT";
     private static final String BROADCAST_SENDER_PERMISSION =
