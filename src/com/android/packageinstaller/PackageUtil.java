@@ -65,9 +65,7 @@ public class PackageUtil {
     public static PackageParser.Package getPackageInfo(File sourceFile) {
         final PackageParser parser = new PackageParser();
         try {
-            PackageParser.Package pkg = parser.parseMonolithicPackage(sourceFile, 0);
-            parser.collectManifestDigest(pkg);
-            return pkg;
+            return parser.parseMonolithicPackage(sourceFile, 0);
         } catch (PackageParserException e) {
             return null;
         }

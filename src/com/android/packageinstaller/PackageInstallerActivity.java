@@ -26,7 +26,6 @@ import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.ManifestDigest;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageInstaller;
 import android.content.pm.PackageManager;
@@ -70,7 +69,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     private Uri mOriginatingURI;
     private Uri mReferrerURI;
     private int mOriginatingUid = VerificationParams.NO_UID;
-    private ManifestDigest mPkgDigest;
 
     private boolean localLOGV = false;
     PackageManager mPm;
@@ -487,7 +485,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             mPkgInfo = PackageParser.generatePackageInfo(parsed, null,
                     PackageManager.GET_PERMISSIONS, 0, 0, null,
                     new PackageUserState());
-            mPkgDigest = parsed.manifestDigest;
             as = PackageUtil.getAppSnippet(this, mPkgInfo.applicationInfo, sourceFile);
         }
 
@@ -634,7 +631,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                 mPkgInfo.applicationInfo);
         newIntent.setData(mPackageURI);
         newIntent.setClass(this, InstallAppProgress.class);
-        newIntent.putExtra(InstallAppProgress.EXTRA_MANIFEST_DIGEST, mPkgDigest);
         String installerPackageName = getIntent().getStringExtra(
                 Intent.EXTRA_INSTALLER_PACKAGE_NAME);
         if (mOriginatingURI != null) {
