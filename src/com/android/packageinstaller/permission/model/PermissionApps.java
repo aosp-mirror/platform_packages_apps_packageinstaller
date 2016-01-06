@@ -151,7 +151,7 @@ public class PermissionApps {
 
         for (UserHandle user : UserManager.get(mContext).getUserProfiles()) {
             List<PackageInfo> apps = mCache != null ? mCache.getPackages(user.getIdentifier())
-                    : mPm.getInstalledPackages(PackageManager.GET_PERMISSIONS,
+                    : mPm.getInstalledPackagesAsUser(PackageManager.GET_PERMISSIONS,
                             user.getIdentifier());
 
             final int N = apps.size();
@@ -401,7 +401,7 @@ public class PermissionApps {
         public synchronized List<PackageInfo> getPackages(int userId) {
             List<PackageInfo> ret = mPackageInfoCache.get(userId);
             if (ret == null) {
-                ret = mPm.getInstalledPackages(PackageManager.GET_PERMISSIONS, userId);
+                ret = mPm.getInstalledPackagesAsUser(PackageManager.GET_PERMISSIONS, userId);
                 mPackageInfoCache.put(userId, ret);
             }
             return ret;
