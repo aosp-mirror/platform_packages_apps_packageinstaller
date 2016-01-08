@@ -16,16 +16,21 @@
 */
 package com.android.packageinstaller;
 
+import static android.content.pm.PackageInstaller.SessionParams.UID_UNKNOWN;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.IPackageInstallObserver;
-import android.content.pm.ManifestDigest;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageInstaller;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
@@ -34,6 +39,7 @@ import android.graphics.drawable.LevelListDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.HandlerThread;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
@@ -41,7 +47,13 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import libcore.io.IoUtils;
+
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.List;
 
 /**
@@ -54,11 +66,14 @@ import java.util.List;
  */
 public class InstallAppProgress extends Activity implements View.OnClickListener, OnCancelListener {
     private final String TAG="InstallAppProgress";
-    private boolean localLOGV = false;
     static final String EXTRA_MANIFEST_DIGEST =
             "com.android.packageinstaller.extras.manifest_digest";
     static final String EXTRA_INSTALL_FLOW_ANALYTICS =
             "com.android.packageinstaller.extras.install_flow_analytics";
+    private static final String BROADCAST_ACTION =
+            "com.android.packageinstaller.ACTION_INSTALL_COMMIT";
+    private static final String BROADCAST_SENDER_PERMISSION =
+            "android.permission.INSTALL_PACKAGES";
     private ApplicationInfo mAppInfo;
     private Uri mPackageURI;
     private InstallFlowAnalytics mInstallFlowAnalytics;
@@ -72,6 +87,8 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
     private Intent mLaunchIntent;
     private static final int DLG_OUT_OF_SPACE = 1;
     private CharSequence mLabel;
+    private HandlerThread mInstallThread;
+    private Handler mInstallHandler;
 
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
@@ -81,7 +98,7 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
                     if (getIntent().getBooleanExtra(Intent.EXTRA_RETURN_RESULT, false)) {
                         Intent result = new Intent();
                         result.putExtra(Intent.EXTRA_INSTALL_RESULT, msg.arg1);
-                        setResult(msg.arg1 == PackageManager.INSTALL_SUCCEEDED
+                        setResult(msg.arg1 == PackageInstaller.STATUS_SUCCESS
                                 ? Activity.RESULT_OK : Activity.RESULT_FIRST_USER,
                                         result);
                         finish();
@@ -94,7 +111,7 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
                     int centerExplanationLabel = -1;
                     LevelListDrawable centerTextDrawable =
                             (LevelListDrawable) getDrawable(R.drawable.ic_result_status);
-                    if (msg.arg1 == PackageManager.INSTALL_SUCCEEDED) {
+                    if (msg.arg1 == PackageInstaller.STATUS_SUCCESS) {
                         mLaunchButton.setVisibility(View.VISIBLE);
                         centerTextDrawable.setLevel(0);
                         centerTextLabel = R.string.install_done;
@@ -114,7 +131,7 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
                         } else {
                             mLaunchButton.setEnabled(false);
                         }
-                    } else if (msg.arg1 == PackageManager.INSTALL_FAILED_INSUFFICIENT_STORAGE){
+                    } else if (msg.arg1 == PackageInstaller.STATUS_FAILURE_STORAGE){
                         showDialogInner(DLG_OUT_OF_SPACE);
                         return;
                     } else {
@@ -146,18 +163,31 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
             }
         }
     };
-    
+
+    private final BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            final int statusCode = intent.getIntExtra(
+                    PackageInstaller.EXTRA_STATUS, PackageInstaller.STATUS_FAILURE);
+            if (statusCode == PackageInstaller.STATUS_PENDING_USER_ACTION) {
+                context.startActivity((Intent)intent.getParcelableExtra(Intent.EXTRA_INTENT));
+            } else {
+                onPackageInstalled(statusCode);
+            }
+        }
+    };
+
     private int getExplanationFromErrorCode(int errCode) {
         Log.d(TAG, "Installation error code: " + errCode);
         switch (errCode) {
-            case PackageManager.INSTALL_FAILED_INVALID_APK:
+            case PackageInstaller.STATUS_FAILURE_BLOCKED:
+                return R.string.install_failed_blocked;
+            case PackageInstaller.STATUS_FAILURE_CONFLICT:
+                return R.string.install_failed_conflict;
+            case PackageInstaller.STATUS_FAILURE_INCOMPATIBLE:
+                return R.string.install_failed_incompatible;
+            case PackageInstaller.STATUS_FAILURE_INVALID:
                 return R.string.install_failed_invalid_apk;
-            case PackageManager.INSTALL_PARSE_FAILED_INCONSISTENT_CERTIFICATES:
-                return R.string.install_failed_inconsistent_certificates;
-            case PackageManager.INSTALL_FAILED_OLDER_SDK:
-                return R.string.install_failed_older_sdk;
-            case PackageManager.INSTALL_FAILED_CPU_ABI_INCOMPATIBLE:
-                return R.string.install_failed_cpu_abi_incompatible;
             default:
                 return -1;
         }
@@ -179,9 +209,19 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
             throw new IllegalArgumentException("unexpected scheme " + scheme);
         }
 
+        mInstallThread = new HandlerThread("InstallThread");
+        mInstallThread.start();
+        mInstallHandler = new Handler(mInstallThread.getLooper());
+
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(BROADCAST_ACTION);
+        registerReceiver(
+                mBroadcastReceiver, intentFilter, BROADCAST_SENDER_PERMISSION, null /*scheduler*/);
+
         initView();
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public Dialog onCreateDialog(int id, Bundle bundle) {
         switch (id) {
@@ -210,36 +250,85 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
        return null;
    }
 
+    @SuppressWarnings("deprecation")
     private void showDialogInner(int id) {
         removeDialog(id);
         showDialog(id);
     }
 
-    class PackageInstallObserver extends IPackageInstallObserver.Stub {
-        public void packageInstalled(String packageName, int returnCode) {
-            Message msg = mHandler.obtainMessage(INSTALL_COMPLETE);
-            msg.arg1 = returnCode;
-            mHandler.sendMessage(msg);
-        }
+    void onPackageInstalled(int statusCode) {
+        Message msg = mHandler.obtainMessage(INSTALL_COMPLETE);
+        msg.arg1 = statusCode;
+        mHandler.sendMessage(msg);
     }
 
-    public void initView() {
-        setContentView(R.layout.op_progress);
-        int installFlags = 0;
+    int getInstallFlags(String packageName) {
         PackageManager pm = getPackageManager();
         try {
-            PackageInfo pi = pm.getPackageInfo(mAppInfo.packageName, 
-                    PackageManager.GET_UNINSTALLED_PACKAGES);
-            if(pi != null) {
-                installFlags |= PackageManager.INSTALL_REPLACE_EXISTING;
+            PackageInfo pi =
+                    pm.getPackageInfo(packageName, PackageManager.GET_UNINSTALLED_PACKAGES);
+            if (pi != null) {
+                return PackageManager.INSTALL_REPLACE_EXISTING;
             }
         } catch (NameNotFoundException e) {
         }
+        return 0;
+    }
+
+    private void doPackageStage(PackageManager pm, PackageInstaller.SessionParams params) {
+        final PackageInstaller packageInstaller = pm.getPackageInstaller();
+        PackageInstaller.Session session = null;
+        try {
+            final String packageLocation = mPackageURI.getPath();
+            final File file = new File(packageLocation);
+            final int sessionId = packageInstaller.createSession(params);
+            final byte[] buffer = new byte[65536];
+
+            session = packageInstaller.openSession(sessionId);
+
+            final InputStream in = new FileInputStream(file);
+            final long sizeBytes = file.length();
+            final OutputStream out = session.openWrite("PackageInstaller", 0, sizeBytes);
+            try {
+                int c;
+                while ((c = in.read(buffer)) != -1) {
+                    out.write(buffer, 0, c);
+                    if (sizeBytes > 0) {
+                        final float fraction = ((float) c / (float) sizeBytes);
+                        session.addProgress(fraction);
+                    }
+                }
+                session.fsync(out);
+            } finally {
+                IoUtils.closeQuietly(in);
+                IoUtils.closeQuietly(out);
+            }
+
+            // Create a PendingIntent and use it to generate the IntentSender
+            Intent broadcastIntent = new Intent(BROADCAST_ACTION);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                    InstallAppProgress.this /*context*/,
+                    sessionId,
+                    broadcastIntent,
+                    PendingIntent.FLAG_UPDATE_CURRENT);
+            session.commit(pendingIntent.getIntentSender());
+        } catch (IOException e) {
+            onPackageInstalled(PackageInstaller.STATUS_FAILURE);
+        } finally {
+            IoUtils.closeQuietly(session);
+        }
+    }
+
+    void initView() {
+        setContentView(R.layout.op_progress);
+
+        final PackageUtil.AppSnippet as;
+        final PackageManager pm = getPackageManager();
+        final int installFlags = getInstallFlags(mAppInfo.packageName);
+
         if((installFlags & PackageManager.INSTALL_REPLACE_EXISTING )!= 0) {
             Log.w(TAG, "Replacing package:" + mAppInfo.packageName);
         }
-
-        final PackageUtil.AppSnippet as;
         if ("package".equals(mPackageURI.getScheme())) {
             as = new PackageUtil.AppSnippet(pm.getApplicationLabel(mAppInfo),
                     pm.getApplicationIcon(mAppInfo));
@@ -255,40 +344,41 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
         mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
         mProgressBar.setIndeterminate(true);
         // Hide button till progress is being displayed
-        mOkPanel = (View)findViewById(R.id.buttons_panel);
+        mOkPanel = findViewById(R.id.buttons_panel);
         mDoneButton = (Button)findViewById(R.id.done_button);
         mLaunchButton = (Button)findViewById(R.id.launch_button);
         mOkPanel.setVisibility(View.INVISIBLE);
 
-        String installerPackageName = getIntent().getStringExtra(
-                Intent.EXTRA_INSTALLER_PACKAGE_NAME);
-        Uri originatingURI = getIntent().getParcelableExtra(Intent.EXTRA_ORIGINATING_URI);
-        Uri referrer = getIntent().getParcelableExtra(Intent.EXTRA_REFERRER);
-        int originatingUid = getIntent().getIntExtra(Intent.EXTRA_ORIGINATING_UID,
-                VerificationParams.NO_UID);
-        ManifestDigest manifestDigest = getIntent().getParcelableExtra(EXTRA_MANIFEST_DIGEST);
-        VerificationParams verificationParams = new VerificationParams(null, originatingURI,
-                referrer, originatingUid, manifestDigest);
-        PackageInstallObserver observer = new PackageInstallObserver();
-
         if ("package".equals(mPackageURI.getScheme())) {
             try {
                 pm.installExistingPackage(mAppInfo.packageName);
-                observer.packageInstalled(mAppInfo.packageName,
-                        PackageManager.INSTALL_SUCCEEDED);
+                onPackageInstalled(PackageInstaller.STATUS_SUCCESS);
             } catch (PackageManager.NameNotFoundException e) {
-                observer.packageInstalled(mAppInfo.packageName,
-                        PackageManager.INSTALL_FAILED_INVALID_APK);
+                onPackageInstalled(PackageInstaller.STATUS_FAILURE_INVALID);
             }
         } else {
-            pm.installPackageWithVerificationAndEncryption(mPackageURI, observer, installFlags,
-                    installerPackageName, verificationParams, null);
+            final PackageInstaller.SessionParams params = new PackageInstaller.SessionParams(
+                    PackageInstaller.SessionParams.MODE_FULL_INSTALL);
+            params.referrerUri = getIntent().getParcelableExtra(Intent.EXTRA_REFERRER);
+            params.originatingUri = getIntent().getParcelableExtra(Intent.EXTRA_ORIGINATING_URI);
+            params.originatingUid = getIntent().getIntExtra(Intent.EXTRA_ORIGINATING_UID,
+                    UID_UNKNOWN);
+            params.setInstallFlagsForcePermissionPrompt();
+
+            mInstallHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    doPackageStage(pm, params);
+                }
+            });
         }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        unregisterReceiver(mBroadcastReceiver);
+        mInstallThread.getLooper().quitSafely();
     }
 
     public void onClick(View v) {
