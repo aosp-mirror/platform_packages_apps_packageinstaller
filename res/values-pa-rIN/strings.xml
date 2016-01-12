@@ -75,7 +75,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"ਅਣਇੰਸਟੌਲ ਅਸਫਲ।"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"ਅਣਇੰਸਟੌਲ ਨਹੀਂ ਕਰ ਸਕਦਾ ਕਿਉਂਕਿ ਇਹ ਪੈਕੇਜ ਇੱਕ ਸਕਿਰਿਆ ਡਿਵਾਈਸ ਪ੍ਰਬੰਧਕ ਹੈ।"</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"ਅਣਇੰਸਟੌਲ ਨਹੀਂ ਕਰ ਸਕਦਾ ਕਿਉਂਕਿ ਇਹ ਪੈਕੇਜ ਉਪਭੋਗਤਾ <xliff:g id="USERNAME">%1$s</xliff:g> ਲਈ ਇੱਕ ਸਕਿਰਿਆ ਡਿਵਾਈਸ ਪ੍ਰਬੰਧਕ ਹੈ।"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"ਇਹ ਐਪ ਤੁਹਾਡੀ <xliff:g id="USERNAME">%1$s</xliff:g> ਪ੍ਰੋਫਾਈਲ ਲਈ ਲੁੜੀਂਦਾ ਹੈ ਅਤੇ ਇਸਨੂੰ ਅਣਇੰਸਟੌਲ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।"</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"ਇਹ ਐਪ ਤੁਹਾਡੀ ਤੁਹਾਡੇ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਲਈ ਲੋੜੀਂਦੀ ਹੈ ਅਤੇ ਇਸਦੀ ਸਥਾਪਨਾ ਰੱਦ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕਦੀ ਹੈ।"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"ਇਹ ਐਪ ਤੁਹਾਡੇ ਡਿਵਾਈਸ ਪ੍ਰਬੰਧਕ ਵੱਲੋਂ ਲੁੜੀਂਦਾ ਹੈ ਅਤੇ ਇਸਨੂੰ ਅਣਇੰਸਟੌਲ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।"</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"ਡਿਵਾਈਸ ਪ੍ਰਬੰਧਕਾਂ ਨੂੰ ਵਿਵਸਥਿਤ ਕਰੋ"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> ਅਣਇੰਸਟੌਲ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।"</string>
@@ -91,7 +91,33 @@
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"ਅਸਵੀਕਾਰ ਕਰੋ"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> ਦਾ <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"ਕੀ <xliff:g id="APP_NAME">%1$s</xliff:g> ਨੂੰ <xliff:g id="ACTION">%2$s</xliff:g> ਦੀ ਆਗਿਆ ਦੇਣੀ ਹੈ?"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"ਐਪਸ"</string>
     <string name="app_permissions" msgid="3146758905824597178">"ਐਪ ਅਨੁਮਤੀਆਂ"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"ਦੁਬਾਰਾ ਕਦੇ ਨਾ ਪੁੱਛਣਾ"</string>
     <string name="no_permissions" msgid="3210542466245591574">"ਕੋਈ ਅਨੁਮਤੀਆਂ ਨਹੀਂ ਹਨ"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"ਅਤਿਰਿਕਤ ਅਨੁਮਤੀਆਂ"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> ਹੋਰ</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> ਹੋਰ</item>
+    </plurals>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"ਇਹ ਐਪ Android ਦੇ ਕਿਸੇ ਪੁਰਾਣੇ ਸੰਸਕਰਣ ਲਈ ਬਣਾਈ ਗਈ ਸੀ। ਅਨੁਮਤੀ ਨੂੰ ਇਨਕਾਰ ਕਰਨਾ ਇਸਦੇ ਉਦੇਸ਼ਿਤ ਫੰਕਸ਼ਨ ਨੂੰ ਪ੍ਰਭਾਵਿਤ ਕਰ ਸਕਦਾ ਹੈ।"</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"ਕੋਈ ਅਗਿਆਤ ਕਾਰਵਾਈ ਕਰੋ"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_1">%2$d</xliff:g> ਦੇ <xliff:g id="COUNT_0">%1$d</xliff:g> ਐਪਸ ਦੀ ਆਗਿਆ ਦਿੱਤੀ"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"ਸਿਸਟਮ ਦਿਖਾਓ"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"ਸਿਸਟਮ ਲੁਕਾਓ"</string>
+    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> ਅਨੁਮਤੀਆਂ"</string>
+    <string name="no_apps" msgid="1965493419005012569">"ਕੋਈ ਐਪਸ ਨਹੀਂ"</string>
+    <string name="location_settings" msgid="1774875730854491297">"ਸਥਿਤੀ ਸੈਟਿੰਗਾਂ"</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> ਇਸ ਡਿਵਾਈਸ ਲਈ ਨਿਰਧਾਰਿਤ ਸਥਾਨ ਸੇਵਾਵਾਂ ਦਾ ਇੱਕ ਪ੍ਰਦਾਤਾ ਹੈ। ਨਿਰਧਾਰਿਤ ਸਥਾਨ ਪਹੁੰਚ ਨੂੰ ਨਿਰਧਾਰਿਤ ਸਥਾਨ ਸੈਟਿੰਗਾਂ ਤੋਂ ਸੰਸ਼ੋਧਿਤ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ।"</string>
+    <string name="system_warning" msgid="7103819124542305179">"ਜੇਕਰ ਤੁਸੀਂ ਇਸ ਅਨੁਮਤੀ ਨੂੰ ਅਸਵੀਕਾਰ ਕਰਦੇ ਹੋ, ਤਾਂ ਤੁੁਹਾਡੀ ਡਿਵਾਈਸ ਦੀਆਂ ਮੂੂਲ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਆਪਣੇ ਫੰਕਸ਼ਨ ਮੁਤਾਬਕ ਕੰਮ ਨਹੀਂ ਵੀ ਕਰ  ਸਕਦੀਆਂ।"</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"ਨੀਤੀ ਮੁਤਾਬਕ ਲਾਗੂ ਕੀਤਾ"</string>
+    <string name="loading" msgid="7811651799620593731">"ਲੋਡ ਕਰ ਰਿਹਾ ਹੈ…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"ਸਾਰੀਆਂ ਅਨੁਮਤੀਆਂ"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"ਹੋਰ ਐਪ ਸਮਰੱਥਤਾਵਾਂ"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"ਅਨੁਮਤੀ ਬੇਨਤੀ"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"ਸਕਰੀਨ ਓਵਰਲੇਅ ਲੱਭ ਗਿਆ"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"ਇਸ ਇਜ਼ਾਜਤ ਸੈਟਿੰਗ ਨੂੰ ਬਦਲਣ ਲਈ; ਤੁਹਾਨੂੰ ਪਹਿਲਾਂ ਸੈਟਿੰਗਜ਼ ਅਤੇ ਐਪਸ ਤੋਂ ਸਕ੍ਰੀਨ ਓਵਰਲੇਅ ਬੰਦ ਕਰਨਾ ਪਵੇਗਾ"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"ਸੈਟਿੰਗਜ਼ ਖੋਲ੍ਹੋ"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android ਵੀਅਰ"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"ਵੀਅਰ \'ਤੇ ਸਥਾਪਿਤ ਕਰੋ/ਸਥਾਪਨਾ ਰੱਦ ਕਰੋ ਕਾਰਵਾਈਆਂ ਸਮਰਥਿਤ ਨਹੀਂ ਹਨ।"</string>
 </resources>

@@ -17,7 +17,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="2738748390251381682">"Instaluesi i paketës"</string>
-    <string name="next" msgid="3057143178373252333">"Tjetër"</string>
+    <string name="next" msgid="3057143178373252333">"Përpara"</string>
     <string name="install" msgid="5896438203900042068">"Instalo"</string>
     <string name="done" msgid="3889387558374211719">"U krye!"</string>
     <string name="security_settings_desc" msgid="2706691034244052604">"Lejoje këtë aplikacion të:"</string>
@@ -50,7 +50,7 @@
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Për arsye sigurie, televizori yt është caktuar t\'i bllokojë instalimet e aplikacioneve nga burime të panjohura."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Për arsye sigurie, telefoni yt është caktuar t\'i bllokojë instalimet e aplikacioneve nga burime të panjohura."</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Administratori yt nuk lejon instalimin e aplikacioneve nga burime të panjohura."</string>
-    <string name="ok" msgid="3468756155452870475">"Në rregull!"</string>
+    <string name="ok" msgid="3468756155452870475">"Në rregull"</string>
     <string name="settings" msgid="6743583734099755409">"Cilësimet"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Burim i ri për aplikacione"</string>
     <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> dëshiron të instalojë aplikacione të tjera.\n\nDo e lejosh tani dhe në të ardhmen?"</string>
@@ -60,7 +60,7 @@
     <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Ky është aplikacion sistemi.\n\nTë gjitha të dhënat e tua të mëparshme si përdorues, do të ruhen."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Nuk ka hapësirë"</string>
     <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> nuk mund të instalohej. Liro pak hapësirë dhe provo përsëri."</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"Në rregull!"</string>
+    <string name="dlg_ok" msgid="6944357727705699232">"Në rregull"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Aplikacioni nuk u gjet"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Aplikacioni nuk u gjet në listën e aplikacioneve të instaluara."</string>
     <string name="uninstall_application_title" msgid="1860074100811653963">"Çinstalo aplikacionin"</string>
@@ -75,7 +75,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Çinstalimi nuk pati sukses."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Nuk mund të çinstalohet sepse kjo paketë është administratore aktive e pajisjes."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Nuk mund të çinstalohet sepse kjo paketë është administratore aktive e pajisjes për përdoruesin <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Ky aplikacion nevojitet për profilin tënd <xliff:g id="USERNAME">%1$s</xliff:g> dhe nuk mund të çinstalohet."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Ky aplikacion nevojitet për profilin tënd të punës dhe nuk mund të çinstalohet."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Ky aplikacion kërkohet nga administratori i pajisjes dhe nuk mund të çinstalohet."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Menaxho administratorët e pajisjes"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> nuk mundi të çinstalohej."</string>
@@ -90,8 +90,34 @@
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Lejo"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Refuzo"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> nga <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="5209102765005869454">"Të lejohet <xliff:g id="APP_NAME">%1$s</xliff:g> që <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_warning_template" msgid="5209102765005869454">"Të lejohet apl. \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" të realizojë \"<xliff:g id="ACTION">%2$s</xliff:g>\"?"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Aplikacionet"</string>
     <string name="app_permissions" msgid="3146758905824597178">"Lejet e aplikacionit"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"Mos pyet më asnjëherë"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Nuk ka leje"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"Lejet shtesë"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> të tjera</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> të tjera</item>
+    </plurals>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Ky aplikacion është projektuar për një version më të vjetër të Android. Refuzimi i lejeve mund të shkaktojë që ai të mos funksionojë më siç duhet."</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"kryej një veprim të panjohur"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> aplikacione nga <xliff:g id="COUNT_1">%2$d</xliff:g> të tilla u lejuan"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"Shfaq sistemin"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"Fshih sistemin"</string>
+    <string name="permission_title" msgid="6495415273398916381">"Lejet për <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
+    <string name="no_apps" msgid="1965493419005012569">"Asnjë aplikacion"</string>
+    <string name="location_settings" msgid="1774875730854491297">"Cilësimet e vendndodhjeve"</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> është një ofrues i shërbimeve të vendndodhjes për këtë pajisje. Qasja e vendndodhjes mund të modifikohet nga cilësimet e vendndodhjes."</string>
+    <string name="system_warning" msgid="7103819124542305179">"Nëse e refuzon këtë leje, funksionet bazë të pajisjes tënde mund të mos funksionojnë më siç pritet."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Zbatuar nga politika"</string>
+    <string name="loading" msgid="7811651799620593731">"Po ngarkon..."</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Të gjitha lejet"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Kapacitete të tjera të aplikacionit"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Kërkesa e lejes"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Mbivendosja e ekranit u zbulua"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Për të ndryshuar këtë cilësim të lejes, në fillim duhet të çaktivizosh mbivendosjen e ekranit nga Cilësimet &gt; Aplikacionet"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Hap cilësimet"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Teknologjia \"Android\" që vishet"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Instalo/çinstalo veprimet që nuk mbështeten në teknologjinë që vishet."</string>
 </resources>

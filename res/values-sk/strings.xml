@@ -75,7 +75,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Odinštalovanie bolo neúspešné."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Nie je možné odinštalovať, pretože tento balík je aktívnym správcom zariadenia."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Balíček nie je možné odinštalovať, pretože je aktívnym správcom zariadenia pre používateľa <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Táto aplikácia sa vyžaduje pre váš profil <xliff:g id="USERNAME">%1$s</xliff:g> a nie je ju možné odinštalovať."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Táto aplikácia sa vyžaduje pre váš pracovný profil a nemôžete ju odinštalovať."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Túto aplikáciu vyžaduje správca vášho zariadenia a nie je ju možné odinštalovať."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Spravovať správcov zariadenia"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Aplikáciu <xliff:g id="APP_NAME">%1$s</xliff:g> sa nepodarilo odinštalovať."</string>
@@ -91,7 +91,35 @@
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Odmietnuť"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> z <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"Povoliť aplikácii <xliff:g id="APP_NAME">%1$s</xliff:g> <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"Povolenia aplikácie"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Aplikácie"</string>
+    <string name="app_permissions" msgid="3146758905824597178">"Povolenia aplikácií"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"Túto otázku už nezobrazovať"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Žiadne povolenia"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"Ďalšie povolenia"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="few"><xliff:g id="COUNT_1">%1$d</xliff:g> ďalšie</item>
+      <item quantity="many"><xliff:g id="COUNT_1">%1$d</xliff:g> ďalšieho</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> ďalších</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> ďalšie</item>
+    </plurals>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Táto aplikácia bola navrhnutá pre staršiu verziu systému Android. Odmietnutie povolenia môže spôsobiť, že nebude optimálne fungovať."</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"umožňuje vykonať neznámu akciu"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"Povolené: <xliff:g id="COUNT_0">%1$d</xliff:g> z <xliff:g id="COUNT_1">%2$d</xliff:g> aplikácií"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"Zobraziť systémové aplikácie"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"Skryť systémové aplikácie"</string>
+    <string name="permission_title" msgid="6495415273398916381">"Povolenia <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
+    <string name="no_apps" msgid="1965493419005012569">"Žiadne aplikácie"</string>
+    <string name="location_settings" msgid="1774875730854491297">"Nastavenia polohy"</string>
+    <string name="location_warning" msgid="8778701356292735971">"Aplikácia <xliff:g id="APP_NAME">%1$s</xliff:g> je poskytovateľ služieb určovania polohy tohto zariadenia. Prístup k polohe môžete upraviť v nastaveniach polohy."</string>
+    <string name="system_warning" msgid="7103819124542305179">"Ak toto povolenie zamietnete, základné funkcie vášho zariadenia nemusia pracovať podľa očakávaní."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Vynútené pravidlom"</string>
+    <string name="loading" msgid="7811651799620593731">"Načítava sa…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Všetky povolenia"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Ďalšie možnosti aplikácie"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Žiadosť o povolenie"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Bolo zistené prekrytie obrazovky"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Ak chcete zmeniť nastavenie tohto povolenia, musíte najprv v časti Nastavenia &gt; Aplikácie vypnúť prekrytie obrazovky"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Otvoriť nastavenia"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Systém Wear nepodporuje akciu inštalácie/odinštalovania"</string>
 </resources>
