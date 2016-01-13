@@ -64,6 +64,8 @@ import java.io.File;
 public class PackageInstallerActivity extends Activity implements OnCancelListener, OnClickListener {
     private static final String TAG = "PackageInstaller";
 
+    private static final int REQUEST_ENABLE_UNKNOWN_SOURCES = 1;
+
     private int mSessionId = -1;
     private Uri mPackageURI;
     private Uri mOriginatingURI;
@@ -222,7 +224,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                     .setPositiveButton(R.string.settings, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Log.i(TAG, "Launching settings");
-                            launchSettingsAppAndFinish();
+                            launchSecuritySettings();
                         }
                     })
                     .setOnCancelListener(this)
@@ -327,12 +329,19 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
        return null;
    }
 
-    private void launchSettingsAppAndFinish() {
-        // Create an intent to launch SettingsTwo activity
+    private void launchSecuritySettings() {
         Intent launchSettingsIntent = new Intent(Settings.ACTION_SECURITY_SETTINGS);
-        launchSettingsIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(launchSettingsIntent);
-        finish();
+        startActivityForResult(launchSettingsIntent, REQUEST_ENABLE_UNKNOWN_SOURCES);
+    }
+
+    @Override
+    public void onActivityResult(int request, int result, Intent data) {
+        if (request == REQUEST_ENABLE_UNKNOWN_SOURCES
+                && result == RESULT_OK && isUnknownSourcesEnabled()) {
+            initiateInstall();
+        } else {
+            finish();
+        }
     }
 
     private boolean isInstallRequestFromUnknownSource(Intent intent) {
