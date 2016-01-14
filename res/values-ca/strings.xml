@@ -75,7 +75,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"S\'ha produït un error en la desinstal·lació."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"No es pot desinstal·lar perquè aquest paquet és administ. actiu d\'un dispositiu."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"No es pot desinstal·lar perquè el paquet és un administrador de dispositius actius per a l’usuari <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"El perfil de l\'usuari <xliff:g id="USERNAME">%1$s</xliff:g> necessita l\'aplicació i no la pots desinstal·lar."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Aquesta aplicació es necessita per al perfil de Work i no es pot desinstal·lar."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"L\'administrador del dispositiu necessita l\'aplicació i no la pots desinstal·lar."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Gestiona els administradors del dispositiu"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> no s\'ha pogut desinstal·lar."</string>
@@ -90,8 +90,34 @@
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Permet"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Denega"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> de <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="5209102765005869454">"Vols permetre que <xliff:g id="APP_NAME">%1$s</xliff:g> <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"Permisos de l\'aplicació"</string>
+    <string name="permission_warning_template" msgid="5209102765005869454">"Permetre que <xliff:g id="APP_NAME">%1$s</xliff:g> pugui <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Aplicacions"</string>
+    <string name="app_permissions" msgid="3146758905824597178">"Permisos d\'aplicacions"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"No el tornis a demanar"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Sense permisos"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"Més permisos"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> més</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> més</item>
+    </plurals>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Aquesta aplicació es va dissenyar per a una versió anterior d\'Android. És possible que no funcioni com està previst si li denegues el permís."</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"dur a terme una acció desconeguda"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> de <xliff:g id="COUNT_1">%2$d</xliff:g> aplicacions permeses"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"Mostra el sistema"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"Amaga el sistema"</string>
+    <string name="permission_title" msgid="6495415273398916381">"Permisos de <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
+    <string name="no_apps" msgid="1965493419005012569">"Cap aplicació"</string>
+    <string name="location_settings" msgid="1774875730854491297">"Configuració d\'ubicació"</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> és un proveïdor de serveis d\'ubicació per a aquest dispositiu. L\'accés a la ubicació es pot modificar des de la configuració d\'ubicació."</string>
+    <string name="system_warning" msgid="7103819124542305179">"Si no acceptes aquest permís, hi ha funcions bàsiques del dispositiu que poden deixar de funcionar com esperes."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Aplicat en funció de la política"</string>
+    <string name="loading" msgid="7811651799620593731">"S\'està carregant..."</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Tots els permisos"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Altres competències de l\'aplicació"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Sol·licitud de permís"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"S\'ha detectat una superposició de pantalla"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Per canviar la configuració de permisos, cal que desactivis la superposició de pantalla des de Configuració &gt; Aplicacions"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Obre Configuració"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Les accions d\'instal·lar o desinstal·lar no s\'admeten a Wear."</string>
 </resources>

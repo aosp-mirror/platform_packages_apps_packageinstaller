@@ -36,16 +36,20 @@
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Ziddiyyətli imzaya malik eyni adlı cari paket artıq quraşdırılıb."</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Bu paket yalnız yeni Android versiyasında işləyir."</string>
     <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Bu tətbiq planşetinizə uyğun deyil."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Bu proqram TV-nizlə uyğun gəlmir."</string>
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Bu tətbiq telefonunuza uyğun deyil."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Göstərilən paket quraşdırılma tamamlanmadan silindi."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"Paket yoxlamanı keçə bilmədi və quraşdırılmadı."</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Paketi yoxlayarkən uzun fasilə oldu. Quraşdırmanı daha sonra bir daha yoxlayın."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> planşetinizə yüklənə bilmədi."</string>
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> proqramını TV-nizdə quraşdırmaq mümkün olmadı."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> telefonunuza quraşdırıla bilmədi."</string>
     <string name="launch" msgid="4826921505917605463">"Aç"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Quraşdırılma blok edilib"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Təhlükəsizlik məqsədilə planşetiniz naməlum mənbələrdən əldə edilmiş tətbiq quraşdırılmasının qarşısını alıb."</string>
+    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Təhlükəsizlik üçün TV-niz naməlum mənbələrdən əldə olunan proqramların quraşdırılmasını bloklamağa təyin olunub."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Təhlükəsizlik məqsədilə telefonunuz naməlum mənbələrdən əldə edilmiş tətbiq quraşdırılmasının qarşısını alıb."</string>
+    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Naməlum mənbələrdən əldə edilmiş tətbiqlərin quraşdırılmasına administrator icazə vermir."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Ayarlar"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Tətbiqlər üçün yeni mənbə"</string>
@@ -64,11 +68,15 @@
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> bu tətbiqin hissəsidir:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"Bu tətbiqi aradan qaldırmaq istəyirsiniz mi?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Bu tətbiqi "<b>"bütün"</b>" istifadəçilər üçün silmək istəyirsiz? Tətbiq və onun datası cihazdakı "<b>"bütün"</b>" istifadəçilər üçün silinəcək."</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"<xliff:g id="USERNAME">%1$s</xliff:g> adlı istifadəçi üçün bu tətbiqi sistemdən silmək istəyirsiniz?"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"Bu tətbiqi zavod versiyası ilə dəyişdirmək istəyirsiniz?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Silinir..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Sistemdən silmə tamamlandı."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Aradan qaldırılma uğursuz oldu."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Bu paket aktiv cihaz administratoru olduğu üçün aradan qaldırıla bilməz."</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Quraşdırılmışı ləğv etmək mümkün deyil, çünki bu paket <xliff:g id="USERNAME">%1$s</xliff:g> adlı istifadəçi üçün aktiv cihaz inzibatçısıdır."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Bu app iş profil üçün tələb olunur və silindi bilməz."</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Bu tətbiq cihaz administratoru tərəfindən tələb olunur və sistemdən silinə bilməz."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Cihaz administratorlarını idarə edin"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> sistemdən silinə bilməz."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Təhlil xətası"</string>
@@ -79,4 +87,37 @@
     <string name="devicePerms" msgid="6733560207731294504">"Qurğu icazəsi"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"Bu güncəlləmə heç bir yeni izn tələb etmir."</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"Aşağıdakı icazələri vermək istəyirsiz? Əldə ediləcək çıxışlar:"</string>
+    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"İcazə verin"</string>
+    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Rədd edin"</string>
+    <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> icazədən <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> ədəd"</string>
+    <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="APP_NAME">%1$s</xliff:g> tətbiqinə <xliff:g id="ACTION">%2$s</xliff:g> üçün icazə verilsin?"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Tətbiqlər"</string>
+    <string name="app_permissions" msgid="3146758905824597178">"Tətbiq icazələri"</string>
+    <string name="never_ask_again" msgid="3798895821072102967">"Bir daha soruşma"</string>
+    <string name="no_permissions" msgid="3210542466245591574">"İcazə yoxdur"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"Əlavə icazələr"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="other">daha <xliff:g id="COUNT_1">%1$d</xliff:g></item>
+      <item quantity="one">daha <xliff:g id="COUNT_0">%1$d</xliff:g></item>
+    </plurals>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Bu tətbiq köhnə Android versiyası üçün nəzərdə tutulub. İcazəni rədd etmək onun lazımi şəkildə işləməməsinə səbəb ola bilər."</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"naməlum əməliyyat etmək"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_1">%2$d</xliff:g> tətbiqdən <xliff:g id="COUNT_0">%1$d</xliff:g> ədədinə icazə var"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"Sistemi göstərin"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"Sistemi gizlədin"</string>
+    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> icazələr"</string>
+    <string name="no_apps" msgid="1965493419005012569">"Tətbiq yoxdur"</string>
+    <string name="location_settings" msgid="1774875730854491297">"Məkan Ayarları"</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> bu cihaz üçün məkan xidmətləri təminatçısıdır. Məkana giriş məkan ayarlarından dəyişdirilə bilər."</string>
+    <string name="system_warning" msgid="7103819124542305179">"Bu icazəni rədd etsəniz, cihazınızın əsas funksiyaları lazımi qaydada işləməyə bilər."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Siyasət tərəfindən tətbiq olunur"</string>
+    <string name="loading" msgid="7811651799620593731">"Yüklənir…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Bütün icazələr"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Digər tətbiq imkanları"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"İcazə sorğusu"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Ekran örtüyü aşkarlandı"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Bu icazə ayarını dəyişdirmək üçün əvvəldə Ayarlar və Tətbiqlər bölməsindən ekran örtüyünü söndürməlisiniz"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Ayarları açın"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Yükləmə/Silmə fəaliyyətləri Wear\'də dəstəklənmir."</string>
 </resources>

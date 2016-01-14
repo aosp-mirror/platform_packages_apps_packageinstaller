@@ -75,7 +75,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"நிறுவல் நீக்குவதில் தோல்வி."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"இந்தத் தொகுப்பு, செயலில் உள்ள சாதன நிர்வாகி என்பதால் நிறுவல் நீக்க முடியாது."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"இந்தத் தொகுப்பு <xliff:g id="USERNAME">%1$s</xliff:g> பயனருக்கான செயலில் உள்ள சாதன நிர்வாகியாக இருப்பதால், நிறுவல் நீக்க முடியாது."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"உங்கள் <xliff:g id="USERNAME">%1$s</xliff:g> சுயவிவரத்திற்கு இந்தப் பயன்பாடு தேவைப்படுவதால், நிறுவல்நீக்க முடியாது."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"உங்கள் பணி சுயவிவரத்திற்கு இந்தப் பயன்பாடு தேவைப்படுவதால், அதை நிறுவல்நீக்க முடியாது."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"சாதன நிர்வாகிக்கு இந்தப் பயன்பாடு தேவைப்படுவதால், நிறுவல்நீக்க முடியாது."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"சாதன நிர்வாகிகளை நிர்வகி"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> பயன்பாட்டை நிறுவல் நீக்க முடியாது."</string>
@@ -91,7 +91,33 @@
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"நிராகரி"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> / <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="ACTION">%2$s</xliff:g> செயலுக்கு <xliff:g id="APP_NAME">%1$s</xliff:g>ஐ அனுமதிக்கவா?"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"பயன்பாடுகள்"</string>
     <string name="app_permissions" msgid="3146758905824597178">"பயன்பாட்டு அனுமதிகள்"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"மீண்டும் கேட்காதே"</string>
     <string name="no_permissions" msgid="3210542466245591574">"அனுமதிகள் இல்லை"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"கூடுதல் அனுமதிகள்"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="other">மேலும் <xliff:g id="COUNT_1">%1$d</xliff:g></item>
+      <item quantity="one">மேலும் <xliff:g id="COUNT_0">%1$d</xliff:g></item>
+    </plurals>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"இந்தப் பயன்பாடு Android இன் பழைய பதிப்புக்காக வடிவமைக்கப்பட்டது. அனுமதியை மறுத்தால் அது சரியாக செயல்படாமல் போகலாம்."</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"அறியாத செயலைச் செயல்படுத்தும்"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"அனுமதிக்கப்படும் பயன்பாடுகள்: <xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"அமைப்பைக் காட்டு"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"முறைமையை மறை"</string>
+    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> அனுமதிகள்"</string>
+    <string name="no_apps" msgid="1965493419005012569">"பயன்பாடுகள் இல்லை"</string>
+    <string name="location_settings" msgid="1774875730854491297">"இருப்பிட அமைப்புகள்"</string>
+    <string name="location_warning" msgid="8778701356292735971">"இந்தச் சாதனத்திற்கான இருப்பிடச் சேவைகளின் வழங்குநர் <xliff:g id="APP_NAME">%1$s</xliff:g> ஆகும். இருப்பிட அமைப்புகளிலிருந்து இருப்பிட அணுகலை மாற்றலாம்."</string>
+    <string name="system_warning" msgid="7103819124542305179">"இந்த அனுமதியை நிராகரித்தால், உங்கள் சாதனத்தின் அடிப்படை அம்சங்கள் சரியாகச் செயல்படாமல் போகலாம்."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"கொள்கையின் படி செயல்படுத்தப்பட்டது"</string>
+    <string name="loading" msgid="7811651799620593731">"ஏற்றுகிறது..."</string>
+    <string name="all_permissions" msgid="5156669007784613042">"எல்லா அனுமதிகளும்"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"பயன்பாட்டின் பிற திறன்கள்"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"அனுமதி கோரிக்கை"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"திரையின் மேலே செயல்படும் பயன்பாடுகள் கண்டறியப்பட்டன"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"இந்த அனுமதியை மாற்ற, அமைப்புகள் &gt; பயன்பாடுகள் என்பதற்குச் சென்று, திரையின் மேலே செயல்படும் பயன்பாடுகளை முதலில் முடக்கவும்"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"அமைப்புகளைத் திற"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Wear இல் நிறுவுதல்/நிறுவல் நீக்குதலுக்கு ஆதரவில்லை."</string>
 </resources>

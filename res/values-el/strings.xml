@@ -75,7 +75,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Μη επιτυχής κατάργηση εγκατάστασης."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Αδύνατη η κατάργηση της εγκατάστασης: το πακέτο είναι ενεργός διαχειρ. συσκευής."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Αδύνατη απεγκατάσταση, επειδή το πακέτο αποτελεί ενεργό διαχειριστή συσκευής για <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Η εφαρμογή απαιτείται για το προφίλ σας <xliff:g id="USERNAME">%1$s</xliff:g> και δεν είναι δυνατή η απεγκτατάσταση."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Αυτή η εφαρμογή απαιτείται για το προφίλ εργασίας και δεν είναι δυνατή η απεγκατάστασή της."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Η εφαρμογή απαιτείται από το διαχειριστή και δεν είναι δυνατή η απεγκατάσταση."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Διαχείριση διαχειριστών συσκευής"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Δεν ήταν δυνατή η κατάργηση της εγκατάστασης της εφαρμογής <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
@@ -91,7 +91,33 @@
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Απόρριψη"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> από <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"Να επιτρέπεται στην εφαρμογή <xliff:g id="APP_NAME">%1$s</xliff:g> να <xliff:g id="ACTION">%2$s</xliff:g>;"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"Δικαιώματα εφαρμογών"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Εφαρμογές"</string>
+    <string name="app_permissions" msgid="3146758905824597178">"Δικαιώματα εφ/γών"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"Να μην γίνει ποτέ ξανά ερώτηση"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Χωρίς δικαιώματα"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"Πρόσθετα δικαιώματα"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="other">Ακόμα <xliff:g id="COUNT_1">%1$d</xliff:g></item>
+      <item quantity="one">Ακόμα <xliff:g id="COUNT_0">%1$d</xliff:g></item>
+    </plurals>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Αυτή η εφαρμογή σχεδιάστηκε για παλαιότερη έκδοση του Android. Η άρνηση άδειας μπορεί να έχει ως αποτέλεσμα να διακοπεί η κανονική λειτουργία της."</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"εκτέλεση άγνωστης ενέργειας"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"Επιτρέπονται <xliff:g id="COUNT_0">%1$d</xliff:g> από <xliff:g id="COUNT_1">%2$d</xliff:g> εφαρμογές"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"Εμφάνιση συστήματος"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"Απόκρυψη συστήματος"</string>
+    <string name="permission_title" msgid="6495415273398916381">"Δικαιώματα <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
+    <string name="no_apps" msgid="1965493419005012569">"Δεν υπάρχουν εφαρμογές"</string>
+    <string name="location_settings" msgid="1774875730854491297">"Ρυθμίσεις τοποθεσίας"</string>
+    <string name="location_warning" msgid="8778701356292735971">"Η εφαρμογή <xliff:g id="APP_NAME">%1$s</xliff:g> είναι ο πάροχος των υπηρεσιών τοποθεσίας για τη συγκεκριμένη συσκευή. Μπορείτε να τροποποιήσετε την πρόσβαση τοποθεσίας από τις ρυθμίσεις τοποθεσίας."</string>
+    <string name="system_warning" msgid="7103819124542305179">"Εάν αρνηθείτε να παραχωρήσετε αυτήν την άδεια, η λειτουργία ορισμένων βασικών δυνατοτήτων ενδέχεται να μην είναι η αναμενόμενη."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Επιβάλλεται από την πολιτική"</string>
+    <string name="loading" msgid="7811651799620593731">"Γίνεται φόρτωση…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Όλα τα δικαιώματα"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Άλλες δυνατότητες εφαρμογής"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Αίτημα άδειας"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Εντοπίστηκε επικάλυψη οθόνης"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Για να αλλάξετε αυτή τη ρύθμιση άδειας, θα πρέπει πρώτα να απενεργοποιήσετε την επικάλυψη οθόνης από τις Ρυθμίσεις &gt; Εφαρμογές"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Άνοιγμα ρυθμίσεων"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Οι ενέργειες εγκατάστασης/απεγκατάστασης δεν υποστηρίζονται στο Wear."</string>
 </resources>
