@@ -25,12 +25,12 @@
     <string name="unknown" msgid="4742479012767208045">"Unbekannt"</string>
     <string name="installing" msgid="8613631001631998372">"Wird installiert..."</string>
     <string name="install_done" msgid="3682715442154357097">"App wurde installiert."</string>
-    <string name="install_confirm_question" msgid="7295206719219043890">"Möchten Sie diese App installieren? Sie erhält dann folgende Berechtigungen:"</string>
-    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Möchten Sie diese App installieren? Sie benötigt keinen besonderen Zugriff."</string>
-    <string name="install_confirm_question_update" msgid="4624159567361487964">"Möchten Sie ein Update für diese vorhandene App installieren? Ihre vorhandenen Daten bleiben erhalten. Die aktualisierte App erhält Zugriff auf:"</string>
-    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Möchten Sie ein Update für diese integrierte App installieren? Ihre vorhandenen Daten bleiben erhalten. Die aktualisierte App erhält Zugriff auf:"</string>
-    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Möchten Sie ein Update für diese bestehende App installieren? Ihre vorhandenen Daten bleiben erhalten. Sie benötigen keine besonderen Zugriffsrechte."</string>
-    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Möchten Sie ein Update für diese integrierte App installieren? Ihre vorhandenen Daten bleiben erhalten. Sie benötigen keine besonderen Zugriffsrechte."</string>
+    <string name="install_confirm_question" msgid="7295206719219043890">"Möchtest du diese App installieren? Sie erhält dann folgende Berechtigungen:"</string>
+    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Möchtest du diese App installieren? Sie benötigt keinen besonderen Zugriff."</string>
+    <string name="install_confirm_question_update" msgid="4624159567361487964">"Möchtest du ein Update für diese vorhandene App installieren? Deine vorhandenen Daten bleiben erhalten. Die aktualisierte App erhält Zugriff auf:"</string>
+    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Möchtest du ein Update für diese integrierte App installieren? Deine vorhandenen Daten bleiben erhalten. Die aktualisierte App erhält Zugriff auf:"</string>
+    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Möchtest du ein Update für diese bestehende App installieren? Deine vorhandenen Daten bleiben erhalten. Die App benötigt keine besonderen Zugriffsrechte."</string>
+    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Möchtest du ein Update für diese integrierte App installieren? Deine vorhandenen Daten bleiben erhalten. Die App benötigt keine besonderen Zugriffsrechte."</string>
     <string name="install_failed" msgid="6579998651498970899">"App wurde nicht installiert."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Das Paket ist offenbar beschädigt."</string>
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Ein Paket mit dem gleichen Namen, aber in Konflikt stehender Signatur, ist bereits installiert."</string>
@@ -40,36 +40,36 @@
     <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Diese App ist mit Ihrem Telefon nicht kompatibel."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Das angegebene Paket wurde gelöscht, bevor die Installation abgeschlossen werden konnte."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"Das Paket hat die Prüfung nicht bestanden und kann daher nicht installiert werden."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Bei der Paketüberprüfung ist eine Zeitüberschreitung aufgetreten. Wiederholen Sie die Installation."</string>
+    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Bei der Paketüberprüfung ist eine Zeitüberschreitung aufgetreten. Wiederhole die Installation."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> konnte nicht auf Ihrem Tablet installiert werden."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> konnte nicht auf Ihrem Fernseher installiert werden."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> konnte nicht auf Ihrem Telefon installiert werden."</string>
     <string name="launch" msgid="4826921505917605463">"Öffnen"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Installation gesperrt"</string>
-    <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Aus Sicherheitsgründen können Sie auf Ihrem Tablet keine Apps von unbekannten Quellen installieren."</string>
-    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Aus Sicherheitsgründen können Sie auf dem Fernseher keine Apps von unbekannten Quellen installieren."</string>
-    <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Aus Sicherheitsgründen können Sie auf Ihrem Telefon keine Apps von unbekannten Quellen installieren."</string>
+    <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Aus Sicherheitsgründen kannst du auf deinem Tablet keine Apps von unbekannten Quellen installieren."</string>
+    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Aus Sicherheitsgründen kannst du auf dem Fernseher keine Apps von unbekannten Quellen installieren."</string>
+    <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Aus Sicherheitsgründen kannst du auf deinem Telefon keine Apps von unbekannten Quellen installieren."</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Ihr Administrator erlaubt die Installation von Apps aus unbekannten Quellen nicht."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Einstellungen"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Neue Quelle für Apps"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> möchte andere Apps installieren.\n\nMöchten Sie dies jetzt und in Zukunft zulassen?"</string>
+    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> möchte andere Apps installieren.\n\nMöchtest du dies jetzt und in Zukunft zulassen?"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Apps verwalten"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"App ersetzen?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Die App, die Sie momentan installieren, wird eine andere App ersetzen.\n\nAlle Ihre bisherigen Nutzerdaten werden gespeichert."</string>
+    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Die App, die du momentan installierst, wird eine andere App ersetzen.\n\nAlle deine bisherigen Nutzerdaten werden gespeichert."</string>
     <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Dies ist eine Systemanwendung.\n\nAlle Ihre bisherigen Nutzerdaten werden gespeichert."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Kein freier Speicher vorhanden"</string>
-    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> konnte nicht installiert werden. Geben Sie Speicherplatz frei und versuchen Sie es erneut."</string>
+    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> konnte nicht installiert werden. Gib Speicherplatz frei und versuche es erneut."</string>
     <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"App nicht gefunden"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Die App wurde nicht in der Liste der installierten Apps gefunden."</string>
     <string name="uninstall_application_title" msgid="1860074100811653963">"App deinstallieren"</string>
     <string name="uninstall_update_title" msgid="4146940097553335390">"Update deinstallieren"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> gehört zu folgender App:"</string>
-    <string name="uninstall_application_text" msgid="6691975835951187030">"Möchten Sie diese App deinstallieren?"</string>
-    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Möchten Sie diese App für "<b>"alle"</b>" Nutzer entfernen? Die App und alle zugehörigen Daten werden für "<b>"alle"</b>" Nutzer des Geräts entfernt."</string>
-    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Möchten Sie diese App für den Nutzer <xliff:g id="USERNAME">%1$s</xliff:g> deinstallieren?"</string>
-    <string name="uninstall_update_text" msgid="2056387942084605027">"Möchten Sie diese App durch die Werksversion ersetzen?"</string>
+    <string name="uninstall_application_text" msgid="6691975835951187030">"Möchtest du diese App deinstallieren?"</string>
+    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Möchtest du diese App für "<b>"alle"</b>" Nutzer entfernen? Die App und alle zugehörigen Daten werden für "<b>"alle"</b>" Nutzer des Geräts entfernt."</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Möchtest du diese App für den Nutzer <xliff:g id="USERNAME">%1$s</xliff:g> deinstallieren?"</string>
+    <string name="uninstall_update_text" msgid="2056387942084605027">"Möchtest du diese App durch die Werksversion ersetzen?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Wird deinstalliert..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Deinstallation abgeschlossen"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Deinstallation fehlgeschlagen"</string>
@@ -86,9 +86,9 @@
     <string name="privacyPerms" msgid="1850527049572617">"Datenschutz"</string>
     <string name="devicePerms" msgid="6733560207731294504">"Gerätezugriff"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"Für dieses Update sind keine neuen Berechtigungen erforderlich."</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"Möchten Sie die folgenden Berechtigungen gewähren? Diese ermöglichen den Zugriff auf Folgendes:"</string>
+    <string name="grant_confirm_question" msgid="4690289297029223742">"Möchtest du die folgenden Berechtigungen gewähren? Sie ermöglichen den Zugriff auf Folgendes:"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Zulassen"</string>
-    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Verweigern"</string>
+    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Ablehnen"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> von <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="APP_NAME">%1$s</xliff:g> ermöglichen, <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Apps"</string>
@@ -100,7 +100,7 @@
       <item quantity="other">Noch <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="one">Noch <xliff:g id="COUNT_0">%1$d</xliff:g></item>
     </plurals>
-    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Diese App wurde für eine ältere Version von Android konzipiert. Wenn Sie keine Berechtigung erteilen, funktioniert die App möglicherweise nicht mehr ordnungsgemäß."</string>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Diese App wurde für eine ältere Version von Android konzipiert. Wenn du keine Berechtigung erteilst, funktioniert die App möglicherweise nicht mehr ordnungsgemäß."</string>
     <string name="default_permission_description" msgid="4992892207044156668">"Unbekannte Aktion durchführen"</string>
     <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> von <xliff:g id="COUNT_1">%2$d</xliff:g> Apps sind berechtigt."</string>
     <string name="menu_show_system" msgid="6773743421743728921">"System anzeigen"</string>
@@ -108,15 +108,15 @@
     <string name="permission_title" msgid="6495415273398916381">"Berechtigungen für <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
     <string name="no_apps" msgid="1965493419005012569">"Keine Apps"</string>
     <string name="location_settings" msgid="1774875730854491297">"Standorteinstellungen"</string>
-    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> ist ein Anbieter von Standortdiensten für dieses Gerät. Die Berechtigungen für den Zugriff auf Ihren Standort können Sie in den Standorteinstellungen ändern."</string>
-    <string name="system_warning" msgid="7103819124542305179">"Wenn Sie diese Berechtigung deaktivieren, funktionieren grundlegende Funktionen Ihres Geräts möglicherweise nicht mehr ordnungsgemäß."</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> ist ein Anbieter von Standortdiensten für dieses Gerät. Die Berechtigungen für den Zugriff auf deinen Standort kannst du in den Standorteinstellungen ändern."</string>
+    <string name="system_warning" msgid="7103819124542305179">"Wenn du diese Berechtigung deaktivierst, funktionieren grundlegende Funktionen deines Geräts möglicherweise nicht mehr ordnungsgemäß."</string>
     <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Von Richtlinien durchgesetzt"</string>
     <string name="loading" msgid="7811651799620593731">"Wird geladen…"</string>
     <string name="all_permissions" msgid="5156669007784613042">"Alle Berechtigungen"</string>
     <string name="other_permissions" msgid="2016192512386091933">"Andere App-Funktionen"</string>
     <string name="permission_request_title" msgid="1204446718549121199">"Berechtigungsanfrage"</string>
     <string name="screen_overlay_title" msgid="3021729846864038529">"Display-Overlay erkannt"</string>
-    <string name="screen_overlay_message" msgid="2141944461571677331">"Um diese Berechtigungseinstellung zu ändern, müssen Sie zunächst das Display-Overlay über \"Einstellungen\" &gt; \"Apps\" deaktivieren."</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Um diese Berechtigungseinstellung zu ändern, musst du zunächst das Display-Overlay über \"Einstellungen\" &gt; \"Apps\" deaktivieren."</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Einstellungen öffnen"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Von Android Wear nicht unterstützte Aktionen installieren/deinstallieren."</string>
