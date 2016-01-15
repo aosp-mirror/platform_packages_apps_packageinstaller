@@ -17,7 +17,6 @@ package com.android.packageinstaller.permission.ui;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.FrameLayout;
 
 /**
@@ -27,12 +26,9 @@ import android.widget.FrameLayout;
  * but allows the view to grow downwards for animation.
  */
 public class ManualLayoutFrame extends FrameLayout {
-
     private int mDesiredHeight;
     private int mHeight;
     private int mWidth;
-
-    private View mOffsetView;
 
     public ManualLayoutFrame(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -47,10 +43,29 @@ public class ManualLayoutFrame extends FrameLayout {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         if (mWidth != 0) {
-            // Keep the width constant to avoid weirdness.
+            int newWidth = mWidth;
+            final int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+            switch (widthMode) {
+                case MeasureSpec.AT_MOST: {
+                    newWidth = Math.min(mWidth, MeasureSpec.getSize(widthMeasureSpec));
+                } break;
+                case MeasureSpec.EXACTLY: {
+                    newWidth = MeasureSpec.getSize(widthMeasureSpec);
+                } break;
+            }
+            // If the width changes we have to re-evaluate the height
+            if (newWidth != mWidth) {
+                mWidth = newWidth;
+                mHeight = 0;
+            }
             widthMeasureSpec = MeasureSpec.makeMeasureSpec(mWidth, MeasureSpec.EXACTLY);
         }
+
+        // Let the content measure how much it needs to be fully shown
+        heightMeasureSpec = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);
+
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
         mDesiredHeight = getMeasuredHeight();
         if (mHeight == 0 && mDesiredHeight != 0) {
             // Record the first non-zero width and height, this will be the height henceforth.
