@@ -25,6 +25,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PermissionInfo;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.graphics.drawable.Icon;
@@ -173,6 +174,20 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
         if (!showNextPermissionGroupGrantRequest()) {
             setResultAndFinish();
         }
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        // This is just gross - we need to relayout the window as
+        // dialog width may be different in landscape vs portrait
+        // which affect the min window height needed to show all
+        // content. We have to re-add the window to force it to be
+        // resized if needed. The way the permission grant dialog
+        // is implemented is not correct and has to be rewritten.
+        View decor = getWindow().getDecorView();
+        getWindowManager().removeViewImmediate(decor);
+        getWindowManager().addView(decor, decor.getLayoutParams());
     }
 
     @Override
