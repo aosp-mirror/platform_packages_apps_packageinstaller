@@ -18,58 +18,56 @@ package com.android.packageinstaller.permission.ui;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.FrameLayout;
+import android.view.ViewGroup;
 
-/**
- * Allows one standard layout pass, but afterwards holds getMeasuredHeight constant,
- * however still allows drawing larger at the size needed by its children.  This allows
- * a dialog to tell the window the height is constant (with keeps its position constant)
- * but allows the view to grow downwards for animation.
- */
-public class ManualLayoutFrame extends FrameLayout {
-
-    private int mDesiredHeight;
-    private int mHeight;
+public class ManualLayoutFrame extends ViewGroup {
+    private int mContentBottom;
     private int mWidth;
-
-    private View mOffsetView;
 
     public ManualLayoutFrame(Context context, AttributeSet attrs) {
         super(context, attrs);
-        setClipChildren(false);
-        setClipToPadding(false);
     }
 
-    public int getLayoutHeight() {
-        return mDesiredHeight;
+    public void onConfigurationChanged() {
+        mContentBottom = 0;
+        mWidth = 0;
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         if (mWidth != 0) {
-            // Keep the width constant to avoid weirdness.
+            int newWidth = mWidth;
+            final int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+            switch (widthMode) {
+                case MeasureSpec.AT_MOST: {
+                    newWidth = Math.min(mWidth, MeasureSpec.getSize(widthMeasureSpec));
+                } break;
+                case MeasureSpec.EXACTLY: {
+                    newWidth = MeasureSpec.getSize(widthMeasureSpec);
+                } break;
+            }
+            if (newWidth != mWidth) {
+                mWidth = newWidth;
+            }
             widthMeasureSpec = MeasureSpec.makeMeasureSpec(mWidth, MeasureSpec.EXACTLY);
         }
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        mDesiredHeight = getMeasuredHeight();
-        if (mHeight == 0 && mDesiredHeight != 0) {
-            // Record the first non-zero width and height, this will be the height henceforth.
-            mHeight = mDesiredHeight;
+        if (mWidth == 0) {
             mWidth = getMeasuredWidth();
         }
-        if (mHeight != 0) {
-            // Always report the same height
-            setMeasuredDimension(getMeasuredWidth(), mHeight);
-        }
+
+        measureChild(getChildAt(0), widthMeasureSpec, heightMeasureSpec);
     }
 
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-        if (mDesiredHeight != 0) {
-            // Draw at height we expect to be.
-            setBottom(getTop() + mDesiredHeight);
-            bottom = top + mDesiredHeight;
+        View content = getChildAt(0);
+        if (mContentBottom == 0) {
+            mContentBottom = (getMeasuredHeight() + content.getMeasuredHeight()) / 2;
         }
-        super.onLayout(changed, left, top, right, bottom);
+        final int contentLeft = (getMeasuredWidth() - content.getMeasuredWidth()) / 2;
+        final int contentTop = mContentBottom - content.getMeasuredHeight();
+        final int contentRight = contentLeft + content.getMeasuredWidth();
+        content.layout(contentLeft, contentTop, contentRight, mContentBottom);
     }
 }
