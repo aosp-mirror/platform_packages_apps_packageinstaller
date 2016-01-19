@@ -53,9 +53,12 @@ import com.android.packageinstaller.permission.ui.OverlayTouchActivity;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.settingslib.RestrictedLockUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 
 public final class AppPermissionsFragment extends SettingsWithHeader
         implements OnPreferenceChangeListener {
@@ -216,7 +219,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
 
             boolean isPlatform = group.getDeclaringPackage().equals(Utils.OS_PKG);
 
-            SwitchPreference preference = new SwitchPreference(context);
+            RestrictedSwitchPreference preference = new RestrictedSwitchPreference(context);
             preference.setOnPreferenceChangeListener(this);
             preference.setKey(group.getName());
             Drawable icon = Utils.loadDrawable(context.getPackageManager(),
@@ -226,9 +229,15 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             preference.setTitle(group.getLabel());
             if (group.isPolicyFixed()) {
                 preference.setSummary(getString(R.string.permission_summary_enforced_by_policy));
+                EnforcedAdmin admin =
+                        RestrictedLockUtils.getProfileOrDeviceOwnerOnCallingUser(context);
+                if (admin != null) {
+                    preference.setDisabledByAdmin(admin);
+                } else {
+                    preference.setEnabled(false);
+                }
             }
             preference.setPersistent(false);
-            preference.setEnabled(!group.isPolicyFixed());
             preference.setChecked(group.areRuntimePermissionsGranted());
 
             if (isPlatform) {
