@@ -25,7 +25,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PermissionInfo;
-import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.drawable.Icon;
 import android.hardware.camera2.utils.ArrayUtils;
@@ -44,9 +43,8 @@ import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.Permission;
-import com.android.packageinstaller.permission.ui.handheld.GrantPermissionsViewHandlerImpl;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
-import libcore.util.EmptyArray;
+import com.android.packageinstaller.permission.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -171,21 +169,6 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
 
         if (!showNextPermissionGroupGrantRequest()) {
             setResultAndFinish();
-        }
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        // We need to relayout the window as dialog width may be
-        // different in landscape vs portrait which affect the min
-        // window height needed to show all content. We have to
-        // re-add the window to force it to be resized if needed.
-        View decor = getWindow().getDecorView();
-        getWindowManager().removeViewImmediate(decor);
-        getWindowManager().addView(decor, decor.getLayoutParams());
-        if (mViewHandler instanceof GrantPermissionsViewHandlerImpl) {
-            ((GrantPermissionsViewHandlerImpl) mViewHandler).onConfigurationChanged();
         }
     }
 

@@ -17,96 +17,79 @@
 <com.android.packageinstaller.permission.ui.ManualLayoutFrame
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:clipChildren="false">
-
+    android:layout_height="fill_parent" >
     <LinearLayout
         android:id="@+id/dialog_container"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingTop="24dip"
+        android:paddingBottom="8dip"
+        android:paddingStart="22dip"
+        android:paddingEnd="16dip"
         android:orientation="vertical">
 
         <FrameLayout
             android:id="@+id/desc_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="24dip"
-            android:paddingStart="22dip"
-            android:paddingEnd="16dip"
-            android:background="?android:attr/colorBackgroundFloating">
+            android:layout_height="wrap_content" >
             <include
                 layout="@layout/permission_description" />
         </FrameLayout>
 
-        <LinearLayout
+        <CheckBox
+            android:id="@+id/do_not_ask_checkbox"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dip"
+            android:text="@string/never_ask_again"
+            style="?android:attr/textAppearanceSmall"
+            android:visibility="gone">
+        </CheckBox>
+
+        <com.android.internal.widget.ButtonBarLayout
+            android:id="@+id/button_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingBottom="8dip"
-            android:paddingStart="22dip"
-            android:paddingEnd="16dip"
-            android:background="?android:attr/colorBackgroundFloating">
+            android:orientation="horizontal"
+            android:paddingStart="2dip"
+            android:paddingTop="16dip">
 
-            <CheckBox
-                android:id="@+id/do_not_ask_checkbox"
-                android:layout_width="fill_parent"
+            <TextView
+                android:id="@+id/current_page_text"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dip"
-                android:text="@string/never_ask_again"
-                style="?android:attr/textAppearanceSmall"
-                android:visibility="gone">
-            </CheckBox>
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:paddingEnd="12dp"
+                android:singleLine="true"
+                style="@android:style/TextAppearance.Material.Body2"
+                android:textColor="@color/grant_permissions_progress_color"
+                android:visibility="invisible">
+            </TextView>
 
-            <com.android.packageinstaller.permission.ui.ButtonBarLayout
-                android:id="@+id/button_group"
-                android:layout_width="match_parent"
+            <Space
+                android:id="@*android:id/spacer"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/permission_deny_button"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingStart="2dip"
-                android:paddingTop="16dip">
+                style="?android:attr/buttonBarButtonStyle"
+                android:text="@string/grant_dialog_button_deny" />
 
-                <TextView
-                    android:id="@+id/current_page_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp"
-                    android:paddingEnd="12dp"
-                    android:singleLine="true"
-                    style="?android:attr/textAppearanceSmall"
-                    android:textColor="?android:attr/textColorSecondary"
-                    android:visibility="invisible">
-                </TextView>
+            <Button
+                android:id="@+id/permission_allow_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_marginStart="8dip"
+                android:text="@string/grant_dialog_button_allow" />
 
-                <Space
-                    android:id="@*android:id/spacer"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:visibility="invisible" >
-                </Space>
-
-                <Button
-                    android:id="@+id/permission_deny_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:text="@string/grant_dialog_button_deny" >
-                </Button>
-
-                <Button
-                    android:id="@+id/permission_allow_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:layout_marginStart="8dip"
-                    android:text="@string/grant_dialog_button_allow" >
-                </Button>
-
-            </com.android.packageinstaller.permission.ui.ButtonBarLayout>
-
-        </LinearLayout>
+        </com.android.internal.widget.ButtonBarLayout>
 
     </LinearLayout>
-
 </com.android.packageinstaller.permission.ui.ManualLayoutFrame>
