@@ -47,9 +47,12 @@ import com.android.packageinstaller.permission.ui.OverlayTouchActivity;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.settingslib.RestrictedLockUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 
 public final class PermissionAppsFragment extends PermissionsFrameFragment implements Callback,
         Preference.OnPreferenceChangeListener {
@@ -83,6 +86,8 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
 
     private Callback mOnPermissionsLoadedListener;
 
+    private EnforcedAdmin mEnforcedAdmin;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,6 +102,7 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
         String groupName = getArguments().getString(Intent.EXTRA_PERMISSION_NAME);
         mPermissionApps = new PermissionApps(getActivity(), groupName, this);
         mPermissionApps.refresh(true);
+        mEnforcedAdmin = RestrictedLockUtils.getProfileOrDeviceOwnerOnCallingUser(getActivity());
     }
 
     @Override
@@ -219,12 +225,16 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
 
             if (existingPref != null) {
                 // If existing preference - only update its state.
-                if (app.isPolicyFixed()) {
-                    existingPref.setSummary(getString(
-                            R.string.permission_summary_enforced_by_policy));
+                final boolean isPolicyFixed = app.isPolicyFixed();
+                if (!isTelevision && (existingPref instanceof RestrictedSwitchPreference)) {
+                    ((RestrictedSwitchPreference) existingPref).setDisabledByAdmin(
+                            isPolicyFixed ? mEnforcedAdmin : null);
+                } else {
+                    existingPref.setEnabled(!isPolicyFixed);
                 }
+                existingPref.setSummary(isPolicyFixed ?
+                        getString(R.string.permission_summary_enforced_by_policy) : null);
                 existingPref.setPersistent(false);
-                existingPref.setEnabled(!app.isPolicyFixed());
                 if (existingPref instanceof SwitchPreference) {
                     ((SwitchPreference) existingPref)
                             .setChecked(app.areRuntimePermissionsGranted());
@@ -232,16 +242,20 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
                 continue;
             }
 
-            SwitchPreference pref = new SwitchPreference(context);
+            RestrictedSwitchPreference pref = new RestrictedSwitchPreference(context);
             pref.setOnPreferenceChangeListener(this);
             pref.setKey(app.getKey());
             pref.setIcon(app.getIcon());
             pref.setTitle(app.getLabel());
             if (app.isPolicyFixed()) {
                 pref.setSummary(getString(R.string.permission_summary_enforced_by_policy));
+                if (!isTelevision && mEnforcedAdmin != null) {
+                    pref.setDisabledByAdmin(mEnforcedAdmin);
+                } else {
+                    pref.setEnabled(false);
+                }
             }
             pref.setPersistent(false);
-            pref.setEnabled(!app.isPolicyFixed());
             pref.setChecked(app.areRuntimePermissionsGranted());
 
             if (isSystemApp && isTelevision) {

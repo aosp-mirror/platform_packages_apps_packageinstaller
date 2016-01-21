@@ -21,6 +21,9 @@
 
     <uses-permission android:name="com.google.android.permission.INSTALL_WEARABLE_PACKAGES" />
 
+    <!-- Needed for passing extras with intent ACTION_SHOW_ADMIN_SUPPORT_DETAILS -->
+    <uses-permission android:name="android.permission.MANAGE_DEVICE_ADMINS" />
+
     <application android:label="@string/app_name"
             android:allowBackup="false"
             android:theme="@style/Theme.DialogWhenLarge"
