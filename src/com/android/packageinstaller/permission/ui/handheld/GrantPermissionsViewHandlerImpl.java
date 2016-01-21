@@ -16,23 +16,14 @@
 
 package com.android.packageinstaller.permission.ui.handheld;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.drawable.Icon;
 import android.os.Bundle;
-import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnLayoutChangeListener;
 import android.view.ViewGroup;
-import android.view.ViewParent;
-import android.view.ViewRootImpl;
 import android.view.WindowManager.LayoutParams;
-import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 import android.widget.Button;
@@ -44,8 +35,6 @@ import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.ui.ButtonBarLayout;
 import com.android.packageinstaller.permission.ui.GrantPermissionsViewHandler;
 import com.android.packageinstaller.permission.ui.ManualLayoutFrame;
-
-import java.util.ArrayList;
 
 public final class GrantPermissionsViewHandlerImpl
         implements GrantPermissionsViewHandler, OnClickListener {
@@ -59,14 +48,8 @@ public final class GrantPermissionsViewHandlerImpl
     public static final String ARG_GROUP_DO_NOT_ASK_CHECKED = "ARG_GROUP_DO_NOT_ASK_CHECKED";
 
     // Animation parameters.
-    private static final long SIZE_START_DELAY = 300;
-    private static final long SIZE_START_LENGTH = 233;
-    private static final long FADE_OUT_START_DELAY = 300;
-    private static final long FADE_OUT_START_LENGTH = 217;
-    private static final long TRANSLATE_START_DELAY = 367;
-    private static final long TRANSLATE_LENGTH = 317;
-    private static final long GROUP_UPDATE_DELAY = 400;
-    private static final long DO_NOT_ASK_CHECK_DELAY = 450;
+    private static final long OUT_DURATION = 200;
+    private static final long IN_DURATION = 300;
 
     private final Context mContext;
 
@@ -86,22 +69,13 @@ public final class GrantPermissionsViewHandlerImpl
     private CheckBox mDoNotAskCheckbox;
     private Button mAllowButton;
 
-    private ArrayList<ViewHeightController> mHeightControllers;
     private ManualLayoutFrame mRootView;
 
     // Needed for animation
     private ViewGroup mDescContainer;
     private ViewGroup mCurrentDesc;
-    private ViewGroup mNextDesc;
-
     private ViewGroup mDialogContainer;
-
-    private final Runnable mUpdateGroup = new Runnable() {
-        @Override
-        public void run() {
-            updateGroup();
-        }
-    };
+    private ButtonBarLayout mButtonBar;
 
     public GrantPermissionsViewHandlerImpl(Context context) {
         mContext = context;
@@ -160,171 +134,148 @@ public final class GrantPermissionsViewHandlerImpl
         }
     }
 
-    private void animateToPermission() {
-        if (mHeightControllers == null) {
-            // We need to manually control the height of any views heigher than the root that
-            // we inflate.  Find all the views up to the root and create ViewHeightControllers for
-            // them.
-            mHeightControllers = new ArrayList<>();
-            ViewRootImpl viewRoot = mRootView.getViewRootImpl();
-            ViewParent v = mRootView.getParent();
-            addHeightController(mDialogContainer);
-            addHeightController(mRootView);
-            while (v != viewRoot) {
-                addHeightController((View) v);
-                v = v.getParent();
-            }
-            // On the heighest level view, we want to setTop rather than setBottom to control the
-            // height, this way the dialog will grow up rather than down.
-            ViewHeightController realRootView =
-                    mHeightControllers.get(mHeightControllers.size() - 1);
-            realRootView.setControlTop(true);
-        }
+    public void onConfigurationChanged() {
+        mRootView.onConfigurationChanged();
+    }
 
-        // Grab the current height/y positions, then wait for the layout to change,
-        // so we can get the end height/y positions.
-        final SparseArray<Float> startPositions = getViewPositions();
-        final int startHeight = mRootView.getLayoutHeight();
-        mRootView.addOnLayoutChangeListener(new OnLayoutChangeListener() {
-            @Override
-            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft,
-                    int oldTop, int oldRight, int oldBottom) {
-                mRootView.removeOnLayoutChangeListener(this);
-                SparseArray<Float> endPositions = getViewPositions();
-                int endHeight = mRootView.getLayoutHeight();
-                if (startPositions.get(R.id.do_not_ask_checkbox) == 0
-                        && endPositions.get(R.id.do_not_ask_checkbox) != 0) {
-                    // If the checkbox didn't have a position before but has one now then set
-                    // the start position to the end position because it just became visible.
-                    startPositions.put(R.id.do_not_ask_checkbox,
-                            endPositions.get(R.id.do_not_ask_checkbox));
-                }
-                animateYPos(startPositions, endPositions, endHeight - startHeight);
-            }
-        });
-
+    private void animateOldContent(Runnable callback) {
         // Fade out old description group and scale out the icon for it.
         Interpolator interpolator = AnimationUtils.loadInterpolator(mContext,
                 android.R.interpolator.fast_out_linear_in);
+
+        // Icon scale to zero
         mIconView.animate()
                 .scaleX(0)
                 .scaleY(0)
-                .setStartDelay(FADE_OUT_START_DELAY)
-                .setDuration(FADE_OUT_START_LENGTH)
+                .setDuration(OUT_DURATION)
                 .setInterpolator(interpolator)
                 .start();
+
+        // Description fade out
         mCurrentDesc.animate()
                 .alpha(0)
-                .setStartDelay(FADE_OUT_START_DELAY)
-                .setDuration(FADE_OUT_START_LENGTH)
+                .setDuration(OUT_DURATION)
                 .setInterpolator(interpolator)
-                .setListener(null)
+                .withEndAction(callback)
                 .start();
 
-        // Update the index of the permission after the animations have started.
-        mCurrentGroupView.getHandler().postDelayed(mUpdateGroup, GROUP_UPDATE_DELAY);
+        // Checkbox fade out if needed
+        if (!mShowDonNotAsk && mDoNotAskCheckbox.getVisibility() == View.VISIBLE) {
+            mDoNotAskCheckbox.animate()
+                    .alpha(0)
+                    .setDuration(OUT_DURATION)
+                    .setInterpolator(interpolator)
+                    .start();
+        }
+    }
 
-        // Add the new description and translate it in.
-        mNextDesc = (ViewGroup) LayoutInflater.from(mContext).inflate(
+    private void attachNewContent(final Runnable callback) {
+        mCurrentDesc = (ViewGroup) LayoutInflater.from(mContext).inflate(
                 R.layout.permission_description, mDescContainer, false);
+        mDescContainer.removeAllViews();
+        mDescContainer.addView(mCurrentDesc);
 
-        mMessageView = (TextView) mNextDesc.findViewById(R.id.permission_message);
-        mIconView = (ImageView) mNextDesc.findViewById(R.id.permission_icon);
+        mDialogContainer.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+                @Override
+                public void onLayoutChange(View v, int left, int top, int right, int bottom,
+                        int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                    mDialogContainer.removeOnLayoutChangeListener(this);
+
+                    // Prepare new content to the right to be moved in
+                    final int containerWidth = mDescContainer.getWidth();
+                    mCurrentDesc.setTranslationX(containerWidth);
+
+                    // How much scale for the dialog to appear the same?
+                    final int oldDynamicHeight = oldBottom - oldTop - mButtonBar.getHeight();
+                    final float scaleY = (float) oldDynamicHeight / mDescContainer.getHeight();
+
+                    // How much to translate for the dialog to appear the same?
+                    final int translationCompensatingScale = (int) (scaleY
+                            * mDescContainer.getHeight() - mDescContainer.getHeight()) / 2;
+                    final int translationY = (oldTop - top) + translationCompensatingScale;
+
+                    // Animate to the current layout
+                    mDescContainer.setScaleY(scaleY);
+                    mDescContainer.setTranslationY(translationY);
+                    mDescContainer.animate()
+                            .translationY(0)
+                            .scaleY(1.0f)
+                            .setInterpolator(AnimationUtils.loadInterpolator(mContext,
+                                    android.R.interpolator.linear_out_slow_in))
+                            .setDuration(IN_DURATION)
+                            .withEndAction(callback)
+                            .start();
+                }
+            }
+        );
+
+        mMessageView = (TextView) mCurrentDesc.findViewById(R.id.permission_message);
+        mIconView = (ImageView) mCurrentDesc.findViewById(R.id.permission_icon);
+
+        final boolean doNotAskWasShown = mDoNotAskCheckbox.getVisibility() == View.VISIBLE;
+
         updateDescription();
+        updateGroup();
+        updateDoNotAskCheckBox();
 
-        int width = mDescContainer.getRootView().getWidth();
-        mDescContainer.addView(mNextDesc);
-        mNextDesc.setTranslationX(width);
+        if (!doNotAskWasShown && mShowDonNotAsk) {
+            mDoNotAskCheckbox.setAlpha(0);
+        }
+    }
 
-        final View oldDesc = mCurrentDesc;
-        // Remove the old view from the description, so that we can shrink if necessary.
-        mDescContainer.removeView(oldDesc);
-        oldDesc.setPadding(mDescContainer.getLeft(), mDescContainer.getTop(),
-                mRootView.getRight() - mDescContainer.getRight(), 0);
-        mRootView.addView(oldDesc);
+    private void animateNewContent() {
+        Interpolator interpolator = AnimationUtils.loadInterpolator(mContext,
+                android.R.interpolator.linear_out_slow_in);
 
-        mCurrentDesc = mNextDesc;
-        mNextDesc.animate()
+        // Description slide in
+        mCurrentDesc.animate()
                 .translationX(0)
-                .setStartDelay(TRANSLATE_START_DELAY)
-                .setDuration(TRANSLATE_LENGTH)
-                .setInterpolator(AnimationUtils.loadInterpolator(mContext,
-                        android.R.interpolator.linear_out_slow_in))
-                .setListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        // This is the longest animation, when it finishes, we are done.
-                        mRootView.removeView(oldDesc);
-                    }
-                })
+                .setDuration(IN_DURATION)
+                .setInterpolator(interpolator)
                 .start();
 
-        boolean visibleBefore = mDoNotAskCheckbox.getVisibility() == View.VISIBLE;
-        updateDoNotAskCheckBox();
-        boolean visibleAfter = mDoNotAskCheckbox.getVisibility() == View.VISIBLE;
-        if (visibleBefore != visibleAfter) {
-            Animation anim = AnimationUtils.loadAnimation(mContext,
-                    visibleAfter ? android.R.anim.fade_in : android.R.anim.fade_out);
-            anim.setStartOffset(visibleAfter ? DO_NOT_ASK_CHECK_DELAY : 0);
-            mDoNotAskCheckbox.startAnimation(anim);
+        // Checkbox fade in if needed
+        if (mShowDonNotAsk && mDoNotAskCheckbox.getVisibility() == View.VISIBLE
+                && mDoNotAskCheckbox.getAlpha() < 1.0f) {
+            mDoNotAskCheckbox.setAlpha(0);
+            mDoNotAskCheckbox.animate()
+                    .alpha(1.0f)
+                    .setDuration(IN_DURATION)
+                    .setInterpolator(interpolator)
+                    .start();
         }
     }
 
-    private void addHeightController(View v) {
-        ViewHeightController heightController = new ViewHeightController(v);
-        heightController.setHeight(v.getHeight());
-        mHeightControllers.add(heightController);
-    }
-
-    private SparseArray<Float> getViewPositions() {
-        SparseArray<Float> locMap = new SparseArray<>();
-        final int N = mDialogContainer.getChildCount();
-        for (int i = 0; i < N; i++) {
-            View child = mDialogContainer.getChildAt(i);
-            if (child.getId() <= 0) {
-                // Only track views with ids.
-                continue;
+    private void animateToPermission() {
+        // Remove the old content
+        animateOldContent(new Runnable() {
+            @Override
+            public void run() {
+                // Add the new content
+                attachNewContent(new Runnable() {
+                    @Override
+                    public void run() {
+                        // Animate the new content
+                        animateNewContent();
+                    }
+                });
             }
-            locMap.put(child.getId(), child.getY());
-        }
-        return locMap;
-    }
-
-    private void animateYPos(SparseArray<Float> startPositions, SparseArray<Float> endPositions,
-            int heightDiff) {
-        final int N = startPositions.size();
-        for (int i = 0; i < N; i++) {
-            int key = startPositions.keyAt(i);
-            float start = startPositions.get(key);
-            float end = endPositions.get(key);
-            if (start != end) {
-                final View child = mDialogContainer.findViewById(key);
-                child.setTranslationY(start - end);
-                child.animate()
-                        .setStartDelay(SIZE_START_DELAY)
-                        .setDuration(SIZE_START_LENGTH)
-                        .translationY(0)
-                        .start();
-            }
-        }
-        for (int i = 0; i < mHeightControllers.size(); i++) {
-            mHeightControllers.get(i).animateAddHeight(heightDiff);
-        }
+        });
     }
 
     @Override
     public View createView() {
         mRootView = (ManualLayoutFrame) LayoutInflater.from(mContext)
                 .inflate(R.layout.grant_permissions, null);
-        ((ButtonBarLayout) mRootView.findViewById(R.id.button_group)).setAllowStacking(true);
-
-        mDialogContainer = (ViewGroup) mRootView.findViewById(R.id.dialog_container);
+        mButtonBar = (ButtonBarLayout) mRootView.findViewById(R.id.button_group);
+        mButtonBar.setAllowStacking(true);
         mMessageView = (TextView) mRootView.findViewById(R.id.permission_message);
         mIconView = (ImageView) mRootView.findViewById(R.id.permission_icon);
         mCurrentGroupView = (TextView) mRootView.findViewById(R.id.current_page_text);
         mDoNotAskCheckbox = (CheckBox) mRootView.findViewById(R.id.do_not_ask_checkbox);
         mAllowButton = (Button) mRootView.findViewById(R.id.permission_allow_button);
 
+        mDialogContainer = (ViewGroup) mRootView.findViewById(R.id.dialog_container);
         mDescContainer = (ViewGroup) mRootView.findViewById(R.id.desc_container);
         mCurrentDesc = (ViewGroup) mRootView.findViewById(R.id.perm_desc_root);
 
@@ -400,63 +351,6 @@ public final class GrantPermissionsViewHandlerImpl
         if (mResultListener != null) {
             final boolean doNotAskAgain = mDoNotAskCheckbox.isChecked();
             mResultListener.onPermissionGrantResult(mGroupName, false, doNotAskAgain);
-        }
-    }
-
-    /**
-     * Manually controls the height of a view through getBottom/setTop.  Also listens
-     * for layout changes and sets the height again to be sure it doesn't change.
-     */
-    private static final class ViewHeightController implements OnLayoutChangeListener {
-        private final View mView;
-        private int mHeight;
-        private int mNextHeight;
-        private boolean mControlTop;
-        private ObjectAnimator mAnimator;
-
-        public ViewHeightController(View view) {
-            mView = view;
-            mView.addOnLayoutChangeListener(this);
-        }
-
-        public void setControlTop(boolean controlTop) {
-            mControlTop = controlTop;
-        }
-
-        public void animateAddHeight(int heightDiff) {
-            if (heightDiff != 0) {
-                if (mNextHeight == 0) {
-                    mNextHeight = mHeight;
-                }
-                mNextHeight += heightDiff;
-                if (mAnimator != null) {
-                    mAnimator.cancel();
-                }
-                mAnimator = ObjectAnimator.ofInt(this, "height", mHeight, mNextHeight);
-                mAnimator.setStartDelay(SIZE_START_DELAY);
-                mAnimator.setDuration(SIZE_START_LENGTH);
-                mAnimator.start();
-            }
-        }
-
-        public void setHeight(int height) {
-            mHeight = height;
-            updateHeight();
-        }
-
-        @Override
-        public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft,
-                int oldTop, int oldRight, int oldBottom) {
-            // Ensure that the height never changes.
-            updateHeight();
-        }
-
-        private void updateHeight() {
-            if (mControlTop) {
-                mView.setTop(mView.getBottom() - mHeight);
-            } else {
-                mView.setBottom(mView.getTop() + mHeight);
-            }
         }
     }
 }
