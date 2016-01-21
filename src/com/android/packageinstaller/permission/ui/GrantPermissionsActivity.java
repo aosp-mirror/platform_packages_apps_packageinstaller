@@ -46,8 +46,8 @@ import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.Permission;
+import com.android.packageinstaller.permission.ui.handheld.GrantPermissionsViewHandlerImpl;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
-import com.android.packageinstaller.permission.utils.Utils;
 import libcore.util.EmptyArray;
 
 import java.util.ArrayList;
@@ -190,15 +190,16 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        // This is just gross - we need to relayout the window as
-        // dialog width may be different in landscape vs portrait
-        // which affect the min window height needed to show all
-        // content. We have to re-add the window to force it to be
-        // resized if needed. The way the permission grant dialog
-        // is implemented is not correct and has to be rewritten.
+        // We need to relayout the window as dialog width may be
+        // different in landscape vs portrait which affect the min
+        // window height needed to show all content. We have to
+        // re-add the window to force it to be resized if needed.
         View decor = getWindow().getDecorView();
         getWindowManager().removeViewImmediate(decor);
         getWindowManager().addView(decor, decor.getLayoutParams());
+        if (mViewHandler instanceof GrantPermissionsViewHandlerImpl) {
+            ((GrantPermissionsViewHandlerImpl) mViewHandler).onConfigurationChanged();
+        }
     }
 
     @Override
