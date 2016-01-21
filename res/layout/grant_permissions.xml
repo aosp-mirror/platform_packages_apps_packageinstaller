@@ -17,71 +17,74 @@
 <com.android.packageinstaller.permission.ui.ManualLayoutFrame
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:clipChildren="false">
 
     <LinearLayout
         android:id="@+id/dialog_container"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:paddingTop="24dip"
-        android:paddingBottom="8dip"
-        android:paddingStart="22dip"
-        android:paddingEnd="16dip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <FrameLayout
             android:id="@+id/desc_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:paddingTop="24dip"
+            android:paddingStart="22dip"
+            android:paddingEnd="16dip"
+            android:background="?android:attr/colorBackgroundFloating">
             <include
                 layout="@layout/permission_description" />
         </FrameLayout>
 
-        <CheckBox
-            android:id="@+id/do_not_ask_checkbox"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dip"
-            android:text="@string/never_ask_again"
-            style="?android:attr/textAppearanceSmall"
-            android:visibility="gone">
-        </CheckBox>
-
-        <com.android.packageinstaller.permission.ui.ButtonBarLayout
-            android:id="@+id/button_group"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:paddingStart="2dip"
-            android:paddingTop="16dip">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="8dip"
+            android:paddingStart="22dip"
+            android:paddingEnd="16dip"
+            android:background="?android:attr/colorBackgroundFloating">
 
-            <TextView
-                android:id="@+id/current_page_text"
-                android:layout_width="wrap_content"
+            <CheckBox
+                android:id="@+id/do_not_ask_checkbox"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start|bottom"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp"
-                android:paddingEnd="12dp"
-                android:singleLine="true"
+                android:layout_marginTop="16dip"
+                android:text="@string/never_ask_again"
                 style="?android:attr/textAppearanceSmall"
-                android:textColor="?android:attr/textColorSecondary"
-                android:visibility="invisible">
-            </TextView>
+                android:visibility="gone">
+            </CheckBox>
 
-            <Space
-                android:id="@*android:id/spacer"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:visibility="invisible" >
-            </Space>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
+            <com.android.packageinstaller.permission.ui.ButtonBarLayout
+                android:id="@+id/button_group"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:orientation="horizontal" >
+                android:orientation="horizontal"
+                android:paddingStart="2dip"
+                android:paddingTop="16dip">
+
+                <TextView
+                    android:id="@+id/current_page_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:paddingEnd="12dp"
+                    android:singleLine="true"
+                    style="?android:attr/textAppearanceSmall"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:visibility="invisible">
+                </TextView>
+
+                <Space
+                    android:id="@*android:id/spacer"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:visibility="invisible" >
+                </Space>
 
                 <Button
                     android:id="@+id/permission_deny_button"
@@ -100,9 +103,9 @@
                     android:text="@string/grant_dialog_button_allow" >
                 </Button>
 
-            </LinearLayout>
+            </com.android.packageinstaller.permission.ui.ButtonBarLayout>
 
-        </com.android.packageinstaller.permission.ui.ButtonBarLayout>
+        </LinearLayout>
 
     </LinearLayout>
 
