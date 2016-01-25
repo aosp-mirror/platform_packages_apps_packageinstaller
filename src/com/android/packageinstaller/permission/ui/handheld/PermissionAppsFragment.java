@@ -229,11 +229,12 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
                 if (!isTelevision && (existingPref instanceof RestrictedSwitchPreference)) {
                     ((RestrictedSwitchPreference) existingPref).setDisabledByAdmin(
                             isPolicyFixed ? mEnforcedAdmin : null);
+                    existingPref.setSummary(R.string.disabled_by_admin_summary_text);
                 } else {
                     existingPref.setEnabled(!isPolicyFixed);
+                    existingPref.setSummary(isPolicyFixed ?
+                            getString(R.string.permission_summary_enforced_by_policy) : null);
                 }
-                existingPref.setSummary(isPolicyFixed ?
-                        getString(R.string.permission_summary_enforced_by_policy) : null);
                 existingPref.setPersistent(false);
                 if (existingPref instanceof SwitchPreference) {
                     ((SwitchPreference) existingPref)
@@ -248,11 +249,12 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
             pref.setIcon(app.getIcon());
             pref.setTitle(app.getLabel());
             if (app.isPolicyFixed()) {
-                pref.setSummary(getString(R.string.permission_summary_enforced_by_policy));
                 if (!isTelevision && mEnforcedAdmin != null) {
                     pref.setDisabledByAdmin(mEnforcedAdmin);
+                    pref.setSummary(R.string.disabled_by_admin_summary_text);
                 } else {
                     pref.setEnabled(false);
+                    pref.setSummary(R.string.permission_summary_enforced_by_policy);
                 }
             }
             pref.setPersistent(false);
