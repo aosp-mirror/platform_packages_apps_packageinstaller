@@ -86,8 +86,6 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
 
     private Callback mOnPermissionsLoadedListener;
 
-    private EnforcedAdmin mEnforcedAdmin;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,7 +100,6 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
         String groupName = getArguments().getString(Intent.EXTRA_PERMISSION_NAME);
         mPermissionApps = new PermissionApps(getActivity(), groupName, this);
         mPermissionApps.refresh(true);
-        mEnforcedAdmin = RestrictedLockUtils.getProfileOrDeviceOwnerOnCallingUser(getActivity());
     }
 
     @Override
@@ -226,9 +223,11 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
             if (existingPref != null) {
                 // If existing preference - only update its state.
                 final boolean isPolicyFixed = app.isPolicyFixed();
+                EnforcedAdmin enforcedAdmin = RestrictedLockUtils.getProfileOrDeviceOwner(
+                        getActivity(), app.getUserId());
                 if (!isTelevision && (existingPref instanceof RestrictedSwitchPreference)) {
                     ((RestrictedSwitchPreference) existingPref).setDisabledByAdmin(
-                            isPolicyFixed ? mEnforcedAdmin : null);
+                            isPolicyFixed ? enforcedAdmin : null);
                     existingPref.setSummary(R.string.disabled_by_admin_summary_text);
                 } else {
                     existingPref.setEnabled(!isPolicyFixed);
@@ -248,9 +247,11 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
             pref.setKey(app.getKey());
             pref.setIcon(app.getIcon());
             pref.setTitle(app.getLabel());
+            EnforcedAdmin enforcedAdmin = RestrictedLockUtils.getProfileOrDeviceOwner(
+                    getActivity(), app.getUserId());
             if (app.isPolicyFixed()) {
-                if (!isTelevision && mEnforcedAdmin != null) {
-                    pref.setDisabledByAdmin(mEnforcedAdmin);
+                if (!isTelevision && enforcedAdmin != null) {
+                    pref.setDisabledByAdmin(enforcedAdmin);
                     pref.setSummary(R.string.disabled_by_admin_summary_text);
                 } else {
                     pref.setEnabled(false);

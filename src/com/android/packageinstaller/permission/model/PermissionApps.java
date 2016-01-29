@@ -345,6 +345,10 @@ public class PermissionApps {
             return mAppPermissionGroup.hasRuntimePermission();
         }
 
+        public int getUserId() {
+            return mAppPermissionGroup.getUserId();
+        }
+
         public String getPackageName() {
             return mPackageName;
         }

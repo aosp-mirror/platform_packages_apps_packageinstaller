@@ -285,6 +285,10 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         return mDescription;
     }
 
+    public int getUserId() {
+        return mUserHandle.getIdentifier();
+    }
+
     public boolean hasPermission(String permission) {
         return mPermissions.get(permission) != null;
     }
