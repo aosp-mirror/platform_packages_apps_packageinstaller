@@ -517,8 +517,10 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         // If the admin prohibits it, or we're running in a managed profile, just show error
         // and exit. Otherwise show an option to take the user to Settings to change the setting.
         final boolean isManagedProfile = mUserManager.isManagedProfile();
-        if (!unknownSourcesAllowedByAdmin
-                || (!unknownSourcesAllowedByUser && isManagedProfile)) {
+        if (!unknownSourcesAllowedByAdmin) {
+            startActivity(new Intent(Settings.ACTION_SHOW_ADMIN_SUPPORT_DETAILS));
+            finish();
+        } else if (!unknownSourcesAllowedByUser && isManagedProfile) {
             showDialogInner(DLG_ADMIN_RESTRICTS_UNKNOWN_SOURCES);
         } else if (!unknownSourcesAllowedByUser) {
             // Ask user to enable setting first
