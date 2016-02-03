@@ -35,21 +35,21 @@
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Das Paket ist offenbar beschädigt."</string>
     <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Ein Paket mit dem gleichen Namen, aber in Konflikt stehender Signatur, ist bereits installiert."</string>
     <string name="install_failed_older_sdk" msgid="7947925824732917665">"Das Paket funktioniert nur auf neueren Versionen von Android."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Diese App ist mit Ihrem Tablet nicht kompatibel."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Diese App ist nicht mit Ihrem Fernseher kompatibel."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Diese App ist mit Ihrem Telefon nicht kompatibel."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Diese App ist mit deinem Tablet nicht kompatibel."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Diese App ist nicht mit deinem Fernseher kompatibel."</string>
+    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Diese App ist mit deinem Telefon nicht kompatibel."</string>
     <string name="install_failed_file_not_found" msgid="1958430133396322619">"Das angegebene Paket wurde gelöscht, bevor die Installation abgeschlossen werden konnte."</string>
     <string name="install_failed_verify_failed" msgid="5567372439890440205">"Das Paket hat die Prüfung nicht bestanden und kann daher nicht installiert werden."</string>
     <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Bei der Paketüberprüfung ist eine Zeitüberschreitung aufgetreten. Wiederhole die Installation."</string>
-    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> konnte nicht auf Ihrem Tablet installiert werden."</string>
-    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> konnte nicht auf Ihrem Fernseher installiert werden."</string>
-    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> konnte nicht auf Ihrem Telefon installiert werden."</string>
+    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> konnte nicht auf deinem Tablet installiert werden."</string>
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> konnte nicht auf deinem Fernseher installiert werden."</string>
+    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> konnte nicht auf deinem Telefon installiert werden."</string>
     <string name="launch" msgid="4826921505917605463">"Öffnen"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Installation gesperrt"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Aus Sicherheitsgründen kannst du auf deinem Tablet keine Apps von unbekannten Quellen installieren."</string>
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Aus Sicherheitsgründen kannst du auf dem Fernseher keine Apps von unbekannten Quellen installieren."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Aus Sicherheitsgründen kannst du auf deinem Telefon keine Apps von unbekannten Quellen installieren."</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Ihr Administrator erlaubt die Installation von Apps aus unbekannten Quellen nicht."</string>
+    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Dein Administrator erlaubt die Installation von Apps aus unbekannten Quellen nicht."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Einstellungen"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Neue Quelle für Apps"</string>
@@ -57,7 +57,7 @@
     <string name="manage_applications" msgid="4033876279091996596">"Apps verwalten"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"App ersetzen?"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Die App, die du momentan installierst, wird eine andere App ersetzen.\n\nAlle deine bisherigen Nutzerdaten werden gespeichert."</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Dies ist eine Systemanwendung.\n\nAlle Ihre bisherigen Nutzerdaten werden gespeichert."</string>
+    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Dies ist eine Systemanwendung.\n\nAlle deine bisherigen Nutzerdaten werden gespeichert."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Kein freier Speicher vorhanden"</string>
     <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> konnte nicht installiert werden. Gib Speicherplatz frei und versuche es erneut."</string>
     <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
@@ -75,7 +75,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Deinstallation fehlgeschlagen"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Deinstallation nicht möglich: Dieses Paket ist ein aktiver Geräteadministrator."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Deinstallation nicht möglich, Paket ist ein aktiver Geräteadministrator für <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Die App wird für Ihr Arbeitsprofil benötigt und kann nicht deinstalliert werden."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Die App wird für dein Arbeitsprofil benötigt und kann nicht deinstalliert werden."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Die App wurde als obligatorisch festgelegt und kann nicht deinstalliert werden."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Geräteadministratoren verwalten"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> konnte nicht deinstalliert werden."</string>
