@@ -228,8 +228,8 @@ public final class AppPermissionsFragment extends SettingsWithHeader
                     android.R.attr.colorControlNormal));
             preference.setTitle(group.getLabel());
             if (group.isPolicyFixed()) {
-                EnforcedAdmin admin =
-                        RestrictedLockUtils.getProfileOrDeviceOwnerOnCallingUser(context);
+                EnforcedAdmin admin = RestrictedLockUtils.getProfileOrDeviceOwner(getContext(),
+                        group.getUserId());
                 if (admin != null) {
                     preference.setDisabledByAdmin(admin);
                     preference.setSummary(R.string.disabled_by_admin_summary_text);
