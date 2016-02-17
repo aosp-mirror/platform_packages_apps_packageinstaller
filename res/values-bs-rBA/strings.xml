@@ -32,25 +32,20 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Želite li ažurirati ovu postojeću aplikaciju? Vaši postojeći podaci neće biti izgubljeni. Za ovo nije potreban poseban pristup."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Želite li ažurirati ovu ugrađenu aplikaciju? Vaš postojeći podaci neće biti izgubljeni. Nije potreban poseban pristup."</string>
     <string name="install_failed" msgid="6579998651498970899">"Aplikacija nije instalirana."</string>
-    <!-- no translation found for install_failed_blocked (1606870930588770025) -->
-    <skip />
-    <!-- no translation found for install_failed_conflict (5349055145440204106) -->
-    <skip />
-    <!-- no translation found for install_failed_incompatible (119054044615117271) -->
-    <skip />
-    <!-- no translation found for install_failed_incompatible (3553367270510072729) -->
-    <skip />
-    <!-- no translation found for install_failed_incompatible (6677057915876853610) -->
-    <skip />
+    <string name="install_failed_blocked" msgid="1606870930588770025">"Instaliranje ovog paketa je blokirano."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"Paket je u koliziji sa postojećim paketom istog imena."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"Ova aplikacija nije kompatibilna s vašim tabletom."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Ova aplikacija nije kompatibilna s vašim TV-om."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"Ova aplikacija nije kompatibilna s vašim telefonom."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Čini se da je paket oštećen."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> ne možete instalirati na svoj tablet."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Nije moguće instalirati aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> na vaš TV."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> ne možete instalirati na svoj telefon."</string>
     <string name="launch" msgid="4826921505917605463">"Otvori"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Instalacija blokirana"</string>
-    <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Iz sigurnosnih razloga, vaš tablet je podešen da blokira instalaciju aplikacija dobivenih iz nepoznatih izvora."</string>
+    <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Iz sigurnosnih razloga, vaš tablet je podešen da blokira instaliranje aplikacija dobivenih iz nepoznatih izvora."</string>
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Vaš TV je zbog sigurnosti podešen da blokira instaliranje aplikacija iz nepoznatih izvora."</string>
-    <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Iz sigurnosnih razloga, vaš telefon je podešen da blokira instalaciju aplikacija dobivenih iz nepoznatih izvora."</string>
+    <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Iz sigurnosnih razloga, vaš telefon je podešen da blokira instaliranje aplikacija dobivenih iz nepoznatih izvora."</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Vaš administrator ne dozvoljava instaliranje aplikacija iz nepoznatih izvora."</string>
     <string name="ok" msgid="3468756155452870475">"Uredu"</string>
     <string name="settings" msgid="6743583734099755409">"Postavke"</string>
@@ -76,7 +71,7 @@
     <string name="uninstall_done" msgid="3792487853420281888">"Uklanjanje završeno."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Uklanjanje nije uspjelo."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Ovaj paket ne možete ukloniti jer je aktivni administrator uređaja."</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Ne može se ukloniti jer je ovaj paket aktivni administrator uređaja za korisnika <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Ne može se ukloniti jer ovaj paket funkcionira kao aktivni administrator uređaja za korisnika <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
     <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Ova aplikacija je potrebna za vaš profil za posao i ne može se deinstalirati."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Ova aplikacija je potrebna administratoru vašeg uređaja i ne može se ukloniti."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Upravljanje administratorima uređaja"</string>
@@ -88,7 +83,7 @@
     <string name="privacyPerms" msgid="1850527049572617">"Privatnost"</string>
     <string name="devicePerms" msgid="6733560207731294504">"Pristup uređaju"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"Za ovo ažuriranje nisu potrebne nove dozvole."</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"Želite li dati sljedeće dozvole? Odobrićete pristup:"</string>
+    <string name="grant_confirm_question" msgid="4690289297029223742">"Želite li dati sljedeće dozvole? Odobrit ćete pristup:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Odbij"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> od <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"Želite li dozvoliti da aplikacija <xliff:g id="APP_NAME">%1$s</xliff:g> <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
@@ -123,18 +118,11 @@
     <string name="screen_overlay_button" msgid="4344544843349937743">"Otvori postavke"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Instaliranje/deinstaliranje nije podržano na Wearu."</string>
-    <!-- no translation found for permission_review_warning_title_template_update (2569412700408535872) -->
-    <skip />
-    <!-- no translation found for permission_review_title_template_install (6535540493936469336) -->
-    <skip />
-    <!-- no translation found for permission_review_title_template_update (2548815248828051885) -->
-    <skip />
-    <!-- no translation found for review_button_cancel (957906817733578877) -->
-    <skip />
-    <!-- no translation found for review_button_continue (4809162078179371370) -->
-    <skip />
-    <!-- no translation found for new_permissions_category (3213523410139204183) -->
-    <skip />
-    <!-- no translation found for current_permissions_category (998210994450606094) -->
-    <skip />
+    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"Aplikacija <xliff:g id="APP_NAME_0">%1$s</xliff:g> je ažurirana. Želite li aplikaciji <xliff:g id="APP_NAME_1">%1$s</xliff:g> dopustiti pristup sljedećem?"</string>
+    <string name="permission_review_title_template_install" msgid="6535540493936469336">"Odaberite čemu aplikacija <xliff:g id="APP_NAME">%1$s</xliff:g> može pristupati"</string>
+    <string name="permission_review_title_template_update" msgid="2548815248828051885">"Aplikacija <xliff:g id="APP_NAME">%1$s</xliff:g> je ažurirana. Odaberite čemu ova aplikacija može pristupati."</string>
+    <string name="review_button_cancel" msgid="957906817733578877">"Otkaži"</string>
+    <string name="review_button_continue" msgid="4809162078179371370">"Nastavi"</string>
+    <string name="new_permissions_category" msgid="3213523410139204183">"Nova odobrenja"</string>
+    <string name="current_permissions_category" msgid="998210994450606094">"Postojeća odobrenja"</string>
 </resources>
