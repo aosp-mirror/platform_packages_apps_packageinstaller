@@ -323,12 +323,6 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
             return false;
         }
 
-        OverlayTouchActivity activity = (OverlayTouchActivity) getActivity();
-        if (activity.isObscuredTouch()) {
-            activity.showOverlayDialog();
-            return false;
-        }
-
         if (LocationUtils.isLocationGroupAndProvider(mPermissionApps.getGroupName(),
                 app.getPackageName())) {
             LocationUtils.showLocationDialog(getContext(), app.getLabel());

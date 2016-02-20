@@ -16,24 +16,30 @@
 package com.android.packageinstaller.permission.ui;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.view.MotionEvent;
+import android.app.AppOpsManager;
+import android.os.Binder;
+import android.os.IBinder;
 
 public class OverlayTouchActivity extends Activity {
+    private final IBinder mToken = new Binder();
 
-    private boolean mObscuredTouch;
-
-    public boolean isObscuredTouch() {
-        return mObscuredTouch;
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setOverlayAllowed(false);
     }
 
     @Override
-    public boolean dispatchTouchEvent(MotionEvent event) {
-        mObscuredTouch = (event.getFlags() & MotionEvent.FLAG_WINDOW_IS_OBSCURED) != 0;
-        return super.dispatchTouchEvent(event);
+    protected void onPause() {
+        super.onPause();
+        setOverlayAllowed(true);
     }
 
-    public void showOverlayDialog() {
-        startActivity(new Intent(this, OverlayWarningDialog.class));
+    private void setOverlayAllowed(boolean allowed) {
+        AppOpsManager appOpsManager = getSystemService(AppOpsManager.class);
+        if (appOpsManager != null) {
+            appOpsManager.setUserRestriction(AppOpsManager.OP_SYSTEM_ALERT_WINDOW,
+                    !allowed, mToken);
+        }
     }
 }
