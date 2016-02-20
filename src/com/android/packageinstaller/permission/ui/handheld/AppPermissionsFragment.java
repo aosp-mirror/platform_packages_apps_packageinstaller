@@ -283,12 +283,6 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             return false;
         }
 
-        OverlayTouchActivity activity = (OverlayTouchActivity) getActivity();
-        if (activity.isObscuredTouch()) {
-            activity.showOverlayDialog();
-            return false;
-        }
-
         addToggledGroup(group);
 
         if (LocationUtils.isLocationGroupAndProvider(group.getName(), group.getApp().packageName)) {
