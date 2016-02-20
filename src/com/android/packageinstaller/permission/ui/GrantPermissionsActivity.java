@@ -102,6 +102,12 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
 
         PackageInfo callingPackageInfo = getCallingPackageInfo();
 
+        if (callingPackageInfo == null || callingPackageInfo.requestedPermissions == null
+                || callingPackageInfo.requestedPermissions.length <= 0) {
+            setResultAndFinish();
+            return;
+        }
+
         // Don't allow legacy apps to request runtime permissions.
         if (callingPackageInfo.applicationInfo.targetSdkVersion < Build.VERSION_CODES.M) {
             // Returning empty arrays means a cancellation.
@@ -116,11 +122,6 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
 
         // If calling package is null we default to deny all.
         updateDefaultResults(callingPackageInfo, permissionPolicy);
-
-        if (callingPackageInfo == null) {
-            setResultAndFinish();
-            return;
-        }
 
         mAppPermissions = new AppPermissions(this, callingPackageInfo, null, false,
                 new Runnable() {
