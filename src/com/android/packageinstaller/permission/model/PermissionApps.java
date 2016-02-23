@@ -35,7 +35,6 @@ import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.utils.Utils;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -182,7 +181,7 @@ public class PermissionApps {
                             || (requestedPermissionInfo.flags
                                 & PermissionInfo.FLAG_INSTALLED) == 0
                             || (requestedPermissionInfo.flags
-                                & PermissionInfo.FLAG_HIDDEN) != 0) {
+                                & PermissionInfo.FLAG_REMOVED) != 0) {
                         continue;
                     }
 
