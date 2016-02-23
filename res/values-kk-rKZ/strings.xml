@@ -16,10 +16,10 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2738748390251381682">"Жинақ орнатқыш"</string>
+    <string name="app_name" msgid="2738748390251381682">"Бума орнатқыш"</string>
     <string name="next" msgid="3057143178373252333">"Келесі"</string>
     <string name="install" msgid="5896438203900042068">"Орнату"</string>
-    <string name="done" msgid="3889387558374211719">"Орындалды"</string>
+    <string name="done" msgid="3889387558374211719">"Дайын"</string>
     <string name="security_settings_desc" msgid="2706691034244052604">"Бұл қолданбаға келесі нәрселереге рұқсат беріңіз:"</string>
     <string name="cancel" msgid="8360346460165114585">"Бас тарту"</string>
     <string name="unknown" msgid="4742479012767208045">"Белгісіз"</string>
@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Бұл қолданбаның жаңартылған нұсқасын орнатуды қалайсыз ба? Деректеріңіз жоғалмайды. Ол ерекше қол жетімділікті қажет етпейді."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Бұл орнатылған қолданбаның жаңартылған нұсқасын орнатуды қалайсыз ба? Деректеріңіз жоғалмайды. Ол ерекше қол жетімділікті қажет етпейді."</string>
     <string name="install_failed" msgid="6579998651498970899">"Қолданба орнатылмады."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"Буманы орнатуға тыйым салынды."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"Бума мен атауы бірдей бар бума арасында қайшылық бар."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"Бұл қолданба планшетіңізбен үйлесімді емес."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Бұл қолданба теледидарыңызбен үйлесімді емес."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"Бұл қолданба телефоныңызбен үйлесімді емес."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Жинақ жарамсыз."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Дәл сондай атауы бар, қол таңбасы сәйкес емес жинақ бұрын орнатылған."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Жинақ Android жүйесінің жаңа нұсқаларымен ғана жұмыс істейді."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Бұл қолданба планшетіңізбен үйлесімді емес."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Бұл қолданба теледидарыңызбен үйлесімді емес."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Бұл қолданба телефоныңызбен үйлесімді емес."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Белгіленген жинақ орнату аяқталғанға дейін жойылды."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Жинақ растаудан өтпеді және орнату мүмкін емес."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Бұл жинақты растау барысында жұмыс мезгілі аяқталды. Кейінірек қайта әрекеттеніп көріңіз."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> қолданбасын планшетіңізге орнату мүмкін емес"</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> теледидарыңызда орнату мүмкін емес."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> қолданбасын телефоныңызға орнату мүмкін емес."</string>
@@ -75,7 +72,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Алып тастау сәтсіздікке ұшырады."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Алып тастау мүмкін емес, себебі бұл жинақ құрылғының қосылып тұрған әкімшісі."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Жою мүмкін емес, өйткені бұл бума <xliff:g id="USERNAME">%1$s</xliff:g> пайдаланушысының белсенді құрылғы әкімшісі болып табылады."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Бұл қолданба <xliff:g id="USERNAME">%1$s</xliff:g> профиліңіз үшін қажет және оны жою мүмкін емес."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Бұл қолданба жұмыс профиліңіз үшін қажет және оны жою мүмкін емес."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Әкімші осы қолданбаны талап етеді және оны жою мүмкін емес."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Құрылғы әкімшілерін басқару"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> қолданбасын алып тастау мүмкін емес."</string>
@@ -91,7 +88,33 @@
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Қабылдамау"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>/<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="APP_NAME">%1$s</xliff:g> қолданбасына <xliff:g id="ACTION">%2$s</xliff:g> рұқсатын бересіз бе?"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Қолданбалар"</string>
     <string name="app_permissions" msgid="3146758905824597178">"Қолданба рұқсаттары"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"Қайтадан сұрамау"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Рұқсат жоқ"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"Қосымша рұқсаттар"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="other">Тағы <xliff:g id="COUNT_1">%1$d</xliff:g></item>
+      <item quantity="one">Тағы <xliff:g id="COUNT_0">%1$d</xliff:g></item>
+    </plurals>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Бұл қолданба Android жүйесінің ескі нұсқасына арналған. Рұқсаттан бас тартсаңыз, бұдан былай тиісінше жұмыс істемеуі мүмкін."</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"белгісіз әрекетті орындау"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g> қолданбаға рұқсат етілген"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"Жүйені көрсету"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"Жүйені жасыру"</string>
+    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> рұқсаттары"</string>
+    <string name="no_apps" msgid="1965493419005012569">"Қолданбалар жоқ"</string>
+    <string name="location_settings" msgid="1774875730854491297">"Орынды анықтау параметрлері"</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> — осы құрылғыға орынды анықтау қызметтерін көрсететін қолданба. Орынды пайдалану мүмкіндігін орынды анықтау параметрлерінде өзгертуге болады."</string>
+    <string name="system_warning" msgid="7103819124542305179">"Бұл рұқсатты бермесеңіз, құрылғының негізгі функциялары енді көзделгендей жұмыс істемеуі мүмкін."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Саясат арқылы қолданылған"</string>
+    <string name="loading" msgid="7811651799620593731">"Жүктелуде…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Барлық рұқсаттар"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Басқа қолданба мүмкіндіктері"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Рұқсат сұрау"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Экранды қабаттастыру анықталды"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Бұл рұқсат параметрін өзгерту үшін алдымен «Параметрлер» &gt; «Қолданбалар» тармағында экранды қабаттастыруды өшіру керек"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Параметрлерді ашу"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Wear құрылғысында \"Орнату\"/\"Жою\" әрекеттеріне қолдау көрсетілмейді."</string>
 </resources>

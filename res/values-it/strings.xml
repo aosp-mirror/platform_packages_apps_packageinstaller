@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Vuoi installare un aggiornamento di questa applicazione esistente? I dati correnti verranno conservati. Non occorrono accessi speciali."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Vuoi installare un aggiornamento di questa applicazione integrata? I dati correnti verranno conservati. Non occorrono accessi speciali."</string>
     <string name="install_failed" msgid="6579998651498970899">"App non installata."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"È stata bloccata l\'installazione del pacchetto."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"Il pacchetto è in conflitto con un pacchetto esistente che ha lo stesso nome."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"Questa app non è compatibile con il tuo tablet."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Questa app non è compatibile con la tua TV."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"Questa app non è compatibile con il tuo telefono."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Il pacchetto potrebbe essere danneggiato."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"È già installato un pacchetto con lo stesso nome e con una firma in conflitto."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Il pacchetto funziona soltanto su versioni più recenti di Android."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Questa applicazione non è compatibile con il tuo tablet."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Questa app non è compatibile con la tua TV."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Questa applicazione non è compatibile con il tuo telefono."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Il pacchetto specificato è stato eliminato prima del completamento dell\'installazione."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Il pacchetto non ha superato la verifica e non può essere installato."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Timeout durante il tentativo di verificare questo pacchetto. Prova a reinstallarlo più tardi."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Impossibile installare <xliff:g id="APP_NAME">%1$s</xliff:g> sul tablet."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Impossibile installare <xliff:g id="APP_NAME">%1$s</xliff:g> sulla tua TV."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Impossibile installare <xliff:g id="APP_NAME">%1$s</xliff:g> sul telefono."</string>
@@ -75,7 +72,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Disinstallazione non riuscita."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Impossibile disinstallare: il pacchetto è un amministratore dispositivo attivo."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Impossibile disinstallare. Il pacchetto è amministr. dispos. attivo di utente <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Questa app è necessaria per il tuo profilo <xliff:g id="USERNAME">%1$s</xliff:g> e non può essere disinstallata."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Questa app è necessaria per il tuo profilo di lavoro e non può essere disinstallata."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"App richiesta dall\'amministratore del dispositivo. Non può essere disinstallata."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Gestisci amministratori dispositivo"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Impossibile disinstallare <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
@@ -91,7 +88,33 @@
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Nega"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> di <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"Consentire a <xliff:g id="APP_NAME">%1$s</xliff:g> di <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"App"</string>
     <string name="app_permissions" msgid="3146758905824597178">"Autorizzazioni app"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"Non chiedere più"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Nessuna autorizzazione"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"Altre autorizzazioni"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="other">Altre <xliff:g id="COUNT_1">%1$d</xliff:g></item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> altra</item>
+    </plurals>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Questa app è stata sviluppata per una versione precedente di Android. Se l\'autorizzazione viene negata, l\'app potrebbe non funzionare più come previsto."</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"esegue un\'azione sconosciuta"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"Sono consentite <xliff:g id="COUNT_0">%1$d</xliff:g> app su <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"Mostra app di sistema"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"Nascondi app di sistema"</string>
+    <string name="permission_title" msgid="6495415273398916381">"Autorizzazioni <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
+    <string name="no_apps" msgid="1965493419005012569">"Nessuna app"</string>
+    <string name="location_settings" msgid="1774875730854491297">"Impostazioni posizione"</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> è un fornitore di servizi di geolocalizzazione per questo dispositivo. È possibile modificare l\'accesso alla posizione dalle impostazioni sulla posizione."</string>
+    <string name="system_warning" msgid="7103819124542305179">"Se neghi questa autorizzazione, le funzionalità di base del dispositivo potrebbero non funzionare più come previsto."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Applicata in base alle norme"</string>
+    <string name="loading" msgid="7811651799620593731">"Caricamento…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Tutte le autorizzazioni"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Altre funzionalità dell\'app"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Richiesta di autorizzazione"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Overlay schermo rilevato"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Per modificare questa impostazione di autorizzazione, devi innanzitutto disattivare l\'overlay schermo da Impostazioni &gt; App"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Apri impostazioni"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Le azioni di installazione/disinstallazione non sono supportate su Wear."</string>
 </resources>

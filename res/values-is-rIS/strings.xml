@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Viltu setja upp uppfærslu á þessu uppsetta forriti? Eldri gögn glatast ekki. Forritið krefst ekki neins sérstaks aðgangs."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Viltu setja upp uppfærslu á þessu innbyggða forriti? Eldri gögn glatast ekki. Forritið krefst ekki neins sérstaks aðgangs."</string>
     <string name="install_failed" msgid="6579998651498970899">"Forritið er ekki uppsett."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"Lokað var á uppsetningu pakkans."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"Pakkinn rekst á við annan pakka með sama heiti."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"Þetta forrit er ekki samhæft við spjaldtölvuna."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Þetta forrit er ekki samhæft við sjónvarpið."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"Þetta forrit er ekki samhæft við símann."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Pakkinn virðist vera skemmdur."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Pakki með sama heiti og með undirskrift sem rekst á er þegar uppsettur."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Pakkinn virkar aðeins í nýrri útgáfum af Android."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Þetta forrit er ekki samhæft við spjaldtölvuna."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Þetta forrit er ekki samhæft við sjónvarpið."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Þetta forrit er ekki samhæft við símann."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Tilgreindum pakka var eytt áður en tókst að ljúka uppsetningunni."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Pakkinn stóðst ekki sannprófun og ekki er hægt að setja hann upp."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Staðfesting þessa pakka rann út á tíma. Prófaðu uppsetningu aftur síðar."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Ekki tókst að setja <xliff:g id="APP_NAME">%1$s</xliff:g> upp í spjaldtölvunni."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Ekki var hægt að setja <xliff:g id="APP_NAME">%1$s</xliff:g> upp í sjónvarpinu."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Ekki tókst að setja <xliff:g id="APP_NAME">%1$s</xliff:g> upp í símanum."</string>
@@ -75,7 +72,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Ekki tókst að fjarlægja forritið."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Ekki er hægt að fjarlægja forritið því að pakkinn er virkur stjórnandi tækis."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Ekki hægt að fjarlægja vegna þess að þessi pakki er virkur tækisstjórnandi fyrir <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Sniðið þitt, <xliff:g id="USERNAME">%1$s</xliff:g>, krefst þessa forrits og ekki er hægt að fjarlægja það."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Vinnusniðið þitt krefst þessa forrits og ekki er hægt að fjarlægja það."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Stjórnandi tækisins krefst þessa forrits og ekki er hægt að fjarlægja það."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Hafa umsjón með stjórnendum tækis"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Ekki tókst að fjarlægja <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
@@ -91,7 +88,33 @@
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Hafna"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> af <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"Leyfa <xliff:g id="APP_NAME">%1$s</xliff:g> að <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Forrit"</string>
     <string name="app_permissions" msgid="3146758905824597178">"Heimildir forrits"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"Ekki spyrja aftur"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Engar heimildir"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"Viðbótarheimildir"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> í viðbót</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> í viðbót</item>
+    </plurals>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Þetta forrit var hannað fyrir eldri útgáfu af Android. Ef því er ekki veitt heimild er hugsanlegt að það virki ekki rétt."</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"framkvæma óþekkta aðgerð"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> forrit af <xliff:g id="COUNT_1">%2$d</xliff:g> leyfð"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"Sýna kerfisforrit"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"Fela kerfisforrit"</string>
+    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> heimildir"</string>
+    <string name="no_apps" msgid="1965493419005012569">"Engin forrit"</string>
+    <string name="location_settings" msgid="1774875730854491297">"Staðsetningarstillingar"</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> býður upp á staðsetningarþjónustu fyrir þetta tæki. Hægt er að breyta aðgangi að staðsetningu í stillingum staðsetningar."</string>
+    <string name="system_warning" msgid="7103819124542305179">"Ef þú veitir ekki þessa heimild getur verið að grunneiginleikar tækisins virki ekki lengur sem skyldi."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Stjórnað af reglu"</string>
+    <string name="loading" msgid="7811651799620593731">"Hleður…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Allar heimildir"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Aðrir forritseiginleikar"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Beiðni um heimild"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Skjáyfirlögn greindist"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Til að breyta þessari heimildarstillingu þarftu fyrst að slökkva á skjáyfirlögn undir Stillingar &gt; Forrit"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Opna stillingar"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Uppsetningar-/fjarlægingaraðgerðir eru ekki studdar í Wear."</string>
 </resources>

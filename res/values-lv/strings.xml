@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Vai vēlaties instalēt šīs lietojumprogrammas atjauninājumu? Esošie dati netiks zaudēti. Tam nav nepieciešama īpaša piekļuves atļauja."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Vai vēlaties instalēt šīs iebūvētās lietojumprogrammas atjauninājumu? Esošie dati netiks zaudēti. Tam nav nepieciešama īpaša piekļuves atļauja."</string>
     <string name="install_failed" msgid="6579998651498970899">"Lietotne nav instalēta."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"Pakotnes instalēšana tika bloķēta."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"Pakotne ir konfliktā ar esošo pakotni, jo to nosaukumi ir vienādi."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"Šī lietotne nav saderīga ar jūsu planšetdatoru."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Šī lietotne nav saderīga ar jūsu televizoru."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"Šī lietotne nav saderīga ar jūsu tālruni."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Šķiet, ka pakotne ir bojāta."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Esoša pakotne ar tādu pašu nosaukumu un konfliktējošu parakstu jau ir instalēta."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Šī pakotne darbojas tikai jaunākās operētājsistēmas Android versijās."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Šī lietotne nav saderīga ar jūsu planšetdatoru."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Šī lietotne nav saderīga ar jūsu televizoru."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Šī lietotne nav saderīga ar jūsu tālruni."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Norādītā pakotne tika izdzēsta pirms instalēšanas pabeigšanas."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Pakotnes verificēšana neizdevās. Pakotni nevar instalēt."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Mēģinot verificēt šo pakotni, iestājās noildze. Vēlāk mēģiniet to instalēt vēlreiz."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Lietotni <xliff:g id="APP_NAME">%1$s</xliff:g> nevarēja instalēt planšetdatorā."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Lietotni <xliff:g id="APP_NAME">%1$s</xliff:g> nevarēja instalēt jūsu televizorā."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Lietotni <xliff:g id="APP_NAME">%1$s</xliff:g> nevarēja instalēt tālrunī."</string>
@@ -75,7 +72,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Atinstalēšana neizdevās."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Nevar atinstalēt, jo ar šo pakotni tiek veikta ierīces administrēšana."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Nevar atinstalēt, jo pakotne ietver aktīvu ierīces administratoru lietotājam <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Šī lietotne ir nepieciešama jūsu <xliff:g id="USERNAME">%1$s</xliff:g> profilam, un to nevar atinstalēt."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Šī lietotne ir nepieciešama jūsu darba profilam, tāpēc to nevar atinstalēt."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Ierīces administrators ir noteicis, ka lietotne ir obligāta un to nevar atinstalēt."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Pārvaldīt ierīces administratorus"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Lietotni <xliff:g id="APP_NAME">%1$s</xliff:g> nevarēja atinstalēt."</string>
@@ -91,7 +88,34 @@
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Neatļaut"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>. no <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"Vai atļaut lietotnei <xliff:g id="APP_NAME">%1$s</xliff:g> <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Lietotnes"</string>
     <string name="app_permissions" msgid="3146758905824597178">"Lietotnes atļaujas"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"Vairs nejautāt"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Nav atļauju"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"Papildu atļaujas"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="zero">Vēl <xliff:g id="COUNT_1">%1$d</xliff:g></item>
+      <item quantity="one">Vēl <xliff:g id="COUNT_1">%1$d</xliff:g></item>
+      <item quantity="other">Vēl <xliff:g id="COUNT_1">%1$d</xliff:g></item>
+    </plurals>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Šī lietotne ir paredzēta vecākai Android versijai. Ja noraidīsiet atļauju, iespējams, netiks nodrošināta paredzētā lietotnes darbība."</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"veikt nezināmu darbību"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"Atļautas <xliff:g id="COUNT_0">%1$d</xliff:g> lietotnes no <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"Rādīt sistēmas lietotnes"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"Slēpt sistēmas lietotnes"</string>
+    <string name="permission_title" msgid="6495415273398916381">"Lietotnes <xliff:g id="PERMISSION">%1$s</xliff:g> atļaujas"</string>
+    <string name="no_apps" msgid="1965493419005012569">"Nav lietotņu"</string>
+    <string name="location_settings" msgid="1774875730854491297">"Atrašanās vietas iestatījumi"</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> nodrošina šai ierīcei atrašanās vietu pakalpojumus. Piekļuves iestatījumus atrašanās vietas datiem var mainīt atrašanās vietas iestatījumos."</string>
+    <string name="system_warning" msgid="7103819124542305179">"Ja nepiešķirsiet šo atļauju, ierīces pamatfunkcijas, iespējams, vairs nedarbosies, kā paredzēts."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Īstenota saskaņā ar politiku"</string>
+    <string name="loading" msgid="7811651799620593731">"Notiek ielāde..."</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Visas atļaujas"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Citas lietotnes atļaujas"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Atļaujas pieprasījums"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Konstatēts ekrāna pārklājums"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Lai mainītu šo atļaujas iestatījumu, vispirms sadaļā “Iestatījumi un lietotnes” izslēdziet ekrāna pārklājumu."</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Atvērt iestatījumus"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Wear ierīcē netiek atbalstīta instalēšana/atinstalēšana."</string>
 </resources>

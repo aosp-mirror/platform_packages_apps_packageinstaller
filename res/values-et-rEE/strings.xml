@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Kas soovite installida olemasoleva rakenduse värskenduse? Olemasolevad andmed ei lähe kaduma. See ei nõua erijuurdepääsu."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Kas soovite installida sisseehitatud rakenduse värskenduse? Olemasolevad andmed ei lähe kaduma. See ei nõua erijuurdepääsu."</string>
     <string name="install_failed" msgid="6579998651498970899">"Rakendus pole installitud."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"Paketi installimine blokeeriti."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"Pakett on vastuolus olemasoleva paketiga, millel on sama nimi."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"Rakendus ei ühildu teie tahvelarvutiga."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Rakendus ei ühildu teie teleriga."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"Rakendus ei ühildu teie telefoniga."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Pakett tundub olevat rikutud."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Sama nime ja vastuolus allkirjaga pakett on juba installitud."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Pakett töötab ainult Androidi uuemate versioonidega."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Rakendus ei ühildu teie tahvelarvutiga."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"See rakendus ei ühildu teie teleriga."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Rakendus ei ühildu teie telefoniga."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Määratud pakett kustutati enne, kui install lõpule jõudis."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Pakett ei läbinud kinnitamist ja seda ei saa installida."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Paketi kinnitamisel ilmnes ajalõpp. Proovige hiljem uuesti installida."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Rakendust <xliff:g id="APP_NAME">%1$s</xliff:g> ei saa teie tahvelarvutisse installida."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Rakendust <xliff:g id="APP_NAME">%1$s</xliff:g> ei saa teie telerisse installida."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Rakendust <xliff:g id="APP_NAME">%1$s</xliff:g> ei saa teie telefoni installida."</string>
@@ -75,7 +72,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Desinstallimine ebaõnnestus."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Ei saa desinstallida, sest pakett on aktiivse seadme administraator."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Desinstallida ei saa, sest pakett on kasutaja <xliff:g id="USERNAME">%1$s</xliff:g> aktiivne seadme administraator."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Seda rakendust on vaja kasutaja <xliff:g id="USERNAME">%1$s</xliff:g> profiili jaoks ja seda ei saa desinstallida."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Seda rakendust on vaja teie tööprofiili jaoks ja seda ei saa desinstallida."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Seadme administraator vajab seda rakendust ja seda ei saa desinstallida."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Halda seadme ülemaid"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Rakendust <xliff:g id="APP_NAME">%1$s</xliff:g> ei saanud desinstallida."</string>
@@ -90,8 +87,34 @@
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Lubamine"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Keelamine"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>/<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>-st"</string>
-    <string name="permission_warning_template" msgid="5209102765005869454">"Kas lubada rakendusele <xliff:g id="APP_NAME">%1$s</xliff:g> toiming <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_warning_template" msgid="5209102765005869454">"Kas lubada rakendusel <xliff:g id="APP_NAME">%1$s</xliff:g> <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Rakendused"</string>
     <string name="app_permissions" msgid="3146758905824597178">"Rakenduse load"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"Ära enam küsi"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Lube ei ole"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"Täiendavad load"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="other">Veel <xliff:g id="COUNT_1">%1$d</xliff:g></item>
+      <item quantity="one">Veel <xliff:g id="COUNT_0">%1$d</xliff:g></item>
+    </plurals>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Rakendus on mõeldud Androidi vanemale versioonile. Kui keeldute loa andmisest, ei pruugi see ootuspäraselt töötada."</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"tundmatu toiming"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> rakendust <xliff:g id="COUNT_1">%2$d</xliff:g>-st on lubatud"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"Süsteemi kuvamine"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"Süsteemi peitmine"</string>
+    <string name="permission_title" msgid="6495415273398916381">"Üksuse <xliff:g id="PERMISSION">%1$s</xliff:g> load"</string>
+    <string name="no_apps" msgid="1965493419005012569">"Rakendusi pole"</string>
+    <string name="location_settings" msgid="1774875730854491297">"Asukohaseaded"</string>
+    <string name="location_warning" msgid="8778701356292735971">"Rakendus <xliff:g id="APP_NAME">%1$s</xliff:g> on selle seadme asukohateenuste pakkuja. Asukoha juurdepääsu saab muuta asukohaseadetes."</string>
+    <string name="system_warning" msgid="7103819124542305179">"Kui keelate loa, ei pruugi seadme põhifunktsioonid enam ootuspäraselt töötada."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Eeskirjadega jõustatud"</string>
+    <string name="loading" msgid="7811651799620593731">"Laadimine ..."</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Kõik load"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Rakenduse muud funktsioonid"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Loa taotlus"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Tuvastati ekraani ülekate"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Selle loa seade muutmiseks peate esmalt välja lülitama ekraani ülekatte menüüs Seaded &gt; Rakendused"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Ava seaded"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Wear ei toeta installimist/desinstallimist."</string>
 </resources>

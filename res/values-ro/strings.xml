@@ -18,72 +18,69 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="2738748390251381682">"Program de instalare a pachetelor"</string>
     <string name="next" msgid="3057143178373252333">"Înainte"</string>
-    <string name="install" msgid="5896438203900042068">"Instalaţi"</string>
+    <string name="install" msgid="5896438203900042068">"Instalați"</string>
     <string name="done" msgid="3889387558374211719">"Terminat"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"Permiteţi acestei aplicații să:"</string>
+    <string name="security_settings_desc" msgid="2706691034244052604">"Permiteți acestei aplicații să:"</string>
     <string name="cancel" msgid="8360346460165114585">"Anulați"</string>
     <string name="unknown" msgid="4742479012767208045">"Necunoscut"</string>
     <string name="installing" msgid="8613631001631998372">"În curs de instalare..."</string>
-    <string name="install_done" msgid="3682715442154357097">"Aplicaţie instalată."</string>
-    <string name="install_confirm_question" msgid="7295206719219043890">"Doriţi să instalaţi această aplicație? Aceasta va avea acces la:"</string>
-    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Doriţi să instalaţi această aplicație? Aplicaţia nu solicită un acces special."</string>
-    <string name="install_confirm_question_update" msgid="4624159567361487964">"Doriţi să instalaţi o actualizare pentru această aplicație existentă? Datele existente nu vor fi pierdute. Aplicaţia actualizată va avea acces la:"</string>
-    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Doriţi să instalaţi o actualizare pentru această aplicație încorporată? Datele existente nu vor fi pierdute. Aplicaţia actualizată va avea acces la:"</string>
-    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Doriţi să instalaţi o actualizare pentru această aplicație existentă? Datele existente nu vor fi pierdute. Actualizarea nu are nevoie de acces special."</string>
-    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Doriţi să instalaţi o actualizare pentru această aplicație încorporată? Datele existente nu vor fi pierdute. Actualizarea nu are nevoie de acces special."</string>
-    <string name="install_failed" msgid="6579998651498970899">"Aplicaţia nu este instalată."</string>
+    <string name="install_done" msgid="3682715442154357097">"Aplicație instalată."</string>
+    <string name="install_confirm_question" msgid="7295206719219043890">"Doriți să instalați această aplicație? Aceasta va avea acces la:"</string>
+    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Doriți să instalați această aplicație? Aplicația nu solicită un acces special."</string>
+    <string name="install_confirm_question_update" msgid="4624159567361487964">"Doriți să instalați o actualizare pentru această aplicație existentă? Datele existente nu vor fi pierdute. Aplicația actualizată va avea acces la:"</string>
+    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Doriți să instalați o actualizare pentru această aplicație încorporată? Datele existente nu vor fi pierdute. Aplicația actualizată va avea acces la:"</string>
+    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Doriți să instalați o actualizare pentru această aplicație existentă? Datele existente nu vor fi pierdute. Actualizarea nu are nevoie de acces special."</string>
+    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Doriți să instalați o actualizare pentru această aplicație încorporată? Datele existente nu vor fi pierdute. Actualizarea nu are nevoie de acces special."</string>
+    <string name="install_failed" msgid="6579998651498970899">"Aplicația nu este instalată."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"Instalarea pachetului a fost blocată."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"Pachetul este în conflict cu un pachet existent cu același nume."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"Această aplicație nu este compatibilă cu tableta dvs."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Această aplicație nu este compatibilă cu televizorul dvs."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"Această aplicație nu este compatibilă cu telefonul dvs."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Pachetul pare a fi deteriorat."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Un pachet cu același nume și cu o semnătură conflictuală este deja instalat."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Pachetul funcţionează numai pe versiunile Android mai recente."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Această aplicație nu este compatibilă cu tableta dvs."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Aplicația nu este compatibilă cu televizorul."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Această aplicație nu este compatibilă cu telefonul dvs."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Pachetul specificat a fost şters înainte ca instalarea să poată fi finalizată."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Pachetul nu a trecut de verificare și nu pot fi instalat."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"La verificarea pachetului timpul limită a expirat. Încercaţi să instalaţi din nou ulterior."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> nu a putut fi instalată pe tableta dvs."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Aplicația <xliff:g id="APP_NAME">%1$s</xliff:g> nu a putut fi instalată pe televizor."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> nu a putut fi instalată pe telefonul dvs."</string>
-    <string name="launch" msgid="4826921505917605463">"Deschideţi"</string>
+    <string name="launch" msgid="4826921505917605463">"Deschideți"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Instalare blocată"</string>
-    <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Pentru securitate, tableta blochează instalarea aplicațiilor obţinute din surse necunoscute."</string>
+    <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Pentru securitate, tableta blochează instalarea aplicațiilor obținute din surse necunoscute."</string>
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Pentru securitate, televizorul este setat să blocheze instalarea aplicațiilor din surse necunoscute."</string>
-    <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Pentru securitate, telefonul blochează instalarea aplicațiilor obţinute din surse necunoscute."</string>
+    <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Pentru securitate, telefonul blochează instalarea aplicațiilor obținute din surse necunoscute."</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Administratorul nu permite instalarea aplicațiilor obținute din surse necunoscute."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Setări"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Sursă nouă pentru aplicații"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> doreşte să instaleze alte aplicații.\n\nPermiteţi acest lucru acum și pe viitor?"</string>
-    <string name="manage_applications" msgid="4033876279091996596">"Gestionaţi aplicații"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Înlocuiţi aplicația?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Aplicaţia pe care o instalaţi va înlocui o altă aplicație.\n \nToate datele dvs. anterioare de utilizator vor fi salvate."</string>
+    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> dorește să instaleze alte aplicații.\n\nPermiteți acest lucru acum și pe viitor?"</string>
+    <string name="manage_applications" msgid="4033876279091996596">"Gestionați aplicații"</string>
+    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Înlocuiți aplicația?"</string>
+    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Aplicația pe care o instalați va înlocui o altă aplicație.\n \nToate datele dvs. anterioare de utilizator vor fi salvate."</string>
     <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Aceasta este o aplicație de sistem.\n \nToate datele dvs. anterioare de utilizator vor fi salvate."</string>
-    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Spaţiu de stocare insuficient"</string>
-    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> nu a putut fi instalată. Eliberaţi spaţiu și încercaţi din nou."</string>
+    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Spațiu de stocare insuficient"</string>
+    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> nu a putut fi instalată. Eliberați spațiu și încercați din nou."</string>
     <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
-    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Aplicaţia nu a fost găsită"</string>
-    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Aplicaţia nu a fost găsită în lista de aplicații instalate."</string>
-    <string name="uninstall_application_title" msgid="1860074100811653963">"Dezinstalaţi aplicația"</string>
-    <string name="uninstall_update_title" msgid="4146940097553335390">"Dezinstalaţi actualizarea"</string>
+    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Aplicația nu a fost găsită"</string>
+    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Aplicația nu a fost găsită în lista de aplicații instalate."</string>
+    <string name="uninstall_application_title" msgid="1860074100811653963">"Dezinstalați aplicația"</string>
+    <string name="uninstall_update_title" msgid="4146940097553335390">"Dezinstalați actualizarea"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">" <xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> face parte din următoarea aplicație:"</string>
-    <string name="uninstall_application_text" msgid="6691975835951187030">"Doriţi să dezinstalaţi această aplicație?"</string>
-    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Doriţi să dezinstalaţi această aplicație pentru "<b>"toţi"</b>" utilizatorii? Aplicaţia și datele acesteia vor fi eliminate de la "<b>"toţi"</b>" utilizatorii de pe acest dispozitiv."</string>
+    <string name="uninstall_application_text" msgid="6691975835951187030">"Doriți să dezinstalați această aplicație?"</string>
+    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Doriți să dezinstalați această aplicație pentru "<b>"toți"</b>" utilizatorii? Aplicația și datele acesteia vor fi eliminate de la "<b>"toți"</b>" utilizatorii de pe acest dispozitiv."</string>
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"Dezinstalați această aplicație pentru utilizatorul <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
-    <string name="uninstall_update_text" msgid="2056387942084605027">"Doriţi să înlocuiţi această aplicație cu versiunea din fabrică?"</string>
+    <string name="uninstall_update_text" msgid="2056387942084605027">"Doriți să înlocuiți această aplicație cu versiunea din fabrică?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"În curs de dezinstalare..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Dezinstalare finalizată."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Dezinstalare nefinalizată."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Nu se poate dezinstala, acest pachet este un administrator de dispozitive activ."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Nu se poate dezinstala, pachetul este administrator de dispozitive activ pt. <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Aplicație necesară pentru profilul dvs. <xliff:g id="USERNAME">%1$s</xliff:g>. Nu poate fi dezinstalată."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Aplicația este necesară pentru profilul de serviciu și nu poate fi dezinstalată."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Aplicație necesară administratorului dispozitivului. Nu poate fi dezinstalată."</string>
-    <string name="manage_device_administrators" msgid="891392489300312370">"Gestionaţi administratori de dispozitive"</string>
+    <string name="manage_device_administrators" msgid="891392489300312370">"Gestionați administratori de dispozitive"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> nu a putut fi dezinstalată."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Erori de analizare"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"A apărut o problemă la analizarea pachetului."</string>
     <string name="newPerms" msgid="6039428254474104210">"Noi"</string>
     <string name="allPerms" msgid="1024385515840703981">"Toate"</string>
-    <string name="privacyPerms" msgid="1850527049572617">"Confidenţialitate"</string>
+    <string name="privacyPerms" msgid="1850527049572617">"Confidențialitate"</string>
     <string name="devicePerms" msgid="6733560207731294504">"Acces la dispozitiv"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"Această actualizare nu necesită permisiuni noi."</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"Doriți să acordați următoarele permisiuni? Utilizatorul va avea acces la:"</string>
@@ -91,7 +88,34 @@
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Refuzați"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> din <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"Permiteți ca <xliff:g id="APP_NAME">%1$s</xliff:g> să <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Aplicații"</string>
     <string name="app_permissions" msgid="3146758905824597178">"Permisiuni pentru aplicație"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"Nu mai întreba niciodată"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Fără permisiuni"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"Permisiuni suplimentare"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="few">Încă <xliff:g id="COUNT_1">%1$d</xliff:g></item>
+      <item quantity="other">Încă <xliff:g id="COUNT_1">%1$d</xliff:g></item>
+      <item quantity="one">Încă <xliff:g id="COUNT_0">%1$d</xliff:g></item>
+    </plurals>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Această aplicație a fost creată pentru o versiune Android mai veche. Dacă nu acordați permisiunea, este posibil ca aceasta să nu mai funcționeze corespunzător."</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"efectuează o acțiune necunoscută"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> din <xliff:g id="COUNT_1">%2$d</xliff:g> (de) aplicații au această permisiune"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"Afișați aplicațiile de sistem"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"Ascundeți aplicațiile de sistem"</string>
+    <string name="permission_title" msgid="6495415273398916381">"Permisiuni pentru <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
+    <string name="no_apps" msgid="1965493419005012569">"Nicio aplicație"</string>
+    <string name="location_settings" msgid="1774875730854491297">"Setări privind locația"</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> este un furnizor de servicii de localizare pentru acest dispozitiv. Accesul la locație poate fi modificat din setările privind locația."</string>
+    <string name="system_warning" msgid="7103819124542305179">"Dacă refuzați această permisiune, este posibil ca funcțiile de bază ale dispozitivului să nu mai funcționeze corespunzător."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Aplicată conform politicii"</string>
+    <string name="loading" msgid="7811651799620593731">"Se încarcă..."</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Toate permisiunile"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Alte funcții ale aplicației"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Solicitare de permisiune"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"S-a detectat suprapunerea pe ecran"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Ca să schimbați această setare pentru permisiuni, mai întâi trebuie să dezactivați suprapunerea pe ecran din Setări &gt; Aplicații"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Deschideți setările"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Acțiunile Instalați/Dezinstalați nu sunt acceptate pe Wear."</string>
 </resources>

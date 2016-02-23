@@ -28,19 +28,16 @@
     <string name="install_confirm_question" msgid="7295206719219043890">"के तपाईँ यो अनुप्रयोग स्थापन गर्न चाहनु हुन्छ? यसले पहुँच प्राप्त गर्ने छ:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"के तपाईँ यस अनुप्रयोगलाई जडान गर्न चाहनु हुन्छ? यसको लागि कुनै विशेष पहुँचको आवश्यकता पर्दैन।"</string>
     <string name="install_confirm_question_update" msgid="4624159567361487964">"के तपाईँसँग अहिले भईरहेको अनुप्रयोगको एक अपडेट लाई स्थापित गर्न चाहानुहुन्छ? तपाईँको अहिलेको डेटा हराउने छैन। अपडेट भएको अनुप्रयोग पहुँच पाउनेछ मा:"</string>
-    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"के तपाईं यस पूर्व-निर्मित अनुप्रयोगमा अपडेट स्थापित गर्न चाहनु हुन्छ? तपाईंको रहेको डेटा हराउने छैन। अपडेट गरिएको अनुप्रयोगले पहुँच पाउने छ:"</string>
+    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"के तपाईँ यस पूर्व-निर्मित अनुप्रयोगमा अपडेट स्थापित गर्न चाहनु हुन्छ? तपाईँको रहेको डेटा हराउने छैन। अपडेट गरिएको अनुप्रयोगले पहुँच पाउने छ:"</string>
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"के तपाईँसँग अहिले भइरहेको अनुप्रयोगको एउटा अपडेटलाई स्थापित गर्न चाहनु हुन्छ? तपाईँको अहिलेको डेटा हराउने छैन। यसलाई कुनै विशेष पहुँचको आवश्यकता छैन।"</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"के तपाईँ यस जोडिएको अनुप्रयोगको एउटा अपडेटलाई स्थापित गर्न चाहनुहुन्छ? तपाईँको अहिलेको डेटा हराउने छैन। यसलाई कुनै विशेष पहुँचको आवश्यकता छैन।"</string>
     <string name="install_failed" msgid="6579998651498970899">"अनुप्रयोग स्थापना भएन।"</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"यो प्याकेज स्थापना हुनबाट अवरुद्ध भएको थियो।"</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"यो प्याकेज उस्तै नाम भएको अवस्थित प्याकेजसँग जुधेको छ।"</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"यो अनुप्रयोग तपाईँको ट्याब्लेटको लागि उपयुक्त छैन।"</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"यो अनुप्रयोग तपाईँको TV को लागि उपयुक्त छैन।"</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"यो अनुप्रयोग तपाईँको फोनको लागि उपयुक्त छैन।"</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"प्याकेज बिग्रेको जस्तो देखिन्छ।"</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"एउटा अवस्थित त्यही नाम गरेको विवादग्रस्त हस्ताक्षर भएको प्याकेज पहिल्यै स्थापित छ।"</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"प्याकेजले एन्ड्रोइडको नयाँ संस्करणमा मात्र काम गर्छ।"</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"यो अनुप्रयोग तपाईँको ट्याब्लेटसँग मिल्दो छैन।"</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"यो अनुप्रयोग तपाईँको TVसँग  मिल्दो छैन।।"</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"यो अनुप्रयोग तपाईंको फोनसँग उपयुक्त छैन।"</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"उल्लेखित प्याकेज जडान प्रक्रिया पूरा हुन अगाडि नै हटाइएको थियो।"</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"प्याकेजले प्रमाणिकरण उत्तीर्ण गरेन र स्थापना गर्न सकिँदैन।"</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"यो प्याकेज प्रमाणित गर्दागर्दै समय सकियो। यसलाई फेरि स्थापना गर्ने प्रयास गर्नुहोस्।"</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> तपाईँको ट्याब्लेटमा स्थापित हुन सकेन।"</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"तपाईँको TVमा<xliff:g id="APP_NAME">%1$s</xliff:g>स्थापना गर्न सकिएन।"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"तपाईँको फोनमा <xliff:g id="APP_NAME">%1$s</xliff:g> जडान हुन सकेन।"</string>
@@ -67,7 +64,7 @@
     <string name="uninstall_update_title" msgid="4146940097553335390">"परिस्कारहरू अस्थापना गर्नुहोस्"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> निम्न अनुप्रयोगको अंश हो:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"के तपाईँ यो अनुप्रयोग अस्थापना गर्न चाहनु हुन्छ?"</string>
-    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"के तपाईं यो अनुप्रयोग "<b>"सबै"</b>" प्रयोगकर्ताहरूको लागि स्थापना रद्द गर्न चाहनु हुन्छ? अनुप्रयोग र यसको डेटा "<b>"सबै"</b>" प्रयोगकर्ताहरूबाट उपकरणमा हटाइने छ।"</string>
+    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"के तपाईँ यो अनुप्रयोग "<b>"सबै"</b>" प्रयोगकर्ताहरूको लागि स्थापना रद्द गर्न चाहनु हुन्छ? अनुप्रयोग र यसको डेटा "<b>"सबै"</b>" प्रयोगकर्ताहरूबाट उपकरणमा हटाइने छ।"</string>
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"के तपाईँ प्रयोगकर्ता <xliff:g id="USERNAME">%1$s</xliff:g> को लागि यो अनुप्रयोग स्थापना रद्द गर्न चाहनुहुन्छ?"</string>
     <string name="uninstall_update_text" msgid="2056387942084605027">"के तपाईँ यस अनुप्रयोगलाई मूल संस्करणसँग फेर्न चाहनु हुन्छ?"</string>
     <string name="uninstalling" msgid="5556217435895938250">"अस्थापना गर्दै..."</string>
@@ -75,7 +72,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"अस्थापना गर्न असफल"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"अस्थापना गर्न सकिँदैन किनभने यो प्याकेज एउटा सक्रिय उपकरण प्रशासक हो।"</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"रद्द गर्न सकिदैन किनभने प्रयोगकर्ता <xliff:g id="USERNAME">%1$s</xliff:g> को लागि यो प्याकेज सक्रिय यन्त्र प्रशासक हो।"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"यो अनुप्रयोग आफ्नो <xliff:g id="USERNAME">%1$s</xliff:g> प्रोफाइलको लागि आवश्यक छ र स्थापना रद्द गर्न सकिँदैन।"</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"यो अनुप्रयोग तपाईँको कार्य प्रोफाइलको लागि आवश्यक छ र  यसको स्थापना रद्द गर्न सकिँदैन।"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"यो अनुप्रयोग तपाईँको उपकरण प्रशासकलाई आवश्यक छ र स्थापना रद्द गर्न सकिँदैन।"</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"उपकरण प्रशासकहरूको प्रबन्ध गर्नुहोस्"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> स्थापना रद्द गर्न सकिँदैन।"</string>
@@ -86,12 +83,38 @@
     <string name="privacyPerms" msgid="1850527049572617">"गोपनीयता"</string>
     <string name="devicePerms" msgid="6733560207731294504">"उपकरण पहुँच"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"यस अपडेटलाई नयाँ अनुमति आवश्यक पर्दैन।"</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"के तपाईं निम्न अनुमति प्रदान गर्न चाहनु हुन्छ? यसले पहुँच पाउने छ:"</string>
+    <string name="grant_confirm_question" msgid="4690289297029223742">"के तपाईँ निम्न अनुमति प्रदान गर्न चाहनु हुन्छ? यसले पहुँच पाउने छ:"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"अनुमति दिनुहोस्"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"अस्वीकार गर्नुहोस्"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> को <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="APP_NAME">%1$s</xliff:g> लाई <xliff:g id="ACTION">%2$s</xliff:g> गर्न अनुमति दिने हो?"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"अनुप्रयोगहरू"</string>
     <string name="app_permissions" msgid="3146758905824597178">"अनुप्रयोग अनुमतिहरू"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"फेरि कहिल्यै नसोध्नुहोस्"</string>
     <string name="no_permissions" msgid="3210542466245591574">"कुनै अनुमतिहरू छैनन्"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"अतिरिक्त अनुमतिहरू"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> थप</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> थप</item>
+    </plurals>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"यो अनुप्रयोग Android को पुरानो संस्करणका लागि डिजाइन गरिएको थियो। अनुमति अस्वीकृत गर्नाले यसले चाहिएको जस्तो कार्य नगर्न सक्छ।"</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"एउटा अज्ञात कार्य गर्नुहोस्"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_1">%2$d</xliff:g> को <xliff:g id="COUNT_0">%1$d</xliff:g> अनुप्रयोगहरूलाई अनुमति छ"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"प्रणाली देखाउनुहोस्"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"प्रणाली लुकाउनुहोस्"</string>
+    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> अनुमतिहरु"</string>
+    <string name="no_apps" msgid="1965493419005012569">"कुनै अनुप्रयोगहरू छैनन्।"</string>
+    <string name="location_settings" msgid="1774875730854491297">"स्थान सेटिङहरू"</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> यो यन्त्रका लागि स्थान सेवाहरूको एउटा प्रदायक हो। स्थान पहुँच स्थान सेटिङहरूबाट परिमार्जन गर्न सकिन्छ।"</string>
+    <string name="system_warning" msgid="7103819124542305179">"तपाईँले यो अनुमति अस्वीकार गर्नुभयो भने तपाईँको यन्त्रका मूल विशेषताहरू अब चाहेअनुसार कार्य नगर्न सक्छ।"</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"नीतिद्वारा लागू गरियो"</string>
+    <string name="loading" msgid="7811651799620593731">"लोड हुँदैछ..."</string>
+    <string name="all_permissions" msgid="5156669007784613042">"सबै अनुमतिहरू"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"अन्य अनुप्रयोग क्षमताहरू"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"अनुमति अनुरोध"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"स्क्रिन ओभरले पत्ता लाग्यो"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"यो अनुमति सेटिङ परिवर्तन गर्न, तपाईँले पहिला सेटिङ अनुप्रयोगबाट स्क्रिन ओभरले बन्द गर्नु पर्दछ।"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"सेटिङहरू खोल्नुहोस्"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Wear मा स्थापना/स्थापना रद्द गर्ने कार्यहरू समर्थित छैनन्।"</string>
 </resources>

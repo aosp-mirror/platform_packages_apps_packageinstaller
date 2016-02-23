@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Wil jy \'n opdatering na hierdie bestaande program installeer? Jou bestaande data sal nie verlore raak nie. Dit vereis nie enige spesiale toegang nie."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Wil jy \'n opdatering na hierdie ingeboude program installeer? Jou bestaande data sal nie verlore raak nie. Dit vereis nie enige spesiale toegang nie."</string>
     <string name="install_failed" msgid="6579998651498970899">"Program nie geïnstalleer nie."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"Die installering van die pakket is geblokkeer."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"Die pakket bots met \'n bestaande pakket met dieselfde naam."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"Hierdie program is nie met jou tablet versoenbaar nie."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Hierdie program is nie met jou TV versoenbaar nie."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"Hierdie program is nie met jou foon versoenbaar nie."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Dit lyk asof die pakket korrup is."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"\'n Bestaande pakket met dieselfde naam en \'n botsende handtekening is reeds geïnstalleer."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Die pakket werk net op jonger weergawes van Android."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Hierdie program werk nie op jou tablet nie."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Hierdie program is nie met jou TV versoenbaar nie."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Hierdie program werk nie op jou foon nie."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Die gespesifiseerde pakkie is uitgevee voordat installasie voltooi kon word."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Die pakkie het nie verifikasie geslaag nie en kan nie geïnstalleer word nie."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"\'n Uittel het plaasgevind tydens verifiëring van hierdie pakket. Probeer dit later weer installeer."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> kon nie op jou tablet geïnstalleer word nie."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> kon nie op jou TV geïnstalleer word nie."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> kon nie op jou foon geïnstalleer word nie."</string>
@@ -75,7 +72,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Deïnstallasie onsuksesvol."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Kan nie deïnstalleer nie omdat hierdie pakket \'n aktiewe toesteladministrateur is."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Kan nie deïnstalleer nie, omdat hierdie pakket \'n aktiewe toesteladministrateur vir die gebruiker <xliff:g id="USERNAME">%1$s</xliff:g> is."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Hierdie program is nodig vir jou <xliff:g id="USERNAME">%1$s</xliff:g>-profiel en kan nie gedeïnstalleer word nie."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Hierdie program is nodig vir jou werkprofiel en kan nie gedeïnstalleer word nie."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Jou toesteladministrateur vereis die program; dit kan nie deïnstalleer word nie."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Bestuur toesteladministrateurs"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> kon nie deïnstalleer word nie."</string>
@@ -90,8 +87,34 @@
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Laat toe"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Weier"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> van <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="5209102765005869454">"Laat <xliff:g id="APP_NAME">%1$s</xliff:g> toe om te <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_warning_template" msgid="5209102765005869454">"Laat <xliff:g id="APP_NAME">%1$s</xliff:g> toe om <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Programme"</string>
     <string name="app_permissions" msgid="3146758905824597178">"Programtoestemmings"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"Moet nooit weer vra nie"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Geen toestemmings nie"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"Bykomende toestemmings"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="other">Nog <xliff:g id="COUNT_1">%1$d</xliff:g></item>
+      <item quantity="one">Nog <xliff:g id="COUNT_0">%1$d</xliff:g></item>
+    </plurals>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Hierdie program is vir \'n ouer weergawe van Android ontwerp. As toestemming geweier word, kan dit veroorsaak dat dit nie meer soos beplan funksioneer nie."</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"voer \'n onbekende handeling uit"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> uit <xliff:g id="COUNT_1">%2$d</xliff:g> programme toegelaat"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"Wys stelsel"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"Versteek stelsel"</string>
+    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g>-toestemmings"</string>
+    <string name="no_apps" msgid="1965493419005012569">"Geen programme nie"</string>
+    <string name="location_settings" msgid="1774875730854491297">"Ligginginstellings"</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> is \'n verskaffer van liggingdienste vir hierdie toestel. Liggingtoegang kan vanuit ligginginstellings verander word."</string>
+    <string name="system_warning" msgid="7103819124542305179">"As jy hierdie toestemming weier, sal basiese kenmerke van jou toestel dalk nie meer soos bedoel werk nie."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Afgedwing deur beleid"</string>
+    <string name="loading" msgid="7811651799620593731">"Laai tans …"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Alle toestemmings"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Ander programvermoëns"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Toestemmingsversoek"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Skermoorlegger bespeur"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Om hierdie toestemminginstelling te verander, moet jy eers die skermoorlegger by Instellings &gt; Programme afskakel"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Maak instellings oop"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Installeer- en deïnstalleerhandelinge word nie in Wear gesteun nie."</string>
 </resources>

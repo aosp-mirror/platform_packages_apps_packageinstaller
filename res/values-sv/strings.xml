@@ -32,22 +32,19 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Vill du installera en uppdatering av den befintliga appen? Dina befintliga data försvinner inte. Ingen särskild åtkomst krävs."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Vill du installera en uppdatering av den inbyggda appen? Dina befintliga data försvinner inte. Ingen särskild åtkomst krävs."</string>
     <string name="install_failed" msgid="6579998651498970899">"Appen har inte installerats."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"Paketet har blockerats för installation."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"Det finns en konflikt mellan det här paketet och ett befintligt paket med samma namn."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"Appen är inte kompatibel med din surfplatta."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Appen är inte kompatibel med din TV."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"Appen är inte kompatibel med din mobil."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Paketet verkar vara skadat."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Det finns redan ett paket med samma namn och en signatur som är i konflikt."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Paketet fungerar bara med nyare versioner av Android."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Appen är inte kompatibel med din surfplatta."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Appen är inte kompatibel med din tv."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Appen är inte kompatibel med din mobil."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Paketet som angavs togs bort innan installationen var slutförd."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Paketet klarade inte verifieringen och får inte installeras."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"En timeout inträffade när paketet skulle verifieras. Prova att installera paketet senare."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Det gick inte att installera <xliff:g id="APP_NAME">%1$s</xliff:g> på surfplattan."</string>
-    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunde inte installeras på tv:n."</string>
+    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunde inte installeras på TV:n."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Det gick inte att installera <xliff:g id="APP_NAME">%1$s</xliff:g> på mobilen."</string>
     <string name="launch" msgid="4826921505917605463">"Öppna"</string>
     <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Installation blockerad"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Av säkerhetsskäl går det inte att installera appar från okända källor på din surfplatta."</string>
-    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Tv:n är av säkerhetsskäl inställd på att blockera installationer av appar från okända källor."</string>
+    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"TV:n är av säkerhetsskäl inställd på att blockera installationer av appar från okända källor."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Av säkerhetsskäl går det inte att installera appar från okända källor på din mobil."</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Administratören tillåter inte installation av appar från okända källor."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
@@ -75,7 +72,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Det gick inte att avinstallera."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Det går inte att avinstallera eftersom paketet är en aktiv enhetsadministratör."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Paketet kan inte avinstalleras. Det används för att administrera enheten för <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Appen behövs i profilen för <xliff:g id="USERNAME">%1$s</xliff:g> och kan inte avinstalleras."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Appen behövs för jobbprofilen och det går inte att avinstallera den."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Appen krävs av enhetsadministratören och kan därför inte avinstalleras."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Hantera enhetsadministratörer"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Det gick inte att avinstallera <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
@@ -91,7 +88,33 @@
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Neka"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> av <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"Vill du tillåta <xliff:g id="APP_NAME">%1$s</xliff:g> att <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Appar"</string>
     <string name="app_permissions" msgid="3146758905824597178">"Appens behörigheter"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"Fråga aldrig igen"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Inga behörigheter"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"Ytterligare behörigheter"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> till</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> till</item>
+    </plurals>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Den här appen utformades för en äldre version av Android. Om du nekar appen behörighet kan det hända att den inte längre fungerar som den ska."</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"utför en okänd åtgärd"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> av <xliff:g id="COUNT_1">%2$d</xliff:g> appar tillåts"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"Visa systemet"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"Dölj systemet"</string>
+    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> behörigheter"</string>
+    <string name="no_apps" msgid="1965493419005012569">"Inga appar"</string>
+    <string name="location_settings" msgid="1774875730854491297">"Platsinställningar"</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> är en platstjänstleverantör för enheten. Platsåtkomsten kan redigeras i platsinställningarna."</string>
+    <string name="system_warning" msgid="7103819124542305179">"Om du nekar appen behörighet kan det hända att grundläggande funktioner på enheten inte fungerar som de ska."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Enligt policyn"</string>
+    <string name="loading" msgid="7811651799620593731">"Läser in …"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Alla behörigheter"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Andra appbehörigheter"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Begäran om behörighet"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Skärmöverlagring har upptäckts"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Innan du kan ändra den här behörighetsinställningen måste du inaktivera skärmöverlagring under Inställningar &gt; Appar"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Öppna inställningarna"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Åtgärder för att installera/avinstallera stöds inte på Wear."</string>
 </resources>

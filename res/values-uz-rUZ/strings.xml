@@ -16,7 +16,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2738748390251381682">"Paket o‘rnatuvchisi"</string>
+    <string name="app_name" msgid="2738748390251381682">"Ilova paketini o‘rnatish vositasi"</string>
     <string name="next" msgid="3057143178373252333">"Keyingi"</string>
     <string name="install" msgid="5896438203900042068">"O‘rnatish"</string>
     <string name="done" msgid="3889387558374211719">"Tayyor"</string>
@@ -25,22 +25,19 @@
     <string name="unknown" msgid="4742479012767208045">"Noma’lum"</string>
     <string name="installing" msgid="8613631001631998372">"O‘rnatilmoqda…"</string>
     <string name="install_done" msgid="3682715442154357097">"Ilova o‘rnatildi."</string>
-    <string name="install_confirm_question" msgid="7295206719219043890">"Ushbu ilova o‘rnatilsinmi? U quyidagilardan foydalana oladi:"</string>
-    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Ushbu ilova o‘rnatilsinmi? U hech qanday maxsus ruxsat talab qilmaydi."</string>
-    <string name="install_confirm_question_update" msgid="4624159567361487964">"Ushbu mavjud ilovaga yangilanish o‘rnatilsinmi? Mavjud ma’lumotlaringiz o‘chib ketmaydi. Yangilangan ilova quyidagilardan foydalana oladi:"</string>
-    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Ushbu tizim ilovasiga yangilanish o‘rnatilsinmi? Mavjud ma’lumotlaringiz o‘chib ketmaydi. Yangilangan ilova quyidagilardan foydalana oladi:"</string>
+    <string name="install_confirm_question" msgid="7295206719219043890">"Bu ilovani o‘rnatmoqchimisiz? U quyidagi ruxsatlarga ega:"</string>
+    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Bu ilovani o‘rnatmoqchimisiz? U hech qanday maxsus ruxsat talab qilmaydi."</string>
+    <string name="install_confirm_question_update" msgid="4624159567361487964">"Bu ilova uchun yangilanishni o‘rnatmoqchimisiz? Yangilanganidan keyin u quyidagi ruxsatlarga ega bo‘ladi:"</string>
+    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Bu ilova uchun yangilanishni o‘rnatmoqchimisiz? Yangilanganidan keyin u quyidagi ruxsatlarga ega bo‘ladi:"</string>
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Ushbu mavjud ilovaga yangilanish o‘rnatilsinmi? Mavjud ma’lumotlaringiz o‘chib ketmaydi. U hech qanday maxsus ruxsat talab qilmaydi."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Ushbu tizim ilovasiga yangilanish o‘rnatilsinmi? Mavjud ma’lumotlaringiz o‘chib ketmaydi. U hech qanday maxsus ruxsat talab qilmaydi."</string>
     <string name="install_failed" msgid="6579998651498970899">"Ilova o‘rnatilmadi."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"Paket o‘rnatilishga qarshi bloklangan."</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"Ushbu paket bir xil nomdagi mavjud paket bilan zid."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"Ushbu ilova planshetingizga mos kelmaydi."</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Bu ilova televizoringiz bilan mos emas."</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"Ushbu ilova telefoningizga mos kelmaydi."</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Paket buzilganga o‘xshaydi."</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"Xuddi shu nomdagi mavjud paket farqli imzo bilan allaqachon o‘rnatilgan."</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"Paket faqatgina \"Android\"ning yangi versiyalarida ishlay oladi."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"Ushbu ilova planshetingizga mos kelmaydi."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"Bu ilova televizoringiz bilan mos emas."</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"Ushbu ilova telefoningizga mos kelmaydi."</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"Ko‘rsatilgan paket o‘rnatish jarayoni tugamasdan o‘chirib tashlangan."</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"Paket tekshirishdan o‘tmadi, shuning uchun uni o‘rnatib bo‘lmaydi."</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"Ushbu paketni tekshirish jarayonida kutish vaqti tugadi. Keyinroq qayta o‘rnatib ko‘ring."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> planshetingizga o‘rnatilmadi."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> ilovasini televizoringizga o‘rnatib bo‘lmadi."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> telefoningizga o‘rnatilmadi."</string>
@@ -53,7 +50,7 @@
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Sozlamalar"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"Ilovalar uchun yangi manba"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> boshqa ilova dasturlarni o‘rnatishni so‘rayapti.\n\n Bunga hozir va kelajak uchun ruxsat berilsinmi?"</string>
+    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> boshqa ilovalarni o‘rnatmoqchi.\n\nUnga hozir va bundan keyin ham ruxsat berilsinmi?"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Ilovalarni boshqarish"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Ilova almashtirilsinmi?"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Siz o‘rnatayotgan ilova boshqa ilovaning o‘rnini almashtiradi.\n\nBarcha eski ma’lumotlaringiz saqlanib qoladi."</string>
@@ -75,7 +72,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"O‘chirish muvaffaqiyatsizlikka uchradi."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"O‘chirib bo‘lmadi, chunki ushbu paket faol qurilma administratoridir."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Bu paketni o‘chirib bo‘lmaydi, chunki u <xliff:g id="USERNAME">%1$s</xliff:g> u-n qurilma administratori hisoblanadi."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"Bu ilova sizning <xliff:g id="USERNAME">%1$s</xliff:g> profilingiz uchun kerak va uni olib tashlab bo\'lmaydi."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Bu ilova ishchi profilingiz uchun kerak va uni o‘chirib bo‘lmaydi."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Ushbu ilova qurilmangiz ma\'muri tomonidan ishlatiladi, shuning uchun uni olib tashlab bo\'lmaydi."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Qurilma administratorlarini boshqarish"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> o‘chirilmadi."</string>
@@ -91,7 +88,33 @@
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Rad etish"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> / <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="APP_NAME">%1$s</xliff:g> ilovasiga <xliff:g id="ACTION">%2$s</xliff:g> uchun ruxsat berilsinmi?"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"Ilova ruxsatnomalari"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Ilovalar"</string>
+    <string name="app_permissions" msgid="3146758905824597178">"Ilovalar uchun ruxsatlar"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"Boshqa so‘ralmasin"</string>
-    <string name="no_permissions" msgid="3210542466245591574">"Kirish huquqi yo‘q"</string>
+    <string name="no_permissions" msgid="3210542466245591574">"Hech qanday ruxsat talab qilinmaydi"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"Qo‘shimcha ruxsatlar"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="other">Yana <xliff:g id="COUNT_1">%1$d</xliff:g> ta</item>
+      <item quantity="one">Yana <xliff:g id="COUNT_0">%1$d</xliff:g> ta</item>
+    </plurals>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Bu ilova Androidning eskiroq versiyasiga mo‘ljallab ishlab chiqilgan. Agar ruxsat bermasangiz, u kutilganidek ishlamasligi mumkin."</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"noma’lum amalni bajarish"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"Ruxsat berilgan: <xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"Tizimga oid jarayonlarni ko‘rsatish"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"Tizimga oid jarayonlarni berkitish"</string>
+    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> uchun ruxsatlar"</string>
+    <string name="no_apps" msgid="1965493419005012569">"Hech qanday ilova yo‘q"</string>
+    <string name="location_settings" msgid="1774875730854491297">"Joylashuv sozlamalari"</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> bu qurilma uchun joylashuvni aniqlash xizmatini taqdim etuvchi ilova hisoblanadi. Joylashuv ma’lumotlariga kirish vakolatini joylashuv sozlamalaridan o‘zgartirish mumkin."</string>
+    <string name="system_warning" msgid="7103819124542305179">"Agar bu ruxsatni rad qilsangiz, qurilmangizning asosiy funksiyalari bundan buyon kutilganidek ishlamasligi mumkin."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Qoidaga muvofiq"</string>
+    <string name="loading" msgid="7811651799620593731">"Yuklanmoqda…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"Barcha ruxsatnomalar"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"Ilovaning boshqa imkoniyatlari"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"Ruxsatnoma so‘rovi"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"Ekran ustidan ochiladigan ilova aniqlandi"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"Bu ruxsatnoma parametrini o‘zgartirish uchun avval Sozlamalar &gt; Ilovalar bo‘limidan ekran ustidan ochilish funksiyasini o‘chirib qo‘ying"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"Sozlamalarni ochish"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Wear qurilmasi o‘rnatish/o‘chirish amallarini qo‘llab-quvvatlamaydi."</string>
 </resources>

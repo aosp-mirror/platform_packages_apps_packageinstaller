@@ -32,15 +32,12 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"کیا آپ اس موجودہ ایپلیکیشن میں ایک اپ ڈیٹ انسٹال کرنا چاہتے ہیں؟ آپ کا موجودہ ڈیٹا ضائع نہیں ہوگا۔ اس کو کوئی خاص رسائی درکار نہیں۔"</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"کیا آپ پہلے سے شامل اس ایپلیکیشن میں ایک اپ ڈیٹ انسٹال کرنا چاہتے ہیں؟ آپ کا موجودہ ڈیٹا ضائع نہیں ہوگا۔ اس کو کوئی خاص رسائی درکار نہیں۔"</string>
     <string name="install_failed" msgid="6579998651498970899">"ایپ انسٹال نہیں ہوئی۔"</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"پیکج کو انسٹال ہونے سے روک دیا گیا۔"</string>
+    <string name="install_failed_conflict" msgid="5349055145440204106">"پیکج ایک جیسے نام کی وجہ سے کسی اور پیکج سے متصادم ہے۔"</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"یہ ایپ آپ کے ٹیبلیٹ کے ساتھ مطابقت پذیر نہیں ہے۔"</string>
+    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"‏یہ ایپ آپ کے TV کے ساتھ مطابقت پذیر نہیں ہے۔"</string>
+    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"یہ ایپ آپ کے فون کے ساتھ مطابقت پذیر نہیں ہے۔"</string>
     <string name="install_failed_invalid_apk" msgid="1287935707565682604">"پیکیج خراب معلوم ہوتا ہے۔"</string>
-    <string name="install_failed_inconsistent_certificates" msgid="1517751954440692054">"ایک متضاد دستخط کے ساتھ اسی نام سے ایک موجودہ پیکیج پہلے سے انسٹال ہے۔"</string>
-    <string name="install_failed_older_sdk" msgid="7947925824732917665">"‏پیکیج Android کے صرف نئے ورژنز پر کام کرتا ہے۔"</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tablet" msgid="7098684468842750800">"یہ ایپ آپ کے ٹیبلیٹ کے ساتھ مطابقت پذیر نہیں ہے۔"</string>
-    <string name="install_failed_cpu_abi_incompatible" product="tv" msgid="1309625657882930450">"‏یہ ایپ آپ کے TV کے ساتھ مطابقت پذیر نہیں ہے۔"</string>
-    <string name="install_failed_cpu_abi_incompatible" product="default" msgid="4433316303249711331">"یہ ایپ آپ کے فون کے ساتھ مطابقت پذیر نہیں ہے۔"</string>
-    <string name="install_failed_file_not_found" msgid="1958430133396322619">"انسٹالیشن مکمل ہونے سے پہلے متعینہ پیکیج کو حذف کر دیا گیا۔"</string>
-    <string name="install_failed_verify_failed" msgid="5567372439890440205">"پیکیج نے توثیق کو پاس نہیں کیا اور انسٹال نہیں کیا جا سکتا ہے۔"</string>
-    <string name="install_failed_verify_timeout" msgid="7083090219270140373">"اس پیکیج کی توثیق کی کوشش کرتے وقت ایک ٹائم آؤٹ پیش آگیا۔ اسے بعد میں پھر انسٹال کرنے کی کوشش کریں۔"</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> کو آپ کے ٹیبلیٹ پر انسٹال نہیں کیا جا سکا۔"</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"‏<xliff:g id="APP_NAME">%1$s</xliff:g> کو آپ کے TV پر انسٹال نہیں کیا جا سکا۔"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> کو آپ کے فون پر انسٹال نہیں کیا جا سکا۔"</string>
@@ -75,7 +72,7 @@
     <string name="uninstall_failed" msgid="631122574306299512">"اَن انسٹال ناکام۔"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"اَن انسٹال نہیں کر سکتا کیونکہ یہ پیکیج ایک فعال آلے کا منتظم ہے۔"</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"اَن انسٹال نہیں کیا جا سکتا کیونکہ یہ پیکیج صارف <xliff:g id="USERNAME">%1$s</xliff:g> کیلئے فعال آلہ کا منتظم ہے۔"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5006234166226562439">"یہ ایپ آپ کے <xliff:g id="USERNAME">%1$s</xliff:g> پروفائل کیلئے درکار ہے اور اسے اَن انسٹال نہیں کیا جا سکتا ہے۔"</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"یہ ایپ آپ کے دفتری پروفائل کیلئے درکار ہے اور اسے اَن انسٹال نہیں کیا جا سکتا۔"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"یہ ایپ آپ کے آلہ کے منتظم کو درکار ہے اور اسے اَن انسٹال نہیں کیا جا سکتا ہے۔"</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"آلہ کے منتظمین کا نظم کریں"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> کو اَن انسٹال نہیں کیا جا سکا۔"</string>
@@ -90,8 +87,34 @@
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"اجازت دیں"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"مسترد کریں"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> از <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="APP_NAME">%1$s</xliff:g> کو <xliff:g id="ACTION">%2$s</xliff:g> کی اجازت دیں؟"</string>
+    <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="APP_NAME">%1$s</xliff:g> کو \"<xliff:g id="ACTION">%2$s</xliff:g>\" کی اجازت دیں؟"</string>
+    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"ایپس"</string>
     <string name="app_permissions" msgid="3146758905824597178">"ایپ کی اجازتیں"</string>
     <string name="never_ask_again" msgid="3798895821072102967">"دوبارہ کبھی نہ پوچھیں"</string>
     <string name="no_permissions" msgid="3210542466245591574">"کوئی اجازتیں نہیں ہیں"</string>
+    <string name="additional_permissions" msgid="6667573114240111763">"اضافی اجازتیں"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> مزید</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> مزید</item>
+    </plurals>
+    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"‏یہ ایپ Android کے ایک پرانے ورژن کیلئے ڈیزائن کی گئی تھی۔ اجازت دینے سے انکار کرنے پر ممکن ہے کہ وہ مزید ٹھیک سے کام نہ کرے۔"</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"ایک نامعلوم کارروائی کو انجام دیں"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> میں سے <xliff:g id="COUNT_1">%2$d</xliff:g> ایپس کو اجازت دے دی گئی"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"سسٹم دکھائیں"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"سسٹم چھپائیں"</string>
+    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> اجازتیں"</string>
+    <string name="no_apps" msgid="1965493419005012569">"کوئی ایپس نہیں ہیں"</string>
+    <string name="location_settings" msgid="1774875730854491297">"مقام کی ترتیبات"</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> اس آلہ کیلئے مقام کی سروسز کا فراہم کنندہ ہے۔ مقام کی رسائی میں مقام کی ترتیبات سے ترمیم کی جا سکتی ہے۔"</string>
+    <string name="system_warning" msgid="7103819124542305179">"اگرآپ اس اجازت کو مسترد کرتے ہیں تو شاید آپ کے آلہ کی بنیادی خصوصیات ٹھیک سے کام نہ کریں۔"</string>
+    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"پالیسی کی طرف سے نافذ کردہ"</string>
+    <string name="loading" msgid="7811651799620593731">"لوڈ ہورہا ہے…"</string>
+    <string name="all_permissions" msgid="5156669007784613042">"تمام اجازاتیں"</string>
+    <string name="other_permissions" msgid="2016192512386091933">"دوسری ایپ اہلیتیں"</string>
+    <string name="permission_request_title" msgid="1204446718549121199">"اجازت کی درخواست"</string>
+    <string name="screen_overlay_title" msgid="3021729846864038529">"اسکرین اورلے کا پتہ چلا ہے"</string>
+    <string name="screen_overlay_message" msgid="2141944461571677331">"‏اس اجازت کی ترتیب کو تبدیل کرنے کیلئے آپ کو پہلے ترتیبات &gt; Apps سے سکرین اورلے آف کرنا ہوگا"</string>
+    <string name="screen_overlay_button" msgid="4344544843349937743">"ترتیبات کھولیں"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"‏Wear پر غیر تعاون یافتہ کاروائیاں انسٹال/ان انسٹال کریں۔"</string>
 </resources>
