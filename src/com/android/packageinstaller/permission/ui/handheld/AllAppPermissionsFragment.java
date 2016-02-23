@@ -123,7 +123,7 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
                     }
 
                     if ((perm.flags & PermissionInfo.FLAG_INSTALLED) == 0
-                            || (perm.flags & PermissionInfo.FLAG_HIDDEN) != 0) {
+                            || (perm.flags & PermissionInfo.FLAG_REMOVED) != 0) {
                         continue;
                     }
 
