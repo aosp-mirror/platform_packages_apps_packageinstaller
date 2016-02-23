@@ -131,15 +131,15 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
                     }
                 });
 
-        for (AppPermissionGroup group : mAppPermissions.getPermissionGroups()) {
-            boolean groupHasRequestedPermission = false;
-            for (String requestedPermission : mRequestedPermissions) {
-                if (group.hasPermission(requestedPermission)) {
-                    groupHasRequestedPermission = true;
+        for (String requestedPermission : mRequestedPermissions) {
+            AppPermissionGroup group = null;
+            for (AppPermissionGroup nextGroup : mAppPermissions.getPermissionGroups()) {
+                if (nextGroup.hasPermission(requestedPermission)) {
+                    group = nextGroup;
                     break;
                 }
             }
-            if (!groupHasRequestedPermission) {
+            if (group == null) {
                 continue;
             }
             // We allow the user to choose only non-fixed permissions. A permission
