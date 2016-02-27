@@ -16,7 +16,6 @@
 
 package com.android.packageinstaller.wear;
 
-import android.annotation.Nullable;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -87,7 +86,7 @@ public class WearPackageUtil {
      *                       decompress it here
      */
     public static File getFileFromFd(Context context, ParcelFileDescriptor fd,
-            String packageName, @Nullable String compressionAlg) {
+            String packageName, String compressionAlg) {
         File newFile = getTemporaryFile(context, packageName);
         if (fd == null || fd.getFileDescriptor() == null)  {
             return null;
