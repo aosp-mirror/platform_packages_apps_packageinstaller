@@ -32,16 +32,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 public final class AppPermissions {
-    private static final float MAX_APP_LABEL_LENGTH_PIXELS = 500;
-
-    private static final TextPaint sAppLabelEllipsizePaint = new TextPaint();
-    static {
-        sAppLabelEllipsizePaint.setAntiAlias(true);
-        // Both text size and width are given in absolute pixels, for consistent truncation
-        // across devices; this value corresponds to the default 14dip size on an xdhpi device.
-        sAppLabelEllipsizePaint.setTextSize(42);
-    }
-
     private final ArrayList<AppPermissionGroup> mGroups = new ArrayList<>();
 
     private final LinkedHashMap<String, AppPermissionGroup> mNameToGroupMap = new LinkedHashMap<>();
@@ -63,7 +53,9 @@ public final class AppPermissions {
         mContext = context;
         mPackageInfo = packageInfo;
         mFilterPermissions = permissions;
-        mAppLabel = loadEllipsizedAppLabel(context, packageInfo);
+        mAppLabel = BidiFormatter.getInstance().unicodeWrap(
+                packageInfo.applicationInfo.loadSafeLabel(
+                context.getPackageManager()).toString());
         mSortGroups = sortGroups;
         mOnErrorCallback = onErrorCallback;
         loadPermissionGroups();
@@ -176,17 +168,5 @@ public final class AppPermissions {
             }
         }
         return false;
-    }
-
-    private static CharSequence loadEllipsizedAppLabel(Context context, PackageInfo packageInfo) {
-        String label = packageInfo.applicationInfo.loadLabel(
-                context.getPackageManager()).toString();
-        String ellipsizedLabel = label.replace("\n", " ");
-        if (!DeviceUtils.isWear(context)) {
-            // Only ellipsize for non-Wear devices.
-            ellipsizedLabel = TextUtils.ellipsize(ellipsizedLabel, sAppLabelEllipsizePaint,
-                MAX_APP_LABEL_LENGTH_PIXELS, TextUtils.TruncateAt.END).toString();
-        }
-        return BidiFormatter.getInstance().unicodeWrap(ellipsizedLabel);
     }
 }
