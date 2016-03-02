@@ -228,7 +228,8 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
                 if (!isTelevision && (existingPref instanceof RestrictedSwitchPreference)) {
                     ((RestrictedSwitchPreference) existingPref).setDisabledByAdmin(
                             isPolicyFixed ? enforcedAdmin : null);
-                    existingPref.setSummary(R.string.disabled_by_admin_summary_text);
+                    existingPref.setSummary(isPolicyFixed ?
+                            getString(R.string.disabled_by_admin_summary_text) : null);
                 } else {
                     existingPref.setEnabled(!isPolicyFixed);
                     existingPref.setSummary(isPolicyFixed ?
