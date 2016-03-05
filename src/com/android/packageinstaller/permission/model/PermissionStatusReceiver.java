@@ -26,7 +26,7 @@ import android.util.ArrayMap;
 import android.util.ArraySet;
 
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
-import com.android.packageinstaller.permission.utils.Utils;
+import com.android.packageinstaller.util.Utils;
 
 import java.text.Collator;
 import java.util.ArrayList;

@@ -45,7 +45,7 @@ import android.view.MenuItem;
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
-import com.android.packageinstaller.permission.utils.Utils;
+import com.android.packageinstaller.util.Utils;
 
 import java.util.ArrayList;
 import java.util.Collections;
