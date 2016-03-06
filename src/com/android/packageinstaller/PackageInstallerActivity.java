@@ -33,7 +33,9 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PackageParser;
 import android.content.pm.PackageUserState;
 import android.content.pm.VerificationParams;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.UserManager;
@@ -46,10 +48,16 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AppSecurityPermissions;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
+import com.android.packageinstaller.util.Utils;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 /*
  * This activity is launched when a new application is installed via side loading
@@ -65,12 +73,20 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     private static final String TAG = "PackageInstaller";
 
     private static final int REQUEST_ENABLE_UNKNOWN_SOURCES = 1;
+    private static final int REQUEST_INSTALL_PACKAGE = 2;
+
+    private static final String SCHEME_FILE = "file";
+    private static final String SCHEME_CONTENT = "content";
+    private static final String SCHEME_PACKAGE = "package";
 
     private int mSessionId = -1;
     private Uri mPackageURI;
     private Uri mOriginatingURI;
     private Uri mReferrerURI;
     private int mOriginatingUid = VerificationParams.NO_UID;
+    private File mContentUriApkStagingFile;
+
+    private AsyncTask<Uri, Void, File> mStagingAsynTask;
 
     private boolean localLOGV = false;
     PackageManager mPm;
@@ -108,6 +124,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     private void startInstallConfirm() {
         TabHost tabHost = (TabHost)findViewById(android.R.id.tabhost);
         tabHost.setup();
+        tabHost.setVisibility(View.VISIBLE);
         ViewPager viewPager = (ViewPager)findViewById(R.id.pager);
         TabsAdapter adapter = new TabsAdapter(this, tabHost, viewPager);
         // If the app supports runtime permissions the new permissions will
@@ -183,10 +200,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             ((TextView)findViewById(R.id.install_confirm_question)).setText(msg);
         }
         mInstallConfirm.setVisibility(View.VISIBLE);
-        mOk = (Button)findViewById(R.id.ok_button);
-        mCancel = (Button)findViewById(R.id.cancel_button);
-        mOk.setOnClickListener(this);
-        mCancel.setOnClickListener(this);
+        mOk.setEnabled(true);
         if (mScrollView == null) {
             // There is nothing to scroll view, so the ok button is immediately
             // set to install.
@@ -320,14 +334,14 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                     .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             setResult(RESULT_OK);
-                            finish();
+                            clearCachedApkIfNeededAndFinish();
                         }
                     })
                     .setOnCancelListener(this)
                     .create();
        }
        return null;
-   }
+    }
 
     private void launchSecuritySettings() {
         Intent launchSettingsIntent = new Intent(Settings.ACTION_SECURITY_SETTINGS);
@@ -341,9 +355,8 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         // implement a "allow untrusted source once" feature.
         if (request == REQUEST_ENABLE_UNKNOWN_SOURCES && result == RESULT_OK) {
             initiateInstall();
-        } else {
-            finish();
         }
+        clearCachedApkIfNeededAndFinish();
     }
 
     private boolean isInstallRequestFromUnknownSource(Intent intent) {
@@ -430,6 +443,10 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         mUserManager = (UserManager) getSystemService(Context.USER_SERVICE);
 
         final Intent intent = getIntent();
+        mOriginatingUid = getOriginatingUid(intent);
+
+        final Uri packageUri;
+
         if (PackageInstaller.ACTION_CONFIRM_PERMISSIONS.equals(intent.getAction())) {
             final int sessionId = intent.getIntExtra(PackageInstaller.EXTRA_SESSION_ID, -1);
             final PackageInstaller.SessionInfo info = mInstaller.getSessionInfo(sessionId);
@@ -440,72 +457,29 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             }
 
             mSessionId = sessionId;
-            mPackageURI = Uri.fromFile(new File(info.resolvedBaseCodePath));
+            packageUri = Uri.fromFile(new File(info.resolvedBaseCodePath));
             mOriginatingURI = null;
             mReferrerURI = null;
         } else {
             mSessionId = -1;
-            mPackageURI = intent.getData();
+            packageUri = intent.getData();
             mOriginatingURI = intent.getParcelableExtra(Intent.EXTRA_ORIGINATING_URI);
             mReferrerURI = intent.getParcelableExtra(Intent.EXTRA_REFERRER);
         }
-
-        final boolean unknownSourcesAllowedByAdmin = isUnknownSourcesAllowedByAdmin();
-        final boolean unknownSourcesAllowedByUser = isUnknownSourcesEnabled();
 
         if (DeviceUtils.isWear(this)) {
             showDialogInner(DLG_NOT_SUPPORTED_ON_WEAR);
             return;
         }
 
-        final String scheme = mPackageURI.getScheme();
-        if (scheme != null && !"file".equals(scheme) && !"package".equals(scheme)) {
-            Log.w(TAG, "Unsupported scheme " + scheme);
-            setPmResult(PackageManager.INSTALL_FAILED_INVALID_URI);
-            finish();
-            return;
-        }
-
-        final PackageUtil.AppSnippet as;
-        if ("package".equals(mPackageURI.getScheme())) {
-            try {
-                mPkgInfo = mPm.getPackageInfo(mPackageURI.getSchemeSpecificPart(),
-                        PackageManager.GET_PERMISSIONS | PackageManager.GET_UNINSTALLED_PACKAGES);
-            } catch (NameNotFoundException e) {
-            }
-            if (mPkgInfo == null) {
-                Log.w(TAG, "Requested package " + mPackageURI.getScheme()
-                        + " not available. Discontinuing installation");
-                showDialogInner(DLG_PACKAGE_ERROR);
-                setPmResult(PackageManager.INSTALL_FAILED_INVALID_APK);
-                return;
-            }
-            as = new PackageUtil.AppSnippet(mPm.getApplicationLabel(mPkgInfo.applicationInfo),
-                    mPm.getApplicationIcon(mPkgInfo.applicationInfo));
-        } else {
-            final File sourceFile = new File(mPackageURI.getPath());
-            PackageParser.Package parsed = PackageUtil.getPackageInfo(sourceFile);
-
-            // Check for parse errors
-            if (parsed == null) {
-                Log.w(TAG, "Parse error when parsing manifest. Discontinuing installation");
-                showDialogInner(DLG_PACKAGE_ERROR);
-                setPmResult(PackageManager.INSTALL_FAILED_INVALID_APK);
-                return;
-            }
-            mPkgInfo = PackageParser.generatePackageInfo(parsed, null,
-                    PackageManager.GET_PERMISSIONS, 0, 0, null,
-                    new PackageUserState());
-            as = PackageUtil.getAppSnippet(this, mPkgInfo.applicationInfo, sourceFile);
-        }
-
         //set view
         setContentView(R.layout.install_start);
         mInstallConfirm = findViewById(R.id.install_confirm_panel);
         mInstallConfirm.setVisibility(View.INVISIBLE);
-        PackageUtil.initSnippetForNewApp(this, as, R.id.app_snippet);
-
-        mOriginatingUid = getOriginatingUid(intent);
+        mOk = (Button)findViewById(R.id.ok_button);
+        mCancel = (Button)findViewById(R.id.cancel_button);
+        mOk.setOnClickListener(this);
+        mCancel.setOnClickListener(this);
 
         // Block the install attempt on the Unknown Sources setting if necessary.
         final boolean requestFromUnknownSource = isInstallRequestFromUnknownSource(intent);
@@ -517,17 +491,87 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         // If the admin prohibits it, or we're running in a managed profile, just show error
         // and exit. Otherwise show an option to take the user to Settings to change the setting.
         final boolean isManagedProfile = mUserManager.isManagedProfile();
-        if (!unknownSourcesAllowedByAdmin) {
+        if (!isUnknownSourcesAllowedByAdmin()) {
             startActivity(new Intent(Settings.ACTION_SHOW_ADMIN_SUPPORT_DETAILS));
-            finish();
-        } else if (!unknownSourcesAllowedByUser && isManagedProfile) {
+            clearCachedApkIfNeededAndFinish();
+        } else if (!isUnknownSourcesEnabled() && isManagedProfile) {
             showDialogInner(DLG_ADMIN_RESTRICTS_UNKNOWN_SOURCES);
-        } else if (!unknownSourcesAllowedByUser) {
+        } else if (!isUnknownSourcesEnabled()) {
             // Ask user to enable setting first
             showDialogInner(DLG_UNKNOWN_SOURCES);
-        } else {
-            initiateInstall();
         }
+
+        processPackageUri(packageUri);
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (mStagingAsynTask != null) {
+            mStagingAsynTask.cancel(true);
+            mStagingAsynTask = null;
+        }
+        super.onDestroy();
+    }
+
+    private void processPackageUri(final Uri packageUri) {
+        mPackageURI = packageUri;
+
+        final String scheme = packageUri.getScheme();
+        final PackageUtil.AppSnippet as;
+
+        switch (scheme) {
+            case SCHEME_PACKAGE: {
+                try {
+                    mPkgInfo = mPm.getPackageInfo(packageUri.getSchemeSpecificPart(),
+                            PackageManager.GET_PERMISSIONS
+                                    | PackageManager.GET_UNINSTALLED_PACKAGES);
+                } catch (NameNotFoundException e) {
+                }
+                if (mPkgInfo == null) {
+                    Log.w(TAG, "Requested package " + packageUri.getScheme()
+                            + " not available. Discontinuing installation");
+                    showDialogInner(DLG_PACKAGE_ERROR);
+                    setPmResult(PackageManager.INSTALL_FAILED_INVALID_APK);
+                    return;
+                }
+                as = new PackageUtil.AppSnippet(mPm.getApplicationLabel(mPkgInfo.applicationInfo),
+                        mPm.getApplicationIcon(mPkgInfo.applicationInfo));
+            } break;
+
+            case SCHEME_FILE: {
+                File sourceFile = new File(packageUri.getPath());
+                PackageParser.Package parsed = PackageUtil.getPackageInfo(sourceFile);
+
+                // Check for parse errors
+                if (parsed == null) {
+                    Log.w(TAG, "Parse error when parsing manifest. Discontinuing installation");
+                    showDialogInner(DLG_PACKAGE_ERROR);
+                    setPmResult(PackageManager.INSTALL_FAILED_INVALID_APK);
+                    return;
+                }
+                mPkgInfo = PackageParser.generatePackageInfo(parsed, null,
+                        PackageManager.GET_PERMISSIONS, 0, 0, null,
+                        new PackageUserState());
+                as = PackageUtil.getAppSnippet(this, mPkgInfo.applicationInfo, sourceFile);
+            } break;
+
+            case SCHEME_CONTENT: {
+                mStagingAsynTask = new StagingAsyncTask();
+                mStagingAsynTask.execute(packageUri);
+                return;
+            }
+
+            default: {
+                Log.w(TAG, "Unsupported scheme " + scheme);
+                setPmResult(PackageManager.INSTALL_FAILED_INVALID_URI);
+                clearCachedApkIfNeededAndFinish();
+                return;
+            }
+        }
+
+        PackageUtil.initSnippetForNewApp(this, as, R.id.app_snippet);
+
+        initiateInstall();
     }
 
     /** Get the ApplicationInfo for the calling package, if available */
@@ -612,7 +656,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
 
     // Generic handling when pressing back key
     public void onCancel(DialogInterface dialog) {
-        finish();
+        clearCachedApkIfNeededAndFinish();
     }
 
     public void onClick(View v) {
@@ -620,7 +664,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             if (mOkCanInstall || mScrollView == null) {
                 if (mSessionId != -1) {
                     mInstaller.setPermissionsResult(mSessionId, true);
-                    finish();
+                    clearCachedApkIfNeededAndFinish();
                 } else {
                     startInstall();
                 }
@@ -633,7 +677,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             if (mSessionId != -1) {
                 mInstaller.setPermissionsResult(mSessionId, false);
             }
-            finish();
+            clearCachedApkIfNeededAndFinish();
         }
     }
 
@@ -664,7 +708,99 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             newIntent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
         }
         if(localLOGV) Log.i(TAG, "downloaded app uri="+mPackageURI);
-        startActivity(newIntent);
+        startActivityForResult(newIntent, REQUEST_INSTALL_PACKAGE);
+    }
+
+    private void clearCachedApkIfNeededAndFinish() {
+        if (mContentUriApkStagingFile != null) {
+            mContentUriApkStagingFile.delete();
+            mContentUriApkStagingFile = null;
+        }
         finish();
     }
+
+    private final class StagingAsyncTask extends AsyncTask<Uri, Void, File> {
+        private static final long SHOW_EMPTY_STATE_DELAY_MILLIS = 300;
+
+        private final Runnable mEmptyStateRunnable = new Runnable() {
+            @Override
+            public void run() {
+                ((TextView) findViewById(R.id.app_name)).setText(R.string.app_name_unknown);
+                ((TextView) findViewById(R.id.install_confirm_question))
+                        .setText(R.string.message_staging);
+                mInstallConfirm.setVisibility(View.VISIBLE);
+                findViewById(android.R.id.tabhost).setVisibility(View.INVISIBLE);
+                findViewById(R.id.ok_button).setEnabled(false);
+                Drawable icon = getDrawable(R.drawable.ic_file_download);
+                Utils.applyTint(PackageInstallerActivity.this,
+                        icon, android.R.attr.colorControlNormal);
+                ((ImageView) findViewById(R.id.app_icon)).setImageDrawable(icon);
+            }
+        };
+
+        @Override
+        protected void onPreExecute() {
+            getWindow().getDecorView().postDelayed(mEmptyStateRunnable,
+                    SHOW_EMPTY_STATE_DELAY_MILLIS);
+        }
+
+        @Override
+        protected File doInBackground(Uri... params) {
+            if (params == null || params.length <= 0) {
+                return null;
+            }
+            Uri packageUri = params[0];
+            File sourceFile = null;
+            try {
+                sourceFile = File.createTempFile("package", ".apk", getCacheDir());
+                try (
+                    InputStream in = getContentResolver().openInputStream(packageUri);
+                    OutputStream out = (in != null) ? new FileOutputStream(
+                            sourceFile) : null;
+                ) {
+                    // Despite the comments in ContentResolver#openInputStream
+                    // the returned stream can be null.
+                    if (in == null) {
+                        return null;
+                    }
+                    byte[] buffer = new byte[4096];
+                    int bytesRead;
+                    while ((bytesRead = in.read(buffer)) >= 0) {
+                        // Be nice and respond to a cancellation
+                        if (isCancelled()) {
+                            return null;
+                        }
+                        out.write(buffer, 0, bytesRead);
+                    }
+                }
+            } catch (IOException ioe) {
+                Log.w(TAG, "Error staging apk from content URI", ioe);
+                if (sourceFile != null) {
+                    sourceFile.delete();
+                }
+            }
+            return sourceFile;
+        }
+
+        @Override
+        protected void onPostExecute(File file) {
+            getWindow().getDecorView().removeCallbacks(mEmptyStateRunnable);
+            if (isFinishing() || isDestroyed()) {
+                return;
+            }
+            if (file == null) {
+                showDialogInner(DLG_PACKAGE_ERROR);
+                setPmResult(PackageManager.INSTALL_FAILED_INVALID_APK);
+                return;
+            }
+            mContentUriApkStagingFile = file;
+            Uri fileUri = Uri.fromFile(file);
+            processPackageUri(fileUri);
+        }
+
+        @Override
+        protected void onCancelled(File file) {
+            getWindow().getDecorView().removeCallbacks(mEmptyStateRunnable);
+        }
+    };
 }

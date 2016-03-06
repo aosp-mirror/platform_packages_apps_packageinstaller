@@ -32,7 +32,7 @@ import android.util.Log;
 import android.util.SparseArray;
 
 import com.android.packageinstaller.R;
-import com.android.packageinstaller.permission.utils.Utils;
+import com.android.packageinstaller.util.Utils;
 
 import java.util.ArrayList;
 import java.util.Collections;
