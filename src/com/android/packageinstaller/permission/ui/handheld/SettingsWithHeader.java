@@ -28,7 +28,6 @@ import android.widget.TextView;
 
 import com.android.packageinstaller.DeviceUtils;
 import com.android.packageinstaller.R;
-import com.android.packageinstaller.permission.utils.Utils;
 
 public abstract class SettingsWithHeader extends PermissionsFrameFragment
         implements OnClickListener {

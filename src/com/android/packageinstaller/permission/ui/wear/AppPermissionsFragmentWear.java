@@ -35,12 +35,11 @@ import android.widget.Toast;
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
-import com.android.packageinstaller.permission.ui.OverlayTouchActivity;
 import com.android.packageinstaller.permission.ui.wear.settings.PermissionsSettingsAdapter;
 import com.android.packageinstaller.permission.ui.wear.settings.SettingsAdapter;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
-import com.android.packageinstaller.permission.utils.Utils;
+import com.android.packageinstaller.util.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
