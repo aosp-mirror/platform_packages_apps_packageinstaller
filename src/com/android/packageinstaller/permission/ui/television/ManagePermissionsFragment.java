@@ -38,7 +38,7 @@ import com.android.packageinstaller.permission.model.PermissionApps;
 import com.android.packageinstaller.permission.model.PermissionApps.PmCache;
 import com.android.packageinstaller.permission.model.PermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionGroups;
-import com.android.packageinstaller.permission.utils.Utils;
+import com.android.packageinstaller.util.Utils;
 
 import java.util.List;
 
