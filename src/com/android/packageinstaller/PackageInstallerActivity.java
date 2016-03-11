@@ -467,6 +467,14 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             mReferrerURI = intent.getParcelableExtra(Intent.EXTRA_REFERRER);
         }
 
+        // if there's nothing to do, quietly slip into the ether
+        if (mPackageURI == null) {
+            Log.w(TAG, "Unspecified source");
+            setPmResult(PackageManager.INSTALL_FAILED_INVALID_URI);
+            finish();
+            return;
+        }
+
         if (DeviceUtils.isWear(this)) {
             showDialogInner(DLG_NOT_SUPPORTED_ON_WEAR);
             return;
