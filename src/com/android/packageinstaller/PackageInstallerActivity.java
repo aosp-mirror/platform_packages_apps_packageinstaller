@@ -468,7 +468,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         }
 
         // if there's nothing to do, quietly slip into the ether
-        if (mPackageURI == null) {
+        if (packageUri == null) {
             Log.w(TAG, "Unspecified source");
             setPmResult(PackageManager.INSTALL_FAILED_INVALID_URI);
             finish();
