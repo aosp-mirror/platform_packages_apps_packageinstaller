@@ -67,10 +67,8 @@
     <!-- syntax error in translation for uninstall_application_text_all_users (5574704453233525222) org.xmlpull.v1.XmlPullParserException: expected: /string read: b (position:END_TAG </b>@1:122 in     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"გსურთ ამ აპის დეინსტალაცია ყველა"</b>" მომხმარებილის "<b>"-თვის? აპლიკაცია და მისი მონაცემენბი წაიშლება ყველა"</b>" მომხმარებლის "<b>"-თვის მოწყობილობაზე."</string>
 )  -->
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"გსურთ <xliff:g id="USERNAME">%1$s</xliff:g> მომხმარებლისათვის ამ აპის დეინსტალაცია?"</string>
-    <!-- no translation found for uninstall_update_text (1394549691152728409) -->
-    <skip />
-    <!-- no translation found for uninstall_update_text_multiuser (2083665452990861991) -->
-    <skip />
+    <string name="uninstall_update_text" msgid="1394549691152728409">"გსურთ ამ აპის ქარხნული ვერსიით ჩანაცვლება? მონაცემები მთლიანად ამოიშლება."</string>
+    <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"გსურთ ამ აპის ქარხნული ვერსიით ჩანაცვლება? მონაცემები მთლიანად ამოიშლება. ეს მოქმედება გავლენას იქონიებს ამ მოწყობილობის ყველა მომხმარებელზე, მათ შორის, სამსახურის პროფილებით მოსარგებლეებზეც."</string>
     <string name="uninstalling" msgid="5556217435895938250">"დეინსტალაცია…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"დეინსტალაცია დასრულდა."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"დეინსტალაცია წარუმატებელია."</string>
