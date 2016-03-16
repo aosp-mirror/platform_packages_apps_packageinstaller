@@ -66,11 +66,16 @@ import java.util.Set;
  *
  *  Install Action example:
  *  adb shell am startservice -a com.android.packageinstaller.wear.INSTALL_PACKAGE \
- *     -t vnd.android.cursor.item/wearable_apk \
- *     -d content://com.google.android.clockwork.home.provider/host/com.google.android.wearable.app/wearable/com.google.android.gms/apk \
+ *     -d package://com.google.android.gms \
+ *     --eu com.google.android.clockwork.EXTRA_ASSET_URI content://com.google.android.clockwork.home.provider/host/com.google.android.wearable.app/wearable/com.google.android.gms/apk \
  *     --es android.intent.extra.INSTALLER_PACKAGE_NAME com.google.android.gms \
  *     --ez com.google.android.clockwork.EXTRA_CHECK_PERMS false \
  *     --eu com.google.android.clockwork.EXTRA_PERM_URI content://com.google.android.clockwork.home.provider/host/com.google.android.wearable.app/permissions \
+ *     com.android.packageinstaller/com.android.packageinstaller.wear.WearPackageInstallerService
+ *
+ *  Uninstall Action example:
+ *  adb shell am startservice -a com.android.packageinstaller.wear.UNINSTALL_PACKAGE \
+ *     -d package://com.google.android.gms \
  *     com.android.packageinstaller/com.android.packageinstaller.wear.WearPackageInstallerService
  *
  *  Retry GMS:
@@ -141,29 +146,49 @@ public class WearPackageInstallerService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (!DeviceUtils.isWear(this)) {
-            Log.w(TAG, "Not running on wearable");
+            Log.w(TAG, "Not running on wearable.");
             return START_NOT_STICKY;
         }
+
+        if (intent == null) {
+            Log.w(TAG, "Got null intent.");
+            return START_NOT_STICKY;
+        }
+
+        if (Log.isLoggable(TAG, Log.DEBUG)) {
+            Log.d(TAG, "Got install/uninstall request " + intent);
+        }
+
+        Uri packageUri = intent.getData();
+        if (packageUri == null) {
+            Log.e(TAG, "No package URI in intent");
+            return START_NOT_STICKY;
+        }
+        final String packageName = WearPackageUtil.getSanitizedPackageName(packageUri);
+        if (packageName == null) {
+            Log.e(TAG, "Invalid package name in URI (expected package:<pkgName>): " + packageUri);
+            return START_NOT_STICKY;
+        }
+
         PowerManager.WakeLock lock = getLock(this.getApplicationContext());
         if (!lock.isHeld()) {
             lock.acquire();
         }
-        if (Log.isLoggable(TAG, Log.DEBUG)) {
-            Log.d(TAG, "Got install/uninstall request " + intent);
+
+        Bundle intentBundle = intent.getExtras();
+        if (intentBundle == null) {
+            intentBundle = new Bundle();
         }
-        if (intent != null) {
-            Bundle intentBundle = intent.getExtras();
-            WearPackageArgs.setStartId(intentBundle, startId);
-            if (Intent.ACTION_INSTALL_PACKAGE.equals(intent.getAction())) {
-                final Message msg = mServiceHandler.obtainMessage(START_INSTALL);
-                WearPackageArgs.setAssetUri(intentBundle, intent.getData());
-                msg.setData(intentBundle);
-                mServiceHandler.sendMessage(msg);
-            } else if (Intent.ACTION_UNINSTALL_PACKAGE.equals(intent.getAction())) {
-                Message msg = mServiceHandler.obtainMessage(START_UNINSTALL);
-                msg.setData(intentBundle);
-                mServiceHandler.sendMessage(msg);
-            }
+        WearPackageArgs.setStartId(intentBundle, startId);
+        WearPackageArgs.setPackageName(intentBundle, packageName);
+        if (Intent.ACTION_INSTALL_PACKAGE.equals(intent.getAction())) {
+            Message msg = mServiceHandler.obtainMessage(START_INSTALL);
+            msg.setData(intentBundle);
+            mServiceHandler.sendMessage(msg);
+        } else if (Intent.ACTION_UNINSTALL_PACKAGE.equals(intent.getAction())) {
+            Message msg = mServiceHandler.obtainMessage(START_UNINSTALL);
+            msg.setData(intentBundle);
+            mServiceHandler.sendMessage(msg);
         }
         return START_NOT_STICKY;
     }

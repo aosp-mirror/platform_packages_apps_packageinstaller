@@ -25,6 +25,8 @@ import android.os.Bundle;
  * installing/uninstalling.
  */
 public class WearPackageArgs {
+    private static final String KEY_PACKAGE_NAME =
+            "com.google.android.clockwork.EXTRA_PACKAGE_NAME";
     private static final String KEY_ASSET_URI =
             "com.google.android.clockwork.EXTRA_ASSET_URI";
     private static final String KEY_START_ID =
@@ -45,16 +47,16 @@ public class WearPackageArgs {
             "com.google.android.clockwork.EXTRA_KEY_SHOULD_CHECK_GMS_DEPENDENCY";
 
     public static String getPackageName(Bundle b) {
-        return b.getString(Intent.EXTRA_INSTALLER_PACKAGE_NAME);
+        return b.getString(KEY_PACKAGE_NAME);
+    }
+
+    public static Bundle setPackageName(Bundle b, String packageName) {
+        b.putString(KEY_PACKAGE_NAME, packageName);
+        return b;
     }
 
     public static Uri getAssetUri(Bundle b) {
         return b.getParcelable(KEY_ASSET_URI);
-    }
-
-    public static Bundle setAssetUri(Bundle b, Uri assetUri) {
-        b.putParcelable(KEY_ASSET_URI, assetUri);
-        return b;
     }
 
     public static Uri getPermUri(Bundle b) {
