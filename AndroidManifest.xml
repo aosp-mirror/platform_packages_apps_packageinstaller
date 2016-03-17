@@ -29,8 +29,8 @@
             android:allowBackup="false"
             android:theme="@style/Theme.DialogWhenLarge"
             android:supportsRtl="true"
-            android:forceDeviceEncrypted="true"
-            android:encryptionAware="true">
+            android:defaultToDeviceProtectedStorage="true"
+            android:directBootAware="true">
 
         <activity android:name=".PackageInstallerActivity"
                 android:configChanges="orientation|keyboardHidden|screenSize"
