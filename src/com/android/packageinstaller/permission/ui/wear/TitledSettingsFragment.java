@@ -28,7 +28,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
-import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.packageinstaller.permission.ui.wear.settings.ViewUtils;
@@ -46,6 +46,7 @@ public abstract class TitledSettingsFragment extends Fragment implements
     private int mInitialHeaderHeight;
 
     protected TextView mHeader;
+    protected TextView mDetails;
     protected WearableListView mWheel;
 
     private int mCharLimitShortTitle;
@@ -114,6 +115,9 @@ public abstract class TitledSettingsFragment extends Fragment implements
         mHeader.addOnLayoutChangeListener(this);
         mHeader.addTextChangedListener(mHeaderTextWatcher);
 
+        mDetails = (TextView) v.findViewById(R.id.details);
+        mDetails.addOnLayoutChangeListener(this);
+
         mWheel.setAdapter(adapter);
         mWheel.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -134,13 +138,14 @@ public abstract class TitledSettingsFragment extends Fragment implements
 
         adjustHeaderSize();
 
-        positionOnCircular(getContext(), mHeader, mWheel);
+        positionOnCircular(getContext(), mHeader, mDetails, mWheel);
     }
 
-    public void positionOnCircular(Context context, View header, final ViewGroup wheel) {
+    public void positionOnCircular(Context context, View header, View details,
+            final ViewGroup wheel) {
         if (ViewUtils.getIsCircular(context)) {
-            FrameLayout.LayoutParams params =
-                    (FrameLayout.LayoutParams) header.getLayoutParams();
+            LinearLayout.LayoutParams params =
+                    (LinearLayout.LayoutParams) header.getLayoutParams();
             params.topMargin = (int) context.getResources().getDimension(
                     R.dimen.settings_header_top_margin_circular);
             // Note that the margins are made symmetrical here. Since they're symmetrical we choose
@@ -152,9 +157,13 @@ public abstract class TitledSettingsFragment extends Fragment implements
             params.rightMargin = margin;
             params.gravity = Gravity.CENTER_HORIZONTAL;
             header.setLayoutParams(params);
+            details.setLayoutParams(params);
 
             if (header instanceof TextView) {
                 ((TextView) header).setGravity(Gravity.CENTER);
+            }
+            if (details instanceof TextView) {
+                ((TextView) details).setGravity(Gravity.CENTER);
             }
 
             final int leftPadding = (int) context.getResources().getDimension(
@@ -209,7 +218,7 @@ public abstract class TitledSettingsFragment extends Fragment implements
         }
         mHeader.setMinHeight((int) height);
 
-        FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) mHeader.getLayoutParams();
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) mHeader.getLayoutParams();
         final Context context = getContext();
         if (!singleLine) {
             // Make the top margin a little bit smaller so there is more space for the title.
