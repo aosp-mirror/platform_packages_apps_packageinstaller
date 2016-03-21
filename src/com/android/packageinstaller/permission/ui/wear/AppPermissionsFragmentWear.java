@@ -123,16 +123,16 @@ public final class AppPermissionsFragmentWear extends TitledSettingsFragment {
         super.onViewCreated(view, savedInstanceState);
         if (mAppPermissions != null) {
             initializeLayout(mAdapter);
-            bindHeader(mAppPermissions.getPackageInfo());
+            mHeader.setText(R.string.app_permissions);
+            mDetails.setText(R.string.no_permissions);
+            if (mAdapter.getItemCount() == 0) {
+                mDetails.setVisibility(View.VISIBLE);
+                mWheel.setVisibility(View.GONE);
+            } else {
+                mDetails.setVisibility(View.GONE);
+                mWheel.setVisibility(View.VISIBLE);
+            }
         }
-    }
-
-    private void bindHeader(PackageInfo packageInfo) {
-        Activity activity = getActivity();
-        PackageManager pm = activity.getPackageManager();
-        ApplicationInfo appInfo = packageInfo.applicationInfo;
-        CharSequence label = appInfo.loadLabel(pm);
-        mHeader.setText(label);
     }
 
     private void initializePermissionGroupList() {

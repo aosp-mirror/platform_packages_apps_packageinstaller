@@ -14,19 +14,38 @@
      limitations under the License.
 -->
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView
-        android:id="@+id/header"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="@dimen/settings_header_base_height"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="@dimen/settings_header_top_margin"
-        android:textSize="@dimen/setting_short_header_text_size"
-        android:maxLines="2"
-        android:ellipsize="end"
-        android:textColor="#9E9E9E"
-        android:fontFamily="sans-serif-condensed-light"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/settings_header_base_height"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="@dimen/settings_header_top_margin"
+            android:textSize="@dimen/setting_short_header_text_size"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textColor="#9E9E9E"
+            android:fontFamily="sans-serif-condensed-light"
         />
+
+        <TextView
+            android:id="@+id/details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/settings_header_base_height"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="@dimen/settings_header_top_margin"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textColor="@color/permissions_settings_item_color"
+            android:textSize="14sp"
+            android:visibility="gone"
+        />
+    </LinearLayout>
 
     <android.support.wearable.view.WearableListView
         xmlns:android="http://schemas.android.com/apk/res/android"

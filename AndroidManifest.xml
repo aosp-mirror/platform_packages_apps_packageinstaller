@@ -125,15 +125,7 @@
         <!-- Wearable Components -->
         <service android:name=".wear.WearPackageInstallerService"
                  android:permission="com.google.android.permission.INSTALL_WEARABLE_PACKAGES"
-                 android:exported="true">
-            <intent-filter>
-                <action android:name="com.android.packageinstaller.wear.INSTALL_PACKAGE"/>
-                <data android:scheme="content" android:mimeType="vnd.android.cursor.item/*"/>
-            </intent-filter>
-            <intent-filter>
-                <action android:name="com.android.packageinstaller.wear.UNINSTALL_PACKAGE"/>
-            </intent-filter>
-        </service>
+                 android:exported="true"/>
 
         <provider android:name=".wear.WearPackageIconProvider"
                   android:authorities="com.google.android.packageinstaller.wear.provider"
