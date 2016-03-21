@@ -21,6 +21,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageParser;
+import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import android.system.ErrnoException;
 import android.system.Os;
@@ -163,5 +164,17 @@ public class WearPackageUtil {
         Log.i(TAG, "Sending removeFromPermStore to ShowPermsService " + newIntent
                 + " for " + wearablePackageName);
         context.startService(newIntent);
+    }
+
+    /**
+     * @return com.google.com from expected formats like
+     * Uri: package:com.google.com, package:/com.google.com, package://com.google.com
+     */
+    public static String getSanitizedPackageName(Uri packageUri) {
+        String packageName = packageUri.getEncodedSchemeSpecificPart();
+        if (packageName != null) {
+            return packageName.replaceAll("^/+", "");
+        }
+        return packageName;
     }
 }
