@@ -120,13 +120,18 @@ public final class ReviewPermissionsActivity extends Activity
         public void onCreate(@Nullable Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
 
-            PackageInfo packageInfo = getArguments().getParcelable(EXTRA_PACKAGE_INFO);
-            if (packageInfo == null) {
-                getActivity().finish();
+            Activity activity = getActivity();
+            if (activity == null) {
                 return;
             }
 
-            mAppPermissions = new AppPermissions(getActivity(), packageInfo, null, false,
+            PackageInfo packageInfo = getArguments().getParcelable(EXTRA_PACKAGE_INFO);
+            if (packageInfo == null) {
+                activity.finish();
+                return;
+            }
+
+            mAppPermissions = new AppPermissions(activity, packageInfo, null, false,
                     new Runnable() {
                         @Override
                         public void run() {
@@ -135,7 +140,7 @@ public final class ReviewPermissionsActivity extends Activity
                     });
 
             if (mAppPermissions.getPermissionGroups().isEmpty()) {
-                getActivity().finish();
+                activity.finish();
                 return;
             }
 
@@ -148,7 +153,7 @@ public final class ReviewPermissionsActivity extends Activity
             }
 
             if (!reviewRequired) {
-                getActivity().finish();
+                activity.finish();
             }
         }
 
@@ -166,14 +171,18 @@ public final class ReviewPermissionsActivity extends Activity
 
         @Override
         public void onClick(View view) {
+            Activity activity = getActivity();
+            if (activity == null) {
+                return;
+            }
             if (view == mContinueButton) {
                 confirmPermissionsReview();
                 executeCallback(true);
             } else if (view == mCancelButton) {
                 executeCallback(false);
-                getActivity().setResult(Activity.RESULT_CANCELED);
+                activity.setResult(Activity.RESULT_CANCELED);
             }
-            getActivity().finish();
+            activity.finish();
         }
 
         @Override
@@ -185,6 +194,8 @@ public final class ReviewPermissionsActivity extends Activity
                 SwitchPreference switchPreference = (SwitchPreference) preference;
                 if (switchPreference.isChecked()) {
                     showWarnRevokeDialog(switchPreference.getKey());
+                } else {
+                    return true;
                 }
             }
             return false;
