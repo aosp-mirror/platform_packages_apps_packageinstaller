@@ -162,6 +162,10 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             group.addPermission(permission);
         }
 
+        if (group.getPermissions().isEmpty()) {
+            return null;
+        }
+
         return group;
     }
 
