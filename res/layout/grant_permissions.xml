@@ -18,6 +18,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
+
     <LinearLayout
         android:id="@+id/dialog_container"
         android:layout_width="fill_parent"
@@ -81,7 +82,7 @@
                 style="?android:attr/buttonBarButtonStyle"
                 android:text="@string/grant_dialog_button_deny" />
 
-            <Button
+            <com.android.packageinstaller.permission.ui.SecureButtonView
                 android:id="@+id/permission_allow_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -92,4 +93,5 @@
         </com.android.internal.widget.ButtonBarLayout>
 
     </LinearLayout>
+
 </com.android.packageinstaller.permission.ui.ManualLayoutFrame>
