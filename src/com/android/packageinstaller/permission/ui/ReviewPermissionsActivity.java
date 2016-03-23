@@ -240,6 +240,9 @@ public final class ReviewPermissionsActivity extends Activity
 
         private void bindUi() {
             Activity activity = getActivity();
+            if (activity == null) {
+                return;
+            }
 
             // Set icon
             Drawable icon = mAppPermissions.getPackageInfo().applicationInfo.loadIcon(
@@ -279,6 +282,11 @@ public final class ReviewPermissionsActivity extends Activity
         }
 
         private void loadPreferences() {
+            Activity activity = getActivity();
+            if (activity == null) {
+                return;
+            }
+
             PreferenceScreen screen = getPreferenceScreen();
             if (screen == null) {
                 screen = getPreferenceManager().createPreferenceScreen(getActivity());
@@ -311,15 +319,17 @@ public final class ReviewPermissionsActivity extends Activity
 
                     // We update permission grants based on the final preference states
                     if (group.isReviewRequired()) {
-                        // If review is required use granted as default
-                        preference.setChecked(true);
+                        // If review is required use granted as default unless
+                        // the user went to settings first and expressed that
+                        // the permission should be revoked for this app.
+                        preference.setChecked(!group.shouldRevokeOnUpgrade());
                     } else {
                         // If review not required use the current grant state as default
                         preference.setChecked(group.areRuntimePermissionsGranted());
                     }
 
                     preference.setKey(group.getName());
-                    Drawable icon = Utils.loadDrawable(getActivity().getPackageManager(),
+                    Drawable icon = Utils.loadDrawable(activity.getPackageManager(),
                             group.getIconPkg(), group.getIconResId());
                     preference.setIcon(Utils.applyTint(getContext(), icon,
                             android.R.attr.colorControlNormal));
@@ -344,7 +354,7 @@ public final class ReviewPermissionsActivity extends Activity
                         screen.addPreference(preference);
                     } else {
                         if (mNewPermissionsCategory == null) {
-                            mNewPermissionsCategory = new PreferenceCategory(getActivity());
+                            mNewPermissionsCategory = new PreferenceCategory(activity);
                             mNewPermissionsCategory.setTitle(R.string.new_permissions_category);
                             mNewPermissionsCategory.setOrder(1);
                             screen.addPreference(mNewPermissionsCategory);
@@ -353,7 +363,7 @@ public final class ReviewPermissionsActivity extends Activity
                     }
                 } else {
                     if (currentPermissionsCategory == null) {
-                        currentPermissionsCategory = new PreferenceCategory(getActivity());
+                        currentPermissionsCategory = new PreferenceCategory(activity);
                         currentPermissionsCategory.setTitle(R.string.current_permissions_category);
                         currentPermissionsCategory.setOrder(2);
                         screen.addPreference(currentPermissionsCategory);
@@ -377,6 +387,9 @@ public final class ReviewPermissionsActivity extends Activity
 
         private void executeCallback(boolean success) {
             Activity activity = getActivity();
+            if (activity == null) {
+                return;
+            }
             if (success) {
                 IntentSender intent = activity.getIntent().getParcelableExtra(Intent.EXTRA_INTENT);
                 if (intent != null) {
