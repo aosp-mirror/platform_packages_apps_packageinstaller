@@ -321,6 +321,20 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         return false;
     }
 
+    public boolean shouldRevokeOnUpgrade() {
+        if (mAppSupportsRuntimePermissions) {
+            return false;
+        }
+        final int permissionCount = mPermissions.size();
+        for (int i = 0; i < permissionCount; i++) {
+            Permission permission = mPermissions.valueAt(i);
+            if ((permission.getFlags() & PackageManager.FLAG_PERMISSION_REVOKE_ON_UPGRADE) != 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean grantRuntimePermissions(boolean fixedByTheUser) {
         return grantRuntimePermissions(fixedByTheUser, null);
     }
