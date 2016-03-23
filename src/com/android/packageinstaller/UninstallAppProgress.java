@@ -35,6 +35,7 @@ import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -64,6 +65,7 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
     private TextView mStatusTextView;
     private Button mOkButton;
     private Button mDeviceManagerButton;
+    private Button mUsersButton;
     private ProgressBar mProgressBar;
     private View mOkPanel;
     private volatile int mResultCode = -1;
@@ -180,6 +182,7 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
                                 mDeviceManagerButton.setVisibility(View.VISIBLE);
                             } else {
                                 mDeviceManagerButton.setVisibility(View.GONE);
+                                mUsersButton.setVisibility(View.VISIBLE);
                             }
                             // TODO: b/25442806
                             if (blockingUserId == UserHandle.USER_SYSTEM) {
@@ -260,6 +263,7 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
         mStatusTextView = (TextView) findViewById(R.id.center_text);
         mStatusTextView.setText(R.string.uninstalling);
         mDeviceManagerButton = (Button) findViewById(R.id.device_manager_button);
+        mUsersButton = (Button) findViewById(R.id.users_button);
         mDeviceManagerButton.setVisibility(View.GONE);
         mDeviceManagerButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -267,6 +271,16 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
                 Intent intent = new Intent();
                 intent.setClassName("com.android.settings",
                         "com.android.settings.Settings$DeviceAdminSettingsActivity");
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
+            }
+        });
+        mUsersButton.setVisibility(View.GONE);
+        mUsersButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Settings.ACTION_USER_SETTINGS);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();
