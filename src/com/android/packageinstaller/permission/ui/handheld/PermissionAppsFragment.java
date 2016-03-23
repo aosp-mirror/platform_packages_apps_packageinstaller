@@ -351,7 +351,7 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
                         .setMessage(grantedByDefault ? R.string.system_warning
                                 : R.string.old_sdk_deny_warning)
                         .setNegativeButton(R.string.cancel, null)
-                        .setPositiveButton(R.string.grant_dialog_button_deny,
+                        .setPositiveButton(R.string.grant_dialog_button_deny_anyway,
                                 new OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {

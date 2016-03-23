@@ -46,7 +46,7 @@ public final class ConfirmActionDialogFragment extends DialogFragment {
         return new AlertDialog.Builder(getContext())
                 .setMessage(getArguments().getString(ARG_MESSAGE))
                 .setNegativeButton(R.string.cancel, null)
-                .setPositiveButton(R.string.grant_dialog_button_deny,
+                .setPositiveButton(R.string.grant_dialog_button_deny_anyway,
                         new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
