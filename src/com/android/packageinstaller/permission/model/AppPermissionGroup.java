@@ -215,6 +215,9 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
     }
 
     public boolean isReviewRequired() {
+        if (mAppSupportsRuntimePermissions) {
+            return false;
+        }
         final int permissionCount = mPermissions.size();
         for (int i = 0; i < permissionCount; i++) {
             Permission permission = mPermissions.valueAt(i);
@@ -244,17 +247,6 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         for (int i = 0; i < permissionCount; i++) {
             Permission permission = mPermissions.valueAt(i);
             if (permission.isGrantedByDefault()) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean hasAppOpPermission() {
-        final int permissionCount = mPermissions.size();
-        for (int i = 0; i < permissionCount; i++) {
-            Permission permission = mPermissions.valueAt(i);
-            if (permission.getAppOp() != AppOpsManager.OP_NONE) {
                 return true;
             }
         }
@@ -316,9 +308,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                 if (permission.isGranted()) {
                     return true;
                 }
-            } else if (permission.isGranted() && ((permission.getAppOp()
-                    == AppOpsManager.OP_NONE || permission.isAppOpAllowed()))
-                    && !permission.isReviewRequired()) {
+            } else if (permission.isGranted() && (permission.getAppOp()
+                    == AppOpsManager.OP_NONE || permission.isAppOpAllowed())) {
                 return true;
             }
         }
