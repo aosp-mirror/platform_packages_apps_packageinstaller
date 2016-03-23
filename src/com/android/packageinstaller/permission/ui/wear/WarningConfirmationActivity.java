@@ -66,7 +66,7 @@ public final class WarningConfirmationActivity extends Activity {
 
             @Override
             public CharSequence getVerticalButton2Text() {
-                return getString(R.string.grant_dialog_button_deny);
+                return getString(R.string.grant_dialog_button_deny_anyway);
             }
 
             @Override

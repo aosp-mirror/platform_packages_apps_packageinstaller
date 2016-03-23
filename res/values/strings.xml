@@ -162,7 +162,10 @@
         It will get access to:</string>
 
     <!-- Title for the dialog button to deny a permission grant. -->
-    <string name="grant_dialog_button_deny">Deny anyway</string>
+    <string name="grant_dialog_button_deny">Deny</string>
+
+    <!-- Title for the dialog button to deny a permission grant despite a warning of implications. -->
+    <string name="grant_dialog_button_deny_anyway">Deny anyway</string>
 
     <!-- Template for the current permission from the total number of permissions. -->
     <string name="current_permission_template">
