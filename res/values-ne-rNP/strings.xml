@@ -73,9 +73,10 @@
     <string name="uninstall_failed" msgid="631122574306299512">"अस्थापना गर्न असफल"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"अस्थापना गर्न सकिँदैन किनभने यो प्याकेज एउटा सक्रिय उपकरण प्रशासक हो।"</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"रद्द गर्न सकिदैन किनभने प्रयोगकर्ता <xliff:g id="USERNAME">%1$s</xliff:g> को लागि यो प्याकेज सक्रिय यन्त्र प्रशासक हो।"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"यो अनुप्रयोग तपाईँको कार्य प्रोफाइलको लागि आवश्यक छ र  यसको स्थापना रद्द गर्न सकिँदैन।"</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5154358281537910006">"अन्य प्रयोगकर्ताहरूका लागि यस अनु्प्रयोगको स्थापना रद्द गरे पनि केही प्रयोगकर्ता वा प्रोफाइलहरूलाई यसको आवश्यकता पर्दछ"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"यो अनुप्रयोग तपाईँको उपकरण प्रशासकलाई आवश्यक छ र स्थापना रद्द गर्न सकिँदैन।"</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"उपकरण प्रशासकहरूको प्रबन्ध गर्नुहोस्"</string>
+    <string name="manage_users" msgid="3125018886835668847">"प्रयोगकर्ताहरूलाई व्यवस्थापन गर्नुहोस्"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> स्थापना रद्द गर्न सकिँदैन।"</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"पार्स त्रुटि"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"प्याकेजलाई पार्सिङ गर्दा एउटा समस्या आयो।"</string>
@@ -85,7 +86,8 @@
     <string name="devicePerms" msgid="6733560207731294504">"उपकरण पहुँच"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"यस अपडेटलाई नयाँ अनुमति आवश्यक पर्दैन।"</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"के तपाईँ निम्न अनुमति प्रदान गर्न चाहनु हुन्छ? यसले पहुँच पाउने छ:"</string>
-    <string name="grant_dialog_button_deny" msgid="4554251417054379459">"जे भए पनि अस्वीकार गर्नुहोस्"</string>
+    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"अस्वीकार गर्नुहोस्"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"जे भए पनि अस्वीकार गर्नुहोस्"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> को <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="APP_NAME">%1$s</xliff:g> लाई <xliff:g id="ACTION">%2$s</xliff:g> गर्न अनुमति दिने हो?"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"अनुमति दिनुहोस्"</string>

@@ -73,9 +73,12 @@
     <string name="uninstall_failed" msgid="631122574306299512">"卸载失败。"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"此软件包是当前使用的设备管理器，无法卸载。"</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"无法卸载此软件包，因为它是用户 <xliff:g id="USERNAME">%1$s</xliff:g> 当前使用的设备管理软件包。"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"这是您的工作资料所需的应用，因此无法卸载。"</string>
+    <!-- no translation found for uninstall_blocked_profile_owner (5154358281537910006) -->
+    <skip />
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"这是您的设备管理员要求必须安装的应用，因此无法卸载。"</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"管理设备管理器"</string>
+    <!-- no translation found for manage_users (3125018886835668847) -->
+    <skip />
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"无法卸载“<xliff:g id="APP_NAME">%1$s</xliff:g>”。"</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"解析错误"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"解析软件包时出现问题。"</string>
@@ -85,7 +88,9 @@
     <string name="devicePerms" msgid="6733560207731294504">"设备相关权限"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"新版本不需要任何新的权限。"</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"要向该应用授予以下权限吗？"</string>
-    <string name="grant_dialog_button_deny" msgid="4554251417054379459">"仍然拒绝"</string>
+    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"拒绝"</string>
+    <!-- no translation found for grant_dialog_button_deny_anyway (847960499284125250) -->
+    <skip />
     <string name="current_permission_template" msgid="6378304249516652817">"第 <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> 项权限（共 <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> 项）"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"要允许<xliff:g id="APP_NAME">%1$s</xliff:g><xliff:g id="ACTION">%2$s</xliff:g>吗？"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"允许"</string>

@@ -73,9 +73,10 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Desinstalação malsucedida."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Não é possível desinstalar um administrador de dispositivos ativo."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Não é possível desinstalar este pacote porque ele é um administrador de dispositivo ativo para o usuário <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Este app é necessário para seu perfil de trabalho e não pode ser desinstalado."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5154358281537910006">"O app é necessário para alguns usuários ou perfis e foi desinstalado para outros"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"O app é exigido pelo administrador do dispositivo e não pode ser desinstalado."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Gerenciar os administradores do dispositivo"</string>
+    <string name="manage_users" msgid="3125018886835668847">"Gerenciar usuários"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Não foi possível desinstalar <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Erro de análise"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Ocorreu um problema ao analisar o pacote."</string>
@@ -85,7 +86,8 @@
     <string name="devicePerms" msgid="6733560207731294504">"Acesso ao dispositivo"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"Esta atualização não requer novas permissões."</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"Deseja conceder as permissões a seguir? Será concedido acesso para:"</string>
-    <string name="grant_dialog_button_deny" msgid="4554251417054379459">"Negar mesmo assim"</string>
+    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Negar"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Negar mesmo assim"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> de <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"Permitir que o app <xliff:g id="APP_NAME">%1$s</xliff:g> <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Permitir"</string>

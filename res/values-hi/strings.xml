@@ -73,9 +73,10 @@
     <string name="uninstall_failed" msgid="631122574306299512">"अनइंस्‍टॉल करना विफल."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"अनइंस्‍टॉल नहीं किया जा सकता क्‍योंकि यह पैकेज कोई सक्रिय डिवाइस नियंत्रक है."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"अनइंस्टॉल संभव नहीं क्योंकि यह पैकेज  <xliff:g id="USERNAME">%1$s</xliff:g> का सक्रिय डिवाइस नियंत्रक है."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"आपकी कार्य प्रोफ़ाइल के लिए यह ऐप आवश्‍यक है और इसे अनइंस्‍टॉल नहीं किया जा सकता."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5154358281537910006">"यह ऐप कुछ उपयोगकर्ताओं या प्रोफ़ाइल हेतु आवश्यक है और अन्य हेतु अनइंस्टॉल हो गया है"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"आपके डिवाइस व्यवस्थापक के लिए यह ऐप्स जरूरी है व इसे अनइंस्टॉल नहीं किया जा सकता."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"डिवाइस व्‍यवस्‍थापकों को प्रबंधित करें"</string>
+    <string name="manage_users" msgid="3125018886835668847">"उपयोगकर्ताओं को प्रबंधित करें"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> को अनइंस्‍टॉल नहीं किया जा सका."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"पार्स त्रुटि"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"पैकेज को पार्स करने में कोई समस्‍या थी."</string>
@@ -85,7 +86,8 @@
     <string name="devicePerms" msgid="6733560207731294504">"डिवाइस पहुंच"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"इस नई जानकारी के लिए अनुमति की आवश्‍यकता नहीं है."</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"क्या आप निम्नलिखित के लिए अनुमति देना चाहते हैं ? इसे इन पर एक्सेस प्राप्त होगी:"</string>
-    <string name="grant_dialog_button_deny" msgid="4554251417054379459">"फिर भी अस्वीकार करें"</string>
+    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"अस्वीकार करें"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"फिर भी अस्वीकार करें"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> में से <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="APP_NAME">%1$s</xliff:g> को <xliff:g id="ACTION">%2$s</xliff:g> की अनुमति दें?"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"अनुमति दें"</string>

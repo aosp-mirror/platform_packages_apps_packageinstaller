@@ -73,9 +73,10 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Μη επιτυχής κατάργηση εγκατάστασης."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Αδύνατη η κατάργηση της εγκατάστασης: το πακέτο είναι ενεργός διαχειρ. συσκευής."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Αδύνατη απεγκατάσταση, επειδή το πακέτο αποτελεί ενεργό διαχειριστή συσκευής για <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Αυτή η εφαρμογή απαιτείται για το προφίλ εργασίας και δεν είναι δυνατή η απεγκατάστασή της."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5154358281537910006">"Η εφαρμογή απαιτείται για κάποιους χρήστες/προφίλ και απεγκαταστήθηκε για άλλους"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Η εφαρμογή απαιτείται από το διαχειριστή και δεν είναι δυνατή η απεγκατάσταση."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Διαχείριση διαχειριστών συσκευής"</string>
+    <string name="manage_users" msgid="3125018886835668847">"Διαχείριση χρηστών"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Δεν ήταν δυνατή η κατάργηση της εγκατάστασης της εφαρμογής <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Σφάλμα ανάλυσης"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Παρουσιάστηκε ένα πρόβλημα κατά την ανάλυση του πακέτου."</string>
@@ -85,7 +86,8 @@
     <string name="devicePerms" msgid="6733560207731294504">"Πρόσβαση συσκευής"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"Αυτή η ενημέρωση δεν απαιτεί νέες άδειες."</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"Θέλετε να εκχωρήσετε τα ακόλουθα δικαιώματα; Συνεπάγεται πρόσβαση σε:"</string>
-    <string name="grant_dialog_button_deny" msgid="4554251417054379459">"Απόρριψη"</string>
+    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Απόρριψη"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Απόρριψη"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> από <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"Να επιτρέπεται στην εφαρμογή <xliff:g id="APP_NAME">%1$s</xliff:g> να <xliff:g id="ACTION">%2$s</xliff:g>;"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Να επιτραπεί"</string>

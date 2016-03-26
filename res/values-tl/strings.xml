@@ -73,9 +73,10 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Di-matagumpay ang pag-uninstall."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Hindi ma-uninstall dahil aktibong administrator ng device ang package na ito."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Aktibong administrator ng device para sa user <xliff:g id="USERNAME">%1$s</xliff:g> itong package, hindi ma-uninstall."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Kinakailangan ang app na ito sa iyong profile sa trabaho at hindi maaaring i-install."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5154358281537910006">"Kailangan ang app na ito ng ilang user o profile at na-uninstall sa mga iba pa"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Kinakailangan app na ito ng administrator ng device mo at di maaari i-uninstall."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Pamahalaan ang mga administrator ng device"</string>
+    <string name="manage_users" msgid="3125018886835668847">"Pamahalaan ang mga user"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Hindi ma-install ang <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Error sa pag-parse"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Nagkaroon ng problema sa pag-parse sa package."</string>
@@ -85,7 +86,8 @@
     <string name="devicePerms" msgid="6733560207731294504">"Access sa Device"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"Walang kinakailangang mga bagong pagpapahintulot ang update na ito."</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"Gusto mo bang ibigay ang mga sumusunod na pahintulot? Magkakaroon ito ng access sa:"</string>
-    <string name="grant_dialog_button_deny" msgid="4554251417054379459">"Tanggihan pa rin"</string>
+    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Tanggihan"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Tanggihan pa rin"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> ng <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"Payagan ang <xliff:g id="APP_NAME">%1$s</xliff:g> na <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Payagan"</string>
