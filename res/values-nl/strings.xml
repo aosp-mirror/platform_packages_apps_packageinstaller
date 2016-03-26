@@ -73,9 +73,10 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Verwijdering mislukt."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Kan niet verwijderen omdat dit pakket een actieve apparaatbeheerder is."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Kan dit pakket niet verwijderen omdat het een actieve apparaatbeheerder is voor de gebruiker <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Deze app is vereist voor je werkprofiel en kan niet worden verwijderd."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5154358281537910006">"App vereist voor sommige gebruikers of profielen en verwijderd voor andere"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Deze app is vereist door je apparaatbeheerder en kan niet worden verwijderd."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Apparaatbeheerders beheren"</string>
+    <string name="manage_users" msgid="3125018886835668847">"Gebruikers beheren"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> kan niet worden verwijderd."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Parseerfout"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Er is een probleem opgetreden bij het parseren van het pakket."</string>
@@ -85,7 +86,8 @@
     <string name="devicePerms" msgid="6733560207731294504">"Apparaattoegang"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"Voor deze update zijn geen nieuwe machtigingen vereist."</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"Wilt u de volgende machtigingen verlenen? Hiermee kan toegang worden verkregen tot:"</string>
-    <string name="grant_dialog_button_deny" msgid="4554251417054379459">"Toch weigeren"</string>
+    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Weigeren"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Toch weigeren"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> van <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"Toestaan dat <xliff:g id="APP_NAME">%1$s</xliff:g> het volgende doet: <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Toestaan"</string>

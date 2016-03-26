@@ -73,9 +73,10 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Échec de la désinstallation."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Impossible de désinstaller ce package, car il s\'agit d\'un administrateur actif."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Désinstallation imposs., car ce package est administrateur appareil actif pour <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Impossible de désinstaller appli, car nécessaire pour profil professionnel."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5154358281537910006">"Cette appli nécessaire pour certains utilisateurs/profils a été désinstallée pour d\'autres."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Impossible désinstaller appli, car elle est requise par administrateur appareil."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Gérer les administrateurs de l\'appareil"</string>
+    <string name="manage_users" msgid="3125018886835668847">"Gérer les utilisateurs"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Impossible de désinstaller <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Erreur d\'analyse"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Un problème est survenu lors de l\'analyse du package."</string>
@@ -85,7 +86,8 @@
     <string name="devicePerms" msgid="6733560207731294504">"Accès à l\'appareil"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"Cette mise à jour n\'exige pas de nouvelles autorisations."</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"Voulez-vous accorder les autorisations suivantes ? L\'utilisateur aura accès aux éléments suivants :"</string>
-    <string name="grant_dialog_button_deny" msgid="4554251417054379459">"Refuser quand même"</string>
+    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Refuser"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Refuser quand même"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> sur <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"Autoriser <xliff:g id="APP_NAME">%1$s</xliff:g> à <xliff:g id="ACTION">%2$s</xliff:g> ?"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Autoriser"</string>

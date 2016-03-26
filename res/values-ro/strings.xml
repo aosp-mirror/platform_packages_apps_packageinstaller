@@ -73,9 +73,10 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Dezinstalare nefinalizată."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Nu se poate dezinstala, acest pachet este un administrator de dispozitive activ."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Nu se poate dezinstala, pachetul este administrator de dispozitive activ pt. <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Aplicația este necesară pentru profilul de serviciu și nu poate fi dezinstalată."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5154358281537910006">"Aplicația este necesară unor utilizatori sau profiluri și a fost dezinstalată pentru alții"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Aplicație necesară administratorului dispozitivului. Nu poate fi dezinstalată."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Gestionați administratori de dispozitive"</string>
+    <string name="manage_users" msgid="3125018886835668847">"Gestionați utilizatorii"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> nu a putut fi dezinstalată."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Erori de analizare"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"A apărut o problemă la analizarea pachetului."</string>
@@ -85,7 +86,8 @@
     <string name="devicePerms" msgid="6733560207731294504">"Acces la dispozitiv"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"Această actualizare nu necesită permisiuni noi."</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"Doriți să acordați următoarele permisiuni? Utilizatorul va avea acces la:"</string>
-    <string name="grant_dialog_button_deny" msgid="4554251417054379459">"Nu permiteți oricum"</string>
+    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Refuzați"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Nu permiteți oricum"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> din <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"Permiteți ca <xliff:g id="APP_NAME">%1$s</xliff:g> să <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Permiteți"</string>

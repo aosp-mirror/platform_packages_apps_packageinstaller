@@ -73,9 +73,10 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Nyahpasang tidak berjaya."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Tidak boleh menyahpasang kerana pakej ini adalah pentadbir peranti yang aktif."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Tidak boleh menyahpasang kerana pakej ini adalah pentadbir peranti yang aktif untuk pengguna <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Apl ini diperlukan untuk profil kerja anda dan tidak boleh dinyahpasang."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5154358281537910006">"Apl ini diperlukan utk sesetengah pengguna/profil &amp; dinyahpasang utk yg lain"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Apl ini diperlukan oleh pentadbir peranti anda dan tidak boleh dinyahpasang."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Urus pentadbir peranti"</string>
+    <string name="manage_users" msgid="3125018886835668847">"Urus pengguna"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> tidak dapat dinyahpasang."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Ralat penghuraian"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Terdapat masalah menghuraikan pakej."</string>
@@ -85,7 +86,8 @@
     <string name="devicePerms" msgid="6733560207731294504">"Akses Peranti"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"Kemas kini ini tidak memerlukan kebenaran baharu."</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"Adakah anda ingin memberikan kebenaran berikut? Apl akan mendapat akses ke:"</string>
-    <string name="grant_dialog_button_deny" msgid="4554251417054379459">"Tolak juga"</string>
+    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Tolak"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Tolak juga"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> daripada <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"Benarkan <xliff:g id="APP_NAME">%1$s</xliff:g> untuk <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Benarkan"</string>

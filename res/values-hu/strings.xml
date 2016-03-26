@@ -73,9 +73,10 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Az eltávolítás sikertelen."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Nem lehet eltávolítani: a csomag aktív eszközkezelő."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Nem lehet eltávolítani, mert a csomag <xliff:g id="USERNAME">%1$s</xliff:g> aktív eszközadminisztrátora."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Ez az alkalmazás szükséges munkaprofiljához, és nem távolítható el."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5154358281537910006">"Egyes felhasználóknak/profiloknak szüksége van erre, és másoknál eltávolították"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Az alkalmazásra szüksége van az eszköz adminisztrátorának, és nem távolítható el."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Eszközadminisztrátorok kezelése"</string>
+    <string name="manage_users" msgid="3125018886835668847">"Felhasználók kezelése"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Nem sikerült a(z) <xliff:g id="APP_NAME">%1$s</xliff:g> eltávolítása"</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Szintaktikai elemzés hibája"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Gond volt a csomag elemzésekor."</string>
@@ -85,7 +86,8 @@
     <string name="devicePerms" msgid="6733560207731294504">"Eszközhozzáférés"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"A frissítés nem igényel új engedélyeket."</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"Megadja a következő engedélyeket? A következőkhöz biztosít hozzáférést:"</string>
-    <string name="grant_dialog_button_deny" msgid="4554251417054379459">"Tiltás mindenképpen"</string>
+    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Elutasítás"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Tiltás mindenképpen"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>/<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"Felhatalmazza a(z) <xliff:g id="APP_NAME">%1$s</xliff:g> szolgáltatást a következőre: <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Engedélyezés"</string>

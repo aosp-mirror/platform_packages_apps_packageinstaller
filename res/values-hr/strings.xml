@@ -73,9 +73,10 @@
     <string name="uninstall_failed" msgid="631122574306299512">"Deinstalacija nije uspjela."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Deinstalacija nije moguća jer je ovaj paket aktivni administrator uređaja."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Paket nije moguće deinst. jer je administrator aktivnog uređaja za korisnika <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Ta je aplikacija potrebna za vaš poslovni profil i ne može se deinstalirati."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5154358281537910006">"Aplikacija je obavezna za neke korisnike ili profile, deinstalirana je za ostale"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Ta je aplikacija neophodna administratoru uređaja i nije ju moguće deinstalirati."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Upravljanje administratorima uređaja"</string>
+    <string name="manage_users" msgid="3125018886835668847">"Upravljaj korisnicima"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> nije moguće instalirati."</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Pogreška analize"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Došlo je do problema pri analiziranju paketa."</string>
@@ -85,7 +86,8 @@
     <string name="devicePerms" msgid="6733560207731294504">"Pristup uređaja"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"Ovo ažuriranje ne zahtijeva nove dozvole."</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"Želite li dati sljedeće dozvole? Odobrit će se pristup sljedećem:"</string>
-    <string name="grant_dialog_button_deny" msgid="4554251417054379459">"Svejedno odbij"</string>
+    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Odbij"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Svejedno odbij"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> od <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"Dopuštate li aplikaciji <xliff:g id="APP_NAME">%1$s</xliff:g> da može <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Dopusti"</string>

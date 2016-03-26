@@ -73,9 +73,10 @@
     <string name="uninstall_failed" msgid="631122574306299512">"ဖယ်ရှားမှု မအောင်မြင်ပါ"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"ဤ အချက်အလက်အစုသည်လက်ရှိ စက်၏ အက်ဒ်မင် ဖြစ်နေသောကြောင့် ဖယ်ရှားလို့ မရပါ"</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"ဒီအထုပ်မှာ အသုံးပြုသူ<xliff:g id="USERNAME">%1$s</xliff:g>အတွက် လုပ်ကိုင်နေသည့် စီမံအုပ်ချုပ်သူဖြစ်၍ ဖြုတ်မရနိုင်ပါ။"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"ဤအပ်ဖ်သည် သင့်အလုပ်ကိုယ်ရေးအချက်အလက်အတွက်လိုအပ်ပြီး ဖြုတ်၍မရနိုင်ပါ။"</string>
+    <string name="uninstall_blocked_profile_owner" msgid="5154358281537910006">"ဤအက်ပ်ကို အချို့အသုံးပြုသူများ သို့မဟုတ် ပရိုဖိုင်များအတွက် လိုအပ်ပြီး အခြားသူများအတွက် ဖြုတ်လိုက်ပါသည်"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"ဒီappမှာ သင်၏ ကိရိယာ စီမံအုပ်ချုပ်သူက လိုအပ်သောကြောင့် ဖြုတ်၍ မရနိုင်ပါ။"</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"စက်ပစ္စည်းထိန်းချုပ်မှုအား စီမံရန်"</string>
+    <string name="manage_users" msgid="3125018886835668847">"အသုံးပြုသူများအား စီမံခန့်ခွဲပါ"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> ကို ဖယ်ရှားလို့ မရပါ"</string>
     <string name="Parse_error_dlg_title" msgid="6079580916889596257">"ဖတ်ရှုရာတွင် မှားယွင်းမှု"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"ဒေတာအချက်အလက်အစုအားဖတ်ရှုစဉ် ပြသနာ တစ်ခု ဖြစ်ပေါ်ပါသည်"</string>
@@ -85,7 +86,8 @@
     <string name="devicePerms" msgid="6733560207731294504">"စက်ပစ္စည်း အသုံးပြုခွင့်"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"ဒီအဆင့်မြှင့်ခြင်းဟာ ခွင့်ပြုချက်သစ်တွေ မလိုအပ်ပါ"</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"အောက်ပါ ခွင့်ပြုချက်များ ပေးလိုပါသလား။ ၎င်းတို့က သုံးခွင့်ပြုမှာကတော့၊"</string>
-    <string name="grant_dialog_button_deny" msgid="4554251417054379459">"မည်သို့ပင်ဖြစ်စေ ငြင်းပယ်ပါ"</string>
+    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"ငြင်းပယ်သည်"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"မည်သို့ပင်ဖြစ်စေ ငြင်းပယ်ပါ"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> / <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="APP_NAME">%1$s</xliff:g> အား <xliff:g id="ACTION">%2$s</xliff:g> ခွင့်ပြုသလား။"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"ခွင့်ပြုသည်"</string>
