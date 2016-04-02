@@ -136,9 +136,9 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                 continue;
             }
 
-            // Don't allow toggle of non platform defined permissions for legacy apps via app ops.
+            // Don't allow toggling non-platform permission groups for legacy apps via app ops.
             if (packageInfo.applicationInfo.targetSdkVersion <= Build.VERSION_CODES.LOLLIPOP_MR1
-                    && !PLATFORM_PACKAGE_NAME.equals(requestedPermissionInfo.packageName)) {
+                    && !PLATFORM_PACKAGE_NAME.equals(groupInfo.packageName)) {
                 continue;
             }
 
