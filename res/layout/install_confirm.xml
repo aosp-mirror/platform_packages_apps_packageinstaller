@@ -67,7 +67,7 @@
             <HorizontalScrollView android:id="@+id/tabscontainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@*android:drawable/tab_unselected_holo"
+                android:background="@drawable/tab_unselected_holo"
                 android:fillViewport="true"
                 android:scrollbars="none">
                 <FrameLayout android:layout_width="match_parent"
