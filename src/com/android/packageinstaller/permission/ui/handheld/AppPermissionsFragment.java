@@ -52,6 +52,7 @@ import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.packageinstaller.util.Utils;
+import com.android.settingslib.HelpUtils;
 import com.android.settingslib.RestrictedLockUtils;
 
 import java.util.ArrayList;
@@ -153,6 +154,8 @@ public final class AppPermissionsFragment extends SettingsWithHeader
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         menu.add(Menu.NONE, MENU_ALL_PERMS, Menu.NONE, R.string.all_permissions);
+        HelpUtils.prepareHelpMenuItem(getActivity(), menu, R.string.help_app_permissions,
+                getClass().getName());
     }
 
     private static void bindUi(SettingsWithHeader fragment, PackageInfo packageInfo) {
