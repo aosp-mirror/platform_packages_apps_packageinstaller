@@ -18,49 +18,28 @@
 Defines the layout of the application snippet that appears on top of the
 installation screens
 -->
-<!-- The snippet about the application - title, icon, description.  -->
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/app_snippet"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingStart="16dip"
-    android:paddingEnd="16dip"
-    android:paddingTop="24dip"
-    >
-    <ImageView android:id="@+id/app_icon"
-        android:layout_width="32dip"
-        android:layout_height="32dip"
-        android:layout_marginStart="8dip"
-        android:background="@android:color/transparent"
-        android:layout_alignParentStart="true"
-        android:gravity="start"
-        android:scaleType="centerCrop"/>
-    <TextView android:id="@+id/app_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="?android:attr/textColorPrimary"
-        android:layout_toEndOf="@id/app_icon"
-        android:singleLine="true"
-        android:layout_centerInParent="true"
-        android:paddingEnd="16dip"
-        android:paddingTop="3dip"
-        android:paddingStart="16dip"
-        android:ellipsize="end"/>
-    <FrameLayout
-        android:id="@+id/top_divider"
+<!-- The snippet about the application - title, icon -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/app_snippet"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="4dip"
-        android:layout_below="@id/app_name">
-        <ProgressBar
-            android:id="@+id/progress_bar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </FrameLayout>
+        android:layout_height="?android:attr/actionBarSize"
+        android:padding="16dp"
+        android:orientation="horizontal">
 
-</RelativeLayout>
+    <ImageView android:id="@+id/app_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:scaleType="fitCenter" />
+
+    <TextView android:id="@+id/app_name"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="32dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/titleTextStyle"
+            android:singleLine="true"
+            android:ellipsize="end" />
+
+</LinearLayout>
 

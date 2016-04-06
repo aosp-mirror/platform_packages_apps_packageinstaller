@@ -14,24 +14,147 @@
      limitations under the License.
 -->
 
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<!--
+  Defines the layout of the splash screen that displays the security
+  settings required for an application and requests the confirmation of the
+  user before it is installed.
+-->
 
-    <include
-        layout="@layout/app_details"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/app_snippet"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <include
-        layout="@layout/install_confirm"
-        android:id="@+id/install_confirm_panel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/app_snippet"
-        android:layout_alignParentBottom="true"/>
-</RelativeLayout>
+    <!-- title bar -->
+    <LinearLayout android:id="@+id/app_snippet"
+            android:background="?android:attr/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:orientation="horizontal">
+
+        <ImageView android:id="@+id/app_icon"
+                android:layout_marginLeft="16dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:scaleType="fitCenter" />
+
+        <TextView android:id="@+id/app_name"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/titleTextStyle"
+                android:singleLine="true"
+                android:ellipsize="end" />
+
+    </LinearLayout>
+
+    <!-- content -->
+    <LinearLayout android:id="@+id/install_confirm_panel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <TextView android:id="@+id/install_confirm_question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/colorPrimary"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/install_confirm_question"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp" />
+
+        <View android:id="@+id/spacer"
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:visibility="gone"
+                android:background="?android:attr/colorPrimary" />
+
+        <TabHost android:id="@android:id/tabhost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+            <LinearLayout android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <HorizontalScrollView android:id="@+id/tabscontainer"
+                        android:background="?android:attr/colorPrimary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fillViewport="true"
+                        android:scrollbars="none">
+
+                    <FrameLayout android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        <TabWidget android:id="@android:id/tabs"
+                                android:orientation="horizontal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center" />
+
+                    </FrameLayout>
+
+                </HorizontalScrollView>
+
+                <!-- divider underneath tabs -->
+                <View android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="-1dp"
+                        android:background="#1F000000" />
+
+                <FrameLayout android:id="@android:id/tabcontent"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="0" />
+
+                <android.support.v4.view.ViewPager android:id="@+id/pager"
+                        android:background="?android:attr/windowBackground"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+            </LinearLayout>
+
+        </TabHost>
+
+        <!-- Bottom buttons -->
+        <LinearLayout style="?android:attr/buttonBarStyle"
+                android:background="?android:attr/windowBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:measureWithLargestChild="true">
+
+            <!-- spacer to push buttons to the right -->
+            <View android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+            <Button android:id="@+id/cancel_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cancel"
+                    android:maxLines="2"
+                    style="?android:attr/buttonBarButtonStyle" />
+
+            <Button android:id="@+id/ok_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/next"
+                    android:maxLines="2"
+                    android:filterTouchesWhenObscured="true"
+                    style="?android:attr/buttonBarButtonStyle" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
 
 
