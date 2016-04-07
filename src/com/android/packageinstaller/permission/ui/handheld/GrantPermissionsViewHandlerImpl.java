@@ -36,8 +36,8 @@ import com.android.packageinstaller.permission.ui.ButtonBarLayout;
 import com.android.packageinstaller.permission.ui.GrantPermissionsViewHandler;
 import com.android.packageinstaller.permission.ui.ManualLayoutFrame;
 
-public final class GrantPermissionsViewHandlerImpl
-        implements GrantPermissionsViewHandler, OnClickListener {
+public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHandler,
+        OnClickListener {
 
     public static final String ARG_GROUP_NAME = "ARG_GROUP_NAME";
     public static final String ARG_GROUP_COUNT = "ARG_GROUP_COUNT";
