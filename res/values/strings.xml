@@ -76,7 +76,6 @@
     <!-- Message presented when an application could not be installed on the phone for some reason. [CHAR LIMIT=100] -->
     <string name="install_failed_msg" product="default"><xliff:g id="app_name">%1$s</xliff:g> couldn\'t be installed on your phone.</string>
     <string name="launch">Open</string>
-    <string name="unknown_apps_dlg_title">Install blocked</string>
     <!-- Message presented in a dialog box when a package is requested to be installed, but the "Allow unknown applications" checkbox is not enabled. [CHAR LIMIT=100] -->
     <string name="unknown_apps_dlg_text" product="tablet">For security, your tablet is set to block installation of apps obtained from unknown sources.</string>
     <!-- Message presented in a dialog box when a package is requested to be installed, but the "Allow unknown applications" checkbox is not enabled. [CHAR LIMIT=100] -->
@@ -88,11 +87,6 @@
 
     <string name="ok">OK</string>
     <string name="settings">Settings</string>
-    <!-- Title of dialog asking user if they would allow an application to be an install source. -->
-    <string name="allow_source_dlg_title">New source for apps</string>
-    <!-- Message of dialog asking user if they would allow an application to be an install source. -->
-    <string name="allow_source_dlg_text"><xliff:g id="app_name">%1$s</xliff:g> wants to install other apps.\n\nAllow
-        this now and in the future?</string>
     <string name="manage_applications">Manage apps</string>
     <string name="dlg_app_replacement_title">Replace app?</string>
     <string name="dlg_app_replacement_statement">The app you\'re installing will replace another app.\n\nAll your previous user data will be saved.</string>
@@ -143,7 +137,6 @@
     <string name="uninstall_failed_msg"><xliff:g id="app_name">%1$s</xliff:g> couldn\'t be uninstalled.</string>
 
     <!-- Dialog attributes to indicate parse errors -->
-    <string name="Parse_error_dlg_title">Parse error</string>
     <string name="Parse_error_dlg_text">There was a problem parsing the package.</string>
 
     <!-- Tab label for new permissions being added to an existing app [CHAR LIMIT=20] -->
@@ -270,7 +263,7 @@
     <!-- Title of dialog telling users that Install/Uninstall action is not supported on Android Wear. -->
     <string name="wear_not_allowed_dlg_title">Android Wear</string>
     <!-- Title of dialog telling users that Install/Uninstall action is not supported on Android Wear. -->
-    <string name="wear_not_allowed_dlg_text">Instal/Uninstall actions not supported on Wear.</string>
+    <string name="wear_not_allowed_dlg_text">Install/Uninstall actions not supported on Wear.</string>
 
     <!-- Review of runtime permissions for legacy apps -->
 
