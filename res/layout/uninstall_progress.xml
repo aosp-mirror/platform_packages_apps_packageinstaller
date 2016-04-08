@@ -69,12 +69,27 @@
             android:layout_width="match_parent"
             android:layout_alignParentTop="true" />
 
+    <FrameLayout
+                android:id="@+id/top_divider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="4dip"
+                android:paddingStart="16dip"
+                android:paddingEnd="16dip"
+                android:layout_below="@id/app_snippet">
+        <ProgressBar
+                android:id="@+id/progress_bar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+    </FrameLayout>
+
     <LinearLayout
             android:id="@+id/uninstall_holder"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@id/ok_panel"
-            android:layout_below="@id/app_snippet"
+            android:layout_below="@id/top_divider"
             android:orientation="vertical">
                 
         <ScrollView
