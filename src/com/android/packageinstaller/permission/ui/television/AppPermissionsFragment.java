@@ -125,6 +125,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
     public void onResume() {
         super.onResume();
         mAppPermissions.refresh();
+        loadPreferences();
         setPreferencesCheckedState();
     }
 
