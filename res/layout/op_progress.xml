@@ -14,99 +14,103 @@
      limitations under the License.
 -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-            <!-- Launch and close buttons.  -->
-    <LinearLayout android:id="@+id/buttons_panel"
+
+    <include layout="@layout/app_details"
+            android:id="@+id/app_snippet" />
+
+    <LinearLayout android:id="@+id/center_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:layout_weight="1"
+            android:gravity="center"
             android:orientation="vertical"
-            android:divider="?android:attr/dividerHorizontal"
-            android:showDividers="beginning"
-            android:paddingTop="16dip">
+            android:paddingLeft="16dip"
+            android:paddingRight="16dip">
 
-        <LinearLayout
-                style="?android:attr/buttonBarStyle"
-                android:layout_width="match_parent"
+        <ImageView android:id="@+id/center_icon"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:measureWithLargestChild="true">
+                android:layout_marginBottom="12dp"
+                android:src="@drawable/ic_android_92"
+                android:contentDescription="@null" />
 
-            <LinearLayout android:id="@+id/leftSpacer"
-                    android:layout_weight="0.25"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:visibility="gone" />
+        <ProgressBar android:id="@+id/progress_bar"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                style="?android:attr/progressBarStyleHorizontal">
+        </ProgressBar>
 
-            <Button android:id="@+id/done_button"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layout_weight="1"
-                    android:text="@string/done"
-                    android:maxLines="2"
-                    style="?android:attr/buttonBarButtonStyle" />
-
-            <Button android:id="@+id/launch_button"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_weight="1"
-                    android:text="@string/launch"
-                    android:maxLines="2"
-                    style="?android:attr/buttonBarButtonStyle" />
-
-            <LinearLayout android:id="@+id/rightSpacer"
-                    android:layout_width="0dip"
-                    android:layout_weight="0.25"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:visibility="gone" />
-
-        </LinearLayout>
-    </LinearLayout>
-
-    <include
-            layout="@layout/app_details"
-            android:id="@+id/app_snippet"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true" />
-
-    <TextView
-            android:id="@+id/center_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/app_snippet"
-            android:gravity="start"
-            android:text="@string/installing"
-            android:paddingTop="16dip"
-            android:paddingStart="32dip"
-            android:paddingEnd="32dip"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <!-- This explanation text is shown only after the progress bar below goes away. -->
-    <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/buttons_panel"
-            android:layout_below="@id/center_text"
-            android:paddingTop="8dip"
-            android:paddingStart="16dip"
-            android:paddingBottom="16dip">
-        <TextView
-                android:id="@+id/center_explanation"
-                android:layout_width="match_parent"
+        <TextView android:id="@+id/center_text"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:visibility="gone"
-                android:textAppearance="?android:attr/textAppearanceSmall"/>
+                android:text="@string/installing"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </LinearLayout>
+
+    <!-- This explanation text is shown only after the progress bar below goes away. -->
+    <ScrollView android:id="@+id/explanation_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            android:paddingLeft="16dip"
+            android:paddingRight="16dip">
+
+        <LinearLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <TextView android:id="@+id/explanation_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView android:id="@+id/explanation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        </LinearLayout>
+
     </ScrollView>
 
-</RelativeLayout>
+    <LinearLayout android:id="@+id/buttons_panel"
+            style="?android:attr/buttonBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:measureWithLargestChild="true"
+            android:padding="8dip">
+
+        <!-- spacer to push buttons to the right -->
+        <View android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+        <Button android:id="@+id/done_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/done"
+                android:maxLines="2"
+                style="?android:attr/buttonBarButtonStyle" />
+
+        <Button android:id="@+id/launch_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/launch"
+                android:maxLines="2"
+                style="?android:attr/buttonBarButtonStyle" />
+
+    </LinearLayout>
+
+</LinearLayout>
 
 

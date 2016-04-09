@@ -51,6 +51,20 @@
             layout="@layout/app_details"
             android:id="@+id/uninstall_activity_snippet" />
 
+        <FrameLayout
+                android:id="@+id/top_divider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="4dip"
+                android:paddingStart="16dip"
+                android:paddingEnd="16dip" >
+            <ProgressBar
+                    android:id="@+id/progress_bar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+        </FrameLayout>
+
         <!-- uninstall application confirmation text -->
         <TextView
             android:id="@+id/uninstall_confirm"
