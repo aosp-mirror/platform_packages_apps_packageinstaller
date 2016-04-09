@@ -42,15 +42,12 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> tidak dapat dipasang di TV."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> tidak dapat dipasang pada ponsel Anda."</string>
     <string name="launch" msgid="4826921505917605463">"Buka"</string>
-    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Pemasangan dicekal"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Demi keamanan, tablet Anda disetel utk mencekal pemasangan apl yg diperoleh dari sumber tak dikenal."</string>
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Demi keamanan, TV disetel untuk memblokir pemasangan aplikasi dari sumber tak dikenal."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Demi keamanan, ponsel Anda disetel utk mencekal pemasangan apl yg diperoleh dari sumber tak dikenal."</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Administrator tidak mengizinkan pemasangan aplikasi yang didapatkan dari sumber tak dikenal."</string>
     <string name="ok" msgid="3468756155452870475">"Oke"</string>
     <string name="settings" msgid="6743583734099755409">"Setelan"</string>
-    <string name="allow_source_dlg_title" msgid="7568985073502399415">"Sumber baru untuk apl"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> ingin memasang aplikasi lain.\n\nIzinkan hal ini sekarang dan di waktu mendatang?"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Kelola apl"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Ganti apl?"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Apl yang Anda pasang akan menggantikan apl lain.\n\nSemua data pengguna Anda sebelumnya akan disimpan."</string>
@@ -78,7 +75,6 @@
     <string name="manage_device_administrators" msgid="891392489300312370">"Kelola administrator perangkat"</string>
     <string name="manage_users" msgid="3125018886835668847">"Kelola pengguna"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> tidak dapat dicopot pemasangannya."</string>
-    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Kesalahan parse"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Terjadi masalah saat mengurai paket."</string>
     <string name="newPerms" msgid="6039428254474104210">"Baru"</string>
     <string name="allPerms" msgid="1024385515840703981">"Semua"</string>
@@ -119,7 +115,8 @@
     <string name="screen_overlay_message" msgid="2141944461571677331">"Untuk mengubah setelan izin ini, terlebih dahulu Anda harus menonaktifkan hamparan layar dari Setelan &gt; Aplikasi"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Buka setelan"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Tindakan Pasang/Copot Pemasangan tidak didukung di Wear."</string>
+    <!-- no translation found for wear_not_allowed_dlg_text (1322352525843583064) -->
+    <skip />
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> telah diperbarui. Izinkan <xliff:g id="APP_NAME_1">%1$s</xliff:g> untuk mengakses berikut ini?"</string>
     <string name="permission_review_title_template_install" msgid="6535540493936469336">"Pilih item yang boleh diakses oleh <xliff:g id="APP_NAME">%1$s</xliff:g>"</string>
     <string name="permission_review_title_template_update" msgid="2548815248828051885">"<xliff:g id="APP_NAME">%1$s</xliff:g> telah diperbarui. Pilih item yang boleh diakses oleh aplikasi ini."</string>

@@ -42,15 +42,12 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Չհաջողվեց տեղադրել <xliff:g id="APP_NAME">%1$s</xliff:g> հավելվածը ձեր հեռուստացույցի վրա:"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g>-ը չհաջողվեց տեղադրել ձեր հեռախոսում:"</string>
     <string name="launch" msgid="4826921505917605463">"Բացել"</string>
-    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Տեղադրումը արգելափակված է"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Անվտանգության նկատառումներով ձեր գրասալիկը կարգավորված է կասեցնել այն հավելվածների տեղադրումը, որոնք ձեռք են բերվել անհայտ աղբյուրներից:"</string>
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Անվտանգության նկատառումներից ելնելով՝ ձեր հեռուստացույցը արգելափակում է անհայտ աղբյուրներից ձեռք բերած հավելվածների տեղադրումը:"</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Անվտանգության նկատառումներով ձեր հեռախոսը կարգավորված է կասեցնել այն հավելվածների տեղադրումը, որոնք ձեռք են բերվել անհայտ աղբյուրներից:"</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Ձեր ադմինիստրատորը թույլ չի տալիս տեղադրել հավելվածներ անհայտ աղբյուրներից:"</string>
     <string name="ok" msgid="3468756155452870475">"Լավ"</string>
     <string name="settings" msgid="6743583734099755409">"Կարգավորումներ"</string>
-    <string name="allow_source_dlg_title" msgid="7568985073502399415">"Հավելվածների նոր աղբյուր"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g>-ը ցանկանում է տեղադրել այլ հավելվածներ:\n \nԹույլատրե՞լ այն այժմ և հետագայում:"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Կառավարել հավելվածները"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Փոխարինե՞լ հավելվածը:"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Ծրագիրը, որը դուք տեղադրում եք, կփոխարինի մեկ այլ ծրագրի:\n\nՁեր բոլոր նախկին օգտվողի տվյալները կպահվեն:"</string>
@@ -78,7 +75,6 @@
     <string name="manage_device_administrators" msgid="891392489300312370">"Կառավարել սարքի ադմինիստրատորներին"</string>
     <string name="manage_users" msgid="3125018886835668847">"Կառավարել օգտվողներին"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g>-ը չհաջողվեց ապատեղադրել:"</string>
-    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Վերլուծման սխալ"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Փաթեթը վերլուծելիս խնդիր առաջացավ:"</string>
     <string name="newPerms" msgid="6039428254474104210">"Նոր"</string>
     <string name="allPerms" msgid="1024385515840703981">"Բոլորը"</string>
@@ -119,7 +115,8 @@
     <string name="screen_overlay_message" msgid="2141944461571677331">"Այս թույլտվության կարգավորումները փոխելու համար նախ անհրաժեշտ է անջատել էկրանի վերադրումը՝ անցնելով Կարգավորումներ &gt; Հավելվածներ"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Բացել կարգավորումները"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Տեղադրման/հեռացման գործողությունները Android Wear-ում չեն աջակցվում:"</string>
+    <!-- no translation found for wear_not_allowed_dlg_text (1322352525843583064) -->
+    <skip />
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> հավելվածը թարմացվել է: Թույլ տա՞լ <xliff:g id="APP_NAME_1">%1$s</xliff:g> հավելվածին օգտագործել հետևյալը:"</string>
     <string name="permission_review_title_template_install" msgid="6535540493936469336">"Ընտրեք, ինչ թույլտվություններ եք ցանկանում տրամադրել <xliff:g id="APP_NAME">%1$s</xliff:g> հավելվածին"</string>
     <string name="permission_review_title_template_update" msgid="2548815248828051885">"<xliff:g id="APP_NAME">%1$s</xliff:g> հավելվածը թարմացվել է: Ընտրեք, ինչ թույլտվություններ եք ցանկանում տրամադրել այդ հավելվածին:"</string>

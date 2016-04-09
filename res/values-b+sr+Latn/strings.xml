@@ -42,15 +42,12 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Nismo uspeli da instaliramo <xliff:g id="APP_NAME">%1$s</xliff:g> na TV."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Nije moguće instalirati aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> na telefon."</string>
     <string name="launch" msgid="4826921505917605463">"Otvori"</string>
-    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Instaliranje je blokirano"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Iz bezbednosnih razloga na tabletu je blokirana instalacija aplikacija sa nepoznatih izvora."</string>
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"TV je iz bezbednosnih razloga podešen tako da blokira instalaciju aplikacija iz nepoznatih izvora."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Iz bezbednosnih razloga na telefonu je blokirana instalacija aplikacija sa nepoznatih izvora."</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Administrator ne dozvoljava instaliranje aplikacija dobijenih iz nepoznatih izvora."</string>
     <string name="ok" msgid="3468756155452870475">"Potvrdi"</string>
     <string name="settings" msgid="6743583734099755409">"Podešavanja"</string>
-    <string name="allow_source_dlg_title" msgid="7568985073502399415">"Novi izvor za aplikacije"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> želi da instalira druge aplikacije.\n\nŽelite li to da dozvolite sada i u budućnosti?"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Upravljanje aplikacijama"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Želite li da zamenite aplikaciju?"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Aplikacija koju instalirate zameniće drugu aplikaciju.\n\nSvi prethodni korisnički podaci biće sačuvani."</string>
@@ -78,7 +75,6 @@
     <string name="manage_device_administrators" msgid="891392489300312370">"Upravljaj administratorima uređaja"</string>
     <string name="manage_users" msgid="3125018886835668847">"Upravljaj korisnicima"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Nije moguće deinstalirati aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
-    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Greška pri raščlanjivanju"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Došlo je do problema pri raščlanjivanju paketa."</string>
     <string name="newPerms" msgid="6039428254474104210">"Novo"</string>
     <string name="allPerms" msgid="1024385515840703981">"Sve"</string>
@@ -120,7 +116,8 @@
     <string name="screen_overlay_message" msgid="2141944461571677331">"Da biste promenili podešavanje ove dozvole, prvo treba da isključite element koji prekriva sadržaj ekrana u odeljku Podešavanja &gt; Aplikacije"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Otvori podešavanja"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Radnje Instaliraj/Deinstaliraj nisu podržane u Wear-u."</string>
+    <!-- no translation found for wear_not_allowed_dlg_text (1322352525843583064) -->
+    <skip />
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"Aplikacija <xliff:g id="APP_NAME_0">%1$s</xliff:g> je ažurirana. Želite li da dozvolite da <xliff:g id="APP_NAME_1">%1$s</xliff:g> pristupa sledećim stavkama?"</string>
     <string name="permission_review_title_template_install" msgid="6535540493936469336">"Izaberite čemu <xliff:g id="APP_NAME">%1$s</xliff:g> može da pristupa"</string>
     <string name="permission_review_title_template_update" msgid="2548815248828051885">"Aplikacija <xliff:g id="APP_NAME">%1$s</xliff:g> je ažurirana. Izaberite čemu aplikacija može da pristupa."</string>

@@ -42,15 +42,12 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> មិនអាចដំឡើងនៅលើទូរទស្សន៍របស់អ្នកទេ។"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"មិន​អាច​ដំឡើង <xliff:g id="APP_NAME">%1$s</xliff:g> ក្នុង​ទូរស័ព្ទ​របស់​អ្នក។"</string>
     <string name="launch" msgid="4826921505917605463">"បើក"</string>
-    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"បាន​ទប់ស្កាត់​ការ​ដំឡើង"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"ដើម្បី​សុវត្ថិភាព ទូរស័ព្ទ​របស់​អ្នក​ត្រូវ​បាន​កំណត់ ដើម្បី​ទប់ស្កាត់​ការដំឡើង​កម្មវិធី​ដែល​បាន​មកពី​ប្រភព​មិន​ស្គាល់។"</string>
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"ដោយបញ្ហាសុវត្ថិភាព ទូរទស្សន៍របស់អ្នកត្រូវបានកំណត់ឲ្យរារាំងការដំឡើងកម្មវិធីដែលចេញមកពីប្រភពមិនស្គាល់។"</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"ដើម្បី​សុវត្ថិភាព ទូរស័ព្ទ​របស់​អ្នក​ត្រូវ​បាន​កំណត់ ដើម្បី​ទប់ស្កាត់​ការដំឡើង​កម្មវិធី​ដែល​បាន​មកពី​ប្រភព​មិន​ស្គាល់។"</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"អ្នក​គ្រប់គ្រង​របស់​អ្នក​មិន​អនុញ្ញាត​ឲ្យ​ដំឡើង​កម្មវិធី​ដែល​បាន​ទទួល​ពី​ប្រភព​មិន​ស្គាល់។"</string>
     <string name="ok" msgid="3468756155452870475">"យល់​ព្រម​"</string>
     <string name="settings" msgid="6743583734099755409">"ការ​កំណត់"</string>
-    <string name="allow_source_dlg_title" msgid="7568985073502399415">"ប្រភព​ថ្មី​សម្រាប់​កម្មវិធី"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> ចង់​ដំឡើង​កម្មវិធី​ផ្សេង។\n\nអនុញ្ញាត​ឥឡូវ​ និង​ពេល​អនាគត?"</string>
     <string name="manage_applications" msgid="4033876279091996596">"គ្រប់គ្រង​កម្មវិធី"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"ជំនួស​កម្មវិធី​?"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"កម្មវិធី​ដែល​អ្នក​កំពុង​ដំឡើង​នឹង​ជំនួយ​កម្មវិធី​ផ្សេង។\n\nទិន្នន័យ​អ្នក​ពី​មុន​របស់​អ្នក​ទាំងអស់​នឹង​ត្រូវ​បាន​រក្សាទុក។"</string>
@@ -78,7 +75,6 @@
     <string name="manage_device_administrators" msgid="891392489300312370">"គ្រប់គ្រង​អ្នក​គ្រប់គ្រង​ឧបករណ៍"</string>
     <string name="manage_users" msgid="3125018886835668847">"គ្រប់គ្រងអ្នកប្រើ"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"មិន​អាច​លុប <xliff:g id="APP_NAME">%1$s</xliff:g> ។"</string>
-    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"កំហុស​ញែក"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"មាន​បញ្ហា​ក្នុង​ការ​ញែក​​កញ្ចប់។"</string>
     <string name="newPerms" msgid="6039428254474104210">"ថ្មី"</string>
     <string name="allPerms" msgid="1024385515840703981">"ទាំងអស់"</string>
@@ -119,7 +115,8 @@
     <string name="screen_overlay_message" msgid="2141944461571677331">"ដើម្បីប្តូរការកំណត់សិទ្ធិអនុញ្ញាតនេះ ជាដំបូងអ្នកត្រូវបិទអេក្រង់ត្រួតគ្នានៅក្នុង ការកំណត់ &gt; កម្មវិធី"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"បើកការកំណត់"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"សកម្មភាពដំឡើង/លុបការដំឡើងមិនគាំទ្រនៅលើ Wear ទេ"</string>
+    <!-- no translation found for wear_not_allowed_dlg_text (1322352525843583064) -->
+    <skip />
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> ត្រូវបានអាប់ដេតហើយ។ អនុញ្ញាតឲ្យ <xliff:g id="APP_NAME_1">%1$s</xliff:g> ចូលដំណើរការធាតុខាងក្រោមឬ?"</string>
     <string name="permission_review_title_template_install" msgid="6535540493936469336">"ជ្រើសអ្វីដែលត្រូវអនុញ្ញាតឲ្យ <xliff:g id="APP_NAME">%1$s</xliff:g> ចូលដំណើរការ"</string>
     <string name="permission_review_title_template_update" msgid="2548815248828051885">"<xliff:g id="APP_NAME">%1$s</xliff:g> ត្រូវបានអាប់ដេតហើយ។ ជ្រើសអ្វីដែលត្រូវអនុញ្ញាតឲ្យកម្មវិធីនេះចូលដំណើរការ។"</string>

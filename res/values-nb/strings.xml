@@ -42,15 +42,12 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunne ikke installeres på TV-en."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunne ikke installeres på telefonen din."</string>
     <string name="launch" msgid="4826921505917605463">"Åpne"</string>
-    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Installasjonen ble blokkert"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Av sikkerhetshensyn blokkerer nettbrettet ditt automatisk installasjon av apper fra ukjente kilder."</string>
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"TV-en din er blitt innstilt til å blokkere installasjon av apper som er hentet fra ukjente kilder, for å ivareta sikkerheten din."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Av sikkerhetshensyn blokkerer telefonen din automatisk installasjon av apper fra ukjente kilder."</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Administratoren din tillater ikke installering av apper som er hentet fra ukjente kilder."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Innstillinger"</string>
-    <string name="allow_source_dlg_title" msgid="7568985073502399415">"Ny kilde for apper"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> vil installere andre apper.\n\nVil du tillate dette nå og i fremtiden?"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Administrer apper"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Vil du erstatte appen?"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Appen du installerer erstatter en annen app.\n\nAlle de tidligere brukerdataene dine blir lagret."</string>
@@ -78,7 +75,6 @@
     <string name="manage_device_administrators" msgid="891392489300312370">"Administrer enhetsadministratorer"</string>
     <string name="manage_users" msgid="3125018886835668847">"Administrer brukere"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunne ikke installeres."</string>
-    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Analysefeil"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Det oppsto et problem med analysen av pakken."</string>
     <string name="newPerms" msgid="6039428254474104210">"Nye"</string>
     <string name="allPerms" msgid="1024385515840703981">"Alle"</string>
@@ -119,7 +115,8 @@
     <string name="screen_overlay_message" msgid="2141944461571677331">"For å endre denne tillatelsesinnstilingen må du først slå av skjermoverlegget fra Innstillinger &gt; Apper"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Åpne innstillingene"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Handlingene for å installere og avinstallere er ikke støttet på Wear."</string>
+    <!-- no translation found for wear_not_allowed_dlg_text (1322352525843583064) -->
+    <skip />
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> er oppdatert. Vil du gi <xliff:g id="APP_NAME_1">%1$s</xliff:g> tilgang til følgende?"</string>
     <string name="permission_review_title_template_install" msgid="6535540493936469336">"Velg hva du vil gi <xliff:g id="APP_NAME">%1$s</xliff:g> tilgang til"</string>
     <string name="permission_review_title_template_update" msgid="2548815248828051885">"<xliff:g id="APP_NAME">%1$s</xliff:g> er oppdatert. Velg hva du vil gi denne appen tilgang til."</string>

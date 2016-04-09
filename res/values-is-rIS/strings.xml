@@ -42,15 +42,12 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Ekki var hægt að setja <xliff:g id="APP_NAME">%1$s</xliff:g> upp í sjónvarpinu."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Ekki tókst að setja <xliff:g id="APP_NAME">%1$s</xliff:g> upp í símanum."</string>
     <string name="launch" msgid="4826921505917605463">"Opna"</string>
-    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Uppsetning læst"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Af öryggisástæðum er spjaldtölvan stillt á að loka á uppsetningu forrita af óþekktum uppruna."</string>
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Af öryggisástæðum er sjónvarpið stillt á að loka á uppsetningu forrita af óþekktum uppruna."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Af öryggisástæðum er síminn stilltur á að loka á uppsetningu forrita af óþekktum uppruna."</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Kerfisstjórinn þinn leyfir ekki uppsetningu forrita af óþekktum uppruna."</string>
     <string name="ok" msgid="3468756155452870475">"Í lagi"</string>
     <string name="settings" msgid="6743583734099755409">"Stillingar"</string>
-    <string name="allow_source_dlg_title" msgid="7568985073502399415">"Ný forritaveita"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> vill setja upp önnur forrit.\n\nViltu leyfa það núna og til frambúðar?"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Stjórna forritum"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Skipta út forriti?"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Forritið sem þú ert að setja upp kemur í stað annars forrits.\n\nÖll fyrri notandagögn þín verða vistuð."</string>
@@ -78,7 +75,6 @@
     <string name="manage_device_administrators" msgid="891392489300312370">"Hafa umsjón með stjórnendum tækis"</string>
     <string name="manage_users" msgid="3125018886835668847">"Stjórna notendum"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Ekki tókst að fjarlægja <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
-    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Þáttunarvilla"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Vandamál kom upp við að vinna úr pakkanum."</string>
     <string name="newPerms" msgid="6039428254474104210">"Nýjar"</string>
     <string name="allPerms" msgid="1024385515840703981">"Allar"</string>
@@ -119,7 +115,8 @@
     <string name="screen_overlay_message" msgid="2141944461571677331">"Til að breyta þessari heimildarstillingu þarftu fyrst að slökkva á skjáyfirlögn undir Stillingar &gt; Forrit"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Opna stillingar"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Uppsetningar-/fjarlægingaraðgerðir eru ekki studdar í Wear."</string>
+    <!-- no translation found for wear_not_allowed_dlg_text (1322352525843583064) -->
+    <skip />
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> hefur verið uppfært. Hverju viltu veita <xliff:g id="APP_NAME_1">%1$s</xliff:g> aðgang að?"</string>
     <string name="permission_review_title_template_install" msgid="6535540493936469336">"Veldu hverju <xliff:g id="APP_NAME">%1$s</xliff:g> fær aðgang að"</string>
     <string name="permission_review_title_template_update" msgid="2548815248828051885">"<xliff:g id="APP_NAME">%1$s</xliff:g> hefur verið uppfært. Veldu hverju forritið fær aðgang að."</string>

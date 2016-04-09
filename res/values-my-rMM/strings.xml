@@ -42,15 +42,12 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"သင့်တီဗွီတွင် <xliff:g id="APP_NAME">%1$s</xliff:g> အား မတပ်ဆင်နိုင်ပါ။"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> ကို သင့်ဖုန်းတွင် ထည့်သွင်းလို့ မရနိုင်ပါ"</string>
     <string name="launch" msgid="4826921505917605463">"ဖွင့်သည်"</string>
-    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"ထည့်သွင်းခြင်းမပြုလုပ်နိုင်ရန် ပိတ်ပင်ထားသည်"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"လုံခြုံရေးအတွက်, ဇစ်မြစ် မသိသော အပလီကေးရှင်းများ တက်ဘလက်ထဲ သွင်းခြင်းကို ပိတ်ပင်ထားပါသည်"</string>
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"လုံခြုံရေးအတွက်၊ ဇစ်မြစ် မသိသော အပလီကေးရှင်းများ ဖုန်းတွင်း သွင်းခြင်းအား ပိတ်ပင်ထား၏။"</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"လုံခြုံရေးအတွက်, ဇစ်မြစ် မသိသော အပလီကေးရှင်းများ ဖုန်းထဲ သွင်းခြင်းကို ပိတ်ပင်မှု ပြုလုပ်ထားပါသည်"</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"သင်၏ စီမံအုပ်ချုပ်သူက မသိရသည့် ရင်းမြစ်များမှ ရယူခဲ့သည့် appများကို တပ်ဆင်မှု ခွင့်မပြုပါ။"</string>
     <string name="ok" msgid="3468756155452870475">"ကောင်းပြီ"</string>
     <string name="settings" msgid="6743583734099755409">"အပြင်အဆင်များ"</string>
-    <string name="allow_source_dlg_title" msgid="7568985073502399415">"အပလီကေးရှင်းထည့်သွင်းရန် ပင်မနေရာသစ်"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g>သည် တခြားအပ်ပလီကေးရှင်းအားထည့်သွင်းချင်ပါသည်.\n\nယခု နှင့် နောင်တွင်လဲ ခွင့်ပြုမည်လား"</string>
     <string name="manage_applications" msgid="4033876279091996596">"အပလီကေးရှင်းများအား ထိန်းသိမ်းခြင်း"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"အပလီကေးရှင်းအား အစားထိုးမညိလား?"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"သင် ထည့်သွင်းနေသော အပလီကေးရှင်းမှာ တခြား အပလီကေးရှင်းတစ်ခုအား အစားထိုးပါမည်။.\n\n ယခင်သိမ်းဆည်းထားသော အချက်အလက်များ ကို သိမ်းဆည်းပေးပါမည်။"</string>
@@ -78,7 +75,6 @@
     <string name="manage_device_administrators" msgid="891392489300312370">"စက်ပစ္စည်းထိန်းချုပ်မှုအား စီမံရန်"</string>
     <string name="manage_users" msgid="3125018886835668847">"အသုံးပြုသူများအား စီမံခန့်ခွဲပါ"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> ကို ဖယ်ရှားလို့ မရပါ"</string>
-    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"ဖတ်ရှုရာတွင် မှားယွင်းမှု"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"ဒေတာအချက်အလက်အစုအားဖတ်ရှုစဉ် ပြသနာ တစ်ခု ဖြစ်ပေါ်ပါသည်"</string>
     <string name="newPerms" msgid="6039428254474104210">"အသစ်"</string>
     <string name="allPerms" msgid="1024385515840703981">"အားလုံး"</string>
@@ -119,7 +115,8 @@
     <string name="screen_overlay_message" msgid="2141944461571677331">"ဒီခွင့်ပြုချက် ဆက်တင်ကို ပြောင်းရန်၊ သင်ဟာ ဦးစွာ ဆက်တင်များ &gt; Appများ ထဲတွင် မျက်နှာပြင် ထပ်ပေးမှုကို ပိတ်လိုက်ရန် လိုမယ်"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"ဆက်တင်းများ ဖွင့်ရန်"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android ဆောင်စရာ"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Wear ပေါ်တွင် ထည့်သွင်းခြင်း/ဖြုတ်ခြင်း လုပ်ဆောင်ချက်များကို မပံ့ပိုးထားပါ။"</string>
+    <!-- no translation found for wear_not_allowed_dlg_text (1322352525843583064) -->
+    <skip />
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> ကို အပ်ဒိတ် လုပ်ခဲ့သည်။<xliff:g id="APP_NAME_1">%1$s</xliff:g> အား အောက်ဖေါ်ပြပါကို သုံးခွင့် ပြုရမလား။"</string>
     <string name="permission_review_title_template_install" msgid="6535540493936469336">"<xliff:g id="APP_NAME">%1$s</xliff:g> အား သုံးခွင့် ပြုမှာကို ရွေးချယ်ပါ"</string>
     <string name="permission_review_title_template_update" msgid="2548815248828051885">"<xliff:g id="APP_NAME">%1$s</xliff:g> ကို အပ်ဒိတ် လုပ်ခဲ့သည်။ ဤအက်ပ်အား သုံးခွင့် ပြုမှာကို ရွေးချယ်ပါ။"</string>

@@ -42,15 +42,12 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> ei asennu televisioosi."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Sovelluksen <xliff:g id="APP_NAME">%1$s</xliff:g> asentaminen puhelimeesi ei onnistunut."</string>
     <string name="launch" msgid="4826921505917605463">"Avaa"</string>
-    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Asennus estetty"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Turv.syistä tabletti on asetettu estämään tuntemattomista lähteistä hankittujen sovell. asennus."</string>
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Turvallisuussyistä televisioosi ei voi asentaa sovelluksia, joiden lähde on tuntematon."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Turv.syistä puhelimesi on asetettu estämään tuntemattomista lähteistä hankittujen sovell. asennus."</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Järjestelmänvalvoja ei salli tuntemattomista lähteistä saatujen sovellusten asentamista."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Asetukset"</string>
-    <string name="allow_source_dlg_title" msgid="7568985073502399415">"Uusi lähde sovelluksille"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> haluaa asentaa muita sovelluksia.\n\nSallitaanko tämä nyt ja tulevaisuudessa?"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Hallinnoi sovelluksia"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Korvataanko sovellus?"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Sovellus, jota olet asentamassa, korvaa toisen sovelluksen.\n\nKaikki aikaisemmat käyttäjätiedot tallennetaan."</string>
@@ -78,7 +75,6 @@
     <string name="manage_device_administrators" msgid="891392489300312370">"Hallinnoi laitteen ylläpitäjiä"</string>
     <string name="manage_users" msgid="3125018886835668847">"Hallinnoi käyttäjiä"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Sovelluksen <xliff:g id="APP_NAME">%1$s</xliff:g> poistaminen epäonnistui"</string>
-    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Jäsennysvirhe"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Paketin jäsentämisessä esiintyi ongelma."</string>
     <string name="newPerms" msgid="6039428254474104210">"Uusi"</string>
     <string name="allPerms" msgid="1024385515840703981">"Kaikki"</string>
@@ -119,7 +115,8 @@
     <string name="screen_overlay_message" msgid="2141944461571677331">"Ennen kuin voit muokata tätä käyttöoikeusasetusta, sinun täytyy poistaa näytön peittokuva käytöstä Asetukset-valikon Sovellukset-kohdasta."</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Avaa Asetukset"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Wear ei tue asennus- ja poistotoimintoja."</string>
+    <!-- no translation found for wear_not_allowed_dlg_text (1322352525843583064) -->
+    <skip />
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> on päivitetty. Myönnetäänkö sovellukselle <xliff:g id="APP_NAME_1">%1$s</xliff:g> seuraavat käyttöoikeudet?"</string>
     <string name="permission_review_title_template_install" msgid="6535540493936469336">"Valitse, mitä käyttöoikeuksia haluat myöntää sovellukselle <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
     <string name="permission_review_title_template_update" msgid="2548815248828051885">"<xliff:g id="APP_NAME">%1$s</xliff:g> on päivitetty. Valitse, mitä käyttöoikeuksia haluat myöntää tälle sovellukselle."</string>
