@@ -44,6 +44,7 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -99,15 +100,14 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
                         return;
                     }
                     // Update the status text
-                    mProgressBar.setVisibility(View.INVISIBLE);
+                    mProgressBar.setVisibility(View.GONE);
                     // Show the ok button
                     int centerTextLabel;
                     int centerExplanationLabel = -1;
-                    LevelListDrawable centerTextDrawable =
-                            (LevelListDrawable) getDrawable(R.drawable.ic_result_status);
                     if (msg.arg1 == PackageInstaller.STATUS_SUCCESS) {
                         mLaunchButton.setVisibility(View.VISIBLE);
-                        centerTextDrawable.setLevel(0);
+                        ((ImageView)findViewById(R.id.center_icon))
+                                .setImageDrawable(getDrawable(R.drawable.ic_done_92));
                         centerTextLabel = R.string.install_done;
                         // Enable or disable launch button
                         mLaunchIntent = getPackageManager().getLaunchIntentForPackage(
@@ -130,24 +130,21 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
                         return;
                     } else {
                         // Generic error handling for all other error codes.
-                        centerTextDrawable.setLevel(1);
+                        ((ImageView)findViewById(R.id.center_icon))
+                                .setImageDrawable(getDrawable(R.drawable.ic_report_problem_92));
                         centerExplanationLabel = getExplanationFromErrorCode(msg.arg1);
                         centerTextLabel = R.string.install_failed;
-                        mLaunchButton.setVisibility(View.INVISIBLE);
+                        mLaunchButton.setVisibility(View.GONE);
                     }
-                    if (centerTextDrawable != null) {
-                    centerTextDrawable.setBounds(0, 0,
-                            centerTextDrawable.getIntrinsicWidth(),
-                            centerTextDrawable.getIntrinsicHeight());
-                        mStatusTextView.setCompoundDrawablesRelative(centerTextDrawable, null,
-                                null, null);
-                    }
-                    mStatusTextView.setText(centerTextLabel);
                     if (centerExplanationLabel != -1) {
                         mExplanationTextView.setText(centerExplanationLabel);
-                        mExplanationTextView.setVisibility(View.VISIBLE);
+                        findViewById(R.id.center_view).setVisibility(View.GONE);
+                        ((TextView)findViewById(R.id.explanation_status)).setText(centerTextLabel);
+                        findViewById(R.id.explanation_view).setVisibility(View.VISIBLE);
                     } else {
-                        mExplanationTextView.setVisibility(View.GONE);
+                        ((TextView)findViewById(R.id.center_text)).setText(centerTextLabel);
+                        findViewById(R.id.center_view).setVisibility(View.VISIBLE);
+                        findViewById(R.id.explanation_view).setVisibility(View.GONE);
                     }
                     mDoneButton.setOnClickListener(InstallAppProgress.this);
                     mOkPanel.setVisibility(View.VISIBLE);
@@ -329,8 +326,7 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
         mLabel = as.label;
         PackageUtil.initSnippetForNewApp(this, as, R.id.app_snippet);
         mStatusTextView = (TextView)findViewById(R.id.center_text);
-        mStatusTextView.setText(R.string.installing);
-        mExplanationTextView = (TextView) findViewById(R.id.center_explanation);
+        mExplanationTextView = (TextView) findViewById(R.id.explanation);
         mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
         mProgressBar.setIndeterminate(true);
         // Hide button till progress is being displayed
