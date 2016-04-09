@@ -42,15 +42,12 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"无法将<xliff:g id="APP_NAME">%1$s</xliff:g>安装到您的电视上。"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"无法在您的手机上安装“<xliff:g id="APP_NAME">%1$s</xliff:g>”。"</string>
     <string name="launch" msgid="4826921505917605463">"打开"</string>
-    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"禁止安装"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"出于安全考虑，您的平板电脑已设置为禁止安装来源不明的应用。"</string>
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"出于安全考虑，您的电视已设置为禁止安装来源不明的应用。"</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"出于安全考虑，您的手机已设置为禁止安装来源不明的应用。"</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"您的管理员不允许安装来源不明的应用。"</string>
     <string name="ok" msgid="3468756155452870475">"确定"</string>
     <string name="settings" msgid="6743583734099755409">"设置"</string>
-    <string name="allow_source_dlg_title" msgid="7568985073502399415">"新的应用来源"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g>要求安装其他应用。\n\n从现在起允许此操作吗？"</string>
     <string name="manage_applications" msgid="4033876279091996596">"管理应用"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"要替换该应用吗？"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"您要安装的应用将替换另一应用。\n\n系统将保存您以前的所有用户数据。"</string>
@@ -78,7 +75,6 @@
     <string name="manage_device_administrators" msgid="891392489300312370">"管理设备管理器"</string>
     <string name="manage_users" msgid="3125018886835668847">"管理用户"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"无法卸载“<xliff:g id="APP_NAME">%1$s</xliff:g>”。"</string>
-    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"解析错误"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"解析软件包时出现问题。"</string>
     <string name="newPerms" msgid="6039428254474104210">"新权限"</string>
     <string name="allPerms" msgid="1024385515840703981">"全部"</string>
@@ -119,7 +115,8 @@
     <string name="screen_overlay_message" msgid="2141944461571677331">"要更改此权限设置，您必须首先在“设置”&gt;“应用”中关闭屏幕叠加层"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"打开设置"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Wear 不支持安装/卸载操作。"</string>
+    <!-- no translation found for wear_not_allowed_dlg_text (1322352525843583064) -->
+    <skip />
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g>已更新。要向<xliff:g id="APP_NAME_1">%1$s</xliff:g>授予以下权限吗？"</string>
     <string name="permission_review_title_template_install" msgid="6535540493936469336">"请选择要向<xliff:g id="APP_NAME">%1$s</xliff:g>授予哪些权限"</string>
     <string name="permission_review_title_template_update" msgid="2548815248828051885">"<xliff:g id="APP_NAME">%1$s</xliff:g>已更新。请选择要向此应用授予哪些权限。"</string>

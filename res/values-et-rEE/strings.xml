@@ -42,15 +42,12 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Rakendust <xliff:g id="APP_NAME">%1$s</xliff:g> ei saa teie telerisse installida."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Rakendust <xliff:g id="APP_NAME">%1$s</xliff:g> ei saa teie telefoni installida."</string>
     <string name="launch" msgid="4826921505917605463">"Ava"</string>
-    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Install blokeeritud"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Turvalisuse eesmärgil blokeerib tahvelarvuti tundmatutest allikatest pärit rakenduste installimise."</string>
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Turvakaalutlustel on teleris blokeeritud tundmatutest allikatest pärinevate rakenduste installimine."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Turvalisuse eesmärgil blokeerib telefon tundmatutest allikatest pärit rakenduste installimise."</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Administraator ei luba installida tundmatutest allikatest pärinevaid rakendusi."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Seaded"</string>
-    <string name="allow_source_dlg_title" msgid="7568985073502399415">"Uus rakendusteallikas"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> soovib installida muid rakendusi.\n\nKas soovite selle praegu ja tulevikus lubada?"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Rakenduste haldamine"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Kas asendada rakendus?"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Installitav rakendus asendab teise rakenduse.\n\nKõik teie varasemad kasutajaandmed salvestatakse."</string>
@@ -78,7 +75,6 @@
     <string name="manage_device_administrators" msgid="891392489300312370">"Halda seadme ülemaid"</string>
     <string name="manage_users" msgid="3125018886835668847">"Halda kasutajaid"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Rakendust <xliff:g id="APP_NAME">%1$s</xliff:g> ei saanud desinstallida."</string>
-    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Sõelumise viga"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Probleem paketi sõelumisel."</string>
     <string name="newPerms" msgid="6039428254474104210">"Uus"</string>
     <string name="allPerms" msgid="1024385515840703981">"Kõik"</string>
@@ -119,7 +115,8 @@
     <string name="screen_overlay_message" msgid="2141944461571677331">"Selle loa seade muutmiseks peate esmalt välja lülitama ekraani ülekatte menüüs Seaded &gt; Rakendused"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Ava seaded"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Wear ei toeta installimist/desinstallimist."</string>
+    <!-- no translation found for wear_not_allowed_dlg_text (1322352525843583064) -->
+    <skip />
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"Rakendust <xliff:g id="APP_NAME_0">%1$s</xliff:g> värskendati. Kas anda rakendusele <xliff:g id="APP_NAME_1">%1$s</xliff:g> juurdepääs järgmisele?"</string>
     <string name="permission_review_title_template_install" msgid="6535540493936469336">"Valige, millele lubate rakendusel <xliff:g id="APP_NAME">%1$s</xliff:g> juurde pääseda"</string>
     <string name="permission_review_title_template_update" msgid="2548815248828051885">"Rakendust <xliff:g id="APP_NAME">%1$s</xliff:g> värskendati. Valige, millele lubate sellel rakendusel juurde pääseda."</string>

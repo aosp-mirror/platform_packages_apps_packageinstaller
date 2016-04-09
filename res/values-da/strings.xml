@@ -42,15 +42,12 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunne ikke installeres på dit tv."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunne ikke installeres på din telefon."</string>
     <string name="launch" msgid="4826921505917605463">"Åbn"</string>
-    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Installationen er blokeret"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Din tablet er som sikkerhed indstillet til at blokere installation af apps fra ukendte kilder."</string>
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Dit tv er af sikkerhedshensyn konfigureret til at forhindre installering af apps fra ukendte kilder."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Din telefon er som sikkerhed indstillet til at blokere installation af apps fra ukendte kilder."</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Din administrator tillader ikke installation af apps, der hentes fra ukendte kilder."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Indstillinger"</string>
-    <string name="allow_source_dlg_title" msgid="7568985073502399415">"Ny kilde til apps"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> ønsker at installere andre apps.\n\nVil du tillade dette nu og i fremtiden?"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Administrer apps"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Vil du udskifte appen?"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Den app, du installerer, vil afløse en anden app.\n\nAlle dine tidligere brugerdata vil blive gemt."</string>
@@ -78,7 +75,6 @@
     <string name="manage_device_administrators" msgid="891392489300312370">"Administrer enhedsadministratorer"</string>
     <string name="manage_users" msgid="3125018886835668847">"Administrer brugere"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunne ikke afinstalleres."</string>
-    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Parsingfejl"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Der opstod et problem med parsing af pakken."</string>
     <string name="newPerms" msgid="6039428254474104210">"Ny"</string>
     <string name="allPerms" msgid="1024385515840703981">"Alle"</string>
@@ -119,7 +115,8 @@
     <string name="screen_overlay_message" msgid="2141944461571677331">"Hvis du vil ændre denne indstilling for tilladelser, skal du først slå skærmoverlejringen fra i Indstillinger &gt; Apps"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Åbn indstillingerne"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Det er ikke muligt at installere/afinstallere på Wear."</string>
+    <!-- no translation found for wear_not_allowed_dlg_text (1322352525843583064) -->
+    <skip />
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> er blevet opdateret. Vil du give <xliff:g id="APP_NAME_1">%1$s</xliff:g> adgang til følgende?"</string>
     <string name="permission_review_title_template_install" msgid="6535540493936469336">"Vælg, hvad <xliff:g id="APP_NAME">%1$s</xliff:g> må få adgang til"</string>
     <string name="permission_review_title_template_update" msgid="2548815248828051885">"<xliff:g id="APP_NAME">%1$s</xliff:g> er blevet opdateret. Vælg, hvad denne app må få adgang til."</string>

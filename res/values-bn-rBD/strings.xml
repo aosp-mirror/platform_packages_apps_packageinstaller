@@ -42,15 +42,12 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g>-কে আপনার টিভিতে ইনস্টল করা যাবে না৷"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> আপনার ফোনে ইনস্টল করা যায়নি৷"</string>
     <string name="launch" msgid="4826921505917605463">"খুলুন"</string>
-    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"ইনস্টল করা অবরুদ্ধ করা হয়েছে"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"সুরক্ষা জনিত কারণে, অজানা উৎসগুলি থেকে প্রাপ্ত অ্যাপ্লিকেশানগুলির আপনার ট্যাবলেটে ইনস্টল হওয়াকে অবরুদ্ধ করে রাখা হয়েছে৷"</string>
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"সুরক্ষা জনিত কারণে, অজানা উৎসগুলি থেকে প্রাপ্ত অ্যাপ্লিকেশানগুলির আপনার টিভিতে ইনস্টল হওয়াকে অবরুদ্ধ করে রাখা হয়েছে৷"</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"সুরক্ষা জনিত কারণে, অজানা উৎসগুলি থেকে প্রাপ্ত অ্যাপ্লিকেশানগুলির আপনার ফোনে ইনস্টল হওয়াকে অবরুদ্ধ করে রাখা হয়েছে৷"</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"আপনার প্রশাসক অজানা উৎসগুলি থেকে প্রাপ্ত অ্যাপ্লিকেশানগুলি ইনস্টল করাকে মঞ্জুর করে না৷"</string>
     <string name="ok" msgid="3468756155452870475">"ঠিক আছে"</string>
     <string name="settings" msgid="6743583734099755409">"সেটিংস"</string>
-    <string name="allow_source_dlg_title" msgid="7568985073502399415">"অ্যাপ্লিকেশানগুলির নতুন উৎস"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> অন্যান্য অ্যাপ্লিকেশানগুলিকে ইনস্টল করতে চায়৷\n\nএটিকে কি এখন বা ভবিষ্যতে মঞ্জুরি দেবেন?"</string>
     <string name="manage_applications" msgid="4033876279091996596">"অ্যাপ্লিকেশানগুলির পরিচালনা করুন"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"অ্যাপ্লিকেশান প্রতিস্থাপন করতে চান?"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"আপনি যে অ্যাপ্লিকেশানটি ইনস্টল করছেন তা অন্য একটি অ্যাপ্লিকেশানকে প্রতিস্থাপিত করবে৷\n\nআপনার সমস্ত পূর্ববর্তী ব্যবহারকারী ডেটা সংরক্ষিত হবে৷"</string>
@@ -78,7 +75,6 @@
     <string name="manage_device_administrators" msgid="891392489300312370">"ডিভাইস প্রশাসকদের পরিচালনা করুন"</string>
     <string name="manage_users" msgid="3125018886835668847">"ব্যবহারকারীদের পরিচালনা করুন"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> আনইনস্টল করা যায়নি৷"</string>
-    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"বিশ্লেষণ ত্রুটি"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"প্যাকেজটি বিশ্লেষণ করার ক্ষেত্রে একটি সমস্যা হয়েছে৷"</string>
     <string name="newPerms" msgid="6039428254474104210">"নতুন"</string>
     <string name="allPerms" msgid="1024385515840703981">"সমস্ত"</string>
@@ -119,7 +115,8 @@
     <string name="screen_overlay_message" msgid="2141944461571677331">"এই অনুমতি সেটিংস পরিবর্তন করতে, আপনাকে প্রথমে সেটিংস &gt; এ গিয়ে অ্যাপ্লিকেশানগুলি থেকে স্ক্রীন ওভারলে বন্ধ করতে হবে"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"সেটিংস খুলুন"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Wearএ ইনস্টল/আনইনস্টল করার ক্রিয়াগুলি সমর্থিত নয়।"</string>
+    <!-- no translation found for wear_not_allowed_dlg_text (1322352525843583064) -->
+    <skip />
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> আপডেট করা হয়েছে৷ <xliff:g id="APP_NAME_1">%1$s</xliff:g>কে নিম্নলিখিত জিনিসগুলি অ্যাক্সেস করার অনুমতি দেবেন?"</string>
     <string name="permission_review_title_template_install" msgid="6535540493936469336">"<xliff:g id="APP_NAME">%1$s</xliff:g>কে কোন কোন জিনিসগুলিতে অ্যাক্সেস দেবেন তা চয়ন করুন"</string>
     <string name="permission_review_title_template_update" msgid="2548815248828051885">"<xliff:g id="APP_NAME">%1$s</xliff:g> আপডেট করা হয়েছে৷ এই অ্যাপ্লিকেশানটিকে কোন কোন জিনিসগুলিতে অ্যাক্সেস দেবেন তা চয়ন করুন৷"</string>

@@ -42,15 +42,12 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Ang <xliff:g id="APP_NAME">%1$s</xliff:g> ay hindi ma-install sa iyong TV."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Hindi ma-install ang <xliff:g id="APP_NAME">%1$s</xliff:g> sa iyong telepono."</string>
     <string name="launch" msgid="4826921505917605463">"Buksan"</string>
-    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Naka-block ang pag-install"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Pra sa seguridad, nka-set ang tablet mong i-block ang pag-install ng apps mula sa di-klalang source."</string>
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Para sa seguridad, nakatakda ang iyong TV sa i-block ang pag-i-install ng mga app na nakuha mula sa mga hindi alam na pinagmulan."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Pra sa seguridd, naka-set ang phone mong i-block ang pag-install ng apps mula sa di-kilalang source."</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Hindi pinapayagan ng iyong administrator ang pag-install ng mga app na nakuha mula sa mga hindi alam na pinagmulan."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Mga Setting"</string>
-    <string name="allow_source_dlg_title" msgid="7568985073502399415">"Bagong pinagmumulan para sa apps"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"Gustong mag-install ng <xliff:g id="APP_NAME">%1$s</xliff:g> ng iba pang apps.\n\nPayagan ito ngayon at sa hinaharap?"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Pamahalaan ang apps"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Palitan ang app?"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Papalitan ng app na iyong ini-install ang isa pang app.\n\nMase-save ang lahat ng iyong nakaraang data ng user."</string>
@@ -78,7 +75,6 @@
     <string name="manage_device_administrators" msgid="891392489300312370">"Pamahalaan ang mga administrator ng device"</string>
     <string name="manage_users" msgid="3125018886835668847">"Pamahalaan ang mga user"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Hindi ma-install ang <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
-    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Error sa pag-parse"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Nagkaroon ng problema sa pag-parse sa package."</string>
     <string name="newPerms" msgid="6039428254474104210">"Bago"</string>
     <string name="allPerms" msgid="1024385515840703981">"Lahat"</string>
@@ -119,7 +115,8 @@
     <string name="screen_overlay_message" msgid="2141944461571677331">"Upang baguhin ang setting ng pahintulot na ito, kailangan mo munang i-off ang overlay ng screen mula sa Mga Setting &gt; Mga App"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Buksan ang mga setting"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"I-install/I-uninstall ang mga pagkilos na hindi sinusuportahan sa Wear."</string>
+    <!-- no translation found for wear_not_allowed_dlg_text (1322352525843583064) -->
+    <skip />
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"Na-update na ang <xliff:g id="APP_NAME_0">%1$s</xliff:g>. Papayagan ang <xliff:g id="APP_NAME_1">%1$s</xliff:g> na i-access ang sumusunod?"</string>
     <string name="permission_review_title_template_install" msgid="6535540493936469336">"Piliin kung ano ang papayagang i-access ng <xliff:g id="APP_NAME">%1$s</xliff:g>"</string>
     <string name="permission_review_title_template_update" msgid="2548815248828051885">"Na-update na ang <xliff:g id="APP_NAME">%1$s</xliff:g>. Piliin kung ano ang papayagang i-access ng app na ito."</string>

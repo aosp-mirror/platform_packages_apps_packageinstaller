@@ -42,15 +42,12 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"तपाईँको TVमा<xliff:g id="APP_NAME">%1$s</xliff:g>स्थापना गर्न सकिएन।"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"तपाईँको फोनमा <xliff:g id="APP_NAME">%1$s</xliff:g> जडान हुन सकेन।"</string>
     <string name="launch" msgid="4826921505917605463">"खोल्नुहोस्"</string>
-    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"स्थापित गर्न बन्देज"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"सुरक्षाको लागि, तपाईँको ट्याब्लेटले अज्ञात स्रोतहरू बाट प्राप्त भएका अनुप्रयोगहरू स्थापित गर्न बन्देज सेट गर्यो।"</string>
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"सुरक्षाको लागि, तपाईँको TVमा अज्ञात स्रोतबाट प्राप्त हुने अनुप्रयोगहरूको स्थापनालाई अवरोध गर्ने गरी सेट गरिएको छ।"</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"सुरक्षाको लागि तपाईँको फोनले अज्ञात स्रोतहरूबाट प्राप्त भएका अनुप्रयोगहरू स्थापित गर्न बन्देज सेट गर्यो।"</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"तपाईँको व्यवस्थापकले अज्ञात स्रोतबाट प्राप्त भएका अनुप्रयोगहरू स्थापना गर्न अनुमति दिनुहुन्न।"</string>
     <string name="ok" msgid="3468756155452870475">"ठिक छ"</string>
     <string name="settings" msgid="6743583734099755409">"सेटिङहरू"</string>
-    <string name="allow_source_dlg_title" msgid="7568985073502399415">"अनुप्रयोगको लागि नयाँ स्रोत"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g>ले अर्को अनुप्रयोगहरू जडान गर्न चाहन्छ।\n\n यसलाई अहिले र भविष्यमा अनुमति दिने हो?"</string>
     <string name="manage_applications" msgid="4033876279091996596">"अनुप्रयोगहरूको व्यवस्थापन गर्नुहोस्"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"अनुप्रयोग विस्थापन गर्ने?"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"तपाईँले स्थापना गरिरहनु भएको अनुप्रयोगले अर्कोलाई प्रतिस्थापन गर्ने छ।\n\nतपाईँको पहिलेको सबै प्रयोगकर्ता डेटा बचत हुने छ।"</string>
@@ -78,7 +75,6 @@
     <string name="manage_device_administrators" msgid="891392489300312370">"उपकरण प्रशासकहरूको प्रबन्ध गर्नुहोस्"</string>
     <string name="manage_users" msgid="3125018886835668847">"प्रयोगकर्ताहरूलाई व्यवस्थापन गर्नुहोस्"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> स्थापना रद्द गर्न सकिँदैन।"</string>
-    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"पार्स त्रुटि"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"प्याकेजलाई पार्सिङ गर्दा एउटा समस्या आयो।"</string>
     <string name="newPerms" msgid="6039428254474104210">"नयाँ"</string>
     <string name="allPerms" msgid="1024385515840703981">"सबै"</string>
@@ -119,7 +115,8 @@
     <string name="screen_overlay_message" msgid="2141944461571677331">"यो अनुमति सेटिङ परिवर्तन गर्न, तपाईँले पहिला सेटिङ अनुप्रयोगबाट स्क्रिन ओभरले बन्द गर्नु पर्दछ।"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"सेटिङहरू खोल्नुहोस्"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Wear मा स्थापना/स्थापना रद्द गर्ने कार्यहरू समर्थित छैनन्।"</string>
+    <!-- no translation found for wear_not_allowed_dlg_text (1322352525843583064) -->
+    <skip />
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> अद्यावधिक गरिएको छ। <xliff:g id="APP_NAME_1">%1$s</xliff:g> लाई निम्न वस्तु पहुँच गर्न अनुमति दिने हो?"</string>
     <string name="permission_review_title_template_install" msgid="6535540493936469336">"<xliff:g id="APP_NAME">%1$s</xliff:g> लाई के पहुँच गर्न अनुमति दिने छनौट गर्नुहोस्"</string>
     <string name="permission_review_title_template_update" msgid="2548815248828051885">"<xliff:g id="APP_NAME">%1$s</xliff:g> अद्यावधिक गरिएको छ। यस अनुप्रयोगलाई के पहुँच गर्न अनुमति दिने छान्‍नुहोस्।"</string>

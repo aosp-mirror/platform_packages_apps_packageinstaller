@@ -42,15 +42,12 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Aplikáciu <xliff:g id="APP_NAME">%1$s</xliff:g> sa nepodarilo nainštalovať na vašom televízore."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Aplikáciu <xliff:g id="APP_NAME">%1$s</xliff:g> sa do vášho telefónu nepodarilo nainštalovať."</string>
     <string name="launch" msgid="4826921505917605463">"Otvoriť"</string>
-    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Inštalácia bola zablokovaná"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Tablet je z dôvodu zabezpečenia nastavený tak, aby blokoval inštalácie aplikácií z neznámych zdrojov."</string>
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Váš televízor blokuje z bezpečnostných dôvodov inštaláciu aplikácií získaných z neznámych zdrojov."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Telefón je z dôvodu zabezpečenia nastavený tak, aby blokoval inštalácie aplikácií z neznámych zdrojov."</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Váš správca zakázal inštaláciu aplikácií z neznámych zdrojov."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Nastavenia"</string>
-    <string name="allow_source_dlg_title" msgid="7568985073502399415">"Nový zdroj pre aplikácie"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"Aplikácia <xliff:g id="APP_NAME">%1$s</xliff:g> chce inštalovať iné aplikácie.\n\nPovoliť teraz aj v budúcnosti?"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Spravovať aplikácie"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Nahradiť aplikáciu?"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Aplikácia, ktorú inštalujete, nahradí inú aplikáciu.\n\nVšetky predchádzajúce používateľské údaje budú uložené."</string>
@@ -78,7 +75,6 @@
     <string name="manage_device_administrators" msgid="891392489300312370">"Spravovať správcov zariadenia"</string>
     <string name="manage_users" msgid="3125018886835668847">"Spravovať používateľov"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Aplikáciu <xliff:g id="APP_NAME">%1$s</xliff:g> sa nepodarilo odinštalovať."</string>
-    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Chyba analýzy"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Pri analýze balíka sa vyskytol problém."</string>
     <string name="newPerms" msgid="6039428254474104210">"Nové"</string>
     <string name="allPerms" msgid="1024385515840703981">"Všetko"</string>
@@ -121,7 +117,8 @@
     <string name="screen_overlay_message" msgid="2141944461571677331">"Ak chcete zmeniť nastavenie tohto povolenia, musíte najprv v časti Nastavenia &gt; Aplikácie vypnúť prekrytie obrazovky"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Otvoriť nastavenia"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Systém Wear nepodporuje akciu inštalácie/odinštalovania"</string>
+    <!-- no translation found for wear_not_allowed_dlg_text (1322352525843583064) -->
+    <skip />
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"Aplikácia <xliff:g id="APP_NAME_0">%1$s</xliff:g> bola aktualizovaná. Povoliť aplikácii <xliff:g id="APP_NAME_1">%1$s</xliff:g> prístup k nasledovnému?"</string>
     <string name="permission_review_title_template_install" msgid="6535540493936469336">"Vyberte, k čomu môže pristupovať aplikácia <xliff:g id="APP_NAME">%1$s</xliff:g>"</string>
     <string name="permission_review_title_template_update" msgid="2548815248828051885">"Aplikácia <xliff:g id="APP_NAME">%1$s</xliff:g> bola aktualizovaná. Vyberte, k čomu môže pristupovať."</string>

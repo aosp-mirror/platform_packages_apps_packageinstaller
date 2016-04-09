@@ -42,15 +42,12 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> haikuweza kusakinishwa kwenye runinga yako."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> haikuweza kusakinishwa kwenye simu yako."</string>
     <string name="launch" msgid="4826921505917605463">"Fungua"</string>
-    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Kusakinisha kumezuiwa"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Kwa ajili ya usalama, kompyuta yako kibao imepangwa kuzuia usakinishaji wa programu zilizopatikana kutoka kwa vyanzo visivyojulikana."</string>
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Kwa usalama, runinga yako imesanidiwa izuie usakinishaji wa programu zinazopatikana kutoka vyanzo visivyojulikana."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Kwa ajili ya usalama, simu yako inaweza kuzuia uwekaji wa programu zinazotoka kwenye vyanzo visivyojulikana."</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Msimamizi wako haruhusu usakinishaji wa programu zilizopatikana kutoka vyanzo visivyojulikana."</string>
     <string name="ok" msgid="3468756155452870475">"Sawa"</string>
     <string name="settings" msgid="6743583734099755409">"Mipangilio"</string>
-    <string name="allow_source_dlg_title" msgid="7568985073502399415">"Chanzo kipya cha programu"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> anataka kusakinisha programu nyingine. \n \n Ruhusu hii sasa na katika siku za usoni?"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Dhibiti programu"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Badilisha programu?"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Programu unayosakinisha itachukua nafasi ya programu nyingine.\n\nData yako ya mtumiaji wa awali itahifadhiwa."</string>
@@ -78,7 +75,6 @@
     <string name="manage_device_administrators" msgid="891392489300312370">"Simamia vidhibiti vya kifaa"</string>
     <string name="manage_users" msgid="3125018886835668847">"Dhibiti watumiaji"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> haingeweza kusaniduliwa."</string>
-    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Changanua hitilafu"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Kulikuwa na tatizo la kuchanganua furushi."</string>
     <string name="newPerms" msgid="6039428254474104210">"Mpya"</string>
     <string name="allPerms" msgid="1024385515840703981">"Zote"</string>
@@ -119,7 +115,8 @@
     <string name="screen_overlay_message" msgid="2141944461571677331">"Ili kubadilisha mpangilio huu wa ruhusa, ni lazima kwanza uzime tangazo lililowekelewa juu ya skrini kwenye Mipangilio na Programu"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Fungua mipangilio"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Vitendo vya Kusakinisha/Kuondoa haviwezi kutumika kwenye Android Wear."</string>
+    <!-- no translation found for wear_not_allowed_dlg_text (1322352525843583064) -->
+    <skip />
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> imesasishwa. Ungependa kuruhusu <xliff:g id="APP_NAME_1">%1$s</xliff:g> ifikie vipengee vifuatavyo?"</string>
     <string name="permission_review_title_template_install" msgid="6535540493936469336">"Chagua vipengee ambavyo unaruhusu <xliff:g id="APP_NAME">%1$s</xliff:g> ifikie"</string>
     <string name="permission_review_title_template_update" msgid="2548815248828051885">"<xliff:g id="APP_NAME">%1$s</xliff:g> imesasishwa. Chagua vipengee unavyoruhusu programu hii ifikie."</string>
