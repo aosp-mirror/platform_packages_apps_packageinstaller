@@ -46,6 +46,7 @@ import com.android.packageinstaller.permission.model.PermissionApps.PermissionAp
 import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.packageinstaller.util.Utils;
+import com.android.settingslib.HelpUtils;
 import com.android.settingslib.RestrictedLockUtils;
 
 import java.util.ArrayList;
@@ -113,6 +114,8 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
                 R.string.menu_show_system);
         mHideSystemMenu = menu.add(Menu.NONE, MENU_HIDE_SYSTEM, Menu.NONE,
                 R.string.menu_hide_system);
+        HelpUtils.prepareHelpMenuItem(getActivity(), menu, R.string.help_app_permissions,
+                getClass().getName());
         updateMenu();
     }
 
