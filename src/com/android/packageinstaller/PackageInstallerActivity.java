@@ -117,7 +117,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     private static final int DLG_PACKAGE_ERROR = DLG_BASE + 2;
     private static final int DLG_OUT_OF_SPACE = DLG_BASE + 3;
     private static final int DLG_INSTALL_ERROR = DLG_BASE + 4;
-    private static final int DLG_ALLOW_SOURCE = DLG_BASE + 5;
     private static final int DLG_ADMIN_RESTRICTS_UNKNOWN_SOURCES = DLG_BASE + 6;
     private static final int DLG_NOT_SUPPORTED_ON_WEAR = DLG_BASE + 7;
 
@@ -228,7 +227,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         switch (id) {
         case DLG_UNKNOWN_SOURCES:
             return new AlertDialog.Builder(this)
-                    .setTitle(R.string.unknown_apps_dlg_title)
                     .setMessage(R.string.unknown_apps_dlg_text)
                     .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
@@ -245,7 +243,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                     .create();
         case DLG_ADMIN_RESTRICTS_UNKNOWN_SOURCES:
             return new AlertDialog.Builder(this)
-                    .setTitle(R.string.unknown_apps_dlg_title)
                     .setMessage(R.string.unknown_apps_admin_dlg_text)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
@@ -256,7 +253,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                     .create();
         case DLG_PACKAGE_ERROR :
             return new AlertDialog.Builder(this)
-                    .setTitle(R.string.Parse_error_dlg_title)
                     .setMessage(R.string.Parse_error_dlg_text)
                     .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
@@ -271,7 +267,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             String dlgText = getString(R.string.out_of_space_dlg_text,
                     appTitle.toString());
             return new AlertDialog.Builder(this)
-                    .setTitle(R.string.out_of_space_dlg_title)
                     .setMessage(dlgText)
                     .setPositiveButton(R.string.manage_applications, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
@@ -296,7 +291,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             String dlgText1 = getString(R.string.install_failed_msg,
                     appTitle1.toString());
             return new AlertDialog.Builder(this)
-                    .setTitle(R.string.install_failed)
                     .setNeutralButton(R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             finish();
@@ -305,31 +299,8 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                     .setMessage(dlgText1)
                     .setOnCancelListener(this)
                     .create();
-        case DLG_ALLOW_SOURCE:
-            CharSequence appTitle2 = mPm.getApplicationLabel(mSourceInfo);
-            String dlgText2 = getString(R.string.allow_source_dlg_text,
-                    appTitle2.toString());
-            return new AlertDialog.Builder(this)
-                    .setTitle(R.string.allow_source_dlg_title)
-                    .setMessage(dlgText2)
-                    .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            setResult(RESULT_CANCELED);
-                            finish();
-                        }})
-                    .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            SharedPreferences prefs = getSharedPreferences(PREFS_ALLOWED_SOURCES,
-                                    Context.MODE_PRIVATE);
-                            prefs.edit().putBoolean(mSourceInfo.packageName, true).apply();
-                            startInstallConfirm();
-                        }
-                    })
-                    .setOnCancelListener(this)
-                    .create();
         case DLG_NOT_SUPPORTED_ON_WEAR:
             return new AlertDialog.Builder(this)
-                    .setTitle(R.string.wear_not_allowed_dlg_title)
                     .setMessage(R.string.wear_not_allowed_dlg_text)
                     .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
