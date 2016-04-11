@@ -14,120 +14,95 @@
      limitations under the License.
 -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <!-- Button bar with OK button -->
-    <LinearLayout android:id="@+id/ok_panel"
+    <include layout="@layout/app_details"
+            android:id="@+id/app_snippet"/>
+
+    <LinearLayout android:id="@+id/progress_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:layout_weight="1"
+            android:gravity="center"
             android:orientation="vertical"
-            android:divider="?android:attr/dividerHorizontal"
-            android:showDividers="beginning"
-            android:paddingTop="16dip">
+            android:padding="16dp">
 
-        <LinearLayout
-                style="?android:attr/buttonBarStyle"
-                android:layout_width="match_parent"
+        <ImageView android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:measureWithLargestChild="true">
+                android:layout_marginBottom="12dp"
+                android:src="@drawable/ic_android_92"
+                android:contentDescription="@null" />
 
-            <LinearLayout android:id="@+id/leftSpacer"
-                    android:layout_weight="0.5"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:visibility="gone" />
+        <ProgressBar android:id="@+id/progress_bar"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                style="?android:attr/progressBarStyleHorizontal">
+        </ProgressBar>
 
-            <Button android:id="@+id/ok_button"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="1"
-                    android:text="@string/ok"
-                    android:maxLines="2"
-                    style="?android:attr/buttonBarButtonStyle" />
+        <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/uninstalling"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <LinearLayout android:id="@+id/rightSpacer"
-                    android:layout_width="0dip"
-                    android:layout_weight="0.5"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:visibility="gone" />
-
-        </LinearLayout>
     </LinearLayout>
 
-    <include
-            layout="@layout/app_details"
-            android:id="@+id/app_snippet"
+    <!-- Status view is shown after progress view is removed -->
+    <ScrollView android:id="@+id/status_view"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_alignParentTop="true" />
+            android:layout_weight="1"
+            android:visibility="gone"
+            android:padding="16dp">
 
-    <FrameLayout
-                android:id="@+id/top_divider"
+        <TextView android:id="@+id/status_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="4dip"
-                android:paddingStart="16dip"
-                android:paddingEnd="16dip"
-                android:layout_below="@id/app_snippet">
-        <ProgressBar
-                android:id="@+id/progress_bar"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-    </FrameLayout>
+                android:gravity="start"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+    </ScrollView>
 
-    <LinearLayout
-            android:id="@+id/uninstall_holder"
+    <LinearLayout android:id="@+id/ok_panel"
+            style="?android:attr/buttonBarStyle"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@id/ok_panel"
-            android:layout_below="@id/top_divider"
-            android:orientation="vertical">
-                
-        <ScrollView
-                android:id="@+id/uninstalling_scrollview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:paddingStart="24dip"
-                android:paddingEnd="24dip"
-                android:paddingTop="8dip"
-                android:paddingBottom="8dip"
-                android:fillViewport="false">
-                
-            <TextView
-                    android:id="@+id/center_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="start"
-                    android:text="@string/uninstalling"
-                    android:textAppearance="?android:attr/textAppearanceMedium"/>
-        </ScrollView>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:measureWithLargestChild="true"
+            android:visibility="gone"
+            android:padding="8dip">
+
+        <!-- spacer to push buttons to the right -->
+        <View android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
 
         <Button android:id="@+id/device_manager_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
                 android:visibility="gone"
+                android:text="@string/manage_device_administrators"
                 android:maxLines="2"
-                android:text="@string/manage_device_administrators" />
+                style="?android:attr/buttonBarButtonStyle" />
 
         <Button android:id="@+id/users_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
                 android:visibility="gone"
+                android:text="@string/manage_users"
                 android:maxLines="2"
-                android:text="@string/manage_users" />
+                style="?android:attr/buttonBarButtonStyle" />
+
+        <Button android:id="@+id/ok_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ok"
+                android:maxLines="2"
+                style="?android:attr/buttonBarButtonStyle" />
 
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

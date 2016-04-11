@@ -62,12 +62,9 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
     private UserHandle mUser;
     private IBinder mCallback;
 
-    private TextView mStatusTextView;
     private Button mOkButton;
     private Button mDeviceManagerButton;
     private Button mUsersButton;
-    private ProgressBar mProgressBar;
-    private View mOkPanel;
     private volatile int mResultCode = -1;
 
     private static final int UNINSTALL_COMPLETE = 1;
@@ -202,11 +199,10 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
                             statusText = getString(R.string.uninstall_failed);
                             break;
                     }
-                    mStatusTextView.setText(statusText);
-
-                    // Hide the progress bar; Show the ok button
-                    mProgressBar.setVisibility(View.INVISIBLE);
-                    mOkPanel.setVisibility(View.VISIBLE);
+                    findViewById(R.id.progress_view).setVisibility(View.GONE);
+                    findViewById(R.id.status_view).setVisibility(View.VISIBLE);
+                    ((TextView)findViewById(R.id.status_text)).setText(statusText);
+                    findViewById(R.id.ok_panel).setVisibility(View.VISIBLE);
                     break;
                 default:
                     break;
@@ -260,8 +256,6 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
         // Initialize views
         View snippetView = findViewById(R.id.app_snippet);
         PackageUtil.initSnippetForInstalledApp(this, mAppInfo, snippetView);
-        mStatusTextView = (TextView) findViewById(R.id.center_text);
-        mStatusTextView.setText(R.string.uninstalling);
         mDeviceManagerButton = (Button) findViewById(R.id.device_manager_button);
         mUsersButton = (Button) findViewById(R.id.users_button);
         mDeviceManagerButton.setVisibility(View.GONE);
@@ -286,13 +280,9 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
                 finish();
             }
         });
-        mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
-        mProgressBar.setIndeterminate(true);
         // Hide button till progress is being displayed
-        mOkPanel = (View) findViewById(R.id.ok_panel);
         mOkButton = (Button) findViewById(R.id.ok_button);
         mOkButton.setOnClickListener(this);
-        mOkPanel.setVisibility(View.INVISIBLE);
         IPackageManager packageManager =
                 IPackageManager.Stub.asInterface(ServiceManager.getService("package"));
         PackageDeleteObserver observer = new PackageDeleteObserver();
