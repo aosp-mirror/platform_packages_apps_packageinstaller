@@ -707,6 +707,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                         .setText(R.string.message_staging);
                 mInstallConfirm.setVisibility(View.VISIBLE);
                 findViewById(android.R.id.tabhost).setVisibility(View.INVISIBLE);
+                findViewById(R.id.spacer).setVisibility(View.VISIBLE);
                 findViewById(R.id.ok_button).setEnabled(false);
                 Drawable icon = getDrawable(R.drawable.ic_file_download);
                 Utils.applyTint(PackageInstallerActivity.this,
