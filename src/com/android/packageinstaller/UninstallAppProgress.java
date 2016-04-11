@@ -27,6 +27,8 @@ import android.content.pm.IPackageManager;
 import android.content.pm.PackageInstaller;
 import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -37,6 +39,7 @@ import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -67,7 +70,17 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
     private Button mUsersButton;
     private volatile int mResultCode = -1;
 
+    /**
+     * If initView was called. We delay this call to not have to call it at all if the uninstall is
+     * quick
+     */
+    private boolean mIsViewInitialized;
+
+    /** Amount of time to wait until we show the UI */
+    private static final int QUICK_INSTALL_DELAY_MILLIS = 500;
+
     private static final int UNINSTALL_COMPLETE = 1;
+    private static final int UNINSTALL_IS_SLOW = 2;
 
     private boolean isProfileOfOrSame(UserManager userManager, int userId, int profileId) {
         if (userId == profileId) {
@@ -80,7 +93,16 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
             switch (msg.what) {
+                case UNINSTALL_IS_SLOW:
+                    initView();
+                    break;
                 case UNINSTALL_COMPLETE:
+                    mHandler.removeMessages(UNINSTALL_IS_SLOW);
+
+                    if (msg.arg1 != PackageManager.DELETE_SUCCEEDED) {
+                        initView();
+                    }
+
                     mResultCode = msg.arg1;
                     final String packageName = (String) msg.obj;
 
@@ -231,7 +253,19 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
             }
         }
         mCallback = intent.getIBinderExtra(PackageInstaller.EXTRA_CALLBACK);
-        initView();
+
+        PackageDeleteObserver observer = new PackageDeleteObserver();
+
+        // Make window transparent until initView is called. In many cases we can avoid showing the
+        // UI at all as the app is uninstalled very quickly. If we show the UI and instantly remove
+        // it, it just looks like a flicker.
+        getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        getPackageManager().deletePackageAsUser(mAppInfo.packageName, observer,
+                mUser.getIdentifier(), mAllUsers ? PackageManager.DELETE_ALL_USERS : 0);
+
+        mHandler.sendMessageDelayed(mHandler.obtainMessage(UNINSTALL_IS_SLOW),
+                QUICK_INSTALL_DELAY_MILLIS);
     }
     
     class PackageDeleteObserver extends IPackageDeleteObserver.Stub {
@@ -249,6 +283,22 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
     }
     
     public void initView() {
+        if (mIsViewInitialized) {
+            return;
+        }
+        mIsViewInitialized = true;
+
+        // We set the window background to translucent in constructor, revert this
+        TypedValue attribute = new TypedValue();
+        getTheme().resolveAttribute(android.R.attr.windowBackground, attribute, true);
+        if (attribute.type >= TypedValue.TYPE_FIRST_COLOR_INT &&
+                attribute.type <= TypedValue.TYPE_LAST_COLOR_INT) {
+            getWindow().setBackgroundDrawable(new ColorDrawable(attribute.data));
+        } else {
+            getWindow().setBackgroundDrawable(getResources().getDrawable(attribute.resourceId,
+                    getTheme()));
+        }
+
         boolean isUpdate = ((mAppInfo.flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) != 0);
         setTitle(isUpdate ? R.string.uninstall_update_title : R.string.uninstall_application_title);
 
@@ -283,17 +333,6 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
         // Hide button till progress is being displayed
         mOkButton = (Button) findViewById(R.id.ok_button);
         mOkButton.setOnClickListener(this);
-        IPackageManager packageManager =
-                IPackageManager.Stub.asInterface(ServiceManager.getService("package"));
-        PackageDeleteObserver observer = new PackageDeleteObserver();
-        try {
-            packageManager.deletePackageAsUser(mAppInfo.packageName, observer,
-                    mUser.getIdentifier(),
-                    mAllUsers ? PackageManager.DELETE_ALL_USERS : 0);
-        } catch (RemoteException e) {
-            // Shouldn't happen.
-            Log.e(TAG, "Failed to talk to package manager", e);
-        }
     }
 
     public void onClick(View v) {
