@@ -139,7 +139,7 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
             infoIntent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
                     .setData(Uri.fromParts("package", mPackageInfo.packageName, null));
         }
-        setHeader(icon, label, infoIntent);
+        setHeader(icon, label, infoIntent, null);
 
         if (mPackageInfo.requestedPermissions != null) {
             for (int i = 0; i < mPackageInfo.requestedPermissions.length; i++) {

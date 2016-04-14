@@ -42,7 +42,7 @@ import com.android.packageinstaller.util.Utils;
 
 import java.util.List;
 
-public final class ManagePermissionsFragment extends PermissionsFrameFragment
+public final class ManagePermissionsFragment extends SettingsWithHeader
         implements PermissionGroups.PermissionsGroupsChangeCallback, OnPreferenceClickListener {
     private static final String LOG_TAG = "ManagePermissionsFragment";
 
@@ -117,30 +117,15 @@ public final class ManagePermissionsFragment extends PermissionsFrameFragment
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        bindPermissionUi(getActivity(), getView());
+        bindPermissionUi(this, getView());
     }
 
-    private static void bindPermissionUi(@Nullable Context context, @Nullable View rootView) {
-        if (context == null || rootView == null) {
+    private static void bindPermissionUi(SettingsWithHeader fragment, @Nullable View rootView) {
+        if (fragment == null || rootView == null) {
             return;
         }
-
-        ImageView iconView = (ImageView) rootView.findViewById(R.id.lb_icon);
-        if (iconView != null) {
-            // Set the icon as the background instead of the image because ImageView
-            // doesn't properly scale vector drawables beyond their intrinsic size
-            Drawable icon = context.getDrawable(R.drawable.ic_lock);
-            icon.setTint(context.getColor(R.color.off_white));
-            iconView.setBackground(icon);
-        }
-        TextView titleView = (TextView) rootView.findViewById(R.id.lb_title);
-        if (titleView != null) {
-            titleView.setText(R.string.app_permissions);
-        }
-        TextView breadcrumbView = (TextView) rootView.findViewById(R.id.lb_breadcrumb);
-        if (breadcrumbView != null) {
-            breadcrumbView.setText(R.string.app_permissions_breadcrumb);
-        }
+        fragment.setHeader(null, null, null, fragment.getString(
+                R.string.manage_permissions_decor_title));
     }
 
     private void updatePermissionsUi() {
@@ -227,7 +212,7 @@ public final class ManagePermissionsFragment extends PermissionsFrameFragment
         }
     }
 
-    public static class AdditionalPermissionsFragment extends PermissionsFrameFragment {
+    public static class AdditionalPermissionsFragment extends SettingsWithHeader {
         @Override
         public void onCreate(Bundle icicle) {
             setLoading(true /* loading */, false /* animate */);
@@ -255,7 +240,15 @@ public final class ManagePermissionsFragment extends PermissionsFrameFragment
         @Override
         public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
-            bindPermissionUi(getActivity(), getView());
+            bindPermissionUi(this, getView());
+        }
+
+        private static void bindPermissionUi(SettingsWithHeader fragment, @Nullable View rootView) {
+            if (fragment == null || rootView == null) {
+                return;
+            }
+            fragment.setHeader(null, null, null,
+                    fragment.getString(R.string.additional_permissions_decor_title));
         }
 
         @Override

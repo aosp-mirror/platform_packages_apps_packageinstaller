@@ -28,25 +28,27 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v14.preference.SwitchPreference;
+import android.support.v17.leanback.widget.VerticalGridView;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.Preference.OnPreferenceClickListener;
 import android.support.v7.preference.PreferenceScreen;
+import android.support.v7.preference.PreferenceViewHolder;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
@@ -102,6 +104,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             activity.finish();
             return;
         }
+
 
         mAppPermissions = new AppPermissions(activity, packageInfo, null, true, new Runnable() {
             @Override
@@ -176,25 +179,18 @@ public final class AppPermissionsFragment extends SettingsWithHeader
 
         Drawable icon = appInfo.loadIcon(pm);
         CharSequence label = appInfo.loadLabel(pm);
-        fragment.setHeader(icon, label, infoIntent);
+        fragment.setHeader(icon, label, infoIntent, fragment.getString(
+                R.string.app_permissions_decor_title));
+    }
 
-        ActionBar ab = activity.getActionBar();
-        if (ab != null) {
-            ab.setTitle(R.string.app_permissions);
-        }
+    @Override
+    protected void updateHeader() {
 
-        ViewGroup rootView = (ViewGroup) fragment.getView();
-        ImageView iconView = (ImageView) rootView.findViewById(R.id.lb_icon);
-        if (iconView != null) {
-            iconView.setImageDrawable(icon);
-        }
-        TextView titleView = (TextView) rootView.findViewById(R.id.lb_title);
-        if (titleView != null) {
-            titleView.setText(R.string.app_permissions);
-        }
-        TextView breadcrumbView = (TextView) rootView.findViewById(R.id.lb_breadcrumb);
-        if (breadcrumbView != null) {
-            breadcrumbView.setText(label);
+        super.updateHeader();
+        Preference headerLineTwo = getPreferenceScreen().findPreference(HEADER_PREFERENCE_KEY);
+        if (headerLineTwo != null) {
+            headerLineTwo.setTitle(mLabel);
+            headerLineTwo.setIcon(mIcon);
         }
     }
 
@@ -206,6 +202,22 @@ public final class AppPermissionsFragment extends SettingsWithHeader
 
         PreferenceScreen screen = getPreferenceScreen();
         screen.removeAll();
+
+        // Setting the second-line header that contains the app banner icon and its name.
+        // The styling used is the same as a leanback preference with a customized background color.
+        Preference headerLineTwo = new Preference(context) {
+            @Override
+            public void onBindViewHolder(PreferenceViewHolder holder) {
+                super.onBindViewHolder(holder);
+                holder.itemView.setBackgroundColor(
+                        getResources().getColor(R.color.lb_header_banner_color));
+            }
+        };
+        headerLineTwo.setKey(HEADER_PREFERENCE_KEY);
+        headerLineTwo.setSelectable(false);
+        headerLineTwo.setTitle(mLabel);
+        headerLineTwo.setIcon(mIcon);
+        screen.addPreference(headerLineTwo);
 
         if (mExtraScreen != null) {
             mExtraScreen.removeAll();
@@ -379,7 +391,8 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         public void onCreate(Bundle savedInstanceState) {
             mOuterFragment = (AppPermissionsFragment) getTargetFragment();
             super.onCreate(savedInstanceState);
-            setHeader(mOuterFragment.mIcon, mOuterFragment.mLabel, mOuterFragment.mInfoIntent);
+            setHeader(mOuterFragment.mIcon, mOuterFragment.mLabel, mOuterFragment.mInfoIntent,
+                    null);
             setHasOptionsMenu(true);
         }
 

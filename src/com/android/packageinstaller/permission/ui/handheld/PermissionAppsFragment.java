@@ -155,22 +155,6 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
         if (ab != null) {
             ab.setTitle(fragment.getString(R.string.permission_title, label));
         }
-
-        final ViewGroup rootView = (ViewGroup) fragment.getView();
-        final ImageView iconView = (ImageView) rootView.findViewById(R.id.lb_icon);
-        if (iconView != null) {
-            // Set the icon as the background instead of the image because ImageView
-            // doesn't properly scale vector drawables beyond their intrinsic size
-            iconView.setBackground(icon);
-        }
-        final TextView titleView = (TextView) rootView.findViewById(R.id.lb_title);
-        if (titleView != null) {
-            titleView.setText(label);
-        }
-        final TextView breadcrumbView = (TextView) rootView.findViewById(R.id.lb_breadcrumb);
-        if (breadcrumbView != null) {
-            breadcrumbView.setText(R.string.app_permissions);
-        }
     }
 
     private void setOnPermissionsLoadedListener(Callback callback) {

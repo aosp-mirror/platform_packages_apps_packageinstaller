@@ -28,4 +28,11 @@
 
     <!-- Preference row title for showing system apps. -->
     <string name="preference_show_system_apps">Show system apps</string>
+
+    <!--decor title displayed as the page title for different TV permission screens-->
+    <string name="app_permissions_decor_title">App permissions</string>
+    <string name="manage_permissions_decor_title">App permissions</string>
+    <string name="permission_apps_decor_title"><xliff:g id="permission" example="Camera">%1$s</xliff:g> permissions</string>
+    <string name="additional_permissions_decor_title">Additional permissions</string>
+    <string name="system_apps_decor_title"><xliff:g id="permission" example="Camera">%1$s</xliff:g> permissions</string>
 </resources>
