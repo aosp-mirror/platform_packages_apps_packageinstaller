@@ -22,7 +22,6 @@ import android.support.v14.preference.PreferenceFragment;
 import android.support.v17.leanback.widget.VerticalGridView;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.AdapterDataObserver;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,18 +29,19 @@ import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
-
 import com.android.packageinstaller.DeviceUtils;
 import com.android.packageinstaller.R;
 
 public abstract class PermissionsFrameFragment extends PreferenceFragment {
 
-    private static final float WINDOW_ALIGNMENT_OFFSET_PERCENT = 50;
+    // Key identifying the preference used on TV as the extra header in a permission fragment.
+    // This is to distinguish it from the rest of the preferences
+    protected static final String HEADER_PREFERENCE_KEY = "HeaderPreferenceKey";
 
     private ViewGroup mPreferencesContainer;
 
-    // TV-specific instance variables
-    @Nullable private VerticalGridView mGridView;
+    // TV-specific instance variable
+    @Nullable private RecyclerView mGridView;
 
     private View mLoadingView;
     private ViewGroup mPrefsView;
@@ -132,18 +132,13 @@ public abstract class PermissionsFrameFragment extends PreferenceFragment {
 
     @Override
     public RecyclerView onCreateRecyclerView(LayoutInflater inflater, ViewGroup parent,
-            Bundle savedInstanceState) {
-        if (DeviceUtils.isTelevision(getContext())) {
-            mGridView = (VerticalGridView) inflater.inflate(
-                    R.layout.leanback_preferences_list, parent, false);
-            mGridView.setWindowAlignmentOffset(0);
-            mGridView.setWindowAlignmentOffsetPercent(WINDOW_ALIGNMENT_OFFSET_PERCENT);
-            mGridView.setWindowAlignment(VerticalGridView.WINDOW_ALIGN_NO_EDGE);
-            mGridView.setFocusScrollStrategy(VerticalGridView.FOCUS_SCROLL_ALIGNED);
-            return mGridView;
-        } else {
-            return super.onCreateRecyclerView(inflater, parent, savedInstanceState);
-        }
+                                             Bundle savedInstanceState) {
+        VerticalGridView verticalGridView = (VerticalGridView) inflater.inflate(
+                R.layout.leanback_preferences_list, parent, false);
+        verticalGridView.setWindowAlignment(VerticalGridView.WINDOW_ALIGN_BOTH_EDGE);
+        verticalGridView.setFocusScrollStrategy(VerticalGridView.FOCUS_SCROLL_ALIGNED);
+        mGridView = verticalGridView;
+        return mGridView;
     }
 
     @Override
@@ -154,7 +149,7 @@ public abstract class PermissionsFrameFragment extends PreferenceFragment {
             final TextView emptyView = (TextView) getView().findViewById(R.id.no_permissions);
             onSetEmptyText(emptyView);
             final RecyclerView recyclerView = getListView();
-            adapter.registerAdapterDataObserver(new AdapterDataObserver() {
+            adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
                 @Override
                 public void onChanged() {
                     checkEmpty();
@@ -171,24 +166,33 @@ public abstract class PermissionsFrameFragment extends PreferenceFragment {
                 }
 
                 private void checkEmpty() {
-                    boolean isEmpty = adapter.getItemCount() == 0;
+                    boolean isEmpty = isPreferenceListEmpty();
                     emptyView.setVisibility(isEmpty ? View.VISIBLE : View.GONE);
-                    recyclerView.setVisibility(isEmpty ? View.GONE : View.VISIBLE);
+                    recyclerView.setVisibility(isEmpty && adapter.getItemCount() == 0 ?
+                            View.GONE : View.VISIBLE);
                     if (!isEmpty && mGridView != null) {
                         mGridView.requestFocus();
                     }
                 }
             });
 
-            boolean isEmpty = adapter.getItemCount() == 0;
+            boolean isEmpty = isPreferenceListEmpty();
             emptyView.setVisibility(isEmpty ? View.VISIBLE : View.GONE);
-            recyclerView.setVisibility(isEmpty ? View.GONE : View.VISIBLE);
+            recyclerView.setVisibility(isEmpty && adapter.getItemCount() == 0 ?
+                    View.GONE : View.VISIBLE);
             if (!isEmpty && mGridView != null) {
                 mGridView.requestFocus();
             }
         }
 
         return adapter;
+    }
+
+    private boolean isPreferenceListEmpty() {
+        PreferenceScreen screen = getPreferenceScreen();
+        return screen.getPreferenceCount() == 0 || (
+                screen.getPreferenceCount() == 1 &&
+                        (screen.findPreference(HEADER_PREFERENCE_KEY) != null));
     }
 
     /**
@@ -200,4 +204,3 @@ public abstract class PermissionsFrameFragment extends PreferenceFragment {
     protected void onSetEmptyText(TextView textView) {
     }
 }
-

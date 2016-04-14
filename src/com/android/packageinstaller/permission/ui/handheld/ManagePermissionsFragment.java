@@ -124,23 +124,6 @@ public final class ManagePermissionsFragment extends PermissionsFrameFragment
         if (context == null || rootView == null) {
             return;
         }
-
-        ImageView iconView = (ImageView) rootView.findViewById(R.id.lb_icon);
-        if (iconView != null) {
-            // Set the icon as the background instead of the image because ImageView
-            // doesn't properly scale vector drawables beyond their intrinsic size
-            Drawable icon = context.getDrawable(R.drawable.ic_lock);
-            icon.setTint(context.getColor(R.color.off_white));
-            iconView.setBackground(icon);
-        }
-        TextView titleView = (TextView) rootView.findViewById(R.id.lb_title);
-        if (titleView != null) {
-            titleView.setText(R.string.app_permissions);
-        }
-        TextView breadcrumbView = (TextView) rootView.findViewById(R.id.lb_breadcrumb);
-        if (breadcrumbView != null) {
-            breadcrumbView.setText(R.string.app_permissions_breadcrumb);
-        }
     }
 
     private void updatePermissionsUi() {
