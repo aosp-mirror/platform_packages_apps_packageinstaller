@@ -25,7 +25,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.android.packageinstaller.DeviceUtils;
 import com.android.packageinstaller.R;
 
@@ -36,50 +35,40 @@ public abstract class SettingsWithHeader extends PermissionsFrameFragment
     protected Intent mInfoIntent;
     protected Drawable mIcon;
     protected CharSequence mLabel;
+    protected CharSequence mDecorTitle;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) super.onCreateView(inflater, container, savedInstanceState);
 
-        if (!DeviceUtils.isTelevision(getContext())) {
-            mHeader = inflater.inflate(R.layout.header, root, false);
-            getPreferencesContainer().addView(mHeader, 0);
-            updateHeader();
-        }
+        mHeader = inflater.inflate(R.layout.header, root, false);
+        getPreferencesContainer().addView(mHeader, 0);
+        updateHeader();
 
         return root;
     }
 
-    public void setHeader(Drawable icon, CharSequence label, Intent infoIntent) {
+    public void setHeader(Drawable icon, CharSequence label, Intent infoIntent,
+                          CharSequence decorTitle) {
         mIcon = icon;
         mLabel = label;
         mInfoIntent = infoIntent;
+        mDecorTitle = decorTitle;
         updateHeader();
     }
 
-    private void updateHeader() {
-        if (mHeader != null) {
-            final ImageView appIcon = (ImageView) mHeader.findViewById(R.id.icon);
-            appIcon.setImageDrawable(mIcon);
+    public View getHeader() {
+        return mHeader;
+    }
 
-            final TextView appName = (TextView) mHeader.findViewById(R.id.name);
-            appName.setText(mLabel);
-
-            final View info = mHeader.findViewById(R.id.info);
-            if (mInfoIntent == null) {
-                info.setVisibility(View.GONE);
-            } else {
-                info.setVisibility(View.VISIBLE);
-                info.setClickable(true);
-                info.setOnClickListener(this);
-            }
-        }
+    protected void updateHeader() {
+            final TextView decorTitle = (TextView) mHeader.findViewById(R.id.decor_title);
+            decorTitle.setText(mDecorTitle);
     }
 
     @Override
     public void onClick(View v) {
         getActivity().startActivity(mInfoIntent);
     }
-
 }

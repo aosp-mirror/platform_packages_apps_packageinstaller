@@ -177,20 +177,6 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         if (ab != null) {
             ab.setTitle(R.string.app_permissions);
         }
-
-        ViewGroup rootView = (ViewGroup) fragment.getView();
-        ImageView iconView = (ImageView) rootView.findViewById(R.id.lb_icon);
-        if (iconView != null) {
-            iconView.setImageDrawable(icon);
-        }
-        TextView titleView = (TextView) rootView.findViewById(R.id.lb_title);
-        if (titleView != null) {
-            titleView.setText(R.string.app_permissions);
-        }
-        TextView breadcrumbView = (TextView) rootView.findViewById(R.id.lb_breadcrumb);
-        if (breadcrumbView != null) {
-            breadcrumbView.setText(label);
-        }
     }
 
     private void loadPreferences() {

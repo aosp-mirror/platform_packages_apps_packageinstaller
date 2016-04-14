@@ -15,6 +15,7 @@
  */
 package com.android.packageinstaller.permission.ui.television;
 
+import android.annotation.Nullable;
 import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -53,7 +54,7 @@ import com.android.packageinstaller.util.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class PermissionAppsFragment extends PermissionsFrameFragment implements Callback,
+public final class PermissionAppsFragment extends SettingsWithHeader implements Callback,
         OnPreferenceChangeListener {
 
     private static final int MENU_SHOW_SYSTEM = Menu.FIRST;
@@ -150,29 +151,12 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
         bindUi(this, mPermissionApps);
     }
 
-    private static void bindUi(Fragment fragment, PermissionApps permissionApps) {
+    private static void bindUi(SettingsWithHeader fragment, PermissionApps permissionApps) {
         final Drawable icon = permissionApps.getIcon();
         final CharSequence label = permissionApps.getLabel();
-        final ActionBar ab = fragment.getActivity().getActionBar();
-        if (ab != null) {
-            ab.setTitle(fragment.getString(R.string.permission_title, label));
-        }
 
-        final ViewGroup rootView = (ViewGroup) fragment.getView();
-        final ImageView iconView = (ImageView) rootView.findViewById(R.id.lb_icon);
-        if (iconView != null) {
-            // Set the icon as the background instead of the image because ImageView
-            // doesn't properly scale vector drawables beyond their intrinsic size
-            iconView.setBackground(icon);
-        }
-        final TextView titleView = (TextView) rootView.findViewById(R.id.lb_title);
-        if (titleView != null) {
-            titleView.setText(label);
-        }
-        final TextView breadcrumbView = (TextView) rootView.findViewById(R.id.lb_breadcrumb);
-        if (breadcrumbView != null) {
-            breadcrumbView.setText(R.string.app_permissions);
-        }
+        fragment.setHeader(null, null, null,
+                fragment.getString(R.string.permission_apps_decor_title, label));
     }
 
     private void setOnPermissionsLoadedListener(Callback callback) {
@@ -397,7 +381,7 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
         }
     }
 
-    public static class SystemAppsFragment extends PermissionsFrameFragment implements Callback {
+    public static class SystemAppsFragment extends SettingsWithHeader implements Callback {
         PermissionAppsFragment mOuterFragment;
 
         @Override
@@ -423,6 +407,14 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
             PermissionApps permissionApps = new PermissionApps(getActivity(), groupName, null);
             bindUi(this, permissionApps);
         }
+
+
+        private static void bindUi(SettingsWithHeader fragment, PermissionApps permissionApps) {
+            final CharSequence label = permissionApps.getLabel();
+            fragment.setHeader(null, null, null,
+                    fragment.getString(R.string.system_apps_decor_title, label));
+        }
+
 
         @Override
         public void onPermissionsLoaded(PermissionApps permissionApps) {
