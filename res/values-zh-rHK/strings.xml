@@ -17,7 +17,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="2738748390251381682">"程式安裝器"</string>
-    <string name="next" msgid="3057143178373252333">"下一項"</string>
+    <string name="next" msgid="3057143178373252333">"下一步"</string>
     <string name="install" msgid="5896438203900042068">"安裝"</string>
     <string name="done" msgid="3889387558374211719">"完成"</string>
     <string name="security_settings_desc" msgid="2706691034244052604">"允許這個應用程式："</string>
@@ -115,8 +115,7 @@
     <string name="screen_overlay_message" msgid="2141944461571677331">"如要變更此權限設定，請先前往 [設定] &gt; [應用程式]，以關閉螢幕重疊功能"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"開啟設定"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <!-- no translation found for wear_not_allowed_dlg_text (1322352525843583064) -->
-    <skip />
+    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Wear 不支援安裝/解除安裝操作。"</string>
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"已更新「<xliff:g id="APP_NAME_0">%1$s</xliff:g>」。允許「<xliff:g id="APP_NAME_1">%1$s</xliff:g>」存取以下內容嗎？"</string>
     <string name="permission_review_title_template_install" msgid="6535540493936469336">"選擇允許「<xliff:g id="APP_NAME">%1$s</xliff:g>」存取的內容"</string>
     <string name="permission_review_title_template_update" msgid="2548815248828051885">"已更新「<xliff:g id="APP_NAME">%1$s</xliff:g>」。選擇允許此應用程式存取的內容。"</string>
