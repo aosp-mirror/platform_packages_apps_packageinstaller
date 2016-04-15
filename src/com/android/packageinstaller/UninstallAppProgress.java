@@ -262,7 +262,7 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
         getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
         getPackageManager().deletePackageAsUser(mAppInfo.packageName, observer,
-                mUser.getIdentifier(), mAllUsers ? PackageManager.DELETE_ALL_USERS : 0);
+                mAllUsers ? PackageManager.DELETE_ALL_USERS : 0, mUser.getIdentifier());
 
         mHandler.sendMessageDelayed(mHandler.obtainMessage(UNINSTALL_IS_SLOW),
                 QUICK_INSTALL_DELAY_MILLIS);
