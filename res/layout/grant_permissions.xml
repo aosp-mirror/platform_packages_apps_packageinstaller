@@ -24,16 +24,16 @@
         android:id="@+id/dialog_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/dialog_background">
 
         <FrameLayout
             android:id="@+id/desc_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="24dip"
-            android:paddingStart="22dip"
-            android:paddingEnd="16dip"
-            android:background="?android:attr/colorBackgroundFloating">
+            android:paddingTop="18dip"
+            android:paddingStart="20dip"
+            android:paddingEnd="16dip">
             <include
                 layout="@layout/permission_description" />
         </FrameLayout>
@@ -42,8 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="8dip"
-            android:paddingStart="22dip"
+            android:paddingStart="20dip"
             android:paddingEnd="16dip"
             android:background="?android:attr/colorBackgroundFloating">
 
@@ -52,7 +51,9 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dip"
+                android:layout_marginBottom="-4dp"
                 android:text="@string/never_ask_again"
+                android:textColor="?android:attr/textColorPrimary"
                 style="?android:attr/textAppearanceSmall"
                 android:visibility="gone">
             </CheckBox>
@@ -62,15 +63,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingStart="2dip"
-                android:paddingTop="16dip">
+                android:paddingStart="6dip"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:gravity="bottom">
 
                 <TextView
                     android:id="@+id/current_page_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp"
+                    android:layout_gravity="center_vertical"
                     android:paddingEnd="12dp"
                     android:singleLine="true"
                     style="?android:attr/textAppearanceSmall"
@@ -99,7 +101,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="?android:attr/buttonBarButtonStyle"
-                    android:layout_marginStart="8dip"
                     android:text="@string/grant_dialog_button_allow" >
                 </Button>
 
