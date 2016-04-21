@@ -211,7 +211,9 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
                                         + msg.arg1 + " no blocking user");
                                 statusText = getString(R.string.uninstall_failed);
                             } else {
-                                statusText = getString(R.string.uninstall_blocked_profile_owner);
+                                statusText = mAllUsers
+                                        ? getString(R.string.uninstall_all_blocked_profile_owner) :
+                                        getString(R.string.uninstall_blocked_profile_owner);
                             }
                             break;
                         }
