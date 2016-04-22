@@ -34,7 +34,6 @@ import android.content.pm.PackageInstaller;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
-import android.content.pm.VerificationParams;
 import android.graphics.drawable.LevelListDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -47,8 +46,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
-import libcore.io.IoUtils;
+import com.android.packageinstaller.permission.utils.IoUtils;
 
 import java.io.File;
 import java.io.FileInputStream;

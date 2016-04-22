@@ -16,7 +16,6 @@
 
 package com.android.packageinstaller.permission.ui;
 
-import android.annotation.Nullable;
 import android.app.Activity;
 
 import android.app.DialogFragment;
@@ -46,7 +45,7 @@ import android.widget.TextView;
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
-import com.android.packageinstaller.util.Utils;
+import com.android.packageinstaller.permission.utils.Utils;
 import com.android.packageinstaller.permission.ui.ConfirmActionDialogFragment.OnActionConfirmedListener;
 
 import java.util.List;
@@ -117,7 +116,7 @@ public final class ReviewPermissionsActivity extends Activity
         }
 
         @Override
-        public void onCreate(@Nullable Bundle savedInstanceState) {
+        public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
 
             Activity activity = getActivity();
@@ -158,7 +157,7 @@ public final class ReviewPermissionsActivity extends Activity
         }
 
         @Override
-        public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        public void onViewCreated(View view, Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
             bindUi();
         }
