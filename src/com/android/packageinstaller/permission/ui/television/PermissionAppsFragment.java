@@ -49,7 +49,7 @@ import com.android.packageinstaller.permission.model.PermissionApps.PermissionAp
 import com.android.packageinstaller.permission.ui.ReviewPermissionsActivity;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
-import com.android.packageinstaller.util.Utils;
+import com.android.packageinstaller.permission.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;

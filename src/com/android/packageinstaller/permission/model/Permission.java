@@ -16,19 +16,18 @@
 
 package com.android.packageinstaller.permission.model;
 
-import android.app.AppOpsManager;
 import android.content.pm.PackageManager;
 
 public final class Permission {
     private final String mName;
-    private final int mAppOp;
+    private final String mAppOp;
 
     private boolean mGranted;
     private boolean mAppOpAllowed;
     private int mFlags;
 
     public Permission(String name, boolean granted,
-            int appOp, boolean appOpAllowed, int flags) {
+            String appOp, boolean appOpAllowed, int flags) {
         mName = name;
         mGranted = granted;
         mAppOp = appOp;
@@ -40,7 +39,7 @@ public final class Permission {
         return mName;
     }
 
-    public int getAppOp() {
+    public String getAppOp() {
         return mAppOp;
     }
 
@@ -49,7 +48,7 @@ public final class Permission {
     }
 
     public boolean hasAppOp() {
-        return mAppOp != AppOpsManager.OP_NONE;
+        return mAppOp != null;
     }
 
     public boolean isGranted() {

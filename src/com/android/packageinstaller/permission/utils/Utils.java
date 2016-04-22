@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.packageinstaller.util;
+package com.android.packageinstaller.permission.utils;
 
 import android.Manifest;
 import android.content.Context;
@@ -32,11 +32,10 @@ import android.util.TypedValue;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
-import com.android.packageinstaller.permission.utils.LocationUtils;
 
 import java.util.List;
 
-public class Utils {
+public final class Utils {
 
     private static final String LOG_TAG = "Utils";
 
