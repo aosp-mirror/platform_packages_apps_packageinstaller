@@ -47,25 +47,12 @@ public class PackageUtil {
     public static final String INTENT_ATTR_PACKAGE_NAME=PREFIX+"PackageName";
 
     /**
-     * Utility method to get application information for a given {@link File}
-     */
-    public static ApplicationInfo getApplicationInfo(File sourcePath) {
-        final PackageParser parser = new PackageParser();
-        try {
-            PackageParser.Package pkg = parser.parseMonolithicPackage(sourcePath, 0);
-            return pkg.applicationInfo;
-        } catch (PackageParserException e) {
-            return null;
-        }
-    }
-
-    /**
      * Utility method to get package information for a given {@link File}
      */
     public static PackageParser.Package getPackageInfo(File sourceFile) {
         final PackageParser parser = new PackageParser();
         try {
-            return parser.parseMonolithicPackage(sourceFile, 0);
+            return parser.parsePackage(sourceFile, 0);
         } catch (PackageParserException e) {
             return null;
         }

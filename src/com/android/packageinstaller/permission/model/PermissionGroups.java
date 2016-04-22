@@ -31,7 +31,7 @@ import android.os.Bundle;
 import android.util.ArraySet;
 
 import com.android.packageinstaller.R;
-import com.android.packageinstaller.util.Utils;
+import com.android.packageinstaller.permission.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Collections;

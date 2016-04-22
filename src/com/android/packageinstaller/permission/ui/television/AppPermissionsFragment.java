@@ -16,7 +16,6 @@
 
 package com.android.packageinstaller.permission.ui.television;
 
-import android.annotation.Nullable;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -55,7 +54,7 @@ import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.ui.ReviewPermissionsActivity;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
-import com.android.packageinstaller.util.Utils;
+import com.android.packageinstaller.permission.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -154,7 +153,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         if (mAppPermissions != null) {
             bindUi(this, mAppPermissions.getPackageInfo());
@@ -402,7 +401,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         }
 
         @Override
-        public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        public void onViewCreated(View view, Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
             String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
             bindUi(this, getPackageInfo(getActivity(), packageName));

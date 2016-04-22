@@ -15,7 +15,6 @@
  */
 package com.android.packageinstaller.permission.ui.handheld;
 
-import android.annotation.Nullable;
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.content.ActivityNotFoundException;
@@ -37,7 +36,7 @@ import com.android.packageinstaller.permission.model.PermissionApps;
 import com.android.packageinstaller.permission.model.PermissionApps.PmCache;
 import com.android.packageinstaller.permission.model.PermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionGroups;
-import com.android.packageinstaller.util.Utils;
+import com.android.packageinstaller.permission.utils.Utils;
 
 import java.util.List;
 
@@ -115,12 +114,12 @@ public final class ManagePermissionsFragment extends PermissionsFrameFragment
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         bindPermissionUi(getActivity(), getView());
     }
 
-    private static void bindPermissionUi(@Nullable Context context, @Nullable View rootView) {
+    private static void bindPermissionUi(Context context, View rootView) {
         if (context == null || rootView == null) {
             return;
         }
@@ -243,7 +242,7 @@ public final class ManagePermissionsFragment extends PermissionsFrameFragment
         }
 
         @Override
-        public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        public void onViewCreated(View view,  Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
             bindPermissionUi(getActivity(), getView());
         }
