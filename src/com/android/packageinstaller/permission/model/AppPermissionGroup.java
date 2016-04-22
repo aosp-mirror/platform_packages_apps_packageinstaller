@@ -25,11 +25,12 @@ import android.content.pm.PackageManager;
 import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
 import android.os.Build;
+import android.os.Process;
 import android.os.UserHandle;
 import android.util.ArrayMap;
 
-import com.android.internal.util.ArrayUtils;
 import com.android.packageinstaller.R;
+import com.android.packageinstaller.permission.utils.ArrayUtils;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 
 import java.util.ArrayList;
@@ -93,7 +94,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         }
 
         return create(context, packageInfo, groupInfo, permissionInfos,
-                new UserHandle(context.getUserId()));
+                Process.myUserHandle());
     }
 
     public static AppPermissionGroup create(Context context, PackageInfo packageInfo,
@@ -145,11 +146,10 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             final boolean granted = (packageInfo.requestedPermissionsFlags[i]
                     & PackageInfo.REQUESTED_PERMISSION_GRANTED) != 0;
 
-            final int appOp = PLATFORM_PACKAGE_NAME.equals(requestedPermissionInfo.packageName)
-                    ? AppOpsManager.permissionToOpCode(requestedPermissionInfo.name)
-                    : AppOpsManager.OP_NONE;
+            final String appOp = PLATFORM_PACKAGE_NAME.equals(requestedPermissionInfo.packageName)
+                    ? AppOpsManager.permissionToOp(requestedPermissionInfo.name) : null;
 
-            final boolean appOpAllowed = appOp != AppOpsManager.OP_NONE
+            final boolean appOpAllowed = appOp != null
                     && context.getSystemService(AppOpsManager.class).checkOpNoThrow(appOp,
                     packageInfo.applicationInfo.uid, packageInfo.packageName)
                     == AppOpsManager.MODE_ALLOWED;
@@ -308,8 +308,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                 if (permission.isGranted()) {
                     return true;
                 }
-            } else if (permission.isGranted() && (permission.getAppOp()
-                    == AppOpsManager.OP_NONE || permission.isAppOpAllowed())) {
+            } else if (permission.isGranted() && (permission.getAppOp() == null
+                    || permission.isAppOpAllowed())) {
                 return true;
             }
         }

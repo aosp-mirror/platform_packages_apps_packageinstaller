@@ -26,19 +26,117 @@ import android.util.ArrayMap;
 import android.util.ArraySet;
 
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
-import com.android.packageinstaller.util.Utils;
+import com.android.packageinstaller.permission.utils.Utils;
 
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * This class handles backwards compatibility for M. Don't remove
+ * until we decide to drop M support altogether.
+ */
 public class PermissionStatusReceiver extends BroadcastReceiver {
+
+    /**
+     * Broadcast action that requests current permission granted information.  It will respond
+     * to the request by sending a broadcast with action defined by
+     * {@link #EXTRA_GET_PERMISSIONS_RESPONSE_INTENT}. The response will contain
+     * {@link #EXTRA_GET_PERMISSIONS_COUNT_RESULT}, as well as
+     * {@link #EXTRA_GET_PERMISSIONS_GROUP_LIST_RESULT}, with contents described below or
+     * a null upon failure.
+     *
+     * <p>If {@link Intent#EXTRA_PACKAGE_NAME} is included then the number of permissions granted, the
+     * number of permissions requested and the number of granted additional permissions
+     * by that package will be calculated and included as the first
+     * and second elements respectively of an int[] in the response as
+     * {@link #EXTRA_GET_PERMISSIONS_COUNT_RESULT}.  The response will also deliver the list
+     * of localized permission group names that are granted in
+     * {@link #EXTRA_GET_PERMISSIONS_GROUP_LIST_RESULT}.
+     *
+     * <p>If {@link #EXTRA_PACKAGE_NAME} is not included then the number of apps granted any runtime
+     * permissions and the total number of apps requesting runtime permissions will be the first
+     * and second elements respectively of an int[] in the response as
+     * {@link #EXTRA_GET_PERMISSIONS_COUNT_RESULT}.
+     *
+     * @hide
+     */
+    public static final String ACTION_GET_PERMISSIONS_COUNT
+            = "android.intent.action.GET_PERMISSIONS_COUNT";
+
+    /**
+     * Broadcast action that requests list of all apps that have runtime permissions.  It will
+     * respond to the request by sending a broadcast with action defined by
+     * {@link #EXTRA_GET_PERMISSIONS_PACKAGES_RESPONSE_INTENT}. The response will contain
+     * {@link #EXTRA_GET_PERMISSIONS_APP_LIST_RESULT}, as well as
+     * {@link #EXTRA_GET_PERMISSIONS_APP_LABEL_LIST_RESULT}, with contents described below or
+     * a null upon failure.
+     *
+     * <p>{@link #EXTRA_GET_PERMISSIONS_APP_LIST_RESULT} will contain a list of package names of
+     * apps that have runtime permissions. {@link #EXTRA_GET_PERMISSIONS_APP_LABEL_LIST_RESULT}
+     * will contain the list of app labels corresponding ot the apps in the first list.
+     *
+     * @hide
+     */
+    public static final String ACTION_GET_PERMISSIONS_PACKAGES
+            = "android.intent.action.GET_PERMISSIONS_PACKAGES";
+
+    /**
+     * Extra included in response to {@link #ACTION_GET_PERMISSIONS_COUNT}.
+     * @hide
+     */
+    public static final String EXTRA_GET_PERMISSIONS_COUNT_RESULT
+            = "android.intent.extra.GET_PERMISSIONS_COUNT_RESULT";
+
+    /**
+     * List of CharSequence of localized permission group labels.
+     * @hide
+     */
+    public static final String EXTRA_GET_PERMISSIONS_GROUP_LIST_RESULT
+            = "android.intent.extra.GET_PERMISSIONS_GROUP_LIST_RESULT";
+
+    /**
+     * String list of apps that have one or more runtime permissions.
+     * @hide
+     */
+    public static final String EXTRA_GET_PERMISSIONS_APP_LIST_RESULT
+            = "android.intent.extra.GET_PERMISSIONS_APP_LIST_RESULT";
+
+    /**
+     * String list of app labels for apps that have one or more runtime permissions.
+     * @hide
+     */
+    public static final String EXTRA_GET_PERMISSIONS_APP_LABEL_LIST_RESULT
+            = "android.intent.extra.GET_PERMISSIONS_APP_LABEL_LIST_RESULT";
+
+    /**
+     * Boolean list describing if the app is a system app for apps that have one or more runtime
+     * permissions.
+     * @hide
+     */
+    public static final String EXTRA_GET_PERMISSIONS_IS_SYSTEM_APP_LIST_RESULT
+            = "android.intent.extra.GET_PERMISSIONS_IS_SYSTEM_APP_LIST_RESULT";
+
+    /**
+     * Required extra to be sent with {@link #ACTION_GET_PERMISSIONS_COUNT} broadcasts.
+     * @hide
+     */
+    public static final String EXTRA_GET_PERMISSIONS_RESPONSE_INTENT
+            = "android.intent.extra.GET_PERMISSIONS_RESONSE_INTENT";
+
+    /**
+     * Required extra to be sent with {@link #ACTION_GET_PERMISSIONS_PACKAGES} broadcasts.
+     * @hide
+     */
+    public static final String EXTRA_GET_PERMISSIONS_PACKAGES_RESPONSE_INTENT
+            = "android.intent.extra.GET_PERMISSIONS_PACKAGES_RESONSE_INTENT";
+
     @Override
     public void onReceive(Context context, Intent intent) {
-        if (Intent.ACTION_GET_PERMISSIONS_COUNT.equals(intent.getAction())) {
+        if (ACTION_GET_PERMISSIONS_COUNT.equals(intent.getAction())) {
             Intent responseIntent = new Intent(intent.getStringExtra(
-                    Intent.EXTRA_GET_PERMISSIONS_RESPONSE_INTENT));
+                    EXTRA_GET_PERMISSIONS_RESPONSE_INTENT));
             responseIntent.setFlags(Intent.FLAG_RECEIVER_FOREGROUND);
 
             int[] counts = new int[3];
@@ -54,28 +152,28 @@ public class PermissionStatusReceiver extends BroadcastReceiver {
                 succeeded = getAppsWithPermissionsCount(context, counts);
             }
             if (succeeded) {
-                responseIntent.putExtra(Intent.EXTRA_GET_PERMISSIONS_COUNT_RESULT, counts);
+                responseIntent.putExtra(EXTRA_GET_PERMISSIONS_COUNT_RESULT, counts);
 
                 if (isForPackage) {
-                    responseIntent.putExtra(Intent.EXTRA_GET_PERMISSIONS_GROUP_LIST_RESULT,
+                    responseIntent.putExtra(EXTRA_GET_PERMISSIONS_GROUP_LIST_RESULT,
                             grantedGroups.toArray(new CharSequence[grantedGroups.size()]));
                 }
             }
             context.sendBroadcast(responseIntent);
-        } else if (Intent.ACTION_GET_PERMISSIONS_PACKAGES.equals(intent.getAction())) {
+        } else if (ACTION_GET_PERMISSIONS_PACKAGES.equals(intent.getAction())) {
             Intent responseIntent = new Intent(intent.getStringExtra(
-                    Intent.EXTRA_GET_PERMISSIONS_PACKAGES_RESPONSE_INTENT));
+                    EXTRA_GET_PERMISSIONS_PACKAGES_RESPONSE_INTENT));
             responseIntent.setFlags(Intent.FLAG_RECEIVER_FOREGROUND);
 
             List<String> appsList = new ArrayList<>();
             List<CharSequence> appLabelsList = new ArrayList<>();
             List<Boolean> isSystemAppList = new ArrayList<>();
             if (getAppsWithRuntimePermissions(context, appsList, appLabelsList, isSystemAppList)) {
-                responseIntent.putExtra(Intent.EXTRA_GET_PERMISSIONS_APP_LIST_RESULT,
+                responseIntent.putExtra(EXTRA_GET_PERMISSIONS_APP_LIST_RESULT,
                         appsList.toArray(new String[appsList.size()]));
-                responseIntent.putExtra(Intent.EXTRA_GET_PERMISSIONS_APP_LABEL_LIST_RESULT,
+                responseIntent.putExtra(EXTRA_GET_PERMISSIONS_APP_LABEL_LIST_RESULT,
                         appLabelsList.toArray(new String[appLabelsList.size()]));
-                responseIntent.putExtra(Intent.EXTRA_GET_PERMISSIONS_IS_SYSTEM_APP_LIST_RESULT,
+                responseIntent.putExtra(EXTRA_GET_PERMISSIONS_IS_SYSTEM_APP_LIST_RESULT,
                         toPrimitiveBoolArray(isSystemAppList));
             }
             context.sendBroadcast(responseIntent);
