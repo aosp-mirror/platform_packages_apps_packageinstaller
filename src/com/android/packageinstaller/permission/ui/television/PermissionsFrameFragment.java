@@ -73,7 +73,7 @@ public abstract class PermissionsFrameFragment extends PreferenceFragment {
     }
 
     @Override
-    public void onCreatePreferences(@Nullable Bundle savedInstanceState, String rootKey) {
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         PreferenceScreen preferences = getPreferenceScreen();
         if (preferences == null) {
             preferences = getPreferenceManager().createPreferenceScreen(getActivity());

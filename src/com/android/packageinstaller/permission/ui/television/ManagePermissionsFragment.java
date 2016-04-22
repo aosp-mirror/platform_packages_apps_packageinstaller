@@ -21,7 +21,6 @@ import android.app.FragmentTransaction;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceClickListener;
@@ -30,15 +29,13 @@ import android.util.ArraySet;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.PermissionApps;
 import com.android.packageinstaller.permission.model.PermissionApps.PmCache;
 import com.android.packageinstaller.permission.model.PermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionGroups;
-import com.android.packageinstaller.util.Utils;
+import com.android.packageinstaller.permission.utils.Utils;
 
 import java.util.List;
 
@@ -115,7 +112,7 @@ public final class ManagePermissionsFragment extends SettingsWithHeader
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         bindPermissionUi(this, getView());
     }
@@ -238,7 +235,7 @@ public final class ManagePermissionsFragment extends SettingsWithHeader
         }
 
         @Override
-        public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        public void onViewCreated(View view, Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
             bindPermissionUi(this, getView());
         }

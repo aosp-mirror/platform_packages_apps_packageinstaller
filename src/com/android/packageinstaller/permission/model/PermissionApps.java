@@ -24,6 +24,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PermissionInfo;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
+import android.os.Process;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.util.ArrayMap;
@@ -32,7 +33,7 @@ import android.util.Log;
 import android.util.SparseArray;
 
 import com.android.packageinstaller.R;
-import com.android.packageinstaller.util.Utils;
+import com.android.packageinstaller.permission.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -148,7 +149,8 @@ public class PermissionApps {
 
         ArrayList<PermissionApp> permApps = new ArrayList<>();
 
-        for (UserHandle user : UserManager.get(mContext).getUserProfiles()) {
+        UserManager userManager = mContext.getSystemService(UserManager.class);
+        for (UserHandle user : userManager.getUserProfiles()) {
             List<PackageInfo> apps = mCache != null ? mCache.getPackages(user.getIdentifier())
                     : mPm.getInstalledPackagesAsUser(PackageManager.GET_PERMISSIONS,
                             user.getIdentifier());
@@ -250,8 +252,7 @@ public class PermissionApps {
             return null;
         }
         Drawable unbadged = appInfo.loadUnbadgedIcon(mPm);
-        return mPm.getUserBadgedIcon(unbadged,
-                new UserHandle(UserHandle.getUserId(appInfo.uid)));
+        return mPm.getUserBadgedIcon(unbadged, Process.myUserHandle());
     }
 
     private void loadGroupInfo() {

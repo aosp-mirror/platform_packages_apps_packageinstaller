@@ -48,7 +48,6 @@ import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.ui.handheld.GrantPermissionsViewHandlerImpl;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
-import libcore.util.EmptyArray;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -111,8 +110,8 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
         // Don't allow legacy apps to request runtime permissions.
         if (callingPackageInfo.applicationInfo.targetSdkVersion < Build.VERSION_CODES.M) {
             // Returning empty arrays means a cancellation.
-            mRequestedPermissions = EmptyArray.STRING;
-            mGrantResults = EmptyArray.INT;
+            mRequestedPermissions = new String[0];
+            mGrantResults = new int[0];
             setResultAndFinish();
             return;
         }

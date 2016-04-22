@@ -17,11 +17,9 @@
 package com.android.packageinstaller.permission.ui.wear;
 
 import android.Manifest;
-import android.annotation.Nullable;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -39,7 +37,7 @@ import com.android.packageinstaller.permission.ui.wear.settings.PermissionsSetti
 import com.android.packageinstaller.permission.ui.wear.settings.SettingsAdapter;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
-import com.android.packageinstaller.util.Utils;
+import com.android.packageinstaller.permission.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -119,7 +117,7 @@ public final class AppPermissionsFragmentWear extends TitledSettingsFragment {
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         if (mAppPermissions != null) {
             initializeLayout(mAdapter);
