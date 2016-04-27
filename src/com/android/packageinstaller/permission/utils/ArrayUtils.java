@@ -16,6 +16,8 @@
 
 package com.android.packageinstaller.permission.utils;
 
+import android.text.TextUtils;
+
 import java.util.Objects;
 
 public final class ArrayUtils {
@@ -41,5 +43,21 @@ public final class ArrayUtils {
             if (Objects.equals(array[i], value)) return i;
         }
         return -1;
+    }
+
+    public static String[] appendString(String[] cur, String val) {
+        if (cur == null) {
+            return new String[] { val };
+        }
+        final int N = cur.length;
+        for (int i = 0; i < N; i++) {
+            if (TextUtils.equals(cur[i], val)) {
+                return cur;
+            }
+        }
+        String[] ret = new String[N + 1];
+        System.arraycopy(cur, 0, ret, 0, N);
+        ret[N] = val;
+        return ret;
     }
 }
