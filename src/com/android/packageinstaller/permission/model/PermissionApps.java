@@ -190,6 +190,10 @@ public class PermissionApps {
                     AppPermissionGroup group = AppPermissionGroup.create(mContext,
                             app, groupInfo, groupPermInfos, user);
 
+                    if (group == null) {
+                        continue;
+                    }
+
                     String label = mSkipUi ? app.packageName
                             : app.applicationInfo.loadLabel(mPm).toString();
                     PermissionApp permApp = new PermissionApp(app.packageName,
