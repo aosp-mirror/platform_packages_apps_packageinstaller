@@ -27,6 +27,7 @@ import android.content.pm.IPackageManager;
 import android.content.pm.PackageInstaller;
 import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -92,6 +93,10 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
 
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
+            if (isFinishing() || isDestroyed()) {
+                return;
+            }
+
             switch (msg.what) {
                 case UNINSTALL_IS_SLOW:
                     initView();
@@ -237,8 +242,31 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+
         Intent intent = getIntent();
         mAppInfo = intent.getParcelableExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO);
+        mCallback = intent.getIBinderExtra(PackageInstaller.EXTRA_CALLBACK);
+
+        // This currently does not support going through a onDestroy->onCreate cycle. Hence if that
+        // happened, just fail the operation for mysterious reasons.
+        if (icicle != null) {
+            mResultCode = PackageManager.DELETE_FAILED_INTERNAL_ERROR;
+
+            if (mCallback != null) {
+                final IPackageDeleteObserver2 observer = IPackageDeleteObserver2.Stub
+                        .asInterface(mCallback);
+                try {
+                    observer.onPackageDeleted(mAppInfo.packageName, mResultCode, null);
+                } catch (RemoteException ignored) {
+                }
+                finish();
+            } else {
+                setResultAndFinish(mResultCode);
+            }
+
+            return;
+        }
+
         mAllUsers = intent.getBooleanExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, false);
         if (mAllUsers && !UserManager.get(this).isAdminUser()) {
             throw new SecurityException("Only admin user can request uninstall for all users");
@@ -254,7 +282,6 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
                         + "request uninstall for user " + mUser);
             }
         }
-        mCallback = intent.getIBinderExtra(PackageInstaller.EXTRA_CALLBACK);
 
         PackageDeleteObserver observer = new PackageDeleteObserver();
 
