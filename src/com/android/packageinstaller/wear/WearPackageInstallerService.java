@@ -22,7 +22,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.FeatureInfo;
 import android.content.pm.IPackageDeleteObserver;
-import android.content.pm.IPackageInstallObserver;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageParser;
@@ -97,13 +96,6 @@ public class WearPackageInstallerService extends Service {
     private static final String HOME_APP_PACKAGE_NAME = "com.google.android.wearable.app";
     private static final String SHOW_PERMS_SERVICE_CLASS =
             "com.google.android.clockwork.packagemanager.ShowPermsService";
-
-    /**
-     * Normally sent by the Play store (See http://go/playstore-gms_updated), we instead
-     * broadcast, ourselves. http://b/17387718
-     */
-    private static final String GMS_UPDATED_BROADCAST = "com.google.android.gms.GMS_UPDATED";
-    public static final String GMS_PACKAGE_NAME = "com.google.android.gms";
 
     private final int START_INSTALL = 1;
     private final int START_UNINSTALL = 2;
@@ -233,6 +225,12 @@ public class WearPackageInstallerService extends Service {
                     Log.d(TAG, "Replacing package:" + packageName);
                 }
             }
+            // TODO(28021618): This was left as a temp file due to the fact that this code is being
+            //       deprecated and that we need the bare minimum to continue working moving forward
+            //       If this code is used as reference, this permission logic might want to be
+            //       reworked to use a stream instead of a file so that we don't need to write a
+            //       file at all.  Note that there might be some trickiness with opening a stream
+            //       for multiple users.
             ParcelFileDescriptor parcelFd = getContentResolver()
                     .openFileDescriptor(assetUri, "r");
             tempFile = WearPackageUtil.getFileFromFd(WearPackageInstallerService.this,
@@ -318,9 +316,9 @@ public class WearPackageInstallerService extends Service {
             }
 
             // Finally install the package.
-            pm.installPackage(Uri.fromFile(tempFile),
-                    new PackageInstallObserver(this, lock, startId, packageName),
-                        installFlags, packageName);
+            ParcelFileDescriptor fd = getContentResolver().openFileDescriptor(assetUri, "r");
+            PackageInstallerFactory.getPackageInstaller(this).install(packageName, fd,
+                    new PackageInstallListener(this, lock, startId, packageName));
 
             messageSent = true;
             Log.i(TAG, "Sent installation request for " + packageName);
@@ -338,6 +336,10 @@ public class WearPackageInstallerService extends Service {
         }
     }
 
+    // TODO: This was left using the old PackageManager API due to the fact that this code is being
+    //       deprecated and that we need the bare minimum to continue working moving forward
+    //       If this code is used as reference, this logic should be reworked to use the new
+    //       PackageInstaller APIs similar to how installPackage was reworked
     private void uninstallPackage(Bundle argsBundle) {
         int startId = WearPackageArgs.getStartId(argsBundle);
         final String packageName = WearPackageArgs.getPackageName(argsBundle);
@@ -558,12 +560,12 @@ public class WearPackageInstallerService extends Service {
         }
     }
 
-    private class PackageInstallObserver extends IPackageInstallObserver.Stub {
+    private class PackageInstallListener implements PackageInstallerImpl.InstallListener {
         private Context mContext;
         private PowerManager.WakeLock mWakeLock;
         private int mStartId;
         private String mApplicationPackageName;
-        private PackageInstallObserver(Context context, PowerManager.WakeLock wakeLock,
+        private PackageInstallListener(Context context, PowerManager.WakeLock wakeLock,
                 int startId, String applicationPackageName) {
             mContext = context;
             mWakeLock = wakeLock;
@@ -571,34 +573,32 @@ public class WearPackageInstallerService extends Service {
             mApplicationPackageName = applicationPackageName;
         }
 
-        public void packageInstalled(String packageName, int returnCode) {
-            try {
-                // If installation failed, bail out and remove the ShowPermsStore entry
-                if (returnCode < 0) {
-                    Log.e(TAG, "Package install failed " + mApplicationPackageName
-                            + ", returnCode " + returnCode);
-                    WearPackageUtil.removeFromPermStore(mContext, mApplicationPackageName);
-                    return;
-                }
+        @Override
+        public void installBeginning() {
+            Log.i(TAG, "Package " + mApplicationPackageName + " is being installed.");
+        }
 
-                Log.i(TAG, "Package " + packageName + " was installed.");
+        @Override
+        public void installSucceeded() {
+            try {
+                Log.i(TAG, "Package " + mApplicationPackageName + " was installed.");
 
                 // Delete tempFile from the file system.
-                File tempFile = WearPackageUtil.getTemporaryFile(mContext, packageName);
+                File tempFile = WearPackageUtil.getTemporaryFile(mContext, mApplicationPackageName);
                 if (tempFile != null) {
                     tempFile.delete();
-                }
-
-                // Broadcast the "UPDATED" gmscore intent, normally sent by play store.
-                // TODO: Remove this broadcast if/when we get the play store to do this for us.
-                if (GMS_PACKAGE_NAME.equals(packageName)) {
-                    Intent gmsInstalledIntent = new Intent(GMS_UPDATED_BROADCAST);
-                    gmsInstalledIntent.setPackage(GMS_PACKAGE_NAME);
-                    mContext.sendBroadcast(gmsInstalledIntent);
                 }
             } finally {
                 finishService(mWakeLock, mStartId);
             }
+        }
+
+        @Override
+        public void installFailed(int errorCode, String errorDesc) {
+            Log.e(TAG, "Package install failed " + mApplicationPackageName
+                    + ", errorCode " + errorCode);
+            WearPackageUtil.removeFromPermStore(mContext, mApplicationPackageName);
+            finishService(mWakeLock, mStartId);
         }
     }
 
