@@ -228,7 +228,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                     .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Log.i(TAG, "Finishing off activity so that user can navigate to settings manually");
-                            finish();
+                            finishAffinity();
                         }})
                     .setPositiveButton(R.string.settings, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
