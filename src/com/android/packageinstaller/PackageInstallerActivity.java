@@ -185,11 +185,13 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                 msg = (mAppInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0
                         ? R.string.install_confirm_question_update_system_no_perms
                         : R.string.install_confirm_question_update_no_perms;
+
+                findViewById(R.id.spacer).setVisibility(View.VISIBLE);
             } else {
                 // This is a new application with no permissions.
                 msg = R.string.install_confirm_question_no_perms;
             }
-            tabHost.setVisibility(View.GONE);
+            tabHost.setVisibility(View.INVISIBLE);
             mScrollView = null;
         }
         if (msg != 0) {
