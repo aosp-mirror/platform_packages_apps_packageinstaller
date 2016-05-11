@@ -196,8 +196,18 @@ public class PermissionApps {
 
                     String label = mSkipUi ? app.packageName
                             : app.applicationInfo.loadLabel(mPm).toString();
-                    PermissionApp permApp = new PermissionApp(app.packageName,
-                            group, label, getBadgedIcon(app.applicationInfo),
+
+                    Drawable icon = null;
+                    if (!mSkipUi) {
+                        UserHandle userHandle = new UserHandle(
+                                UserHandle.getUserId(group.getApp().applicationInfo.uid));
+
+                        icon = mPm.getUserBadgedIcon(
+                                mPm.loadUnbadgedItemIcon(app.applicationInfo, app.applicationInfo),
+                                userHandle);
+                    }
+
+                    PermissionApp permApp = new PermissionApp(app.packageName, group, label, icon,
                             app.applicationInfo);
 
                     permApps.add(permApp);
@@ -249,14 +259,6 @@ public class PermissionApps {
             /* ignore */
         }
         return null;
-    }
-
-    private Drawable getBadgedIcon(ApplicationInfo appInfo) {
-        if (mSkipUi) {
-            return null;
-        }
-        Drawable unbadged = appInfo.loadUnbadgedIcon(mPm);
-        return mPm.getUserBadgedIcon(unbadged, Process.myUserHandle());
     }
 
     private void loadGroupInfo() {
