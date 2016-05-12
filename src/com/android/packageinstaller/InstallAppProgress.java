@@ -34,7 +34,6 @@ import android.content.pm.PackageInstaller;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
-import android.graphics.drawable.LevelListDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -94,7 +93,7 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
                         setResult(msg.arg1 == PackageInstaller.STATUS_SUCCESS
                                 ? Activity.RESULT_OK : Activity.RESULT_FIRST_USER,
                                         result);
-                        finish();
+                        clearCachedApkIfNeededAndFinish();
                         return;
                     }
                     // Update the status text
@@ -206,6 +205,11 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
         initView();
     }
 
+    @Override
+    public void onBackPressed() {
+        clearCachedApkIfNeededAndFinish();
+    }
+
     @SuppressWarnings("deprecation")
     @Override
     public Dialog onCreateDialog(int id, Bundle bundle) {
@@ -220,13 +224,13 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
                             //launch manage applications
                             Intent intent = new Intent("android.intent.action.MANAGE_PACKAGE_STORAGE");
                             startActivity(intent);
-                            finish();
+                            clearCachedApkIfNeededAndFinish();
                         }
                     })
                     .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Log.i(TAG, "Canceling installation");
-                            finish();
+                            clearCachedApkIfNeededAndFinish();
                         }
                     })
                     .setOnCancelListener(this)
@@ -370,14 +374,27 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
             if (mAppInfo.packageName != null) {
                 Log.i(TAG, "Finished installing "+mAppInfo.packageName);
             }
-            finish();
+            clearCachedApkIfNeededAndFinish();
         } else if(v == mLaunchButton) {
             startActivity(mLaunchIntent);
-            finish();
+            clearCachedApkIfNeededAndFinish();
         }
     }
 
     public void onCancel(DialogInterface dialog) {
+        clearCachedApkIfNeededAndFinish();
+    }
+
+    private void clearCachedApkIfNeededAndFinish() {
+        // If we are installing from a content:// the apk is copied in the cache
+        // dir and passed in here. As we aren't started for a result because our
+        // caller needs to be able to forward the result, here we make sure the
+        // staging file in the cache dir is removed.
+        if ("file".equals(mPackageURI.getScheme()) && mPackageURI.getPath() != null
+                && mPackageURI.getPath().startsWith(getCacheDir().toString())) {
+            File file = new File(mPackageURI.getPath());
+            file.delete();
+        }
         finish();
     }
 }
