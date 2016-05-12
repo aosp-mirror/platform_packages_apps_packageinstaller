@@ -72,7 +72,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     private static final String TAG = "PackageInstaller";
 
     private static final int REQUEST_ENABLE_UNKNOWN_SOURCES = 1;
-    private static final int REQUEST_INSTALL_PACKAGE = 2;
 
     private static final String SCHEME_FILE = "file";
     private static final String SCHEME_CONTENT = "content";
@@ -324,7 +323,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         if (request == REQUEST_ENABLE_UNKNOWN_SOURCES && result == RESULT_OK) {
             initiateInstall();
         }
-        clearCachedApkIfNeededAndFinish();
     }
 
     private boolean isInstallRequestFromUnknownSource(Intent intent) {
@@ -684,7 +682,8 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             newIntent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
         }
         if(localLOGV) Log.i(TAG, "downloaded app uri="+mPackageURI);
-        startActivityForResult(newIntent, REQUEST_INSTALL_PACKAGE);
+        startActivity(newIntent);
+        finish();
     }
 
     private void clearCachedApkIfNeededAndFinish() {
