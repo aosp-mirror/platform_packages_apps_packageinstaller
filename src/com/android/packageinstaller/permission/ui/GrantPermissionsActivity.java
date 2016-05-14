@@ -237,8 +237,8 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
                 // Set the permission message as the title so it can be announced.
                 setTitle(message);
                 // Color the app name.
-                int appLabelStart = message.toString().indexOf(appLabel.toString(), 0);
-                int appLabelLength = appLabel.length();
+                int appLabelStart = message.toString().indexOf(" " + appLabel.toString() + " ", 0);
+                int appLabelLength = appLabel.length() + 1;
                 message.setSpan(new StyleSpan(Typeface.BOLD), appLabelStart,
                         appLabelStart + appLabelLength, 0);
 
