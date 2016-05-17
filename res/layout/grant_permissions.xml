@@ -18,13 +18,19 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:clipChildren="false">
+    android:clipChildren="false"
+    android:paddingLeft="@*android:dimen/floating_window_margin_left"
+    android:paddingRight="@*android:dimen/floating_window_margin_right"
+    android:paddingTop="@*android:dimen/floating_window_margin_top"
+    android:paddingBottom="@*android:dimen/floating_window_margin_bottom"
+    android:clipToPadding="false">
 
     <LinearLayout
         android:id="@+id/dialog_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:elevation="@*android:dimen/floating_window_z"
         android:background="@drawable/dialog_background">
 
         <FrameLayout
