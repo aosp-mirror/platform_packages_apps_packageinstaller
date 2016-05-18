@@ -324,6 +324,8 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         // implement a "allow untrusted source once" feature.
         if (request == REQUEST_ENABLE_UNKNOWN_SOURCES && result == RESULT_OK) {
             initiateInstall();
+        } else {
+            clearCachedApkIfNeededAndFinish();
         }
     }
 
@@ -474,6 +476,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             showDialogInner(DLG_ADMIN_RESTRICTS_UNKNOWN_SOURCES);
         } else if (!isUnknownSourcesEnabled()) {
             // Ask user to enable setting first
+
             showDialogInner(DLG_UNKNOWN_SOURCES);
         } else {
             processPackageUri(packageUri);
