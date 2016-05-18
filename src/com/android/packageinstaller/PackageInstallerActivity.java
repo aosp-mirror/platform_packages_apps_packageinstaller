@@ -475,9 +475,9 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         } else if (!isUnknownSourcesEnabled()) {
             // Ask user to enable setting first
             showDialogInner(DLG_UNKNOWN_SOURCES);
+        } else {
+            processPackageUri(packageUri);
         }
-
-        processPackageUri(packageUri);
     }
 
     @Override
