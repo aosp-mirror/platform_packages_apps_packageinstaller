@@ -29,7 +29,8 @@ public class OverlayTouchActivity extends Activity {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
-        mObscuredTouch = (event.getFlags() & MotionEvent.FLAG_WINDOW_IS_OBSCURED) != 0;
+        mObscuredTouch = (event.getFlags() & (MotionEvent.FLAG_WINDOW_IS_OBSCURED
+                | MotionEvent.FLAG_WINDOW_IS_PARTIALLY_OBSCURED)) != 0;
         return super.dispatchTouchEvent(event);
     }
 
