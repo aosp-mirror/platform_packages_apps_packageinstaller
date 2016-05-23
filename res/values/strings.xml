@@ -172,7 +172,7 @@
 
     <!-- Template for the warning message when an app requests a permission. -->
     <string name="permission_warning_template">Allow
-        <xliff:g id="app_name" example="Gmail">%1$s</xliff:g> to
+        &lt;b><xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b> to
         <xliff:g id="action" example="do something">%2$s</xliff:g>?</string>
 
     <!-- Permissions -->
