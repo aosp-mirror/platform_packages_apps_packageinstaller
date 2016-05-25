@@ -29,12 +29,11 @@ import android.content.pm.PackageParser;
 import android.content.pm.PermissionInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.graphics.Typeface;
 import android.graphics.drawable.Icon;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.style.StyleSpan;
+import android.text.Html;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -250,16 +249,10 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
         for (GroupState groupState : mRequestGrantPermissionGroups.values()) {
             if (groupState.mState == GroupState.STATE_UNKNOWN) {
                 CharSequence appLabel = mAppPermissions.getAppLabel();
-                SpannableString message = new SpannableString(getString(
-                        R.string.permission_warning_template, appLabel,
-                        groupState.mGroup.getDescription()));
+                Spanned message = Html.fromHtml(getString(R.string.permission_warning_template,
+                        appLabel, groupState.mGroup.getDescription()), 0);
                 // Set the permission message as the title so it can be announced.
                 setTitle(message);
-                // Color the app name.
-                int appLabelStart = message.toString().indexOf(" " + appLabel.toString() + " ", 0);
-                int appLabelLength = appLabel.length() + 1;
-                message.setSpan(new StyleSpan(Typeface.BOLD), appLabelStart,
-                        appLabelStart + appLabelLength, 0);
 
                 // Set the new grant view
                 // TODO: Use a real message for the action. We need group action APIs
