@@ -388,13 +388,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             mAppInfo = null;
         }
 
-        // If we have a session id, we're invoked to verify the permissions for the given
-        // package. Otherwise, we start the install process.
-        if (mSessionId != -1) {
-            startInstallConfirm();
-        } else {
-            startInstall();
-        }
+        startInstallConfirm();
     }
 
     void setPmResult(int pmResult) {
