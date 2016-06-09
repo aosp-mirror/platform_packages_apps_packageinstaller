@@ -456,7 +456,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         // Block the install attempt on the Unknown Sources setting if necessary.
         final boolean requestFromUnknownSource = isInstallRequestFromUnknownSource(intent);
         if (!requestFromUnknownSource) {
-            initiateInstall();
+            processPackageUri(packageUri);
             return;
         }
 
