@@ -351,7 +351,6 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
             params.originatingUri = getIntent().getParcelableExtra(Intent.EXTRA_ORIGINATING_URI);
             params.originatingUid = getIntent().getIntExtra(Intent.EXTRA_ORIGINATING_UID,
                     UID_UNKNOWN);
-            params.setInstallFlagsForcePermissionPrompt();
 
             mInstallHandler.post(new Runnable() {
                 @Override
