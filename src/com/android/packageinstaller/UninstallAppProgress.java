@@ -289,6 +289,8 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
         // UI at all as the app is uninstalled very quickly. If we show the UI and instantly remove
         // it, it just looks like a flicker.
         getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        getWindow().setStatusBarColor(Color.TRANSPARENT);
+        getWindow().setNavigationBarColor(Color.TRANSPARENT);
 
         getPackageManager().deletePackageAsUser(mAppInfo.packageName, observer,
                 mAllUsers ? PackageManager.DELETE_ALL_USERS : 0, mUser.getIdentifier());
@@ -327,6 +329,12 @@ public class UninstallAppProgress extends Activity implements OnClickListener {
             getWindow().setBackgroundDrawable(getResources().getDrawable(attribute.resourceId,
                     getTheme()));
         }
+
+        getTheme().resolveAttribute(android.R.attr.navigationBarColor, attribute, true);
+        getWindow().setNavigationBarColor(attribute.data);
+
+        getTheme().resolveAttribute(android.R.attr.statusBarColor, attribute, true);
+        getWindow().setStatusBarColor(attribute.data);
 
         boolean isUpdate = ((mAppInfo.flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) != 0);
         setTitle(isUpdate ? R.string.uninstall_update_title : R.string.uninstall_application_title);
