@@ -22,6 +22,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.PendingIntent;
+import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -375,7 +376,11 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
             }
             clearCachedApkIfNeededAndFinish();
         } else if(v == mLaunchButton) {
-            startActivity(mLaunchIntent);
+            try {
+                startActivity(mLaunchIntent);
+            } catch (ActivityNotFoundException e) {
+                Log.e(TAG, "Could not start activity", e);
+            }
             clearCachedApkIfNeededAndFinish();
         }
     }
