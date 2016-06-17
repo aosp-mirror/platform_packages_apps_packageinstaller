@@ -42,15 +42,12 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"无法将<xliff:g id="APP_NAME">%1$s</xliff:g>安装到您的电视上。"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"无法在您的手机上安装“<xliff:g id="APP_NAME">%1$s</xliff:g>”。"</string>
     <string name="launch" msgid="4826921505917605463">"打开"</string>
-    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"禁止安装"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"出于安全考虑，您的平板电脑已设置为禁止安装来源不明的应用。"</string>
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"出于安全考虑，您的电视已设置为禁止安装来源不明的应用。"</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"出于安全考虑，您的手机已设置为禁止安装来源不明的应用。"</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"您的管理员不允许安装来源不明的应用。"</string>
     <string name="ok" msgid="3468756155452870475">"确定"</string>
     <string name="settings" msgid="6743583734099755409">"设置"</string>
-    <string name="allow_source_dlg_title" msgid="7568985073502399415">"新的应用来源"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g>要求安装其他应用。\n\n从现在起允许此操作吗？"</string>
     <string name="manage_applications" msgid="4033876279091996596">"管理应用"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"要替换该应用吗？"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"您要安装的应用将替换另一应用。\n\n系统将保存您以前的所有用户数据。"</string>
@@ -66,17 +63,19 @@
     <string name="uninstall_application_text" msgid="6691975835951187030">"要卸载此应用吗？"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"是否要为"<b>"所有"</b>"用户卸载此应用？系统将为设备上的"<b>"所有"</b>"用户删除此应用及其数据。"</string>
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"您要为用户<xliff:g id="USERNAME">%1$s</xliff:g>卸载此应用吗？"</string>
-    <string name="uninstall_update_text" msgid="2056387942084605027">"您要将此应用替换成出厂版本吗？"</string>
+    <string name="uninstall_update_text" msgid="1394549691152728409">"要将此应用替换为出厂版本吗？这样会移除所有数据。"</string>
+    <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"要将此应用替换为出厂版本吗？这样会移除所有数据，并会影响此设备的所有用户（包括已设置工作资料的用户）。"</string>
     <string name="uninstalling" msgid="5556217435895938250">"正在卸载..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"卸载完成。"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"卸载失败。"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"此软件包是当前使用的设备管理器，无法卸载。"</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"无法卸载此软件包，因为它是用户 <xliff:g id="USERNAME">%1$s</xliff:g> 当前使用的设备管理软件包。"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"这是您的工作资料所需的应用，因此无法卸载。"</string>
+    <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"这是部分用户或个人资料所需的应用；已为其他用户或个人资料卸载此应用"</string>
+    <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"这是您的个人资料所需的应用，因此无法卸载。"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"这是您的设备管理员要求必须安装的应用，因此无法卸载。"</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"管理设备管理器"</string>
+    <string name="manage_users" msgid="3125018886835668847">"管理用户"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"无法卸载“<xliff:g id="APP_NAME">%1$s</xliff:g>”。"</string>
-    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"解析错误"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"解析软件包时出现问题。"</string>
     <string name="newPerms" msgid="6039428254474104210">"新权限"</string>
     <string name="allPerms" msgid="1024385515840703981">"全部"</string>
@@ -85,12 +84,13 @@
     <string name="no_new_perms" msgid="6657813692169565975">"新版本不需要任何新的权限。"</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"要向该应用授予以下权限吗？"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"拒绝"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"仍然拒绝"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"第 <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> 项权限（共 <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> 项）"</string>
-    <string name="permission_warning_template" msgid="5209102765005869454">"要允许<xliff:g id="APP_NAME">%1$s</xliff:g><xliff:g id="ACTION">%2$s</xliff:g>吗？"</string>
+    <string name="permission_warning_template" msgid="7332275268559121742">"要允许&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;<xliff:g id="ACTION">%2$s</xliff:g>吗？"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"允许"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"应用"</string>
     <string name="app_permissions" msgid="3146758905824597178">"应用访问授权"</string>
-    <string name="never_ask_again" msgid="3798895821072102967">"不再询问"</string>
+    <string name="never_ask_again" msgid="1089938738199748687">"不再询问"</string>
     <string name="no_permissions" msgid="3210542466245591574">"没有权限"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"其他权限"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
@@ -116,7 +116,7 @@
     <string name="screen_overlay_message" msgid="2141944461571677331">"要更改此权限设置，您必须首先在“设置”&gt;“应用”中关闭屏幕叠加层"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"打开设置"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Wear 不支持安装/卸载操作。"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Wear 不支持安装/卸载操作。"</string>
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g>已更新。要向<xliff:g id="APP_NAME_1">%1$s</xliff:g>授予以下权限吗？"</string>
     <string name="permission_review_title_template_install" msgid="6535540493936469336">"请选择要向<xliff:g id="APP_NAME">%1$s</xliff:g>授予哪些权限"</string>
     <string name="permission_review_title_template_update" msgid="2548815248828051885">"<xliff:g id="APP_NAME">%1$s</xliff:g>已更新。请选择要向此应用授予哪些权限。"</string>
@@ -124,4 +124,6 @@
     <string name="review_button_continue" msgid="4809162078179371370">"继续"</string>
     <string name="new_permissions_category" msgid="3213523410139204183">"新权限"</string>
     <string name="current_permissions_category" msgid="998210994450606094">"当前权限"</string>
+    <string name="message_staging" msgid="6151794817691100003">"正在准备安装应用…"</string>
+    <string name="app_name_unknown" msgid="8931522764510159105">"未知"</string>
 </resources>

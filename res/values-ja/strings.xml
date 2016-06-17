@@ -42,15 +42,12 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g>をテレビにインストールできませんでした。"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g>を端末にインストールできませんでした。"</string>
     <string name="launch" msgid="4826921505917605463">"開く"</string>
-    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"インストールはブロックされました"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"タブレットのセキュリティ上の設定で、提供元不明のアプリのインストールをブロックしています。"</string>
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"セキュリティ上、お使いのテレビは提供元が不明なアプリをインストールできないように設定されています。"</string>
-    <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"携帯端末のセキュリティ上の設定で、提供元不明のアプリのインストールをブロックしています。"</string>
+    <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"モバイル端末のセキュリティ上の設定で、提供元不明のアプリのインストールをブロックしています。"</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"不明なソースから取得したアプリをインストールすることは、管理者により禁止されています。"</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"設定"</string>
-    <string name="allow_source_dlg_title" msgid="7568985073502399415">"アプリのための新しいソース"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g>が他のアプリをインストールしようとしています。\n\n今後この操作を許可しますか？"</string>
     <string name="manage_applications" msgid="4033876279091996596">"アプリを管理"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"アプリを更新しますか？"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"このアプリは既存のアプリを上書きします。\n\n過去のユーザーデータはすべて保存されます。"</string>
@@ -66,17 +63,19 @@
     <string name="uninstall_application_text" msgid="6691975835951187030">"このアプリをアンインストールしますか？"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"このアプリを"<b>"すべての"</b>"ユーザーからアンインストールしますか？このアプリとそのデータは端末の"<b>"すべての"</b>"ユーザーから削除されます。"</string>
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"<xliff:g id="USERNAME">%1$s</xliff:g>さんのアプリをアンインストールしますか？"</string>
-    <string name="uninstall_update_text" msgid="2056387942084605027">"アプリを出荷時の状態に更新しますか？"</string>
+    <string name="uninstall_update_text" msgid="1394549691152728409">"このアプリを出荷時の状態に戻しますか？データがすべて削除されます。"</string>
+    <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"このアプリを出荷時の状態に戻しますか？データがすべて削除されます。これは、仕事用プロファイルを設定しているユーザーも含めて、この端末を使用するすべてのユーザーが対象となります。"</string>
     <string name="uninstalling" msgid="5556217435895938250">"アンインストール中..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"アンインストールが完了しました。"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"アンインストールできませんでした。"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"このパッケージは現在デバイスを管理しているため、アンインストールできません。"</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"このパッケージは、現在<xliff:g id="USERNAME">%1$s</xliff:g>さんの端末を管理しているため、アンインストールできません。"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"このアプリは仕事用プロファイルに必要なため、アンインストールできません。"</string>
+    <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"このアプリは一部のユーザーやプロファイルに必要なため、アンインストールできませんでした"</string>
+    <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"このアプリはプロファイルに必要なため、アンインストールできません。"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"このアプリは端末管理者が必要としているため、アンインストールできません。"</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"デバイス管理者を管理"</string>
+    <string name="manage_users" msgid="3125018886835668847">"ユーザーを管理"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g>をアンインストールできませんでした。"</string>
-    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"解析エラー"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"パッケージの解析中に問題が発生しました。"</string>
     <string name="newPerms" msgid="6039428254474104210">"New"</string>
     <string name="allPerms" msgid="1024385515840703981">"すべて"</string>
@@ -85,12 +84,13 @@
     <string name="no_new_perms" msgid="6657813692169565975">"このアップデートでは新たな許可は必要ありません。"</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"次の権限を許可してもよろしいですか？許可すると、次にアクセスされます:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"許可しない"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"許可しない"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>/<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="APP_NAME">%1$s</xliff:g>に<xliff:g id="ACTION">%2$s</xliff:g>を許可しますか？"</string>
+    <string name="permission_warning_template" msgid="7332275268559121742">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; に「<xliff:g id="ACTION">%2$s</xliff:g>」を許可しますか？"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"許可"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"アプリ"</string>
     <string name="app_permissions" msgid="3146758905824597178">"アプリの権限"</string>
-    <string name="never_ask_again" msgid="3798895821072102967">"今後は確認しない"</string>
+    <string name="never_ask_again" msgid="1089938738199748687">"今後表示しない"</string>
     <string name="no_permissions" msgid="3210542466245591574">"権限がありません"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"その他の権限"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
@@ -116,7 +116,7 @@
     <string name="screen_overlay_message" msgid="2141944461571677331">"この権限設定を変更するには、まず[設定]&gt;[アプリ]から画面オーバーレイをOFFにします"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"設定を開く"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Wearでのインストールおよびアンインストール操作はサポートされていません。"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Wear ではインストールやアンインストールができません"</string>
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"「<xliff:g id="APP_NAME_0">%1$s</xliff:g>」が更新されました。「<xliff:g id="APP_NAME_1">%1$s</xliff:g>」に次の権限を許可しますか？"</string>
     <string name="permission_review_title_template_install" msgid="6535540493936469336">"「<xliff:g id="APP_NAME">%1$s</xliff:g>」に許可する権限の選択"</string>
     <string name="permission_review_title_template_update" msgid="2548815248828051885">"「<xliff:g id="APP_NAME">%1$s</xliff:g>」が更新されました。このアプリに許可する権限を選択してください。"</string>
@@ -124,4 +124,6 @@
     <string name="review_button_continue" msgid="4809162078179371370">"続行"</string>
     <string name="new_permissions_category" msgid="3213523410139204183">"新しい権限"</string>
     <string name="current_permissions_category" msgid="998210994450606094">"現在の権限"</string>
+    <string name="message_staging" msgid="6151794817691100003">"アプリを準備しています…"</string>
+    <string name="app_name_unknown" msgid="8931522764510159105">"不明"</string>
 </resources>

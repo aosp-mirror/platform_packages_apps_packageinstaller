@@ -42,15 +42,12 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> ei asennu televisioosi."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Sovelluksen <xliff:g id="APP_NAME">%1$s</xliff:g> asentaminen puhelimeesi ei onnistunut."</string>
     <string name="launch" msgid="4826921505917605463">"Avaa"</string>
-    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Asennus estetty"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Turv.syistä tabletti on asetettu estämään tuntemattomista lähteistä hankittujen sovell. asennus."</string>
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Turvallisuussyistä televisioosi ei voi asentaa sovelluksia, joiden lähde on tuntematon."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Turv.syistä puhelimesi on asetettu estämään tuntemattomista lähteistä hankittujen sovell. asennus."</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Järjestelmänvalvoja ei salli tuntemattomista lähteistä saatujen sovellusten asentamista."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Asetukset"</string>
-    <string name="allow_source_dlg_title" msgid="7568985073502399415">"Uusi lähde sovelluksille"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> haluaa asentaa muita sovelluksia.\n\nSallitaanko tämä nyt ja tulevaisuudessa?"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Hallinnoi sovelluksia"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Korvataanko sovellus?"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Sovellus, jota olet asentamassa, korvaa toisen sovelluksen.\n\nKaikki aikaisemmat käyttäjätiedot tallennetaan."</string>
@@ -66,17 +63,19 @@
     <string name="uninstall_application_text" msgid="6691975835951187030">"Haluatko poistaa tämän sovelluksen?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Haluatko poistaa tämän sovelluksen "<b>"kaikilta"</b>" käyttäjiltä? Sovellus ja sen tiedot poistetaan "<b>"kaikilta"</b>" laitteen käyttäjiltä."</string>
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"Haluatko poistaa tämän sovelluksen käyttäjältä <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
-    <string name="uninstall_update_text" msgid="2056387942084605027">"Haluatko korvata tämän sovelluksen tehdasversiolla?"</string>
+    <string name="uninstall_update_text" msgid="1394549691152728409">"Haluatko korvata tämän sovelluksen tehdasversiolla? Kaikki tiedot poistetaan."</string>
+    <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Haluatko korvata tämän sovelluksen tehdasversiolla? Kaikki tiedot poistetaan. Tämä vaikuttaa kaikkiin laitteen käyttäjiin, myös työprofiileihin."</string>
     <string name="uninstalling" msgid="5556217435895938250">"Poistetaan..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Poisto valmis."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Poisto epäonnistui."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Pakettia ei voi poistaa, koska se on aktiivinen laitteen ylläpitäjä."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Ei voi poistaa – paketti on käyttäjän <xliff:g id="USERNAME">%1$s</xliff:g> aktiivinen laitteen järjestelmänvalvoja."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Työprofiilisi käyttö edellyttää tätä sovellusta. Sovellusta ei voi poistaa."</string>
+    <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Jotkin käyttäjät/profiilit tarvitsevat tätä sovellusta ja se poistettiin muista."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"Profiilisi käyttö edellyttää tätä sovellusta. Sovellusta ei voi poistaa."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Laitteen järjestelmänvalvoja tarvitsee tätä sovellusta eikä sitä voi poistaa."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Hallinnoi laitteen ylläpitäjiä"</string>
+    <string name="manage_users" msgid="3125018886835668847">"Hallinnoi käyttäjiä"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Sovelluksen <xliff:g id="APP_NAME">%1$s</xliff:g> poistaminen epäonnistui"</string>
-    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Jäsennysvirhe"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Paketin jäsentämisessä esiintyi ongelma."</string>
     <string name="newPerms" msgid="6039428254474104210">"Uusi"</string>
     <string name="allPerms" msgid="1024385515840703981">"Kaikki"</string>
@@ -85,12 +84,13 @@
     <string name="no_new_perms" msgid="6657813692169565975">"Tämä päivitys ei vaadi uusia käyttöoikeuksia."</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"Haluatko antaa seuraavat käyttöoikeudet? Sovellus saa käyttöönsä nämä kohteet:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Estä"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Kiellä silti"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>/<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="5209102765005869454">"Saako <xliff:g id="APP_NAME">%1$s</xliff:g> <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_warning_template" msgid="7332275268559121742">"Sallitaanko toiminto <xliff:g id="ACTION">%2$s</xliff:g> sovellukselle &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;?"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Salli"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Sovellukset"</string>
     <string name="app_permissions" msgid="3146758905824597178">"Sovelluksen käyttöoikeudet"</string>
-    <string name="never_ask_again" msgid="3798895821072102967">"Älä kysy enää koskaan"</string>
+    <string name="never_ask_again" msgid="1089938738199748687">"Älä kysy uudestaan"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Ei käyttöoikeuksia"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Lisäkäyttöoikeudet"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
@@ -116,7 +116,7 @@
     <string name="screen_overlay_message" msgid="2141944461571677331">"Ennen kuin voit muokata tätä käyttöoikeusasetusta, sinun täytyy poistaa näytön peittokuva käytöstä Asetukset-valikon Sovellukset-kohdasta."</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Avaa Asetukset"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Wear ei tue asennus- ja poistotoimintoja."</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Wear ei tue asennus- ja poistotoimintoja."</string>
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> on päivitetty. Myönnetäänkö sovellukselle <xliff:g id="APP_NAME_1">%1$s</xliff:g> seuraavat käyttöoikeudet?"</string>
     <string name="permission_review_title_template_install" msgid="6535540493936469336">"Valitse, mitä käyttöoikeuksia haluat myöntää sovellukselle <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
     <string name="permission_review_title_template_update" msgid="2548815248828051885">"<xliff:g id="APP_NAME">%1$s</xliff:g> on päivitetty. Valitse, mitä käyttöoikeuksia haluat myöntää tälle sovellukselle."</string>
@@ -124,4 +124,6 @@
     <string name="review_button_continue" msgid="4809162078179371370">"Jatka"</string>
     <string name="new_permissions_category" msgid="3213523410139204183">"Uudet käyttöoikeudet"</string>
     <string name="current_permissions_category" msgid="998210994450606094">"Nykyiset käyttöoikeudet"</string>
+    <string name="message_staging" msgid="6151794817691100003">"Valmistellaan sovellusta…"</string>
+    <string name="app_name_unknown" msgid="8931522764510159105">"Tuntematon"</string>
 </resources>
