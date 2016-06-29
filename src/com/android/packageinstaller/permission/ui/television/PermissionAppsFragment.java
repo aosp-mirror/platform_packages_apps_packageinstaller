@@ -81,6 +81,7 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
     private boolean mHasConfirmedRevoke;
 
     private boolean mShowSystem;
+    private boolean mHasSystemApps;
     private MenuItem mShowSystemMenu;
     private MenuItem mHideSystemMenu;
 
@@ -110,11 +111,13 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        mShowSystemMenu = menu.add(Menu.NONE, MENU_SHOW_SYSTEM, Menu.NONE,
-                R.string.menu_show_system);
-        mHideSystemMenu = menu.add(Menu.NONE, MENU_HIDE_SYSTEM, Menu.NONE,
-                R.string.menu_hide_system);
-        updateMenu();
+        if (mHasSystemApps) {
+            mShowSystemMenu = menu.add(Menu.NONE, MENU_SHOW_SYSTEM, Menu.NONE,
+                    R.string.menu_show_system);
+            mHideSystemMenu = menu.add(Menu.NONE, MENU_HIDE_SYSTEM, Menu.NONE,
+                    R.string.menu_hide_system);
+            updateMenu();
+        }
     }
 
     @Override
@@ -184,6 +187,9 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
             }
         }
 
+        mHasSystemApps = false;
+        boolean menuOptionsInvalided = false;
+
         for (PermissionApp app : permissionApps.getApps()) {
             if (!Utils.shouldShowPermission(app)) {
                 continue;
@@ -197,6 +203,13 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
             }
 
             boolean isSystemApp = Utils.isSystem(app, mLauncherPkgs);
+
+            if (isSystemApp && !menuOptionsInvalided) {
+                mHasSystemApps = true;
+                getActivity().invalidateOptionsMenu();
+                menuOptionsInvalided = true;
+            }
+
             if (isSystemApp && !isTelevision && !mShowSystem) {
                 if (existingPref != null) {
                     screen.removePreference(existingPref);
