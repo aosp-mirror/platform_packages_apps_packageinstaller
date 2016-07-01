@@ -42,15 +42,12 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"‏<xliff:g id="APP_NAME">%1$s</xliff:g> کو آپ کے TV پر انسٹال نہیں کیا جا سکا۔"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> کو آپ کے فون پر انسٹال نہیں کیا جا سکا۔"</string>
     <string name="launch" msgid="4826921505917605463">"کھولیں"</string>
-    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"انسٹال کرنے کو مسدود کردیا گیا"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"سیکیورٹی کے مدنظر، آپ کا ٹیبلٹ نامعلوم مآخذ سے حاصل شدہ ایپس کی انسٹالیشن مسدود کرنے پر سیٹ ہے۔"</string>
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"‏سیکیورٹی کیلئے، آپ کا TV نامعلوم مآخذ سے حاصل کردہ ایپس کا انسٹالیشن مسدود کرنے پر سیٹ ہے۔"</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"سیکیورٹی کے مدنظر، آپ کا فون نامعلوم مآخذ سے حاصل شدہ ایپس کی انسٹالیشن مسدود کرنے پر سیٹ ہے۔"</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"آپ کا منتظم نامعلوم ذرائع سے اخذ کردہ ایپس کو انسٹال کرنے کی اجازت نہیں دیتا ہے۔"</string>
     <string name="ok" msgid="3468756155452870475">"ٹھیک ہے"</string>
     <string name="settings" msgid="6743583734099755409">"ترتیبات"</string>
-    <string name="allow_source_dlg_title" msgid="7568985073502399415">"ایپس کیلئے نیا ماخذ"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> دیگر ایپس انسٹال کرنا چاہتی ہے۔\n\nاسے ابھی اور آئندہ کیلئے اجازت دیں؟"</string>
     <string name="manage_applications" msgid="4033876279091996596">"ایپس کا نظم کریں"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"ایپ کو بدلیں؟"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"آپ جو ایپ انسٹال کر رہے ہیں وہ دوسری ایپ کی جگہ لے لے گی۔\n\nآپ کا سبھی پچھلا صارف کا ڈیٹا محفوظ رہے گا۔"</string>
@@ -66,17 +63,19 @@
     <string name="uninstall_application_text" msgid="6691975835951187030">"کیا آپ یہ ایپ اَن انسٹال کرنا چاہتے ہیں؟"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"کیا آپ "<b>"سبھی"</b>" صارفین کیلئے یہ ایپ اَن انسٹال کرنا چاہتے ہیں؟ ایپلیکیشن اور اس کا ڈیٹا آلے پر موجود "<b>"سبھی"</b>" صارفین سے ہٹا دیا جائے گا۔"</string>
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"کیا آپ اس ایپ کو صارف <xliff:g id="USERNAME">%1$s</xliff:g> کیلئے اَن انسٹال کرنا چاہتے ہیں؟"</string>
-    <string name="uninstall_update_text" msgid="2056387942084605027">"کیا آپ اس ایپ کو فیکٹری ورژن کے ساتھ تبدیل کرنا چاہتے ہیں؟"</string>
+    <string name="uninstall_update_text" msgid="1394549691152728409">"اس ایپ کو فیکٹری ورژن سے تبدیل کریں؟ تمام ڈیٹا ہٹا دیا جائے گا۔"</string>
+    <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"اس ایپ کو فیکٹری ورژن سے تبدیل کریں؟ تمام ڈیٹا ہٹا دیا جائے گا۔ اس سے اس آلہ کے تمام صارف متاثر ہوں گے بشمول ان کے جن کے پاس دفتری پروفائلز ہیں۔"</string>
     <string name="uninstalling" msgid="5556217435895938250">"اَن انسٹال ہو رہا ہے…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"اَن انسٹال پورا ہوگیا۔"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"اَن انسٹال ناکام۔"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"اَن انسٹال نہیں کر سکتا کیونکہ یہ پیکیج ایک فعال آلے کا منتظم ہے۔"</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"اَن انسٹال نہیں کیا جا سکتا کیونکہ یہ پیکیج صارف <xliff:g id="USERNAME">%1$s</xliff:g> کیلئے فعال آلہ کا منتظم ہے۔"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"یہ ایپ آپ کے دفتری پروفائل کیلئے درکار ہے اور اسے اَن انسٹال نہیں کیا جا سکتا۔"</string>
+    <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"یہ ایپ کچھ صارفین اور پروفائلوں کیلئے درکار ہے اور دیگر کیلئے ان انسٹال ہو گئی"</string>
+    <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"یہ ایپ آپ کے پروفائل کیلئے درکار ہے اور یہ ان انسٹال نہیں ہو سکتی۔"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"یہ ایپ آپ کے آلہ کے منتظم کو درکار ہے اور اسے اَن انسٹال نہیں کیا جا سکتا ہے۔"</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"آلہ کے منتظمین کا نظم کریں"</string>
+    <string name="manage_users" msgid="3125018886835668847">"صارفین کا نظم کریں"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> کو اَن انسٹال نہیں کیا جا سکا۔"</string>
-    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"پارس سے متعلق خرابی"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"پیکیج کو پارس کرنے میں ایک دشواری پیش آگئی۔"</string>
     <string name="newPerms" msgid="6039428254474104210">"نئی"</string>
     <string name="allPerms" msgid="1024385515840703981">"سبھی"</string>
@@ -85,12 +84,13 @@
     <string name="no_new_perms" msgid="6657813692169565975">"اس اپ ڈیٹ کو کوئی نئی اجازتیں درکار نہیں۔"</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"کیا آپ مندرجہ ذیل اجازتیں دینا چاہتے ہیں؟ اس سے اس تک رسائی حاصل ہو جائے گی:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"مسترد کریں"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"بہرصورت انکار کریں"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> از <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="5209102765005869454">"<xliff:g id="APP_NAME">%1$s</xliff:g> کو \"<xliff:g id="ACTION">%2$s</xliff:g>\" کی اجازت دیں؟"</string>
+    <string name="permission_warning_template" msgid="7332275268559121742">"‏&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; کو <xliff:g id="ACTION">%2$s</xliff:g> کی اجازت دیں؟"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"اجازت دیں"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"ایپس"</string>
     <string name="app_permissions" msgid="3146758905824597178">"ایپ کی اجازتیں"</string>
-    <string name="never_ask_again" msgid="3798895821072102967">"دوبارہ کبھی نہ پوچھیں"</string>
+    <string name="never_ask_again" msgid="1089938738199748687">"دوبارہ مت پوچھیں"</string>
     <string name="no_permissions" msgid="3210542466245591574">"کوئی اجازتیں نہیں ہیں"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"اضافی اجازتیں"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
@@ -116,7 +116,7 @@
     <string name="screen_overlay_message" msgid="2141944461571677331">"‏اس اجازت کی ترتیب کو تبدیل کرنے کیلئے آپ کو پہلے ترتیبات &gt; Apps سے سکرین اورلے آف کرنا ہوگا"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"ترتیبات کھولیں"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"‏Wear پر غیر تعاون یافتہ کاروائیاں انسٹال/ان انسٹال کریں۔"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"‏\'کاروائیاں انسٹال/ان انسٹال کریں\' Wear پر تعاون یافتہ نہیں ہے۔"</string>
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> اپ ڈیٹ ہو گئی ہے۔ <xliff:g id="APP_NAME_1">%1$s</xliff:g> کو مندرجہ ذیل تک رسائی کی اجازت دیں؟"</string>
     <string name="permission_review_title_template_install" msgid="6535540493936469336">"انتخاب کریں کہ <xliff:g id="APP_NAME">%1$s</xliff:g> کو کس تک رسائی کی اجازت دینی ہے"</string>
     <string name="permission_review_title_template_update" msgid="2548815248828051885">"<xliff:g id="APP_NAME">%1$s</xliff:g> اپ ڈیٹ ہو گئی ہے۔ انتخاب کریں کہ اس ایپ کو کس تک رسائی کی اجازت دینی ہے۔"</string>
@@ -124,4 +124,6 @@
     <string name="review_button_continue" msgid="4809162078179371370">"جاری رکھیں"</string>
     <string name="new_permissions_category" msgid="3213523410139204183">"نئی اجازتیں"</string>
     <string name="current_permissions_category" msgid="998210994450606094">"موجودہ اجازتیں"</string>
+    <string name="message_staging" msgid="6151794817691100003">"ایپ کی مرحلہ بندی ہو رہی ہے…"</string>
+    <string name="app_name_unknown" msgid="8931522764510159105">"نامعلوم"</string>
 </resources>
