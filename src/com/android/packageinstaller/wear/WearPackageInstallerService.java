@@ -195,13 +195,15 @@ public class WearPackageInstallerService extends Service {
         int companionSdkVersion = WearPackageArgs.getCompanionSdkVersion(argsBundle);
         int companionDeviceVersion = WearPackageArgs.getCompanionDeviceVersion(argsBundle);
         String compressionAlg = WearPackageArgs.getCompressionAlg(argsBundle);
+        boolean skipIfLowerVersion = WearPackageArgs.skipIfLowerVersion(argsBundle);
 
         if (Log.isLoggable(TAG, Log.DEBUG)) {
             Log.d(TAG, "Installing package: " + packageName + ", assetUri: " + assetUri +
                     ",permUri: " + permUri + ", startId: " + startId + ", checkPerms: " +
                     checkPerms + ", skipIfSameVersion: " + skipIfSameVersion +
                     ", compressionAlg: " + compressionAlg + ", companionSdkVersion: " +
-                    companionSdkVersion + ", companionDeviceVersion: " + companionDeviceVersion);
+                    companionSdkVersion + ", companionDeviceVersion: " + companionDeviceVersion +
+                    ", skipIfLowerVersion: " + skipIfLowerVersion);
         }
         final PackageManager pm = getPackageManager();
         File tempFile = null;
@@ -266,9 +268,17 @@ public class WearPackageInstallerService extends Service {
                                 ") is equal to existing app for " + packageName);
                     }
                 } else if (existingPkgInfo.versionCode > pkg.mVersionCode) {
-                    Log.w(TAG, "Version number of new app (" + pkg.mVersionCode +
-                            ") is lower than existing app ( " + existingPkgInfo.versionCode +
-                            ") for " + packageName);
+                    if (skipIfLowerVersion) {
+                        // Starting in Feldspar, we are not going to allow downgrades of any app.
+                        Log.w(TAG, "Version number of new app (" + pkg.mVersionCode +
+                                ") is lower than existing app ( " + existingPkgInfo.versionCode +
+                                ") for " + packageName + "; not installing due to versionCheck");
+                        return;
+                    } else {
+                        Log.w(TAG, "Version number of new app (" + pkg.mVersionCode +
+                                ") is lower than existing app ( " + existingPkgInfo.versionCode +
+                                ") for " + packageName);
+                    }
                 }
 
                 // Following the Android Phone model, we should only check for permissions for any

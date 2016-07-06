@@ -45,6 +45,8 @@ public class WearPackageArgs {
             "com.google.android.clockwork.EXTRA_KEY_COMPANION_DEVICE_VERSION";
     private static final String KEY_SHOULD_CHECK_GMS_DEPENDENCY =
             "com.google.android.clockwork.EXTRA_KEY_SHOULD_CHECK_GMS_DEPENDENCY";
+    private static final String KEY_SKIP_IF_LOWER_VERSION =
+            "com.google.android.clockwork.EXTRA_SKIP_IF_LOWER_VERSION";
 
     public static String getPackageName(Bundle b) {
         return b.getString(KEY_PACKAGE_NAME);
@@ -85,6 +87,10 @@ public class WearPackageArgs {
 
     public static int getStartId(Bundle b) {
         return b.getInt(KEY_START_ID);
+    }
+
+    public static boolean skipIfLowerVersion(Bundle b) {
+        return b.getBoolean(KEY_SKIP_IF_LOWER_VERSION, false);
     }
 
     public static Bundle setStartId(Bundle b, int startId) {
