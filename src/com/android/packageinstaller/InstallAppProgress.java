@@ -34,6 +34,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageInstaller;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.pm.PackageParser;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
@@ -352,6 +353,13 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
             params.originatingUri = getIntent().getParcelableExtra(Intent.EXTRA_ORIGINATING_URI);
             params.originatingUid = getIntent().getIntExtra(Intent.EXTRA_ORIGINATING_UID,
                     UID_UNKNOWN);
+
+            File file = new File(mPackageURI.getPath());
+            try {
+                params.setInstallLocation(PackageParser.parsePackageLite(file, 0).installLocation);
+            } catch (PackageParser.PackageParserException e) {
+                Log.e(TAG, "Cannot parse package " + file + ". Assuming defaults.");
+            }
 
             mInstallHandler.post(new Runnable() {
                 @Override
