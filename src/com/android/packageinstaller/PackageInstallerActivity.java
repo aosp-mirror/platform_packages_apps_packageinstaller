@@ -37,6 +37,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Process;
 import android.os.UserManager;
 import android.provider.Settings;
 import android.support.v4.view.ViewPager;
@@ -360,8 +361,8 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     /**
      * @return whether the device admin restricts installation from unknown sources
      */
-    private boolean isUnknownSourcesAllowedByAdmin() {
-        return !mUserManager.hasUserRestriction(UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES);
+    private boolean isUnknownSourcesDisallowed() {
+        return mUserManager.hasUserRestriction(UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES);
     }
 
     private void initiateInstall() {
@@ -463,9 +464,14 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         // If the admin prohibits it, or we're running in a managed profile, just show error
         // and exit. Otherwise show an option to take the user to Settings to change the setting.
         final boolean isManagedProfile = mUserManager.isManagedProfile();
-        if (!isUnknownSourcesAllowedByAdmin()) {
-            startActivity(new Intent(Settings.ACTION_SHOW_ADMIN_SUPPORT_DETAILS));
-            clearCachedApkIfNeededAndFinish();
+        if (isUnknownSourcesDisallowed()) {
+            if ((mUserManager.getUserRestrictionSource(UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES,
+                    Process.myUserHandle()) & UserManager.RESTRICTION_SOURCE_SYSTEM) != 0) {
+                showDialogInner(DLG_UNKNOWN_SOURCES);
+            } else {
+                startActivity(new Intent(Settings.ACTION_SHOW_ADMIN_SUPPORT_DETAILS));
+                clearCachedApkIfNeededAndFinish();
+            }
         } else if (!isUnknownSourcesEnabled() && isManagedProfile) {
             showDialogInner(DLG_ADMIN_RESTRICTS_UNKNOWN_SOURCES);
         } else if (!isUnknownSourcesEnabled()) {
