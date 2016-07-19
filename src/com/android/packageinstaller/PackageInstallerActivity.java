@@ -748,8 +748,8 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                         out.write(buffer, 0, bytesRead);
                     }
                 }
-            } catch (IOException ioe) {
-                Log.w(TAG, "Error staging apk from content URI", ioe);
+            } catch (IOException | SecurityException e) {
+                Log.w(TAG, "Error staging apk from content URI", e);
                 if (sourceFile != null) {
                     sourceFile.delete();
                 }
