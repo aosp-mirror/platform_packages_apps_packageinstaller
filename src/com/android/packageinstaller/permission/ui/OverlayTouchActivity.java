@@ -40,6 +40,8 @@ public class OverlayTouchActivity extends Activity {
         if (appOpsManager != null) {
             appOpsManager.setUserRestriction(AppOpsManager.OP_SYSTEM_ALERT_WINDOW,
                     !allowed, mToken);
+            appOpsManager.setUserRestriction(AppOpsManager.OP_TOAST_WINDOW,
+                    !allowed, mToken);
         }
     }
 }
