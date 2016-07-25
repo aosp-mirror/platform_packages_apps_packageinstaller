@@ -83,7 +83,9 @@ public final class AppPermissions {
     }
 
     public boolean isReviewRequired() {
-        if (!Build.PERMISSIONS_REVIEW_REQUIRED) {
+        if (!mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_permissionReviewRequired)
+                && !Build.PERMISSIONS_REVIEW_REQUIRED) {
             return false;
         }
         final int groupCount = mGroups.size();
