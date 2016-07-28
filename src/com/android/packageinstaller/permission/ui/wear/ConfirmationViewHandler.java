@@ -140,7 +140,10 @@ public abstract class ConfirmationViewHandler implements
         } else {
             mIcon.setVisibility(View.GONE);
         }
-        mMessage.setText(getMessage());
+
+        CharSequence messageString = getMessage();
+        mMessage.setText(messageString);
+        mRoot.announceForAccessibility(messageString);
 
         switch (getButtonBarMode()) {
             case MODE_HORIZONTAL_BUTTONS:
