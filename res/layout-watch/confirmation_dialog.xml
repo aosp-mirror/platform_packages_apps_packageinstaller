@@ -85,7 +85,8 @@
                 android:layout_gravity="top|left"
                 android:layout_marginLeft="@dimen/conf_diag_2button_margin_side"
                 android:layout_marginTop="@dimen/conf_diag_2button_margin_top"
-                android:background="@drawable/cancel_button"/>
+                android:background="@drawable/cancel_button"
+                android:contentDescription="@string/grant_dialog_button_deny"/>
 
             <Button
                 android:id="@+id/permission_allow_button"
@@ -94,7 +95,8 @@
                 android:layout_gravity="top|right"
                 android:layout_marginRight="@dimen/conf_diag_2button_margin_side"
                 android:layout_marginTop="@dimen/conf_diag_2button_margin_top"
-                android:background="@drawable/confirm_button"/>
+                android:background="@drawable/confirm_button"
+                android:contentDescription="@string/grant_dialog_button_allow"/>
         </FrameLayout>
 
         <FrameLayout
