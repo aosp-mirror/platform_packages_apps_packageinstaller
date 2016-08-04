@@ -337,7 +337,7 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
                 if (mResultListener != null) {
                     view.clearAccessibilityFocus();
                     mResultListener.onPermissionGrantResult(mGroupName, false,
-                            mDoNotAskCheckbox.isChecked());
+                            mShowDonNotAsk && mDoNotAskCheckbox.isChecked());
                 }
                 break;
             case R.id.do_not_ask_checkbox:
