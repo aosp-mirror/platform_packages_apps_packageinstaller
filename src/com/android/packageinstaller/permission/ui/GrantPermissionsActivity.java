@@ -49,6 +49,7 @@ import com.android.packageinstaller.permission.ui.handheld.GrantPermissionsViewH
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -92,6 +93,7 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
 
         final int requestedPermCount = mRequestedPermissions.length;
         mGrantResults = new int[requestedPermCount];
+        Arrays.fill(mGrantResults, PackageManager.PERMISSION_DENIED);
 
         if (requestedPermCount == 0) {
             setResultAndFinish();
