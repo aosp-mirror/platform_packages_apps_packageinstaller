@@ -34,14 +34,13 @@ import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.preference.TwoStatePreference;
-import android.text.SpannableString;
 import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
-import android.util.TypedValue;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toolbar;
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
@@ -92,15 +91,12 @@ public final class ReviewPermissionsActivity extends Activity
     }
 
     public static final class ReviewPermissionsFragment extends PreferenceFragment
-            implements View.OnClickListener, Preference.OnPreferenceChangeListener,
+            implements Preference.OnPreferenceChangeListener,
             ConfirmActionDialogFragment.OnActionConfirmedListener {
         public static final String EXTRA_PACKAGE_INFO =
                 "com.android.packageinstaller.permission.ui.extra.PACKAGE_INFO";
 
         private AppPermissions mAppPermissions;
-
-        private Button mContinueButton;
-        private Button mCancelButton;
 
         private PreferenceCategory mNewPermissionsCategory;
 
@@ -170,22 +166,6 @@ public final class ReviewPermissionsActivity extends Activity
         }
 
         @Override
-        public void onClick(View view) {
-            Activity activity = getActivity();
-            if (activity == null) {
-                return;
-            }
-            if (view == mContinueButton) {
-                confirmPermissionsReview();
-                executeCallback(true);
-            } else if (view == mCancelButton) {
-                executeCallback(false);
-                activity.setResult(Activity.RESULT_CANCELED);
-            }
-            activity.finish();
-        }
-
-        @Override
         public boolean onPreferenceChange(Preference preference, Object newValue) {
             if (mHasConfirmedRevoke) {
                 return true;
@@ -244,41 +224,47 @@ public final class ReviewPermissionsActivity extends Activity
                 return;
             }
 
-            // Set icon
-            Drawable icon = mAppPermissions.getPackageInfo().applicationInfo.loadIcon(
-                    activity.getPackageManager());
-            ImageView iconView = (ImageView) activity.findViewById(R.id.app_icon);
-            iconView.setImageDrawable(icon);
-
             // Set message
             String appLabel = mAppPermissions.getAppLabel().toString();
             final int labelTemplateResId = isPackageUpdated()
-                    ?  R.string.permission_review_title_template_update
-                    :  R.string.permission_review_title_template_install;
-            SpannableString message = new SpannableString(getString(labelTemplateResId, appLabel));
+                    ?  R.string.permission_review_message_template_update
+                    :  R.string.permission_review_message_template_install;
+            String message = getString(labelTemplateResId, appLabel);
+
             // Set the permission message as the title so it can be announced.
-            activity.setTitle(message);
+            ((TextView)activity.findViewById(R.id.message)).setText(message);
 
-            // Color the app name.
-            final int appLabelStart = message.toString().indexOf(appLabel, 0);
-            final int appLabelLength = appLabel.length();
+            Toolbar toolbar = (Toolbar) activity.findViewById(R.id.toolbar);
+            toolbar.setNavigationIcon(R.drawable.ic_close);
+            toolbar.setNavigationOnClickListener(view -> {
+                executeCallback(false);
+                activity.setResult(Activity.RESULT_CANCELED);
+                activity.finish();
+            });
+            activity.setActionBar(toolbar);
 
-            TypedValue typedValue = new TypedValue();
-            activity.getTheme().resolveAttribute(android.R.attr.colorAccent, typedValue, true);
-            final int color = activity.getColor(typedValue.resourceId);
+            setHasOptionsMenu(true);
+        }
 
-            message.setSpan(new ForegroundColorSpan(color), appLabelStart,
-                    appLabelStart + appLabelLength, 0);
-            TextView permissionsMessageView = (TextView) activity.findViewById(
-                    R.id.permissions_message);
-            permissionsMessageView.setText(message);
+        @Override
+        public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+            menu.clear();
+            menu.add(R.string.review_button_continue);
+            menu.getItem(0).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        }
 
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            Activity activity = getActivity();
+            if (activity == null) {
+                return false;
+            }
 
-            mContinueButton = (Button) getActivity().findViewById(R.id.continue_button);
-            mContinueButton.setOnClickListener(this);
+            confirmPermissionsReview();
+            executeCallback(true);
+            activity.finish();
 
-            mCancelButton = (Button) getActivity().findViewById(R.id.cancel_button);
-            mCancelButton.setOnClickListener(this);
+            return true;
         }
 
         private void loadPreferences() {

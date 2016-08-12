@@ -278,12 +278,14 @@
         Allow <xliff:g id="app_name" example="Gmail">%1$s</xliff:g> to
         access the following?</string>
 
-    <!-- Template for the screen title when app permissions are reviewed on install. -->
-    <string name="permission_review_title_template_install">Choose what to allow
+    <string name="permission_review_title">Permissions</string>
+
+    <!-- Template for the message when app permissions are reviewed on install. -->
+    <string name="permission_review_message_template_install">Choose what to allow
         <xliff:g id="app_name" example="Gmail">%1$s</xliff:g> to access</string>
 
-    <!-- Template for the screen title when app permissions are reviewed on update. -->
-    <string name="permission_review_title_template_update">
+    <!-- Template for the message when app permissions are reviewed on update. -->
+    <string name="permission_review_message_template_update">
         <xliff:g id="app_name" example="Gmail">%1$s</xliff:g> has been updated.
         Choose what to allow this app to access.</string>
 

@@ -33,4 +33,10 @@
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
+    <style name="ReviewPermissions"
+            parent="@android:style/Theme.DeviceDefault.Light.DarkActionBar">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
 </resources>

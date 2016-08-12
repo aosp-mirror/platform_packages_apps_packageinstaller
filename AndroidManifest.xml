@@ -99,7 +99,8 @@
 
         <activity android:name=".permission.ui.ReviewPermissionsActivity"
                   android:excludeFromRecents="true"
-                  android:theme="@style/Settings.NoActionBar"
+                  android:label="@string/permission_review_title"
+                  android:theme="@style/ReviewPermissions"
                   android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS">
             <intent-filter>
                 <action android:name="android.intent.action.REVIEW_PERMISSIONS" />
