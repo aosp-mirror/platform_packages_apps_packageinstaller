@@ -195,6 +195,10 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
                 continue;
             }
 
+            if (!app.getAppInfo().enabled) {
+                continue;
+            }
+
             String key = app.getKey();
             preferencesToRemove.remove(key);
             Preference existingPref = screen.findPreference(key);
