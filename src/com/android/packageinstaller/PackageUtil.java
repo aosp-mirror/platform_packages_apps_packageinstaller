@@ -17,7 +17,9 @@
 
 package com.android.packageinstaller;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -38,6 +40,7 @@ import java.util.List;
  * This is a utility class for defining some utility methods and constants
  * used in the package installer application.
  */
+@SuppressLint("NewApi")
 public class PackageUtil {
     public static final String PREFIX="com.android.packageinstaller.";
     public static final String INTENT_ATTR_INSTALL_STATUS = PREFIX+"installStatus";
@@ -74,7 +77,7 @@ public class PackageUtil {
      * @param componentInfo ComponentInfo object whose resources are to be loaded
      * @param snippetView the snippet view
      */
-    public static View initSnippetForInstalledApp(Activity pContext,
+    public static View initSnippetForInstalledApp(Context pContext,
             ApplicationInfo appInfo, View snippetView) {
         return initSnippetForInstalledApp(pContext, appInfo, snippetView, null);
     }
@@ -90,7 +93,7 @@ public class PackageUtil {
      * @param snippetView the snippet view
      * @param UserHandle user that the app si installed for.
      */
-    public static View initSnippetForInstalledApp(Activity pContext,
+    public static View initSnippetForInstalledApp(Context pContext,
             ApplicationInfo appInfo, View snippetView, UserHandle user) {
         final PackageManager pm = pContext.getPackageManager();
         Drawable icon = appInfo.loadIcon(pm);
