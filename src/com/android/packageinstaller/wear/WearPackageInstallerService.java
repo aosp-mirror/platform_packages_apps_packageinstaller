@@ -298,16 +298,6 @@ public class WearPackageInstallerService extends Service {
                 }
             }
 
-            // Check permissions on both the new wearable package and also on the already installed
-            // wearable package.
-            // If the app is targeting API level 23, we will also start a service in ClockworkHome
-            // which will ultimately prompt the user to accept/reject permissions.
-            if (checkPerms && !checkPermissions(pkg, companionSdkVersion, companionDeviceVersion,
-                    permUri, wearablePerms, tempFile)) {
-                Log.w(TAG, "Wearable does not have enough permissions.");
-                return;
-            }
-
             // Check that the wearable has all the features.
             boolean hasAllFeatures = true;
             if (pkg.reqFeatures != null) {
@@ -322,6 +312,16 @@ public class WearPackageInstallerService extends Service {
             }
 
             if (!hasAllFeatures) {
+                return;
+            }
+
+            // Check permissions on both the new wearable package and also on the already installed
+            // wearable package.
+            // If the app is targeting API level 23, we will also start a service in ClockworkHome
+            // which will ultimately prompt the user to accept/reject permissions.
+            if (checkPerms && !checkPermissions(pkg, companionSdkVersion, companionDeviceVersion,
+                    permUri, wearablePerms, tempFile)) {
+                Log.w(TAG, "Wearable does not have enough permissions.");
                 return;
             }
 
