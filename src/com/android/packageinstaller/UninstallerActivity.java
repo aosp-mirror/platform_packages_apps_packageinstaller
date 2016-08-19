@@ -28,6 +28,7 @@ import android.content.pm.IPackageDeleteObserver2;
 import android.content.pm.IPackageManager;
 import android.content.pm.PackageInstaller;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -38,6 +39,8 @@ import android.util.Log;
 
 import com.android.packageinstaller.handheld.AppNotFoundDialogFragment;
 import com.android.packageinstaller.handheld.UninstallAlertDialogFragment;
+import com.android.packageinstaller.television.AppNotFoundFragment;
+import com.android.packageinstaller.television.UninstallAlertFragment;
 
 /*
  * This activity presents UI to uninstall an application. Usually launched with intent
@@ -125,11 +128,30 @@ public class UninstallerActivity extends Activity {
     }
 
     private void showConfirmationDialog() {
-        showDialogFragment(new UninstallAlertDialogFragment());
+        if (isTv()) {
+            showContentFragment(new UninstallAlertFragment());
+        } else {
+            showDialogFragment(new UninstallAlertDialogFragment());
+        }
     }
 
     private void showAppNotFound() {
-        showDialogFragment(new AppNotFoundDialogFragment());
+        if (isTv()) {
+            showContentFragment(new AppNotFoundFragment());
+        } else {
+            showDialogFragment(new AppNotFoundDialogFragment());
+        }
+    }
+
+    private boolean isTv() {
+        return (getResources().getConfiguration().uiMode & Configuration.UI_MODE_TYPE_MASK)
+                == Configuration.UI_MODE_TYPE_TELEVISION;
+    }
+
+    private void showContentFragment(Fragment fragment) {
+        getFragmentManager().beginTransaction()
+                .replace(android.R.id.content, fragment)
+                .commit();
     }
 
     private void showDialogFragment(DialogFragment fragment) {
