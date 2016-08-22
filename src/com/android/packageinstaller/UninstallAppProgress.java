@@ -16,7 +16,6 @@
 */
 package com.android.packageinstaller;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.admin.IDevicePolicyManager;
 import android.content.Context;
@@ -55,7 +54,6 @@ import java.util.List;
  * by an intent with the intent's class name explicitly set to UninstallAppProgress and expects
  * the application object of the application to uninstall.
  */
-@SuppressLint("NewApi")
 public class UninstallAppProgress extends Activity {
     private static final String TAG = "UninstallAppProgress";
 

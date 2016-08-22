@@ -17,7 +17,6 @@
 package com.android.packageinstaller.handheld;
 
 import android.annotation.Nullable;
-import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -33,7 +32,6 @@ import com.android.packageinstaller.PackageUtil;
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.UninstallAppProgress;
 
-@SuppressLint("NewApi")
 public class UninstallAppProgressFragment extends Fragment implements View.OnClickListener,
         UninstallAppProgress.ProgressFragment {
     private static final String TAG = "UninstallAppProgressF"; // full class name is too long
