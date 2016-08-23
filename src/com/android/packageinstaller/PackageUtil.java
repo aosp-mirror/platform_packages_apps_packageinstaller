@@ -17,7 +17,6 @@
 
 package com.android.packageinstaller;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
@@ -28,10 +27,10 @@ import android.content.pm.PackageParser.PackageParserException;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.os.UserHandle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.os.UserHandle;
 
 import java.io.File;
 import java.util.List;
@@ -40,7 +39,6 @@ import java.util.List;
  * This is a utility class for defining some utility methods and constants
  * used in the package installer application.
  */
-@SuppressLint("NewApi")
 public class PackageUtil {
     public static final String PREFIX="com.android.packageinstaller.";
     public static final String INTENT_ATTR_INSTALL_STATUS = PREFIX+"installStatus";

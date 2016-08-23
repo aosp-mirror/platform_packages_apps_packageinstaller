@@ -16,7 +16,6 @@
 
 package com.android.packageinstaller.handheld;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -30,7 +29,6 @@ import android.os.UserManager;
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.UninstallerActivity;
 
-@SuppressLint("NewApi")
 public class UninstallAlertDialogFragment extends DialogFragment implements
         DialogInterface.OnClickListener {
 

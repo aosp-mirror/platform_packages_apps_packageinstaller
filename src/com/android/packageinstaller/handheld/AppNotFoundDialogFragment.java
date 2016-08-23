@@ -16,7 +16,6 @@
 
 package com.android.packageinstaller.handheld;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -27,7 +26,6 @@ import android.os.Bundle;
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.UninstallerActivity;
 
-@SuppressLint("NewApi")
 public class AppNotFoundDialogFragment extends DialogFragment {
 
     @Override
