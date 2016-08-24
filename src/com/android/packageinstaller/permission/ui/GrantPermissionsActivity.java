@@ -196,10 +196,12 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
         // window height needed to show all content. We have to
         // re-add the window to force it to be resized if needed.
         View decor = getWindow().getDecorView();
-        getWindowManager().removeViewImmediate(decor);
-        getWindowManager().addView(decor, decor.getLayoutParams());
-        if (mViewHandler instanceof GrantPermissionsViewHandlerImpl) {
-            ((GrantPermissionsViewHandlerImpl) mViewHandler).onConfigurationChanged();
+        if (decor.getParent() != null) {
+            getWindowManager().removeViewImmediate(decor);
+            getWindowManager().addView(decor, decor.getLayoutParams());
+            if (mViewHandler instanceof GrantPermissionsViewHandlerImpl) {
+                ((GrantPermissionsViewHandlerImpl) mViewHandler).onConfigurationChanged();
+            }
         }
     }
 
