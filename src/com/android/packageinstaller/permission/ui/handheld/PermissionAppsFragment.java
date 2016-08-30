@@ -177,6 +177,8 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
             setPreferenceScreen(screen);
         }
 
+        screen.setOrderingAsAdded(false);
+
         ArraySet<String> preferencesToRemove = new ArraySet<>();
         for (int i = 0, n = screen.getPreferenceCount(); i < n; i++) {
             preferencesToRemove.add(screen.getPreference(i).getKey());
