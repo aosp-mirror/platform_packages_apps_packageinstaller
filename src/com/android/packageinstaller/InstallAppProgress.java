@@ -358,7 +358,7 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
             File file = new File(mPackageURI.getPath());
             try {
                 PackageLite pkg = PackageParser.parsePackageLite(file, 0);
-                params.sessionParams.setAppPackageName(pkg.packageName);
+                params.setAppPackageName(pkg.packageName);
                 params.setInstallLocation(pkg.installLocation);
             } catch (PackageParser.PackageParserException e) {
                 Log.e(TAG, "Cannot parse package " + file + ". Assuming defaults.");
