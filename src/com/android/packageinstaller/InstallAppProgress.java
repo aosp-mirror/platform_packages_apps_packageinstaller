@@ -50,6 +50,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.android.packageinstaller.permission.utils.IoUtils;
 
+import com.android.internal.content.PackageHelper;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -360,8 +362,15 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
                 PackageLite pkg = PackageParser.parsePackageLite(file, 0);
                 params.setAppPackageName(pkg.packageName);
                 params.setInstallLocation(pkg.installLocation);
+                params.setSize(
+                    PackageHelper.calculateInstalledSize(pkg, false, params.abiOverride));
             } catch (PackageParser.PackageParserException e) {
                 Log.e(TAG, "Cannot parse package " + file + ". Assuming defaults.");
+                Log.e(TAG, "Cannot calculate installed size " + file + ". Try only apk size.");
+                params.setSize(file.length());
+            } catch (IOException e) {
+                Log.e(TAG, "Cannot calculate installed size " + file + ". Try only apk size.");
+                params.setSize(file.length());
             }
 
             mInstallHandler.post(new Runnable() {
