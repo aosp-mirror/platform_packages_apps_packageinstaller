@@ -16,7 +16,8 @@
 
 package com.android.packageinstaller.permission.ui.handheld;
 
-import android.content.Context;
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -34,6 +35,7 @@ import android.widget.TextView;
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.ui.ButtonBarLayout;
 import com.android.packageinstaller.permission.ui.GrantPermissionsViewHandler;
+import com.android.packageinstaller.permission.ui.ManagePermissionsActivity;
 import com.android.packageinstaller.permission.ui.ManualLayoutFrame;
 
 public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHandler,
@@ -51,7 +53,9 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
     private static final long OUT_DURATION = 200;
     private static final long IN_DURATION = 300;
 
-    private final Context mContext;
+    private final Activity mActivity;
+    private final String mAppPackageName;
+    private final boolean mPermissionReviewRequired;
 
     private ResultListener mResultListener;
 
@@ -68,6 +72,7 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
     private TextView mMessageView;
     private CheckBox mDoNotAskCheckbox;
     private Button mAllowButton;
+    private Button mMoreInfoButton;
 
     private ManualLayoutFrame mRootView;
 
@@ -77,8 +82,11 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
     private ViewGroup mDialogContainer;
     private ButtonBarLayout mButtonBar;
 
-    public GrantPermissionsViewHandlerImpl(Context context) {
-        mContext = context;
+    public GrantPermissionsViewHandlerImpl(Activity activity, String appPackageName) {
+        mActivity = activity;
+        mAppPackageName = appPackageName;
+        mPermissionReviewRequired = activity.getResources().getBoolean(
+                com.android.internal.R.bool.config_permissionReviewRequired);
     }
 
     @Override
@@ -140,7 +148,7 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
 
     private void animateOldContent(Runnable callback) {
         // Fade out old description group and scale out the icon for it.
-        Interpolator interpolator = AnimationUtils.loadInterpolator(mContext,
+        Interpolator interpolator = AnimationUtils.loadInterpolator(mActivity,
                 android.R.interpolator.fast_out_linear_in);
 
         // Icon scale to zero
@@ -170,7 +178,7 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
     }
 
     private void attachNewContent(final Runnable callback) {
-        mCurrentDesc = (ViewGroup) LayoutInflater.from(mContext).inflate(
+        mCurrentDesc = (ViewGroup) LayoutInflater.from(mActivity).inflate(
                 R.layout.permission_description, mDescContainer, false);
         mDescContainer.removeAllViews();
         mDescContainer.addView(mCurrentDesc);
@@ -200,7 +208,7 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
                     mDescContainer.animate()
                             .translationY(0)
                             .scaleY(1.0f)
-                            .setInterpolator(AnimationUtils.loadInterpolator(mContext,
+                            .setInterpolator(AnimationUtils.loadInterpolator(mActivity,
                                     android.R.interpolator.linear_out_slow_in))
                             .setDuration(IN_DURATION)
                             .withEndAction(callback)
@@ -224,7 +232,7 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
     }
 
     private void animateNewContent() {
-        Interpolator interpolator = AnimationUtils.loadInterpolator(mContext,
+        Interpolator interpolator = AnimationUtils.loadInterpolator(mActivity,
                 android.R.interpolator.linear_out_slow_in);
 
         // Description slide in
@@ -265,7 +273,7 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
 
     @Override
     public View createView() {
-        mRootView = (ManualLayoutFrame) LayoutInflater.from(mContext)
+        mRootView = (ManualLayoutFrame) LayoutInflater.from(mActivity)
                 .inflate(R.layout.grant_permissions, null);
         mButtonBar = (ButtonBarLayout) mRootView.findViewById(R.id.button_group);
         mButtonBar.setAllowStacking(true);
@@ -273,13 +281,20 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         mIconView = (ImageView) mRootView.findViewById(R.id.permission_icon);
         mCurrentGroupView = (TextView) mRootView.findViewById(R.id.current_page_text);
         mDoNotAskCheckbox = (CheckBox) mRootView.findViewById(R.id.do_not_ask_checkbox);
+
         mAllowButton = (Button) mRootView.findViewById(R.id.permission_allow_button);
+        mAllowButton.setOnClickListener(this);
+
+        if (mPermissionReviewRequired) {
+            mMoreInfoButton = (Button) mRootView.findViewById(R.id.permission_more_info_button);
+            mMoreInfoButton.setVisibility(View.VISIBLE);
+            mMoreInfoButton.setOnClickListener(this);
+        }
 
         mDialogContainer = (ViewGroup) mRootView.findViewById(R.id.dialog_container);
         mDescContainer = (ViewGroup) mRootView.findViewById(R.id.desc_container);
         mCurrentDesc = (ViewGroup) mRootView.findViewById(R.id.perm_desc_root);
 
-        mAllowButton.setOnClickListener(this);
         mRootView.findViewById(R.id.permission_deny_button).setOnClickListener(this);
         mDoNotAskCheckbox.setOnClickListener(this);
 
@@ -298,17 +313,17 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
     }
 
     private void updateDescription() {
-        mIconView.setImageDrawable(mGroupIcon.loadDrawable(mContext));
+        mIconView.setImageDrawable(mGroupIcon.loadDrawable(mActivity));
         mMessageView.setText(mGroupMessage);
     }
 
     private void updateGroup() {
         if (mGroupCount > 1) {
             mCurrentGroupView.setVisibility(View.VISIBLE);
-            mCurrentGroupView.setText(mContext.getString(R.string.current_permission_template,
+            mCurrentGroupView.setText(mActivity.getString(R.string.current_permission_template,
                     mGroupIndex + 1, mGroupCount));
         } else {
-            mCurrentGroupView.setVisibility(View.INVISIBLE);
+            mCurrentGroupView.setVisibility(View.GONE);
         }
     }
 
@@ -339,6 +354,12 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
                     mResultListener.onPermissionGrantResult(mGroupName, false,
                             mShowDonNotAsk && mDoNotAskCheckbox.isChecked());
                 }
+                break;
+            case R.id.permission_more_info_button:
+                Intent intent = new Intent(Intent.ACTION_MANAGE_APP_PERMISSIONS);
+                intent.putExtra(Intent.EXTRA_PACKAGE_NAME, mAppPackageName);
+                intent.putExtra(ManagePermissionsActivity.EXTRA_ALL_PERMISSIONS, true);
+                mActivity.startActivity(intent);
                 break;
             case R.id.do_not_ask_checkbox:
                 mAllowButton.setEnabled(!mDoNotAskCheckbox.isChecked());

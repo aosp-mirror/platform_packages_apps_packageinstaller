@@ -162,6 +162,9 @@
     <!-- Title for the dialog button to deny a permission grant. -->
     <string name="grant_dialog_button_deny">Deny</string>
 
+    <!-- Title for the dialog button to get more info about a permission. -->
+    <string name="grant_dialog_button_more_info">More info</string>
+
     <!-- Title for the dialog button to deny a permission grant despite a warning of implications. -->
     <string name="grant_dialog_button_deny_anyway">Deny anyway</string>
 
@@ -174,6 +177,15 @@
     <string name="permission_warning_template">Allow
         &lt;b><xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b> to
         <xliff:g id="action" example="do something">%2$s</xliff:g>?</string>
+
+    <!-- Template for the message how many permissions are disabled. -->
+    <string name="permission_revoked_count"><xliff:g id="count" example="2">%1$d</xliff:g> disabled</string>
+
+    <!-- Message that all permissions are disabled. -->
+    <string name="permission_revoked_all">all disabled</string>
+
+    <!-- Message that no permissions are disabled. -->
+    <string name="permission_revoked_none">none disabled</string>
 
     <!-- Permissions -->
 
@@ -280,11 +292,11 @@
 
     <!-- Template for the screen title when app permissions are reviewed on install. -->
     <string name="permission_review_title_template_install">Choose what to allow
-        <xliff:g id="app_name" example="Gmail">%1$s</xliff:g> to access</string>
+        &lt;b><xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b> to access</string>
 
     <!-- Template for the screen title when app permissions are reviewed on update. -->
     <string name="permission_review_title_template_update">
-        <xliff:g id="app_name" example="Gmail">%1$s</xliff:g> has been updated.
+        &lt;b><xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b> has been updated.
         Choose what to allow this app to access.</string>
 
     <!-- Title for the dialog button to cancel the detailed permission review. -->

@@ -27,13 +27,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dip"
         android:layout_marginEnd="16dip"
+        android:layout_marginBottom="16dip"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/app_icon"
             android:layout_width="36dip"
             android:layout_height="36dip"
-            android:tint="?android:attr/colorAccent"
             android:scaleType="fitCenter">
         </ImageView>
 
@@ -56,35 +56,56 @@
         android:layout_weight="1">
     </FrameLayout>
 
-    <com.android.packageinstaller.permission.ui.ButtonBarLayout
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingStart="2dip"
         android:paddingTop="16dip">
 
+        <Button
+            android:id="@+id/permission_more_info_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            style="?android:attr/buttonBarButtonStyle"
+            android:text="@string/grant_dialog_button_more_info">
+        </Button>
+
         <Space
-            android:id="@+id/spacer"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:visibility="invisible" />
+            android:visibility="invisible">
+        </Space>
 
-        <Button
-            android:id="@+id/cancel_button"
+        <com.android.packageinstaller.permission.ui.ButtonBarLayout
+            android:id="@+id/button_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="?android:attr/buttonBarButtonStyle"
-            android:text="@string/review_button_cancel" />
+            android:layout_gravity="bottom"
+            android:orientation="horizontal"
+            android:gravity="bottom">
 
-        <Button
-            android:id="@+id/continue_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_marginStart="8dip"
-            android:text="@string/review_button_continue" />
+            <Button
+                android:id="@+id/cancel_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="?android:attr/buttonBarButtonStyle"
+                android:text="@string/review_button_cancel">
+            </Button>
 
-    </com.android.packageinstaller.permission.ui.ButtonBarLayout>
+            <Button
+                android:id="@+id/continue_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_marginStart="8dip"
+                android:text="@string/review_button_continue">
+            </Button>
+
+        </com.android.packageinstaller.permission.ui.ButtonBarLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -80,14 +80,18 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
 
         if (DeviceUtils.isTelevision(this)) {
             mViewHandler = new com.android.packageinstaller.permission.ui.television
-                    .GrantPermissionsViewHandlerImpl(this).setResultListener(this);
+                    .GrantPermissionsViewHandlerImpl(this,
+                    getCallingPackage()).setResultListener(this);
         } else if (DeviceUtils.isWear(this)) {
-            mViewHandler = new GrantPermissionsWatchViewHandler(this).setResultListener(this);
+            mViewHandler = new GrantPermissionsWatchViewHandler(this,
+                    getCallingPackage()).setResultListener(this);
         } else if (DeviceUtils.isAuto(this)) {
-            mViewHandler = new GrantPermissionsAutoViewHandler(this).setResultListener(this);
+            mViewHandler = new GrantPermissionsAutoViewHandler(this, getCallingPackage())
+                    .setResultListener(this);
         } else {
             mViewHandler = new com.android.packageinstaller.permission.ui.handheld
-                    .GrantPermissionsViewHandlerImpl(this).setResultListener(this);
+                    .GrantPermissionsViewHandlerImpl(this, getCallingPackage())
+                    .setResultListener(this);
         }
 
         mRequestedPermissions = getIntent().getStringArrayExtra(

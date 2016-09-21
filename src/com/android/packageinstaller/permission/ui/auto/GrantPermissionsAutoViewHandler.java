@@ -16,6 +16,7 @@
 
 package com.android.packageinstaller.permission.ui.auto;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.WindowManager;
 import com.android.packageinstaller.permission.ui.handheld.GrantPermissionsViewHandlerImpl;
@@ -29,8 +30,8 @@ import com.android.packageinstaller.permission.ui.handheld.GrantPermissionsViewH
  * change the window params to allow the dialog's width to be larger.
  */
 public class GrantPermissionsAutoViewHandler extends GrantPermissionsViewHandlerImpl {
-    public GrantPermissionsAutoViewHandler(Context context) {
-        super(context);
+    public GrantPermissionsAutoViewHandler(Activity activity, String appPackageName) {
+        super(activity, appPackageName);
     }
 
     /**

@@ -27,6 +27,9 @@ import com.android.packageinstaller.DeviceUtils;
 public final class ManagePermissionsActivity extends OverlayTouchActivity {
     private static final String LOG_TAG = "ManagePermissionsActivity";
 
+    public static final String EXTRA_ALL_PERMISSIONS =
+            "com.android.packageinstaller.extra.ALL_PERMISSIONS";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,8 +65,15 @@ public final class ManagePermissionsActivity extends OverlayTouchActivity {
                     fragment = com.android.packageinstaller.permission.ui.television
                             .AppPermissionsFragment.newInstance(packageName);
                 } else {
-                    fragment = com.android.packageinstaller.permission.ui.handheld
-                            .AppPermissionsFragment.newInstance(packageName);
+                    final boolean allPermissions = getIntent().getBooleanExtra(
+                            EXTRA_ALL_PERMISSIONS, false);
+                    if (allPermissions) {
+                        fragment = com.android.packageinstaller.permission.ui.handheld
+                                .AllAppPermissionsFragment.newInstance(packageName);
+                    } else {
+                        fragment = com.android.packageinstaller.permission.ui.handheld
+                                .AppPermissionsFragment.newInstance(packageName);
+                    }
                 }
             } break;
 

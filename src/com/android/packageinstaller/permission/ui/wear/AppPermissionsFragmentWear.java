@@ -205,7 +205,8 @@ public final class AppPermissionsFragmentWear extends TitledSettingsFragment {
             group.grantRuntimePermissions(false);
         } else {
             final boolean grantedByDefault = group.hasGrantedByDefaultPermission();
-            if (grantedByDefault || (!group.hasRuntimePermission() && !mHasConfirmedRevoke)) {
+            if (grantedByDefault || (!group.doesSupportRuntimePermissions()
+                    && !mHasConfirmedRevoke)) {
                 Intent intent = new Intent(getActivity(), WarningConfirmationActivity.class);
                 intent.putExtra(WarningConfirmationActivity.EXTRA_WARNING_MESSAGE,
                         getString(grantedByDefault ?

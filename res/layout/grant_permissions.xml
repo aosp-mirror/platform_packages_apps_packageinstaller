@@ -64,53 +64,71 @@
                 android:visibility="gone">
             </CheckBox>
 
-            <com.android.packageinstaller.permission.ui.ButtonBarLayout
-                android:id="@+id/button_group"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingStart="6dip"
                 android:paddingTop="4dp"
-                android:paddingBottom="4dp"
-                android:gravity="bottom">
+                android:paddingBottom="4dp">
 
                 <TextView
                     android:id="@+id/current_page_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
+                    android:layout_gravity="bottom"
                     android:paddingEnd="12dp"
                     android:singleLine="true"
                     style="?android:attr/textAppearanceSmall"
                     android:textColor="?android:attr/textColorSecondary"
-                    android:visibility="invisible">
+                    android:visibility="gone">
                 </TextView>
 
-                <Space
-                    android:id="@+id/spacer"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
+                <Button
+                    android:id="@+id/permission_more_info_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:text="@string/grant_dialog_button_more_info"
+                    android:visibility="gone">
+                </Button>
+
+                <com.android.packageinstaller.permission.ui.ButtonBarLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
                     android:layout_weight="1"
-                    android:visibility="invisible" >
-                </Space>
+                    android:orientation="horizontal"
+                    android:gravity="bottom">
 
-                <Button
-                    android:id="@+id/permission_deny_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:text="@string/grant_dialog_button_deny" >
-                </Button>
+                    <Space
+                        android:id="@+id/spacer"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:visibility="invisible" >
+                    </Space>
 
-                <Button
-                    android:id="@+id/permission_allow_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:text="@string/grant_dialog_button_allow" >
-                </Button>
+                    <Button
+                        android:id="@+id/permission_deny_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:text="@string/grant_dialog_button_deny" >
+                    </Button>
 
-            </com.android.packageinstaller.permission.ui.ButtonBarLayout>
+                    <Button
+                        android:id="@+id/permission_allow_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:text="@string/grant_dialog_button_allow" >
+                    </Button>
+
+                </com.android.packageinstaller.permission.ui.ButtonBarLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
 

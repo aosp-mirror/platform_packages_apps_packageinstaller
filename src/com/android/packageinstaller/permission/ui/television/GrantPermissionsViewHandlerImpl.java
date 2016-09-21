@@ -38,7 +38,7 @@ public final class GrantPermissionsViewHandlerImpl implements GrantPermissionsVi
     private Button mSoftDenyButton;
     private Button mHardDenyButton;
 
-    public GrantPermissionsViewHandlerImpl(Context context) {
+    public GrantPermissionsViewHandlerImpl(Context context, String appPackageName) {
         mContext = context;
     }
 

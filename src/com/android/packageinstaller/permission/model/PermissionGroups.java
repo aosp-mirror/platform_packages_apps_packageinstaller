@@ -106,7 +106,6 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
             List<PermissionGroup> groups = new ArrayList<>();
             Set<String> seenPermissions = new ArraySet<>();
 
-
             PackageManager packageManager = getContext().getPackageManager();
             List<PermissionGroupInfo> groupInfos = packageManager.getAllPermissionGroups(0);
 

@@ -24,7 +24,6 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PermissionInfo;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
-import android.os.Process;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.util.ArrayMap;
@@ -347,8 +346,8 @@ public class PermissionApps {
             return mAppPermissionGroup.hasGrantedByDefaultPermission();
         }
 
-        public boolean hasRuntimePermissions() {
-            return mAppPermissionGroup.hasRuntimePermission();
+        public boolean doesSupportRuntimePermissions() {
+            return mAppPermissionGroup.doesSupportRuntimePermissions();
         }
 
         public int getUserId() {

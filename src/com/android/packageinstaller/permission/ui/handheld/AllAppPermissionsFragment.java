@@ -16,8 +16,10 @@
 
 package com.android.packageinstaller.permission.ui.handheld;
 
+import android.Manifest;
 import android.app.ActionBar;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
@@ -30,13 +32,14 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
-import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceGroup;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Switch;
 import com.android.packageinstaller.R;
+import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.utils.Utils;
 
 import java.util.ArrayList;
@@ -49,12 +52,31 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
 
     private static final String KEY_OTHER = "other_perms";
 
+    private boolean mPermissionReviewRequired;
+
+    private String mFilterGroup;
+
+    private static final String EXTRA_FILTER_GROUP =
+            "com.android.packageinstaller.extra.FILTER_GROUP";
+
     public static AllAppPermissionsFragment newInstance(String packageName) {
+        return newInstance(packageName, null);
+    }
+
+    public static AllAppPermissionsFragment newInstance(String packageName, String filterGroup) {
         AllAppPermissionsFragment instance = new AllAppPermissionsFragment();
         Bundle arguments = new Bundle();
         arguments.putString(Intent.EXTRA_PACKAGE_NAME, packageName);
+        arguments.putString(EXTRA_FILTER_GROUP, filterGroup);
         instance.setArguments(arguments);
         return instance;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mPermissionReviewRequired = context.getResources().getBoolean(
+                com.android.internal.R.bool.config_permissionReviewRequired);
     }
 
     @Override
@@ -63,7 +85,12 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
         setHasOptionsMenu(true);
         final ActionBar ab = getActivity().getActionBar();
         if (ab != null) {
-            ab.setTitle(R.string.all_permissions);
+            // If we target a group make this look like app permissions.
+            if (getArguments().getString(EXTRA_FILTER_GROUP) == null) {
+                ab.setTitle(R.string.all_permissions);
+            } else {
+                ab.setTitle(R.string.app_permissions);
+            }
             ab.setDisplayHomeAsUpEnabled(true);
         }
     }
@@ -94,6 +121,7 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
         ArrayList<Preference> prefs = new ArrayList<>(); // Used for sorting.
         prefs.add(otherGroup);
         String pkg = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
+        String filterGroup = getArguments().getString(EXTRA_FILTER_GROUP);
         otherGroup.removeAll();
         PackageManager pm = getContext().getPackageManager();
 
@@ -128,13 +156,30 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
                     }
 
                     if (perm.protectionLevel == PermissionInfo.PROTECTION_DANGEROUS) {
-                        PermissionGroupInfo group = getGroup(perm.group, pm);
-                        PreferenceGroup pref =
-                                findOrCreate(group != null ? group : perm, pm, prefs);
-                        pref.addPreference(getPreference(perm, group, pm));
-                    } else if (perm.protectionLevel == PermissionInfo.PROTECTION_NORMAL) {
-                        PermissionGroupInfo group = getGroup(perm.group, pm);
-                        otherGroup.addPreference(getPreference(perm, group, pm));
+                        PackageItemInfo group = getGroup(perm.group, pm);
+                        if (group == null) {
+                            group = perm;
+                        }
+                        // If we show a targeted group, then ignore everything else.
+                        if (filterGroup != null && !group.name.equals(filterGroup)) {
+                            continue;
+                        }
+                        PreferenceGroup pref = findOrCreate(group, pm, prefs);
+                        // We allow individual permission control in SMS if review enabled
+                        final boolean mutable = mPermissionReviewRequired
+                                && Manifest.permission_group.SMS.equals(group.name);
+                        pref.addPreference(getPreference(info, perm, group, pm, mutable));
+                    } else if (filterGroup == null) {
+                        if (perm.protectionLevel == PermissionInfo.PROTECTION_NORMAL) {
+                            PermissionGroupInfo group = getGroup(perm.group, pm);
+                            otherGroup.addPreference(getPreference(info,
+                                    perm, group, pm, false));
+                        }
+                    }
+
+                    // If we show a targeted group, then don't show 'other' permissions.
+                    if (filterGroup != null) {
+                        getPreferenceScreen().removePreference(otherGroup);
                     }
                 }
             }
@@ -184,9 +229,15 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
         return pref;
     }
 
-    private Preference getPreference(PermissionInfo perm, PermissionGroupInfo group,
-            PackageManager pm) {
-        Preference pref = new Preference(getContext());
+    private Preference getPreference(PackageInfo packageInfo, PermissionInfo perm,
+            PackageItemInfo group, PackageManager pm, boolean mutable) {
+        final Preference pref;
+        if (mutable) {
+            pref = new MyMultiTargetSwitchPreference(getContext(), packageInfo, perm.name);
+        } else {
+            pref = new Preference(getContext());
+        }
+
         Drawable icon = null;
         if (perm.icon != 0) {
             icon = perm.loadIcon(pm);
@@ -198,17 +249,38 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
         pref.setIcon(Utils.applyTint(getContext(), icon, android.R.attr.colorControlNormal));
         pref.setTitle(perm.loadLabel(pm));
         final CharSequence desc = perm.loadDescription(pm);
-        pref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-                new AlertDialog.Builder(getContext())
-                        .setMessage(desc)
-                        .setPositiveButton(android.R.string.ok, null)
-                        .show();
-                return true;
-            }
+
+        pref.setOnPreferenceClickListener((Preference preference) -> {
+            new AlertDialog.Builder(getContext())
+                    .setMessage(desc)
+                    .setPositiveButton(android.R.string.ok, null)
+                    .show();
+            return mutable;
         });
 
         return pref;
+    }
+
+    private static final class MyMultiTargetSwitchPreference extends MultiTargetSwitchPreference {
+        public MyMultiTargetSwitchPreference(Context context, PackageInfo packageInfo,
+                String permission) {
+            super(context);
+
+            AppPermissionGroup appPermissionGroup = AppPermissionGroup.create(
+                    getContext(), packageInfo, permission);
+            setChecked(appPermissionGroup.areRuntimePermissionsGranted(
+                    new String[] {permission}));
+
+            setSwitchOnClickListener(v -> {
+                Switch switchView = (Switch) v;
+                if (switchView.isChecked()) {
+                    appPermissionGroup.grantRuntimePermissions(false,
+                            new String[]{permission});
+                } else {
+                    appPermissionGroup.revokeRuntimePermissions(true,
+                            new String[]{permission});
+                }
+            });
+        }
     }
 }

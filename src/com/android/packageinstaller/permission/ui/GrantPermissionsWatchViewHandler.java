@@ -32,7 +32,7 @@ final class GrantPermissionsWatchViewHandler extends ConfirmationViewHandler
     private String mCurrentPageText;
     private Icon mIcon;
 
-    GrantPermissionsWatchViewHandler(Context context) {
+    GrantPermissionsWatchViewHandler(Context context, String appPackageName) {
         super(context);
         mContext = context;
     }
