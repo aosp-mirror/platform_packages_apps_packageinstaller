@@ -16,14 +16,12 @@
 
 package com.android.packageinstaller.permission.ui.handheld;
 
-import android.Manifest;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
@@ -74,8 +72,6 @@ public final class AppPermissionsFragment extends SettingsWithHeader
 
     private boolean mHasConfirmedRevoke;
 
-    private boolean mPermissionReviewRequired;
-
     public static AppPermissionsFragment newInstance(String packageName) {
         return setPackageName(new AppPermissionsFragment(), packageName);
     }
@@ -85,13 +81,6 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         arguments.putString(Intent.EXTRA_PACKAGE_NAME, packageName);
         fragment.setArguments(arguments);
         return fragment;
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        mPermissionReviewRequired = context.getResources().getBoolean(
-                com.android.internal.R.bool.config_permissionReviewRequired);
     }
 
     @Override
@@ -224,9 +213,8 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             RestrictedSwitchPreference preference = new RestrictedSwitchPreference(context);
             preference.setChecked(group.areRuntimePermissionsGranted());
 
-            // SMS is a double target - one to toggle and one to fine manage
-            if (mPermissionReviewRequired
-                    && Manifest.permission_group.SMS.equals(group.getName())) {
+            // Some groups may be a double target - one to toggle and one to fine manage
+            if (Utils.areGroupPermissionsIndividuallyControlled(getContext(), group.getName())) {
                 preference.setOnPreferenceClickListener((pref) -> {
                     showAllPermissions(group.getName());
                     return false;
@@ -235,11 +223,12 @@ public final class AppPermissionsFragment extends SettingsWithHeader
                 preference.setSwitchOnClickListener(v -> {
                     Switch switchView = (Switch) v;
                     onPreferenceChange(preference, switchView.isChecked());
-                    updateSmsPreferenceSummaryIfNeeded(group, preference);
+                    updateSummaryForIndividuallyControlledPermissionGroup(
+                            group, preference);
                     preference.setCheckedOverride(switchView.isChecked());
                 });
 
-                updateSmsPreferenceSummaryIfNeeded(group, preference);
+                updateSummaryForIndividuallyControlledPermissionGroup(group, preference);
             } else {
                 preference.setOnPreferenceChangeListener(this);
             }
@@ -331,7 +320,8 @@ public final class AppPermissionsFragment extends SettingsWithHeader
                                 (DialogInterface dialog, int which) -> {
                             ((SwitchPreference) preference).setChecked(false);
                             if (preference instanceof MultiTargetSwitchPreference) {
-                                updateSmsPreferenceSummaryIfNeeded(group, preference);
+                                updateSummaryForIndividuallyControlledPermissionGroup(
+                                        group, preference);
                             }
                             group.revokeRuntimePermissions(false);
                             if (!grantedByDefault) {
@@ -354,8 +344,8 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         logToggledGroups();
     }
 
-    private void updateSmsPreferenceSummaryIfNeeded(AppPermissionGroup group,
-            Preference preference) {
+    private void updateSummaryForIndividuallyControlledPermissionGroup(
+            AppPermissionGroup group, Preference preference) {
         int revokedCount = 0;
         List<Permission> permissions = group.getPermissions();
         final int permissionCount = permissions.size();

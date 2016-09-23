@@ -16,7 +16,6 @@
 
 package com.android.packageinstaller.permission.ui.handheld;
 
-import android.Manifest;
 import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -52,10 +51,6 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
 
     private static final String KEY_OTHER = "other_perms";
 
-    private boolean mPermissionReviewRequired;
-
-    private String mFilterGroup;
-
     private static final String EXTRA_FILTER_GROUP =
             "com.android.packageinstaller.extra.FILTER_GROUP";
 
@@ -70,13 +65,6 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
         arguments.putString(EXTRA_FILTER_GROUP, filterGroup);
         instance.setArguments(arguments);
         return instance;
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        mPermissionReviewRequired = context.getResources().getBoolean(
-                com.android.internal.R.bool.config_permissionReviewRequired);
     }
 
     @Override
@@ -165,9 +153,9 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
                             continue;
                         }
                         PreferenceGroup pref = findOrCreate(group, pm, prefs);
-                        // We allow individual permission control in SMS if review enabled
-                        final boolean mutable = mPermissionReviewRequired
-                                && Manifest.permission_group.SMS.equals(group.name);
+                        // We allow individual permission control in some groups if review enabled
+                        final boolean mutable = Utils.areGroupPermissionsIndividuallyControlled(
+                                getContext(), group.name);
                         pref.addPreference(getPreference(info, perm, group, pm, mutable));
                     } else if (filterGroup == null) {
                         if (perm.protectionLevel == PermissionInfo.PROTECTION_NORMAL) {
