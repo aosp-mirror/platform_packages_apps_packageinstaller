@@ -84,9 +84,13 @@
     <string name="no_new_perms" msgid="6657813692169565975">"ഈ അപ്‌ഡേറ്റിന് പുതിയ അനുമതികളൊന്നും ആവശ്യമില്ല."</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"ഇനിപ്പറയുന്ന അനുമതികൾ അനുവദിക്കണോ? ഇതിന് ഇവയിലേക്ക് ആക്‌സസ്സ് ലഭിക്കും:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"നിരസിക്കുക"</string>
+    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"കൂടുതൽ‍ വിവരങ്ങള്‍"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"എന്തായാലും നിരസിക്കുക"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> / <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="7332275268559121742">"<xliff:g id="ACTION">%2$s</xliff:g> &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ആപ്പിനെ അനുവദിക്കണോ?"</string>
+    <string name="permission_revoked_count" msgid="7386129423432613024">"<xliff:g id="COUNT">%1$d</xliff:g> പ്രവർത്തനരഹിതമാക്കി"</string>
+    <string name="permission_revoked_all" msgid="8595742638132863678">"എല്ലാം പ്രവർത്തനരഹിതമാക്കി"</string>
+    <string name="permission_revoked_none" msgid="2059511550181271342">"ഒന്നും പ്രവർത്തനരഹിതമാക്കിയിട്ടില്ല"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"അനുവദിക്കുക"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"ആപ്സ്"</string>
     <string name="app_permissions" msgid="3146758905824597178">"ആപ്പ് അനുമതികൾ"</string>
@@ -118,8 +122,8 @@
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"ഇൻസ്റ്റാളോ അൺഇൻസ്റ്റാളോ ചെയ്യുന്നതിന് Wear-ൽ പിന്തുണയില്ല"</string>
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> അപ്‌ഡേറ്റ് ചെയ്തു. ഇനിപ്പറയുന്നത് ആക്സസ് ചെയ്യാൻ <xliff:g id="APP_NAME_1">%1$s</xliff:g> ആപ്പിനെ അനുവദിക്കണോ?"</string>
-    <string name="permission_review_title_template_install" msgid="6535540493936469336">"എന്ത് ആക്സസ് ചെയ്യാനാണ് <xliff:g id="APP_NAME">%1$s</xliff:g> അപ്പിനെ അനുവദിക്കേണ്ടതെന്ന് തീരുമാനിക്കുക."</string>
-    <string name="permission_review_title_template_update" msgid="2548815248828051885">"<xliff:g id="APP_NAME">%1$s</xliff:g> അപ്‌ഡേറ്റ് ചെയ്തു. എന്ത് ആക്സസ് ചെയ്യാനാണ് ഈ അപ്പിനെ അനുവദിക്കേണ്ടതെന്ന് തീരുമാനിക്കുക."</string>
+    <string name="permission_review_title_template_install" msgid="6819338441305295479">"എന്തൊക്കെ ആക്സസ്സ് ചെയ്യാനാണ് &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ആപ്പിനെ അനുവദിക്കേണ്ടതെന്ന് തിരഞ്ഞെടുക്കുക"</string>
+    <string name="permission_review_title_template_update" msgid="8632233603161669426">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; അപ്‌ഡേറ്റ് ചെയ്തിരിക്കുന്നു. എന്തൊക്കെ ആക്സസ്സ് ചെയ്യാനാണ് ഈ ആപ്പിനെ അനുവദിക്കേണ്ടതെന്ന് തിരഞ്ഞെടുക്കുക."</string>
     <string name="review_button_cancel" msgid="957906817733578877">"റദ്ദാക്കുക"</string>
     <string name="review_button_continue" msgid="4809162078179371370">"തുടരുക"</string>
     <string name="new_permissions_category" msgid="3213523410139204183">"പുതിയ അനുമതികൾ"</string>

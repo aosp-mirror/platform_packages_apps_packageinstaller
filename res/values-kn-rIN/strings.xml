@@ -84,9 +84,13 @@
     <string name="no_new_perms" msgid="6657813692169565975">"ಈ ನವೀಕರಣಕ್ಕೆ ಯಾವುದೇ ಹೊಸ ಅನುಮತಿಗಳ ಅಗತ್ಯವಿಲ್ಲ."</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"ನೀವು ಕೆಳಗಿನ ಅನುಮತಿಗಳನ್ನು ನೀಡ ಬಯಸುತ್ತೀರಾ? ಇದು ಇಲ್ಲಿ ಪ್ರವೇಶ ಪಡೆದುಕೊಳ್ಳಬಹುದು:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"ನಿರಾಕರಿಸು"</string>
+    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"ಇನ್ನಷ್ಟು ಮಾಹಿತಿ"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"ಹೇಗಾದರೂ ನಿರಾಕರಿಸಿ"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> ರಲ್ಲಿ <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="7332275268559121742">"<xliff:g id="ACTION">%2$s</xliff:g> <xliff:g id="APP_NAME">%1$s</xliff:g> ಅನ್ನು ಅನುಮತಿಸುವುದೇ?"</string>
+    <string name="permission_revoked_count" msgid="7386129423432613024">"<xliff:g id="COUNT">%1$d</xliff:g> ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ"</string>
+    <string name="permission_revoked_all" msgid="8595742638132863678">"ಎಲ್ಲಾ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ"</string>
+    <string name="permission_revoked_none" msgid="2059511550181271342">"ಯಾವುದನ್ನೂ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿಲ್ಲ"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"ಅನುಮತಿಸು"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"ಅಪ್ಲಿಕೇಶನ್‌ಗಳು"</string>
     <string name="app_permissions" msgid="3146758905824597178">"ಅಪ್ಲಿಕೇಶನ್ ಅನುಮತಿಗಳು"</string>
@@ -118,8 +122,8 @@
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Wear ನಲ್ಲಿ ಸ್ಥಾಪಿಸುವಿಕೆ/ಅಸ್ಥಾಪಿಸುವಿಕೆ ಕ್ರಿಯೆಗಳು ಬೆಂಬಲಿತವಾಗಿಲ್ಲ."</string>
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> ಅಪ್‌ಡೇಟ್ ಮಾಡಲಾಗಿದೆ. ಇದನ್ನು ಪ್ರವೇಶಿಸಲು <xliff:g id="APP_NAME_1">%1$s</xliff:g> ಗೆ ಅನುಮತಿಸುವುದೇ?"</string>
-    <string name="permission_review_title_template_install" msgid="6535540493936469336">"<xliff:g id="APP_NAME">%1$s</xliff:g> ಗೆ ಪ್ರವೇಶಿಸಲು ಯಾವುದನ್ನು ಅನುಮತಿಸಬೇಕು ಎಂಬುದನ್ನು ಆರಿಸಿಕೊಳ್ಳಿ"</string>
-    <string name="permission_review_title_template_update" msgid="2548815248828051885">"<xliff:g id="APP_NAME">%1$s</xliff:g> ಅನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡಲಾಗಿದೆ. ಈ ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ಪ್ರವೇಶಿಸಲು ಯಾವುದನ್ನು ಅನುಮತಿಸಬೇಕು ಎಂಬುದನ್ನು ಆರಿಸಿಕೊಳ್ಳಿ"</string>
+    <string name="permission_review_title_template_install" msgid="6819338441305295479">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ಗೆ ಪ್ರವೇಶಿಸಲು ಯಾವುದನ್ನು ಅನುಮತಿಸಬೇಕು ಎಂಬುದನ್ನು ಆರಿಸಿಕೊಳ್ಳಿ"</string>
+    <string name="permission_review_title_template_update" msgid="8632233603161669426">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ಅನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡಲಾಗಿದೆ. ಈ ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ಪ್ರವೇಶಿಸಲು ಯಾವುದನ್ನು ಅನುಮತಿಸಬೇಕು ಎಂಬುದನ್ನು ಆರಿಸಿಕೊಳ್ಳಿ."</string>
     <string name="review_button_cancel" msgid="957906817733578877">"ರದ್ದುಮಾಡು"</string>
     <string name="review_button_continue" msgid="4809162078179371370">"ಮುಂದುವರಿಸು"</string>
     <string name="new_permissions_category" msgid="3213523410139204183">"ಹೊಸ ಅನುಮತಿಗಳು"</string>

@@ -84,9 +84,13 @@
     <string name="no_new_perms" msgid="6657813692169565975">"បច្ចុប្បន្នភាព​នេះ​មិន​ទាមទារ​សិទ្ធិ​ថ្មី​ទេ។"</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"តើ​អ្នក​ចង់​ផ្ដល់​សិទ្ធិ​ដូច​ខាងក្រោម? វា​នឹង​ចូល​ទៅ៖"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"បដិសេធ"</string>
+    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"ព័ត៌មានបន្ថែម"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"បដិសេធទោះយ៉ាងណាក៏ដោយ"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> នៃ <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="7332275268559121742">"អនុញ្ញាតឲ្យ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_revoked_count" msgid="7386129423432613024">"បានបិទដំណើរការ <xliff:g id="COUNT">%1$d</xliff:g>"</string>
+    <string name="permission_revoked_all" msgid="8595742638132863678">"បានបិទដំណើរការទាំងអស់"</string>
+    <string name="permission_revoked_none" msgid="2059511550181271342">"មិនបានបិទដំណើរការអ្វីទាំងអស់"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"អនុញ្ញាត"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"កម្មវិធី"</string>
     <string name="app_permissions" msgid="3146758905824597178">"សិទ្ធិ​កម្មវិធី"</string>
@@ -118,8 +122,8 @@
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"សកម្មភាពដំឡើង/លុបការដំឡើងមិនគាំទ្រនៅលើ Wear ទេ"</string>
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> ត្រូវបានអាប់ដេតហើយ។ អនុញ្ញាតឲ្យ <xliff:g id="APP_NAME_1">%1$s</xliff:g> ចូលដំណើរការធាតុខាងក្រោមឬ?"</string>
-    <string name="permission_review_title_template_install" msgid="6535540493936469336">"ជ្រើសអ្វីដែលត្រូវអនុញ្ញាតឲ្យ <xliff:g id="APP_NAME">%1$s</xliff:g> ចូលដំណើរការ"</string>
-    <string name="permission_review_title_template_update" msgid="2548815248828051885">"<xliff:g id="APP_NAME">%1$s</xliff:g> ត្រូវបានអាប់ដេតហើយ។ ជ្រើសអ្វីដែលត្រូវអនុញ្ញាតឲ្យកម្មវិធីនេះចូលដំណើរការ។"</string>
+    <string name="permission_review_title_template_install" msgid="6819338441305295479">"ជ្រើសរើសអ្វីដែលត្រូវអនុញ្ញាតឲ្យ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ចូលដំណើរការ"</string>
+    <string name="permission_review_title_template_update" msgid="8632233603161669426">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ត្រូវបានអាប់ដេត។ ជ្រើសរើសអ្វីដែលត្រូវអនុញ្ញាតឲ្យកម្មវិធីនេះចូលដំណើរការ។"</string>
     <string name="review_button_cancel" msgid="957906817733578877">"បោះបង់"</string>
     <string name="review_button_continue" msgid="4809162078179371370">"បន្ត"</string>
     <string name="new_permissions_category" msgid="3213523410139204183">"សិទ្ធិអនុញ្ញាតថ្មី"</string>

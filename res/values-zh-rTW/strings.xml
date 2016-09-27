@@ -84,9 +84,13 @@
     <string name="no_new_perms" msgid="6657813692169565975">"這項更新不需新權限。"</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"您要授予下列權限嗎？將會開放下列存取權："</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"拒絕"</string>
+    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"瞭解詳情"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"直接拒絕"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>/<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="7332275268559121742">"要允許「<xliff:g id="APP_NAME">%1$s</xliff:g>」<xliff:g id="ACTION">%2$s</xliff:g>嗎？"</string>
+    <string name="permission_revoked_count" msgid="7386129423432613024">"已停用 <xliff:g id="COUNT">%1$d</xliff:g> 項權限"</string>
+    <string name="permission_revoked_all" msgid="8595742638132863678">"已停用所有權限"</string>
+    <string name="permission_revoked_none" msgid="2059511550181271342">"未停用任何權限"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"允許"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"應用程式"</string>
     <string name="app_permissions" msgid="3146758905824597178">"應用程式權限"</string>
@@ -118,8 +122,8 @@
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Wear 不支援安裝及解除安裝操作。"</string>
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"「<xliff:g id="APP_NAME_0">%1$s</xliff:g>」已更新，要將下列項目的存取權授予「<xliff:g id="APP_NAME_1">%1$s</xliff:g>」嗎？"</string>
-    <string name="permission_review_title_template_install" msgid="6535540493936469336">"選擇要將哪些項目的存取權授予「<xliff:g id="APP_NAME">%1$s</xliff:g>」"</string>
-    <string name="permission_review_title_template_update" msgid="2548815248828051885">"「<xliff:g id="APP_NAME">%1$s</xliff:g>」已更新，請選擇要將哪些項目的存取權授予這個應用程式。"</string>
+    <string name="permission_review_title_template_install" msgid="6819338441305295479">"選擇要將哪些存取權限授予「<xliff:g id="APP_NAME">%1$s</xliff:g>」"</string>
+    <string name="permission_review_title_template_update" msgid="8632233603161669426">"「<xliff:g id="APP_NAME">%1$s</xliff:g>」已更新。請選擇要將哪些存取權限授予這個應用程式。"</string>
     <string name="review_button_cancel" msgid="957906817733578877">"取消"</string>
     <string name="review_button_continue" msgid="4809162078179371370">"繼續"</string>
     <string name="new_permissions_category" msgid="3213523410139204183">"新權限"</string>
