@@ -85,9 +85,13 @@
     <string name="no_new_perms" msgid="6657813692169565975">"ეს განახლება არ საჭიროებს ახალ ნებართვებს."</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"გსურთ, მიანიჭოთ შემდეგი ნებართვები? წვდომა ექნება შემდეგზე:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"უარყოფა"</string>
+    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"დამატებითი ინფორმაცია"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"მაინც უარყოფა"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> / <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>-დან"</string>
     <string name="permission_warning_template" msgid="7332275268559121742">"გსურთ, დაუშვათ, რომ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;მ შეასრულოს <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_revoked_count" msgid="7386129423432613024">"გათიშულია <xliff:g id="COUNT">%1$d</xliff:g>"</string>
+    <string name="permission_revoked_all" msgid="8595742638132863678">"გათიშულია ყველა"</string>
+    <string name="permission_revoked_none" msgid="2059511550181271342">"არაფერია გათიშული"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"დაშვება"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"აპები"</string>
     <string name="app_permissions" msgid="3146758905824597178">"აპის უფლებები"</string>
@@ -119,8 +123,8 @@
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"ინსტალაციის/დეინსტალაციის მოქმედებები არ არის მხარდაჭერილი Wear-ზე."</string>
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> განახლდა. გსურთ, <xliff:g id="APP_NAME_1">%1$s</xliff:g>-ს ჰქონდეს წვდომა შემდეგზე?"</string>
-    <string name="permission_review_title_template_install" msgid="6535540493936469336">"აირჩიეთ, რაზე ჰქონდეს წვდომა <xliff:g id="APP_NAME">%1$s</xliff:g>-ს"</string>
-    <string name="permission_review_title_template_update" msgid="2548815248828051885">"<xliff:g id="APP_NAME">%1$s</xliff:g> განახლდა. აირჩიეთ, რაზე ჰქონდეს წვდომა ამ აპს."</string>
+    <string name="permission_review_title_template_install" msgid="6819338441305295479">"აირჩიეთ, რაზე ჰქონდეს წვდომა &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;-ს"</string>
+    <string name="permission_review_title_template_update" msgid="8632233603161669426">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; განახლდა. აირჩიეთ, რაზე ჰქონდეს წვდომა ამ აპს."</string>
     <string name="review_button_cancel" msgid="957906817733578877">"გაუქმება"</string>
     <string name="review_button_continue" msgid="4809162078179371370">"გაგრძელება"</string>
     <string name="new_permissions_category" msgid="3213523410139204183">"ახალი ნებართვები"</string>

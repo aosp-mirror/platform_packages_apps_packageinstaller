@@ -84,9 +84,13 @@
     <string name="no_new_perms" msgid="6657813692169565975">"این به‌روزرسانی به مجوز جدیدی نیاز ندارد."</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"آیا می‌خواهید مجوزهای زیر را اعطا کنید؟ این مجوزها دسترسی به این موارد را بوجود می‌آورند:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"اجازه ندارد"</string>
+    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"اطلاعات بیشتر"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"در هر صورت نادیده گرفته شود"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> از <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="7332275268559121742">"‏به&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; اجازه <xliff:g id="ACTION">%2$s</xliff:g> را می‌دهید؟"</string>
+    <string name="permission_revoked_count" msgid="7386129423432613024">"<xliff:g id="COUNT">%1$d</xliff:g> مجوز غیرفعال هستند"</string>
+    <string name="permission_revoked_all" msgid="8595742638132863678">"همه مجوزها غیرفعال هستند"</string>
+    <string name="permission_revoked_none" msgid="2059511550181271342">"هیچ‌ موردی غیرفعال نیست"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"مجاز است"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"برنامه‌ها"</string>
     <string name="app_permissions" msgid="3146758905824597178">"مجوزهای برنامه"</string>
@@ -118,8 +122,8 @@
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"‏عملکردهای نصب/حذف نصب در Wear پشتیبانی نمی‌شود."</string>
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> به‌روزرسانی شد. به <xliff:g id="APP_NAME_1">%1$s</xliff:g> برای دسترسی به موارد زیر اجازه می‌دهید؟"</string>
-    <string name="permission_review_title_template_install" msgid="6535540493936469336">"انتخاب کنید <xliff:g id="APP_NAME">%1$s</xliff:g> اجازه دارد به چه چیزی دسترسی داشته باشد"</string>
-    <string name="permission_review_title_template_update" msgid="2548815248828051885">"<xliff:g id="APP_NAME">%1$s</xliff:g> به‌روزرسانی شد. انتخاب کنید این برنامه اجازه دارد به چه چیزی دسترسی داشته باشد."</string>
+    <string name="permission_review_title_template_install" msgid="6819338441305295479">"‏انتخاب کنید &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; اجازه دارد به چه چیزی دسترسی پیدا کند"</string>
+    <string name="permission_review_title_template_update" msgid="8632233603161669426">"‏&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; به‌روزرسانی شده است. انتخاب کنید این برنامه اجازه دارد به چه چیزی دسترسی پیدا کند."</string>
     <string name="review_button_cancel" msgid="957906817733578877">"لغو"</string>
     <string name="review_button_continue" msgid="4809162078179371370">"ادامه"</string>
     <string name="new_permissions_category" msgid="3213523410139204183">"مجوزهای جدید"</string>
