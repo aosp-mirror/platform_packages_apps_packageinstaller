@@ -61,8 +61,13 @@ public class ManualLayoutFrame extends ViewGroup {
 
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        // We want to keep the content bottom at the same place to avoid movement of the "Allow"
+        // button.
+        // Try to keep the content bottom at the same height. If this would move the dialog out of
+        // the top of the screen move it down as much as possible, then keep it at that position for
+        // the rest of the sequence of permission dialogs.
         View content = getChildAt(0);
-        if (mContentBottom == 0) {
+        if (mContentBottom == 0 || content.getMeasuredHeight() > mContentBottom) {
             mContentBottom = (getMeasuredHeight() + content.getMeasuredHeight()) / 2;
         }
         final int contentLeft = (getMeasuredWidth() - content.getMeasuredWidth()) / 2;
