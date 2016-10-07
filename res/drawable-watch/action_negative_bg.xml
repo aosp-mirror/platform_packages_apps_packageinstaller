@@ -13,23 +13,12 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_enabled="false">
-        <shape android:shape="oval">
-            <solid android:color="@color/circular_button_disabled"/>
-            <size android:width="40dp" android:height="40dp" />
-        </shape>
-    </item>
-    <item android:state_pressed="true">
-        <shape android:shape="oval">
-            <solid android:color="#757575"/>
-            <size android:width="40dp" android:height="40dp" />
-        </shape>
-    </item>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+        android:color="?android:colorControlHighlight">
     <item>
-        <shape android:shape="oval">
-            <solid android:color="#BDBDBD"/>
+        <shape android:shape="oval" android:tint="?android:colorButtonNormal">
+            <solid android:color="@android:color/white" />
             <size android:width="40dp" android:height="40dp" />
         </shape>
     </item>
-</selector>
+</ripple>

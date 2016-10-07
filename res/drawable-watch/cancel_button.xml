@@ -15,7 +15,5 @@
 -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
     <item android:drawable="@drawable/action_negative_bg" />
-    <item>
-        <bitmap android:src="@drawable/ic_cc_cancel" android:gravity="center" />
-    </item>
+    <item android:drawable="@drawable/ic_cc_clear" android:gravity="center" />
 </layer-list>
