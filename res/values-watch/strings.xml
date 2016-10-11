@@ -30,8 +30,9 @@
     <!-- Summary of a permission switch when it's enforced by policy [CHAR LIMIT=17] -->
     <string name="permission_summary_enforced_by_policy">Can\'t be changed</string>
 
-    <!-- Generic text to indicate that a setting is enabled. Should be in all caps. [CHAR LIMIT=40] -->
-    <string name="generic_enabled">ENABLED</string>
-    <!-- Generic text to indicate that a setting is disabled. Should be in all caps. [CHAR LIMIT=40] -->
-    <string name="generic_disabled">DISABLED</string>
+    <!-- Generic text to indicate a yes. [CHAR LIMIT=10] -->
+    <string name="generic_yes">Yes</string>
+
+    <!-- Generic text to indicate Cancel. [CHAR LIMIT=10] -->
+    <string name="generic_cancel">Cancel</string>
 </resources>
