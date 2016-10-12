@@ -23,7 +23,10 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.wearable.view.WearableListView;
+import android.preference.Preference;
+import android.preference.PreferenceFragment;
+import android.preference.SwitchPreference;
+import android.support.wearable.view.WearableDialogHelper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,8 +36,6 @@ import android.widget.Toast;
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
-import com.android.packageinstaller.permission.ui.wear.settings.PermissionsSettingsAdapter;
-import com.android.packageinstaller.permission.ui.wear.settings.SettingsAdapter;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.packageinstaller.permission.utils.Utils;
@@ -42,16 +43,10 @@ import com.android.packageinstaller.permission.utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class AppPermissionsFragmentWear extends TitledSettingsFragment {
+public final class AppPermissionsFragmentWear extends PreferenceFragment {
+    private static final String LOG_TAG = "AppPermFragWear";
 
-    private static final String LOG_TAG = "ManagePermsFragment";
-
-    private static final int WARNING_CONFIRMATION_REQUEST = 252;
-    private List<AppPermissionGroup> mToggledGroups;
-    private AppPermissions mAppPermissions;
-    private PermissionsSettingsAdapter mAdapter;
-
-    private boolean mHasConfirmedRevoke;
+    private static final String KEY_NO_PERMISSIONS = "no_permissions";
 
     public static AppPermissionsFragmentWear newInstance(String packageName) {
         return setPackageName(new AppPermissionsFragmentWear(), packageName);
@@ -63,6 +58,11 @@ public final class AppPermissionsFragmentWear extends TitledSettingsFragment {
         fragment.setArguments(arguments);
         return fragment;
     }
+
+    private List<AppPermissionGroup> mToggledGroups;
+    private AppPermissions mAppPermissions;
+
+    private boolean mHasConfirmedRevoke;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -86,22 +86,11 @@ public final class AppPermissionsFragmentWear extends TitledSettingsFragment {
             return;
         }
 
-        mAppPermissions = new AppPermissions(activity, packageInfo, null, true, new Runnable() {
-            @Override
-            public void run() {
-                getActivity().finish();
-            }
-        });
+        mAppPermissions = new AppPermissions(
+                activity, packageInfo, null, true, () -> getActivity().finish());
 
-        mAdapter = new PermissionsSettingsAdapter(getContext());
-
+        addPreferencesFromResource(R.xml.watch_permissions);
         initializePermissionGroupList();
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.settings, container, false);
     }
 
     @Override
@@ -110,63 +99,11 @@ public final class AppPermissionsFragmentWear extends TitledSettingsFragment {
         mAppPermissions.refresh();
 
         // Also refresh the UI
-        final int count = mAdapter.getItemCount();
-        for (int i = 0; i < count; ++i) {
-            updatePermissionGroupSetting(i);
-        }
-    }
-
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        if (mAppPermissions != null) {
-            initializeLayout(mAdapter);
-            mHeader.setText(R.string.app_permissions);
-            mDetails.setText(R.string.no_permissions);
-            if (mAdapter.getItemCount() == 0) {
-                mDetails.setVisibility(View.VISIBLE);
-                mWheel.setVisibility(View.GONE);
-            } else {
-                mDetails.setVisibility(View.GONE);
-                mWheel.setVisibility(View.VISIBLE);
+        for (final AppPermissionGroup group : mAppPermissions.getPermissionGroups()) {
+            Preference pref = findPreference(group.getName());
+            if (pref instanceof SwitchPreference) {
+                ((SwitchPreference) pref).setChecked(group.areRuntimePermissionsGranted());
             }
-        }
-    }
-
-    private void initializePermissionGroupList() {
-        final String packageName = mAppPermissions.getPackageInfo().packageName;
-        List<AppPermissionGroup> groups = mAppPermissions.getPermissionGroups();
-        List<SettingsAdapter.Setting<AppPermissionGroup>> nonSystemGroups = new ArrayList<>();
-
-        final int count = groups.size();
-        for (int i = 0; i < count; ++i) {
-            final AppPermissionGroup group = groups.get(i);
-            if (!Utils.shouldShowPermission(group, packageName)) {
-                continue;
-            }
-
-            boolean isPlatform = group.getDeclaringPackage().equals(Utils.OS_PKG);
-
-            SettingsAdapter.Setting<AppPermissionGroup> setting =
-                    new SettingsAdapter.Setting<AppPermissionGroup>(
-                            group.getLabel(),
-                            getPermissionGroupIcon(group),
-                            i);
-            setting.data = group;
-
-            // The UI shows System settings first, then non-system settings
-            if (isPlatform) {
-                mAdapter.addSetting(setting);
-            } else {
-                nonSystemGroups.add(setting);
-            }
-        }
-
-        // Now add the non-system settings to the end of the list
-        final int nonSystemCount = nonSystemGroups.size();
-        for (int i = 0; i < nonSystemCount; ++i) {
-            final SettingsAdapter.Setting<AppPermissionGroup> setting = nonSystemGroups.get(i);
-            mAdapter.addSetting(setting);
         }
     }
 
@@ -176,83 +113,90 @@ public final class AppPermissionsFragmentWear extends TitledSettingsFragment {
         logAndClearToggledGroups();
     }
 
-    @Override
-    public void onClick(WearableListView.ViewHolder view) {
-        final int index = view.getPosition();
-        SettingsAdapter.Setting<AppPermissionGroup> setting = mAdapter.get(index);
-        final AppPermissionGroup group = setting.data;
+    private void initializePermissionGroupList() {
+        final String packageName = mAppPermissions.getPackageInfo().packageName;
+        List<AppPermissionGroup> groups = mAppPermissions.getPermissionGroups();
+        List<SwitchPreference> nonSystemGroups = new ArrayList<>();
 
-        if (group == null) {
-            Log.e(LOG_TAG, "Error: AppPermissionGroup is null");
-            return;
+        if (!groups.isEmpty()) {
+            getPreferenceScreen().removePreference(findPreference(KEY_NO_PERMISSIONS));
         }
 
-        // The way WearableListView is designed, there is no way to avoid this click handler
-        // Since the policy is fixed, ignore the click as the user is not able to change the state
-        // of this permission group
-        if (group.isPolicyFixed()) {
-            return;
+        for (final AppPermissionGroup group : groups) {
+            if (!Utils.shouldShowPermission(group, packageName)) {
+                continue;
+            }
+
+            boolean isPlatform = group.getDeclaringPackage().equals(Utils.OS_PKG);
+
+            final SwitchPreference pref = new SwitchPreference(getContext());
+            pref.setKey(group.getName());
+            pref.setTitle(group.getLabel());
+            pref.setChecked(group.areRuntimePermissionsGranted());
+
+            if (group.isPolicyFixed()) {
+                pref.setEnabled(false);
+            } else {
+                pref.setOnPreferenceChangeListener((p, newVal) -> {
+                    if (LocationUtils.isLocationGroupAndProvider(
+                            group.getName(), group.getApp().packageName)) {
+                        LocationUtils.showLocationDialog(
+                                getContext(), mAppPermissions.getAppLabel());
+                        return false;
+                    }
+
+                    if ((Boolean) newVal) {
+                        setPermission(group, pref, true);
+                    } else {
+                        final boolean grantedByDefault = group.hasGrantedByDefaultPermission();
+                        if (grantedByDefault || (!group.doesSupportRuntimePermissions()
+                                && !mHasConfirmedRevoke)) {
+                            new WearableDialogHelper.DialogBuilder(getContext())
+                                    .setNegativeIcon(R.drawable.confirm_button)
+                                    .setPositiveIcon(R.drawable.cancel_button)
+                                    .setNegativeButton(R.string.grant_dialog_button_deny_anyway,
+                                            (dialog, which) -> {
+                                                setPermission(group, pref, false);
+                                                if (!group.hasGrantedByDefaultPermission()) {
+                                                    mHasConfirmedRevoke = true;
+                                                }
+                                            })
+                                    .setPositiveButton(R.string.cancel, (dialog, which) -> {})
+                                    .setMessage(grantedByDefault ?
+                                            R.string.system_warning : R.string.old_sdk_deny_warning)
+                                    .show();
+                            return false;
+                        } else {
+                            setPermission(group, pref, false);
+                        }
+                    }
+
+                    return true;
+                });
+            }
+
+            // The UI shows System settings first, then non-system settings
+            if (isPlatform) {
+                getPreferenceScreen().addPreference(pref);
+            } else {
+                nonSystemGroups.add(pref);
+            }
         }
 
-        addToggledGroup(group);
-
-        if (LocationUtils.isLocationGroupAndProvider(group.getName(), group.getApp().packageName)) {
-            LocationUtils.showLocationDialog(getContext(), mAppPermissions.getAppLabel());
-            return;
+        // Now add the non-system settings to the end of the list
+        for (SwitchPreference nonSystemGroup : nonSystemGroups) {
+            getPreferenceScreen().addPreference(nonSystemGroup);
         }
+    }
 
-        if (!group.areRuntimePermissionsGranted()) {
+    private void setPermission(AppPermissionGroup group, SwitchPreference pref, boolean grant) {
+        if (grant) {
             group.grantRuntimePermissions(false);
         } else {
-            final boolean grantedByDefault = group.hasGrantedByDefaultPermission();
-            if (grantedByDefault || (!group.doesSupportRuntimePermissions()
-                    && !mHasConfirmedRevoke)) {
-                Intent intent = new Intent(getActivity(), WarningConfirmationActivity.class);
-                intent.putExtra(WarningConfirmationActivity.EXTRA_WARNING_MESSAGE,
-                        getString(grantedByDefault ?
-                                R.string.system_warning : R.string.old_sdk_deny_warning));
-                intent.putExtra(WarningConfirmationActivity.EXTRA_INDEX, index);
-                startActivityForResult(intent, WARNING_CONFIRMATION_REQUEST);
-            } else {
-                group.revokeRuntimePermissions(false);
-            }
+            group.revokeRuntimePermissions(false);
         }
-
-        updatePermissionGroupSetting(index);
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == WARNING_CONFIRMATION_REQUEST) {
-            if (resultCode == Activity.RESULT_OK) {
-                int index = data.getIntExtra(WarningConfirmationActivity.EXTRA_INDEX, -1);
-                if (index == -1) {
-                    Log.e(LOG_TAG, "Warning confirmation request came back with no index.");
-                    return;
-                }
-
-                SettingsAdapter.Setting<AppPermissionGroup> setting = mAdapter.get(index);
-                final AppPermissionGroup group = setting.data;
-                group.revokeRuntimePermissions(false);
-                if (!group.hasGrantedByDefaultPermission()) {
-                    mHasConfirmedRevoke = true;
-                }
-
-                updatePermissionGroupSetting(index);
-            }
-        } else {
-            super.onActivityResult(requestCode, resultCode, data);
-        }
-    }
-
-    private void updatePermissionGroupSetting(int index) {
-        SettingsAdapter.Setting<AppPermissionGroup> setting = mAdapter.get(index);
-        AppPermissionGroup group = setting.data;
-        mAdapter.updateSetting(
-                index,
-                group.getLabel(),
-                getPermissionGroupIcon(group),
-                group);
+        addToggledGroup(group);
+        pref.setChecked(grant);
     }
 
     private void addToggledGroup(AppPermissionGroup group) {
@@ -273,55 +217,5 @@ public final class AppPermissionsFragmentWear extends TitledSettingsFragment {
             SafetyNetLogger.logPermissionsToggled(packageName, mToggledGroups);
             mToggledGroups = null;
         }
-    }
-
-    private int getPermissionGroupIcon(AppPermissionGroup group) {
-        String groupName = group.getName();
-        boolean isEnabled = group.areRuntimePermissionsGranted();
-        int resId;
-
-        switch (groupName) {
-            case Manifest.permission_group.CALENDAR:
-                resId = isEnabled ? R.drawable.ic_permission_calendar
-                        : R.drawable.ic_permission_calendardisable;
-                break;
-            case Manifest.permission_group.CAMERA:
-                resId = isEnabled ? R.drawable.ic_permission_camera
-                        : R.drawable.ic_permission_cameradisable;
-                break;
-            case Manifest.permission_group.CONTACTS:
-                resId = isEnabled ? R.drawable.ic_permission_contact
-                        : R.drawable.ic_permission_contactdisable;
-                break;
-            case Manifest.permission_group.LOCATION:
-                resId = isEnabled ? R.drawable.ic_permission_location
-                        : R.drawable.ic_permission_locationdisable;
-                break;
-            case Manifest.permission_group.MICROPHONE:
-                resId = isEnabled ? R.drawable.ic_permission_mic
-                        : R.drawable.ic_permission_micdisable;
-                break;
-            case Manifest.permission_group.PHONE:
-                resId = isEnabled ? R.drawable.ic_permission_call
-                        : R.drawable.ic_permission_calldisable;
-                break;
-            case Manifest.permission_group.SENSORS:
-                resId = isEnabled ? R.drawable.ic_permission_sensor
-                        : R.drawable.ic_permission_sensordisable;
-                break;
-            case Manifest.permission_group.SMS:
-                resId = isEnabled ? R.drawable.ic_permission_sms
-                        : R.drawable.ic_permission_smsdisable;
-                break;
-            case Manifest.permission_group.STORAGE:
-                resId = isEnabled ? R.drawable.ic_permission_storage
-                        : R.drawable.ic_permission_storagedisable;
-                break;
-            default:
-                resId = isEnabled ? R.drawable.ic_permission_shield
-                        : R.drawable.ic_permission_shielddisable;
-        }
-
-        return resId;
     }
 }

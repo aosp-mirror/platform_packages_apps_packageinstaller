@@ -1,30 +1,51 @@
 package com.android.packageinstaller.permission.ui;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
-import android.graphics.PixelFormat;
+import android.content.DialogInterface;
+import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Icon;
+import android.graphics.PixelFormat;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.support.wearable.view.AcceptDenyDialog;
+import android.support.wearable.view.WearableDialogHelper;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.ImageSpan;
+import android.text.style.TextAppearanceSpan;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Space;
 
 import com.android.packageinstaller.R;
-import com.android.packageinstaller.permission.ui.wear.ConfirmationViewHandler;
 
 /**
  * Watch-specific view handler for the grant permissions activity.
  */
-final class GrantPermissionsWatchViewHandler extends ConfirmationViewHandler
-        implements GrantPermissionsViewHandler {
+final class GrantPermissionsWatchViewHandler implements GrantPermissionsViewHandler,
+        DialogInterface.OnClickListener {
     private static final String TAG = "GrantPermsWatchViewH";
 
-    private static final String ARG_GROUP_NAME = "ARG_GROUP_NAME";
+    private static final String WATCH_HANDLER_BUNDLE = "watch_handler_bundle";
+    private static final String DIALOG_BUNDLE = "dialog_bundle";
+    private static final String GROUP_NAME = "group_name";
+    private static final String SHOW_DO_NOT_ASK = "show_do_not_ask";
+    private static final String ICON = "icon";
+    private static final String MESSAGE = "message";
+    private static final String CURRENT_PAGE_TEXT = "current_page_text";
 
     private final Context mContext;
-    
+
     private ResultListener mResultListener;
-    
+
+    private Dialog mDialog;
+
     private String mGroupName;
     private boolean mShowDoNotAsk;
 
@@ -32,8 +53,7 @@ final class GrantPermissionsWatchViewHandler extends ConfirmationViewHandler
     private String mCurrentPageText;
     private Icon mIcon;
 
-    GrantPermissionsWatchViewHandler(Context context, String appPackageName) {
-        super(context);
+    GrantPermissionsWatchViewHandler(Context context) {
         mContext = context;
     }
 
@@ -45,13 +65,8 @@ final class GrantPermissionsWatchViewHandler extends ConfirmationViewHandler
 
     @Override
     public View createView() {
-        if (Log.isLoggable(TAG, Log.DEBUG)) {
-            Log.d(TAG, "createView()");
-        }
-
-        mShowDoNotAsk = false;
-
-        return super.createView();
+        showDialog(null);
+        return new Space(mContext);
     }
 
     @Override
@@ -79,96 +94,121 @@ final class GrantPermissionsWatchViewHandler extends ConfirmationViewHandler
         mShowDoNotAsk = showDoNotAsk;
         mMessage = message;
         mIcon = icon;
-        mCurrentPageText = (groupCount > 1 ?
-                mContext.getString(R.string.current_permission_template, groupIndex + 1, groupCount)
-                : null);
+        mCurrentPageText = groupCount > 1
+                ? mContext.getString(R.string.current_permission_template,
+                        groupIndex + 1, groupCount)
+                : null;
+        showDialog(null);
+    }
 
-        invalidate();
+    private void showDialog(Bundle savedInstanceState) {
+        TypedArray a = mContext.obtainStyledAttributes(
+                new int[] { android.R.attr.textColorPrimary });
+        int color = a.getColor(0, mContext.getColor(android.R.color.white));
+        a.recycle();
+        Drawable drawable = mIcon == null ? null : mIcon.setTint(color).loadDrawable(mContext);
+
+        SpannableStringBuilder ssb = new SpannableStringBuilder();
+        if (!TextUtils.isEmpty(mCurrentPageText)) {
+            ssb.append(mCurrentPageText, new TextAppearanceSpan(mContext, R.style.BreadcrumbText),
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            ssb.append('\n');
+        }
+        if (!TextUtils.isEmpty(mMessage)) {
+            ssb.append(mMessage, new TextAppearanceSpan(mContext, R.style.TitleText),
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
+
+        if (mShowDoNotAsk) {
+            if (mDialog instanceof AlertDialog) {
+                AlertDialog alertDialog = (AlertDialog) mDialog;
+                alertDialog.setTitle(ssb);
+                alertDialog.setIcon(drawable);
+            } else {
+                if (mDialog != null) {
+                    mDialog.dismiss();
+                    mDialog = null;
+                }
+                mDialog = new WearableDialogHelper.DialogBuilder(mContext)
+                        .setPositiveIcon(R.drawable.confirm_button)
+                        .setNeutralIcon(R.drawable.cancel_button)
+                        .setNegativeIcon(R.drawable.deny_button)
+                        .setTitle(ssb)
+                        .setIcon(drawable)
+                        .setPositiveButton(R.string.grant_dialog_button_allow, this)
+                        .setNeutralButton(R.string.grant_dialog_button_deny, this)
+                        .setNegativeButton(R.string.grant_dialog_button_deny_dont_ask_again, this)
+                        .show();
+                mDialog.setCancelable(false);
+            }
+        } else {
+            if (mDialog instanceof AcceptDenyDialog) {
+                AcceptDenyDialog acceptDenyDialog = (AcceptDenyDialog) mDialog;
+                acceptDenyDialog.setTitle(ssb);
+                acceptDenyDialog.setIcon(drawable);
+            } else {
+                if (mDialog != null) {
+                    mDialog.dismiss();
+                    mDialog = null;
+                }
+
+                AcceptDenyDialog acceptDenyDialog = new AcceptDenyDialog(mContext);
+                acceptDenyDialog.setTitle(ssb);
+                acceptDenyDialog.setIcon(drawable);
+                acceptDenyDialog.setPositiveButton(this);
+                acceptDenyDialog.setNegativeButton(this);
+                acceptDenyDialog.show();
+                mDialog = acceptDenyDialog;
+                mDialog.setCancelable(false);
+            }
+        }
+
+        if (savedInstanceState != null) {
+            mDialog.onRestoreInstanceState(savedInstanceState);
+        }
     }
 
     @Override
     public void saveInstanceState(Bundle outState) {
-        outState.putString(ARG_GROUP_NAME, mGroupName);
+        Bundle b = new Bundle();
+        b.putByte(SHOW_DO_NOT_ASK, (byte) (mShowDoNotAsk ? 1 : 0));
+        b.putString(GROUP_NAME, mGroupName);
+        b.putBundle(DIALOG_BUNDLE, mDialog.onSaveInstanceState());
+
+        outState.putBundle(WATCH_HANDLER_BUNDLE, b);
     }
 
     @Override
     public void loadInstanceState(Bundle savedInstanceState) {
-        mGroupName = savedInstanceState.getString(ARG_GROUP_NAME);
+        Bundle b = savedInstanceState.getBundle(WATCH_HANDLER_BUNDLE);
+        mShowDoNotAsk = b.getByte(SHOW_DO_NOT_ASK) == 1;
+        mGroupName = b.getString(GROUP_NAME);
+        showDialog(b.getBundle(DIALOG_BUNDLE));
     }
 
     @Override
     public void onBackPressed() {
-        if (mResultListener != null) {
-            mResultListener.onPermissionGrantResult(mGroupName, false, false);
+        notifyListener(false, false);
+    }
+
+    @Override
+    public void onClick(DialogInterface dialog, int which) {
+        switch (which) {
+            case DialogInterface.BUTTON_POSITIVE:
+                notifyListener(true, false);
+                break;
+            case DialogInterface.BUTTON_NEUTRAL:
+                notifyListener(false, false);
+                break;
+            case DialogInterface.BUTTON_NEGATIVE:
+                notifyListener(false,
+                        /* In AlertDialog, the negative button is also a don't ask again button. */
+                        dialog instanceof AlertDialog);
+                break;
         }
     }
 
-    @Override // ConfirmationViewHandler
-    public void onButton1() {
-        onClick(true /* granted */, false /* doNotAskAgain */);
-    }
-
-    @Override // ConfirmationViewHandler
-    public void onButton2() {
-        onClick(false /* granted */, false /* doNotAskAgain */);
-    }
-
-    @Override // ConfirmationViewHandler
-    public void onButton3() {
-        onClick(false /* granted */, true /* doNotAskAgain */);
-    }
-
-    @Override // ConfirmationViewHandler
-    public CharSequence getCurrentPageText() {
-        return mCurrentPageText;
-    }
-
-    @Override // ConfirmationViewHandler
-    public Icon getPermissionIcon() {
-        return mIcon;
-    }
-
-    @Override // ConfirmationViewHandler
-    public CharSequence getMessage() {
-        return mMessage;
-    }
-
-    @Override // ConfirmationViewHandler
-    public int getButtonBarMode() {
-        return mShowDoNotAsk ? MODE_VERTICAL_BUTTONS : MODE_HORIZONTAL_BUTTONS;
-    }
-
-    @Override // ConfirmationViewHandler
-    public CharSequence getVerticalButton1Text() {
-        return mContext.getString(R.string.grant_dialog_button_allow);
-    }
-
-    @Override // ConfirmationViewHandler
-    public CharSequence getVerticalButton2Text() {
-        return mContext.getString(R.string.grant_dialog_button_deny);
-    }
-
-    @Override // ConfirmationViewHandler
-    public CharSequence getVerticalButton3Text() {
-        return mContext.getString(R.string.grant_dialog_button_deny_dont_ask_again);
-    }
-
-    @Override // ConfirmationViewHandler
-    public Drawable getVerticalButton1Icon(){
-        return mContext.getDrawable(R.drawable.confirm_button);
-    }
-
-    @Override // ConfirmationViewHandler
-    public Drawable getVerticalButton2Icon(){
-        return mContext.getDrawable(R.drawable.cancel_button);
-    }
-
-    @Override // ConfirmationViewHandler
-    public Drawable getVerticalButton3Icon(){
-        return mContext.getDrawable(R.drawable.deny_button);
-    }
-
-    private void onClick(boolean granted, boolean doNotAskAgain) {
+    private void notifyListener(boolean granted, boolean doNotAskAgain) {
         if (mResultListener != null) {
             mResultListener.onPermissionGrantResult(mGroupName, granted, doNotAskAgain);
         }

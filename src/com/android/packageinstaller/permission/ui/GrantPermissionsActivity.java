@@ -83,8 +83,7 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
                     .GrantPermissionsViewHandlerImpl(this,
                     getCallingPackage()).setResultListener(this);
         } else if (DeviceUtils.isWear(this)) {
-            mViewHandler = new GrantPermissionsWatchViewHandler(this,
-                    getCallingPackage()).setResultListener(this);
+            mViewHandler = new GrantPermissionsWatchViewHandler(this).setResultListener(this);
         } else if (DeviceUtils.isAuto(this)) {
             mViewHandler = new GrantPermissionsAutoViewHandler(this, getCallingPackage())
                     .setResultListener(this);
