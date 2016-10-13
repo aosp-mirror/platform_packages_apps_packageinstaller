@@ -165,7 +165,10 @@ public class InstallInstalling extends Activity {
     private void launchSuccess() {
         Intent successIntent = new Intent(getIntent());
         successIntent.setClass(this, InstallSuccess.class);
-        startActivityForResult(successIntent, 0);
+        successIntent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+
+        startActivity(successIntent);
+        finish();
     }
 
     /**
@@ -181,18 +184,11 @@ public class InstallInstalling extends Activity {
 
         Intent failureIntent = new Intent(getIntent());
         failureIntent.setClass(this, InstallFailed.class);
+        failureIntent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
         failureIntent.putExtra(PackageInstaller.EXTRA_STATUS, statusCode);
         failureIntent.putExtra(PackageInstaller.EXTRA_STATUS_MESSAGE, statusMessage);
 
-        startActivityForResult(failureIntent, 0);
-    }
-
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // Pass on result
-        setResult(resultCode, data);
-
+        startActivity(failureIntent);
         finish();
     }
 

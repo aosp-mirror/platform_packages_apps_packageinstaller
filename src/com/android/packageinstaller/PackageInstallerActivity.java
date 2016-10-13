@@ -32,9 +32,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PackageParser;
 import android.content.pm.PackageUserState;
 import android.content.pm.VerificationParams;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Process;
@@ -48,16 +46,10 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AppSecurityPermissions;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
-import com.android.packageinstaller.permission.utils.Utils;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 
 /*
  * This activity is launched when a new application is installed via side loading
@@ -78,14 +70,13 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     private static final String SCHEME_CONTENT = "content";
     private static final String SCHEME_PACKAGE = "package";
 
+    private static final String EXTRA_ORIGINAL_SOURCE_INFO = "EXTRA_ORIGINAL_SOURCE_INFO";
+
     private int mSessionId = -1;
     private Uri mPackageURI;
     private Uri mOriginatingURI;
     private Uri mReferrerURI;
     private int mOriginatingUid = VerificationParams.NO_UID;
-    private File mContentUriApkStagingFile;
-
-    private AsyncTask<Uri, Void, File> mStagingAsynTask;
 
     private boolean localLOGV = false;
     PackageManager mPm;
@@ -307,7 +298,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                     .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             setResult(RESULT_OK);
-                            clearCachedApkIfNeededAndFinish();
+                            finish();
                         }
                     })
                     .setOnCancelListener(this)
@@ -329,7 +320,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         if (request == REQUEST_ENABLE_UNKNOWN_SOURCES && result == RESULT_OK) {
             checkIfAllowedAndInitiateInstall(true);
         } else {
-            clearCachedApkIfNeededAndFinish();
+            finish();
         }
     }
 
@@ -337,16 +328,12 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         String callerPackage = getCallingPackage();
         if (callerPackage != null && intent.getBooleanExtra(
                 Intent.EXTRA_NOT_UNKNOWN_SOURCE, false)) {
-            try {
-                mSourceInfo = mPm.getApplicationInfo(callerPackage, 0);
-                if (mSourceInfo != null) {
-                    if ((mSourceInfo.privateFlags & ApplicationInfo.PRIVATE_FLAG_PRIVILEGED)
-                            != 0) {
-                        // Privileged apps are not considered an unknown source.
-                        return false;
-                    }
+            if (mSourceInfo != null) {
+                if ((mSourceInfo.privateFlags & ApplicationInfo.PRIVATE_FLAG_PRIVILEGED)
+                        != 0) {
+                    // Privileged apps are not considered an unknown source.
+                    return false;
                 }
-            } catch (NameNotFoundException e) {
             }
         }
 
@@ -411,6 +398,15 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         mUserManager = (UserManager) getSystemService(Context.USER_SERVICE);
 
         final Intent intent = getIntent();
+
+        // This activity might have been started by InstallStaging. In this case recover
+        // the info from the app that initiated the install request
+        if (getPackageName().equals(getCallingPackage())) {
+            mSourceInfo = getIntent().getParcelableExtra(EXTRA_ORIGINAL_SOURCE_INFO);
+        } else {
+            mSourceInfo = getSourceInfo();
+        }
+
         mOriginatingUid = getOriginatingUid(intent);
 
         final Uri packageUri;
@@ -492,7 +488,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                 }
             } else {
                 startActivity(new Intent(Settings.ACTION_SHOW_ADMIN_SUPPORT_DETAILS));
-                clearCachedApkIfNeededAndFinish();
+                finish();
             }
         } else if (!isUnknownSourcesEnabled() && isManagedProfile) {
             showDialogInner(DLG_ADMIN_RESTRICTS_UNKNOWN_SOURCES);
@@ -510,10 +506,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
 
     @Override
     protected void onDestroy() {
-        if (mStagingAsynTask != null) {
-            mStagingAsynTask.cancel(true);
-            mStagingAsynTask = null;
-        }
         super.onDestroy();
     }
 
@@ -567,15 +559,24 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             } break;
 
             case SCHEME_CONTENT: {
-                mStagingAsynTask = new StagingAsyncTask();
-                mStagingAsynTask.execute(packageUri);
+                Intent installStaging = new Intent(getIntent());
+                installStaging.setClass(this, InstallStaging.class);
+
+                // Store UID which might not be set in original intent
+                installStaging.putExtra(Intent.EXTRA_ORIGINATING_UID, mOriginatingUid);
+
+                // Store source info as when called back the source is the packageinstaller
+                installStaging.putExtra(EXTRA_ORIGINAL_SOURCE_INFO, mSourceInfo);
+                installStaging.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+                startActivity(installStaging);
+                finish();
                 return false;
             }
 
             default: {
                 Log.w(TAG, "Unsupported scheme " + scheme);
                 setPmResult(PackageManager.INSTALL_FAILED_INVALID_URI);
-                clearCachedApkIfNeededAndFinish();
+                finish();
                 return false;
             }
         }
@@ -609,8 +610,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         // Get the source info from the calling package, if available. This will be the
         // definitive calling package, but it only works if the intent was started using
         // startActivityForResult,
-        ApplicationInfo sourceInfo = getSourceInfo();
-        if (sourceInfo != null) {
+        if (mSourceInfo != null) {
             if (uidFromIntent != VerificationParams.NO_UID &&
                     (mSourceInfo.privateFlags & ApplicationInfo.PRIVATE_FLAG_PRIVILEGED) != 0) {
                 return uidFromIntent;
@@ -618,7 +618,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             }
             // We either didn't get a uid in the intent, or we don't trust it. Use the
             // uid of the calling package instead.
-            return sourceInfo.uid;
+            return mSourceInfo.uid;
         }
 
         // We couldn't get the specific calling package. Let's get the uid instead
@@ -667,7 +667,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
 
     // Generic handling when pressing back key
     public void onCancel(DialogInterface dialog) {
-        clearCachedApkIfNeededAndFinish();
+        finish();
     }
 
     public void onClick(View v) {
@@ -675,7 +675,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             if (mOkCanInstall || mScrollView == null) {
                 if (mSessionId != -1) {
                     mInstaller.setPermissionsResult(mSessionId, true);
-                    clearCachedApkIfNeededAndFinish();
+                    finish();
                 } else {
                     startInstall();
                 }
@@ -688,7 +688,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             if (mSessionId != -1) {
                 mInstaller.setPermissionsResult(mSessionId, false);
             }
-            clearCachedApkIfNeededAndFinish();
+            finish();
         }
     }
 
@@ -722,102 +722,4 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         startActivity(newIntent);
         finish();
     }
-
-    private void clearCachedApkIfNeededAndFinish() {
-        if (mContentUriApkStagingFile != null) {
-            mContentUriApkStagingFile.delete();
-            mContentUriApkStagingFile = null;
-        }
-        finish();
-    }
-
-    private final class StagingAsyncTask extends AsyncTask<Uri, Void, File> {
-        private static final long SHOW_EMPTY_STATE_DELAY_MILLIS = 300;
-
-        private final Runnable mEmptyStateRunnable = new Runnable() {
-            @Override
-            public void run() {
-                ((TextView) findViewById(R.id.app_name)).setText(R.string.app_name_unknown);
-                ((TextView) findViewById(R.id.install_confirm_question))
-                        .setText(R.string.message_staging);
-                mInstallConfirm.setVisibility(View.VISIBLE);
-                findViewById(android.R.id.tabhost).setVisibility(View.INVISIBLE);
-                findViewById(R.id.spacer).setVisibility(View.VISIBLE);
-                findViewById(R.id.ok_button).setEnabled(false);
-                Drawable icon = getDrawable(R.drawable.ic_file_download);
-                Utils.applyTint(PackageInstallerActivity.this,
-                        icon, android.R.attr.colorControlNormal);
-                ((ImageView) findViewById(R.id.app_icon)).setImageDrawable(icon);
-            }
-        };
-
-        @Override
-        protected void onPreExecute() {
-            getWindow().getDecorView().postDelayed(mEmptyStateRunnable,
-                    SHOW_EMPTY_STATE_DELAY_MILLIS);
-        }
-
-        @Override
-        protected File doInBackground(Uri... params) {
-            if (params == null || params.length <= 0) {
-                return null;
-            }
-            Uri packageUri = params[0];
-            File sourceFile = null;
-            try {
-                sourceFile = File.createTempFile("package", ".apk", getCacheDir());
-                try (
-                    InputStream in = getContentResolver().openInputStream(packageUri);
-                    OutputStream out = (in != null) ? new FileOutputStream(
-                            sourceFile) : null;
-                ) {
-                    // Despite the comments in ContentResolver#openInputStream
-                    // the returned stream can be null.
-                    if (in == null) {
-                        return null;
-                    }
-                    byte[] buffer = new byte[4096];
-                    int bytesRead;
-                    while ((bytesRead = in.read(buffer)) >= 0) {
-                        // Be nice and respond to a cancellation
-                        if (isCancelled()) {
-                            return null;
-                        }
-                        out.write(buffer, 0, bytesRead);
-                    }
-                }
-            } catch (IOException | SecurityException e) {
-                Log.w(TAG, "Error staging apk from content URI", e);
-                if (sourceFile != null) {
-                    sourceFile.delete();
-                }
-            }
-            return sourceFile;
-        }
-
-        @Override
-        protected void onPostExecute(File file) {
-            getWindow().getDecorView().removeCallbacks(mEmptyStateRunnable);
-            if (isFinishing() || isDestroyed()) {
-                return;
-            }
-            if (file == null) {
-                showDialogInner(DLG_PACKAGE_ERROR);
-                setPmResult(PackageManager.INSTALL_FAILED_INVALID_APK);
-                return;
-            }
-            mContentUriApkStagingFile = file;
-            Uri fileUri = Uri.fromFile(file);
-
-            boolean wasSetUp = processPackageUri(fileUri);
-            if (wasSetUp) {
-                checkIfAllowedAndInitiateInstall(false);
-            }
-        }
-
-        @Override
-        protected void onCancelled(File file) {
-            getWindow().getDecorView().removeCallbacks(mEmptyStateRunnable);
-        }
-    };
 }

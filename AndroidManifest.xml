@@ -65,6 +65,10 @@
                 android:theme="@style/Theme.DialogWhenLargeNoAnimation"
                 android:exported="false" />
 
+        <activity android:name=".InstallStaging"
+                android:theme="@style/Theme.DialogWhenLargeNoAnimation"
+                android:exported="false" />
+
         <activity android:name=".UninstallerActivity"
                 android:configChanges="orientation|keyboardHidden|screenSize"
                 android:excludeFromRecents="true"
