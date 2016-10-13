@@ -37,7 +37,7 @@ import com.android.packageinstaller.R;
  * no click listener attached by default, the buttons are hidden be default.
  */
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-public class AcceptDenyDialog extends Dialog implements View.OnClickListener {
+public class AcceptDenyDialog extends Dialog {
     /** Icon at the top of the dialog. */
     protected ImageView mIcon;
     /** Title at the top of the dialog. */
@@ -63,6 +63,16 @@ public class AcceptDenyDialog extends Dialog implements View.OnClickListener {
     /** Spacer between the positive and negative button. Hidden if one button is hidden. */
     protected View mSpacer;
 
+    private final View.OnClickListener mButtonHandler = (v) -> {
+        if (v == mPositiveButton && mPositiveButtonListener != null) {
+            mPositiveButtonListener.onClick(this, DialogInterface.BUTTON_POSITIVE);
+            dismiss();
+        } else if (v == mNegativeButton && mNegativeButtonListener != null) {
+            mNegativeButtonListener.onClick(this, DialogInterface.BUTTON_NEGATIVE);
+            dismiss();
+        }
+    };
+
     public AcceptDenyDialog(Context context) {
         this(context, 0 /* use default context theme */);
     }
@@ -76,29 +86,11 @@ public class AcceptDenyDialog extends Dialog implements View.OnClickListener {
         mMessage = (TextView) findViewById(android.R.id.message);
         mIcon = (ImageView) findViewById(android.R.id.icon);
         mPositiveButton = (ImageButton) findViewById(android.R.id.button1);
-        mPositiveButton.setOnClickListener(this);
+        mPositiveButton.setOnClickListener(mButtonHandler);
         mNegativeButton = (ImageButton) findViewById(android.R.id.button2);
-        mNegativeButton.setOnClickListener(this);
+        mNegativeButton.setOnClickListener(mButtonHandler);
         mSpacer = (Space) findViewById(R.id.spacer);
         mButtonPanel = findViewById(R.id.buttonPanel);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case android.R.id.button1:
-                if (mPositiveButtonListener != null) {
-                    mPositiveButtonListener.onClick(this, DialogInterface.BUTTON_POSITIVE);
-                }
-                dismiss();
-                break;
-            case android.R.id.button2:
-                if (mNegativeButtonListener != null) {
-                    mNegativeButtonListener.onClick(this, DialogInterface.BUTTON_NEGATIVE);
-                }
-                dismiss();
-                break;
-        }
     }
 
     public ImageButton getButton(int whichButton) {
