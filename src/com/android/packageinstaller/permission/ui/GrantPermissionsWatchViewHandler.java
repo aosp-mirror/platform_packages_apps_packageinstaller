@@ -119,62 +119,45 @@ final class GrantPermissionsWatchViewHandler implements GrantPermissionsViewHand
                     Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         }
 
-        if (mShowDoNotAsk) {
-            if (mDialog instanceof AlertDialog) {
-                AlertDialog alertDialog = (AlertDialog) mDialog;
-                alertDialog.setTitle(ssb);
-                alertDialog.setIcon(drawable);
-            } else {
-                if (mDialog != null) {
-                    mDialog.dismiss();
-                    mDialog = null;
-                }
-                AlertDialog alertDialog = new WearableDialogHelper.DialogBuilder(mContext)
-                        .setPositiveIcon(R.drawable.confirm_button)
-                        .setNeutralIcon(R.drawable.cancel_button)
-                        .setNegativeIcon(R.drawable.deny_button)
-                        .setTitle(ssb)
-                        .setIcon(drawable)
-                        .setPositiveButton(R.string.grant_dialog_button_allow, this)
-                        .setNeutralButton(R.string.grant_dialog_button_deny, this)
-                        .setNegativeButton(R.string.grant_dialog_button_deny_dont_ask_again, this)
-                        .show();
-                alertDialog.setCancelable(false);
-                alertDialog.getButton(DialogInterface.BUTTON_POSITIVE)
-                        .setId(R.id.permission_allow_button);
-                alertDialog.getButton(DialogInterface.BUTTON_NEUTRAL)
-                        .setId(R.id.permission_deny_button);
-                alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE)
-                        .setId(R.id.permission_deny_dont_ask_again_button);
-
-                mDialog = alertDialog;
-            }
-        } else {
-            if (mDialog instanceof AcceptDenyDialog) {
-                AcceptDenyDialog acceptDenyDialog = (AcceptDenyDialog) mDialog;
-                acceptDenyDialog.setTitle(ssb);
-                acceptDenyDialog.setIcon(drawable);
-            } else {
-                if (mDialog != null) {
-                    mDialog.dismiss();
-                    mDialog = null;
-                }
-
-                AcceptDenyDialog acceptDenyDialog = new AcceptDenyDialog(mContext);
-                acceptDenyDialog.setTitle(ssb);
-                acceptDenyDialog.setIcon(drawable);
-                acceptDenyDialog.setPositiveButton(this);
-                acceptDenyDialog.setNegativeButton(this);
-                acceptDenyDialog.show();
-                acceptDenyDialog.getButton(DialogInterface.BUTTON_POSITIVE)
-                        .setId(R.id.permission_allow_button);
-                acceptDenyDialog.getButton(DialogInterface.BUTTON_NEGATIVE)
-                        .setId(R.id.permission_deny_button);
-
-                mDialog = acceptDenyDialog;
-                mDialog.setCancelable(false);
-            }
+        if (mDialog != null) {
+            mDialog.dismiss();
+            mDialog = null;
         }
+
+        if (mShowDoNotAsk) {
+            AlertDialog alertDialog = new WearableDialogHelper.DialogBuilder(mContext)
+                    .setPositiveIcon(R.drawable.confirm_button)
+                    .setNeutralIcon(R.drawable.cancel_button)
+                    .setNegativeIcon(R.drawable.deny_button)
+                    .setTitle(ssb)
+                    .setIcon(drawable)
+                    .setPositiveButton(R.string.grant_dialog_button_allow, this)
+                    .setNeutralButton(R.string.grant_dialog_button_deny, this)
+                    .setNegativeButton(R.string.grant_dialog_button_deny_dont_ask_again, this)
+                    .show();
+            alertDialog.getButton(DialogInterface.BUTTON_POSITIVE)
+                    .setId(R.id.permission_allow_button);
+            alertDialog.getButton(DialogInterface.BUTTON_NEUTRAL)
+                    .setId(R.id.permission_deny_button);
+            alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE)
+                    .setId(R.id.permission_deny_dont_ask_again_button);
+
+            mDialog = alertDialog;
+        } else {
+            AcceptDenyDialog acceptDenyDialog = new AcceptDenyDialog(mContext);
+            acceptDenyDialog.setTitle(ssb);
+            acceptDenyDialog.setIcon(drawable);
+            acceptDenyDialog.setPositiveButton(this);
+            acceptDenyDialog.setNegativeButton(this);
+            acceptDenyDialog.show();
+            acceptDenyDialog.getButton(DialogInterface.BUTTON_POSITIVE)
+                    .setId(R.id.permission_allow_button);
+            acceptDenyDialog.getButton(DialogInterface.BUTTON_NEGATIVE)
+                    .setId(R.id.permission_deny_button);
+
+            mDialog = acceptDenyDialog;
+        }
+        mDialog.setCancelable(false);
 
         if (savedInstanceState != null) {
             mDialog.onRestoreInstanceState(savedInstanceState);
