@@ -129,7 +129,7 @@ final class GrantPermissionsWatchViewHandler implements GrantPermissionsViewHand
                     mDialog.dismiss();
                     mDialog = null;
                 }
-                mDialog = new WearableDialogHelper.DialogBuilder(mContext)
+                AlertDialog alertDialog = new WearableDialogHelper.DialogBuilder(mContext)
                         .setPositiveIcon(R.drawable.confirm_button)
                         .setNeutralIcon(R.drawable.cancel_button)
                         .setNegativeIcon(R.drawable.deny_button)
@@ -139,7 +139,15 @@ final class GrantPermissionsWatchViewHandler implements GrantPermissionsViewHand
                         .setNeutralButton(R.string.grant_dialog_button_deny, this)
                         .setNegativeButton(R.string.grant_dialog_button_deny_dont_ask_again, this)
                         .show();
-                mDialog.setCancelable(false);
+                alertDialog.setCancelable(false);
+                alertDialog.getButton(DialogInterface.BUTTON_POSITIVE)
+                        .setId(R.id.permission_allow_button);
+                alertDialog.getButton(DialogInterface.BUTTON_NEUTRAL)
+                        .setId(R.id.permission_deny_button);
+                alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE)
+                        .setId(R.id.permission_deny_dont_ask_again_button);
+
+                mDialog = alertDialog;
             }
         } else {
             if (mDialog instanceof AcceptDenyDialog) {
@@ -158,6 +166,11 @@ final class GrantPermissionsWatchViewHandler implements GrantPermissionsViewHand
                 acceptDenyDialog.setPositiveButton(this);
                 acceptDenyDialog.setNegativeButton(this);
                 acceptDenyDialog.show();
+                acceptDenyDialog.getButton(DialogInterface.BUTTON_POSITIVE)
+                        .setId(R.id.permission_allow_button);
+                acceptDenyDialog.getButton(DialogInterface.BUTTON_NEGATIVE)
+                        .setId(R.id.permission_deny_button);
+
                 mDialog = acceptDenyDialog;
                 mDialog.setCancelable(false);
             }
