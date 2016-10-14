@@ -17,6 +17,7 @@
 package com.android.packageinstaller.permission.model;
 
 import android.content.pm.PackageManager;
+import android.content.pm.PermissionInfo;
 
 public final class Permission {
     private final String mName;
@@ -25,14 +26,16 @@ public final class Permission {
     private boolean mGranted;
     private boolean mAppOpAllowed;
     private int mFlags;
+    private boolean mIsEphemeral;
 
     public Permission(String name, boolean granted,
-            String appOp, boolean appOpAllowed, int flags) {
+            String appOp, boolean appOpAllowed, int flags, int protectionLevel) {
         mName = name;
         mGranted = granted;
         mAppOp = appOp;
         mAppOpAllowed = appOpAllowed;
         mFlags = flags;
+        mIsEphemeral = (protectionLevel & PermissionInfo.PROTECTION_FLAG_EPHEMERAL) != 0;
     }
 
     public String getName() {
@@ -129,5 +132,13 @@ public final class Permission {
 
     public void setAppOpAllowed(boolean mAppOpAllowed) {
         this.mAppOpAllowed = mAppOpAllowed;
+    }
+
+    public boolean isEphemeral() {
+        return mIsEphemeral;
+    }
+
+    public boolean isGrantingAllowed(boolean isEphemeralApp) {
+        return !isEphemeralApp || isEphemeral();
     }
 }

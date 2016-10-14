@@ -177,8 +177,9 @@ public class PermissionApps {
                         continue;
                     }
 
-                    if (requestedPermissionInfo.protectionLevel
-                                != PermissionInfo.PROTECTION_DANGEROUS
+                    if ((requestedPermissionInfo.protectionLevel
+                                & PermissionInfo.PROTECTION_MASK_BASE)
+                                    != PermissionInfo.PROTECTION_DANGEROUS
                             || (requestedPermissionInfo.flags
                                 & PermissionInfo.FLAG_INSTALLED) == 0
                             || (requestedPermissionInfo.flags
@@ -267,7 +268,8 @@ public class PermissionApps {
         } catch (PackageManager.NameNotFoundException e) {
             try {
                 PermissionInfo permInfo = mPm.getPermissionInfo(mGroupName, 0);
-                if (permInfo.protectionLevel != PermissionInfo.PROTECTION_DANGEROUS) {
+                if ((permInfo.protectionLevel & PermissionInfo.PROTECTION_MASK_BASE)
+                        != PermissionInfo.PROTECTION_DANGEROUS) {
                     Log.w(LOG_TAG, mGroupName + " is not a runtime permission");
                     return;
                 }

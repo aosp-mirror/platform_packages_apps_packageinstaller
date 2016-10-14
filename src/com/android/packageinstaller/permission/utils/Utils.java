@@ -86,6 +86,10 @@ public final class Utils {
             return false;
         }
 
+        if (!group.isGrantingAllowed()) {
+            return false;
+        }
+
         final boolean isPlatformPermission = group.getDeclaringPackage().equals(OS_PKG);
         // Show legacy permissions only if the user chose that.
         if (isPlatformPermission

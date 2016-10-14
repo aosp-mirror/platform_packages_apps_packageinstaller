@@ -150,6 +150,10 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
             if (group == null) {
                 continue;
             }
+            if (!group.isGrantingAllowed()) {
+                // Skip showing groups that we know cannot be granted.
+                continue;
+            }
             // We allow the user to choose only non-fixed permissions. A permission
             // is fixed either by device policy or the user denying with prejudice.
             if (!group.isUserFixed() && !group.isPolicyFixed()) {
@@ -357,6 +361,10 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
             PermissionInfo pInfo = getPackageManager().getPermissionInfo(permission, 0);
             if ((pInfo.protectionLevel & PermissionInfo.PROTECTION_MASK_BASE)
                     != PermissionInfo.PROTECTION_DANGEROUS) {
+                return PERMISSION_DENIED;
+            }
+            if ((pInfo.protectionLevel & PermissionInfo.PROTECTION_FLAG_EPHEMERAL) == 0
+                    && callingPackageInfo.applicationInfo.isEphemeralApp()) {
                 return PERMISSION_DENIED;
             }
         } catch (NameNotFoundException e) {
