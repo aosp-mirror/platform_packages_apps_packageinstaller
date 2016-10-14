@@ -18,6 +18,7 @@ package com.android.packageinstaller;
 
 import static android.content.pm.PackageInstaller.SessionParams.UID_UNKNOWN;
 
+import android.annotation.Nullable;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -105,7 +106,7 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
                     mProgressBar.setVisibility(View.GONE);
                     // Show the ok button
                     int centerTextLabel;
-                    int centerExplanationLabel = -1;
+                    String centerExplanationLabel = null;
                     if (msg.arg1 == PackageInstaller.STATUS_SUCCESS) {
                         mLaunchButton.setVisibility(View.VISIBLE);
                         ((ImageView)findViewById(R.id.center_icon))
@@ -131,14 +132,17 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
                         showDialogInner(DLG_OUT_OF_SPACE);
                         return;
                     } else {
+                        String statusMessage = (String) msg.obj;
                         // Generic error handling for all other error codes.
                         ((ImageView)findViewById(R.id.center_icon))
                                 .setImageDrawable(getDrawable(R.drawable.ic_report_problem_92));
-                        centerExplanationLabel = getExplanationFromErrorCode(msg.arg1);
-                        centerTextLabel = R.string.install_failed;
+                        centerTextLabel = getExplanationFromErrorCode(msg.arg1);
+                        if (statusMessage != null) {
+                            centerExplanationLabel = statusMessage;
+                        }
                         mLaunchButton.setVisibility(View.GONE);
                     }
-                    if (centerExplanationLabel != -1) {
+                    if (centerExplanationLabel != null) {
                         mExplanationTextView.setText(centerExplanationLabel);
                         findViewById(R.id.center_view).setVisibility(View.GONE);
                         ((TextView)findViewById(R.id.explanation_status)).setText(centerTextLabel);
@@ -165,7 +169,8 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
             if (statusCode == PackageInstaller.STATUS_PENDING_USER_ACTION) {
                 context.startActivity((Intent)intent.getParcelableExtra(Intent.EXTRA_INTENT));
             } else {
-                onPackageInstalled(statusCode);
+                onPackageInstalled(statusCode, intent.getStringExtra(
+                        PackageInstaller.EXTRA_STATUS_MESSAGE));
             }
         }
     };
@@ -182,7 +187,7 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
             case PackageInstaller.STATUS_FAILURE_INVALID:
                 return R.string.install_failed_invalid_apk;
             default:
-                return -1;
+                return R.string.install_failed;
         }
     }
 
@@ -250,9 +255,10 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
         showDialog(id);
     }
 
-    void onPackageInstalled(int statusCode) {
+    void onPackageInstalled(int statusCode, @Nullable String statusMessage) {
         Message msg = mHandler.obtainMessage(INSTALL_COMPLETE);
         msg.arg1 = statusCode;
+        msg.obj = statusMessage;
         mHandler.sendMessage(msg);
     }
 
@@ -307,7 +313,7 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
                     PendingIntent.FLAG_UPDATE_CURRENT);
             session.commit(pendingIntent.getIntentSender());
         } catch (IOException e) {
-            onPackageInstalled(PackageInstaller.STATUS_FAILURE);
+            onPackageInstalled(PackageInstaller.STATUS_FAILURE, null);
         } finally {
             IoUtils.closeQuietly(session);
         }
@@ -345,9 +351,9 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
         if ("package".equals(mPackageURI.getScheme())) {
             try {
                 pm.installExistingPackage(mAppInfo.packageName);
-                onPackageInstalled(PackageInstaller.STATUS_SUCCESS);
+                onPackageInstalled(PackageInstaller.STATUS_SUCCESS, null);
             } catch (PackageManager.NameNotFoundException e) {
-                onPackageInstalled(PackageInstaller.STATUS_FAILURE_INVALID);
+                onPackageInstalled(PackageInstaller.STATUS_FAILURE_INVALID, null);
             }
         } else {
             final PackageInstaller.SessionParams params = new PackageInstaller.SessionParams(

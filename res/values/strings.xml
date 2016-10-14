@@ -53,10 +53,10 @@
     <string name="install_failed_blocked">The package was blocked from being installed.</string>
     <!-- Reason displayed when installation fails because the package conflicts with
         an existing application (e.g., incompatible certificates) [CHAR LIMIT=100] -->
-    <string name="install_failed_conflict">The package conflicts with an existing package by the same name.</string>
+    <string name="install_failed_conflict">App not installed as package conflicts with an existing package.</string>
     <!-- Reason displayed when installation fails because the package is incompatible with
        the current tablet (e.g., missing native code for the current ABI, newer SDK, ...) [CHAR LIMIT=100] -->
-    <string name="install_failed_incompatible" product="tablet">This app isn\'t
+    <string name="install_failed_incompatible" product="tablet">App not installed as app isn\'t
         compatible with your tablet.</string>
     <!-- Reason displayed when installation fails because the package is incompatible with
        the current TV (e.g., missing native code for the current ABI, newer SDK, ...) [CHAR LIMIT=100] -->
@@ -64,11 +64,11 @@
         compatible with your TV.</string>
     <!-- Reason displayed when installation fails because the package is incompatible with
        the current phone (e.g., missing native code for the current ABI, newer SDK, ...) [CHAR LIMIT=100] -->
-    <string name="install_failed_incompatible" product="default">This app isn\'t
+    <string name="install_failed_incompatible" product="default">App not installed as app isn\'t
         compatible with your phone.</string>
     <!-- Reason displayed when installation fails because the installation package itself is invalid
         in some way (e.g., corrupt) [CHAR LIMIT=100] -->
-    <string name="install_failed_invalid_apk">The package appears to be corrupt.</string>
+    <string name="install_failed_invalid_apk">App not installed as package appears to be invalid.</string>
     <!-- Message presented when an application could not be installed on the tablet for some reason. [CHAR LIMIT=100] -->
     <string name="install_failed_msg" product="tablet"><xliff:g id="app_name">%1$s</xliff:g> couldn\'t be installed on your tablet.</string>
     <!-- Message presented when an application could not be installed on the TV for some reason. [CHAR LIMIT=100] -->
