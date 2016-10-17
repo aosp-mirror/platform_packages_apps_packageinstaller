@@ -327,7 +327,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         // whether the untrusted sources setting is on. This allows partners to
         // implement a "allow untrusted source once" feature.
         if (request == REQUEST_ENABLE_UNKNOWN_SOURCES && result == RESULT_OK) {
-            checkIfAllowedAndInitiateInstall();
+            checkIfAllowedAndInitiateInstall(true);
         } else {
             clearCachedApkIfNeededAndFinish();
         }
@@ -462,14 +462,17 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             return;
         }
 
-        checkIfAllowedAndInitiateInstall();
+        checkIfAllowedAndInitiateInstall(false);
     }
 
     /**
      * Check if it is allowed to install the package and initiate install if allowed. If not allowed
      * show the appropriate dialog.
+     *
+     * @param ignoreUnknownSourcesSettings Ignore {@link #isUnknownSourcesEnabled()} and proceed
+     *                                     even if this would prevented installation.
      */
-    private void checkIfAllowedAndInitiateInstall() {
+    private void checkIfAllowedAndInitiateInstall(boolean ignoreUnknownSourcesSettings) {
         // Block the install attempt on the Unknown Sources setting if necessary.
         final boolean requestFromUnknownSource = isInstallRequestFromUnknownSource(getIntent());
         if (!requestFromUnknownSource) {
@@ -482,7 +485,11 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         if (isUnknownSourcesDisallowed()) {
             if ((mUserManager.getUserRestrictionSource(UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES,
                     Process.myUserHandle()) & UserManager.RESTRICTION_SOURCE_SYSTEM) != 0) {
-                showDialogInner(DLG_UNKNOWN_SOURCES);
+                if (ignoreUnknownSourcesSettings) {
+                    initiateInstall();
+                } else {
+                    showDialogInner(DLG_UNKNOWN_SOURCES);
+                }
             } else {
                 startActivity(new Intent(Settings.ACTION_SHOW_ADMIN_SUPPORT_DETAILS));
                 clearCachedApkIfNeededAndFinish();
@@ -490,9 +497,12 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         } else if (!isUnknownSourcesEnabled() && isManagedProfile) {
             showDialogInner(DLG_ADMIN_RESTRICTS_UNKNOWN_SOURCES);
         } else if (!isUnknownSourcesEnabled()) {
-            // Ask user to enable setting first
-
-            showDialogInner(DLG_UNKNOWN_SOURCES);
+            if (ignoreUnknownSourcesSettings) {
+                initiateInstall();
+            } else {
+                // Ask user to enable setting first
+                showDialogInner(DLG_UNKNOWN_SOURCES);
+            }
         } else {
             initiateInstall();
         }
@@ -801,7 +811,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
 
             boolean wasSetUp = processPackageUri(fileUri);
             if (wasSetUp) {
-                checkIfAllowedAndInitiateInstall();
+                checkIfAllowedAndInitiateInstall(false);
             }
         }
 
