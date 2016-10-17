@@ -38,13 +38,6 @@
                 android:src="@drawable/ic_android_92"
                 android:contentDescription="@null" />
 
-        <ProgressBar android:id="@+id/progress_bar"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:indeterminate="true"
-                style="?android:attr/progressBarStyleHorizontal">
-        </ProgressBar>
-
         <TextView android:id="@+id/center_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

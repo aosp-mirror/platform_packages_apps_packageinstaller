@@ -53,6 +53,9 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".InstallInstalling"
+                android:exported="false" />
+
         <activity android:name=".InstallAppProgress"
                 android:configChanges="orientation|keyboardHidden|screenSize"
                 android:exported="false" />
