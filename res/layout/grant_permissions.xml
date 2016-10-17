@@ -95,6 +95,7 @@
                 </Button>
 
                 <com.android.packageinstaller.permission.ui.ButtonBarLayout
+                    android:id="@+id/button_group"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"

@@ -155,4 +155,20 @@ public final class Utils {
                 || Manifest.permission_group.PHONE.equals(group)
                 || Manifest.permission_group.CONTACTS.equals(group);
     }
+
+    public static boolean isPermissionIndividuallyControlled(Context context, String permission) {
+        if (!context.getResources().getBoolean(
+                com.android.internal.R.bool.config_permissionReviewRequired)) {
+            return false;
+        }
+        return Manifest.permission.READ_CONTACTS.equals(permission)
+                || Manifest.permission.WRITE_CONTACTS.equals(permission)
+                || Manifest.permission.SEND_SMS.equals(permission)
+                || Manifest.permission.RECEIVE_SMS.equals(permission)
+                || Manifest.permission.READ_SMS.equals(permission)
+                || Manifest.permission.RECEIVE_MMS.equals(permission)
+                || Manifest.permission.CALL_PHONE.equals(permission)
+                || Manifest.permission.READ_CALL_LOG.equals(permission)
+                || Manifest.permission.WRITE_CALL_LOG.equals(permission);
+    }
 }

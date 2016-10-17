@@ -351,6 +351,9 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         final int permissionCount = permissions.size();
         for (int i = 0; i < permissionCount; i++) {
             Permission permission = permissions.get(i);
+            if (!Utils.isPermissionIndividuallyControlled(getContext(), permission.getName())) {
+                continue;
+            }
             if (group.doesSupportRuntimePermissions()
                     ? !permission.isGranted() : !permission.isAppOpAllowed()) {
                 revokedCount++;

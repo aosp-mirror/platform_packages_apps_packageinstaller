@@ -153,15 +153,12 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
                             continue;
                         }
                         PreferenceGroup pref = findOrCreate(group, pm, prefs);
-                        // We allow individual permission control in some groups if review enabled
-                        final boolean mutable = Utils.areGroupPermissionsIndividuallyControlled(
-                                getContext(), group.name);
-                        pref.addPreference(getPreference(info, perm, group, pm, mutable));
+                        pref.addPreference(getPreference(info, perm, group, pm));
                     } else if (filterGroup == null) {
                         if (perm.protectionLevel == PermissionInfo.PROTECTION_NORMAL) {
                             PermissionGroupInfo group = getGroup(perm.group, pm);
                             otherGroup.addPreference(getPreference(info,
-                                    perm, group, pm, false));
+                                    perm, group, pm));
                         }
                     }
 
@@ -218,8 +215,11 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
     }
 
     private Preference getPreference(PackageInfo packageInfo, PermissionInfo perm,
-            PackageItemInfo group, PackageManager pm, boolean mutable) {
+            PackageItemInfo group, PackageManager pm) {
         final Preference pref;
+
+        // We allow individual permission control for some permissions if review enabled
+        final boolean mutable = Utils.isPermissionIndividuallyControlled(getContext(), perm.name);
         if (mutable) {
             pref = new MyMultiTargetSwitchPreference(getContext(), packageInfo, perm.name);
         } else {
