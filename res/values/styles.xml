@@ -23,6 +23,10 @@
         <item name="android:titleTextStyle">@style/TitleText</item>
     </style>
 
+    <style name="Theme.DialogWhenLargeNoAnimation" parent="Theme.DialogWhenLarge">
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
     <style name="MediumText"
             parent="@android:style/TextAppearance.Medium">
         <item name="android:textColor">?android:attr/textColorPrimary</item>

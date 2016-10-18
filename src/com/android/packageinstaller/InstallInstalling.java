@@ -44,7 +44,7 @@ import static android.content.pm.PackageInstaller.SessionParams.UID_UNKNOWN;
 
 /**
  * Send package to the package manager and handle results from package manager. Once the
- * installation succeeds, start {@link InstallAppProgress}.
+ * installation succeeds, start {@link InstallSuccess} or {@link InstallFailed}.
  * <p>This has two phases: First send the data to the package manager, then wait until the package
  * manager processed the result.</p>
  */
@@ -164,9 +164,7 @@ public class InstallInstalling extends Activity {
      */
     private void launchSuccess() {
         Intent successIntent = new Intent(getIntent());
-        successIntent.setClass(this, InstallAppProgress.class);
-        successIntent.putExtra(PackageInstaller.EXTRA_STATUS, PackageInstaller.STATUS_SUCCESS);
-
+        successIntent.setClass(this, InstallSuccess.class);
         startActivityForResult(successIntent, 0);
     }
 
@@ -182,7 +180,7 @@ public class InstallInstalling extends Activity {
         }
 
         Intent failureIntent = new Intent(getIntent());
-        failureIntent.setClass(this, InstallAppProgress.class);
+        failureIntent.setClass(this, InstallFailed.class);
         failureIntent.putExtra(PackageInstaller.EXTRA_STATUS, statusCode);
         failureIntent.putExtra(PackageInstaller.EXTRA_STATUS_MESSAGE, statusMessage);
 
