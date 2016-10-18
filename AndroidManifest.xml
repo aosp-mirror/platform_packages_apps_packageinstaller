@@ -54,10 +54,15 @@
         </activity>
 
         <activity android:name=".InstallInstalling"
+                android:theme="@style/Theme.DialogWhenLargeNoAnimation"
                 android:exported="false" />
 
-        <activity android:name=".InstallAppProgress"
-                android:configChanges="orientation|keyboardHidden|screenSize"
+        <activity android:name=".InstallSuccess"
+                android:theme="@style/Theme.DialogWhenLargeNoAnimation"
+                android:exported="false" />
+
+        <activity android:name=".InstallFailed"
+                android:theme="@style/Theme.DialogWhenLargeNoAnimation"
                 android:exported="false" />
 
         <activity android:name=".UninstallerActivity"
