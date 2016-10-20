@@ -48,7 +48,6 @@
     </LinearLayout>
 
     <LinearLayout
-            android:id="@+id/center_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -58,19 +57,19 @@
             android:paddingRight="16dip">
 
         <ImageView
-                android:id="@+id/center_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="92dp"
+                android:layout_height="92dp"
                 android:layout_marginBottom="12dp"
                 android:contentDescription="@null"
-                android:src="@drawable/ic_android_92" />
+                android:tint="@color/bigIconColor"
+                android:src="@drawable/ic_file_download" />
 
         <ProgressBar
                 android:id="@+id/progress_bar"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:indeterminate="true" />
+                android:indeterminate="false" />
 
         <TextView
                 android:id="@+id/center_text"

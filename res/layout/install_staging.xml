@@ -40,7 +40,7 @@
                 android:layout_marginLeft="16dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_file_download"
-                android:tint="?android:attr/colorControlNormal" />
+                android:tint="?android:attr/colorAccent" />
 
         <TextView android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -53,21 +53,39 @@
 
     </LinearLayout>
 
-    <!-- header comment -->
-    <TextView android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?android:attr/colorPrimary"
-            android:elevation="@dimen/headerElevation"
-            android:paddingBottom="16dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:text="@string/message_staging"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
     <!-- content -->
-    <View android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="16dip"
+            android:paddingRight="16dip">
+
+        <ImageView
+                android:layout_width="92dp"
+                android:layout_height="92dp"
+                android:scaleType="fitCenter"
+                android:layout_marginBottom="12dp"
+                android:contentDescription="@null"
+                android:tint="@color/bigIconColor"
+                android:src="@drawable/ic_file_download" />
+
+        <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:indeterminate="true" />
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/message_staging"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </LinearLayout>
 
     <!-- Bottom buttons -->
     <LinearLayout style="?android:attr/buttonBarStyle"
