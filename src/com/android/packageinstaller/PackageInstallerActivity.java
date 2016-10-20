@@ -17,7 +17,6 @@
 package com.android.packageinstaller;
 
 import android.app.Activity;
-import android.app.ActivityManagerNative;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -67,10 +66,10 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     private static final int REQUEST_ENABLE_UNKNOWN_SOURCES = 1;
 
     private static final String SCHEME_FILE = "file";
-    private static final String SCHEME_CONTENT = "content";
     private static final String SCHEME_PACKAGE = "package";
 
-    private static final String EXTRA_ORIGINAL_SOURCE_INFO = "EXTRA_ORIGINAL_SOURCE_INFO";
+    static final String EXTRA_CALLING_PACKAGE = "EXTRA_CALLING_PACKAGE";
+    static final String EXTRA_ORIGINAL_SOURCE_INFO = "EXTRA_ORIGINAL_SOURCE_INFO";
 
     private int mSessionId = -1;
     private Uri mPackageURI;
@@ -83,6 +82,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     UserManager mUserManager;
     PackageInstaller mInstaller;
     PackageInfo mPkgInfo;
+    String mCallingPackage;
     ApplicationInfo mSourceInfo;
 
     // ApplicationInfo object primarily used for already existing applications
@@ -325,8 +325,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     }
 
     private boolean isInstallRequestFromUnknownSource(Intent intent) {
-        String callerPackage = getCallingPackage();
-        if (callerPackage != null && intent.getBooleanExtra(
+        if (mCallingPackage != null && intent.getBooleanExtra(
                 Intent.EXTRA_NOT_UNKNOWN_SOURCE, false)) {
             if (mSourceInfo != null) {
                 if ((mSourceInfo.privateFlags & ApplicationInfo.PRIVATE_FLAG_PRIVILEGED)
@@ -399,15 +398,10 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
 
         final Intent intent = getIntent();
 
-        // This activity might have been started by InstallStaging. In this case recover
-        // the info from the app that initiated the install request
-        if (getPackageName().equals(getCallingPackage())) {
-            mSourceInfo = getIntent().getParcelableExtra(EXTRA_ORIGINAL_SOURCE_INFO);
-        } else {
-            mSourceInfo = getSourceInfo();
-        }
-
-        mOriginatingUid = getOriginatingUid(intent);
+        mCallingPackage = intent.getStringExtra(EXTRA_CALLING_PACKAGE);
+        mSourceInfo = intent.getParcelableExtra(EXTRA_ORIGINAL_SOURCE_INFO);
+        mOriginatingUid = intent.getIntExtra(Intent.EXTRA_ORIGINATING_UID,
+                VerificationParams.NO_UID);
 
         final Uri packageUri;
 
@@ -514,11 +508,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         }
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
     /**
      * Parse the Uri and set up the installer for this package.
      *
@@ -567,21 +556,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                 mAppSnippet = PackageUtil.getAppSnippet(this, mPkgInfo.applicationInfo, sourceFile);
             } break;
 
-            case SCHEME_CONTENT: {
-                Intent installStaging = new Intent(getIntent());
-                installStaging.setClass(this, InstallStaging.class);
-
-                // Store UID which might not be set in original intent
-                installStaging.putExtra(Intent.EXTRA_ORIGINATING_UID, mOriginatingUid);
-
-                // Store source info as when called back the source is the packageinstaller
-                installStaging.putExtra(EXTRA_ORIGINAL_SOURCE_INFO, mSourceInfo);
-                installStaging.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
-                startActivity(installStaging);
-                finish();
-                return false;
-            }
-
             default: {
                 Log.w(TAG, "Unsupported scheme " + scheme);
                 setPmResult(PackageManager.INSTALL_FAILED_INVALID_URI);
@@ -591,77 +565,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         }
 
         return true;
-    }
-
-    /** Get the ApplicationInfo for the calling package, if available */
-    private ApplicationInfo getSourceInfo() {
-        String callingPackage = getCallingPackage();
-        if (callingPackage != null) {
-            try {
-                return mPm.getApplicationInfo(callingPackage, 0);
-            } catch (NameNotFoundException ex) {
-                // ignore
-            }
-        }
-        return null;
-    }
-
-
-    /** Get the originating uid if possible, or VerificationParams.NO_UID if not available */
-    private int getOriginatingUid(Intent intent) {
-        // The originating uid from the intent. We only trust/use this if it comes from a
-        // system application
-        int uidFromIntent = intent.getIntExtra(Intent.EXTRA_ORIGINATING_UID,
-                VerificationParams.NO_UID);
-
-        // Get the source info from the calling package, if available. This will be the
-        // definitive calling package, but it only works if the intent was started using
-        // startActivityForResult,
-        if (mSourceInfo != null) {
-            if (uidFromIntent != VerificationParams.NO_UID &&
-                    (mSourceInfo.privateFlags & ApplicationInfo.PRIVATE_FLAG_PRIVILEGED) != 0) {
-                return uidFromIntent;
-
-            }
-            // We either didn't get a uid in the intent, or we don't trust it. Use the
-            // uid of the calling package instead.
-            return mSourceInfo.uid;
-        }
-
-        // We couldn't get the specific calling package. Let's get the uid instead
-        int callingUid;
-        try {
-            callingUid = ActivityManagerNative.getDefault()
-                    .getLaunchedFromUid(getActivityToken());
-        } catch (android.os.RemoteException ex) {
-            Log.w(TAG, "Could not determine the launching uid.");
-            // nothing else we can do
-            return VerificationParams.NO_UID;
-        }
-
-        // If we got a uid from the intent, we need to verify that the caller is a
-        // privileged system package before we use it
-        if (uidFromIntent != VerificationParams.NO_UID) {
-            String[] callingPackages = mPm.getPackagesForUid(callingUid);
-            if (callingPackages != null) {
-                for (String packageName: callingPackages) {
-                    try {
-                        ApplicationInfo applicationInfo =
-                                mPm.getApplicationInfo(packageName, 0);
-
-                        if ((applicationInfo.privateFlags & ApplicationInfo.PRIVATE_FLAG_PRIVILEGED)
-                                != 0) {
-                            return uidFromIntent;
-                        }
-                    } catch (NameNotFoundException ex) {
-                        // ignore it, and try the next package
-                    }
-                }
-            }
-        }
-        // We either didn't get a uid from the intent, or we don't trust it. Use the
-        // calling uid instead.
-        return callingUid;
     }
 
     @Override
