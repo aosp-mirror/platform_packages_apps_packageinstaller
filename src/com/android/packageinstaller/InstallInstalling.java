@@ -21,10 +21,7 @@ import static android.content.pm.PackageInstaller.SessionParams.UID_UNKNOWN;
 import android.annotation.Nullable;
 import android.app.Activity;
 import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInstaller;
 import android.content.pm.PackageManager;
@@ -54,15 +51,10 @@ public class InstallInstalling extends Activity {
     private static final String LOG_TAG = InstallInstalling.class.getSimpleName();
 
     private static final String SESSION_ID = "com.android.packageinstaller.SESSION_ID";
+    private static final String INSTALL_ID = "com.android.packageinstaller.INSTALL_ID";
 
     private static final String BROADCAST_ACTION =
             "com.android.packageinstaller.ACTION_INSTALL_COMMIT";
-
-    private static final String BROADCAST_SENDER_PERMISSION =
-            "android.permission.INSTALL_PACKAGES";
-
-    /** Receiver receiving the results of the installation */
-    private BroadcastReceiver mBroadcastReceiver;
 
     /** Listens to changed to the session and updates progress bar */
     private PackageInstaller.SessionCallback mSessionCallback;
@@ -73,11 +65,11 @@ public class InstallInstalling extends Activity {
     /** Id of the session to install the package */
     private int mSessionId;
 
+    /** Id of the install event we wait for */
+    private int mInstallId;
+
     /** URI of package to install */
     private Uri mPackageURI;
-
-    /** Info about the app to info */
-    private ApplicationInfo mAppInfo;
 
     /** The button that can cancel this dialog */
     private Button mCancelButton;
@@ -88,23 +80,34 @@ public class InstallInstalling extends Activity {
 
         setContentView(R.layout.install_installing);
 
-        mAppInfo = getIntent().getParcelableExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO);
+        ApplicationInfo appInfo = getIntent()
+                .getParcelableExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO);
         mPackageURI = getIntent().getData();
 
         if ("package".equals(mPackageURI.getScheme())) {
             try {
-                getPackageManager().installExistingPackage(mAppInfo.packageName);
+                getPackageManager().installExistingPackage(appInfo.packageName);
                 launchSuccess();
             } catch (PackageManager.NameNotFoundException e) {
                 launchFailure(PackageInstaller.STATUS_FAILURE_INVALID, null);
             }
         } else {
             final File sourceFile = new File(mPackageURI.getPath());
-            PackageUtil.initSnippetForNewApp(this, PackageUtil.getAppSnippet(this, mAppInfo,
+            PackageUtil.initSnippetForNewApp(this, PackageUtil.getAppSnippet(this, appInfo,
                     sourceFile), R.id.app_snippet);
 
             if (savedInstanceState != null) {
                 mSessionId = savedInstanceState.getInt(SESSION_ID);
+                mInstallId = savedInstanceState.getInt(INSTALL_ID);
+
+                // Reregister for result; might instantly call back if result was delivered while
+                // activity was destroyed
+                try {
+                    InstallEventReceiver.addObserver(this, mInstallId,
+                            this::launchFinishBasedOnResult);
+                } catch (EventResultPersister.OutOfIdsException e) {
+                    // Does not happen
+                }
             } else {
                 PackageInstaller.SessionParams params = new PackageInstaller.SessionParams(
                         PackageInstaller.SessionParams.MODE_FULL_INSTALL);
@@ -133,6 +136,14 @@ public class InstallInstalling extends Activity {
                 }
 
                 try {
+                    mInstallId = InstallEventReceiver
+                            .addObserver(this, EventResultPersister.GENERATE_NEW_ID,
+                                    this::launchFinishBasedOnResult);
+                } catch (EventResultPersister.OutOfIdsException e) {
+                    launchFailure(PackageInstaller.STATUS_FAILURE, null);
+                }
+
+                try {
                     mSessionId = getPackageManager().getPackageInstaller().createSession(params);
                 } catch (IOException e) {
                     launchFailure(PackageInstaller.STATUS_FAILURE, null);
@@ -154,12 +165,6 @@ public class InstallInstalling extends Activity {
                 setResult(RESULT_CANCELED);
                 finish();
             });
-
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction(BROADCAST_ACTION);
-            mBroadcastReceiver = new InstallResultReceiver();
-            registerReceiver(mBroadcastReceiver, intentFilter, BROADCAST_SENDER_PERMISSION,
-                    null);
 
             mSessionCallback = new InstallSessionCallback();
         }
@@ -183,11 +188,6 @@ public class InstallInstalling extends Activity {
      * @param statusCode The status code explaining what went wrong
      */
     private void launchFailure(int statusCode, String statusMessage) {
-        if (mSessionId > 0) {
-            getPackageManager().getPackageInstaller().abandonSession(mSessionId);
-            mSessionId = 0;
-        }
-
         Intent failureIntent = new Intent(getIntent());
         failureIntent.setClass(this, InstallFailed.class);
         failureIntent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
@@ -229,6 +229,7 @@ public class InstallInstalling extends Activity {
         super.onSaveInstanceState(outState);
 
         outState.putInt(SESSION_ID, mSessionId);
+        outState.putInt(INSTALL_ID, mInstallId);
     }
 
     @Override
@@ -254,36 +255,22 @@ public class InstallInstalling extends Activity {
             }
         }
 
-        if (mBroadcastReceiver != null) {
-            unregisterReceiver(mBroadcastReceiver);
-        }
+        InstallEventReceiver.removeObserver(this, mInstallId);
 
         super.onDestroy();
     }
 
     /**
-     * Receive results from the package installer after InstallingAsyncTask finished.
+     * Launch the appropriate finish activity (success or failed) for the installation result.
+     *
+     * @param statusCode    The installation result.
+     * @param statusMessage The detailed installation result.
      */
-    private final class InstallResultReceiver extends BroadcastReceiver {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if (intent.getIntExtra(SESSION_ID, 0) != mSessionId) {
-                return;
-            }
-
-            final int statusCode = intent.getIntExtra(
-                    PackageInstaller.EXTRA_STATUS, PackageInstaller.STATUS_FAILURE);
-            if (statusCode == PackageInstaller.STATUS_PENDING_USER_ACTION) {
-                context.startActivity(intent.getParcelableExtra(Intent.EXTRA_INTENT));
-            } else {
-                if (statusCode == PackageInstaller.STATUS_SUCCESS) {
-                    launchSuccess();
-                } else {
-                    mSessionId = 0;
-                    launchFailure(statusCode, intent.getStringExtra(
-                            PackageInstaller.EXTRA_STATUS_MESSAGE));
-                }
-            }
+    private void launchFinishBasedOnResult(int statusCode, String statusMessage) {
+        if (statusCode == PackageInstaller.STATUS_SUCCESS) {
+            launchSuccess();
+        } else {
+            launchFailure(statusCode, statusMessage);
         }
     }
 
@@ -320,8 +307,8 @@ public class InstallInstalling extends Activity {
     }
 
     /**
-     * Send the package to the package installer and then register a broadcast pending intent that
-     * will wake up {@link InstallResultReceiver}
+     * Send the package to the package installer and then register a event result observer that
+     * will call {@link #launchFinishBasedOnResult(int, String)}
      */
     private final class InstallingAsyncTask extends AsyncTask<Void, Void,
             PackageInstaller.Session> {
@@ -368,17 +355,18 @@ public class InstallInstalling extends Activity {
                     }
                 }
 
-                synchronized (this) {
-                    isDone = true;
-                    notifyAll();
-                }
-
                 return session;
             } catch (IOException e) {
                 Log.e(LOG_TAG, "Could not write package", e);
 
                 session.close();
+
                 return null;
+            } finally {
+                synchronized (this) {
+                    isDone = true;
+                    notifyAll();
+                }
             }
         }
 
@@ -386,17 +374,18 @@ public class InstallInstalling extends Activity {
         protected void onPostExecute(PackageInstaller.Session session) {
             if (session != null) {
                 Intent broadcastIntent = new Intent(BROADCAST_ACTION);
-                broadcastIntent.putExtra(SESSION_ID, mSessionId);
+                broadcastIntent.putExtra(EventResultPersister.EXTRA_ID, mInstallId);
 
                 PendingIntent pendingIntent = PendingIntent.getBroadcast(
                         InstallInstalling.this,
-                        mSessionId,
+                        mInstallId,
                         broadcastIntent,
                         PendingIntent.FLAG_UPDATE_CURRENT);
 
                 session.commit(pendingIntent.getIntentSender());
                 mCancelButton.setEnabled(false);
             } else {
+                getPackageManager().getPackageInstaller().abandonSession(mSessionId);
                 launchFailure(PackageInstaller.STATUS_FAILURE, null);
             }
         }
