@@ -33,11 +33,11 @@
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Θέλετε να εγκαταστήσετε μια ενημέρωση για αυτήν την ενσωματωμένη εφαρμογή; Τα υπάρχοντα δεδομένα σας δεν θα χαθούν. Δεν απαιτείται ειδική πρόσβαση."</string>
     <string name="install_failed" msgid="6579998651498970899">"Η εφαρμογή δεν έχει εγκατασταθεί."</string>
     <string name="install_failed_blocked" msgid="1606870930588770025">"Η εγκατάσταση του πακέτου αποκλείστηκε."</string>
-    <string name="install_failed_conflict" msgid="5349055145440204106">"Παρουσιάζεται διένεξη του πακέτου με ένα υπάρχον πακέτο με το ίδιο όνομα."</string>
-    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"Αυτή η εφαρμογή δεν είναι συμβατή με το tablet σας."</string>
+    <string name="install_failed_conflict" msgid="5336045235168070954">"Η εφαρμογή δεν έχει εγκατασταθεί, επειδή το πακέτο έρχεται σε διένεξη με κάποιο υπάρχον πακέτο."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="6682387386242708974">"Η εφαρμογή δεν έχει εγκατασταθεί, επειδή δεν είναι συμβατή με το tablet που χρησιμοποιείτε."</string>
     <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Αυτή η εφαρμογή δεν είναι συμβατή με την τηλεόρασή σας."</string>
-    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"Αυτή η εφαρμογή δεν είναι συμβατή με το τηλέφωνό σας."</string>
-    <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Το πακέτο ενδέχεται να είναι κατεστραμμένο."</string>
+    <string name="install_failed_incompatible" product="default" msgid="7917996365659426872">"Η εφαρμογή δεν έχει εγκατασταθεί, επειδή δεν είναι συμβατή με το τηλέφωνό σας."</string>
+    <string name="install_failed_invalid_apk" msgid="269885385245534742">"Η εφαρμογή δεν έχει εγκατασταθεί, επειδή φαίνεται ότι το πακέτο δεν είναι έγκυρο."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Δεν ήταν δυνατή η εγκατάσταση της εφαρμογής <xliff:g id="APP_NAME">%1$s</xliff:g> στο tablet σας."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Η εφαρμογή <xliff:g id="APP_NAME">%1$s</xliff:g> δεν ήταν δυνατό να εγκατασταθεί στην τηλεόρασή σας."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Δεν ήταν δυνατή η εγκατάσταση της εφαρμογής <xliff:g id="APP_NAME">%1$s</xliff:g> στο τηλέφωνό σας."</string>
@@ -91,7 +91,7 @@
     <string name="permission_revoked_count" msgid="7386129423432613024">"έχουν απενεργοποιηθεί <xliff:g id="COUNT">%1$d</xliff:g>"</string>
     <string name="permission_revoked_all" msgid="8595742638132863678">"έχουν απενεργοποιηθεί όλες"</string>
     <string name="permission_revoked_none" msgid="2059511550181271342">"δεν έχει απενεργοποιηθεί καμία"</string>
-    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Να επιτραπεί"</string>
+    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Να επιτρέπεται"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Εφαρμογές"</string>
     <string name="app_permissions" msgid="3146758905824597178">"Δικαιώματα εφ/γών"</string>
     <string name="never_ask_again" msgid="1089938738199748687">"Να μην ερωτηθώ ξανά"</string>

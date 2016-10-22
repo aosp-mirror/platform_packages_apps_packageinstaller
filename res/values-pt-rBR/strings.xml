@@ -33,11 +33,11 @@
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Deseja instalar uma atualização para este app integrado? Seus dados existentes não serão perdidos. A atualização não requer qualquer acesso especial."</string>
     <string name="install_failed" msgid="6579998651498970899">"O app não foi instalado."</string>
     <string name="install_failed_blocked" msgid="1606870930588770025">"A instalação do pacote foi bloqueada."</string>
-    <string name="install_failed_conflict" msgid="5349055145440204106">"Já existe um pacote com esse mesmo nome."</string>
-    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"Este aplicativo não é compatível com seu tablet."</string>
+    <string name="install_failed_conflict" msgid="5336045235168070954">"Como o pacote tem um conflito com um pacote já existente, o app não foi instalado."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="6682387386242708974">"Como o app não é compatível com seu tablet, ele não foi instalado."</string>
     <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Este app não é compatível com sua TV."</string>
-    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"Este aplicativo não é compatível com seu smartphone."</string>
-    <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Parece que o pacote está corrompido."</string>
+    <string name="install_failed_incompatible" product="default" msgid="7917996365659426872">"Como o app não é compatível com seu smartphone, ele não foi instalado."</string>
+    <string name="install_failed_invalid_apk" msgid="269885385245534742">"Como o pacote parece ser inválido, o app não foi instalado."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Não foi possível instalar <xliff:g id="APP_NAME">%1$s</xliff:g> em seu tablet."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Não foi possível instalar <xliff:g id="APP_NAME">%1$s</xliff:g> na sua TV."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Não foi possível instalar <xliff:g id="APP_NAME">%1$s</xliff:g> em seu telefone."</string>
