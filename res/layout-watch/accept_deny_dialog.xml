@@ -25,26 +25,29 @@
             android:orientation="vertical">
 
         <FrameLayout
-                android:minHeight="@dimen/diag_preferred_padding"
-                android:gravity="top|center_horizontal"
+                android:adjustViewBounds="true"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent">
-            <ImageView
-                    android:id="@android:id/icon"
-                    android:layout_marginTop="8dp"
+                android:minHeight="@dimen/diag_preferred_padding">
+            <ImageView android:id="@android:id/icon"
+                    android:adjustViewBounds="true"
+                    android:maxHeight="24dp"
+                    android:maxWidth="24dp"
+                    android:layout_marginTop="@dimen/screen_percentage_10"
                     android:layout_marginBottom="8dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_height="20dp"
-                    android:layout_width="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:scaleType="centerInside"
-                    android:visibility="gone" />
+                    android:visibility="gone"
+                    android:src="@null" />
         </FrameLayout>
 
-        <TextView
-                android:id="@android:id/title"
+        <TextView android:id="@android:id/title"
                 android:gravity="center"
-                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:paddingLeft="@dimen/diag_preferred_padding"
                 android:paddingRight="@dimen/diag_preferred_padding"
                 android:textAppearance="@android:style/TextAppearance.Material.Title" />
