@@ -83,6 +83,9 @@
             </intent-filter>
         </activity>
 
+        <receiver android:name=".UninstallFinish"
+                android:exported="false" />
+
         <activity android:name=".UninstallAppProgress"
                 android:configChanges="mnc|mnc|touchscreen|navigation|screenLayout|screenSize|smallestScreenSize|orientation|locale|keyboard|keyboardHidden|fontScale|uiMode|layoutDirection|density"
                 android:exported="false" />
