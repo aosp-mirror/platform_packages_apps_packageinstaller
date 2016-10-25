@@ -21,8 +21,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.android.packageinstaller.permission.ui.wear.AppPermissionsFragmentWear;
 import com.android.packageinstaller.DeviceUtils;
+import com.android.packageinstaller.permission.ui.handheld.ManageStandardPermissionsFragment;
+import com.android.packageinstaller.permission.ui.wear.AppPermissionsFragmentWear;
 
 public final class ManagePermissionsActivity extends OverlayTouchActivity {
     private static final String LOG_TAG = "ManagePermissionsActivity";
@@ -47,8 +48,7 @@ public final class ManagePermissionsActivity extends OverlayTouchActivity {
                     fragment = com.android.packageinstaller.permission.ui.television
                             .ManagePermissionsFragment.newInstance();
                 } else {
-                    fragment = com.android.packageinstaller.permission.ui.handheld
-                            .ManagePermissionsFragment.newInstance();
+                    fragment = ManageStandardPermissionsFragment.newInstance();
                 }
             } break;
 
