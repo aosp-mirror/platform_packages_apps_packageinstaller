@@ -76,9 +76,12 @@ public class InstallFailed extends Activity {
                 PackageInstaller.STATUS_FAILURE);
 
         if (getIntent().getBooleanExtra(Intent.EXTRA_RETURN_RESULT, false)) {
+            int legacyStatus = getIntent().getIntExtra(PackageInstaller.EXTRA_LEGACY_STATUS,
+                    PackageManager.INSTALL_FAILED_INTERNAL_ERROR);
+
             // Return result if requested
             Intent result = new Intent();
-            result.putExtra(Intent.EXTRA_INSTALL_RESULT, statusCode);
+            result.putExtra(Intent.EXTRA_INSTALL_RESULT, legacyStatus);
             setResult(Activity.RESULT_FIRST_USER, result);
             finish();
         } else {
