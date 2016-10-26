@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
             android:background="?android:attr/colorPrimary"
-            android:elevation="4dp"
+            android:elevation="@dimen/headerElevation"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -57,7 +57,7 @@
     <TextView android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?android:attr/colorPrimary"
-            android:elevation="4dp"
+            android:elevation="@dimen/headerElevation"
             android:paddingBottom="16dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"

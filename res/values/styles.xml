@@ -16,17 +16,6 @@
 
 <resources>
 
-    <style name="Theme.DialogWhenLarge"
-           parent="@android:style/Theme.DeviceDefault.Light.DialogWhenLarge.NoActionBar">
-        <item name="android:textAppearanceMedium">@style/MediumText</item>
-        <item name="android:textAppearanceSmall">@style/SmallText</item>
-        <item name="android:titleTextStyle">@style/TitleText</item>
-    </style>
-
-    <style name="Theme.DialogWhenLargeNoAnimation" parent="Theme.DialogWhenLarge">
-        <item name="android:windowAnimationStyle">@null</item>
-    </style>
-
     <style name="MediumText"
             parent="@android:style/TextAppearance.Medium">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
@@ -41,15 +30,6 @@
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textSize">20dp</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
-    </style>
-
-    <style name="Theme.AlertDialogActivity"
-           parent="@android:style/Theme.DeviceDefault.Light.Panel">
-        <item name="android:backgroundDimEnabled">true</item>
-    </style>
-
-    <style name="Theme.Header.Settings"
-           parent="@android:style/Theme.DeviceDefault.Settings">
     </style>
 
     <style name="ActionBar" parent="@android:style/Widget.Material.ActionBar.Solid">
