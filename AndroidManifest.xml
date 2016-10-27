@@ -24,7 +24,7 @@
 
     <application android:label="@string/app_name"
             android:allowBackup="false"
-            android:theme="@style/Theme.DialogWhenLarge"
+            android:theme="@style/DialogWhenLarge"
             android:supportsRtl="true"
             android:defaultToDeviceProtectedStorage="true"
             android:directBootAware="true">
@@ -54,25 +54,25 @@
         </activity>
 
         <activity android:name=".InstallInstalling"
-                android:theme="@style/Theme.DialogWhenLargeNoAnimation"
+                android:theme="@style/DialogWhenLargeNoAnimation"
                 android:exported="false" />
 
         <activity android:name=".InstallSuccess"
-                android:theme="@style/Theme.DialogWhenLargeNoAnimation"
+                android:theme="@style/DialogWhenLargeNoAnimation"
                 android:exported="false" />
 
         <activity android:name=".InstallFailed"
-                android:theme="@style/Theme.DialogWhenLargeNoAnimation"
+                android:theme="@style/DialogWhenLargeNoAnimation"
                 android:exported="false" />
 
         <activity android:name=".InstallStaging"
-                android:theme="@style/Theme.DialogWhenLargeNoAnimation"
+                android:theme="@style/DialogWhenLargeNoAnimation"
                 android:exported="false" />
 
         <activity android:name=".UninstallerActivity"
                 android:configChanges="orientation|keyboardHidden|screenSize"
                 android:excludeFromRecents="true"
-                android:theme="@style/Theme.AlertDialogActivity">
+                android:theme="@style/AlertDialogActivity">
             <intent-filter android:priority="1">
                 <action android:name="android.intent.action.DELETE" />
                 <action android:name="android.intent.action.UNINSTALL_PACKAGE" />
