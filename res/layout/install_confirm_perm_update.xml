@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2015 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!--
+  Defines the layout of the splash screen that displays the security
+  settings required for an application and requests the confirmation of the
+  user before it is installed.
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- title bar -->
+    <LinearLayout android:id="@+id/app_snippet"
+        android:background="?android:attr/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageView android:id="@+id/app_icon"
+            android:layout_marginStart="16dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:scaleType="fitCenter" />
+
+        <TextView android:id="@+id/app_name"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/titleTextStyle"
+            android:singleLine="true"
+            android:ellipsize="end" />
+
+    </LinearLayout>
+
+    <TextView android:id="@+id/install_confirm_question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/colorPrimary"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/install_confirm_question"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp" />
+
+    <!-- content -->
+    <LinearLayout android:id="@+id/install_confirm_panel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TabHost android:id="@android:id/tabhost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <LinearLayout android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <HorizontalScrollView android:id="@+id/tabscontainer"
+                    android:background="?android:attr/colorPrimary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fillViewport="true"
+                    android:elevation="@dimen/headerElevation"
+                    android:scrollbars="none">
+
+                    <FrameLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TabWidget android:id="@android:id/tabs"
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center" />
+
+                    </FrameLayout>
+
+                </HorizontalScrollView>
+
+                <!-- divider underneath tabs -->
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="-1dp"
+                    android:background="#1F000000" />
+
+                <FrameLayout android:id="@android:id/tabcontent"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="0" />
+
+                <android.support.v4.view.ViewPager android:id="@+id/pager"
+                    android:background="?android:attr/windowBackground"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+        </TabHost>
+
+        <!-- Bottom buttons -->
+        <LinearLayout style="?android:attr/buttonBarStyle"
+            android:background="?android:attr/windowBackground"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:measureWithLargestChild="true">
+
+            <!-- spacer to push buttons to the right -->
+            <View android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <Button android:id="@+id/cancel_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cancel"
+                android:maxLines="2"
+                style="?android:attr/buttonBarButtonStyle" />
+
+            <Button android:id="@+id/ok_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/next"
+                android:maxLines="2"
+                android:filterTouchesWhenObscured="true"
+                style="?android:attr/buttonBarButtonStyle" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+

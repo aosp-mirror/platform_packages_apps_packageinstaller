@@ -88,13 +88,13 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     // ApplicationInfo object primarily used for already existing applications
     private ApplicationInfo mAppInfo = null;
 
-    // View for install progress
-    View mInstallConfirm;
     // Buttons to indicate user acceptance
     private Button mOk;
     private Button mCancel;
     CaffeinatedScrollView mScrollView = null;
     private boolean mOkCanInstall = false;
+
+    private PackageUtil.AppSnippet mAppSnippet;
 
     static final String PREFS_ALLOWED_SOURCES = "allowed_sources";
 
@@ -111,12 +111,17 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     private static final int DLG_NOT_SUPPORTED_ON_WEAR = DLG_BASE + 7;
 
     private void startInstallConfirm() {
+        // We might need to show permissions, load layout with permissions
+        if (mAppInfo != null) {
+            bindUi(R.layout.install_confirm_perm_update, true);
+        } else {
+            bindUi(R.layout.install_confirm_perm, true);
+        }
+
         ((TextView) findViewById(R.id.install_confirm_question))
                 .setText(R.string.install_confirm_question);
-        findViewById(R.id.spacer).setVisibility(View.GONE);
         TabHost tabHost = (TabHost)findViewById(android.R.id.tabhost);
         tabHost.setup();
-        tabHost.setVisibility(View.VISIBLE);
         ViewPager viewPager = (ViewPager)findViewById(R.id.pager);
         TabsAdapter adapter = new TabsAdapter(this, tabHost, viewPager);
         // If the app supports runtime permissions the new permissions will
@@ -155,9 +160,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             }
             adapter.addTab(tabHost.newTabSpec(TAB_ID_NEW).setIndicator(
                     getText(R.string.newPerms)), mScrollView);
-        } else  {
-            findViewById(R.id.tabscontainer).setVisibility(View.GONE);
-            findViewById(R.id.spacer).setVisibility(View.VISIBLE);
         }
         if (!supportsRuntimePermissions && N > 0) {
             permVisible = true;
@@ -179,20 +181,18 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                 msg = (mAppInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0
                         ? R.string.install_confirm_question_update_system_no_perms
                         : R.string.install_confirm_question_update_no_perms;
-
-                findViewById(R.id.spacer).setVisibility(View.VISIBLE);
             } else {
                 // This is a new application with no permissions.
                 msg = R.string.install_confirm_question_no_perms;
             }
-            tabHost.setVisibility(View.INVISIBLE);
+
+            // We do not need to show any permissions, load layout without permissions
+            bindUi(R.layout.install_confirm, true);
             mScrollView = null;
         }
         if (msg != 0) {
             ((TextView)findViewById(R.id.install_confirm_question)).setText(msg);
         }
-        mInstallConfirm.setVisibility(View.VISIBLE);
-        mOk.setEnabled(true);
         if (mScrollView == null) {
             // There is nothing to scroll view, so the ok button is immediately
             // set to install.
@@ -444,21 +444,31 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             return;
         }
 
-        //set view
-        setContentView(R.layout.install_start);
-        mInstallConfirm = findViewById(R.id.install_confirm_panel);
-        mInstallConfirm.setVisibility(View.INVISIBLE);
-        mOk = (Button)findViewById(R.id.ok_button);
-        mCancel = (Button)findViewById(R.id.cancel_button);
-        mOk.setOnClickListener(this);
-        mCancel.setOnClickListener(this);
-
         boolean wasSetUp = processPackageUri(packageUri);
         if (!wasSetUp) {
             return;
         }
 
+        // load dummy layout with OK button disabled until we override this layout in
+        // startInstallConfirm
+        bindUi(R.layout.install_confirm, false);
+
         checkIfAllowedAndInitiateInstall(false);
+    }
+
+    private void bindUi(int layout, boolean enableOk) {
+        setContentView(layout);
+
+        mOk = (Button) findViewById(R.id.ok_button);
+        mCancel = (Button)findViewById(R.id.cancel_button);
+        mOk.setOnClickListener(this);
+        mCancel.setOnClickListener(this);
+
+        if (!enableOk) {
+            mOk.setEnabled(false);
+        }
+
+        PackageUtil.initSnippetForNewApp(this, mAppSnippet, R.id.app_snippet);
     }
 
     /**
@@ -520,7 +530,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         mPackageURI = packageUri;
 
         final String scheme = packageUri.getScheme();
-        final PackageUtil.AppSnippet as;
 
         switch (scheme) {
             case SCHEME_PACKAGE: {
@@ -537,7 +546,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                     setPmResult(PackageManager.INSTALL_FAILED_INVALID_APK);
                     return false;
                 }
-                as = new PackageUtil.AppSnippet(mPm.getApplicationLabel(mPkgInfo.applicationInfo),
+                mAppSnippet = new PackageUtil.AppSnippet(mPm.getApplicationLabel(mPkgInfo.applicationInfo),
                         mPm.getApplicationIcon(mPkgInfo.applicationInfo));
             } break;
 
@@ -555,7 +564,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                 mPkgInfo = PackageParser.generatePackageInfo(parsed, null,
                         PackageManager.GET_PERMISSIONS, 0, 0, null,
                         new PackageUserState());
-                as = PackageUtil.getAppSnippet(this, mPkgInfo.applicationInfo, sourceFile);
+                mAppSnippet = PackageUtil.getAppSnippet(this, mPkgInfo.applicationInfo, sourceFile);
             } break;
 
             case SCHEME_CONTENT: {
@@ -580,8 +589,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                 return false;
             }
         }
-
-        PackageUtil.initSnippetForNewApp(this, as, R.id.app_snippet);
 
         return true;
     }
@@ -672,15 +679,17 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
 
     public void onClick(View v) {
         if (v == mOk) {
-            if (mOkCanInstall || mScrollView == null) {
-                if (mSessionId != -1) {
-                    mInstaller.setPermissionsResult(mSessionId, true);
-                    finish();
+            if (mOk.isEnabled()) {
+                if (mOkCanInstall || mScrollView == null) {
+                    if (mSessionId != -1) {
+                        mInstaller.setPermissionsResult(mSessionId, true);
+                        finish();
+                    } else {
+                        startInstall();
+                    }
                 } else {
-                    startInstall();
+                    mScrollView.pageScroll(View.FOCUS_DOWN);
                 }
-            } else {
-                mScrollView.pageScroll(View.FOCUS_DOWN);
             }
         } else if (v == mCancel) {
             // Cancel and finish
