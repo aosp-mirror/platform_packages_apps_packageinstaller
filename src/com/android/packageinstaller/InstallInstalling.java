@@ -32,6 +32,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import com.android.internal.content.PackageHelper;
 
 import java.io.File;
@@ -61,6 +62,9 @@ public class InstallInstalling extends Activity {
 
     /** Receiver receiving the results of the installation */
     private BroadcastReceiver mBroadcastReceiver;
+
+    /** Listens to changed to the session and updates progress bar */
+    private PackageInstaller.SessionCallback mSessionCallback;
 
     /** Task that sends the package to the package installer */
     private InstallingAsyncTask mInstallingTask;
@@ -150,12 +154,13 @@ public class InstallInstalling extends Activity {
                 finish();
             });
 
-
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(BROADCAST_ACTION);
             mBroadcastReceiver = new InstallResultReceiver();
             registerReceiver(mBroadcastReceiver, intentFilter, BROADCAST_SENDER_PERMISSION,
                     null);
+
+            mSessionCallback = new InstallSessionCallback();
         }
     }
 
@@ -193,6 +198,13 @@ public class InstallInstalling extends Activity {
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+
+        getPackageManager().getPackageInstaller().registerSessionCallback(mSessionCallback);
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
 
@@ -216,6 +228,13 @@ public class InstallInstalling extends Activity {
         super.onSaveInstanceState(outState);
 
         outState.putInt(SESSION_ID, mSessionId);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        getPackageManager().getPackageInstaller().unregisterSessionCallback(mSessionCallback);
     }
 
     @Override
@@ -264,6 +283,38 @@ public class InstallInstalling extends Activity {
                             PackageInstaller.EXTRA_STATUS_MESSAGE));
                 }
             }
+        }
+    }
+
+
+    private class InstallSessionCallback extends PackageInstaller.SessionCallback {
+        @Override
+        public void onCreated(int sessionId) {
+            // empty
+        }
+
+        @Override
+        public void onBadgingChanged(int sessionId) {
+            // empty
+        }
+
+        @Override
+        public void onActiveChanged(int sessionId, boolean active) {
+            // empty
+        }
+
+        @Override
+        public void onProgressChanged(int sessionId, float progress) {
+            if (sessionId == mSessionId) {
+                ProgressBar progressBar = (ProgressBar)findViewById(R.id.progress_bar);
+                progressBar.setMax(Integer.MAX_VALUE);
+                progressBar.setProgress((int) (Integer.MAX_VALUE * progress));
+            }
+        }
+
+        @Override
+        public void onFinished(int sessionId, boolean success) {
+            // empty, finish is handled by InstallResultReceiver
         }
     }
 

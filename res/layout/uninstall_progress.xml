@@ -34,6 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 android:src="@drawable/ic_android_92"
+                android:tint="@color/bigIconColor"
                 android:contentDescription="@null" />
 
         <ProgressBar android:id="@+id/progress_bar"
