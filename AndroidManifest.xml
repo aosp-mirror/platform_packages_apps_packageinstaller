@@ -29,8 +29,8 @@
             android:defaultToDeviceProtectedStorage="true"
             android:directBootAware="true">
 
-        <activity android:name=".PackageInstallerActivity"
-                android:configChanges="orientation|keyboardHidden|screenSize"
+        <activity android:name=".InstallStart"
+                android:exported="true"
                 android:excludeFromRecents="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -53,6 +53,12 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".InstallStaging"
+                android:exported="false" />
+
+        <activity android:name=".PackageInstallerActivity"
+                android:exported="false" />
+
         <activity android:name=".InstallInstalling"
                 android:theme="@style/DialogWhenLargeNoAnimation"
                 android:exported="false" />
@@ -62,10 +68,6 @@
                 android:exported="false" />
 
         <activity android:name=".InstallFailed"
-                android:theme="@style/DialogWhenLargeNoAnimation"
-                android:exported="false" />
-
-        <activity android:name=".InstallStaging"
                 android:theme="@style/DialogWhenLargeNoAnimation"
                 android:exported="false" />
 

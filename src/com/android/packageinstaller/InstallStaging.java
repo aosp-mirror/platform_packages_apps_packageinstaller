@@ -211,6 +211,7 @@ public class InstallStaging extends Activity {
                 installIntent.setData(Uri.fromFile(mStagedFile));
                 installIntent
                         .setFlags(installIntent.getFlags() & ~Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+                installIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivityForResult(installIntent, 0);
             } else {
                 showError();
