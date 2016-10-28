@@ -16,6 +16,8 @@
 
 package com.android.packageinstaller;
 
+import static android.content.pm.PackageInstaller.SessionParams.UID_UNKNOWN;
+
 import android.annotation.Nullable;
 import android.app.Activity;
 import android.app.PendingIntent;
@@ -33,6 +35,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.ProgressBar;
+
 import com.android.internal.content.PackageHelper;
 
 import java.io.File;
@@ -40,8 +43,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-
-import static android.content.pm.PackageInstaller.SessionParams.UID_UNKNOWN;
 
 /**
  * Send package to the package manager and handle results from package manager. Once the
@@ -334,6 +335,8 @@ public class InstallInstalling extends Activity {
             } catch (IOException e) {
                 return null;
             }
+
+            session.setStagingProgress(0);
 
             try {
                 File file = new File(mPackageURI.getPath());
