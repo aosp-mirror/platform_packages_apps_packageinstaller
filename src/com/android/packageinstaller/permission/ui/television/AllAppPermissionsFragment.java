@@ -156,12 +156,18 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
                         || (perm.flags & PermissionInfo.FLAG_REMOVED) != 0) {
                     continue;
                 }
+                if (appInfo.isEphemeralApp()
+                        && (perm.protectionLevel & PermissionInfo.PROTECTION_FLAG_EPHEMERAL) == 0) {
+                    continue;
+                }
 
                 PermissionGroupInfo group = getGroup(perm.group, pm);
-                if (perm.protectionLevel == PermissionInfo.PROTECTION_DANGEROUS) {
+                if ((perm.protectionLevel & PermissionInfo.PROTECTION_MASK_BASE)
+                        == PermissionInfo.PROTECTION_DANGEROUS) {
                     PreferenceGroup pref = findOrCreate(group != null ? group : perm, pm, prefs);
                     pref.addPreference(getPreference(perm, group));
-                } else if (perm.protectionLevel == PermissionInfo.PROTECTION_NORMAL) {
+                } else if ((perm.protectionLevel & PermissionInfo.PROTECTION_MASK_BASE)
+                        == PermissionInfo.PROTECTION_NORMAL) {
                     PreferenceGroup otherGroup = getOtherGroup();
                     if (prefs.indexOf(otherGroup) < 0) {
                         prefs.add(otherGroup);

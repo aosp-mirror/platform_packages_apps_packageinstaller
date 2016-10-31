@@ -143,7 +143,14 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
                         continue;
                     }
 
-                    if (perm.protectionLevel == PermissionInfo.PROTECTION_DANGEROUS) {
+                    if (appInfo.isEphemeralApp()
+                            && (perm.protectionLevel & PermissionInfo.PROTECTION_FLAG_EPHEMERAL)
+                                == 0) {
+                        continue;
+                    }
+
+                    if ((perm.protectionLevel & PermissionInfo.PROTECTION_MASK_BASE)
+                            == PermissionInfo.PROTECTION_DANGEROUS) {
                         PackageItemInfo group = getGroup(perm.group, pm);
                         if (group == null) {
                             group = perm;
@@ -155,7 +162,8 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
                         PreferenceGroup pref = findOrCreate(group, pm, prefs);
                         pref.addPreference(getPreference(info, perm, group, pm));
                     } else if (filterGroup == null) {
-                        if (perm.protectionLevel == PermissionInfo.PROTECTION_NORMAL) {
+                        if ((perm.protectionLevel & PermissionInfo.PROTECTION_MASK_BASE)
+                                == PermissionInfo.PROTECTION_NORMAL) {
                             PermissionGroupInfo group = getGroup(perm.group, pm);
                             otherGroup.addPreference(getPreference(info,
                                     perm, group, pm));

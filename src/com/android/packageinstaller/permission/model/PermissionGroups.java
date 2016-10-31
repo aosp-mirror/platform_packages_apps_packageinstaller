@@ -128,7 +128,8 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
                 // Cache seen permissions and see if group has runtime permissions.
                 for (PermissionInfo groupPermission : groupPermissions) {
                     seenPermissions.add(groupPermission.name);
-                    if (groupPermission.protectionLevel == PermissionInfo.PROTECTION_DANGEROUS
+                    if ((groupPermission.protectionLevel & PermissionInfo.PROTECTION_MASK_BASE)
+                            == PermissionInfo.PROTECTION_DANGEROUS
                             && (groupPermission.flags & PermissionInfo.FLAG_INSTALLED) != 0
                             && (groupPermission.flags & PermissionInfo.FLAG_REMOVED) == 0) {
                         hasRuntimePermissions = true;
@@ -178,7 +179,8 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
                     }
 
                     // We care only about installed runtime permissions.
-                    if (permissionInfo.protectionLevel != PermissionInfo.PROTECTION_DANGEROUS
+                    if ((permissionInfo.protectionLevel & PermissionInfo.PROTECTION_MASK_BASE)
+                            != PermissionInfo.PROTECTION_DANGEROUS
                             || (permissionInfo.flags & PermissionInfo.FLAG_INSTALLED) == 0) {
                         continue;
                     }

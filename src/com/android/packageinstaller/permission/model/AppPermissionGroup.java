@@ -57,6 +57,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
     private final int mIconResId;
 
     private final boolean mAppSupportsRuntimePermissions;
+    private final boolean mIsEphemeralApp;
+    private boolean mContainsEphemeralPermission;
 
     public static AppPermissionGroup create(Context context, PackageInfo packageInfo,
             String permissionName) {
@@ -67,7 +69,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             return null;
         }
 
-        if (permissionInfo.protectionLevel != PermissionInfo.PROTECTION_DANGEROUS
+        if ((permissionInfo.protectionLevel & PermissionInfo.PROTECTION_MASK_BASE)
+                != PermissionInfo.PROTECTION_DANGEROUS
                 || (permissionInfo.flags & PermissionInfo.FLAG_INSTALLED) == 0
                 || (permissionInfo.flags & PermissionInfo.FLAG_REMOVED) != 0) {
             return null;
@@ -133,7 +136,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             }
 
             // Collect only runtime permissions.
-            if (requestedPermissionInfo.protectionLevel != PermissionInfo.PROTECTION_DANGEROUS) {
+            if ((requestedPermissionInfo.protectionLevel & PermissionInfo.PROTECTION_MASK_BASE)
+                    != PermissionInfo.PROTECTION_DANGEROUS) {
                 continue;
             }
 
@@ -158,7 +162,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                     requestedPermission, packageInfo.packageName, userHandle);
 
             Permission permission = new Permission(requestedPermission, granted,
-                    appOp, appOpAllowed, flags);
+                    appOp, appOpAllowed, flags, requestedPermissionInfo.protectionLevel);
             group.addPermission(permission);
         }
 
@@ -191,6 +195,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         mPackageInfo = packageInfo;
         mAppSupportsRuntimePermissions = packageInfo.applicationInfo
                 .targetSdkVersion > Build.VERSION_CODES.LOLLIPOP_MR1;
+        mIsEphemeralApp = packageInfo.applicationInfo.isEphemeralApp();
         mAppOps = context.getSystemService(AppOpsManager.class);
         mActivityManager = context.getSystemService(ActivityManager.class);
         mDeclaringPackage = declaringPackage;
@@ -208,6 +213,10 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
     public boolean doesSupportRuntimePermissions() {
         return mAppSupportsRuntimePermissions;
+    }
+
+    public boolean isGrantingAllowed() {
+        return !mIsEphemeralApp || mContainsEphemeralPermission;
     }
 
     public boolean isReviewRequired() {
@@ -325,6 +334,11 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         for (Permission permission : mPermissions.values()) {
             if (filterPermissions != null
                     && !ArrayUtils.contains(filterPermissions, permission.getName())) {
+                continue;
+            }
+
+            if (!permission.isGrantingAllowed(mIsEphemeralApp)) {
+                // Skip unallowed permissions.
                 continue;
             }
 
@@ -636,5 +650,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
     private void addPermission(Permission permission) {
         mPermissions.put(permission.getName(), permission);
+        if (permission.isEphemeral()) {
+            mContainsEphemeralPermission = true;
+        }
     }
 }
