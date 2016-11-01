@@ -214,15 +214,15 @@ public class WearPackageInstallerService extends Service {
             PackageInfo existingPkgInfo = null;
             try {
                 existingPkgInfo = pm.getPackageInfo(packageName,
-                        PackageManager.GET_UNINSTALLED_PACKAGES | PackageManager.GET_PERMISSIONS);
-                if(existingPkgInfo != null) {
+                        PackageManager.MATCH_ANY_USER | PackageManager.GET_PERMISSIONS);
+                if (existingPkgInfo != null) {
                     installFlags |= PackageManager.INSTALL_REPLACE_EXISTING;
                 }
             } catch (PackageManager.NameNotFoundException e) {
                 // Ignore this exception. We could not find the package, will treat as a new
                 // installation.
             }
-            if((installFlags & PackageManager.INSTALL_REPLACE_EXISTING )!= 0) {
+            if ((installFlags & PackageManager.INSTALL_REPLACE_EXISTING) != 0) {
                 if (Log.isLoggable(TAG, Log.DEBUG)) {
                     Log.d(TAG, "Replacing package:" + packageName);
                 }
