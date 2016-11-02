@@ -220,6 +220,7 @@ public class InstallInstalling extends Activity {
             } else {
                 // we will receive a broadcast when the install is finished
                 mCancelButton.setEnabled(false);
+                setFinishOnTouchOutside(false);
             }
         }
     }
@@ -230,6 +231,13 @@ public class InstallInstalling extends Activity {
 
         outState.putInt(SESSION_ID, mSessionId);
         outState.putInt(INSTALL_ID, mInstallId);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mCancelButton.isEnabled()) {
+            super.onBackPressed();
+        }
     }
 
     @Override
@@ -384,6 +392,7 @@ public class InstallInstalling extends Activity {
 
                 session.commit(pendingIntent.getIntentSender());
                 mCancelButton.setEnabled(false);
+                setFinishOnTouchOutside(false);
             } else {
                 getPackageManager().getPackageInstaller().abandonSession(mSessionId);
                 launchFailure(PackageInstaller.STATUS_FAILURE, null);
