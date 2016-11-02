@@ -47,7 +47,6 @@ public class UninstallFinish extends BroadcastReceiver {
     private static final String LOG_TAG = UninstallFinish.class.getSimpleName();
 
     static final String EXTRA_UNINSTALL_ID = "com.android.packageinstaller.extra.UNINSTALL_ID";
-    static final String EXTRA_APP_INFO = "com.android.packageinstaller.extra.APP_INFO";
     static final String EXTRA_APP_LABEL = "com.android.packageinstaller.extra.APP_LABEL";
 
     @Override
@@ -60,8 +59,10 @@ public class UninstallFinish extends BroadcastReceiver {
         }
 
         int uninstallId = intent.getIntExtra(EXTRA_UNINSTALL_ID, 0);
-        ApplicationInfo appInfo = intent.getParcelableExtra(EXTRA_APP_INFO);
+        ApplicationInfo appInfo = intent.getParcelableExtra(
+                PackageUtil.INTENT_ATTR_APPLICATION_INFO);
         String appLabel = intent.getStringExtra(EXTRA_APP_LABEL);
+        boolean allUsers = intent.getBooleanExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, false);
 
         NotificationManager notificationManager =
                 context.getSystemService(NotificationManager.class);
@@ -152,7 +153,16 @@ public class UninstallFinish extends BroadcastReceiver {
                                             + returnCode + " no blocking user");
                         } else if (blockingUserId == UserHandle.USER_SYSTEM) {
                             setBigText(uninstallFailedNotification,
-                                    context.getString(R.string.uninstall_blocked_profile_owner));
+                                    context.getString(R.string.uninstall_blocked_device_owner));
+                        } else {
+                            if (allUsers) {
+                                setBigText(uninstallFailedNotification,
+                                        context.getString(
+                                                R.string.uninstall_all_blocked_profile_owner));
+                            } else {
+                                setBigText(uninstallFailedNotification, context.getString(
+                                        R.string.uninstall_blocked_profile_owner));
+                            }
                         }
                         break;
                     }
