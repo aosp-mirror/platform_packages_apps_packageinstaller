@@ -275,19 +275,9 @@ public class UninstallAppProgress extends Activity {
         }
 
         mAllUsers = intent.getBooleanExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, false);
-        if (mAllUsers && !UserManager.get(this).isAdminUser()) {
-            throw new SecurityException("Only admin user can request uninstall for all users");
-        }
         UserHandle user = intent.getParcelableExtra(Intent.EXTRA_USER);
         if (user == null) {
             user = android.os.Process.myUserHandle();
-        } else {
-            UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
-            List<UserHandle> profiles = userManager.getUserProfiles();
-            if (!profiles.contains(user)) {
-                throw new SecurityException("User " + android.os.Process.myUserHandle() + " can't "
-                        + "request uninstall for user " + user);
-            }
         }
 
         PackageDeleteObserver observer = new PackageDeleteObserver();

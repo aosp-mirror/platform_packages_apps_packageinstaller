@@ -24,6 +24,7 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
@@ -38,13 +39,17 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserHandle;
+import android.os.UserManager;
 import android.util.Log;
 
 import com.android.packageinstaller.handheld.AppNotFoundDialogFragment;
 import com.android.packageinstaller.handheld.UninstallAlertDialogFragment;
+import com.android.packageinstaller.handheld.UserIsNotAllowedDialogFragment;
 import com.android.packageinstaller.television.AppNotFoundFragment;
 import com.android.packageinstaller.television.UninstallAlertFragment;
+import com.android.packageinstaller.television.UserIsNotAllowedFragment;
 
+import java.util.List;
 import java.util.Random;
 
 /*
@@ -91,12 +96,26 @@ public class UninstallerActivity extends Activity {
 
         mDialogInfo = new DialogInfo();
 
+        mDialogInfo.allUsers = intent.getBooleanExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, false);
+        if (mDialogInfo.allUsers && !UserManager.get(this).isAdminUser()) {
+            Log.e(TAG, "Only admin user can request uninstall for all users");
+            showUserIsNotAllowed();
+            return;
+        }
         mDialogInfo.user = intent.getParcelableExtra(Intent.EXTRA_USER);
         if (mDialogInfo.user == null) {
             mDialogInfo.user = android.os.Process.myUserHandle();
+        } else {
+            UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
+            List<UserHandle> profiles = userManager.getUserProfiles();
+            if (!profiles.contains(mDialogInfo.user)) {
+                Log.e(TAG, "User " + android.os.Process.myUserHandle() + " can't request uninstall "
+                        + "for user " + mDialogInfo.user);
+                showUserIsNotAllowed();
+                return;
+            }
         }
 
-        mDialogInfo.allUsers = intent.getBooleanExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, false);
         mDialogInfo.callback = intent.getIBinderExtra(PackageInstaller.EXTRA_CALLBACK);
 
         try {
@@ -145,6 +164,14 @@ public class UninstallerActivity extends Activity {
             showContentFragment(new AppNotFoundFragment());
         } else {
             showDialogFragment(new AppNotFoundDialogFragment());
+        }
+    }
+
+    private void showUserIsNotAllowed() {
+        if (isTv()) {
+            showContentFragment(new UserIsNotAllowedFragment());
+        } else {
+            showDialogFragment(new UserIsNotAllowedDialogFragment());
         }
     }
 
