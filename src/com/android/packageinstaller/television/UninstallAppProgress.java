@@ -14,7 +14,7 @@
 ** See the License for the specific language governing permissions and
 ** limitations under the License.
 */
-package com.android.packageinstaller;
+package com.android.packageinstaller.television;
 
 import android.app.Activity;
 import android.app.admin.IDevicePolicyManager;
@@ -42,7 +42,8 @@ import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.widget.Toast;
 
-import com.android.packageinstaller.handheld.UninstallAppProgressFragment;
+import com.android.packageinstaller.PackageUtil;
+import com.android.packageinstaller.R;
 
 import java.lang.ref.WeakReference;
 import java.util.List;

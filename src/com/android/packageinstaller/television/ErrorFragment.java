@@ -11,7 +11,7 @@
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
- * limitations under the License.
+ * limitations under the License
  */
 
 package com.android.packageinstaller.television;
@@ -27,10 +27,10 @@ import com.android.packageinstaller.UninstallerActivity;
 
 import java.util.List;
 
-/**
- * A dialog telling the user that he/she is currently not allowed to perform this uninstallation.
- */
-public class UserIsNotAllowedFragment extends GuidedStepFragment {
+public class ErrorFragment extends GuidedStepFragment {
+    public static final String TITLE = "com.android.packageinstaller.arg.title";
+    public static final String TEXT = "com.android.packageinstaller.arg.text";
+
     @Override
     public int onProvideTheme() {
         return R.style.Theme_Leanback_GuidedStep;
@@ -39,8 +39,8 @@ public class UserIsNotAllowedFragment extends GuidedStepFragment {
     @Override
     public GuidanceStylist.Guidance onCreateGuidance(Bundle savedInstanceState) {
         return new GuidanceStylist.Guidance(
-                getString(R.string.user_is_not_allowed_dlg_title),
-                getString(R.string.user_is_not_allowed_dlg_text),
+                getString(getArguments().getInt(TITLE)),
+                getString(getArguments().getInt(TEXT)),
                 null,
                 null);
     }

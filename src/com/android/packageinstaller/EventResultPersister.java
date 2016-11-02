@@ -79,6 +79,22 @@ class EventResultPersister {
     @GuardedBy("mLock")
     private boolean mIsPersistingStateValid;
 
+    /**
+     * @return a new event id.
+     */
+    public int getNewId() throws OutOfIdsException {
+        synchronized (mLock) {
+            if (mCounter == Integer.MAX_VALUE) {
+                throw new OutOfIdsException();
+            }
+
+            mCounter++;
+            writeState();
+
+            return mCounter - 1;
+        }
+    }
+
     /** Call back when a result is received. Observer is removed when onResult it called. */
     interface EventResultObserver {
         void onResult(int status, int legacyStatus, @Nullable String message);
@@ -253,20 +269,11 @@ class EventResultPersister {
      */
     int addObserver(int id, @NonNull EventResultObserver observer)
             throws OutOfIdsException {
-        boolean stateChanged = false;
-
         synchronized (mLock) {
             int resultIndex = -1;
 
             if (id == GENERATE_NEW_ID) {
-                if (mCounter == Integer.MAX_VALUE) {
-                    throw new OutOfIdsException();
-                } else {
-                    id = mCounter;
-                    mCounter++;
-
-                    stateChanged = true;
-                }
+                id = getNewId();
             } else {
                 resultIndex = mResults.indexOfKey(id);
             }
@@ -277,13 +284,9 @@ class EventResultPersister {
 
                 observer.onResult(result.status, result.legacyStatus, result.message);
                 mResults.removeAt(resultIndex);
-                stateChanged = true;
+                writeState();
             } else {
                 mObservers.put(id, observer);
-            }
-
-            if (stateChanged) {
-                writeState();
             }
         }
 

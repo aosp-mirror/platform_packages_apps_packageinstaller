@@ -41,17 +41,17 @@ import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.support.annotation.NonNull;
+import android.support.annotation.StringRes;
 import android.util.Log;
 
-import com.android.packageinstaller.handheld.AppNotFoundDialogFragment;
+import com.android.packageinstaller.handheld.ErrorDialogFragment;
 import com.android.packageinstaller.handheld.UninstallAlertDialogFragment;
-import com.android.packageinstaller.handheld.UserIsNotAllowedDialogFragment;
-import com.android.packageinstaller.television.AppNotFoundFragment;
+import com.android.packageinstaller.television.ErrorFragment;
 import com.android.packageinstaller.television.UninstallAlertFragment;
-import com.android.packageinstaller.television.UserIsNotAllowedFragment;
+import com.android.packageinstaller.television.UninstallAppProgress;
 
 import java.util.List;
-import java.util.Random;
 
 /*
  * This activity presents UI to uninstall an application. Usually launched with intent
@@ -154,25 +154,37 @@ public class UninstallerActivity extends Activity {
 
     private void showConfirmationDialog() {
         if (isTv()) {
-            showContentFragment(new UninstallAlertFragment());
+            showContentFragment(new UninstallAlertFragment(), 0, 0);
         } else {
-            showDialogFragment(new UninstallAlertDialogFragment());
+            showDialogFragment(new UninstallAlertDialogFragment(), 0, 0);
         }
     }
 
     private void showAppNotFound() {
         if (isTv()) {
-            showContentFragment(new AppNotFoundFragment());
+            showContentFragment(new ErrorFragment(), R.string.app_not_found_dlg_title,
+                    R.string.app_not_found_dlg_text);
         } else {
-            showDialogFragment(new AppNotFoundDialogFragment());
+            showDialogFragment(new ErrorDialogFragment(), R.string.app_not_found_dlg_title,
+                    R.string.app_not_found_dlg_text);
         }
     }
 
     private void showUserIsNotAllowed() {
         if (isTv()) {
-            showContentFragment(new UserIsNotAllowedFragment());
+            showContentFragment(new ErrorFragment(),
+                    R.string.user_is_not_allowed_dlg_title, R.string.user_is_not_allowed_dlg_text);
         } else {
-            showDialogFragment(new UserIsNotAllowedDialogFragment());
+            showDialogFragment(new ErrorDialogFragment(), 0, R.string.user_is_not_allowed_dlg_text);
+        }
+    }
+
+    private void showGenericError() {
+        if (isTv()) {
+            showContentFragment(new ErrorFragment(),
+                    R.string.generic_error_dlg_title, R.string.generic_error_dlg_text);
+        } else {
+            showDialogFragment(new ErrorDialogFragment(), 0, R.string.generic_error_dlg_text);
         }
     }
 
@@ -181,26 +193,41 @@ public class UninstallerActivity extends Activity {
                 == Configuration.UI_MODE_TYPE_TELEVISION;
     }
 
-    private void showContentFragment(Fragment fragment) {
+    private void showContentFragment(@NonNull Fragment fragment, @StringRes int title,
+            @StringRes int text) {
+        Bundle args = new Bundle();
+        args.putInt(ErrorFragment.TITLE, title);
+        args.putInt(ErrorFragment.TEXT, text);
+        fragment.setArguments(args);
+
         getFragmentManager().beginTransaction()
                 .replace(android.R.id.content, fragment)
                 .commit();
     }
 
-    private void showDialogFragment(DialogFragment fragment) {
+    private void showDialogFragment(@NonNull DialogFragment fragment,
+            @StringRes int title, @StringRes int text) {
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         Fragment prev = getFragmentManager().findFragmentByTag("dialog");
         if (prev != null) {
             ft.remove(prev);
         }
+
+        Bundle args = new Bundle();
+        if (title != 0) {
+            args.putInt(ErrorDialogFragment.TITLE, title);
+        }
+        args.putInt(ErrorDialogFragment.TEXT, text);
+
+        fragment.setArguments(args);
         fragment.show(ft, "dialog");
     }
 
     public void startUninstallProgress() {
         boolean returnResult = getIntent().getBooleanExtra(Intent.EXTRA_RETURN_RESULT, false);
+        CharSequence label = mDialogInfo.appInfo.loadLabel(getPackageManager());
 
-        if (isTv() || returnResult || mDialogInfo.callback != null
-                || getCallingActivity() != null) {
+        if (isTv()) {
             Intent newIntent = new Intent(Intent.ACTION_VIEW);
             newIntent.putExtra(Intent.EXTRA_USER, mDialogInfo.user);
             newIntent.putExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, mDialogInfo.allUsers);
@@ -214,9 +241,32 @@ public class UninstallerActivity extends Activity {
 
             newIntent.setClass(this, UninstallAppProgress.class);
             startActivity(newIntent);
+        } else if (returnResult || mDialogInfo.callback != null || getCallingActivity() != null) {
+            Intent newIntent = new Intent(this, UninstallUninstalling.class);
+
+            newIntent.putExtra(Intent.EXTRA_USER, mDialogInfo.user);
+            newIntent.putExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, mDialogInfo.allUsers);
+            newIntent.putExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO, mDialogInfo.appInfo);
+            newIntent.putExtra(UninstallUninstalling.EXTRA_APP_LABEL, label);
+            newIntent.putExtra(PackageInstaller.EXTRA_CALLBACK, mDialogInfo.callback);
+
+            if (returnResult) {
+                newIntent.putExtra(Intent.EXTRA_RETURN_RESULT, true);
+            }
+
+            if (returnResult || getCallingActivity() != null) {
+                newIntent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+            }
+
+            startActivity(newIntent);
         } else {
-            int uninstallId = (new Random()).nextInt();
-            CharSequence label = mDialogInfo.appInfo.loadLabel(getPackageManager());
+            int uninstallId;
+            try {
+                uninstallId = UninstallEventReceiver.getNewId(this);
+            } catch (EventResultPersister.OutOfIdsException e) {
+                showGenericError();
+                return;
+            }
 
             Intent broadcastIntent = new Intent(this, UninstallFinish.class);
 
@@ -243,7 +293,8 @@ public class UninstallerActivity extends Activity {
                         mDialogInfo.allUsers ? PackageManager.DELETE_ALL_USERS : 0,
                         pendingIntent.getIntentSender(), mDialogInfo.user.getIdentifier());
             } catch (RemoteException e) {
-                e.rethrowFromSystemServer();
+                Log.e(TAG, "Cannot start uninstall", e);
+                showGenericError();
             }
         }
     }

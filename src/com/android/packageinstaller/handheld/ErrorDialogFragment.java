@@ -11,7 +11,7 @@
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
- * limitations under the License.
+ * limitations under the License
  */
 
 package com.android.packageinstaller.handheld;
@@ -23,19 +23,23 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
-import com.android.packageinstaller.R;
 import com.android.packageinstaller.UninstallerActivity;
 
-/**
- * A dialog telling the user that he/she is currently not allowed to perform this uninstallation.
- */
-public class UserIsNotAllowedDialogFragment extends DialogFragment {
+public class ErrorDialogFragment extends DialogFragment {
+    public static final String TITLE = "com.android.packageinstaller.arg.title";
+    public static final String TEXT = "com.android.packageinstaller.arg.text";
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        return new AlertDialog.Builder(getActivity())
-                .setMessage(R.string.user_is_not_allowed_dlg_text)
-                .setPositiveButton(android.R.string.ok, null)
-                .create();
+        AlertDialog.Builder b = new AlertDialog.Builder(getActivity())
+                .setMessage(getArguments().getInt(TEXT))
+                .setPositiveButton(android.R.string.ok, null);
+
+        if (getArguments().containsKey(TITLE)) {
+            b.setTitle(getArguments().getInt(TITLE));
+        }
+
+        return b.create();
     }
 
     @Override
