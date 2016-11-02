@@ -17,6 +17,8 @@
 
 package com.android.packageinstaller;
 
+import android.annotation.NonNull;
+import android.annotation.Nullable;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
@@ -28,6 +30,7 @@ import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.UserHandle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -40,6 +43,8 @@ import java.util.List;
  * used in the package installer application.
  */
 public class PackageUtil {
+    private static final String LOG_TAG = PackageUtil.class.getSimpleName();
+
     public static final String PREFIX="com.android.packageinstaller.";
     public static final String INTENT_ATTR_INSTALL_STATUS = PREFIX+"installStatus";
     public static final String INTENT_ATTR_APPLICATION_INFO=PREFIX+"applicationInfo";
@@ -111,13 +116,15 @@ public class PackageUtil {
      * defined on it.
      *
      * @param pContext context of package that can load the resources
-     * @param appInfo ApplicationInfo object of package whose resources are to be loaded
+     * @param as The resources to be loaded
      * @param snippetId view id of app snippet view
      */
-    public static View initSnippetForNewApp(Activity pContext, AppSnippet as,
-            int snippetId) {
+    @NonNull public static View initSnippetForNewApp(@NonNull Activity pContext,
+            @NonNull AppSnippet as, int snippetId) {
         View appSnippet = pContext.findViewById(snippetId);
-        ((ImageView)appSnippet.findViewById(R.id.app_icon)).setImageDrawable(as.icon);
+        if (as.icon != null) {
+            ((ImageView) appSnippet.findViewById(R.id.app_icon)).setImageDrawable(as.icon);
+        }
         ((TextView)appSnippet.findViewById(R.id.app_name)).setText(as.label);
         return appSnippet;
     }
@@ -136,9 +143,9 @@ public class PackageUtil {
     }
 
     static public class AppSnippet {
-        CharSequence label;
-        Drawable icon;
-        public AppSnippet(CharSequence label, Drawable icon) {
+        @NonNull public CharSequence label;
+        @Nullable public Drawable icon;
+        public AppSnippet(@NonNull CharSequence label, @Nullable Drawable icon) {
             this.label = label;
             this.icon = icon;
         }
@@ -149,7 +156,7 @@ public class PackageUtil {
      *
      * @param pContext context of package that can load the resources
      * @param appInfo ApplicationInfo object of package whose resources are to be loaded
-     * @param snippetId view id of app snippet view
+     * @param sourceFile File the package is in
      */
     public static AppSnippet getAppSnippet(
             Activity pContext, ApplicationInfo appInfo, File sourceFile) {
@@ -174,14 +181,18 @@ public class PackageUtil {
         Drawable icon = null;
         // Try to load the icon from the package's resources. If an app has not explicitly
         // specified any resource, just use the default icon for now.
-        if (appInfo.icon != 0) {
-            try {
-                icon = res.getDrawable(appInfo.icon);
-            } catch (Resources.NotFoundException e) {
+        try {
+            if (appInfo.icon != 0) {
+                try {
+                    icon = res.getDrawable(appInfo.icon);
+                } catch (Resources.NotFoundException e) {
+                }
             }
-        }
-        if (icon == null) {
-            icon = pContext.getPackageManager().getDefaultActivityIcon();
+            if (icon == null) {
+                icon = pContext.getPackageManager().getDefaultActivityIcon();
+            }
+        } catch (OutOfMemoryError e) {
+            Log.i(LOG_TAG, "Could not load app icon", e);
         }
         return new PackageUtil.AppSnippet(label, icon);
     }
