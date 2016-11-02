@@ -356,7 +356,7 @@ public class InstallInstalling extends Activity {
                 }
 
                 return session;
-            } catch (IOException e) {
+            } catch (IOException | SecurityException e) {
                 Log.e(LOG_TAG, "Could not write package", e);
 
                 session.close();
