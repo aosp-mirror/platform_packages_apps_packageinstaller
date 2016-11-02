@@ -214,7 +214,7 @@ public class InstallInstalling extends Activity {
             PackageInstaller installer = getPackageManager().getPackageInstaller();
             PackageInstaller.SessionInfo sessionInfo = installer.getSessionInfo(mSessionId);
 
-            if (!sessionInfo.isActive()) {
+            if (sessionInfo != null && !sessionInfo.isActive()) {
                 mInstallingTask = new InstallingAsyncTask();
                 mInstallingTask.execute();
             } else {

@@ -252,8 +252,7 @@ class EventResultPersister {
         boolean stateChanged = false;
 
         synchronized (mLock) {
-            int resultIndex = 0;
-            EventResult result = null;
+            int resultIndex = -1;
 
             if (id == GENERATE_NEW_ID) {
                 if (mCounter == Integer.MAX_VALUE) {
@@ -266,11 +265,12 @@ class EventResultPersister {
                 }
             } else {
                 resultIndex = mResults.indexOfKey(id);
-                result = mResults.valueAt(resultIndex);
             }
 
             // Check if we can instantly call back
-            if (result != null) {
+            if (resultIndex >= 0) {
+                EventResult result = mResults.valueAt(resultIndex);
+
                 observer.onResult(result.status, result.message);
                 mResults.removeAt(resultIndex);
                 stateChanged = true;
