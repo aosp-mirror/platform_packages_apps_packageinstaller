@@ -81,7 +81,7 @@ class EventResultPersister {
 
     /** Call back when a result is received. Observer is removed when onResult it called. */
     interface EventResultObserver {
-        void onResult(int status, @Nullable String message);
+        void onResult(int status, int legacyStatus, @Nullable String message);
     }
 
     /**
@@ -106,13 +106,14 @@ class EventResultPersister {
                 } else if ("result".equals(tagName)) {
                     int id = XmlUtils.readIntAttribute(parser, "id", 0);
                     int status = XmlUtils.readIntAttribute(parser, "status", 0);
+                    int legacyStatus = XmlUtils.readIntAttribute(parser, "legacyStatus", 0);
                     String statusMessage = XmlUtils.readStringAttribute(parser, "statusMessage");
 
                     if (mResults.get(id) != null) {
                         throw new Exception("id " + id + " has two results");
                     }
 
-                    mResults.put(id, new EventResult(status, statusMessage));
+                    mResults.put(id, new EventResult(status, legacyStatus, statusMessage));
                 } else {
                     throw new Exception("unexpected tag");
                 }
@@ -143,6 +144,7 @@ class EventResultPersister {
 
         int id = intent.getIntExtra(EXTRA_ID, 0);
         String statusMessage = intent.getStringExtra(PackageInstaller.EXTRA_STATUS_MESSAGE);
+        int legacyStatus = intent.getIntExtra(PackageInstaller.EXTRA_LEGACY_STATUS, 0);
 
         EventResultObserver observerToCall = null;
         synchronized (mLock) {
@@ -157,9 +159,9 @@ class EventResultPersister {
             }
 
             if (observerToCall != null) {
-                observerToCall.onResult(status, statusMessage);
+                observerToCall.onResult(status, legacyStatus, statusMessage);
             } else {
-                mResults.put(id, new EventResult(status, statusMessage));
+                mResults.put(id, new EventResult(status, legacyStatus, statusMessage));
                 writeState();
             }
         }
@@ -205,6 +207,8 @@ class EventResultPersister {
                                         Integer.toString(results.keyAt(i)));
                                 serializer.attribute(null, "status",
                                         Integer.toString(results.valueAt(i).status));
+                                serializer.attribute(null, "legacyStatus",
+                                        Integer.toString(results.valueAt(i).legacyStatus));
                                 if (results.valueAt(i).message != null) {
                                     serializer.attribute(null, "statusMessage",
                                             results.valueAt(i).message);
@@ -271,7 +275,7 @@ class EventResultPersister {
             if (resultIndex >= 0) {
                 EventResult result = mResults.valueAt(resultIndex);
 
-                observer.onResult(result.status, result.message);
+                observer.onResult(result.status, result.legacyStatus, result.message);
                 mResults.removeAt(resultIndex);
                 stateChanged = true;
             } else {
@@ -303,10 +307,12 @@ class EventResultPersister {
      */
     private class EventResult {
         public final int status;
+        public final int legacyStatus;
         @Nullable public final String message;
 
-        private EventResult(int status, @Nullable String message) {
+        private EventResult(int status, int legacyStatus, @Nullable String message) {
             this.status = status;
+            this.legacyStatus = legacyStatus;
             this.message = message;
         }
     }

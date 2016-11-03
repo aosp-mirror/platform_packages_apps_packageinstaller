@@ -89,7 +89,7 @@ public class InstallInstalling extends Activity {
                 getPackageManager().installExistingPackage(appInfo.packageName);
                 launchSuccess();
             } catch (PackageManager.NameNotFoundException e) {
-                launchFailure(PackageInstaller.STATUS_FAILURE_INVALID, null);
+                launchFailure(PackageManager.INSTALL_FAILED_INTERNAL_ERROR, null);
             }
         } else {
             final File sourceFile = new File(mPackageURI.getPath());
@@ -140,13 +140,13 @@ public class InstallInstalling extends Activity {
                             .addObserver(this, EventResultPersister.GENERATE_NEW_ID,
                                     this::launchFinishBasedOnResult);
                 } catch (EventResultPersister.OutOfIdsException e) {
-                    launchFailure(PackageInstaller.STATUS_FAILURE, null);
+                    launchFailure(PackageManager.INSTALL_FAILED_INTERNAL_ERROR, null);
                 }
 
                 try {
                     mSessionId = getPackageManager().getPackageInstaller().createSession(params);
                 } catch (IOException e) {
-                    launchFailure(PackageInstaller.STATUS_FAILURE, null);
+                    launchFailure(PackageManager.INSTALL_FAILED_INTERNAL_ERROR, null);
                 }
             }
 
@@ -185,13 +185,14 @@ public class InstallInstalling extends Activity {
     /**
      * Launch the "failure" version of the final package installer dialog
      *
-     * @param statusCode The status code explaining what went wrong
+     * @param legacyStatus  The status as used internally in the package manager.
+     * @param statusMessage The status description.
      */
-    private void launchFailure(int statusCode, String statusMessage) {
+    private void launchFailure(int legacyStatus, String statusMessage) {
         Intent failureIntent = new Intent(getIntent());
         failureIntent.setClass(this, InstallFailed.class);
         failureIntent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
-        failureIntent.putExtra(PackageInstaller.EXTRA_STATUS, statusCode);
+        failureIntent.putExtra(PackageInstaller.EXTRA_LEGACY_STATUS, legacyStatus);
         failureIntent.putExtra(PackageInstaller.EXTRA_STATUS_MESSAGE, statusMessage);
 
         startActivity(failureIntent);
@@ -272,13 +273,14 @@ public class InstallInstalling extends Activity {
      * Launch the appropriate finish activity (success or failed) for the installation result.
      *
      * @param statusCode    The installation result.
+     * @param legacyStatus  The installation as used internally in the package manager.
      * @param statusMessage The detailed installation result.
      */
-    private void launchFinishBasedOnResult(int statusCode, String statusMessage) {
+    private void launchFinishBasedOnResult(int statusCode, int legacyStatus, String statusMessage) {
         if (statusCode == PackageInstaller.STATUS_SUCCESS) {
             launchSuccess();
         } else {
-            launchFailure(statusCode, statusMessage);
+            launchFailure(legacyStatus, statusMessage);
         }
     }
 
@@ -316,7 +318,7 @@ public class InstallInstalling extends Activity {
 
     /**
      * Send the package to the package installer and then register a event result observer that
-     * will call {@link #launchFinishBasedOnResult(int, String)}
+     * will call {@link #launchFinishBasedOnResult(int, int, String)}
      */
     private final class InstallingAsyncTask extends AsyncTask<Void, Void,
             PackageInstaller.Session> {
@@ -395,7 +397,10 @@ public class InstallInstalling extends Activity {
                 setFinishOnTouchOutside(false);
             } else {
                 getPackageManager().getPackageInstaller().abandonSession(mSessionId);
-                launchFailure(PackageInstaller.STATUS_FAILURE, null);
+
+                if (!isCancelled()) {
+                    launchFailure(PackageManager.INSTALL_FAILED_INVALID_APK, null);
+                }
             }
         }
     }

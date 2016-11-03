@@ -21,7 +21,6 @@ import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInstaller;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
@@ -45,7 +44,7 @@ public class InstallSuccess extends Activity {
         if (getIntent().getBooleanExtra(Intent.EXTRA_RETURN_RESULT, false)) {
             // Return result if requested
             Intent result = new Intent();
-            result.putExtra(Intent.EXTRA_INSTALL_RESULT, PackageInstaller.STATUS_SUCCESS);
+            result.putExtra(Intent.EXTRA_INSTALL_RESULT, PackageManager.INSTALL_SUCCEEDED);
             setResult(Activity.RESULT_OK, result);
             finish();
         } else {
