@@ -20,6 +20,9 @@ import android.app.Activity;
 import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -41,6 +44,8 @@ import com.android.packageinstaller.handheld.AppNotFoundDialogFragment;
 import com.android.packageinstaller.handheld.UninstallAlertDialogFragment;
 import com.android.packageinstaller.television.AppNotFoundFragment;
 import com.android.packageinstaller.television.UninstallAlertFragment;
+
+import java.util.Random;
 
 /*
  * This activity presents UI to uninstall an application. Usually launched with intent
@@ -164,17 +169,45 @@ public class UninstallerActivity extends Activity {
     }
 
     public void startUninstallProgress() {
-        Intent newIntent = new Intent(Intent.ACTION_VIEW);
-        newIntent.putExtra(Intent.EXTRA_USER, mDialogInfo.user);
-        newIntent.putExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, mDialogInfo.allUsers);
-        newIntent.putExtra(PackageInstaller.EXTRA_CALLBACK, mDialogInfo.callback);
-        newIntent.putExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO, mDialogInfo.appInfo);
-        if (getIntent().getBooleanExtra(Intent.EXTRA_RETURN_RESULT, false)) {
-            newIntent.putExtra(Intent.EXTRA_RETURN_RESULT, true);
-            newIntent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+        boolean returnResult = getIntent().getBooleanExtra(Intent.EXTRA_RETURN_RESULT, false);
+        if (isTv() || returnResult || mDialogInfo.allUsers || mDialogInfo.callback != null) {
+            Intent newIntent = new Intent(Intent.ACTION_VIEW);
+            newIntent.putExtra(Intent.EXTRA_USER, mDialogInfo.user);
+            newIntent.putExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, mDialogInfo.allUsers);
+            newIntent.putExtra(PackageInstaller.EXTRA_CALLBACK, mDialogInfo.callback);
+            newIntent.putExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO, mDialogInfo.appInfo);
+
+            if (returnResult) {
+                newIntent.putExtra(Intent.EXTRA_RETURN_RESULT, true);
+                newIntent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+            }
+
+            newIntent.setClass(this, UninstallAppProgress.class);
+            startActivity(newIntent);
+        } else {
+            int uninstallId = (new Random()).nextInt();
+            CharSequence label = mDialogInfo.appInfo.loadLabel(getPackageManager());
+
+            Intent broadcastIntent = new Intent(this, UninstallFinish.class);
+            broadcastIntent.putExtra(UninstallFinish.EXTRA_APP_INFO, mDialogInfo.appInfo);
+            broadcastIntent.putExtra(UninstallFinish.EXTRA_APP_LABEL, label);
+            broadcastIntent.putExtra(UninstallFinish.EXTRA_UNINSTALL_ID, uninstallId);
+
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(this, uninstallId,
+                    broadcastIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+            Notification uninstallingNotification = (new Notification.Builder(this))
+                    .setSmallIcon(R.drawable.ic_remove).setProgress(0, 1, true)
+                    .setContentTitle(getString(R.string.uninstalling_app, label)).setOngoing(true)
+                    .setPriority(Notification.PRIORITY_MIN)
+                    .build();
+
+            getSystemService(NotificationManager.class).notify(uninstallId,
+                    uninstallingNotification);
+
+            getPackageManager().getPackageInstaller().uninstall(mDialogInfo.appInfo.packageName,
+                    pendingIntent.getIntentSender());
         }
-        newIntent.setClass(this, UninstallAppProgress.class);
-        startActivity(newIntent);
     }
 
     public void dispatchAborted() {
