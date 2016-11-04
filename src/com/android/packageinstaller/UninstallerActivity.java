@@ -17,6 +17,7 @@
 package com.android.packageinstaller;
 
 import android.app.Activity;
+import android.app.ActivityThread;
 import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -197,7 +198,9 @@ public class UninstallerActivity extends Activity {
 
     public void startUninstallProgress() {
         boolean returnResult = getIntent().getBooleanExtra(Intent.EXTRA_RETURN_RESULT, false);
-        if (isTv() || returnResult || mDialogInfo.allUsers || mDialogInfo.callback != null) {
+
+        if (isTv() || returnResult || mDialogInfo.callback != null
+                || getCallingActivity() != null) {
             Intent newIntent = new Intent(Intent.ACTION_VIEW);
             newIntent.putExtra(Intent.EXTRA_USER, mDialogInfo.user);
             newIntent.putExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, mDialogInfo.allUsers);
@@ -216,7 +219,9 @@ public class UninstallerActivity extends Activity {
             CharSequence label = mDialogInfo.appInfo.loadLabel(getPackageManager());
 
             Intent broadcastIntent = new Intent(this, UninstallFinish.class);
-            broadcastIntent.putExtra(UninstallFinish.EXTRA_APP_INFO, mDialogInfo.appInfo);
+
+            broadcastIntent.putExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, mDialogInfo.allUsers);
+            broadcastIntent.putExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO, mDialogInfo.appInfo);
             broadcastIntent.putExtra(UninstallFinish.EXTRA_APP_LABEL, label);
             broadcastIntent.putExtra(UninstallFinish.EXTRA_UNINSTALL_ID, uninstallId);
 
@@ -232,8 +237,14 @@ public class UninstallerActivity extends Activity {
             getSystemService(NotificationManager.class).notify(uninstallId,
                     uninstallingNotification);
 
-            getPackageManager().getPackageInstaller().uninstall(mDialogInfo.appInfo.packageName,
-                    pendingIntent.getIntentSender());
+            try {
+                ActivityThread.getPackageManager().getPackageInstaller().uninstall(
+                        mDialogInfo.appInfo.packageName, getPackageName(),
+                        mDialogInfo.allUsers ? PackageManager.DELETE_ALL_USERS : 0,
+                        pendingIntent.getIntentSender(), mDialogInfo.user.getIdentifier());
+            } catch (RemoteException e) {
+                e.rethrowFromSystemServer();
+            }
         }
     }
 
