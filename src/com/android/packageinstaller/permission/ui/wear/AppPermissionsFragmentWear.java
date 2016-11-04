@@ -23,8 +23,10 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.support.wearable.view.WearableDialogHelper;
 import android.util.Log;
@@ -39,6 +41,8 @@ import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.settingslib.RestrictedLockUtils;
+import com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,6 +67,35 @@ public final class AppPermissionsFragmentWear extends PreferenceFragment {
     private AppPermissions mAppPermissions;
 
     private boolean mHasConfirmedRevoke;
+
+    /**
+     * Provides click behavior for disabled preferences.
+     * We can't use {@link PreferenceFragment#onPreferenceTreeClick}, as the base
+     * {@link SwitchPreference} doesn't delegate to that method if the preference is disabled.
+     */
+    private static class PermissionSwitchPreference extends SwitchPreference {
+
+        private final Activity mActivity;
+
+        public PermissionSwitchPreference(Activity activity) {
+            super(activity);
+            this.mActivity = activity;
+        }
+
+        @Override
+        public void performClick(PreferenceScreen preferenceScreen) {
+            super.performClick(preferenceScreen);
+            if (!isEnabled()) {
+                // If setting the permission is disabled, it must have been locked
+                // by the device or profile owner. So get that info and pass it to
+                // the support details dialog.
+                EnforcedAdmin deviceOrProfileOwner = RestrictedLockUtils.getProfileOrDeviceOwner(
+                    mActivity, UserHandle.myUserId());
+                RestrictedLockUtils.sendShowAdminSupportDetailsIntent(
+                    mActivity, deviceOrProfileOwner);
+            }
+        }
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -129,7 +162,7 @@ public final class AppPermissionsFragmentWear extends PreferenceFragment {
 
             boolean isPlatform = group.getDeclaringPackage().equals(Utils.OS_PKG);
 
-            final SwitchPreference pref = new SwitchPreference(getContext());
+            final SwitchPreference pref = new PermissionSwitchPreference(getActivity());
             pref.setKey(group.getName());
             pref.setTitle(group.getLabel());
             pref.setChecked(group.areRuntimePermissionsGranted());
