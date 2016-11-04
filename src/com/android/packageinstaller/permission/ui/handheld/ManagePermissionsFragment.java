@@ -16,21 +16,15 @@
 package com.android.packageinstaller.permission.ui.handheld;
 
 import android.app.ActionBar;
-import android.app.FragmentTransaction;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.Preference;
-import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceScreen;
 import android.util.ArraySet;
 import android.util.Log;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
+
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.PermissionApps;
 import com.android.packageinstaller.permission.model.PermissionApps.PmCache;
@@ -40,24 +34,19 @@ import com.android.packageinstaller.permission.utils.Utils;
 
 import java.util.List;
 
-public final class ManagePermissionsFragment extends PermissionsFrameFragment
+/**
+ * Superclass for fragments allowing the user to manage permissions.
+ */
+abstract class ManagePermissionsFragment extends PermissionsFrameFragment
         implements PermissionGroups.PermissionsGroupsChangeCallback,
         Preference.OnPreferenceClickListener {
     private static final String LOG_TAG = "ManagePermissionsFragment";
 
-    private static final String OS_PKG = "android";
-
-    private static final String EXTRA_PREFS_KEY = "extra_prefs_key";
+    static final String OS_PKG = "android";
 
     private ArraySet<String> mLauncherPkgs;
 
     private PermissionGroups mPermissions;
-
-    private PreferenceScreen mExtraScreen;
-
-    public static ManagePermissionsFragment newInstance() {
-        return new ManagePermissionsFragment();
-    }
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -73,19 +62,9 @@ public final class ManagePermissionsFragment extends PermissionsFrameFragment
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
+    public void onStart() {
+        super.onStart();
         mPermissions.refresh();
-        updatePermissionsUi();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            getActivity().finish();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -108,27 +87,34 @@ public final class ManagePermissionsFragment extends PermissionsFrameFragment
         return true;
     }
 
+    /**
+     * @return the permissions
+     */
+    protected PermissionGroups getPermissions() {
+        return mPermissions;
+    }
+
     @Override
     public void onPermissionGroupsChanged() {
         updatePermissionsUi();
     }
 
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        bindPermissionUi(getActivity(), getView());
-    }
+    /**
+     * Update the preferences to show the new {@link #getPermissions() permissions}.
+     */
+    protected abstract void updatePermissionsUi();
 
-    private static void bindPermissionUi(Context context, View rootView) {
-        if (context == null || rootView == null) {
-            return;
-        }
-    }
-
-    private void updatePermissionsUi() {
+    /**
+     * Add preferences for all permissions of a type to the preference screen.
+     *
+     * @param addSystemPermissions If the permissions added should be system permissions or not
+     *
+     * @return The preference screen the permissions were added to
+     */
+    protected PreferenceScreen updatePermissionsUi(boolean addSystemPermissions) {
         Context context = getActivity();
         if (context == null) {
-            return;
+            return null;
         }
 
         List<PermissionGroup> groups = mPermissions.getGroups();
@@ -136,6 +122,8 @@ public final class ManagePermissionsFragment extends PermissionsFrameFragment
         if (screen == null) {
             screen = getPreferenceManager().createPreferenceScreen(getActivity());
             setPreferenceScreen(screen);
+        } else {
+            screen.removeAll();
         }
 
         // Use this to speed up getting the info for all of the PermissionApps below.
@@ -144,34 +132,25 @@ public final class ManagePermissionsFragment extends PermissionsFrameFragment
         for (PermissionGroup group : groups) {
             boolean isSystemPermission = group.getDeclaringPackage().equals(OS_PKG);
 
-            Preference preference = findPreference(group.getName());
-            if (preference == null && mExtraScreen != null) {
-                preference = mExtraScreen.findPreference(group.getName());
-            }
-            if (preference == null) {
-                preference = new Preference(context);
-                preference.setOnPreferenceClickListener(this);
-                preference.setKey(group.getName());
-                preference.setIcon(Utils.applyTint(context, group.getIcon(),
-                        android.R.attr.colorControlNormal));
-                preference.setTitle(group.getLabel());
-                // Set blank summary so that no resizing/jumping happens when the summary is loaded.
-                preference.setSummary(" ");
-                preference.setPersistent(false);
-                if (isSystemPermission) {
-                    screen.addPreference(preference);
-                } else {
-                    if (mExtraScreen == null) {
-                        mExtraScreen = getPreferenceManager().createPreferenceScreen(context);
-                    }
-                    mExtraScreen.addPreference(preference);
-                }
-            }
-            final Preference finalPref = preference;
+            if (addSystemPermissions == isSystemPermission) {
+                Preference preference = findPreference(group.getName());
 
-            new PermissionApps(getContext(), group.getName(), new PermissionApps.Callback() {
-                @Override
-                public void onPermissionsLoaded(PermissionApps permissionApps) {
+                if (preference == null) {
+                    preference = new Preference(context);
+                    preference.setOnPreferenceClickListener(this);
+                    preference.setKey(group.getName());
+                    preference.setIcon(Utils.applyTint(context, group.getIcon(),
+                            android.R.attr.colorControlNormal));
+                    preference.setTitle(group.getLabel());
+                    // Set blank summary so that no resizing/jumping happens when the summary is
+                    // loaded.
+                    preference.setSummary(" ");
+                    preference.setPersistent(false);
+                    screen.addPreference(preference);
+                }
+                final Preference finalPref = preference;
+
+                new PermissionApps(getContext(), group.getName(), permissionApps -> {
                     if (getActivity() == null) {
                         return;
                     }
@@ -179,72 +158,13 @@ public final class ManagePermissionsFragment extends PermissionsFrameFragment
                     int total = permissionApps.getTotalCount(mLauncherPkgs);
                     finalPref.setSummary(getString(R.string.app_permissions_group_summary,
                             granted, total));
-                }
-            }, cache).refresh(false);
-        }
-
-        if (mExtraScreen != null && mExtraScreen.getPreferenceCount() > 0
-                && screen.findPreference(EXTRA_PREFS_KEY) == null) {
-            Preference extraScreenPreference = new Preference(context);
-            extraScreenPreference.setKey(EXTRA_PREFS_KEY);
-            extraScreenPreference.setIcon(Utils.applyTint(context,
-                    R.drawable.ic_more_items,
-                    android.R.attr.colorControlNormal));
-            extraScreenPreference.setTitle(R.string.additional_permissions);
-            extraScreenPreference.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-                @Override
-                public boolean onPreferenceClick(Preference preference) {
-                    AdditionalPermissionsFragment frag = new AdditionalPermissionsFragment();
-                    frag.setTargetFragment(ManagePermissionsFragment.this, 0);
-                    FragmentTransaction ft = getFragmentManager().beginTransaction();
-                    ft.replace(android.R.id.content, frag);
-                    ft.addToBackStack(null);
-                    ft.commit();
-                    return true;
-                }
-            });
-            int count = mExtraScreen.getPreferenceCount();
-            extraScreenPreference.setSummary(getResources().getQuantityString(
-                    R.plurals.additional_permissions_more, count, count));
-            screen.addPreference(extraScreenPreference);
+                }, cache).refresh(false);
+            }
         }
         if (screen.getPreferenceCount() != 0) {
             setLoading(false /* loading */, true /* animate */);
         }
-    }
 
-    public static class AdditionalPermissionsFragment extends PermissionsFrameFragment {
-        @Override
-        public void onCreate(Bundle icicle) {
-            setLoading(true /* loading */, false /* animate */);
-            super.onCreate(icicle);
-            getActivity().setTitle(R.string.additional_permissions);
-            setHasOptionsMenu(true);
-
-            setPreferenceScreen(((ManagePermissionsFragment) getTargetFragment()).mExtraScreen);
-            setLoading(false /* loading */, true /* animate */);
-        }
-
-        @Override
-        public void onDestroy() {
-            getActivity().setTitle(R.string.app_permissions);
-            super.onDestroy();
-        }
-
-        @Override
-        public boolean onOptionsItemSelected(MenuItem item) {
-            switch (item.getItemId()) {
-                case android.R.id.home:
-                    getFragmentManager().popBackStack();
-                    return true;
-            }
-            return super.onOptionsItemSelected(item);
-        }
-
-        @Override
-        public void onViewCreated(View view,  Bundle savedInstanceState) {
-            super.onViewCreated(view, savedInstanceState);
-            bindPermissionUi(getActivity(), getView());
-        }
+        return screen;
     }
 }
