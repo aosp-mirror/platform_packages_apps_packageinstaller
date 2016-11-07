@@ -14,7 +14,7 @@
  * limitations under the License
  */
 
-package com.android.packageinstaller.handheld;
+package com.android.packageinstaller.television;
 
 import android.annotation.Nullable;
 import android.app.Fragment;
@@ -30,7 +30,6 @@ import android.widget.TextView;
 
 import com.android.packageinstaller.PackageUtil;
 import com.android.packageinstaller.R;
-import com.android.packageinstaller.UninstallAppProgress;
 
 public class UninstallAppProgressFragment extends Fragment implements View.OnClickListener,
         UninstallAppProgress.ProgressFragment {

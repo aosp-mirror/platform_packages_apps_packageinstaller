@@ -95,10 +95,26 @@
             </intent-filter>
         </activity>
 
+        <receiver android:name=".UninstallEventReceiver"
+            android:permission="android.permission.INSTALL_PACKAGES"
+            android:exported="true">
+            <intent-filter android:priority="1">
+                <action android:name="com.android.packageinstaller.ACTION_UNINSTALL_COMMIT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".UninstallUninstalling"
+            android:excludeFromRecents="true"
+            android:theme="@style/AlertDialogActivity"
+            android:exported="false" />
+
         <receiver android:name=".UninstallFinish"
                 android:exported="false" />
 
-        <activity android:name=".UninstallAppProgress"
+        <activity android:name=".television.UninstallAppProgress"
                 android:configChanges="mnc|mnc|touchscreen|navigation|screenLayout|screenSize|smallestScreenSize|orientation|locale|keyboard|keyboardHidden|fontScale|uiMode|layoutDirection|density"
                 android:exported="false" />
 
