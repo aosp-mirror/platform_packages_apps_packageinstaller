@@ -57,6 +57,14 @@
     <string name="dlg_ok" msgid="6944357727705699232">"موافق"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"لم يتم العثور على التطبيق"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"لم يتم العثور على التطبيق في قائمة التطبيقات المثبتة."</string>
+    <!-- no translation found for user_is_not_allowed_dlg_title (118128026847201582) -->
+    <skip />
+    <!-- no translation found for user_is_not_allowed_dlg_text (739716827677987545) -->
+    <skip />
+    <!-- no translation found for generic_error_dlg_title (2684806600635296961) -->
+    <skip />
+    <!-- no translation found for generic_error_dlg_text (4288738047825333954) -->
+    <skip />
     <string name="uninstall_application_title" msgid="1860074100811653963">"إلغاء تثبيت التطبيق"</string>
     <string name="uninstall_update_title" msgid="4146940097553335390">"إزالة التحديث"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> هو جزء من التطبيق التالي:"</string>
@@ -66,8 +74,14 @@
     <string name="uninstall_update_text" msgid="1394549691152728409">"هل تريد استبدال هذا التطبيق بإصدار المصنع؟ ستتم إزالة جميع البيانات."</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"هل تريد استبدال هذا التطبيق بإصدار المصنع؟ ستتم إزالة جميع البيانات. وسيؤثر هذا في جميع مستخدمي هذا الجهاز، بما في ذلك من لديهم ملفات شخصية للعمل."</string>
     <string name="uninstalling" msgid="5556217435895938250">"جارٍ الإزالة..."</string>
+    <!-- no translation found for uninstalling_app (2773617614877719294) -->
+    <skip />
     <string name="uninstall_done" msgid="3792487853420281888">"انتهت الإزالة."</string>
+    <!-- no translation found for uninstall_done_app (4009780060350765946) -->
+    <skip />
     <string name="uninstall_failed" msgid="631122574306299512">"أخفق إلغاء التثبيت."</string>
+    <!-- no translation found for uninstall_failed_app (945277834056527022) -->
+    <skip />
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"تتعذر الإزالة نظرًا لأن هذه الحزمة تمثل مشرفًا نشطًا للجهاز."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"لا يمكن الإزالة لأن هذه الحزمة تعد مشرف جهاز نشطًا للمستخدم <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"هذا التطبيق مطلوب لبعض المستخدمين أو الملفات الشخصية وتم إلغاء تثبيته لآخرين."</string>
@@ -87,7 +101,7 @@
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"مزيد من المعلومات"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"الرفض على أي حال"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> من <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="7332275268559121742">"‏هل تريد السماح لـ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; بإجراء <xliff:g id="ACTION">%2$s</xliff:g>؟"</string>
+    <string name="permission_warning_template" msgid="7332275268559121742">"‏هل توافق على منح &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; إذن <xliff:g id="ACTION">%2$s</xliff:g>؟"</string>
     <string name="permission_revoked_count" msgid="7386129423432613024">"<xliff:g id="COUNT">%1$d</xliff:g> إذن معطَّل"</string>
     <string name="permission_revoked_all" msgid="8595742638132863678">"كل الأذونات معطّلة"</string>
     <string name="permission_revoked_none" msgid="2059511550181271342">"ليس هناك أذونات معطّلة"</string>
