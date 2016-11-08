@@ -27,10 +27,9 @@ import android.util.Log;
 import android.util.SparseArray;
 import android.util.Xml;
 
-import com.android.internal.util.FastXmlSerializer;
-import com.android.internal.util.XmlUtils;
-
 import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlSerializer;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -95,6 +94,43 @@ class EventResultPersister {
     }
 
     /**
+     * Progress parser to the next element.
+     *
+     * @param parser The parser to progress
+     */
+    private static void nextElement(@NonNull XmlPullParser parser)
+            throws XmlPullParserException, IOException {
+        int type;
+        do {
+            type = parser.next();
+        } while (type != XmlPullParser.START_TAG && type != XmlPullParser.END_DOCUMENT);
+    }
+
+    /**
+     * Read an int attribute from the current element
+     *
+     * @param parser The parser to read from
+     * @param name The attribute name to read
+     *
+     * @return The value of the attribute
+     */
+    private static int readIntAttribute(@NonNull XmlPullParser parser, @NonNull String name) {
+        return Integer.parseInt(parser.getAttributeValue(null, name));
+    }
+
+    /**
+     * Read an String attribute from the current element
+     *
+     * @param parser The parser to read from
+     * @param name The attribute name to read
+     *
+     * @return The value of the attribute or null if the attribute is not set
+     */
+    private static String readStringAttribute(@NonNull XmlPullParser parser, @NonNull String name) {
+        return parser.getAttributeValue(null, name);
+    }
+
+    /**
      * Read persisted state.
      *
      * @param resultFile The file the results are persisted in
@@ -107,17 +143,16 @@ class EventResultPersister {
             XmlPullParser parser = Xml.newPullParser();
             parser.setInput(stream, StandardCharsets.UTF_8.name());
 
-            XmlUtils.nextElement(parser);
+            nextElement(parser);
             while (parser.getEventType() != XmlPullParser.END_DOCUMENT) {
                 String tagName = parser.getName();
                 if ("results".equals(tagName)) {
-                    mCounter = XmlUtils.readIntAttribute(parser, "counter",
-                            GENERATE_NEW_ID + 1);
+                    mCounter = readIntAttribute(parser, "counter");
                 } else if ("result".equals(tagName)) {
-                    int id = XmlUtils.readIntAttribute(parser, "id", 0);
-                    int status = XmlUtils.readIntAttribute(parser, "status", 0);
-                    int legacyStatus = XmlUtils.readIntAttribute(parser, "legacyStatus", 0);
-                    String statusMessage = XmlUtils.readStringAttribute(parser, "statusMessage");
+                    int id = readIntAttribute(parser, "id");
+                    int status = readIntAttribute(parser, "status");
+                    int legacyStatus = readIntAttribute(parser, "legacyStatus");
+                    String statusMessage = readStringAttribute(parser, "statusMessage");
 
                     if (mResults.get(id) != null) {
                         throw new Exception("id " + id + " has two results");
@@ -128,7 +163,7 @@ class EventResultPersister {
                     throw new Exception("unexpected tag");
                 }
 
-                XmlUtils.nextElement(parser);
+                nextElement(parser);
             }
         } catch (Exception e) {
             mResults.clear();
@@ -202,7 +237,7 @@ class EventResultPersister {
                         FileOutputStream stream = null;
                         try {
                             stream = mResultsFile.startWrite();
-                            FastXmlSerializer serializer = new FastXmlSerializer();
+                            XmlSerializer serializer = Xml.newSerializer();
                             serializer.setOutput(stream, StandardCharsets.UTF_8.name());
                             serializer.startDocument(null, true);
                             serializer.setFeature(
