@@ -18,7 +18,6 @@ package com.android.packageinstaller;
 
 import static android.content.pm.PackageInstaller.SessionParams.UID_UNKNOWN;
 
-import android.annotation.Nullable;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
@@ -29,6 +28,7 @@ import android.content.pm.PackageParser;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.ProgressBar;

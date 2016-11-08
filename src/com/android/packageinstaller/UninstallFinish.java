@@ -16,7 +16,6 @@
 
 package com.android.packageinstaller;
 
-import android.annotation.NonNull;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -35,6 +34,7 @@ import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
 

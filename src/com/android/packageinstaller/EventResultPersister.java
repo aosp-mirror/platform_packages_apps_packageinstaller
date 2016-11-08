@@ -16,18 +16,17 @@
 
 package com.android.packageinstaller;
 
-import android.annotation.NonNull;
-import android.annotation.Nullable;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInstaller;
 import android.os.AsyncTask;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.AtomicFile;
 import android.util.Log;
 import android.util.SparseArray;
 import android.util.Xml;
 
-import com.android.internal.annotations.GuardedBy;
 import com.android.internal.util.FastXmlSerializer;
 import com.android.internal.util.XmlUtils;
 
@@ -60,23 +59,18 @@ class EventResultPersister {
     private final Object mLock = new Object();
 
     /** Currently stored but not yet called back results (install id -> status, status message) */
-    @GuardedBy("mLock")
     private final SparseArray<EventResult> mResults = new SparseArray<>();
 
     /** Currently registered, not called back observers (install id -> observer) */
-    @GuardedBy("mLock")
     private final SparseArray<EventResultObserver> mObservers = new SparseArray<>();
 
     /** Always increasing counter for install event ids */
-    @GuardedBy("mLock")
     private int mCounter;
 
     /** If a write that will persist the state is scheduled */
-    @GuardedBy("mLock")
     private boolean mIsPersistScheduled;
 
     /** If the state was changed while the data was being persisted */
-    @GuardedBy("mLock")
     private boolean mIsPersistingStateValid;
 
     /**
