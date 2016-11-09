@@ -19,7 +19,6 @@ package com.android.packageinstaller.permission.ui;
 import static android.content.pm.PackageManager.PERMISSION_DENIED;
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 
-import android.Manifest;
 import android.app.admin.DevicePolicyManager;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -49,6 +48,7 @@ import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.ui.auto.GrantPermissionsAutoViewHandler;
 import com.android.packageinstaller.permission.ui.handheld.GrantPermissionsViewHandlerImpl;
 import com.android.packageinstaller.permission.utils.ArrayUtils;
+import com.android.packageinstaller.permission.utils.EventLogger;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 
 import java.util.ArrayList;
@@ -211,6 +211,14 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
 
         if (!showNextPermissionGroupGrantRequest()) {
             setResultAndFinish();
+        } else if (icicle == null) {
+            int numRequestedPermissions = mRequestedPermissions.length;
+            for (int permissionNum = 0; permissionNum < numRequestedPermissions; permissionNum++) {
+                String permission = mRequestedPermissions[permissionNum];
+
+                EventLogger.logPermissionRequested(this, permission,
+                        mAppPermissions.getPackageInfo().packageName);
+            }
         }
     }
 
@@ -301,6 +309,16 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
                 groupState.mGroup.revokeRuntimePermissions(doNotAskAgain,
                         groupState.affectedPermissions);
                 groupState.mState = GroupState.STATE_DENIED;
+
+                int numRequestedPermissions = mRequestedPermissions.length;
+                for (int i = 0; i < numRequestedPermissions; i++) {
+                    String permission = mRequestedPermissions[i];
+
+                    if (groupState.mGroup.hasPermission(permission)) {
+                        EventLogger.logPermissionDenied(this, permission,
+                                mAppPermissions.getPackageInfo().packageName);
+                    }
+                }
             }
             updateGrantResults(groupState.mGroup);
         }
