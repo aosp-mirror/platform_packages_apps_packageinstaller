@@ -57,14 +57,10 @@
     <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Aplicação não encontrada"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"A aplicação não foi encontrada na lista de aplicações instaladas."</string>
-    <!-- no translation found for user_is_not_allowed_dlg_title (118128026847201582) -->
-    <skip />
-    <!-- no translation found for user_is_not_allowed_dlg_text (739716827677987545) -->
-    <skip />
-    <!-- no translation found for generic_error_dlg_title (2684806600635296961) -->
-    <skip />
-    <!-- no translation found for generic_error_dlg_text (4288738047825333954) -->
-    <skip />
+    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"Não autorizado"</string>
+    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"O utilizador atual não tem autorização para efetuar esta desinstalação."</string>
+    <string name="generic_error_dlg_title" msgid="2684806600635296961">"Erro"</string>
+    <string name="generic_error_dlg_text" msgid="4288738047825333954">"Não foi possível desinstalar a aplicação."</string>
     <string name="uninstall_application_title" msgid="1860074100811653963">"Desinstalar a aplicação"</string>
     <string name="uninstall_update_title" msgid="4146940097553335390">"Desinstalar atualização"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> faz parte da seguinte aplicação:"</string>
@@ -74,14 +70,11 @@
     <string name="uninstall_update_text" msgid="1394549691152728409">"Pretende substituir esta aplicação pela versão de fábrica? Todos os dados são removidos."</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Pretende substituir esta aplicação pela versão de fábrica? Todos os dados são removidos. Esta ação afeta todos os utilizadores deste dispositivo, incluindo os que têm perfis de trabalho."</string>
     <string name="uninstalling" msgid="5556217435895938250">"A desinstalar..."</string>
-    <!-- no translation found for uninstalling_app (2773617614877719294) -->
-    <skip />
+    <string name="uninstalling_app" msgid="2773617614877719294">"A desinstalar a aplicação <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Desinstalação concluída."</string>
-    <!-- no translation found for uninstall_done_app (4009780060350765946) -->
-    <skip />
+    <string name="uninstall_done_app" msgid="4009780060350765946">"A aplicação <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> foi desinstalada."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Desinstalação sem êxito."</string>
-    <!-- no translation found for uninstall_failed_app (945277834056527022) -->
-    <skip />
+    <string name="uninstall_failed_app" msgid="945277834056527022">"Falha ao desinstalar a aplicação <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Não é possível desinstalar porque este pacote é um admin. de aparelho ativo."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Não é poss. desinst. porque este pacote é um admin. de disp. ativos para o utiliz. <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Esta aplicação é necessária para alguns utilizadores ou perfis e foi desinstalada para outros"</string>

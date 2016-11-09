@@ -57,14 +57,10 @@
     <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Aplicația nu a fost găsită"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Aplicația nu a fost găsită în lista de aplicații instalate."</string>
-    <!-- no translation found for user_is_not_allowed_dlg_title (118128026847201582) -->
-    <skip />
-    <!-- no translation found for user_is_not_allowed_dlg_text (739716827677987545) -->
-    <skip />
-    <!-- no translation found for generic_error_dlg_title (2684806600635296961) -->
-    <skip />
-    <!-- no translation found for generic_error_dlg_text (4288738047825333954) -->
-    <skip />
+    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"Nu are permisiune"</string>
+    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"Utilizatorul actual nu are permisiune pentru a face această dezinstalare."</string>
+    <string name="generic_error_dlg_title" msgid="2684806600635296961">"Eroare"</string>
+    <string name="generic_error_dlg_text" msgid="4288738047825333954">"Aplicația nu a putut fi dezinstalată."</string>
     <string name="uninstall_application_title" msgid="1860074100811653963">"Dezinstalați aplicația"</string>
     <string name="uninstall_update_title" msgid="4146940097553335390">"Dezinstalați actualizarea"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">" <xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> face parte din următoarea aplicație:"</string>
@@ -74,14 +70,11 @@
     <string name="uninstall_update_text" msgid="1394549691152728409">"Înlocuiți această aplicație cu versiunea din fabrică? Toate datele vor fi eliminate."</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Înlocuiți această aplicație cu versiunea din fabrică? Toate datele vor fi eliminate. Această acțiune va afecta toți utilizatorii dispozitivului, inclusiv pe cei cu profiluri de serviciu."</string>
     <string name="uninstalling" msgid="5556217435895938250">"În curs de dezinstalare..."</string>
-    <!-- no translation found for uninstalling_app (2773617614877719294) -->
-    <skip />
+    <string name="uninstalling_app" msgid="2773617614877719294">"Se dezinstalează <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Dezinstalare finalizată."</string>
-    <!-- no translation found for uninstall_done_app (4009780060350765946) -->
-    <skip />
+    <string name="uninstall_done_app" msgid="4009780060350765946">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> a fost dezinstalată."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Dezinstalare nefinalizată."</string>
-    <!-- no translation found for uninstall_failed_app (945277834056527022) -->
-    <skip />
+    <string name="uninstall_failed_app" msgid="945277834056527022">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> nu a putut fi dezinstalată."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Nu se poate dezinstala, acest pachet este un administrator de dispozitive activ."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Nu se poate dezinstala, pachetul este administrator de dispozitive activ pt. <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Aplicația este necesară unor utilizatori sau profiluri și a fost dezinstalată pentru alții"</string>

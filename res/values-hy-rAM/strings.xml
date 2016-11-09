@@ -57,14 +57,10 @@
     <string name="dlg_ok" msgid="6944357727705699232">"Լավ"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Հավելվածը չի գտնվել"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Հավելվածը չի գտնվել տեղադրված հավելվածների ցանկում:"</string>
-    <!-- no translation found for user_is_not_allowed_dlg_title (118128026847201582) -->
-    <skip />
-    <!-- no translation found for user_is_not_allowed_dlg_text (739716827677987545) -->
-    <skip />
-    <!-- no translation found for generic_error_dlg_title (2684806600635296961) -->
-    <skip />
-    <!-- no translation found for generic_error_dlg_text (4288738047825333954) -->
-    <skip />
+    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"Արգելված է"</string>
+    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"Ընթացիկ օգտվողը հեռացնելու թույլտվություն չունի:"</string>
+    <string name="generic_error_dlg_title" msgid="2684806600635296961">"Սխալ"</string>
+    <string name="generic_error_dlg_text" msgid="4288738047825333954">"Հնարավոր չէ հեռացնել հավելվածը:"</string>
     <string name="uninstall_application_title" msgid="1860074100811653963">"Ապատեղադրել հավելվածը"</string>
     <string name="uninstall_update_title" msgid="4146940097553335390">"Ապատեղադրել թարմացումը"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g>-ը հետևյալ հավելվածի մասն է`"</string>
@@ -74,14 +70,11 @@
     <string name="uninstall_update_text" msgid="1394549691152728409">"Փոխարինե՞լ այս հավելվածը գործարանային տարբերակով: Բոլոր տվյալները կհեռացվեն:"</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Փոխարինե՞լ այս հավելվածը գործարանային տարբերակով: Բոլոր տվյալները կհեռացվեն: Դա վերաբերում է այս սարքի բոլոր օգտվողներին, այդ թվում նաև աշխատանքային պրոֆիլներ ունեցողներին:"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Ապատեղադրում է..."</string>
-    <!-- no translation found for uninstalling_app (2773617614877719294) -->
-    <skip />
+    <string name="uninstalling_app" msgid="2773617614877719294">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> հավելվածը հեռացվում է…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Ապատեղադրումը ավարտված է:"</string>
-    <!-- no translation found for uninstall_done_app (4009780060350765946) -->
-    <skip />
+    <string name="uninstall_done_app" msgid="4009780060350765946">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> հավելվածը հեռացված է:"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Ապատեղադրումն անհաջող է:"</string>
-    <!-- no translation found for uninstall_failed_app (945277834056527022) -->
-    <skip />
+    <string name="uninstall_failed_app" msgid="945277834056527022">"Չհաջողվեց հեռացնել <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> հավելվածը:"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Հնարավոր չէ ապատեղադրել, քանի որ այս փաթեթն ակտիվ սարքի ադմինիստրատոր է:"</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Հնարավոր չէ ապատեղադրել, քանի որ այս փաթեթը ակտիվ սարքի ադմինիստրատոր է <xliff:g id="USERNAME">%1$s</xliff:g> օգտվողի համար:"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Այս հավելվածն անհրաժեշտ է որոշ օգտվողների կամ պրոֆիլների համար և մնացածի մոտ հեռացվել է"</string>

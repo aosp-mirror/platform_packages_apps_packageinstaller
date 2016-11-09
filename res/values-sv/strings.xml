@@ -57,14 +57,10 @@
     <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Appen hittades inte"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Appen fanns inte i listan över installerade appar."</string>
-    <!-- no translation found for user_is_not_allowed_dlg_title (118128026847201582) -->
-    <skip />
-    <!-- no translation found for user_is_not_allowed_dlg_text (739716827677987545) -->
-    <skip />
-    <!-- no translation found for generic_error_dlg_title (2684806600635296961) -->
-    <skip />
-    <!-- no translation found for generic_error_dlg_text (4288738047825333954) -->
-    <skip />
+    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"Ingen behörighet"</string>
+    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"Den aktuella användaren har inte behörighet att utföra avinstallationen."</string>
+    <string name="generic_error_dlg_title" msgid="2684806600635296961">"Fel"</string>
+    <string name="generic_error_dlg_text" msgid="4288738047825333954">"Det gick inte att installera appen."</string>
     <string name="uninstall_application_title" msgid="1860074100811653963">"Avinstallera appen"</string>
     <string name="uninstall_update_title" msgid="4146940097553335390">"Avinstallera uppdateringen"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> är en del av följande app:"</string>
@@ -74,14 +70,11 @@
     <string name="uninstall_update_text" msgid="1394549691152728409">"Vill du ersätta den här appen med den version som var installerad när enheten var ny? All information tas bort."</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Vill du ersätta den här appen med den version som var installerad när enheten var ny? All information tas bort. Detta påverkar alla som använder enheten, även dem med jobbprofiler."</string>
     <string name="uninstalling" msgid="5556217435895938250">"Avinstallerar…"</string>
-    <!-- no translation found for uninstalling_app (2773617614877719294) -->
-    <skip />
+    <string name="uninstalling_app" msgid="2773617614877719294">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> avinstalleras …"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Avinstallationen har slutförts."</string>
-    <!-- no translation found for uninstall_done_app (4009780060350765946) -->
-    <skip />
+    <string name="uninstall_done_app" msgid="4009780060350765946">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> har avinstallerats."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Det gick inte att avinstallera."</string>
-    <!-- no translation found for uninstall_failed_app (945277834056527022) -->
-    <skip />
+    <string name="uninstall_failed_app" msgid="945277834056527022">"Det gick inte att avinstallera <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Det går inte att avinstallera eftersom paketet är en aktiv enhetsadministratör."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Paketet kan inte avinstalleras. Det används för att administrera enheten för <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Den här appen är obligatorisk för vissa användare och profiler och har avinstallerats för andra"</string>

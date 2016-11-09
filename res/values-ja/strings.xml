@@ -57,14 +57,10 @@
     <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"アプリが見つかりません"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"インストール済みアプリのリストに、このアプリはありません。"</string>
-    <!-- no translation found for user_is_not_allowed_dlg_title (118128026847201582) -->
-    <skip />
-    <!-- no translation found for user_is_not_allowed_dlg_text (739716827677987545) -->
-    <skip />
-    <!-- no translation found for generic_error_dlg_title (2684806600635296961) -->
-    <skip />
-    <!-- no translation found for generic_error_dlg_text (4288738047825333954) -->
-    <skip />
+    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"許可されていません"</string>
+    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"このアンインストール操作は現在のユーザーには許可されていません。"</string>
+    <string name="generic_error_dlg_title" msgid="2684806600635296961">"エラー"</string>
+    <string name="generic_error_dlg_text" msgid="4288738047825333954">"アプリをアンインストールできませんでした。"</string>
     <string name="uninstall_application_title" msgid="1860074100811653963">"アプリをアンインストール"</string>
     <string name="uninstall_update_title" msgid="4146940097553335390">"アップデートをアンインストール"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g>は次のアプリの一部です:"</string>
@@ -74,14 +70,11 @@
     <string name="uninstall_update_text" msgid="1394549691152728409">"このアプリを出荷時の状態に戻しますか？データがすべて削除されます。"</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"このアプリを出荷時の状態に戻しますか？データがすべて削除されます。これは、仕事用プロファイルを設定しているユーザーも含めて、この端末を使用するすべてのユーザーが対象となります。"</string>
     <string name="uninstalling" msgid="5556217435895938250">"アンインストール中..."</string>
-    <!-- no translation found for uninstalling_app (2773617614877719294) -->
-    <skip />
+    <string name="uninstalling_app" msgid="2773617614877719294">"「<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>」をアンインストールしています…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"アンインストールが完了しました。"</string>
-    <!-- no translation found for uninstall_done_app (4009780060350765946) -->
-    <skip />
+    <string name="uninstall_done_app" msgid="4009780060350765946">"「<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>」をアンインストールしました。"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"アンインストールできませんでした。"</string>
-    <!-- no translation found for uninstall_failed_app (945277834056527022) -->
-    <skip />
+    <string name="uninstall_failed_app" msgid="945277834056527022">"「<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>」をアンインストールできませんでした。"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"このパッケージは現在デバイスを管理しているため、アンインストールできません。"</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"このパッケージは、現在<xliff:g id="USERNAME">%1$s</xliff:g>さんの端末を管理しているため、アンインストールできません。"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"このアプリは一部のユーザーやプロファイルに必要なため、アンインストールできませんでした"</string>

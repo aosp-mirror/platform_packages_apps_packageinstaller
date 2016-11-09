@@ -57,14 +57,10 @@
     <string name="dlg_ok" msgid="6944357727705699232">"U redu"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Aplikacija nije pronađena"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Na popisu instaliranih aplikacija ova aplikacija nije pronađena."</string>
-    <!-- no translation found for user_is_not_allowed_dlg_title (118128026847201582) -->
-    <skip />
-    <!-- no translation found for user_is_not_allowed_dlg_text (739716827677987545) -->
-    <skip />
-    <!-- no translation found for generic_error_dlg_title (2684806600635296961) -->
-    <skip />
-    <!-- no translation found for generic_error_dlg_text (4288738047825333954) -->
-    <skip />
+    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"Nije dopušteno"</string>
+    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"Trenutačni korisnik nema dopuštenje za to deinstaliranje."</string>
+    <string name="generic_error_dlg_title" msgid="2684806600635296961">"Pogreška"</string>
+    <string name="generic_error_dlg_text" msgid="4288738047825333954">"Deinstaliranje aplikacije nije uspjelo."</string>
     <string name="uninstall_application_title" msgid="1860074100811653963">"Deinstaliraj aplikaciju"</string>
     <string name="uninstall_update_title" msgid="4146940097553335390">"Deinstalacija ažuriranja"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"Aktivnost <xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> dio je sljedeće aplikacije:"</string>
@@ -74,14 +70,11 @@
     <string name="uninstall_update_text" msgid="1394549691152728409">"Želite li tu aplikaciju zamijeniti tvorničkom verzijom? Izgubit ćete sve podatke."</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Želite li tu aplikaciju zamijeniti tvorničkom verzijom? Izgubit ćete sve podatke. To se odnosi na sve korisnike uređaja, uključujući one s radnim profilima."</string>
     <string name="uninstalling" msgid="5556217435895938250">"Deinstaliranje..."</string>
-    <!-- no translation found for uninstalling_app (2773617614877719294) -->
-    <skip />
+    <string name="uninstalling_app" msgid="2773617614877719294">"Deinstaliranje aplikacije <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Deinstalacija je završena."</string>
-    <!-- no translation found for uninstall_done_app (4009780060350765946) -->
-    <skip />
+    <string name="uninstall_done_app" msgid="4009780060350765946">"Aplikacija <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> deinstalirana."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Deinstalacija nije uspjela."</string>
-    <!-- no translation found for uninstall_failed_app (945277834056527022) -->
-    <skip />
+    <string name="uninstall_failed_app" msgid="945277834056527022">"Deinstaliranje aplikacije <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> nije uspjelo."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Deinstalacija nije moguća jer je ovaj paket aktivni administrator uređaja."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Paket nije moguće deinst. jer je administrator aktivnog uređaja za korisnika <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Ta je aplikacija obavezna za neke korisnike ili profile, deinstalirana je za ostale"</string>

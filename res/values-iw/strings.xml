@@ -57,14 +57,10 @@
     <string name="dlg_ok" msgid="6944357727705699232">"אישור"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"האפליקציה לא נמצא"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"האפליקציה לא נמצאה ברשימת האפליקציות המותקנות."</string>
-    <!-- no translation found for user_is_not_allowed_dlg_title (118128026847201582) -->
-    <skip />
-    <!-- no translation found for user_is_not_allowed_dlg_text (739716827677987545) -->
-    <skip />
-    <!-- no translation found for generic_error_dlg_title (2684806600635296961) -->
-    <skip />
-    <!-- no translation found for generic_error_dlg_text (4288738047825333954) -->
-    <skip />
+    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"לא מורשה"</string>
+    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"המשתמש הנוכחי אינו מורשה לבצע את הסרת ההתקנה הזה."</string>
+    <string name="generic_error_dlg_title" msgid="2684806600635296961">"שגיאה"</string>
+    <string name="generic_error_dlg_text" msgid="4288738047825333954">"לא ניתן היה להסיר את התקנת האפליקציה."</string>
     <string name="uninstall_application_title" msgid="1860074100811653963">"הסר את התקנת האפליקציה"</string>
     <string name="uninstall_update_title" msgid="4146940097553335390">"הסר את התקנת העדכון"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> הוא חלק מהאפליקציה הבאה:"</string>
@@ -74,14 +70,11 @@
     <string name="uninstall_update_text" msgid="1394549691152728409">"האם להחליף את האפליקציה הזאת בגירסת היצרן? כל הנתונים יוסרו."</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"האם להחליף את האפליקציה הזאת בגירסת היצרן? כל הנתונים יוסרו. הפעולה תשפיע על כל משתמשי המכשיר, כולל משתמשים בעלי פרופיל עבודה."</string>
     <string name="uninstalling" msgid="5556217435895938250">"מסיר התקנה..."</string>
-    <!-- no translation found for uninstalling_app (2773617614877719294) -->
-    <skip />
+    <string name="uninstalling_app" msgid="2773617614877719294">"מסיר את ההתקנה של <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"הסרת ההתקנה הסתיימה."</string>
-    <!-- no translation found for uninstall_done_app (4009780060350765946) -->
-    <skip />
+    <string name="uninstall_done_app" msgid="4009780060350765946">"הוסרה ההתקנה של <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"הסרת התקנה נכשלה."</string>
-    <!-- no translation found for uninstall_failed_app (945277834056527022) -->
-    <skip />
+    <string name="uninstall_failed_app" msgid="945277834056527022">"נכשלה הסרת ההתקנה של <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"לא ניתן להסיר את ההתקנה מפני שחבילה זו היא מנהל מכשיר פעיל."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"לא ניתן להסיר את ההתקנה מפני שהחבילה הזו מוגדרת כעת לניהול המכשיר עבור המשתמש <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"אפליקציה זו נדרשת לחלק מהמשתמשים או מהפרופילים והתקנתה הוסרה למשתמשים אחרים"</string>

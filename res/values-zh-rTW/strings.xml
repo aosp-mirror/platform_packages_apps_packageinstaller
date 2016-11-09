@@ -57,14 +57,10 @@
     <string name="dlg_ok" msgid="6944357727705699232">"確定"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"找不到應用程式"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"在已安裝的應用程式清單中找不到這個應用程式。"</string>
-    <!-- no translation found for user_is_not_allowed_dlg_title (118128026847201582) -->
-    <skip />
-    <!-- no translation found for user_is_not_allowed_dlg_text (739716827677987545) -->
-    <skip />
-    <!-- no translation found for generic_error_dlg_title (2684806600635296961) -->
-    <skip />
-    <!-- no translation found for generic_error_dlg_text (4288738047825333954) -->
-    <skip />
+    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"不允許此操作"</string>
+    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"目前的使用者無法執行這項解除安裝作業。"</string>
+    <string name="generic_error_dlg_title" msgid="2684806600635296961">"發生錯誤"</string>
+    <string name="generic_error_dlg_text" msgid="4288738047825333954">"無法解除安裝應用程式。"</string>
     <string name="uninstall_application_title" msgid="1860074100811653963">"解除安裝應用程式"</string>
     <string name="uninstall_update_title" msgid="4146940097553335390">"解除安裝更新"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"「<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g>」屬於下列應用程式："</string>
@@ -74,14 +70,11 @@
     <string name="uninstall_update_text" msgid="1394549691152728409">"要將應用程式換成原廠版本嗎？這麼做會移除所有資料。"</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"要將應用程式換成原廠版本嗎？這麼做會移除所有資料。凡是這個裝置的使用者 (包括設置 Work 設定檔的使用者)，皆會受到影響。"</string>
     <string name="uninstalling" msgid="5556217435895938250">"解除安裝中…"</string>
-    <!-- no translation found for uninstalling_app (2773617614877719294) -->
-    <skip />
+    <string name="uninstalling_app" msgid="2773617614877719294">"正在解除安裝「<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>」…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"解除安裝完成。"</string>
-    <!-- no translation found for uninstall_done_app (4009780060350765946) -->
-    <skip />
+    <string name="uninstall_done_app" msgid="4009780060350765946">"已解除安裝「<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>」。"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"解除安裝失敗。"</string>
-    <!-- no translation found for uninstall_failed_app (945277834056527022) -->
-    <skip />
+    <string name="uninstall_failed_app" msgid="945277834056527022">"無法解除安裝「<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>」。"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"這個套件是目前的裝置管理員，因此無法解除安裝。"</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"這個套件是<xliff:g id="USERNAME">%1$s</xliff:g>目前使用中的裝置權限管理工具，因此無法解除安裝。"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"部分使用者或設定檔需要使用這個應用程式；已為其他使用者解除安裝"</string>

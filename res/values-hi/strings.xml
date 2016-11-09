@@ -57,14 +57,10 @@
     <string name="dlg_ok" msgid="6944357727705699232">"ठीक है"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"ऐप्स  नहीं मिला"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"ऐप्स , इंस्‍टॉल किए गए ऐप्स  की सूची में नहीं मिला था."</string>
-    <!-- no translation found for user_is_not_allowed_dlg_title (118128026847201582) -->
-    <skip />
-    <!-- no translation found for user_is_not_allowed_dlg_text (739716827677987545) -->
-    <skip />
-    <!-- no translation found for generic_error_dlg_title (2684806600635296961) -->
-    <skip />
-    <!-- no translation found for generic_error_dlg_text (4288738047825333954) -->
-    <skip />
+    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"अनुमति नहीं है"</string>
+    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"वर्तमान उपयोगकर्ता को यह अनइंस्टॉलेशन निष्पादित करने की अनुमति नहीं है."</string>
+    <string name="generic_error_dlg_title" msgid="2684806600635296961">"गड़बड़ी"</string>
+    <string name="generic_error_dlg_text" msgid="4288738047825333954">"ऐप्लिकेशन अनइंस्टॉल नहीं किया जा सका."</string>
     <string name="uninstall_application_title" msgid="1860074100811653963">"ऐप्स अनइंस्‍टॉल करें"</string>
     <string name="uninstall_update_title" msgid="4146940097553335390">"नई जानकारी अनइंस्‍टॉल करें"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> निम्‍न ऐप्स  का भाग है:"</string>
@@ -74,14 +70,11 @@
     <string name="uninstall_update_text" msgid="1394549691152728409">"इस ऐप्लिकेशन को फ़ैक्टरी वर्शन से बदलें? सभी डेटा निकाल दिया जाएगा."</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"इस ऐप्लिकेशन को फ़ैक्टरी वर्शन से बदलें? सभी डेटा निकाल दिया जाएगा. यह इस डिवाइस के सभी उपयोगकर्ताओं को प्रभावित करेगा, जिनमें कार्य प्रोफ़ाइल वाले उपयोगकर्ता शामिल हैं."</string>
     <string name="uninstalling" msgid="5556217435895938250">"अनइंस्‍टॉल कर रहा है…"</string>
-    <!-- no translation found for uninstalling_app (2773617614877719294) -->
-    <skip />
+    <string name="uninstalling_app" msgid="2773617614877719294">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> अनइंस्टॉल किया जा रहा है…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"अनइंस्‍टॉल करना पूर्ण हो गया."</string>
-    <!-- no translation found for uninstall_done_app (4009780060350765946) -->
-    <skip />
+    <string name="uninstall_done_app" msgid="4009780060350765946">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> अनइंस्टॉल किया गया."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"अनइंस्‍टॉल करना विफल."</string>
-    <!-- no translation found for uninstall_failed_app (945277834056527022) -->
-    <skip />
+    <string name="uninstall_failed_app" msgid="945277834056527022">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> को अनइंस्टॉल करना असफल."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"अनइंस्‍टॉल नहीं किया जा सकता क्‍योंकि यह पैकेज कोई सक्रिय डिवाइस नियंत्रक है."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"अनइंस्टॉल संभव नहीं क्योंकि यह पैकेज  <xliff:g id="USERNAME">%1$s</xliff:g> का सक्रिय डिवाइस नियंत्रक है."</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"यह ऐप्लिकेशन कुछ उपयोगकर्ताओं या प्रोफ़ाइल हेतु आवश्यक है और अन्य हेतु अनइंस्टॉल हो गया है"</string>

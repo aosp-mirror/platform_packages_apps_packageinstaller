@@ -57,14 +57,10 @@
     <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Applicazione non trovata"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Impossibile trovare l\'applicazione nell\'elenco di applicazioni installate."</string>
-    <!-- no translation found for user_is_not_allowed_dlg_title (118128026847201582) -->
-    <skip />
-    <!-- no translation found for user_is_not_allowed_dlg_text (739716827677987545) -->
-    <skip />
-    <!-- no translation found for generic_error_dlg_title (2684806600635296961) -->
-    <skip />
-    <!-- no translation found for generic_error_dlg_text (4288738047825333954) -->
-    <skip />
+    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"Non autorizzato"</string>
+    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"L\'utente corrente non è autorizzato a eseguire questa disinstallazione."</string>
+    <string name="generic_error_dlg_title" msgid="2684806600635296961">"Errore"</string>
+    <string name="generic_error_dlg_text" msgid="4288738047825333954">"Impossibile disinstallare l\'app."</string>
     <string name="uninstall_application_title" msgid="1860074100811653963">"Disinstalla applicazione"</string>
     <string name="uninstall_update_title" msgid="4146940097553335390">"Disinstalla aggiornamento"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> fa parte della seguente applicazione:"</string>
@@ -74,14 +70,11 @@
     <string name="uninstall_update_text" msgid="1394549691152728409">"Sostituire questa app con la versione di fabbrica? Tutti i dati verranno rimossi."</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Sostituire questa app con la versione di fabbrica? Tutti i dati verranno rimossi. Saranno interessati tutti gli utenti del dispositivo, inclusi quelli che hanno profili di lavoro."</string>
     <string name="uninstalling" msgid="5556217435895938250">"Disinstallazione..."</string>
-    <!-- no translation found for uninstalling_app (2773617614877719294) -->
-    <skip />
+    <string name="uninstalling_app" msgid="2773617614877719294">"Disinstallazione di <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Disinstallazione completata."</string>
-    <!-- no translation found for uninstall_done_app (4009780060350765946) -->
-    <skip />
+    <string name="uninstall_done_app" msgid="4009780060350765946">"App <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> disinstallata."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Disinstallazione non riuscita."</string>
-    <!-- no translation found for uninstall_failed_app (945277834056527022) -->
-    <skip />
+    <string name="uninstall_failed_app" msgid="945277834056527022">"Impossibile disinstallare <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Impossibile disinstallare: il pacchetto è un amministratore dispositivo attivo."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Impossibile disinstallare. Il pacchetto è amministr. dispos. attivo di utente <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"L\'app è necessaria per alcuni utenti/profili ed è stata disinstallata per altri"</string>

@@ -57,14 +57,10 @@
     <string name="dlg_ok" msgid="6944357727705699232">"சரி"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"பயன்பாடு கண்டறியப்படவில்லை"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"நிறுவிய பயன்பாடுகளின் பட்டியலில் பயன்பாடு இல்லை."</string>
-    <!-- no translation found for user_is_not_allowed_dlg_title (118128026847201582) -->
-    <skip />
-    <!-- no translation found for user_is_not_allowed_dlg_text (739716827677987545) -->
-    <skip />
-    <!-- no translation found for generic_error_dlg_title (2684806600635296961) -->
-    <skip />
-    <!-- no translation found for generic_error_dlg_text (4288738047825333954) -->
-    <skip />
+    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"அனுமதிக்கப்படவில்லை"</string>
+    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"இதை நிறுவல் நீக்குவதற்கு, தற்போதைய பயனர் அனுமதிக்கப்படவில்லை."</string>
+    <string name="generic_error_dlg_title" msgid="2684806600635296961">"பிழை"</string>
+    <string name="generic_error_dlg_text" msgid="4288738047825333954">"பயன்பாட்டை நிறுவல் நீக்க முடியவில்லை."</string>
     <string name="uninstall_application_title" msgid="1860074100811653963">"பயன்பாட்டை நிறுவல் நீக்கு"</string>
     <string name="uninstall_update_title" msgid="4146940097553335390">"புதுப்பிப்பை நிறுவல் நீக்கு"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> ஆனது பின்வரும் பயன்பாட்டின் பகுதியாகும்:"</string>
@@ -74,14 +70,11 @@
     <string name="uninstall_update_text" msgid="1394549691152728409">"ஆரம்பநிலைப் பதிப்பாக இந்தப் பயன்பாட்டை மாற்றியமைக்கவா? எல்லா தரவும் அகற்றப்படும்."</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"ஆரம்பநிலைப் பதிப்பாக இந்தப் பயன்பாட்டை மாற்றியமைக்கவா? எல்லா தரவும் அகற்றப்படும். பணிச் சுயவிவரங்களுடன் உள்ளவர்கள் உட்பட இந்தச் சாதனத்தின் எல்லா பயனர்களையும் இது பாதிக்கும்."</string>
     <string name="uninstalling" msgid="5556217435895938250">"நிறுவலை நீக்குகிறது…"</string>
-    <!-- no translation found for uninstalling_app (2773617614877719294) -->
-    <skip />
+    <string name="uninstalling_app" msgid="2773617614877719294">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>ஐ நிறுவல் நீக்குகிறது…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"நிறுவல் நீக்குவது முடிந்தது."</string>
-    <!-- no translation found for uninstall_done_app (4009780060350765946) -->
-    <skip />
+    <string name="uninstall_done_app" msgid="4009780060350765946">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> நிறுவல் நீக்கப்பட்டது."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"நிறுவல் நீக்குவதில் தோல்வி."</string>
-    <!-- no translation found for uninstall_failed_app (945277834056527022) -->
-    <skip />
+    <string name="uninstall_failed_app" msgid="945277834056527022">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>ஐ நிறுவல் நீக்க முடியவில்லை."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"இந்தத் தொகுப்பு, செயலில் உள்ள சாதன நிர்வாகி என்பதால் நிறுவல் நீக்க முடியாது."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"இந்தத் தொகுப்பு <xliff:g id="USERNAME">%1$s</xliff:g> பயனருக்கான செயலில் உள்ள சாதன நிர்வாகியாக இருப்பதால், நிறுவல் நீக்க முடியாது."</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"இது சில பயனர்கள்/சுயவிவரங்களுக்குத் தேவைப்படுவதால், நிறுவல்நீக்க முடியாது, பிறருக்கு நிறுவல் நீக்கப்பட்டது"</string>

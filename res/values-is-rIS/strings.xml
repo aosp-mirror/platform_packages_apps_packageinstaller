@@ -57,14 +57,10 @@
     <string name="dlg_ok" msgid="6944357727705699232">"Í lagi"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Forritið finnst ekki"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Forritið fannst ekki á listanum yfir uppsett forrit."</string>
-    <!-- no translation found for user_is_not_allowed_dlg_title (118128026847201582) -->
-    <skip />
-    <!-- no translation found for user_is_not_allowed_dlg_text (739716827677987545) -->
-    <skip />
-    <!-- no translation found for generic_error_dlg_title (2684806600635296961) -->
-    <skip />
-    <!-- no translation found for generic_error_dlg_text (4288738047825333954) -->
-    <skip />
+    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"Ekki heimilað"</string>
+    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"Núverandi notandi hefur ekki heimild til að fjarlægja þetta."</string>
+    <string name="generic_error_dlg_title" msgid="2684806600635296961">"Villa"</string>
+    <string name="generic_error_dlg_text" msgid="4288738047825333954">"Ekki tókst að fjarlægja forritið."</string>
     <string name="uninstall_application_title" msgid="1860074100811653963">"Fjarlægja forrit"</string>
     <string name="uninstall_update_title" msgid="4146940097553335390">"Fjarlægja uppfærslu"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> er hluti af þessu forriti:"</string>
@@ -74,14 +70,11 @@
     <string name="uninstall_update_text" msgid="1394549691152728409">"Viltu skipta þessu forriti út fyrir verksmiðjuútgáfuna? Öll gögn verða fjarlægð."</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Viltu skipta þessu forriti út fyrir verksmiðjuútgáfuna? Öll gögn verða fjarlægð. Þetta hefur áhrif á alla notendur tækisins, þar á meðal þá sem eru með vinnusnið."</string>
     <string name="uninstalling" msgid="5556217435895938250">"Fjarlægir…"</string>
-    <!-- no translation found for uninstalling_app (2773617614877719294) -->
-    <skip />
+    <string name="uninstalling_app" msgid="2773617614877719294">"Fjarlægir <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Forritið hefur verið fjarlægt."</string>
-    <!-- no translation found for uninstall_done_app (4009780060350765946) -->
-    <skip />
+    <string name="uninstall_done_app" msgid="4009780060350765946">"Fjarlægði <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Ekki tókst að fjarlægja forritið."</string>
-    <!-- no translation found for uninstall_failed_app (945277834056527022) -->
-    <skip />
+    <string name="uninstall_failed_app" msgid="945277834056527022">"Ekki tókst að fjarlægja <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Ekki er hægt að fjarlægja forritið því að pakkinn er virkur stjórnandi tækis."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Ekki hægt að fjarlægja vegna þess að þessi pakki er virkur tækisstjórnandi fyrir <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Þessa forrits er krafist hjá sumum notendum eða sniðum en var fjarlægt hjá öðrum"</string>

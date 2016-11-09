@@ -57,14 +57,10 @@
     <string name="dlg_ok" msgid="6944357727705699232">"အိုကေ"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"အက်ပ်အားမတွေ့ပါ"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"ထည့်သွင်းထားသော အပလီကေးရှင်းထဲတွင် ဤအပလီကေးရှင်း မတွေ့ရှိပါ"</string>
-    <!-- no translation found for user_is_not_allowed_dlg_title (118128026847201582) -->
-    <skip />
-    <!-- no translation found for user_is_not_allowed_dlg_text (739716827677987545) -->
-    <skip />
-    <!-- no translation found for generic_error_dlg_title (2684806600635296961) -->
-    <skip />
-    <!-- no translation found for generic_error_dlg_text (4288738047825333954) -->
-    <skip />
+    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"ခွင့်ပြုမထားပါ"</string>
+    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"ဤဖယ်ရှားမှုပြုလုပ်ရန် လက်ရှိအသုံးပြုသူအား ခွင့်ပြုမထားပါ။"</string>
+    <string name="generic_error_dlg_title" msgid="2684806600635296961">"အမှားအယွင်း"</string>
+    <string name="generic_error_dlg_text" msgid="4288738047825333954">"အက်ပ်ကို ဖယ်ရှား၍မရနိုင်ပါ။"</string>
     <string name="uninstall_application_title" msgid="1860074100811653963">"အပလီကေးရှင်းကို ဖယ်ရှားပါ"</string>
     <string name="uninstall_update_title" msgid="4146940097553335390">"အပ်ဒိတ်လုပ်ထားခြင်းကို ပြန်ထုတ်ပါ"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> ကတော့ အောက်ပါ အက်ပ်၏အစိတ်အပိုင်း တစ်ခု ဖြစ်ပါသည်:"</string>
@@ -74,14 +70,11 @@
     <string name="uninstall_update_text" msgid="1394549691152728409">"ဤအက်ပ်ကို စက်ရုံထုတ်ဗားရှင်းဖြင့် အစားထိုးမလား။ ဒေတာများအားလုံးကို ဖယ်ရှားလိုက်ပါမည်။"</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"ဤအက်ပ်ကို စက်ရုံထုတ်ဗားရှင်းဖြင့် အစားထိုးမလား။ ဒေတာများအားလုံးကို ဖယ်ရှားလိုက်ပါမည်။ ၎င်းသည် အလုပ်ပရိုဖိုင်ဖြင့်သုံးသူများအပါအဝင် အသုံးပြုသူများအားလုံးကို အကျိုးသက်ရောက်စေပါလိမ့်မည်။"</string>
     <string name="uninstalling" msgid="5556217435895938250">"ဖယ်ထုတ်သည်"</string>
-    <!-- no translation found for uninstalling_app (2773617614877719294) -->
-    <skip />
+    <string name="uninstalling_app" msgid="2773617614877719294">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ကို ဖယ်ရှားနေပါသည်…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"ဖယ်ရှားခြင်း ပြီးပါပြီ"</string>
-    <!-- no translation found for uninstall_done_app (4009780060350765946) -->
-    <skip />
+    <string name="uninstall_done_app" msgid="4009780060350765946">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ကို ဖယ်ရှားလိုက်ပါပြီ။"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"ဖယ်ရှားမှု မအောင်မြင်ပါ"</string>
-    <!-- no translation found for uninstall_failed_app (945277834056527022) -->
-    <skip />
+    <string name="uninstall_failed_app" msgid="945277834056527022">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ကို ဖယ်ရှားခြင်း အောင်မြင်သွားပါပြီ။"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"ဤ အချက်အလက်အစုသည်လက်ရှိ စက်၏ အက်ဒ်မင် ဖြစ်နေသောကြောင့် ဖယ်ရှားလို့ မရပါ"</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"ဒီအထုပ်မှာ အသုံးပြုသူ<xliff:g id="USERNAME">%1$s</xliff:g>အတွက် လုပ်ကိုင်နေသည့် စီမံအုပ်ချုပ်သူဖြစ်၍ ဖြုတ်မရနိုင်ပါ။"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"အချို့အသုံးပြုသူများ သို့မဟုတ် ပရိုဖိုင်များအတွက် ဤအက်ပ်ကို လိုအပ်သော်လည်း အချို့သူများအတွက် ဖြုတ်ထားပါသည်"</string>
