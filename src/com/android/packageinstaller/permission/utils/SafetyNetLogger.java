@@ -18,7 +18,9 @@ package com.android.packageinstaller.permission.utils;
 
 import android.content.pm.PackageInfo;
 import android.util.EventLog;
+
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
+import com.android.packageinstaller.permission.model.Permission;
 
 import java.util.List;
 
@@ -28,10 +30,10 @@ public final class SafetyNetLogger {
     private static final int SNET_NET_EVENT_LOG_TAG = 0x534e4554;
 
     // Log tag for the result of permissions request.
-    private static final String PERMISSIONS_REQUESTED = "permissions_requested";
+    private static final String PERMISSIONS_REQUESTED = "individual_permissions_requested";
 
     // Log tag for the result of permissions toggling.
-    private static final String PERMISSIONS_TOGGLED = "permissions_toggled";
+    private static final String PERMISSIONS_TOGGLED = "individual_permissions_toggled";
 
     private SafetyNetLogger() {
         /* do nothing */
@@ -40,31 +42,45 @@ public final class SafetyNetLogger {
     public static void logPermissionsRequested(PackageInfo packageInfo,
             List<AppPermissionGroup> groups) {
         EventLog.writeEvent(SNET_NET_EVENT_LOG_TAG, PERMISSIONS_REQUESTED,
-                packageInfo.applicationInfo.uid, buildChangedGroupForPackageMessage(
+                packageInfo.applicationInfo.uid, buildChangedPermissionForPackageMessage(
                         packageInfo.packageName, groups));
     }
 
     public static void logPermissionsToggled(String packageName, List<AppPermissionGroup> groups) {
         EventLog.writeEvent(SNET_NET_EVENT_LOG_TAG, PERMISSIONS_TOGGLED,
-                android.os.Process.myUid(), buildChangedGroupForPackageMessage(
+                android.os.Process.myUid(), buildChangedPermissionForPackageMessage(
                         packageName, groups));
     }
 
-    private static String buildChangedGroupForPackageMessage(String packageName,
+    private static String buildChangedPermissionForPackageMessage(String packageName,
             List<AppPermissionGroup> groups) {
         StringBuilder builder = new StringBuilder();
 
         builder.append(packageName).append(':');
 
-        final int groupCount = groups.size();
-        for (int i = 0; i < groupCount; i++) {
-            AppPermissionGroup group = groups.get(i);
-            if (i > 0) {
-                builder.append(';');
+        int groupCount = groups.size();
+        for (int groupNum = 0; groupNum < groupCount; groupNum++) {
+            AppPermissionGroup group = groups.get(groupNum);
+
+            int permissionCount = group.getPermissions().size();
+            for (int permissionNum = 0; permissionNum < permissionCount; permissionNum++) {
+                Permission permission = group.getPermissions().get(permissionNum);
+
+                if (groupNum > 0 || permissionNum > 0) {
+                    builder.append(';');
+                }
+
+                builder.append(permission.getName()).append('|');
+
+                if (group.doesSupportRuntimePermissions()) {
+                    builder.append(permission.isGranted()).append('|');
+                } else {
+                    builder.append(permission.isGranted() && (permission.getAppOp() == null
+                            || permission.isAppOpAllowed())).append('|');
+                }
+
+                builder.append(permission.getFlags());
             }
-            builder.append(group.getName()).append('|');
-            builder.append(group.areRuntimePermissionsGranted()).append('|');
-            builder.append(group.getFlags());
         }
 
         return builder.toString();
