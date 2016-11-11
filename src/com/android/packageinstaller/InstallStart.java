@@ -17,7 +17,7 @@
 package com.android.packageinstaller;
 
 import android.app.Activity;
-import android.app.ActivityManagerNative;
+import android.app.ActivityManager;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInstaller;
@@ -127,7 +127,7 @@ public class InstallStart extends Activity {
         // We couldn't get the specific calling package. Let's get the uid instead
         int callingUid;
         try {
-            callingUid = ActivityManagerNative.getDefault()
+            callingUid = ActivityManager.getService()
                     .getLaunchedFromUid(getActivityToken());
         } catch (android.os.RemoteException ex) {
             Log.w(LOG_TAG, "Could not determine the launching uid.");
