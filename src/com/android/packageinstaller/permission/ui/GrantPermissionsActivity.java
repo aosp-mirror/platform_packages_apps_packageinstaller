@@ -433,18 +433,18 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
 
     private static String[] computeAffectedPermissions(PackageInfo callingPkg,
             String permission) {
-        // For M apps all permissions are affected.
-        if (callingPkg.applicationInfo.targetSdkVersion <= Build.VERSION_CODES.M) {
+        // For <= N_MR1 apps all permissions are affected.
+        if (callingPkg.applicationInfo.targetSdkVersion <= Build.VERSION_CODES.N_MR1) {
             return null;
         }
 
-        // For M+ apps only the requested permission is affected with addition
-        // to splits of this permission applicable to apps targeting M.
+        // For N_MR1+ apps only the requested permission is affected with addition
+        // to splits of this permission applicable to apps targeting N_MR1.
         String[] permissions = new String[] {permission};
         for (PackageParser.SplitPermissionInfo splitPerm : PackageParser.SPLIT_PERMISSIONS) {
-            if (splitPerm.targetSdk <= Build.VERSION_CODES.M
+            if (splitPerm.targetSdk <= Build.VERSION_CODES.N_MR1
                     || callingPkg.applicationInfo.targetSdkVersion >= splitPerm.targetSdk
-                    || !ArrayUtils.contains(callingPkg.requestedPermissions, splitPerm.rootPerm)) {
+                    || !permission.equals(splitPerm.rootPerm)) {
                 continue;
             }
             for (int i = 0; i < splitPerm.newPerms.length; i++) {
