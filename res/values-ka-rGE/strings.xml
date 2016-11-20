@@ -42,15 +42,12 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> ვერ დაინსტალირდება თქვენს ტელევიზორში."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g>-ის დაყენება თქვენს ტელეფონზე ვერ მოხერხდა."</string>
     <string name="launch" msgid="4826921505917605463">"გახსნა"</string>
-    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"დაყენება დაბლოკილია"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"უსაფრთხოების მიზნით, ტაბლეტი ბლოკავს უცნობი წყაროებიდან მიღებული აპების დაყენებას."</string>
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"უსაფრთხოებისათვის, თქვენი ტელევიზორი დაყენებულია უცნობი წყაროებიდან მიღებული აპლიკაციების დაბლოკვაზე."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"უსაფრთხოების მიზნით, ტელეფონი ბლოკავს უცნობი წყაროებიდან მიღებული აპების დაყენებას."</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"თქვენი ადმინისტრატორი არ უშვებს უცნობი წყაროებისგან მიღებული აპების ინსტალაციას."</string>
     <string name="ok" msgid="3468756155452870475">"კარგი"</string>
     <string name="settings" msgid="6743583734099755409">"პარამეტრები"</string>
-    <string name="allow_source_dlg_title" msgid="7568985073502399415">"აპებისთვის ახალი წყარო"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> სურს სხვა აპების დაყენება.\n\nმიენიჭოს ამის სამუდამო ნებართვა?"</string>
     <string name="manage_applications" msgid="4033876279091996596">"აპების მართვა"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"ჩავანაცვლოთ აპი?"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"აპი, რომელსაც აყენებთ, ჩაანაცვლებს სხვა აპს.\n\nმომხმარებლის ყველა წინა მონაცემი შეინახება."</string>
@@ -67,17 +64,19 @@
     <!-- syntax error in translation for uninstall_application_text_all_users (5574704453233525222) org.xmlpull.v1.XmlPullParserException: expected: /string read: b (position:END_TAG </b>@1:122 in     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"გსურთ ამ აპის დეინსტალაცია ყველა"</b>" მომხმარებილის "<b>"-თვის? აპლიკაცია და მისი მონაცემენბი წაიშლება ყველა"</b>" მომხმარებლის "<b>"-თვის მოწყობილობაზე."</string>
 )  -->
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"გსურთ <xliff:g id="USERNAME">%1$s</xliff:g> მომხმარებლისათვის ამ აპის დეინსტალაცია?"</string>
-    <string name="uninstall_update_text" msgid="2056387942084605027">"გნებავთ ამ აპის ჩანაცვლება მწარმოებლის ვერსიით?"</string>
+    <string name="uninstall_update_text" msgid="1394549691152728409">"გსურთ ამ აპის ქარხნული ვერსიით ჩანაცვლება? მონაცემები მთლიანად ამოიშლება."</string>
+    <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"გსურთ ამ აპის ქარხნული ვერსიით ჩანაცვლება? მონაცემები მთლიანად ამოიშლება. ეს მოქმედება გავლენას იქონიებს ამ მოწყობილობის ყველა მომხმარებელზე, მათ შორის, სამსახურის პროფილებით მოსარგებლეებზეც."</string>
     <string name="uninstalling" msgid="5556217435895938250">"დეინსტალაცია…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"დეინსტალაცია დასრულდა."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"დეინსტალაცია წარუმატებელია."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"დეინსტალაცია ვერ ხერხდება, რადგან ეს პაკეტი არის მოწყობილობის აქტიური ადმინისტრატორი."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"დეინსტალაცია ვერ ხორციელდება, რადგან ეს პაკეტი არის აქტიური მოწყობილობის ადმინისტრატორის მომხმარებლისათვის <xliff:g id="USERNAME">%1$s</xliff:g> ."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"ეს აპი საჭიროა თქვენი სამუშაო პროფილისთვის და მისი დეინსტალაცია ვერ მოხდება."</string>
+    <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"ამ აპს მომხმარებლების/პროფილების ნაწილი იყენებს. სხვებისთვის ის დეინსტალირებულია."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"ეს აპი საჭიროა თქვენი პროფილისთვის. მისი დეინსტალაცია ვერ მოხერხდება."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"ეს აპი საჭიროა თქვენი მოწყ. ადმინისტრატორისათვის და დეინსტალაცია ვერ გამოვა."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"მოწყობილობის ადმინისტრატორების მართვა"</string>
+    <string name="manage_users" msgid="3125018886835668847">"მომხმარებლების მართვა"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> -ის დეინსტალაცია ვერ მოხერხდა."</string>
-    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"შეცდომა კოდის ანალიზისას"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"პაკეტის ანალიზისას წარმოიშვა პრობლემა."</string>
     <string name="newPerms" msgid="6039428254474104210">"ახალი"</string>
     <string name="allPerms" msgid="1024385515840703981">"ყველა"</string>
@@ -86,12 +85,13 @@
     <string name="no_new_perms" msgid="6657813692169565975">"ეს განახლება არ საჭიროებს ახალ ნებართვებს."</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"გსურთ, მიანიჭოთ შემდეგი ნებართვები? წვდომა ექნება შემდეგზე:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"უარყოფა"</string>
-    <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> სულ <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>-დან"</string>
-    <string name="permission_warning_template" msgid="5209102765005869454">"აძლევთ ნებას აპს <xliff:g id="APP_NAME">%1$s</xliff:g> შეასრულოს <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"მაინც უარყოფა"</string>
+    <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> / <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>-დან"</string>
+    <string name="permission_warning_template" msgid="7332275268559121742">"გსურთ, დაუშვათ, რომ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;მ შეასრულოს <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"დაშვება"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"აპები"</string>
     <string name="app_permissions" msgid="3146758905824597178">"აპის უფლებები"</string>
-    <string name="never_ask_again" msgid="3798895821072102967">"აღარასოდეს შემეკითხოს"</string>
+    <string name="never_ask_again" msgid="1089938738199748687">"აღარ მკითხოთ"</string>
     <string name="no_permissions" msgid="3210542466245591574">"ნებართვები არ არის"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"დამატებითი ნებართვები"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
@@ -117,7 +117,7 @@
     <string name="screen_overlay_message" msgid="2141944461571677331">"ამ ნებართვის პარამეტრის შესაცვლელად, ჯერ უნდა გამორთოთ ეკრანის გადაფარვა პარამეტრებიდან &gt; აპებიდან"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"პარამეტრების გახსნა"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"ინსტალაციის/დეინსტალაციის მოქმედებები არ არის მხარდაჭერილი Wear-ზე."</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"ინსტალაციის/დეინსტალაციის მოქმედებები არ არის მხარდაჭერილი Wear-ზე."</string>
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> განახლდა. გსურთ, <xliff:g id="APP_NAME_1">%1$s</xliff:g>-ს ჰქონდეს წვდომა შემდეგზე?"</string>
     <string name="permission_review_title_template_install" msgid="6535540493936469336">"აირჩიეთ, რაზე ჰქონდეს წვდომა <xliff:g id="APP_NAME">%1$s</xliff:g>-ს"</string>
     <string name="permission_review_title_template_update" msgid="2548815248828051885">"<xliff:g id="APP_NAME">%1$s</xliff:g> განახლდა. აირჩიეთ, რაზე ჰქონდეს წვდომა ამ აპს."</string>
@@ -125,4 +125,6 @@
     <string name="review_button_continue" msgid="4809162078179371370">"გაგრძელება"</string>
     <string name="new_permissions_category" msgid="3213523410139204183">"ახალი ნებართვები"</string>
     <string name="current_permissions_category" msgid="998210994450606094">"ამჟამინდელი ნებართვები"</string>
+    <string name="message_staging" msgid="6151794817691100003">"მიმდინარეობს აპის შუალედური შენახვა…"</string>
+    <string name="app_name_unknown" msgid="8931522764510159105">"უცნობი"</string>
 </resources>

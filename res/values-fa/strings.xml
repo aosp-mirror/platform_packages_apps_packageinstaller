@@ -42,15 +42,12 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> را نمی‌توان روی تلویزیون شما نصب کرد."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> در تلفن شما نصب نشد."</string>
     <string name="launch" msgid="4826921505917605463">"باز کردن"</string>
-    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"نصب مسدود شد"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"برای امنیت، رایانه لوحی‌تان تنظیم شده تا نصب برنامه‌های دریافت شده از منابع ناشناس را مسدود کند."</string>
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"برای امنیت، تلویزیون شما طوری تنظیم شده است که نصب برنامه‌های به دست آمده از منابع ناشناس را مسدود کند."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"برای امنیت، تلقنتان تنظیم شده تا نصب برنامه‌های دریافت شده از منابع ناشناس را مسدود کند."</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"سرپرست شما اجازه نمی‌دهد برنامه‌های دریافت شده از منابع ناشناس نصب شوند."</string>
     <string name="ok" msgid="3468756155452870475">"تأیید"</string>
     <string name="settings" msgid="6743583734099755409">"تنظیمات"</string>
-    <string name="allow_source_dlg_title" msgid="7568985073502399415">"منبع جدید برای برنامه‌ها"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> می‌خواهد برنامه‌های دیگری نصب کند.\n\nآیا اکنون و در آینده این اجازه را می‌دهید؟"</string>
     <string name="manage_applications" msgid="4033876279091996596">"مدیریت برنامه‌ها"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"برنامه جایگزین شود؟"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"برنامه‌ای که دارید نصب می‌کنید جایگزین یک برنامهٔ دیگر خواهد شد.\n\nتمام داده‌های کاربری قبلی شما ذخیره خواهد شد."</string>
@@ -59,24 +56,26 @@
     <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> نصب نمی‌شود. مقداری از فضا را آزاد کرده و دوباره امتحان کنید."</string>
     <string name="dlg_ok" msgid="6944357727705699232">"تأیید"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"برنامه یافت نشد"</string>
-    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"برنامه در لیست برنامه‌های نصب شده یافت نشد."</string>
+    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"برنامه در فهرست برنامه‌های نصب شده یافت نشد."</string>
     <string name="uninstall_application_title" msgid="1860074100811653963">"حذف نصب برنامه"</string>
     <string name="uninstall_update_title" msgid="4146940097553335390">"حذف نصب به‌روزرسانی"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> قسمتی از برنامه زیر است:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"می‌خواهید این برنامه را حذف نصب کنید؟"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"آیا می‌خواهید این برنامه را برای "<b>"همه"</b>" کاربران حذف کنید؟ این برنامه کاربردی و داده‌های آن برای "<b>"همه"</b>" کاربران این دستگاه حذف خواهد شد."</string>
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"آیا می‌خواهید این برنامه را برای این کاربر <xliff:g id="USERNAME">%1$s</xliff:g> حذف نصب کنید؟"</string>
-    <string name="uninstall_update_text" msgid="2056387942084605027">"آیا می‌خواهید این برنامه را با یک نسخه کارخانه جایگزین کنید؟"</string>
+    <string name="uninstall_update_text" msgid="1394549691152728409">"این برنامه با نسخه کارخانه جایگزین شود؟ همه داده‌ها پاک می‌شوند."</string>
+    <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"این برنامه با نسخه کارخانه جایگزین شود؟ همه داده‌ها پاک می‌شوند. این کار همه کاربران این دستگاه (از جمله کاربرانی که نمایه کاری دارند) را تحت تأثیر قرار خواهد داد."</string>
     <string name="uninstalling" msgid="5556217435895938250">"در حال حذف نصب..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"حذف نصب پایان یافت."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"حذف نصب انجام نشد."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"حذف نصب ممکن نیست، زیرا این بسته یک سرپرست دستگاه فعال است."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"حذف نصب ممکن نیست چون این بسته یک سرپرست دستگاه فعال برای کاربر <xliff:g id="USERNAME">%1$s</xliff:g> است."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"این برنامه برای نمایه کاری شما لازم است و نمی‌توان آن را حذف نصب کرد."</string>
+    <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"این برنامه برای برخی کاربران یا نمایه‌ها ضروری است و برای بقیه حذف نصب شد"</string>
+    <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"این برنامه برای نمایه شما لازم است و نمی‌توان آن را حذف نصب کرد."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"سرپرست دستگاه شما این برنامه را لازم کرده است و نمی‌تواند حذف نصب شود."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"مدیریت سرپرستان دستگاه"</string>
+    <string name="manage_users" msgid="3125018886835668847">"مدیریت کاربران"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> حذف نصب نشد."</string>
-    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"خطای تجزیه"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"مشکلی در تجزیه این بسته وجود داشت."</string>
     <string name="newPerms" msgid="6039428254474104210">"جدید"</string>
     <string name="allPerms" msgid="1024385515840703981">"همه موارد"</string>
@@ -85,12 +84,13 @@
     <string name="no_new_perms" msgid="6657813692169565975">"این به‌روزرسانی به مجوز جدیدی نیاز ندارد."</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"آیا می‌خواهید مجوزهای زیر را اعطا کنید؟ این مجوزها دسترسی به این موارد را بوجود می‌آورند:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"اجازه ندارد"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"در هر صورت نادیده گرفته شود"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> از <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="5209102765005869454">"به <xliff:g id="APP_NAME">%1$s</xliff:g> برای <xliff:g id="ACTION">%2$s</xliff:g> اجازه می‌دهید؟"</string>
+    <string name="permission_warning_template" msgid="7332275268559121742">"‏به&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; اجازه <xliff:g id="ACTION">%2$s</xliff:g> را می‌دهید؟"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"مجاز است"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"برنامه‌ها"</string>
     <string name="app_permissions" msgid="3146758905824597178">"مجوزهای برنامه"</string>
-    <string name="never_ask_again" msgid="3798895821072102967">"دیگر هرگز سؤال نشود"</string>
+    <string name="never_ask_again" msgid="1089938738199748687">"دوباره سؤال نشود"</string>
     <string name="no_permissions" msgid="3210542466245591574">"مجوزی موجود نیست"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"مجوزهای بیشتر"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
@@ -98,7 +98,7 @@
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> مورد دیگر</item>
     </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"‏این برنامه برای یک نسخه قدیمی‌تر از Android طراحی شده بود. نپذیرفتن اجازه ممکن است باعث شود که برنامه دیگر به صورتی که مورد نظر است کار نکند."</string>
-    <string name="default_permission_description" msgid="4992892207044156668">"انجام یک اقدام ناشناخته"</string>
+    <string name="default_permission_description" msgid="4992892207044156668">"انجام یک اقدام ناشناس"</string>
     <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> برنامه از <xliff:g id="COUNT_1">%2$d</xliff:g> برنامه مجاز است"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"نمایش سیستم"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"پنهان کردن سیستم"</string>
@@ -116,7 +116,7 @@
     <string name="screen_overlay_message" msgid="2141944461571677331">"‏برای تغییر این تنظیم مجوز، ابتدا باید هم‌پوشانی صفحه را از «تنظیمات &gt; برنامه‌ها» خاموش کنید"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"باز کردن تنظیمات"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"‏نصب/حذف نصب عملکردها در Wear پشتیبانی نمی‌شود."</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"‏عملکردهای نصب/حذف نصب در Wear پشتیبانی نمی‌شود."</string>
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> به‌روزرسانی شد. به <xliff:g id="APP_NAME_1">%1$s</xliff:g> برای دسترسی به موارد زیر اجازه می‌دهید؟"</string>
     <string name="permission_review_title_template_install" msgid="6535540493936469336">"انتخاب کنید <xliff:g id="APP_NAME">%1$s</xliff:g> اجازه دارد به چه چیزی دسترسی داشته باشد"</string>
     <string name="permission_review_title_template_update" msgid="2548815248828051885">"<xliff:g id="APP_NAME">%1$s</xliff:g> به‌روزرسانی شد. انتخاب کنید این برنامه اجازه دارد به چه چیزی دسترسی داشته باشد."</string>
@@ -124,4 +124,6 @@
     <string name="review_button_continue" msgid="4809162078179371370">"ادامه"</string>
     <string name="new_permissions_category" msgid="3213523410139204183">"مجوزهای جدید"</string>
     <string name="current_permissions_category" msgid="998210994450606094">"مجوزهای کنونی"</string>
+    <string name="message_staging" msgid="6151794817691100003">"مرحله‌بندی برنامه…"</string>
+    <string name="app_name_unknown" msgid="8931522764510159105">"نامشخص"</string>
 </resources>
