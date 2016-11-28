@@ -33,7 +33,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v14.preference.SwitchPreference;
-import android.support.v17.leanback.widget.VerticalGridView;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.Preference.OnPreferenceClickListener;
@@ -48,7 +47,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.android.packageinstaller.R;
+
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.ui.ReviewPermissionsActivity;
@@ -182,17 +183,6 @@ public final class AppPermissionsFragment extends SettingsWithHeader
                 R.string.app_permissions_decor_title));
     }
 
-    @Override
-    protected void updateHeader() {
-
-        super.updateHeader();
-        Preference headerLineTwo = getPreferenceScreen().findPreference(HEADER_PREFERENCE_KEY);
-        if (headerLineTwo != null) {
-            headerLineTwo.setTitle(mLabel);
-            headerLineTwo.setIcon(mIcon);
-        }
-    }
-
     private void loadPreferences() {
         Context context = getPreferenceManager().getContext();
         if (context == null) {
@@ -201,25 +191,11 @@ public final class AppPermissionsFragment extends SettingsWithHeader
 
         PreferenceScreen screen = getPreferenceScreen();
         screen.removeAll();
-
-        // Setting the second-line header that contains the app banner icon and its name.
-        // The styling used is the same as a leanback preference with a customized background color.
-        Preference headerLineTwo = new Preference(context) {
-            @Override
-            public void onBindViewHolder(PreferenceViewHolder holder) {
-                super.onBindViewHolder(holder);
-                holder.itemView.setBackgroundColor(
-                        getResources().getColor(R.color.lb_header_banner_color));
-            }
-        };
-        headerLineTwo.setKey(HEADER_PREFERENCE_KEY);
-        headerLineTwo.setSelectable(false);
-        headerLineTwo.setTitle(mLabel);
-        headerLineTwo.setIcon(mIcon);
-        screen.addPreference(headerLineTwo);
+        screen.addPreference(createHeaderLineTwoPreference(context));
 
         if (mExtraScreen != null) {
             mExtraScreen.removeAll();
+            mExtraScreen = null;
         }
 
         final Preference extraPerms = new Preference(context);
@@ -253,6 +229,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             } else {
                 if (mExtraScreen == null) {
                     mExtraScreen = getPreferenceManager().createPreferenceScreen(context);
+                    mExtraScreen.addPreference(createHeaderLineTwoPreference(context));
                 }
                 mExtraScreen.addPreference(preference);
             }
@@ -279,6 +256,30 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         }
 
         setLoading(false /* loading */, true /* animate */);
+    }
+
+    /**
+     * Creates a heading below decor_title and above the rest of the preferences. This heading
+     * displays the app name and banner icon. It's used in both system and additional permissions
+     * fragments for each app. The styling used is the same as a leanback preference with a
+     * customized background color
+     * @param context The context the preferences created on
+     * @return The preference header to be inserted as the first preference in the list.
+     */
+    private Preference createHeaderLineTwoPreference(Context context) {
+        Preference headerLineTwo = new Preference(context) {
+            @Override
+            public void onBindViewHolder(PreferenceViewHolder holder) {
+                super.onBindViewHolder(holder);
+                holder.itemView.setBackgroundColor(
+                        getResources().getColor(R.color.lb_header_banner_color));
+            }
+        };
+        headerLineTwo.setKey(HEADER_PREFERENCE_KEY);
+        headerLineTwo.setSelectable(false);
+        headerLineTwo.setTitle(mLabel);
+        headerLineTwo.setIcon(mIcon);
+        return headerLineTwo;
     }
 
     @Override
@@ -390,8 +391,6 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         public void onCreate(Bundle savedInstanceState) {
             mOuterFragment = (AppPermissionsFragment) getTargetFragment();
             super.onCreate(savedInstanceState);
-            setHeader(mOuterFragment.mIcon, mOuterFragment.mLabel, mOuterFragment.mInfoIntent,
-                    null);
             setHasOptionsMenu(true);
         }
 
@@ -405,6 +404,22 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             super.onViewCreated(view, savedInstanceState);
             String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
             bindUi(this, getPackageInfo(getActivity(), packageName));
+        }
+
+        private static void bindUi(SettingsWithHeader fragment, PackageInfo packageInfo) {
+            Activity activity = fragment.getActivity();
+            PackageManager pm = activity.getPackageManager();
+            ApplicationInfo appInfo = packageInfo.applicationInfo;
+            Intent infoIntent = null;
+            if (!activity.getIntent().getBooleanExtra(EXTRA_HIDE_INFO_BUTTON, false)) {
+                infoIntent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                        .setData(Uri.fromParts("package", packageInfo.packageName, null));
+            }
+
+            Drawable icon = appInfo.loadIcon(pm);
+            CharSequence label = appInfo.loadLabel(pm);
+            fragment.setHeader(icon, label, infoIntent, fragment.getString(
+                    R.string.additional_permissions_decor_title));
         }
 
         @Override
