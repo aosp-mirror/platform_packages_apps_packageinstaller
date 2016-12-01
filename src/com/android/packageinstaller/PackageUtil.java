@@ -20,7 +20,6 @@ package com.android.packageinstaller;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageParser;
 import android.content.pm.PackageParser.PackageParserException;
@@ -36,7 +35,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.File;
-import java.util.List;
 
 /**
  * This is a utility class for defining some utility methods and constants
@@ -127,19 +125,6 @@ public class PackageUtil {
         }
         ((TextView)appSnippet.findViewById(R.id.app_name)).setText(as.label);
         return appSnippet;
-    }
-
-    public static boolean isPackageAlreadyInstalled(Activity context, String pkgName) {
-        List<PackageInfo> installedList = context.getPackageManager().getInstalledPackages(
-                PackageManager.GET_UNINSTALLED_PACKAGES);
-        int installedListSize = installedList.size();
-        for(int i = 0; i < installedListSize; i++) {
-            PackageInfo tmp = installedList.get(i);
-            if(pkgName.equalsIgnoreCase(tmp.packageName)) {
-                return true;
-            }
-        }
-        return false;
     }
 
     static public class AppSnippet {
