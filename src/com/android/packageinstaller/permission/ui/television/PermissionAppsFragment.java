@@ -421,6 +421,18 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
             bindUi(this, permissionApps);
         }
 
+        @Override
+        public void onResume() {
+            super.onResume();
+            mOuterFragment.mPermissionApps.refresh(true);
+        }
+
+        @Override
+        public void onDestroy() {
+            super.onDestroy();
+            mOuterFragment.setOnPermissionsLoadedListener(null);
+        }
+
 
         private static void bindUi(SettingsWithHeader fragment, PermissionApps permissionApps) {
             final CharSequence label = permissionApps.getLabel();
@@ -428,11 +440,9 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
                     fragment.getString(R.string.system_apps_decor_title, label));
         }
 
-
         @Override
         public void onPermissionsLoaded(PermissionApps permissionApps) {
             setPreferenceScreen();
-            mOuterFragment.setOnPermissionsLoadedListener(null);
         }
 
         private void setPreferenceScreen() {
