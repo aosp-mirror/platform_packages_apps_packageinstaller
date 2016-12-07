@@ -477,6 +477,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         final boolean requestFromUnknownSource = isInstallRequestFromUnknownSource(getIntent());
         if (!requestFromUnknownSource) {
             initiateInstall();
+            return;
         }
 
         // If the admin prohibits it, or we're running in a managed profile, just show error
