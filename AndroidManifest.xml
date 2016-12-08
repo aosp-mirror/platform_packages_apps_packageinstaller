@@ -23,20 +23,20 @@
         <activity android:name=".PackageInstallerActivity"
                 android:configChanges="orientation|keyboardHidden|screenSize"
                 android:excludeFromRecents="true">
-            <intent-filter>
+            <intent-filter android:priority="1">
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.INSTALL_PACKAGE" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:scheme="file" />
                 <data android:mimeType="application/vnd.android.package-archive" />
             </intent-filter>
-            <intent-filter>
+            <intent-filter android:priority="1">
                 <action android:name="android.intent.action.INSTALL_PACKAGE" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:scheme="file" />
                 <data android:scheme="package" />
             </intent-filter>
-            <intent-filter>
+            <intent-filter android:priority="1">
                 <action android:name="android.content.pm.action.CONFIRM_PERMISSIONS" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -50,7 +50,7 @@
                 android:configChanges="orientation|keyboardHidden|screenSize"
                 android:excludeFromRecents="true"
                 android:theme="@style/Theme.AlertDialogActivity">
-            <intent-filter>
+            <intent-filter android:priority="1">
                 <action android:name="android.intent.action.DELETE" />
                 <action android:name="android.intent.action.UNINSTALL_PACKAGE" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -66,7 +66,7 @@
                 android:configChanges="orientation|keyboardHidden|screenSize"
                 android:excludeFromRecents="true"
                 android:theme="@android:style/Theme.DeviceDefault.Dialog.NoActionBar">
-            <intent-filter>
+            <intent-filter android:priority="1">
                 <action android:name="android.content.pm.action.REQUEST_PERMISSION" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
