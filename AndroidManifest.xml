@@ -35,7 +35,7 @@
         <activity android:name=".PackageInstallerActivity"
                 android:configChanges="orientation|keyboardHidden|screenSize"
                 android:excludeFromRecents="true">
-            <intent-filter>
+            <intent-filter android:priority="1">
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.INSTALL_PACKAGE" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -43,14 +43,14 @@
                 <data android:scheme="content" />
                 <data android:mimeType="application/vnd.android.package-archive" />
             </intent-filter>
-            <intent-filter>
+            <intent-filter android:priority="1">
                 <action android:name="android.intent.action.INSTALL_PACKAGE" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:scheme="file" />
                 <data android:scheme="package" />
                 <data android:scheme="content" />
             </intent-filter>
-            <intent-filter>
+            <intent-filter android:priority="1">
                 <action android:name="android.content.pm.action.CONFIRM_PERMISSIONS" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -80,7 +80,7 @@
                 android:configChanges="orientation|keyboardHidden|screenSize"
                 android:excludeFromRecents="true"
                 android:theme="@style/GrantPermissions">
-            <intent-filter>
+            <intent-filter android:priority="1">
                 <action android:name="android.content.pm.action.REQUEST_PERMISSIONS" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -92,7 +92,7 @@
                   android:label="@string/app_permissions"
                   android:theme="@style/Settings"
                   android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS">
-            <intent-filter>
+            <intent-filter android:priority="1">
                 <action android:name="android.intent.action.MANAGE_PERMISSIONS" />
                 <action android:name="android.intent.action.MANAGE_APP_PERMISSIONS" />
                 <action android:name="android.intent.action.MANAGE_PERMISSION_APPS" />
@@ -104,7 +104,7 @@
                   android:excludeFromRecents="true"
                   android:theme="@style/Settings.NoActionBar"
                   android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS">
-            <intent-filter>
+            <intent-filter android:priority="1">
                 <action android:name="android.intent.action.REVIEW_PERMISSIONS" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -116,7 +116,7 @@
 
         <receiver android:name=".permission.model.PermissionStatusReceiver"
             android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS">
-            <intent-filter>
+            <intent-filter android:priority="1">
                 <action android:name="android.intent.action.GET_PERMISSIONS_COUNT" />
                 <action android:name="android.intent.action.GET_PERMISSIONS_PACKAGES" />
             </intent-filter>
@@ -129,7 +129,7 @@
 
         <service android:name=".permission.service.RuntimePermissionPresenterServiceImpl"
                  android:permission="android.permission.BIND_RUNTIME_PERMISSION_PRESENTER_SERVICE">
-            <intent-filter>
+            <intent-filter android:priority="1">
                 <action android:name="android.permissionpresenterservice.RuntimePermissionPresenterService"/>
             </intent-filter>
         </service>
