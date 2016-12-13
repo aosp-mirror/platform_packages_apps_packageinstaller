@@ -288,8 +288,10 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
         return Utils.applyTint(context, icon, android.R.attr.colorControlNormal);
     }
 
-    private static boolean isMutableGranularPermission(String name) {
-        if (!Build.PERMISSIONS_REVIEW_REQUIRED) {
+    private boolean isMutableGranularPermission(String name) {
+        if (!getResources().getBoolean(
+                com.android.internal.R.bool.config_permissionReviewRequired)
+                && !Build.PERMISSIONS_REVIEW_REQUIRED) {
             return false;
         }
         switch (name) {
