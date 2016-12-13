@@ -79,12 +79,30 @@ public class PermissionApps {
         createMap(loadPermissionApps());
     }
 
+    /**
+     * Start an async refresh and call back the registered call back once done.
+     *
+     * @param getUiInfo If the UI info should be updated
+     */
     public void refresh(boolean getUiInfo) {
+        if (mCallback == null) {
+            throw new IllegalStateException("callback needs to be set");
+        }
+
         if (!mRefreshing) {
             mRefreshing = true;
             mSkipUi = !getUiInfo;
             new PermissionAppsLoader().execute();
         }
+    }
+
+    /**
+     * Refresh the state and do not return until it finishes. Should not be called while an {@link
+     * #refresh async referesh} is in progress.
+     */
+    public void refreshSync() {
+        mSkipUi = true;
+        createMap(loadPermissionApps());
     }
 
     public int getGrantedCount(ArraySet<String> launcherPkgs) {

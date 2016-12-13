@@ -23,13 +23,17 @@ public final class PermissionGroup implements Comparable<PermissionGroup> {
     private final String mDeclaringPackage;
     private final CharSequence mLabel;
     private final Drawable mIcon;
+    private final int mTotal;
+    private final int mGranted;
 
-    PermissionGroup(String name, String declaringPackage,
-            CharSequence label, Drawable icon) {
+    PermissionGroup(String name, String declaringPackage, CharSequence label, Drawable icon,
+            int total, int granted) {
         mDeclaringPackage = declaringPackage;
         mName = name;
         mLabel = label;
         mIcon = icon;
+        mTotal = total;
+        mGranted = granted;
     }
 
     public String getName() {
@@ -46,6 +50,20 @@ public final class PermissionGroup implements Comparable<PermissionGroup> {
 
     public Drawable getIcon() {
         return mIcon;
+    }
+
+    /**
+     * @return The number of apps that might request permissions of this group
+     */
+    public int getTotal() {
+        return mTotal;
+    }
+
+    /**
+     * @return The number of apps that were granted permissions of this group
+     */
+    public int getGranted() {
+        return mGranted;
     }
 
     @Override
@@ -77,11 +95,19 @@ public final class PermissionGroup implements Comparable<PermissionGroup> {
             return false;
         }
 
+        if (mTotal != other.mTotal) {
+            return false;
+        }
+
+        if (mGranted != other.mGranted) {
+            return false;
+        }
+
         return true;
     }
 
     @Override
     public int hashCode() {
-        return mName != null ? mName.hashCode() : 0;
+        return mName != null ? mName.hashCode() + mTotal + mGranted : mTotal + mGranted;
     }
 }
