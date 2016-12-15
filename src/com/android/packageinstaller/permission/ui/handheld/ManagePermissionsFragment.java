@@ -26,7 +26,6 @@ import android.util.ArraySet;
 import android.util.Log;
 
 import com.android.packageinstaller.R;
-import com.android.packageinstaller.permission.model.PermissionApps;
 import com.android.packageinstaller.permission.model.PermissionApps.PmCache;
 import com.android.packageinstaller.permission.model.PermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionGroups;
@@ -58,13 +57,7 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
             ab.setDisplayHomeAsUpEnabled(true);
         }
         mLauncherPkgs = Utils.getLauncherPackages(getContext());
-        mPermissions = new PermissionGroups(getActivity(), getLoaderManager(), this);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        mPermissions.refresh();
+        mPermissions = new PermissionGroups(getContext(), getLoaderManager(), this);
     }
 
     @Override
@@ -148,17 +141,8 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
                     preference.setPersistent(false);
                     screen.addPreference(preference);
                 }
-                final Preference finalPref = preference;
-
-                new PermissionApps(getContext(), group.getName(), permissionApps -> {
-                    if (getActivity() == null) {
-                        return;
-                    }
-                    int granted = permissionApps.getGrantedCount(mLauncherPkgs);
-                    int total = permissionApps.getTotalCount(mLauncherPkgs);
-                    finalPref.setSummary(getString(R.string.app_permissions_group_summary,
-                            granted, total));
-                }, cache).refresh(false);
+                preference.setSummary(getString(R.string.app_permissions_group_summary,
+                        group.getGranted(), group.getTotal()));
             }
         }
         if (screen.getPreferenceCount() != 0) {

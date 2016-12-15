@@ -53,6 +53,7 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
         mContext = context;
         mLoaderManager = loaderManager;
         mCallback = callback;
+        mLoaderManager.initLoader(0, null, this);
     }
 
     @Override
@@ -77,11 +78,6 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
         mCallback.onPermissionGroupsChanged();
     }
 
-    public void refresh() {
-        mLoaderManager.restartLoader(0, null, this);
-        mLoaderManager.getLoader(0).forceLoad();
-    }
-
     public List<PermissionGroup> getGroups() {
         return mGroups;
     }
@@ -95,14 +91,30 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
         return null;
     }
 
-    private static final class PermissionsLoader extends AsyncTaskLoader<List<PermissionGroup>> {
+    private static final class PermissionsLoader extends AsyncTaskLoader<List<PermissionGroup>>
+            implements PackageManager.OnPermissionsChangedListener {
 
         public PermissionsLoader(Context context) {
             super(context);
         }
 
         @Override
+        protected void onStartLoading() {
+            getContext().getPackageManager().addOnPermissionsChangeListener(this);
+            forceLoad();
+        }
+
+        @Override
+        protected void onStopLoading() {
+            getContext().getPackageManager().removeOnPermissionsChangeListener(this);
+        }
+
+        @Override
         public List<PermissionGroup> loadInBackground() {
+            ArraySet<String> launcherPkgs = Utils.getLauncherPackages(getContext());
+            PermissionApps.PmCache pmCache = new PermissionApps.PmCache(
+                    getContext().getPackageManager());
+
             List<PermissionGroup> groups = new ArrayList<>();
             Set<String> seenPermissions = new ArraySet<>();
 
@@ -144,9 +156,14 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
                 CharSequence label = loadItemInfoLabel(groupInfo);
                 Drawable icon = loadItemInfoIcon(groupInfo);
 
+                PermissionApps permApps = new PermissionApps(getContext(), groupInfo.name, null,
+                        pmCache);
+                permApps.refreshSync();
+
                 // Create the group and add to the list.
                 PermissionGroup group = new PermissionGroup(groupInfo.name,
-                        groupInfo.packageName, label, icon);
+                        groupInfo.packageName, label, icon, permApps.getTotalCount(launcherPkgs),
+                        permApps.getGrantedCount(launcherPkgs));
                 groups.add(group);
             }
 
@@ -193,9 +210,15 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
                     CharSequence label = loadItemInfoLabel(permissionInfo);
                     Drawable icon = loadItemInfoIcon(permissionInfo);
 
+                    PermissionApps permApps = new PermissionApps(getContext(), permissionInfo.name,
+                            null, pmCache);
+                    permApps.refreshSync();
+
                     // Create the group and add to the list.
                     PermissionGroup group = new PermissionGroup(permissionInfo.name,
-                            permissionInfo.packageName, label, icon);
+                            permissionInfo.packageName, label, icon,
+                            permApps.getTotalCount(launcherPkgs),
+                            permApps.getGrantedCount(launcherPkgs));
                     groups.add(group);
                 }
             }
@@ -222,6 +245,11 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
                 icon = getContext().getDrawable(R.drawable.ic_perm_device_info);
             }
             return icon;
+        }
+
+        @Override
+        public void onPermissionsChanged(int uid) {
+            forceLoad();
         }
     }
 }

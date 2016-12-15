@@ -31,7 +31,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.android.packageinstaller.R;
-import com.android.packageinstaller.permission.model.PermissionApps;
 import com.android.packageinstaller.permission.model.PermissionApps.PmCache;
 import com.android.packageinstaller.permission.model.PermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionGroups;
@@ -67,14 +66,7 @@ public final class ManagePermissionsFragment extends SettingsWithHeader
             ab.setDisplayHomeAsUpEnabled(true);
         }
         mLauncherPkgs = Utils.getLauncherPackages(getContext());
-        mPermissions = new PermissionGroups(getActivity(), getLoaderManager(), this);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        mPermissions.refresh();
-        updatePermissionsUi();
+        mPermissions = new PermissionGroups(getContext(), getLoaderManager(), this);
     }
 
     @Override
@@ -163,20 +155,9 @@ public final class ManagePermissionsFragment extends SettingsWithHeader
                     mExtraScreen.addPreference(preference);
                 }
             }
-            final Preference finalPref = preference;
 
-            new PermissionApps(getContext(), group.getName(), new PermissionApps.Callback() {
-                @Override
-                public void onPermissionsLoaded(PermissionApps permissionApps) {
-                    if (getActivity() == null) {
-                        return;
-                    }
-                    int granted = permissionApps.getGrantedCount(mLauncherPkgs);
-                    int total = permissionApps.getTotalCount(mLauncherPkgs);
-                    finalPref.setSummary(getString(R.string.app_permissions_group_summary,
-                            granted, total));
-                }
-            }, cache).refresh(false);
+            preference.setSummary(getString(R.string.app_permissions_group_summary,
+                    group.getGranted(), group.getTotal()));
         }
 
         if (mExtraScreen != null && mExtraScreen.getPreferenceCount() > 0
