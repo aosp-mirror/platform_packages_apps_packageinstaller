@@ -16,14 +16,19 @@
 */
 package com.android.packageinstaller;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.AppGlobals;
+import android.app.AppOpsManager;
 import android.app.Dialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.IPackageManager;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageInstaller;
 import android.content.pm.PackageManager;
@@ -35,6 +40,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Process;
+import android.os.RemoteException;
 import android.os.UserManager;
 import android.provider.Settings;
 import android.support.v4.view.ViewPager;
@@ -63,7 +69,7 @@ import java.io.File;
 public class PackageInstallerActivity extends Activity implements OnCancelListener, OnClickListener {
     private static final String TAG = "PackageInstaller";
 
-    private static final int REQUEST_ENABLE_UNKNOWN_SOURCES = 1;
+    private static final int REQUEST_TRUST_EXTERNAL_SOURCE = 1;
 
     private static final String SCHEME_FILE = "file";
     private static final String SCHEME_PACKAGE = "package";
@@ -76,9 +82,12 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     private Uri mOriginatingURI;
     private Uri mReferrerURI;
     private int mOriginatingUid = VerificationParams.NO_UID;
+    private String mOriginatingPackage; // The package name corresponding to #mOriginatingUid
 
     private boolean localLOGV = false;
     PackageManager mPm;
+    IPackageManager mIpm;
+    AppOpsManager mAppOpsManager;
     UserManager mUserManager;
     PackageInstaller mInstaller;
     PackageInfo mPkgInfo;
@@ -103,12 +112,12 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
 
     // Dialog identifiers used in showDialog
     private static final int DLG_BASE = 0;
-    private static final int DLG_UNKNOWN_SOURCES = DLG_BASE + 1;
     private static final int DLG_PACKAGE_ERROR = DLG_BASE + 2;
     private static final int DLG_OUT_OF_SPACE = DLG_BASE + 3;
     private static final int DLG_INSTALL_ERROR = DLG_BASE + 4;
-    private static final int DLG_ADMIN_RESTRICTS_UNKNOWN_SOURCES = DLG_BASE + 6;
+    private static final int DLG_UNKNOWN_SOURCES_RESTRICTED_FOR_USER = DLG_BASE + 5;
     private static final int DLG_NOT_SUPPORTED_ON_WEAR = DLG_BASE + 7;
+    private static final int DLG_EXTERNAL_SOURCE_BLOCKED = DLG_BASE + 8;
 
     private void startInstallConfirm() {
         // We might need to show permissions, load layout with permissions
@@ -217,33 +226,8 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
 
     @Override
     public Dialog onCreateDialog(int id, Bundle bundle) {
+        ApplicationInfo sourceInfo = null;
         switch (id) {
-        case DLG_UNKNOWN_SOURCES:
-            return new AlertDialog.Builder(this)
-                    .setMessage(R.string.unknown_apps_dlg_text)
-                    .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            Log.i(TAG, "Finishing off activity so that user can navigate to settings manually");
-                            finishAffinity();
-                        }})
-                    .setPositiveButton(R.string.settings, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            Log.i(TAG, "Launching settings");
-                            launchSecuritySettings();
-                        }
-                    })
-                    .setOnCancelListener(this)
-                    .create();
-        case DLG_ADMIN_RESTRICTS_UNKNOWN_SOURCES:
-            return new AlertDialog.Builder(this)
-                    .setMessage(R.string.unknown_apps_admin_dlg_text)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            finish();
-                        }
-                    })
-                    .setOnCancelListener(this)
-                    .create();
         case DLG_PACKAGE_ERROR :
             return new AlertDialog.Builder(this)
                     .setMessage(R.string.Parse_error_dlg_text)
@@ -303,25 +287,85 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                     })
                     .setOnCancelListener(this)
                     .create();
-       }
-       return null;
-    }
-
-    private void launchSecuritySettings() {
-        Intent launchSettingsIntent = new Intent(Settings.ACTION_SECURITY_SETTINGS);
-        startActivityForResult(launchSettingsIntent, REQUEST_ENABLE_UNKNOWN_SOURCES);
+        case DLG_UNKNOWN_SOURCES_RESTRICTED_FOR_USER:
+            return new AlertDialog.Builder(this)
+                    .setMessage(R.string.unknown_apps_user_restriction_dlg_text)
+                    .setPositiveButton(android.R.string.ok,
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    finish();
+                                }
+                            })
+                    .setOnCancelListener(this)
+                    .create();
+        case DLG_EXTERNAL_SOURCE_BLOCKED:
+            try {
+                sourceInfo = mPm.getApplicationInfo(mOriginatingPackage, 0);
+            } catch (NameNotFoundException e) {
+                Log.e(TAG, "Did not find app info for " + mOriginatingPackage);
+                finish();
+                break;
+            }
+            return new AlertDialog.Builder(this)
+                    .setTitle(mPm.getApplicationLabel(sourceInfo))
+                    .setIcon(mPm.getApplicationIcon(sourceInfo))
+                    .setMessage(R.string.untrusted_external_source_warning)
+                    .setPositiveButton(R.string.external_sources_settings,
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent settingsIntent = new Intent();
+                                    settingsIntent.setAction(
+                                            Settings.ACTION_MANAGE_EXTERNAL_SOURCES);
+                                    try {
+                                        startActivityForResult(settingsIntent,
+                                                REQUEST_TRUST_EXTERNAL_SOURCE);
+                                    } catch (ActivityNotFoundException exc) {
+                                        Log.e(TAG, "Settings activity not found for action: "
+                                                + Settings.ACTION_MANAGE_EXTERNAL_SOURCES);
+                                    }
+                                }
+                            })
+                    .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                        @Override
+                        public void onDismiss(DialogInterface dialog) {
+                            finish();
+                        }
+                    })
+                    .setNegativeButton(R.string.cancel, null)
+                    .create();
+        }
+        return null;
     }
 
     @Override
     public void onActivityResult(int request, int result, Intent data) {
-        // If the settings app approved the install we are good to go regardless
-        // whether the untrusted sources setting is on. This allows partners to
-        // implement a "allow untrusted source once" feature.
-        if (request == REQUEST_ENABLE_UNKNOWN_SOURCES && result == RESULT_OK) {
-            checkIfAllowedAndInitiateInstall(true);
+        // currently just a hook for partners to implement "allow once" feature
+        // TODO: Use this to resume install request when user has explicitly trusted the source
+        // by changing the settings
+        if (request == REQUEST_TRUST_EXTERNAL_SOURCE && result == RESULT_OK) {
+            initiateInstall();
         } else {
             finish();
         }
+    }
+
+    private String getPackageNameForUid(int sourceUid) {
+        String[] packagesForUid = mPm.getPackagesForUid(sourceUid);
+        if (packagesForUid == null) {
+            return null;
+        }
+        if (packagesForUid.length > 1) {
+            if (mCallingPackage != null) {
+                for (String packageName : packagesForUid) {
+                    if (packageName.equals(mCallingPackage)) {
+                        return packageName;
+                    }
+                }
+            }
+            Log.i(TAG, "Multiple packages found for source uid " + sourceUid);
+        }
+        return packagesForUid[0];
     }
 
     private boolean isInstallRequestFromUnknownSource(Intent intent) {
@@ -335,16 +379,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                 }
             }
         }
-
         return true;
-    }
-
-    /**
-     * @return whether unknown sources is enabled by user in Settings
-     */
-    private boolean isUnknownSourcesEnabled() {
-        return Settings.Secure.getInt(getContentResolver(),
-                Settings.Secure.INSTALL_NON_MARKET_APPS, 0) > 0;
     }
 
     /**
@@ -393,6 +428,8 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         super.onCreate(icicle);
 
         mPm = getPackageManager();
+        mIpm = AppGlobals.getPackageManager();
+        mAppOpsManager = (AppOpsManager) getSystemService(Context.APP_OPS_SERVICE);
         mInstaller = mPm.getPackageInstaller();
         mUserManager = (UserManager) getSystemService(Context.USER_SERVICE);
 
@@ -402,6 +439,9 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         mSourceInfo = intent.getParcelableExtra(EXTRA_ORIGINAL_SOURCE_INFO);
         mOriginatingUid = intent.getIntExtra(Intent.EXTRA_ORIGINATING_UID,
                 VerificationParams.NO_UID);
+        mOriginatingPackage = (mOriginatingUid != VerificationParams.NO_UID) ? getPackageNameForUid(
+                mOriginatingUid) : null;
+
 
         final Uri packageUri;
 
@@ -446,8 +486,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         // load dummy layout with OK button disabled until we override this layout in
         // startInstallConfirm
         bindUi(R.layout.install_confirm, false);
-
-        checkIfAllowedAndInitiateInstall(false);
+        checkIfAllowedAndInitiateInstall();
     }
 
     private void bindUi(int layout, boolean enableOk) {
@@ -468,44 +507,63 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     /**
      * Check if it is allowed to install the package and initiate install if allowed. If not allowed
      * show the appropriate dialog.
-     *
-     * @param ignoreUnknownSourcesSettings Ignore {@link #isUnknownSourcesEnabled()} and proceed
-     *                                     even if this would prevented installation.
      */
-    private void checkIfAllowedAndInitiateInstall(boolean ignoreUnknownSourcesSettings) {
-        // Block the install attempt on the Unknown Sources setting if necessary.
-        final boolean requestFromUnknownSource = isInstallRequestFromUnknownSource(getIntent());
-        if (!requestFromUnknownSource) {
+    private void checkIfAllowedAndInitiateInstall() {
+        if (!isInstallRequestFromUnknownSource(getIntent())) {
             initiateInstall();
             return;
         }
-
-        // If the admin prohibits it, or we're running in a managed profile, just show error
-        // and exit. Otherwise show an option to take the user to Settings to change the setting.
-        final boolean isManagedProfile = mUserManager.isManagedProfile();
+        // If the admin prohibits it, just show error and exit.
         if (isUnknownSourcesDisallowed()) {
             if ((mUserManager.getUserRestrictionSource(UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES,
                     Process.myUserHandle()) & UserManager.RESTRICTION_SOURCE_SYSTEM) != 0) {
-                if (ignoreUnknownSourcesSettings) {
-                    initiateInstall();
-                } else {
-                    showDialogInner(DLG_UNKNOWN_SOURCES);
-                }
+                // Someone set user restriction via UserManager#setUserRestriction. We don't want to
+                // break apps that might already be doing this
+                showDialogInner(DLG_UNKNOWN_SOURCES_RESTRICTED_FOR_USER);
+                return;
             } else {
                 startActivity(new Intent(Settings.ACTION_SHOW_ADMIN_SUPPORT_DETAILS));
                 finish();
             }
-        } else if (!isUnknownSourcesEnabled() && isManagedProfile) {
-            showDialogInner(DLG_ADMIN_RESTRICTS_UNKNOWN_SOURCES);
-        } else if (!isUnknownSourcesEnabled()) {
-            if (ignoreUnknownSourcesSettings) {
-                initiateInstall();
-            } else {
-                // Ask user to enable setting first
-                showDialogInner(DLG_UNKNOWN_SOURCES);
-            }
         } else {
-            initiateInstall();
+            handleUnknownSources();
+        }
+    }
+
+    private void handleUnknownSources() {
+        if (mOriginatingPackage == null) {
+            Log.e(TAG, "No source package name for external install request. Aborting install");
+            finish();
+            return;
+        }
+        int appOpMode = mAppOpsManager.checkOpNoThrow(AppOpsManager.OP_REQUEST_INSTALL_PACKAGES,
+                mOriginatingUid, mOriginatingPackage);
+        switch (appOpMode) {
+            case AppOpsManager.MODE_DEFAULT:
+                try {
+                    int result = mIpm.checkUidPermission(
+                            Manifest.permission.REQUEST_INSTALL_PACKAGES, mOriginatingUid);
+                    if (result == PackageManager.PERMISSION_GRANTED) {
+                        initiateInstall();
+                        break;
+                    }
+                } catch (RemoteException exc) {
+                    Log.e(TAG, "Unable to talk to package manager");
+                }
+                mAppOpsManager.setMode(AppOpsManager.OP_REQUEST_INSTALL_PACKAGES, mOriginatingUid,
+                        mOriginatingPackage, AppOpsManager.MODE_ERRORED);
+                // fall through
+            case AppOpsManager.MODE_ERRORED:
+                showDialogInner(DLG_EXTERNAL_SOURCE_BLOCKED);
+                break;
+            case AppOpsManager.MODE_ALLOWED:
+                initiateInstall();
+                break;
+            default:
+                Log.e(TAG, "Invalid app op mode " + appOpMode
+                        + " for OP_REQUEST_INSTALL_PACKAGES found for uid " + mOriginatingUid);
+                finish();
+                break;
         }
     }
 
