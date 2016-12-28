@@ -162,7 +162,6 @@
             android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS">
             <intent-filter android:priority="1">
                 <action android:name="android.intent.action.GET_PERMISSIONS_COUNT" />
-                <action android:name="android.intent.action.GET_PERMISSIONS_PACKAGES" />
             </intent-filter>
         </receiver>
 
