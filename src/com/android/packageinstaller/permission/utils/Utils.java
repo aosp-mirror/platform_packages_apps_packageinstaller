@@ -145,4 +145,14 @@ public final class Utils {
         return info.isSystemApp() && (info.flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) == 0
                 && !launcherPkgs.contains(info.packageName);
     }
+
+    public static boolean areGroupPermissionsIndividuallyControlled(Context context, String group) {
+        if (!context.getResources().getBoolean(
+                com.android.internal.R.bool.config_permissionReviewRequired)) {
+            return false;
+        }
+        return Manifest.permission_group.SMS.equals(group)
+                || Manifest.permission_group.PHONE.equals(group)
+                || Manifest.permission_group.CONTACTS.equals(group);
+    }
 }
