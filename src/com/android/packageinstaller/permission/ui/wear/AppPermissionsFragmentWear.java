@@ -22,7 +22,6 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.PermissionInfo;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.preference.Preference;
@@ -39,7 +38,6 @@ import android.widget.Toast;
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
-import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.packageinstaller.permission.utils.Utils;
@@ -65,7 +63,6 @@ public final class AppPermissionsFragmentWear extends PreferenceFragment {
         return fragment;
     }
 
-    private PackageManager mPackageManager;
     private List<AppPermissionGroup> mToggledGroups;
     private AppPermissions mAppPermissions;
 
@@ -106,12 +103,11 @@ public final class AppPermissionsFragmentWear extends PreferenceFragment {
 
         String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
         Activity activity = getActivity();
-        mPackageManager = activity.getPackageManager();
-
+        PackageManager pm = activity.getPackageManager();
         PackageInfo packageInfo;
 
         try {
-            packageInfo = mPackageManager.getPackageInfo(packageName, PackageManager.GET_PERMISSIONS);
+            packageInfo = pm.getPackageInfo(packageName, PackageManager.GET_PERMISSIONS);
         } catch (PackageManager.NameNotFoundException e) {
             Log.i(LOG_TAG, "No package:" + activity.getCallingPackage(), e);
             packageInfo = null;
@@ -153,7 +149,7 @@ public final class AppPermissionsFragmentWear extends PreferenceFragment {
     private void initializePermissionGroupList() {
         final String packageName = mAppPermissions.getPackageInfo().packageName;
         List<AppPermissionGroup> groups = mAppPermissions.getPermissionGroups();
-        List<SwitchPreference> nonSystemPreferences = new ArrayList<>();
+        List<SwitchPreference> nonSystemGroups = new ArrayList<>();
 
         if (!groups.isEmpty()) {
             getPreferenceScreen().removePreference(findPreference(KEY_NO_PERMISSIONS));
@@ -166,101 +162,64 @@ public final class AppPermissionsFragmentWear extends PreferenceFragment {
 
             boolean isPlatform = group.getDeclaringPackage().equals(Utils.OS_PKG);
 
-            if (Utils.areGroupPermissionsIndividuallyControlled(getContext(), group.getName())) {
-                // If permission is controlled individually, we show all requested permission
-                // inside this group.
-                for (PermissionInfo perm : getPermissionInfosFromGroup(group)) {
-                    final SwitchPreference pref = createSwitchPreferenceForPermission(group, perm);
-                    showOrAddToNonSystemPreferences(pref, nonSystemPreferences, isPlatform);
-                }
+            final SwitchPreference pref = new PermissionSwitchPreference(getActivity());
+            pref.setKey(group.getName());
+            pref.setTitle(group.getLabel());
+            pref.setChecked(group.areRuntimePermissionsGranted());
+
+            if (group.isPolicyFixed()) {
+                pref.setEnabled(false);
             } else {
-                final SwitchPreference pref = createSwitchPreferenceForGroup(group);
-                showOrAddToNonSystemPreferences(pref, nonSystemPreferences, isPlatform);
+                pref.setOnPreferenceChangeListener((p, newVal) -> {
+                    if (LocationUtils.isLocationGroupAndProvider(
+                            group.getName(), group.getApp().packageName)) {
+                        LocationUtils.showLocationDialog(
+                                getContext(), mAppPermissions.getAppLabel());
+                        return false;
+                    }
+
+                    if ((Boolean) newVal) {
+                        setPermission(group, pref, true);
+                    } else {
+                        final boolean grantedByDefault = group.hasGrantedByDefaultPermission();
+                        if (grantedByDefault || (!group.doesSupportRuntimePermissions()
+                                && !mHasConfirmedRevoke)) {
+                            new WearableDialogHelper.DialogBuilder(getContext())
+                                    .setNegativeIcon(R.drawable.confirm_button)
+                                    .setPositiveIcon(R.drawable.cancel_button)
+                                    .setNegativeButton(R.string.grant_dialog_button_deny_anyway,
+                                            (dialog, which) -> {
+                                                setPermission(group, pref, false);
+                                                if (!group.hasGrantedByDefaultPermission()) {
+                                                    mHasConfirmedRevoke = true;
+                                                }
+                                            })
+                                    .setPositiveButton(R.string.cancel, (dialog, which) -> {})
+                                    .setMessage(grantedByDefault ?
+                                            R.string.system_warning : R.string.old_sdk_deny_warning)
+                                    .show();
+                            return false;
+                        } else {
+                            setPermission(group, pref, false);
+                        }
+                    }
+
+                    return true;
+                });
+            }
+
+            // The UI shows System settings first, then non-system settings
+            if (isPlatform) {
+                getPreferenceScreen().addPreference(pref);
+            } else {
+                nonSystemGroups.add(pref);
             }
         }
 
         // Now add the non-system settings to the end of the list
-        for (SwitchPreference nonSystemPreference : nonSystemPreferences) {
-            getPreferenceScreen().addPreference(nonSystemPreference);
+        for (SwitchPreference nonSystemGroup : nonSystemGroups) {
+            getPreferenceScreen().addPreference(nonSystemGroup);
         }
-    }
-
-    private void showOrAddToNonSystemPreferences(SwitchPreference pref,
-            List<SwitchPreference> nonSystemPreferences, // Mutate
-            boolean isPlatform) {
-        // The UI shows System settings first, then non-system settings
-        if (isPlatform) {
-            getPreferenceScreen().addPreference(pref);
-        } else {
-            nonSystemPreferences.add(pref);
-        }
-    }
-
-    private SwitchPreference createSwitchPreferenceForPermission(AppPermissionGroup group,
-            PermissionInfo perm) {
-        final SwitchPreference pref = new PermissionSwitchPreference(getActivity());
-        pref.setKey(perm.name);
-        pref.setTitle(perm.loadLabel(mPackageManager));
-        pref.setChecked(group.areRuntimePermissionsGranted(new String[]{ perm.name }));
-        pref.setOnPreferenceChangeListener((p, newVal) -> {
-            if((Boolean) newVal) {
-                group.grantRuntimePermissions(false, new String[]{ perm.name });
-            } else {
-                group.revokeRuntimePermissions(true, new String[]{ perm.name });
-            }
-            return true;
-        });
-        return pref;
-    }
-
-    private SwitchPreference createSwitchPreferenceForGroup(AppPermissionGroup group) {
-        final SwitchPreference pref = new PermissionSwitchPreference(getActivity());
-
-        pref.setKey(group.getName());
-        pref.setTitle(group.getLabel());
-        pref.setChecked(group.areRuntimePermissionsGranted());
-
-        if (group.isPolicyFixed()) {
-            pref.setEnabled(false);
-        } else {
-            pref.setOnPreferenceChangeListener((p, newVal) -> {
-                if (LocationUtils.isLocationGroupAndProvider(
-                        group.getName(), group.getApp().packageName)) {
-                    LocationUtils.showLocationDialog(
-                            getContext(), mAppPermissions.getAppLabel());
-                    return false;
-                }
-
-                if ((Boolean) newVal) {
-                    setPermission(group, pref, true);
-                } else {
-                    final boolean grantedByDefault = group.hasGrantedByDefaultPermission();
-                    if (grantedByDefault
-                            || (!group.hasRuntimePermission() && !mHasConfirmedRevoke)) {
-                        new WearableDialogHelper.DialogBuilder(getContext())
-                                .setNegativeIcon(R.drawable.confirm_button)
-                                .setPositiveIcon(R.drawable.cancel_button)
-                                .setNegativeButton(R.string.grant_dialog_button_deny_anyway,
-                                        (dialog, which) -> {
-                                            setPermission(group, pref, false);
-                                            if (!group.hasGrantedByDefaultPermission()) {
-                                                mHasConfirmedRevoke = true;
-                                            }
-                                        })
-                                .setPositiveButton(R.string.cancel, (dialog, which) -> {})
-                                .setMessage(grantedByDefault ?
-                                        R.string.system_warning : R.string.old_sdk_deny_warning)
-                                .show();
-                        return false;
-                    } else {
-                        setPermission(group, pref, false);
-                    }
-                }
-
-                return true;
-            });
-        }
-        return pref;
     }
 
     private void setPermission(AppPermissionGroup group, SwitchPreference pref, boolean grant) {
@@ -291,17 +250,5 @@ public final class AppPermissionsFragmentWear extends PreferenceFragment {
             SafetyNetLogger.logPermissionsToggled(packageName, mToggledGroups);
             mToggledGroups = null;
         }
-    }
-
-    private List<PermissionInfo> getPermissionInfosFromGroup(AppPermissionGroup group) {
-        ArrayList<PermissionInfo> permInfos = new ArrayList<>(group.getPermissions().size());
-        for(Permission perm : group.getPermissions()) {
-            try {
-                permInfos.add(mPackageManager.getPermissionInfo(perm.getName(), 0));
-            } catch (PackageManager.NameNotFoundException e) {
-                Log.w(LOG_TAG, "No permission:" + perm.getName());
-            }
-        }
-        return permInfos;
     }
 }
