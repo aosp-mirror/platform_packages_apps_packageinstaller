@@ -33,6 +33,7 @@ import android.content.pm.IPackageDeleteObserver2;
 import android.content.pm.IPackageManager;
 import android.content.pm.PackageInstaller;
 import android.content.pm.PackageManager;
+import android.content.pm.VersionedPackage;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
@@ -289,8 +290,10 @@ public class UninstallerActivity extends Activity {
 
             try {
                 ActivityThread.getPackageManager().getPackageInstaller().uninstall(
-                        mDialogInfo.appInfo.packageName, getPackageName(),
-                        mDialogInfo.allUsers ? PackageManager.DELETE_ALL_USERS : 0,
+                        new VersionedPackage(mDialogInfo.appInfo.packageName,
+                                PackageManager.VERSION_CODE_HIGHEST),
+                        getPackageName(), mDialogInfo.allUsers
+                                ? PackageManager.DELETE_ALL_USERS : 0,
                         pendingIntent.getIntentSender(), mDialogInfo.user.getIdentifier());
             } catch (RemoteException e) {
                 Log.e(TAG, "Cannot start uninstall", e);
