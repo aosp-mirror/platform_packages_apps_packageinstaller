@@ -137,9 +137,13 @@ public final class AppPermissionsFragmentWear extends PreferenceFragment {
 
         // Also refresh the UI
         for (final AppPermissionGroup group : mAppPermissions.getPermissionGroups()) {
-            Preference pref = findPreference(group.getName());
-            if (pref instanceof SwitchPreference) {
-                ((SwitchPreference) pref).setChecked(group.areRuntimePermissionsGranted());
+            if (Utils.areGroupPermissionsIndividuallyControlled(getContext(), group.getName())) {
+                for (PermissionInfo perm : getPermissionInfosFromGroup(group)) {
+                    setPreferenceCheckedIfPresent(perm.name,
+                            group.areRuntimePermissionsGranted(new String[]{ perm.name }));
+                }
+            } else {
+                setPreferenceCheckedIfPresent(group.getName(), group.areRuntimePermissionsGranted());
             }
         }
     }
@@ -303,5 +307,12 @@ public final class AppPermissionsFragmentWear extends PreferenceFragment {
             }
         }
         return permInfos;
+    }
+
+    private void setPreferenceCheckedIfPresent(String preferenceKey, boolean checked) {
+        Preference pref = findPreference(preferenceKey);
+        if (pref instanceof SwitchPreference) {
+            ((SwitchPreference) pref).setChecked(checked);
+        }
     }
 }
