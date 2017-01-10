@@ -172,7 +172,7 @@
 
         <service android:name=".permission.service.RuntimePermissionPresenterServiceImpl"
                  android:permission="android.permission.BIND_RUNTIME_PERMISSION_PRESENTER_SERVICE">
-            <intent-filter>
+            <intent-filter android:priority="1">
                 <action android:name="android.permissionpresenterservice.RuntimePermissionPresenterService"/>
             </intent-filter>
         </service>
