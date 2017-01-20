@@ -123,7 +123,7 @@
                 android:configChanges="orientation|keyboardHidden|screenSize"
                 android:excludeFromRecents="true"
                 android:theme="@style/GrantPermissions"
-                android:visibleToEphemeral="true">
+                android:visibleToInstantApps="true">
             <intent-filter android:priority="1">
                 <action android:name="android.content.pm.action.REQUEST_PERMISSIONS" />
                 <category android:name="android.intent.category.DEFAULT" />
