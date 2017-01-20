@@ -84,6 +84,9 @@
     <string name="unknown_apps_dlg_text" product="default">For security, your phone is set to block installation of apps obtained from unknown sources.</string>
     <!-- Message presented in a dialog box when the device administrator restricts the installation of apps from unknown sources. [CHAR LIMIT=none] -->
     <string name="unknown_apps_admin_dlg_text">Your administrator doesn\'t allow installation of apps obtained from unknown sources.</string>
+    <!-- Message presented in a dialog box when the user restriction restricts the installation of apps from unknown sources. [CHAR LIMIT=none] -->
+    <string name="unknown_apps_user_restriction_dlg_text">Installation of apps obtained from external sources is restricted for this user</string>
+
 
     <string name="ok">OK</string>
     <string name="settings">Settings</string>
@@ -326,5 +329,11 @@
 
     <!-- Help URL, application permissions [DO NOT TRANSLATE] -->
     <string name="help_app_permissions" translatable="false"></string>
+
+    <!-- Text to show in warning dialog when the app source is not trusted [CHAR LIMIT=45] -->
+    <string name="untrusted_external_source_warning">Application installs from external sources are blocked for security reasons. Please review the external sources settings to turn on installs from this source.</string>
+
+    <!-- Label for button to open manage external sources settings [CHAR LIMIT=45] -->
+    <string name="external_sources_settings">External sources</string>
 
 </resources>
