@@ -96,6 +96,17 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".ClearApplicationUserDataDialogActivity"
+                  android:configChanges="orientation|keyboardHidden|screenSize"
+                  android:excludeFromRecents="true"
+                  android:theme="@style/AlertDialogActivity">
+            <intent-filter android:priority="1">
+                <action android:name="android.intent.action.CLEAR_PACKAGE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </activity>
+
         <receiver android:name=".UninstallEventReceiver"
             android:permission="android.permission.INSTALL_PACKAGES"
             android:exported="true">

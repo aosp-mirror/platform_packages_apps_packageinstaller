@@ -330,6 +330,11 @@
     <!-- Help URL, application permissions [DO NOT TRANSLATE] -->
     <string name="help_app_permissions" translatable="false"></string>
 
+    <!-- Confirm dialog text to verify if the user really wants to clear data for the provided
+         package. -->
+    <string name="clear_app_data_confirm_dialog">Do you really want to clear the data for
+        <xliff:g id="package" example="com.google.vending">%1$s</xliff:g>?</string>
+
     <!-- Text to show in warning dialog when the app source is not trusted [CHAR LIMIT=NONE] -->
     <string name="untrusted_external_source_warning">Application installs from external sources are blocked for security reasons. Please review the external sources settings to turn on installs from this source.</string>
 
