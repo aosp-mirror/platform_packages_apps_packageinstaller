@@ -353,7 +353,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                     // no longer has it fixed in a denied state.
                     if (permission.isUserFixed() || permission.isUserSet()) {
                         permission.setUserFixed(false);
-                        permission.setUserSet(true);
+                        permission.setUserSet(false);
                         mPackageManager.updatePermissionFlags(permission.getName(),
                                 mPackageInfo.packageName,
                                 PackageManager.FLAG_PERMISSION_USER_FIXED
@@ -538,11 +538,11 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         final int permissionCount = mPermissions.size();
         for (int i = 0; i < permissionCount; i++) {
             Permission permission = mPermissions.valueAt(i);
-            if (!permission.isUserFixed()) {
-                return false;
+            if (permission.isUserFixed()) {
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     public boolean isPolicyFixed() {
@@ -560,11 +560,11 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         final int permissionCount = mPermissions.size();
         for (int i = 0; i < permissionCount; i++) {
             Permission permission = mPermissions.valueAt(i);
-            if (!permission.isUserSet()) {
-                return false;
+            if (permission.isUserSet()) {
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     public boolean isSystemFixed() {
