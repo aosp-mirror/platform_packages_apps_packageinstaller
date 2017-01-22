@@ -29,6 +29,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageDeleteObserver2;
 import android.content.pm.PackageInstaller;
 import android.content.pm.PackageManager;
+import android.content.pm.VersionedPackage;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
@@ -91,8 +92,9 @@ public class UninstallUninstalling extends Activity implements
 
                 try {
                     ActivityThread.getPackageManager().getPackageInstaller().uninstall(
-                            mAppInfo.packageName, getPackageName(),
-                            allUsers ? PackageManager.DELETE_ALL_USERS : 0,
+                            new VersionedPackage(mAppInfo.packageName,
+                                    PackageManager.VERSION_CODE_HIGHEST),
+                            getPackageName(), allUsers ? PackageManager.DELETE_ALL_USERS : 0,
                             pendingIntent.getIntentSender(), user.getIdentifier());
                 } catch (RemoteException e) {
                     e.rethrowFromSystemServer();
