@@ -42,7 +42,6 @@ import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
-import com.android.packageinstaller.permission.utils.ArrayUtils;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.settingslib.RestrictedLockUtils;
 import com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
@@ -212,28 +211,6 @@ public final class AppPermissionsFragmentWear extends PreferenceFragment {
                 group.grantRuntimePermissions(false, new String[]{ perm.name });
             } else {
                 group.revokeRuntimePermissions(true, new String[]{ perm.name });
-            }
-
-            if (Utils.areGroupPermissionsIndividuallyControlled(getContext(), group.getName())
-                    && group.hasRuntimePermission()) {
-                // As long as one permission is changed in individually controlled group
-                // permissions, we will set user_fixed for non-granted permissions in that group.
-                // This avoids the system to automatically grant runtime permissions based on the
-                // fact that one of dangerous permission in that group is already granted.
-                String[] revokedPermissionsToFix = null;
-                final int permissionCount = group.getPermissions().size();
-
-                for (int i = 0; i < permissionCount; i++) {
-                    Permission current = group.getPermissions().get(i);
-                    if (!current.isGranted() && !current.isUserFixed()) {
-                        revokedPermissionsToFix = ArrayUtils.appendString(
-                                revokedPermissionsToFix, current.getName());
-                    }
-                }
-
-                if (revokedPermissionsToFix != null) {
-                    group.revokeRuntimePermissions(true, revokedPermissionsToFix);
-                }
             }
             return true;
         });
