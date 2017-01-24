@@ -347,8 +347,8 @@ public class PermissionApps {
             return mAppPermissionGroup.hasGrantedByDefaultPermission();
         }
 
-        public boolean hasRuntimePermissions() {
-            return mAppPermissionGroup.hasRuntimePermission();
+        public boolean doesSupportRuntimePermissions() {
+            return mAppPermissionGroup.doesSupportRuntimePermissions();
         }
 
         public int getUserId() {

@@ -338,7 +338,8 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
             app.grantRuntimePermissions();
         } else {
             final boolean grantedByDefault = app.hasGrantedByDefaultPermissions();
-            if (grantedByDefault || (!app.hasRuntimePermissions() && !mHasConfirmedRevoke)) {
+            if (grantedByDefault || (!app.doesSupportRuntimePermissions()
+                    && !mHasConfirmedRevoke)) {
                 new AlertDialog.Builder(getContext())
                         .setMessage(grantedByDefault ? R.string.system_warning
                                 : R.string.old_sdk_deny_warning)

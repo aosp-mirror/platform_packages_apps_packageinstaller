@@ -215,7 +215,7 @@ public final class AppPermissionsFragmentWear extends PreferenceFragment {
             }
 
             if (Utils.areGroupPermissionsIndividuallyControlled(getContext(), group.getName())
-                    && group.hasRuntimePermission()) {
+                    && group.doesSupportRuntimePermissions()) {
                 // As long as one permission is changed in individually controlled group
                 // permissions, we will set user_fixed for non-granted permissions in that group.
                 // This avoids the system to automatically grant runtime permissions based on the
@@ -263,7 +263,7 @@ public final class AppPermissionsFragmentWear extends PreferenceFragment {
                 } else {
                     final boolean grantedByDefault = group.hasGrantedByDefaultPermission();
                     if (grantedByDefault
-                            || (!group.hasRuntimePermission() && !mHasConfirmedRevoke)) {
+                            || (!group.doesSupportRuntimePermissions() && !mHasConfirmedRevoke)) {
                         new WearableDialogHelper.DialogBuilder(getContext())
                                 .setNegativeIcon(R.drawable.confirm_button)
                                 .setPositiveIcon(R.drawable.cancel_button)
