@@ -43,11 +43,21 @@ public class InstallStart extends Activity {
 
         Intent intent = getIntent();
         String callingPackage = getCallingPackage();
+
+        // If the activity was started via a PackageInstaller session, we retrieve the calling
+        // package from that session
+        int sessionId = intent.getIntExtra(PackageInstaller.EXTRA_SESSION_ID, -1);
+        if (sessionId != -1) {
+            PackageInstaller packageInstaller = getPackageManager().getPackageInstaller();
+            callingPackage = packageInstaller.getSessionInfo(sessionId).getInstallerPackageName();
+        }
+
         ApplicationInfo sourceInfo = getSourceInfo(callingPackage);
         int originatingUid = getOriginatingUid(sourceInfo);
 
         Intent nextActivity = new Intent(intent);
         nextActivity.setFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+        nextActivity.putExtras(intent.getExtras());
 
         // The the installation source as the nextActivity thinks this activity is the source, hence
         // set the originating UID and sourceInfo explicitly
