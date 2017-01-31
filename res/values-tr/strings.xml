@@ -46,8 +46,7 @@
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Güvenlik amacıyla, TV\'niz bilinmeyen kaynaklardan alınan uygulamaların yüklenmesini engellemeye ayarlıdır."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Güvenlik amacıyla, telefonunuz bilinmeyen kaynaklardan alınan uygulamaların yüklenmesini engelleyecek şekilde ayarlandı."</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Yöneticiniz, bilinmeyen kaynaklardan edinilen uygulamaların yüklenmesine izin vermiyor."</string>
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (4792616731905336215) -->
-    <skip />
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="4792616731905336215">"Harici kaynaklardan edinilen uygulamaları yükleme özelliği bu kullanıcı için kısıtlandı"</string>
     <string name="ok" msgid="3468756155452870475">"Tamam"</string>
     <string name="settings" msgid="6743583734099755409">"Ayarlar"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Uygulamaları yönet"</string>
@@ -139,10 +138,7 @@
     <string name="current_permissions_category" msgid="998210994450606094">"Geçerli izinler"</string>
     <string name="message_staging" msgid="6151794817691100003">"Uygulama hazırlanıyor…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"Bilinmiyor"</string>
-    <!-- no translation found for clear_app_data_confirm_dialog (1454306783329915599) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (733048262092274222) -->
-    <skip />
-    <!-- no translation found for external_sources_settings (8162299254869992851) -->
-    <skip />
+    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"<xliff:g id="PACKAGE">%1$s</xliff:g> verilerini temizlemeyi gerçekten istiyor musunuz?"</string>
+    <string name="untrusted_external_source_warning" msgid="733048262092274222">"Harici kaynaklardan uygulama yüklemeleri güvenlik nedeniyle engellendi. Lütfen bu kaynaktan yüklemeleri açmak için harici kaynak ayarlarını inceleyin."</string>
+    <string name="external_sources_settings" msgid="8162299254869992851">"Harici kaynaklar"</string>
 </resources>

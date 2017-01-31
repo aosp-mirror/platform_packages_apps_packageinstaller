@@ -46,8 +46,7 @@
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"برای امنیت، تلویزیون شما طوری تنظیم شده است که نصب برنامه‌های به دست آمده از منابع ناشناس را مسدود کند."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"برای امنیت، تلقنتان تنظیم شده تا نصب برنامه‌های دریافت شده از منابع ناشناس را مسدود کند."</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"سرپرست شما اجازه نمی‌دهد برنامه‌های دریافت شده از منابع ناشناس نصب شوند."</string>
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (4792616731905336215) -->
-    <skip />
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="4792616731905336215">"نصب برنامه‌های به دست آمده از منابع خارجی برای این کاربر محدود است"</string>
     <string name="ok" msgid="3468756155452870475">"تأیید"</string>
     <string name="settings" msgid="6743583734099755409">"تنظیمات"</string>
     <string name="manage_applications" msgid="4033876279091996596">"مدیریت برنامه‌ها"</string>
@@ -139,10 +138,7 @@
     <string name="current_permissions_category" msgid="998210994450606094">"مجوزهای کنونی"</string>
     <string name="message_staging" msgid="6151794817691100003">"مرحله‌بندی برنامه…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"نامشخص"</string>
-    <!-- no translation found for clear_app_data_confirm_dialog (1454306783329915599) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (733048262092274222) -->
-    <skip />
-    <!-- no translation found for external_sources_settings (8162299254869992851) -->
-    <skip />
+    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"واقعاً می‌خواهید داده‌های <xliff:g id="PACKAGE">%1$s</xliff:g> را پاک کنید؟"</string>
+    <string name="untrusted_external_source_warning" msgid="733048262092274222">"نصب برنامه از منابع خارجی به دلایل امنیتی مسدود شده است. برای روشن کردن نصب از این منبع،‌ لطفاً تنظیمات منابع خارجی را مرور کنید."</string>
+    <string name="external_sources_settings" msgid="8162299254869992851">"منابع خارجی"</string>
 </resources>

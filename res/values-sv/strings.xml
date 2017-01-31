@@ -46,8 +46,7 @@
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"TV:n är av säkerhetsskäl inställd på att blockera installationer av appar från okända källor."</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Av säkerhetsskäl går det inte att installera appar från okända källor på din mobil."</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Administratören tillåter inte installation av appar från okända källor."</string>
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (4792616731905336215) -->
-    <skip />
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="4792616731905336215">"Installation av appar från externa källor är begränsad för den här användaren"</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Inställningar"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Hantera appar"</string>
@@ -139,10 +138,7 @@
     <string name="current_permissions_category" msgid="998210994450606094">"Nuvarande behörighet"</string>
     <string name="message_staging" msgid="6151794817691100003">"Provkör appen …"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"Okänd"</string>
-    <!-- no translation found for clear_app_data_confirm_dialog (1454306783329915599) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (733048262092274222) -->
-    <skip />
-    <!-- no translation found for external_sources_settings (8162299254869992851) -->
-    <skip />
+    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"Vill du rensa all data för <xliff:g id="PACKAGE">%1$s</xliff:g>?"</string>
+    <string name="untrusted_external_source_warning" msgid="733048262092274222">"Appinstallationer från externa källor har blockerats av säkerhetsskäl. Granska inställningarna för externa källor för att aktivera installationer från denna källa."</string>
+    <string name="external_sources_settings" msgid="8162299254869992851">"Externa källor"</string>
 </resources>
