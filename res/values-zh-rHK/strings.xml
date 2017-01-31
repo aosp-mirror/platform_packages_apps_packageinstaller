@@ -46,8 +46,7 @@
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"為安全起見，已將您的電視設為封鎖安裝來自不明來源的應用程式。"</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"為保障安全，您的手機已設定為不安裝來源不明的應用程式。"</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"您的管理員不允許安裝來源不明的應用程式。"</string>
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (4792616731905336215) -->
-    <skip />
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="4792616731905336215">"此使用者無法安裝來自外部來源的應用程式"</string>
     <string name="ok" msgid="3468756155452870475">"確定"</string>
     <string name="settings" msgid="6743583734099755409">"設定"</string>
     <string name="manage_applications" msgid="4033876279091996596">"管理應用程式"</string>
@@ -139,10 +138,7 @@
     <string name="current_permissions_category" msgid="998210994450606094">"目前權限"</string>
     <string name="message_staging" msgid="6151794817691100003">"正在準備安裝應用程式…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"不明"</string>
-    <!-- no translation found for clear_app_data_confirm_dialog (1454306783329915599) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (733048262092274222) -->
-    <skip />
-    <!-- no translation found for external_sources_settings (8162299254869992851) -->
-    <skip />
+    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"您要清除 <xliff:g id="PACKAGE">%1$s</xliff:g> 的資料嗎？"</string>
+    <string name="untrusted_external_source_warning" msgid="733048262092274222">"基於安全理由，系統已封鎖來自外部來源安裝應用程式的操作。請檢查外部來源設定以開啟此來源的安裝。"</string>
+    <string name="external_sources_settings" msgid="8162299254869992851">"外部來源"</string>
 </resources>
