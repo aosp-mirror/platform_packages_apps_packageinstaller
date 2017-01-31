@@ -382,7 +382,7 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
                 return PERMISSION_DENIED;
             }
             if ((pInfo.protectionLevel & PermissionInfo.PROTECTION_FLAG_EPHEMERAL) == 0
-                    && callingPackageInfo.applicationInfo.isEphemeralApp()) {
+                    && callingPackageInfo.applicationInfo.isInstantApp()) {
                 return PERMISSION_DENIED;
             }
         } catch (NameNotFoundException e) {

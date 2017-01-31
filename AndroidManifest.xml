@@ -24,6 +24,8 @@
 
     <uses-permission android:name="com.google.android.permission.INSTALL_WEARABLE_PACKAGES" />
 
+    <uses-permission android:name="android.permission.ACCESS_INSTANT_APPS" />
+
     <application android:label="@string/app_name"
             android:allowBackup="false"
             android:theme="@style/DialogWhenLarge"
