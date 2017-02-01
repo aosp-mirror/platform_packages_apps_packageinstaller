@@ -63,45 +63,4 @@ public final class RuntimePermissionPresenterServiceImpl extends RuntimePermissi
 
         return permissions;
     }
-
-    @Override
-    public List<ApplicationInfo> onGetAppsUsingPermissions(boolean system) {
-        final List<ApplicationInfo> appInfos = Utils.getAllInstalledApplications(this);
-        if (appInfos == null || appInfos.isEmpty()) {
-            return null;
-        }
-        List<ApplicationInfo> appsResult = new ArrayList<>();
-        ArraySet<String> launcherPackages = Utils.getLauncherPackages(this);
-        final int appInfosSize = appInfos.size();
-        for (int i = 0; i < appInfosSize; i++) {
-            ApplicationInfo appInfo = appInfos.get(i);
-            final String packageName = appInfo.packageName;
-            final PackageInfo packageInfo;
-            try {
-                packageInfo = getPackageManager().getPackageInfo(
-                        packageName, PackageManager.GET_PERMISSIONS);
-            } catch (PackageManager.NameNotFoundException e) {
-                Log.e(LOG_TAG, "Error getting package info for:" + packageName, e);
-                continue;
-
-            }
-            AppPermissions appPermissions =  new AppPermissions(this,
-                    packageInfo, null, false, null);
-            boolean shouldShow = false;
-
-
-            for (AppPermissionGroup group : appPermissions.getPermissionGroups()) {
-                if (Utils.shouldShowPermission(group, packageName)) {
-                    shouldShow = true;
-                    break;
-                }
-            }
-            if (shouldShow) {
-                if (Utils.isSystem(appPermissions, launcherPackages) == system) {
-                    appsResult.add(appInfo);
-                }
-            }
-        }
-        return appsResult;
-    }
 }
