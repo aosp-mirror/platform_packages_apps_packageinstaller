@@ -57,7 +57,10 @@ public class InstallStart extends Activity {
 
         Intent nextActivity = new Intent(intent);
         nextActivity.setFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
-        nextActivity.putExtras(intent.getExtras());
+        Bundle extras = intent.getExtras();
+        if (extras != null) {
+            nextActivity.putExtras(intent.getExtras());
+        }
 
         // The the installation source as the nextActivity thinks this activity is the source, hence
         // set the originating UID and sourceInfo explicitly
