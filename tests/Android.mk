@@ -12,7 +12,8 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
 
 LOCAL_JAVA_LIBRARIES := \
     junit \
-    platform-robolectric-prebuilt
+    platform-robolectric-prebuilt \
+    telephony-common
 
 LOCAL_INSTRUMENTATION_FOR := PackageInstaller
 LOCAL_MODULE := PackageInstallerRoboTests

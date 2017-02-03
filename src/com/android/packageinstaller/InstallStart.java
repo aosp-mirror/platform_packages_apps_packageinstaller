@@ -18,6 +18,7 @@ package com.android.packageinstaller;
 
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.IActivityManager;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInstaller;
@@ -28,6 +29,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import com.android.internal.annotations.VisibleForTesting;
+
 /**
  * Select which activity is the first visible activity of the installation and forward the intent to
  * it.
@@ -36,6 +39,7 @@ public class InstallStart extends Activity {
     private static final String LOG_TAG = InstallStart.class.getSimpleName();
 
     private static final String SCHEME_CONTENT = "content";
+    private IActivityManager mIActivityManager;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,9 +51,10 @@ public class InstallStart extends Activity {
         // If the activity was started via a PackageInstaller session, we retrieve the calling
         // package from that session
         int sessionId = intent.getIntExtra(PackageInstaller.EXTRA_SESSION_ID, -1);
-        if (sessionId != -1) {
+        if (callingPackage == null && sessionId != -1) {
             PackageInstaller packageInstaller = getPackageManager().getPackageInstaller();
-            callingPackage = packageInstaller.getSessionInfo(sessionId).getInstallerPackageName();
+            PackageInstaller.SessionInfo sessionInfo = packageInstaller.getSessionInfo(sessionId);
+            callingPackage = (sessionInfo != null) ? sessionInfo.getInstallerPackageName() : null;
         }
 
         ApplicationInfo sourceInfo = getSourceInfo(callingPackage);
@@ -57,10 +62,6 @@ public class InstallStart extends Activity {
 
         Intent nextActivity = new Intent(intent);
         nextActivity.setFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
-        Bundle extras = intent.getExtras();
-        if (extras != null) {
-            nextActivity.putExtras(intent.getExtras());
-        }
 
         // The the installation source as the nextActivity thinks this activity is the source, hence
         // set the originating UID and sourceInfo explicitly
@@ -145,7 +146,7 @@ public class InstallStart extends Activity {
         // We couldn't get the specific calling package. Let's get the uid instead
         int callingUid;
         try {
-            callingUid = ActivityManager.getService()
+            callingUid = getIActivityManager()
                     .getLaunchedFromUid(getActivityToken());
         } catch (android.os.RemoteException ex) {
             Log.w(LOG_TAG, "Could not determine the launching uid.");
@@ -176,5 +177,17 @@ public class InstallStart extends Activity {
         // We either didn't get a uid from the intent, or we don't trust it. Use the
         // calling uid instead.
         return callingUid;
+    }
+
+    private IActivityManager getIActivityManager() {
+        if (mIActivityManager == null) {
+            return ActivityManager.getService();
+        }
+        return mIActivityManager;
+    }
+
+    @VisibleForTesting
+    void injectIActivityManager(IActivityManager iActivityManager) {
+        mIActivityManager = iActivityManager;
     }
 }
