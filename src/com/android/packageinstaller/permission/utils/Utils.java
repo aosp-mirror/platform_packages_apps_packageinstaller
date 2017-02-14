@@ -147,8 +147,7 @@ public final class Utils {
     }
 
     public static boolean areGroupPermissionsIndividuallyControlled(Context context, String group) {
-        if (!context.getResources().getBoolean(
-                com.android.internal.R.bool.config_permissionReviewRequired)) {
+        if (!context.getPackageManager().isPermissionReviewModeEnabled()) {
             return false;
         }
         return Manifest.permission_group.SMS.equals(group)
