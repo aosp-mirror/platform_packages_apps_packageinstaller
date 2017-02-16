@@ -384,6 +384,8 @@ public class InstallInstalling extends Activity {
         protected void onPostExecute(PackageInstaller.Session session) {
             if (session != null) {
                 Intent broadcastIntent = new Intent(BROADCAST_ACTION);
+                broadcastIntent.setPackage(
+                        getPackageManager().getPermissionControllerPackageName());
                 broadcastIntent.putExtra(EventResultPersister.EXTRA_ID, mInstallId);
 
                 PendingIntent pendingIntent = PendingIntent.getBroadcast(
