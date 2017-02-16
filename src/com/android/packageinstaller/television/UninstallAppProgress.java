@@ -290,8 +290,13 @@ public class UninstallAppProgress extends Activity {
         getWindow().setStatusBarColor(Color.TRANSPARENT);
         getWindow().setNavigationBarColor(Color.TRANSPARENT);
 
-        getPackageManager().deletePackageAsUser(mAppInfo.packageName, observer,
-                mAllUsers ? PackageManager.DELETE_ALL_USERS : 0, user.getIdentifier());
+        try {
+            getPackageManager().deletePackageAsUser(mAppInfo.packageName, observer,
+                    mAllUsers ? PackageManager.DELETE_ALL_USERS : 0, user.getIdentifier());
+        } catch (IllegalArgumentException e) {
+            // Couldn't find the package, no need to call uninstall.
+            Log.w(TAG, "Could not find package, not deleting " + mAppInfo.packageName, e);
+        }
 
         mHandler.sendMessageDelayed(mHandler.obtainMessage(UNINSTALL_IS_SLOW),
                 QUICK_INSTALL_DELAY_MILLIS);
