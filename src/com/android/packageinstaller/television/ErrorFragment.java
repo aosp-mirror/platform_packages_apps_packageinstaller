@@ -55,7 +55,10 @@ public class ErrorFragment extends GuidedStepFragment {
     @Override
     public void onGuidedActionClicked(GuidedAction action) {
         if (isAdded()) {
-            ((UninstallerActivity) getActivity()).dispatchAborted();
+            if (getActivity() instanceof UninstallerActivity) {
+                ((UninstallerActivity) getActivity()).dispatchAborted();
+            }
+
             getActivity().setResult(Activity.RESULT_FIRST_USER);
             getActivity().finish();
         }
