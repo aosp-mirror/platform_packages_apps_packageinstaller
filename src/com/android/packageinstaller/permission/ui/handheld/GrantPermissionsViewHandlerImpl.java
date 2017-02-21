@@ -85,8 +85,7 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
     public GrantPermissionsViewHandlerImpl(Activity activity, String appPackageName) {
         mActivity = activity;
         mAppPackageName = appPackageName;
-        mPermissionReviewRequired = activity.getResources().getBoolean(
-                com.android.internal.R.bool.config_permissionReviewRequired);
+        mPermissionReviewRequired = activity.getPackageManager().isPermissionReviewModeEnabled();
     }
 
     @Override
