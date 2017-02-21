@@ -450,12 +450,14 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                                 mUserHandle);
                     }
                 } else {
-                    if (!permission.isUserSet()) {
+                    if (!permission.isUserSet() || permission.isUserFixed()) {
                         permission.setUserSet(true);
+                        permission.setUserFixed(false);
                         // Take a note that the user already chose once.
                         mPackageManager.updatePermissionFlags(permission.getName(),
                                 mPackageInfo.packageName,
-                                PackageManager.FLAG_PERMISSION_USER_SET,
+                                PackageManager.FLAG_PERMISSION_USER_SET
+                                        | PackageManager.FLAG_PERMISSION_USER_FIXED,
                                 PackageManager.FLAG_PERMISSION_USER_SET,
                                 mUserHandle);
                     }
