@@ -20,7 +20,6 @@ LOCAL_STATIC_ANDROID_LIBRARIES += \
     SettingsLib
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
-    framework-protos \
     xz-java
 
 LOCAL_PACKAGE_NAME := PackageInstaller
