@@ -210,31 +210,44 @@ public final class AppPermissionsFragmentWear extends PreferenceFragment {
         pref.setOnPreferenceChangeListener((p, newVal) -> {
             if((Boolean) newVal) {
                 group.grantRuntimePermissions(false, new String[]{ perm.name });
-            } else {
-                group.revokeRuntimePermissions(true, new String[]{ perm.name });
-            }
 
-            if (Utils.areGroupPermissionsIndividuallyControlled(getContext(), group.getName())
-                    && group.doesSupportRuntimePermissions()) {
-                // As long as one permission is changed in individually controlled group
-                // permissions, we will set user_fixed for non-granted permissions in that group.
-                // This avoids the system to automatically grant runtime permissions based on the
-                // fact that one of dangerous permission in that group is already granted.
-                String[] revokedPermissionsToFix = null;
-                final int permissionCount = group.getPermissions().size();
+                if (Utils.areGroupPermissionsIndividuallyControlled(getContext(), group.getName())
+                        && group.doesSupportRuntimePermissions()) {
+                    // We are granting a permission from a group but since this is an
+                    // individual permission control other permissions in the group may
+                    // be revoked, hence we need to mark them user fixed to prevent the
+                    // app from requesting a non-granted permission and it being granted
+                    // because another permission in the group is granted. This applies
+                    // only to apps that support runtime permissions.
+                    String[] revokedPermissionsToFix = null;
+                    final int permissionCount = group.getPermissions().size();
 
-                for (int i = 0; i < permissionCount; i++) {
-                    Permission current = group.getPermissions().get(i);
-                    if (!current.isGranted() && !current.isUserFixed()) {
-                        revokedPermissionsToFix = ArrayUtils.appendString(
-                                revokedPermissionsToFix, current.getName());
+                    for (int i = 0; i < permissionCount; i++) {
+                        Permission current = group.getPermissions().get(i);
+                        if (!current.isGranted() && !current.isUserFixed()) {
+                            revokedPermissionsToFix = ArrayUtils.appendString(
+                                    revokedPermissionsToFix, current.getName());
+                        }
+                    }
+
+                    if (revokedPermissionsToFix != null) {
+                        // If some permissions were not granted then they should be fixed.
+                        group.revokeRuntimePermissions(true, revokedPermissionsToFix);
                     }
                 }
+            } else {
+                group.revokeRuntimePermissions(true, new String[]{ perm.name });
 
-                if (revokedPermissionsToFix != null) {
-                    group.revokeRuntimePermissions(true, revokedPermissionsToFix);
+                if (Utils.areGroupPermissionsIndividuallyControlled(getContext(), group.getName())
+                        && group.doesSupportRuntimePermissions()
+                        && !group.areRuntimePermissionsGranted()) {
+                    // If we just revoked the last permission we need to clear
+                    // the user fixed state as now the app should be able to
+                    // request them at runtime if supported.
+                    group.revokeRuntimePermissions(false);
                 }
             }
+
             return true;
         });
         return pref;
