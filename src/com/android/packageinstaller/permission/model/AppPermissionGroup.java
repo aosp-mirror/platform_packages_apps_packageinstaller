@@ -206,7 +206,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         }
     }
 
-    public boolean hasRuntimePermission() {
+    public boolean doesSupportRuntimePermissions() {
         return mAppSupportsRuntimePermissions;
     }
 
