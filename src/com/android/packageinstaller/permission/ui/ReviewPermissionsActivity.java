@@ -44,11 +44,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.android.packageinstaller.DeviceUtils;
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.packageinstaller.permission.ui.ConfirmActionDialogFragment.OnActionConfirmedListener;
+import com.android.packageinstaller.permission.ui.wear.ReviewPermissionsWearFragment;
 
 import java.util.List;
 
@@ -65,10 +67,16 @@ public final class ReviewPermissionsActivity extends Activity
             return;
         }
 
-        setContentView(R.layout.review_permissions);
-        if (getFragmentManager().findFragmentById(R.id.preferences_frame) == null) {
-            getFragmentManager().beginTransaction().add(R.id.preferences_frame,
-                    ReviewPermissionsFragment.newInstance(packageInfo)).commit();
+        if (DeviceUtils.isWear(this)) {
+            Fragment fragment = ReviewPermissionsWearFragment.newInstance(packageInfo);
+            getFragmentManager().beginTransaction()
+                    .replace(android.R.id.content, fragment).commit();
+        } else {
+            setContentView(R.layout.review_permissions);
+            if (getFragmentManager().findFragmentById(R.id.preferences_frame) == null) {
+                getFragmentManager().beginTransaction().add(R.id.preferences_frame,
+                        ReviewPermissionsFragment.newInstance(packageInfo)).commit();
+            }
         }
     }
 
