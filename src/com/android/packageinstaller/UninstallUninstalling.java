@@ -86,6 +86,7 @@ public class UninstallUninstalling extends Activity implements
 
                 Intent broadcastIntent = new Intent(BROADCAST_ACTION);
                 broadcastIntent.putExtra(EventResultPersister.EXTRA_ID, mUninstallId);
+                broadcastIntent.setPackage(getPackageName());
 
                 PendingIntent pendingIntent = PendingIntent.getBroadcast(this, mUninstallId,
                         broadcastIntent, PendingIntent.FLAG_UPDATE_CURRENT);
