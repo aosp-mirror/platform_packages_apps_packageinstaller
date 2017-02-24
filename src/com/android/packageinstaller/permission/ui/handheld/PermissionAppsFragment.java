@@ -15,6 +15,8 @@
  */
 package com.android.packageinstaller.permission.ui.handheld;
 
+import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
+
 import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -34,6 +36,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+
 import com.android.packageinstaller.DeviceUtils;
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
@@ -49,14 +52,15 @@ import com.android.settingslib.RestrictedLockUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
-
 public final class PermissionAppsFragment extends PermissionsFrameFragment implements Callback,
         Preference.OnPreferenceChangeListener {
 
     private static final int MENU_SHOW_SYSTEM = Menu.FIRST;
     private static final int MENU_HIDE_SYSTEM = Menu.FIRST + 1;
     private static final String KEY_SHOW_SYSTEM_PREFS = "_showSystem";
+
+    private static final String SHOW_SYSTEM_KEY = PermissionAppsFragment.class.getName()
+            + KEY_SHOW_SYSTEM_PREFS;
 
     public static PermissionAppsFragment newInstance(String permissionName) {
         return setPermissionName(new PermissionAppsFragment(), permissionName);
@@ -87,6 +91,11 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (savedInstanceState != null) {
+            mShowSystem = savedInstanceState.getBoolean(SHOW_SYSTEM_KEY);
+        }
+
         setLoading(true /* loading */, false /* animate */);
         setHasOptionsMenu(true);
         final ActionBar ab = getActivity().getActionBar();
@@ -98,6 +107,13 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
         String groupName = getArguments().getString(Intent.EXTRA_PERMISSION_NAME);
         mPermissionApps = new PermissionApps(getActivity(), groupName, this);
         mPermissionApps.refresh(true);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putBoolean(SHOW_SYSTEM_KEY, mShowSystem);
     }
 
     @Override
