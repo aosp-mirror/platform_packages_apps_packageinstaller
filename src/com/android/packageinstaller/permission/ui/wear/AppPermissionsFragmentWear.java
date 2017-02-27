@@ -23,6 +23,7 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PermissionInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.preference.Preference;
@@ -236,21 +237,72 @@ public final class AppPermissionsFragmentWear extends PreferenceFragment {
                     }
                 }
             } else {
-                group.revokeRuntimePermissions(true, new String[]{ perm.name });
+                final Permission appPerm = getPermissionFromGroup(group, perm.name);
+                if (appPerm == null) {
+                    return false;
+                }
 
-                if (Utils.areGroupPermissionsIndividuallyControlled(getContext(), group.getName())
-                        && group.doesSupportRuntimePermissions()
-                        && !group.areRuntimePermissionsGranted()) {
-                    // If we just revoked the last permission we need to clear
-                    // the user fixed state as now the app should be able to
-                    // request them at runtime if supported.
-                    group.revokeRuntimePermissions(false);
+                final boolean grantedByDefault = appPerm.isGrantedByDefault();
+                if (grantedByDefault
+                        || (!group.doesSupportRuntimePermissions() && !mHasConfirmedRevoke)) {
+                    new WearableDialogHelper.DialogBuilder(getContext())
+                            .setNegativeIcon(R.drawable.confirm_button)
+                            .setPositiveIcon(R.drawable.cancel_button)
+                            .setNegativeButton(R.string.grant_dialog_button_deny_anyway,
+                                    (dialog, which) -> {
+                                        revokePermissionInGroup(group, perm.name);
+                                        pref.setChecked(false);
+                                        if (!appPerm.isGrantedByDefault()) {
+                                              mHasConfirmedRevoke = true;
+                                        }
+                            })
+                            .setPositiveButton(R.string.cancel, null)
+                            .setMessage(grantedByDefault ?
+                                    R.string.system_warning : R.string.old_sdk_deny_warning)
+                            .show();
+                    return false;
+                } else {
+                    revokePermissionInGroup(group, perm.name);
                 }
             }
 
             return true;
         });
         return pref;
+    }
+
+    private static Permission getPermissionFromGroup(AppPermissionGroup group, String permName) {
+        final int permissionCount = group.getPermissions().size();
+
+        for (int i = 0; i < permissionCount; i++) {
+            Permission currentPerm = group.getPermissions().get(i);
+            if(currentPerm.getName().equals(permName)) {
+                return currentPerm;
+            };
+        }
+
+        if ("user".equals(Build.TYPE)) {
+            Log.e(LOG_TAG, String.format("The impossible happens, permission %s is not in group %s.",
+                    permName, group.getName()));
+            return null;
+        } else {
+            // This is impossible, throw a fatal error in non-user build.
+            throw new IllegalArgumentException(
+                    String.format("Permission %s is not in group %s", permName, group.getName()));
+        }
+    }
+
+    private void revokePermissionInGroup(AppPermissionGroup group, String permName) {
+        group.revokeRuntimePermissions(true, new String[]{ permName });
+
+        if (Utils.areGroupPermissionsIndividuallyControlled(getContext(), group.getName())
+                && group.doesSupportRuntimePermissions()
+                && !group.areRuntimePermissionsGranted()) {
+            // If we just revoked the last permission we need to clear
+            // the user fixed state as now the app should be able to
+            // request them at runtime if supported.
+            group.revokeRuntimePermissions(false);
+        }
     }
 
     private SwitchPreference createSwitchPreferenceForGroup(AppPermissionGroup group) {
@@ -287,7 +339,7 @@ public final class AppPermissionsFragmentWear extends PreferenceFragment {
                                                 mHasConfirmedRevoke = true;
                                             }
                                         })
-                                .setPositiveButton(R.string.cancel, (dialog, which) -> {})
+                                .setPositiveButton(R.string.cancel, null)
                                 .setMessage(grantedByDefault ?
                                         R.string.system_warning : R.string.old_sdk_deny_warning)
                                 .show();
