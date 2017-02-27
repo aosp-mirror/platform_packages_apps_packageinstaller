@@ -19,6 +19,7 @@ package com.android.packageinstaller.permission.ui.wear;
 import android.Manifest;
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -245,21 +246,17 @@ public final class AppPermissionsFragmentWear extends PreferenceFragment {
                 final boolean grantedByDefault = appPerm.isGrantedByDefault();
                 if (grantedByDefault
                         || (!group.doesSupportRuntimePermissions() && !mHasConfirmedRevoke)) {
-                    new WearableDialogHelper.DialogBuilder(getContext())
-                            .setNegativeIcon(R.drawable.confirm_button)
-                            .setPositiveIcon(R.drawable.cancel_button)
-                            .setNegativeButton(R.string.grant_dialog_button_deny_anyway,
-                                    (dialog, which) -> {
-                                        revokePermissionInGroup(group, perm.name);
-                                        pref.setChecked(false);
-                                        if (!appPerm.isGrantedByDefault()) {
-                                              mHasConfirmedRevoke = true;
-                                        }
-                            })
-                            .setPositiveButton(R.string.cancel, null)
-                            .setMessage(grantedByDefault ?
-                                    R.string.system_warning : R.string.old_sdk_deny_warning)
-                            .show();
+                    showRevocationWarningDialog(
+                            (dialog, which) -> {
+                                revokePermissionInGroup(group, perm.name);
+                                pref.setChecked(false);
+                                if (!appPerm.isGrantedByDefault()) {
+                                    mHasConfirmedRevoke = true;
+                                }
+                            },
+                            grantedByDefault
+                                    ? R.string.system_warning
+                                    : R.string.old_sdk_deny_warning);
                     return false;
                 } else {
                     revokePermissionInGroup(group, perm.name);
@@ -269,6 +266,18 @@ public final class AppPermissionsFragmentWear extends PreferenceFragment {
             return true;
         });
         return pref;
+    }
+
+    private void showRevocationWarningDialog(
+            DialogInterface.OnClickListener confirmListener,
+            int warningMessageId) {
+        new WearableDialogHelper.DialogBuilder(getContext())
+                .setNegativeIcon(R.drawable.confirm_button)
+                .setPositiveIcon(R.drawable.cancel_button)
+                .setNegativeButton(R.string.grant_dialog_button_deny_anyway, confirmListener)
+                .setPositiveButton(R.string.cancel, null)
+                .setMessage(warningMessageId)
+                .show();
     }
 
     private static Permission getPermissionFromGroup(AppPermissionGroup group, String permName) {
@@ -329,20 +338,16 @@ public final class AppPermissionsFragmentWear extends PreferenceFragment {
                     final boolean grantedByDefault = group.hasGrantedByDefaultPermission();
                     if (grantedByDefault
                             || (!group.doesSupportRuntimePermissions() && !mHasConfirmedRevoke)) {
-                        new WearableDialogHelper.DialogBuilder(getContext())
-                                .setNegativeIcon(R.drawable.confirm_button)
-                                .setPositiveIcon(R.drawable.cancel_button)
-                                .setNegativeButton(R.string.grant_dialog_button_deny_anyway,
-                                        (dialog, which) -> {
-                                            setPermission(group, pref, false);
-                                            if (!group.hasGrantedByDefaultPermission()) {
-                                                mHasConfirmedRevoke = true;
-                                            }
-                                        })
-                                .setPositiveButton(R.string.cancel, null)
-                                .setMessage(grantedByDefault ?
-                                        R.string.system_warning : R.string.old_sdk_deny_warning)
-                                .show();
+                        showRevocationWarningDialog(
+                                (dialog, which) -> {
+                                    setPermission(group, pref, false);
+                                    if (!group.hasGrantedByDefaultPermission()) {
+                                        mHasConfirmedRevoke = true;
+                                    }
+                                },
+                                grantedByDefault
+                                        ? R.string.system_warning
+                                        : R.string.old_sdk_deny_warning);
                         return false;
                     } else {
                         setPermission(group, pref, false);
