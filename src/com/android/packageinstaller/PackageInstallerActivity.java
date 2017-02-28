@@ -22,10 +22,12 @@ import android.app.AlertDialog;
 import android.app.AppGlobals;
 import android.app.AppOpsManager;
 import android.app.Dialog;
+import android.app.DialogFragment;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageManager;
@@ -43,6 +45,8 @@ import android.os.Process;
 import android.os.RemoteException;
 import android.os.UserManager;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
+import android.support.annotation.StringRes;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -56,7 +60,7 @@ import android.widget.TextView;
 
 import java.io.File;
 
-/*
+/**
  * This activity is launched when a new application is installed via side loading
  * The package is first parsed and the user is notified of parse errors via a dialog.
  * If the package is successfully parsed, the user is notified to turn on the install unknown
@@ -66,7 +70,7 @@ import java.io.File;
  * Based on the user response the package is then installed by launching InstallAppConfirm
  * sub activity. All state transitions are handled in this activity
  */
-public class PackageInstallerActivity extends Activity implements OnCancelListener, OnClickListener {
+public class PackageInstallerActivity extends Activity implements OnClickListener {
     private static final String TAG = "PackageInstaller";
 
     private static final int REQUEST_TRUST_EXTERNAL_SOURCE = 1;
@@ -76,6 +80,8 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
 
     static final String EXTRA_CALLING_PACKAGE = "EXTRA_CALLING_PACKAGE";
     static final String EXTRA_ORIGINAL_SOURCE_INFO = "EXTRA_ORIGINAL_SOURCE_INFO";
+    private static final String ALLOW_UNKNOWN_SOURCES_KEY =
+            PackageInstallerActivity.class.getName() + "ALLOW_UNKNOWN_SOURCES_KEY";
 
     private int mSessionId = -1;
     private Uri mPackageURI;
@@ -118,6 +124,9 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     private static final int DLG_UNKNOWN_SOURCES_RESTRICTED_FOR_USER = DLG_BASE + 5;
     private static final int DLG_NOT_SUPPORTED_ON_WEAR = DLG_BASE + 7;
     private static final int DLG_EXTERNAL_SOURCE_BLOCKED = DLG_BASE + 8;
+
+    // If unknown sources are temporary allowed
+    private boolean mAllowUnknownSources;
 
     private void startInstallConfirm() {
         // We might need to show permissions, load layout with permissions
@@ -218,117 +227,52 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         }
     }
 
+    /**
+     * Replace any dialog shown by the dialog with the one for the given {@link #createDialog id}.
+     *
+     * @param id The dialog type to add
+     */
     private void showDialogInner(int id) {
-        // TODO better fix for this? Remove dialog so that it gets created again
-        removeDialog(id);
-        showDialog(id);
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+        Fragment currentDialog = getFragmentManager().findFragmentByTag("dialog");
+        if (currentDialog != null) {
+            transaction.remove(currentDialog);
+        }
+
+        Fragment newDialog = createDialog(id);
+
+        if (newDialog != null) {
+            transaction.add(newDialog, "dialog");
+        }
+
+        transaction.commitNowAllowingStateLoss();
     }
 
-    @Override
-    public Dialog onCreateDialog(int id, Bundle bundle) {
-        ApplicationInfo sourceInfo = null;
+    /**
+     * Create a new dialog.
+     *
+     * @param id The id of the dialog (determines dialog type)
+     *
+     * @return The dialog
+     */
+    private DialogFragment createDialog(int id) {
         switch (id) {
-        case DLG_PACKAGE_ERROR :
-            return new AlertDialog.Builder(this)
-                    .setMessage(R.string.Parse_error_dlg_text)
-                    .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            finish();
-                        }
-                    })
-                    .setOnCancelListener(this)
-                    .create();
-        case DLG_OUT_OF_SPACE:
-            // Guaranteed not to be null. will default to package name if not set by app
-            CharSequence appTitle = mPm.getApplicationLabel(mPkgInfo.applicationInfo);
-            String dlgText = getString(R.string.out_of_space_dlg_text,
-                    appTitle.toString());
-            return new AlertDialog.Builder(this)
-                    .setMessage(dlgText)
-                    .setPositiveButton(R.string.manage_applications, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            //launch manage applications
-                            Intent intent = new Intent("android.intent.action.MANAGE_PACKAGE_STORAGE");
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            startActivity(intent);
-                            finish();
-                        }
-                    })
-                    .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            Log.i(TAG, "Canceling installation");
-                            finish();
-                        }
-                })
-                  .setOnCancelListener(this)
-                  .create();
-        case DLG_INSTALL_ERROR :
-            // Guaranteed not to be null. will default to package name if not set by app
-            CharSequence appTitle1 = mPm.getApplicationLabel(mPkgInfo.applicationInfo);
-            String dlgText1 = getString(R.string.install_failed_msg,
-                    appTitle1.toString());
-            return new AlertDialog.Builder(this)
-                    .setNeutralButton(R.string.ok, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            finish();
-                        }
-                    })
-                    .setMessage(dlgText1)
-                    .setOnCancelListener(this)
-                    .create();
-        case DLG_NOT_SUPPORTED_ON_WEAR:
-            return new AlertDialog.Builder(this)
-                    .setMessage(R.string.wear_not_allowed_dlg_text)
-                    .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            setResult(RESULT_OK);
-                            finish();
-                        }
-                    })
-                    .setOnCancelListener(this)
-                    .create();
-        case DLG_UNKNOWN_SOURCES_RESTRICTED_FOR_USER:
-            return new AlertDialog.Builder(this)
-                    .setMessage(R.string.unknown_apps_user_restriction_dlg_text)
-                    .setPositiveButton(android.R.string.ok,
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-                                    finish();
-                                }
-                            })
-                    .setOnCancelListener(this)
-                    .create();
-        case DLG_EXTERNAL_SOURCE_BLOCKED:
-            try {
-                sourceInfo = mPm.getApplicationInfo(mOriginatingPackage, 0);
-            } catch (NameNotFoundException e) {
-                Log.e(TAG, "Did not find app info for " + mOriginatingPackage);
-                finish();
-                break;
-            }
-            return new AlertDialog.Builder(this)
-                    .setTitle(mPm.getApplicationLabel(sourceInfo))
-                    .setIcon(mPm.getApplicationIcon(sourceInfo))
-                    .setMessage(R.string.untrusted_external_source_warning)
-                    .setPositiveButton(R.string.external_sources_settings,
-                            new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    Intent settingsIntent = new Intent();
-                                    settingsIntent.setAction(
-                                            Settings.ACTION_MANAGE_EXTERNAL_SOURCES);
-                                    try {
-                                        startActivityForResult(settingsIntent,
-                                                REQUEST_TRUST_EXTERNAL_SOURCE);
-                                    } catch (ActivityNotFoundException exc) {
-                                        Log.e(TAG, "Settings activity not found for action: "
-                                                + Settings.ACTION_MANAGE_EXTERNAL_SOURCES);
-                                    }
-                                }
-                            })
-                    .setOnCancelListener(dialog -> finish())
-                    .setNegativeButton(R.string.cancel, (dialog, which) -> finish())
-                    .create();
+            case DLG_PACKAGE_ERROR:
+                return SimpleErrorDialog.newInstance(R.string.Parse_error_dlg_text);
+            case DLG_OUT_OF_SPACE:
+                return OutOfSpaceDialog.newInstance(
+                        mPm.getApplicationLabel(mPkgInfo.applicationInfo));
+            case DLG_INSTALL_ERROR:
+                return InstallErrorDialog.newInstance(
+                        mPm.getApplicationLabel(mPkgInfo.applicationInfo));
+            case DLG_NOT_SUPPORTED_ON_WEAR:
+                return NotSupportedOnWearDialog.newInstance();
+            case DLG_UNKNOWN_SOURCES_RESTRICTED_FOR_USER:
+                return SimpleErrorDialog.newInstance(
+                        R.string.unknown_apps_user_restriction_dlg_text);
+            case DLG_EXTERNAL_SOURCE_BLOCKED:
+                return ExternalSourcesBlockedDialog.newInstance(mOriginatingPackage);
         }
         return null;
     }
@@ -339,6 +283,13 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         // TODO: Use this to resume install request when user has explicitly trusted the source
         // by changing the settings
         if (request == REQUEST_TRUST_EXTERNAL_SOURCE && result == RESULT_OK) {
+            mAllowUnknownSources = true;
+
+            Fragment currentDialog = getFragmentManager().findFragmentByTag("dialog");
+            if (currentDialog != null) {
+                getFragmentManager().beginTransaction().remove(currentDialog).commit();
+            }
+
             initiateInstall();
         } else {
             finish();
@@ -422,6 +373,10 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
+        if (icicle != null) {
+            mAllowUnknownSources = icicle.getBoolean(ALLOW_UNKNOWN_SOURCES_KEY);
+        }
+
         mPm = getPackageManager();
         mIpm = AppGlobals.getPackageManager();
         mAppOpsManager = (AppOpsManager) getSystemService(Context.APP_OPS_SERVICE);
@@ -484,6 +439,13 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         checkIfAllowedAndInitiateInstall();
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putBoolean(ALLOW_UNKNOWN_SOURCES_KEY, mAllowUnknownSources);
+    }
+
     private void bindUi(int layout, boolean enableOk) {
         setContentView(layout);
 
@@ -504,7 +466,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
      * show the appropriate dialog.
      */
     private void checkIfAllowedAndInitiateInstall() {
-        if (!isInstallRequestFromUnknownSource(getIntent())) {
+        if (mAllowUnknownSources || !isInstallRequestFromUnknownSource(getIntent())) {
             initiateInstall();
             return;
         }
@@ -629,11 +591,6 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         super.onBackPressed();
     }
 
-    // Generic handling when pressing back key
-    public void onCancel(DialogInterface dialog) {
-        finish();
-    }
-
     public void onClick(View v) {
         if (v == mOk) {
             if (mOk.isEnabled()) {
@@ -687,5 +644,162 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         if(localLOGV) Log.i(TAG, "downloaded app uri="+mPackageURI);
         startActivity(newIntent);
         finish();
+    }
+
+    /**
+     * A simple error dialog showing a message
+     */
+    public static class SimpleErrorDialog extends DialogFragment {
+        private static final String MESSAGE_KEY =
+                SimpleErrorDialog.class.getName() + "MESSAGE_KEY";
+
+        static SimpleErrorDialog newInstance(@StringRes int message) {
+            SimpleErrorDialog dialog = new SimpleErrorDialog();
+
+            Bundle args = new Bundle();
+            args.putInt(MESSAGE_KEY, message);
+            dialog.setArguments(args);
+
+            return dialog;
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            return new AlertDialog.Builder(getActivity())
+                    .setMessage(getArguments().getInt(MESSAGE_KEY))
+                    .setPositiveButton(R.string.ok, (dialog, which) -> getActivity().finish())
+                    .create();
+        }
+    }
+
+    /**
+     * An error dialog shown when the app is not supported on wear
+     */
+    public static class NotSupportedOnWearDialog extends SimpleErrorDialog {
+        static SimpleErrorDialog newInstance() {
+            return SimpleErrorDialog.newInstance(R.string.wear_not_allowed_dlg_text);
+        }
+
+        @Override
+        public void onCancel(DialogInterface dialog) {
+            getActivity().setResult(RESULT_OK);
+            getActivity().finish();
+        }
+    }
+
+    /**
+     * An error dialog shown when the device is out of space
+     */
+    public static class OutOfSpaceDialog extends AppErrorDialog {
+        static AppErrorDialog newInstance(@NonNull CharSequence applicationLabel) {
+            OutOfSpaceDialog dialog = new OutOfSpaceDialog();
+            dialog.setArgument(applicationLabel);
+            return dialog;
+        }
+
+        @Override
+        protected Dialog createDialog(@NonNull CharSequence argument) {
+            String dlgText = getString(R.string.out_of_space_dlg_text, argument);
+            return new AlertDialog.Builder(getActivity())
+                    .setMessage(dlgText)
+                    .setPositiveButton(R.string.manage_applications, (dialog, which) -> {
+                        // launch manage applications
+                        Intent intent = new Intent("android.intent.action.MANAGE_PACKAGE_STORAGE");
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                        getActivity().finish();
+                    })
+                    .setNegativeButton(R.string.cancel, (dialog, which) -> getActivity().finish())
+                    .create();
+        }
+    }
+
+    /**
+     * A generic install-error dialog
+     */
+    public static class InstallErrorDialog extends AppErrorDialog {
+        static AppErrorDialog newInstance(@NonNull CharSequence applicationLabel) {
+            InstallErrorDialog dialog = new InstallErrorDialog();
+            dialog.setArgument(applicationLabel);
+            return dialog;
+        }
+
+        @Override
+        protected Dialog createDialog(@NonNull CharSequence argument) {
+            return new AlertDialog.Builder(getActivity())
+                    .setNeutralButton(R.string.ok, (dialog, which) -> getActivity().finish())
+                    .setMessage(getString(R.string.install_failed_msg, argument))
+                    .create();
+        }
+    }
+
+    /**
+     * An error dialog shown when external sources are not allowed
+     */
+    public static class ExternalSourcesBlockedDialog extends AppErrorDialog {
+        static AppErrorDialog newInstance(@NonNull String originationPkg) {
+            ExternalSourcesBlockedDialog dialog = new ExternalSourcesBlockedDialog();
+            dialog.setArgument(originationPkg);
+            return dialog;
+        }
+
+        @Override
+        protected Dialog createDialog(@NonNull CharSequence argument) {
+            try {
+                PackageManager pm = getActivity().getPackageManager();
+
+                ApplicationInfo sourceInfo = pm.getApplicationInfo(argument.toString(), 0);
+
+                return new AlertDialog.Builder(getActivity())
+                        .setTitle(pm.getApplicationLabel(sourceInfo))
+                        .setIcon(pm.getApplicationIcon(sourceInfo))
+                        .setMessage(R.string.untrusted_external_source_warning)
+                        .setPositiveButton(R.string.external_sources_settings,
+                                (dialog, which) -> {
+                                    Intent settingsIntent = new Intent();
+                                    settingsIntent.setAction(
+                                            Settings.ACTION_MANAGE_EXTERNAL_SOURCES);
+                                    try {
+                                        getActivity().startActivityForResult(settingsIntent,
+                                                REQUEST_TRUST_EXTERNAL_SOURCE);
+                                    } catch (ActivityNotFoundException exc) {
+                                        Log.e(TAG, "Settings activity not found for action: "
+                                                + Settings.ACTION_MANAGE_EXTERNAL_SOURCES);
+                                    }
+                                })
+                        .setNegativeButton(R.string.cancel,
+                                (dialog, which) -> getActivity().finish())
+                        .create();
+            } catch (NameNotFoundException e) {
+                Log.e(TAG, "Did not find app info for " + argument);
+                getActivity().finish();
+                return null;
+            }
+        }
+    }
+
+    /**
+     * Superclass for all error dialogs. Stores a single CharSequence argument
+     */
+    public abstract static class AppErrorDialog extends DialogFragment {
+        private static final String ARGUMENT_KEY = AppErrorDialog.class.getName() + "ARGUMENT_KEY";
+
+        protected void setArgument(@NonNull CharSequence argument) {
+            Bundle args = new Bundle();
+            args.putCharSequence(ARGUMENT_KEY, argument);
+            setArguments(args);
+        }
+
+        protected abstract Dialog createDialog(@NonNull CharSequence argument);
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            return createDialog(getArguments().getString(ARGUMENT_KEY));
+        }
+
+        @Override
+        public void onCancel(DialogInterface dialog) {
+            getActivity().finish();
+        }
     }
 }
