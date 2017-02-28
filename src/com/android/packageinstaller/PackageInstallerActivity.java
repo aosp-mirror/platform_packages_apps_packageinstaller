@@ -326,13 +326,8 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                                     }
                                 }
                             })
-                    .setOnDismissListener(new DialogInterface.OnDismissListener() {
-                        @Override
-                        public void onDismiss(DialogInterface dialog) {
-                            finish();
-                        }
-                    })
-                    .setNegativeButton(R.string.cancel, null)
+                    .setOnCancelListener(dialog -> finish())
+                    .setNegativeButton(R.string.cancel, (dialog, which) -> finish())
                     .create();
         }
         return null;
