@@ -289,9 +289,7 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
     }
 
     private boolean isMutableGranularPermission(String name) {
-        if (!getResources().getBoolean(
-                com.android.internal.R.bool.config_permissionReviewRequired)
-                && !Build.PERMISSIONS_REVIEW_REQUIRED) {
+        if (!getContext().getPackageManager().isPermissionReviewModeEnabled()) {
             return false;
         }
         switch (name) {
