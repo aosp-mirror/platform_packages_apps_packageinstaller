@@ -600,7 +600,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
 
             case SCHEME_FILE: {
                 File sourceFile = new File(packageUri.getPath());
-                PackageParser.Package parsed = PackageUtil.getPackageInfo(sourceFile);
+                PackageParser.Package parsed = PackageUtil.getPackageInfo(this, sourceFile);
 
                 // Check for parse errors
                 if (parsed == null) {
