@@ -241,7 +241,7 @@ public class WearPackageInstallerService extends Service {
                 Log.e(TAG, "Could not create a temp file from FD for " + packageName);
                 return;
             }
-            PackageParser.Package pkg = PackageUtil.getPackageInfo(tempFile);
+            PackageParser.Package pkg = PackageUtil.getPackageInfo(this, tempFile);
             if (pkg == null) {
                 Log.e(TAG, "Could not parse apk information for " + packageName);
                 return;

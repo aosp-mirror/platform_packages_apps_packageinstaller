@@ -53,8 +53,9 @@ public class PackageUtil {
     /**
      * Utility method to get package information for a given {@link File}
      */
-    public static PackageParser.Package getPackageInfo(File sourceFile) {
+    public static PackageParser.Package getPackageInfo(Context context, File sourceFile) {
         final PackageParser parser = new PackageParser();
+        parser.setCallback(new PackageParser.CallbackImpl(context.getPackageManager()));
         try {
             return parser.parsePackage(sourceFile, 0);
         } catch (PackageParserException e) {
