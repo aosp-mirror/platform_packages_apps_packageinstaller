@@ -21,8 +21,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 
-import java.io.File;
-
 /**
  * Receives install events and perists them using a {@link EventResultPersister}.
  */
@@ -38,8 +36,8 @@ public class InstallEventReceiver extends BroadcastReceiver {
     @NonNull private static EventResultPersister getReceiver(@NonNull Context context) {
         synchronized (sLock) {
             if (sReceiver == null) {
-                sReceiver = new EventResultPersister(new File(context.getNoBackupFilesDir(),
-                        "install_results.xml"));
+                sReceiver = new EventResultPersister(
+                        TemporaryFileManager.getInstallStateFile(context));
             }
         }
 
@@ -48,14 +46,7 @@ public class InstallEventReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        if (intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED)) {
-            // Do not persist installs over reboot
-            synchronized (sLock) {
-                new File(context.getNoBackupFilesDir(), "install_results.xml").delete();
-            }
-        } else {
-            getReceiver(context).onEventReceived(context, intent);
-        }
+        getReceiver(context).onEventReceived(context, intent);
     }
 
     /**

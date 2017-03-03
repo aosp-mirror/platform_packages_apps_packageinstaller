@@ -97,7 +97,7 @@ public class InstallStaging extends Activity {
             if (mStagedFile == null) {
                 // Create file delayed to be able to show error
                 try {
-                    mStagedFile = File.createTempFile("package", ".apk", getCacheDir());
+                    mStagedFile = TemporaryFileManager.getStagedFile(this);
                 } catch (IOException e) {
                     showError();
                     return;

@@ -21,8 +21,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 
-import java.io.File;
-
 /**
  * Receives uninstall events and persists them using a {@link EventResultPersister}.
  */
@@ -38,8 +36,8 @@ public class UninstallEventReceiver extends BroadcastReceiver {
     @NonNull private static EventResultPersister getReceiver(@NonNull Context context) {
         synchronized (sLock) {
             if (sReceiver == null) {
-                sReceiver = new EventResultPersister(new File(context.getNoBackupFilesDir(),
-                        "uninstall_results.xml"));
+                sReceiver = new EventResultPersister(
+                        TemporaryFileManager.getUninstallStateFile(context));
             }
         }
 
@@ -48,14 +46,7 @@ public class UninstallEventReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        if (intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED)) {
-            // Do not persist uninstalls over reboot
-            synchronized (sLock) {
-                new File(context.getNoBackupFilesDir(), "uninstall_results.xml").delete();
-            }
-        } else {
-            getReceiver(context).onEventReceived(context, intent);
-        }
+        getReceiver(context).onEventReceived(context, intent);
     }
 
     /**
