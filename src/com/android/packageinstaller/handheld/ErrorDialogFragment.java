@@ -46,7 +46,10 @@ public class ErrorDialogFragment extends DialogFragment {
     public void onDismiss(DialogInterface dialog) {
         super.onDismiss(dialog);
         if (isAdded()) {
-            ((UninstallerActivity) getActivity()).dispatchAborted();
+            if (getActivity() instanceof UninstallerActivity) {
+                ((UninstallerActivity) getActivity()).dispatchAborted();
+            }
+
             getActivity().setResult(Activity.RESULT_FIRST_USER);
             getActivity().finish();
         }
