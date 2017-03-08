@@ -759,6 +759,8 @@ public class PackageInstallerActivity extends Activity implements OnClickListene
                                     Intent settingsIntent = new Intent();
                                     settingsIntent.setAction(
                                             Settings.ACTION_MANAGE_EXTERNAL_SOURCES);
+                                    final Uri packageUri = Uri.parse("package:" + argument);
+                                    settingsIntent.setData(packageUri);
                                     try {
                                         getActivity().startActivityForResult(settingsIntent,
                                                 REQUEST_TRUST_EXTERNAL_SOURCE);
