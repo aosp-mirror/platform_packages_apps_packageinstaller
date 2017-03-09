@@ -69,11 +69,6 @@ public class InstallStart extends Activity {
         nextActivity.putExtra(PackageInstallerActivity.EXTRA_ORIGINAL_SOURCE_INFO, sourceInfo);
         nextActivity.putExtra(Intent.EXTRA_ORIGINATING_UID, originatingUid);
 
-        // STOPSHIP(http://b/34599122): Remove this special casing once GmsCore is updated
-        if ("com.google.android.gms".equals(callingPackage)) {
-            nextActivity.putExtra(Intent.EXTRA_NOT_UNKNOWN_SOURCE, true);
-        }
-
         if (PackageInstaller.ACTION_CONFIRM_PERMISSIONS.equals(intent.getAction())) {
             nextActivity.setClass(this, PackageInstallerActivity.class);
         } else {
