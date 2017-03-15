@@ -67,6 +67,12 @@ public class EventLogger {
             Manifest.permission.READ_PHONE_NUMBER,
             Manifest.permission.ANSWER_PHONE_CALLS);
 
+    private static final List<String> ALL_APPOP_PERMISSIONS = Arrays.asList(
+            Manifest.permission.ACCESS_NOTIFICATIONS,
+            Manifest.permission.SYSTEM_ALERT_WINDOW,
+            Manifest.permission.WRITE_SETTINGS,
+            Manifest.permission.REQUEST_INSTALL_PACKAGES);
+
     /**
      * Get the first event id for the permission.
      *
@@ -82,25 +88,33 @@ public class EventLogger {
      * @return The first event id for the permission
      */
     private static int getBaseEventId(@NonNull String name) {
-        int eventIdIndex = ALL_DANGEROUS_PERMISSIONS.indexOf(name);
+        int permIndex = ALL_DANGEROUS_PERMISSIONS.indexOf(name);
 
-        if (eventIdIndex == -1) {
-            if (AppOpsManager.permissionToOpCode(name) == AppOpsManager.OP_NONE
-                    || "user".equals(SystemProperties.get("ro.build.type"))) {
-                Log.i(LOG_TAG, "Unknown permission " + name);
+        if (permIndex != -1) {
+            return MetricsEvent.ACTION_PERMISSION_REQUEST_READ_CALENDAR + permIndex * 4;
+        } else {
+            int appOpIndex = ALL_APPOP_PERMISSIONS.indexOf(name);
 
-                return MetricsEvent.ACTION_PERMISSION_REQUEST_UNKNOWN;
+            if (appOpIndex != -1) {
+                return MetricsEvent.ACTION_APPOP_REQUEST_ACCESS_NOTIFICATIONS + appOpIndex * 4;
             } else {
-                // Most likely #ALL_DANGEROUS_PERMISSIONS needs to be updated.
-                //
-                // Also update
-                // - PackageManagerService#ALL_DANGEROUS_PERMISSIONS
-                // - metrics_constants.proto
-                throw new IllegalStateException("Unknown permission " + name);
+                if (AppOpsManager.permissionToOpCode(name) == AppOpsManager.OP_NONE
+                        || "user".equals(SystemProperties.get("ro.build.type"))) {
+                    Log.i(LOG_TAG, "Unknown permission " + name);
+
+                    return MetricsEvent.ACTION_PERMISSION_REQUEST_UNKNOWN;
+                } else {
+                    // Most likely #ALL_DANGEROUS_PERMISSIONS or #ALL_APPOP_PERMISSIONS needs to be
+                    // updated.
+                    //
+                    // Also update
+                    // - metrics_constants.proto
+                    // and most likely:
+                    // - PackageManagerService#ALL_DANGEROUS_PERMISSIONS
+                    throw new IllegalStateException("Unknown permission " + name);
+                }
             }
         }
-
-        return MetricsEvent.ACTION_PERMISSION_REQUEST_READ_CALENDAR + eventIdIndex * 4;
     }
 
     /**

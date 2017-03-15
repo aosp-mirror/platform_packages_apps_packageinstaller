@@ -58,6 +58,18 @@ public class EventLoggerTest {
     }
 
     @Test
+    public void testValidAppOpRequested() {
+        EventLogger.logPermissionRequested(null, Manifest.permission.SYSTEM_ALERT_WINDOW,
+                "testPackage");
+
+        assertEquals(1, ShadowMetricsLogger.getLogs().size());
+        assertTrue(ShadowMetricsLogger.getLogs().contains(
+                new ShadowMetricsLogger.Log(null,
+                        MetricsProto.MetricsEvent.ACTION_APPOP_REQUEST_SYSTEM_ALERT_WINDOW,
+                        "testPackage")));
+    }
+
+    @Test
     public void testValidDenied() {
         EventLogger.logPermissionDenied(null, Manifest.permission.READ_CALENDAR, "testPackage");
 
