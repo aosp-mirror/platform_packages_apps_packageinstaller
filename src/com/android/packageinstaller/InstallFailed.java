@@ -30,7 +30,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 
 import java.io.File;
@@ -115,22 +114,8 @@ public class InstallFailed extends Activity {
             }
 
             // Get status messages
-            int statusLabel = getExplanationFromErrorCode(statusCode);
-            String extendedStatusMessage = getIntent()
-                    .getStringExtra(PackageInstaller.EXTRA_STATUS_MESSAGE);
-
-            // Show simple or extended failure screen
-            if (extendedStatusMessage == null) {
-                ((TextView) findViewById(R.id.simple_status)).setText(statusLabel);
-            } else {
-                // Switch from simple failure screen to extended view
-                findViewById(R.id.simple_status_view).setVisibility(View.GONE);
-                findViewById(R.id.extended_status_view).setVisibility(View.VISIBLE);
-
-                ((TextView) findViewById(R.id.extended_status)).setText(statusLabel);
-                ((TextView) findViewById(R.id.extended_status_message))
-                        .setText(extendedStatusMessage);
-            }
+            ((TextView) findViewById(R.id.simple_status)).setText(
+                    getExplanationFromErrorCode(statusCode));
 
             // Set up "done" button
             findViewById(R.id.done_button).setOnClickListener(view -> finish());
