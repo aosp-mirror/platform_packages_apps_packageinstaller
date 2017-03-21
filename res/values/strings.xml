@@ -76,16 +76,11 @@
     <!-- Message presented when an application could not be installed on the phone for some reason. [CHAR LIMIT=100] -->
     <string name="install_failed_msg" product="default"><xliff:g id="app_name">%1$s</xliff:g> couldn\'t be installed on your phone.</string>
     <string name="launch">Open</string>
-    <!-- Message presented in a dialog box when a package is requested to be installed, but the "Allow unknown applications" checkbox is not enabled. [CHAR LIMIT=100] -->
-    <string name="unknown_apps_dlg_text" product="tablet">For security, your tablet is set to block installation of apps obtained from unknown sources.</string>
-    <!-- Message presented in a dialog box when a package is requested to be installed, but the "Allow unknown applications" checkbox is not enabled. [CHAR LIMIT=100] -->
-    <string name="unknown_apps_dlg_text" product="tv">For security, your TV is set to block installation of apps obtained from unknown sources.</string>
-    <!-- Message presented in a dialog box when a package is requested to be installed, but the "Allow unknown applications" checkbox is not enabled. [CHAR LIMIT=100] -->
-    <string name="unknown_apps_dlg_text" product="default">For security, your phone is set to block installation of apps obtained from unknown sources.</string>
+
     <!-- Message presented in a dialog box when the device administrator restricts the installation of apps from unknown sources. [CHAR LIMIT=none] -->
     <string name="unknown_apps_admin_dlg_text">Your administrator doesn\'t allow installation of apps obtained from unknown sources.</string>
-    <!-- Message presented in a dialog box when the user restriction restricts the installation of apps from unknown sources. [CHAR LIMIT=none] -->
-    <string name="unknown_apps_user_restriction_dlg_text">Installation of apps obtained from external sources is restricted for this user</string>
+    <!-- Message presented in a dialog box when the user restriction set by the system restricts the installation of apps from unknown sources. [CHAR LIMIT=none] -->
+    <string name="unknown_apps_user_restriction_dlg_text">Unknown apps can\u2019t be installed by this user.</string>
 
 
     <string name="ok">OK</string>
@@ -335,10 +330,16 @@
     <string name="clear_app_data_confirm_dialog">Do you really want to clear the data for
         <xliff:g id="package" example="com.google.vending">%1$s</xliff:g>?</string>
 
-    <!-- Text to show in warning dialog when the app source is not trusted [CHAR LIMIT=NONE] -->
-    <string name="untrusted_external_source_warning">Application installs from external sources are blocked for security reasons. Please review the external sources settings to turn on installs from this source.</string>
+    <!-- Text to show in warning dialog on the tablet when the app source is not trusted [CHAR LIMIT=NONE] -->
+    <string name="untrusted_external_source_warning" product="tablet">For your security, your tablet is not allowed to install unknown apps from this source.</string>
+
+    <!-- Text to show in warning dialog on the tv when the app source is not trusted [CHAR LIMIT=NONE] -->
+    <string name="untrusted_external_source_warning" product="tv">For your security, your TV is not allowed to install unknown apps from this source.</string>
+
+    <!-- Text to show in warning dialog on the phone when the app source is not trusted [CHAR LIMIT=NONE] -->
+    <string name="untrusted_external_source_warning" product="default">For your security, your phone is not allowed to install unknown apps from this source.</string>
 
     <!-- Label for button to open manage external sources settings [CHAR LIMIT=45] -->
-    <string name="external_sources_settings">External sources</string>
+    <string name="external_sources_settings">Settings</string>
 
 </resources>
