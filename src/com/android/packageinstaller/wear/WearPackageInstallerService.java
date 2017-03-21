@@ -368,6 +368,7 @@ public class WearPackageInstallerService extends Service {
             } catch (IllegalArgumentException e) {
                 // Couldn't find the package, no need to call uninstall.
                 Log.w(TAG, "Could not find package, not deleting " + packageName, e);
+                finishService(lock, startId);
             }
 
             startPermsServiceForUninstall(packageName);
