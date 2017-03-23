@@ -42,11 +42,9 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> ಅನ್ನು ನಿಮ್ಮ ಟಿವಿಗೆ ಸ್ಥಾಪಿಸಲಾಗುವುದಿಲ್ಲ."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"ನಿಮ್ಮ ಫೋನ್‌ನಲ್ಲಿ <xliff:g id="APP_NAME">%1$s</xliff:g> ಸ್ಥಾಪಿಸಲು ಸಾಧ್ಯವಾಗುವುದಿಲ್ಲ."</string>
     <string name="launch" msgid="4826921505917605463">"ತೆರೆ"</string>
-    <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"ರಕ್ಷಣೆಯ ದೃಷ್ಟಿಯಿಂದ, ನಿಮ್ಮ ಟ್ಯಾಬ್ಲೆಟ್‌‌ ಅನ್ನು ಅಪರಿಚಿತ ಮೂಲಗಳಿಂದ ಪಡೆದುಕೊಳ್ಳುವ ಅಪ್ಲಿಕೇಶನ್‍‍ಗಳ ಸ್ಥಾಪನೆಯನ್ನು ನಿರ್ಬಂಧಿಸುವಂತೆ ಹೊಂದಿಸಲಾಗಿದೆ."</string>
-    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"ರಕ್ಷಣೆಯ ದೃಷ್ಟಿಯಿಂದ, ನಿಮ್ಮ ಟಿವಿ ಅನ್ನು ಅಪರಿಚಿತ ಮೂಲಗಳಿಂದ ಪಡೆದುಕೊಳ್ಳುವ ಅಪ್ಲಿಕೇಶನ್‍‍ಗಳ ಸ್ಥಾಪನೆಯನ್ನು ನಿರ್ಬಂಧಿಸುವಂತೆ ಹೊಂದಿಸಲಾಗಿದೆ."</string>
-    <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"ರಕ್ಷಣೆಯ ದೃಷ್ಟಿಯಿಂದ, ನಿಮ್ಮ ಫೋನ್ ಅನ್ನು ಅಪರಿಚಿತ ಮೂಲಗಳಿಂದ ಪಡೆದುಕೊಳ್ಳುವ ಅಪ್ಲಿಕೇಶನ್‍‍ಗಳ ಸ್ಥಾಪನೆಯನ್ನು ನಿರ್ಬಂಧಿಸುವಂತೆ ಹೊಂದಿಸಲಾಗಿದೆ."</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"ನಿಮ್ಮ ನಿರ್ವಾಹಕರು ಅಪರಿಚಿತ ಮೂಲಗಳಿಂದ ಅಪ್ಲಿಕೇಶನ್‌ಗಳ ಸ್ಥಾಪನೆಯನ್ನು ಅನುಮತಿಸುವುದಿಲ್ಲ."</string>
-    <string name="unknown_apps_user_restriction_dlg_text" msgid="4792616731905336215">"ಈ ಬಳಕೆದಾರರಿಗಾಗಿ, ಬಾಹ್ಯ ಮೂಲಗಳ ಅಪ್ಲಿಕೇಶನ್‌ಗಳ ಸ್ಥಾಪನೆಯನ್ನು ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ"</string>
+    <!-- no translation found for unknown_apps_user_restriction_dlg_text (4270706346616049120) -->
+    <skip />
     <string name="ok" msgid="3468756155452870475">"ಸರಿ"</string>
     <string name="settings" msgid="6743583734099755409">"ಸೆಟ್ಟಿಂಗ್‌ಗಳು"</string>
     <string name="manage_applications" msgid="4033876279091996596">"ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ನಿರ್ವಹಿಸಿ"</string>
@@ -139,6 +137,12 @@
     <string name="message_staging" msgid="6151794817691100003">"ಸ್ಥಾಪಿಸಲು ಸಿದ್ಧವಿರುವ ಅಪ್ಲಿಕೇಶನ್…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"ಅಪರಿಚಿತ"</string>
     <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"ನೀವು <xliff:g id="PACKAGE">%1$s</xliff:g> ಗೆ ಡೇಟಾವನ್ನು ತೆರವುಗೊಳಿಸಲು ಬಯಸುವಿರಾ?"</string>
-    <string name="untrusted_external_source_warning" msgid="733048262092274222">"ಭದ್ರತಾ ಕಾರಣಗಳಿಗಾಗಿ ಬಾಹ್ಯ ಮೂಲಗಳ ಅಪ್ಲಿಕೇಶನ್ ಸ್ಥಾಪನೆಯನ್ನು ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ. ಈ ಮೂಲದಿಂದ ಸ್ಥಾಪನೆ ಸಕ್ರಿಯಗೊಳಿಸಲು ಬಾಹ್ಯ ಮೂಲಗಳ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಪರಿಶೀಲಿಸಿ."</string>
-    <string name="external_sources_settings" msgid="8162299254869992851">"ಬಾಹ್ಯ ಮೂಲಗಳು"</string>
+    <!-- no translation found for untrusted_external_source_warning (1483151219938173935) -->
+    <skip />
+    <!-- no translation found for untrusted_external_source_warning (5373768281884328560) -->
+    <skip />
+    <!-- no translation found for untrusted_external_source_warning (2223486836232706553) -->
+    <skip />
+    <!-- no translation found for external_sources_settings (8601453744517291632) -->
+    <skip />
 </resources>
