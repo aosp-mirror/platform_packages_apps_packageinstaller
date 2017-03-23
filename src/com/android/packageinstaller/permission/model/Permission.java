@@ -27,6 +27,7 @@ public final class Permission {
     private boolean mAppOpAllowed;
     private int mFlags;
     private boolean mIsEphemeral;
+    private boolean mIsRuntimeOnly;
 
     public Permission(String name, boolean granted,
             String appOp, boolean appOpAllowed, int flags, int protectionLevel) {
@@ -36,6 +37,7 @@ public final class Permission {
         mAppOpAllowed = appOpAllowed;
         mFlags = flags;
         mIsEphemeral = (protectionLevel & PermissionInfo.PROTECTION_FLAG_EPHEMERAL) != 0;
+        mIsRuntimeOnly = (protectionLevel & PermissionInfo.PROTECTION_FLAG_RUNTIME_ONLY) != 0;
     }
 
     public String getName() {
@@ -138,7 +140,12 @@ public final class Permission {
         return mIsEphemeral;
     }
 
-    public boolean isGrantingAllowed(boolean isEphemeralApp) {
-        return !isEphemeralApp || isEphemeral();
+    public boolean isRuntimeOnly() {
+        return mIsRuntimeOnly;
+    }
+
+    public boolean isGrantingAllowed(boolean isEphemeralApp, boolean supportsRuntimePermissions) {
+        return (!isEphemeralApp || isEphemeral())
+                && (supportsRuntimePermissions || !isRuntimeOnly());
     }
 }

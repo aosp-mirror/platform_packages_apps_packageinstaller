@@ -385,6 +385,11 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
                     && callingPackageInfo.applicationInfo.isInstantApp()) {
                 return PERMISSION_DENIED;
             }
+            if ((pInfo.protectionLevel & PermissionInfo.PROTECTION_FLAG_RUNTIME_ONLY) != 0
+                    && callingPackageInfo.applicationInfo.targetSdkVersion
+                    < Build.VERSION_CODES.M) {
+                return PERMISSION_DENIED;
+            }
         } catch (NameNotFoundException e) {
             return PERMISSION_DENIED;
         }
