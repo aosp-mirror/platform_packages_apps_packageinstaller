@@ -78,9 +78,11 @@
     <string name="launch">Open</string>
 
     <!-- Message presented in a dialog box when the device administrator restricts the installation of apps from unknown sources. [CHAR LIMIT=none] -->
-    <string name="unknown_apps_admin_dlg_text">Your administrator doesn\'t allow installation of apps obtained from unknown sources.</string>
+    <string name="unknown_apps_admin_dlg_text">Your admin doesn\'t allow installation of apps
+        obtained from unknown sources</string>
     <!-- Message presented in a dialog box when the user restriction set by the system restricts the installation of apps from unknown sources. [CHAR LIMIT=none] -->
-    <string name="unknown_apps_user_restriction_dlg_text">Unknown apps can\u2019t be installed by this user.</string>
+    <string name="unknown_apps_user_restriction_dlg_text">Unknown apps can\'t be installed by this
+        user</string>
 
 
     <string name="ok">OK</string>
@@ -117,12 +119,12 @@
     <string name="uninstall_failed_app">Uninstalling <xliff:g id="package_label">%1$s</xliff:g> unsuccessful.</string>
     <!-- String presented to the user when uninstalling a package failed because the target package
         is a current device administrator [CHAR LIMIT=80] -->
-    <string name="uninstall_failed_device_policy_manager">Can\'t uninstall because this package is an
-        active device administrator.</string>
+    <string name="uninstall_failed_device_policy_manager">Can\'t uninstall active device admin
+        app</string>
     <!-- String presented to the user when uninstalling a package failed because the target package
         is a current device administrator for some user [CHAR LIMIT=100] -->
-    <string name="uninstall_failed_device_policy_manager_of_user">Can\'t uninstall because this package is an
-        active device administrator for the user <xliff:g id="username">%1$s</xliff:g>.</string>
+    <string name="uninstall_failed_device_policy_manager_of_user">Can\'t uninstall active device
+        admin app for <xliff:g id="username">%1$s</xliff:g></string>
     <!-- String presented to the admin user when uninstalling a package for all users failed
     because a profile owner has marked the target package as not able to be uninstalled
     [CHAR LIMIT=120] -->
@@ -136,10 +138,10 @@
          has marked the the target package as not able to be uninstalled [CHAR LIMIT=80] -->
     <string name="uninstall_blocked_device_owner">This app is required
         by your device administrator and can\'t be uninstalled.</string>
-    <!-- String on a button that leads to the "device administrator" configuration setting where a
-        user will be able to disable the device administrator in order to uninstall
+    <!-- String on a button that leads to the "device admin apps" configuration setting where a
+        user will be able to disable the device admin app in order to uninstall
         it. [CHAR LIMIT=50] -->
-    <string name="manage_device_administrators">Manage device administrators</string>
+    <string name="manage_device_administrators">Manage device admin apps</string>
     <!-- String on a button that leads to the "Users" page in Settings where a
         user will be able to remove the secondary user(s) in order to uninstall
         the app. [CHAR LIMIT=50] -->
