@@ -42,8 +42,9 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> ไม่สามารถติดตั้งบนทีวีได้"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"ไม่สามารถติดตั้ง <xliff:g id="APP_NAME">%1$s</xliff:g> บนโทรศัพท์ของคุณ"</string>
     <string name="launch" msgid="4826921505917605463">"เปิด"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"ผู้ดูแลระบบของคุณไม่อนุญาตให้ติดตั้งแอปที่ได้มาจากแหล่งที่มาที่ไม่รู้จัก"</string>
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (4270706346616049120) -->
+    <!-- no translation found for unknown_apps_admin_dlg_text (7488386758312008790) -->
+    <skip />
+    <!-- no translation found for unknown_apps_user_restriction_dlg_text (5785226253054083336) -->
     <skip />
     <string name="ok" msgid="3468756155452870475">"ตกลง"</string>
     <string name="settings" msgid="6743583734099755409">"การตั้งค่า"</string>
@@ -74,12 +75,15 @@
     <string name="uninstall_done_app" msgid="4009780060350765946">"ถอนการติดตั้ง <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> แล้ว"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"ถอนการติดตั้งไม่สำเร็จ"</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"การถอนการติดตั้ง <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ไม่สำเร็จ"</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"ไม่สามารถถอนการติดตั้งเนื่องจากแพ็กเกจนี้เป็นโปรแกรมควบคุมอุปกรณ์ที่ใช้งานอยู่"</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"ไม่สามารถถอนการติดตั้ง เนื่องจากปัจจุบันแพ็กเกจนี้ดูแลระบบอุปกรณ์สำหรับผู้ใช้ <xliff:g id="USERNAME">%1$s</xliff:g>"</string>
+    <!-- no translation found for uninstall_failed_device_policy_manager (2727361164694743362) -->
+    <skip />
+    <!-- no translation found for uninstall_failed_device_policy_manager_of_user (2161462242935805756) -->
+    <skip />
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"แอปนี้จำเป็นสำหรับผู้ใช้หรือโปรไฟล์บางส่วน และถอนการติดตั้งไปแล้วสำหรับส่วนอื่น"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"แอปนี้จำเป็นสำหรับโปรไฟล์ของคุณและไม่สามารถถอนการติดตั้งได้"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"ผู้ดูแลระบบอุปกรณ์กำหนดให้ใช้แอปนี้ และไม่สามารถถอนการติดตั้งได้"</string>
-    <string name="manage_device_administrators" msgid="891392489300312370">"จัดการโปรแกรมควบคุมอุปกรณ์"</string>
+    <!-- no translation found for manage_device_administrators (118178632652346535) -->
+    <skip />
     <string name="manage_users" msgid="3125018886835668847">"จัดการผู้ใช้"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"ไม่สามารถถอดการติดตั้ง <xliff:g id="APP_NAME">%1$s</xliff:g>"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"พบปัญหาในการแยกวิเคราะห์แพ็กเกจ"</string>
@@ -137,12 +141,8 @@
     <string name="message_staging" msgid="6151794817691100003">"กำลังปรับสภาพแวดล้อมของแอป…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"ไม่ทราบ"</string>
     <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"คุณต้องการล้างข้อมูลของ <xliff:g id="PACKAGE">%1$s</xliff:g> ใช่ไหม"</string>
-    <!-- no translation found for untrusted_external_source_warning (1483151219938173935) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (5373768281884328560) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (2223486836232706553) -->
-    <skip />
-    <!-- no translation found for external_sources_settings (8601453744517291632) -->
-    <skip />
+    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"เพื่อความปลอดภัย ไม่อนุญาตให้ติดตั้งแอปที่ไม่รู้จักจากแหล่งที่มานี้ในแท็บเล็ต"</string>
+    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"เพื่อความปลอดภัย ไม่อนุญาตให้ติดตั้งแอปที่ไม่รู้จักจากแหล่งที่มานี้ในทีวี"</string>
+    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"เพื่อความปลอดภัย ไม่อนุญาตให้ติดตั้งแอปที่ไม่รู้จักจากแหล่งที่มานี้ในโทรศัพท์"</string>
+    <string name="external_sources_settings" msgid="8601453744517291632">"การตั้งค่า"</string>
 </resources>

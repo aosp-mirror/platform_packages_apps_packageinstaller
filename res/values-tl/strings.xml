@@ -42,8 +42,9 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Ang <xliff:g id="APP_NAME">%1$s</xliff:g> ay hindi ma-install sa iyong TV."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Hindi ma-install ang <xliff:g id="APP_NAME">%1$s</xliff:g> sa iyong telepono."</string>
     <string name="launch" msgid="4826921505917605463">"Buksan"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Hindi pinapayagan ng iyong administrator ang pag-install ng mga app na nakuha mula sa mga hindi alam na pinagmulan."</string>
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (4270706346616049120) -->
+    <!-- no translation found for unknown_apps_admin_dlg_text (7488386758312008790) -->
+    <skip />
+    <!-- no translation found for unknown_apps_user_restriction_dlg_text (5785226253054083336) -->
     <skip />
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Mga Setting"</string>
@@ -74,12 +75,15 @@
     <string name="uninstall_done_app" msgid="4009780060350765946">"Na-uninstall ang <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Di-matagumpay ang pag-uninstall."</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"Hindi na-uninstall ang <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Hindi ma-uninstall dahil aktibong administrator ng device ang package na ito."</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Aktibong administrator ng device para sa user <xliff:g id="USERNAME">%1$s</xliff:g> itong package, hindi ma-uninstall."</string>
+    <!-- no translation found for uninstall_failed_device_policy_manager (2727361164694743362) -->
+    <skip />
+    <!-- no translation found for uninstall_failed_device_policy_manager_of_user (2161462242935805756) -->
+    <skip />
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Ang app na ito ay kailangan ng ilang user o profile at na-uninstall na ito sa iba pa"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"Ang app na ito ay kailangan para sa iyong profile at hindi maaaring i-uninstall."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Kinakailangan app na ito ng administrator ng device mo at di maaari i-uninstall."</string>
-    <string name="manage_device_administrators" msgid="891392489300312370">"Pamahalaan ang mga administrator ng device"</string>
+    <!-- no translation found for manage_device_administrators (118178632652346535) -->
+    <skip />
     <string name="manage_users" msgid="3125018886835668847">"Pamahalaan ang mga user"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Hindi ma-install ang <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Nagkaroon ng problema sa pag-parse sa package."</string>
@@ -137,12 +141,8 @@
     <string name="message_staging" msgid="6151794817691100003">"Inihahanda ang app…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"Hindi Alam"</string>
     <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"Gusto mo ba talagang i-clear ang data para sa <xliff:g id="PACKAGE">%1$s</xliff:g>?"</string>
-    <!-- no translation found for untrusted_external_source_warning (1483151219938173935) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (5373768281884328560) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (2223486836232706553) -->
-    <skip />
-    <!-- no translation found for external_sources_settings (8601453744517291632) -->
-    <skip />
+    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Para sa iyong seguridad, hindi pinapayagan ang tablet mo na mag-install ng mga hindi alam na app mula sa pinagmulang ito."</string>
+    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Para sa iyong seguridad, hindi pinapayagan ang TV mo na mag-install ng mga hindi alam na app mula sa pinagmulang ito."</string>
+    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Para sa iyong seguridad, hindi pinapayagan ang telepono mo na mag-install ng mga hindi alam na app mula sa pinagmulang ito."</string>
+    <string name="external_sources_settings" msgid="8601453744517291632">"Mga Setting"</string>
 </resources>

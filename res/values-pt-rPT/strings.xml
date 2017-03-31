@@ -42,8 +42,9 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Não foi possível instalar o <xliff:g id="APP_NAME">%1$s</xliff:g> na sua TV."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Não foi possível instalar <xliff:g id="APP_NAME">%1$s</xliff:g> no telemóvel."</string>
     <string name="launch" msgid="4826921505917605463">"Abrir"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"O administrador não permite a instalação de aplicações obtidas de origens desconhecidas."</string>
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (4270706346616049120) -->
+    <!-- no translation found for unknown_apps_admin_dlg_text (7488386758312008790) -->
+    <skip />
+    <!-- no translation found for unknown_apps_user_restriction_dlg_text (5785226253054083336) -->
     <skip />
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Definições"</string>
@@ -74,12 +75,15 @@
     <string name="uninstall_done_app" msgid="4009780060350765946">"A aplicação <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> foi desinstalada."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Desinstalação sem êxito."</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"Falha ao desinstalar a aplicação <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Não é possível desinstalar porque este pacote é um admin. de aparelho ativo."</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Não é poss. desinst. porque este pacote é um admin. de disp. ativos para o utiliz. <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
+    <!-- no translation found for uninstall_failed_device_policy_manager (2727361164694743362) -->
+    <skip />
+    <!-- no translation found for uninstall_failed_device_policy_manager_of_user (2161462242935805756) -->
+    <skip />
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Esta aplicação é necessária para alguns utilizadores ou perfis e foi desinstalada para outros"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"O perfil necessita desta aplicação e não é possível desinstalá-la."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Esta aplic. é exigida pelo administrador do disp. e não pode ser desinstalada."</string>
-    <string name="manage_device_administrators" msgid="891392489300312370">"Gerir administradores de aparelhos"</string>
+    <!-- no translation found for manage_device_administrators (118178632652346535) -->
+    <skip />
     <string name="manage_users" msgid="3125018886835668847">"Gerir utilizadores"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Não foi possível desinstalar <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Ocorreu um problema ao analisar o pacote."</string>
@@ -137,12 +141,8 @@
     <string name="message_staging" msgid="6151794817691100003">"A preparar a aplicação…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"Desconhecido"</string>
     <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"Tem a certeza de que pretende limpar os dados de <xliff:g id="PACKAGE">%1$s</xliff:g>?"</string>
-    <!-- no translation found for untrusted_external_source_warning (1483151219938173935) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (5373768281884328560) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (2223486836232706553) -->
-    <skip />
-    <!-- no translation found for external_sources_settings (8601453744517291632) -->
-    <skip />
+    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Para sua segurança, o tablet não está autorizado a instalar aplicações desconhecidas a partir desta fonte."</string>
+    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Para sua segurança, a TV não está autorizada a instalar aplicações desconhecidas a partir desta fonte."</string>
+    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Para sua segurança, o telemóvel não está autorizado a instalar aplicações desconhecidas a partir desta fonte."</string>
+    <string name="external_sources_settings" msgid="8601453744517291632">"Definições"</string>
 </resources>

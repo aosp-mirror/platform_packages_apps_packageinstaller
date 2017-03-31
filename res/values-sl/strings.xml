@@ -42,8 +42,9 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Aplikacije <xliff:g id="APP_NAME">%1$s</xliff:g> ni bilo mogoče namestiti v vašem televizorju."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Aplikacije <xliff:g id="APP_NAME">%1$s</xliff:g> ni bilo mogoče namestiti v telefon."</string>
     <string name="launch" msgid="4826921505917605463">"Odpri"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Skrbnik ne dovoli nameščanja aplikacij iz neznanih virov."</string>
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (4270706346616049120) -->
+    <!-- no translation found for unknown_apps_admin_dlg_text (7488386758312008790) -->
+    <skip />
+    <!-- no translation found for unknown_apps_user_restriction_dlg_text (5785226253054083336) -->
     <skip />
     <string name="ok" msgid="3468756155452870475">"V redu"</string>
     <string name="settings" msgid="6743583734099755409">"Nastavitve"</string>
@@ -74,12 +75,15 @@
     <string name="uninstall_done_app" msgid="4009780060350765946">"Aplikacija <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> je bila odstranjena."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Odstranitev ni uspela."</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"Odstranjevanje aplikacije <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ni uspelo."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Odstranitev ni mogoča, ker je ta paket aktivni skrbnik naprave."</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Tega paketa ni mogoče odstraniti, ker je aktivni skrbnik naprav za uporabnika <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
+    <!-- no translation found for uninstall_failed_device_policy_manager (2727361164694743362) -->
+    <skip />
+    <!-- no translation found for uninstall_failed_device_policy_manager_of_user (2161462242935805756) -->
+    <skip />
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Aplikacija je obvezna za nekatere uporabnike/profile in je odstranjena za druge."</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"Ta aplikacija je potrebna za profil in je ni mogoče odstraniti."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"To aplikacijo zahteva skrbnik naprave in je ni mogoče odstraniti."</string>
-    <string name="manage_device_administrators" msgid="891392489300312370">"Upravljanje skrbnikov naprav"</string>
+    <!-- no translation found for manage_device_administrators (118178632652346535) -->
+    <skip />
     <string name="manage_users" msgid="3125018886835668847">"Upravljanje uporabnikov"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Aplikacije <xliff:g id="APP_NAME">%1$s</xliff:g> ni bilo mogoče odstraniti."</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Težava pri razčlenjevanju paketa."</string>
@@ -139,12 +143,8 @@
     <string name="message_staging" msgid="6151794817691100003">"Priprava aplikacije …"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"Neznano"</string>
     <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"Ali ste prepričani, da želite počistiti podatke za <xliff:g id="PACKAGE">%1$s</xliff:g>?"</string>
-    <!-- no translation found for untrusted_external_source_warning (1483151219938173935) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (5373768281884328560) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (2223486836232706553) -->
-    <skip />
-    <!-- no translation found for external_sources_settings (8601453744517291632) -->
-    <skip />
+    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Vaš tablični računalnik zaradi varnosti nima dovoljenja za nameščanje neznanih aplikacij iz tega vira."</string>
+    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Vaš televizor zaradi varnosti nima dovoljenja za nameščanje neznanih aplikacij iz tega vira."</string>
+    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Vaš telefon zaradi varnosti nima dovoljenja za nameščanje neznanih aplikacij iz tega vira."</string>
+    <string name="external_sources_settings" msgid="8601453744517291632">"Nastavitve"</string>
 </resources>

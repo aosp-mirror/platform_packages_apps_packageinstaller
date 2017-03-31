@@ -42,8 +42,9 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> මෙම රූපවාහිනියෙහි ස්ථාපනය කළ නොහැක."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> දුරකථනයට ස්ථාපිත කිරීමට නොහැකි විය."</string>
     <string name="launch" msgid="4826921505917605463">"විවෘත කරන්න"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"නාඳුනන මූලයන් වෙතින් ලබාගත් යෙදුම් ස්ථාපනය කිරීමට ඔබගේ පරිපාලකයා ඉඩ නොදේ."</string>
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (4270706346616049120) -->
+    <!-- no translation found for unknown_apps_admin_dlg_text (7488386758312008790) -->
+    <skip />
+    <!-- no translation found for unknown_apps_user_restriction_dlg_text (5785226253054083336) -->
     <skip />
     <string name="ok" msgid="3468756155452870475">"හරි"</string>
     <string name="settings" msgid="6743583734099755409">"සැකසීම්"</string>
@@ -74,12 +75,15 @@
     <string name="uninstall_done_app" msgid="4009780060350765946">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> අස්ථාපනය කරන ලදී."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"අස්ථාපිත විම අසාර්ථකයි."</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> අස්ථාපනය කිරීම සාර්ථකයි."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"මෙම පැකේජය ක්‍රියාකාරී උපාංග පරිපාලකයෙක් බැවින් අස්ථාපනය කළ නොහැක."</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"පැකේජය <xliff:g id="USERNAME">%1$s</xliff:g> පරිශීලකයා හට සක්‍රිය උපාංග කලමනාකරුවෙකු වන නිසා, මෙය ස්ථාපිත කිරීම ඉවත් කළ නොහැක."</string>
+    <!-- no translation found for uninstall_failed_device_policy_manager (2727361164694743362) -->
+    <skip />
+    <!-- no translation found for uninstall_failed_device_policy_manager_of_user (2161462242935805756) -->
+    <skip />
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"මෙම යෙදුම සමහර පරිශීලකයන්ට සහ පැතිකඩවල්වලට අවශ්‍ය අතර අනෙක් අයට අස්ථාපනය කරන ලදී"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"ඔබේ කාර්ය පැතිකඩ සඳහා මෙම යෙදුම අවශ්‍ය වන අතර අස්ථාපනය කළ නොහැකිය."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"ඔබගේ උපාංගයේ පාලකයාට මෙම යෙදුම අවශ්‍ය වේ එම නිසා අස්ථාපනය කළ නොහැක."</string>
-    <string name="manage_device_administrators" msgid="891392489300312370">"උපාංග පරිපාලකයන් කළමනාකරණය කරන්න"</string>
+    <!-- no translation found for manage_device_administrators (118178632652346535) -->
+    <skip />
     <string name="manage_users" msgid="3125018886835668847">"පරිශීලකයන් කළමනාකරණය කරන්න"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> අස්ථාපනය කල නොහැක."</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"පැකේජය විග්‍රහ කිරීමේදී ගැටළුවක් ඇති විය."</string>
@@ -137,12 +141,8 @@
     <string name="message_staging" msgid="6151794817691100003">"යෙදුම වේදිකාගත කරමින්..."</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"නොදනී"</string>
     <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"ඔබට සැබවින්ම <xliff:g id="PACKAGE">%1$s</xliff:g> සඳහා වන දත්ත හිස් කිරීමට අවශ්‍යද?"</string>
-    <!-- no translation found for untrusted_external_source_warning (1483151219938173935) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (5373768281884328560) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (2223486836232706553) -->
-    <skip />
-    <!-- no translation found for external_sources_settings (8601453744517291632) -->
-    <skip />
+    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"ආරක්ෂාව සඳහා, ඔබගේ ටැබ්ලටය මෙම මුලාශ්‍රයෙන් ලබාගත් නොදන්නා යෙදුම් ස්ථාපනය කිරීමට අවසර නැත."</string>
+    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"ආරක්ෂාව සඳහා, ඔබගේ රූපවාහිනිය මෙම මුලාශ්‍රයෙන් ලබාගත් නොදන්නා යෙදුම් ස්ථාපනය කිරීමට අවසර නැත."</string>
+    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"ආරක්ෂාව සඳහා, ඔබගේ දුරකථනය මෙම මුලාශ්‍රයෙන් ලබාගත් නොදන්නා යෙදුම් ස්ථාපනය කිරීමට අවසර නැත."</string>
+    <string name="external_sources_settings" msgid="8601453744517291632">"සැකසීම්"</string>
 </resources>

@@ -42,8 +42,9 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> ਨੂੰ ਤੁਹਾਡੇ TV ਤੇ ਇੰਸਟੌਲ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> ਨੂੰ ਤੁਹਾਡੇ ਫੋਨ ਤੇ ਇੰਸਟੌਲ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।"</string>
     <string name="launch" msgid="4826921505917605463">"ਖੋਲ੍ਹੋ"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"ਤੁਹਾਡਾ ਪ੍ਰਸ਼ਾਸਕ ਅਗਿਆਤ ਸਰੋਤਾਂ ਤੋਂ ਪ੍ਰਾਪਤ ਕੀਤੀਆਂ ਐਪਾਂ ਦੀ ਸਥਾਪਨਾ ਦੀ ਆਗਿਆ ਨਹੀਂ ਦਿੰਦਾ।"</string>
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (4270706346616049120) -->
+    <!-- no translation found for unknown_apps_admin_dlg_text (7488386758312008790) -->
+    <skip />
+    <!-- no translation found for unknown_apps_user_restriction_dlg_text (5785226253054083336) -->
     <skip />
     <string name="ok" msgid="3468756155452870475">"ਠੀਕ"</string>
     <string name="settings" msgid="6743583734099755409">"ਸੈਟਿੰਗਾਂ"</string>
@@ -74,12 +75,15 @@
     <string name="uninstall_done_app" msgid="4009780060350765946">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ਅਣਸਥਾਪਤ ਕੀਤਾ।"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"ਅਣਇੰਸਟੌਲ ਅਸਫਲ।"</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ਨੂੰ ਅਣਸਥਾਪਤ ਕਰਨਾ ਅਸਫਲ ਰਿਹਾ।"</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"ਅਣਇੰਸਟੌਲ ਨਹੀਂ ਕਰ ਸਕਦਾ ਕਿਉਂਕਿ ਇਹ ਪੈਕੇਜ ਇੱਕ ਸਕਿਰਿਆ ਡੀਵਾਈਸ ਪ੍ਰਬੰਧਕ ਹੈ।"</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"ਅਣਇੰਸਟੌਲ ਨਹੀਂ ਕਰ ਸਕਦਾ ਕਿਉਂਕਿ ਇਹ ਪੈਕੇਜ ਉਪਭੋਗਤਾ <xliff:g id="USERNAME">%1$s</xliff:g> ਲਈ ਇੱਕ ਸਕਿਰਿਆ ਡੀਵਾਈਸ ਪ੍ਰਬੰਧਕ ਹੈ।"</string>
+    <!-- no translation found for uninstall_failed_device_policy_manager (2727361164694743362) -->
+    <skip />
+    <!-- no translation found for uninstall_failed_device_policy_manager_of_user (2161462242935805756) -->
+    <skip />
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"ਇਹ ਐਪ ਕੁਝ ਵਰਤੋਂਕਾਰਾਂ ਜਾਂ ਪ੍ਰੋਫਾਈਲਾਂ ਲਈ ਲੋੜੀਂਦੀ ਹੈ ਅਤੇ ਹੋਰਾਂ ਲਈ ਅਣਸਥਾਪਤ ਕੀਤੀ ਗਈ ਸੀ"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"ਇਹ ਐਪ ਤੁਹਾਡੀ ਪ੍ਰੋਫਾਈਲ ਲਈ ਲੋੜੀਂਦੀ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਅਣਸਥਾਪਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"ਇਹ ਐਪ ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਪ੍ਰਬੰਧਕ ਵੱਲੋਂ ਲੁੜੀਂਦਾ ਹੈ ਅਤੇ ਇਸਨੂੰ ਅਣਇੰਸਟੌਲ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।"</string>
-    <string name="manage_device_administrators" msgid="891392489300312370">"ਡੀਵਾਈਸ ਪ੍ਰਬੰਧਕਾਂ ਨੂੰ ਵਿਵਸਥਿਤ ਕਰੋ"</string>
+    <!-- no translation found for manage_device_administrators (118178632652346535) -->
+    <skip />
     <string name="manage_users" msgid="3125018886835668847">"ਵਰਤੋਂਕਾਰਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> ਅਣਇੰਸਟੌਲ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"ਪੈਕੇਜ ਨੂੰ ਪਾਰਸ ਕਰਨ ਵਿੱਚ ਇੱਕ ਸਮੱਸਿਆ ਸੀ।"</string>
@@ -137,12 +141,8 @@
     <string name="message_staging" msgid="6151794817691100003">"ਐਪ ਨੂੰ ਪੜਾਅਬੱਧ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"ਅਗਿਆਤ"</string>
     <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"ਕੀ ਤੁਸੀਂ ਸੱਚਮੁੱਚ <xliff:g id="PACKAGE">%1$s</xliff:g> ਦਾ ਡੈਟਾ ਕਲੀਅਰ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?"</string>
-    <!-- no translation found for untrusted_external_source_warning (1483151219938173935) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (5373768281884328560) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (2223486836232706553) -->
-    <skip />
-    <!-- no translation found for external_sources_settings (8601453744517291632) -->
-    <skip />
+    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"ਤੁਹਾਡੀ ਸੁਰੱਖਿਆ ਲਈ, ਤੁਹਾਡੇ ਟੈਬਲੈੱਟ ਨੂੰ ਇਸ ਸਰੋਤ ਤੋਂ ਅਗਿਆਤ ਐਪਾਂ ਸਥਾਪਿਤ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਨਹੀਂ ਹੈ।"</string>
+    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"ਤੁਹਾਡੀ ਸੁਰੱਖਿਆ ਲਈ, ਤੁਹਾਡੇ ਟੀਵੀ ਨੂੰ ਇਸ ਸਰੋਤ ਤੋਂ ਅਗਿਆਤ ਐਪਾਂ ਸਥਾਪਿਤ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਨਹੀਂ ਹੈ।"</string>
+    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"ਤੁਹਾਡੀ ਸੁਰੱਖਿਆ ਲਈ, ਤੁਹਾਡੇ ਫ਼ੋਨ ਨੂੰ ਇਸ ਸਰੋਤ ਤੋਂ ਅਗਿਆਤ ਐਪਾਂ ਸਥਾਪਿਤ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਨਹੀਂ ਹੈ।"</string>
+    <string name="external_sources_settings" msgid="8601453744517291632">"ਸੈਟਿੰਗਾਂ"</string>
 </resources>
