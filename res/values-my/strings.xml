@@ -42,8 +42,9 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"သင့်တီဗွီတွင် <xliff:g id="APP_NAME">%1$s</xliff:g> အား မတပ်ဆင်နိုင်ပါ။"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> ကို သင့်ဖုန်းတွင် ထည့်သွင်းလို့ မရနိုင်ပါ"</string>
     <string name="launch" msgid="4826921505917605463">"ဖွင့်သည်"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"သင်၏ စီမံအုပ်ချုပ်သူက မသိရသည့် ရင်းမြစ်များမှ ရယူခဲ့သည့် အက်ပ်များကို တပ်ဆင်မှု ခွင့်မပြုပါ။"</string>
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (4270706346616049120) -->
+    <!-- no translation found for unknown_apps_admin_dlg_text (7488386758312008790) -->
+    <skip />
+    <!-- no translation found for unknown_apps_user_restriction_dlg_text (5785226253054083336) -->
     <skip />
     <string name="ok" msgid="3468756155452870475">"အိုကေ"</string>
     <string name="settings" msgid="6743583734099755409">"အပြင်အဆင်များ"</string>
@@ -74,12 +75,15 @@
     <string name="uninstall_done_app" msgid="4009780060350765946">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ကို ဖယ်ရှားလိုက်ပါပြီ။"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"ဖယ်ရှားမှု မအောင်မြင်ပါ"</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ကို ဖယ်ရှားခြင်း မအောင်မြင်ပါ။"</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"ဤ အချက်အလက်အစုသည်လက်ရှိ စက်၏ အက်ဒ်မင် ဖြစ်နေသောကြောင့် ဖယ်ရှားလို့ မရပါ"</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"ဒီအထုပ်မှာ အသုံးပြုသူ<xliff:g id="USERNAME">%1$s</xliff:g>အတွက် လုပ်ကိုင်နေသည့် စီမံအုပ်ချုပ်သူဖြစ်၍ ဖြုတ်မရနိုင်ပါ။"</string>
+    <!-- no translation found for uninstall_failed_device_policy_manager (2727361164694743362) -->
+    <skip />
+    <!-- no translation found for uninstall_failed_device_policy_manager_of_user (2161462242935805756) -->
+    <skip />
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"အချို့အသုံးပြုသူများ သို့မဟုတ် ပရိုဖိုင်များအတွက် ဤအက်ပ်ကို လိုအပ်သော်လည်း အချို့သူများအတွက် ဖြုတ်ထားပါသည်"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"သင့်ပရိုဖိုင်အတွက် ဤအက်ပ်ကိုလိုအပ်ပြီး ဖြုတ်၍မရပါ။"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"ဒီအက်ပ်မှာ သင်၏ ကိရိယာ စီမံအုပ်ချုပ်သူက လိုအပ်သောကြောင့် ဖြုတ်၍ မရနိုင်ပါ။"</string>
-    <string name="manage_device_administrators" msgid="891392489300312370">"စက်ပစ္စည်းထိန်းချုပ်မှုအား စီမံရန်"</string>
+    <!-- no translation found for manage_device_administrators (118178632652346535) -->
+    <skip />
     <string name="manage_users" msgid="3125018886835668847">"အသုံးပြုသူများအား စီမံခန့်ခွဲပါ"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> ကို ဖယ်ရှားလို့ မရပါ"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"ဒေတာအချက်အလက်အစုအားဖတ်ရှုစဉ် ပြသနာ တစ်ခု ဖြစ်ပေါ်ပါသည်"</string>
@@ -137,12 +141,8 @@
     <string name="message_staging" msgid="6151794817691100003">"အက်ပ်ကို ပြင်ဆင်နေသည်…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"အမျိုးအမည်မသိ"</string>
     <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"<xliff:g id="PACKAGE">%1$s</xliff:g> အတွက် ဒေတာများကို အမှန်တကယ် ရှင်းလင်းလိုပါသလား။"</string>
-    <!-- no translation found for untrusted_external_source_warning (1483151219938173935) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (5373768281884328560) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (2223486836232706553) -->
-    <skip />
-    <!-- no translation found for external_sources_settings (8601453744517291632) -->
-    <skip />
+    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"လုံခြုံရေးအရ ဤနေရာမှရယူထားသည့် အမျိုးအမည်မသိသောအက်ပ်များကို သင်၏တက်ဘလက်တွင် ထည့်သွင်းခွင့်မရှိပါ။"</string>
+    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"လုံခြုံရေးအရ ဤနေရာမှရယူထားသည့် အမျိုးအမည်မသိသောအက်ပ်များကို သင်၏တီဗီတွင် ထည့်သွင်းခွင့်မရှိပါ။"</string>
+    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"လုံခြုံရေးအရ ဤနေရာမှရယူထားသည့် အမျိုးအမည်မသိသောအက်ပ်များကို သင်၏ဖုန်းတွင် ထည့်သွင်းခွင့်မရှိပါ။"</string>
+    <string name="external_sources_settings" msgid="8601453744517291632">"ဆက်တင်များ"</string>
 </resources>

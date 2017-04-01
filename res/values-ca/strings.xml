@@ -42,8 +42,9 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> no s\'ha pogut instal·lar al televisor."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> no s\'ha pogut instal·lar al telèfon."</string>
     <string name="launch" msgid="4826921505917605463">"Obre"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"L\'administrador no permet instal·lar aplicacions que s\'hagin obtingut de fonts desconegudes."</string>
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (4270706346616049120) -->
+    <!-- no translation found for unknown_apps_admin_dlg_text (7488386758312008790) -->
+    <skip />
+    <!-- no translation found for unknown_apps_user_restriction_dlg_text (5785226253054083336) -->
     <skip />
     <string name="ok" msgid="3468756155452870475">"D\'acord"</string>
     <string name="settings" msgid="6743583734099755409">"Configuració"</string>
@@ -74,12 +75,15 @@
     <string name="uninstall_done_app" msgid="4009780060350765946">"S\'ha desinstal·lat <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"S\'ha produït un error en la desinstal·lació."</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"No s\'ha pogut desinstal·lar <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> correctament."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"No es pot desinstal·lar perquè aquest paquet és administ. actiu d\'un dispositiu."</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"No es pot desinstal·lar perquè el paquet és un administrador de dispositius actius per a l’usuari <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
+    <!-- no translation found for uninstall_failed_device_policy_manager (2727361164694743362) -->
+    <skip />
+    <!-- no translation found for uninstall_failed_device_policy_manager_of_user (2161462242935805756) -->
+    <skip />
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"L\'aplicació cal en alguns usuaris o perfils i s\'ha desinstal·lat per a d\'altres"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"Aquesta aplicació es necessita per al teu perfil i no es pot desinstal·lar."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"L\'administrador del dispositiu necessita l\'aplicació i no la pots desinstal·lar."</string>
-    <string name="manage_device_administrators" msgid="891392489300312370">"Gestiona els administradors del dispositiu"</string>
+    <!-- no translation found for manage_device_administrators (118178632652346535) -->
+    <skip />
     <string name="manage_users" msgid="3125018886835668847">"Gestiona els usuaris"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> no s\'ha pogut desinstal·lar."</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"S\'ha produït un problema en analitzar el paquet."</string>
@@ -137,12 +141,8 @@
     <string name="message_staging" msgid="6151794817691100003">"S\'està preparant la instal·lació de l\'aplicació…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"Desconegut"</string>
     <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"Confirmes que vols esborrar les dades del paquet <xliff:g id="PACKAGE">%1$s</xliff:g>?"</string>
-    <!-- no translation found for untrusted_external_source_warning (1483151219938173935) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (5373768281884328560) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (2223486836232706553) -->
-    <skip />
-    <!-- no translation found for external_sources_settings (8601453744517291632) -->
-    <skip />
+    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Per seguretat, la tauleta no pot instal·lar aplicacions desconegudes d\'aquesta font."</string>
+    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Per seguretat, el televisor no pot instal·lar aplicacions desconegudes d\'aquesta font."</string>
+    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Per seguretat, el telèfon no pot instal·lar aplicacions desconegudes d\'aquesta font."</string>
+    <string name="external_sources_settings" msgid="8601453744517291632">"Configuració"</string>
 </resources>
