@@ -42,15 +42,12 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> n\'a pas pu être installée sur votre téléviseur."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Impossible d\'installer <xliff:g id="APP_NAME">%1$s</xliff:g> sur ce téléphone."</string>
     <string name="launch" msgid="4826921505917605463">"Ouvrir"</string>
-    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"Installation bloquée"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Pour plus de sécurité, votre tablette bloque l\'installation d\'applications de sources inconnues."</string>
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Votre téléviseur est configuré pour bloquer l\'installation d\'applications provenant de sources inconnues"</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Pour plus de sécurité, votre téléphone bloque l\'installation d\'applications de sources inconnues."</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Votre administrateur n\'autorise pas l\'installation d\'applications obtenues à partir de sources inconnues."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Paramètres"</string>
-    <string name="allow_source_dlg_title" msgid="7568985073502399415">"Nouvelle source pour les applications"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"Une demande d\'installation d\'autres applications a été initiée à partir de l\'application <xliff:g id="APP_NAME">%1$s</xliff:g>\n\nVoulez-vous autoriser cette installation, ainsi que d\'autres à l\'avenir?"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Gérer les applications"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Remplacer l\'application?"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"L\'application que vous installez va en remplacer une autre.\n\nToutes vos données d\'utilisateur précédentes vont être enregistrées."</string>
@@ -66,17 +63,19 @@
     <string name="uninstall_application_text" msgid="6691975835951187030">"Voulez-vous désinstaller cette application?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Voulez-vous désinstaller cette application pour "<b>"tous"</b>" les utilisateurs? L\'application et ses données seront supprimées pour "<b>"tous"</b>" les utilisateurs de l\'appareil."</string>
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"Voulez-vous désinstaller cette application pour l\'utilisateur <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
-    <string name="uninstall_update_text" msgid="2056387942084605027">"Voulez-vous rétablir la configuration d\'usine de cette application?"</string>
+    <string name="uninstall_update_text" msgid="1394549691152728409">"Remplacer cette application par la version d\'usine? Toutes les données seront supprimées."</string>
+    <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Remplacer cette application par la version d\'usine? Toutes les données seront supprimées. Cela touchera tous les utilisateurs de cet appareil, y compris ceux qui utilisent un profil professionnel."</string>
     <string name="uninstalling" msgid="5556217435895938250">"Désinstallation..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Désinstallation terminée."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Échec de la désinstallation."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Impossible de désinstaller ce paquet, car il s\'agit d\'un administrateur actif."</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Désinst. imposs., car ce paquet est un administrateur d\'appareil actif pour <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"Impossible de désinstaller l\'appli, car nécessaire pour profil professionnel."</string>
+    <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Cette application est nécessaire pour certains utilisateurs ou profils, et elle a été désinstallée pour d\'autres."</string>
+    <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"Cette application est nécessaire pour votre profil et ne peut pas être désinstallée."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Impossible de désinstaller l\'application : requise par administrateur appareil."</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"Gérer les administrateurs de l\'appareil"</string>
+    <string name="manage_users" msgid="3125018886835668847">"Gérer les utilisateurs"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Impossible de désinstaller <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
-    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"Erreur d\'analyse"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Un problème est survenu lors de l\'analyse du paquet."</string>
     <string name="newPerms" msgid="6039428254474104210">"Nouvelles"</string>
     <string name="allPerms" msgid="1024385515840703981">"Toutes"</string>
@@ -85,12 +84,13 @@
     <string name="no_new_perms" msgid="6657813692169565975">"Cette mise à jour n\'exige pas de nouvelles autorisations."</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"Voulez-vous accorder les autorisations suivantes? Cette application aura accès aux éléments suivants :"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Refuser"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Refuser quand même"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> de <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="5209102765005869454">"Autoriser <xliff:g id="APP_NAME">%1$s</xliff:g> à <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_warning_template" msgid="7332275268559121742">"Autoriser &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; à <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Autoriser"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Applications"</string>
     <string name="app_permissions" msgid="3146758905824597178">"Autorisations de l\'application"</string>
-    <string name="never_ask_again" msgid="3798895821072102967">"Ne plus demander"</string>
+    <string name="never_ask_again" msgid="1089938738199748687">"Ne plus demander"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Aucune autorisation"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Autorisations supplémentaires"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
@@ -116,7 +116,7 @@
     <string name="screen_overlay_message" msgid="2141944461571677331">"Pour modifier ce paramètre d\'autorisation, vous devez tout d\'abord désactiver la superposition d\'écran en accédant à Paramètres &gt; Applications."</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Ouvrir les paramètres"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"Les actions d\'installation et de désinstallation ne sont pas prises en charge par Android Wear."</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Les actions d\'installation et de désinstallation ne sont pas prises en charge par Android Wear."</string>
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> a été mis à jour. Autorisez-vous <xliff:g id="APP_NAME_1">%1$s</xliff:g> à accéder aux éléments suivants?"</string>
     <string name="permission_review_title_template_install" msgid="6535540493936469336">"Définissez les autorisations d\'accès de <xliff:g id="APP_NAME">%1$s</xliff:g>"</string>
     <string name="permission_review_title_template_update" msgid="2548815248828051885">"<xliff:g id="APP_NAME">%1$s</xliff:g> a été mis à jour. Définissez ses autorisations d\'accès."</string>
@@ -124,4 +124,6 @@
     <string name="review_button_continue" msgid="4809162078179371370">"Continuer"</string>
     <string name="new_permissions_category" msgid="3213523410139204183">"Nouvelles autorisations"</string>
     <string name="current_permissions_category" msgid="998210994450606094">"Autorisations actuelles"</string>
+    <string name="message_staging" msgid="6151794817691100003">"Pré-production de l\'application en cours…"</string>
+    <string name="app_name_unknown" msgid="8931522764510159105">"Inconnue"</string>
 </resources>

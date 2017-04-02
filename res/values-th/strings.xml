@@ -42,15 +42,12 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> ไม่สามารถติดตั้งบนทีวีได้"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"ไม่สามารถติดตั้ง <xliff:g id="APP_NAME">%1$s</xliff:g> บนโทรศัพท์ของคุณ"</string>
     <string name="launch" msgid="4826921505917605463">"เปิด"</string>
-    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">"ปิดกั้นการติดตั้งไว้"</string>
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"เพื่อความปลอดภัย แท็บเล็ตของคุณถูกตั้งค่าให้บล็อกการติดตั้งแอปพลิเคชันที่ได้มาจากแหล่งที่ไม่รู้จัก"</string>
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"เพื่อความปลอดภัย มีการกำหนดให้ทีวีของคุณบล็อกการติดตั้งแอปจากแหล่งที่มาที่ไม่รู้จัก"</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"เพื่อความปลอดภัย โทรศัพท์ของคุณถูกตั้งค่าให้บล็อกการติดตั้งแอปพลิเคชันที่ได้มาจากแหล่งที่ไม่รู้จัก"</string>
     <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"ผู้ดูแลระบบของคุณไม่อนุญาตให้ติดตั้งแอปที่ได้มาจากแหล่งที่มาที่ไม่รู้จัก"</string>
     <string name="ok" msgid="3468756155452870475">"ตกลง"</string>
     <string name="settings" msgid="6743583734099755409">"การตั้งค่า"</string>
-    <string name="allow_source_dlg_title" msgid="7568985073502399415">"แหล่งใหม่สำหรับแอปพลิเคชัน"</string>
-    <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g> ต้องการติดตั้งแอปพลิเคชันอื่นๆ \n\nคุณต้องการอนุญาตในครั้งนี้และในอนาคตหรือไม่"</string>
     <string name="manage_applications" msgid="4033876279091996596">"จัดการแอปพลิเคชัน"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"แทนที่แอปพลิเคชันหรือไม่"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"แอปพลิเคชันที่คุณกำลังติดตั้งจะไปแทนที่แอปพลิเคชันอื่น\n\nข้อมูลผู้ใช้ทั้งหมดของคุณก่อนหน้านี้จะได้รับการบันทึกไว้"</string>
@@ -66,17 +63,19 @@
     <string name="uninstall_application_text" msgid="6691975835951187030">"คุณต้องการถอนการติดตั้งแอปพลิเคชันนี้หรือไม่"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"คุณต้องการถอนการติดตั้งแอปพลิเคชันนี้สำหรับผู้ใช้"<b>"ทั้งหมด"</b>"หรือไม่ แอปพลิเคชันนี้และข้อมูลในแอปพลิเคชันจะถูกลบจากผู้ใช้"<b>"ทั้งหมด"</b>"ในอุปกรณ์"</string>
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"คุณต้องการถอนการติดตั้งแอปนี้สำหรับผู้ใช้ <xliff:g id="USERNAME">%1$s</xliff:g> ไหม"</string>
-    <string name="uninstall_update_text" msgid="2056387942084605027">"คุณต้องการแทนที่แอปพลิเคชันนี้ด้วยรุ่นจากโรงงานหรือไม่"</string>
+    <string name="uninstall_update_text" msgid="1394549691152728409">"แทนที่แอปนี้ด้วยเวอร์ชันเริ่มต้นไหม ระบบจะนำข้อมูลทั้งหมดออก"</string>
+    <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"แทนที่แอปนี้ด้วยเวอร์ชันเริ่มต้นไหม ระบบจะนำข้อมูลทั้งหมดออก วิธีนี้ส่งผลต่อผู้ใช้ทุกคนที่ใช้อุปกรณ์เครื่องนี้ รวมทั้งผู้ที่มีโปรไฟล์งาน"</string>
     <string name="uninstalling" msgid="5556217435895938250">"กำลังถอนการติดตั้ง..."</string>
     <string name="uninstall_done" msgid="3792487853420281888">"ถอนการติดตั้งเสร็จแล้ว"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"ถอนการติดตั้งไม่สำเร็จ"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"ไม่สามารถถอนการติดตั้งเนื่องจากแพ็กเกจนี้เป็นโปรแกรมควบคุมอุปกรณ์ที่ใช้งานอยู่"</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"ไม่สามารถถอนการติดตั้ง เนื่องจากปัจจุบันแพ็กเกจนี้ดูแลระบบอุปกรณ์สำหรับผู้ใช้ <xliff:g id="USERNAME">%1$s</xliff:g>"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="5397102354360532069">"จำเป็นต้องใช้แอปนี้สำหรับโปรไฟล์งานและไม่สามารถถอนการติดตั้งได้"</string>
+    <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"แอปนี้จำเป็นสำหรับผู้ใช้หรือโปรไฟล์บางส่วน และถอนการติดตั้งไปแล้วสำหรับส่วนอื่น"</string>
+    <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"แอปนี้จำเป็นสำหรับโปรไฟล์ของคุณและไม่สามารถถอนการติดตั้งได้"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"ผู้ดูแลระบบอุปกรณ์กำหนดให้ใช้แอปนี้ และไม่สามารถถอนการติดตั้งได้"</string>
     <string name="manage_device_administrators" msgid="891392489300312370">"จัดการโปรแกรมควบคุมอุปกรณ์"</string>
+    <string name="manage_users" msgid="3125018886835668847">"จัดการผู้ใช้"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"ไม่สามารถถอดการติดตั้ง <xliff:g id="APP_NAME">%1$s</xliff:g>"</string>
-    <string name="Parse_error_dlg_title" msgid="6079580916889596257">"ข้อผิดพลาดในการแยกวิเคราะห์"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"พบปัญหาในการแยกวิเคราะห์แพ็กเกจ"</string>
     <string name="newPerms" msgid="6039428254474104210">"ใหม่"</string>
     <string name="allPerms" msgid="1024385515840703981">"ทั้งหมด"</string>
@@ -85,12 +84,13 @@
     <string name="no_new_perms" msgid="6657813692169565975">"การอัปเดตนี้ไม่จำเป็นต้องมีการอนุญาตใหม่"</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"คุณต้องการให้อนุญาตรายการต่อไปนี้หรือไม่ ระบบจะให้สิทธิ์การเข้าถึงแก่"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"ปฏิเสธ"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"ปฏิเสธอยู่ต่อไป"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> จาก <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> รายการ"</string>
-    <string name="permission_warning_template" msgid="5209102765005869454">"อนุญาตให้ <xliff:g id="APP_NAME">%1$s</xliff:g> <xliff:g id="ACTION">%2$s</xliff:g> ไหม"</string>
+    <string name="permission_warning_template" msgid="7332275268559121742">"อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>ไหม"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"อนุญาต"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"แอป"</string>
     <string name="app_permissions" msgid="3146758905824597178">"สิทธิ์ของแอป"</string>
-    <string name="never_ask_again" msgid="3798895821072102967">"ไม่ต้องถามอีก"</string>
+    <string name="never_ask_again" msgid="1089938738199748687">"ไม่ต้องถามอีก"</string>
     <string name="no_permissions" msgid="3210542466245591574">"ไม่มีสิทธิ์"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"สิทธิ์เพิ่มเติม"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
@@ -116,7 +116,7 @@
     <string name="screen_overlay_message" msgid="2141944461571677331">"ในการเปลี่ยนแปลงการตั้งค่าสิทธิ์นี้ ก่อนอื่น คุณต้องปิดการวางซ้อนหน้าจอที่การตั้งค่า &gt; แอป"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"เปิดการตั้งค่า"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1618381127237173068">"ไม่สามารถติดตั้ง/ถอนการติดตั้งบน Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"ไม่สามารถติดตั้ง/ถอนการติดตั้งบน Wear"</string>
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"อัปเดต <xliff:g id="APP_NAME_0">%1$s</xliff:g> แล้ว อนุญาตให้ <xliff:g id="APP_NAME_1">%1$s</xliff:g> เข้าถึงข้อมูลต่อไปนี้ใช่ไหม"</string>
     <string name="permission_review_title_template_install" msgid="6535540493936469336">"โปรดเลือกข้อมูลที่อนุญาตให้ <xliff:g id="APP_NAME">%1$s</xliff:g> เข้าถึง"</string>
     <string name="permission_review_title_template_update" msgid="2548815248828051885">"อัปเดต <xliff:g id="APP_NAME">%1$s</xliff:g> แล้ว โปรดเลือกข้อมูลที่อนุญาตให้แอปนี้เข้าถึง"</string>
@@ -124,4 +124,6 @@
     <string name="review_button_continue" msgid="4809162078179371370">"ต่อไป"</string>
     <string name="new_permissions_category" msgid="3213523410139204183">"สิทธิ์ใหม่"</string>
     <string name="current_permissions_category" msgid="998210994450606094">"สิทธิ์ปัจจุบัน"</string>
+    <string name="message_staging" msgid="6151794817691100003">"กำลังปรับสภาพแวดล้อมของแอป…"</string>
+    <string name="app_name_unknown" msgid="8931522764510159105">"ไม่ทราบ"</string>
 </resources>
