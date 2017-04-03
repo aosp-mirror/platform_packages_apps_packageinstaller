@@ -83,7 +83,7 @@
                 android:text="@string/grant_dialog_button_deny" >
             </Button>
 
-            <com.android.packageinstaller.permission.ui.SecureButtonView
+            <Button
                 android:id="@+id/permission_allow_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
