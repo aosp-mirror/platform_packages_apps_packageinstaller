@@ -172,13 +172,6 @@
                 android:excludeFromRecents="true"
                 android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar" />
 
-        <receiver android:name=".permission.model.PermissionStatusReceiver"
-            android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS">
-            <intent-filter android:priority="1">
-                <action android:name="android.intent.action.GET_PERMISSIONS_COUNT" />
-            </intent-filter>
-        </receiver>
-
         <!-- Wearable Components -->
         <service android:name=".wear.WearPackageInstallerService"
                  android:permission="com.google.android.permission.INSTALL_WEARABLE_PACKAGES"
