@@ -30,6 +30,7 @@ import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v14.preference.SwitchPreference;
@@ -159,6 +160,12 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
                         && (perm.protectionLevel & PermissionInfo.PROTECTION_FLAG_EPHEMERAL) == 0) {
                     continue;
                 }
+                if (appInfo.targetSdkVersion < Build.VERSION_CODES.M
+                        && (perm.protectionLevel & PermissionInfo.PROTECTION_FLAG_RUNTIME_ONLY)
+                        != 0) {
+                    continue;
+                }
+
 
                 PermissionGroupInfo group = getGroup(perm.group, pm);
                 if ((perm.protectionLevel & PermissionInfo.PROTECTION_MASK_BASE)
