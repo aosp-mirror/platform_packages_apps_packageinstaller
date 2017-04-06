@@ -29,6 +29,7 @@ import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
@@ -152,6 +153,11 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
                     if (appInfo.isInstantApp()
                             && (perm.protectionLevel & PermissionInfo.PROTECTION_FLAG_EPHEMERAL)
                                 == 0) {
+                        continue;
+                    }
+                    if (appInfo.targetSdkVersion < Build.VERSION_CODES.M
+                            && (perm.protectionLevel & PermissionInfo.PROTECTION_FLAG_RUNTIME_ONLY)
+                                != 0) {
                         continue;
                     }
 
