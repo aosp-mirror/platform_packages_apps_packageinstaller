@@ -59,6 +59,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
     private final boolean mAppSupportsRuntimePermissions;
     private final boolean mIsEphemeralApp;
     private boolean mContainsEphemeralPermission;
+    private boolean mContainsPreRuntimePermission;
 
     public static AppPermissionGroup create(Context context, PackageInfo packageInfo,
             String permissionName) {
@@ -216,7 +217,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
     }
 
     public boolean isGrantingAllowed() {
-        return !mIsEphemeralApp || mContainsEphemeralPermission;
+        return (!mIsEphemeralApp || mContainsEphemeralPermission)
+                && (mAppSupportsRuntimePermissions || mContainsPreRuntimePermission);
     }
 
     public boolean isReviewRequired() {
@@ -337,7 +339,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                 continue;
             }
 
-            if (!permission.isGrantingAllowed(mIsEphemeralApp)) {
+            if (!permission.isGrantingAllowed(mIsEphemeralApp, mAppSupportsRuntimePermissions)) {
                 // Skip unallowed permissions.
                 continue;
             }
@@ -654,6 +656,9 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         mPermissions.put(permission.getName(), permission);
         if (permission.isEphemeral()) {
             mContainsEphemeralPermission = true;
+        }
+        if (!permission.isRuntimeOnly()) {
+            mContainsPreRuntimePermission = true;
         }
     }
 }
