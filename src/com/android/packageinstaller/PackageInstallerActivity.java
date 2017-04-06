@@ -758,7 +758,7 @@ public class PackageInstallerActivity extends Activity implements OnClickListene
                                 (dialog, which) -> {
                                     Intent settingsIntent = new Intent();
                                     settingsIntent.setAction(
-                                            Settings.ACTION_MANAGE_EXTERNAL_SOURCES);
+                                            Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES);
                                     final Uri packageUri = Uri.parse("package:" + argument);
                                     settingsIntent.setData(packageUri);
                                     try {
@@ -766,7 +766,7 @@ public class PackageInstallerActivity extends Activity implements OnClickListene
                                                 REQUEST_TRUST_EXTERNAL_SOURCE);
                                     } catch (ActivityNotFoundException exc) {
                                         Log.e(TAG, "Settings activity not found for action: "
-                                                + Settings.ACTION_MANAGE_EXTERNAL_SOURCES);
+                                                + Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES);
                                     }
                                 })
                         .setNegativeButton(R.string.cancel,
