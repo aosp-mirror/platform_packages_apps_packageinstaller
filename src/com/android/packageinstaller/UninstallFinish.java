@@ -17,6 +17,7 @@
 package com.android.packageinstaller;
 
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.admin.IDevicePolicyManager;
@@ -46,6 +47,8 @@ import java.util.List;
 public class UninstallFinish extends BroadcastReceiver {
     private static final String LOG_TAG = UninstallFinish.class.getSimpleName();
 
+    private static final String UNINSTALL_FAILURE_CHANNEL = "uninstall failure";
+
     static final String EXTRA_UNINSTALL_ID = "com.android.packageinstaller.extra.UNINSTALL_ID";
     static final String EXTRA_APP_LABEL = "com.android.packageinstaller.extra.APP_LABEL";
 
@@ -68,7 +71,14 @@ public class UninstallFinish extends BroadcastReceiver {
                 context.getSystemService(NotificationManager.class);
         UserManager userManager = context.getSystemService(UserManager.class);
 
-        Notification.Builder uninstallFailedNotification = new Notification.Builder(context);
+        NotificationChannel uninstallFailureChannel = new NotificationChannel(
+                UNINSTALL_FAILURE_CHANNEL,
+                context.getString(R.string.uninstall_failure_notification_channel),
+                NotificationManager.IMPORTANCE_DEFAULT);
+        notificationManager.createNotificationChannel(uninstallFailureChannel);
+
+        Notification.Builder uninstallFailedNotification = new Notification.Builder(context,
+                UNINSTALL_FAILURE_CHANNEL);
 
         switch (returnCode) {
             case PackageInstaller.STATUS_SUCCESS:

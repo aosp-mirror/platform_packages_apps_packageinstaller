@@ -22,6 +22,7 @@ import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.ComponentName;
@@ -61,6 +62,8 @@ import java.util.List;
  */
 public class UninstallerActivity extends Activity {
     private static final String TAG = "UninstallerActivity";
+
+    private static final String UNINSTALLING_CHANNEL = "uninstalling";
 
     public static class DialogInfo {
         public ApplicationInfo appInfo;
@@ -279,14 +282,19 @@ public class UninstallerActivity extends Activity {
             PendingIntent pendingIntent = PendingIntent.getBroadcast(this, uninstallId,
                     broadcastIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-            Notification uninstallingNotification = (new Notification.Builder(this))
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            NotificationChannel uninstallingChannel = new NotificationChannel(UNINSTALLING_CHANNEL,
+                    getString(R.string.uninstalling_notification_channel),
+                    NotificationManager.IMPORTANCE_MIN);
+            notificationManager.createNotificationChannel(uninstallingChannel);
+
+            Notification uninstallingNotification =
+                    (new Notification.Builder(this, UNINSTALLING_CHANNEL))
                     .setSmallIcon(R.drawable.ic_remove).setProgress(0, 1, true)
                     .setContentTitle(getString(R.string.uninstalling_app, label)).setOngoing(true)
-                    .setPriority(Notification.PRIORITY_MIN)
                     .build();
 
-            getSystemService(NotificationManager.class).notify(uninstallId,
-                    uninstallingNotification);
+            notificationManager.notify(uninstallId, uninstallingNotification);
 
             try {
                 ActivityThread.getPackageManager().getPackageInstaller().uninstall(
@@ -295,7 +303,7 @@ public class UninstallerActivity extends Activity {
                         getPackageName(), mDialogInfo.allUsers
                                 ? PackageManager.DELETE_ALL_USERS : 0,
                         pendingIntent.getIntentSender(), mDialogInfo.user.getIdentifier());
-            } catch (RemoteException e) {
+            } catch (Exception e) {
                 Log.e(TAG, "Cannot start uninstall", e);
                 showGenericError();
             }

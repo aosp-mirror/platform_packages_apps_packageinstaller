@@ -111,6 +111,12 @@
     <string name="uninstall_application_text_user">Do you want to uninstall this app for the user <xliff:g id="username">%1$s</xliff:g>?</string>
     <string name="uninstall_update_text">Replace this app with the factory version? All data will be removed.</string>
     <string name="uninstall_update_text_multiuser">Replace this app with the factory version? All data will be removed. This affects all users of this device, including those with work profiles.</string>
+
+    <!-- Label for the notification channel containing notifications for current uninstall operations [CHAR LIMIT=40] -->
+    <string name="uninstalling_notification_channel">Running uninstalls</string>
+    <!-- Label for the notification channel containing notifications for failed uninstall operations [CHAR LIMIT=40] -->
+    <string name="uninstall_failure_notification_channel">Failed uninstalls</string>
+
     <string name="uninstalling">Uninstalling\u2026</string>
     <string name="uninstalling_app">Uninstalling <xliff:g id="package_label">%1$s</xliff:g>\u2026</string>
     <string name="uninstall_done">Uninstall finished.</string>
