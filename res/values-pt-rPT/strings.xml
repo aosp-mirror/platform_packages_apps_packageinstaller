@@ -42,10 +42,8 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Não foi possível instalar o <xliff:g id="APP_NAME">%1$s</xliff:g> na sua TV."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Não foi possível instalar <xliff:g id="APP_NAME">%1$s</xliff:g> no telemóvel."</string>
     <string name="launch" msgid="4826921505917605463">"Abrir"</string>
-    <!-- no translation found for unknown_apps_admin_dlg_text (7488386758312008790) -->
-    <skip />
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (5785226253054083336) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"O administrador não permite a instalação de aplicações obtidas de fontes desconhecidas"</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Este utilizador não pode instalar aplicações desconhecidas"</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Definições"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Gerir aplicações"</string>
@@ -72,18 +70,15 @@
     <string name="uninstalling" msgid="5556217435895938250">"A desinstalar..."</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"A desinstalar a aplicação <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Desinstalação concluída."</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"A aplicação <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> foi desinstalada."</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"A aplicação <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> foi desinstalada"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Desinstalação sem êxito."</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"Falha ao desinstalar a aplicação <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>."</string>
-    <!-- no translation found for uninstall_failed_device_policy_manager (2727361164694743362) -->
-    <skip />
-    <!-- no translation found for uninstall_failed_device_policy_manager_of_user (2161462242935805756) -->
-    <skip />
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"Não é possível desinstalar a aplicação de administração de dispositivos ativa"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"Não é possível desinstalar a aplicação de administração de dispositivos ativa para <xliff:g id="USERNAME">%1$s</xliff:g>"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Esta aplicação é necessária para alguns utilizadores ou perfis e foi desinstalada para outros"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"O perfil necessita desta aplicação e não é possível desinstalá-la."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Esta aplic. é exigida pelo administrador do disp. e não pode ser desinstalada."</string>
-    <!-- no translation found for manage_device_administrators (118178632652346535) -->
-    <skip />
+    <string name="manage_device_administrators" msgid="118178632652346535">"Gerir aplicações de administração de dispositivos"</string>
     <string name="manage_users" msgid="3125018886835668847">"Gerir utilizadores"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Não foi possível desinstalar <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Ocorreu um problema ao analisar o pacote."</string>

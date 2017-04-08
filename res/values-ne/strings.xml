@@ -42,10 +42,8 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"तपाईँको TVमा<xliff:g id="APP_NAME">%1$s</xliff:g>स्थापना गर्न सकिएन।"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"तपाईँको फोनमा <xliff:g id="APP_NAME">%1$s</xliff:g> जडान हुन सकेन।"</string>
     <string name="launch" msgid="4826921505917605463">"खोल्नुहोस्"</string>
-    <!-- no translation found for unknown_apps_admin_dlg_text (7488386758312008790) -->
-    <skip />
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (5785226253054083336) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"तपाईंका प्रशासकले अज्ञात स्रोतहरूबाट प्राप्त अनुप्रयोगहरूलाई स्थापना गर्ने अनुमति दिनुहुन्न"</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"यस प्रयोगकर्ताले अज्ञात अनुप्रयोगहरू स्थापना गर्न सक्नुहुन्न"</string>
     <string name="ok" msgid="3468756155452870475">"ठीक छ"</string>
     <string name="settings" msgid="6743583734099755409">"सेटिङहरू"</string>
     <string name="manage_applications" msgid="4033876279091996596">"अनुप्रयोगहरूको व्यवस्थापन गर्नुहोस्"</string>
@@ -72,18 +70,15 @@
     <string name="uninstalling" msgid="5556217435895938250">"अस्थापना गर्दै..."</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> को स्थापना रद्द गर्दै…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"स्थापना रद्द गर्न सकियो।"</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> को स्थापना रद्द गरियो।"</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> को स्थापना रद्द गरियो"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"अस्थापना गर्न असफल"</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> को स्थापना रद्द गर्ने कार्य असफल भयो।"</string>
-    <!-- no translation found for uninstall_failed_device_policy_manager (2727361164694743362) -->
-    <skip />
-    <!-- no translation found for uninstall_failed_device_policy_manager_of_user (2161462242935805756) -->
-    <skip />
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"यन्त्रको सक्रिय प्रशासकीय अनुप्रयोगको स्थापना रद्द गर्न मिल्दैन"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"<xliff:g id="USERNAME">%1$s</xliff:g> को यन्त्रको सक्रिय प्रशासकीय अनुप्रयोगको स्थापना रद्द गर्न मिल्दैन"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"अन्य प्रयोगकर्ताहरूका लागि यस अनु्प्रयोगको स्थापना रद्द गरे पनि केही प्रयोगकर्ता वा प्रोफाइलहरूलाई यसको आवश्यकता पर्दछ"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"यो अनुप्रयोग तपाईँको प्रोफाइलका लागि आवश्यक छ र यसको स्थापनालाई रद्द गर्न सकिँदैन।"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"यो अनुप्रयोग तपाईँको उपकरण प्रशासकलाई आवश्यक छ र स्थापना रद्द गर्न सकिँदैन।"</string>
-    <!-- no translation found for manage_device_administrators (118178632652346535) -->
-    <skip />
+    <string name="manage_device_administrators" msgid="118178632652346535">"यन्त्रका प्रशासकीय अनुप्रयोगहरूको व्यवस्थापन गर्नुहोस्"</string>
     <string name="manage_users" msgid="3125018886835668847">"प्रयोगकर्ताहरूलाई व्यवस्थापन गर्नुहोस्"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> स्थापना रद्द गर्न सकिँदैन।"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"प्याकेजलाई पार्सिङ गर्दा एउटा समस्या आयो।"</string>

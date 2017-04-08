@@ -42,10 +42,8 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> ilovasini televizoringizga o‘rnatib bo‘lmadi."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> telefoningizga o‘rnatilmadi."</string>
     <string name="launch" msgid="4826921505917605463">"Ochish"</string>
-    <!-- no translation found for unknown_apps_admin_dlg_text (7488386758312008790) -->
-    <skip />
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (5785226253054083336) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"Administratoringiz begona manbalardan olingan ilovalarni o‘rnatishga ruxsat bermagan"</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Notanish ilovalarni bu foydalanuvchi tomonidan o‘rnatib bo‘lmaydi"</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Sozlamalar"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Ilovalarni boshqarish"</string>
@@ -72,18 +70,15 @@
     <string name="uninstalling" msgid="5556217435895938250">"O‘chirilmoqda…"</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> o‘chirilmoqda…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"O‘chirib tashlandi."</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> o‘chirildi."</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> o‘chirib tashlandi"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"O‘chirish muvaffaqiyatsizlikka uchradi."</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ilovasini o‘chirib bo‘lmadi."</string>
-    <!-- no translation found for uninstall_failed_device_policy_manager (2727361164694743362) -->
-    <skip />
-    <!-- no translation found for uninstall_failed_device_policy_manager_of_user (2161462242935805756) -->
-    <skip />
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"Faol qurilma administratori ilovasini o‘chirib bo‘lmaydi"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"<xliff:g id="USERNAME">%1$s</xliff:g> profilida faol qurilma administratori ilovasini o‘chirib bo‘lmaydi"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Bu ilova ba’zi foydalanuvchi yoki profillar uchun zarur, boshqalar uchun esa o‘chirib tashlangan"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"Bu ilova profilingiz uchun kerak va uni o‘chirib bo‘lmaydi."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Ushbu ilova qurilmangiz ma\'muri tomonidan ishlatiladi, shuning uchun uni olib tashlab bo\'lmaydi."</string>
-    <!-- no translation found for manage_device_administrators (118178632652346535) -->
-    <skip />
+    <string name="manage_device_administrators" msgid="118178632652346535">"Qurilma administratori ilovalarini boshqarish"</string>
     <string name="manage_users" msgid="3125018886835668847">"Foydalanuvchilarni boshqarish"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> o‘chirilmadi."</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Paketni tahlil qilishda muammo yuz berdi."</string>

@@ -42,10 +42,8 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Nije bilo moguće instalirati aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> na vaš televizor."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> nije moguće instalirati na vaš telefon."</string>
     <string name="launch" msgid="4826921505917605463">"Otvori"</string>
-    <!-- no translation found for unknown_apps_admin_dlg_text (7488386758312008790) -->
-    <skip />
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (5785226253054083336) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"Vaš administrator ne dopušta instaliranje aplikacija iz nepoznatih izvora"</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Ovaj korisnik ne može instalirati nepoznate aplikacije"</string>
     <string name="ok" msgid="3468756155452870475">"U redu"</string>
     <string name="settings" msgid="6743583734099755409">"Postavke"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Upravljanje aplikacijama"</string>
@@ -72,18 +70,15 @@
     <string name="uninstalling" msgid="5556217435895938250">"Deinstaliranje..."</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"Deinstaliranje aplikacije <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Deinstalacija je završena."</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"Aplikacija <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> deinstalirana."</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"Aplikacija <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> deinstalirana"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Deinstalacija nije uspjela."</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"Deinstaliranje aplikacije <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> nije uspjelo."</string>
-    <!-- no translation found for uninstall_failed_device_policy_manager (2727361164694743362) -->
-    <skip />
-    <!-- no translation found for uninstall_failed_device_policy_manager_of_user (2161462242935805756) -->
-    <skip />
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"Deinstaliranje aktivne aplikacije administratora uređaja nije uspjelo"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"Nije uspjelo deinstaliranje aktivne aplikacije administratora uređaja za <xliff:g id="USERNAME">%1$s</xliff:g>"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Ta je aplikacija obavezna za neke korisnike ili profile, deinstalirana je za ostale"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"Ta je aplikacija potrebna za vaš profil i ne može se deinstalirati."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Ta je aplikacija neophodna administratoru uređaja i nije ju moguće deinstalirati."</string>
-    <!-- no translation found for manage_device_administrators (118178632652346535) -->
-    <skip />
+    <string name="manage_device_administrators" msgid="118178632652346535">"Upravljaj aplikacijama administratora uređaja"</string>
     <string name="manage_users" msgid="3125018886835668847">"Upravljaj korisnicima"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> nije moguće instalirati."</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Došlo je do problema pri analiziranju paketa."</string>

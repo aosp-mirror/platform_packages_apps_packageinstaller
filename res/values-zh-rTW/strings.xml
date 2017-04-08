@@ -42,10 +42,8 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"無法在您的電視上安裝「<xliff:g id="APP_NAME">%1$s</xliff:g>」。"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"無法在您的手機上安裝「<xliff:g id="APP_NAME">%1$s</xliff:g>」。"</string>
     <string name="launch" msgid="4826921505917605463">"開啟"</string>
-    <!-- no translation found for unknown_apps_admin_dlg_text (7488386758312008790) -->
-    <skip />
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (5785226253054083336) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"你的管理員不允許安裝來源不明的應用程式"</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"這位使用者無法安裝不明的應用程式"</string>
     <string name="ok" msgid="3468756155452870475">"確定"</string>
     <string name="settings" msgid="6743583734099755409">"設定"</string>
     <string name="manage_applications" msgid="4033876279091996596">"管理應用程式"</string>
@@ -72,18 +70,15 @@
     <string name="uninstalling" msgid="5556217435895938250">"解除安裝中…"</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"正在解除安裝「<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>」…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"解除安裝完成。"</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"已解除安裝「<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>」。"</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"已解除安裝「<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>」"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"解除安裝失敗。"</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"無法解除安裝「<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>」。"</string>
-    <!-- no translation found for uninstall_failed_device_policy_manager (2727361164694743362) -->
-    <skip />
-    <!-- no translation found for uninstall_failed_device_policy_manager_of_user (2161462242935805756) -->
-    <skip />
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"無法解除安裝使用中的裝置管理員應用程式"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"無法為<xliff:g id="USERNAME">%1$s</xliff:g>解除安裝使用中的裝置管理員應用程式"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"部分使用者或設定檔需要使用這個應用程式；已為其他使用者解除安裝"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"您的設定檔需要使用這個應用程式，因此無法解除安裝。"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"這是您的裝置管理員要求安裝的應用程式，因此無法解除安裝。"</string>
-    <!-- no translation found for manage_device_administrators (118178632652346535) -->
-    <skip />
+    <string name="manage_device_administrators" msgid="118178632652346535">"管理裝置管理員應用程式"</string>
     <string name="manage_users" msgid="3125018886835668847">"管理使用者"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"無法解除安裝「<xliff:g id="APP_NAME">%1$s</xliff:g>」。"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"剖析套件時發生問題。"</string>

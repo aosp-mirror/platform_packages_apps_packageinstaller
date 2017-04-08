@@ -42,10 +42,8 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g>을(를) TV에 설치할 수 없습니다."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"휴대전화에 <xliff:g id="APP_NAME">%1$s</xliff:g> 앱을 설치할 수 없습니다."</string>
     <string name="launch" msgid="4826921505917605463">"열기"</string>
-    <!-- no translation found for unknown_apps_admin_dlg_text (7488386758312008790) -->
-    <skip />
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (5785226253054083336) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"관리자가 알 수 없는 출처의 앱 설치를 허용하지 않습니다."</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"이 사용자는 알 수 없는 앱을 설치할 수 없습니다."</string>
     <string name="ok" msgid="3468756155452870475">"확인"</string>
     <string name="settings" msgid="6743583734099755409">"설정"</string>
     <string name="manage_applications" msgid="4033876279091996596">"앱 관리"</string>
@@ -72,18 +70,15 @@
     <string name="uninstalling" msgid="5556217435895938250">"제거 중..."</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> 제거 중…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"제거를 완료했습니다."</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>을(를) 제거했습니다."</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>을(를) 제거했습니다."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"제거하지 못했습니다."</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>을(를) 제거하지 못했습니다."</string>
-    <!-- no translation found for uninstall_failed_device_policy_manager (2727361164694743362) -->
-    <skip />
-    <!-- no translation found for uninstall_failed_device_policy_manager_of_user (2161462242935805756) -->
-    <skip />
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"활성 상태의 기기 관리자 앱을 제거할 수 없습니다."</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"<xliff:g id="USERNAME">%1$s</xliff:g>의 활성 상태의 기기 관리자 앱을 제거할 수 없습니다."</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"이 앱은 일부 사용자 또는 프로필에 필요하며 다른 사용자에 대해서는 제거되었습니다."</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"이 앱은 프로필에 필요하므로 삭제할 수 없습니다."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"이 앱은 기기 관리자에게 필요하므로 제거할 수 없습니다."</string>
-    <!-- no translation found for manage_device_administrators (118178632652346535) -->
-    <skip />
+    <string name="manage_device_administrators" msgid="118178632652346535">"기기 관리자 앱 관리"</string>
     <string name="manage_users" msgid="3125018886835668847">"사용자 관리"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> 앱을 제거할 수 없습니다."</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"패키지를 파싱하는 중 문제가 발생했습니다."</string>
