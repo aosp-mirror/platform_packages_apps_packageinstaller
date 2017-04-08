@@ -42,10 +42,8 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> ਨੂੰ ਤੁਹਾਡੇ TV ਤੇ ਇੰਸਟੌਲ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> ਨੂੰ ਤੁਹਾਡੇ ਫੋਨ ਤੇ ਇੰਸਟੌਲ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।"</string>
     <string name="launch" msgid="4826921505917605463">"ਖੋਲ੍ਹੋ"</string>
-    <!-- no translation found for unknown_apps_admin_dlg_text (7488386758312008790) -->
-    <skip />
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (5785226253054083336) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"ਤੁਹਾਡਾ ਪ੍ਰਸ਼ਾਸਕ ਅਗਿਆਤ ਸਰੋਤਾਂ ਤੋਂ ਪ੍ਰਾਪਤ ਐਪਾਂ ਦੀ ਸਥਾਪਨਾ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਨਹੀਂ ਦਿੰਦਾ ਹੈ"</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"ਇਸ ਵਰਤੋਂਕਾਰ ਵੱਲੋਂ ਅਗਿਆਤ ਐਪਾਂ ਨੂੰ ਨਹੀਂ ਸਥਾਪਤ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ"</string>
     <string name="ok" msgid="3468756155452870475">"ਠੀਕ"</string>
     <string name="settings" msgid="6743583734099755409">"ਸੈਟਿੰਗਾਂ"</string>
     <string name="manage_applications" msgid="4033876279091996596">"ਐਪਸ ਵਿਵਸਥਿਤ ਕਰੋ"</string>
@@ -72,18 +70,15 @@
     <string name="uninstalling" msgid="5556217435895938250">"ਅਣਇੰਸਟੌਲ ਕਰ  ਰਿਹਾ ਹੈ…"</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ਨੂੰ ਅਣਸਥਾਪਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"ਅਣਇੰਸਟੌਲ ਪੂਰਾ ਹੋਇਆ।"</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ਅਣਸਥਾਪਤ ਕੀਤਾ।"</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ਨੂੰ ਅਣਸਥਾਪਤ ਕੀਤਾ"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"ਅਣਇੰਸਟੌਲ ਅਸਫਲ।"</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ਨੂੰ ਅਣਸਥਾਪਤ ਕਰਨਾ ਅਸਫਲ ਰਿਹਾ।"</string>
-    <!-- no translation found for uninstall_failed_device_policy_manager (2727361164694743362) -->
-    <skip />
-    <!-- no translation found for uninstall_failed_device_policy_manager_of_user (2161462242935805756) -->
-    <skip />
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"ਕਿਰਿਆਸ਼ੀਲ ਡੀਵਾਈਸ ਪ੍ਰਸ਼ਾਸਕ ਐਪ ਨੂੰ ਅਣਸਥਾਪਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"<xliff:g id="USERNAME">%1$s</xliff:g> ਲਈ ਕਿਰਿਆਸ਼ੀਲ ਡੀਵਾਈਸ ਪ੍ਰਸ਼ਾਸਕ ਐਪ ਨੂੰ ਅਣਸਥਾਪਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"ਇਹ ਐਪ ਕੁਝ ਵਰਤੋਂਕਾਰਾਂ ਜਾਂ ਪ੍ਰੋਫਾਈਲਾਂ ਲਈ ਲੋੜੀਂਦੀ ਹੈ ਅਤੇ ਹੋਰਾਂ ਲਈ ਅਣਸਥਾਪਤ ਕੀਤੀ ਗਈ ਸੀ"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"ਇਹ ਐਪ ਤੁਹਾਡੀ ਪ੍ਰੋਫਾਈਲ ਲਈ ਲੋੜੀਂਦੀ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਅਣਸਥਾਪਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"ਇਹ ਐਪ ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਪ੍ਰਬੰਧਕ ਵੱਲੋਂ ਲੁੜੀਂਦਾ ਹੈ ਅਤੇ ਇਸਨੂੰ ਅਣਇੰਸਟੌਲ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।"</string>
-    <!-- no translation found for manage_device_administrators (118178632652346535) -->
-    <skip />
+    <string name="manage_device_administrators" msgid="118178632652346535">"ਡੀਵਾਈਸ ਪ੍ਰਸ਼ਾਸਕ ਐਪਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ"</string>
     <string name="manage_users" msgid="3125018886835668847">"ਵਰਤੋਂਕਾਰਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> ਅਣਇੰਸਟੌਲ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"ਪੈਕੇਜ ਨੂੰ ਪਾਰਸ ਕਰਨ ਵਿੱਚ ਇੱਕ ਸਮੱਸਿਆ ਸੀ।"</string>

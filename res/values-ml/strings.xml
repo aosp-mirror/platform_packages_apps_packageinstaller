@@ -42,10 +42,8 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g>, നിങ്ങളുടെ ടിവിയിൽ ഇൻസ്റ്റാളുചെയ്യാനായില്ല."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"നിങ്ങളുടെ ഫോണിൽ <xliff:g id="APP_NAME">%1$s</xliff:g> ഇൻസ്റ്റാളുചെയ്യാനായില്ല."</string>
     <string name="launch" msgid="4826921505917605463">"തുറക്കുക"</string>
-    <!-- no translation found for unknown_apps_admin_dlg_text (7488386758312008790) -->
-    <skip />
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (5785226253054083336) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"അജ്ഞാത ഉറവിടങ്ങളിൽ നിന്ന് സ്വന്തമാക്കിയ ആപ്പുകൾ ഇൻസ്റ്റാൾ ചെയ്യാൻ നിങ്ങളുടെ അഡ്‌മിനിസ്‌ട്രേറ്റർ അനുവദിക്കുന്നില്ല"</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"ഈ ഉപയോക്താവിന്, തിരിച്ചറിയാനാകാത്ത ആപ്പുകൾ ഇൻസ്റ്റാൾ ചെയ്യാൻ കഴിയില്ല"</string>
     <string name="ok" msgid="3468756155452870475">"ശരി"</string>
     <string name="settings" msgid="6743583734099755409">"ക്രമീകരണം"</string>
     <string name="manage_applications" msgid="4033876279091996596">"അപ്ലിക്കേഷനുകൾ നിയന്ത്രിക്കുക"</string>
@@ -72,18 +70,15 @@
     <string name="uninstalling" msgid="5556217435895938250">"അൺഇൻസ്‌‌റ്റാൾ ചെയ്യുന്നു..."</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> അൺഇൻസ്റ്റാൾ ചെയ്യുന്നു…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"അൺഇൻസ്റ്റാളുചെയ്യൽ പൂർത്തിയായി."</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> അൺഇൻസ്റ്റാൾ ചെയ്തു."</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> അൺഇൻസ്‌റ്റാൾ ചെയ്‌തു"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"അൺഇൻസ്റ്റാളുചെയ്തു."</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> അൺഇൻസ്റ്റാൾ ചെയ്യൽ പരാജയം."</string>
-    <!-- no translation found for uninstall_failed_device_policy_manager (2727361164694743362) -->
-    <skip />
-    <!-- no translation found for uninstall_failed_device_policy_manager_of_user (2161462242935805756) -->
-    <skip />
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"സജീവ ഉപകരണ അഡ്‌മിൻ ആപ്പ് അൺഇൻസ്റ്റാൾ ചെയ്യാൻ കഴിയില്ല"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"<xliff:g id="USERNAME">%1$s</xliff:g> എന്ന ഉപയോക്താവിന്റെ സജീവ ഉപകരണ അഡ്‌മിൻ ആപ്പ് അൺഇൻസ്റ്റാൾ ചെയ്യാൻ കഴിയില്ല"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"ചില ഉപയോക്താക്കൾക്കോ പ്രൊഫൈലുകൾക്കോ ഈ ആപ്പ് ആവശ്യമാണ്, മറ്റുള്ളവർക്ക് ഈ ആപ്പ് അൺഇൻസ്റ്റാൾ ചെയ്തിരിക്കുന്നു"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈലിന് ഈ ആപ്പ് ആവശ്യമുള്ളതിനാൽ അത് അൺ‌ഇൻസ്റ്റാൾ ചെയ്യാനാവില്ല."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"നിങ്ങളുടെ ഉപകരണ അഡ്മിനിസ്ട്രേറ്ററിന് ഈ അപ്ലിക്കേഷൻ ആവശ്യമുള്ളതിനാൽ ഇത് അൺഇൻസ്റ്റാൾ ചെയ്യാനാവില്ല."</string>
-    <!-- no translation found for manage_device_administrators (118178632652346535) -->
-    <skip />
+    <string name="manage_device_administrators" msgid="118178632652346535">"ഉപകരണ അഡ്‌മിൻ ആപ്പുകളെ മാനേജുചെയ്യുക"</string>
     <string name="manage_users" msgid="3125018886835668847">"ഉപയോക്താക്കളെ മാനേജുചെയ്യുക"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> അൺഇൻസ്റ്റാളുചെയ്യാനായില്ല."</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"പാക്കേജ് പാഴ്‌സുചെയ്യുന്നതിൽ ഒരു പ്രശ്‌നമുണ്ടായിരുന്നു."</string>

@@ -42,10 +42,8 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Rakendust <xliff:g id="APP_NAME">%1$s</xliff:g> ei saa teie telerisse installida."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Rakendust <xliff:g id="APP_NAME">%1$s</xliff:g> ei saa teie telefoni installida."</string>
     <string name="launch" msgid="4826921505917605463">"Ava"</string>
-    <!-- no translation found for unknown_apps_admin_dlg_text (7488386758312008790) -->
-    <skip />
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (5785226253054083336) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"Administraator ei luba installida tundmatutest allikatest pärinevaid rakendusi"</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"See kasutaja ei saa installida tundmatuid rakendusi"</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Seaded"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Rakenduste haldamine"</string>
@@ -72,18 +70,15 @@
     <string name="uninstalling" msgid="5556217435895938250">"Desinstallimine ..."</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"Üksuse <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> desinstallimine …"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Desinstallimine on lõpetatud."</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"Üksus <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> on desinstallitud."</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"Üksus <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> on desinstallitud"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Desinstallimine ebaõnnestus."</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"Üksuse <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> desinstallimine ebaõnnestus."</string>
-    <!-- no translation found for uninstall_failed_device_policy_manager (2727361164694743362) -->
-    <skip />
-    <!-- no translation found for uninstall_failed_device_policy_manager_of_user (2161462242935805756) -->
-    <skip />
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"Aktiivset seadme administraatori rakendust ei saa desinstallida"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"Kasutaja <xliff:g id="USERNAME">%1$s</xliff:g> puhul ei saa aktiivset seadme administraatori rakendust desinstallida"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Rakendus on mõne kasutaja ja profiili puhul vajalik, teiste puhul see desinstalliti"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"See rakendus on vajalik teie profiili jaoks ja seda ei saa desinstallida."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Seadme administraator vajab seda rakendust ja seda ei saa desinstallida."</string>
-    <!-- no translation found for manage_device_administrators (118178632652346535) -->
-    <skip />
+    <string name="manage_device_administrators" msgid="118178632652346535">"Halda seadme administraatori rakendusi"</string>
     <string name="manage_users" msgid="3125018886835668847">"Halda kasutajaid"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Rakendust <xliff:g id="APP_NAME">%1$s</xliff:g> ei saanud desinstallida."</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Probleem paketi sõelumisel."</string>

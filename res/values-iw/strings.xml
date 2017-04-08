@@ -42,10 +42,8 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"לא ניתן להתקין את <xliff:g id="APP_NAME">%1$s</xliff:g> בטלוויזיה שלך."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"לא ניתן להתקין את <xliff:g id="APP_NAME">%1$s</xliff:g> בטלפון שלך."</string>
     <string name="launch" msgid="4826921505917605463">"פתח"</string>
-    <!-- no translation found for unknown_apps_admin_dlg_text (7488386758312008790) -->
-    <skip />
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (5785226253054083336) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"מנהל המערכת שלך לא מתיר התקנה של אפליקציות ממקורות לא ידועים"</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"למשתמש זה אין הרשאה להתקין אפליקציות שאינן מוכרות"</string>
     <string name="ok" msgid="3468756155452870475">"אישור"</string>
     <string name="settings" msgid="6743583734099755409">"הגדרות"</string>
     <string name="manage_applications" msgid="4033876279091996596">"נהל אפליקציות"</string>
@@ -72,18 +70,15 @@
     <string name="uninstalling" msgid="5556217435895938250">"מסיר התקנה..."</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"מסיר את ההתקנה של <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"הסרת ההתקנה הסתיימה."</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"הוסרה ההתקנה של <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>."</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"ההתקנה של <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> הוסרה"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"הסרת התקנה נכשלה."</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"נכשלה הסרת ההתקנה של <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>."</string>
-    <!-- no translation found for uninstall_failed_device_policy_manager (2727361164694743362) -->
-    <skip />
-    <!-- no translation found for uninstall_failed_device_policy_manager_of_user (2161462242935805756) -->
-    <skip />
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"לא ניתן להסיר את ההתקנה של אפליקציה פעילה של מנהל המכשיר"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"לא ניתן להסיר את ההתקנה של אפליקציה פעילה של מנהל המכשיר של <xliff:g id="USERNAME">%1$s</xliff:g>"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"אפליקציה זו נדרשת לחלק מהמשתמשים או מהפרופילים והתקנתה הוסרה למשתמשים אחרים"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"האפליקציה הזו נחוצה לפרופיל שלך ולא ניתן להסיר את ההתקנה שלה."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"מנהל המכשיר שלך מחייב את קיומה של אפליקציה זו, ולא ניתן להסירה."</string>
-    <!-- no translation found for manage_device_administrators (118178632652346535) -->
-    <skip />
+    <string name="manage_device_administrators" msgid="118178632652346535">"אפליקציות למנהל המערכת של מכשיר מנוהל"</string>
     <string name="manage_users" msgid="3125018886835668847">"ניהול משתמשים"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"לא ניתן להסיר את ההתקנה של <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"אירעה בעיה בניתוח החבילה."</string>

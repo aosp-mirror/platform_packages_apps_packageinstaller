@@ -42,10 +42,8 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> ไม่สามารถติดตั้งบนทีวีได้"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"ไม่สามารถติดตั้ง <xliff:g id="APP_NAME">%1$s</xliff:g> บนโทรศัพท์ของคุณ"</string>
     <string name="launch" msgid="4826921505917605463">"เปิด"</string>
-    <!-- no translation found for unknown_apps_admin_dlg_text (7488386758312008790) -->
-    <skip />
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (5785226253054083336) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"ผู้ดูแลระบบของคุณไม่อนุญาตให้ติดตั้งแอปที่ได้มาจากแหล่งที่มาที่ไม่รู้จัก"</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"ผู้ใช้รายนี้ไม่สามารถติดตั้งแอปที่ไม่รู้จัก"</string>
     <string name="ok" msgid="3468756155452870475">"ตกลง"</string>
     <string name="settings" msgid="6743583734099755409">"การตั้งค่า"</string>
     <string name="manage_applications" msgid="4033876279091996596">"จัดการแอปพลิเคชัน"</string>
@@ -72,18 +70,15 @@
     <string name="uninstalling" msgid="5556217435895938250">"กำลังถอนการติดตั้ง..."</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"กำลังถอนการติดตั้ง <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"ถอนการติดตั้งเสร็จแล้ว"</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"ถอนการติดตั้ง <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> แล้ว"</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"ถอนการติดตั้ง <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> แล้ว"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"ถอนการติดตั้งไม่สำเร็จ"</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"การถอนการติดตั้ง <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ไม่สำเร็จ"</string>
-    <!-- no translation found for uninstall_failed_device_policy_manager (2727361164694743362) -->
-    <skip />
-    <!-- no translation found for uninstall_failed_device_policy_manager_of_user (2161462242935805756) -->
-    <skip />
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"ไม่สามารถถอนการติดตั้งแอปผู้ดูแลระบบอุปกรณ์ที่มีการใช้งาน"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"ไม่สามารถถอนการติดตั้งแอปผู้ดูแลระบบอุปกรณ์ที่มีการใช้งานสำหรับ <xliff:g id="USERNAME">%1$s</xliff:g>"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"แอปนี้จำเป็นสำหรับผู้ใช้หรือโปรไฟล์บางส่วน และถอนการติดตั้งไปแล้วสำหรับส่วนอื่น"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"แอปนี้จำเป็นสำหรับโปรไฟล์ของคุณและไม่สามารถถอนการติดตั้งได้"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"ผู้ดูแลระบบอุปกรณ์กำหนดให้ใช้แอปนี้ และไม่สามารถถอนการติดตั้งได้"</string>
-    <!-- no translation found for manage_device_administrators (118178632652346535) -->
-    <skip />
+    <string name="manage_device_administrators" msgid="118178632652346535">"จัดการแอปผู้ดูแลระบบอุปกรณ์"</string>
     <string name="manage_users" msgid="3125018886835668847">"จัดการผู้ใช้"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"ไม่สามารถถอดการติดตั้ง <xliff:g id="APP_NAME">%1$s</xliff:g>"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"พบปัญหาในการแยกวิเคราะห์แพ็กเกจ"</string>

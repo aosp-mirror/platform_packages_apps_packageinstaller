@@ -42,10 +42,8 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Aplikaci <xliff:g id="APP_NAME">%1$s</xliff:g> se do televize nepodařilo nainstalovat."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Aplikaci <xliff:g id="APP_NAME">%1$s</xliff:g> do tohoto telefonu nelze nainstalovat."</string>
     <string name="launch" msgid="4826921505917605463">"Otevřít"</string>
-    <!-- no translation found for unknown_apps_admin_dlg_text (7488386758312008790) -->
-    <skip />
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (5785226253054083336) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"Váš administrátor nedovoluje instalaci aplikací z neznámých zdrojů"</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Tento uživatel nemůže instalovat neznámé aplikace"</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Nastavení"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Spravovat aplikace"</string>
@@ -72,18 +70,15 @@
     <string name="uninstalling" msgid="5556217435895938250">"Probíhá odinstalace..."</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"Odinstalace balíčku <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Odinstalace byla dokončena."</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"Balíček <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> byl odinstalován."</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"Balíček <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> byl odinstalován"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Odinstalace se nezdařila."</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"Odinstalace balíčku <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> se nezdařila."</string>
-    <!-- no translation found for uninstall_failed_device_policy_manager (2727361164694743362) -->
-    <skip />
-    <!-- no translation found for uninstall_failed_device_policy_manager_of_user (2161462242935805756) -->
-    <skip />
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"Aktivní aplikaci pro správu zařízení nelze odinstalovat"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"Aktivní aplikaci pro správu zařízení uživatele <xliff:g id="USERNAME">%1$s</xliff:g> nelze odinstalovat"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Tato aplikace je u některých uživatelů nebo profilů požadována, u ostatních byla odinstalována."</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"Tato aplikace je pro váš profil požadována a nelze ji odinstalovat."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Tato aplikace je administrátorem zařízení vyžadována a nelze ji odinstalovat."</string>
-    <!-- no translation found for manage_device_administrators (118178632652346535) -->
-    <skip />
+    <string name="manage_device_administrators" msgid="118178632652346535">"Přejít do nastavení aplikací pro správu zařízení"</string>
     <string name="manage_users" msgid="3125018886835668847">"Správa uživatelů"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Aplikaci <xliff:g id="APP_NAME">%1$s</xliff:g> nelze odinstalovat."</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Při analýze balíčku došlo k chybě."</string>

@@ -42,10 +42,8 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunne ikke installeres på TV-en."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunne ikke installeres på telefonen din."</string>
     <string name="launch" msgid="4826921505917605463">"Åpne"</string>
-    <!-- no translation found for unknown_apps_admin_dlg_text (7488386758312008790) -->
-    <skip />
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (5785226253054083336) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"Administratoren din tillater ikke installering av apper som er hentet fra ukjente kilder"</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Ukjente apper kan ikke installeres av denne brukeren"</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Innstillinger"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Administrer apper"</string>
@@ -72,18 +70,15 @@
     <string name="uninstalling" msgid="5556217435895938250">"Avinstallerer…"</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"Avinstallerer <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> …"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Avinstalleringen er  fullført."</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"Avinstallerte <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>."</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"Avinstallerte <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Avinstalleringen mislyktes."</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"Kunne ikke avinstallere <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>."</string>
-    <!-- no translation found for uninstall_failed_device_policy_manager (2727361164694743362) -->
-    <skip />
-    <!-- no translation found for uninstall_failed_device_policy_manager_of_user (2161462242935805756) -->
-    <skip />
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"Kan ikke avinstallere den aktive appen for enhetsadministrator"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"Kan ikke avinstallere den aktive appen for enhetsadministrator for <xliff:g id="USERNAME">%1$s</xliff:g>"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Appen er nødvendig for noen brukere eller profiler, og den er avinstallert for andre"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"Denne appen er nødvendig for profilen din og kan ikke avinstalleres."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Denne appen kreves av enhetsadministratoren din og kan ikke avinstalleres."</string>
-    <!-- no translation found for manage_device_administrators (118178632652346535) -->
-    <skip />
+    <string name="manage_device_administrators" msgid="118178632652346535">"Administrer apper for enhetsadministrator"</string>
     <string name="manage_users" msgid="3125018886835668847">"Administrer brukere"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunne ikke installeres."</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Det oppsto et problem med analysen av pakken."</string>

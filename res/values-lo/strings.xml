@@ -42,10 +42,8 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> ບໍ່​ສາ​ມາດ​ຕິດ​ຕັ້ງ​ໃສ່ໂທລະພາບຂອງ​ທ່ານ​ໄດ້."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"ບໍ່​ສາ​ມາດ​ຕິດ​ຕັ້ງ​ <xliff:g id="APP_NAME">%1$s</xliff:g> ໃນໂທລະສັບຂອງທ່ານໄດ້."</string>
     <string name="launch" msgid="4826921505917605463">"ເປີດ"</string>
-    <!-- no translation found for unknown_apps_admin_dlg_text (7488386758312008790) -->
-    <skip />
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (5785226253054083336) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"ຜູ້ເບິ່ງແຍງລະບົບຂອງທ່ານບໍ່ອະນຸຍາດໃຫ້ຕິດຕັ້ງແອັບທີ່ໄດ້ມາຈາກແຫຼ່ງທີ່ບໍ່ຮູ້ຈັກ"</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"ຜູ້ໃຊ້ນີ້ບໍ່ສາມາດຕິດຕັ້ງແອັບທີ່ບໍ່ຮູ້ຈັກໄດ້"</string>
     <string name="ok" msgid="3468756155452870475">"ຕົກລົງ"</string>
     <string name="settings" msgid="6743583734099755409">"ການຕັ້ງຄ່າ"</string>
     <string name="manage_applications" msgid="4033876279091996596">"ຈັດການແອັບຯ"</string>
@@ -72,18 +70,15 @@
     <string name="uninstalling" msgid="5556217435895938250">"ກຳລັງຖອນການຕິດຕັ້ງ..."</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"ກຳລັງຖອນການຕິດຕັ້ງ <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"ຖອນການຕິດຕັ້ງສຳເລັດແລ້ວ."</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"ຖອນການຕິດຕັ້ງ <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ແລ້ວ."</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"ຖອນການຕິດຕັ້ງ <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ແລ້ວ"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"ການຖອນການຕິດຕັ້ງບໍ່ສຳເລັດ."</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"ຖອນການຕິດຕັ້ງ <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ບໍ່ສຳເລັດ."</string>
-    <!-- no translation found for uninstall_failed_device_policy_manager (2727361164694743362) -->
-    <skip />
-    <!-- no translation found for uninstall_failed_device_policy_manager_of_user (2161462242935805756) -->
-    <skip />
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"ບໍ່ສາມາດຖອນການຕິດຕັ້ງແອັບອຸປະກອນທີ່ເຮັດວຽກຢູ່ໄດ້"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"ບໍ່ສາມາດຖອນການຕິດຕັ້ງແອັບຜູ້ເບິ່ງແຍງລະບົບທີ່ເຮັດວຽກຢູ່ສຳລັບ <xliff:g id="USERNAME">%1$s</xliff:g> ໄດ້"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"ແອັບນີ້ຈຳເປັນສຳລັບບາງຜູ້ໃຊ້ ຫຼື ບາງໂປຣໄຟລ໌ ແລະ ຖືກຖອນການຕິດຕັ້ງສຳລັບຄົນອື່ນແລ້ວ"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"ແອັບນີ້ຈຳເປັນຕ້ອງໃຊ້ກັບໂປຣໄຟລ໌ຂອງທ່ານ ແລະ ບໍ່ສາມາດຖອນການຕິດຕັ້ງໄດ້."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"​ແອັບຯ​ນີ້​ຕ້ອງ​ໃຊ້​ໂດຍ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ຂອງ​ທ່ານ ແລະ​ບໍ່​ສາ​ມາດ​ຖອນ​ການ​ຕິດ​ຕັ້ງ​ໄດ້."</string>
-    <!-- no translation found for manage_device_administrators (118178632652346535) -->
-    <skip />
+    <string name="manage_device_administrators" msgid="118178632652346535">"ຈັດການແອັບຜູ້ເບິ່ງແຍງອຸປະກອນ"</string>
     <string name="manage_users" msgid="3125018886835668847">"ຈັດການຜູ້ໃຊ້"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> ບໍ່ສາມາດຖອນອອກໄດ້."</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"ເກີດບັນຫາໃນການວິເຄາະແພັກເກດ."</string>
@@ -141,8 +136,8 @@
     <string name="message_staging" msgid="6151794817691100003">"ກຳລັງຮຽງແອັບ…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"ບໍ່ຮູ້ຈັກ"</string>
     <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"ທ່ານຕ້ອງການລຶບລ້າງຂໍ້ມູນສຳລັບ <xliff:g id="PACKAGE">%1$s</xliff:g> ອອກແທ້ບໍ່?"</string>
-    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"For your security, your tablet is not allowed to install unknown apps from this source."</string>
-    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"For your security, your TV is not allowed to install unknown apps from this source."</string>
-    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"For your security, your phone is not allowed to install unknown apps from this source."</string>
-    <string name="external_sources_settings" msgid="8601453744517291632">"​ການ​ຕັ້ງ​ຄ່າ"</string>
+    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"ເພື່ອຄວາມປອດໄພຂອງທ່ານ, ແທັບເລັດຂອງທ່ານບໍ່ສາມາດຕິດຕັ້ງແອັບຈາກແຫລ່ງຂໍ້ມູນນີ້ໄດ້."</string>
+    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"ເພື່ອຄວາມປອດໄພຂອງທ່ານ, ໂທລະທັດຂອງທ່ານບໍ່ສາມາດຕິດຕັ້ງແອັບຈາກແຫລ່ງຂໍ້ມູນນີ້ໄດ້."</string>
+    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"ເພື່ອຄວາມປອດໄພຂອງທ່ານ, ໂທລະສັບຂອງທ່ານບໍ່ສາມາດຕິດຕັ້ງແອັບຈາກແຫລ່ງຂໍ້ມູນນີ້ໄດ້."</string>
+    <string name="external_sources_settings" msgid="8601453744517291632">"ການຕັ້ງຄ່າ"</string>
 </resources>

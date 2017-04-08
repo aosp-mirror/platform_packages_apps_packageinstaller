@@ -42,10 +42,8 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"无法将<xliff:g id="APP_NAME">%1$s</xliff:g>安装到您的电视上。"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"无法在您的手机上安装“<xliff:g id="APP_NAME">%1$s</xliff:g>”。"</string>
     <string name="launch" msgid="4826921505917605463">"打开"</string>
-    <!-- no translation found for unknown_apps_admin_dlg_text (7488386758312008790) -->
-    <skip />
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (5785226253054083336) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"您的管理员不允许安装来源不明的应用"</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"该用户无法安装未知应用"</string>
     <string name="ok" msgid="3468756155452870475">"确定"</string>
     <string name="settings" msgid="6743583734099755409">"设置"</string>
     <string name="manage_applications" msgid="4033876279091996596">"管理应用"</string>
@@ -72,18 +70,15 @@
     <string name="uninstalling" msgid="5556217435895938250">"正在卸载..."</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"正在卸载<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"卸载完成。"</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"已卸载<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>。"</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"已卸载<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"卸载失败。"</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"卸载<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>失败。"</string>
-    <!-- no translation found for uninstall_failed_device_policy_manager (2727361164694743362) -->
-    <skip />
-    <!-- no translation found for uninstall_failed_device_policy_manager_of_user (2161462242935805756) -->
-    <skip />
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"无法卸载正在使用中的设备管理应用"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"无法为<xliff:g id="USERNAME">%1$s</xliff:g>卸载正在使用中的设备管理应用"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"这是部分用户或个人资料所需的应用；已为其他用户或个人资料卸载此应用"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"这是您的个人资料所需的应用，因此无法卸载。"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"这是您的设备管理员要求必须安装的应用，因此无法卸载。"</string>
-    <!-- no translation found for manage_device_administrators (118178632652346535) -->
-    <skip />
+    <string name="manage_device_administrators" msgid="118178632652346535">"管理设备管理应用"</string>
     <string name="manage_users" msgid="3125018886835668847">"管理用户"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"无法卸载“<xliff:g id="APP_NAME">%1$s</xliff:g>”。"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"解析软件包时出现问题。"</string>
