@@ -354,28 +354,22 @@ public class WearPackageInstallerService extends Service {
         int startId = WearPackageArgs.getStartId(argsBundle);
         final String packageName = WearPackageArgs.getPackageName(argsBundle);
 
+        PowerManager.WakeLock lock = getLock(this.getApplicationContext());
         final PackageManager pm = getPackageManager();
         try {
             // Result ignored.
             pm.getPackageInfo(packageName, 0);
 
             // Found package, send uninstall request.
-            PowerManager.WakeLock lock = getLock(this.getApplicationContext());
-
-            try {
-                pm.deletePackage(packageName, new PackageDeleteObserver(lock, startId),
-                        PackageManager.DELETE_ALL_USERS);
-            } catch (IllegalArgumentException e) {
-                // Couldn't find the package, no need to call uninstall.
-                Log.w(TAG, "Could not find package, not deleting " + packageName, e);
-                finishService(lock, startId);
-            }
+            pm.deletePackage(packageName, new PackageDeleteObserver(lock, startId),
+                    PackageManager.DELETE_ALL_USERS);
 
             startPermsServiceForUninstall(packageName);
             Log.i(TAG, "Sent delete request for " + packageName);
-        } catch (PackageManager.NameNotFoundException e) {
+        } catch (IllegalArgumentException | PackageManager.NameNotFoundException e) {
             // Couldn't find the package, no need to call uninstall.
             Log.w(TAG, "Could not find package, not deleting " + packageName, e);
+            finishService(lock, startId);
         }
     }
 
