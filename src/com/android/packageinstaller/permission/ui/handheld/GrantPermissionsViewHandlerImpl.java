@@ -25,6 +25,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.WindowManager.LayoutParams;
+import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 import android.widget.Button;
@@ -129,9 +130,6 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         // If this is a second (or later) permission and the views exist, then animate.
         if (mIconView != null) {
             if (mGroupIndex > 0) {
-                // The first message will be announced as the title of the activity, all others
-                // we need to announce ourselves.
-                mDescContainer.announceForAccessibility(message);
                 animateToPermission();
             } else {
                 updateDescription();
@@ -342,14 +340,16 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         switch (view.getId()) {
             case R.id.permission_allow_button:
                 if (mResultListener != null) {
-                    view.clearAccessibilityFocus();
+                    view.performAccessibilityAction(
+                            AccessibilityNodeInfo.ACTION_CLEAR_ACCESSIBILITY_FOCUS, null);
                     mResultListener.onPermissionGrantResult(mGroupName, true, false);
                 }
                 break;
             case R.id.permission_deny_button:
                 mAllowButton.setEnabled(true);
                 if (mResultListener != null) {
-                    view.clearAccessibilityFocus();
+                    view.performAccessibilityAction(
+                            AccessibilityNodeInfo.ACTION_CLEAR_ACCESSIBILITY_FOCUS, null);
                     mResultListener.onPermissionGrantResult(mGroupName, false,
                             mShowDonNotAsk && mDoNotAskCheckbox.isChecked());
                 }
