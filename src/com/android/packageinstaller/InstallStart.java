@@ -16,16 +16,20 @@
 
 package com.android.packageinstaller;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.AppGlobals;
 import android.app.IActivityManager;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.IPackageManager;
 import android.content.pm.PackageInstaller;
 import android.content.pm.PackageManager;
-import android.content.pm.VerificationParams;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.RemoteException;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
@@ -39,12 +43,15 @@ public class InstallStart extends Activity {
     private static final String LOG_TAG = InstallStart.class.getSimpleName();
 
     private static final String SCHEME_CONTENT = "content";
+    private static final String DOWNLOADS_AUTHORITY = "downloads";
     private IActivityManager mIActivityManager;
+    private IPackageManager mIPackageManager;
+    private boolean mAbortInstall = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        mIPackageManager = AppGlobals.getPackageManager();
         Intent intent = getIntent();
         String callingPackage = getCallingPackage();
 
@@ -58,7 +65,26 @@ public class InstallStart extends Activity {
         }
 
         ApplicationInfo sourceInfo = getSourceInfo(callingPackage);
-        int originatingUid = getOriginatingUid(sourceInfo);
+        final int originatingUid = getOriginatingUid(sourceInfo);
+
+        if (originatingUid != PackageInstaller.SessionParams.UID_UNKNOWN) {
+            final int targetSdkVersion = getMaxTargetSdkVersionForUid(originatingUid);
+            if (targetSdkVersion < 0) {
+                Log.w(LOG_TAG, "Cannot get target sdk version for uid " + originatingUid);
+                // Invalid originating uid supplied. Abort install.
+                mAbortInstall = true;
+            } else if (targetSdkVersion >= Build.VERSION_CODES.O && !declaresAppOpPermission(
+                    originatingUid, Manifest.permission.REQUEST_INSTALL_PACKAGES)) {
+                Log.e(LOG_TAG, "Requesting uid " + originatingUid + " needs to declare permission "
+                        + Manifest.permission.REQUEST_INSTALL_PACKAGES);
+                mAbortInstall = true;
+            }
+        }
+        if (mAbortInstall) {
+            setResult(RESULT_CANCELED);
+            finish();
+            return;
+        }
 
         Intent nextActivity = new Intent(intent);
         nextActivity.setFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
@@ -97,6 +123,40 @@ public class InstallStart extends Activity {
         finish();
     }
 
+    private boolean declaresAppOpPermission(int uid, String permission) {
+        try {
+            final String[] packages = mIPackageManager.getAppOpPermissionPackages(permission);
+            for (String packageName : packages) {
+                try {
+                    if (uid == getPackageManager().getPackageUid(packageName, 0)) {
+                        return true;
+                    }
+                } catch (PackageManager.NameNotFoundException e) {
+                    // Ignore and try the next package
+                }
+            }
+        } catch (RemoteException rexc) {
+            // If remote package manager cannot be reached, install will likely fail anyway.
+        }
+        return false;
+    }
+
+    private int getMaxTargetSdkVersionForUid(int uid) {
+        final String[] packages = getPackageManager().getPackagesForUid(uid);
+        int targetSdkVersion = -1;
+        if (packages != null) {
+            for (String packageName : packages) {
+                try {
+                    ApplicationInfo info = getPackageManager().getApplicationInfo(packageName, 0);
+                    targetSdkVersion = Math.max(targetSdkVersion, info.targetSdkVersion);
+                } catch (PackageManager.NameNotFoundException e) {
+                    // Ignore and try the next package
+                }
+            }
+        }
+        return targetSdkVersion;
+    }
+
     /**
      * @return the ApplicationInfo for the installation source (the calling package), if available
      */
@@ -112,66 +172,60 @@ public class InstallStart extends Activity {
     }
 
     /**
-     * Get the originating uid if possible, or VerificationParams.NO_UID if not available
+     * Get the originating uid if possible, or
+     * {@link android.content.pm.PackageInstaller.SessionParams#UID_UNKNOWN} if not available
      *
      * @param sourceInfo The source of this installation
-     *
-     * @return The UID of the installation source or VerificationParams.NO_UID
+     * @return The UID of the installation source or UID_UNKNOWN
      */
     private int getOriginatingUid(@Nullable ApplicationInfo sourceInfo) {
-        // The originating uid from the intent. We only trust/use this if it comes from a
-        // system application
-        int uidFromIntent = getIntent().getIntExtra(Intent.EXTRA_ORIGINATING_UID,
-                VerificationParams.NO_UID);
+        // The originating uid from the intent. We only trust/use this if it comes from either
+        // the document manager app or the downloads provider
+        final int uidFromIntent = getIntent().getIntExtra(Intent.EXTRA_ORIGINATING_UID,
+                PackageInstaller.SessionParams.UID_UNKNOWN);
 
-        // Get the source info from the calling package, if available. This will be the
-        // definitive calling package, but it only works if the intent was started using
-        // startActivityForResult,
+        final int callingUid;
         if (sourceInfo != null) {
-            if (uidFromIntent != VerificationParams.NO_UID &&
-                    (sourceInfo.privateFlags & ApplicationInfo.PRIVATE_FLAG_PRIVILEGED) != 0) {
-                return uidFromIntent;
-
+            callingUid = sourceInfo.uid;
+        } else {
+            try {
+                callingUid = getIActivityManager()
+                        .getLaunchedFromUid(getActivityToken());
+            } catch (RemoteException ex) {
+                // Cannot reach ActivityManager. Aborting install.
+                Log.e(LOG_TAG, "Could not determine the launching uid.");
+                mAbortInstall = true;
+                return PackageInstaller.SessionParams.UID_UNKNOWN;
             }
-            // We either didn't get a uid in the intent, or we don't trust it. Use the
-            // uid of the calling package instead.
-            return sourceInfo.uid;
         }
-
-        // We couldn't get the specific calling package. Let's get the uid instead
-        int callingUid;
         try {
-            callingUid = getIActivityManager()
-                    .getLaunchedFromUid(getActivityToken());
-        } catch (android.os.RemoteException ex) {
-            Log.w(LOG_TAG, "Could not determine the launching uid.");
-            // nothing else we can do
-            return VerificationParams.NO_UID;
-        }
-
-        // If we got a uid from the intent, we need to verify that the caller is a
-        // privileged system package before we use it
-        if (uidFromIntent != VerificationParams.NO_UID) {
-            String[] callingPackages = getPackageManager().getPackagesForUid(callingUid);
-            if (callingPackages != null) {
-                for (String packageName: callingPackages) {
-                    try {
-                        ApplicationInfo applicationInfo =
-                                getPackageManager().getApplicationInfo(packageName, 0);
-
-                        if ((applicationInfo.privateFlags & ApplicationInfo.PRIVATE_FLAG_PRIVILEGED)
-                                != 0) {
-                            return uidFromIntent;
-                        }
-                    } catch (PackageManager.NameNotFoundException ex) {
-                        // ignore it, and try the next package
-                    }
-                }
+            if (mIPackageManager.checkUidPermission(Manifest.permission.MANAGE_DOCUMENTS,
+                    callingUid) == PackageManager.PERMISSION_GRANTED) {
+                return uidFromIntent;
             }
+        } catch (RemoteException rexc) {
+            // Ignore. Should not happen.
         }
-        // We either didn't get a uid from the intent, or we don't trust it. Use the
-        // calling uid instead.
+        if (isSystemDownloadsProvider(callingUid)) {
+            return uidFromIntent;
+        }
+        // We don't trust uid from the intent. Use the calling uid instead.
         return callingUid;
+    }
+
+    private boolean isSystemDownloadsProvider(int uid) {
+        final String downloadProviderPackage = getPackageManager().resolveContentProvider(
+                DOWNLOADS_AUTHORITY, 0).getComponentName().getPackageName();
+        if (downloadProviderPackage == null) {
+            return false;
+        }
+        try {
+            ApplicationInfo applicationInfo = getPackageManager().getApplicationInfo(
+                    downloadProviderPackage, 0);
+            return (applicationInfo.isSystemApp() && uid == applicationInfo.uid);
+        } catch (PackageManager.NameNotFoundException ex) {
+            return false;
+        }
     }
 
     private IActivityManager getIActivityManager() {

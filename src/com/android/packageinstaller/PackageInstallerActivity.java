@@ -37,7 +37,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PackageParser;
 import android.content.pm.PackageUserState;
-import android.content.pm.VerificationParams;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -87,7 +86,7 @@ public class PackageInstallerActivity extends Activity implements OnClickListene
     private Uri mPackageURI;
     private Uri mOriginatingURI;
     private Uri mReferrerURI;
-    private int mOriginatingUid = VerificationParams.NO_UID;
+    private int mOriginatingUid = PackageInstaller.SessionParams.UID_UNKNOWN;
     private String mOriginatingPackage; // The package name corresponding to #mOriginatingUid
 
     private boolean localLOGV = false;
@@ -122,6 +121,7 @@ public class PackageInstallerActivity extends Activity implements OnClickListene
     private static final int DLG_OUT_OF_SPACE = DLG_BASE + 3;
     private static final int DLG_INSTALL_ERROR = DLG_BASE + 4;
     private static final int DLG_UNKNOWN_SOURCES_RESTRICTED_FOR_USER = DLG_BASE + 5;
+    private static final int DLG_ANONYMOUS_SOURCE = DLG_BASE + 6;
     private static final int DLG_NOT_SUPPORTED_ON_WEAR = DLG_BASE + 7;
     private static final int DLG_EXTERNAL_SOURCE_BLOCKED = DLG_BASE + 8;
 
@@ -273,6 +273,8 @@ public class PackageInstallerActivity extends Activity implements OnClickListene
                         R.string.unknown_apps_user_restriction_dlg_text);
             case DLG_EXTERNAL_SOURCE_BLOCKED:
                 return ExternalSourcesBlockedDialog.newInstance(mOriginatingPackage);
+            case DLG_ANONYMOUS_SOURCE:
+                return AnonymousSourceDialog.newInstance();
         }
         return null;
     }
@@ -320,7 +322,7 @@ public class PackageInstallerActivity extends Activity implements OnClickListene
             if (mSourceInfo != null) {
                 if ((mSourceInfo.privateFlags & ApplicationInfo.PRIVATE_FLAG_PRIVILEGED)
                         != 0) {
-                    // Privileged apps are not considered an unknown source.
+                    // Privileged apps can bypass unknown sources check if they want.
                     return false;
                 }
             }
@@ -388,9 +390,9 @@ public class PackageInstallerActivity extends Activity implements OnClickListene
         mCallingPackage = intent.getStringExtra(EXTRA_CALLING_PACKAGE);
         mSourceInfo = intent.getParcelableExtra(EXTRA_ORIGINAL_SOURCE_INFO);
         mOriginatingUid = intent.getIntExtra(Intent.EXTRA_ORIGINATING_UID,
-                VerificationParams.NO_UID);
-        mOriginatingPackage = (mOriginatingUid != VerificationParams.NO_UID) ? getPackageNameForUid(
-                mOriginatingUid) : null;
+                PackageInstaller.SessionParams.UID_UNKNOWN);
+        mOriginatingPackage = (mOriginatingUid != PackageInstaller.SessionParams.UID_UNKNOWN)
+                ? getPackageNameForUid(mOriginatingUid) : null;
 
 
         final Uri packageUri;
@@ -489,8 +491,8 @@ public class PackageInstallerActivity extends Activity implements OnClickListene
 
     private void handleUnknownSources() {
         if (mOriginatingPackage == null) {
-            Log.e(TAG, "No source package name for external install request. Aborting install");
-            finish();
+            Log.i(TAG, "No source found for package " + mPkgInfo.packageName);
+            showDialogInner(DLG_ANONYMOUS_SOURCE);
             return;
         }
         int appOpMode = mAppOpsManager.checkOpNoThrow(AppOpsManager.OP_REQUEST_INSTALL_PACKAGES,
@@ -630,7 +632,7 @@ public class PackageInstallerActivity extends Activity implements OnClickListene
         if (mReferrerURI != null) {
             newIntent.putExtra(Intent.EXTRA_REFERRER, mReferrerURI);
         }
-        if (mOriginatingUid != VerificationParams.NO_UID) {
+        if (mOriginatingUid != PackageInstaller.SessionParams.UID_UNKNOWN) {
             newIntent.putExtra(Intent.EXTRA_ORIGINATING_UID, mOriginatingUid);
         }
         if (installerPackageName != null) {
@@ -668,6 +670,26 @@ public class PackageInstallerActivity extends Activity implements OnClickListene
             return new AlertDialog.Builder(getActivity())
                     .setMessage(getArguments().getInt(MESSAGE_KEY))
                     .setPositiveButton(R.string.ok, (dialog, which) -> getActivity().finish())
+                    .create();
+        }
+    }
+
+    /**
+     * Dialog to show when the source of apk can not be identified
+     */
+    public static class AnonymousSourceDialog extends DialogFragment {
+        static AnonymousSourceDialog newInstance() {
+            return new AnonymousSourceDialog();
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            return new AlertDialog.Builder(getActivity())
+                    .setMessage(R.string.anonymous_source_warning)
+                    .setPositiveButton(R.string.anonymous_source_continue,
+                            ((dialog, which) -> ((PackageInstallerActivity) getActivity())
+                                    .initiateInstall()))
+                    .setNegativeButton(R.string.cancel, ((dialog, which) -> getActivity().finish()))
                     .create();
         }
     }
