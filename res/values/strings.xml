@@ -347,6 +347,33 @@
     <!-- Text to show in warning dialog on the phone when the app source is not trusted [CHAR LIMIT=NONE] -->
     <string name="untrusted_external_source_warning" product="default">For your security, your phone is not allowed to install unknown apps from this source.</string>
 
+    <!-- Text to show in warning dialog on the phone when the app source cannot be identified [CHAR LIMIT=NONE] -->
+    <string name="anonymous_source_warning" product="default">
+        Your phone and personal data are more vulnerable
+        to attack by unknown apps. By installing this app, you
+        agree that you are responsible for any damage to your
+        phone or loss of data that may result from its use.
+    </string>
+
+    <!-- Text to show in warning dialog on the tablet when the app source cannot be identified [CHAR LIMIT=NONE] -->
+    <string name="anonymous_source_warning" product="tablet">
+        Your tablet and personal data are more vulnerable
+        to attack by unknown apps. By installing this app, you
+        agree that you are responsible for any damage to your
+        tablet or loss of data that may result from its use.
+    </string>
+
+    <!-- Text to show in warning dialog on the tv when the app source cannot be identified [CHAR LIMIT=NONE] -->
+    <string name="anonymous_source_warning" product="tv">
+        Your TV and personal data are more vulnerable
+        to attack by unknown apps. By installing this app, you
+        agree that you are responsible for any damage to your
+        TV or loss of data that may result from its use.
+    </string>
+
+    <!-- Label for button to continue install of an app whose source cannot be identified [CHAR LIMIT=40] -->
+    <string name="anonymous_source_continue">Continue</string>
+
     <!-- Label for button to open manage external sources settings [CHAR LIMIT=45] -->
     <string name="external_sources_settings">Settings</string>
 
