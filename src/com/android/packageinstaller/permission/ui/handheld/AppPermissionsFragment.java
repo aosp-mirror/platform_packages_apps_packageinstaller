@@ -16,6 +16,8 @@
 
 package com.android.packageinstaller.permission.ui.handheld;
 
+import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -35,6 +37,7 @@ import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
+import android.util.IconDrawableFactory;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -42,6 +45,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Switch;
 import android.widget.Toast;
+
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
@@ -54,8 +58,6 @@ import com.android.settingslib.RestrictedLockUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 
 public final class AppPermissionsFragment extends SettingsWithHeader
         implements OnPreferenceChangeListener {
@@ -171,7 +173,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
                     .setData(Uri.fromParts("package", packageInfo.packageName, null));
         }
 
-        Drawable icon = appInfo.loadIcon(pm);
+        Drawable icon = IconDrawableFactory.newInstance(activity).getBadgedIcon(appInfo);
         CharSequence label = appInfo.loadLabel(pm);
         fragment.setHeader(icon, label, infoIntent);
 
