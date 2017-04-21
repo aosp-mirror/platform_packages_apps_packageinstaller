@@ -35,6 +35,7 @@ import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceGroup;
 import android.provider.Settings;
+import android.util.IconDrawableFactory;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Switch;
@@ -124,7 +125,8 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
             PackageInfo info = pm.getPackageInfo(pkg, PackageManager.GET_PERMISSIONS);
 
             ApplicationInfo appInfo = info.applicationInfo;
-            final Drawable icon = appInfo.loadIcon(pm);
+            final Drawable icon =
+                    IconDrawableFactory.newInstance(getContext()).getBadgedIcon(appInfo);
             final CharSequence label = appInfo.loadLabel(pm);
             Intent infoIntent = null;
             if (!getActivity().getIntent().getBooleanExtra(
