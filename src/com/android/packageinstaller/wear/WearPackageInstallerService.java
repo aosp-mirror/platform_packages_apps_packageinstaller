@@ -16,8 +16,10 @@
 
 package com.android.packageinstaller.wear;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.Service;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.FeatureInfo;
@@ -26,9 +28,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageParser;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -40,20 +39,19 @@ import android.os.Message;
 import android.os.ParcelFileDescriptor;
 import android.os.PowerManager;
 import android.os.Process;
-import android.text.TextUtils;
+import android.util.ArrayMap;
 import android.util.Log;
+import android.util.Pair;
 
 import com.android.packageinstaller.DeviceUtils;
 import com.android.packageinstaller.PackageUtil;
+import com.android.packageinstaller.R;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -84,21 +82,13 @@ import java.util.Set;
 public class WearPackageInstallerService extends Service {
     private static final String TAG = "WearPkgInstallerService";
 
-    private static final String KEY_PACKAGE_NAME =
-            "com.google.android.clockwork.EXTRA_PACKAGE_NAME";
-    private static final String KEY_APP_LABEL = "com.google.android.clockwork.EXTRA_APP_LABEL";
-    private static final String KEY_APP_ICON_URI =
-            "com.google.android.clockwork.EXTRA_APP_ICON_URI";
-    private static final String KEY_PERMS_LIST = "com.google.android.clockwork.EXTRA_PERMS_LIST";
-    private static final String KEY_HAS_LAUNCHER =
-            "com.google.android.clockwork.EXTRA_HAS_LAUNCHER";
-
-    private static final String HOME_APP_PACKAGE_NAME = "com.google.android.wearable.app";
-    private static final String SHOW_PERMS_SERVICE_CLASS =
-            "com.google.android.clockwork.packagemanager.ShowPermsService";
+    private static final String WEAR_APPS_CHANNEL = "wear_app_install_uninstall";
 
     private final int START_INSTALL = 1;
     private final int START_UNINSTALL = 2;
+
+    private int mInstallNotificationId = 1;
+    private final Map<String, Integer> mNotifIdMap = new ArrayMap<>();
 
     private final class ServiceHandler extends Handler {
         public ServiceHandler(Looper looper) {
@@ -117,7 +107,7 @@ public class WearPackageInstallerService extends Service {
         }
     }
     private ServiceHandler mServiceHandler;
-
+    private NotificationChannel mNotificationChannel;
     private static volatile PowerManager.WakeLock lockStatic = null;
 
     @Override
@@ -139,11 +129,13 @@ public class WearPackageInstallerService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (!DeviceUtils.isWear(this)) {
             Log.w(TAG, "Not running on wearable.");
+            finishService(null, startId);
             return START_NOT_STICKY;
         }
 
         if (intent == null) {
             Log.w(TAG, "Got null intent.");
+            finishService(null, startId);
             return START_NOT_STICKY;
         }
 
@@ -154,11 +146,13 @@ public class WearPackageInstallerService extends Service {
         Uri packageUri = intent.getData();
         if (packageUri == null) {
             Log.e(TAG, "No package URI in intent");
+            finishService(null, startId);
             return START_NOT_STICKY;
         }
         final String packageName = WearPackageUtil.getSanitizedPackageName(packageUri);
         if (packageName == null) {
             Log.e(TAG, "Invalid package name in URI (expected package:<pkgName>): " + packageUri);
+            finishService(null, startId);
             return START_NOT_STICKY;
         }
 
@@ -173,15 +167,24 @@ public class WearPackageInstallerService extends Service {
         }
         WearPackageArgs.setStartId(intentBundle, startId);
         WearPackageArgs.setPackageName(intentBundle, packageName);
+        String notifTitle;
         if (Intent.ACTION_INSTALL_PACKAGE.equals(intent.getAction())) {
             Message msg = mServiceHandler.obtainMessage(START_INSTALL);
             msg.setData(intentBundle);
             mServiceHandler.sendMessage(msg);
+            notifTitle = getString(R.string.installing);
         } else if (Intent.ACTION_UNINSTALL_PACKAGE.equals(intent.getAction())) {
             Message msg = mServiceHandler.obtainMessage(START_UNINSTALL);
             msg.setData(intentBundle);
             mServiceHandler.sendMessage(msg);
+            notifTitle = getString(R.string.uninstalling);
+        } else {
+            Log.e(TAG, "Unknown action : " + intent.getAction());
+            finishService(null, startId);
+            return START_NOT_STICKY;
         }
+        Pair<Integer, Notification> notifPair = buildNotification(packageName, notifTitle);
+        startForeground(notifPair.first, notifPair.second);
         return START_NOT_STICKY;
     }
 
@@ -252,6 +255,9 @@ public class WearPackageInstallerService extends Service {
                         packageName);
                 return;
             }
+
+            getLabelAndUpdateNotification(packageName,
+                    getString(R.string.installing_app, pkg.applicationInfo.loadLabel(pm)));
 
             List<String> wearablePerms = pkg.requestedPermissions;
 
@@ -357,14 +363,14 @@ public class WearPackageInstallerService extends Service {
         PowerManager.WakeLock lock = getLock(this.getApplicationContext());
         final PackageManager pm = getPackageManager();
         try {
-            // Result ignored.
-            pm.getPackageInfo(packageName, 0);
+            PackageInfo pkgInfo = pm.getPackageInfo(packageName, 0);
+            getLabelAndUpdateNotification(packageName,
+                    getString(R.string.uninstalling_app, pkgInfo.applicationInfo.loadLabel(pm)));
 
             // Found package, send uninstall request.
             pm.deletePackage(packageName, new PackageDeleteObserver(lock, startId),
                     PackageManager.DELETE_ALL_USERS);
 
-            startPermsServiceForUninstall(packageName);
             Log.i(TAG, "Sent delete request for " + packageName);
         } catch (IllegalArgumentException | PackageManager.NameNotFoundException e) {
             // Couldn't find the package, no need to call uninstall.
@@ -376,74 +382,50 @@ public class WearPackageInstallerService extends Service {
     private boolean checkPermissions(PackageParser.Package pkg, int companionSdkVersion,
             int companionDeviceVersion, Uri permUri, List<String> wearablePermissions,
             File apkFile) {
-        // If the Wear App is targeted for M-release, since the permission model has been changed,
-        // permissions may not be granted on the phone yet. We need a different flow for user to
-        // accept these permissions.
-        //
-        // Assumption: Code is running on E-release, so Wear is always running M.
-        // - Case 1: If the Wear App(WA) is targeting 23, always choose the M model (4 cases)
-        // - Case 2: Else if the Phone App(PA) is targeting 23 and Phone App(P) is running on M,
-        // show a Dialog so that the user can accept all perms (1 case)
-        //   - Also show a warning to the developer if the watch is targeting M
-        // - Case 3: If Case 2 is false, then the behavior on the phone is pre-M. Stick to pre-M
-        // behavior on watch (as long as we don't hit case 1).
-        //   - 3a: WA(22) PA(22) P(22) -> watch app is not targeting 23
-        //   - 3b: WA(22) PA(22) P(23) -> watch app is not targeting 23
-        //   - 3c: WA(22) PA(23) P(22) -> watch app is not targeting 23
-        // - Case 4: We did not get Companion App's/Device's version, always show dialog to user to
-        // accept permissions. (This happens if the AndroidWear Companion App is really old).
-        boolean isWearTargetingM =
-                pkg.applicationInfo.targetSdkVersion > Build.VERSION_CODES.LOLLIPOP_MR1;
-        if (isWearTargetingM) { // Case 1
+        // Assumption: We are running on Android O.
+        // If the Phone App is targeting M, all permissions may not have been granted to the phone
+        // app. If the Wear App is then not targeting M, there may be permissions that are not
+        // granted on the Phone app (by the user) right now and we cannot just grant it for the Wear
+        // app.
+        if (pkg.applicationInfo.targetSdkVersion >= Build.VERSION_CODES.M) {
             // Install the app if Wear App is ready for the new perms model.
             return true;
         }
 
-        List<String> unavailableWearablePerms = getWearPermsNotGrantedOnPhone(pkg.packageName,
-                permUri, wearablePermissions);
-        if (unavailableWearablePerms == null) {
-            return false;
-        }
-
-        if (unavailableWearablePerms.size() == 0) {
+        if (!doesWearHaveUngrantedPerms(pkg.packageName, permUri, wearablePermissions)) {
             // All permissions requested by the watch are already granted on the phone, no need
             // to do anything.
             return true;
         }
 
-        // Cases 2 and 4.
-        boolean isCompanionTargetingM = companionSdkVersion > Build.VERSION_CODES.LOLLIPOP_MR1;
-        boolean isCompanionRunningM = companionDeviceVersion > Build.VERSION_CODES.LOLLIPOP_MR1;
-        if (isCompanionTargetingM) { // Case 2 Warning
-            Log.w(TAG, "MNC: Wear app's targetSdkVersion should be at least 23, if " +
-                    "phone app is targeting at least 23, will continue.");
-        }
-        if ((isCompanionTargetingM && isCompanionRunningM) || // Case 2
-                companionSdkVersion == 0 || companionDeviceVersion == 0) { // Case 4
-            startPermsServiceForInstall(pkg, apkFile, unavailableWearablePerms);
+        // Log an error if Wear is targeting < 23 and phone is targeting >= 23.
+        if (companionSdkVersion == 0 || companionSdkVersion >= Build.VERSION_CODES.M) {
+            Log.e(TAG, "MNC: Wear app's targetSdkVersion should be at least 23, if "
+                    + "phone app is targeting at least 23, will continue.");
         }
 
-        // Case 3a-3c.
         return false;
     }
 
     /**
      * Given a {@string packageName} corresponding to a phone app, query the provider for all the
      * perms that are granted.
-     * @return null if there is an error retrieving this info
-     *         else, a list of all the wearable perms that are not in the list of granted perms of
-     * the phone.
+     *
+     * @return true if the Wear App has any perms that have not been granted yet on the phone side.
+     * @return true if there is any error cases.
      */
-    private List<String> getWearPermsNotGrantedOnPhone(String packageName, Uri permUri,
+    private boolean doesWearHaveUngrantedPerms(String packageName, Uri permUri,
             List<String> wearablePermissions) {
         if (permUri == null) {
             Log.e(TAG, "Permission URI is null");
-            return null;
+            // Pretend there is an ungranted permission to avoid installing for error cases.
+            return true;
         }
         Cursor permCursor = getContentResolver().query(permUri, null, null, null, null);
         if (permCursor == null) {
             Log.e(TAG, "Could not get the cursor for the permissions");
-            return null;
+            // Pretend there is an ungranted permission to avoid installing for error cases.
+            return true;
         }
 
         Set<String> grantedPerms = new HashSet<>();
@@ -465,10 +447,10 @@ public class WearPackageInstallerService extends Service {
         }
         permCursor.close();
 
-        ArrayList<String> unavailableWearablePerms = new ArrayList<>();
+        boolean hasUngrantedPerm = false;
         for (String wearablePerm : wearablePermissions) {
             if (!grantedPerms.contains(wearablePerm)) {
-                unavailableWearablePerms.add(wearablePerm);
+                hasUngrantedPerm = true;
                 if (!ungrantedPerms.contains(wearablePerm)) {
                     // This is an error condition. This means that the wearable has permissions that
                     // are not even declared in its host app. This is a developer error.
@@ -480,11 +462,11 @@ public class WearPackageInstallerService extends Service {
                 }
             }
         }
-        return unavailableWearablePerms;
+        return hasUngrantedPerm;
     }
 
     private void finishService(PowerManager.WakeLock lock, int startId) {
-        if (lock.isHeld()) {
+        if (lock != null && lock.isHeld()) {
             lock.release();
         }
         stopSelf(startId);
@@ -499,86 +481,6 @@ public class WearPackageInstallerService extends Service {
             lockStatic.setReferenceCounted(true);
         }
         return lockStatic;
-    }
-
-    private void startPermsServiceForInstall(final PackageParser.Package pkg, final File apkFile,
-            List<String> unavailableWearablePerms) {
-        final String packageName = pkg.packageName;
-
-        Intent showPermsIntent = new Intent()
-                .setComponent(new ComponentName(HOME_APP_PACKAGE_NAME, SHOW_PERMS_SERVICE_CLASS))
-                .setAction(Intent.ACTION_INSTALL_PACKAGE);
-        final PackageManager pm = getPackageManager();
-        pkg.applicationInfo.publicSourceDir = apkFile.getPath();
-        final CharSequence label = pkg.applicationInfo.loadLabel(pm);
-        final Uri iconUri = getIconFileUri(packageName, pkg.applicationInfo.loadIcon(pm));
-        if (TextUtils.isEmpty(label) || iconUri == null) {
-            Log.e(TAG, "MNC: Could not launch service since either label " + label +
-                    ", or icon Uri " + iconUri + " is invalid.");
-        } else {
-            showPermsIntent.putExtra(KEY_APP_LABEL, label);
-            showPermsIntent.putExtra(KEY_APP_ICON_URI, iconUri);
-            showPermsIntent.putExtra(KEY_PACKAGE_NAME, packageName);
-            showPermsIntent.putExtra(KEY_PERMS_LIST,
-                    unavailableWearablePerms.toArray(new String[0]));
-            showPermsIntent.putExtra(KEY_HAS_LAUNCHER, WearPackageUtil.hasLauncherActivity(pkg));
-
-            if (Log.isLoggable(TAG, Log.DEBUG)) {
-                Log.d(TAG, "MNC: Launching Intent " + showPermsIntent + " for " + packageName +
-                        " with name " + label);
-            }
-            startService(showPermsIntent);
-        }
-    }
-
-    private void startPermsServiceForUninstall(final String packageName) {
-        Intent showPermsIntent = new Intent()
-                .setComponent(new ComponentName(HOME_APP_PACKAGE_NAME, SHOW_PERMS_SERVICE_CLASS))
-                .setAction(Intent.ACTION_UNINSTALL_PACKAGE);
-        showPermsIntent.putExtra(KEY_PACKAGE_NAME, packageName);
-        if (Log.isLoggable(TAG, Log.DEBUG)) {
-            Log.d(TAG, "Launching Intent " + showPermsIntent + " for " + packageName);
-        }
-        startService(showPermsIntent);
-    }
-
-    private Uri getIconFileUri(final String packageName, final Drawable d) {
-        if (d == null || !(d instanceof BitmapDrawable)) {
-            Log.e(TAG, "Drawable is not a BitmapDrawable for " + packageName);
-            return null;
-        }
-        File iconFile = WearPackageUtil.getIconFile(this, packageName);
-
-        if (iconFile == null) {
-            Log.e(TAG, "Could not get icon file for " + packageName);
-            return null;
-        }
-
-        FileOutputStream fos = null;
-        try {
-            // Convert bitmap to byte array
-            Bitmap bitmap = ((BitmapDrawable) d).getBitmap();
-            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.PNG, 0, bos);
-
-            // Write the bytes into the file
-            fos = new FileOutputStream(iconFile);
-            fos.write(bos.toByteArray());
-            fos.flush();
-
-            return WearPackageIconProvider.getUriForPackage(packageName);
-        } catch (IOException e) {
-            Log.e(TAG, "Could not convert drawable to icon file for package " + packageName, e);
-            return null;
-        } finally {
-            if (fos != null) {
-                try {
-                    fos.close();
-                } catch (IOException e) {
-                    // ignore
-                }
-            }
-        }
     }
 
     private class PackageInstallListener implements PackageInstallerImpl.InstallListener {
@@ -618,7 +520,6 @@ public class WearPackageInstallerService extends Service {
         public void installFailed(int errorCode, String errorDesc) {
             Log.e(TAG, "Package install failed " + mApplicationPackageName
                     + ", errorCode " + errorCode);
-            WearPackageUtil.removeFromPermStore(mContext, mApplicationPackageName);
             finishService(mWakeLock, mStartId);
         }
     }
@@ -644,5 +545,34 @@ public class WearPackageInstallerService extends Service {
                 finishService(mWakeLock, mStartId);
             }
         }
+    }
+
+    private synchronized Pair<Integer, Notification> buildNotification(final String packageName,
+            final String title) {
+        int notifId;
+        if (mNotifIdMap.containsKey(packageName)) {
+            notifId = mNotifIdMap.get(packageName);
+        } else {
+            notifId = mInstallNotificationId++;
+            mNotifIdMap.put(packageName, notifId);
+        }
+
+        if (mNotificationChannel == null) {
+            mNotificationChannel = new NotificationChannel(WEAR_APPS_CHANNEL,
+                    getString(R.string.wear_app_channel), NotificationManager.IMPORTANCE_MIN);
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(mNotificationChannel);
+        }
+        return new Pair<>(notifId, new Notification.Builder(this, WEAR_APPS_CHANNEL)
+            .setSmallIcon(R.drawable.ic_file_download)
+            .setContentTitle(title)
+            .build());
+    }
+
+    private void getLabelAndUpdateNotification(String packageName, String title) {
+        // Update notification since we have a label now.
+        NotificationManager notificationManager = getSystemService(NotificationManager.class);
+        Pair<Integer, Notification> notifPair = buildNotification(packageName, title);
+        notificationManager.notify(notifPair.first, notifPair.second);
     }
 }
