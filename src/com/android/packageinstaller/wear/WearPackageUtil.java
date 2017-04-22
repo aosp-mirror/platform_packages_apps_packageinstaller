@@ -16,10 +16,7 @@
 
 package com.android.packageinstaller.wear;
 
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageParser;
 import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import android.system.ErrnoException;
@@ -34,19 +31,12 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 
 public class WearPackageUtil {
     private static final String TAG = "WearablePkgInstaller";
 
     private static final String COMPRESSION_LZMA = "lzma";
     private static final String COMPRESSION_XZ = "xz";
-
-    private static final String SHOW_PERMS_SERVICE_PKG_NAME = "com.google.android.wearable.app";
-    private static final String SHOW_PERMS_SERVICE_CLASS_NAME =
-            "com.google.android.clockwork.packagemanager.ShowPermsService";
-    private static final String EXTRA_PACKAGE_NAME
-            = "com.google.android.clockwork.EXTRA_PACKAGE_NAME";
 
     public static File getTemporaryFile(Context context, String packageName) {
         try {
@@ -127,42 +117,6 @@ public class WearPackageUtil {
                 Log.e(TAG, "Failed to close the file from FD ", e);
             }
         }
-    }
-
-    public static boolean hasLauncherActivity(PackageParser.Package pkg) {
-        if (pkg == null || pkg.activities == null) {
-            return false;
-        }
-
-        final int activityCount = pkg.activities.size();
-        for (int i = 0; i < activityCount; ++i) {
-            if (pkg.activities.get(i).intents != null) {
-                ArrayList<PackageParser.ActivityIntentInfo> intents =
-                        pkg.activities.get(i).intents;
-                final int intentsCount = intents.size();
-                for (int j = 0; j < intentsCount; ++j) {
-                    final PackageParser.ActivityIntentInfo intentInfo = intents.get(j);
-                    if (intentInfo.hasAction(Intent.ACTION_MAIN)) {
-                        if (intentInfo.hasCategory(Intent.CATEGORY_INFO) ||
-                                intentInfo .hasCategory(Intent.CATEGORY_LAUNCHER)) {
-                            return true;
-                        }
-                    }
-                }
-            }
-        }
-        return false;
-    }
-
-    public static void removeFromPermStore(Context context, String wearablePackageName) {
-        Intent newIntent = new Intent()
-                .setComponent(new ComponentName(
-                        SHOW_PERMS_SERVICE_PKG_NAME, SHOW_PERMS_SERVICE_CLASS_NAME))
-                .setAction(Intent.ACTION_UNINSTALL_PACKAGE);
-        newIntent.putExtra(EXTRA_PACKAGE_NAME, wearablePackageName);
-        Log.i(TAG, "Sending removeFromPermStore to ShowPermsService " + newIntent
-                + " for " + wearablePackageName);
-        context.startService(newIntent);
     }
 
     /**

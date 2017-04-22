@@ -24,6 +24,7 @@
     <string name="cancel">Cancel</string>
     <string name="unknown">Unknown</string>
     <string name="installing">Installing\u2026</string>
+    <string name="installing_app">Installing <xliff:g id="package_label">%1$s</xliff:g>\u2026</string>
     <string name="install_done">App installed.</string>
     <!-- Message for installing a new app that requires some permissions [CHAR LIMIT=NONE] -->
     <string name="install_confirm_question">Do you want to install this application?
@@ -376,5 +377,8 @@
 
     <!-- Label for button to open manage external sources settings [CHAR LIMIT=45] -->
     <string name="external_sources_settings">Settings</string>
+
+    <!-- Label for the notification channel containing notifications for embedded app operations [CHAR LIMIT=40] -->
+    <string name="wear_app_channel">Installing/uninstalling wear apps</string>
 
 </resources>
