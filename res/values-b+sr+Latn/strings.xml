@@ -24,6 +24,8 @@
     <string name="cancel" msgid="8360346460165114585">"Otkaži"</string>
     <string name="unknown" msgid="4742479012767208045">"Nepoznato"</string>
     <string name="installing" msgid="8613631001631998372">"Instaliranje..."</string>
+    <!-- no translation found for installing_app (4097935682329028894) -->
+    <skip />
     <string name="install_done" msgid="3682715442154357097">"Aplikacija je instalirana."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Želite li da instalirate ovu aplikaciju? Imaće pristup sledećem:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Želite li da instalirate ovu aplikaciju? Ne zahteva poseban pristup."</string>
@@ -142,13 +144,11 @@
     <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Tabletu iz bezbednosnih razloga nije dozvoljeno da instalira nepoznate aplikacije iz ovog izvora."</string>
     <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Televizoru iz bezbednosnih razloga nije dozvoljeno da instalira nepoznate aplikacije iz ovog izvora."</string>
     <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Telefonu iz bezbednosnih razloga nije dozvoljeno da instalira nepoznate aplikacije iz ovog izvora."</string>
-    <!-- no translation found for anonymous_source_warning (7700263729981815614) -->
-    <skip />
-    <!-- no translation found for anonymous_source_warning (8854462805499848630) -->
-    <skip />
-    <!-- no translation found for anonymous_source_warning (1291472686734385872) -->
-    <skip />
-    <!-- no translation found for anonymous_source_continue (2094381167954332292) -->
-    <skip />
+    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"Telefon i lični podaci su podložniji napadu nepoznatih aplikacija. Ako instalirate ovu aplikaciju, prihvatate da ste odgovorni za oštećenja telefona ili gubitak podataka do kojih može da dođe zbog njenog korišćenja."</string>
+    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"Tablet i lični podaci su podložniji napadu nepoznatih aplikacija. Ako instalirate ovu aplikaciju, prihvatate da ste odgovorni za oštećenja tableta ili gubitak podataka do kojih može da dođe zbog njenog korišćenja."</string>
+    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"TV i lični podaci su podložniji napadu nepoznatih aplikacija. Ako instalirate ovu aplikaciju, prihvatate da ste odgovorni za oštećenja TV-a ili gubitak podataka do kojih može da dođe zbog njenog korišćenja."</string>
+    <string name="anonymous_source_continue" msgid="2094381167954332292">"Nastavi"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"Podešavanja"</string>
+    <!-- no translation found for wear_app_channel (6200840123672949356) -->
+    <skip />
 </resources>

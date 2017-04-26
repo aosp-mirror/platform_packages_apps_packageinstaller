@@ -24,6 +24,8 @@
     <string name="cancel" msgid="8360346460165114585">"Utzi"</string>
     <string name="unknown" msgid="4742479012767208045">"Ezezaguna"</string>
     <string name="installing" msgid="8613631001631998372">"Instalatzen…"</string>
+    <!-- no translation found for installing_app (4097935682329028894) -->
+    <skip />
     <string name="install_done" msgid="3682715442154357097">"Aplikazioa instalatu da."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Aplikazioa instalatu nahi duzu? Elementu hauetarako sarbidea izango du:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Aplikazioa instalatu nahi duzu? Ez du sarbide berezirik behar."</string>
@@ -141,13 +143,11 @@
     <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Segurtasuna bermatzeko, tableta honetan ezin dira instalatu iturburu honetako aplikazio ezezagunak."</string>
     <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Segurtasuna bermatzeko, telebista honetan ezin dira instalatu iturburu honetako aplikazio ezezagunak."</string>
     <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Segurtasuna bermatzeko, telefono honetan ezin dira instalatu iturburu honetako aplikazio ezezagunak."</string>
-    <!-- no translation found for anonymous_source_warning (7700263729981815614) -->
-    <skip />
-    <!-- no translation found for anonymous_source_warning (8854462805499848630) -->
-    <skip />
-    <!-- no translation found for anonymous_source_warning (1291472686734385872) -->
-    <skip />
-    <!-- no translation found for anonymous_source_continue (2094381167954332292) -->
-    <skip />
+    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"Telefonoak eta datu pertsonalek aplikazio ezezagunen erasoak jaso ditzakete. Aplikazio hau instalatzen baduzu, onartzen duzu hura erabiltzeagatik telefonoak jasan ditzakeen kalteen edo datu-galeren erantzulea zeu zarela."</string>
+    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"Tabletak eta datu pertsonalek aplikazio ezezagunen erasoak jaso ditzakete. Aplikazio hau instalatzen baduzu, onartzen duzu hura erabiltzeagatik tabletak jasan ditzakeen kalteen edo datu-galeren erantzulea zeu zarela."</string>
+    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Telebistak eta datu pertsonalek aplikazio ezezagunen erasoak jaso ditzakete. Iturburu honetako aplikazioak instalatzen badituzu, onartzen duzu haiek erabiltzeagatik telebistak jasan ditzakeen kalteen edo datu-galeren erantzulea zeu zarela."</string>
+    <string name="anonymous_source_continue" msgid="2094381167954332292">"Egin aurrera"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"Ezarpenak"</string>
+    <!-- no translation found for wear_app_channel (6200840123672949356) -->
+    <skip />
 </resources>

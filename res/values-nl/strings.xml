@@ -24,6 +24,8 @@
     <string name="cancel" msgid="8360346460165114585">"Annuleren"</string>
     <string name="unknown" msgid="4742479012767208045">"Onbekend"</string>
     <string name="installing" msgid="8613631001631998372">"Installeren..."</string>
+    <!-- no translation found for installing_app (4097935682329028894) -->
+    <skip />
     <string name="install_done" msgid="3682715442154357097">"App geïnstalleerd."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Wil je deze app installeren? Deze krijgt toegang tot:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Wil je deze app installeren? Hiervoor is geen speciale toegang vereist."</string>
@@ -141,13 +143,11 @@
     <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Uit veiligheidsoverwegingen heeft je tablet geen toestemming om onbekende apps van deze bron te installeren."</string>
     <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Uit veiligheidsoverwegingen heeft je tv geen toestemming om onbekende apps van deze bron te installeren."</string>
     <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Uit veiligheidsoverwegingen heeft je telefoon geen toestemming om onbekende apps van deze bron te installeren."</string>
-    <!-- no translation found for anonymous_source_warning (7700263729981815614) -->
-    <skip />
-    <!-- no translation found for anonymous_source_warning (8854462805499848630) -->
-    <skip />
-    <!-- no translation found for anonymous_source_warning (1291472686734385872) -->
-    <skip />
-    <!-- no translation found for anonymous_source_continue (2094381167954332292) -->
-    <skip />
+    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"Je telefoon en persoonlijke gegevens zijn kwetsbaarder voor aanvallen door onbekende apps. Als je deze app installeert, ga je ermee akkoord dat je verantwoordelijk bent voor eventuele schade aan je telefoon of gegevensverlies als gevolg van het gebruik van de app."</string>
+    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"Je tablet en persoonlijke gegevens zijn kwetsbaarder voor aanvallen door onbekende apps. Als je deze app installeert, ga je ermee akkoord dat je verantwoordelijk bent voor eventuele schade aan je tablet of gegevensverlies als gevolg van het gebruik van de app."</string>
+    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Je tv en persoonlijke gegevens zijn kwetsbaarder voor aanvallen door onbekende apps. Als je deze app installeert, ga je ermee akkoord dat je verantwoordelijk bent voor eventuele schade aan je tv of gegevensverlies als gevolg van het gebruik van de app."</string>
+    <string name="anonymous_source_continue" msgid="2094381167954332292">"Doorgaan"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"Instellingen"</string>
+    <!-- no translation found for wear_app_channel (6200840123672949356) -->
+    <skip />
 </resources>

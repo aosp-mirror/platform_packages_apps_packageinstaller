@@ -24,6 +24,8 @@
     <string name="cancel" msgid="8360346460165114585">"Hætta við"</string>
     <string name="unknown" msgid="4742479012767208045">"Óþekkt"</string>
     <string name="installing" msgid="8613631001631998372">"Setur upp…"</string>
+    <!-- no translation found for installing_app (4097935682329028894) -->
+    <skip />
     <string name="install_done" msgid="3682715442154357097">"Forritið er uppsett."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Viltu setja þetta forrit upp? Það mun fá aðgang að:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Viltu setja þetta forrit upp? Það krefst ekki neins sérstaks aðgangs."</string>
@@ -141,13 +143,11 @@
     <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Til að tryggja öryggi þitt er ekki heimild í spjaldtölvunni þinni fyrir uppsetningu óþekktra forrita frá þessari veitu."</string>
     <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Til að tryggja öryggi þitt er ekki heimild í sjónvarpinu þínu fyrir uppsetningu óþekktra forrita frá þessari veitu."</string>
     <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Til að tryggja öryggi þitt er ekki heimild í símanum þínum fyrir uppsetningu óþekktra forrita frá þessari veitu."</string>
-    <!-- no translation found for anonymous_source_warning (7700263729981815614) -->
-    <skip />
-    <!-- no translation found for anonymous_source_warning (8854462805499848630) -->
-    <skip />
-    <!-- no translation found for anonymous_source_warning (1291472686734385872) -->
-    <skip />
-    <!-- no translation found for anonymous_source_continue (2094381167954332292) -->
-    <skip />
+    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"Síminn þinn og persónuleg gögn eru berskjaldaðri fyrir árásum forrita af óþekktum uppruna. Með uppsetningu þessa forrits samþykkirðu að bera fulla ábyrgð á hverju því tjóni sem verða kann á símanum eða gagnatapi sem leiða kann af notkun þess."</string>
+    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"Spjaldtölvan þín og persónuleg gögn eru berskjaldaðri fyrir árásum forrita af óþekktum uppruna. Með uppsetningu þessa forrits samþykkirðu að bera fulla ábyrgð á hverju því tjóni sem verða kann á spjaldtölvunni eða gagnatapi sem leiða kann af notkun þess."</string>
+    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Sjónvarpið þitt og persónuleg gögn eru berskjaldaðri fyrir árásum forrita af óþekktum uppruna. Með uppsetningu þessa forrits samþykkirðu að bera fulla ábyrgð á hverju því tjóni sem verða kann á sjónvarpinu eða gagnatapi sem leiða kann af notkun þess."</string>
+    <string name="anonymous_source_continue" msgid="2094381167954332292">"Áfram"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"Stillingar"</string>
+    <!-- no translation found for wear_app_channel (6200840123672949356) -->
+    <skip />
 </resources>

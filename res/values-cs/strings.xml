@@ -24,6 +24,8 @@
     <string name="cancel" msgid="8360346460165114585">"Zrušit"</string>
     <string name="unknown" msgid="4742479012767208045">"Neznámé"</string>
     <string name="installing" msgid="8613631001631998372">"Probíhá instalace..."</string>
+    <!-- no translation found for installing_app (4097935682329028894) -->
+    <skip />
     <string name="install_done" msgid="3682715442154357097">"Aplikace je nainstalována."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Chcete tuto aplikaci nainstalovat? Aplikace získá přístup k těmto oprávněním:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Chcete tuto aplikaci nainstalovat? Aplikace nevyžaduje žádná zvláštní oprávnění."</string>
@@ -143,13 +145,11 @@
     <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Z bezpečnostních důvodů do tabletu není dovoleno instalovat neznámé aplikace z tohoto zdroje."</string>
     <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Z bezpečnostních důvodů do televize není dovoleno instalovat neznámé aplikace z tohoto zdroje."</string>
     <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Z bezpečnostních důvodů do telefonu není dovoleno instalovat neznámé aplikace z tohoto zdroje."</string>
-    <!-- no translation found for anonymous_source_warning (7700263729981815614) -->
-    <skip />
-    <!-- no translation found for anonymous_source_warning (8854462805499848630) -->
-    <skip />
-    <!-- no translation found for anonymous_source_warning (1291472686734385872) -->
-    <skip />
-    <!-- no translation found for anonymous_source_continue (2094381167954332292) -->
-    <skip />
+    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"Telefon a osobní údaje jsou zranitelnější vůči útoku ze strany neznámých aplikací. Instalací této aplikace přijímáte odpovědnost za případné škody na telefonu nebo ztrátu dat, která může být používáním aplikace způsobena."</string>
+    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"Tablet a osobní údaje jsou zranitelnější vůči útoku ze strany neznámých aplikací. Instalací této aplikace přijímáte odpovědnost za případné škody na tabletu nebo ztrátu dat, která může být používáním aplikace způsobena."</string>
+    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Televize a osobní údaje jsou zranitelnější vůči útoku ze strany neznámých aplikací. Instalací této aplikace přijímáte odpovědnost za případné škody na televizi nebo ztrátu dat, která může být používáním aplikace způsobena."</string>
+    <string name="anonymous_source_continue" msgid="2094381167954332292">"Pokračovat"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"Nastavení"</string>
+    <!-- no translation found for wear_app_channel (6200840123672949356) -->
+    <skip />
 </resources>
