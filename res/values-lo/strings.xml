@@ -24,6 +24,8 @@
     <string name="cancel" msgid="8360346460165114585">"ຍົກເລີກ"</string>
     <string name="unknown" msgid="4742479012767208045">"ບໍ່ຮູ້ຈັກ"</string>
     <string name="installing" msgid="8613631001631998372">"ກຳລັງຕິດຕັ້ງ…"</string>
+    <!-- no translation found for installing_app (4097935682329028894) -->
+    <skip />
     <string name="install_done" msgid="3682715442154357097">"ຕິດຕັ້ງແອັບຯແລ້ວ."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"ທ່ານຕ້ອງການຕິດຕັ້ງແອັບພລິເຄຊັນນີ້ບໍ່? ມັນຈະໄດ້ສິດການເຂົ້າເຖິງ:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"ທ່ານ​ຕ້ອງ​ການ​ຕິດ​ຕັ້ງ​ແອັບພລິເຄຊັນນີ້ບໍ່​? ມັນ​ບໍ່​ຕ້ອງໃຊ້ສິດທິການ​ເຂົ້າ​ເຖິງ​​ພິ​ເສດໃດໆ."</string>
@@ -141,13 +143,11 @@
     <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"ເພື່ອຄວາມປອດໄພຂອງທ່ານ, ແທັບເລັດຂອງທ່ານບໍ່ສາມາດຕິດຕັ້ງແອັບຈາກແຫລ່ງຂໍ້ມູນນີ້ໄດ້."</string>
     <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"ເພື່ອຄວາມປອດໄພຂອງທ່ານ, ໂທລະທັດຂອງທ່ານບໍ່ສາມາດຕິດຕັ້ງແອັບຈາກແຫລ່ງຂໍ້ມູນນີ້ໄດ້."</string>
     <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"ເພື່ອຄວາມປອດໄພຂອງທ່ານ, ໂທລະສັບຂອງທ່ານບໍ່ສາມາດຕິດຕັ້ງແອັບຈາກແຫລ່ງຂໍ້ມູນນີ້ໄດ້."</string>
-    <!-- no translation found for anonymous_source_warning (7700263729981815614) -->
-    <skip />
-    <!-- no translation found for anonymous_source_warning (8854462805499848630) -->
-    <skip />
-    <!-- no translation found for anonymous_source_warning (1291472686734385872) -->
-    <skip />
-    <!-- no translation found for anonymous_source_continue (2094381167954332292) -->
-    <skip />
+    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"ໂທລະສັບ ແລະ ຂໍ້ມູນສ່ວນຕົວຂອງທ່ານອາດຖືກໂຈມຕີໄດ້ໂດຍແອັບທີ່ບໍ່ຮູ້ຈັກ. ໂດຍການຕິດຕັ້ງແອັບນີ້, ແມ່ນທ່ານຍອມຮັບວ່າທ່ານຈະຮັບຜິດຊອບຕໍ່ຄວາມເສຍຫາຍໃດໆກໍຕາມທີ່ເກີດຂຶ້ນຕໍ່ໂທລະທັດຂອງທ່ານ ຫຼື ການສູນເສຍຂໍ້ມູນທີ່ອາດເກີດຈາກການນຳໃຊ້ມັນ."</string>
+    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"ແທັບເລັດ ແລະ ຂໍ້ມູນສ່ວນຕົວຂອງທ່ານອາດຖືກໂຈມຕີໄດ້ໂດຍແອັບທີ່ບໍ່ຮູ້ຈັກ. ໂດຍການຕິດຕັ້ງແອັບນີ້, ແມ່ນທ່ານຍອມຮັບວ່າທ່ານຈະຮັບຜິດຊອບຕໍ່ຄວາມເສຍຫາຍໃດໆກໍຕາມທີ່ເກີດຂຶ້ນຕໍ່ໂທລະທັດຂອງທ່ານ ຫຼື ການສູນເສຍຂໍ້ມູນທີ່ອາດເກີດຈາກການນຳໃຊ້ມັນ."</string>
+    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"ໂທລະທັດ ແລະ ຂໍ້ມູນສ່ວນຕົວຂອງທ່ານອາດຖືກໂຈມຕີໄດ້ໂດຍແອັບທີ່ບໍ່ຮູ້ຈັກ. ໂດຍການຕິດຕັ້ງແອັບນີ້, ແມ່ນທ່ານຍອມຮັບວ່າທ່ານຈະຮັບຜິດຊອບຕໍ່ຄວາມເສຍຫາຍໃດໆກໍຕາມທີ່ເກີດຂຶ້ນຕໍ່ໂທລະທັດຂອງທ່ານ ຫຼື ການສູນເສຍຂໍ້ມູນທີ່ອາດເກີດຈາກການນຳໃຊ້ມັນ."</string>
+    <string name="anonymous_source_continue" msgid="2094381167954332292">"ດຳເນີນການຕໍ່"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"ການຕັ້ງຄ່າ"</string>
+    <!-- no translation found for wear_app_channel (6200840123672949356) -->
+    <skip />
 </resources>

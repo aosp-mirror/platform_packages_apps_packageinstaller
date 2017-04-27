@@ -24,6 +24,8 @@
     <string name="cancel" msgid="8360346460165114585">"취소"</string>
     <string name="unknown" msgid="4742479012767208045">"알 수 없음"</string>
     <string name="installing" msgid="8613631001631998372">"설치 중..."</string>
+    <!-- no translation found for installing_app (4097935682329028894) -->
+    <skip />
     <string name="install_done" msgid="3682715442154357097">"앱이 설치되었습니다."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"이 애플리케이션을 설치하시겠습니까? 애플리케이션이 다음에 액세스할 수 있습니다."</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"이 애플리케이션을 설치하시겠습니까? 특별한 액세스 권한이 필요하지 않습니다."</string>
@@ -141,13 +143,11 @@
     <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"보안상의 이유로 이 소스에서 가져온 알 수 없는 앱을 태블릿에 설치할 수 없습니다."</string>
     <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"보안상의 이유로 이 소스에서 가져온 알 수 없는 앱을 TV에 설치할 수 없습니다."</string>
     <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"보안상의 이유로 이 소스에서 가져온 알 수 없는 앱을 휴대전화에 설치할 수 없습니다."</string>
-    <!-- no translation found for anonymous_source_warning (7700263729981815614) -->
-    <skip />
-    <!-- no translation found for anonymous_source_warning (8854462805499848630) -->
-    <skip />
-    <!-- no translation found for anonymous_source_warning (1291472686734385872) -->
-    <skip />
-    <!-- no translation found for anonymous_source_continue (2094381167954332292) -->
-    <skip />
+    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"휴대전화와 개인 데이터는 알 수 없는 앱의 공격에 더욱 취약합니다. 이 앱을 설치하면 앱 사용으로 인해 발생할 수 있는 모든 휴대전화 손상이나 데이터 손실에 사용자가 책임을 진다는 것에 동의하게 됩니다."</string>
+    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"태블릿과 개인 데이터는 알 수 없는 앱의 공격에 더욱 취약합니다. 이 앱을 설치하면 앱 사용으로 인해 발생할 수 있는 모든 태블릿 손상이나 데이터 손실에 사용자가 책임을 진다는 것에 동의하게 됩니다."</string>
+    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"TV와 개인 데이터는 알 수 없는 앱의 공격에 더욱 취약합니다. 이 앱을 설치하면 앱 사용으로 인해 발생할 수 있는 모든 TV 손상이나 데이터 손실에 사용자가 책임을 진다는 것에 동의하게 됩니다."</string>
+    <string name="anonymous_source_continue" msgid="2094381167954332292">"계속"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"설정"</string>
+    <!-- no translation found for wear_app_channel (6200840123672949356) -->
+    <skip />
 </resources>

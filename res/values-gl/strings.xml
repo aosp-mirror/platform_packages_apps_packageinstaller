@@ -24,6 +24,8 @@
     <string name="cancel" msgid="8360346460165114585">"Cancelar"</string>
     <string name="unknown" msgid="4742479012767208045">"Descoñecido"</string>
     <string name="installing" msgid="8613631001631998372">"Instalando…"</string>
+    <!-- no translation found for installing_app (4097935682329028894) -->
+    <skip />
     <string name="install_done" msgid="3682715442154357097">"Aplicación instalada"</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Queres instalar esta aplicación? Poderá acceder a:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Queres instalar esta aplicación? Non require ningún acceso especial."</string>
@@ -141,13 +143,11 @@
     <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Por cuestións de seguranza, na tableta non se poden instalar aplicacións descoñecidas procedentes desta fonte."</string>
     <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Por cuestións de seguranza, na televisión non se poden instalar aplicacións descoñecidas procedentes desta fonte."</string>
     <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Por cuestións de seguranza, no teléfono non se poden instalar aplicacións descoñecidas procedentes desta fonte."</string>
-    <!-- no translation found for anonymous_source_warning (7700263729981815614) -->
-    <skip />
-    <!-- no translation found for anonymous_source_warning (8854462805499848630) -->
-    <skip />
-    <!-- no translation found for anonymous_source_warning (1291472686734385872) -->
-    <skip />
-    <!-- no translation found for anonymous_source_continue (2094381167954332292) -->
-    <skip />
+    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"O teléfono e os datos persoais son máis vulnerables aos ataques de aplicacións descoñecidas. Ao instalar esta aplicación, aceptas que es responsable dos danos ocasionados no teléfono ou da perda dos datos que se poden derivar do seu uso."</string>
+    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"A tableta e os datos persoais son máis vulnerables aos ataques de aplicacións descoñecidas. Ao instalar esta aplicación, aceptas que es responsable dos danos ocasionados na tableta ou da perda dos datos que se poden derivar do seu uso."</string>
+    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"A televisión e os datos persoais son máis vulnerables aos ataques de aplicacións descoñecidas. Ao instalar esta aplicación, aceptas que es responsable dos danos ocasionados na televisión ou da perda dos datos que se poden derivar do seu uso."</string>
+    <string name="anonymous_source_continue" msgid="2094381167954332292">"Continuar"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"Configuración"</string>
+    <!-- no translation found for wear_app_channel (6200840123672949356) -->
+    <skip />
 </resources>

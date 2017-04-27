@@ -24,6 +24,8 @@
     <string name="cancel" msgid="8360346460165114585">"अभी नहीं"</string>
     <string name="unknown" msgid="4742479012767208045">"अज्ञात"</string>
     <string name="installing" msgid="8613631001631998372">"इंस्‍टॉल कर रहा है…"</string>
+    <!-- no translation found for installing_app (4097935682329028894) -->
+    <skip />
     <string name="install_done" msgid="3682715442154357097">"ऐप्स  इंस्‍टॉल हो गया."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"क्‍या आप इस ऐप्स को इंस्‍टॉल करना चाहते हैं? इससे यहां पर पहुंच प्राप्त होगी:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"क्‍या आप इस ऐप्स को इंस्‍टॉल करना चाहते हैं? इसके लिए किसी विशेष पहुंच की आवश्‍यकता नहीं है."</string>
@@ -141,13 +143,11 @@
     <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"आपकी सुरक्षा के लिए, आपके टैबलेट को इस स्रोत से आने वाले अनजान ऐप्लिकेशन इंस्टॉल करने की अनुमति नहीं है."</string>
     <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"आपकी सुरक्षा के लिए, आपके टीवी को इस स्रोत से आने वाले अनजान ऐप्लिकेशन इंस्टॉल करने की अनुमति नहीं है."</string>
     <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"आपकी सुरक्षा के लिए, आपके फ़ोन को इस स्रोत से आने वाले अनजान ऐप्लिकेशन इंस्टॉल करने की अनुमति नहीं है."</string>
-    <!-- no translation found for anonymous_source_warning (7700263729981815614) -->
-    <skip />
-    <!-- no translation found for anonymous_source_warning (8854462805499848630) -->
-    <skip />
-    <!-- no translation found for anonymous_source_warning (1291472686734385872) -->
-    <skip />
-    <!-- no translation found for anonymous_source_continue (2094381167954332292) -->
-    <skip />
+    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"आपका फ़ोन और व्यक्तिगत डेटा अज्ञात ऐप्लिकेशन के हमले के प्रति अधिक भेद्य हैं. इस ऐप्लिकेशन को इंस्टॉल करके आप सहमति देते हैं कि इसके उपयोग के परिणाम स्वरूप आपके फ़ोन को होने वाली किसी भी क्षति या डेटा की हानि के लिए आप ज़िम्मेदार हैं."</string>
+    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"आपका टैबलेट और व्यक्तिगत डेटा अज्ञात ऐप्लिकेशन के हमले के प्रति अधिक भेद्य हैं. इस ऐप्लिकेशन को इंस्टॉल करके आप सहमति देते हैं कि इसके उपयोग के परिणाम स्वरूप आपके टैबलेट को होने वाली किसी भी क्षति या डेटा की हानि के लिए आप ज़िम्मेदार हैं."</string>
+    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"आपका टीवी और व्यक्तिगत डेटा अज्ञात ऐप्लिकेशन के हमले के प्रति अधिक भेद्य हैं. इस ऐप्लिकेशन को इंस्टॉल करके आप सहमति देते हैं कि इसके उपयोग के परिणाम स्वरूप आपके टीवी को होने वाली किसी भी क्षति या डेटा की हानि के लिए आप ज़िम्मेदार हैं."</string>
+    <string name="anonymous_source_continue" msgid="2094381167954332292">"जारी रखें"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"सेटिंग"</string>
+    <!-- no translation found for wear_app_channel (6200840123672949356) -->
+    <skip />
 </resources>

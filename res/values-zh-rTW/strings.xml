@@ -24,6 +24,8 @@
     <string name="cancel" msgid="8360346460165114585">"取消"</string>
     <string name="unknown" msgid="4742479012767208045">"不明"</string>
     <string name="installing" msgid="8613631001631998372">"安裝中…"</string>
+    <!-- no translation found for installing_app (4097935682329028894) -->
+    <skip />
     <string name="install_done" msgid="3682715442154357097">"已安裝應用程式。"</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"你要安裝這個應用程式嗎？應用程式將取得以下權限："</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"你要安裝這個應用程式嗎？應用程式不需任何特殊權限。"</string>
@@ -141,13 +143,11 @@
     <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"為了安全起見，你的平板電腦禁止安裝這個來源提供的不明應用程式。"</string>
     <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"為了安全起見，你的電視禁止安裝這個來源提供的不明應用程式。"</string>
     <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"為了安全起見，你的手機禁止安裝這個來源提供的不明應用程式。"</string>
-    <!-- no translation found for anonymous_source_warning (7700263729981815614) -->
-    <skip />
-    <!-- no translation found for anonymous_source_warning (8854462805499848630) -->
-    <skip />
-    <!-- no translation found for anonymous_source_warning (1291472686734385872) -->
-    <skip />
-    <!-- no translation found for anonymous_source_continue (2094381167954332292) -->
-    <skip />
+    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"來歷不明的應用程式可能會損害你的手機和個人資料。如因安裝及使用這個應用程式，導致你的手機受損或資料遺失，請自行負責。"</string>
+    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"來歷不明的應用程式可能會損害你的平板電腦和個人資料。如因安裝及使用這個應用程式，導致你的平板電腦受損或資料遺失，請自行負責。"</string>
+    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"來歷不明的應用程式可能會損害你的電視和個人資料。如因安裝及使用這個應用程式，導致你的電視受損或資料遺失，請自行負責。"</string>
+    <string name="anonymous_source_continue" msgid="2094381167954332292">"繼續"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"設定"</string>
+    <!-- no translation found for wear_app_channel (6200840123672949356) -->
+    <skip />
 </resources>
