@@ -64,10 +64,15 @@ public class InstallStart extends Activity {
             callingPackage = (sessionInfo != null) ? sessionInfo.getInstallerPackageName() : null;
         }
 
-        ApplicationInfo sourceInfo = getSourceInfo(callingPackage);
+        final ApplicationInfo sourceInfo = getSourceInfo(callingPackage);
         final int originatingUid = getOriginatingUid(sourceInfo);
+        boolean isTrustedSource = false;
+        if (sourceInfo != null
+                && (sourceInfo.privateFlags & ApplicationInfo.PRIVATE_FLAG_PRIVILEGED) != 0) {
+            isTrustedSource = intent.getBooleanExtra(Intent.EXTRA_NOT_UNKNOWN_SOURCE, false);
+        }
 
-        if (originatingUid != PackageInstaller.SessionParams.UID_UNKNOWN) {
+        if (!isTrustedSource && originatingUid != PackageInstaller.SessionParams.UID_UNKNOWN) {
             final int targetSdkVersion = getMaxTargetSdkVersionForUid(originatingUid);
             if (targetSdkVersion < 0) {
                 Log.w(LOG_TAG, "Cannot get target sdk version for uid " + originatingUid);
