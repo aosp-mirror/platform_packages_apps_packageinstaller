@@ -24,8 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"ರದ್ದುಮಾಡಿ"</string>
     <string name="unknown" msgid="4742479012767208045">"ಅಪರಿಚಿತ"</string>
     <string name="installing" msgid="8613631001631998372">"ಸ್ಥಾಪಿಸಲಾಗುತ್ತಿದೆ…"</string>
-    <!-- no translation found for installing_app (4097935682329028894) -->
-    <skip />
+    <string name="installing_app" msgid="4097935682329028894">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ಅನ್ನು ಸ್ಥಾಪಿಸಲಾಗುತ್ತಿದೆ…"</string>
     <string name="install_done" msgid="3682715442154357097">"ಅಪ್ಲಿಕೇಶನ್ ಸ್ಥಾಪಿಸಲಾಗಿದೆ."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"ನೀವು ಈ ಅಪ್ಲಿಕೇಶನ್ ಸ್ಥಾಪಿಸಲು ಬಯಸುವಿರಾ? ಇದು ಇಲ್ಲಿಗೆ ಪ್ರವೇಶ ಪಡೆದುಕೊಳ್ಳುತ್ತದೆ:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"ನೀವು ಈ ಅಪ್ಲಿಕೇಶನ್ ಸ್ಥಾಪಿಸಲು ಬಯಸುವಿರಾ? ಇದಕ್ಕೆ ಯಾವುದೇ ವಿಶೇಷ ಪ್ರವೇಶದ ಅಗತ್ಯವಿಲ್ಲ."</string>
@@ -92,7 +91,7 @@
     <string name="devicePerms" msgid="6733560207731294504">"ಸಾಧನ ಪ್ರವೇಶ"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"ಈ ನವೀಕರಣಕ್ಕೆ ಯಾವುದೇ ಹೊಸ ಅನುಮತಿಗಳ ಅಗತ್ಯವಿಲ್ಲ."</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"ನೀವು ಕೆಳಗಿನ ಅನುಮತಿಗಳನ್ನು ನೀಡ ಬಯಸುತ್ತೀರಾ? ಇದು ಇಲ್ಲಿ ಪ್ರವೇಶ ಪಡೆದುಕೊಳ್ಳಬಹುದು:"</string>
-    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"ನಿರಾಕರಿಸು"</string>
+    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"ನಿರಾಕರಿಸಿ"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"ಇನ್ನಷ್ಟು ಮಾಹಿತಿ"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"ಹೇಗಾದರೂ ನಿರಾಕರಿಸಿ"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> ರಲ್ಲಿ <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
@@ -100,7 +99,7 @@
     <string name="permission_revoked_count" msgid="7386129423432613024">"<xliff:g id="COUNT">%1$d</xliff:g> ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ"</string>
     <string name="permission_revoked_all" msgid="8595742638132863678">"ಎಲ್ಲಾ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ"</string>
     <string name="permission_revoked_none" msgid="2059511550181271342">"ಯಾವುದನ್ನೂ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿಲ್ಲ"</string>
-    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"ಅನುಮತಿಸು"</string>
+    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"ಅನುಮತಿಸಿ"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"ಅಪ್ಲಿಕೇಶನ್‌ಗಳು"</string>
     <string name="app_permissions" msgid="3146758905824597178">"ಅಪ್ಲಿಕೇಶನ್ ಅನುಮತಿಗಳು"</string>
     <string name="never_ask_again" msgid="1089938738199748687">"ಮತ್ತೆ ಕೇಳಬೇಡಿ"</string>
@@ -148,6 +147,5 @@
     <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"ನಿಮ್ಮ ಟಿವಿ ಹಾಗೂ ವೈಯಕ್ತಿಕ ಡೇಟಾ, ಅಪರಿಚಿತ ಅಪ್ಲಿಕೇಶನ್‌ಗಳ ದಾಳಿಗೆ ತುತ್ತಾಗುವ ಸಾಧ್ಯತೆ ಹೆಚ್ಚಾಗಿದೆ. ಈ ಅಪ್ಲಿಕೇಶನ್‌ ಅನ್ನು ಸ್ಥಾಪಿಸುವ ಮೂಲಕ, ನಿಮ್ಮ ಟಿವಿಗೆ ಯಾವುದೇ ಹಾನಿ ಉಂಟಾದರೆ ಅಥವಾ ಅದರ ಬಳಕೆಯಿಂದ ಡೇಟಾ ನಷ್ಟವಾದರೆ, ಅದಕ್ಕೆ ನೀವೇ ಜವಾಬ್ದಾರರು ಎನ್ನುವುದನ್ನು ಒಪ್ಪಿಕೊಳ್ಳುತ್ತೀರಿ."</string>
     <string name="anonymous_source_continue" msgid="2094381167954332292">"ಮುಂದುವರಿಸಿ"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"ಸೆಟ್ಟಿಂಗ್‌ಗಳು"</string>
-    <!-- no translation found for wear_app_channel (6200840123672949356) -->
-    <skip />
+    <string name="wear_app_channel" msgid="6200840123672949356">"wear ಅಪ್ಲಿಕೇಶನ್‌ ಸ್ಥಾಪಿಸಲಾಗುತ್ತಿದೆ/ಅಸ್ಥಾಪಿಸಲಾಗುತ್ತಿದೆ"</string>
 </resources>
