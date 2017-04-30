@@ -24,8 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"Hætta við"</string>
     <string name="unknown" msgid="4742479012767208045">"Óþekkt"</string>
     <string name="installing" msgid="8613631001631998372">"Setur upp…"</string>
-    <!-- no translation found for installing_app (4097935682329028894) -->
-    <skip />
+    <string name="installing_app" msgid="4097935682329028894">"Setur upp <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="install_done" msgid="3682715442154357097">"Forritið er uppsett."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Viltu setja þetta forrit upp? Það mun fá aðgang að:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Viltu setja þetta forrit upp? Það krefst ekki neins sérstaks aðgangs."</string>
@@ -96,7 +95,7 @@
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Frekari upplýsingar"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Hafna samt"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> af <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="7332275268559121742">"Leyfa &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; að <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_warning_template" msgid="7332275268559121742">"Leyfa forritinu &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; að <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="permission_revoked_count" msgid="7386129423432613024">"<xliff:g id="COUNT">%1$d</xliff:g> óvirkar"</string>
     <string name="permission_revoked_all" msgid="8595742638132863678">"allar óvirkar"</string>
     <string name="permission_revoked_none" msgid="2059511550181271342">"engin óvirk"</string>
@@ -148,6 +147,5 @@
     <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Sjónvarpið þitt og persónuleg gögn eru berskjaldaðri fyrir árásum forrita af óþekktum uppruna. Með uppsetningu þessa forrits samþykkirðu að bera fulla ábyrgð á hverju því tjóni sem verða kann á sjónvarpinu eða gagnatapi sem leiða kann af notkun þess."</string>
     <string name="anonymous_source_continue" msgid="2094381167954332292">"Áfram"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"Stillingar"</string>
-    <!-- no translation found for wear_app_channel (6200840123672949356) -->
-    <skip />
+    <string name="wear_app_channel" msgid="6200840123672949356">"Uppsetning/fjarlæging Wear forrita"</string>
 </resources>

@@ -24,8 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"Hủy"</string>
     <string name="unknown" msgid="4742479012767208045">"Không xác định"</string>
     <string name="installing" msgid="8613631001631998372">"Đang cài đặt…"</string>
-    <!-- no translation found for installing_app (4097935682329028894) -->
-    <skip />
+    <string name="installing_app" msgid="4097935682329028894">"Đang cài đặt <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="install_done" msgid="3682715442154357097">"Ứng dụng đã được cài đặt."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Bạn có muốn cài đặt ứng dụng này không? Ứng dụng sẽ có quyền truy cập vào:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Bạn có muốn cài đặt ứng dụng này không? Ứng dụng này không yêu cầu bất kỳ quyền truy cập đặc biệt nào."</string>
@@ -115,7 +114,7 @@
     <string name="app_permissions_group_summary" msgid="4787239772223699263">"Đã cho phép <xliff:g id="COUNT_0">%1$d</xliff:g> trong số <xliff:g id="COUNT_1">%2$d</xliff:g> ứng dụng"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"Hiển thị hệ thống"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"Ẩn hệ thống"</string>
-    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> quyền"</string>
+    <string name="permission_title" msgid="6495415273398916381">"Quyền <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
     <string name="no_apps" msgid="1965493419005012569">"Không có ứng dụng"</string>
     <string name="location_settings" msgid="1774875730854491297">"Cài đặt vị trí"</string>
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> là nhà cung cấp dịch vụ vị trí cho thiết bị này. Bạn có thể sửa đổi quyền truy cập vị trí từ cài đặt vị trí."</string>
@@ -148,6 +147,5 @@
     <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"TV và dữ liệu cá nhân của bạn dễ bị các ứng dụng không xác định tấn công hơn. Bằng cách cài đặt ứng dụng này, bạn đồng ý tự chịu trách nhiệm cho mọi hỏng hóc đối với TV của mình hoặc mất mát dữ liệu có thể phát sinh do sử dụng ứng dụng này."</string>
     <string name="anonymous_source_continue" msgid="2094381167954332292">"Tiếp tục"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"Cài đặt"</string>
-    <!-- no translation found for wear_app_channel (6200840123672949356) -->
-    <skip />
+    <string name="wear_app_channel" msgid="6200840123672949356">"Cài đặt/gỡ cài đặt ứng dụng Wear"</string>
 </resources>
