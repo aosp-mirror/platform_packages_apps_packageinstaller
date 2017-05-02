@@ -24,8 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"Tühista"</string>
     <string name="unknown" msgid="4742479012767208045">"Tundmatu"</string>
     <string name="installing" msgid="8613631001631998372">"Installimine ..."</string>
-    <!-- no translation found for installing_app (4097935682329028894) -->
-    <skip />
+    <string name="installing_app" msgid="4097935682329028894">"Paketi <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> installimine …"</string>
     <string name="install_done" msgid="3682715442154357097">"Rakendus on installitud."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Kas soovite rakenduse installida? See pääseb järgmiste üksuste juurde:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Kas soovite rakenduse installida? See ei nõua spetsiaalseid juurdepääsuõigusi."</string>
@@ -102,7 +101,7 @@
     <string name="permission_revoked_none" msgid="2059511550181271342">"mitte ükski pole keelatud"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Luba"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Rakendused"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"Rakenduse load"</string>
+    <string name="app_permissions" msgid="3146758905824597178">"Rakenduste load"</string>
     <string name="never_ask_again" msgid="1089938738199748687">"Ära enam küsi"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Lube ei ole"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Täiendavad load"</string>
@@ -115,7 +114,7 @@
     <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> rakendust <xliff:g id="COUNT_1">%2$d</xliff:g>-st on lubatud"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"Kuva süsteem"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"Peida süsteem"</string>
-    <string name="permission_title" msgid="6495415273398916381">"Üksuse <xliff:g id="PERMISSION">%1$s</xliff:g> load"</string>
+    <string name="permission_title" msgid="6495415273398916381">"Teenuse <xliff:g id="PERMISSION">%1$s</xliff:g> load"</string>
     <string name="no_apps" msgid="1965493419005012569">"Rakendusi pole"</string>
     <string name="location_settings" msgid="1774875730854491297">"Asukohaseaded"</string>
     <string name="location_warning" msgid="8778701356292735971">"Rakendus <xliff:g id="APP_NAME">%1$s</xliff:g> on selle seadme asukohateenuste pakkuja. Asukoha juurdepääsu saab muuta asukohaseadetes."</string>
@@ -148,6 +147,5 @@
     <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Teie teler ja isiklikud andmed on tundmatute rakenduste rünnakute suhtes haavatavamad. Selle rakenduse installimisel nõustute, et vastutate teleri kahjude ja andmekao eest, mis võivad tuleneda selliste rakenduste kasutamisest."</string>
     <string name="anonymous_source_continue" msgid="2094381167954332292">"Jätka"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"Seaded"</string>
-    <!-- no translation found for wear_app_channel (6200840123672949356) -->
-    <skip />
+    <string name="wear_app_channel" msgid="6200840123672949356">"Weari rak. installimine/desinstallimine"</string>
 </resources>

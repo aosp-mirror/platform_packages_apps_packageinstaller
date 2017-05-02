@@ -24,8 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"Cancelar"</string>
     <string name="unknown" msgid="4742479012767208045">"Desconocida"</string>
     <string name="installing" msgid="8613631001631998372">"Instalando…"</string>
-    <!-- no translation found for installing_app (4097935682329028894) -->
-    <skip />
+    <string name="installing_app" msgid="4097935682329028894">"Instalando <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="install_done" msgid="3682715442154357097">"Aplicación instalada"</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"¿Quieres instalar esta aplicación? Tendrá los siguientes permisos:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"¿Quieres instalar esta aplicación? No requiere accesos especiales."</string>
@@ -92,7 +91,7 @@
     <string name="devicePerms" msgid="6733560207731294504">"Acceso al dispositivo"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"Esta actualización no requiere permisos nuevos."</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"¿Quieres conceder los siguientes permisos? Podrá acceder a:"</string>
-    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Rechazar"</string>
+    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Denegar"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Más información"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Denegar de todos modos"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> de <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
@@ -148,6 +147,5 @@
     <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Tu TV y tus datos personales son más vulnerables a los ataques de aplicaciones desconocidas. Al instalar esta aplicación, aceptas ser responsable de cualquier daño que sufra tu TV o la pérdida de datos que se pueda derivar de su uso."</string>
     <string name="anonymous_source_continue" msgid="2094381167954332292">"Continuar"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"Ajustes"</string>
-    <!-- no translation found for wear_app_channel (6200840123672949356) -->
-    <skip />
+    <string name="wear_app_channel" msgid="6200840123672949356">"Instalando/desinstalando apps para Wear"</string>
 </resources>

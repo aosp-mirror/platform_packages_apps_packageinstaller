@@ -24,8 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"Mégse"</string>
     <string name="unknown" msgid="4742479012767208045">"Ismeretlen"</string>
     <string name="installing" msgid="8613631001631998372">"Telepítés..."</string>
-    <!-- no translation found for installing_app (4097935682329028894) -->
-    <skip />
+    <string name="installing_app" msgid="4097935682329028894">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> telepítése…"</string>
     <string name="install_done" msgid="3682715442154357097">"Alkalmazás telepítve."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Telepíti ezt az alkalmazást? Az a következőkhöz fog hozzáférést kapni:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Telepíti ezt az alkalmazást? Az alkalmazás nem igényel különleges hozzáférést."</string>
@@ -115,7 +114,7 @@
     <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_1">%2$d</xliff:g>/<xliff:g id="COUNT_0">%1$d</xliff:g> alkalmazás engedélyezve"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"Rendszerfolyamatok megjelenítése"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"Rendszerfolyamatok elrejtése"</string>
-    <string name="permission_title" msgid="6495415273398916381">"A(z) <xliff:g id="PERMISSION">%1$s</xliff:g> jogosultságai"</string>
+    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> – jogosultságok"</string>
     <string name="no_apps" msgid="1965493419005012569">"Nincsenek alkalmazások"</string>
     <string name="location_settings" msgid="1774875730854491297">"Helybeállítások"</string>
     <string name="location_warning" msgid="8778701356292735971">"A(z) <xliff:g id="APP_NAME">%1$s</xliff:g> helyszolgáltatásokat biztosít ennek az eszköznek. A helyhozzáférést a helybeállításokban lehet módosítani."</string>
@@ -148,6 +147,5 @@
     <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Tévéje és személyes adatai fokozott kockázatnak vannak kitéve az ismeretlen alkalmazások támadásaival szemben. Az alkalmazás telepítésével elismeri, hogy Ön a felelős az alkalmazás használatából eredő esetleges adatvesztésért és a tévét ért károkért."</string>
     <string name="anonymous_source_continue" msgid="2094381167954332292">"Tovább"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"Beállítások"</string>
-    <!-- no translation found for wear_app_channel (6200840123672949356) -->
-    <skip />
+    <string name="wear_app_channel" msgid="6200840123672949356">"Wear-alkalmazások telepítése/törlése"</string>
 </resources>
