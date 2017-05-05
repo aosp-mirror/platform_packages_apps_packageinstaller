@@ -334,6 +334,12 @@
     <!-- Help URL, application permissions [DO NOT TRANSLATE] -->
     <string name="help_app_permissions" translatable="false"></string>
 
+    <!-- Warning shown when user input has been blocked due to another app overlaying screen
+         content. Since we don't know what the app is showing on top of the input target, we
+         can't verify user consent. [CHAR LIMIT=NONE] -->
+    <string name="window_obscured_warning">Because another app is displaying on top of these options,
+        Package Installer can\u2019t respond to your action.</string>
+
     <!-- Text to show in warning dialog on the tablet when the app source is not trusted [CHAR LIMIT=NONE] -->
     <string name="untrusted_external_source_warning" product="tablet">For your security, your tablet is not allowed to install unknown apps from this source.</string>
 
