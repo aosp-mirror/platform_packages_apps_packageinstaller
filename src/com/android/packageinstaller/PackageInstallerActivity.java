@@ -57,6 +57,8 @@ import android.widget.Button;
 import android.widget.TabHost;
 import android.widget.TextView;
 
+import com.android.settingslib.SecureTouchListener;
+
 import java.io.File;
 
 /**
@@ -453,6 +455,8 @@ public class PackageInstallerActivity extends Activity implements OnClickListene
 
         mOk = (Button) findViewById(R.id.ok_button);
         mCancel = (Button)findViewById(R.id.cancel_button);
+        mOk.setOnTouchListener(
+                new SecureTouchListener(getString(R.string.window_obscured_warning)));
         mOk.setOnClickListener(this);
         mCancel.setOnClickListener(this);
 
