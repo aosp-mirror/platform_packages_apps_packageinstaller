@@ -321,11 +321,12 @@ public final class AppPermissionsFragment extends SettingsWithHeader
                         .setPositiveButton(R.string.grant_dialog_button_deny_anyway,
                                 (DialogInterface dialog, int which) -> {
                             ((SwitchPreference) preference).setChecked(false);
-                            if (preference instanceof MultiTargetSwitchPreference) {
+                            group.revokeRuntimePermissions(false);
+                            if (Utils.areGroupPermissionsIndividuallyControlled(getContext(),
+                                    group.getName())) {
                                 updateSummaryForIndividuallyControlledPermissionGroup(
                                         group, preference);
                             }
-                            group.revokeRuntimePermissions(false);
                             if (!grantedByDefault) {
                                 mHasConfirmedRevoke = true;
                             }

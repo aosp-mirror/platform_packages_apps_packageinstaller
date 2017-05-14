@@ -316,20 +316,25 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
                     // because another permission in the group is granted. This applies
                     // only to apps that support runtime permissions.
                     if (appPermissionGroup.doesSupportRuntimePermissions()) {
+                        int grantedCount = 0;
                         String[] revokedPermissionsToFix = null;
                         final int permissionCount = appPermissionGroup.getPermissions().size();
                         for (int i = 0; i < permissionCount; i++) {
                             Permission current = appPermissionGroup.getPermissions().get(i);
-                            if (!current.isGranted() && !current.isUserFixed()) {
-                                revokedPermissionsToFix = ArrayUtils.appendString(
-                                        revokedPermissionsToFix, current.getName());
+                            if (!current.isGranted()) {
+                                if (!current.isUserFixed()) {
+                                    revokedPermissionsToFix = ArrayUtils.appendString(
+                                            revokedPermissionsToFix, current.getName());
+                                }
+                            } else {
+                                grantedCount++;
                             }
                         }
                         if (revokedPermissionsToFix != null) {
                             // If some permissions were not granted then they should be fixed.
                             appPermissionGroup.revokeRuntimePermissions(true,
                                     revokedPermissionsToFix);
-                        } else {
+                        } else if (appPermissionGroup.getPermissions().size() == grantedCount) {
                             // If all permissions are granted then they should not be fixed.
                             appPermissionGroup.grantRuntimePermissions(false);
                         }
