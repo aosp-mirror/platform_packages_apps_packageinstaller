@@ -24,8 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"إلغاء"</string>
     <string name="unknown" msgid="4742479012767208045">"غير معروف"</string>
     <string name="installing" msgid="8613631001631998372">"جارٍ التثبيت..."</string>
-    <!-- no translation found for installing_app (4097935682329028894) -->
-    <skip />
+    <string name="installing_app" msgid="4097935682329028894">"جارٍ تثبيت <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="install_done" msgid="3682715442154357097">"تم تثبيت التطبيق."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"هل تريد تثبيت هذا التطبيق؟ سيكون بإمكانه الدخول إلى:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"هل تريد تثبيت هذا التطبيق؟ إنه لا يتطلب أي دخول خاص."</string>
@@ -143,7 +142,7 @@
     <string name="current_permissions_category" msgid="998210994450606094">"الأذونات الحالية"</string>
     <string name="message_staging" msgid="6151794817691100003">"جارٍ الطرح المرحلي للتطبيق…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"غير معروف"</string>
-    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"هل تريد تأكيد مسح البيانات في <xliff:g id="PACKAGE">%1$s</xliff:g>؟"</string>
+    <string name="window_obscured_warning" msgid="897815544655204452">"لا يمكن أن تستجيب أداة تثبيت الحزم للإجراء الذي اتخذته بسبب عرض تطبيق آخر أعلى هذه الخيارات."</string>
     <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"لأغراض الأمان، غير مسموح لجهازك اللوحي بتثبيت تطبيقات غير معروفة من هذا المصدر."</string>
     <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"لأغراض الأمان، غير مسموح لجهاز التلفزيون الذي تستخدمه بتثبيت تطبيقات غير معروفة من هذا المصدر."</string>
     <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"لأغراض الأمان، غير مسموح لهاتفك بتثبيت تطبيقات غير معروفة من هذا المصدر."</string>
@@ -152,6 +151,5 @@
     <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"يعتبر جهاز التلفزيون والبيانات الشخصية أكثر عرضة لهجوم التطبيقات غير المعروفة. من خلال تثبيت هذا التطبيق، توافق على تحمل مسؤولية أي ضرر يحدث لجهاز التلفزيون أو فقدان البيانات الذي قد ينتج عن استخدامه."</string>
     <string name="anonymous_source_continue" msgid="2094381167954332292">"متابعة"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"الإعدادات"</string>
-    <!-- no translation found for wear_app_channel (6200840123672949356) -->
-    <skip />
+    <string name="wear_app_channel" msgid="6200840123672949356">"‏تثبيت / إلغاء تثبيت تطبيقات Android Wear"</string>
 </resources>

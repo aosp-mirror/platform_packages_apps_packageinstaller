@@ -24,8 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"Cancelar"</string>
     <string name="unknown" msgid="4742479012767208045">"Descoñecido"</string>
     <string name="installing" msgid="8613631001631998372">"Instalando…"</string>
-    <!-- no translation found for installing_app (4097935682329028894) -->
-    <skip />
+    <string name="installing_app" msgid="4097935682329028894">"Instalando <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="install_done" msgid="3682715442154357097">"Aplicación instalada"</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Queres instalar esta aplicación? Poderá acceder a:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Queres instalar esta aplicación? Non require ningún acceso especial."</string>
@@ -139,7 +138,7 @@
     <string name="current_permissions_category" msgid="998210994450606094">"Permisos actuais"</string>
     <string name="message_staging" msgid="6151794817691100003">"Probando aplicación…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"Descoñecida"</string>
-    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"Realmente queres eliminar os datos de <xliff:g id="PACKAGE">%1$s</xliff:g>?"</string>
+    <string name="window_obscured_warning" msgid="897815544655204452">"Móstrase outra aplicación enriba destas opcións. Por este motivo, non se aplican os cambios que fagas no Instalador de paquetes."</string>
     <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Por cuestións de seguranza, na tableta non se poden instalar aplicacións descoñecidas procedentes desta fonte."</string>
     <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Por cuestións de seguranza, na televisión non se poden instalar aplicacións descoñecidas procedentes desta fonte."</string>
     <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Por cuestións de seguranza, no teléfono non se poden instalar aplicacións descoñecidas procedentes desta fonte."</string>
@@ -148,6 +147,5 @@
     <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"A televisión e os datos persoais son máis vulnerables aos ataques de aplicacións descoñecidas. Ao instalar esta aplicación, aceptas que es responsable dos danos ocasionados na televisión ou da perda dos datos que se poden derivar do seu uso."</string>
     <string name="anonymous_source_continue" msgid="2094381167954332292">"Continuar"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"Configuración"</string>
-    <!-- no translation found for wear_app_channel (6200840123672949356) -->
-    <skip />
+    <string name="wear_app_channel" msgid="6200840123672949356">"Instalando/desinstalando apps Wear"</string>
 </resources>

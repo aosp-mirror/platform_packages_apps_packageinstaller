@@ -24,8 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"Отказ"</string>
     <string name="unknown" msgid="4742479012767208045">"Неизвестно"</string>
     <string name="installing" msgid="8613631001631998372">"Инсталира се..."</string>
-    <!-- no translation found for installing_app (4097935682329028894) -->
-    <skip />
+    <string name="installing_app" msgid="4097935682329028894">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> се инсталира…"</string>
     <string name="install_done" msgid="3682715442154357097">"Приложението бе инсталирано."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Искате ли да инсталирате това приложение? То ще получи достъп до:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Искате ли да инсталирате това приложение? То не изисква никакъв специален достъп."</string>
@@ -139,7 +138,7 @@
     <string name="current_permissions_category" msgid="998210994450606094">"Текущи разрешения"</string>
     <string name="message_staging" msgid="6151794817691100003">"Приложението се подготвя…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"Неизвестно"</string>
-    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"Наистина ли искате да изчистите данните за <xliff:g id="PACKAGE">%1$s</xliff:g>?"</string>
+    <string name="window_obscured_warning" msgid="897815544655204452">"Тъй като друго приложение се показва върху тези опции, инсталационната програма за пакети не може да отговори на действието ви."</string>
     <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"От съображения за сигурност на таблета ви не могат да се инсталират неизвестни приложения от този източник."</string>
     <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"От съображения за сигурност на телевизора ви не могат да се инсталират неизвестни приложения от този източник."</string>
     <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"От съображения за сигурност на телефона ви не могат да се инсталират неизвестни приложения от този източник."</string>
@@ -148,6 +147,5 @@
     <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Телевизорът и личните ви данни са по-уязвими към атаки от неизвестни приложения. С инсталирането на това приложение приемате, че носите отговорност при евентуална повреда на телевизора или загуба на информация вследствие на използването на приложението."</string>
     <string name="anonymous_source_continue" msgid="2094381167954332292">"Напред"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"Настройки"</string>
-    <!-- no translation found for wear_app_channel (6200840123672949356) -->
-    <skip />
+    <string name="wear_app_channel" msgid="6200840123672949356">"Инсталир./деинсталир. на прилож. за Wear"</string>
 </resources>

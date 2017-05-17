@@ -24,8 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"Cancelar"</string>
     <string name="unknown" msgid="4742479012767208045">"Desconocido"</string>
     <string name="installing" msgid="8613631001631998372">"Instalando…"</string>
-    <!-- no translation found for installing_app (4097935682329028894) -->
-    <skip />
+    <string name="installing_app" msgid="4097935682329028894">"Instalando <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="install_done" msgid="3682715442154357097">"Se instaló la aplicación."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"¿Deseas instalar la aplicación? Esta tendrá acceso a lo siguiente:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"¿Deseas instalar esta aplicación? No requiere accesos especiales."</string>
@@ -102,7 +101,7 @@
     <string name="permission_revoked_none" msgid="2059511550181271342">"ninguno inhabilitado"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Permitir"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Aplicaciones"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"Permisos de aplicaciones"</string>
+    <string name="app_permissions" msgid="3146758905824597178">"Permisos de apps"</string>
     <string name="never_ask_again" msgid="1089938738199748687">"No volver a preguntar"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Sin permisos"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Permisos adicionales"</string>
@@ -139,7 +138,7 @@
     <string name="current_permissions_category" msgid="998210994450606094">"Permisos actuales"</string>
     <string name="message_staging" msgid="6151794817691100003">"Preparando app…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"Desconocido"</string>
-    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"¿Estás seguro de que quieres borrar los datos de <xliff:g id="PACKAGE">%1$s</xliff:g>?"</string>
+    <string name="window_obscured_warning" msgid="897815544655204452">"El Instalador de paquetes no puede procesar tu acción porque otra app se muestra sobre estas opciones."</string>
     <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Por tu seguridad, tu tablet no tiene permitido instalar apps desconocidas de esta fuente."</string>
     <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Por tu seguridad, tu TV no tiene permitido instalar apps desconocidas de esta fuente."</string>
     <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Por tu seguridad, tu teléfono no tiene permitido instalar apps desconocidas de esta fuente."</string>
@@ -148,6 +147,5 @@
     <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Tu TV y tus datos personales son más vulnerables a los ataques de apps desconocidas. Si instalas esta app, serás responsable de los daños que sufra tu TV y la pérdida de datos que pueda ocasionar su uso."</string>
     <string name="anonymous_source_continue" msgid="2094381167954332292">"Continuar"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"Configuración"</string>
-    <!-- no translation found for wear_app_channel (6200840123672949356) -->
-    <skip />
+    <string name="wear_app_channel" msgid="6200840123672949356">"Instalando/desinstalando apps para Wear"</string>
 </resources>

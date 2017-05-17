@@ -24,8 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"Չեղարկել"</string>
     <string name="unknown" msgid="4742479012767208045">"Անհայտ"</string>
     <string name="installing" msgid="8613631001631998372">"Տեղադրվում է..."</string>
-    <!-- no translation found for installing_app (4097935682329028894) -->
-    <skip />
+    <string name="installing_app" msgid="4097935682329028894">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>-ի տեղադրում…"</string>
     <string name="install_done" msgid="3682715442154357097">"Հավելվածը տեղադրված է:"</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Ցանկանու՞մ եք տեղադրել այս ծրագիրը: Այն մուտքի հնարավորություն կունենա`"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Ցանկանու՞մ եք տեղադրել այս հավելվածը: Այն հատուկ մուտք չի պահանջում:"</string>
@@ -46,7 +45,7 @@
     <string name="launch" msgid="4826921505917605463">"Բացել"</string>
     <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"Ձեր ադմինիստրատորը թույլ չի տալիս տեղադրել հավելվածներ անհայտ աղբյուրներից"</string>
     <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Այս օգտատերը չի կարող անհայտ հավելվածներ տեղադրել"</string>
-    <string name="ok" msgid="3468756155452870475">"Լավ"</string>
+    <string name="ok" msgid="3468756155452870475">"Հաստատել"</string>
     <string name="settings" msgid="6743583734099755409">"Կարգավորումներ"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Կառավարել հավելվածները"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Փոխարինե՞լ հավելվածը:"</string>
@@ -54,7 +53,7 @@
     <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Սա համակարգային ծրագիր է:\n\nՁեր բոլոր նախկին օգտատիրոջ տվյալները կպահվեն:"</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Տարածքից դուրս"</string>
     <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g>-ը չհաջողվեց տեղադրել: Ազատեք որոշակի տարածք և կրկին փորձեք:"</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"Լավ"</string>
+    <string name="dlg_ok" msgid="6944357727705699232">"Հաստատել"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Հավելվածը չի գտնվել"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Հավելվածը չի գտնվել տեղադրված հավելվածների ցանկում:"</string>
     <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"Արգելված է"</string>
@@ -96,13 +95,13 @@
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Այլ տեղեկություններ"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Մերժել ամեն դեպքում"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>-ը <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>-ից"</string>
-    <string name="permission_warning_template" msgid="7332275268559121742">"Թո՞ւյլ տալ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; հավելվածին <xliff:g id="ACTION">%2$s</xliff:g>:"</string>
+    <string name="permission_warning_template" msgid="7332275268559121742">"Թույլատրե՞լ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; հավելվածին <xliff:g id="ACTION">%2$s</xliff:g>:"</string>
     <string name="permission_revoked_count" msgid="7386129423432613024">"կասեցվել է <xliff:g id="COUNT">%1$d</xliff:g> թույլտվություն"</string>
     <string name="permission_revoked_all" msgid="8595742638132863678">"բոլոր թույլտվությունները կասեցվել են"</string>
     <string name="permission_revoked_none" msgid="2059511550181271342">"ոչ մի թույլտվություն չի կասեցվել"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Թույլատրել"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Հավելվածներ"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"Հավելվածների թույլտվությունները"</string>
+    <string name="app_permissions" msgid="3146758905824597178">"Հավելվածների թույլտվություններ"</string>
     <string name="never_ask_again" msgid="1089938738199748687">"Այլևս չհարցնել"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Թույլտվություններ չկան"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Լրացուցիչ թույլտվություններ"</string>
@@ -117,7 +116,7 @@
     <string name="menu_hide_system" msgid="7595471742649432977">"Թաքցնել համակարգայինները"</string>
     <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> թույլտվություններ"</string>
     <string name="no_apps" msgid="1965493419005012569">"Հավելվածներ չկան"</string>
-    <string name="location_settings" msgid="1774875730854491297">"Տեղադրության կարգավորումներ"</string>
+    <string name="location_settings" msgid="1774875730854491297">"Տեղորոշման կարգավորումներ"</string>
     <string name="location_warning" msgid="8778701356292735971">"Այս սարքի տեղադրության ծառայությունները տրամադրում է <xliff:g id="APP_NAME">%1$s</xliff:g> հավելվածը: Տեղադրության ցուցադրման կարգավորումները կարող եք փոխել տեղադրության կարգավորումներից:"</string>
     <string name="system_warning" msgid="7103819124542305179">"Եթե չտրամադրեք այս թույլտվությունը, ձեր սարքի հիմնական գործառույթները հնարավոր է սխալ աշխատեն:"</string>
     <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Սահմանված է կանոններով"</string>
@@ -139,7 +138,7 @@
     <string name="current_permissions_category" msgid="998210994450606094">"Առկա թույլտվությունները"</string>
     <string name="message_staging" msgid="6151794817691100003">"Հավելվածի նախապատրաստում…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"Անհայտ"</string>
-    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"Մաքրե՞լ <xliff:g id="PACKAGE">%1$s</xliff:g> փաթեթի տվյալները:"</string>
+    <string name="window_obscured_warning" msgid="897815544655204452">"Քանի որ այս ընտրանքների վրա ցուցադրվում է մեկ այլ հավելված, Փաթեթի տեղադրիչը չի կարող արձագանքել ձեր գործողությանը:"</string>
     <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Անվտանգության նկատառումներից ելնելով՝ ձեր պլանշետին չի թույլատրվում այս աղբյուրից տեղադրել անհայտ հավելվածներ:"</string>
     <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Անվտանգության նկատառումներից ելնելով՝ ձեր հեռուստացույցին չի թույլատրվում այս աղբյուրից տեղադրել անհայտ հավելվածներ:"</string>
     <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Անվտանգության նկատառումներից ելնելով՝ ձեր հեռախոսին չի թույլատրվում այս աղբյուրից տեղադրել անհայտ հավելվածներ:"</string>
@@ -148,6 +147,5 @@
     <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Ձեր TV-ն և անձնական տվյալներն առավել խոցելի են անհայտ հավելվածների գրոհների նկատմամբ: Տեղադրելով այս հավելվածը՝ դուք ընդունում եք, որ պատասխանատվություն եք կրում հավելվածի օգտագործման հետևանքով ձեր TV-ին պատճառած ցանկացած վնասի կամ տվյալների կորստի համար:"</string>
     <string name="anonymous_source_continue" msgid="2094381167954332292">"Շարունակել"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"Կարգավորումներ"</string>
-    <!-- no translation found for wear_app_channel (6200840123672949356) -->
-    <skip />
+    <string name="wear_app_channel" msgid="6200840123672949356">"Wear հավելվածների տեղադրում/հեռացում"</string>
 </resources>

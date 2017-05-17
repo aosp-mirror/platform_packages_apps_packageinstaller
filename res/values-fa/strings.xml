@@ -24,8 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"لغو"</string>
     <string name="unknown" msgid="4742479012767208045">"ناشناس"</string>
     <string name="installing" msgid="8613631001631998372">"در حال نصب…"</string>
-    <!-- no translation found for installing_app (4097935682329028894) -->
-    <skip />
+    <string name="installing_app" msgid="4097935682329028894">"درحال نصب <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="install_done" msgid="3682715442154357097">"برنامه نصب شد."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"آیا می‌خواهید این برنامه را نصب کنید؟ این برنامه به این موارد دسترسی خواهد یافت:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"آیا می‌خواهید این برنامه را نصب کنید؟ این برنامه به دسترسی خاصی نیاز ندارد."</string>
@@ -139,7 +138,7 @@
     <string name="current_permissions_category" msgid="998210994450606094">"مجوزهای کنونی"</string>
     <string name="message_staging" msgid="6151794817691100003">"مرحله‌بندی برنامه…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"نامشخص"</string>
-    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"واقعاً می‌خواهید داده‌های <xliff:g id="PACKAGE">%1$s</xliff:g> را پاک کنید؟"</string>
+    <string name="window_obscured_warning" msgid="897815544655204452">"چون برنامه دیگری در بالای این گزینه‌ها نشان داده می‌شود، «نصب‌کننده بسته» نمی‌تواند به اقدام شما پاسخ دهد."</string>
     <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"برای امنیت شما، رایانه لوحی‌تان اجازه نمی‌دهد از این منبع برنامه‌های ناشناس نصب شوند."</string>
     <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"برای امنیت شما، تلویزیونتان اجازه نمی‌دهد از این منبع برنامه‌های ناشناس نصب شوند."</string>
     <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"برای امنیت شما، تلفنتان اجازه نمی‌دهد از این منبع برنامه‌های ناشناس نصب شوند."</string>
@@ -148,6 +147,5 @@
     <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"تلویزیون و داده‌های شخصی‌تان در برابر حمله برنامه‌های ناشناس آسیب‌پذیرتر هستند. با نصب این برنامه، موافقت می‌کنید که مسئول هرگونه آسیب به تلویزیون یا از دست رفتن داده‌ای هستید که ممکن است در نتیجه استفاده از آن به وجود آید."</string>
     <string name="anonymous_source_continue" msgid="2094381167954332292">"ادامه"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"تنظیمات"</string>
-    <!-- no translation found for wear_app_channel (6200840123672949356) -->
-    <skip />
+    <string name="wear_app_channel" msgid="6200840123672949356">"نصب/حذف نصب برنامه‌های پوشیدنی"</string>
 </resources>

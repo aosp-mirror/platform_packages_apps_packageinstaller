@@ -24,8 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"Otkaži"</string>
     <string name="unknown" msgid="4742479012767208045">"Nepoznato"</string>
     <string name="installing" msgid="8613631001631998372">"Instalacija u toku..."</string>
-    <!-- no translation found for installing_app (4097935682329028894) -->
-    <skip />
+    <string name="installing_app" msgid="4097935682329028894">"Instaliranje <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="install_done" msgid="3682715442154357097">"Aplikacija je instalirana."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Želite li instalirati ovu aplikaciju? Ona će dobiti pristup:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Želite li instalirati ovu aplikaciju? Ona ne zahtijeva poseban pristup."</string>
@@ -114,7 +113,7 @@
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Ova aplikacija je kreirana za stariju verziju Androida. Odbijanje odobrenja može uzrokovati da ona više ne funkcionira onako kako je primarno zamišljeno."</string>
     <string name="default_permission_description" msgid="4992892207044156668">"izvrši nepoznatu radnju"</string>
     <string name="app_permissions_group_summary" msgid="4787239772223699263">"Aplikacije sa odobrenjem: <xliff:g id="COUNT_0">%1$d</xliff:g> od <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
-    <string name="menu_show_system" msgid="6773743421743728921">"Prikaži sistemske"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"Prikaz sistemskih aplikacija"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"Sakrij sistemske"</string>
     <string name="permission_title" msgid="6495415273398916381">"Odobrenja za aplikaciju: <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
     <string name="no_apps" msgid="1965493419005012569">"Nijedna aplikacija"</string>
@@ -140,7 +139,7 @@
     <string name="current_permissions_category" msgid="998210994450606094">"Postojeća odobrenja"</string>
     <string name="message_staging" msgid="6151794817691100003">"Aplikacija se postavlja…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"Nepoznato"</string>
-    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"Želite li zaista izbrisati podatke za <xliff:g id="PACKAGE">%1$s</xliff:g>?"</string>
+    <string name="window_obscured_warning" msgid="897815544655204452">"Alat za instaliranje paketa ne reagira na vašu radnju jer druga aplikacija prekriva ove opcije."</string>
     <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Vašem tabletu iz sigurnosnih razloga nije dopušteno instaliranje nepoznatih aplikacija iz ovog izvora."</string>
     <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Vašem TV-u iz sigurnosnih razloga nije dopušteno instaliranje nepoznatih aplikacija iz ovog izvora."</string>
     <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Vašem telefonu iz sigurnosnih razloga nije dopušteno instaliranje nepoznatih aplikacija iz ovog izvora."</string>
@@ -149,6 +148,5 @@
     <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Vaši podaci na TV-u i vaši lični podaci izloženiji su napadima nepoznatih aplikacija. Instaliranjem ove aplikacije, saglasni ste da ste vi odgovorni za bilo kakvu štetu na TV-u ili gubitak podataka do kojih može doći korištenjem aplikacije."</string>
     <string name="anonymous_source_continue" msgid="2094381167954332292">"Nastavi"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"Postavke"</string>
-    <!-- no translation found for wear_app_channel (6200840123672949356) -->
-    <skip />
+    <string name="wear_app_channel" msgid="6200840123672949356">"(De)instaliranje wear aplikacija"</string>
 </resources>

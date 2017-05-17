@@ -24,8 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"Annuller"</string>
     <string name="unknown" msgid="4742479012767208045">"Ukendt"</string>
     <string name="installing" msgid="8613631001631998372">"Installerer..."</string>
-    <!-- no translation found for installing_app (4097935682329028894) -->
-    <skip />
+    <string name="installing_app" msgid="4097935682329028894">"Installerer <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="install_done" msgid="3682715442154357097">"Appen er installeret."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Vil du installere denne applikation? Den får adgang til følgende:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Vil du installere denne applikation? Den kræver ingen særlig adgang."</string>
@@ -139,7 +138,7 @@
     <string name="current_permissions_category" msgid="998210994450606094">"Aktuelle tilladelser"</string>
     <string name="message_staging" msgid="6151794817691100003">"Forbereder appen…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"Ukendt"</string>
-    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"Er du sikker på, du vil rydde dataene for <xliff:g id="PACKAGE">%1$s</xliff:g>?"</string>
+    <string name="window_obscured_warning" msgid="897815544655204452">"Da en anden app vises oven på disse valgmuligheder, kan pakkeinstallationsprogrammet ikke reagere i forhold til din handling."</string>
     <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Din tablet har af sikkerhedshensyn ikke tilladelse til at installere ukendte apps fra denne kilde."</string>
     <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Dit fjernsyn har af sikkerhedshensyn ikke tilladelse til at installere ukendte apps fra denne kilde."</string>
     <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Din telefon har af sikkerhedshensyn ikke tilladelse til at installere ukendte apps fra denne kilde."</string>
@@ -148,6 +147,5 @@
     <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Dit fjernsyn og dine personlige data er mere sårbare over for angreb fra ukendte apps. Når du installerer denne app, accepterer du, at du er ansvarlig for skader på dit fjernsyn eller tab af data, der kan skyldes brug af appen."</string>
     <string name="anonymous_source_continue" msgid="2094381167954332292">"Fortsæt"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"Indstillinger"</string>
-    <!-- no translation found for wear_app_channel (6200840123672949356) -->
-    <skip />
+    <string name="wear_app_channel" msgid="6200840123672949356">"Installerer/afinstallerer Wear-apps"</string>
 </resources>

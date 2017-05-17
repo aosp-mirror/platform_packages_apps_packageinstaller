@@ -24,13 +24,12 @@
     <string name="cancel" msgid="8360346460165114585">"Цуцлах"</string>
     <string name="unknown" msgid="4742479012767208045">"Тодорхойгүй"</string>
     <string name="installing" msgid="8613631001631998372">"Суулгаж байна…"</string>
-    <!-- no translation found for installing_app (4097935682329028894) -->
-    <skip />
+    <string name="installing_app" msgid="4097935682329028894">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>-г суулгаж байна…"</string>
     <string name="install_done" msgid="3682715442154357097">"Апп суулгагдсан."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Та энэ аппликешныг суулгамаар байна уу? Энэ дараахад хандах болно:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Та энэ аппликешныг суулгах уу? Энэ тусгай хандалт шаардахгүй."</string>
-    <string name="install_confirm_question_update" msgid="4624159567361487964">"Та энэ аппликешны шинэчлэлтийг суулгах уу? Таны хуучин дата устах болно. Шинэчлэгдсэн аппликешн нь дараахад хандаж чадна:"</string>
-    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Та энэ үндсэн аппликешны шинэчлэлтийг суулгах уу? Таны хуучин дата устах болно. Шинэчлэгдсэн аппликешн нь дараахад хандаж чадна:"</string>
+    <string name="install_confirm_question_update" msgid="4624159567361487964">"Та энэ аппликейшны шинэчлэлтийг суулгах уу? Таны хуучин дата устах болно. Шинэчлэгдсэн аппликейшн нь дараахад хандаж чадна:"</string>
+    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Та энэ үндсэн аппликейшны шинэчлэлтийг суулгах уу? Таны хуучин дата устах болно. Шинэчлэгдсэн аппликейшн нь дараахад хандаж чадна:"</string>
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Та энэ аппликешны шинэчлэлтийг суулгах уу? Таны хуучин дата устах болно. Энэ ямар нэгэн тусгай эрх шаардахгүй."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Та энэ үндсэн аппликешны шинэчлэлтийг суулгах уу? Таны хуучин дата устах болно. Энэ ямар нэгэн тусгай эрх шаардахгүй."</string>
     <string name="install_failed" msgid="6579998651498970899">"Апп суулгагдаагүй."</string>
@@ -94,7 +93,7 @@
     <string name="grant_confirm_question" msgid="4690289297029223742">"Та дараах зөвшөөрлийг олгох уу? Энэ нь дараахд хандах боломжтой:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Татгалзах"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Дэлгэрэнгүй мэдээлэл"</string>
-    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Ямар ч үед татгалзах"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Хэдийд ч татгалзах"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>-ийн <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="7332275268559121742">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;-г <xliff:g id="ACTION">%2$s</xliff:g>-г зөвшөөрөх үү?"</string>
     <string name="permission_revoked_count" msgid="7386129423432613024">"<xliff:g id="COUNT">%1$d</xliff:g>-г цуцалсан"</string>
@@ -112,7 +111,7 @@
     </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Энэхүү аппыг нь Android-ын хуучин хувилбарт зориулсан. Зөвшөөрлийг үгүйсгэх нь цаашид ажиллахгүй болгож болно."</string>
     <string name="default_permission_description" msgid="4992892207044156668">"Танигдаагүй үйлдлийг гүйцэтгэх"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_1">%2$d</xliff:g>-аас <xliff:g id="COUNT_0">%1$d</xliff:g> апп-ыг зөвшөөрдөг"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_1">%2$d</xliff:g>-аас <xliff:g id="COUNT_0">%1$d</xliff:g> аппыг зөвшөөрдөг"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"Системийг харуулах"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"Системийг нуух"</string>
     <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> зөвшөөрөл"</string>
@@ -139,7 +138,7 @@
     <string name="current_permissions_category" msgid="998210994450606094">"Одоогийн зөвшөөрөл"</string>
     <string name="message_staging" msgid="6151794817691100003">"Апп-г байршуулж байна…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"Тодорхойгүй"</string>
-    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"Та <xliff:g id="PACKAGE">%1$s</xliff:g>-н өгөгдлийг устгах уу?"</string>
+    <string name="window_obscured_warning" msgid="897815544655204452">"Өөр апп эдгээр сонголтын дээр гарч ирж байгаа тул Package Installer таны хүсэлтэд хариу үзүүлэх боломжгүй байна."</string>
     <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Таны аюулгүй байдлыг хангахын тулд таны таблет энэ эх сурвалжаас тодорхойгүй апп суулгахыг зөвшөөрдөггүй."</string>
     <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Таны аюулгүй байдлыг хангахын тулд таны ТВ энэ эх сурвалжаас тодорхойгүй апп суулгахыг зөвшөөрдөггүй."</string>
     <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Таны аюулгүй байдлыг хангахын тулд таны утас энэ эх сурвалжаас тодорхойгүй апп суулгахыг зөвшөөрдөггүй."</string>
@@ -148,6 +147,5 @@
     <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Таны ТВ болон хувийн өгөгдөл тодорхойгүй апп суулгасан тохиолдолд гэмтэж болзошгүй. Энэ аппыг суулгаснаар үүнийг ашигласнаас үүдэн таны ТВ-д гэмтэл гарах, эсвэл өгөгдөл устах зэрэг эрсдэлийг хариуцна гэдгээ зөвшөөрч байна."</string>
     <string name="anonymous_source_continue" msgid="2094381167954332292">"Үргэлжлүүлэх"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"Тохиргоо"</string>
-    <!-- no translation found for wear_app_channel (6200840123672949356) -->
-    <skip />
+    <string name="wear_app_channel" msgid="6200840123672949356">"Зүүсгэл аппыг суулгаж/устгаж байна"</string>
 </resources>

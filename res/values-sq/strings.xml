@@ -24,8 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"Anulo"</string>
     <string name="unknown" msgid="4742479012767208045">"E panjohur"</string>
     <string name="installing" msgid="8613631001631998372">"Po instalon…"</string>
-    <!-- no translation found for installing_app (4097935682329028894) -->
-    <skip />
+    <string name="installing_app" msgid="4097935682329028894">"Po instalon <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="install_done" msgid="3682715442154357097">"Aplikacioni u instalua."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Dëshiron ta instalosh këtë aplikacion? Ai do të ketë qasje në:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Dëshiron ta instalosh këtë aplikacion? Nuk kërkon ndonjë qasje të veçantë."</string>
@@ -139,7 +138,7 @@
     <string name="current_permissions_category" msgid="998210994450606094">"Lejet aktuale"</string>
     <string name="message_staging" msgid="6151794817691100003">"Po vihet në përdorim aplikacioni..."</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"E panjohur"</string>
-    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"Dëshiron vërtet të pastrosh të dhënat për <xliff:g id="PACKAGE">%1$s</xliff:g>?"</string>
+    <string name="window_obscured_warning" msgid="897815544655204452">"\"Instaluesi i paketës\" nuk mund t\'i përgjigjet veprimit tënd pasi një aplikacion tjetër po shfaqet mbi këto opsione."</string>
     <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Për sigurinë tënde, tableti yt nuk lejohet të instalojë aplikacione të panjohura nga ky burim."</string>
     <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Për sigurinë tënde, televizori yt nuk lejohet të instalojë aplikacione të panjohura nga ky burim."</string>
     <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Për sigurinë tënde, telefoni yt nuk lejohet të instalojë aplikacione të panjohura nga ky burim."</string>
@@ -148,6 +147,5 @@
     <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Televizori dhe të dhënat e tua personale janë më të cenueshme për t\'u sulmuar nga aplikacione të panjohura. Duke instaluar këtë aplikacion, ti pranon se je përgjegjës për çdo dëm ndaj televizorit tënd ose çdo humbje të dhënash që mund të rezultojë nga përdorimi i tij."</string>
     <string name="anonymous_source_continue" msgid="2094381167954332292">"Vazhdo"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"Cilësimet"</string>
-    <!-- no translation found for wear_app_channel (6200840123672949356) -->
-    <skip />
+    <string name="wear_app_channel" msgid="6200840123672949356">"Instalimi/çinstalimi i aplikacioneve të \"Wear\""</string>
 </resources>

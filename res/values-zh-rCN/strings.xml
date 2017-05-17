@@ -24,8 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"取消"</string>
     <string name="unknown" msgid="4742479012767208045">"未知"</string>
     <string name="installing" msgid="8613631001631998372">"正在安装..."</string>
-    <!-- no translation found for installing_app (4097935682329028894) -->
-    <skip />
+    <string name="installing_app" msgid="4097935682329028894">"正在安装<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="install_done" msgid="3682715442154357097">"应用安装完成。"</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"要安装此应用吗？它将获得以下权限："</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"您要安装此应用吗？此应用不需要任何特殊权限。"</string>
@@ -139,7 +138,7 @@
     <string name="current_permissions_category" msgid="998210994450606094">"当前权限"</string>
     <string name="message_staging" msgid="6151794817691100003">"正在准备安装应用…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"未知"</string>
-    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"确定要清除 <xliff:g id="PACKAGE">%1$s</xliff:g> 的数据吗？"</string>
+    <string name="window_obscured_warning" msgid="897815544655204452">"由于另一个应用目前正显示在这些选项上，软件包安装程序无法回应您的操作。"</string>
     <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"出于安全考虑，已禁止您的平板电脑安装来自此来源的未知应用。"</string>
     <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"出于安全考虑，已禁止您的电视安装来自此来源的未知应用。"</string>
     <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"出于安全考虑，已禁止您的手机安装来自此来源的未知应用。"</string>
@@ -148,6 +147,5 @@
     <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"来历不明的应用很可能会损害您的电视和个人数据。安装该应用即表示，您同意对于因使用该应用可能导致的任何电视损坏或数据丢失情况，您负有全部责任。"</string>
     <string name="anonymous_source_continue" msgid="2094381167954332292">"继续"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"设置"</string>
-    <!-- no translation found for wear_app_channel (6200840123672949356) -->
-    <skip />
+    <string name="wear_app_channel" msgid="6200840123672949356">"正在安装/卸载 Android Wear 应用"</string>
 </resources>

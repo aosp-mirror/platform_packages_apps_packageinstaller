@@ -24,8 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"Abbrechen"</string>
     <string name="unknown" msgid="4742479012767208045">"Unbekannt"</string>
     <string name="installing" msgid="8613631001631998372">"Wird installiert..."</string>
-    <!-- no translation found for installing_app (4097935682329028894) -->
-    <skip />
+    <string name="installing_app" msgid="4097935682329028894">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> wird installiert…"</string>
     <string name="install_done" msgid="3682715442154357097">"App wurde installiert."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Möchtest du diese App installieren? Sie erhält dann folgende Berechtigungen:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Möchtest du diese App installieren? Sie benötigt keinen besonderen Zugriff."</string>
@@ -139,7 +138,7 @@
     <string name="current_permissions_category" msgid="998210994450606094">"Aktuelle Berechtigungen"</string>
     <string name="message_staging" msgid="6151794817691100003">"App wird vorbereitet…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"Unbekannt"</string>
-    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"Möchtest du die Daten für <xliff:g id="PACKAGE">%1$s</xliff:g> löschen?"</string>
+    <string name="window_obscured_warning" msgid="897815544655204452">"Deine Aktion kann vom Paketinstallationsprogramm nicht bearbeitet werden, weil eine andere App über diesen Optionen angezeigt wird."</string>
     <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Aus Sicherheitsgründen kannst du auf dem Tablet keine unbekannten Apps aus dieser Quelle installieren."</string>
     <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Aus Sicherheitsgründen kannst du auf dem Fernseher keine unbekannten Apps aus dieser Quelle installieren."</string>
     <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Aus Sicherheitsgründen kannst du auf dem Smartphone keine unbekannten Apps aus dieser Quelle installieren."</string>
@@ -148,6 +147,5 @@
     <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Unbekannte Apps können gefährlich für deinen Fernseher und deine personenbezogenen Daten sein. Indem du diese App installierst, erklärst du dich damit einverstanden, dass du die Verantwortung für alle Schäden an deinem Fernseher und jegliche Datenverluste trägst, die aus der Verwendung dieser App entstehen können."</string>
     <string name="anonymous_source_continue" msgid="2094381167954332292">"Weiter"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"Einstellungen"</string>
-    <!-- no translation found for wear_app_channel (6200840123672949356) -->
-    <skip />
+    <string name="wear_app_channel" msgid="6200840123672949356">"Wear-Apps installieren/deinstallieren"</string>
 </resources>
