@@ -76,6 +76,9 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
         super.onCreate(icicle);
         setFinishOnTouchOutside(false);
 
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
+
         setTitle(R.string.permission_request_title);
 
         if (DeviceUtils.isTelevision(this)) {
