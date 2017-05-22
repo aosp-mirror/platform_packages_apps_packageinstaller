@@ -125,7 +125,7 @@ public class UninstallerActivity extends Activity {
 
         try {
             mDialogInfo.appInfo = pm.getApplicationInfo(mPackageName,
-                    PackageManager.MATCH_UNINSTALLED_PACKAGES, mDialogInfo.user.getIdentifier());
+                    PackageManager.MATCH_ANY_USER, mDialogInfo.user.getIdentifier());
         } catch (RemoteException e) {
             Log.e(TAG, "Unable to get packageName. Package manager is dead?");
         }
