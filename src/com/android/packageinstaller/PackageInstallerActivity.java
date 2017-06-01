@@ -124,6 +124,7 @@ public class PackageInstallerActivity extends Activity implements OnClickListene
     private static final int DLG_ANONYMOUS_SOURCE = DLG_BASE + 6;
     private static final int DLG_NOT_SUPPORTED_ON_WEAR = DLG_BASE + 7;
     private static final int DLG_EXTERNAL_SOURCE_BLOCKED = DLG_BASE + 8;
+    private static final int DLG_INSTALL_APPS_RESTRICTED_FOR_USER = DLG_BASE + 9;
 
     // If unknown sources are temporary allowed
     private boolean mAllowUnknownSources;
@@ -268,6 +269,9 @@ public class PackageInstallerActivity extends Activity implements OnClickListene
                         mPm.getApplicationLabel(mPkgInfo.applicationInfo));
             case DLG_NOT_SUPPORTED_ON_WEAR:
                 return NotSupportedOnWearDialog.newInstance();
+            case DLG_INSTALL_APPS_RESTRICTED_FOR_USER:
+                return SimpleErrorDialog.newInstance(
+                        R.string.install_apps_user_restriction_dlg_text);
             case DLG_UNKNOWN_SOURCES_RESTRICTED_FOR_USER:
                 return SimpleErrorDialog.newInstance(
                         R.string.unknown_apps_user_restriction_dlg_text);
@@ -281,9 +285,6 @@ public class PackageInstallerActivity extends Activity implements OnClickListene
 
     @Override
     public void onActivityResult(int request, int result, Intent data) {
-        // currently just a hook for partners to implement "allow once" feature
-        // TODO: Use this to resume install request when user has explicitly trusted the source
-        // by changing the settings
         if (request == REQUEST_TRUST_EXTERNAL_SOURCE && result == RESULT_OK) {
             mAllowUnknownSources = true;
 
@@ -328,13 +329,6 @@ public class PackageInstallerActivity extends Activity implements OnClickListene
             }
         }
         return true;
-    }
-
-    /**
-     * @return whether the device admin restricts installation from unknown sources
-     */
-    private boolean isUnknownSourcesDisallowed() {
-        return mUserManager.hasUserRestriction(UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES);
     }
 
     private void initiateInstall() {
@@ -468,24 +462,32 @@ public class PackageInstallerActivity extends Activity implements OnClickListene
      * show the appropriate dialog.
      */
     private void checkIfAllowedAndInitiateInstall() {
-        if (mAllowUnknownSources || !isInstallRequestFromUnknownSource(getIntent())) {
-            initiateInstall();
+        // Check for install apps user restriction first.
+        final int installAppsRestrictionSource = mUserManager.getUserRestrictionSource(
+                UserManager.DISALLOW_INSTALL_APPS, Process.myUserHandle());
+        if ((installAppsRestrictionSource & UserManager.RESTRICTION_SOURCE_SYSTEM) != 0) {
+            showDialogInner(DLG_INSTALL_APPS_RESTRICTED_FOR_USER);
+            return;
+        } else if (installAppsRestrictionSource != UserManager.RESTRICTION_NOT_SET) {
+            startActivity(new Intent(Settings.ACTION_SHOW_ADMIN_SUPPORT_DETAILS));
+            finish();
             return;
         }
-        // If the admin prohibits it, just show error and exit.
-        if (isUnknownSourcesDisallowed()) {
-            if ((mUserManager.getUserRestrictionSource(UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES,
-                    Process.myUserHandle()) & UserManager.RESTRICTION_SOURCE_SYSTEM) != 0) {
-                // Someone set user restriction via UserManager#setUserRestriction. We don't want to
-                // break apps that might already be doing this
+
+        if (mAllowUnknownSources || !isInstallRequestFromUnknownSource(getIntent())) {
+            initiateInstall();
+        } else {
+            // Check for unknown sources restriction
+            final int unknownSourcesRestrictionSource = mUserManager.getUserRestrictionSource(
+                    UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES, Process.myUserHandle());
+            if ((unknownSourcesRestrictionSource & UserManager.RESTRICTION_SOURCE_SYSTEM) != 0) {
                 showDialogInner(DLG_UNKNOWN_SOURCES_RESTRICTED_FOR_USER);
-                return;
-            } else {
+            } else if (unknownSourcesRestrictionSource != UserManager.RESTRICTION_NOT_SET) {
                 startActivity(new Intent(Settings.ACTION_SHOW_ADMIN_SUPPORT_DETAILS));
                 finish();
+            } else {
+                handleUnknownSources();
             }
-        } else {
-            handleUnknownSources();
         }
     }
 
