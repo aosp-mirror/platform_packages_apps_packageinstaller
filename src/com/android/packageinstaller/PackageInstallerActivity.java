@@ -694,6 +694,11 @@ public class PackageInstallerActivity extends Activity implements OnClickListene
                     .setNegativeButton(R.string.cancel, ((dialog, which) -> getActivity().finish()))
                     .create();
         }
+
+        @Override
+        public void onCancel(DialogInterface dialog) {
+            getActivity().finish();
+        }
     }
 
     /**
