@@ -17,7 +17,6 @@
 package com.android.packageinstaller;
 
 import android.Manifest;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AppGlobals;
 import android.app.AppOpsManager;
@@ -57,6 +56,8 @@ import android.widget.Button;
 import android.widget.TabHost;
 import android.widget.TextView;
 
+import com.android.packageinstaller.permission.ui.OverlayTouchActivity;
+
 import java.io.File;
 
 /**
@@ -69,7 +70,7 @@ import java.io.File;
  * Based on the user response the package is then installed by launching InstallAppConfirm
  * sub activity. All state transitions are handled in this activity
  */
-public class PackageInstallerActivity extends Activity implements OnClickListener {
+public class PackageInstallerActivity extends OverlayTouchActivity implements OnClickListener {
     private static final String TAG = "PackageInstaller";
 
     private static final int REQUEST_TRUST_EXTERNAL_SOURCE = 1;
@@ -128,6 +129,9 @@ public class PackageInstallerActivity extends Activity implements OnClickListene
 
     // If unknown sources are temporary allowed
     private boolean mAllowUnknownSources;
+
+    // Would the mOk button be enabled if this activity would be resumed
+    private boolean mEnableOk;
 
     private void startInstallConfirm() {
         // We might need to show permissions, load layout with permissions
@@ -436,6 +440,25 @@ public class PackageInstallerActivity extends Activity implements OnClickListene
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (mOk != null) {
+            mOk.setEnabled(mEnableOk);
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        if (mOk != null) {
+            // Don't allow the install button to be clicked as there might be overlays
+            mOk.setEnabled(false);
+        }
+    }
+
+    @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
@@ -450,9 +473,8 @@ public class PackageInstallerActivity extends Activity implements OnClickListene
         mOk.setOnClickListener(this);
         mCancel.setOnClickListener(this);
 
-        if (!enableOk) {
-            mOk.setEnabled(false);
-        }
+        mEnableOk = enableOk;
+        mOk.setEnabled(enableOk);
 
         PackageUtil.initSnippetForNewApp(this, mAppSnippet, R.id.app_snippet);
     }
