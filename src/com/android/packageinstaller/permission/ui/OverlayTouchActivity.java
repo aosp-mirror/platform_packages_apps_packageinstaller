@@ -19,6 +19,7 @@ import android.app.Activity;
 import android.app.AppOpsManager;
 import android.os.Binder;
 import android.os.IBinder;
+import android.os.UserHandle;
 
 public class OverlayTouchActivity extends Activity {
     private final IBinder mToken = new Binder();
@@ -38,10 +39,10 @@ public class OverlayTouchActivity extends Activity {
     private void setOverlayAllowed(boolean allowed) {
         AppOpsManager appOpsManager = getSystemService(AppOpsManager.class);
         if (appOpsManager != null) {
-            appOpsManager.setUserRestriction(AppOpsManager.OP_SYSTEM_ALERT_WINDOW,
-                    !allowed, mToken);
-            appOpsManager.setUserRestriction(AppOpsManager.OP_TOAST_WINDOW,
-                    !allowed, mToken);
+            appOpsManager.setUserRestrictionForUser(AppOpsManager.OP_SYSTEM_ALERT_WINDOW, !allowed,
+                    mToken, null, UserHandle.USER_ALL);
+            appOpsManager.setUserRestrictionForUser(AppOpsManager.OP_TOAST_WINDOW, !allowed,
+                    mToken, null, UserHandle.USER_ALL);
         }
     }
 }
