@@ -259,6 +259,7 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
         }
         pref.setIcon(Utils.applyTint(getContext(), icon, android.R.attr.colorControlNormal));
         pref.setTitle(perm.loadLabel(pm));
+        pref.setSingleLineTitle(false);
         final CharSequence desc = perm.loadDescription(pm);
 
         pref.setOnPreferenceClickListener((Preference preference) -> {
