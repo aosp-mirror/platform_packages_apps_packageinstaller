@@ -304,6 +304,8 @@ public class UninstallerActivity extends Activity {
                                 ? PackageManager.DELETE_ALL_USERS : 0,
                         pendingIntent.getIntentSender(), mDialogInfo.user.getIdentifier());
             } catch (Exception e) {
+                notificationManager.cancel(uninstallId);
+
                 Log.e(TAG, "Cannot start uninstall", e);
                 showGenericError();
             }
