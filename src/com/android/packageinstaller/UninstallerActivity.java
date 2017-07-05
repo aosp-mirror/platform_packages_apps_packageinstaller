@@ -297,6 +297,8 @@ public class UninstallerActivity extends Activity {
             notificationManager.notify(uninstallId, uninstallingNotification);
 
             try {
+                Log.i(TAG, "Uninstalling extras=" + broadcastIntent.getExtras());
+
                 ActivityThread.getPackageManager().getPackageInstaller().uninstall(
                         new VersionedPackage(mDialogInfo.appInfo.packageName,
                                 PackageManager.VERSION_CODE_HIGHEST),
