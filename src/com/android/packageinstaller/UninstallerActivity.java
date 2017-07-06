@@ -297,6 +297,8 @@ public class UninstallerActivity extends Activity {
             notificationManager.notify(uninstallId, uninstallingNotification);
 
             try {
+                Log.i(TAG, "Uninstalling extras=" + broadcastIntent.getExtras());
+
                 ActivityThread.getPackageManager().getPackageInstaller().uninstall(
                         new VersionedPackage(mDialogInfo.appInfo.packageName,
                                 PackageManager.VERSION_CODE_HIGHEST),
@@ -304,6 +306,8 @@ public class UninstallerActivity extends Activity {
                                 ? PackageManager.DELETE_ALL_USERS : 0,
                         pendingIntent.getIntentSender(), mDialogInfo.user.getIdentifier());
             } catch (Exception e) {
+                notificationManager.cancel(uninstallId);
+
                 Log.e(TAG, "Cannot start uninstall", e);
                 showGenericError();
             }
