@@ -16,6 +16,8 @@
 
 package com.android.packageinstaller.permission.model;
 
+import android.annotation.StringRes;
+import android.annotation.SystemApi;
 import android.app.ActivityManager;
 import android.app.AppOpsManager;
 import android.content.Context;
@@ -51,6 +53,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
     private final String mName;
     private final String mDeclaringPackage;
     private final CharSequence mLabel;
+    private final @StringRes int mRequest;
     private final CharSequence mDescription;
     private final ArrayMap<String, Permission> mPermissions = new ArrayMap<>();
     private final String mIconPkg;
@@ -107,8 +110,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
         AppPermissionGroup group = new AppPermissionGroup(context, packageInfo, groupInfo.name,
                 groupInfo.packageName, groupInfo.loadLabel(context.getPackageManager()),
-                loadGroupDescription(context, groupInfo), groupInfo.packageName, groupInfo.icon,
-                userHandle);
+                loadGroupDescription(context, groupInfo), getRequest(groupInfo),
+                groupInfo.packageName, groupInfo.icon, userHandle);
 
         if (groupInfo instanceof PermissionInfo) {
             permissionInfos = new ArrayList<>();
@@ -170,6 +173,16 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         return group;
     }
 
+    private static @StringRes int getRequest(PackageItemInfo group) {
+        if (group instanceof PermissionGroupInfo) {
+            return ((PermissionGroupInfo) group).requestRes;
+        } else if (group instanceof PermissionInfo) {
+            return ((PermissionInfo) group).requestRes;
+        } else {
+            return 0;
+        }
+    }
+
     private static CharSequence loadGroupDescription(Context context, PackageItemInfo group) {
         CharSequence description = null;
         if (group instanceof PermissionGroupInfo) {
@@ -189,7 +202,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
     private AppPermissionGroup(Context context, PackageInfo packageInfo, String name,
             String declaringPackage, CharSequence label, CharSequence description,
-            String iconPkg, int iconResId, UserHandle userHandle) {
+            @StringRes int request, String iconPkg, int iconResId, UserHandle userHandle) {
         mContext = context;
         mUserHandle = userHandle;
         mPackageManager = mContext.getPackageManager();
@@ -203,6 +216,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         mName = name;
         mLabel = label;
         mDescription = description;
+        mRequest = request;
         if (iconResId != 0) {
             mIconPkg = iconPkg;
             mIconResId = iconResId;
@@ -282,6 +296,15 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
     public CharSequence getLabel() {
         return mLabel;
+    }
+
+    /**
+     * @hide
+     * @return The resource Id of the request string.
+     */
+    @SystemApi
+    public @StringRes int getRequest() {
+        return mRequest;
     }
 
     public CharSequence getDescription() {
