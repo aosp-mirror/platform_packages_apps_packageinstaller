@@ -21,6 +21,7 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.AppGlobals;
 import android.app.IActivityManager;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageManager;
@@ -42,7 +43,6 @@ import com.android.internal.annotations.VisibleForTesting;
 public class InstallStart extends Activity {
     private static final String LOG_TAG = InstallStart.class.getSimpleName();
 
-    private static final String SCHEME_CONTENT = "content";
     private static final String DOWNLOADS_AUTHORITY = "downloads";
     private IActivityManager mIActivityManager;
     private IPackageManager mIPackageManager;
@@ -105,20 +105,20 @@ public class InstallStart extends Activity {
         } else {
             Uri packageUri = intent.getData();
 
-            if (packageUri == null) {
-                // if there's nothing to do, quietly slip into the ether
+            if (packageUri != null && (packageUri.getScheme().equals(ContentResolver.SCHEME_FILE)
+                    || packageUri.getScheme().equals(ContentResolver.SCHEME_CONTENT))) {
+                // Copy file to prevent it from being changed underneath this process
+                nextActivity.setClass(this, InstallStaging.class);
+            } else if (packageUri != null && packageUri.getScheme().equals(
+                    PackageInstallerActivity.SCHEME_PACKAGE)) {
+                nextActivity.setClass(this, PackageInstallerActivity.class);
+            } else {
                 Intent result = new Intent();
                 result.putExtra(Intent.EXTRA_INSTALL_RESULT,
                         PackageManager.INSTALL_FAILED_INVALID_URI);
                 setResult(RESULT_FIRST_USER, result);
 
                 nextActivity = null;
-            } else {
-                if (packageUri.getScheme().equals(SCHEME_CONTENT)) {
-                    nextActivity.setClass(this, InstallStaging.class);
-                } else {
-                    nextActivity.setClass(this, PackageInstallerActivity.class);
-                }
             }
         }
 
