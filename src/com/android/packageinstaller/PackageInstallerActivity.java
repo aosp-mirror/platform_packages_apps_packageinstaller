@@ -25,6 +25,7 @@ import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.ActivityNotFoundException;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -75,8 +76,7 @@ public class PackageInstallerActivity extends OverlayTouchActivity implements On
 
     private static final int REQUEST_TRUST_EXTERNAL_SOURCE = 1;
 
-    private static final String SCHEME_FILE = "file";
-    private static final String SCHEME_PACKAGE = "package";
+    static final String SCHEME_PACKAGE = "package";
 
     static final String EXTRA_CALLING_PACKAGE = "EXTRA_CALLING_PACKAGE";
     static final String EXTRA_ORIGINAL_SOURCE_INFO = "EXTRA_ORIGINAL_SOURCE_INFO";
@@ -581,7 +581,7 @@ public class PackageInstallerActivity extends OverlayTouchActivity implements On
                         mPm.getApplicationIcon(mPkgInfo.applicationInfo));
             } break;
 
-            case SCHEME_FILE: {
+            case ContentResolver.SCHEME_FILE: {
                 File sourceFile = new File(packageUri.getPath());
                 PackageParser.Package parsed = PackageUtil.getPackageInfo(this, sourceFile);
 
@@ -599,10 +599,7 @@ public class PackageInstallerActivity extends OverlayTouchActivity implements On
             } break;
 
             default: {
-                Log.w(TAG, "Unsupported scheme " + scheme);
-                setPmResult(PackageManager.INSTALL_FAILED_INVALID_URI);
-                finish();
-                return false;
+                throw new IllegalArgumentException("Unexpected URI scheme " + packageUri);
             }
         }
 
