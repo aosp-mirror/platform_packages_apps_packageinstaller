@@ -316,7 +316,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                     return true;
                 }
             } else if (permission.isGranted() && (permission.getAppOp() == null
-                    || permission.isAppOpAllowed())) {
+                    || permission.isAppOpAllowed()) && !permission.isReviewRequired()) {
                 return true;
             }
         }
@@ -407,6 +407,13 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                         permission.setRevokeOnUpgrade(false);
                         mask |= PackageManager.FLAG_PERMISSION_REVOKE_ON_UPGRADE;
                     }
+                }
+
+                // Granting a permission explicitly means the user already
+                // reviewed it so clear the review flag on every grant.
+                if (permission.isReviewRequired()) {
+                    permission.resetReviewRequired();
+                    mask |= PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED;
                 }
 
                 if (mask != 0) {
