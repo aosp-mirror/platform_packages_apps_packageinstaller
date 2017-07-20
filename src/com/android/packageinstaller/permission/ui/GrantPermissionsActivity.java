@@ -271,8 +271,23 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
         for (GroupState groupState : mRequestGrantPermissionGroups.values()) {
             if (groupState.mState == GroupState.STATE_UNKNOWN) {
                 CharSequence appLabel = mAppPermissions.getAppLabel();
-                Spanned message = Html.fromHtml(getString(R.string.permission_warning_template,
-                        appLabel, groupState.mGroup.getDescription()), 0);
+
+                Spanned message = null;
+                int requestMessageId = groupState.mGroup.getRequest();
+                if (requestMessageId != 0) {
+                    try {
+                        message = Html.fromHtml(getPackageManager().getResourcesForApplication(
+                                groupState.mGroup.getDeclaringPackage()).getString(requestMessageId,
+                                appLabel), 0);
+                    } catch (NameNotFoundException ignored) {
+                    }
+                }
+
+                if (message == null) {
+                    message = Html.fromHtml(getString(R.string.permission_warning_template,
+                            appLabel, groupState.mGroup.getDescription()), 0);
+                }
+
                 // Set the permission message as the title so it can be announced.
                 setTitle(message);
 
