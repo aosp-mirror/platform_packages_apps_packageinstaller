@@ -48,6 +48,7 @@ import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.packageinstaller.permission.ui.ConfirmActionDialogFragment.OnActionConfirmedListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public final class ReviewPermissionsActivity extends Activity
@@ -103,6 +104,7 @@ public final class ReviewPermissionsActivity extends Activity
         private Button mCancelButton;
 
         private PreferenceCategory mNewPermissionsCategory;
+        private PreferenceCategory mCurrentPermissionsCategory;
 
         private boolean mHasConfirmedRevoke;
 
@@ -218,22 +220,29 @@ public final class ReviewPermissionsActivity extends Activity
         }
 
         private void confirmPermissionsReview() {
-            PreferenceGroup preferenceGroup = mNewPermissionsCategory != null
-                ? mNewPermissionsCategory : getPreferenceScreen();
+            final List<PreferenceGroup> preferenceGroups = new ArrayList<PreferenceGroup>();
+            if (mNewPermissionsCategory != null) {
+                preferenceGroups.add(mNewPermissionsCategory);
+                preferenceGroups.add(mCurrentPermissionsCategory);
+            } else {
+                preferenceGroups.add(getPreferenceScreen());
+            }
 
-            final int preferenceCount = preferenceGroup.getPreferenceCount();
-            for (int i = 0; i < preferenceCount; i++) {
-                Preference preference = preferenceGroup.getPreference(i);
-                if (preference instanceof TwoStatePreference) {
-                    TwoStatePreference twoStatePreference = (TwoStatePreference) preference;
-                    String groupName = preference.getKey();
-                    AppPermissionGroup group = mAppPermissions.getPermissionGroup(groupName);
-                    if (twoStatePreference.isChecked()) {
-                        group.grantRuntimePermissions(false);
-                    } else {
-                        group.revokeRuntimePermissions(false);
+            for (PreferenceGroup preferenceGroup : preferenceGroups) {
+                final int preferenceCount = preferenceGroup.getPreferenceCount();
+                for (int i = 0; i < preferenceCount; i++) {
+                    Preference preference = preferenceGroup.getPreference(i);
+                    if (preference instanceof TwoStatePreference) {
+                        TwoStatePreference twoStatePreference = (TwoStatePreference) preference;
+                        String groupName = preference.getKey();
+                        AppPermissionGroup group = mAppPermissions.getPermissionGroup(groupName);
+                        if (twoStatePreference.isChecked()) {
+                            group.grantRuntimePermissions(false);
+                        } else {
+                            group.revokeRuntimePermissions(false);
+                        }
+                        group.resetReviewRequired();
                     }
-                    group.resetReviewRequired();
                 }
             }
         }
@@ -295,7 +304,7 @@ public final class ReviewPermissionsActivity extends Activity
                 screen.removeAll();
             }
 
-            PreferenceGroup currentPermissionsCategory = null;
+            mCurrentPermissionsCategory = null;
             PreferenceGroup oldNewPermissionsCategory = mNewPermissionsCategory;
             mNewPermissionsCategory = null;
 
@@ -353,13 +362,13 @@ public final class ReviewPermissionsActivity extends Activity
                         mNewPermissionsCategory.addPreference(preference);
                     }
                 } else {
-                    if (currentPermissionsCategory == null) {
-                        currentPermissionsCategory = new PreferenceCategory(activity);
-                        currentPermissionsCategory.setTitle(R.string.current_permissions_category);
-                        currentPermissionsCategory.setOrder(2);
-                        screen.addPreference(currentPermissionsCategory);
+                    if (mCurrentPermissionsCategory == null) {
+                        mCurrentPermissionsCategory = new PreferenceCategory(activity);
+                        mCurrentPermissionsCategory.setTitle(R.string.current_permissions_category);
+                        mCurrentPermissionsCategory.setOrder(2);
+                        screen.addPreference(mCurrentPermissionsCategory);
                     }
-                    currentPermissionsCategory.addPreference(preference);
+                    mCurrentPermissionsCategory.addPreference(preference);
                 }
             }
         }
