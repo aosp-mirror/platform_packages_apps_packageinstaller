@@ -24,6 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"Отмена"</string>
     <string name="unknown" msgid="4742479012767208045">"Неизвестно"</string>
     <string name="installing" msgid="8613631001631998372">"Установка..."</string>
+    <string name="installing_app" msgid="4097935682329028894">"Устанавливаем <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="install_done" msgid="3682715442154357097">"Приложение установлено."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Хотите ли вы установить это приложение? Оно получит следующие разрешения:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Это приложение не требует специальных разрешений. Установить его?"</string>
@@ -42,9 +43,8 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Приложение \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" нельзя установить на ваш телевизор."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Не удалось установить приложение \"<xliff:g id="APP_NAME">%1$s</xliff:g>\"."</string>
     <string name="launch" msgid="4826921505917605463">"Открыть"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Ваш администратор запретил устанавливать приложения из неизвестных источников."</string>
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (4270706346616049120) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"Ваш администратор запретил устанавливать приложения из неизвестных источников"</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Этот пользователь не может устанавливать неизвестные приложения"</string>
     <string name="ok" msgid="3468756155452870475">"ОК"</string>
     <string name="settings" msgid="6743583734099755409">"Настройки"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Управление приложениями"</string>
@@ -68,18 +68,20 @@
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"Удалить это приложение из профиля <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
     <string name="uninstall_update_text" msgid="1394549691152728409">"Установить исходную версию приложения? Все его данные будут удалены."</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Установить исходную версию приложения? Его данные будут удалены из всех профилей устройства, в том числе рабочих."</string>
+    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"Активные процессы удаления"</string>
+    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"Ошибки удаления"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Удаление..."</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"Удаление приложения \"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>\"…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Удаление завершено."</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"Приложение \"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>\" удалено."</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"Приложение \"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>\" удалено"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Ошибка при удалении."</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"Не удалось удалить приложение \"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>\"."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Невозможно удалить пакет, т. к. он выбран для администрирования устройства."</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Невозможно удалить этот пакет: он выбран для администрирования устройства в аккаунте <xliff:g id="USERNAME">%1$s</xliff:g>"</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"Невозможно удалить активное приложение для администрирования устройства"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"Невозможно удалить активное приложение для администрирования устройства в профиле <xliff:g id="USERNAME">%1$s</xliff:g>"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Это приложение обязательно для некоторых пользователей или профилей."</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"Это приложение обязательно для вашего профиля. Его нельзя удалить."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Это приложение указано администратором как обязательное. Его нельзя удалить."</string>
-    <string name="manage_device_administrators" msgid="891392489300312370">"Настройки администрирования"</string>
+    <string name="manage_device_administrators" msgid="118178632652346535">"Настроить приложения для администрир. устройства"</string>
     <string name="manage_users" msgid="3125018886835668847">"Управление пользователями"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Не удалось удалить приложение \"<xliff:g id="APP_NAME">%1$s</xliff:g>\"."</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Ошибка при синтаксическом анализе пакета."</string>
@@ -118,7 +120,7 @@
     <string name="no_apps" msgid="1965493419005012569">"Нет приложений"</string>
     <string name="location_settings" msgid="1774875730854491297">"Настройки геоданных"</string>
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> является поставщиком услуг геолокации для этого устройства. Вы можете изменить параметры доступа в настройках геоданных."</string>
-    <string name="system_warning" msgid="7103819124542305179">"Если вы не предоставите это разрешение, основные функции устройства могут работать неправильно."</string>
+    <string name="system_warning" msgid="7103819124542305179">"Если вы отключите это разрешение, основные функции устройства могут работать неправильно."</string>
     <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"В соответствии с политикой"</string>
     <string name="loading" msgid="7811651799620593731">"Загрузка…"</string>
     <string name="all_permissions" msgid="5156669007784613042">"Все разрешения"</string>
@@ -138,13 +140,13 @@
     <string name="current_permissions_category" msgid="998210994450606094">"Имеющиеся разрешения"</string>
     <string name="message_staging" msgid="6151794817691100003">"Подождите…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"Неизвестное приложение"</string>
-    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"Удалить данные <xliff:g id="PACKAGE">%1$s</xliff:g>?"</string>
-    <!-- no translation found for untrusted_external_source_warning (1483151219938173935) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (5373768281884328560) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (2223486836232706553) -->
-    <skip />
-    <!-- no translation found for external_sources_settings (8601453744517291632) -->
-    <skip />
+    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"В целях безопасности ваш планшет блокирует установку приложений из неизвестных источников."</string>
+    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"В целях безопасности ваш телевизор блокирует установку приложений из неизвестных источников."</string>
+    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"В целях безопасности ваш телефон блокирует установку приложений из неизвестных источников."</string>
+    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"Ваши личные данные и данные телефона более уязвимы для атак приложений из неизвестных источников. Устанавливая это приложение, вы соглашаетесь с тем, что несете полную ответственность за любой ущерб, нанесенный телефону, и потерю данных, связанные с использованием этого приложения."</string>
+    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"Ваши личные данные и данные планшета более уязвимы для атак приложений из неизвестных источников. Устанавливая это приложение, вы соглашаетесь с тем, что несете полную ответственность за любой ущерб, нанесенный планшету, и потерю данных, связанные с использованием этого приложения."</string>
+    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Ваши личные данные и данные телевизора более уязвимы для атак приложений из неизвестных источников. Устанавливая это приложение, вы соглашаетесь с тем, что несете полную ответственность за любой ущерб, нанесенный телевизору, и потерю данных, связанные с использованием этого приложения."</string>
+    <string name="anonymous_source_continue" msgid="2094381167954332292">"Продолжить"</string>
+    <string name="external_sources_settings" msgid="8601453744517291632">"Настройки"</string>
+    <string name="wear_app_channel" msgid="6200840123672949356">"Установка/удаление приложений для Android Wear"</string>
 </resources>

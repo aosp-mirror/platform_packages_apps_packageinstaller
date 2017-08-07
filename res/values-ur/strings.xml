@@ -24,6 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"منسوخ کریں"</string>
     <string name="unknown" msgid="4742479012767208045">"نامعلوم"</string>
     <string name="installing" msgid="8613631001631998372">"انسٹال کیا جا رہا ہے…"</string>
+    <string name="installing_app" msgid="4097935682329028894">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> کو انسٹال کیا جا رہا ہے…"</string>
     <string name="install_done" msgid="3682715442154357097">"ایپ انسٹال ہوگئی۔"</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"کیا آپ یہ ایپلیکیشن انسٹال کرنا چاہتے ہیں؟ اس کو مندرجہ ذیل تک رسائی حاصل ہوگی:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"کیا آپ یہ ایپلیکیشن انسٹال کرنا چاہتے ہیں؟ اس کو کوئی خاص رسائی درکار نہیں۔"</string>
@@ -42,9 +43,8 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"‏<xliff:g id="APP_NAME">%1$s</xliff:g> کو آپ کے TV پر انسٹال نہیں کیا جا سکا۔"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> کو آپ کے فون پر انسٹال نہیں کیا جا سکا۔"</string>
     <string name="launch" msgid="4826921505917605463">"کھولیں"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"آپ کا منتظم نامعلوم ذرائع سے اخذ کردہ ایپس کو انسٹال کرنے کی اجازت نہیں دیتا ہے۔"</string>
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (4270706346616049120) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"آپ کا منتظم نامعلوم ذرائع سے اخذ کردہ ایپس کو انسٹال کرنے کی اجازت نہیں دیتا ہے"</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"اس صارف کے ذریعے نامعلوم ایپس کو انسٹال نہیں کیا جا سکتا"</string>
     <string name="ok" msgid="3468756155452870475">"ٹھیک ہے"</string>
     <string name="settings" msgid="6743583734099755409">"ترتیبات"</string>
     <string name="manage_applications" msgid="4033876279091996596">"ایپس کا نظم کریں"</string>
@@ -68,18 +68,20 @@
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"کیا آپ اس ایپ کو صارف <xliff:g id="USERNAME">%1$s</xliff:g> کیلئے اَن انسٹال کرنا چاہتے ہیں؟"</string>
     <string name="uninstall_update_text" msgid="1394549691152728409">"اس ایپ کو فیکٹری ورژن سے تبدیل کریں؟ تمام ڈیٹا ہٹا دیا جائے گا۔"</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"اس ایپ کو فیکٹری ورژن سے تبدیل کریں؟ تمام ڈیٹا ہٹا دیا جائے گا۔ اس سے اس آلہ کے تمام صارف متاثر ہوں گے بشمول ان کے جن کے پاس دفتری پروفائلز ہیں۔"</string>
+    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"چل رہے اَن انسٹالس"</string>
+    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"ناکام اَن انسٹالس"</string>
     <string name="uninstalling" msgid="5556217435895938250">"اَن انسٹال ہو رہا ہے…"</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ان انسٹال ہو رہی ہے…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"اَن انسٹال پورا ہوگیا۔"</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ان انسٹال ہو گئی۔"</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ان انسٹال ہو گیا"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"اَن انسٹال ناکام۔"</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> کو ان انسٹال کرنا کامیاب نہیں ہوا۔"</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"اَن انسٹال نہیں کر سکتا کیونکہ یہ پیکیج ایک فعال آلے کا منتظم ہے۔"</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"اَن انسٹال نہیں کیا جا سکتا کیونکہ یہ پیکیج صارف <xliff:g id="USERNAME">%1$s</xliff:g> کیلئے فعال آلہ کا منتظم ہے۔"</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"فعال آلہ کے منتظم کی ایپ اَن انسٹال نہیں کر سکتے"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"فعال آلہ کے منتظم کی ایپ <xliff:g id="USERNAME">%1$s</xliff:g> کیلئے اَن انسٹال نہیں کر سکتے"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"یہ ایپ کچھ صارفین اور پروفائلوں کیلئے درکار ہے اور دیگر کیلئے ان انسٹال ہو گئی"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"یہ ایپ آپ کے پروفائل کیلئے درکار ہے اور یہ ان انسٹال نہیں ہو سکتی۔"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"یہ ایپ آپ کے آلہ کے منتظم کو درکار ہے اور اسے اَن انسٹال نہیں کیا جا سکتا ہے۔"</string>
-    <string name="manage_device_administrators" msgid="891392489300312370">"آلہ کے منتظمین کا نظم کریں"</string>
+    <string name="manage_device_administrators" msgid="118178632652346535">"آلہ کے منتظم کی ایپس کا نظم کریں"</string>
     <string name="manage_users" msgid="3125018886835668847">"صارفین کا نظم کریں"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> کو اَن انسٹال نہیں کیا جا سکا۔"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"پیکیج کو پارس کرنے میں ایک دشواری پیش آگئی۔"</string>
@@ -109,7 +111,7 @@
     </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"‏یہ ایپ Android کے ایک پرانے ورژن کیلئے ڈیزائن کی گئی تھی۔ اجازت دینے سے انکار کرنے پر ممکن ہے کہ وہ مزید ٹھیک سے کام نہ کرے۔"</string>
     <string name="default_permission_description" msgid="4992892207044156668">"ایک نامعلوم کارروائی کو انجام دیں"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> میں سے <xliff:g id="COUNT_1">%2$d</xliff:g> ایپس کو اجازت دے دی گئی"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_1">%2$d</xliff:g> میں سے <xliff:g id="COUNT_0">%1$d</xliff:g> ایپس کو اجازت دے دی گئی"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"سسٹم دکھائیں"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"سسٹم چھپائیں"</string>
     <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> اجازتیں"</string>
@@ -136,13 +138,13 @@
     <string name="current_permissions_category" msgid="998210994450606094">"موجودہ اجازتیں"</string>
     <string name="message_staging" msgid="6151794817691100003">"ایپ کی مرحلہ بندی ہو رہی ہے…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"نامعلوم"</string>
-    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"کیا آپ واقعی <xliff:g id="PACKAGE">%1$s</xliff:g> کے لیے ڈیٹا صاف کرنا چاہتے ہیں؟"</string>
-    <!-- no translation found for untrusted_external_source_warning (1483151219938173935) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (5373768281884328560) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (2223486836232706553) -->
-    <skip />
-    <!-- no translation found for external_sources_settings (8601453744517291632) -->
-    <skip />
+    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"آپ کی سیکیوریٹی کیلئے، آپ کے ٹیبلیٹ کو اس ذریعے سے نامعلوم ایپس انسٹال کرنے کی اجازت نہیں ہے۔"</string>
+    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"‏آپ کی سیکیوریٹی کیلئے، آپ کے TV کو اس ذریعے سے نامعلوم ایپس انسٹال کرنے کی اجازت نہیں ہے۔"</string>
+    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"آپ کی سیکیوریٹی کیلئے، آپ کے فون کو اس ذریعے سے نامعلوم ایپس انسٹال کرنے کی اجازت نہیں ہے۔"</string>
+    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"آپ کے فون اور ذاتی ڈیٹا کو نامعلوم ایپس کی جانب سے حملے کا زیادہ خطرہ ہے۔ اس ایپ کو انسٹال کر کے، آپ اس بات سے اتفاق کرتے ہیں کہ آپ اس سے اپنے فون کو ہونے والے کسی بھی نقصان یا ڈیٹا کے نقصان کیلئے خود ذمہ دار ہیں۔"</string>
+    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"آپ کے ٹیبلیٹ اور ذاتی ڈیٹا کو نامعلوم ایپس کی جانب سے حملے کا زیادہ خطرہ ہے۔ اس ایپ کو انسٹال کر کے، آپ اس بات سے اتفاق کرتے ہیں کہ آپ اس سے اپنے ٹیبلیٹ کو ہونے والے کسی بھی نقصان یا ڈیٹا کے نقصان کیلئے خود ذمہ دار ہیں۔"</string>
+    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"‏آپ کے TV اور ذاتی ڈیٹا کو نامعلوم ایپس کی جانب سے حملے کا زیادہ خطرہ ہے۔ اس ایپ کو انسٹال کر کے، آپ اس بات سے اتفاق کرتے ہیں کہ آپ اس سے اپنے TV کو ہونے والے کسی بھی نقصان یا ڈیٹا کے نقصان کیلئے خود ذمہ دار ہیں۔"</string>
+    <string name="anonymous_source_continue" msgid="2094381167954332292">"جاری رکھیں"</string>
+    <string name="external_sources_settings" msgid="8601453744517291632">"ترتیبات"</string>
+    <string name="wear_app_channel" msgid="6200840123672949356">"‏wear ایپس کا انسٹال/ان انسٹال کرنا"</string>
 </resources>

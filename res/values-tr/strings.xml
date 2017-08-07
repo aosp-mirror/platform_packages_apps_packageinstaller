@@ -24,6 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"İptal"</string>
     <string name="unknown" msgid="4742479012767208045">"Bilinmiyor"</string>
     <string name="installing" msgid="8613631001631998372">"Yükleniyor…"</string>
+    <string name="installing_app" msgid="4097935682329028894">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> yükleniyor…"</string>
     <string name="install_done" msgid="3682715442154357097">"Uygulama yüklendi."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Bu uygulamayı yüklemek istiyor musunuz? Uygulama şunlara erişebilecektir:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Bu uygulamayı yüklemek istiyor musunuz? Herhangi bir özel erişim gerektirmez."</string>
@@ -42,9 +43,8 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> TV\'nize yüklenemedi."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> bu telefonunuza yüklenemedi."</string>
     <string name="launch" msgid="4826921505917605463">"Aç"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Yöneticiniz, bilinmeyen kaynaklardan edinilen uygulamaların yüklenmesine izin vermiyor."</string>
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (4270706346616049120) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"Yöneticiniz, bilinmeyen kaynaklardan edinilen uygulamaların yüklenmesine izin vermiyor"</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Bilinmeyen uygulamalar bu kullanıcı tarafından yüklenemez"</string>
     <string name="ok" msgid="3468756155452870475">"Tamam"</string>
     <string name="settings" msgid="6743583734099755409">"Ayarlar"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Uygulamaları yönet"</string>
@@ -68,18 +68,20 @@
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"<xliff:g id="USERNAME">%1$s</xliff:g> adlı kullanıcı için bu uygulamanın yüklemesini kaldırmak istiyor musunuz?"</string>
     <string name="uninstall_update_text" msgid="1394549691152728409">"Bu uygulamayı fabrika sürümüyle değiştirmek istiyor musunuz? Tüm veriler silinecektir."</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Bu uygulamayı fabrika sürümüyle değiştirmek istiyor musunuz? Tüm veriler silinecektir. Bu, çalışma profilleri olan kullanıcılar da dahil olmak üzere cihazı kullanan tüm kullanıcıları etkiler."</string>
+    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"Devam eden yükleme kaldırma işlemleri"</string>
+    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"Başarısız yükleme kaldırma işlemleri"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Kaldırılıyor…"</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> uygulamasının yüklemesi kaldırılıyor…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Kaldırma işlemi tamamlandı."</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> uygulamasının yüklemesi kaldırıldı."</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> uygulamasının yüklemesi kaldırıldı"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Yükleme kaldırılamadı."</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> uygulamasının yüklemesi kaldırılamadı."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Bu paket, etkin bir cihaz yöneticisi olduğundan yüklemesi kaldırılamıyor."</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Bu paket <xliff:g id="USERNAME">%1$s</xliff:g> adlı kullanıcı için aktif bir cihaz yöneticisi olduğundan yüklemesi kaldırılamıyor."</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"Etkin cihaz yönetimi uygulamasının yüklemesi kaldırılamıyor"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"<xliff:g id="USERNAME">%1$s</xliff:g> adlı kullanıcı için etkin cihaz yönetimi uygulamasının yüklemesi kaldırılamıyor"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Bu uygulama bazı kullanıcılar veya profiller için gerekli ve diğerleri için uygulamanın yüklemesi kaldırıldı"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"Profiliniz için bu uygulama gerekli ve yüklemesi kaldırılamaz."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Bu uygulama, cihazınızın yöneticisi için gereklidir ve yüklemesi kaldırılamaz."</string>
-    <string name="manage_device_administrators" msgid="891392489300312370">"Cihaz yöneticilerini yönet"</string>
+    <string name="manage_device_administrators" msgid="118178632652346535">"Cihaz yönetimi uygulamalarını yönet"</string>
     <string name="manage_users" msgid="3125018886835668847">"Kullanıcıları yönetme"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> kaldırılamadı."</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Paketin ayrıştırılmasında bir sorun oluştu."</string>
@@ -136,13 +138,13 @@
     <string name="current_permissions_category" msgid="998210994450606094">"Geçerli izinler"</string>
     <string name="message_staging" msgid="6151794817691100003">"Uygulama hazırlanıyor…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"Bilinmiyor"</string>
-    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"<xliff:g id="PACKAGE">%1$s</xliff:g> verilerini temizlemeyi gerçekten istiyor musunuz?"</string>
-    <!-- no translation found for untrusted_external_source_warning (1483151219938173935) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (5373768281884328560) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (2223486836232706553) -->
-    <skip />
-    <!-- no translation found for external_sources_settings (8601453744517291632) -->
-    <skip />
+    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Güvenlik nedeniyle tabletinizin bu kaynaktan bilinmeyen uygulamalar yüklemesine izin verilmez."</string>
+    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Güvenlik nedeniyle TV\'nizin bu kaynaktan bilinmeyen uygulamalar yüklemesine izin verilmez."</string>
+    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Güvenlik nedeniyle telefonunuzun bu kaynaktan bilinmeyen uygulamalar yüklemesine izin verilmez."</string>
+    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"Telefonunuz ve kişisel verileriniz, bilinmeyen uygulamaların saldırılarına karşı daha savunmasızdır. Bu uygulamayı yükleyerek, uygulama kullanımından dolayı telefonunuzda oluşabilecek hasarın veya uğrayabileceğiniz veri kaybının sorumluluğunu kabul etmiş olursunuz."</string>
+    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"Tabletiniz ve kişisel verileriniz, bilinmeyen uygulamaların saldırılarına karşı daha savunmasızdır. Bu uygulamayı yükleyerek, uygulama kullanımından dolayı tabletinizde oluşabilecek hasarın veya uğrayabileceğiniz veri kaybının sorumluluğunu kabul etmiş olursunuz."</string>
+    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"TV\'niz ve kişisel verileriniz, bilinmeyen uygulamaların saldırılarına karşı daha savunmasızdır. Bu uygulamayı yükleyerek, uygulama kullanımından dolayı TV\'nizde oluşabilecek hasarın veya uğrayabileceğiniz veri kaybının sorumluluğunu kabul etmiş olursunuz."</string>
+    <string name="anonymous_source_continue" msgid="2094381167954332292">"Devam"</string>
+    <string name="external_sources_settings" msgid="8601453744517291632">"Ayarlar"</string>
+    <string name="wear_app_channel" msgid="6200840123672949356">"Wear uyg. yükleme/yüklemesini kaldırma"</string>
 </resources>

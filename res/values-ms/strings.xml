@@ -24,6 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"Batal"</string>
     <string name="unknown" msgid="4742479012767208045">"Tidak diketahui"</string>
     <string name="installing" msgid="8613631001631998372">"Memasang..."</string>
+    <string name="installing_app" msgid="4097935682329028894">"Memasang <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="install_done" msgid="3682715442154357097">"Aplikasi dipasang."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Adakah anda mahu memasang aplikasi ini? Aplikasi ini akan mendapat akses kepada:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Adakah anda mahu memasang aplikasi ini? Aplikasi ini tidak memerlukan sebarang akses khas."</string>
@@ -42,9 +43,8 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> tidak boleh dipasang pada TV anda."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> tidak dapat dipasangkan pada telefon anda."</string>
     <string name="launch" msgid="4826921505917605463">"Buka"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Pentadbir anda tidak membenarkan pemasangan apl yang diperoleh dari sumber yang tidak diketahui."</string>
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (4270706346616049120) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"Pentadbir anda tidak membenarkan pemasangan apl yang diperoleh daripada sumber yang tidak diketahui"</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Apl yang tidak diketahui tidak boleh dipasang oleh pengguna ini"</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Tetapan"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Urus aplikasi"</string>
@@ -68,18 +68,20 @@
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"Adakah anda ingin menyahpasang apl ini untuk pengguna <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
     <string name="uninstall_update_text" msgid="1394549691152728409">"Gantikan apl ini dengan versi kilang? Semua data akan dialih keluar."</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Gantikan apl ini dengan versi kilang? Semua data akan dialih keluar. Tindakan ini melibatkan semua pengguna peranti ini, termasuk mereka yang mempunyai profil kerja."</string>
+    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"Penyahpasangan yang sedang berjalan"</string>
+    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"Penyahpasangan yang gagal"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Menyahpasang..."</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"Menyahpasang <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Nyahpasang selesai."</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> dinyahpasang."</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> dinyahpasang"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Nyahpasang tidak berjaya."</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"Tidak berjaya menyahpasang <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Tidak boleh menyahpasang kerana pakej ini adalah pentadbir peranti yang aktif."</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Tidak boleh menyahpasang kerana pakej ini adalah pentadbir peranti yang aktif untuk pengguna <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"Tidak dapat menyahpasang apl pentadbir peranti yang aktif"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"Tidak dapat menyahpasang apl pentadbir peranti yang aktif untuk <xliff:g id="USERNAME">%1$s</xliff:g>"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Apl ini diperlukan untuk sesetengah pengguna atau profil dan telah dinyahpasang untuk yang lain"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"Apl ini diperlukan untuk profil anda dan tidak boleh dinyahpasang."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Apl ini diperlukan oleh pentadbir peranti anda dan tidak boleh dinyahpasang."</string>
-    <string name="manage_device_administrators" msgid="891392489300312370">"Urus pentadbir peranti"</string>
+    <string name="manage_device_administrators" msgid="118178632652346535">"Urus apl pentadbir peranti"</string>
     <string name="manage_users" msgid="3125018886835668847">"Urus pengguna"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> tidak dapat dinyahpasang."</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Terdapat masalah menghuraikan pakej."</string>
@@ -136,13 +138,13 @@
     <string name="current_permissions_category" msgid="998210994450606094">"Kebenaran semasa"</string>
     <string name="message_staging" msgid="6151794817691100003">"Pemeringkatan apl…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"Tidak diketahui"</string>
-    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"Adakah anda benar-benar mahu mengosongkan data untuk <xliff:g id="PACKAGE">%1$s</xliff:g>?"</string>
-    <!-- no translation found for untrusted_external_source_warning (1483151219938173935) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (5373768281884328560) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (2223486836232706553) -->
-    <skip />
-    <!-- no translation found for external_sources_settings (8601453744517291632) -->
-    <skip />
+    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Untuk keselamatan, tablet anda tidak dibenarkan memasang apl yang tidak diketahui daripada sumber ini."</string>
+    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Untuk keselamatan, TV anda tidak dibenarkan memasang apl yang tidak diketahui daripada sumber ini."</string>
+    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Untuk keselamatan, telefon anda tidak dibenarkan memasang apl yang tidak diketahui daripada sumber ini."</string>
+    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"Telefon dan data peribadi anda lebih mudah diserang oleh apl yang tidak diketahui. Dengan memasang apl ini, anda bersetuju bahawa anda bertanggungjawab atas sebarang kerosakan pada telefon anda atau kehilangan data yang mungkin disebabkan oleh penggunaan apl tersebut."</string>
+    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"Tablet dan data peribadi anda lebih mudah diserang oleh apl yang tidak diketahui. Dengan memasang apl ini, anda bersetuju bahawa anda bertanggungjawab atas sebarang kerosakan pada tablet anda atau kehilangan data yang mungkin disebabkan oleh penggunaan apl tersebut."</string>
+    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"TV dan data peribadi anda lebih mudah diserang oleh apl yang tidak diketahui. Dengan memasang apl ini, anda bersetuju bahawa anda bertanggungjawab atas sebarang kerosakan pada TV anda atau kehilangan data yang mungkin disebabkan oleh penggunaan apl tersebut."</string>
+    <string name="anonymous_source_continue" msgid="2094381167954332292">"Teruskan"</string>
+    <string name="external_sources_settings" msgid="8601453744517291632">"Tetapan"</string>
+    <string name="wear_app_channel" msgid="6200840123672949356">"Memasang/menyahpasang apl wear"</string>
 </resources>

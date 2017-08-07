@@ -24,6 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"Peruuta"</string>
     <string name="unknown" msgid="4742479012767208045">"Tuntematon"</string>
     <string name="installing" msgid="8613631001631998372">"Asennetaan…"</string>
+    <string name="installing_app" msgid="4097935682329028894">"Asennetaan kohdetta <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="install_done" msgid="3682715442154357097">"Sovellus on asennettu."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Haluatko asentaa tämän sovelluksen? Se saa käyttöönsä seuraavat ominaisuudet:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Haluatko asentaa tämän sovelluksen? Se ei vaadi erityisiä käyttöoikeuksia."</string>
@@ -42,9 +43,8 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> ei asennu televisioosi."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Sovelluksen <xliff:g id="APP_NAME">%1$s</xliff:g> asentaminen puhelimeesi ei onnistunut."</string>
     <string name="launch" msgid="4826921505917605463">"Avaa"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Järjestelmänvalvoja ei salli tuntemattomista lähteistä saatujen sovellusten asentamista."</string>
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (4270706346616049120) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"Järjestelmänvalvoja ei salli sovellusten asentamista tuntemattomista lähteistä."</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Tämä käyttäjä ei voi asentaa tuntemattomia sovelluksia."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Asetukset"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Hallinnoi sovelluksia"</string>
@@ -68,18 +68,20 @@
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"Haluatko poistaa tämän sovelluksen käyttäjältä <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
     <string name="uninstall_update_text" msgid="1394549691152728409">"Haluatko korvata tämän sovelluksen tehdasversiolla? Kaikki tiedot poistetaan."</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Haluatko korvata tämän sovelluksen tehdasversiolla? Kaikki tiedot poistetaan. Tämä vaikuttaa kaikkiin laitteen käyttäjiin, myös työprofiileihin."</string>
+    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"Käynnissä olevat poistot"</string>
+    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"Epäonnistuneet poistot"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Poistetaan..."</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"Poistetaan pakettia <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Poisto valmis."</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> poistettu"</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> poistettu"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Poisto epäonnistui."</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> on poistettu."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Pakettia ei voi poistaa, koska se on aktiivinen laitteen ylläpitäjä."</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Ei voi poistaa – paketti on käyttäjän <xliff:g id="USERNAME">%1$s</xliff:g> aktiivinen laitteen järjestelmänvalvoja."</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"Aktiivista laitteenhallintasovellusta ei voi poistaa käytöstä."</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"Käyttäjän <xliff:g id="USERNAME">%1$s</xliff:g> aktiivista laitteenhallintasovellusta ei voi poistaa käytöstä."</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Jotkin käyttäjät/profiilit tarvitsevat tätä sovellusta ja se poistettiin muista."</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"Profiilisi käyttö edellyttää tätä sovellusta. Sovellusta ei voi poistaa."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Laitteen järjestelmänvalvoja tarvitsee tätä sovellusta eikä sitä voi poistaa."</string>
-    <string name="manage_device_administrators" msgid="891392489300312370">"Hallinnoi laitteen ylläpitäjiä"</string>
+    <string name="manage_device_administrators" msgid="118178632652346535">"Hallinnoi laitteenhallintasovelluksia"</string>
     <string name="manage_users" msgid="3125018886835668847">"Hallinnoi käyttäjiä"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Sovelluksen <xliff:g id="APP_NAME">%1$s</xliff:g> poistaminen epäonnistui"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Paketin jäsentämisessä esiintyi ongelma."</string>
@@ -136,13 +138,13 @@
     <string name="current_permissions_category" msgid="998210994450606094">"Nykyiset käyttöoikeudet"</string>
     <string name="message_staging" msgid="6151794817691100003">"Valmistellaan sovellusta…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"Tuntematon"</string>
-    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"Haluatko varmasti poistaa paketin <xliff:g id="PACKAGE">%1$s</xliff:g> tiedot?"</string>
-    <!-- no translation found for untrusted_external_source_warning (1483151219938173935) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (5373768281884328560) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (2223486836232706553) -->
-    <skip />
-    <!-- no translation found for external_sources_settings (8601453744517291632) -->
-    <skip />
+    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Turvallisuussyistä tabletti ei voi asentaa tuntemattomia sovelluksia tästä lähteestä."</string>
+    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Turvallisuussyistä televisiosi ei voi asentaa tuntemattomia sovelluksia tästä lähteestä."</string>
+    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Turvallisuussyistä puhelin ei voi asentaa tuntemattomia sovelluksia tästä lähteestä."</string>
+    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"Tuntemattomat sovellukset voivat helpommin kaapata puhelimesi ja henkilötietosi. Lataamalla sovelluksia tästä lähteestä hyväksyt, että olet itse vastuussa puhelimellesi aiheutuvista vahingoista tai tietojen menetyksestä, jotka voivat johtua sovellusten käytöstä."</string>
+    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"Tuntemattomat sovellukset voivat helpommin kaapata tablettisi ja henkilötietosi. Lataamalla sovelluksia tästä lähteestä hyväksyt, että olet itse vastuussa tabletillesi aiheutuvista vahingoista tai tietojen menetyksestä, jotka voivat johtua sovellusten käytöstä."</string>
+    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Tuntemattomat sovellukset voivat helpommin kaapata televisiosi ja henkilötietosi. Lataamalla sovelluksen hyväksyt, että olet itse vastuussa mahdollisista televisiolle aiheutuvista vahingoista tai tietojen menetyksestä, jotka voivat johtua sovellusten käytöstä."</string>
+    <string name="anonymous_source_continue" msgid="2094381167954332292">"Jatka"</string>
+    <string name="external_sources_settings" msgid="8601453744517291632">"Asetukset"</string>
+    <string name="wear_app_channel" msgid="6200840123672949356">"Wear-sovellusten asennus/poistaminen"</string>
 </resources>

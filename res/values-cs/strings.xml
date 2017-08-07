@@ -24,6 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"Zrušit"</string>
     <string name="unknown" msgid="4742479012767208045">"Neznámé"</string>
     <string name="installing" msgid="8613631001631998372">"Probíhá instalace..."</string>
+    <string name="installing_app" msgid="4097935682329028894">"Instalace balíčku <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="install_done" msgid="3682715442154357097">"Aplikace je nainstalována."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Chcete tuto aplikaci nainstalovat? Aplikace získá přístup k těmto oprávněním:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Chcete tuto aplikaci nainstalovat? Aplikace nevyžaduje žádná zvláštní oprávnění."</string>
@@ -42,9 +43,8 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Aplikaci <xliff:g id="APP_NAME">%1$s</xliff:g> se do televize nepodařilo nainstalovat."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Aplikaci <xliff:g id="APP_NAME">%1$s</xliff:g> do tohoto telefonu nelze nainstalovat."</string>
     <string name="launch" msgid="4826921505917605463">"Otevřít"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Váš administrátor nedovoluje instalaci aplikací z neznámých zdrojů."</string>
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (4270706346616049120) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"Váš administrátor nedovoluje instalaci aplikací z neznámých zdrojů"</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Tento uživatel nemůže instalovat neznámé aplikace"</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Nastavení"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Spravovat aplikace"</string>
@@ -68,18 +68,20 @@
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"Chcete tuto aplikaci pro uživatele <xliff:g id="USERNAME">%1$s</xliff:g> odinstalovat?"</string>
     <string name="uninstall_update_text" msgid="1394549691152728409">"Chcete tuto aplikaci nahradit tovární verzí? Všechna data budou odstraněna."</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Chcete tuto aplikaci nahradit tovární verzí? Všechna data budou odstraněna. Tato akce ovlivní všechny uživatele zařízení, včetně uživatelů s pracovním profilem."</string>
+    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"Probíhající odinstalace"</string>
+    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"Neúspěšné odinstalace"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Probíhá odinstalace..."</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"Odinstalace balíčku <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Odinstalace byla dokončena."</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"Balíček <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> byl odinstalován."</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"Balíček <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> byl odinstalován"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Odinstalace se nezdařila."</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"Odinstalace balíčku <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> se nezdařila."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Nelze odinstalovat, protože je tento balíček aktivním správcem zařízení."</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Balíček nelze odinstalovat, protože je aktivním administrátorem zařízení pro uživatele <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"Aktivní aplikaci pro správu zařízení nelze odinstalovat"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"Aktivní aplikaci pro správu zařízení uživatele <xliff:g id="USERNAME">%1$s</xliff:g> nelze odinstalovat"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Tato aplikace je u některých uživatelů nebo profilů požadována, u ostatních byla odinstalována."</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"Tato aplikace je pro váš profil požadována a nelze ji odinstalovat."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Tato aplikace je administrátorem zařízení vyžadována a nelze ji odinstalovat."</string>
-    <string name="manage_device_administrators" msgid="891392489300312370">"Spravovat správce zařízení"</string>
+    <string name="manage_device_administrators" msgid="118178632652346535">"Přejít do nastavení aplikací pro správu zařízení"</string>
     <string name="manage_users" msgid="3125018886835668847">"Správa uživatelů"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Aplikaci <xliff:g id="APP_NAME">%1$s</xliff:g> nelze odinstalovat."</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Při analýze balíčku došlo k chybě."</string>
@@ -138,13 +140,13 @@
     <string name="current_permissions_category" msgid="998210994450606094">"Aktuální oprávnění"</string>
     <string name="message_staging" msgid="6151794817691100003">"Příprava instalace…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"Neznámá aplikace"</string>
-    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"Opravdu chcete vymazat data balíčku <xliff:g id="PACKAGE">%1$s</xliff:g>?"</string>
-    <!-- no translation found for untrusted_external_source_warning (1483151219938173935) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (5373768281884328560) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (2223486836232706553) -->
-    <skip />
-    <!-- no translation found for external_sources_settings (8601453744517291632) -->
-    <skip />
+    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Z bezpečnostních důvodů do tabletu není dovoleno instalovat neznámé aplikace z tohoto zdroje."</string>
+    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Z bezpečnostních důvodů do televize není dovoleno instalovat neznámé aplikace z tohoto zdroje."</string>
+    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Z bezpečnostních důvodů do telefonu není dovoleno instalovat neznámé aplikace z tohoto zdroje."</string>
+    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"Telefon a osobní údaje jsou zranitelnější vůči útoku ze strany neznámých aplikací. Instalací této aplikace přijímáte odpovědnost za případné škody na telefonu nebo ztrátu dat, která může být používáním aplikace způsobena."</string>
+    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"Tablet a osobní údaje jsou zranitelnější vůči útoku ze strany neznámých aplikací. Instalací této aplikace přijímáte odpovědnost za případné škody na tabletu nebo ztrátu dat, která může být používáním aplikace způsobena."</string>
+    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Televize a osobní údaje jsou zranitelnější vůči útoku ze strany neznámých aplikací. Instalací této aplikace přijímáte odpovědnost za případné škody na televizi nebo ztrátu dat, která může být používáním aplikace způsobena."</string>
+    <string name="anonymous_source_continue" msgid="2094381167954332292">"Pokračovat"</string>
+    <string name="external_sources_settings" msgid="8601453744517291632">"Nastavení"</string>
+    <string name="wear_app_channel" msgid="6200840123672949356">"Instalace/odinstalace aplikací pro Wear"</string>
 </resources>

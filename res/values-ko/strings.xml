@@ -24,6 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"취소"</string>
     <string name="unknown" msgid="4742479012767208045">"알 수 없음"</string>
     <string name="installing" msgid="8613631001631998372">"설치 중..."</string>
+    <string name="installing_app" msgid="4097935682329028894">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> 설치 중…"</string>
     <string name="install_done" msgid="3682715442154357097">"앱이 설치되었습니다."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"이 애플리케이션을 설치하시겠습니까? 애플리케이션이 다음에 액세스할 수 있습니다."</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"이 애플리케이션을 설치하시겠습니까? 특별한 액세스 권한이 필요하지 않습니다."</string>
@@ -42,9 +43,8 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g>을(를) TV에 설치할 수 없습니다."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"휴대전화에 <xliff:g id="APP_NAME">%1$s</xliff:g> 앱을 설치할 수 없습니다."</string>
     <string name="launch" msgid="4826921505917605463">"열기"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"관리자가 알 수 없는 출처의 앱 설치를 허용하지 않습니다."</string>
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (4270706346616049120) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"관리자가 알 수 없는 출처의 앱 설치를 허용하지 않습니다."</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"이 사용자는 알 수 없는 앱을 설치할 수 없습니다."</string>
     <string name="ok" msgid="3468756155452870475">"확인"</string>
     <string name="settings" msgid="6743583734099755409">"설정"</string>
     <string name="manage_applications" msgid="4033876279091996596">"앱 관리"</string>
@@ -68,18 +68,20 @@
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"<xliff:g id="USERNAME">%1$s</xliff:g>님의 기기에 설치된 앱을 제거하시겠습니까?"</string>
     <string name="uninstall_update_text" msgid="1394549691152728409">"이 앱을 초기 버전으로 바꾸시겠습니까? 모든 데이터가 삭제됩니다."</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"이 앱을 초기 버전으로 바꾸시겠습니까? 모든 데이터가 삭제되며 직장 프로필 사용자를 포함해 이 기기의 모든 사용자에게 영향을 미칩니다."</string>
+    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"실행 중인 제거 작업"</string>
+    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"실패한 제거 작업"</string>
     <string name="uninstalling" msgid="5556217435895938250">"제거 중..."</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> 제거 중…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"제거를 완료했습니다."</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>을(를) 제거했습니다."</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>을(를) 제거했습니다."</string>
     <string name="uninstall_failed" msgid="631122574306299512">"제거하지 못했습니다."</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>을(를) 제거하지 못했습니다."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"이 패키지는 사용 중인 기기 관리자이기 때문에 제거할 수 없습니다."</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"이 패키지는 <xliff:g id="USERNAME">%1$s</xliff:g>님이 사용 중인 기기 관리자이기 때문에 제거할 수 없습니다."</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"활성 상태의 기기 관리자 앱을 제거할 수 없습니다."</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"<xliff:g id="USERNAME">%1$s</xliff:g>의 활성 상태의 기기 관리자 앱을 제거할 수 없습니다."</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"이 앱은 일부 사용자 또는 프로필에 필요하며 다른 사용자에 대해서는 제거되었습니다."</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"이 앱은 프로필에 필요하므로 삭제할 수 없습니다."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"이 앱은 기기 관리자에게 필요하므로 제거할 수 없습니다."</string>
-    <string name="manage_device_administrators" msgid="891392489300312370">"기기 관리자 관리"</string>
+    <string name="manage_device_administrators" msgid="118178632652346535">"기기 관리자 앱 관리"</string>
     <string name="manage_users" msgid="3125018886835668847">"사용자 관리"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> 앱을 제거할 수 없습니다."</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"패키지를 파싱하는 중 문제가 발생했습니다."</string>
@@ -136,13 +138,13 @@
     <string name="current_permissions_category" msgid="998210994450606094">"기존 권한"</string>
     <string name="message_staging" msgid="6151794817691100003">"앱 준비 중…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"알 수 없음"</string>
-    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"<xliff:g id="PACKAGE">%1$s</xliff:g>의 데이터를 삭제하시겠습니까?"</string>
-    <!-- no translation found for untrusted_external_source_warning (1483151219938173935) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (5373768281884328560) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (2223486836232706553) -->
-    <skip />
-    <!-- no translation found for external_sources_settings (8601453744517291632) -->
-    <skip />
+    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"보안상의 이유로 이 소스에서 가져온 알 수 없는 앱을 태블릿에 설치할 수 없습니다."</string>
+    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"보안상의 이유로 이 소스에서 가져온 알 수 없는 앱을 TV에 설치할 수 없습니다."</string>
+    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"보안상의 이유로 이 소스에서 가져온 알 수 없는 앱을 휴대전화에 설치할 수 없습니다."</string>
+    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"휴대전화와 개인 데이터는 알 수 없는 앱의 공격에 더욱 취약합니다. 이 앱을 설치하면 앱 사용으로 인해 발생할 수 있는 모든 휴대전화 손상이나 데이터 손실에 사용자가 책임을 진다는 것에 동의하게 됩니다."</string>
+    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"태블릿과 개인 데이터는 알 수 없는 앱의 공격에 더욱 취약합니다. 이 앱을 설치하면 앱 사용으로 인해 발생할 수 있는 모든 태블릿 손상이나 데이터 손실에 사용자가 책임을 진다는 것에 동의하게 됩니다."</string>
+    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"TV와 개인 데이터는 알 수 없는 앱의 공격에 더욱 취약합니다. 이 앱을 설치하면 앱 사용으로 인해 발생할 수 있는 모든 TV 손상이나 데이터 손실에 사용자가 책임을 진다는 것에 동의하게 됩니다."</string>
+    <string name="anonymous_source_continue" msgid="2094381167954332292">"계속"</string>
+    <string name="external_sources_settings" msgid="8601453744517291632">"설정"</string>
+    <string name="wear_app_channel" msgid="6200840123672949356">"Wear 앱 설치/제거"</string>
 </resources>

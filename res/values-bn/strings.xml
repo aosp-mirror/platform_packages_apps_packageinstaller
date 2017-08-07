@@ -24,6 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"বাতিল করুন"</string>
     <string name="unknown" msgid="4742479012767208045">"অজানা"</string>
     <string name="installing" msgid="8613631001631998372">"ইনস্টল করা হচ্ছে…"</string>
+    <string name="installing_app" msgid="4097935682329028894">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ইন্সটল করা হচ্ছে…"</string>
     <string name="install_done" msgid="3682715442154357097">"অ্যাপ্লিকেশান ইনস্টল করা হয়েছে৷"</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"আপনি কি এই অ্যাপ্লিকেশানটি ইনস্টল করতে চান? এর মাধ্যমে যেসব জিনিস অ্যাক্সেস করার সুবিধা পাবেন সেগুলি হল:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"আপনি কি এই অ্যাপ্লিকেশানটি ইনস্টল করতে চান? এর জন্য কোনো বিশেষ অ্যাক্সেসের প্রয়োজন নেই৷"</string>
@@ -42,9 +43,8 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g>-কে আপনার টিভিতে ইনস্টল করা যাবে না৷"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> আপনার ফোনে ইনস্টল করা যায়নি৷"</string>
     <string name="launch" msgid="4826921505917605463">"খুলুন"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"আপনার প্রশাসক অজানা উৎসগুলি থেকে প্রাপ্ত অ্যাপ্লিকেশানগুলি ইনস্টল করাকে মঞ্জুর করে না৷"</string>
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (4270706346616049120) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"আপনার প্রশাসক অজানা উৎস থেকে প্রাপ্ত অ্যাপ ইনস্টল করার অনুমতি দেয় না"</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"এই ব্যবহারকারী অজানা অ্যাপ ইনস্টল করতে পারবেন না"</string>
     <string name="ok" msgid="3468756155452870475">"ঠিক আছে"</string>
     <string name="settings" msgid="6743583734099755409">"সেটিংস"</string>
     <string name="manage_applications" msgid="4033876279091996596">"অ্যাপ্লিকেশানগুলির পরিচালনা করুন"</string>
@@ -68,18 +68,20 @@
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"আপনি কি ব্যবহারকারী <xliff:g id="USERNAME">%1$s</xliff:g> এর জন্য এই অ্যাপ্লিকেশানটি আনইনস্টল করতে চান?"</string>
     <string name="uninstall_update_text" msgid="1394549691152728409">"ফ্যাক্টরি সংস্করণের সাথে এই অ্যাপটিকে বদলাবেন? সব ডেটা মুছে যাবে।"</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"ফ্যাক্টরি সংস্করণের সাথে এই অ্যাপটিকে বদলাবেন? সমস্ত ডেটা মুছে যাবে। এটি এই ডিভাইসের সমস্ত ব্যবহারকারী সহ তাদের কার্যের প্রোফাইলের উপরেও প্রভাব ফেলবে।"</string>
+    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"এগুলি আনইনস্টল করা হচ্ছে"</string>
+    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"এগুলি আনইনস্টল করা যায়নি"</string>
     <string name="uninstalling" msgid="5556217435895938250">"আনইনস্টল করা হচ্ছে ..."</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> আনইনস্টল করা হচ্ছে…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"আনইনস্টল সমাপ্ত হয়েছে৷"</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> আনইনস্টল করা হয়েছে৷"</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> আনইনস্টল করা হয়েছে"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"আনইনস্টল সফল হয়নি৷"</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> আনইনস্টল করা গেল না৷"</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"আনইনস্টল করা যায়নি কারণ এই প্যাকেজটি হল একটি সক্রিয় ডিভাইস প্রশাসক৷"</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"এই প্যাকেজটি আনইনস্টল করা যাবে না কারণ, এটি হল <xliff:g id="USERNAME">%1$s</xliff:g> এর একটি সক্রিয় ডিভাইস প্রশাসক৷"</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"সক্রিয় থাকা ডিভাইস প্রশাসক অ্যাপটি আনইনস্টল করা যাবে না"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"<xliff:g id="USERNAME">%1$s</xliff:g> এর সক্রিয় থাকা ডিভাইস প্রশাসক অ্যাপটি আনইনস্টল করা যাবে না"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"কিছু ব্যবহারকারী বা প্রোফাইলের জন্য এই অ্যাপ্লিকেশানটি আবশ্যক এবং অন্যদের জন্য আনইনস্টল করা হবে"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"আপনার প্রোফাইলের জন্য এই অ্যাপ্লিকেশানটি প্রয়োজন এবং এটিকে আনইনস্টল করা যাবে না৷"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"আপনার ডিভাইস প্রশাসকের চাহিদা অনুযায়ী এই অ্যাপ্লিকেশানটি আবশ্যক এবং এটি আনইনস্টল করা যাবে না।"</string>
-    <string name="manage_device_administrators" msgid="891392489300312370">"ডিভাইস প্রশাসকদের পরিচালনা করুন"</string>
+    <string name="manage_device_administrators" msgid="118178632652346535">"ডিভাইস প্রশাসক অ্যাপগুলি পরিচালনা করুন"</string>
     <string name="manage_users" msgid="3125018886835668847">"ব্যবহারকারীদের পরিচালনা করুন"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> আনইনস্টল করা যায়নি৷"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"প্যাকেজটি বিশ্লেষণ করার ক্ষেত্রে একটি সমস্যা হয়েছে৷"</string>
@@ -136,13 +138,13 @@
     <string name="current_permissions_category" msgid="998210994450606094">"বর্তমান অনুমতিগুলি"</string>
     <string name="message_staging" msgid="6151794817691100003">"অ্যাপ্লিকেশান স্টেজ করা হচ্ছে..."</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"অজানা"</string>
-    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"আপনি কি সত্যিই <xliff:g id="PACKAGE">%1$s</xliff:g> এর ডেটা সাফ করতে চান?"</string>
-    <!-- no translation found for untrusted_external_source_warning (1483151219938173935) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (5373768281884328560) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (2223486836232706553) -->
-    <skip />
-    <!-- no translation found for external_sources_settings (8601453744517291632) -->
-    <skip />
+    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"আপনার নিরাপত্তার জন্য আপনার ট্যাবলেট কে এই উৎস থেকে আসা অজানা অ্যাপ ইনস্টল করার অনুমতি দেওয়া হয় না।"</string>
+    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"আপনার নিরাপত্তার জন্য আপনার TV কে এই উৎস থেকে আসা অজানা অ্যাপ ইনস্টল করার অনুমতি দেওয়া হয় না।"</string>
+    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"আপনার নিরাপত্তার জন্য আপনার ফোন কে এই উৎস থেকে আসা অজানা অ্যাপ ইনস্টল করার অনুমতি দেওয়া হয় না।"</string>
+    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"অজানা অ্যাপের দ্বারা আপনার ফোন এবং ব্যক্তিগত ডেটা আক্রান্ত হওয়ার সম্ভাবনা বেশি থাকে। এই অ্যাপটি ইনস্টল করার মাধ্যমে আপনি সম্মত হলেন যে এটি ব্যবহারের ফলে আপনার ফোনের বা ডেটার কোনও ক্ষতি হলে তার জন্য আপনিই দায়ী থাকবেন।"</string>
+    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"অজানা অ্যাপের দ্বারা আপনার ট্যাবলেট এবং ব্যক্তিগত ডেটা আক্রান্ত হওয়ার সম্ভাবনা বেশি থাকে। এই অ্যাপটি ইনস্টল করার মাধ্যমে আপনি সম্মত হলেন যে এটি ব্যবহারের ফলে আপনার ট্যাবলেটের বা ডেটার কোনও ক্ষতি হলে তার জন্য আপনিই দায়ী থাকবেন।"</string>
+    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"অজানা অ্যাপের দ্বারা আপনার টিভি এবং ব্যক্তিগত ডেটা আক্রান্ত হওয়ার সম্ভাবনা বেশি থাকে। এই অ্যাপটি ইনস্টল করার মাধ্যমে আপনি সম্মত হলেন যে এটি ব্যবহারের ফলে আপনার টিভি বা ডেটার কোনও ক্ষতি হলে তার জন্য আপনিই দায়ী থাকবেন।"</string>
+    <string name="anonymous_source_continue" msgid="2094381167954332292">"চালিয়ে যান"</string>
+    <string name="external_sources_settings" msgid="8601453744517291632">"সেটিংস"</string>
+    <string name="wear_app_channel" msgid="6200840123672949356">"ওয়্যার অ্যাপ ইনস্টল/আনইনস্টল করা হচ্ছে"</string>
 </resources>

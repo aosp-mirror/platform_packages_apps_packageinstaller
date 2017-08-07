@@ -24,6 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"បោះ​បង់​"</string>
     <string name="unknown" msgid="4742479012767208045">"មិន​ស្គាល់"</string>
     <string name="installing" msgid="8613631001631998372">"កំពុង​ដំឡើង..."</string>
+    <string name="installing_app" msgid="4097935682329028894">"កំពុង​ដំឡើង <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="install_done" msgid="3682715442154357097">"បាន​ដំឡើង​កម្មវិធី។"</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"តើ​អ្នក​ចង់​ដំឡើង​កម្មវិធី​នេះ? វា​នឹង​មាន​សិទ្ធិ​ចូល៖"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"តើ​អ្នក​ចង់​ដំឡើង​កម្មវិធី​នេះ? វា​មិន​ទាមទារ​សិទ្ធិ​ចូល​ពិសេស​ទេ។"</string>
@@ -42,9 +43,8 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> មិនអាចដំឡើងនៅលើទូរទស្សន៍របស់អ្នកទេ។"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"មិន​អាច​ដំឡើង <xliff:g id="APP_NAME">%1$s</xliff:g> ក្នុង​ទូរស័ព្ទ​របស់​អ្នក។"</string>
     <string name="launch" msgid="4826921505917605463">"បើក"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"អ្នក​គ្រប់គ្រង​របស់​អ្នក​មិន​អនុញ្ញាត​ឲ្យ​ដំឡើង​កម្មវិធី​ដែល​បាន​ទទួល​ពី​ប្រភព​មិន​ស្គាល់។"</string>
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (4270706346616049120) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"អ្នក​គ្រប់គ្រង​របស់​អ្នក​មិន​អនុញ្ញាត​ឲ្យ​ដំឡើង​កម្មវិធី​ដែល​បាន​មក​ពី​ប្រភព​ដែលមិន​ស្គាល់ទេ"</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"កម្មវិធី​ដែល​មិនស្គាល់​មិនអាច​ដំឡើង​ដោយ​អ្នកប្រើប្រាស់​នេះ​បាន​ទេ"</string>
     <string name="ok" msgid="3468756155452870475">"យល់​ព្រម​"</string>
     <string name="settings" msgid="6743583734099755409">"ការ​កំណត់"</string>
     <string name="manage_applications" msgid="4033876279091996596">"គ្រប់គ្រង​កម្មវិធី"</string>
@@ -68,18 +68,20 @@
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"តើ​អ្នក​ចង់​លុប​កម្មវិធី​នេះ​សម្រាប់​អ្នកប្រើ <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
     <string name="uninstall_update_text" msgid="1394549691152728409">"ជំនួសកម្មវិធីនេះដោយកំណែរោងចក្រឬ? ទិន្នន័យទាំងអស់នឹងត្រូវបានលុបចេញ។"</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"ជំនួយកម្មវិធីនេះដោយកំណែរោងចក្រឬ? ទិន្នន័យទាំងអស់នឹងត្រូវបានលុបចេញ។ វាប៉ះពាល់ដល់អ្នកប្រើឧបករណ៍នេះទាំងអស់ ដោយរាប់បញ្ចូលទាំងអ្នកប្រើដែលមានប្រវត្តិរូបការងារផងដែរ។"</string>
+    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"កំពុង​ដំណើរការ​ការលុប"</string>
+    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"មិន​អាច​ធ្វើការលុប​បានទេ"</string>
     <string name="uninstalling" msgid="5556217435895938250">"កំពុង​លុប..."</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"កំពុងលុប <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"បាន​បញ្ចប់​ការ​លុប។"</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"បានលុប <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ។"</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"បានលុប <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"ការ​លុប​បរាជ័យ។"</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"មិនអាចលុប <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> បាន។"</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"មិន​អាច​លុប​ព្រោះ​កញ្ចប់​នេះ​ជា​ឧបករណ៍​សកម្ម។"</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"មិនអាចលុបការដំឡើងទេ ពីព្រោះកញ្ចប់នេះគឺជាកម្មវិធីគ្រប់គ្រងឧបករណ៍សកម្មសម្រាប់អ្នកប្រើ <xliff:g id="USERNAME">%1$s</xliff:g>។"</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"មិនអាច​លុប​កម្មវិធី​អ្នកគ្រប់គ្រង​ឧបករណ៍​ដែល​បាន​ដំណើរការ​បានទេ"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"មិនអាច​លុប​កម្មវិធី​អ្នកគ្រប់គ្រង​ឧបករណ៍​សម្រាប់ <xliff:g id="USERNAME">%1$s</xliff:g> ដែល​បាន​ដំណើរការ​បាន​ទេ"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"កម្មវិធីនេះតម្រូវឲ្យមានសម្រាប់អ្នកប្រើ ឬប្រវត្តិរូបមួយចំនួន និងត្រូវបានលុបសម្រាប់អ្នកប្រើផ្សេងទៀត"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"កម្មវិធីនេះចាំបាច់សម្រាប់ប្រវតិ្តការងាររបស់អ្នក ហើយវាមិនអាចលុបបានទេ។"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"កម្មវិធីនេះត្រូវបានទាមទារដោយអ្នកគ្រប់គ្រងឧបករណ៍របស់អ្នក ហើយមិនអាចលុប​ចេញបាន​ទេ។"</string>
-    <string name="manage_device_administrators" msgid="891392489300312370">"គ្រប់គ្រង​អ្នក​គ្រប់គ្រង​ឧបករណ៍"</string>
+    <string name="manage_device_administrators" msgid="118178632652346535">"គ្រប់គ្រង​កម្មវិធី​អ្នកគ្រប់គ្រង​ឧបករណ៍"</string>
     <string name="manage_users" msgid="3125018886835668847">"គ្រប់គ្រងអ្នកប្រើ"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"មិន​អាច​លុប <xliff:g id="APP_NAME">%1$s</xliff:g> ។"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"មាន​បញ្ហា​ក្នុង​ការ​ញែក​​កញ្ចប់។"</string>
@@ -99,7 +101,7 @@
     <string name="permission_revoked_none" msgid="2059511550181271342">"មិនបានបិទអ្វីទាំងអស់"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"អនុញ្ញាត"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"កម្មវិធី"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"សិទ្ធិ​កម្មវិធី"</string>
+    <string name="app_permissions" msgid="3146758905824597178">"ការអនុញ្ញាតកម្មវិធី"</string>
     <string name="never_ask_again" msgid="1089938738199748687">"កុំសួរទៀត"</string>
     <string name="no_permissions" msgid="3210542466245591574">"គ្មានសិទ្ធិអនុញ្ញាត"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"សិទ្ធិអនុញ្ញាតបន្ថែម"</string>
@@ -136,13 +138,13 @@
     <string name="current_permissions_category" msgid="998210994450606094">"សិទ្ធិអនុញ្ញាតបច្ចុប្បន្ន"</string>
     <string name="message_staging" msgid="6151794817691100003">"កំពុងសាកល្បងកម្មវិធី…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"មិនស្គាល់"</string>
-    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"តើអ្នក​ពិតជា​ចង់​លុប​ទិន្នន័យ​សម្រាប់ <xliff:g id="PACKAGE">%1$s</xliff:g> មែនទេ?"</string>
-    <!-- no translation found for untrusted_external_source_warning (1483151219938173935) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (5373768281884328560) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (2223486836232706553) -->
-    <skip />
-    <!-- no translation found for external_sources_settings (8601453744517291632) -->
-    <skip />
+    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"ដើម្បីការពារសុវតិ្ថភាពរបស់អ្នក ថេប្លេតរបស់អ្នកមិនត្រូវបានអនុញ្ញាតឲ្យដំឡើងកម្មវិធីដែលមិនស្គាល់ពីប្រភពនេះទេ។"</string>
+    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"ដើម្បីការពារសុវតិ្ថភាពរបស់អ្នក ទូរទស្សន៍របស់អ្នកមិនត្រូវបានអនុញ្ញាតឲ្យដំឡើងកម្មវិធីដែលមិនស្គាល់ពីប្រភពនេះទេ។"</string>
+    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"ដើម្បីការពារសុវតិ្ថភាពរបស់អ្នក ទូរសព្ទរបស់អ្នកមិនត្រូវបានអនុញ្ញាតឲ្យដំឡើងកម្មវិធីដែលមិនស្គាល់ពីប្រភពនេះទេ។"</string>
+    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"ទូរសព្ទ និងទិន្នន័យផ្ទាល់ខ្លួនរបស់អ្នកងាយនឹងរងគ្រោះពីការវាយប្រហារពីកម្មវិធីដែលមិនស្គាល់។ ប្រសិនបើដំឡើងកម្មវិធីនេះ មានន័យថាអ្នកទទួលខុសត្រូវលើការខូចខាតណាមួយចំពោះទូរសព្ទ ឬការបាត់បង់ទិន្នន័យរបស់អ្នក ដែលអាចបណ្តាលមកពីការប្រើប្រាស់កម្មវិធីនោះ។"</string>
+    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"ថេប្លេត និងទិន្នន័យផ្ទាល់ខ្លួនរបស់អ្នកងាយនឹងរងគ្រោះពីការវាយប្រហារពីកម្មវិធីដែលមិនស្គាល់។ ប្រសិនបើដំឡើងកម្មវិធីនេះ មានន័យថាអ្នកទទួលខុសត្រូវលើការខូចខាតណាមួយចំពោះថេប្លេត ឬការបាត់បង់ទិន្នន័យរបស់អ្នក ដែលអាចបណ្តាលមកពីការប្រើប្រាស់កម្មវិធីនោះ។"</string>
+    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"ទូរទស្សន៍ និងទិន្នន័យផ្ទាល់ខ្លួនរបស់អ្នកងាយនឹងរងគ្រោះពីការវាយប្រហារពីកម្មវិធីដែលមិនស្គាល់។ ប្រសិនបើដំឡើងកម្មវិធីនេះ មានន័យថាអ្នកទទួលខុសត្រូវលើការខូចខាតណាមួយចំពោះទូរទស្សន៍ ឬការបាត់បង់ទិន្នន័យរបស់អ្នក ដែលអាចបណ្តាលមកពីការប្រើប្រាស់កម្មវិធីនោះ។"</string>
+    <string name="anonymous_source_continue" msgid="2094381167954332292">"បន្ត"</string>
+    <string name="external_sources_settings" msgid="8601453744517291632">"ការ​កំណត់"</string>
+    <string name="wear_app_channel" msgid="6200840123672949356">"ការដំឡើង/ការលុបកម្មវិធីឧបករណ៍​ពាក់​"</string>
 </resources>

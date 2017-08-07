@@ -24,6 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"रद्द गर्नुहोस्"</string>
     <string name="unknown" msgid="4742479012767208045">"अज्ञात"</string>
     <string name="installing" msgid="8613631001631998372">"स्थापित हुँदै…"</string>
+    <string name="installing_app" msgid="4097935682329028894">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> स्थापना गर्दै…"</string>
     <string name="install_done" msgid="3682715442154357097">"अनुप्रयोग स्थापना भयो।"</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"के तपाईं यो अनुप्रयोग स्थापन गर्न चाहनु हुन्छ? यसले पहुँच प्राप्त गर्ने छ:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"के तपाईं यस अनुप्रयोगलाई जडान गर्न चाहनु हुन्छ? यसको लागि कुनै विशेष पहुँचको आवश्यकता पर्दैन।"</string>
@@ -42,9 +43,8 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"तपाईँको TVमा<xliff:g id="APP_NAME">%1$s</xliff:g>स्थापना गर्न सकिएन।"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"तपाईँको फोनमा <xliff:g id="APP_NAME">%1$s</xliff:g> जडान हुन सकेन।"</string>
     <string name="launch" msgid="4826921505917605463">"खोल्नुहोस्"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"तपाईँको व्यवस्थापकले अज्ञात स्रोतबाट प्राप्त भएका अनुप्रयोगहरू स्थापना गर्न अनुमति दिनुहुन्न।"</string>
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (4270706346616049120) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"तपाईंका प्रशासकले अज्ञात स्रोतहरूबाट प्राप्त अनुप्रयोगहरूलाई स्थापना गर्ने अनुमति दिनुहुन्न"</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"यस प्रयोगकर्ताले अज्ञात अनुप्रयोगहरू स्थापना गर्न सक्नुहुन्न"</string>
     <string name="ok" msgid="3468756155452870475">"ठीक छ"</string>
     <string name="settings" msgid="6743583734099755409">"सेटिङहरू"</string>
     <string name="manage_applications" msgid="4033876279091996596">"अनुप्रयोगहरूको व्यवस्थापन गर्नुहोस्"</string>
@@ -68,18 +68,20 @@
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"के तपाईं प्रयोगकर्ता <xliff:g id="USERNAME">%1$s</xliff:g> को लागि यो अनुप्रयोग स्थापना रद्द गर्न चाहनुहुन्छ?"</string>
     <string name="uninstall_update_text" msgid="1394549691152728409">"यस अनुप्रयोगलाई फ्याक्ट्रीको संस्करणले बदल्ने हो? सबै डेटा हटाइनेछ।"</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"यस अनुप्रयोगलाई फ्याक्ट्रीको संस्करणले बदल्ने हो? सबै डेटा हटाइनेछ। यसले यस यन्त्रका कार्य प्रोफाइल भएका लगायत सबै प्रयोगकर्ताहरूमा असर पार्छ।"</string>
+    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"चलिरहेका स्थापना रद्द गर्ने कार्यहरू"</string>
+    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"असफल भएका स्थापना रद्द गर्ने कार्यहरू"</string>
     <string name="uninstalling" msgid="5556217435895938250">"अस्थापना गर्दै..."</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> को स्थापना रद्द गर्दै…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"स्थापना रद्द गर्न सकियो।"</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> को स्थापना रद्द गरियो।"</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> को स्थापना रद्द गरियो"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"अस्थापना गर्न असफल"</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> को स्थापना रद्द गर्ने कार्य असफल भयो।"</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"अस्थापना गर्न सकिँदैन किनभने यो प्याकेज एउटा सक्रिय उपकरण प्रशासक हो।"</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"रद्द गर्न सकिदैन किनभने प्रयोगकर्ता <xliff:g id="USERNAME">%1$s</xliff:g> को लागि यो प्याकेज सक्रिय यन्त्र प्रशासक हो।"</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"यन्त्रको सक्रिय प्रशासकीय अनुप्रयोगको स्थापना रद्द गर्न मिल्दैन"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"<xliff:g id="USERNAME">%1$s</xliff:g> को यन्त्रको सक्रिय प्रशासकीय अनुप्रयोगको स्थापना रद्द गर्न मिल्दैन"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"अन्य प्रयोगकर्ताहरूका लागि यस अनु्प्रयोगको स्थापना रद्द गरे पनि केही प्रयोगकर्ता वा प्रोफाइलहरूलाई यसको आवश्यकता पर्दछ"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"यो अनुप्रयोग तपाईँको प्रोफाइलका लागि आवश्यक छ र यसको स्थापनालाई रद्द गर्न सकिँदैन।"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"यो अनुप्रयोग तपाईँको उपकरण प्रशासकलाई आवश्यक छ र स्थापना रद्द गर्न सकिँदैन।"</string>
-    <string name="manage_device_administrators" msgid="891392489300312370">"उपकरण प्रशासकहरूको प्रबन्ध गर्नुहोस्"</string>
+    <string name="manage_device_administrators" msgid="118178632652346535">"यन्त्रका प्रशासकीय अनुप्रयोगहरूको व्यवस्थापन गर्नुहोस्"</string>
     <string name="manage_users" msgid="3125018886835668847">"प्रयोगकर्ताहरूलाई व्यवस्थापन गर्नुहोस्"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> स्थापना रद्द गर्न सकिँदैन।"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"प्याकेजलाई पार्सिङ गर्दा एउटा समस्या आयो।"</string>
@@ -136,13 +138,13 @@
     <string name="current_permissions_category" msgid="998210994450606094">"वर्तमान अनुमतिहरू"</string>
     <string name="message_staging" msgid="6151794817691100003">"अनुप्रयोगलाई तयार पार्दै…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"अज्ञात"</string>
-    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"तपाईं साँच्चिकै <xliff:g id="PACKAGE">%1$s</xliff:g> को डेटा मेटाउन चाहनुहुन्छ?"</string>
-    <!-- no translation found for untrusted_external_source_warning (1483151219938173935) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (5373768281884328560) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (2223486836232706553) -->
-    <skip />
-    <!-- no translation found for external_sources_settings (8601453744517291632) -->
-    <skip />
+    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"तपाईंको सुरक्षाको लागि, तपाईंको ट्याब्लेटलाई यो स्रोतबाट प्राप्त हुने अज्ञात अनुप्रयोगहरू स्थापना गर्ने अनुमति छैन।"</string>
+    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"तपाईंको सुरक्षाको लागि, तपाईंको TV लाई यो स्रोतबाट प्राप्त हुने अज्ञात अनुप्रयोगहरू स्थापना गर्ने अनुमति छैन।"</string>
+    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"तपाईंको सुरक्षाको लागि, तपाईंको फोनलाई यो स्रोतबाट प्राप्त हुने अज्ञात अनुप्रयोगहरू स्थापना गर्ने अनुमति छैन।"</string>
+    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"तपाईंको फोन र व्यक्तिगत डेटा अज्ञात अनुप्रयोगहरूबाट हुने आक्रमणको चपेटामा पर्ने बढी जोखिममा हुन्छन्। यो अनुप्रयोग स्थापना गरेर तपाईं यसको प्रयोगबाट तपाईंको फोनलाई हुनसक्ने क्षति वा डेटाको नोक्सानीका लागि स्वयं जिम्मेवार हुनुहुन्छ भन्ने कुरामा सहमत हुनुहुन्छ।"</string>
+    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"तपाईंको ट्याब्लेट र व्यक्तिगत डेटा अज्ञात अनुप्रयोगहरूबाट हुने आक्रमणको चपेटामा पर्ने बढी जोखिममा हुन्छन्। यो अनुप्रयोग स्थापना गरेर तपाईं यसको प्रयोगबाट तपाईंको ट्याब्लेटलाई हुनसक्ने क्षति वा डेटाको नोक्सानीका लागि स्वयं जिम्मेवार हुनुहुन्छ भन्ने कुरामा सहमत हुनुहुन्छ।"</string>
+    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"तपाईंको TV र व्यक्तिगत डेटा अज्ञात अनुप्रयोगहरूबाट हुने आक्रमणको चपेटामा पर्ने बढी जोखिममा हुन्छन्। यो अनुप्रयोग स्थापना गरेर तपाईं यसको प्रयोगबाट तपाईंको TV लाई हुनसक्ने क्षति वा डेटाको नोक्सानीका लागि स्वयं जिम्मेवार हुनुहुन्छ भन्ने कुरामा सहमत हुनुहुन्छ।"</string>
+    <string name="anonymous_source_continue" msgid="2094381167954332292">"जारी राख्नुहोस्"</string>
+    <string name="external_sources_settings" msgid="8601453744517291632">"सेटिङहरू"</string>
+    <string name="wear_app_channel" msgid="6200840123672949356">"वेयर एपहरूको स्थापना/स्थापना रद्द गर्दै"</string>
 </resources>

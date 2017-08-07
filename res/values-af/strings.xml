@@ -24,6 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"Kanselleer"</string>
     <string name="unknown" msgid="4742479012767208045">"Onbekend"</string>
     <string name="installing" msgid="8613631001631998372">"Installeer tans…"</string>
+    <string name="installing_app" msgid="4097935682329028894">"Installeer tans <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> …"</string>
     <string name="install_done" msgid="3682715442154357097">"Program geïnstalleer."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Wil jy hierdie program installeer? Dit sal kan ingaan by:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Wil jy hierdie program installeer? Dit vereis nie enige spesiale toegang nie."</string>
@@ -42,9 +43,8 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> kon nie op jou TV geïnstalleer word nie."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> kon nie op jou foon geïnstalleer word nie."</string>
     <string name="launch" msgid="4826921505917605463">"Open"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Jou administrateur laat nie toe dat programme van onbekende bronne af geïnstalleer word nie."</string>
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (4270706346616049120) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"Jou administrateur laat nie toe dat programme wat by onbekende bronne verkry is, geïnstalleer word nie"</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Hierdie gebruiker kan nie onbekende programme installeer nie"</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Instellings"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Bestuur programme"</string>
@@ -68,18 +68,20 @@
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"Wil jy hierdie program vir die gebruiker <xliff:g id="USERNAME">%1$s</xliff:g> deïnstalleer?"</string>
     <string name="uninstall_update_text" msgid="1394549691152728409">"Vervang hierdie program met die fabriekweergawe? Alle data sal verwyder word."</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Vervang hierdie program met die fabriekweergawe? Alle data sal verwyder word. Dit beïnvloed alle gebruikers van hierdie toestel, insluitend dié met werkprofiele."</string>
+    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"Voer tans deïnstallerings uit"</string>
+    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"Mislukte installerings"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Deïnstalleer tans…"</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"Deïnstalleer tans <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> …"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Deïnstallering klaar."</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"Het <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> gedeïnstalleer."</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"Het <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> gedeïnstalleer"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Deïnstallasie onsuksesvol."</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"Kon nie <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> deïnstalleer nie."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Kan nie deïnstalleer nie omdat hierdie pakket \'n aktiewe toesteladministrateur is."</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Kan nie deïnstalleer nie, omdat hierdie pakket \'n aktiewe toesteladministrateur vir die gebruiker <xliff:g id="USERNAME">%1$s</xliff:g> is."</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"Kan nie aktiewe toesteladministrasieprogram deïnstalleer nie"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"Kan nie aktiewe toesteladministrasieprogram vir <xliff:g id="USERNAME">%1$s</xliff:g> deïnstalleer nie"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Dié program word vereis vir sommige gebruikers of profiele en is vir ander gedeïnstalleer"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"Hierdie program is nodig vir jou profiel en kan nie gedeïnstalleer word nie."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Jou toesteladministrateur vereis die program; dit kan nie deïnstalleer word nie."</string>
-    <string name="manage_device_administrators" msgid="891392489300312370">"Bestuur toesteladministrateurs"</string>
+    <string name="manage_device_administrators" msgid="118178632652346535">"Bestuur toesteladministrasieprogramme"</string>
     <string name="manage_users" msgid="3125018886835668847">"Bestuur gebruikers"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> kon nie deïnstalleer word nie."</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Kon nie die pakket ontleed nie."</string>
@@ -136,13 +138,13 @@
     <string name="current_permissions_category" msgid="998210994450606094">"Huidige toestemmings"</string>
     <string name="message_staging" msgid="6151794817691100003">"Voer tans program uit …"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"Onbekend"</string>
-    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"Wil jy regtig die data vir <xliff:g id="PACKAGE">%1$s</xliff:g> uitvee?"</string>
-    <!-- no translation found for untrusted_external_source_warning (1483151219938173935) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (5373768281884328560) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (2223486836232706553) -->
-    <skip />
-    <!-- no translation found for external_sources_settings (8601453744517291632) -->
-    <skip />
+    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Jou tablet word vir jou veiligheid nie toegelaat om onbekende programme van hierdie bron af te installeer nie."</string>
+    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Jou TV word vir jou veiligheid nie toegelaat om onbekende programme van hierdie bron af te installeer nie."</string>
+    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Jou foon word vir jou veiligheid nie toegelaat om onbekende programme van hierdie bron af te installeer nie."</string>
+    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"Jou foon en persoonlike data is meer kwesbaar vir aanvalle deur onbekende programme. Deur hierdie program te installeer, stem jy in dat jy verantwoordelik is vir enige skade aan jou foon of verlies van data wat uit sy gebruik kan spruit."</string>
+    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"Jou tablet en persoonlike data is meer kwesbaar vir aanvalle deur onbekende programme. Deur hierdie program te installeer, stem jy in dat jy verantwoordelik is vir enige skade aan jou tablet of verlies van data wat uit sy gebruik kan spruit."</string>
+    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Jou TV en persoonlike data is meer kwesbaar vir aanvalle deur onbekende programme. Deur hierdie program te installeer, stem jy in dat jy verantwoordelik is vir enige skade aan jou TV of verlies van data wat uit sy gebruik kan spruit."</string>
+    <string name="anonymous_source_continue" msgid="2094381167954332292">"Gaan voort"</string>
+    <string name="external_sources_settings" msgid="8601453744517291632">"Instellings"</string>
+    <string name="wear_app_channel" msgid="6200840123672949356">"Installeer/deïnstalleer Wear-programme"</string>
 </resources>

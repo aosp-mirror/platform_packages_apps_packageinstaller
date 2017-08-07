@@ -24,6 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"ביטול"</string>
     <string name="unknown" msgid="4742479012767208045">"לא ידוע"</string>
     <string name="installing" msgid="8613631001631998372">"מתקין..."</string>
+    <string name="installing_app" msgid="4097935682329028894">"מתקין את <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="install_done" msgid="3682715442154357097">"האפליקציה הותקנה."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"האם ברצונך להתקין את האפליקציה? היא תקבל גישה אל:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"האם ברצונך להתקין את האפליקציה? היא אינה דורשת גישה מיוחדת."</string>
@@ -42,9 +43,8 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"לא ניתן להתקין את <xliff:g id="APP_NAME">%1$s</xliff:g> בטלוויזיה שלך."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"לא ניתן להתקין את <xliff:g id="APP_NAME">%1$s</xliff:g> בטלפון שלך."</string>
     <string name="launch" msgid="4826921505917605463">"פתח"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"מנהל המערכת שלך לא מתיר התקנה של אפליקציות ממקורות לא ידועים."</string>
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (4270706346616049120) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"מנהל המערכת שלך לא מתיר התקנה של אפליקציות ממקורות לא ידועים"</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"למשתמש זה אין הרשאה להתקין אפליקציות שאינן מוכרות"</string>
     <string name="ok" msgid="3468756155452870475">"אישור"</string>
     <string name="settings" msgid="6743583734099755409">"הגדרות"</string>
     <string name="manage_applications" msgid="4033876279091996596">"נהל אפליקציות"</string>
@@ -68,18 +68,20 @@
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"האם ברצונך להסיר את התקנתה של אפליקציה זו עבור המשתמש <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
     <string name="uninstall_update_text" msgid="1394549691152728409">"האם להחליף את האפליקציה הזאת בגירסת היצרן? כל הנתונים יוסרו."</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"האם להחליף את האפליקציה הזאת בגירסת היצרן? כל הנתונים יוסרו. הפעולה תשפיע על כל משתמשי המכשיר, כולל משתמשים בעלי פרופיל עבודה."</string>
+    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"התקנות בתהליכי הסרה"</string>
+    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"הסרות התקנה שנכשלו"</string>
     <string name="uninstalling" msgid="5556217435895938250">"מסיר התקנה..."</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"מסיר את ההתקנה של <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"הסרת ההתקנה הסתיימה."</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"הוסרה ההתקנה של <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>."</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"ההתקנה של <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> הוסרה"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"הסרת התקנה נכשלה."</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"נכשלה הסרת ההתקנה של <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"לא ניתן להסיר את ההתקנה מפני שחבילה זו היא מנהל מכשיר פעיל."</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"לא ניתן להסיר את ההתקנה מפני שהחבילה הזו מוגדרת כעת לניהול המכשיר עבור המשתמש <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"לא ניתן להסיר את ההתקנה של אפליקציה פעילה של מנהל המכשיר"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"לא ניתן להסיר את ההתקנה של אפליקציה פעילה של מנהל המכשיר של <xliff:g id="USERNAME">%1$s</xliff:g>"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"אפליקציה זו נדרשת לחלק מהמשתמשים או מהפרופילים והתקנתה הוסרה למשתמשים אחרים"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"האפליקציה הזו נחוצה לפרופיל שלך ולא ניתן להסיר את ההתקנה שלה."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"מנהל המכשיר שלך מחייב את קיומה של אפליקציה זו, ולא ניתן להסירה."</string>
-    <string name="manage_device_administrators" msgid="891392489300312370">"נהל מנהלי מכשירים"</string>
+    <string name="manage_device_administrators" msgid="118178632652346535">"אפליקציות למנהל המערכת של מכשיר מנוהל"</string>
     <string name="manage_users" msgid="3125018886835668847">"ניהול משתמשים"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"לא ניתן להסיר את ההתקנה של <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"אירעה בעיה בניתוח החבילה."</string>
@@ -89,18 +91,18 @@
     <string name="devicePerms" msgid="6733560207731294504">"גישה למכשיר"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"עדכון זה לא דורש הרשאות חדשות."</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"האם ברצונך להעניק את ההרשאות הבאות? תוענק גישה אל:"</string>
-    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"דחה"</string>
+    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"לא, אין מצב"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"למידע נוסף"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"לדחות בכל מקרה"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> מתוך <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="7332275268559121742">"‏האם לאשר לאפליקציה &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; לבצע <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_warning_template" msgid="7332275268559121742">"‏האם לאשר ל&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; לבצע <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="permission_revoked_count" msgid="7386129423432613024">"<xliff:g id="COUNT">%1$d</xliff:g> הרשאות מושבתות"</string>
     <string name="permission_revoked_all" msgid="8595742638132863678">"כל ההרשאות מושבתות"</string>
     <string name="permission_revoked_none" msgid="2059511550181271342">"אין הרשאות מושבתות"</string>
-    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"התר"</string>
+    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"כן, זה בסדר"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"אפליקציות"</string>
     <string name="app_permissions" msgid="3146758905824597178">"הרשאות לאפליקציות"</string>
-    <string name="never_ask_again" msgid="1089938738199748687">"אל תשאל שוב"</string>
+    <string name="never_ask_again" msgid="1089938738199748687">"ראיתי פעם אחת, זה מספיק"</string>
     <string name="no_permissions" msgid="3210542466245591574">"אין הרשאות"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"הרשאות נוספות"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
@@ -112,7 +114,7 @@
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"‏האפליקציה הזו עוצבה בשביל גרסה ישנה יותר של Android. דחיית ההרשאה עשויה לגרום לה לתפקד בצורה לקויה."</string>
     <string name="default_permission_description" msgid="4992892207044156668">"ביצוע פעולה לא ידועה"</string>
     <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> מתוך <xliff:g id="COUNT_1">%2$d</xliff:g> אפליקציות קיבלו הרשאה"</string>
-    <string name="menu_show_system" msgid="6773743421743728921">"הצג מערכת"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"הרשאות המערכת"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"הסתר מערכת"</string>
     <string name="permission_title" msgid="6495415273398916381">"הרשאות <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
     <string name="no_apps" msgid="1965493419005012569">"אין אפליקציות"</string>
@@ -138,13 +140,13 @@
     <string name="current_permissions_category" msgid="998210994450606094">"הרשאות קיימות"</string>
     <string name="message_staging" msgid="6151794817691100003">"מכין אפליקציה להתקנה…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"לא ידוע"</string>
-    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"האם אתה בטוח שברצונך למחוק את הנתונים של <xliff:g id="PACKAGE">%1$s</xliff:g>?"</string>
-    <!-- no translation found for untrusted_external_source_warning (1483151219938173935) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (5373768281884328560) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (2223486836232706553) -->
-    <skip />
-    <!-- no translation found for external_sources_settings (8601453744517291632) -->
-    <skip />
+    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"לצורכי אבטחה, הטאבלט שלך חסום להתקנת אפליקציות בלתי מוכרות המגיעות ממקור זה."</string>
+    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"לצורכי אבטחה, מכשיר הטלוויזיה שלך חסום להתקנת אפליקציות בלתי מוכרות המגיעות ממקור זה."</string>
+    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"לצורכי אבטחה, הטלפון שלך חסום להתקנת אפליקציות בלתי מוכרות המגיעות ממקור זה."</string>
+    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"נתוני הטלפון והנתונים האישיים שלך חשופים יותר בפני התקפות על ידי אפליקציות ממקורות לא ידועים. אם תתקין אפליקציה זו, אתה מסכים לכך שאתה האחראי הבלעדי במקרה של אובדן נתונים או אם ייגרם נזק לטלפון שלך בעקבות השימוש באפליקציה."</string>
+    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"נתוני הטאבלט והנתונים האישיים שלך חשופים יותר בפני התקפות על ידי אפליקציות ממקורות לא ידועים. אם תתקין אפליקציה זו, אתה מסכים לכך שאתה האחראי הבלעדי במקרה של אובדן נתונים או אם ייגרם נזק לטאבלט שלך בעקבות השימוש באפליקציה."</string>
+    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"נתוני הטלוויזיה והנתונים האישיים שלך חשופים יותר בפני התקפות על ידי אפליקציות ממקורות לא ידועים. אם תתקין אפליקציה זו, אתה מסכים לכך שאתה האחראי הבלעדי במקרה של אובדן נתונים או אם ייגרם נזק לטלוויזיה שלך בעקבות השימוש באפליקציה."</string>
+    <string name="anonymous_source_continue" msgid="2094381167954332292">"המשך"</string>
+    <string name="external_sources_settings" msgid="8601453744517291632">"הגדרות"</string>
+    <string name="wear_app_channel" msgid="6200840123672949356">"‏מתקין/מסיר התקנה של אפליקציות Wear"</string>
 </resources>

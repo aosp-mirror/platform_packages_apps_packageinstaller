@@ -18,12 +18,13 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="2738748390251381682">"Pemasang paket"</string>
     <string name="next" msgid="3057143178373252333">"Berikutnya"</string>
-    <string name="install" msgid="5896438203900042068">"Pasang"</string>
+    <string name="install" msgid="5896438203900042068">"Instal"</string>
     <string name="done" msgid="3889387558374211719">"Selesai"</string>
     <string name="security_settings_desc" msgid="2706691034244052604">"Izinkan apl ini untuk:"</string>
     <string name="cancel" msgid="8360346460165114585">"Batal"</string>
     <string name="unknown" msgid="4742479012767208045">"Tidak diketahui"</string>
     <string name="installing" msgid="8613631001631998372">"Memasang..."</string>
+    <string name="installing_app" msgid="4097935682329028894">"Menginstal <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="install_done" msgid="3682715442154357097">"Apl terpasang."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Apakah Anda ingin memasang aplikasi ini? Aplikasi akan memiliki akses ke:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Apakah Anda ingin memasang aplikasi ini? Aplikasi tidak memerlukan akses khusus apa pun."</string>
@@ -42,14 +43,13 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> tidak dapat dipasang di TV."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> tidak dapat dipasang pada ponsel Anda."</string>
     <string name="launch" msgid="4826921505917605463">"Buka"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Administrator tidak mengizinkan pemasangan aplikasi yang didapatkan dari sumber tak dikenal."</string>
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (4270706346616049120) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"Admin tidak mengizinkan penginstalan aplikasi yang didapatkan dari sumber tidak dikenal"</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Aplikasi yang tidak dikenal tidak dapat diinstal oleh pengguna ini"</string>
     <string name="ok" msgid="3468756155452870475">"Oke"</string>
     <string name="settings" msgid="6743583734099755409">"Setelan"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Kelola apl"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Ganti apl?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Apl yang Anda pasang akan menggantikan apl lain.\n\nSemua data pengguna Anda sebelumnya akan disimpan."</string>
+    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Apl yang Anda instal akan menggantikan apl lain.\n\nSemua data pengguna Anda sebelumnya akan disimpan."</string>
     <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Ini adalah apl sistem.\n\nSemua data pengguna Anda sebelumnya akan disimpan."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Kehabisan ruang penyimpanan"</string>
     <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> tidak dapat dipasang. Kosongkan sebagian ruang dan coba lagi."</string>
@@ -60,26 +60,28 @@
     <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"Pengguna saat ini tidak diizinkan mencopot pemasangan."</string>
     <string name="generic_error_dlg_title" msgid="2684806600635296961">"Kesalahan"</string>
     <string name="generic_error_dlg_text" msgid="4288738047825333954">"Aplikasi tidak dapat dipasang."</string>
-    <string name="uninstall_application_title" msgid="1860074100811653963">"Copot pemasangan apl"</string>
-    <string name="uninstall_update_title" msgid="4146940097553335390">"Copot pemasangan pembaruan"</string>
+    <string name="uninstall_application_title" msgid="1860074100811653963">"Uninstal apl"</string>
+    <string name="uninstall_update_title" msgid="4146940097553335390">"Uninstal pembaruan"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> adalah bagian dari apl berikut:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"Apakah Anda ingin mencopot pemasangan apl ini?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Anda ingin mencopot aplikasi ini untuk "<b>"semua"</b>" pengguna? Aplikasi dan datanya akan dihapus dari "<b>"semua"</b>" pengguna pada perangkat."</string>
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"Ingin mencopot pemasangan aplikasi ini untuk pengguna <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
     <string name="uninstall_update_text" msgid="1394549691152728409">"Gantikan aplikasi ini dengan versi pabrik? Semua data akan dihapus."</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Gantikan aplikasi ini dengan versi pabrik? Semua data akan dihapus. Tindakan ini memengaruhi semua pengguna perangkat ini, termasuk yang memiliki profil kerja."</string>
+    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"Menjalankan uninstal"</string>
+    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"Uninstal yang gagal"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Mencopot pemasangan..."</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"Mencopot pemasangan <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Pencopotan pemasangan selesai."</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> dicopot pemasangannya."</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> di-uninstal"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Pencopotan pemasangan tidak berhasil."</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"Gagal mencopot pemasangan <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Tdk dpt mencopot pemasangan krn paket ini adlh administrator perangkat yg aktif."</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Tidak dapat mencopot pemasangan karena paket ini adalah administrator perangkat aktif untuk pengguna <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"Tidak dapat meng-uninstal aplikasi admin perangkat yang aktif"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"Tidak dapat meng-uninstal aplikasi admin perangkat yang aktif untuk <xliff:g id="USERNAME">%1$s</xliff:g>"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Aplikasi ini diperlukan untuk beberapa pengguna atau profil, dan telah dicopot pemasangannya untuk yang lainnya"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"Aplikasi ini diperlukan untuk profil Anda dan tidak dapat dicopot pemasangannya."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Aplikasi diwajibkan administrator perangkat &amp; pemasangannya tidak bisa dicopot."</string>
-    <string name="manage_device_administrators" msgid="891392489300312370">"Kelola administrator perangkat"</string>
+    <string name="manage_device_administrators" msgid="118178632652346535">"Kelola aplikasi admin perangkat"</string>
     <string name="manage_users" msgid="3125018886835668847">"Kelola pengguna"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> tidak dapat dicopot pemasangannya."</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Terjadi masalah saat mengurai paket."</string>
@@ -126,7 +128,7 @@
     <string name="screen_overlay_message" msgid="2141944461571677331">"Untuk mengubah setelan izin ini, terlebih dahulu Anda harus menonaktifkan hamparan layar dari Setelan &gt; Aplikasi"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"Buka setelan"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Tindakan Pasang/Copot Pemasangan tidak didukung di Wear."</string>
+    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Instal/Uninstal tidak didukung di Wear."</string>
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> telah diperbarui. Izinkan <xliff:g id="APP_NAME_1">%1$s</xliff:g> untuk mengakses berikut ini?"</string>
     <string name="permission_review_title_template_install" msgid="6819338441305295479">"Pilih item yang boleh diakses oleh &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;"</string>
     <string name="permission_review_title_template_update" msgid="8632233603161669426">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; telah diperbarui. Pilih item yang boleh diakses oleh aplikasi ini."</string>
@@ -136,13 +138,13 @@
     <string name="current_permissions_category" msgid="998210994450606094">"Izin saat ini"</string>
     <string name="message_staging" msgid="6151794817691100003">"Menyiapkan aplikasi..."</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"Tidak dikenal"</string>
-    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"Ingin menghapus data untuk <xliff:g id="PACKAGE">%1$s</xliff:g>?"</string>
-    <!-- no translation found for untrusted_external_source_warning (1483151219938173935) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (5373768281884328560) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (2223486836232706553) -->
-    <skip />
-    <!-- no translation found for external_sources_settings (8601453744517291632) -->
-    <skip />
+    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Demi keamanan, TV tidak diizinkan menginstal aplikasi yang tidak dikenal dari sumber ini."</string>
+    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Demi keamanan, TV tidak diizinkan menginstal aplikasi yang tidak dikenal dari sumber ini."</string>
+    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Demi keamanan, ponsel tidak diizinkan menginstal aplikasi yang tidak dikenal dari sumber ini."</string>
+    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"Data pribadi dan ponsel lebih rentan terhadap serangan oleh aplikasi yang tidak dikenal. Dengan menginstal aplikasi ini, Anda setuju bahwa Anda bertanggung jawab atas kerusakan ponsel atau kehilangan data yang mungkin diakibatkan oleh penggunaannya."</string>
+    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"Data pribadi dan tablet lebih rentan terhadap serangan oleh aplikasi yang tidak dikenal. Dengan menginstal aplikasi ini, Anda setuju bahwa Anda bertanggung jawab atas kerusakan tablet atau kehilangan data yang mungkin diakibatkan oleh penggunaannya."</string>
+    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Data pribadi dan TV lebih rentan terhadap serangan oleh aplikasi yang tidak dikenal. Dengan menginstal aplikasi ini, Anda setuju bahwa Anda bertanggung jawab atas kerusakan TV atau kehilangan data yang mungkin diakibatkan oleh penggunaannya."</string>
+    <string name="anonymous_source_continue" msgid="2094381167954332292">"Lanjutkan"</string>
+    <string name="external_sources_settings" msgid="8601453744517291632">"Setelan"</string>
+    <string name="wear_app_channel" msgid="6200840123672949356">"Melakukan instal/uninstal aplikasi Wear"</string>
 </resources>

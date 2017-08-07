@@ -24,6 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"Cancelar"</string>
     <string name="unknown" msgid="4742479012767208045">"Descoñecido"</string>
     <string name="installing" msgid="8613631001631998372">"Instalando…"</string>
+    <string name="installing_app" msgid="4097935682329028894">"Instalando <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="install_done" msgid="3682715442154357097">"Aplicación instalada"</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Queres instalar esta aplicación? Poderá acceder a:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Queres instalar esta aplicación? Non require ningún acceso especial."</string>
@@ -42,9 +43,8 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> non se puido instalar na túa televisión."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Non se puido instalar <xliff:g id="APP_NAME">%1$s</xliff:g> no teu teléfono."</string>
     <string name="launch" msgid="4826921505917605463">"Abrir"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"O teu administrador non permite a instalación de aplicacións obtidas a partir de fontes descoñecidas."</string>
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (4270706346616049120) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"O teu administrador non permite a instalación de aplicacións obtidas a partir de fontes descoñecidas"</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Este usuario non pode instalar aplicacións descoñecidas"</string>
     <string name="ok" msgid="3468756155452870475">"Aceptar"</string>
     <string name="settings" msgid="6743583734099755409">"Configuración"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Xestionar aplicacións"</string>
@@ -68,18 +68,20 @@
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"Queres desinstalar esta aplicación para o usuario <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
     <string name="uninstall_update_text" msgid="1394549691152728409">"Queres substituír esta aplicación pola versión que viña de fábrica? Eliminaranse todos os datos."</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Queres substituír esta aplicación pola versión que viña de fábrica? Eliminaranse todos os datos. Isto afectará a todos os usuarios do dispositivo, incluídos os que teñan perfís de traballo."</string>
+    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"Desintalacións en curso"</string>
+    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"Erros nas desinstalacións"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Desinstalando…"</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"Desinstalando <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Desinstalación finalizada"</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"Desinstalouse <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>."</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"Desinstalouse <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Desinstalación incorrecta"</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"A desinstalación de <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> non se realizou correctamente."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Non se pode desinstalar porque o paquete é administrador de dispositivo activo."</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Non se pode desinstalar porque este paquete actúa como un administrador de dispositivo activo para o usuario <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"Non se puido desinstalar a aplicación de administración de dispositivos activa"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"Non se puido desinstalar a aplicación de administración de dispositivos activa para <xliff:g id="USERNAME">%1$s</xliff:g>"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"A aplicación é necesaria para algúns usuarios ou perfís e estaba desinstalada para outros"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"O teu perfil necesita esta aplicación e non se pode desinstalar."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"O administrador do teu dispositivo necesita esta aplicación e non se pode desinstalar."</string>
-    <string name="manage_device_administrators" msgid="891392489300312370">"Xestionar administradores do dispositivo"</string>
+    <string name="manage_device_administrators" msgid="118178632652346535">"Xestionar apps de administración de dispositivos"</string>
     <string name="manage_users" msgid="3125018886835668847">"Administrar usuarios"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Non se puido desinstalar <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Produciuse un problema ao analizar o paquete."</string>
@@ -136,13 +138,13 @@
     <string name="current_permissions_category" msgid="998210994450606094">"Permisos actuais"</string>
     <string name="message_staging" msgid="6151794817691100003">"Probando aplicación…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"Descoñecida"</string>
-    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"Realmente queres eliminar os datos de <xliff:g id="PACKAGE">%1$s</xliff:g>?"</string>
-    <!-- no translation found for untrusted_external_source_warning (1483151219938173935) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (5373768281884328560) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (2223486836232706553) -->
-    <skip />
-    <!-- no translation found for external_sources_settings (8601453744517291632) -->
-    <skip />
+    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Por cuestións de seguranza, na tableta non se poden instalar aplicacións descoñecidas procedentes desta fonte."</string>
+    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Por cuestións de seguranza, na televisión non se poden instalar aplicacións descoñecidas procedentes desta fonte."</string>
+    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Por cuestións de seguranza, no teléfono non se poden instalar aplicacións descoñecidas procedentes desta fonte."</string>
+    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"O teléfono e os datos persoais son máis vulnerables aos ataques de aplicacións descoñecidas. Ao instalar esta aplicación, aceptas que es responsable dos danos ocasionados no teléfono ou da perda dos datos que se poden derivar do seu uso."</string>
+    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"A tableta e os datos persoais son máis vulnerables aos ataques de aplicacións descoñecidas. Ao instalar esta aplicación, aceptas que es responsable dos danos ocasionados na tableta ou da perda dos datos que se poden derivar do seu uso."</string>
+    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"A televisión e os datos persoais son máis vulnerables aos ataques de aplicacións descoñecidas. Ao instalar esta aplicación, aceptas que es responsable dos danos ocasionados na televisión ou da perda dos datos que se poden derivar do seu uso."</string>
+    <string name="anonymous_source_continue" msgid="2094381167954332292">"Continuar"</string>
+    <string name="external_sources_settings" msgid="8601453744517291632">"Configuración"</string>
+    <string name="wear_app_channel" msgid="6200840123672949356">"Instalando/desinstalando apps Wear"</string>
 </resources>

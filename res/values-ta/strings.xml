@@ -24,6 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"ரத்துசெய்"</string>
     <string name="unknown" msgid="4742479012767208045">"அறியப்படாத"</string>
     <string name="installing" msgid="8613631001631998372">"நிறுவுகிறது…"</string>
+    <string name="installing_app" msgid="4097935682329028894">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>ஐ நிறுவுகிறது…"</string>
     <string name="install_done" msgid="3682715442154357097">"பயன்பாடு நிறுவப்பட்டது."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"இந்தப் பயன்பாட்டை நிறுவ விரும்புகிறீர்களா? அது இதற்கான அணுகலைப் பெறும்:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"இந்தப் பயன்பாட்டை நிறுவ விரும்புகிறீர்களா? இதற்கு எந்தத் தனிப்பட்ட அணுகலும் தேவையில்லை."</string>
@@ -42,9 +43,8 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"உங்கள் டிவியில் <xliff:g id="APP_NAME">%1$s</xliff:g>ஐ நிறுவ முடியவில்லை."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> பயன்பாட்டை உங்கள் மொபைலில் நிறுவ முடியாது."</string>
     <string name="launch" msgid="4826921505917605463">"திற"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"உங்கள் நிர்வாகி அறியப்படாத மூலங்களிலிருந்து பெற்ற பயன்பாடுகளை நிறுவ அனுமதிக்கவில்லை."</string>
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (4270706346616049120) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"அறியப்படாத மூலங்களிலிருந்து பெற்ற பயன்பாடுகளை நிறுவ, உங்கள் நிர்வாகி அனுமதிக்கவில்லை"</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"அறியப்படாத பயன்பாடுகளை, இந்தப் பயனர் நிறுவ முடியாது"</string>
     <string name="ok" msgid="3468756155452870475">"சரி"</string>
     <string name="settings" msgid="6743583734099755409">"அமைப்பு"</string>
     <string name="manage_applications" msgid="4033876279091996596">"பயன்பாடுகளை நிர்வகிக்கவும்"</string>
@@ -68,18 +68,20 @@
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"<xliff:g id="USERNAME">%1$s</xliff:g> பயனருக்கான இந்தப் பயன்பாட்டை நிறுவல்நீக்க விரும்புகிறீர்களா?"</string>
     <string name="uninstall_update_text" msgid="1394549691152728409">"ஆரம்பநிலைப் பதிப்பாக இந்தப் பயன்பாட்டை மாற்றியமைக்கவா? எல்லா தரவும் அகற்றப்படும்."</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"ஆரம்பநிலைப் பதிப்பாக இந்தப் பயன்பாட்டை மாற்றியமைக்கவா? எல்லா தரவும் அகற்றப்படும். பணிச் சுயவிவரங்களுடன் உள்ளவர்கள் உட்பட இந்தச் சாதனத்தின் எல்லா பயனர்களையும் இது பாதிக்கும்."</string>
+    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"இயக்கத்திலுள்ள நிறுவல் நீக்கங்கள்"</string>
+    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"தோல்வியடைந்த நிறுவல் நீக்கங்கள்"</string>
     <string name="uninstalling" msgid="5556217435895938250">"நிறுவலை நீக்குகிறது…"</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>ஐ நிறுவல் நீக்குகிறது…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"நிறுவல் நீக்குவது முடிந்தது."</string>
-    <string name="uninstall_done_app" msgid="4009780060350765946">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> நிறுவல் நீக்கப்பட்டது."</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> நிறுவல் நீக்கப்பட்டது"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"நிறுவல் நீக்குவதில் தோல்வி."</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>ஐ நிறுவல் நீக்க முடியவில்லை."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"இந்தத் தொகுப்பு, செயலில் உள்ள சாதன நிர்வாகி என்பதால் நிறுவல் நீக்க முடியாது."</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"இந்தத் தொகுப்பு <xliff:g id="USERNAME">%1$s</xliff:g> பயனருக்கான செயலில் உள்ள சாதன நிர்வாகியாக இருப்பதால், நிறுவல் நீக்க முடியாது."</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"செயலில் உள்ள சாதன நிர்வாகிப் பயன்பாட்டை நிறுவல் நீக்க முடியாது"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"<xliff:g id="USERNAME">%1$s</xliff:g>க்கான செயலில் உள்ள சாதன நிர்வாகிப் பயன்பாட்டை நிறுவல் நீக்க முடியாது"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"இது சில பயனர்கள்/சுயவிவரங்களுக்குத் தேவைப்படுவதால், நிறுவல்நீக்க முடியாது, பிறருக்கு நிறுவல் நீக்கப்பட்டது"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"உங்கள் சுயவிவரத்திற்கு இந்தப் பயன்பாடு தேவைப்படுவதால், அதை நிறுவல்நீக்க முடியாது, பிறருக்கு நிறுவல் நீக்கப்பட்டது."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"சாதன நிர்வாகிக்கு இந்தப் பயன்பாடு தேவைப்படுவதால், நிறுவல்நீக்க முடியாது."</string>
-    <string name="manage_device_administrators" msgid="891392489300312370">"சாதன நிர்வாகிகளை நிர்வகி"</string>
+    <string name="manage_device_administrators" msgid="118178632652346535">"சாதன நிர்வாகிப் பயன்பாடுகளை நிர்வகி"</string>
     <string name="manage_users" msgid="3125018886835668847">"பயனர்களை நிர்வகி"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> பயன்பாட்டை நிறுவல் நீக்க முடியாது."</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"தொகுப்பைக் குறியீட்டு ஆய்வு செய்வதில் சிக்கல் ஏற்பட்டது."</string>
@@ -136,13 +138,13 @@
     <string name="current_permissions_category" msgid="998210994450606094">"தற்போதைய அனுமதிகள்"</string>
     <string name="message_staging" msgid="6151794817691100003">"பயன்பாடு தயாராகிறது…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"தெரியாதது"</string>
-    <string name="clear_app_data_confirm_dialog" msgid="1454306783329915599">"<xliff:g id="PACKAGE">%1$s</xliff:g>க்கான தரவை நிச்சயமாக அழிக்கவா?"</string>
-    <!-- no translation found for untrusted_external_source_warning (1483151219938173935) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (5373768281884328560) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (2223486836232706553) -->
-    <skip />
-    <!-- no translation found for external_sources_settings (8601453744517291632) -->
-    <skip />
+    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"உங்கள் பாதுகாப்பிற்காக, இந்த மூலத்திலிருந்து அறியப்படாத பயன்பாடுகளை உங்கள் டேப்லெட்டில் நிறுவ முடியாது."</string>
+    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"உங்கள் பாதுகாப்பிற்காக, இந்த மூலத்திலிருந்து அறியப்படாத பயன்பாடுகளை உங்கள் டிவியில் நிறுவ முடியாது."</string>
+    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"உங்கள் பாதுகாப்பிற்காக, இந்த மூலத்திலிருந்து அறியப்படாத பயன்பாடுகளை உங்கள் மொபைலில் நிறுவ முடியாது."</string>
+    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"அறியப்படாத பயன்பாடுகள், உங்கள் மொபைலையும் தனிப்பட்ட தரவையும் அதிகம் பாதிக்கக்கூடும். இந்தப் பயன்பாட்டை நிறுவுவதால், அவற்றைப் பயன்படுத்தும் போது உங்கள் மொபைலுக்கு ஏதேனும் சேதம் ஏற்பட்டாலோ அல்லது தரவை இழந்தாலோ, அதற்கு நீங்கள்தான் பொறுப்பாவீர்கள் என்பதை ஏற்கிறீர்கள்."</string>
+    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"அறியப்படாத பயன்பாடுகள், உங்கள் டேப்லெட்டையும் தனிப்பட்ட தரவையும் அதிகம் பாதிக்கக்கூடும். இந்தப் பயன்பாட்டை நிறுவுவதால், அவற்றைப் பயன்படுத்தும் போது உங்கள் டேப்லெட்டுக்கு ஏதேனும் சேதம் ஏற்பட்டாலோ அல்லது தரவை இழந்தாலோ, அதற்கு நீங்கள்தான் பொறுப்பாவீர்கள் என்பதை ஏற்கிறீர்கள்."</string>
+    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"அறியப்படாத பயன்பாடுகள், உங்கள் டிவியையும் தனிப்பட்ட தரவையும் அதிகம் பாதிக்கக்கூடும். இந்தப் பயன்பாட்டை நிறுவுவதால், அவற்றைப் பயன்படுத்தும் போது உங்கள் டிவிக்கு ஏதேனும் சேதம் ஏற்பட்டாலோ அல்லது தரவை இழந்தாலோ, அதற்கு நீங்கள்தான் பொறுப்பாவீர்கள் என்பதை ஏற்கிறீர்கள்."</string>
+    <string name="anonymous_source_continue" msgid="2094381167954332292">"தொடர்க"</string>
+    <string name="external_sources_settings" msgid="8601453744517291632">"அமைப்புகள்"</string>
+    <string name="wear_app_channel" msgid="6200840123672949356">"வியர் ஆப்ஸை நிறுவுதல்/நிறுவல் நீக்குதல்"</string>
 </resources>
