@@ -136,7 +136,7 @@ public final class AppPermissions {
     }
 
     private void addPermissionGroupIfNeeded(String permission) {
-        if (hasGroupForPermission(permission)) {
+        if (getGroupForPermission(permission) != null) {
             return;
         }
 
@@ -149,12 +149,19 @@ public final class AppPermissions {
         mGroups.add(group);
     }
 
-    private boolean hasGroupForPermission(String permission) {
+    /**
+     * Find the group a permission belongs to.
+     *
+     * @param permission The name of the permission
+     *
+     * @return The group the permission belongs to
+     */
+    public AppPermissionGroup getGroupForPermission(String permission) {
         for (AppPermissionGroup group : mGroups) {
             if (group.hasPermission(permission)) {
-                return true;
+                return group;
             }
         }
-        return false;
+        return null;
     }
 }
