@@ -132,7 +132,6 @@ public class UninstallUninstalling extends Activity implements
                 observer.onPackageDeleted(mAppInfo.packageName, legacyStatus, message);
             } catch (RemoteException ignored) {
             }
-            return;
         } else if (mReturnResult) {
             // The caller will be informed about the result and might decide to display it
             Intent result = new Intent();
