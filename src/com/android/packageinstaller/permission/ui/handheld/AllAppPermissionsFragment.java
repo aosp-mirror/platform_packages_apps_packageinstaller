@@ -153,7 +153,7 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
                     }
 
                     if (appInfo.isInstantApp()
-                            && (perm.protectionLevel & PermissionInfo.PROTECTION_FLAG_EPHEMERAL)
+                            && (perm.protectionLevel & PermissionInfo.PROTECTION_FLAG_INSTANT)
                                 == 0) {
                         continue;
                     }
