@@ -16,6 +16,8 @@
 */
 package com.android.packageinstaller;
 
+import static android.view.WindowManager.LayoutParams.PRIVATE_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS;
+
 import android.app.Activity;
 import android.app.ActivityManagerNative;
 import android.app.AlertDialog;
@@ -410,7 +412,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-
+        getWindow().addPrivateFlags(PRIVATE_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
         // get intent information
         final Intent intent = getIntent();
         mPackageURI = intent.getData();
@@ -499,6 +501,25 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
             return;
         }
         initiateInstall();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (mOk != null) {
+            mOk.setEnabled(mOkCanInstall);
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        if (mOk != null) {
+            // Don't allow the install button to be clicked as there might be overlays
+            mOk.setEnabled(false);
+        }
     }
 
     /** Get the ApplicationInfo for the calling package, if available */
