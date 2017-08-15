@@ -399,7 +399,7 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
                     != PermissionInfo.PROTECTION_DANGEROUS) {
                 return PERMISSION_DENIED;
             }
-            if ((pInfo.protectionLevel & PermissionInfo.PROTECTION_FLAG_EPHEMERAL) == 0
+            if ((pInfo.protectionLevel & PermissionInfo.PROTECTION_FLAG_INSTANT) == 0
                     && callingPackageInfo.applicationInfo.isInstantApp()) {
                 return PERMISSION_DENIED;
             }

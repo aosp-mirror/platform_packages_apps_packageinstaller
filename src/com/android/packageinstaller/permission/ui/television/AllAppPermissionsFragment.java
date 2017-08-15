@@ -157,7 +157,7 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
                     continue;
                 }
                 if (appInfo.isInstantApp()
-                        && (perm.protectionLevel & PermissionInfo.PROTECTION_FLAG_EPHEMERAL) == 0) {
+                        && (perm.protectionLevel & PermissionInfo.PROTECTION_FLAG_INSTANT) == 0) {
                     continue;
                 }
                 if (appInfo.targetSdkVersion < Build.VERSION_CODES.M
