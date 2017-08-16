@@ -37,6 +37,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
@@ -46,6 +47,7 @@ import com.android.packageinstaller.permission.ui.ManagePermissionsActivity;
 import com.android.packageinstaller.permission.utils.ArrayUtils;
 import com.android.packageinstaller.permission.utils.Utils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public final class ReviewPermissionsFragment extends PreferenceFragment
@@ -62,6 +64,7 @@ public final class ReviewPermissionsFragment extends PreferenceFragment
     private Button mMoreInfoButton;
 
     private PreferenceCategory mNewPermissionsCategory;
+    private PreferenceCategory mCurrentPermissionsCategory;
 
     private boolean mHasConfirmedRevoke;
 
@@ -183,33 +186,43 @@ public final class ReviewPermissionsFragment extends PreferenceFragment
     }
 
     private void confirmPermissionsReview() {
-        PreferenceGroup preferenceGroup = mNewPermissionsCategory != null
-                ? mNewPermissionsCategory : getPreferenceScreen();
+        final List<PreferenceGroup> preferenceGroups = new ArrayList<>();
+        if (mNewPermissionsCategory != null) {
+            preferenceGroups.add(mNewPermissionsCategory);
+            preferenceGroups.add(mCurrentPermissionsCategory);
+        } else {
+            preferenceGroups.add(getPreferenceScreen());
+        }
 
-        final int preferenceCount = preferenceGroup.getPreferenceCount();
-        for (int i = 0; i < preferenceCount; i++) {
-            Preference preference = preferenceGroup.getPreference(i);
-            if (preference instanceof TwoStatePreference) {
-                TwoStatePreference twoStatePreference = (TwoStatePreference) preference;
-                String groupName = preference.getKey();
-                AppPermissionGroup group = mAppPermissions.getPermissionGroup(groupName);
-                if (twoStatePreference.isChecked()) {
-                    String[] permissionsToGrant = null;
-                    final int permissionCount = group.getPermissions().size();
-                    for (int j = 0; j < permissionCount; j++) {
-                        final Permission permission = group.getPermissions().get(j);
-                        if (permission.isReviewRequired()) {
-                            permissionsToGrant = ArrayUtils.appendString(
-                                    permissionsToGrant, permission.getName());
+        final int preferenceGroupCount = preferenceGroups.size();
+        for (int groupNum = 0; groupNum < preferenceGroupCount; groupNum++) {
+            final PreferenceGroup preferenceGroup = preferenceGroups.get(groupNum);
+
+            final int preferenceCount = preferenceGroup.getPreferenceCount();
+            for (int prefNum = 0; prefNum < preferenceCount; prefNum++) {
+                Preference preference = preferenceGroup.getPreference(prefNum);
+                if (preference instanceof TwoStatePreference) {
+                    TwoStatePreference twoStatePreference = (TwoStatePreference) preference;
+                    String groupName = preference.getKey();
+                    AppPermissionGroup group = mAppPermissions.getPermissionGroup(groupName);
+                    if (twoStatePreference.isChecked()) {
+                        String[] permissionsToGrant = null;
+                        final int permissionCount = group.getPermissions().size();
+                        for (int j = 0; j < permissionCount; j++) {
+                            final Permission permission = group.getPermissions().get(j);
+                            if (permission.isReviewRequired()) {
+                                permissionsToGrant = ArrayUtils.appendString(
+                                        permissionsToGrant, permission.getName());
+                            }
                         }
+                        if (permissionsToGrant != null) {
+                            group.grantRuntimePermissions(false, permissionsToGrant);
+                        }
+                    } else {
+                        group.revokeRuntimePermissions(false);
                     }
-                    if (permissionsToGrant != null) {
-                        group.grantRuntimePermissions(false, permissionsToGrant);
-                    }
-                } else {
-                    group.revokeRuntimePermissions(false);
+                    group.resetReviewRequired();
                 }
-                group.resetReviewRequired();
             }
         }
     }
@@ -266,7 +279,7 @@ public final class ReviewPermissionsFragment extends PreferenceFragment
             screen.removeAll();
         }
 
-        PreferenceGroup currentPermissionsCategory = null;
+        mCurrentPermissionsCategory = null;
         PreferenceGroup oldNewPermissionsCategory = mNewPermissionsCategory;
         mNewPermissionsCategory = null;
 
@@ -323,13 +336,13 @@ public final class ReviewPermissionsFragment extends PreferenceFragment
                     mNewPermissionsCategory.addPreference(preference);
                 }
             } else {
-                if (currentPermissionsCategory == null) {
-                    currentPermissionsCategory = new PreferenceCategory(activity);
-                    currentPermissionsCategory.setTitle(R.string.current_permissions_category);
-                    currentPermissionsCategory.setOrder(2);
-                    screen.addPreference(currentPermissionsCategory);
+                if (mCurrentPermissionsCategory == null) {
+                    mCurrentPermissionsCategory = new PreferenceCategory(activity);
+                    mCurrentPermissionsCategory.setTitle(R.string.current_permissions_category);
+                    mCurrentPermissionsCategory.setOrder(2);
+                    screen.addPreference(mCurrentPermissionsCategory);
                 }
-                currentPermissionsCategory.addPreference(preference);
+                mCurrentPermissionsCategory.addPreference(preference);
             }
         }
     }
