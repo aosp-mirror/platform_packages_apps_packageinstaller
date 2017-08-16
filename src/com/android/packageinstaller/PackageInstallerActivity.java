@@ -16,7 +16,6 @@
 */
 package com.android.packageinstaller;
 
-import android.app.Activity;
 import android.app.ActivityManagerNative;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -53,6 +52,8 @@ import android.widget.TabHost;
 import android.widget.TextView;
 import com.android.packageinstaller.permission.utils.Utils;
 
+import com.android.packageinstaller.permission.ui.OverlayTouchActivity;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -69,7 +70,8 @@ import java.io.OutputStream;
  * Based on the user response the package is then installed by launching InstallAppConfirm
  * sub activity. All state transitions are handled in this activity
  */
-public class PackageInstallerActivity extends Activity implements OnCancelListener, OnClickListener {
+public class PackageInstallerActivity extends OverlayTouchActivity implements OnCancelListener,
+        OnClickListener {
     private static final String TAG = "PackageInstaller";
 
     private static final int REQUEST_ENABLE_UNKNOWN_SOURCES = 1;
@@ -215,6 +217,25 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
                     mOkCanInstall = true;
                 }
             });
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (mOk != null) {
+            mOk.setEnabled(mOkCanInstall);
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        if (mOk != null) {
+            // Don't allow the install button to be clicked as there might be overlays
+            mOk.setEnabled(false);
         }
     }
 
