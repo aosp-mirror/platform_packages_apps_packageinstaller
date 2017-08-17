@@ -28,10 +28,10 @@
     <string name="install_done" msgid="3682715442154357097">"अॅप स्थापित झाला."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"आपण हा अनुप्रयोग स्थापित करू इच्छिता? यास यावर प्रवेश मिळेल:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"आपण हा अनुप्रयोग स्थापित करू इच्छिता? यास कोणत्याही विशेष प्रवेशाची आवश्यकता नसते."</string>
-    <string name="install_confirm_question_update" msgid="4624159567361487964">"आपण या विद्यमान अनुप्रयोगावर अद्यतन स्थापित करू इच्छिता? आपला विद्यमान डेटा गमावणार नाही. अद्यतनित अनुप्रयोगास यावर प्रवेश मिळेल:"</string>
-    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"आपण या अंगभूत अनुप्रयोगावर अद्यतन स्थापित करू इच्छिता? आपला विद्यमान डेटा गमावणार नाही. अद्यतनित अनुप्रयोगास यावर प्रवेश मिळेल:"</string>
-    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"आपण या विद्यमान अनुप्रयोगावर अद्यतन स्थापित करू इच्छिता? आपला विद्यमान डेटा गमावणार नाही. यासाठी कोणताही विशेष प्रवेश आवश्यक नसतो."</string>
-    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"आपण या अंगभूत अनुप्रयोगावर अद्यतन स्थापित करू इच्छिता? आपला विद्यमान डेटा गमावणार नाही. यास कोणत्याही विशेष प्रवेशाची आवश्यकता नसते."</string>
+    <string name="install_confirm_question_update" msgid="4624159567361487964">"तुम्हाला सद्य अॅप्लिकेशनवर अपडेट इंस्टॉल करायची आहे? तुम्ही तुमचा सद्य डेटा गमावणार नाही. अपडेट केलेल्या अॅप्लिकेशनला यावर अॅक्सेस मिळेल:"</string>
+    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"तुम्ही या बिल्ट-इन अॅप्लिकेशनवर अपडेट इंस्टॉल करायची आहे? तुम्ही तुमचा सद्य डेटा गमावणार नाही. अपडेट केलेल्या अॅप्लिकेशनला यावर अॅक्सेस मिळेल:"</string>
+    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"तुम्हाला सद्य अॅप्लिकेशनवर अपडेट इंस्टॉल करायची आहे? तुम्ही तुमचा सद्य डेटा गमावणार नाही. यासाठी कोणताही विशेष अॅक्सेस आवश्यक नसतो."</string>
+    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"तुम्ही या बिल्ट-इन अॅप्लिकेशनवर अपडेट इंस्टॉल करायची आहे? तुम्ही तुमचा सद्य डेटा गमावणार नाही. यासाठी कोणताही विशेष अॅक्सेस आवश्यक नसतो."</string>
     <string name="install_failed" msgid="6579998651498970899">"अॅप स्थापित झाला नाही."</string>
     <string name="install_failed_blocked" msgid="1606870930588770025">"पॅकेेच स्थापित होण्यास अवरोधित केलेले होते."</string>
     <string name="install_failed_conflict" msgid="5336045235168070954">"पॅकेजचा विद्यमान पॅकेजशी विरोध असल्याने अॅप स्थापित केला नाही."</string>
@@ -62,7 +62,7 @@
     <string name="generic_error_dlg_title" msgid="2684806600635296961">"त्रुटी"</string>
     <string name="generic_error_dlg_text" msgid="4288738047825333954">"अॅप विस्थापित करणे शक्य झाले नाही."</string>
     <string name="uninstall_application_title" msgid="1860074100811653963">"अॅप विस्थापित करा"</string>
-    <string name="uninstall_update_title" msgid="4146940097553335390">"अद्यतन विस्थापित करा"</string>
+    <string name="uninstall_update_title" msgid="4146940097553335390">"अपडेट अनइल्स्टॉल करा"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> खालील अॅप चा भाग आहे:"</string>
     <string name="uninstall_application_text" msgid="6691975835951187030">"आपण हा अॅप विस्थापित करू इच्छिता?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"आपण हा अॅप "<b>"सर्व"</b>" वापरकर्त्यांसाठी विस्थापित करू इच्छिता? अनुप्रयोग आणि त्याचा डेटा डिव्हाइसवरील "<b>"सर्व"</b>" वापरकर्त्यांवरून काढला जाईल."</string>
@@ -77,19 +77,19 @@
     <string name="uninstall_done_app" msgid="775837862728680479">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> विस्थापित केले"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"विस्थापित करणे अयशस्वी."</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> विस्थापित करणे अयशस्वी झाले."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"सक्रिय डिव्हाइस प्रशासक अ‍ॅप विस्थापित करू शकत नाही"</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"<xliff:g id="USERNAME">%1$s</xliff:g> साठी सक्रिय डिव्हाइस प्रशासक अ‍ॅप विस्थापित करू शकत नाही"</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"अॅक्टिव्हेट डीव्हाइस प्रशासक अ‍ॅप अनइंस्टॉल करू शकत नाही"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"<xliff:g id="USERNAME">%1$s</xliff:g> साठी अॅक्टिव्हेट डीव्हाइस प्रशासक अ‍ॅप अनइंस्टॉल करू शकत नाही"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"हा अॅप काही वापरकर्ते किंवा प्रोफाईलसाठी आवश्यक आहे आणि इतरांसाठी विस्थापित केला होता"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"आपल्या प्रोफाईलसाठी हा अ‍ॅप आवश्यक आहे आणि विस्थापित केला जाऊ शकत नाही."</string>
-    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"आपल्‍या डिव्‍हाइस प्रशासकाद्वारे हा अ‍ॅप आवश्यक आहे आणि तो विस्‍थापित केला जाऊ शकत नाही."</string>
-    <string name="manage_device_administrators" msgid="118178632652346535">"डिव्हाइस प्रशासक अ‍ॅप्स व्यवस्थापित करा"</string>
+    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"तुमच्या डीव्हाइस प्रशासकास हे अ‍ॅप आवश्यक आहे आणि ते अनइंस्टॉल केले जाऊ शकत नाही."</string>
+    <string name="manage_device_administrators" msgid="118178632652346535">"डीव्हाइस प्रशासक अ‍ॅप्स व्यवस्थापित करा"</string>
     <string name="manage_users" msgid="3125018886835668847">"वापरकर्त्यांना व्यवस्‍थापित करा"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> विस्थापित केला जाऊ शकला नाही."</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"पॅकेज चे विश्लेषण करताना समस्या आली."</string>
     <string name="newPerms" msgid="6039428254474104210">"नवीन"</string>
     <string name="allPerms" msgid="1024385515840703981">"सर्व"</string>
     <string name="privacyPerms" msgid="1850527049572617">"गोपनीयता"</string>
-    <string name="devicePerms" msgid="6733560207731294504">"डिव्हाइस प्रवेश"</string>
+    <string name="devicePerms" msgid="6733560207731294504">"डीव्हाइस अॅक्सेस"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"या अद्यतनास कोणत्याही नवीन परवानग्यांची आवश्यकता नाही."</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"आपण खालील परवानग्‍यांना मंजूरी देऊ इच्‍छिता? त्‍यांना यावर प्रवेश मिळेल:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"नकार द्या"</string>
