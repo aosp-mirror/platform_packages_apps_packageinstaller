@@ -274,6 +274,7 @@ public class UninstallerActivity extends Activity {
 
             Intent broadcastIntent = new Intent(this, UninstallFinish.class);
 
+            broadcastIntent.setFlags(Intent.FLAG_RECEIVER_FOREGROUND);
             broadcastIntent.putExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, mDialogInfo.allUsers);
             broadcastIntent.putExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO, mDialogInfo.appInfo);
             broadcastIntent.putExtra(UninstallFinish.EXTRA_APP_LABEL, label);
