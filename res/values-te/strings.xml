@@ -17,11 +17,11 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="2738748390251381682">"ప్యాకేజీ ఇన్‌స్టాలర్"</string>
-    <string name="next" msgid="3057143178373252333">"తదుపరి"</string>
+    <string name="next" msgid="3057143178373252333">"తర్వాత"</string>
     <string name="install" msgid="5896438203900042068">"ఇన్‌స్టాల్ చేయండి"</string>
     <string name="done" msgid="3889387558374211719">"పూర్తయింది"</string>
     <string name="security_settings_desc" msgid="2706691034244052604">"ఈ యాప్‌ను ఇది చేయడానికి అనుమతించండి:"</string>
-    <string name="cancel" msgid="8360346460165114585">"రద్దు చేయండి"</string>
+    <string name="cancel" msgid="8360346460165114585">"రద్దు చేయి"</string>
     <string name="unknown" msgid="4742479012767208045">"తెలియదు"</string>
     <string name="installing" msgid="8613631001631998372">"ఇన్‌స్టాల్ చేస్తోంది…"</string>
     <string name="installing_app" msgid="4097935682329028894">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>ని ఇన్‌స్టాల్ చేస్తోంది…"</string>
@@ -30,7 +30,7 @@
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"మీరు ఈ యాప్‌ను ఇన్‌స్టాల్ చేయాలనుకుంటున్నారా? దీనికి ఎటువంటి ప్రత్యేక యాక్సెస్ అవసరం లేదు."</string>
     <string name="install_confirm_question_update" msgid="4624159567361487964">"మీరు ఈ ప్రస్తుత యాప్‌నకు అప్‌డేట్‌ను ఇన్‌స్టాల్ చేయాలనుకుంటున్నారా? మీ ప్రస్తుత డేటాను కోల్పోవడం సంభవించదు. అప్‌డేట్ చేసిన యాప్ వీటికి యాక్సెస్‌ను పొందుతుంది:"</string>
     <string name="install_confirm_question_update_system" msgid="1302330093676416336">"మీరు ఈ అంతర్నిర్మిత యాప్‌నకు అప్‌డేట్‌ను ఇన్‌స్టాల్ చేయాలనుకుంటున్నారా? మీ ప్రస్తుత డేటాను కోల్పోవడం సంభవించదు. అప్‌డేట్ చేసిన యాప్ వీటికి యాక్సెస్  పొందుతుంది:"</string>
-    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"మీరు ఈ ప్రస్తుత యాప్‌కు అప్‌డేట్ ఇన్‌స్టాల్ చేయాలనుకుంటున్నారా? మీ ప్రస్తుత డేటాను కోల్పోవడం సంభవించదు. దీనికి ఎటువంటి ప్రత్యేక యాక్సెస్ అవసరం లేదు."</string>
+    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"మీరు ఈ ప్రస్తుత యాప్‌కు అప్‌డేట్‌ను ఇన్‌స్టాల్ చేయాలనుకుంటున్నారా? మీ ప్రస్తుత డేటాను కోల్పోవడం సంభవించదు. దీనికి ఎటువంటి ప్రత్యేక యాక్సెస్ అవసరం లేదు."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"మీరు ఈ అంతర్నిర్మిత యాప్‌కు అప్‌డేట్‌ను ఇన్‌స్టాల్ చేయాలనుకుంటున్నారా? మీ ప్రస్తుత డేటాను కోల్పోవడం సంభవించదు. దీనికి ఎటువంటి ప్రత్యేక యాక్సెస్ అవసరం లేదు."</string>
     <string name="install_failed" msgid="6579998651498970899">"యాప్ ఇన్‌స్టాల్ చేయబడలేదు."</string>
     <string name="install_failed_blocked" msgid="1606870930588770025">"ప్యాకేజీ ఇన్‌స్టాల్ కాకుండా బ్లాక్ చేయబడింది."</string>
@@ -130,7 +130,7 @@
     <string name="screen_overlay_button" msgid="4344544843349937743">"సెట్టింగ్‌లను తెరువు"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android వేర్"</string>
     <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Wearలో ఇన్‌స్టాల్/అన్ఇన్‌స్టాల్ చర్యలకు మద్దతు లేదు."</string>
-    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> అప్‌డేట్ చేయబడింది. క్రింది వాటిని యాక్సెస్ చేయడానికి <xliff:g id="APP_NAME_1">%1$s</xliff:g>ని అనుమతించాలా?"</string>
+    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> అప్‌డేట్‌ చేయబడింది. క్రింది వాటిని యాక్సెస్ చేయడానికి <xliff:g id="APP_NAME_1">%1$s</xliff:g>ని అనుమతించాలా?"</string>
     <string name="permission_review_title_template_install" msgid="6819338441305295479">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; యాక్సెస్ చేయడానికి అనుమతించాల్సిన వాటిని ఎంచుకోండి"</string>
     <string name="permission_review_title_template_update" msgid="8632233603161669426">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; అప్‌డేట్ చేయబడింది. ఈ యాప్ యాక్సెస్ చేయడానికి అనుమతించాల్సిన వాటిని ఎంచుకోండి."</string>
     <string name="review_button_cancel" msgid="957906817733578877">"రద్దు చేయి"</string>

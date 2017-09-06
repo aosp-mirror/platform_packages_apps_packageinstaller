@@ -52,7 +52,7 @@
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"অ্যাপ্লিকেশান প্রতিস্থাপন করতে চান?"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"আপনি যে অ্যাপ্লিকেশানটি ইনস্টল করছেন তা অন্য একটি অ্যাপ্লিকেশানকে প্রতিস্থাপিত করবে৷\n\nআপনার সমস্ত পূর্ববর্তী ব্যবহারকারী ডেটা সংরক্ষিত হবে৷"</string>
     <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"এটি হল একটি সিস্টেম অ্যাপ্লিকেশান৷\n\nআপনার সমস্ত পূর্ববর্তী ব্যবহারকারী ডেটা সংরক্ষিত হবে৷"</string>
-    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"পর্যাপ্ত স্থান খালি নেই"</string>
+    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"পর্যাপ্ত জায়গা খালি নেই"</string>
     <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> ইনস্টল করা যায়নি৷ কিছু পরিমাণ জায়গা খালি করে আবার চেষ্টা করুন৷"</string>
     <string name="dlg_ok" msgid="6944357727705699232">"ঠিক আছে"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"অ্যাপ্লিকেশান পাওয়া যায়নি"</string>
@@ -93,7 +93,7 @@
     <string name="no_new_perms" msgid="6657813692169565975">"এই আপডেটের জন্য কোনো নতুন অনুমতির প্রয়োজন নেই৷"</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"আপনি কি নিম্নলিখিত অনুমতিগুলি প্রদান করতে চান? এটি এতে অ্যাক্সেস করার সুযোগ পাবে:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"প্রত্যাখ্যান করুন"</string>
-    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"আরো তথ্য"</string>
+    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"আরও তথ্য"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"যাইহোক অস্বীকার করুন"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> এর <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="7332275268559121742">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;কে <xliff:g id="ACTION">%2$s</xliff:g> এর অনুমতি দেবেন?"</string>
@@ -102,23 +102,23 @@
     <string name="permission_revoked_none" msgid="2059511550181271342">"কোনো কিছুই অক্ষম করা হয়নি"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"অনুমতি দিন"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"অ্যাপ্লিকেশানগুলি"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"অ্যাপ্লিকেশানের অনুমতি"</string>
+    <string name="app_permissions" msgid="3146758905824597178">"অ্যাপ্লিকেশনের অনুমতি"</string>
     <string name="never_ask_again" msgid="1089938738199748687">"আর জিজ্ঞাসা করবেন না"</string>
     <string name="no_permissions" msgid="3210542466245591574">"কোনো অনুমতি নেই"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"অতিরিক্ত অনুমতিগুলি"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
-      <item quantity="one">আরো <xliff:g id="COUNT_1">%1$d</xliff:g>টি</item>
-      <item quantity="other">আরো <xliff:g id="COUNT_1">%1$d</xliff:g>টি</item>
+      <item quantity="one">আরও <xliff:g id="COUNT_1">%1$d</xliff:g>টি</item>
+      <item quantity="other">আরও <xliff:g id="COUNT_1">%1$d</xliff:g>টি</item>
     </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"একটি পুরোনো সংস্করণের Android এর জন্য এই অ্যাপ্লিকেশানটি ডিজাইন করা হয়েছিল৷ অনুমতি অস্বীকার করলে এটিকে যে কাজের উদ্দেশ্যে তৈরি করা হয়েছিল সেটি নাও করতে পারে৷"</string>
     <string name="default_permission_description" msgid="4992892207044156668">"কোনো অজানা কার্য সঞ্চালন করুন"</string>
     <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_1">%2$d</xliff:g>টির মধ্যে <xliff:g id="COUNT_0">%1$d</xliff:g>টি অ্যাপ্লিকেশান মঞ্জুরিপ্রাপ্ত"</string>
-    <string name="menu_show_system" msgid="6773743421743728921">"সিস্টেম দেখান"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"সিস্টেম দেখুন"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"সিস্টেম লুকান"</string>
     <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> অনুমতিগুলি"</string>
     <string name="no_apps" msgid="1965493419005012569">"কোনো অ্যাপ্লিকেশান নেই"</string>
     <string name="location_settings" msgid="1774875730854491297">"অবস্থান সেটিংস"</string>
-    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> এই ডিভাইসের জন্য একটি অবস্থান পরিষেবাগুলি প্রদান করে। অবস্থান সেটিংস থেকে অবস্থানের অ্যাক্সেস পরিবর্তন করা যায়।"</string>
+    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> এই ডিভাইসের জন্য একটি লোকেশন পরিষেবাগুলি প্রদান করে। লোকেশন সেটিংস থেকে লোকেশনের অ্যাক্সেস পরিবর্তন করা যায়।"</string>
     <string name="system_warning" msgid="7103819124542305179">"আপনি যদি এই অনুমতিটি অস্বীকার করেন, তবে আপনার ডিভাইসের প্রাথমিক বৈশিষ্ট্যগুলিকে যে কাজের উদ্দেশ্যে তৈরি করা হয়েছিল সেগুলি নাও করতে পারে৷"</string>
     <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"নীতি দ্বারা প্রয়োগ করা হয়েছে"</string>
     <string name="loading" msgid="7811651799620593731">"লোড হচ্ছে..."</string>
