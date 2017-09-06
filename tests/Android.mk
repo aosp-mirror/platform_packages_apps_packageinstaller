@@ -6,10 +6,6 @@ include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := $(call all-java-files-under, src)
 
-# Include the testing libraries (JUnit4 + Robolectric libs).
-LOCAL_STATIC_JAVA_LIBRARIES := \
-    platform-system-robolectric
-
 LOCAL_JAVA_LIBRARIES := \
     junit \
     platform-robolectric-prebuilt \
