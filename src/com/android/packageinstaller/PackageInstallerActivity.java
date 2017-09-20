@@ -541,7 +541,7 @@ public class PackageInstallerActivity extends Activity implements OnCancelListen
         super.onResume();
 
         if (mOk != null) {
-            mOk.setEnabled(mOkCanInstall);
+            mOk.setEnabled(true);
         }
     }
 
