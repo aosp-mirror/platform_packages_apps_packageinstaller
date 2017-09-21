@@ -342,7 +342,7 @@ public class InstallInstalling extends Activity {
                     long sizeBytes = file.length();
                     try (OutputStream out = session
                             .openWrite("PackageInstaller", 0, sizeBytes)) {
-                        byte[] buffer = new byte[4096];
+                        byte[] buffer = new byte[1024 * 1024];
                         while (true) {
                             int numRead = in.read(buffer);
 
