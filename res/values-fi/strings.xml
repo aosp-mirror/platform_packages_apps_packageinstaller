@@ -45,8 +45,7 @@
     <string name="launch" msgid="4826921505917605463">"Avaa"</string>
     <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"Järjestelmänvalvoja ei salli sovellusten asentamista tuntemattomista lähteistä."</string>
     <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Tämä käyttäjä ei voi asentaa tuntemattomia sovelluksia."</string>
-    <!-- no translation found for install_apps_user_restriction_dlg_text (5041150186260066212) -->
-    <skip />
+    <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"Tämä käyttäjä ei voi asentaa sovelluksia."</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"Asetukset"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Hallinnoi sovelluksia"</string>
@@ -103,7 +102,7 @@
     <string name="permission_revoked_none" msgid="2059511550181271342">"kaikki käytössä"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Salli"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Sovellukset"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"Sovelluksen käyttöoikeudet"</string>
+    <string name="app_permissions" msgid="3146758905824597178">"Sovellusten käyttöoikeudet"</string>
     <string name="never_ask_again" msgid="1089938738199748687">"Älä kysy uudestaan"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Ei käyttöoikeuksia"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Lisäkäyttöoikeudet"</string>
@@ -116,7 +115,7 @@
     <string name="app_permissions_group_summary" msgid="4787239772223699263">"Sallitut sovellukset: <xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"Näytä järjestelmä"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"Piilota järjestelmä"</string>
-    <string name="permission_title" msgid="6495415273398916381">"Kohteen <xliff:g id="PERMISSION">%1$s</xliff:g> käyttöluvat"</string>
+    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g>: käyttöluvat"</string>
     <string name="no_apps" msgid="1965493419005012569">"Ei sovelluksia"</string>
     <string name="location_settings" msgid="1774875730854491297">"Sijaintiasetukset"</string>
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> on tämän laitteen sijaintipalveluiden tarjoaja. Sijainnin käyttöoikeutta voi muokata sijaintiasetuksissa."</string>

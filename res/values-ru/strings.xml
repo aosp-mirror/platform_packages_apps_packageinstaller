@@ -45,8 +45,7 @@
     <string name="launch" msgid="4826921505917605463">"Открыть"</string>
     <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"Ваш администратор запретил устанавливать приложения из неизвестных источников"</string>
     <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Этот пользователь не может устанавливать неизвестные приложения"</string>
-    <!-- no translation found for install_apps_user_restriction_dlg_text (5041150186260066212) -->
-    <skip />
+    <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"Этому пользователю не разрешено устанавливать приложения"</string>
     <string name="ok" msgid="3468756155452870475">"ОК"</string>
     <string name="settings" msgid="6743583734099755409">"Настройки"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Управление приложениями"</string>
@@ -115,14 +114,14 @@
     </plurals>
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Это приложение было разработано для более ранней версии Android. Отзыв разрешения может вызвать неполадки в работе."</string>
     <string name="default_permission_description" msgid="4992892207044156668">"выполняет неизвестные действия"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"Приложения с разрешением: <xliff:g id="COUNT_0">%1$d</xliff:g> из <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
+    <string name="app_permissions_group_summary" msgid="4787239772223699263">"Приложений с разрешением: <xliff:g id="COUNT_0">%1$d</xliff:g> из <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"Показать системные процессы"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"Скрыть системные процессы"</string>
     <string name="permission_title" msgid="6495415273398916381">"Разрешения (<xliff:g id="PERMISSION">%1$s</xliff:g>)"</string>
     <string name="no_apps" msgid="1965493419005012569">"Нет приложений"</string>
     <string name="location_settings" msgid="1774875730854491297">"Настройки геоданных"</string>
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> является поставщиком услуг геолокации для этого устройства. Вы можете изменить параметры доступа в настройках геоданных."</string>
-    <string name="system_warning" msgid="7103819124542305179">"Если вы не предоставите это разрешение, основные функции устройства могут работать неправильно."</string>
+    <string name="system_warning" msgid="7103819124542305179">"Если вы отключите это разрешение, основные функции устройства могут работать неправильно."</string>
     <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"В соответствии с политикой"</string>
     <string name="loading" msgid="7811651799620593731">"Загрузка…"</string>
     <string name="all_permissions" msgid="5156669007784613042">"Все разрешения"</string>

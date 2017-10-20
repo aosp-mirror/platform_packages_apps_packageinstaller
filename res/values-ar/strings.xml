@@ -45,8 +45,7 @@
     <string name="launch" msgid="4826921505917605463">"فتح"</string>
     <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"لا يسمح المشرف بتثبيت التطبيقات التي يتم الحصول عليها من مصادر غير معروفة"</string>
     <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"يتعذر على هذا المستخدم تثبيت التطبيقات غير المعروفة"</string>
-    <!-- no translation found for install_apps_user_restriction_dlg_text (5041150186260066212) -->
-    <skip />
+    <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"غير مسموح لهذا المستخدم بتثبيت التطبيقات"</string>
     <string name="ok" msgid="3468756155452870475">"موافق"</string>
     <string name="settings" msgid="6743583734099755409">"الإعدادات"</string>
     <string name="manage_applications" msgid="4033876279091996596">"إدارة التطبيقات"</string>
@@ -54,7 +53,7 @@
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"سيحل التطبيق الذي تثبته الآن محل تطبيق آخر.\n\nسيتم حفظ جميع بيانات المستخدم السابقة."</string>
     <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"هذا تطبيق نظام.\n\nسيتم حفظ جميع بيانات المستخدم السابقة."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"نفدت مساحة التخزين"</string>
-    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"تعذر تثبيت <xliff:g id="APP_NAME">%1$s</xliff:g> الرجاء تحرير بعض المساحة والمحاولة مرة أخرى."</string>
+    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"تعذر تثبيت <xliff:g id="APP_NAME">%1$s</xliff:g> يُرجى تحرير بعض المساحة والمحاولة مرة أخرى."</string>
     <string name="dlg_ok" msgid="6944357727705699232">"موافق"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"لم يتم العثور على التطبيق"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"لم يتم العثور على التطبيق في قائمة التطبيقات المثبتة."</string>
@@ -118,13 +117,13 @@
     <string name="old_sdk_deny_warning" msgid="3872277112584842615">"‏تم تصميم هذا التطبيق لإصدار قديم من Android. وقد يؤدي رفض الإذن إلى عدم العمل على النحو المطلوب مرة أخرى."</string>
     <string name="default_permission_description" msgid="4992892207044156668">"تنفيذ إجراء غير معروف"</string>
     <string name="app_permissions_group_summary" msgid="4787239772223699263">"تم السماح لعدد <xliff:g id="COUNT_0">%1$d</xliff:g> من <xliff:g id="COUNT_1">%2$d</xliff:g> من التطبيقات"</string>
-    <string name="menu_show_system" msgid="6773743421743728921">"إظهار النظام"</string>
+    <string name="menu_show_system" msgid="6773743421743728921">"عرض النظام"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"إخفاء النظام"</string>
     <string name="permission_title" msgid="6495415273398916381">"أذونات <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
     <string name="no_apps" msgid="1965493419005012569">"ليس هناك أي تطبيقات"</string>
     <string name="location_settings" msgid="1774875730854491297">"إعدادات الموقع"</string>
     <string name="location_warning" msgid="8778701356292735971">"يعد <xliff:g id="APP_NAME">%1$s</xliff:g> أحد مقدمي خدمات الموقع لهذا الجهاز. يمكن تعديل إمكانية الوصول إلى الموقع من إعدادات الموقع."</string>
-    <string name="system_warning" msgid="7103819124542305179">"إذا رفضت هذا الإذن، ربما لا تعمل ميزات أساسية في جهازك على النحو المنشود."</string>
+    <string name="system_warning" msgid="7103819124542305179">"في حال رفض هذا الإذن، قد لا تعمل ميزات أساسية في جهازك على النحو المنشود."</string>
     <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"فرضته إحدى السياسات"</string>
     <string name="loading" msgid="7811651799620593731">"جارٍ التحميل..."</string>
     <string name="all_permissions" msgid="5156669007784613042">"كل الأذونات"</string>

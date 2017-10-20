@@ -45,8 +45,7 @@
     <string name="launch" msgid="4826921505917605463">"Obre"</string>
     <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"L\'administrador no permet instal·lar aplicacions de fonts desconegudes"</string>
     <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Aquest usuari no pot instal·lar aplicacions desconegudes"</string>
-    <!-- no translation found for install_apps_user_restriction_dlg_text (5041150186260066212) -->
-    <skip />
+    <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"Aquest usuari no té permís per instal·lar aplicacions"</string>
     <string name="ok" msgid="3468756155452870475">"D\'acord"</string>
     <string name="settings" msgid="6743583734099755409">"Configuració"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Gestiona les aplicacions"</string>
@@ -59,7 +58,7 @@
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"No s\'ha trobat l\'aplicació"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"No s\'ha trobat l\'aplicació a la llista d\'aplicacions instal·lades."</string>
     <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"Sense autorització"</string>
-    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"L\'usuari actual no està autoritzat a dur a terme aquesta desinstal·lació."</string>
+    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"L\'usuari actual no té permís per dur a terme aquesta desinstal·lació."</string>
     <string name="generic_error_dlg_title" msgid="2684806600635296961">"Error"</string>
     <string name="generic_error_dlg_text" msgid="4288738047825333954">"No s\'ha pogut desinstal·lar l\'aplicació."</string>
     <string name="uninstall_application_title" msgid="1860074100811653963">"Desinstal·la l\'aplicació"</string>
@@ -83,7 +82,7 @@
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"L\'aplicació cal en alguns usuaris o perfils i s\'ha desinstal·lat per a d\'altres"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"Aquesta aplicació es necessita per al teu perfil i no es pot desinstal·lar."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"L\'administrador del dispositiu necessita l\'aplicació i no la pots desinstal·lar."</string>
-    <string name="manage_device_administrators" msgid="118178632652346535">"Gestiona les aplicacions d\'administració del dispositiu"</string>
+    <string name="manage_device_administrators" msgid="118178632652346535">"Gestiona aplicacions d\'administració del dispositiu"</string>
     <string name="manage_users" msgid="3125018886835668847">"Gestiona els usuaris"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> no s\'ha pogut desinstal·lar."</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"S\'ha produït un problema en analitzar el paquet."</string>
@@ -116,11 +115,11 @@
     <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> de <xliff:g id="COUNT_1">%2$d</xliff:g> aplicacions permeses"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"Mostra aplicacions del sistema"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"Amaga aplicacions del sistema"</string>
-    <string name="permission_title" msgid="6495415273398916381">"Permisos de <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
+    <string name="permission_title" msgid="6495415273398916381">"Permisos de: <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
     <string name="no_apps" msgid="1965493419005012569">"Cap aplicació"</string>
     <string name="location_settings" msgid="1774875730854491297">"Configuració d\'ubicació"</string>
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> és un proveïdor de serveis d\'ubicació per a aquest dispositiu. L\'accés a la ubicació es pot modificar des de la configuració d\'ubicació."</string>
-    <string name="system_warning" msgid="7103819124542305179">"Si no acceptes aquest permís, hi ha funcions bàsiques del dispositiu que poden deixar de funcionar com esperes."</string>
+    <string name="system_warning" msgid="7103819124542305179">"Si rebutges aquest permís, és possible que funcions bàsiques del dispositiu deixin de funcionar correctament."</string>
     <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Aplicat en funció de la política"</string>
     <string name="loading" msgid="7811651799620593731">"S\'està carregant..."</string>
     <string name="all_permissions" msgid="5156669007784613042">"Tots els permisos"</string>
