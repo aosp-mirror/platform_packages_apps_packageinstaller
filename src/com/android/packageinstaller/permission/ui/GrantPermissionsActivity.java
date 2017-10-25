@@ -40,6 +40,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.android.internal.logging.nano.MetricsProto;
 import com.android.packageinstaller.DeviceUtils;
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
@@ -219,7 +220,8 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
             for (int permissionNum = 0; permissionNum < numRequestedPermissions; permissionNum++) {
                 String permission = mRequestedPermissions[permissionNum];
 
-                EventLogger.logPermissionRequested(this, permission,
+                EventLogger.logPermission(
+                        MetricsProto.MetricsEvent.ACTION_PERMISSION_REQUESTED, permission,
                         mAppPermissions.getPackageInfo().packageName);
             }
         }
@@ -333,7 +335,8 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
                     String permission = mRequestedPermissions[i];
 
                     if (groupState.mGroup.hasPermission(permission)) {
-                        EventLogger.logPermissionDenied(this, permission,
+                        EventLogger.logPermission(
+                                MetricsProto.MetricsEvent.ACTION_PERMISSION_DENIED, permission,
                                 mAppPermissions.getPackageInfo().packageName);
                     }
                 }
