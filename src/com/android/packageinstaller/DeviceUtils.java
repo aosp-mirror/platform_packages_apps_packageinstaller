@@ -29,4 +29,8 @@ public class DeviceUtils {
     public static boolean isWear(final Context context) {
         return context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_WATCH);
     }
+
+    public static boolean isAuto(Context context) {
+        return context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE);
+    }
 }

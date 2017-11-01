@@ -16,6 +16,8 @@
   -->
 
 <resources>
+    <style name="DialogWhenLarge" parent="@android:style/Theme.DeviceDefault.NoActionBar"/>
+
     <style name="Settings" parent="@android:style/Theme.DeviceDefault.NoActionBar" />
 
     <style name="GrantPermissions" parent="@android:style/Theme.DeviceDefault.NoActionBar">

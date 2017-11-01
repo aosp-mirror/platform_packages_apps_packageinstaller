@@ -24,6 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"Atcelt"</string>
     <string name="unknown" msgid="4742479012767208045">"Nezināms"</string>
     <string name="installing" msgid="8613631001631998372">"Notiek instalēšana..."</string>
+    <string name="installing_app" msgid="4097935682329028894">"Notiek pakotnes <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> instalēšana…"</string>
     <string name="install_done" msgid="3682715442154357097">"Lietotne ir instalēta."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Vai vēlaties instalēt šo lietojumprogrammu? Tā iegūs piekļuvi:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Vai vēlaties instalēt šo lietojumprogrammu? Tai nav nepieciešamas īpašas piekļuves atļaujas."</string>
@@ -33,19 +34,18 @@
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Vai vēlaties instalēt šīs iebūvētās lietojumprogrammas atjauninājumu? Esošie dati netiks zaudēti. Tam nav nepieciešama īpaša piekļuves atļauja."</string>
     <string name="install_failed" msgid="6579998651498970899">"Lietotne nav instalēta."</string>
     <string name="install_failed_blocked" msgid="1606870930588770025">"Pakotnes instalēšana tika bloķēta."</string>
-    <string name="install_failed_conflict" msgid="5349055145440204106">"Pakotne ir konfliktā ar esošo pakotni, jo to nosaukumi ir vienādi."</string>
-    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"Šī lietotne nav saderīga ar jūsu planšetdatoru."</string>
+    <string name="install_failed_conflict" msgid="5336045235168070954">"Lietotne netika instalēta, jo rodas pakotnes konflikts ar esošo pakotni."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="6682387386242708974">"Lietotne netika instalēta, jo tā nav saderīga ar jūsu planšetdatoru."</string>
     <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Šī lietotne nav saderīga ar jūsu televizoru."</string>
-    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"Šī lietotne nav saderīga ar jūsu tālruni."</string>
-    <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Šķiet, ka pakotne ir bojāta."</string>
+    <string name="install_failed_incompatible" product="default" msgid="7917996365659426872">"Lietotne netika instalēta, jo tā nav saderīga ar jūsu tālruni."</string>
+    <string name="install_failed_invalid_apk" msgid="269885385245534742">"Lietotne netika instalēta, jo šķiet, ka pakotne nav derīga."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Lietotni <xliff:g id="APP_NAME">%1$s</xliff:g> nevarēja instalēt planšetdatorā."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Lietotni <xliff:g id="APP_NAME">%1$s</xliff:g> nevarēja instalēt jūsu televizorā."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Lietotni <xliff:g id="APP_NAME">%1$s</xliff:g> nevarēja instalēt tālrunī."</string>
     <string name="launch" msgid="4826921505917605463">"Atvērt"</string>
-    <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Drošības dēļ planšetdatorā tiek bloķēta to lietotņu instalēšana, kas iegūtas no nezināmiem avotiem."</string>
-    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Drošības nolūkos jūsu televizorā tiek bloķēta no nezināmiem avotiem iegūtu lietotņu instalēšana."</string>
-    <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Drošības dēļ tālrunī tiek bloķēta to lietotņu instalēšana, kas iegūtas no nezināmiem avotiem."</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Jūsu administrators neļauj instalēt lietotnes, kas iegūtas no nezināmiem avotiem."</string>
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"Jūsu administrators neļauj instalēt lietotnes, kas iegūtas no nezināmiem avotiem."</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Šis lietotājs nevar instalēt lietotnes, kas iegūtas no nezināmiem avotiem."</string>
+    <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"Šim lietotājam nav atļauts instalēt lietotnes"</string>
     <string name="ok" msgid="3468756155452870475">"Labi"</string>
     <string name="settings" msgid="6743583734099755409">"Iestatījumi"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Pārvaldīt lietotnes"</string>
@@ -57,6 +57,10 @@
     <string name="dlg_ok" msgid="6944357727705699232">"Labi"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Lietotne nav atrasta"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Šī lietotne netika atrasta instalēto lietotņu sarakstā."</string>
+    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"Nav atļauts"</string>
+    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"Pašreizējam lietotājam nav atļauts veikt atinstalēšanu."</string>
+    <string name="generic_error_dlg_title" msgid="2684806600635296961">"Kļūda"</string>
+    <string name="generic_error_dlg_text" msgid="4288738047825333954">"Nevarēja atinstalēt lietotni."</string>
     <string name="uninstall_application_title" msgid="1860074100811653963">"Atinstalēt lietotni"</string>
     <string name="uninstall_update_title" msgid="4146940097553335390">"Atinstalēt atjauninājumu"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> ir daļa no šādas lietotnes:"</string>
@@ -65,15 +69,20 @@
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"Vai vēlaties atinstalēt šo lietotni lietotājam <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
     <string name="uninstall_update_text" msgid="1394549691152728409">"Vai aizstāt šo lietotni ar rūpnīcas versiju? Visi dati tiks noņemti."</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Vai aizstāt šo lietotni ar rūpnīcas versiju? Visi dati tiks noņemti. Tas ietekmēs visu šīs ierīces lietotāju (arī to lietotāju, kuriem ir darba profili) datus."</string>
+    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"Pašlaik veiktie atinstalēšanas gadījumi"</string>
+    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"Neizdevušies atinstalēšanas gadījumi"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Notiek atinstalēšana..."</string>
+    <string name="uninstalling_app" msgid="2773617614877719294">"Notiek lietotnes <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> atinstalēšana…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Atinstalēšana ir pabeigta."</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"Lietotne <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ir atinstalēta"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Atinstalēšana neizdevās."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Nevar atinstalēt, jo ar šo pakotni tiek veikta ierīces administrēšana."</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Nevar atinstalēt, jo pakotne ietver aktīvu ierīces administratoru lietotājam <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
+    <string name="uninstall_failed_app" msgid="945277834056527022">"Lietotnes <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> atinstalēšana nebija sekmīga."</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"Neizdevās atinstalēt aktīvas ierīces administratora lietotnes."</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"Neizdevās atinstalēt aktīvas ierīces administratora lietotni <xliff:g id="USERNAME">%1$s</xliff:g>."</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Šī lietotne ir nepieciešama dažiem lietotājiem vai profiliem un tika atinstalēta citiem"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"Šī lietotne ir nepieciešama jūsu profilam, tāpēc to nevar atinstalēt."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Ierīces administrators ir noteicis, ka lietotne ir obligāta un to nevar atinstalēt."</string>
-    <string name="manage_device_administrators" msgid="891392489300312370">"Pārvaldīt ierīces administratorus"</string>
+    <string name="manage_device_administrators" msgid="118178632652346535">"Pārvaldīt ierīces administratora lietotnes"</string>
     <string name="manage_users" msgid="3125018886835668847">"Pārvaldīt lietotājus"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"Lietotni <xliff:g id="APP_NAME">%1$s</xliff:g> nevarēja atinstalēt."</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Parsējot pakotni, radās problēma."</string>
@@ -84,9 +93,13 @@
     <string name="no_new_perms" msgid="6657813692169565975">"Šim atjauninājumam nav nepieciešamas jaunas atļaujas."</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"Vai vēlaties piešķirt tālāk norādītās atļaujas? Tiks piešķirta šāda piekļuve:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Neatļaut"</string>
+    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Plašāka informācija"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Tomēr noraidīt"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>. no <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="7332275268559121742">"Vai atļaut lietotnei &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_revoked_count" msgid="7386129423432613024">"<xliff:g id="COUNT">%1$d</xliff:g> atspējotas"</string>
+    <string name="permission_revoked_all" msgid="8595742638132863678">"visas atspējotas"</string>
+    <string name="permission_revoked_none" msgid="2059511550181271342">"neviena nav atspējota"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Atļaut"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Lietotnes"</string>
     <string name="app_permissions" msgid="3146758905824597178">"Lietotnes atļaujas"</string>
@@ -119,12 +132,21 @@
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Wear ierīcē netiek atbalstīta instalēšana/atinstalēšana"</string>
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"Lietotne <xliff:g id="APP_NAME_0">%1$s</xliff:g> ir atjaunināta. Vai atļaut lietotnei <xliff:g id="APP_NAME_1">%1$s</xliff:g> piekļūt tālāk norādītajiem vienumiem?"</string>
-    <string name="permission_review_title_template_install" msgid="6535540493936469336">"Izvēlieties, kādas piekļuves atļaujas piešķirt lietotnei <xliff:g id="APP_NAME">%1$s</xliff:g>"</string>
-    <string name="permission_review_title_template_update" msgid="2548815248828051885">"Lietotne <xliff:g id="APP_NAME">%1$s</xliff:g> ir atjaunināta. Izvēlieties, kādas piekļuves atļaujas tai piešķirt."</string>
+    <string name="permission_review_title_template_install" msgid="6819338441305295479">"Izvēlieties, kādas piekļuves atļaujas piešķirt lietotnei &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;"</string>
+    <string name="permission_review_title_template_update" msgid="8632233603161669426">"Lietotne &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ir atjaunināta. Izvēlieties, kādas piekļuves atļaujas tai piešķirt."</string>
     <string name="review_button_cancel" msgid="957906817733578877">"Atcelt"</string>
     <string name="review_button_continue" msgid="4809162078179371370">"Turpināt"</string>
     <string name="new_permissions_category" msgid="3213523410139204183">"Jaunas atļaujas"</string>
     <string name="current_permissions_category" msgid="998210994450606094">"Pašreizējās atļaujas"</string>
     <string name="message_staging" msgid="6151794817691100003">"Lietotne tiek izstādīta…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"Nezināms"</string>
+    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Drošības nolūkos jūsu planšetdatorā nedrīkst instalēt no šī avota iegūtas nezināmas lietotnes."</string>
+    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Drošības nolūkos jūsu televizorā nedrīkst instalēt no šī avota iegūtas nezināmas lietotnes."</string>
+    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Drošības nolūkos jūsu tālrunī nedrīkst instalēt no šī avota iegūtas nezināmas lietotnes."</string>
+    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"Jūsu tālruņa un personas dati ir neaizsargātāki pret uzbrukumiem no nezināmām lietotnēm. Instalējot šo lietotni, jūs piekrītat, ka esat atbildīgs par tālruņa bojājumiem vai datu zudumu, kas var rasties lietotnes dēļ."</string>
+    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"Jūsu planšetdatora un personas dati ir neaizsargātāki pret uzbrukumiem no nezināmām lietotnēm. Instalējot šo lietotni, jūs piekrītat, ka esat atbildīgs par planšetdatora bojājumiem vai datu zudumu, kas var rasties lietotnes dēļ."</string>
+    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Jūsu televizora un personas dati ir neaizsargātāki pret uzbrukumiem no nezināmām lietotnēm. Instalējot šo lietotni, jūs piekrītat, ka esat atbildīgs par televizora bojājumiem vai datu zudumu, kas var rasties lietotnes dēļ."</string>
+    <string name="anonymous_source_continue" msgid="2094381167954332292">"Turpināt"</string>
+    <string name="external_sources_settings" msgid="8601453744517291632">"Iestatījumi"</string>
+    <string name="wear_app_channel" msgid="6200840123672949356">"Wear lietotņu instalēšana/atinstalēšana"</string>
 </resources>

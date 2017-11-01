@@ -19,12 +19,7 @@ package com.android.packageinstaller.permission.model;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.text.BidiFormatter;
-import android.text.TextPaint;
-import android.text.TextUtils;
-
-import com.android.packageinstaller.DeviceUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -48,11 +43,11 @@ public final class AppPermissions {
 
     private PackageInfo mPackageInfo;
 
-    public AppPermissions(Context context, PackageInfo packageInfo, String[] permissions,
+    public AppPermissions(Context context, PackageInfo packageInfo, String[] filterPermissions,
             boolean sortGroups, Runnable onErrorCallback) {
         mContext = context;
         mPackageInfo = packageInfo;
-        mFilterPermissions = permissions;
+        mFilterPermissions = filterPermissions;
         mAppLabel = BidiFormatter.getInstance().unicodeWrap(
                 packageInfo.applicationInfo.loadSafeLabel(
                 context.getPackageManager()).toString());
@@ -83,9 +78,7 @@ public final class AppPermissions {
     }
 
     public boolean isReviewRequired() {
-        if (!mContext.getResources().getBoolean(
-                com.android.internal.R.bool.config_permissionReviewRequired)
-                && !Build.PERMISSIONS_REVIEW_REQUIRED) {
+        if (!mContext.getPackageManager().isPermissionReviewModeEnabled()) {
             return false;
         }
         final int groupCount = mGroups.size();
@@ -122,34 +115,13 @@ public final class AppPermissions {
                     if (!filterPermission.equals(requestedPerm)) {
                         continue;
                     }
-
-                    if (hasGroupForPermission(requestedPerm)) {
-                        break;
-                    }
-
-                    AppPermissionGroup group = AppPermissionGroup.create(mContext,
-                            mPackageInfo, requestedPerm);
-                    if (group == null) {
-                        break;
-                    }
-
-                    mGroups.add(group);
+                    addPermissionGroupIfNeeded(requestedPerm);
                     break;
                 }
             }
         } else {
             for (String requestedPerm : mPackageInfo.requestedPermissions) {
-                if (hasGroupForPermission(requestedPerm)) {
-                    continue;
-                }
-
-                AppPermissionGroup group = AppPermissionGroup.create(mContext,
-                        mPackageInfo, requestedPerm);
-                if (group == null) {
-                    continue;
-                }
-
-                mGroups.add(group);
+                addPermissionGroupIfNeeded(requestedPerm);
             }
         }
 
@@ -161,6 +133,20 @@ public final class AppPermissions {
         for (AppPermissionGroup group : mGroups) {
             mNameToGroupMap.put(group.getName(), group);
         }
+    }
+
+    private void addPermissionGroupIfNeeded(String permission) {
+        if (hasGroupForPermission(permission)) {
+            return;
+        }
+
+        AppPermissionGroup group = AppPermissionGroup.create(mContext,
+                mPackageInfo, permission);
+        if (group == null) {
+            return;
+        }
+
+        mGroups.add(group);
     }
 
     private boolean hasGroupForPermission(String permission) {
