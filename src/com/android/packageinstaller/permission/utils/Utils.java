@@ -86,6 +86,10 @@ public final class Utils {
             return false;
         }
 
+        if (!group.isGrantingAllowed()) {
+            return false;
+        }
+
         final boolean isPlatformPermission = group.getDeclaringPackage().equals(OS_PKG);
         // Show legacy permissions only if the user chose that.
         if (isPlatformPermission
@@ -144,5 +148,29 @@ public final class Utils {
     public static boolean isSystem(ApplicationInfo info, ArraySet<String> launcherPkgs) {
         return info.isSystemApp() && (info.flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) == 0
                 && !launcherPkgs.contains(info.packageName);
+    }
+
+    public static boolean areGroupPermissionsIndividuallyControlled(Context context, String group) {
+        if (!context.getPackageManager().isPermissionReviewModeEnabled()) {
+            return false;
+        }
+        return Manifest.permission_group.SMS.equals(group)
+                || Manifest.permission_group.PHONE.equals(group)
+                || Manifest.permission_group.CONTACTS.equals(group);
+    }
+
+    public static boolean isPermissionIndividuallyControlled(Context context, String permission) {
+        if (!context.getPackageManager().isPermissionReviewModeEnabled()) {
+            return false;
+        }
+        return Manifest.permission.READ_CONTACTS.equals(permission)
+                || Manifest.permission.WRITE_CONTACTS.equals(permission)
+                || Manifest.permission.SEND_SMS.equals(permission)
+                || Manifest.permission.RECEIVE_SMS.equals(permission)
+                || Manifest.permission.READ_SMS.equals(permission)
+                || Manifest.permission.RECEIVE_MMS.equals(permission)
+                || Manifest.permission.CALL_PHONE.equals(permission)
+                || Manifest.permission.READ_CALL_LOG.equals(permission)
+                || Manifest.permission.WRITE_CALL_LOG.equals(permission);
     }
 }

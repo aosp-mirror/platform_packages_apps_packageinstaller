@@ -24,7 +24,6 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PermissionInfo;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
-import android.os.Process;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.util.ArrayMap;
@@ -80,12 +79,30 @@ public class PermissionApps {
         createMap(loadPermissionApps());
     }
 
+    /**
+     * Start an async refresh and call back the registered call back once done.
+     *
+     * @param getUiInfo If the UI info should be updated
+     */
     public void refresh(boolean getUiInfo) {
+        if (mCallback == null) {
+            throw new IllegalStateException("callback needs to be set");
+        }
+
         if (!mRefreshing) {
             mRefreshing = true;
             mSkipUi = !getUiInfo;
             new PermissionAppsLoader().execute();
         }
+    }
+
+    /**
+     * Refresh the state and do not return until it finishes. Should not be called while an {@link
+     * #refresh async referesh} is in progress.
+     */
+    public void refreshSync() {
+        mSkipUi = true;
+        createMap(loadPermissionApps());
     }
 
     public int getGrantedCount(ArraySet<String> launcherPkgs) {
@@ -178,8 +195,9 @@ public class PermissionApps {
                         continue;
                     }
 
-                    if (requestedPermissionInfo.protectionLevel
-                                != PermissionInfo.PROTECTION_DANGEROUS
+                    if ((requestedPermissionInfo.protectionLevel
+                                & PermissionInfo.PROTECTION_MASK_BASE)
+                                    != PermissionInfo.PROTECTION_DANGEROUS
                             || (requestedPermissionInfo.flags
                                 & PermissionInfo.FLAG_INSTALLED) == 0
                             || (requestedPermissionInfo.flags
@@ -268,7 +286,8 @@ public class PermissionApps {
         } catch (PackageManager.NameNotFoundException e) {
             try {
                 PermissionInfo permInfo = mPm.getPermissionInfo(mGroupName, 0);
-                if (permInfo.protectionLevel != PermissionInfo.PROTECTION_DANGEROUS) {
+                if ((permInfo.protectionLevel & PermissionInfo.PROTECTION_MASK_BASE)
+                        != PermissionInfo.PROTECTION_DANGEROUS) {
                     Log.w(LOG_TAG, mGroupName + " is not a runtime permission");
                     return;
                 }
@@ -347,8 +366,8 @@ public class PermissionApps {
             return mAppPermissionGroup.hasGrantedByDefaultPermission();
         }
 
-        public boolean hasRuntimePermissions() {
-            return mAppPermissionGroup.hasRuntimePermission();
+        public boolean doesSupportRuntimePermissions() {
+            return mAppPermissionGroup.doesSupportRuntimePermissions();
         }
 
         public int getUserId() {

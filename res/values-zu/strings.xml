@@ -24,6 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"Khansela"</string>
     <string name="unknown" msgid="4742479012767208045">"Akwaziwa"</string>
     <string name="installing" msgid="8613631001631998372">"Iyafaka..."</string>
+    <string name="installing_app" msgid="4097935682329028894">"Ifaka i-<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="install_done" msgid="3682715442154357097">"I-App ifakiwe."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Ngabe ufuna ukufaka lolu hlelo lokusebenza? Lizothola ukufinyelela ku:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Ngabe ufuna ukufaka lolu hlelo lokusebenza? Alidingi ukufinyelela okukhethekile."</string>
@@ -33,19 +34,18 @@
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Ungabe ufuna ukukhipha isibuyekezo kulolu hlelo lokusebenza olakhelwe ngaphakathi? Idatha yakho ekhona ngeke ilahleke. Akudingi ukufinyelela okukhethekile."</string>
     <string name="install_failed" msgid="6579998651498970899">"I-app ayifakiwe."</string>
     <string name="install_failed_blocked" msgid="1606870930588770025">"Iphakheji livinjiwe kusukela ekufakweni."</string>
-    <string name="install_failed_conflict" msgid="5349055145440204106">"Iphakheji ishayisana nephakheji ekhona enegama elifanayo."</string>
-    <string name="install_failed_incompatible" product="tablet" msgid="119054044615117271">"Lolu hlelo lokusebenza aluhambisani nethebulethi yakho."</string>
+    <string name="install_failed_conflict" msgid="5336045235168070954">"Uhlelo lokusebenza alufakiwe njengoba ukuphakheja kushayisana nephakheji elikhona."</string>
+    <string name="install_failed_incompatible" product="tablet" msgid="6682387386242708974">"Uhlelo lokusebenza alufakiwe njengoba uhlelo lokusebenza lungahambisani nethebulethi yakho."</string>
     <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Lolu hlelo lokusebenza aluhambisani ne-TV yakho."</string>
-    <string name="install_failed_incompatible" product="default" msgid="6677057915876853610">"Lolu hlelo lokusebenza aluhambisani nefoni yakho."</string>
-    <string name="install_failed_invalid_apk" msgid="1287935707565682604">"Iphasela libonakala lonakalisiwe"</string>
+    <string name="install_failed_incompatible" product="default" msgid="7917996365659426872">"Uhlelo lokusebenza alufakiwe njengoba uhlelo lokusebenza lungahambisani nefoni yakho."</string>
+    <string name="install_failed_invalid_apk" msgid="269885385245534742">"Uhlelo lokusebenza alufakiwe njengoba iphakheji ibonakala ingavumelekile."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"I-<xliff:g id="APP_NAME">%1$s</xliff:g> ayikwazanga ukufakwa kuthebhulethi."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"I-<xliff:g id="APP_NAME">%1$s</xliff:g> ayikwazanga ukufakwa ku-TV yakho."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"I-<xliff:g id="APP_NAME">%1$s</xliff:g> ayikwazanga ukufakwa efonini."</string>
     <string name="launch" msgid="4826921505917605463">"Vula"</string>
-    <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"Ngokuphepha, ithebhulethi yakho isethelwe ukuvimbela ukufakwa kwezinhlelo zokusebenza ezitholwa emithonjeni engaziwa."</string>
-    <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"Ukuze kuvikelwe, i-TV yakho isethelwe ukuthi ivimbele ukufakwa kwezinhlelo zokusebenza ezithathwe kumithombo engaziwa."</string>
-    <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"Ngokuphepha, ifoni yakho isethelwe ukuvimbela ukufakwa kwezinhlelo zokusebenza ezitholwa emithonjeni engaziwa."</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"Umlawuli wakho akavumeli ukufakwa kwezinhlelo zokusebenza okutholwe kusukela kumithombo engaziwa."</string>
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"Umlawuli wakho akavumeli ukufakwa kwezinhlelo zokusebenza ezitholwe kusukela kumithombo engaziwa"</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Izinhlelo zokusebenza ezingaziwa azikwazi ukufakwa ilo msebenzisi"</string>
+    <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"Lo msebenzisi akavunyelwe ukufaka izinhlelo zokusebenza"</string>
     <string name="ok" msgid="3468756155452870475">"KULUNGILE"</string>
     <string name="settings" msgid="6743583734099755409">"Izilungiselelo"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Phatha izinhlelo zokusebenza"</string>
@@ -57,6 +57,10 @@
     <string name="dlg_ok" msgid="6944357727705699232">"KULUNGILE"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"I-App ayitholakalanga"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Uhlelo lokusebenza alutholakalanga ohlwini lwezinhlelo zokusebenza ezifakiwe."</string>
+    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"Akuvumelekile"</string>
+    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"Umsebenzisi wamanje akavunyelwe ukwenza lokhu kukhipha."</string>
+    <string name="generic_error_dlg_title" msgid="2684806600635296961">"Iphutha"</string>
+    <string name="generic_error_dlg_text" msgid="4288738047825333954">"Amafu ohlelo lokusebenza angakhishwa."</string>
     <string name="uninstall_application_title" msgid="1860074100811653963">"Khipha i-app"</string>
     <string name="uninstall_update_title" msgid="4146940097553335390">"Khipha isibuyekezo"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"I-<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> ingxenye yohlelo lokusebenza olulandelayo:"</string>
@@ -65,15 +69,20 @@
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"Ingabe ufuna ukukhiphela lolu hlelo lokusebenza kumsebenzisi ongu-<xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
     <string name="uninstall_update_text" msgid="1394549691152728409">"Shintshanisa lolu hlelo lokusebenza ngenguqulo yasekuqaleni? Yonke idatha izosuswa."</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Shintshanisa lolu hlelo lokusebenza ngenguqulo yasekuqaleni? Yonke idatha izosuswa. Lokhu kuthinta bonke abasebenzisi bale divayisi, abafaka labo abanamaphrofayela wokusebenza."</string>
+    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"Ukukhishwa okuqhubekayo"</string>
+    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"Ukukhishwa okuhlulekile"</string>
     <string name="uninstalling" msgid="5556217435895938250">"Iyakhipha..."</string>
+    <string name="uninstalling_app" msgid="2773617614877719294">"Ikhipha i-<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"Ukukhipha kuqedile"</string>
+    <string name="uninstall_done_app" msgid="775837862728680479">"Kukhishwe i-<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Ukukhipha akuphumelelanga."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"Ayikwazi ukukhupha: leliphasela liwumqondisi wedivayisi osebenzayo"</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"Ayikwazi ukukhipha ngoba le phakheji ingumlawuli osebenzayo wedivayisi womsebenzisi we-<xliff:g id="USERNAME">%1$s</xliff:g>."</string>
+    <string name="uninstall_failed_app" msgid="945277834056527022">"Ukukhipha i-<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> akuphumelele."</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"Ayikwazi ukukhipha uhlelo lokusebenza lomlawuli ledivayisi esebenzayo"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"Ayikwazi ukukhipha uhlelo lokusebenza lomlawuli ledivayisi esebenzayo lika-<xliff:g id="USERNAME">%1$s</xliff:g>"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Lolu hlelo lokusebenza luyadingeka kwabanye abasebenzisi noma amaphrofayela futhi lukhishelwe abanye"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"Lolu hlelo lokusebenza ludingelwa iphrofayela yakho futhi alikwazi ukukhishwa."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Lolu hlelo lokusebenza ludingwa umlawuli wedivayisi yakho futhi alukwazi ukukhishwa."</string>
-    <string name="manage_device_administrators" msgid="891392489300312370">"Phatha amadivayisi abaqondisi"</string>
+    <string name="manage_device_administrators" msgid="118178632652346535">"Phatha izinhlelo zokusebenza zedivayisi yomlawuli"</string>
     <string name="manage_users" msgid="3125018886835668847">"Phatha abasebenzisi"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"I-<xliff:g id="APP_NAME">%1$s</xliff:g> ayikwazanga ukukhishwa"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Kube nenkinga yokwehlukanisa iphakheji."</string>
@@ -84,9 +93,13 @@
     <string name="no_new_perms" msgid="6657813692169565975">"Lesi sibuyekezo asidingi zimvume."</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"Ufuna ukunikeza lezi zimvume ezilandelayo? Izothola ukufinyelela ku-:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Phika"</string>
+    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Olunye ulwazi"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Yenqaba noma kunjalo"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> kokungu-<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="7332275268559121742">"Vumela i-&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ukuthi <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_revoked_count" msgid="7386129423432613024">"<xliff:g id="COUNT">%1$d</xliff:g> kukhutshaziwe"</string>
+    <string name="permission_revoked_all" msgid="8595742638132863678">"konke kukhutshaziwe"</string>
+    <string name="permission_revoked_none" msgid="2059511550181271342">"Lutho olukhutshaziwe"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Vumela"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Izinhlelo zokusebenza"</string>
     <string name="app_permissions" msgid="3146758905824597178">"Izimvume zohlelo lokusebenza"</string>
@@ -118,12 +131,21 @@
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"I-Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Izenzo zokufaka/ukukhipha azisekelwe ku-Wear."</string>
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> ibuyekeziwe. Vumela i-<xliff:g id="APP_NAME_1">%1$s</xliff:g> ukufinyelela okulandelayo?"</string>
-    <string name="permission_review_title_template_install" msgid="6535540493936469336">"Khetha ongakuvumela ukuthi kufinyelelwe yi-<xliff:g id="APP_NAME">%1$s</xliff:g>"</string>
-    <string name="permission_review_title_template_update" msgid="2548815248828051885">"<xliff:g id="APP_NAME">%1$s</xliff:g> ibuyekeziwe. Khetha ongakuvumela ukuthi kufinyelelwe yilolu hlelo lokusebenza."</string>
+    <string name="permission_review_title_template_install" msgid="6819338441305295479">"Khetha ukuthi uzovumela ini ukuthi i-&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ifinyelele kuyo"</string>
+    <string name="permission_review_title_template_update" msgid="8632233603161669426">"I-&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ibuyekeziwe. Khetha ukuthi uzovumela ini ukuthi ifinyelelwe ilolu hlelo lokusebenza."</string>
     <string name="review_button_cancel" msgid="957906817733578877">"Khansela"</string>
     <string name="review_button_continue" msgid="4809162078179371370">"Qhubeka"</string>
     <string name="new_permissions_category" msgid="3213523410139204183">"Izimvume ezintsha"</string>
     <string name="current_permissions_category" msgid="998210994450606094">"Izimvume zamanje"</string>
     <string name="message_staging" msgid="6151794817691100003">"Ifaka kusiteji uhlelo lokusebenza…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"Akwaziwa"</string>
+    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Ukuze uvikelwe, ithebulethi yakho ayivunyelwe ukuthi ifake izinhlelo zokusebenza ezingaziwa kusukela kulo mthombo."</string>
+    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Ukuze uvikelwe, i-TV yakho ayivunyelwe ukuthi ifake izinhlelo zokusebenza ezingaziwa kusukela kulo mthombo."</string>
+    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Ukuze uvikelwe, ifoni yakho ayivunyelwe ukuthi ifake izinhlelo zokusebenza kusukela kulo mthombo."</string>
+    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"Idatha yakho yefoni neyohlelo lwakho lokusebenza isengcupheni kakhulu ekuhlaselweni izinhlelo zokusebenza ezingaziwa. Ngokufaka lolu hlelo lokusebenza, uyavuma ukuthi unesibopho sanoma ikuphi ukonakala kufoni yakho noma ukulahlekelwa kwedatha okungabangelwa ukusetshenziswa kwayo."</string>
+    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"Ithebulethi yakho nedatha yomuntu siqu zisengcupheni kakhulu ekuhlaselweni izinhlelo zokusebenza ezingaziwa. Ngokufaka lolu hlelo lokusebenza, uyavuma ukuthi unesibopho sanoma ikuphi ukonakala kuthebulethi yakho noma ukulahleka kwedatha okungabangelwa ukusetshenziswa kwayo."</string>
+    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Idatha yakho ye-TV neyomuntu siqu isengcupheni kakhulu ekuhlaselweni izinhlelo zokusebenza ezingaziwa. Ngokufaka lolu hlelo lokusebenza, uyavuma ukuthi unesibopho sanoma ikuphi ukonakala ku-TV yakho noma ukulahlekelwa kwedatha okungabangelwa ukusetshenziswa kwayo."</string>
+    <string name="anonymous_source_continue" msgid="2094381167954332292">"Qhubeka"</string>
+    <string name="external_sources_settings" msgid="8601453744517291632">"Izilungiselelo"</string>
+    <string name="wear_app_channel" msgid="6200840123672949356">"Ifaka/ikhipha izinhlelo zokusebenza ze-wear"</string>
 </resources>

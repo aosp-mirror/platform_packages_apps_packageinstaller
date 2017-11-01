@@ -24,6 +24,7 @@
     <string name="cancel">Cancel</string>
     <string name="unknown">Unknown</string>
     <string name="installing">Installing\u2026</string>
+    <string name="installing_app">Installing <xliff:g id="package_label">%1$s</xliff:g>\u2026</string>
     <string name="install_done">App installed.</string>
     <!-- Message for installing a new app that requires some permissions [CHAR LIMIT=NONE] -->
     <string name="install_confirm_question">Do you want to install this application?
@@ -53,10 +54,10 @@
     <string name="install_failed_blocked">The package was blocked from being installed.</string>
     <!-- Reason displayed when installation fails because the package conflicts with
         an existing application (e.g., incompatible certificates) [CHAR LIMIT=100] -->
-    <string name="install_failed_conflict">The package conflicts with an existing package by the same name.</string>
+    <string name="install_failed_conflict">App not installed as package conflicts with an existing package.</string>
     <!-- Reason displayed when installation fails because the package is incompatible with
        the current tablet (e.g., missing native code for the current ABI, newer SDK, ...) [CHAR LIMIT=100] -->
-    <string name="install_failed_incompatible" product="tablet">This app isn\'t
+    <string name="install_failed_incompatible" product="tablet">App not installed as app isn\'t
         compatible with your tablet.</string>
     <!-- Reason displayed when installation fails because the package is incompatible with
        the current TV (e.g., missing native code for the current ABI, newer SDK, ...) [CHAR LIMIT=100] -->
@@ -64,11 +65,11 @@
         compatible with your TV.</string>
     <!-- Reason displayed when installation fails because the package is incompatible with
        the current phone (e.g., missing native code for the current ABI, newer SDK, ...) [CHAR LIMIT=100] -->
-    <string name="install_failed_incompatible" product="default">This app isn\'t
+    <string name="install_failed_incompatible" product="default">App not installed as app isn\'t
         compatible with your phone.</string>
     <!-- Reason displayed when installation fails because the installation package itself is invalid
         in some way (e.g., corrupt) [CHAR LIMIT=100] -->
-    <string name="install_failed_invalid_apk">The package appears to be corrupt.</string>
+    <string name="install_failed_invalid_apk">App not installed as package appears to be invalid.</string>
     <!-- Message presented when an application could not be installed on the tablet for some reason. [CHAR LIMIT=100] -->
     <string name="install_failed_msg" product="tablet"><xliff:g id="app_name">%1$s</xliff:g> couldn\'t be installed on your tablet.</string>
     <!-- Message presented when an application could not be installed on the TV for some reason. [CHAR LIMIT=100] -->
@@ -76,14 +77,16 @@
     <!-- Message presented when an application could not be installed on the phone for some reason. [CHAR LIMIT=100] -->
     <string name="install_failed_msg" product="default"><xliff:g id="app_name">%1$s</xliff:g> couldn\'t be installed on your phone.</string>
     <string name="launch">Open</string>
-    <!-- Message presented in a dialog box when a package is requested to be installed, but the "Allow unknown applications" checkbox is not enabled. [CHAR LIMIT=100] -->
-    <string name="unknown_apps_dlg_text" product="tablet">For security, your tablet is set to block installation of apps obtained from unknown sources.</string>
-    <!-- Message presented in a dialog box when a package is requested to be installed, but the "Allow unknown applications" checkbox is not enabled. [CHAR LIMIT=100] -->
-    <string name="unknown_apps_dlg_text" product="tv">For security, your TV is set to block installation of apps obtained from unknown sources.</string>
-    <!-- Message presented in a dialog box when a package is requested to be installed, but the "Allow unknown applications" checkbox is not enabled. [CHAR LIMIT=100] -->
-    <string name="unknown_apps_dlg_text" product="default">For security, your phone is set to block installation of apps obtained from unknown sources.</string>
+
     <!-- Message presented in a dialog box when the device administrator restricts the installation of apps from unknown sources. [CHAR LIMIT=none] -->
-    <string name="unknown_apps_admin_dlg_text">Your administrator doesn\'t allow installation of apps obtained from unknown sources.</string>
+    <string name="unknown_apps_admin_dlg_text">Your admin doesn\'t allow installation of apps
+        obtained from unknown sources</string>
+    <!-- Message presented in a dialog box when the user restriction set by the system restricts the installation of apps from unknown sources. [CHAR LIMIT=none] -->
+    <string name="unknown_apps_user_restriction_dlg_text">Unknown apps can\'t be installed by this
+        user</string>
+    <!-- Message presented in a dialog box when the user restriction set by the system restricts the installation of apps. [CHAR LIMIT=none] -->
+    <string name="install_apps_user_restriction_dlg_text">This user is not allowed to install apps</string>
+
 
     <string name="ok">OK</string>
     <string name="settings">Settings</string>
@@ -98,6 +101,10 @@
     <string name="dlg_ok">OK</string>
     <string name="app_not_found_dlg_title">App not found</string>
     <string name="app_not_found_dlg_text"> The app wasn\'t found in the list of installed apps.</string>
+    <string name="user_is_not_allowed_dlg_title">Not allowed</string>
+    <string name="user_is_not_allowed_dlg_text">The current user is not allowed to perform this uninstallation.</string>
+    <string name="generic_error_dlg_title">Error</string>
+    <string name="generic_error_dlg_text">App could not be uninstalled.</string>
     <string name="uninstall_application_title">Uninstall app</string>
     <string name="uninstall_update_title">Uninstall update</string>
     <string name="uninstall_activity_text"><xliff:g id="activity_name">%1$s</xliff:g> is part of the following app:</string>
@@ -107,17 +114,26 @@
     <string name="uninstall_application_text_user">Do you want to uninstall this app for the user <xliff:g id="username">%1$s</xliff:g>?</string>
     <string name="uninstall_update_text">Replace this app with the factory version? All data will be removed.</string>
     <string name="uninstall_update_text_multiuser">Replace this app with the factory version? All data will be removed. This affects all users of this device, including those with work profiles.</string>
+
+    <!-- Label for the notification channel containing notifications for current uninstall operations [CHAR LIMIT=40] -->
+    <string name="uninstalling_notification_channel">Running uninstalls</string>
+    <!-- Label for the notification channel containing notifications for failed uninstall operations [CHAR LIMIT=40] -->
+    <string name="uninstall_failure_notification_channel">Failed uninstalls</string>
+
     <string name="uninstalling">Uninstalling\u2026</string>
+    <string name="uninstalling_app">Uninstalling <xliff:g id="package_label">%1$s</xliff:g>\u2026</string>
     <string name="uninstall_done">Uninstall finished.</string>
+    <string name="uninstall_done_app">Uninstalled <xliff:g id="package_label">%1$s</xliff:g></string>
     <string name="uninstall_failed">Uninstall unsuccessful.</string>
+    <string name="uninstall_failed_app">Uninstalling <xliff:g id="package_label">%1$s</xliff:g> unsuccessful.</string>
     <!-- String presented to the user when uninstalling a package failed because the target package
         is a current device administrator [CHAR LIMIT=80] -->
-    <string name="uninstall_failed_device_policy_manager">Can\'t uninstall because this package is an
-        active device administrator.</string>
+    <string name="uninstall_failed_device_policy_manager">Can\'t uninstall active device admin
+        app</string>
     <!-- String presented to the user when uninstalling a package failed because the target package
         is a current device administrator for some user [CHAR LIMIT=100] -->
-    <string name="uninstall_failed_device_policy_manager_of_user">Can\'t uninstall because this package is an
-        active device administrator for the user <xliff:g id="username">%1$s</xliff:g>.</string>
+    <string name="uninstall_failed_device_policy_manager_of_user">Can\'t uninstall active device
+        admin app for <xliff:g id="username">%1$s</xliff:g></string>
     <!-- String presented to the admin user when uninstalling a package for all users failed
     because a profile owner has marked the target package as not able to be uninstalled
     [CHAR LIMIT=120] -->
@@ -131,10 +147,10 @@
          has marked the the target package as not able to be uninstalled [CHAR LIMIT=80] -->
     <string name="uninstall_blocked_device_owner">This app is required
         by your device administrator and can\'t be uninstalled.</string>
-    <!-- String on a button that leads to the "device administrator" configuration setting where a
-        user will be able to disable the device administrator in order to uninstall
+    <!-- String on a button that leads to the "device admin apps" configuration setting where a
+        user will be able to disable the device admin app in order to uninstall
         it. [CHAR LIMIT=50] -->
-    <string name="manage_device_administrators">Manage device administrators</string>
+    <string name="manage_device_administrators">Manage device admin apps</string>
     <!-- String on a button that leads to the "Users" page in Settings where a
         user will be able to remove the secondary user(s) in order to uninstall
         the app. [CHAR LIMIT=50] -->
@@ -162,6 +178,9 @@
     <!-- Title for the dialog button to deny a permission grant. -->
     <string name="grant_dialog_button_deny">Deny</string>
 
+    <!-- Title for the dialog button to get more info about a permission. -->
+    <string name="grant_dialog_button_more_info">More info</string>
+
     <!-- Title for the dialog button to deny a permission grant despite a warning of implications. -->
     <string name="grant_dialog_button_deny_anyway">Deny anyway</string>
 
@@ -174,6 +193,15 @@
     <string name="permission_warning_template">Allow
         &lt;b><xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b> to
         <xliff:g id="action" example="do something">%2$s</xliff:g>?</string>
+
+    <!-- Template for the message how many permissions are disabled. -->
+    <string name="permission_revoked_count"><xliff:g id="count" example="2">%1$d</xliff:g> disabled</string>
+
+    <!-- Message that all permissions are disabled. -->
+    <string name="permission_revoked_all">all disabled</string>
+
+    <!-- Message that no permissions are disabled. -->
+    <string name="permission_revoked_none">none disabled</string>
 
     <!-- Permissions -->
 
@@ -280,11 +308,11 @@
 
     <!-- Template for the screen title when app permissions are reviewed on install. -->
     <string name="permission_review_title_template_install">Choose what to allow
-        <xliff:g id="app_name" example="Gmail">%1$s</xliff:g> to access</string>
+        &lt;b><xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b> to access</string>
 
     <!-- Template for the screen title when app permissions are reviewed on update. -->
     <string name="permission_review_title_template_update">
-        <xliff:g id="app_name" example="Gmail">%1$s</xliff:g> has been updated.
+        &lt;b><xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b> has been updated.
         Choose what to allow this app to access.</string>
 
     <!-- Title for the dialog button to cancel the detailed permission review. -->
@@ -307,5 +335,47 @@
 
     <!-- Help URL, application permissions [DO NOT TRANSLATE] -->
     <string name="help_app_permissions" translatable="false"></string>
+
+    <!-- Text to show in warning dialog on the tablet when the app source is not trusted [CHAR LIMIT=NONE] -->
+    <string name="untrusted_external_source_warning" product="tablet">For your security, your tablet is not allowed to install unknown apps from this source.</string>
+
+    <!-- Text to show in warning dialog on the tv when the app source is not trusted [CHAR LIMIT=NONE] -->
+    <string name="untrusted_external_source_warning" product="tv">For your security, your TV is not allowed to install unknown apps from this source.</string>
+
+    <!-- Text to show in warning dialog on the phone when the app source is not trusted [CHAR LIMIT=NONE] -->
+    <string name="untrusted_external_source_warning" product="default">For your security, your phone is not allowed to install unknown apps from this source.</string>
+
+    <!-- Text to show in warning dialog on the phone when the app source cannot be identified [CHAR LIMIT=NONE] -->
+    <string name="anonymous_source_warning" product="default">
+        Your phone and personal data are more vulnerable
+        to attack by unknown apps. By installing this app, you
+        agree that you are responsible for any damage to your
+        phone or loss of data that may result from its use.
+    </string>
+
+    <!-- Text to show in warning dialog on the tablet when the app source cannot be identified [CHAR LIMIT=NONE] -->
+    <string name="anonymous_source_warning" product="tablet">
+        Your tablet and personal data are more vulnerable
+        to attack by unknown apps. By installing this app, you
+        agree that you are responsible for any damage to your
+        tablet or loss of data that may result from its use.
+    </string>
+
+    <!-- Text to show in warning dialog on the tv when the app source cannot be identified [CHAR LIMIT=NONE] -->
+    <string name="anonymous_source_warning" product="tv">
+        Your TV and personal data are more vulnerable
+        to attack by unknown apps. By installing this app, you
+        agree that you are responsible for any damage to your
+        TV or loss of data that may result from its use.
+    </string>
+
+    <!-- Label for button to continue install of an app whose source cannot be identified [CHAR LIMIT=40] -->
+    <string name="anonymous_source_continue">Continue</string>
+
+    <!-- Label for button to open manage external sources settings [CHAR LIMIT=45] -->
+    <string name="external_sources_settings">Settings</string>
+
+    <!-- Label for the notification channel containing notifications for embedded app operations [CHAR LIMIT=40] -->
+    <string name="wear_app_channel">Installing/uninstalling wear apps</string>
 
 </resources>

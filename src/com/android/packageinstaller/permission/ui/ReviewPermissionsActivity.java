@@ -34,7 +34,9 @@ import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.preference.TwoStatePreference;
+import android.text.Html;
 import android.text.SpannableString;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import android.util.TypedValue;
@@ -42,12 +44,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.android.packageinstaller.DeviceUtils;
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.packageinstaller.permission.ui.ConfirmActionDialogFragment.OnActionConfirmedListener;
+import com.android.packageinstaller.permission.ui.wear.ReviewPermissionsWearFragment;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public final class ReviewPermissionsActivity extends Activity
@@ -63,10 +68,16 @@ public final class ReviewPermissionsActivity extends Activity
             return;
         }
 
-        setContentView(R.layout.review_permissions);
-        if (getFragmentManager().findFragmentById(R.id.preferences_frame) == null) {
-            getFragmentManager().beginTransaction().add(R.id.preferences_frame,
-                    ReviewPermissionsFragment.newInstance(packageInfo)).commit();
+        if (DeviceUtils.isWear(this)) {
+            Fragment fragment = ReviewPermissionsWearFragment.newInstance(packageInfo);
+            getFragmentManager().beginTransaction()
+                    .replace(android.R.id.content, fragment).commit();
+        } else {
+            setContentView(R.layout.review_permissions);
+            if (getFragmentManager().findFragmentById(R.id.preferences_frame) == null) {
+                getFragmentManager().beginTransaction().add(R.id.preferences_frame,
+                        ReviewPermissionsFragment.newInstance(packageInfo)).commit();
+            }
         }
     }
 
@@ -101,8 +112,10 @@ public final class ReviewPermissionsActivity extends Activity
 
         private Button mContinueButton;
         private Button mCancelButton;
+        private Button mMoreInfoButton;
 
         private PreferenceCategory mNewPermissionsCategory;
+        private PreferenceCategory mCurrentPermissionsCategory;
 
         private boolean mHasConfirmedRevoke;
 
@@ -181,6 +194,12 @@ public final class ReviewPermissionsActivity extends Activity
             } else if (view == mCancelButton) {
                 executeCallback(false);
                 activity.setResult(Activity.RESULT_CANCELED);
+            } else if (view == mMoreInfoButton) {
+                Intent intent = new Intent(Intent.ACTION_MANAGE_APP_PERMISSIONS);
+                intent.putExtra(Intent.EXTRA_PACKAGE_NAME,
+                        mAppPermissions.getPackageInfo().packageName);
+                intent.putExtra(ManagePermissionsActivity.EXTRA_ALL_PERMISSIONS, true);
+                getActivity().startActivity(intent);
             }
             activity.finish();
         }
@@ -218,22 +237,29 @@ public final class ReviewPermissionsActivity extends Activity
         }
 
         private void confirmPermissionsReview() {
-            PreferenceGroup preferenceGroup = mNewPermissionsCategory != null
-                ? mNewPermissionsCategory : getPreferenceScreen();
+            final List<PreferenceGroup> preferenceGroups = new ArrayList<PreferenceGroup>();
+            if (mNewPermissionsCategory != null) {
+                preferenceGroups.add(mNewPermissionsCategory);
+                preferenceGroups.add(mCurrentPermissionsCategory);
+            } else {
+                preferenceGroups.add(getPreferenceScreen());
+            }
 
-            final int preferenceCount = preferenceGroup.getPreferenceCount();
-            for (int i = 0; i < preferenceCount; i++) {
-                Preference preference = preferenceGroup.getPreference(i);
-                if (preference instanceof TwoStatePreference) {
-                    TwoStatePreference twoStatePreference = (TwoStatePreference) preference;
-                    String groupName = preference.getKey();
-                    AppPermissionGroup group = mAppPermissions.getPermissionGroup(groupName);
-                    if (twoStatePreference.isChecked()) {
-                        group.grantRuntimePermissions(false);
-                    } else {
-                        group.revokeRuntimePermissions(false);
+            for (PreferenceGroup preferenceGroup : preferenceGroups) {
+                final int preferenceCount = preferenceGroup.getPreferenceCount();
+                for (int i = 0; i < preferenceCount; i++) {
+                    Preference preference = preferenceGroup.getPreference(i);
+                    if (preference instanceof TwoStatePreference) {
+                        TwoStatePreference twoStatePreference = (TwoStatePreference) preference;
+                        String groupName = preference.getKey();
+                        AppPermissionGroup group = mAppPermissions.getPermissionGroup(groupName);
+                        if (twoStatePreference.isChecked()) {
+                            group.grantRuntimePermissions(false);
+                        } else {
+                            group.revokeRuntimePermissions(false);
+                        }
+                        group.resetReviewRequired();
                     }
-                    group.resetReviewRequired();
                 }
             }
         }
@@ -251,34 +277,29 @@ public final class ReviewPermissionsActivity extends Activity
             iconView.setImageDrawable(icon);
 
             // Set message
-            String appLabel = mAppPermissions.getAppLabel().toString();
             final int labelTemplateResId = isPackageUpdated()
                     ?  R.string.permission_review_title_template_update
                     :  R.string.permission_review_title_template_install;
-            SpannableString message = new SpannableString(getString(labelTemplateResId, appLabel));
+            Spanned message = Html.fromHtml(getString(labelTemplateResId,
+                    mAppPermissions.getAppLabel()), 0);
+
             // Set the permission message as the title so it can be announced.
-            activity.setTitle(message);
+            activity.setTitle(message.toString());
 
             // Color the app name.
-            final int appLabelStart = message.toString().indexOf(appLabel, 0);
-            final int appLabelLength = appLabel.length();
-
-            TypedValue typedValue = new TypedValue();
-            activity.getTheme().resolveAttribute(android.R.attr.colorAccent, typedValue, true);
-            final int color = activity.getColor(typedValue.resourceId);
-
-            message.setSpan(new ForegroundColorSpan(color), appLabelStart,
-                    appLabelStart + appLabelLength, 0);
             TextView permissionsMessageView = (TextView) activity.findViewById(
                     R.id.permissions_message);
             permissionsMessageView.setText(message);
-
 
             mContinueButton = (Button) getActivity().findViewById(R.id.continue_button);
             mContinueButton.setOnClickListener(this);
 
             mCancelButton = (Button) getActivity().findViewById(R.id.cancel_button);
             mCancelButton.setOnClickListener(this);
+
+            mMoreInfoButton = (Button)  getActivity().findViewById(
+                    R.id.permission_more_info_button);
+            mMoreInfoButton.setOnClickListener(this);
         }
 
         private void loadPreferences() {
@@ -295,7 +316,7 @@ public final class ReviewPermissionsActivity extends Activity
                 screen.removeAll();
             }
 
-            PreferenceGroup currentPermissionsCategory = null;
+            mCurrentPermissionsCategory = null;
             PreferenceGroup oldNewPermissionsCategory = mNewPermissionsCategory;
             mNewPermissionsCategory = null;
 
@@ -353,13 +374,13 @@ public final class ReviewPermissionsActivity extends Activity
                         mNewPermissionsCategory.addPreference(preference);
                     }
                 } else {
-                    if (currentPermissionsCategory == null) {
-                        currentPermissionsCategory = new PreferenceCategory(activity);
-                        currentPermissionsCategory.setTitle(R.string.current_permissions_category);
-                        currentPermissionsCategory.setOrder(2);
-                        screen.addPreference(currentPermissionsCategory);
+                    if (mCurrentPermissionsCategory == null) {
+                        mCurrentPermissionsCategory = new PreferenceCategory(activity);
+                        mCurrentPermissionsCategory.setTitle(R.string.current_permissions_category);
+                        mCurrentPermissionsCategory.setOrder(2);
+                        screen.addPreference(mCurrentPermissionsCategory);
                     }
-                    currentPermissionsCategory.addPreference(preference);
+                    mCurrentPermissionsCategory.addPreference(preference);
                 }
             }
         }

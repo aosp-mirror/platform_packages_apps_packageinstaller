@@ -28,7 +28,7 @@ import com.android.settingslib.RestrictedLockUtils;
 
 import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 
-public class RestrictedSwitchPreference extends SwitchPreference {
+public class RestrictedSwitchPreference extends MultiTargetSwitchPreference {
     private final Context mContext;
     private boolean mDisabledByAdmin;
     private EnforcedAdmin mEnforcedAdmin;

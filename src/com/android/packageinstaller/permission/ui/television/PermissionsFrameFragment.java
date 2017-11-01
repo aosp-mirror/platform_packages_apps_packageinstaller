@@ -16,8 +16,8 @@
 
 package com.android.packageinstaller.permission.ui.television;
 
-import android.annotation.Nullable;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v14.preference.PreferenceFragment;
 import android.support.v17.leanback.widget.VerticalGridView;
 import android.support.v7.preference.PreferenceScreen;
@@ -29,7 +29,7 @@ import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
-import com.android.packageinstaller.DeviceUtils;
+
 import com.android.packageinstaller.R;
 
 public abstract class PermissionsFrameFragment extends PreferenceFragment {

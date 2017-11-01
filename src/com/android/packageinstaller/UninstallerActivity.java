@@ -17,13 +17,16 @@
 package com.android.packageinstaller;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
+import android.app.ActivityThread;
 import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.ComponentName;
-import android.content.DialogInterface;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
@@ -31,7 +34,8 @@ import android.content.pm.IPackageDeleteObserver2;
 import android.content.pm.IPackageManager;
 import android.content.pm.PackageInstaller;
 import android.content.pm.PackageManager;
-import android.content.pm.UserInfo;
+import android.content.pm.VersionedPackage;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -39,124 +43,34 @@ import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.support.annotation.NonNull;
+import android.support.annotation.StringRes;
 import android.util.Log;
+
+import com.android.packageinstaller.handheld.ErrorDialogFragment;
+import com.android.packageinstaller.handheld.UninstallAlertDialogFragment;
+import com.android.packageinstaller.television.ErrorFragment;
+import com.android.packageinstaller.television.UninstallAlertFragment;
+import com.android.packageinstaller.television.UninstallAppProgress;
+
+import java.util.List;
 
 /*
  * This activity presents UI to uninstall an application. Usually launched with intent
- * Intent.ACTION_UNINSTALL_PKG_COMMAND and attribute 
+ * Intent.ACTION_UNINSTALL_PKG_COMMAND and attribute
  * com.android.packageinstaller.PackageName set to the application package name
  */
 public class UninstallerActivity extends Activity {
     private static final String TAG = "UninstallerActivity";
 
-    public static class UninstallAlertDialogFragment extends DialogFragment implements
-            DialogInterface.OnClickListener {
+    private static final String UNINSTALLING_CHANNEL = "uninstalling";
 
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            final PackageManager pm = getActivity().getPackageManager();
-            final DialogInfo dialogInfo = ((UninstallerActivity) getActivity()).mDialogInfo;
-            final CharSequence appLabel = dialogInfo.appInfo.loadLabel(pm);
-
-            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
-            StringBuilder messageBuilder = new StringBuilder();
-
-            // If the Activity label differs from the App label, then make sure the user
-            // knows the Activity belongs to the App being uninstalled.
-            if (dialogInfo.activityInfo != null) {
-                final CharSequence activityLabel = dialogInfo.activityInfo.loadLabel(pm);
-                if (!activityLabel.equals(appLabel)) {
-                    messageBuilder.append(
-                            getString(R.string.uninstall_activity_text, activityLabel));
-                    messageBuilder.append(" ").append(appLabel).append(".\n\n");
-                }
-            }
-
-            final boolean isUpdate =
-                    ((dialogInfo.appInfo.flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) != 0);
-            UserManager userManager = UserManager.get(getActivity());
-            if (isUpdate) {
-                if (isSingleUser(userManager)) {
-                    messageBuilder.append(getString(R.string.uninstall_update_text));
-                } else {
-                    messageBuilder.append(getString(R.string.uninstall_update_text_multiuser));
-                }
-            } else {
-                if (dialogInfo.allUsers && !isSingleUser(userManager)) {
-                    messageBuilder.append(getString(R.string.uninstall_application_text_all_users));
-                } else if (!dialogInfo.user.equals(android.os.Process.myUserHandle())) {
-                    UserInfo userInfo = userManager.getUserInfo(dialogInfo.user.getIdentifier());
-                    messageBuilder.append(
-                            getString(R.string.uninstall_application_text_user, userInfo.name));
-                } else {
-                    messageBuilder.append(getString(R.string.uninstall_application_text));
-                }
-            }
-
-            dialogBuilder.setTitle(appLabel);
-            dialogBuilder.setIcon(dialogInfo.appInfo.loadIcon(pm));
-            dialogBuilder.setPositiveButton(android.R.string.ok, this);
-            dialogBuilder.setNegativeButton(android.R.string.cancel, this);
-            dialogBuilder.setMessage(messageBuilder.toString());
-            return dialogBuilder.create();
-        }
-
-        @Override
-        public void onClick(DialogInterface dialog, int which) {
-            if (which == Dialog.BUTTON_POSITIVE) {
-                ((UninstallerActivity) getActivity()).startUninstallProgress();
-            } else {
-                ((UninstallerActivity) getActivity()).dispatchAborted();
-            }
-        }
-
-        @Override
-        public void onDismiss(DialogInterface dialog) {
-            super.onDismiss(dialog);
-            if (isAdded()) {
-                getActivity().finish();
-            }
-        }
-
-        /**
-         * Returns whether there is only one user on this device, not including
-         * the system-only user.
-         */
-        private boolean isSingleUser(UserManager userManager) {
-            final int userCount = userManager.getUserCount();
-            return userCount == 1
-                    || (UserManager.isSplitSystemUser() && userCount == 2);
-        }
-    }
-
-    public static class AppNotFoundDialogFragment extends DialogFragment {
-
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            return new AlertDialog.Builder(getActivity())
-                    .setTitle(R.string.app_not_found_dlg_title)
-                    .setMessage(R.string.app_not_found_dlg_text)
-                    .setNeutralButton(android.R.string.ok, null)
-                    .create();
-        }
-
-        @Override
-        public void onDismiss(DialogInterface dialog) {
-            super.onDismiss(dialog);
-            if (isAdded()) {
-                ((UninstallerActivity) getActivity()).dispatchAborted();
-                getActivity().setResult(Activity.RESULT_FIRST_USER);
-                getActivity().finish();
-            }
-        }
-    }
-
-    static class DialogInfo {
-        ApplicationInfo appInfo;
-        ActivityInfo activityInfo;
-        boolean allUsers;
-        UserHandle user;
-        IBinder callback;
+    public static class DialogInfo {
+        public ApplicationInfo appInfo;
+        public ActivityInfo activityInfo;
+        public boolean allUsers;
+        public UserHandle user;
+        public IBinder callback;
     }
 
     private String mPackageName;
@@ -187,17 +101,31 @@ public class UninstallerActivity extends Activity {
 
         mDialogInfo = new DialogInfo();
 
+        mDialogInfo.allUsers = intent.getBooleanExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, false);
+        if (mDialogInfo.allUsers && !UserManager.get(this).isAdminUser()) {
+            Log.e(TAG, "Only admin user can request uninstall for all users");
+            showUserIsNotAllowed();
+            return;
+        }
         mDialogInfo.user = intent.getParcelableExtra(Intent.EXTRA_USER);
         if (mDialogInfo.user == null) {
             mDialogInfo.user = android.os.Process.myUserHandle();
+        } else {
+            UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
+            List<UserHandle> profiles = userManager.getUserProfiles();
+            if (!profiles.contains(mDialogInfo.user)) {
+                Log.e(TAG, "User " + android.os.Process.myUserHandle() + " can't request uninstall "
+                        + "for user " + mDialogInfo.user);
+                showUserIsNotAllowed();
+                return;
+            }
         }
 
-        mDialogInfo.allUsers = intent.getBooleanExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, false);
         mDialogInfo.callback = intent.getIBinderExtra(PackageInstaller.EXTRA_CALLBACK);
 
         try {
             mDialogInfo.appInfo = pm.getApplicationInfo(mPackageName,
-                    PackageManager.GET_UNINSTALLED_PACKAGES, mDialogInfo.user.getIdentifier());
+                    PackageManager.MATCH_ANY_USER, mDialogInfo.user.getIdentifier());
         } catch (RemoteException e) {
             Log.e(TAG, "Unable to get packageName. Package manager is dead?");
         }
@@ -224,38 +152,165 @@ public class UninstallerActivity extends Activity {
         showConfirmationDialog();
     }
 
+    public DialogInfo getDialogInfo() {
+        return mDialogInfo;
+    }
+
     private void showConfirmationDialog() {
-        showDialogFragment(new UninstallAlertDialogFragment());
+        if (isTv()) {
+            showContentFragment(new UninstallAlertFragment(), 0, 0);
+        } else {
+            showDialogFragment(new UninstallAlertDialogFragment(), 0, 0);
+        }
     }
 
     private void showAppNotFound() {
-        showDialogFragment(new AppNotFoundDialogFragment());
+        if (isTv()) {
+            showContentFragment(new ErrorFragment(), R.string.app_not_found_dlg_title,
+                    R.string.app_not_found_dlg_text);
+        } else {
+            showDialogFragment(new ErrorDialogFragment(), R.string.app_not_found_dlg_title,
+                    R.string.app_not_found_dlg_text);
+        }
     }
 
-    private void showDialogFragment(DialogFragment fragment) {
+    private void showUserIsNotAllowed() {
+        if (isTv()) {
+            showContentFragment(new ErrorFragment(),
+                    R.string.user_is_not_allowed_dlg_title, R.string.user_is_not_allowed_dlg_text);
+        } else {
+            showDialogFragment(new ErrorDialogFragment(), 0, R.string.user_is_not_allowed_dlg_text);
+        }
+    }
+
+    private void showGenericError() {
+        if (isTv()) {
+            showContentFragment(new ErrorFragment(),
+                    R.string.generic_error_dlg_title, R.string.generic_error_dlg_text);
+        } else {
+            showDialogFragment(new ErrorDialogFragment(), 0, R.string.generic_error_dlg_text);
+        }
+    }
+
+    private boolean isTv() {
+        return (getResources().getConfiguration().uiMode & Configuration.UI_MODE_TYPE_MASK)
+                == Configuration.UI_MODE_TYPE_TELEVISION;
+    }
+
+    private void showContentFragment(@NonNull Fragment fragment, @StringRes int title,
+            @StringRes int text) {
+        Bundle args = new Bundle();
+        args.putInt(ErrorFragment.TITLE, title);
+        args.putInt(ErrorFragment.TEXT, text);
+        fragment.setArguments(args);
+
+        getFragmentManager().beginTransaction()
+                .replace(android.R.id.content, fragment)
+                .commit();
+    }
+
+    private void showDialogFragment(@NonNull DialogFragment fragment,
+            @StringRes int title, @StringRes int text) {
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         Fragment prev = getFragmentManager().findFragmentByTag("dialog");
         if (prev != null) {
             ft.remove(prev);
         }
+
+        Bundle args = new Bundle();
+        if (title != 0) {
+            args.putInt(ErrorDialogFragment.TITLE, title);
+        }
+        args.putInt(ErrorDialogFragment.TEXT, text);
+
+        fragment.setArguments(args);
         fragment.show(ft, "dialog");
     }
 
-    void startUninstallProgress() {
-        Intent newIntent = new Intent(Intent.ACTION_VIEW);
-        newIntent.putExtra(Intent.EXTRA_USER, mDialogInfo.user);
-        newIntent.putExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, mDialogInfo.allUsers);
-        newIntent.putExtra(PackageInstaller.EXTRA_CALLBACK, mDialogInfo.callback);
-        newIntent.putExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO, mDialogInfo.appInfo);
-        if (getIntent().getBooleanExtra(Intent.EXTRA_RETURN_RESULT, false)) {
-            newIntent.putExtra(Intent.EXTRA_RETURN_RESULT, true);
-            newIntent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+    public void startUninstallProgress() {
+        boolean returnResult = getIntent().getBooleanExtra(Intent.EXTRA_RETURN_RESULT, false);
+        CharSequence label = mDialogInfo.appInfo.loadLabel(getPackageManager());
+
+        if (isTv()) {
+            Intent newIntent = new Intent(Intent.ACTION_VIEW);
+            newIntent.putExtra(Intent.EXTRA_USER, mDialogInfo.user);
+            newIntent.putExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, mDialogInfo.allUsers);
+            newIntent.putExtra(PackageInstaller.EXTRA_CALLBACK, mDialogInfo.callback);
+            newIntent.putExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO, mDialogInfo.appInfo);
+
+            if (returnResult) {
+                newIntent.putExtra(Intent.EXTRA_RETURN_RESULT, true);
+                newIntent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+            }
+
+            newIntent.setClass(this, UninstallAppProgress.class);
+            startActivity(newIntent);
+        } else if (returnResult || mDialogInfo.callback != null || getCallingActivity() != null) {
+            Intent newIntent = new Intent(this, UninstallUninstalling.class);
+
+            newIntent.putExtra(Intent.EXTRA_USER, mDialogInfo.user);
+            newIntent.putExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, mDialogInfo.allUsers);
+            newIntent.putExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO, mDialogInfo.appInfo);
+            newIntent.putExtra(UninstallUninstalling.EXTRA_APP_LABEL, label);
+            newIntent.putExtra(PackageInstaller.EXTRA_CALLBACK, mDialogInfo.callback);
+
+            if (returnResult) {
+                newIntent.putExtra(Intent.EXTRA_RETURN_RESULT, true);
+            }
+
+            if (returnResult || getCallingActivity() != null) {
+                newIntent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+            }
+
+            startActivity(newIntent);
+        } else {
+            int uninstallId;
+            try {
+                uninstallId = UninstallEventReceiver.getNewId(this);
+            } catch (EventResultPersister.OutOfIdsException e) {
+                showGenericError();
+                return;
+            }
+
+            Intent broadcastIntent = new Intent(this, UninstallFinish.class);
+
+            broadcastIntent.putExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, mDialogInfo.allUsers);
+            broadcastIntent.putExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO, mDialogInfo.appInfo);
+            broadcastIntent.putExtra(UninstallFinish.EXTRA_APP_LABEL, label);
+            broadcastIntent.putExtra(UninstallFinish.EXTRA_UNINSTALL_ID, uninstallId);
+
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(this, uninstallId,
+                    broadcastIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            NotificationChannel uninstallingChannel = new NotificationChannel(UNINSTALLING_CHANNEL,
+                    getString(R.string.uninstalling_notification_channel),
+                    NotificationManager.IMPORTANCE_MIN);
+            notificationManager.createNotificationChannel(uninstallingChannel);
+
+            Notification uninstallingNotification =
+                    (new Notification.Builder(this, UNINSTALLING_CHANNEL))
+                    .setSmallIcon(R.drawable.ic_remove).setProgress(0, 1, true)
+                    .setContentTitle(getString(R.string.uninstalling_app, label)).setOngoing(true)
+                    .build();
+
+            notificationManager.notify(uninstallId, uninstallingNotification);
+
+            try {
+                ActivityThread.getPackageManager().getPackageInstaller().uninstall(
+                        new VersionedPackage(mDialogInfo.appInfo.packageName,
+                                PackageManager.VERSION_CODE_HIGHEST),
+                        getPackageName(), mDialogInfo.allUsers
+                                ? PackageManager.DELETE_ALL_USERS : 0,
+                        pendingIntent.getIntentSender(), mDialogInfo.user.getIdentifier());
+            } catch (Exception e) {
+                Log.e(TAG, "Cannot start uninstall", e);
+                showGenericError();
+            }
         }
-        newIntent.setClass(this, UninstallAppProgress.class);
-        startActivity(newIntent);
     }
 
-    void dispatchAborted() {
+    public void dispatchAborted() {
         if (mDialogInfo != null && mDialogInfo.callback != null) {
             final IPackageDeleteObserver2 observer = IPackageDeleteObserver2.Stub.asInterface(
                     mDialogInfo.callback);

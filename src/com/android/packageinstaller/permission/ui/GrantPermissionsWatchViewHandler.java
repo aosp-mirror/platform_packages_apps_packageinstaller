@@ -65,7 +65,6 @@ final class GrantPermissionsWatchViewHandler implements GrantPermissionsViewHand
 
     @Override
     public View createView() {
-        showDialog(null);
         return new Space(mContext);
     }
 

@@ -149,7 +149,8 @@ public class PackageInstallerImpl {
                 cancelSession(sessionInfo.getSessionId(), packageName);
             }
         } catch (Exception e) {
-            Log.e(TAG, "Unexpected exception while installing " + packageName);
+            Log.e(TAG, "Unexpected exception while installing: " + packageName + ": "
+                    + e.getMessage());
             callback.installFailed(InstallerConstants.ERROR_INSTALL_SESSION_EXCEPTION,
                     "Unexpected exception while installing " + packageName);
         }

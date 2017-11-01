@@ -57,6 +57,9 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
     private final int mIconResId;
 
     private final boolean mAppSupportsRuntimePermissions;
+    private final boolean mIsEphemeralApp;
+    private boolean mContainsEphemeralPermission;
+    private boolean mContainsPreRuntimePermission;
 
     public static AppPermissionGroup create(Context context, PackageInfo packageInfo,
             String permissionName) {
@@ -67,7 +70,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             return null;
         }
 
-        if (permissionInfo.protectionLevel != PermissionInfo.PROTECTION_DANGEROUS
+        if ((permissionInfo.protectionLevel & PermissionInfo.PROTECTION_MASK_BASE)
+                != PermissionInfo.PROTECTION_DANGEROUS
                 || (permissionInfo.flags & PermissionInfo.FLAG_INSTALLED) == 0
                 || (permissionInfo.flags & PermissionInfo.FLAG_REMOVED) != 0) {
             return null;
@@ -133,7 +137,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             }
 
             // Collect only runtime permissions.
-            if (requestedPermissionInfo.protectionLevel != PermissionInfo.PROTECTION_DANGEROUS) {
+            if ((requestedPermissionInfo.protectionLevel & PermissionInfo.PROTECTION_MASK_BASE)
+                    != PermissionInfo.PROTECTION_DANGEROUS) {
                 continue;
             }
 
@@ -158,7 +163,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                     requestedPermission, packageInfo.packageName, userHandle);
 
             Permission permission = new Permission(requestedPermission, granted,
-                    appOp, appOpAllowed, flags);
+                    appOp, appOpAllowed, flags, requestedPermissionInfo.protectionLevel);
             group.addPermission(permission);
         }
 
@@ -191,6 +196,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         mPackageInfo = packageInfo;
         mAppSupportsRuntimePermissions = packageInfo.applicationInfo
                 .targetSdkVersion > Build.VERSION_CODES.LOLLIPOP_MR1;
+        mIsEphemeralApp = packageInfo.applicationInfo.isInstantApp();
         mAppOps = context.getSystemService(AppOpsManager.class);
         mActivityManager = context.getSystemService(ActivityManager.class);
         mDeclaringPackage = declaringPackage;
@@ -206,8 +212,13 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         }
     }
 
-    public boolean hasRuntimePermission() {
+    public boolean doesSupportRuntimePermissions() {
         return mAppSupportsRuntimePermissions;
+    }
+
+    public boolean isGrantingAllowed() {
+        return (!mIsEphemeralApp || mContainsEphemeralPermission)
+                && (mAppSupportsRuntimePermissions || mContainsPreRuntimePermission);
     }
 
     public boolean isReviewRequired() {
@@ -328,6 +339,11 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                 continue;
             }
 
+            if (!permission.isGrantingAllowed(mIsEphemeralApp, mAppSupportsRuntimePermissions)) {
+                // Skip unallowed permissions.
+                continue;
+            }
+
             if (mAppSupportsRuntimePermissions) {
                 // Do not touch permissions fixed by the system.
                 if (permission.isSystemFixed()) {
@@ -353,7 +369,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                     // no longer has it fixed in a denied state.
                     if (permission.isUserFixed() || permission.isUserSet()) {
                         permission.setUserFixed(false);
-                        permission.setUserSet(true);
+                        permission.setUserSet(false);
                         mPackageManager.updatePermissionFlags(permission.getName(),
                                 mPackageInfo.packageName,
                                 PackageManager.FLAG_PERMISSION_USER_FIXED
@@ -450,12 +466,14 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                                 mUserHandle);
                     }
                 } else {
-                    if (!permission.isUserSet()) {
+                    if (!permission.isUserSet() || permission.isUserFixed()) {
                         permission.setUserSet(true);
+                        permission.setUserFixed(false);
                         // Take a note that the user already chose once.
                         mPackageManager.updatePermissionFlags(permission.getName(),
                                 mPackageInfo.packageName,
-                                PackageManager.FLAG_PERMISSION_USER_SET,
+                                PackageManager.FLAG_PERMISSION_USER_SET
+                                        | PackageManager.FLAG_PERMISSION_USER_FIXED,
                                 PackageManager.FLAG_PERMISSION_USER_SET,
                                 mUserHandle);
                     }
@@ -538,11 +556,11 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         final int permissionCount = mPermissions.size();
         for (int i = 0; i < permissionCount; i++) {
             Permission permission = mPermissions.valueAt(i);
-            if (!permission.isUserFixed()) {
-                return false;
+            if (permission.isUserFixed()) {
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     public boolean isPolicyFixed() {
@@ -560,11 +578,11 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         final int permissionCount = mPermissions.size();
         for (int i = 0; i < permissionCount; i++) {
             Permission permission = mPermissions.valueAt(i);
-            if (!permission.isUserSet()) {
-                return false;
+            if (permission.isUserSet()) {
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     public boolean isSystemFixed() {
@@ -636,5 +654,11 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
     private void addPermission(Permission permission) {
         mPermissions.put(permission.getName(), permission);
+        if (permission.isEphemeral()) {
+            mContainsEphemeralPermission = true;
+        }
+        if (!permission.isRuntimeOnly()) {
+            mContainsPreRuntimePermission = true;
+        }
     }
 }
