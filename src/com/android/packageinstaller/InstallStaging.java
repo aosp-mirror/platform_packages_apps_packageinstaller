@@ -91,21 +91,24 @@ public class InstallStaging extends Activity {
     protected void onResume() {
         super.onResume();
 
-        // This is the first onResume in a single life of the activity
-        if (mStagingTask == null) {
-            // File does not exist, or became invalid
-            if (mStagedFile == null) {
-                // Create file delayed to be able to show error
-                try {
-                    mStagedFile = TemporaryFileManager.getStagedFile(this);
-                } catch (IOException e) {
-                    showError();
-                    return;
+        // In some cases onResume might be called even if onActivityResult finished the activity.
+        if (!isFinishing()) {
+            // This is the first onResume in a single life of the activity
+            if (mStagingTask == null) {
+                // File does not exist, or became invalid
+                if (mStagedFile == null) {
+                    // Create file delayed to be able to show error
+                    try {
+                        mStagedFile = TemporaryFileManager.getStagedFile(this);
+                    } catch (IOException e) {
+                        showError();
+                        return;
+                    }
                 }
-            }
 
-            mStagingTask = new StagingAsyncTask();
-            mStagingTask.execute(getIntent().getData());
+                mStagingTask = new StagingAsyncTask();
+                mStagingTask.execute(getIntent().getData());
+            }
         }
     }
 
