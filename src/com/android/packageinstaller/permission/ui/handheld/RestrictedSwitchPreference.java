@@ -18,8 +18,6 @@ package com.android.packageinstaller.permission.ui.handheld;
 
 import android.content.Context;
 import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
-import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 
