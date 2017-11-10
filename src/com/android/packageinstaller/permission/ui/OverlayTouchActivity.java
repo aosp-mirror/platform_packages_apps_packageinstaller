@@ -15,33 +15,14 @@
  */
 package com.android.packageinstaller.permission.ui;
 
+import static android.view.WindowManager.LayoutParams.PRIVATE_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS;
+
 import android.app.Activity;
-import android.app.AppOpsManager;
-import android.os.Binder;
-import android.os.IBinder;
+import android.os.Bundle;
 
 public class OverlayTouchActivity extends Activity {
-    private final IBinder mToken = new Binder();
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        setOverlayAllowed(false);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        setOverlayAllowed(true);
-    }
-
-    private void setOverlayAllowed(boolean allowed) {
-        AppOpsManager appOpsManager = getSystemService(AppOpsManager.class);
-        if (appOpsManager != null) {
-            appOpsManager.setUserRestriction(AppOpsManager.OP_SYSTEM_ALERT_WINDOW,
-                    !allowed, mToken);
-            appOpsManager.setUserRestriction(AppOpsManager.OP_TOAST_WINDOW,
-                    !allowed, mToken);
-        }
+    protected void onCreate(Bundle savedInstanceState) {
+        getWindow().addPrivateFlags(PRIVATE_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
+        super.onCreate(savedInstanceState);
     }
 }
