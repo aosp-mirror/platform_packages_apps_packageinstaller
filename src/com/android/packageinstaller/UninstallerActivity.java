@@ -16,8 +16,13 @@
 */
 package com.android.packageinstaller;
 
+import static com.android.packageinstaller.PackageUtil.getMaxTargetSdkVersionForUid;
+
+import android.Manifest;
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.ActivityThread;
+import android.app.AppGlobals;
 import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -37,6 +42,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.VersionedPackage;
 import android.content.res.Configuration;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
@@ -79,6 +85,34 @@ public class UninstallerActivity extends Activity {
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+
+        try {
+            int callingUid = ActivityManager.getService().getLaunchedFromUid(getActivityToken());
+
+            if (getMaxTargetSdkVersionForUid(this, callingUid)
+                    >= Build.VERSION_CODES.P && AppGlobals.getPackageManager().checkUidPermission(
+                    Manifest.permission.REQUEST_DELETE_PACKAGES, callingUid)
+                    != PackageManager.PERMISSION_GRANTED
+                    && AppGlobals.getPackageManager().checkUidPermission(
+                            Manifest.permission.DELETE_PACKAGES, callingUid)
+                            != PackageManager.PERMISSION_GRANTED) {
+                Log.e(TAG, "Uid " + callingUid + " does not have "
+                        + Manifest.permission.REQUEST_DELETE_PACKAGES + " or "
+                        + Manifest.permission.DELETE_PACKAGES);
+
+                setResult(Activity.RESULT_FIRST_USER);
+                finish();
+                return;
+            }
+        } catch (RemoteException ex) {
+            // Cannot reach Package/ActivityManager. Aborting uninstall.
+            Log.e(TAG, "Could not determine the launching uid.");
+
+            setResult(Activity.RESULT_FIRST_USER);
+            finish();
+            return;
+        }
+
         // Get intent information.
         // We expect an intent with URI of the form package://<packageName>#<className>
         // className is optional; if specified, it is the activity the user chose to uninstall

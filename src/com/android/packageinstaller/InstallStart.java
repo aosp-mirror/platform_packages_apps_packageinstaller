@@ -16,6 +16,8 @@
 
 package com.android.packageinstaller;
 
+import static com.android.packageinstaller.PackageUtil.getMaxTargetSdkVersionForUid;
+
 import android.Manifest;
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -73,7 +75,7 @@ public class InstallStart extends Activity {
         }
 
         if (!isTrustedSource && originatingUid != PackageInstaller.SessionParams.UID_UNKNOWN) {
-            final int targetSdkVersion = getMaxTargetSdkVersionForUid(originatingUid);
+            final int targetSdkVersion = getMaxTargetSdkVersionForUid(this, originatingUid);
             if (targetSdkVersion < 0) {
                 Log.w(LOG_TAG, "Cannot get target sdk version for uid " + originatingUid);
                 // Invalid originating uid supplied. Abort install.
@@ -147,22 +149,6 @@ public class InstallStart extends Activity {
             // If remote package manager cannot be reached, install will likely fail anyway.
         }
         return false;
-    }
-
-    private int getMaxTargetSdkVersionForUid(int uid) {
-        final String[] packages = getPackageManager().getPackagesForUid(uid);
-        int targetSdkVersion = -1;
-        if (packages != null) {
-            for (String packageName : packages) {
-                try {
-                    ApplicationInfo info = getPackageManager().getApplicationInfo(packageName, 0);
-                    targetSdkVersion = Math.max(targetSdkVersion, info.targetSdkVersion);
-                } catch (PackageManager.NameNotFoundException e) {
-                    // Ignore and try the next package
-                }
-            }
-        }
-        return targetSdkVersion;
     }
 
     /**

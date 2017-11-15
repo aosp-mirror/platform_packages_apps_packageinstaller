@@ -75,40 +75,24 @@ public class InstallStaging extends Activity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        setResult(resultCode, data);
-
-        if (mStagedFile != null) {
-            mStagedFile.delete();
-        }
-
-        // This is executed before onResume but after the mStagingTask completed, hence no need
-        // to deal with the task.
-        finish();
-    }
-
-    @Override
     protected void onResume() {
         super.onResume();
 
-        // In some cases onResume might be called even if onActivityResult finished the activity.
-        if (!isFinishing()) {
-            // This is the first onResume in a single life of the activity
-            if (mStagingTask == null) {
-                // File does not exist, or became invalid
-                if (mStagedFile == null) {
-                    // Create file delayed to be able to show error
-                    try {
-                        mStagedFile = TemporaryFileManager.getStagedFile(this);
-                    } catch (IOException e) {
-                        showError();
-                        return;
-                    }
+        // This is the first onResume in a single life of the activity
+        if (mStagingTask == null) {
+            // File does not exist, or became invalid
+            if (mStagedFile == null) {
+                // Create file delayed to be able to show error
+                try {
+                    mStagedFile = TemporaryFileManager.getStagedFile(this);
+                } catch (IOException e) {
+                    showError();
+                    return;
                 }
-
-                mStagingTask = new StagingAsyncTask();
-                mStagingTask.execute(getIntent().getData());
             }
+
+            mStagingTask = new StagingAsyncTask();
+            mStagingTask.execute(getIntent().getData());
         }
     }
 
@@ -210,12 +194,17 @@ public class InstallStaging extends Activity {
             if (success) {
                 // Now start the installation again from a file
                 Intent installIntent = new Intent(getIntent());
-                installIntent.setClass(InstallStaging.this, PackageInstallerActivity.class);
+                installIntent.setClass(InstallStaging.this, DeleteStagedFileOnResult.class);
                 installIntent.setData(Uri.fromFile(mStagedFile));
-                installIntent
-                        .setFlags(installIntent.getFlags() & ~Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+
+                if (installIntent.getBooleanExtra(Intent.EXTRA_RETURN_RESULT, false)) {
+                    installIntent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+                }
+
                 installIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                startActivityForResult(installIntent, 0);
+                startActivity(installIntent);
+
+                InstallStaging.this.finish();
             } else {
                 showError();
             }

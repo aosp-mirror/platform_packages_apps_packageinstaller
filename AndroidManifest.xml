@@ -68,6 +68,9 @@
         <activity android:name=".InstallStaging"
                 android:exported="false" />
 
+        <activity android:name=".DeleteStagedFileOnResult"
+            android:exported="false" />
+
         <activity android:name=".PackageInstallerActivity"
                 android:exported="false" />
 
