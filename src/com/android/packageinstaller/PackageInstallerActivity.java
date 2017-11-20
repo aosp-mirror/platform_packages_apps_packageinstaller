@@ -290,7 +290,15 @@ public class PackageInstallerActivity extends OverlayTouchActivity implements On
     @Override
     public void onActivityResult(int request, int result, Intent data) {
         if (request == REQUEST_TRUST_EXTERNAL_SOURCE && result == RESULT_OK) {
+            // The user has just allowed this package to install other packages (via Settings).
             mAllowUnknownSources = true;
+
+            // Log the fact that the app is requesting an install, and is now allowed to do it
+            // (before this point we could only log that it's requesting an install, but isn't
+            // allowed to do it yet).
+            int appOpCode =
+                    AppOpsManager.permissionToOpCode(Manifest.permission.REQUEST_INSTALL_PACKAGES);
+            mAppOpsManager.noteOpNoThrow(appOpCode, mOriginatingUid, mOriginatingPackage);
 
             Fragment currentDialog = getFragmentManager().findFragmentByTag("dialog");
             if (currentDialog != null) {
@@ -522,7 +530,7 @@ public class PackageInstallerActivity extends OverlayTouchActivity implements On
         // Shouldn't use static constant directly, see b/65534401.
         final int appOpCode =
                 AppOpsManager.permissionToOpCode(Manifest.permission.REQUEST_INSTALL_PACKAGES);
-        final int appOpMode = mAppOpsManager.checkOpNoThrow(appOpCode,
+        final int appOpMode = mAppOpsManager.noteOpNoThrow(appOpCode,
                 mOriginatingUid, mOriginatingPackage);
         switch (appOpMode) {
             case AppOpsManager.MODE_DEFAULT:
