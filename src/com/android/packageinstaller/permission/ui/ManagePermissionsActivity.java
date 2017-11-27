@@ -20,6 +20,7 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 
 import com.android.packageinstaller.DeviceUtils;
 import com.android.packageinstaller.permission.ui.handheld.ManageStandardPermissionsFragment;
@@ -37,6 +38,10 @@ public final class ManagePermissionsActivity extends OverlayTouchActivity {
 
         if (savedInstanceState != null) {
             return;
+        }
+        // in automotive mode, there's no system wide back button, so need to add that
+        if (DeviceUtils.isAuto(this)) {
+            getActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
         Fragment fragment;
@@ -59,7 +64,10 @@ public final class ManagePermissionsActivity extends OverlayTouchActivity {
                     finish();
                     return;
                 }
-                if (DeviceUtils.isWear(this)) {
+                if (DeviceUtils.isAuto(this)) {
+                    fragment = com.android.packageinstaller.permission.ui.auto
+                            .AppPermissionsFragment.newInstance(packageName);
+                } else if (DeviceUtils.isWear(this)) {
                     fragment = AppPermissionsFragmentWear.newInstance(packageName);
                 } else if (DeviceUtils.isTelevision(this)) {
                     fragment = com.android.packageinstaller.permission.ui.television
@@ -101,5 +109,20 @@ public final class ManagePermissionsActivity extends OverlayTouchActivity {
         }
 
         getFragmentManager().beginTransaction().replace(android.R.id.content, fragment).commit();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // in automotive mode, there's no system wide back button, so need to add that
+        if (DeviceUtils.isAuto(this)) {
+            switch (item.getItemId()) {
+                case android.R.id.home:
+                    onBackPressed();
+                    return true;
+                default:
+                    return super.onOptionsItemSelected(item);
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
