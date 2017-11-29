@@ -519,7 +519,10 @@ public class PackageInstallerActivity extends OverlayTouchActivity implements On
             showDialogInner(DLG_ANONYMOUS_SOURCE);
             return;
         }
-        int appOpMode = mAppOpsManager.checkOpNoThrow(AppOpsManager.OP_REQUEST_INSTALL_PACKAGES,
+        // Shouldn't use static constant directly, see b/65534401.
+        final int appOpCode =
+                AppOpsManager.permissionToOpCode(Manifest.permission.REQUEST_INSTALL_PACKAGES);
+        final int appOpMode = mAppOpsManager.checkOpNoThrow(appOpCode,
                 mOriginatingUid, mOriginatingPackage);
         switch (appOpMode) {
             case AppOpsManager.MODE_DEFAULT:
@@ -533,7 +536,7 @@ public class PackageInstallerActivity extends OverlayTouchActivity implements On
                 } catch (RemoteException exc) {
                     Log.e(TAG, "Unable to talk to package manager");
                 }
-                mAppOpsManager.setMode(AppOpsManager.OP_REQUEST_INSTALL_PACKAGES, mOriginatingUid,
+                mAppOpsManager.setMode(appOpCode, mOriginatingUid,
                         mOriginatingPackage, AppOpsManager.MODE_ERRORED);
                 // fall through
             case AppOpsManager.MODE_ERRORED:
