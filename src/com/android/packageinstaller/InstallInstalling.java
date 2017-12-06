@@ -342,7 +342,7 @@ public class InstallInstalling extends Activity {
                     long sizeBytes = file.length();
                     try (OutputStream out = session
                             .openWrite("PackageInstaller", 0, sizeBytes)) {
-                        byte[] buffer = new byte[4096];
+                        byte[] buffer = new byte[1024 * 1024];
                         while (true) {
                             int numRead = in.read(buffer);
 
@@ -384,6 +384,7 @@ public class InstallInstalling extends Activity {
         protected void onPostExecute(PackageInstaller.Session session) {
             if (session != null) {
                 Intent broadcastIntent = new Intent(BROADCAST_ACTION);
+                broadcastIntent.setFlags(Intent.FLAG_RECEIVER_FOREGROUND);
                 broadcastIntent.setPackage(
                         getPackageManager().getPermissionControllerPackageName());
                 broadcastIntent.putExtra(EventResultPersister.EXTRA_ID, mInstallId);

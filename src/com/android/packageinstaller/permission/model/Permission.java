@@ -36,7 +36,7 @@ public final class Permission {
         mAppOp = appOp;
         mAppOpAllowed = appOpAllowed;
         mFlags = flags;
-        mIsEphemeral = (protectionLevel & PermissionInfo.PROTECTION_FLAG_EPHEMERAL) != 0;
+        mIsEphemeral = (protectionLevel & PermissionInfo.PROTECTION_FLAG_INSTANT) != 0;
         mIsRuntimeOnly = (protectionLevel & PermissionInfo.PROTECTION_FLAG_RUNTIME_ONLY) != 0;
     }
 
