@@ -256,6 +256,8 @@ public class WearPackageInstallerService extends Service {
                 return;
             }
 
+            pkg.applicationInfo.sourceDir = tempFile.getPath();
+            pkg.applicationInfo.publicSourceDir = tempFile.getPath();
             getLabelAndUpdateNotification(packageName,
                     getString(R.string.installing_app, pkg.applicationInfo.loadLabel(pm)));
 

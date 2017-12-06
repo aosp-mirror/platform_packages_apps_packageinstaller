@@ -21,8 +21,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
@@ -34,7 +32,6 @@ import android.provider.Settings;
 import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
-import android.support.v7.preference.Preference.OnPreferenceClickListener;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.PreferenceViewHolder;
 import android.util.Log;
@@ -45,7 +42,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.android.packageinstaller.R;
-
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.ui.ReviewPermissionsActivity;
@@ -102,12 +98,8 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         }
 
 
-        mAppPermissions = new AppPermissions(activity, packageInfo, null, true, new Runnable() {
-            @Override
-            public void run() {
-                getActivity().finish();
-            }
-        });
+        mAppPermissions = new AppPermissions(activity, packageInfo, null, true,
+                () -> getActivity().finish());
 
         if (mAppPermissions.isReviewRequired()) {
             Intent intent = new Intent(getActivity(), ReviewPermissionsActivity.class);
@@ -232,20 +224,17 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         }
 
         if (mExtraScreen != null) {
-            extraPerms.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-                @Override
-                public boolean onPreferenceClick(Preference preference) {
-                    AdditionalPermissionsFragment frag = new AdditionalPermissionsFragment();
-                    setPackageName(frag, getArguments().getString(Intent.EXTRA_PACKAGE_NAME));
-                    frag.setTargetFragment(AppPermissionsFragment.this, 0);
-                    getFragmentManager().beginTransaction()
-                            .replace(android.R.id.content, frag)
-                            .addToBackStack(null)
-                            .commit();
-                    return true;
-                }
+            extraPerms.setOnPreferenceClickListener(preference -> {
+                AdditionalPermissionsFragment frag = new AdditionalPermissionsFragment();
+                setPackageName(frag, getArguments().getString(Intent.EXTRA_PACKAGE_NAME));
+                frag.setTargetFragment(AppPermissionsFragment.this, 0);
+                getFragmentManager().beginTransaction()
+                        .replace(android.R.id.content, frag)
+                        .addToBackStack(null)
+                        .commit();
+                return true;
             });
-            int count = mExtraScreen.getPreferenceCount();
+            int count = mExtraScreen.getPreferenceCount() - 1;
             extraPerms.setSummary(getResources().getQuantityString(
                     R.plurals.additional_permissions_more, count, count));
             screen.addPreference(extraPerms);
@@ -304,16 +293,13 @@ public final class AppPermissionsFragment extends SettingsWithHeader
                                 : R.string.old_sdk_deny_warning)
                         .setNegativeButton(R.string.cancel, null)
                         .setPositiveButton(R.string.grant_dialog_button_deny_anyway,
-                                new OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                ((SwitchPreference) preference).setChecked(false);
-                                group.revokeRuntimePermissions(false);
-                                if (!grantedByDefault) {
-                                    mHasConfirmedRevoke = true;
-                                }
-                            }
-                        })
+                                (dialog, which) -> {
+                                    ((SwitchPreference) preference).setChecked(false);
+                                    group.revokeRuntimePermissions(false);
+                                    if (!grantedByDefault) {
+                                        mHasConfirmedRevoke = true;
+                                    }
+                                })
                         .show();
                 return false;
             } else {

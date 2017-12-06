@@ -85,6 +85,7 @@ public class UninstallUninstalling extends Activity implements
                         EventResultPersister.GENERATE_NEW_ID, this);
 
                 Intent broadcastIntent = new Intent(BROADCAST_ACTION);
+                broadcastIntent.setFlags(Intent.FLAG_RECEIVER_FOREGROUND);
                 broadcastIntent.putExtra(EventResultPersister.EXTRA_ID, mUninstallId);
                 broadcastIntent.setPackage(getPackageName());
 
@@ -132,7 +133,6 @@ public class UninstallUninstalling extends Activity implements
                 observer.onPackageDeleted(mAppInfo.packageName, legacyStatus, message);
             } catch (RemoteException ignored) {
             }
-            return;
         } else if (mReturnResult) {
             // The caller will be informed about the result and might decide to display it
             Intent result = new Intent();
