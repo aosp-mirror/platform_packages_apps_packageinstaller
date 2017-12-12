@@ -185,7 +185,7 @@ public class InstallStaging extends Activity {
                 }
 
                 try (OutputStream out = new FileOutputStream(mStagedFile)) {
-                    byte[] buffer = new byte[4096];
+                    byte[] buffer = new byte[1024 * 1024];
                     int bytesRead;
                     while ((bytesRead = in.read(buffer)) >= 0) {
                         // Be nice and respond to a cancellation
