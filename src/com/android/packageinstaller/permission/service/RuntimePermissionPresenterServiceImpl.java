@@ -70,7 +70,8 @@ public final class RuntimePermissionPresenterServiceImpl extends RuntimePermissi
                     PackageManager.GET_PERMISSIONS);
             final AppPermissions appPermissions = new AppPermissions(this, packageInfo, null, false,
                     null);
-            final AppPermissionGroup appPermissionGroup = appPermissions.getPermissionGroup(
+
+            final AppPermissionGroup appPermissionGroup = appPermissions.getGroupForPermission(
                     permissionName);
 
             if (appPermissionGroup != null) {
