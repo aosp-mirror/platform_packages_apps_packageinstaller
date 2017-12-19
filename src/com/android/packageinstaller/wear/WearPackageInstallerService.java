@@ -265,27 +265,28 @@ public class WearPackageInstallerService extends Service {
 
             // Log if the installed pkg has a higher version number.
             if (existingPkgInfo != null) {
-                if (existingPkgInfo.versionCode == pkg.mVersionCode) {
+                if (existingPkgInfo.getLongVersionCode() == pkg.getLongVersionCode()) {
                     if (skipIfSameVersion) {
-                        Log.w(TAG, "Version number (" + pkg.mVersionCode +
+                        Log.w(TAG, "Version number (" + pkg.getLongVersionCode() +
                                 ") of new app is equal to existing app for " + packageName +
                                 "; not installing due to versionCheck");
                         return;
                     } else {
-                        Log.w(TAG, "Version number of new app (" + pkg.mVersionCode +
+                        Log.w(TAG, "Version number of new app (" + pkg.getLongVersionCode() +
                                 ") is equal to existing app for " + packageName);
                     }
-                } else if (existingPkgInfo.versionCode > pkg.mVersionCode) {
+                } else if (existingPkgInfo.getLongVersionCode() > pkg.getLongVersionCode()) {
                     if (skipIfLowerVersion) {
                         // Starting in Feldspar, we are not going to allow downgrades of any app.
-                        Log.w(TAG, "Version number of new app (" + pkg.mVersionCode +
-                                ") is lower than existing app ( " + existingPkgInfo.versionCode +
+                        Log.w(TAG, "Version number of new app (" + pkg.getLongVersionCode() +
+                                ") is lower than existing app ( "
+                                + existingPkgInfo.getLongVersionCode() +
                                 ") for " + packageName + "; not installing due to versionCheck");
                         return;
                     } else {
-                        Log.w(TAG, "Version number of new app (" + pkg.mVersionCode +
-                                ") is lower than existing app ( " + existingPkgInfo.versionCode +
-                                ") for " + packageName);
+                        Log.w(TAG, "Version number of new app (" + pkg.getLongVersionCode() +
+                                ") is lower than existing app ( "
+                                + existingPkgInfo.getLongVersionCode() + ") for " + packageName);
                     }
                 }
 
