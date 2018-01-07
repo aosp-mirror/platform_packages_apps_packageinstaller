@@ -75,7 +75,6 @@ public class UninstallAlertDialogFragment extends DialogFragment implements
         }
 
         dialogBuilder.setTitle(appLabel);
-        dialogBuilder.setIcon(dialogInfo.appInfo.loadIcon(pm));
         dialogBuilder.setPositiveButton(android.R.string.ok, this);
         dialogBuilder.setNegativeButton(android.R.string.cancel, this);
         dialogBuilder.setMessage(messageBuilder.toString());
