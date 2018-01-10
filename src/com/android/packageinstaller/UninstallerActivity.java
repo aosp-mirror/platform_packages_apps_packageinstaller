@@ -16,6 +16,8 @@
 */
 package com.android.packageinstaller;
 
+import static android.app.AppOpsManager.MODE_ALLOWED;
+
 import static com.android.packageinstaller.PackageUtil.getMaxTargetSdkVersionForUid;
 
 import android.Manifest;
@@ -23,6 +25,7 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityThread;
 import android.app.AppGlobals;
+import android.app.AppOpsManager;
 import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -88,6 +91,25 @@ public class UninstallerActivity extends Activity {
 
         try {
             int callingUid = ActivityManager.getService().getLaunchedFromUid(getActivityToken());
+
+            String callingPackage = getPackageNameForUid(callingUid);
+            if (callingPackage == null) {
+                Log.e(TAG, "Package not found for originating uid " + callingUid);
+                setResult(Activity.RESULT_FIRST_USER);
+                finish();
+                return;
+            } else {
+                AppOpsManager appOpsManager = (AppOpsManager) getSystemService(
+                        Context.APP_OPS_SERVICE);
+                if (appOpsManager.noteOpNoThrow(
+                        AppOpsManager.OPSTR_REQUEST_DELETE_PACKAGES, callingUid, callingPackage)
+                        != MODE_ALLOWED) {
+                    Log.e(TAG, "Install from uid " + callingUid + " disallowed by AppOps");
+                    setResult(Activity.RESULT_FIRST_USER);
+                    finish();
+                    return;
+                }
+            }
 
             if (getMaxTargetSdkVersionForUid(this, callingUid)
                     >= Build.VERSION_CODES.P && AppGlobals.getPackageManager().checkUidPermission(
@@ -359,5 +381,13 @@ public class UninstallerActivity extends Activity {
             } catch (RemoteException ignored) {
             }
         }
+    }
+
+    private String getPackageNameForUid(int sourceUid) {
+        String[] packagesForUid = getPackageManager().getPackagesForUid(sourceUid);
+        if (packagesForUid == null) {
+            return null;
+        }
+        return packagesForUid[0];
     }
 }
