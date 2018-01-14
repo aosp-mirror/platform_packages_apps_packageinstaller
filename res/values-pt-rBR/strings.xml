@@ -26,12 +26,12 @@
     <string name="installing" msgid="8613631001631998372">"Instalando..."</string>
     <string name="installing_app" msgid="4097935682329028894">"Instalando <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="install_done" msgid="3682715442154357097">"App instalado."</string>
-    <string name="install_confirm_question" msgid="7295206719219043890">"Deseja instalar este app? Ele terá acesso a:"</string>
-    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Deseja instalar este app? Não requer acesso especial."</string>
-    <string name="install_confirm_question_update" msgid="4624159567361487964">"Deseja instalar uma atualização para este app? Os dados existentes não serão perdidos. O app atualizado terá acesso a:"</string>
-    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Deseja instalar uma atualização para este app integrado? Os dados existentes não serão perdidos. O app atualizado terá acesso a:"</string>
-    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Deseja instalar uma atualização para este app existente? Seus dados existentes não serão perdidos. A atualização não requer qualquer acesso especial."</string>
-    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Deseja instalar uma atualização para este app integrado? Seus dados existentes não serão perdidos. A atualização não requer qualquer acesso especial."</string>
+    <string name="install_confirm_question" msgid="7295206719219043890">"Quer instalar este app? Ele terá acesso a:"</string>
+    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Quer instalar este app? Não requer acesso especial."</string>
+    <string name="install_confirm_question_update" msgid="4624159567361487964">"Quer instalar uma atualização para este app? Os dados existentes não serão perdidos. O app atualizado terá acesso a:"</string>
+    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Quer instalar uma atualização para este app integrado? Os dados existentes não serão perdidos. O app atualizado terá acesso a:"</string>
+    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Quer instalar uma atualização para este app existente? Seus dados existentes não serão perdidos. A atualização não requer qualquer acesso especial."</string>
+    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Quer instalar uma atualização para este app integrado? Seus dados existentes não serão perdidos. A atualização não requer qualquer acesso especial."</string>
     <string name="install_failed" msgid="6579998651498970899">"O app não foi instalado."</string>
     <string name="install_failed_blocked" msgid="1606870930588770025">"A instalação do pacote foi bloqueada."</string>
     <string name="install_failed_conflict" msgid="5336045235168070954">"Como o pacote tem um conflito com um pacote já existente, o app não foi instalado."</string>
@@ -64,9 +64,9 @@
     <string name="uninstall_application_title" msgid="1860074100811653963">"Desinstalar app"</string>
     <string name="uninstall_update_title" msgid="4146940097553335390">"Desinstalar atualização"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> é parte do seguinte app:"</string>
-    <string name="uninstall_application_text" msgid="6691975835951187030">"Deseja desinstalar este app?"</string>
-    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Deseja desinstalar este app para "<b>"todos"</b>" os usuários? O app e seus dados serão removidos para "<b>"todos"</b>" os usuários do dispositivo."</string>
-    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Deseja desinstalar este app para o usuário <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
+    <string name="uninstall_application_text" msgid="6691975835951187030">"Quer desinstalar este app?"</string>
+    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Quer desinstalar este app para "<b>"todos"</b>" os usuários? O app e seus dados serão removidos para "<b>"todos"</b>" os usuários do dispositivo."</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Quer desinstalar este app para o usuário <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
     <string name="uninstall_update_text" msgid="1394549691152728409">"Substituir este app pela versão de fábrica? Todos os dados serão removidos."</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Substituir este app pela versão de fábrica? Todos os dados serão removidos. Isso afeta todos os usuários deste dispositivo, incluindo aqueles com perfis de trabalho."</string>
     <string name="uninstalling_notification_channel" msgid="5698369661583525583">"Executando desinstalações"</string>
@@ -91,7 +91,7 @@
     <string name="privacyPerms" msgid="1850527049572617">"Privacidade"</string>
     <string name="devicePerms" msgid="6733560207731294504">"Acesso ao dispositivo"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"Esta atualização não requer novas permissões."</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"Deseja conceder as permissões a seguir? Será concedido acesso para:"</string>
+    <string name="grant_confirm_question" msgid="4690289297029223742">"Quer conceder as permissões a seguir? Será concedido acesso para:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Negar"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Mais informações"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Negar mesmo assim"</string>
