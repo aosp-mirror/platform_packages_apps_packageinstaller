@@ -273,12 +273,18 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
 
             boolean allAffectedPermissionsOfThisGroupAreGranted = true;
 
-            for (int permNum = 0; permNum < groupState.affectedPermissions.length;
-                    permNum++) {
-                if (!grantedPermissionNames.contains(
-                        groupState.affectedPermissions[permNum])) {
-                    allAffectedPermissionsOfThisGroupAreGranted = false;
-                    break;
+            if (groupState.affectedPermissions == null) {
+                // It is not clear which permissions belong to this group, hence never skip this
+                // view
+                allAffectedPermissionsOfThisGroupAreGranted = false;
+            } else {
+                for (int permNum = 0; permNum < groupState.affectedPermissions.length;
+                        permNum++) {
+                    if (!grantedPermissionNames.contains(
+                            groupState.affectedPermissions[permNum])) {
+                        allAffectedPermissionsOfThisGroupAreGranted = false;
+                        break;
+                    }
                 }
             }
 
