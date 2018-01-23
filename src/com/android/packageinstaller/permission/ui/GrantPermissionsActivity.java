@@ -74,6 +74,7 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
     boolean mResultSet;
 
     private PackageManager.OnPermissionsChangedListener mPermissionChangeListener;
+    private String mCallingPackage;
 
     private int getPermissionPolicy() {
         DevicePolicyManager devicePolicyManager = getSystemService(DevicePolicyManager.class);
@@ -83,6 +84,10 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+
+        // Cache this as this can only read on onCreate, not later.
+        mCallingPackage = getCallingPackage();
+
         setFinishOnTouchOutside(false);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
@@ -93,15 +98,15 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
         if (DeviceUtils.isTelevision(this)) {
             mViewHandler = new com.android.packageinstaller.permission.ui.television
                     .GrantPermissionsViewHandlerImpl(this,
-                    getCallingPackage()).setResultListener(this);
+                    mCallingPackage).setResultListener(this);
         } else if (DeviceUtils.isWear(this)) {
             mViewHandler = new GrantPermissionsWatchViewHandler(this).setResultListener(this);
         } else if (DeviceUtils.isAuto(this)) {
-            mViewHandler = new GrantPermissionsAutoViewHandler(this, getCallingPackage())
+            mViewHandler = new GrantPermissionsAutoViewHandler(this, mCallingPackage)
                     .setResultListener(this);
         } else {
             mViewHandler = new com.android.packageinstaller.permission.ui.handheld
-                    .GrantPermissionsViewHandlerImpl(this, getCallingPackage())
+                    .GrantPermissionsViewHandlerImpl(this, mCallingPackage)
                     .setResultListener(this);
         }
 
@@ -144,7 +149,7 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
             return;
         }
 
-        updateAlreadyGrantedPermissions(getCallingPackageInfo(), getPermissionPolicy());
+        updateAlreadyGrantedPermissions(callingPackageInfo, getPermissionPolicy());
 
         mAppPermissions = new AppPermissions(this, callingPackageInfo, null, false,
                 new Runnable() {
@@ -510,10 +515,10 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
 
     private PackageInfo getCallingPackageInfo() {
         try {
-            return getPackageManager().getPackageInfo(getCallingPackage(),
+            return getPackageManager().getPackageInfo(mCallingPackage,
                     PackageManager.GET_PERMISSIONS);
         } catch (NameNotFoundException e) {
-            Log.i(LOG_TAG, "No package: " + getCallingPackage(), e);
+            Log.i(LOG_TAG, "No package: " + mCallingPackage, e);
             return null;
         }
     }
@@ -593,6 +598,8 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
 
         final AppPermissionGroup mGroup;
         int mState = STATE_UNKNOWN;
+
+        /** Permissions of this group that need to be granted, null == all permissions of group */
         String[] affectedPermissions;
 
         GroupState(AppPermissionGroup group) {
@@ -604,7 +611,7 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
         final int mCallingPackageUid;
 
         PermissionChangeListener() throws NameNotFoundException {
-            mCallingPackageUid = getPackageManager().getPackageUid(getCallingPackage(), 0);
+            mCallingPackageUid = getPackageManager().getPackageUid(mCallingPackage, 0);
         }
 
         @Override
