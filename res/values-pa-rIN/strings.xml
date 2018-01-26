@@ -16,9 +16,9 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2738748390251381682">"ਪੈਕੇਜ ਇੰਸਟੌਲਰ"</string>
+    <string name="app_name" msgid="2738748390251381682">"ਪੈਕੇਜ ਸਥਾਪਨਾਕਾਰ"</string>
     <string name="next" msgid="3057143178373252333">"ਅੱਗੇ"</string>
-    <string name="install" msgid="5896438203900042068">"ਇੰਸਟੌਲ ਕਰੋ"</string>
+    <string name="install" msgid="5896438203900042068">"ਸਥਾਪਤ ਕਰੋ"</string>
     <string name="done" msgid="3889387558374211719">"ਹੋ ਗਿਆ"</string>
     <string name="security_settings_desc" msgid="2706691034244052604">"ਇਸ ਐਪ ਨੂੰ ਇਹ ਕਰਨ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ:"</string>
     <string name="cancel" msgid="8360346460165114585">"ਰੱਦ ਕਰੋ"</string>
@@ -45,7 +45,7 @@
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"ਸੁਰੱਖਿਆ ਵੱਜੋਂ, ਤੁਹਾਡਾ ਟੈਬਲੈੱਟ ਅਗਿਆਤ ਸਰੋਤਾਂ ਤੋਂ ਪ੍ਰਾਪਤ ਐਪਾਂ ਦੀ ਸਥਾਪਨਾ ਬਲਾਕ ਕਰਨ ਲਈ ਸੈੱਟ ਕੀਤਾ ਗਿਆ ਹੈ।"</string>
     <string name="unknown_apps_dlg_text" product="tv" msgid="7195713985140602351">"ਸੁਰੱਖਿਆ ਲਈ, ਤੁਹਾਡਾ TV ਅਗਿਆਤ ਸਰੋਤਾਂ ਵੱਲੋਂ ਪ੍ਰਾਪਤ ਕੀਤੇ ਐਪਸ ਦੀ ਇੰਸਟੌਲੇਸ਼ਨ ਬਲੌਕ ਕਰਨ ਲਈ ਸੈੱਟ ਕੀਤਾ ਗਿਆ ਹੋਇਆ ਹੈ।"</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"ਸੁਰੱਖਿਆ ਲਈ, ਤੁਹਾਡਾ ਫ਼ੋਨ ਅਗਿਆਤ ਸਰੋਤਾਂ ਤੋਂ ਪ੍ਰਾਪਤ ਕੀਤੀਆਂ ਐਪਾਂ ਦੀ ਸਥਾਪਨਾ ਬਲਾਕ ਕਰਨ ਲਈ ਸੈੱਟ ਕੀਤਾ ਗਿਆ ਹੋਇਆ ਹੈ।"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"ਤੁਹਾਡਾ ਪ੍ਰਸ਼ਾਸਕ ਅਗਿਆਤ ਸਰੋਤਾਂ ਤੋਂ ਪ੍ਰਾਪਤ ਕੀਤੀਆਂ ਐਪਾਂ ਦੀ ਸਥਾਪਨਾ ਦੀ ਆਗਿਆ ਨਹੀਂ ਦਿੰਦਾ।"</string>
+    <string name="unknown_apps_admin_dlg_text" msgid="1189146324736698462">"ਤੁਹਾਡਾ ਪ੍ਰਬੰਧਕ ਅਗਿਆਤ ਸ੍ਰੋਤਾਂ ਤੋਂ ਪ੍ਰਾਪਤ ਕੀਤੀਆਂ ਐਪਾਂ ਦੀ ਸਥਾਪਨਾ ਦੀ ਆਗਿਆ ਨਹੀਂ ਦਿੰਦਾ।"</string>
     <string name="ok" msgid="3468756155452870475">"ਠੀਕ"</string>
     <string name="settings" msgid="6743583734099755409">"ਸੈਟਿੰਗਾਂ"</string>
     <string name="manage_applications" msgid="4033876279091996596">"ਐਪਸ ਵਿਵਸਥਿਤ ਕਰੋ"</string>
@@ -57,17 +57,17 @@
     <string name="dlg_ok" msgid="6944357727705699232">"ਠੀਕ"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"ਐਪ ਨਹੀਂ ਮਿਲਿਆ"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"ਐਪ ਇੰਸਟੌਲ ਕੀਤੇ ਐਪਸ ਦੀ ਸੂਚੀ ਵਿੱਚ ਨਹੀਂ ਮਿਲਿਆ ਸੀ।"</string>
-    <string name="uninstall_application_title" msgid="1860074100811653963">"ਐਪ ਅਣਇੰਸਟੌਲ ਕਰੋ"</string>
+    <string name="uninstall_application_title" msgid="1860074100811653963">"ਐਪ ਅਣਸਥਾਪਤ ਕਰੋ"</string>
     <string name="uninstall_update_title" msgid="4146940097553335390">"ਅੱਪਡੇਟ ਅਣਸਥਾਪਤ ਕਰੋ"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> ਇਸ ਐਪ ਦਾ ਭਾਗ ਹੈ:"</string>
-    <string name="uninstall_application_text" msgid="6691975835951187030">"ਕੀ ਤੁਸੀਂ ਇਸ ਐਪ ਨੂੰ ਅਣਇੰਸਟੌਲ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?"</string>
+    <string name="uninstall_application_text" msgid="6691975835951187030">"ਕੀ ਤੁਸੀਂ ਇਸ ਐਪ ਨੂੰ ਅਣਸਥਾਪਤ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"ਕੀ ਤੁਸੀਂ ਇਸ ਐਪ ਨੂੰ "<b>"ਸਾਰੇ"</b>" ਵਰਤੋਂਕਾਰਾਂ ਲਈ ਅਣਸਥਾਪਤ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ? ਐਪਲੀਕੇਸ਼ਨ ਅਤੇ ਇਸਦਾ ਡਾਟਾ ਡੀਵਾਈਸ ਤੇ "<b>"ਸਾਰੇ"</b>" ਵਰਤੋਂਕਾਰਾਂ ਵੱਲੋਂ ਹਟਾ ਦਿੱਤਾ ਜਾਏਗਾ।"</string>
-    <string name="uninstall_application_text_user" msgid="8766882355635485733">"ਕੀ ਤੁਸੀਂ ਉਪਭੋਗਤਾ <xliff:g id="USERNAME">%1$s</xliff:g> ਲਈ ਇਸ ਐਪ ਨੂੰ ਅਣਇੰਸਟੌਲ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?"</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"ਕੀ ਤੁਸੀਂ ਵਰਤੋਂਕਾਰ <xliff:g id="USERNAME">%1$s</xliff:g> ਲਈ ਇਸ ਐਪ ਨੂੰ ਅਣਸਥਾਪਤ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?"</string>
     <string name="uninstall_update_text" msgid="1394549691152728409">"ਕੀ ਇਸ ਐਪ ਨੂੰ ਫੈਕਟਰੀ ਸੰਸਕਰਣ ਨਾਲ ਬਦਲਣਾ ਹੈ? ਸਾਰਾ  ਡਾਟਾ  ਹਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ।"</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"ਕੀ ਇਸ ਐਪ ਨੂੰ ਫੈਕਟਰੀ ਵਰਜਨ ਨਾਲ ਬਦਲਣਾ ਹੈ? ਸਾਰਾ ਡਾਟਾ ਹਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ। ਇਹ ਇਸ ਡੀਵਾਈਸ ਦੇ ਸਾਰੇ ਵਰਤੋਂਕਾਰਾਂ ਨੂੰ ਪ੍ਰਭਾਵਿਤ ਕਰੇਗਾ, ਜਿਸ ਵਿੱਚ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਵਾਲੇ ਵਰਤੋਂਕਾਰ ਵੀ ਸ਼ਾਮਲ ਹਨ।"</string>
     <string name="uninstalling" msgid="5556217435895938250">"ਅਣਇੰਸਟੌਲ ਕਰ  ਰਿਹਾ ਹੈ…"</string>
-    <string name="uninstall_done" msgid="3792487853420281888">"ਅਣਇੰਸਟੌਲ ਪੂਰਾ ਹੋਇਆ।"</string>
-    <string name="uninstall_failed" msgid="631122574306299512">"ਅਣਇੰਸਟੌਲ ਅਸਫਲ।"</string>
+    <string name="uninstall_done" msgid="3792487853420281888">"ਅਣਸਥਾਪਨਾ ਪੂਰੀ ਹੋਈ।"</string>
+    <string name="uninstall_failed" msgid="631122574306299512">"ਅਣਸਥਾਪਨਾ ਅਸਫਲ।"</string>
     <string name="uninstall_failed_device_policy_manager" msgid="3493789239037852035">"ਅਣਸਥਾਪਤ ਨਹੀਂ ਕਰ ਸਕਦੇ ਕਿਉਂਕਿ ਇਹ ਪੈਕੇਜ ਇੱਕ ਕਿਰਿਆਸ਼ੀਲ ਡੀਵਾਈਸ ਪ੍ਰਬੰਧਕ ਹੈ।"</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="4466062391552204291">"ਅਣਸਥਾਪਤ ਨਹੀਂ ਕਰ ਸਕਦੇ ਕਿਉਂਕਿ ਇਹ ਪੈਕੇਜ ਵਰਤੋਂਕਾਰ <xliff:g id="USERNAME">%1$s</xliff:g> ਲਈ ਇੱਕ ਕਿਰਿਆਸ਼ੀਲ ਡੀਵਾਈਸ ਪ੍ਰਬੰਧਕ ਹੈ।"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"ਇਹ ਐਪ ਕੁਝ ਵਰਤੋਂਕਾਰਾਂ ਜਾਂ ਪ੍ਰੋਫਾਈਲਾਂ ਲਈ ਲੋੜੀਂਦੀ ਹੈ ਅਤੇ ਹੋਰਾਂ ਲਈ ਅਣਸਥਾਪਤ ਕੀਤੀ ਗਈ ਸੀ"</string>
