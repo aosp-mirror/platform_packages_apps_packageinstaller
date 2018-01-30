@@ -65,7 +65,8 @@ public class EventLogger {
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
             Manifest.permission.READ_PHONE_NUMBERS,
-            Manifest.permission.ANSWER_PHONE_CALLS);
+            Manifest.permission.ANSWER_PHONE_CALLS,
+            Manifest.permission.ACCEPT_HANDOVER);
 
     private static final List<String> ALL_APPOP_PERMISSIONS = Arrays.asList(
             Manifest.permission.ACCESS_NOTIFICATIONS,
