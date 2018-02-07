@@ -116,6 +116,8 @@ public class InstallInstalling extends Activity {
                         .getParcelableExtra(Intent.EXTRA_ORIGINATING_URI);
                 params.originatingUid = getIntent().getIntExtra(Intent.EXTRA_ORIGINATING_UID,
                         UID_UNKNOWN);
+                params.installerPackageName =
+                        getIntent().getStringExtra(Intent.EXTRA_INSTALLER_PACKAGE_NAME);
 
                 File file = new File(mPackageURI.getPath());
                 try {
