@@ -312,7 +312,9 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
     }
 
     private void updateDescription() {
-        mIconView.setImageDrawable(mGroupIcon.loadDrawable(mActivity));
+        if (mGroupIcon != null) {
+            mIconView.setImageDrawable(mGroupIcon.loadDrawable(mActivity));
+        }
         mMessageView.setText(mGroupMessage);
     }
 
