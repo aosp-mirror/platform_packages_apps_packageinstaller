@@ -535,9 +535,11 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
         for (int i = 0; i < requestedPermCount; i++) {
             String permission = mRequestedPermissions[i];
 
-            if (computePermissionGrantState(callingPackageInfo, permission, permissionPolicy)
-                    == PERMISSION_GRANTED) {
-                mGrantResults[i] = PERMISSION_GRANTED;
+            if (permission != null) {
+                if (computePermissionGrantState(callingPackageInfo, permission, permissionPolicy)
+                        == PERMISSION_GRANTED) {
+                    mGrantResults[i] = PERMISSION_GRANTED;
+                }
             }
         }
     }
