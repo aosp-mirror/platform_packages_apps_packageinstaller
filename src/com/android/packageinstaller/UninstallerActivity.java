@@ -87,7 +87,9 @@ public class UninstallerActivity extends Activity {
 
     @Override
     public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
+        // Never restore any state, esp. never create any fragments. The data in the fragment might
+        // be stale, if e.g. the app was uninstalled while the activity was destroyed.
+        super.onCreate(null);
 
         try {
             int callingUid = ActivityManager.getService().getLaunchedFromUid(getActivityToken());
