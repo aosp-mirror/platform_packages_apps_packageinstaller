@@ -29,6 +29,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageManager;
 import android.content.pm.PackageInstaller;
 import android.content.pm.PackageManager;
+import android.content.pm.ProviderInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -208,18 +209,14 @@ public class InstallStart extends Activity {
     }
 
     private boolean isSystemDownloadsProvider(int uid) {
-        final String downloadProviderPackage = getPackageManager().resolveContentProvider(
-                DOWNLOADS_AUTHORITY, 0).getComponentName().getPackageName();
+        final ProviderInfo downloadProviderPackage = getPackageManager().resolveContentProvider(
+                DOWNLOADS_AUTHORITY, 0);
         if (downloadProviderPackage == null) {
+            // There seems to be no currently enabled downloads provider on the system.
             return false;
         }
-        try {
-            ApplicationInfo applicationInfo = getPackageManager().getApplicationInfo(
-                    downloadProviderPackage, 0);
-            return (applicationInfo.isSystemApp() && uid == applicationInfo.uid);
-        } catch (PackageManager.NameNotFoundException ex) {
-            return false;
-        }
+        final ApplicationInfo appInfo = downloadProviderPackage.applicationInfo;
+        return (appInfo.isSystemApp() && uid == appInfo.uid);
     }
 
     private IActivityManager getIActivityManager() {
