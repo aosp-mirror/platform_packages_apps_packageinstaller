@@ -414,7 +414,7 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
     @Override
     public void onPermissionGrantResult(String name, boolean granted, boolean doNotAskAgain) {
         GroupState groupState = mRequestGrantPermissionGroups.get(name);
-        if (groupState.mGroup != null) {
+        if (groupState != null && groupState.mGroup != null) {
             if (granted) {
                 groupState.mGroup.grantRuntimePermissions(doNotAskAgain,
                         groupState.affectedPermissions);
