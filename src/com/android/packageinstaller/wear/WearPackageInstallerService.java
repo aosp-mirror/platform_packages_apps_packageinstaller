@@ -129,13 +129,13 @@ public class WearPackageInstallerService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (!DeviceUtils.isWear(this)) {
             Log.w(TAG, "Not running on wearable.");
-            finishService(null, startId);
+            finishServiceEarly(startId);
             return START_NOT_STICKY;
         }
 
         if (intent == null) {
             Log.w(TAG, "Got null intent.");
-            finishService(null, startId);
+            finishServiceEarly(startId);
             return START_NOT_STICKY;
         }
 
@@ -146,13 +146,14 @@ public class WearPackageInstallerService extends Service {
         Uri packageUri = intent.getData();
         if (packageUri == null) {
             Log.e(TAG, "No package URI in intent");
-            finishService(null, startId);
+            finishServiceEarly(startId);
             return START_NOT_STICKY;
         }
+
         final String packageName = WearPackageUtil.getSanitizedPackageName(packageUri);
         if (packageName == null) {
             Log.e(TAG, "Invalid package name in URI (expected package:<pkgName>): " + packageUri);
-            finishService(null, startId);
+            finishServiceEarly(startId);
             return START_NOT_STICKY;
         }
 
@@ -167,24 +168,23 @@ public class WearPackageInstallerService extends Service {
         }
         WearPackageArgs.setStartId(intentBundle, startId);
         WearPackageArgs.setPackageName(intentBundle, packageName);
+        Message msg;
         String notifTitle;
         if (Intent.ACTION_INSTALL_PACKAGE.equals(intent.getAction())) {
-            Message msg = mServiceHandler.obtainMessage(START_INSTALL);
-            msg.setData(intentBundle);
-            mServiceHandler.sendMessage(msg);
+            msg = mServiceHandler.obtainMessage(START_INSTALL);
             notifTitle = getString(R.string.installing);
         } else if (Intent.ACTION_UNINSTALL_PACKAGE.equals(intent.getAction())) {
-            Message msg = mServiceHandler.obtainMessage(START_UNINSTALL);
-            msg.setData(intentBundle);
-            mServiceHandler.sendMessage(msg);
+            msg = mServiceHandler.obtainMessage(START_UNINSTALL);
             notifTitle = getString(R.string.uninstalling);
         } else {
             Log.e(TAG, "Unknown action : " + intent.getAction());
-            finishService(null, startId);
+            finishServiceEarly(startId);
             return START_NOT_STICKY;
         }
         Pair<Integer, Notification> notifPair = buildNotification(packageName, notifTitle);
         startForeground(notifPair.first, notifPair.second);
+        msg.setData(intentBundle);
+        mServiceHandler.sendMessage(msg);
         return START_NOT_STICKY;
     }
 
@@ -466,6 +466,14 @@ public class WearPackageInstallerService extends Service {
             }
         }
         return hasUngrantedPerm;
+    }
+
+    /** Finishes the service after fulfilling obligation to call startForeground. */
+    private void finishServiceEarly(int startId) {
+        Pair<Integer, Notification> notifPair = buildNotification(
+                getApplicationContext().getPackageName(), "");
+        startForeground(notifPair.first, notifPair.second);
+        finishService(null, startId);
     }
 
     private void finishService(PowerManager.WakeLock lock, int startId) {
