@@ -397,11 +397,17 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
                     // Fallback to system.
                     resources = Resources.getSystem();
                 }
-                int icon = groupState.mGroup.getIconResId();
+
+                Icon icon;
+                try {
+                    icon = Icon.createWithResource(resources, groupState.mGroup.getIconResId());
+                } catch (Resources.NotFoundException e) {
+                    Log.e(LOG_TAG, "Cannot load icon for group" + groupState.mGroup.getName(), e);
+                    icon = null;
+                }
 
                 mViewHandler.updateUi(groupState.mGroup.getName(), groupCount, currentIndex,
-                        Icon.createWithResource(resources, icon), message,
-                        groupState.mGroup.isUserSet());
+                        icon, message, groupState.mGroup.isUserSet());
                 return true;
             }
 
