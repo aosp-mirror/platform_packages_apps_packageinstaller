@@ -31,6 +31,7 @@ LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 
 # Comment for now unitl all private API dependencies are removed
 # LOCAL_SDK_VERSION := system_current
+LOCAL_PRIVATE_PLATFORM_APIS := true
 
 include $(BUILD_PACKAGE)
 
