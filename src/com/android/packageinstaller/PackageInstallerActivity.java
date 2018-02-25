@@ -22,8 +22,6 @@ import android.app.AppGlobals;
 import android.app.AppOpsManager;
 import android.app.Dialog;
 import android.app.DialogFragment;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -238,20 +236,16 @@ public class PackageInstallerActivity extends OverlayTouchActivity implements On
      * @param id The dialog type to add
      */
     private void showDialogInner(int id) {
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-        Fragment currentDialog = getFragmentManager().findFragmentByTag("dialog");
+        DialogFragment currentDialog =
+                (DialogFragment) getFragmentManager().findFragmentByTag("dialog");
         if (currentDialog != null) {
-            transaction.remove(currentDialog);
+            currentDialog.dismissAllowingStateLoss();
         }
 
-        Fragment newDialog = createDialog(id);
-
+        DialogFragment newDialog = createDialog(id);
         if (newDialog != null) {
-            transaction.add(newDialog, "dialog");
+            newDialog.showAllowingStateLoss(getFragmentManager(), "dialog");
         }
-
-        transaction.commitNowAllowingStateLoss();
     }
 
     /**
@@ -300,9 +294,10 @@ public class PackageInstallerActivity extends OverlayTouchActivity implements On
                     AppOpsManager.permissionToOpCode(Manifest.permission.REQUEST_INSTALL_PACKAGES);
             mAppOpsManager.noteOpNoThrow(appOpCode, mOriginatingUid, mOriginatingPackage);
 
-            Fragment currentDialog = getFragmentManager().findFragmentByTag("dialog");
+            DialogFragment currentDialog =
+                    (DialogFragment) getFragmentManager().findFragmentByTag("dialog");
             if (currentDialog != null) {
-                getFragmentManager().beginTransaction().remove(currentDialog).commit();
+                currentDialog.dismissAllowingStateLoss();
             }
 
             initiateInstall();
@@ -379,7 +374,7 @@ public class PackageInstallerActivity extends OverlayTouchActivity implements On
 
     @Override
     protected void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
+        super.onCreate(null);
 
         if (icicle != null) {
             mAllowUnknownSources = icicle.getBoolean(ALLOW_UNKNOWN_SOURCES_KEY);
@@ -719,8 +714,13 @@ public class PackageInstallerActivity extends OverlayTouchActivity implements On
             return new AlertDialog.Builder(getActivity())
                     .setMessage(R.string.anonymous_source_warning)
                     .setPositiveButton(R.string.anonymous_source_continue,
-                            ((dialog, which) -> ((PackageInstallerActivity) getActivity())
-                                    .initiateInstall()))
+                            ((dialog, which) -> {
+                                PackageInstallerActivity activity = ((PackageInstallerActivity)
+                                        getActivity());
+
+                                activity.mAllowUnknownSources = true;
+                                activity.initiateInstall();
+                            }))
                     .setNegativeButton(R.string.cancel, ((dialog, which) -> getActivity().finish()))
                     .create();
         }
