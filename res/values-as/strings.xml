@@ -52,8 +52,7 @@
     <string name="launch" msgid="4826921505917605463">"খোলক"</string>
     <!-- no translation found for unknown_apps_admin_dlg_text (7488386758312008790) -->
     <skip />
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (5785226253054083336) -->
-    <skip />
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"এই ব্যৱহাৰকাৰীয়ে অজ্ঞাত উৎসৰপৰা লাভ কৰা এপসমূহ ইনষ্টল কৰিব নোৱাৰে"</string>
     <!-- no translation found for install_apps_user_restriction_dlg_text (5041150186260066212) -->
     <skip />
     <string name="ok" msgid="3468756155452870475">"ঠিক আছে"</string>
@@ -100,15 +99,13 @@
     <skip />
     <!-- no translation found for uninstall_failed_device_policy_manager (2727361164694743362) -->
     <skip />
-    <!-- no translation found for uninstall_failed_device_policy_manager_of_user (2161462242935805756) -->
-    <skip />
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"<xliff:g id="USERNAME">%1$s</xliff:g>ৰ সক্ৰিয় ডিভাইচৰ প্ৰশাসকীয় এপ্ আনইনষ্টল কৰিব নোৱাৰি"</string>
     <!-- no translation found for uninstall_all_blocked_profile_owner (3544933038594382346) -->
     <skip />
     <!-- no translation found for uninstall_blocked_profile_owner (6912141045528994954) -->
     <skip />
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"আপোনাৰ ডিভাইচৰ প্ৰশাসকে এই এপটো ৰখাটো বাধ্যতামূলক কৰি ৰাখিছে, গতিকে ইয়াক আনইনষ্টল কৰিব পৰা নাযায়।"</string>
-    <!-- no translation found for manage_device_administrators (118178632652346535) -->
-    <skip />
+    <string name="manage_device_administrators" msgid="118178632652346535">"ডিভাইচৰ প্ৰশাসকীয় এপসমূহ পৰিচালনা কৰক"</string>
     <!-- no translation found for manage_users (3125018886835668847) -->
     <skip />
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g>ক আনইনষ্টল কৰিব নোৱাৰি৷"</string>
@@ -206,12 +203,9 @@
     <skip />
     <!-- no translation found for app_name_unknown (8931522764510159105) -->
     <skip />
-    <!-- no translation found for untrusted_external_source_warning (1483151219938173935) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (5373768281884328560) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (2223486836232706553) -->
-    <skip />
+    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"আপোনাৰ টেবলেটটো যাতে সুৰক্ষিত থাকে তাৰ বাবে আপোনাৰ টেবলেটটোক এই উৎসৰ পৰা অজ্ঞাত এপসমূহ ইনষ্টল কৰিবলৈ অনুমতি দিয়া হোৱা নাই।"</string>
+    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"আপোনাৰ টিভিটো যাতে সুৰক্ষিত থাকে তাৰ বাবে আপোনাৰ টিভিটোক এই উৎসৰ পৰা অজ্ঞাত এপসমূহ ইনষ্টল কৰিবলৈ অনুমতি দিয়া হোৱা নাই।"</string>
+    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"আপোনাৰ ফ\'নটো যাতে সুৰক্ষিত থাকে তাৰ বাবে আপোনাৰ ফ\'নটোক এই উৎসৰ পৰা অজ্ঞাত এপসমূহ ইনষ্টল কৰিবলৈ অনুমতি দিয়া হোৱা নাই।"</string>
     <!-- no translation found for anonymous_source_warning (7700263729981815614) -->
     <skip />
     <!-- no translation found for anonymous_source_warning (8854462805499848630) -->
@@ -220,8 +214,7 @@
     <skip />
     <!-- no translation found for anonymous_source_continue (2094381167954332292) -->
     <skip />
-    <!-- no translation found for external_sources_settings (8601453744517291632) -->
-    <skip />
+    <string name="external_sources_settings" msgid="8601453744517291632">"ছেটিংবোৰ"</string>
     <!-- no translation found for wear_app_channel (6200840123672949356) -->
     <skip />
 </resources>
