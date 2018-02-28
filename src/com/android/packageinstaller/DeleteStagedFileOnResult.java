@@ -34,7 +34,8 @@ public class DeleteStagedFileOnResult extends Activity {
         if (savedInstanceState == null) {
             Intent installIntent = new Intent(getIntent());
             installIntent.setClass(this, PackageInstallerActivity.class);
-            installIntent.setFlags(installIntent.getFlags() & ~Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+
+            installIntent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivityForResult(installIntent, 0);
         }
     }

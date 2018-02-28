@@ -668,8 +668,8 @@ public class PackageInstallerActivity extends OverlayTouchActivity implements On
         }
         if (getIntent().getBooleanExtra(Intent.EXTRA_RETURN_RESULT, false)) {
             newIntent.putExtra(Intent.EXTRA_RETURN_RESULT, true);
-            newIntent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
         }
+        newIntent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
         if(localLOGV) Log.i(TAG, "downloaded app uri="+mPackageURI);
         startActivity(newIntent);
         finish();
