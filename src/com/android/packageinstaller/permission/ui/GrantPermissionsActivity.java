@@ -41,6 +41,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.android.internal.content.PackageMonitor;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.packageinstaller.DeviceUtils;
 import com.android.packageinstaller.R;
@@ -74,6 +75,8 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
     boolean mResultSet;
 
     private PackageManager.OnPermissionsChangedListener mPermissionChangeListener;
+    private PackageMonitor mPackageMonitor;
+
     private String mCallingPackage;
 
     private int getPermissionPolicy() {
@@ -87,6 +90,17 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
 
         // Cache this as this can only read on onCreate, not later.
         mCallingPackage = getCallingPackage();
+
+        mPackageMonitor = new PackageMonitor() {
+            @Override
+            public void onPackageRemoved(String packageName, int uid) {
+                if (mCallingPackage.equals(packageName)) {
+                    Log.w(LOG_TAG, mCallingPackage + " was uninstalled");
+
+                    finish();
+                }
+            }
+        };
 
         setFinishOnTouchOutside(false);
 
@@ -309,7 +323,19 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
     protected void onStart() {
         super.onStart();
 
-        getPackageManager().addOnPermissionsChangeListener(mPermissionChangeListener);
+        PackageManager pm = getPackageManager();
+        pm.addOnPermissionsChangeListener(mPermissionChangeListener);
+
+        // get notified when the package is removed
+        mPackageMonitor.register(this, getMainLooper(), false);
+
+        // check if the package was removed while this activity was not started
+        try {
+            pm.getPackageInfo(mCallingPackage, 0);
+        } catch (NameNotFoundException e) {
+            Log.w(LOG_TAG, mCallingPackage + " was uninstalled while this activity was stopped", e);
+            finish();
+        }
 
         updateIfPermissionsWereGranted();
     }
@@ -317,6 +343,8 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
     @Override
     protected void onStop() {
         super.onStop();
+
+        mPackageMonitor.unregister();
 
         getPackageManager().removeOnPermissionsChangeListener(mPermissionChangeListener);
     }
