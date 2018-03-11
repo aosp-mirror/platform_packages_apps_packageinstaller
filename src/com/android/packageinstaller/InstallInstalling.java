@@ -111,6 +111,7 @@ public class InstallInstalling extends Activity {
             } else {
                 PackageInstaller.SessionParams params = new PackageInstaller.SessionParams(
                         PackageInstaller.SessionParams.MODE_FULL_INSTALL);
+                params.installFlags = PackageManager.INSTALL_FULL_APP;
                 params.referrerUri = getIntent().getParcelableExtra(Intent.EXTRA_REFERRER);
                 params.originatingUri = getIntent()
                         .getParcelableExtra(Intent.EXTRA_ORIGINATING_URI);
