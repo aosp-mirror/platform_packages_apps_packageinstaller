@@ -69,7 +69,7 @@ public final class AppPermissionsFragment extends Fragment{
     public static AppPermissionsFragment newInstance(String packageName) {
         AppPermissionsFragment fragment = new AppPermissionsFragment();
         Bundle arguments = new Bundle();
-        arguments.putInt(EXTRA_LAYOUT, com.android.car.list.R.layout.list);
+        arguments.putInt(EXTRA_LAYOUT, R.layout.car_app_permissions);
         arguments.putString(Intent.EXTRA_PACKAGE_NAME, packageName);
         fragment.setArguments(arguments);
         return fragment;
@@ -78,6 +78,8 @@ public final class AppPermissionsFragment extends Fragment{
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        getView().findViewById(R.id.action_bar_icon_container).setOnClickListener(
+                v -> getActivity().onBackPressed());
 
         mListView = (PagedListView) getView().findViewById(R.id.list);
         mPagedListAdapter = new TypedPagedListAdapter(getLineItems());
