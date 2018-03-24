@@ -15,16 +15,22 @@
 -->
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- [CHAR LIMIT=25] -->
     <string name="app_name">Package installer</string>
+
+    <!-- [CHAR LIMIT=15] -->
     <string name="next">Next</string>
+    <!-- [CHAR LIMIT=15] -->
     <string name="install">Install</string>
+    <!-- [CHAR LIMIT=15] -->
     <string name="done">Done</string>
-    <!-- TODO REMOVE LATER -->
-    <string name="security_settings_desc">Allow this app to:</string>
+    <!-- [CHAR LIMIT=15] -->
     <string name="cancel">Cancel</string>
-    <string name="unknown">Unknown</string>
+    <!-- [CHAR LIMIT=50] -->
     <string name="installing">Installing\u2026</string>
+    <!-- [CHAR LIMIT=50] -->
     <string name="installing_app">Installing <xliff:g id="package_label">%1$s</xliff:g>\u2026</string>
+    <!-- [CHAR LIMIT=100] -->
     <string name="install_done">App installed.</string>
     <!-- Message for installing a new app that requires some permissions [CHAR LIMIT=NONE] -->
     <string name="install_confirm_question">Do you want to install this application?
@@ -48,6 +54,7 @@
     <string name="install_confirm_question_update_system_no_perms">Do you want to install an update
             to this built-in application?  Your existing data will not
             be lost.  It does not require any special access.</string>
+    <!-- [CHAR LIMIT=100] -->
     <string name="install_failed">App not installed.</string>
     <!-- Reason displayed when installation fails because the package was blocked
         from being installed (e.g., device policy, verification, ...) [CHAR LIMIT=100] -->
@@ -87,32 +94,43 @@
     <!-- Message presented in a dialog box when the user restriction set by the system restricts the installation of apps. [CHAR LIMIT=none] -->
     <string name="install_apps_user_restriction_dlg_text">This user is not allowed to install apps</string>
 
-
+    <!-- [CHAR LIMIT=15] -->
     <string name="ok">OK</string>
-    <string name="settings">Settings</string>
+    <!-- [CHAR LIMIT=15] -->
     <string name="manage_applications">Manage apps</string>
-    <string name="dlg_app_replacement_title">Replace app?</string>
-    <string name="dlg_app_replacement_statement">The app you\'re installing will replace another app.\n\nAll your previous user data will be saved.</string>
-    <!-- Dialog attributes when replacing system app -->
-    <string name="dlg_sys_app_replacement_statement">This is a system app.\n\nAll your previous user data will be saved.</string>
+    <!-- [CHAR LIMIT=30] -->
     <string name="out_of_space_dlg_title">Out of space</string>
+    <!-- [CHAR LIMIT=none] -->
     <string name="out_of_space_dlg_text"><xliff:g id="app_name">%1$s</xliff:g> couldn\'t be installed. Free up some space and try again.</string>
     <!-- strings related to uninstall activity -->
-    <string name="dlg_ok">OK</string>
+    <!--  [CHAR LIMIT=30] -->
     <string name="app_not_found_dlg_title">App not found</string>
+    <!--  [CHAR LIMIT=none] -->
     <string name="app_not_found_dlg_text"> The app wasn\'t found in the list of installed apps.</string>
+    <!--  [CHAR LIMIT=30] -->
     <string name="user_is_not_allowed_dlg_title">Not allowed</string>
+    <!--  [CHAR LIMIT=none] -->
     <string name="user_is_not_allowed_dlg_text">The current user is not allowed to perform this uninstallation.</string>
+    <!--  [CHAR LIMIT=30] -->
     <string name="generic_error_dlg_title">Error</string>
+    <!--  [CHAR LIMIT=none] -->
     <string name="generic_error_dlg_text">App could not be uninstalled.</string>
+    <!--  [CHAR LIMIT=30] -->
     <string name="uninstall_application_title">Uninstall app</string>
+    <!--  [CHAR LIMIT=30] -->
     <string name="uninstall_update_title">Uninstall update</string>
+    <!--  [CHAR LIMIT=100] -->
     <string name="uninstall_activity_text"><xliff:g id="activity_name">%1$s</xliff:g> is part of the following app:</string>
+    <!--  [CHAR LIMIT=none] -->
     <string name="uninstall_application_text">Do you want to uninstall this app?</string>
+    <!--  [CHAR LIMIT=none] -->
     <string name="uninstall_application_text_all_users">Do you want to uninstall this app for <b>all</b>
         users?  The application and its data will be removed from <b>all</b> users on the device.</string>
+    <!--  [CHAR LIMIT=none] -->
     <string name="uninstall_application_text_user">Do you want to uninstall this app for the user <xliff:g id="username">%1$s</xliff:g>?</string>
+    <!--  [CHAR LIMIT=none] -->
     <string name="uninstall_update_text">Replace this app with the factory version? All data will be removed.</string>
+    <!--  [CHAR LIMIT=none] -->
     <string name="uninstall_update_text_multiuser">Replace this app with the factory version? All data will be removed. This affects all users of this device, including those with work profiles.</string>
 
     <!-- Label for the notification channel containing notifications for current uninstall operations [CHAR LIMIT=40] -->
@@ -120,11 +138,17 @@
     <!-- Label for the notification channel containing notifications for failed uninstall operations [CHAR LIMIT=40] -->
     <string name="uninstall_failure_notification_channel">Failed uninstalls</string>
 
+    <!-- [CHAR LIMIT=50] -->
     <string name="uninstalling">Uninstalling\u2026</string>
+    <!-- [CHAR LIMIT=50] -->
     <string name="uninstalling_app">Uninstalling <xliff:g id="package_label">%1$s</xliff:g>\u2026</string>
+    <!-- [CHAR LIMIT=100] -->
     <string name="uninstall_done">Uninstall finished.</string>
+    <!-- [CHAR LIMIT=100] -->
     <string name="uninstall_done_app">Uninstalled <xliff:g id="package_label">%1$s</xliff:g></string>
+    <!-- [CHAR LIMIT=100] -->
     <string name="uninstall_failed">Uninstall unsuccessful.</string>
+    <!-- [CHAR LIMIT=100] -->
     <string name="uninstall_failed_app">Uninstalling <xliff:g id="package_label">%1$s</xliff:g> unsuccessful.</string>
     <!-- String presented to the user when uninstalling a package failed because the target package
         is a current device administrator [CHAR LIMIT=80] -->
@@ -155,6 +179,7 @@
         user will be able to remove the secondary user(s) in order to uninstall
         the app. [CHAR LIMIT=50] -->
     <string name="manage_users">Manage users</string>
+    <!-- [CHAR LIMIT=none] -->
     <string name="uninstall_failed_msg"><xliff:g id="app_name">%1$s</xliff:g> couldn\'t be uninstalled.</string>
 
     <!-- Dialog attributes to indicate parse errors -->
@@ -172,60 +197,57 @@
     <!-- Body text for new tab when there are no new permissions [CHAR LIMIT=NONE] -->
     <string name="no_new_perms">This update requires no new permissions.</string>
 
-    <string name="grant_confirm_question">Do you want to grant the following permissions?
-        It will get access to:</string>
-
-    <!-- Title for the dialog button to deny a permission grant. -->
+    <!-- Title for the dialog button to deny a permission grant. [CHAR LIMIT=15] -->
     <string name="grant_dialog_button_deny">Deny</string>
 
-    <!-- Title for the dialog button to get more info about a permission. -->
+    <!-- Title for the dialog button to get more info about a permission. [CHAR LIMIT=15] -->
     <string name="grant_dialog_button_more_info">More info</string>
 
-    <!-- Title for the dialog button to deny a permission grant despite a warning of implications. -->
+    <!-- Title for the dialog button to deny a permission grant despite a warning of implications. [CHAR LIMIT=15] -->
     <string name="grant_dialog_button_deny_anyway">Deny anyway</string>
 
-    <!-- Template for the current permission from the total number of permissions. -->
+    <!-- Template for the current permission from the total number of permissions. [CHAR LIMIT=100] -->
     <string name="current_permission_template">
         <xliff:g id="current_permission_index" example="1">%1$s</xliff:g> of
         <xliff:g id="permission_count" example="2">%2$s</xliff:g></string>
 
-    <!-- Template for the warning message when an app requests a permission. -->
+    <!-- Template for the warning message when an app requests a permission. [CHAR LIMIT=100] -->
     <string name="permission_warning_template">Allow
         &lt;b><xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b> to
         <xliff:g id="action" example="do something">%2$s</xliff:g>?</string>
 
-    <!-- Template for the message how many permissions are disabled. -->
+    <!-- Template for the message how many permissions are disabled. [CHAR LIMIT=30] -->
     <string name="permission_revoked_count"><xliff:g id="count" example="2">%1$d</xliff:g> disabled</string>
 
-    <!-- Message that all permissions are disabled. -->
+    <!-- Message that all permissions are disabled. [CHAR LIMIT=30]  -->
     <string name="permission_revoked_all">all disabled</string>
 
-    <!-- Message that no permissions are disabled. -->
+    <!-- Message that no permissions are disabled. [CHAR LIMIT=30]  -->
     <string name="permission_revoked_none">none disabled</string>
 
     <!-- Permissions -->
 
-    <!-- Title for the dialog button to allow a permission grant. -->
+    <!-- Title for the dialog button to allow a permission grant. [CHAR LIMIT=15]  -->
     <string name="grant_dialog_button_allow">Allow</string>
 
     <!-- Title of an application permission, listed so the user can choose whether they want
-         to allow the application to do this. -->
+         to allow the application to do this. [CHAR LIMIT=30] -->
     <string name="permlab_togglePermissions" translatable="false">toggle permissions</string>
     <!-- Description of an application permission, listed so the user can choose whether
-         they want to allow the application to do this. -->
+         they want to allow the application to do this. [CHAR LIMIT=100] -->
     <string name="permdesc_togglePermissions" translatable="false">Allows the holder to launch
         the UI for toggling app permissions. Should never be needed for normal apps.</string>
 
     <!-- Breadcrumb for page of managing application permissions [CHAR LIMIT=50] -->
     <string name="app_permissions_breadcrumb">Apps</string>
 
-    <!-- Title for page of managing application permissions -->
+    <!-- Title for page of managing application permissions [CHAR LIMIT=30] -->
     <string name="app_permissions">App permissions</string>
     <!-- Checkbox that allows user to not be questioned about this permission
-         request again -->
+         request again [CHAR LIMIT=30] -->
     <string name="never_ask_again">Don\'t ask again</string>
 
-    <!-- Label when app requests no permissions -->
+    <!-- Label when app requests no permissions [CHAR LIMIT=30] -->
     <string name="no_permissions">No permissions</string>
 
     <!-- Label for button that leads to more permissions [CHAR LIMIT=40] -->
@@ -237,7 +259,7 @@
         <item quantity="other"><xliff:g id="count" example="2">%1$d</xliff:g> more</item>
     </plurals>
 
-    <!-- Warning for turning off permissions on older apps -->
+    <!-- Warning for turning off permissions on older apps [CHAR LIMIT=none] -->
     <string name="old_sdk_deny_warning">This app was designed for an older version of Android. Denying permission may cause it to no longer function as intended.</string>
 
     <!-- The default description of a permission, i.e. what it does.  [CHAR LIMIT=40] -->
@@ -269,7 +291,7 @@
    <!-- [CHAR LIMIT=NONE] Summary of a permission switch when it's enforced by policy -->
    <string name="permission_summary_enforced_by_policy">Enforced by policy</string>
 
-   <!-- Text displayed until loading is done -->
+   <!-- Text displayed until loading is done [CHAR LIMIT=50] -->
    <string name="loading">Loading\u2026</string>
 
    <!-- [CHAR LIMIT=45] Title of all permissions settings -->
@@ -293,44 +315,38 @@
          before permissions can be changed. [CHAR LIMIT=NONE] -->
     <string name="screen_overlay_button">Open settings</string>
 
-    <!-- Title of dialog telling users that Install/Uninstall action is not supported on Android Wear. -->
+    <!-- Title of dialog telling users that Install/Uninstall action is not supported on Android Wear. [CHAR LIMIT=30] -->
     <string name="wear_not_allowed_dlg_title">Android Wear</string>
-    <!-- Title of dialog telling users that Install/Uninstall action is not supported on Android Wear. -->
+    <!-- Title of dialog telling users that Install/Uninstall action is not supported on Android Wear. [CHAR LIMIT=none] -->
     <string name="wear_not_allowed_dlg_text">Install/Uninstall actions not supported on Wear.</string>
 
     <!-- Review of runtime permissions for legacy apps -->
 
-    <!-- Template for the warning title when an updated app's requested permissions are reviewed. -->
-    <string name="permission_review_warning_title_template_update">
-        <xliff:g id="app_name" example="Gmail">%1$s</xliff:g> has been updated.
-        Allow <xliff:g id="app_name" example="Gmail">%1$s</xliff:g> to
-        access the following?</string>
-
-    <!-- Template for the screen title when app permissions are reviewed on install. -->
+    <!-- Template for the screen title when app permissions are reviewed on install. [CHAR LIMIT=none] -->
     <string name="permission_review_title_template_install">Choose what to allow
         &lt;b><xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b> to access</string>
 
-    <!-- Template for the screen title when app permissions are reviewed on update. -->
+    <!-- Template for the screen title when app permissions are reviewed on update. [CHAR LIMIT=none] -->
     <string name="permission_review_title_template_update">
         &lt;b><xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b> has been updated.
         Choose what to allow this app to access.</string>
 
-    <!-- Title for the dialog button to cancel the detailed permission review. -->
+    <!-- Title for the dialog button to cancel the detailed permission review. [CHAR LIMIT=15] -->
     <string name="review_button_cancel">Cancel</string>
 
-    <!-- Title for the dialog button to continue accepting the detailed permission review. -->
+    <!-- Title for the dialog button to continue accepting the detailed permission review. [CHAR LIMIT=15] -->
     <string name="review_button_continue">Continue</string>
 
-    <!-- Title for the category listing the new permissions used by an app. -->
+    <!-- Title for the category listing the new permissions used by an app. [CHAR LIMIT=30] -->
     <string name="new_permissions_category">New permissions</string>
 
-    <!-- Title for the category listing the current permissions used by an app. -->
+    <!-- Title for the category listing the current permissions used by an app. [CHAR LIMIT=30] -->
     <string name="current_permissions_category">Current permissions</string>
 
-    <!-- Message that the app to be installed is being staged -->
+    <!-- Message that the app to be installed is being staged [CHAR LIMIT=50] -->
     <string name="message_staging">Staging app&#8230;</string>
 
-    <!-- Placeholder for an app name when it is unknown -->
+    <!-- Placeholder for an app name when it is unknown [CHAR LIMIT=50] -->
     <string name="app_name_unknown">Unknown</string>
 
     <!-- Help URL, application permissions [DO NOT TRANSLATE] -->
