@@ -88,21 +88,21 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setLoading(true /* loading */, false /* animate */);
+        mLauncherPkgs = Utils.getLauncherPackages(getContext());
+        String groupName = getArguments().getString(Intent.EXTRA_PERMISSION_NAME);
+        mPermissionApps = new PermissionApps(getActivity(), groupName, this);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
         setHasOptionsMenu(true);
         final ActionBar ab = getActivity().getActionBar();
         if (ab != null) {
             ab.setDisplayHomeAsUpEnabled(true);
         }
-        mLauncherPkgs = Utils.getLauncherPackages(getContext());
 
-        String groupName = getArguments().getString(Intent.EXTRA_PERMISSION_NAME);
-        mPermissionApps = new PermissionApps(getActivity(), groupName, this);
-        mPermissionApps.refresh(true);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
         mPermissionApps.refresh(true);
     }
 
@@ -362,8 +362,8 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
     }
 
     @Override
-    public void onPause() {
-        super.onPause();
+    public void onStop() {
+        super.onStop();
         logToggledGroups();
     }
 
