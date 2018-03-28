@@ -23,6 +23,7 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.android.packageinstaller.DeviceUtils;
+import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.ui.handheld.ManageStandardPermissionsFragment;
 import com.android.packageinstaller.permission.ui.wear.AppPermissionsFragmentWear;
 
@@ -34,14 +35,13 @@ public final class ManagePermissionsActivity extends OverlayTouchActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        if (DeviceUtils.isAuto(this)) {
+            setTheme(R.style.CarSettingTheme);
+        }
         super.onCreate(savedInstanceState);
 
         if (savedInstanceState != null) {
             return;
-        }
-        // in automotive mode, there's no system wide back button, so need to add that
-        if (DeviceUtils.isAuto(this)) {
-            getActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
         Fragment fragment;
