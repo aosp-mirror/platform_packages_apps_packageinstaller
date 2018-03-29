@@ -17,8 +17,8 @@
 package com.android.packageinstaller.permission.ui.auto;
 
 import android.app.Activity;
-import android.content.Context;
 import android.view.WindowManager;
+
 import com.android.packageinstaller.permission.ui.handheld.GrantPermissionsViewHandlerImpl;
 
 /**
