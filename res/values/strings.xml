@@ -245,6 +245,9 @@
     <!-- Label for button that leads to more permissions [CHAR LIMIT=40] -->
     <string name="additional_permissions">Additional permissions</string>
 
+    <!-- Accessibility label for button opening the app-info when clicked [CHAR LIMIT=none] -->
+    <string name="app_permissions_info_button_label">Open app info</string>
+
     <!-- Description of how many more permissions to view on next page [CHAR LIMIT=30] -->
     <plurals name="additional_permissions_more">
         <item quantity="one"><xliff:g id="count" example="1">%1$d</xliff:g> more</item>

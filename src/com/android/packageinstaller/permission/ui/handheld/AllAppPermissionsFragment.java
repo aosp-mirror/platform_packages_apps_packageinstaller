@@ -76,9 +76,9 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
+    public void onStart() {
+        super.onStart();
+
         final ActionBar ab = getActivity().getActionBar();
         if (ab != null) {
             // If we target a group make this look like app permissions.
@@ -89,11 +89,9 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
             }
             ab.setDisplayHomeAsUpEnabled(true);
         }
-    }
 
-    @Override
-    public void onResume() {
-        super.onResume();
+        setHasOptionsMenu(true);
+
         updateUi();
     }
 

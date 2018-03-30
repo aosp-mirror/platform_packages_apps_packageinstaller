@@ -143,7 +143,6 @@
 
         <activity android:name=".permission.ui.ManagePermissionsActivity"
                   android:configChanges="orientation|keyboardHidden|screenSize"
-                  android:excludeFromRecents="true"
                   android:label="@string/app_permissions"
                   android:theme="@style/Settings"
                   android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS">
