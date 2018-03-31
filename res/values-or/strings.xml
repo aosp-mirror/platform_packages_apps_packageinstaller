@@ -24,8 +24,7 @@
     <string name="cancel" msgid="8360346460165114585">"କ୍ୟାନ୍ସଲ୍‍ କରନ୍ତୁ"</string>
     <string name="unknown" msgid="4742479012767208045">"ଅଜଣା"</string>
     <string name="installing" msgid="8613631001631998372">"ଇନଷ୍ଟଲ୍ କରାଯାଉଛି…"</string>
-    <!-- no translation found for installing_app (4097935682329028894) -->
-    <skip />
+    <string name="installing_app" msgid="4097935682329028894">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ଇନଷ୍ଟଲ୍‌ କରାଯାଉଛି…"</string>
     <string name="install_done" msgid="3682715442154357097">"ଆପ୍‍ ଇନଷ୍ଟଲ୍‌ ହୋଇଗଲା।"</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"ଏହି ଆପ୍ଲିକେଶନ୍‍ ଆପଣ ଇନଷ୍ଟଲ୍‍ କରିବେ କି? ଏହିଗୁଡ଼ିକୁ ଏହା ଆକ୍ସେସ୍‌ କରିପାରିବ:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"ଏହି ଆପ୍ଲିକେଶନ୍‍ ଆପଣ ଇନଷ୍ଟଲ୍‍ କରିବେ କି? ଏହା କୌଣସି ବିଶେଷ ପ୍ରକାରର ଆକ୍ସେସ୍‌ ଆବଶ୍ୟକ କରେନାହିଁ।"</string>
@@ -44,12 +43,9 @@
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> ଆପଣଙ୍କ ଟିଭିରେ ଇନଷ୍ଟଲ୍‍ କରାଯାଇପାରିଲା ନାହିଁ।"</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g>ଟି ଆପଣଙ୍କ ଫୋନ୍‍ରେ ଇନଷ୍ଟଲ୍‌ କରାଯାଇପାରିଲା ନାହିଁ।"</string>
     <string name="launch" msgid="4826921505917605463">"ଖୋଲନ୍ତୁ"</string>
-    <!-- no translation found for unknown_apps_admin_dlg_text (7488386758312008790) -->
-    <skip />
-    <!-- no translation found for unknown_apps_user_restriction_dlg_text (5785226253054083336) -->
-    <skip />
-    <!-- no translation found for install_apps_user_restriction_dlg_text (5041150186260066212) -->
-    <skip />
+    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"ଅଜଣା ସୋର୍ସରୁ ଆସିଥିବା ଆପଗୁଡ଼ିକ ଇନଷ୍ଟଲ୍‌ କରିବାକୁ ଆପଣଙ୍କ ଆଡମିନ୍‍ ଅନୁମତି ଦିଅନ୍ତି ନାହିଁ"</string>
+    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"ଏହି ୟୁଜରଙ୍କ ଦ୍ୱାରା ଅଜଣା ଆପ୍‍ ଇନଷ୍ଟଲ୍‍ କରାଯାଇ ପାରିବ ନାହିଁ"</string>
+    <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"ଏହି ୟୁଜର୍‌ ଜଣକ ଆପ୍‍ ଇନଷ୍ଟଲ୍‍ କରିପାରିବେ ନାହିଁ"</string>
     <string name="ok" msgid="3468756155452870475">"ଠିକ୍‍ ଅଛି"</string>
     <string name="settings" msgid="6743583734099755409">"ସେଟିଙ୍ଗ"</string>
     <string name="manage_applications" msgid="4033876279091996596">"ଆପ୍‌ଗୁଡ଼ିକର ପରିଚାଳନା କରନ୍ତୁ"</string>
@@ -71,33 +67,23 @@
     <string name="uninstall_application_text" msgid="6691975835951187030">"ଆପଣ ଏହି ଆପ୍‍ ଅନଇନଷ୍ଟଲ୍‌ କରିବାକୁ ଚାହାଁନ୍ତି କି?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"ଆପଣ "<b>"ସମସ୍ତ"</b>" ୟୁଜର୍‌ଙ୍କ ପାଇଁ ଏହି ଆପ୍‌କୁ ଅନଷ୍ଟଲ୍‍ କରିବାକୁ ଚାହୁଁଛନ୍ତି କି? ଡିଭାଇସ୍‌ରେ ଥିବା "<b>"ସମସ୍ତ"</b>" ୟୁଜର୍‌ ଆପ୍ଲିକେଶନ୍‍ ଏବଂ ତାହାର ଡାଟା ବାହାର କରିଦିଆଯିବ।"</string>
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"ୟୁଜର୍‌ <xliff:g id="USERNAME">%1$s</xliff:g>ଙ୍କ ପାଇଁ ଆପଣ ଏହି ଆପ୍‍ ଇନଷ୍ଟଲ୍‍ କରିବେ କି?"</string>
-    <!-- no translation found for uninstall_update_text (1394549691152728409) -->
-    <skip />
-    <!-- no translation found for uninstall_update_text_multiuser (2083665452990861991) -->
-    <skip />
-    <!-- no translation found for uninstalling_notification_channel (5698369661583525583) -->
-    <skip />
-    <!-- no translation found for uninstall_failure_notification_channel (8224276726364132314) -->
-    <skip />
+    <string name="uninstall_update_text" msgid="1394549691152728409">"ଏହି ଆପ୍‍ ଫ୍ୟାକ୍ଟୋରୀ ଭର୍ସନ୍‍‍ ସହ ବଦଳାଇବେ? ସମସ୍ତ ଡାଟା କାଢ଼ିଦିଆଯିବ।"</string>
+    <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"ଏହି ଆପ୍‍ ଫ୍ୟାକ୍ଟୋରୀ ଭର୍ସନ୍‍‍ ସହ ବଦଳାଇବେ? ସମସ୍ତ ଡାଟା ବାହାର କରିଦିଆଯିବ। ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ଥିବା ସମେତ, ଏହାଦ୍ୱାରା ଡିଭାଇସରେ ଥିବା ସମସ୍ତ ୟୁଜର୍‌ ପ୍ରଭାବିତ ହେବେ।"</string>
+    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"ଅନଇନଷ୍ଟଲ୍‌ ଚାଲୁଛି"</string>
+    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"ଅନଇନଷ୍ଟଲ୍‌ କରାଯାଇ ପାରିଲା ନାହିଁ"</string>
     <string name="uninstalling" msgid="5556217435895938250">"ଅନଇନଷ୍ଟଲ୍‌ କରାଯାଉଛି…"</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ଅନଇନଷ୍ଟଲ୍‍ କରାଯାଉଛି…"</string>
     <string name="uninstall_done" msgid="3792487853420281888">"ଅନଇନଷ୍ଟଲ୍‌ ହୋଇଗଲା।"</string>
-    <!-- no translation found for uninstall_done_app (775837862728680479) -->
-    <skip />
+    <string name="uninstall_done_app" msgid="775837862728680479">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ଅନଇନଷ୍ଟଲ୍‌ କରାଗଲା"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"ଅନଇନଷ୍ଟଲ୍‌ କରାଯାଇପାରିଲା ନାହିଁ।"</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ଅନଇନଷ୍ଟଲ୍‍ କରିବା ସଫଳ ହେଲାନାହିଁ।"</string>
-    <!-- no translation found for uninstall_failed_device_policy_manager (2727361164694743362) -->
-    <skip />
-    <!-- no translation found for uninstall_failed_device_policy_manager_of_user (2161462242935805756) -->
-    <skip />
-    <!-- no translation found for uninstall_all_blocked_profile_owner (3544933038594382346) -->
-    <skip />
+    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"ସକ୍ରିୟ ଡିଭାଇସ୍‍ ଆପ୍‍ ଅନଇନଷ୍ଟଲ୍‌ କରିପାରିବ ନାହିଁ"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"<xliff:g id="USERNAME">%1$s</xliff:g>ଙ୍କ ପାଇଁ ସକ୍ରିୟ ଡିଭାଇସ୍‍ ଆଡମିନ୍‍ ଆପ୍‍ ଅନଇନଷ୍ଟଲ୍‍ କରାଯାଇ ପାରିବ ନାହିଁ"</string>
+    <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"କିଛି ୟୁଜର୍‌ କିମ୍ବା ପ୍ରୋଫାଇଲ୍‍ ପାଇଁ ଏହି ଆପ୍‍ ଆବଶ୍ୟକ ଏବଂ ଅନ୍ୟ ସମସ୍ତଙ୍କ ପାଇଁ ଅନଇନଷ୍ଟଲ୍‍ କରାଯାଇଥିଲା"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"ଏହି ଆପ୍‍ ଆପଣଙ୍କ ପ୍ରୋଫାଇଲ୍‍ ପାଇଁ ଆବଶ୍ୟକ ଅଟେ ଏବଂ ଅନଇନଷ୍ଟଲ୍‍ କରାଯାଇପାରିବ ନାହିଁ।"</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"ଆପଣଙ୍କ ଡିଭାଇସ୍‍ ଆଡମିନିଷ୍ଟ୍ରେଟର୍‍ ଏହି ଆପ୍‍ ଆବଶ୍ୟକ କରନ୍ତୁ ଏବଂ ଏହାକୁ ଅନ୍‍ଇନଷ୍ଟଲ୍‍ କରାଯାଇପାରିବ ନାହିଁ।"</string>
-    <!-- no translation found for manage_device_administrators (118178632652346535) -->
-    <skip />
-    <!-- no translation found for manage_users (3125018886835668847) -->
-    <skip />
+    <string name="manage_device_administrators" msgid="118178632652346535">"ଡିଭାଇସ୍‌ ଆଡମିନ୍‌ ଆପ୍‌ ପରିଚାଳନା କରନ୍ତୁ"</string>
+    <string name="manage_users" msgid="3125018886835668847">"ୟୁଜର୍‌ଙ୍କୁ ପରିଚାଳନା କରନ୍ତୁ"</string>
     <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> ଅନଇନଷ୍ଟଲ୍‍ କରାଯାଇପାରିଲା ନାହିଁ।"</string>
     <string name="Parse_error_dlg_text" msgid="7623286983621067011">"ଏହି ପ୍ୟାକେଜ୍‍ ପାର୍ସ କରିବାରେ ସମସ୍ୟା ଥିଲା।"</string>
     <string name="newPerms" msgid="6039428254474104210">"ନୂଆ"</string>
@@ -108,8 +94,7 @@
     <string name="grant_confirm_question" msgid="4690289297029223742">"ଆପଣ ନିମ୍ନ ଅନୁମତିଗୁଡ଼ିକୁ ମଞ୍ଜୁର କରିବେ କି? ଏହିଗୁଡ଼ିକ ଆକ୍ସେସ୍‍ କରିପାରିବ:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"ପ୍ରତ୍ୟାଖ୍ୟାନ"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"ଅଧିକ ସୂଚନା"</string>
-    <!-- no translation found for grant_dialog_button_deny_anyway (847960499284125250) -->
-    <skip />
+    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"ତଥାପି ଖାରଜ କରନ୍ତୁ"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>ଟିରୁ <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>ଟି"</string>
     <string name="permission_warning_template" msgid="7332275268559121742">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;କୁ <xliff:g id="ACTION">%2$s</xliff:g> ପାଇଁ ଅନୁମତି ଦେବେ କି?"</string>
     <string name="permission_revoked_count" msgid="7386129423432613024">"<xliff:g id="COUNT">%1$d</xliff:g>ଟି ଅକ୍ଷମ କରାଯାଇଛି"</string>
@@ -118,10 +103,11 @@
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"ଅନୁମତି ଦିଅନ୍ତୁ"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"ଆପ୍‌‍"</string>
     <string name="app_permissions" msgid="3146758905824597178">"ଆପ୍‌ ଅନୁମତି"</string>
-    <!-- no translation found for never_ask_again (1089938738199748687) -->
-    <skip />
+    <string name="never_ask_again" msgid="1089938738199748687">"ପୁଣି ପଚାରନ୍ତୁ ନାହିଁ"</string>
     <string name="no_permissions" msgid="3210542466245591574">"କୌଣସି ଅନୁମତି ନାହିଁ"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"ଅତିରିକ୍ତ ଅନୁମତି"</string>
+    <!-- no translation found for app_permissions_info_button_label (7789812060395257748) -->
+    <skip />
     <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g>ଟି ଅଧିକ</item>
       <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g>ଟି ଅଧିକ</item>
@@ -145,8 +131,7 @@
     <string name="screen_overlay_message" msgid="2141944461571677331">"ଏହି ଅନୁମତି ସେଟିଙ୍ଗ ବଦଳାଇବାକୁ, ପ୍ରଥମେ ଆପଣ ସେଟିଙ୍ଗ ଓ ଆପ୍‌ରୁ ସ୍କ୍ରୀନ୍‍ ଅଫ୍‍ କରନ୍ତୁ"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"ସେଟିଙ୍ଗ ଖୋଲନ୍ତୁ"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android ୱିୟର୍‍"</string>
-    <!-- no translation found for wear_not_allowed_dlg_text (1322352525843583064) -->
-    <skip />
+    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Wearରେ ଇନଷ୍ଟଲ୍‍/ଅନଇନଷ୍ଟଲ୍‍ କାର୍ଯ୍ୟ ସପୋର୍ଟ କରେ ନାହିଁ।"</string>
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g>କୁ ଅପଡେଟ୍‍ କରାଯାଇଛି। ନିମ୍ନଗୁଡ଼ିକ ଆକ୍ସେସ୍‍ କରିବା ପାଇଁ <xliff:g id="APP_NAME_1">%1$s</xliff:g>କୁ ଅନୁମତି ଦେବେ?"</string>
     <string name="permission_review_title_template_install" msgid="6819338441305295479">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ଆକ୍ସେସ୍‍ କରିବା ପାଇଁ କ\'ଣ କ\'ଣ ଅନୁମତି ଦିଆଯିବ, ତାହା ବାଛନ୍ତୁ"</string>
     <string name="permission_review_title_template_update" msgid="8632233603161669426">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ଅପଡେଟ୍‍ କରାଯାଇଛି। ଏହି ଆପ୍‍ କ\'ଣ କ\'ଣ ଆକ୍ସେସ୍‍ କରିପାରିବ, ତାହା ବାଛନ୍ତୁ।"</string>
@@ -154,26 +139,15 @@
     <string name="review_button_continue" msgid="4809162078179371370">"ଜାରି ରଖନ୍ତୁ"</string>
     <string name="new_permissions_category" msgid="3213523410139204183">"ନୂଆ ଅନୁମତି"</string>
     <string name="current_permissions_category" msgid="998210994450606094">"ବର୍ତ୍ତମାନର ଅନୁମତି"</string>
-    <!-- no translation found for message_staging (6151794817691100003) -->
-    <skip />
-    <!-- no translation found for app_name_unknown (8931522764510159105) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (1483151219938173935) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (5373768281884328560) -->
-    <skip />
-    <!-- no translation found for untrusted_external_source_warning (2223486836232706553) -->
-    <skip />
-    <!-- no translation found for anonymous_source_warning (7700263729981815614) -->
-    <skip />
-    <!-- no translation found for anonymous_source_warning (8854462805499848630) -->
-    <skip />
-    <!-- no translation found for anonymous_source_warning (1291472686734385872) -->
-    <skip />
-    <!-- no translation found for anonymous_source_continue (2094381167954332292) -->
-    <skip />
-    <!-- no translation found for external_sources_settings (8601453744517291632) -->
-    <skip />
-    <!-- no translation found for wear_app_channel (6200840123672949356) -->
-    <skip />
+    <string name="message_staging" msgid="6151794817691100003">"ଆପ୍‍ ପର୍ଯ୍ୟାୟଭୁକ୍ତ କରାଯାଉଛି…"</string>
+    <string name="app_name_unknown" msgid="8931522764510159105">"ଅଜଣା"</string>
+    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"ଆପଣଙ୍କ ସୁରକ୍ଷା ପାଇଁ, ଆପଣଙ୍କ ଟାବଲେଟକୁ ଏହି ସୋର୍ସରୁ ଆସିଥିବା ଅଜଣା ଆପ୍‍ ଇନଷ୍ଟଲ୍‍ କରିବାକୁ ଅନୁମତି ଦିଆଯାଇ ନାହିଁ।"</string>
+    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"ଆପଣଙ୍କ ସୁରକ୍ଷା ପାଇଁ, ଆପଣଙ୍କ ଟିଭିକୁ ଏହି ସୋର୍ସରୁ ଆସିଥିବା ଅଜଣା ଆପ୍‍ ଇନଷ୍ଟଲ୍‍ କରିବାକୁ ଅନୁମତି ଦିଆଯାଇ ନାହିଁ।"</string>
+    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"ଆପଣଙ୍କ ସୁରକ୍ଷା ପାଇଁ, ଆପଣଙ୍କ ଫୋନକୁ ଏହି ସୋର୍ସରୁ ଆସିଥିବା ଅଜଣା ଆପ୍‍ ଇନଷ୍ଟଲ୍‍ କରିବାକୁ ଅନୁମତି ଦିଆଯାଇ ନାହିଁ।"</string>
+    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"ଅଜଣା ଆପ୍‌ ଦ୍ୱାରା ଆପଣଙ୍କ ଫୋନ୍‍ ଏବଂ ବ୍ୟକ୍ତିଗତ ଡାଟାକୁ ନଷ୍ଟ କରାଯାଇ ପାରିବାର ସମ୍ଭାବନା ବହୁତ ଅଧିକ। ଏହି ଆପଜୁ ଇନଷ୍ଟଲ୍‌ କରିବାର ଅର୍ଥ, ଆପଣଙ୍କ ଫୋନରେ ଘଟିବା କୌଣସି ପ୍ରକାର କ୍ଷତି କିମ୍ବା ସେଗୁଡ଼ିକର ବ୍ୟବହାରରୁ ହେବା କୌଣସି ପ୍ରକାର ଡାଟାର ହାନୀ ପାଇଁ ଆପଣ ଦାୟୀ ରହିବାକୁ ରାଜି ହୁଅନ୍ତି।"</string>
+    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"ଅଜଣା ଆପ୍‌ ଦ୍ୱାରା ଆପଣଙ୍କ ଟାବଲେଟ୍‍ ଏବଂ ବ୍ୟକ୍ତିଗତ ଡାଟାକୁ ନଷ୍ଟ କରାଯାଇ ପାରିବାର ସମ୍ଭାବନା ବହୁତ ଅଧିକ। ଏହି ଆପଜୁ ଇନଷ୍ଟଲ୍‌ କରିବାର ଅର୍ଥ, ଆପଣଙ୍କ ଟାବଲେଟରେ ଘଟିବା କୌଣସି ପ୍ରକାର କ୍ଷତି କିମ୍ବା ସେଗୁଡ଼ିକର ବ୍ୟବହାରରୁ ହେବା କୌଣସି ପ୍ରକାର ଡାଟାର ହାନୀ ପାଇଁ ଆପଣ ଦାୟୀ ରହିବାକୁ ରାଜି ହୁଅନ୍ତି।"</string>
+    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"ଅଜଣା ଆପ୍‌ ଦ୍ୱାରା ଆପଣଙ୍କ ଟିଭି ଏବଂ ବ୍ୟକ୍ତିଗତ ଡାଟାକୁ ନଷ୍ଟ କରାଯାଇ ପାରିବାର ସମ୍ଭାବନା ବହୁତ ଅଧିକ। ଏହି ଆପଜୁ ଇନଷ୍ଟଲ୍‌ କରିବାର ଅର୍ଥ, ଆପଣଙ୍କ ଟିଭିରେ ଘଟିବା କୌଣସି ପ୍ରକାର କ୍ଷତି କିମ୍ବା ସେଗୁଡ଼ିକର ବ୍ୟବହାରରୁ ହେବା କୌଣସି ପ୍ରକାର ଡାଟାର ହାନୀ ପାଇଁ ଆପଣ ଦାୟୀ ରହିବାକୁ ରାଜି ହୁଅନ୍ତି।"</string>
+    <string name="anonymous_source_continue" msgid="2094381167954332292">"ଜାରି ରଖନ୍ତୁ"</string>
+    <string name="external_sources_settings" msgid="8601453744517291632">"ସେଟିଙ୍ଗ"</string>
+    <string name="wear_app_channel" msgid="6200840123672949356">"ୱେର୍‍ ଆପ୍‍ ଇନଷ୍ଟଲ୍‌/ଅନଇନଷ୍ଟଲ୍‍ କରାଯାଉଛି"</string>
 </resources>
