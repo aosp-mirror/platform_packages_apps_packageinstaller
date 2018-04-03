@@ -9,7 +9,7 @@ LOCAL_SRC_FILES := \
     $(call all-java-files-under, src)
 
 LOCAL_STATIC_ANDROID_LIBRARIES += \
-    android-support-car \
+    $(ANDROID_SUPPORT_CAR_TARGETS) \
     $(ANDROID_SUPPORT_DESIGN_TARGETS) \
     android-support-transition \
     android-support-compat \
