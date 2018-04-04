@@ -20,9 +20,7 @@
     <string name="next" msgid="3057143178373252333">"Tālāk"</string>
     <string name="install" msgid="5896438203900042068">"Instalēt"</string>
     <string name="done" msgid="3889387558374211719">"Gatavs"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"Atļaut šai lietotnei:"</string>
     <string name="cancel" msgid="8360346460165114585">"Atcelt"</string>
-    <string name="unknown" msgid="4742479012767208045">"Nezināms"</string>
     <string name="installing" msgid="8613631001631998372">"Notiek instalēšana..."</string>
     <string name="installing_app" msgid="4097935682329028894">"Notiek pakotnes <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> instalēšana…"</string>
     <string name="install_done" msgid="3682715442154357097">"Lietotne ir instalēta."</string>
@@ -47,14 +45,9 @@
     <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Šis lietotājs nevar instalēt lietotnes, kas iegūtas no nezināmiem avotiem."</string>
     <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"Šim lietotājam nav atļauts instalēt lietotnes"</string>
     <string name="ok" msgid="3468756155452870475">"Labi"</string>
-    <string name="settings" msgid="6743583734099755409">"Iestatījumi"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Pārvaldīt lietotnes"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Vai aizstāt lietotni?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Ar instalējamo lietotni tiks aizstāta cita lietotne.\n\nVisi jūsu iepriekšējie lietotāja dati tiks saglabāti."</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Šī ir sistēmas lietotne.\n\nVisi jūsu iepriekšējie lietotāja dati tiks saglabāti."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Nav brīvas vietas"</string>
     <string name="out_of_space_dlg_text" msgid="4774775404294282216">"Lietotni <xliff:g id="APP_NAME">%1$s</xliff:g> nevarēja instalēt. Atbrīvojiet vietu un mēģiniet vēlreiz."</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"Labi"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Lietotne nav atrasta"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Šī lietotne netika atrasta instalēto lietotņu sarakstā."</string>
     <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"Nav atļauts"</string>
@@ -91,7 +84,6 @@
     <string name="privacyPerms" msgid="1850527049572617">"Konfidencialitāte"</string>
     <string name="devicePerms" msgid="6733560207731294504">"Piekļuve ierīcei"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"Šim atjauninājumam nav nepieciešamas jaunas atļaujas."</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"Vai vēlaties piešķirt tālāk norādītās atļaujas? Tiks piešķirta šāda piekļuve:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Neatļaut"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Plašāka informācija"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Tomēr noraidīt"</string>
@@ -106,6 +98,7 @@
     <string name="never_ask_again" msgid="1089938738199748687">"Turpmāk vairs nejautāt"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Nav atļauju"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Papildu atļaujas"</string>
+    <string name="app_permissions_info_button_label" msgid="7789812060395257748">"Atvērt lietotnes informāciju"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
       <item quantity="zero">Vēl <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="one">Vēl <xliff:g id="COUNT_1">%1$d</xliff:g></item>
@@ -131,7 +124,6 @@
     <string name="screen_overlay_button" msgid="4344544843349937743">"Atvērt iestatījumus"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Wear ierīcē netiek atbalstīta instalēšana/atinstalēšana"</string>
-    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"Lietotne <xliff:g id="APP_NAME_0">%1$s</xliff:g> ir atjaunināta. Vai atļaut lietotnei <xliff:g id="APP_NAME_1">%1$s</xliff:g> piekļūt tālāk norādītajiem vienumiem?"</string>
     <string name="permission_review_title_template_install" msgid="6819338441305295479">"Izvēlieties, kādas piekļuves atļaujas piešķirt lietotnei &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;"</string>
     <string name="permission_review_title_template_update" msgid="8632233603161669426">"Lietotne &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ir atjaunināta. Izvēlieties, kādas piekļuves atļaujas tai piešķirt."</string>
     <string name="review_button_cancel" msgid="957906817733578877">"Atcelt"</string>

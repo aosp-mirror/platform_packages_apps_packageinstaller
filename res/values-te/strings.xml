@@ -20,9 +20,7 @@
     <string name="next" msgid="3057143178373252333">"తర్వాత"</string>
     <string name="install" msgid="5896438203900042068">"ఇన్‌స్టాల్ చేయండి"</string>
     <string name="done" msgid="3889387558374211719">"పూర్తయింది"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"ఈ యాప్‌ను ఇది చేయడానికి అనుమతించండి:"</string>
     <string name="cancel" msgid="8360346460165114585">"రద్దు చేయి"</string>
-    <string name="unknown" msgid="4742479012767208045">"తెలియదు"</string>
     <string name="installing" msgid="8613631001631998372">"ఇన్‌స్టాల్ చేస్తోంది…"</string>
     <string name="installing_app" msgid="4097935682329028894">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>ని ఇన్‌స్టాల్ చేస్తోంది…"</string>
     <string name="install_done" msgid="3682715442154357097">"యాప్ ఇన్‌స్టాల్ చేయబడింది."</string>
@@ -47,14 +45,9 @@
     <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"తెలియని అనువర్తనాలను ఈ వినియోగదారు ఇన్‌స్టాల్ చేయలేరు"</string>
     <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"యాప్‌లను ఇన్‌స్టాల్ చేయడానికి ఈ వినియోగదారుకు అనుమతి లేదు"</string>
     <string name="ok" msgid="3468756155452870475">"సరే"</string>
-    <string name="settings" msgid="6743583734099755409">"సెట్టింగ్‌లు"</string>
     <string name="manage_applications" msgid="4033876279091996596">"అనువర్తనాలను నిర్వహించండి"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"యాప్‌ను భర్తీ చేయాలా?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"మీరు ఇన్‌స్టాల్ చేస్తున్న యాప్ మరో యాప్‌ను భర్తీ చేస్తుంది.\n\nమీ మునుపు వినియోగదారు డేటా మొత్తం సేవ్ చేయబడుతుంది."</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"ఇది సిస్టమ్ యాప్.\n\nమీ మునుపు వినియోగదారు డేటా మొత్తం సేవ్ చేయబడుతుంది."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"ఖాళీ లేదు"</string>
     <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g>ని ఇన్‌స్టాల్ చేయడం సాధ్యపడలేదు. కొంత స్థలాన్ని ఖాళీ చేసి మళ్లీ ప్రయత్నించండి."</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"సరే"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"యాప్ కనుగొనబడలేదు"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"ఇన్‌స్టాల్ చేసిన యాప్‌ల జాబితాలో యాప్‌ కనుగొనబడలేదు."</string>
     <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"అనుమతించబడలేదు"</string>
@@ -91,7 +84,6 @@
     <string name="privacyPerms" msgid="1850527049572617">"గోప్యత"</string>
     <string name="devicePerms" msgid="6733560207731294504">"పరికరం యాక్సెస్"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"ఈ నవీకరణకు కొత్త అనుమతులు అవసరం లేదు."</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"మీరు క్రింది అనుమతులను మంజూరు చేయాలనుకుంటున్నారా? ఇది వీటికి యాక్సెస్ పొందుతుంది:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"తిరస్కరించు"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"మరింత సమాచారం"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"ఏదేమైనా నిరాకరించు"</string>
@@ -106,6 +98,7 @@
     <string name="never_ask_again" msgid="1089938738199748687">"మళ్లీ అడగవద్దు"</string>
     <string name="no_permissions" msgid="3210542466245591574">"అనుమతులు లేవు"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"అదనపు అనుమతులు"</string>
+    <string name="app_permissions_info_button_label" msgid="7789812060395257748">"యాప్ సమాచారాన్ని తెరుస్తుంది"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
       <item quantity="other">మరో <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="one">మరో <xliff:g id="COUNT_0">%1$d</xliff:g></item>
@@ -130,7 +123,6 @@
     <string name="screen_overlay_button" msgid="4344544843349937743">"సెట్టింగ్‌లను తెరువు"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android వేర్"</string>
     <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Wearలో ఇన్‌స్టాల్/అన్ఇన్‌స్టాల్ చర్యలకు మద్దతు లేదు."</string>
-    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> అప్‌డేట్‌ చేయబడింది. క్రింది వాటిని యాక్సెస్ చేయడానికి <xliff:g id="APP_NAME_1">%1$s</xliff:g>ని అనుమతించాలా?"</string>
     <string name="permission_review_title_template_install" msgid="6819338441305295479">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; యాక్సెస్ చేయడానికి అనుమతించాల్సిన వాటిని ఎంచుకోండి"</string>
     <string name="permission_review_title_template_update" msgid="8632233603161669426">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; అప్‌డేట్ చేయబడింది. ఈ యాప్ యాక్సెస్ చేయడానికి అనుమతించాల్సిన వాటిని ఎంచుకోండి."</string>
     <string name="review_button_cancel" msgid="957906817733578877">"రద్దు చేయి"</string>

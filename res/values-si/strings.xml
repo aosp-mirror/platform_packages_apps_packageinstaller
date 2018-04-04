@@ -20,9 +20,7 @@
     <string name="next" msgid="3057143178373252333">"මීලඟ"</string>
     <string name="install" msgid="5896438203900042068">"ස්ථාපනය"</string>
     <string name="done" msgid="3889387558374211719">"හරි"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"මෙම යෙදුමට අවසර දෙන්න:"</string>
     <string name="cancel" msgid="8360346460165114585">"අවලංගු කරන්න"</string>
-    <string name="unknown" msgid="4742479012767208045">"නොදනී"</string>
     <string name="installing" msgid="8613631001631998372">"ස්ථාපනය කරමින්…"</string>
     <string name="installing_app" msgid="4097935682329028894">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ස්ථාපනය කරමින්…"</string>
     <string name="install_done" msgid="3682715442154357097">"යෙදුම ස්ථාපනය කරන ලදි."</string>
@@ -47,14 +45,9 @@
     <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"මෙම පරිශීලකයා මඟින් නොදන්නා යෙදුම් ස්ථාපනය කළ නොහැක"</string>
     <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"මෙම පරිශීලකයාට යෙදුම් ස්ථාපනය කිරීමට අවසර නැත"</string>
     <string name="ok" msgid="3468756155452870475">"හරි"</string>
-    <string name="settings" msgid="6743583734099755409">"සැකසීම්"</string>
     <string name="manage_applications" msgid="4033876279091996596">"යෙදුම් කළමනාකරණය කරන්න"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"යෙදුම ප්‍රතිස්ථාපනය කරනවාද?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"ඔබ ස්ථාපනය කරන යෙදුම අනෙක් යෙදුමෙන් ප්‍රතිස්ථාපනය කෙරේ.\n\nඔබගේ සියලුම පෙර පරිශීලක දත්ත සුරැකෙනු ඇත."</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"මෙය පද්ධති යෙදුමකි.\n\n}ඔබගේ සියලුම පෙර පරිශීලක දත්ත සුරැකෙනු ඇත."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"ඉඩ නොමැත"</string>
     <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> ස්ථාපිත කිරීමට නොහැකි විය. ඉඩ පොඩ්ඩක් නිදහස් කොට නැවත උත්සාහ කරන්න."</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"හරි"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"යෙදුම හමුවී නැත"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"ස්ථාපිත යෙදුම් ලැයිස්තුවේ යෙදුම සොයා ගත නොහැකි විය."</string>
     <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"ඉඩ නොදෙයි"</string>
@@ -91,7 +84,6 @@
     <string name="privacyPerms" msgid="1850527049572617">"පෞද්ගලිකත්වය"</string>
     <string name="devicePerms" msgid="6733560207731294504">"උපාංගය ප්‍රවේශය"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"මෙම යාවත්කාලිනයට අලුත් අවසරයන් අවශ්‍ය නොවේ."</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"ඔබට පහත සඳහන් අවසර පිරිනැමීමට අවශ්‍ය ද? එය පහත සඳහා ප්‍රවේශය ලබා ගනියි:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"ප්‍රතික්ෂේප කරන්න"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"වැඩිදුර තොරතුරු"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"කෙසේ වෙතත් ප්‍රතික්ෂේප කරන්න"</string>
@@ -106,6 +98,7 @@
     <string name="never_ask_again" msgid="1089938738199748687">"නැවත අසන්න එපා"</string>
     <string name="no_permissions" msgid="3210542466245591574">"අවසර නොමැත"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"අතිරේක අවසර"</string>
+    <string name="app_permissions_info_button_label" msgid="7789812060395257748">"යෙදුම් තොරතුරු විවෘත කරන්න"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
       <item quantity="one">.තව <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="other">.තව <xliff:g id="COUNT_1">%1$d</xliff:g></item>
@@ -130,7 +123,6 @@
     <string name="screen_overlay_button" msgid="4344544843349937743">"සැකසීම් විවෘත කරන්න"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Wear මත ස්ථාපන/අස්ථාපනය ක්‍රියා සහාය දක්වන්නේ නැත."</string>
-    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> යාවත්කාලීන කර ඇත. <xliff:g id="APP_NAME_1">%1$s</xliff:g> හට පහත ඒවාට පිවිසීමට ඉඩ දෙන්නද?"</string>
     <string name="permission_review_title_template_install" msgid="6819338441305295479">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; හට පිවිසීමට ඉඩ දෙන දේ තෝරන්න"</string>
     <string name="permission_review_title_template_update" msgid="8632233603161669426">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; යාවත්කාලීන කර ඇත. මෙම යෙදුමට පිවිසීමට ඉඩ දෙන දේ තෝරන්න."</string>
     <string name="review_button_cancel" msgid="957906817733578877">"අවලංගු කරන්න"</string>

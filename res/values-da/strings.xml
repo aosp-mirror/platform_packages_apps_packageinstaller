@@ -20,9 +20,7 @@
     <string name="next" msgid="3057143178373252333">"Næste"</string>
     <string name="install" msgid="5896438203900042068">"Installer"</string>
     <string name="done" msgid="3889387558374211719">"Afslut"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"Giv denne app tilladelse til at:"</string>
     <string name="cancel" msgid="8360346460165114585">"Annuller"</string>
-    <string name="unknown" msgid="4742479012767208045">"Ukendt"</string>
     <string name="installing" msgid="8613631001631998372">"Installerer..."</string>
     <string name="installing_app" msgid="4097935682329028894">"Installerer <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="install_done" msgid="3682715442154357097">"Appen er installeret."</string>
@@ -47,14 +45,9 @@
     <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Denne bruger kan ikke installere ukendte apps"</string>
     <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"Denne bruger har ikke tilladelse til at installere apps"</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
-    <string name="settings" msgid="6743583734099755409">"Indstillinger"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Administrer apps"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Vil du udskifte appen?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Den app, du installerer, vil afløse en anden app.\n\nAlle dine tidligere brugerdata vil blive gemt."</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Dette er en systemapp.\n\nAlle dine tidligere brugerdata vil blive gemt."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Der er ikke mere plads"</string>
     <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunne ikke installeres. Frigør noget plads, og prøv igen."</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Appen blev ikke fundet"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Appen blev ikke fundet på listen over installerede apps."</string>
     <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"Ikke tilladt"</string>
@@ -91,7 +84,6 @@
     <string name="privacyPerms" msgid="1850527049572617">"Privatliv"</string>
     <string name="devicePerms" msgid="6733560207731294504">"Adgang til enheden"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"Denne opdatering kræver ingen nye tilladelser."</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"Vil du give følgende tilladelser? Det vil få adgang til:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Afvis"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Få flere oplysninger"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Afvis alligevel"</string>
@@ -106,6 +98,7 @@
     <string name="never_ask_again" msgid="1089938738199748687">"Spørg ikke igen"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Ingen tilladelser"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Flere tilladelser"</string>
+    <string name="app_permissions_info_button_label" msgid="7789812060395257748">"Åbn appinfo"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
       <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> mere</item>
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> mere</item>
@@ -130,7 +123,6 @@
     <string name="screen_overlay_button" msgid="4344544843349937743">"Åbn indstillingerne"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Det er ikke muligt at installere/afinstallere på Wear."</string>
-    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> er blevet opdateret. Vil du give <xliff:g id="APP_NAME_1">%1$s</xliff:g> adgang til følgende?"</string>
     <string name="permission_review_title_template_install" msgid="6819338441305295479">"Vælg, hvad &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; må få adgang til"</string>
     <string name="permission_review_title_template_update" msgid="8632233603161669426">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; er blevet opdateret. Vælg, hvad denne app må få adgang til."</string>
     <string name="review_button_cancel" msgid="957906817733578877">"Annuller"</string>

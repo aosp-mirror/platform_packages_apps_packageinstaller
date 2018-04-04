@@ -20,9 +20,7 @@
     <string name="next" msgid="3057143178373252333">"Susunod"</string>
     <string name="install" msgid="5896438203900042068">"Mag-install"</string>
     <string name="done" msgid="3889387558374211719">"Tapos na"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"Payagan ang app na ito na:"</string>
     <string name="cancel" msgid="8360346460165114585">"Kanselahin"</string>
-    <string name="unknown" msgid="4742479012767208045">"Hindi Kilala"</string>
     <string name="installing" msgid="8613631001631998372">"Nag-i-install…"</string>
     <string name="installing_app" msgid="4097935682329028894">"Ini-install ang <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="install_done" msgid="3682715442154357097">"Na-install ang app."</string>
@@ -47,14 +45,9 @@
     <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Hindi maaaring mag-install ang user na ito ng mga hindi kilalang app"</string>
     <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"Hindi pinapayagan ang user na mag-install ng mga app"</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
-    <string name="settings" msgid="6743583734099755409">"Mga Setting"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Pamahalaan ang apps"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Palitan ang app?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Papalitan ng app na iyong ini-install ang isa pang app.\n\nMase-save ang lahat ng iyong nakaraang data ng user."</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Isa itong app ng system.\n\nMase-save ang lahat ng iyong nakaraang data ng user."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Wala ng espasyo"</string>
     <string name="out_of_space_dlg_text" msgid="4774775404294282216">"Hindi ma-install ang <xliff:g id="APP_NAME">%1$s</xliff:g>. Magbakante ng ilang espasyo at subukang muli."</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Hindi makita ang app"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Hindi makita ang app sa listahan ng naka-install na apps."</string>
     <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"Hindi pinapayagan"</string>
@@ -91,7 +84,6 @@
     <string name="privacyPerms" msgid="1850527049572617">"Privacy"</string>
     <string name="devicePerms" msgid="6733560207731294504">"Access sa Device"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"Walang kinakailangang mga bagong pagpapahintulot ang update na ito."</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"Gusto mo bang ibigay ang mga sumusunod na pahintulot? Magkakaroon ito ng access sa:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Tanggihan"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Higit pang impormasyon"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Tanggihan pa rin"</string>
@@ -106,6 +98,7 @@
     <string name="never_ask_again" msgid="1089938738199748687">"Huwag nang tatanunging muli"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Walang mga pahintulot"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Mga karagdagang pahintulot"</string>
+    <string name="app_permissions_info_button_label" msgid="7789812060395257748">"Buksan ang impormasyon ng app"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
       <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> pa</item>
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> pa</item>
@@ -130,7 +123,6 @@
     <string name="screen_overlay_button" msgid="4344544843349937743">"Buksan ang mga setting"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Ang mga pagkilos na I-install/I-uninstall ay hindi sinusuportahan sa Wear."</string>
-    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"Na-update na ang <xliff:g id="APP_NAME_0">%1$s</xliff:g>. Papayagan ang <xliff:g id="APP_NAME_1">%1$s</xliff:g> na i-access ang sumusunod?"</string>
     <string name="permission_review_title_template_install" msgid="6819338441305295479">"Piliin kung ano ang papayagang i-access ng &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;"</string>
     <string name="permission_review_title_template_update" msgid="8632233603161669426">"Na-update na ang &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;. Piliin kung ano ang papayagang i-access ng app na ito."</string>
     <string name="review_button_cancel" msgid="957906817733578877">"Kanselahin"</string>

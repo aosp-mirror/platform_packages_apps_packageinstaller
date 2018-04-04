@@ -20,9 +20,7 @@
     <string name="next" msgid="3057143178373252333">"पुढील"</string>
     <string name="install" msgid="5896438203900042068">"स्‍थापित करा"</string>
     <string name="done" msgid="3889387558374211719">"पूर्ण झाले"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"या अॅप ला यावर अनुमती द्या:"</string>
     <string name="cancel" msgid="8360346460165114585">"रद्द करा"</string>
-    <string name="unknown" msgid="4742479012767208045">"अज्ञात"</string>
     <string name="installing" msgid="8613631001631998372">"इंस्टॉल करत आहे..."</string>
     <string name="installing_app" msgid="4097935682329028894">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> इन्‍स्टॉल करत आहे…"</string>
     <string name="install_done" msgid="3682715442154357097">"अॅप इंस्टॉल झाला."</string>
@@ -47,14 +45,9 @@
     <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"या वापरकर्त्याद्वारे अज्ञात अ‍ॅप्स इंस्टॉल केली जाऊ शकत नाहीत"</string>
     <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"या वापरकर्त्याला अ‍ॅप्स इंस्टॉल करण्याची परवानगी नाही"</string>
     <string name="ok" msgid="3468756155452870475">"ठीक"</string>
-    <string name="settings" msgid="6743583734099755409">"सेटिंग्ज"</string>
     <string name="manage_applications" msgid="4033876279091996596">"अ‍ॅप्स व्यवस्थापित करा"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"अॅप पुनर्स्थित करायचा?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"आपण इंस्टॉल करत असलेला अॅप दुसरा अॅप पुनर्स्थित करेल.\n\nआपला सर्व मागील वापरकर्ता डेटा जतन केला जाईल."</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"हा सिस्टम अॅप आहे.\n\nआपला सर्व मागील वापरकर्ता डेटा जतन केला जाईल."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"स्‍थानाबाहेर"</string>
     <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> इंस्टॉल केला जाऊ शकला नाही. काही स्थान मोकळे करा आणि पुन्हा प्रयत्न करा."</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"ठीक"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"अॅप आढळला नाही"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"इंस्टॉल केलेल्या अॅप्सच्या सूचीमध्ये अॅप आढळला नाही."</string>
     <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"अनुमती नाही"</string>
@@ -91,7 +84,6 @@
     <string name="privacyPerms" msgid="1850527049572617">"गोपनीयता"</string>
     <string name="devicePerms" msgid="6733560207731294504">"डिव्हाइस अॅक्सेस"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"या अद्यतनास कोणत्याही नवीन परवानग्यांची आवश्यकता नाही."</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"आपण खालील परवानग्‍यांना मंजूरी देऊ इच्‍छिता? त्‍यांना यावर प्रवेश मिळेल:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"नकार द्या"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"अधिक माहिती"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"तरीही नकार द्या"</string>
@@ -106,6 +98,7 @@
     <string name="never_ask_again" msgid="1089938738199748687">"पुन्हा विचारू नका"</string>
     <string name="no_permissions" msgid="3210542466245591574">"परवानग्या नाहीत"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"अतिरिक्त परवानग्या"</string>
+    <string name="app_permissions_info_button_label" msgid="7789812060395257748">"अॅप माहिती उघडा"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
       <item quantity="one">आणखी <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="other">आणखी <xliff:g id="COUNT_1">%1$d</xliff:g></item>
@@ -130,7 +123,6 @@
     <string name="screen_overlay_button" msgid="4344544843349937743">"सेटिंग्ज उघडा"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"इंस्टॉल करा/अनइंस्टॉल करा क्रिया Wear वर समर्थित नाहीत."</string>
-    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> अपडेट केला गेला आहे. <xliff:g id="APP_NAME_1">%1$s</xliff:g> ला खालील गोष्‍टींमध्‍ये प्रवेश करण्‍यासाठी अनुमती द्यायची?"</string>
     <string name="permission_review_title_template_install" msgid="6819338441305295479">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ला कशामध्‍ये प्रवेश करण्‍याची अनुमती द्यावी ते निवडा"</string>
     <string name="permission_review_title_template_update" msgid="8632233603161669426">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; अपडेट केला गेला आहे. या अॅपला कशामध्‍ये प्रवेश करण्‍याची अनुमती द्यावी ते निवडा."</string>
     <string name="review_button_cancel" msgid="957906817733578877">"रद्द करा"</string>

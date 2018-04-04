@@ -20,9 +20,7 @@
     <string name="next" msgid="3057143178373252333">"Järgmine"</string>
     <string name="install" msgid="5896438203900042068">"Installi"</string>
     <string name="done" msgid="3889387558374211719">"Valmis"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"Lubage sel rakendusel teha järgmist."</string>
     <string name="cancel" msgid="8360346460165114585">"Tühista"</string>
-    <string name="unknown" msgid="4742479012767208045">"Tundmatu"</string>
     <string name="installing" msgid="8613631001631998372">"Installimine ..."</string>
     <string name="installing_app" msgid="4097935682329028894">"Paketi <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> installimine …"</string>
     <string name="install_done" msgid="3682715442154357097">"Rakendus on installitud."</string>
@@ -47,14 +45,9 @@
     <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"See kasutaja ei saa installida tundmatuid rakendusi"</string>
     <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"Kasutajal ei ole lubatud rakendusi installida"</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
-    <string name="settings" msgid="6743583734099755409">"Seaded"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Rakenduste haldamine"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Kas asendada rakendus?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Installitav rakendus asendab teise rakenduse.\n\nKõik teie varasemad kasutajaandmed salvestatakse."</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"See on süsteemirakendus.\n\nKõik teie varasemad kasutajaandmed salvestatakse."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Pole ruumi"</string>
     <string name="out_of_space_dlg_text" msgid="4774775404294282216">"Rakendust <xliff:g id="APP_NAME">%1$s</xliff:g> ei saa installida. Vabastage mälu ja proovige uuesti."</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Rakendust ei leitud"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Rakendust ei leitud installitud rakenduste loendist."</string>
     <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"Ei ole lubatud"</string>
@@ -91,7 +84,6 @@
     <string name="privacyPerms" msgid="1850527049572617">"Privaatsus"</string>
     <string name="devicePerms" msgid="6733560207731294504">"Seadme juurdepääs"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"See värskendus ei nõua uusi lube."</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"Kas soovite anda järgmise loa? See annab juurdepääsu järgmisele:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Keela"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Lisateave"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Keela ikkagi"</string>
@@ -106,6 +98,7 @@
     <string name="never_ask_again" msgid="1089938738199748687">"Ära enam küsi"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Lube ei ole"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Täiendavad load"</string>
+    <string name="app_permissions_info_button_label" msgid="7789812060395257748">"Ava rakenduse teave"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
       <item quantity="other">Veel <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="one">Veel <xliff:g id="COUNT_0">%1$d</xliff:g></item>
@@ -130,7 +123,6 @@
     <string name="screen_overlay_button" msgid="4344544843349937743">"Ava seaded"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Wear ei toeta installimist/desinstallimist."</string>
-    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"Rakendust <xliff:g id="APP_NAME_0">%1$s</xliff:g> värskendati. Kas anda rakendusele <xliff:g id="APP_NAME_1">%1$s</xliff:g> juurdepääs järgmisele?"</string>
     <string name="permission_review_title_template_install" msgid="6819338441305295479">"Valige, millele lubate rakendusel &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; juurde pääseda"</string>
     <string name="permission_review_title_template_update" msgid="8632233603161669426">"Rakendust &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; värskendati. Valige, millele lubate sellel rakendusel juurde pääseda."</string>
     <string name="review_button_cancel" msgid="957906817733578877">"Tühista"</string>

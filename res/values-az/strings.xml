@@ -20,9 +20,7 @@
     <string name="next" msgid="3057143178373252333">"Növbəti"</string>
     <string name="install" msgid="5896438203900042068">"Quraşdır"</string>
     <string name="done" msgid="3889387558374211719">"Hazırdır"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"Bu tətbiqə imkan verin:"</string>
     <string name="cancel" msgid="8360346460165114585">"Ləğv et"</string>
-    <string name="unknown" msgid="4742479012767208045">"Naməlum"</string>
     <string name="installing" msgid="8613631001631998372">"Quraşdırılır..."</string>
     <string name="installing_app" msgid="4097935682329028894">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> quraşdırılır…"</string>
     <string name="install_done" msgid="3682715442154357097">"Tətbiq quraşdırılıb."</string>
@@ -47,14 +45,9 @@
     <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Naməlum tətbiqlər bu istifadəçi tərəfindən quraşdırıla bilməz"</string>
     <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"Bu istifadəçinin tətbiqi quraşdırmaq üçün icazəsi yoxdur"</string>
     <string name="ok" msgid="3468756155452870475">"OK"</string>
-    <string name="settings" msgid="6743583734099755409">"Ayarlar"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Tətbiqləri idarə et"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Tətbiq əvəz edilsin?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Quraşdırdığınız tətbiq digər tətbiqi əvəz edəcək.\n\nLakin bütün öncəki istifadəçi datanız qorunacaq."</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Bu, sistem tətbiqidir.\n\n Bütün öncəki istifadəçi datanız qorunacaq."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Boş yer yoxdur"</string>
     <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> quraşdırıla bilməz. Yaddaş üçün yer boşaldıb yenidən təkrar edin."</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Tətbiq tapılmadı"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Tətbiq quraşdırılmış tətbiqlər siyahısında tapılmadı."</string>
     <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"İcazə verilmir"</string>
@@ -91,7 +84,6 @@
     <string name="privacyPerms" msgid="1850527049572617">"Məxfilik"</string>
     <string name="devicePerms" msgid="6733560207731294504">"Qurğu icazəsi"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"Bu güncəllənmə heç bir icazə istəmir"</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"Aşağıdakı icazələri vermək istəyirsiz? Əldə ediləcək çıxışlar:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Rədd edin"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Daha ətraflı"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Hər bir halda rədd edin"</string>
@@ -106,6 +98,7 @@
     <string name="never_ask_again" msgid="1089938738199748687">"Bir daha soruşmayın"</string>
     <string name="no_permissions" msgid="3210542466245591574">"İcazə yoxdur"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Əlavə icazələr"</string>
+    <string name="app_permissions_info_button_label" msgid="7789812060395257748">"Tətbiq məlumatını açın"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
       <item quantity="other">daha <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="one">daha <xliff:g id="COUNT_0">%1$d</xliff:g></item>
@@ -130,7 +123,6 @@
     <string name="screen_overlay_button" msgid="4344544843349937743">"Ayarları açın"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Yükləmə/Silmə fəaliyyətləri Wear\'də dəstəklənmir."</string>
-    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> tətbiqi güncəlləndi. <xliff:g id="APP_NAME_1">%1$s</xliff:g> tətbiqinə aşağıdakılara giriş hüququ verilsin?"</string>
     <string name="permission_review_title_template_install" msgid="6819338441305295479">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; tətbiqinin giriş hüququnu seçin"</string>
     <string name="permission_review_title_template_update" msgid="8632233603161669426">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; tətbiqi güncəlləndi. Bu tətbiqin giriş hüququnu seçin."</string>
     <string name="review_button_cancel" msgid="957906817733578877">"Ləğv edin"</string>

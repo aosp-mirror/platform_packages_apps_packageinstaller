@@ -20,9 +20,7 @@
     <string name="next" msgid="3057143178373252333">"അടുത്തത്"</string>
     <string name="install" msgid="5896438203900042068">"ഇൻസ്റ്റാളുചെയ്യുക"</string>
     <string name="done" msgid="3889387558374211719">"പൂർത്തിയായി"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"ഈ അപ്ലിക്കേഷന് ഇവയ്‌ക്കായി അനുവദിക്കുക:"</string>
     <string name="cancel" msgid="8360346460165114585">"റദ്ദാക്കുക"</string>
-    <string name="unknown" msgid="4742479012767208045">"അജ്ഞാതം"</string>
     <string name="installing" msgid="8613631001631998372">"ഇൻസ്റ്റാൾ ചെയ്യുന്നു..."</string>
     <string name="installing_app" msgid="4097935682329028894">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ഇൻസ്‌റ്റാൾ ചെയ്യുന്നു…"</string>
     <string name="install_done" msgid="3682715442154357097">"അപ്ലിക്കേഷൻ ഇൻസ്റ്റാളുചെയ്‌തു."</string>
@@ -47,14 +45,9 @@
     <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"ഈ ഉപയോക്താവിന്, തിരിച്ചറിയാനാകാത്ത ആപ്പുകൾ ഇൻസ്റ്റാൾ ചെയ്യാൻ കഴിയില്ല"</string>
     <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"ആപ്പുകൾ ഇൻസ്റ്റാൾ ചെയ്യുന്നതിന് ഈ ഉപയോക്താവിന് അനുവാദമില്ല"</string>
     <string name="ok" msgid="3468756155452870475">"ശരി"</string>
-    <string name="settings" msgid="6743583734099755409">"ക്രമീകരണം"</string>
     <string name="manage_applications" msgid="4033876279091996596">"അപ്ലിക്കേഷനുകൾ നിയന്ത്രിക്കുക"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"അപ്ലിക്കേഷൻ മാറ്റിസ്ഥാപിക്കണോ?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"നിങ്ങൾ ഇൻസ്റ്റാളുചെയ്യുന്ന അപ്ലിക്കേഷൻ മറ്റൊരു അപ്ലിക്കേഷനെ മാറ്റിസ്ഥാപിക്കും.\n\nനിങ്ങളുടെ മുൻ ഉപയോക്തൃ ഡാറ്റയെല്ലാം സംരക്ഷിക്കപ്പെടും."</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"ഇതൊരു സിസ്റ്റം അപ്ലിക്കേഷനാണ്.\n\nനിങ്ങളുടെ മുൻ ഉപയോക്തൃ ഡാറ്റയെല്ലാം സംരക്ഷിക്കപ്പെടും."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"പരിധി കഴിഞ്ഞു"</string>
     <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> ഇൻസ്റ്റാളുചെയ്യാനായില്ല. കുറച്ച് ഇടം ശൂന്യമാക്കിയതിനുശേഷം വീണ്ടും ശ്രമിക്കുക."</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"ശരി"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"അപ്ലിക്കേഷൻ കണ്ടെത്തിയില്ല"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"ഇൻസ്റ്റാളുചെയ്‌ത അപ്ലിക്കേഷനുകളുടെ ലിസ്റ്റിൽ അപ്ലിക്കേഷൻ കണ്ടെത്തിയില്ല."</string>
     <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"അനുവദിച്ചിട്ടില്ല"</string>
@@ -91,7 +84,6 @@
     <string name="privacyPerms" msgid="1850527049572617">"സ്വകാര്യത"</string>
     <string name="devicePerms" msgid="6733560207731294504">"ഉപകരണ ആക്‌സസ്സ്"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"ഈ അപ്‌ഡേറ്റിന് പുതിയ അനുമതികളൊന്നും ആവശ്യമില്ല."</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"ഇനിപ്പറയുന്ന അനുമതികൾ അനുവദിക്കണോ? ഇതിന് ഇവയിലേക്ക് ആക്‌സസ്സ് ലഭിക്കും:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"നിരസിക്കുക"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"കൂടുതൽ‍ വിവരങ്ങള്‍"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"എന്തായാലും നിരസിക്കുക"</string>
@@ -106,6 +98,7 @@
     <string name="never_ask_again" msgid="1089938738199748687">"വീണ്ടും ആവശ്യപ്പെടരുത്"</string>
     <string name="no_permissions" msgid="3210542466245591574">"അനുമതികൾ ഇല്ല"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"അധിക അനുമതികൾ"</string>
+    <string name="app_permissions_info_button_label" msgid="7789812060395257748">"ആപ്പ് വിവരം തുറക്കുക"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> എണ്ണം കൂടി</item>
       <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> എണ്ണം കൂടി</item>
@@ -130,7 +123,6 @@
     <string name="screen_overlay_button" msgid="4344544843349937743">"ക്രമീകരണം തുറക്കുക"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"ഇൻസ്റ്റാളോ അൺഇൻസ്റ്റാളോ ചെയ്യുന്നതിന് Wear-ൽ പിന്തുണയില്ല"</string>
-    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> അപ്‌ഡേറ്റ് ചെയ്തു. ഇനിപ്പറയുന്നത് ആക്സസ് ചെയ്യാൻ <xliff:g id="APP_NAME_1">%1$s</xliff:g> ആപ്പിനെ അനുവദിക്കണോ?"</string>
     <string name="permission_review_title_template_install" msgid="6819338441305295479">"എന്തൊക്കെ ആക്സസ്സ് ചെയ്യാനാണ് &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ആപ്പിനെ അനുവദിക്കേണ്ടതെന്ന് തിരഞ്ഞെടുക്കുക"</string>
     <string name="permission_review_title_template_update" msgid="8632233603161669426">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; അപ്‌ഡേറ്റ് ചെയ്തിരിക്കുന്നു. എന്തൊക്കെ ആക്സസ്സ് ചെയ്യാനാണ് ഈ ആപ്പിനെ അനുവദിക്കേണ്ടതെന്ന് തിരഞ്ഞെടുക്കുക."</string>
     <string name="review_button_cancel" msgid="957906817733578877">"റദ്ദാക്കുക"</string>

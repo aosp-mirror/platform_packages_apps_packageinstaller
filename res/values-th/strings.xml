@@ -20,9 +20,7 @@
     <string name="next" msgid="3057143178373252333">"ถัดไป"</string>
     <string name="install" msgid="5896438203900042068">"ติดตั้ง"</string>
     <string name="done" msgid="3889387558374211719">"เสร็จสิ้น"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"อนุญาตให้แอปพลิเคชันนี้:"</string>
     <string name="cancel" msgid="8360346460165114585">"ยกเลิก"</string>
-    <string name="unknown" msgid="4742479012767208045">"ไม่ทราบ"</string>
     <string name="installing" msgid="8613631001631998372">"กำลังติดตั้ง..."</string>
     <string name="installing_app" msgid="4097935682329028894">"กำลังติดตั้ง <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="install_done" msgid="3682715442154357097">"ติดตั้งแอปพลิเคชันแล้ว"</string>
@@ -47,14 +45,9 @@
     <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"ผู้ใช้รายนี้ไม่สามารถติดตั้งแอปที่ไม่รู้จัก"</string>
     <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"ผู้ใช้รายนี้ไม่ได้รับอนุญาตให้ติดตั้งแอป"</string>
     <string name="ok" msgid="3468756155452870475">"ตกลง"</string>
-    <string name="settings" msgid="6743583734099755409">"การตั้งค่า"</string>
     <string name="manage_applications" msgid="4033876279091996596">"จัดการแอปพลิเคชัน"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"แทนที่แอปพลิเคชันหรือไม่"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"แอปพลิเคชันที่คุณกำลังติดตั้งจะไปแทนที่แอปพลิเคชันอื่น\n\nข้อมูลผู้ใช้ทั้งหมดของคุณก่อนหน้านี้จะได้รับการบันทึกไว้"</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"นี่เป็นแอปพลิเคชันระบบ\n\nข้อมูลผู้ใช้ทั้งหมดของคุณก่อนหน้านี้จะได้รับการบันทึกไว้"</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"ไม่มีพื้นที่"</string>
     <string name="out_of_space_dlg_text" msgid="4774775404294282216">"ติดตั้ง <xliff:g id="APP_NAME">%1$s</xliff:g> ไม่ได้ เพิ่มพื้นที่ว่างแล้วลองอีกครั้ง"</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"ตกลง"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"ไม่พบแอปพลิเคชัน"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"ไม่พบแอปพลิเคชันนี้ในรายการแอปพลิเคชันที่ติดตั้งไว้"</string>
     <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"ไม่ได้รับอนุญาต"</string>
@@ -91,7 +84,6 @@
     <string name="privacyPerms" msgid="1850527049572617">"ข้อมูลส่วนบุคคล"</string>
     <string name="devicePerms" msgid="6733560207731294504">"การเข้าถึงอุปกรณ์"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"การอัปเดตนี้ไม่จำเป็นต้องมีการอนุญาตใหม่"</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"คุณต้องการให้อนุญาตรายการต่อไปนี้หรือไม่ ระบบจะให้สิทธิ์การเข้าถึงแก่"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"ปฏิเสธ"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"ข้อมูลเพิ่มเติม"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"ยืนยันการปฏิเสธ"</string>
@@ -106,6 +98,7 @@
     <string name="never_ask_again" msgid="1089938738199748687">"ไม่ต้องถามอีก"</string>
     <string name="no_permissions" msgid="3210542466245591574">"ไม่มีสิทธิ์"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"สิทธิ์เพิ่มเติม"</string>
+    <string name="app_permissions_info_button_label" msgid="7789812060395257748">"เปิดข้อมูลแอป"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
       <item quantity="other">อีก <xliff:g id="COUNT_1">%1$d</xliff:g> รายการ</item>
       <item quantity="one">อีก <xliff:g id="COUNT_0">%1$d</xliff:g> รายการ</item>
@@ -130,7 +123,6 @@
     <string name="screen_overlay_button" msgid="4344544843349937743">"เปิดการตั้งค่า"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"ไม่สามารถติดตั้ง/ถอนการติดตั้งบน Wear"</string>
-    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"อัปเดต <xliff:g id="APP_NAME_0">%1$s</xliff:g> แล้ว อนุญาตให้ <xliff:g id="APP_NAME_1">%1$s</xliff:g> เข้าถึงข้อมูลต่อไปนี้ใช่ไหม"</string>
     <string name="permission_review_title_template_install" msgid="6819338441305295479">"โปรดเลือกข้อมูลที่อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; เข้าถึง"</string>
     <string name="permission_review_title_template_update" msgid="8632233603161669426">"อัปเดต &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; แล้ว โปรดเลือกข้อมูลที่อนุญาตให้แอปนี้เข้าถึง"</string>
     <string name="review_button_cancel" msgid="957906817733578877">"ยกเลิก"</string>
