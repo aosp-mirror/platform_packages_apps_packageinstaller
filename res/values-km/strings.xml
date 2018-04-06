@@ -20,9 +20,7 @@
     <string name="next" msgid="3057143178373252333">"បន្ទាប់​"</string>
     <string name="install" msgid="5896438203900042068">"ដំឡើង"</string>
     <string name="done" msgid="3889387558374211719">"រួចរាល់"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"ឲ្យ​កម្មវិធី​នេះ​៖"</string>
     <string name="cancel" msgid="8360346460165114585">"បោះ​បង់​"</string>
-    <string name="unknown" msgid="4742479012767208045">"មិន​ស្គាល់"</string>
     <string name="installing" msgid="8613631001631998372">"កំពុង​ដំឡើង..."</string>
     <string name="installing_app" msgid="4097935682329028894">"កំពុង​ដំឡើង <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="install_done" msgid="3682715442154357097">"បាន​ដំឡើង​កម្មវិធី។"</string>
@@ -47,14 +45,9 @@
     <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"កម្មវិធី​ដែល​មិនស្គាល់​មិនអាច​ដំឡើង​ដោយ​អ្នកប្រើប្រាស់​នេះ​បាន​ទេ"</string>
     <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"អ្នក​ប្រើ​ប្រាស់នេះ​មិនត្រូវបាន​អនុញ្ញាត​ឲ្យ​ដំឡើងកម្មវិធីទេ"</string>
     <string name="ok" msgid="3468756155452870475">"យល់​ព្រម​"</string>
-    <string name="settings" msgid="6743583734099755409">"ការ​កំណត់"</string>
     <string name="manage_applications" msgid="4033876279091996596">"គ្រប់គ្រង​កម្មវិធី"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"ជំនួស​កម្មវិធី​?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"កម្មវិធី​ដែល​អ្នក​កំពុង​ដំឡើង​នឹង​ជំនួយ​កម្មវិធី​ផ្សេង។\n\nទិន្នន័យ​អ្នក​ពី​មុន​របស់​អ្នក​ទាំងអស់​នឹង​ត្រូវ​បាន​រក្សាទុក។"</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"នេះ​ជា​កម្មវិធី​ប្រព័ន្ធ។\n\nទិន្នន័យ​អ្នក​ប្រើ​ពី​មុន​របស់​អ្នក​ទាំងអស់​នឹង​ត្រូវ​បាន​រក្សាទុក។"</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"អស់​ទំហំ"</string>
     <string name="out_of_space_dlg_text" msgid="4774775404294282216">"មិន​អាច​ដំឡើង <xliff:g id="APP_NAME">%1$s</xliff:g> ។ លុប​ឯកសារ​ខ្លះ ហើយ​ព្យាយាម​ម្ដង​ទៀត។"</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"យល់​ព្រម​"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"រក​មិន​ឃើញ​កម្មវិធី"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"រក​មិន​ឃើញ​កម្មវិធី​ក្នុង​បញ្ជី​កម្មវិធី​បាន​ដំឡើង។"</string>
     <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"មិន​បាន​អនុញ្ញាត"</string>
@@ -91,7 +84,6 @@
     <string name="privacyPerms" msgid="1850527049572617">"ភាព​​ឯកជន"</string>
     <string name="devicePerms" msgid="6733560207731294504">"ការ​ចូល​ដំណើរការ​ឧបករណ៍"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"បច្ចុប្បន្នភាព​នេះ​មិន​ទាមទារ​សិទ្ធិ​ថ្មី​ទេ។"</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"តើ​អ្នក​ចង់​ផ្ដល់​សិទ្ធិ​ដូច​ខាងក្រោម? វា​នឹង​ចូល​ទៅ៖"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"បដិសេធ"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"ព័ត៌មានបន្ថែម"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"បដិសេធទោះយ៉ាងណាក៏ដោយ"</string>
@@ -106,6 +98,7 @@
     <string name="never_ask_again" msgid="1089938738199748687">"កុំសួរទៀត"</string>
     <string name="no_permissions" msgid="3210542466245591574">"គ្មានសិទ្ធិអនុញ្ញាត"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"សិទ្ធិអនុញ្ញាតបន្ថែម"</string>
+    <string name="app_permissions_info_button_label" msgid="7789812060395257748">"បើក​ព័ត៌មាន​កម្មវិធី"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> ទៀត</item>
       <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> ទៀត</item>
@@ -130,7 +123,6 @@
     <string name="screen_overlay_button" msgid="4344544843349937743">"បើកការកំណត់"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"សកម្មភាពដំឡើង/លុបការដំឡើងមិនគាំទ្រនៅលើ Wear ទេ"</string>
-    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> ត្រូវបានអាប់ដេតហើយ។ អនុញ្ញាតឲ្យ <xliff:g id="APP_NAME_1">%1$s</xliff:g> ចូលដំណើរការធាតុខាងក្រោមឬ?"</string>
     <string name="permission_review_title_template_install" msgid="6819338441305295479">"ជ្រើសរើសអ្វីដែលត្រូវអនុញ្ញាតឲ្យ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ចូលដំណើរការ"</string>
     <string name="permission_review_title_template_update" msgid="8632233603161669426">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ត្រូវបានអាប់ដេត។ ជ្រើសរើសអ្វីដែលត្រូវអនុញ្ញាតឲ្យកម្មវិធីនេះចូលដំណើរការ។"</string>
     <string name="review_button_cancel" msgid="957906817733578877">"បោះបង់"</string>

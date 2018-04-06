@@ -20,9 +20,7 @@
     <string name="next" msgid="3057143178373252333">"Հաջորդը"</string>
     <string name="install" msgid="5896438203900042068">"Տեղադրել"</string>
     <string name="done" msgid="3889387558374211719">"Պատրաստ է"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"Թույլատրել այս հավելվածին`"</string>
     <string name="cancel" msgid="8360346460165114585">"Չեղարկել"</string>
-    <string name="unknown" msgid="4742479012767208045">"Անհայտ"</string>
     <string name="installing" msgid="8613631001631998372">"Տեղադրվում է..."</string>
     <string name="installing_app" msgid="4097935682329028894">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>-ի տեղադրում…"</string>
     <string name="install_done" msgid="3682715442154357097">"Հավելվածը տեղադրված է:"</string>
@@ -47,14 +45,9 @@
     <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Այս օգտատերը չի կարող անհայտ հավելվածներ տեղադրել"</string>
     <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"Այս օգտատիրոջը չի թույլատրվում տեղադրել հավելվածներ"</string>
     <string name="ok" msgid="3468756155452870475">"Հաստատել"</string>
-    <string name="settings" msgid="6743583734099755409">"Կարգավորումներ"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Կառավարել հավելվածները"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Փոխարինե՞լ հավելվածը:"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Ծրագիրը, որը դուք տեղադրում եք, կփոխարինի մեկ այլ ծրագրի:\n\nՁեր բոլոր նախկին օգտատիրոջ տվյալները կպահվեն:"</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Սա համակարգային ծրագիր է:\n\nՁեր բոլոր նախկին օգտատիրոջ տվյալները կպահվեն:"</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Տարածքից դուրս"</string>
     <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g>-ը չհաջողվեց տեղադրել: Ազատեք որոշակի տարածք և կրկին փորձեք:"</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"Հաստատել"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Հավելվածը չի գտնվել"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Հավելվածը չի գտնվել տեղադրված հավելվածների ցանկում:"</string>
     <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"Արգելված է"</string>
@@ -91,7 +84,6 @@
     <string name="privacyPerms" msgid="1850527049572617">"Գաղտնիություն"</string>
     <string name="devicePerms" msgid="6733560207731294504">"Սարքի մատչում"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"Այս թարմացումը պահանջում է, որ նոր թույլտվություններ չտրվեն:"</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"Ցանկանու՞մ եք շնորհել հետևյալ թույլտվությունները: Այն կստանա մատչում`"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Մերժել"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Այլ տեղեկություններ"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Մերժել ամեն դեպքում"</string>
@@ -106,6 +98,7 @@
     <string name="never_ask_again" msgid="1089938738199748687">"Այլևս չհարցնել"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Թույլտվություններ չկան"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Լրացուցիչ թույլտվություններ"</string>
+    <string name="app_permissions_info_button_label" msgid="7789812060395257748">"Հավելվածի մասին"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
       <item quantity="one">Եվս <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="other">Եվս <xliff:g id="COUNT_1">%1$d</xliff:g></item>
@@ -130,7 +123,6 @@
     <string name="screen_overlay_button" msgid="4344544843349937743">"Բացել կարգավորումները"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Տեղադրման/հեռացման գործողությունները Android Wear-ում չեն աջակցվում:"</string>
-    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> հավելվածը թարմացվել է: Թույլ տա՞լ <xliff:g id="APP_NAME_1">%1$s</xliff:g> հավելվածին օգտագործել հետևյալը:"</string>
     <string name="permission_review_title_template_install" msgid="6819338441305295479">"Ընտրեք, ինչ թույլտվություններ եք ցանկանում տրամադրել &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; հավելվածին"</string>
     <string name="permission_review_title_template_update" msgid="8632233603161669426">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; հավելվածը թարմացվել է: Ընտրեք, ինչ թույլտվություններ եք ցանկանում տրամադրել այդ հավելվածին:"</string>
     <string name="review_button_cancel" msgid="957906817733578877">"Չեղարկել"</string>

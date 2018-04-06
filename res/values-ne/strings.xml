@@ -20,9 +20,7 @@
     <string name="next" msgid="3057143178373252333">"अर्को"</string>
     <string name="install" msgid="5896438203900042068">"स्थापना गर्नुहोस्"</string>
     <string name="done" msgid="3889387558374211719">"भयो"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"यस अनुप्रयोगलाई अनुमति दिनुहोस्:"</string>
     <string name="cancel" msgid="8360346460165114585">"रद्द गर्नुहोस्"</string>
-    <string name="unknown" msgid="4742479012767208045">"अज्ञात"</string>
     <string name="installing" msgid="8613631001631998372">"स्थापित हुँदै…"</string>
     <string name="installing_app" msgid="4097935682329028894">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> स्थापना गर्दै…"</string>
     <string name="install_done" msgid="3682715442154357097">"अनुप्रयोग स्थापना भयो।"</string>
@@ -47,14 +45,9 @@
     <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"यस प्रयोगकर्ताले अज्ञात अनुप्रयोगहरू स्थापना गर्न सक्नुहुन्न"</string>
     <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"यो प्रयोगकर्तालाई अनुप्रयोगहरूको स्थापना गर्ने अनुमति छैन"</string>
     <string name="ok" msgid="3468756155452870475">"ठीक छ"</string>
-    <string name="settings" msgid="6743583734099755409">"सेटिङहरू"</string>
     <string name="manage_applications" msgid="4033876279091996596">"अनुप्रयोगहरूको व्यवस्थापन गर्नुहोस्"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"अनुप्रयोग विस्थापन गर्ने?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"तपाईँले स्थापना गरिरहनु भएको अनुप्रयोगले अर्कोलाई प्रतिस्थापन गर्ने छ।\n\nतपाईँको पहिलेको सबै प्रयोगकर्ता डेटा बचत हुने छ।"</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"यो एउटा प्रणाली अनुप्रयोग हो।\n\n तपाईँको पहिलेको सबै डेटा बचत हुने छ।"</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"ठाउँभन्दा बाहिर"</string>
     <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> स्थापन गर्न सकिएन। केही ठाउँ खाली गर्नुहोस् र फेरि कोसिस गर्नुहोस्"</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"ठीक छ"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"अनुप्रयोग फेला परेन"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"स्थापना भएको अनुप्रयोगहरू सूचीमा अनुप्रयोग फेला परेको थिएन।"</string>
     <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"अनुमति छैन"</string>
@@ -91,7 +84,6 @@
     <string name="privacyPerms" msgid="1850527049572617">"गोपनीयता"</string>
     <string name="devicePerms" msgid="6733560207731294504">"उपकरण पहुँच"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"यस अपडेटलाई नयाँ अनुमति आवश्यक पर्दैन।"</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"के तपाईं निम्न अनुमति प्रदान गर्न चाहनु हुन्छ? यसले पहुँच पाउने छ:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"अस्वीकार गर्नुहोस्"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"थप जानकारी"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"जे भए पनि अस्वीकार गर्नुहोस्"</string>
@@ -106,6 +98,7 @@
     <string name="never_ask_again" msgid="1089938738199748687">"फेरि नसोध्नुहोस्"</string>
     <string name="no_permissions" msgid="3210542466245591574">"कुनै अनुमतिहरू छैनन्"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"अतिरिक्त अनुमतिहरू"</string>
+    <string name="app_permissions_info_button_label" msgid="7789812060395257748">"अनुप्रयोगसम्बन्धी जानकारी खोल्नुहोस्"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> थप</item>
       <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> थप</item>
@@ -130,7 +123,6 @@
     <string name="screen_overlay_button" msgid="4344544843349937743">"सेटिङहरू खोल्नुहोस्"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Wear मा स्थापना/स्थापना रद्द गर्ने कारबाहीहरू समर्थित छैनन्।"</string>
-    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> अद्यावधिक गरिएको छ। <xliff:g id="APP_NAME_1">%1$s</xliff:g> लाई निम्न वस्तु पहुँच गर्न अनुमति दिने हो?"</string>
     <string name="permission_review_title_template_install" msgid="6819338441305295479">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; लाई के माथि पहुँच राख्न दिने भन्ने कुरा छनौट गर्नुहोस्"</string>
     <string name="permission_review_title_template_update" msgid="8632233603161669426">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; लाई अद्यावधिक गरिएको छ। यस अनुप्रयोगलाई के माथि पहुँच राख्न दिने भन्ने कुरा छनौट गर्नुहोस्।"</string>
     <string name="review_button_cancel" msgid="957906817733578877">"रद्द गर्नुहोस्"</string>

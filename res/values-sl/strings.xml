@@ -20,9 +20,7 @@
     <string name="next" msgid="3057143178373252333">"Naprej"</string>
     <string name="install" msgid="5896438203900042068">"Namesti"</string>
     <string name="done" msgid="3889387558374211719">"Dokončano"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"Dovoli, da ta aplikacija:"</string>
     <string name="cancel" msgid="8360346460165114585">"Prekliči"</string>
-    <string name="unknown" msgid="4742479012767208045">"Neznano"</string>
     <string name="installing" msgid="8613631001631998372">"Nameščanje …"</string>
     <string name="installing_app" msgid="4097935682329028894">"Nameščanje aplikacije <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> …"</string>
     <string name="install_done" msgid="3682715442154357097">"Aplikacija je nameščena."</string>
@@ -47,14 +45,9 @@
     <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Ta uporabnik nima dovoljenja za nameščanje neznanih aplikacij"</string>
     <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"Ta uporabnik nima dovoljenja za nameščanje aplikacij"</string>
     <string name="ok" msgid="3468756155452870475">"V redu"</string>
-    <string name="settings" msgid="6743583734099755409">"Nastavitve"</string>
     <string name="manage_applications" msgid="4033876279091996596">"Upravljaj aplikacije"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Ali želite zamenjati aplikacijo?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Aplikacija, ki jo nameščate, bo nadomestila drugo. \n \nVsi prejšnji uporabniški podatki bodo shranjeni."</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"To je sistemska aplikacija.\n \nVsi prejšnji uporabniški podatki bodo shranjeni."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Zmanjkalo je prostora"</string>
     <string name="out_of_space_dlg_text" msgid="4774775404294282216">"Aplikacije <xliff:g id="APP_NAME">%1$s</xliff:g> ni bilo mogoče namestiti. Sprostite prostor in poskusite znova."</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"V redu"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Aplikacije ni bilo mogoče najti"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Aplikacije ni bilo mogoče najti na seznamu nameščenih aplikacij."</string>
     <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"Ni dovoljeno"</string>
@@ -91,7 +84,6 @@
     <string name="privacyPerms" msgid="1850527049572617">"Zasebnost"</string>
     <string name="devicePerms" msgid="6733560207731294504">"Dostop do naprave"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"Za to posodobitev niso potrebna nova dovoljenja."</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"Ali želite odobriti naslednja dovoljenja? S tem bo omogočen dostop do:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Zavrni"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Več informacij"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Vseeno zavrni"</string>
@@ -106,6 +98,7 @@
     <string name="never_ask_again" msgid="1089938738199748687">"Ne sprašuj več"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Ni dovoljenj"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Dodatna dovoljenja"</string>
+    <string name="app_permissions_info_button_label" msgid="7789812060395257748">"Odpri podatke o aplikaciji"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
       <item quantity="one">Še <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="two">Še <xliff:g id="COUNT_1">%1$d</xliff:g></item>
@@ -132,7 +125,6 @@
     <string name="screen_overlay_button" msgid="4344544843349937743">"Odpri nastavitve"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Dejanja namestitve in odstranitve v sistemu Android Wear niso podprta."</string>
-    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"Aplikacija <xliff:g id="APP_NAME_0">%1$s</xliff:g> je posodobljena. Dovolite aplikaciji <xliff:g id="APP_NAME_1">%1$s</xliff:g> dostop do tega?"</string>
     <string name="permission_review_title_template_install" msgid="6819338441305295479">"Izberite, do česa aplikaciji &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; dovolite dostop"</string>
     <string name="permission_review_title_template_update" msgid="8632233603161669426">"Aplikacija &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; je posodobljena. Izberite, do česa tej aplikaciji dovolite dostop."</string>
     <string name="review_button_cancel" msgid="957906817733578877">"Prekliči"</string>

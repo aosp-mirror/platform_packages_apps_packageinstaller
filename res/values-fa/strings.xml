@@ -20,9 +20,7 @@
     <string name="next" msgid="3057143178373252333">"بعدی"</string>
     <string name="install" msgid="5896438203900042068">"نصب"</string>
     <string name="done" msgid="3889387558374211719">"تمام"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"این برنامه مجاز است که:"</string>
     <string name="cancel" msgid="8360346460165114585">"لغو"</string>
-    <string name="unknown" msgid="4742479012767208045">"ناشناس"</string>
     <string name="installing" msgid="8613631001631998372">"در حال نصب…"</string>
     <string name="installing_app" msgid="4097935682329028894">"درحال نصب <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
     <string name="install_done" msgid="3682715442154357097">"برنامه نصب شد."</string>
@@ -47,14 +45,9 @@
     <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"این کاربر نمی‌تواند برنامه‌های ناشناس نصب کند"</string>
     <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"این کاربر مجاز به نصب برنامه‌ نیست"</string>
     <string name="ok" msgid="3468756155452870475">"تأیید"</string>
-    <string name="settings" msgid="6743583734099755409">"تنظیمات"</string>
     <string name="manage_applications" msgid="4033876279091996596">"مدیریت برنامه‌ها"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"برنامه جایگزین شود؟"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"برنامه‌ای که دارید نصب می‌کنید جایگزین یک برنامهٔ دیگر خواهد شد.\n\nتمام داده‌های کاربری قبلی شما ذخیره خواهد شد."</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"این یک برنامه سیستمی است.\n\nتمام داده‌های کاربری قبلی شما ذخیره خواهد شد."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"فضا کافی نیست"</string>
     <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> نصب نمی‌شود. مقداری از فضا را آزاد کرده و دوباره امتحان کنید."</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"تأیید"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"برنامه یافت نشد"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"برنامه در فهرست برنامه‌های نصب شده یافت نشد."</string>
     <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"مجاز نیست"</string>
@@ -91,7 +84,6 @@
     <string name="privacyPerms" msgid="1850527049572617">"حریم خصوصی"</string>
     <string name="devicePerms" msgid="6733560207731294504">"دسترسی به دستگاه"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"این به‌روزرسانی به مجوز جدیدی نیاز ندارد."</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"آیا می‌خواهید مجوزهای زیر را اعطا کنید؟ این مجوزها دسترسی به این موارد را بوجود می‌آورند:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"اجازه ندارد"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"اطلاعات بیشتر"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"در هر صورت نادیده گرفته شود"</string>
@@ -106,6 +98,7 @@
     <string name="never_ask_again" msgid="1089938738199748687">"دوباره سؤال نشود"</string>
     <string name="no_permissions" msgid="3210542466245591574">"مجوزی موجود نیست"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"مجوزهای بیشتر"</string>
+    <string name="app_permissions_info_button_label" msgid="7789812060395257748">"باز کردن اطلاعات برنامه"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
       <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> مورد دیگر</item>
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> مورد دیگر</item>
@@ -130,7 +123,6 @@
     <string name="screen_overlay_button" msgid="4344544843349937743">"باز کردن تنظیمات"</string>
     <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"‏کنش‌های نصب/حذف نصب در Wear پشتیبانی نمی‌شود."</string>
-    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> به‌روزرسانی شد. به <xliff:g id="APP_NAME_1">%1$s</xliff:g> برای دسترسی به موارد زیر اجازه می‌دهید؟"</string>
     <string name="permission_review_title_template_install" msgid="6819338441305295479">"‏انتخاب کنید &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; اجازه دارد به چه چیزی دسترسی پیدا کند"</string>
     <string name="permission_review_title_template_update" msgid="8632233603161669426">"‏&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; به‌روزرسانی شده است. انتخاب کنید این برنامه اجازه دارد به چه چیزی دسترسی پیدا کند."</string>
     <string name="review_button_cancel" msgid="957906817733578877">"لغو"</string>
