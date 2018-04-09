@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License
  */
-package android.support.wearable.view;
+package androidx.wear.ble.view;
 
 import android.annotation.TargetApi;
 import android.app.Dialog;
@@ -21,7 +21,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.annotation.StyleRes;
+import androidx.annotation.StyleRes;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
