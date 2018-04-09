@@ -14,7 +14,7 @@
  * limitations under the License
  */
 
-package android.support.wearable.view;
+package androidx.wear.ble.view;
 
 import android.animation.TimeInterpolator;
 import android.annotation.TargetApi;
@@ -27,7 +27,7 @@ import android.os.Build;
 @TargetApi(Build.VERSION_CODES.KITKAT_WATCH)
 class Gusterpolator implements TimeInterpolator {
 
-    /** An instance of {@link android.support.wearable.view.Gusterpolator}. */
+    /** An instance of {@link androidx.wear.ble.view.Gusterpolator}. */
     public static final Gusterpolator INSTANCE = new Gusterpolator();
 
     /**

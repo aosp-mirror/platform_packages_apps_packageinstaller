@@ -14,7 +14,7 @@
  * limitations under the License
  */
 
-package android.support.wearable.view;
+package androidx.wear.ble.view;
 
 import android.animation.ObjectAnimator;
 import android.animation.TimeInterpolator;

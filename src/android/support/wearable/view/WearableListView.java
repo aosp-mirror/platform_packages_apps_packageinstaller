@@ -14,7 +14,7 @@
  * limitations under the License
  */
 
-package android.support.wearable.view;
+package androidx.wear.ble.view;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
@@ -24,8 +24,8 @@ import android.content.Context;
 import android.graphics.PointF;
 import android.os.Build;
 import android.os.Handler;
-import android.support.v7.widget.LinearSmoothScroller;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearSmoothScroller;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
