@@ -22,9 +22,9 @@ import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
 import android.os.Bundle;
 import android.os.UserManager;
-import android.support.v17.leanback.app.GuidedStepFragment;
-import android.support.v17.leanback.widget.GuidanceStylist;
-import android.support.v17.leanback.widget.GuidedAction;
+import androidx.leanback.app.GuidedStepFragment;
+import androidx.leanback.widget.GuidanceStylist;
+import androidx.leanback.widget.GuidedAction;
 
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.UninstallerActivity;
