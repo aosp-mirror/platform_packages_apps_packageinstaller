@@ -13,17 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License
  */
-package android.support.wearable.view;
+package androidx.wear.ble.view;
 
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import android.util.Log;
 import android.widget.Button;
 
