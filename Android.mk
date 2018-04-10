@@ -10,26 +10,26 @@ LOCAL_SRC_FILES := \
 
 LOCAL_STATIC_ANDROID_LIBRARIES += \
     $(ANDROID_SUPPORT_CAR_TARGETS) \
-    $(ANDROID_SUPPORT_DESIGN_TARGETS) \
-    android-support-transition \
-    android-support-compat \
-    android-support-media-compat \
-    android-support-core-utils \
-    android-support-core-ui \
-    android-support-fragment \
-    android-support-v7-appcompat \
-    android-support-v7-preference \
-    android-support-v7-recyclerview \
-    android-support-v14-preference \
-    android-support-v17-leanback \
-    android-support-v17-preference-leanback \
+    androidx.design_design \
+    androidx.transition_transition \
+    androidx.core_core \
+    androidx.media_media \
+    androidx.legacy_legacy-support-core-utils \
+    androidx.legacy_legacy-support-core-ui \
+    androidx.fragment_fragment \
+    androidx.appcompat_appcompat \
+    androidx.preference_preference \
+    androidx.recyclerview_recyclerview \
+    androidx.legacy_legacy-preference-v14 \
+    androidx.leanback_leanback \
+    androidx.leanback_leanback-preference \
     car-list \
     car-stream-ui-lib \
     SettingsLib
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
     xz-java \
-    android-support-annotations
+    androidx.annotation_annotation
 
 LOCAL_PACKAGE_NAME := PackageInstaller
 LOCAL_CERTIFICATE := platform
