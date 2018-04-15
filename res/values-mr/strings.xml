@@ -26,8 +26,8 @@
     <string name="installing" msgid="8613631001631998372">"इंस्टॉल करत आहे..."</string>
     <string name="installing_app" msgid="4097935682329028894">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> इन्‍स्टॉल करत आहे…"</string>
     <string name="install_done" msgid="3682715442154357097">"अॅप इंस्टॉल झाला."</string>
-    <string name="install_confirm_question" msgid="7295206719219043890">"आपण हा अॅप्लिकेशन इंस्टॉल करू इच्छिता? यास यावर प्रवेश मिळेल:"</string>
-    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"आपण हा अॅप्लिकेशन इंस्टॉल करू इच्छिता? यास कोणत्याही विशेष प्रवेशाची आवश्यकता नसते."</string>
+    <string name="install_confirm_question" msgid="7295206719219043890">"तुम्ही हा अॅप्लिकेशन इंस्टॉल करू इच्छिता? यास यावर प्रवेश मिळेल:"</string>
+    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"तुम्ही हा अॅप्लिकेशन इंस्टॉल करू इच्छिता? यास कोणत्याही विशेष प्रवेशाची आवश्यकता नसते."</string>
     <string name="install_confirm_question_update" msgid="4624159567361487964">"तुम्हाला सद्य अॅप्लिकेशनवर अपडेट इंस्टॉल करायची आहे? तुम्ही तुमचा सद्य डेटा गमावणार नाही. अपडेट केलेल्या अॅप्लिकेशनला यावर अॅक्सेस मिळेल:"</string>
     <string name="install_confirm_question_update_system" msgid="1302330093676416336">"तुम्ही या बिल्ट-इन अॅप्लिकेशनवर अपडेट इंस्टॉल करायची आहे? तुम्ही तुमचा सद्य डेटा गमावणार नाही. अपडेट केलेल्या अॅप्लिकेशनला यावर अॅक्सेस मिळेल:"</string>
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"तुम्हाला सद्य अॅप्लिकेशनवर अपडेट इंस्टॉल करायची आहे? तुम्ही तुमचा सद्य डेटा गमावणार नाही. यासाठी कोणताही विशेष अॅक्सेस आवश्यक नसतो."</string>
@@ -50,8 +50,8 @@
     <string name="settings" msgid="6743583734099755409">"सेटिंग्ज"</string>
     <string name="manage_applications" msgid="4033876279091996596">"अ‍ॅप्स व्यवस्थापित करा"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"अॅप पुनर्स्थित करायचा?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"आपण इंस्टॉल करत असलेला अॅप दुसरा अॅप पुनर्स्थित करेल.\n\nआपला सर्व मागील वापरकर्ता डेटा जतन केला जाईल."</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"हा सिस्टम अॅप आहे.\n\nआपला सर्व मागील वापरकर्ता डेटा जतन केला जाईल."</string>
+    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"तुम्ही इंस्टॉल करत असलेला अॅप दुसरा अॅप पुनर्स्थित करेल.\n\nआपला सर्व मागील वापरकर्ता डेटा सेव्ह केला जाईल."</string>
+    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"हा सिस्टम अॅप आहे.\n\nआपला सर्व मागील वापरकर्ता डेटा सेव्ह केला जाईल."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"स्‍थानाबाहेर"</string>
     <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> इंस्टॉल केला जाऊ शकला नाही. काही स्थान मोकळे करा आणि पुन्हा प्रयत्न करा."</string>
     <string name="dlg_ok" msgid="6944357727705699232">"ठीक"</string>
@@ -64,9 +64,9 @@
     <string name="uninstall_application_title" msgid="1860074100811653963">"अॅप अनइंस्टॉल करा"</string>
     <string name="uninstall_update_title" msgid="4146940097553335390">"अपडेट अनइंस्टॉल करा"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> खालील अॅप चा भाग आहे:"</string>
-    <string name="uninstall_application_text" msgid="6691975835951187030">"आपण हा अॅप अनइंस्टॉल करू इच्छिता?"</string>
-    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"आपण हा अॅप "<b>"सर्व"</b>" वापरकर्त्यांसाठी अनइंस्टॉल करू इच्छिता? अॅप्लिकेशन आणि त्याचा डेटा डिव्हाइसवरील "<b>"सर्व"</b>" वापरकर्त्यांवरून काढला जाईल."</string>
-    <string name="uninstall_application_text_user" msgid="8766882355635485733">"आपण <xliff:g id="USERNAME">%1$s</xliff:g> वापरकर्त्यासाठी हा अ‍ॅप विस्‍थापित करु इच्‍छिता?"</string>
+    <string name="uninstall_application_text" msgid="6691975835951187030">"तुम्ही हा अॅप अनइंस्टॉल करू इच्छिता?"</string>
+    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"तुम्ही हा अॅप "<b>"सर्व"</b>" वापरकर्त्यांसाठी अनइंस्टॉल करू इच्छिता? अॅप्लिकेशन आणि त्याचा डेटा डिव्हाइसवरील "<b>"सर्व"</b>" वापरकर्त्यांवरून काढला जाईल."</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"तुम्ही <xliff:g id="USERNAME">%1$s</xliff:g> वापरकर्त्यासाठी हा अ‍ॅप विस्‍थापित करु इच्‍छिता?"</string>
     <string name="uninstall_update_text" msgid="1394549691152728409">"फॅक्टरी आवृत्तीसह हा अॅप पुनर्स्थित करायचा? सर्व डेटा काढला जाईल."</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"फॅक्टरी आवृत्तीसह हा अॅप पुनर्स्थित करायचा? सर्व डेटा काढला जाईल. हे कार्य प्रोफाईल असलेल्यांसह या डिव्हाइसच्या सर्व वापरकर्त्यांना प्रभावित करते."</string>
     <string name="uninstalling_notification_channel" msgid="5698369661583525583">"अनइंस्टॉल करणे चालू आहे"</string>
@@ -91,7 +91,7 @@
     <string name="privacyPerms" msgid="1850527049572617">"गोपनीयता"</string>
     <string name="devicePerms" msgid="6733560207731294504">"डिव्हाइस अॅक्सेस"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"या अद्यतनास कोणत्याही नवीन परवानग्यांची आवश्यकता नाही."</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"आपण खालील परवानग्‍यांना मंजूरी देऊ इच्‍छिता? त्‍यांना यावर प्रवेश मिळेल:"</string>
+    <string name="grant_confirm_question" msgid="4690289297029223742">"तुम्ही खालील परवानग्‍यांना मंजूरी देऊ इच्‍छिता? त्‍यांना यावर प्रवेश मिळेल:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"नकार द्या"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"अधिक माहिती"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"तरीही नकार द्या"</string>
@@ -120,7 +120,7 @@
     <string name="no_apps" msgid="1965493419005012569">"कोणतेही अॅप्स नाहीत"</string>
     <string name="location_settings" msgid="1774875730854491297">"स्थान सेटिंग्ज"</string>
     <string name="location_warning" msgid="8778701356292735971">"या डिव्‍हाइससाठी <xliff:g id="APP_NAME">%1$s</xliff:g> स्थान सेवांचा प्रदाता आहे. स्थान प्रवेश स्थान सेटिंग्ज वरून सुधारित केला जाऊ शकतो."</string>
-    <string name="system_warning" msgid="7103819124542305179">"आपण ही परवानगी नाकारल्यास, आपल्‍या डिव्‍हाइसची मुलभूत वैशिष्ट्ये अपेक्षित असल्याप्रमाणे कदाचित कार्य करू शकणार नाहीत."</string>
+    <string name="system_warning" msgid="7103819124542305179">"तुम्ही ही परवानगी नाकारल्यास, आपल्‍या डिव्‍हाइसची मुलभूत वैशिष्ट्ये अपेक्षित असल्याप्रमाणे कदाचित कार्य करू शकणार नाहीत."</string>
     <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"धोरणाद्वारे सक्ती केली"</string>
     <string name="loading" msgid="7811651799620593731">"लोड करत आहे..."</string>
     <string name="all_permissions" msgid="5156669007784613042">"सर्व परवानग्या"</string>
