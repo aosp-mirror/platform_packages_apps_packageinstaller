@@ -9,7 +9,7 @@ LOCAL_SRC_FILES := \
     $(call all-java-files-under, src)
 
 LOCAL_STATIC_ANDROID_LIBRARIES += \
-    $(ANDROID_SUPPORT_CAR_TARGETS) \
+    androidx.car_car \
     androidx.design_design \
     androidx.transition_transition \
     androidx.core_core \
