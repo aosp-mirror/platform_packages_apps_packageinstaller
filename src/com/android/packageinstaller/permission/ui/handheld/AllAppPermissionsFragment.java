@@ -258,7 +258,7 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
             icon = getContext().getDrawable(R.drawable.ic_perm_device_info);
         }
         pref.setIcon(Utils.applyTint(getContext(), icon, android.R.attr.colorControlNormal));
-        pref.setTitle(perm.loadLabel(pm));
+        pref.setTitle(perm.loadSafeLabel(pm, 20000, PackageItemInfo.SAFE_LABEL_FLAG_TRIM));
         pref.setSingleLineTitle(false);
         final CharSequence desc = perm.loadDescription(pm);
 
