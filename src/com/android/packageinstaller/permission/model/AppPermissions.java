@@ -18,6 +18,7 @@ package com.android.packageinstaller.permission.model;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageItemInfo;
 import android.content.pm.PackageManager;
 import android.text.BidiFormatter;
 
@@ -49,8 +50,11 @@ public final class AppPermissions {
         mPackageInfo = packageInfo;
         mFilterPermissions = filterPermissions;
         mAppLabel = BidiFormatter.getInstance().unicodeWrap(
-                packageInfo.applicationInfo.loadSafeLabel(
-                context.getPackageManager()).toString());
+                packageInfo.applicationInfo.loadSafeLabel(context.getPackageManager(),
+                        PackageItemInfo.DEFAULT_MAX_LABEL_SIZE_PX,
+                        PackageItemInfo.SAFE_LABEL_FLAG_TRIM
+                                | PackageItemInfo.SAFE_LABEL_FLAG_FIRST_LINE)
+                        .toString());
         mSortGroups = sortGroups;
         mOnErrorCallback = onErrorCallback;
         loadPermissionGroups();
