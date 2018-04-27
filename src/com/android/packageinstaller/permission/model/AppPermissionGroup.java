@@ -35,6 +35,7 @@ import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.utils.ArrayUtils;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 
+import java.text.Collator;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,6 +49,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
     private final PackageManager mPackageManager;
     private final AppOpsManager mAppOps;
     private final ActivityManager mActivityManager;
+    private final Collator mCollator;
 
     private final PackageInfo mPackageInfo;
     private final String mName;
@@ -216,6 +218,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         mName = name;
         mLabel = label;
         mDescription = description;
+        mCollator = Collator.getInstance(
+                context.getResources().getConfiguration().getLocales().get(0));
         mRequest = request;
         if (iconResId != 0) {
             mIconPkg = iconPkg;
@@ -628,7 +632,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
     @Override
     public int compareTo(AppPermissionGroup another) {
-        final int result = mLabel.toString().compareTo(another.mLabel.toString());
+        final int result = mCollator.compare(mLabel.toString(), another.mLabel.toString());
         if (result == 0) {
             // Unbadged before badged.
             return mPackageInfo.applicationInfo.uid
