@@ -287,7 +287,7 @@ public class UninstallerActivity extends Activity {
 
     public void startUninstallProgress() {
         boolean returnResult = getIntent().getBooleanExtra(Intent.EXTRA_RETURN_RESULT, false);
-        CharSequence label = mDialogInfo.appInfo.loadLabel(getPackageManager());
+        CharSequence label = mDialogInfo.appInfo.loadSafeLabel(getPackageManager());
 
         if (isTv()) {
             Intent newIntent = new Intent(Intent.ACTION_VIEW);
