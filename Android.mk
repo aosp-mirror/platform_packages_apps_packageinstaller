@@ -23,7 +23,6 @@ LOCAL_STATIC_ANDROID_LIBRARIES += \
     android-support-v17-leanback \
     android-support-v17-preference-leanback \
     car-list \
-    car-stream-ui-lib \
     SettingsLib
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
