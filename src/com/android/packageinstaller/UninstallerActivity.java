@@ -22,6 +22,7 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.annotation.NonNull;
 import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -30,6 +31,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageDeleteObserver2;
 import android.content.pm.IPackageManager;
 import android.content.pm.PackageInstaller;
+import android.content.pm.PackageItemInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
 import android.net.Uri;
@@ -39,6 +41,9 @@ import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.text.Html;
+import android.text.TextPaint;
+import android.text.TextUtils;
 import android.util.Log;
 
 /*
@@ -47,6 +52,11 @@ import android.util.Log;
  * com.android.packageinstaller.PackageName set to the application package name
  */
 public class UninstallerActivity extends Activity {
+
+    private static final float MAX_LABEL_SIZE_PX = 500f;
+    /** The maximum length of a safe label, in characters */
+    private static final int MAX_SAFE_LABEL_LENGTH = 50000;
+
     private static final String TAG = "UninstallerActivity";
 
     public static class UninstallAlertDialogFragment extends DialogFragment implements
@@ -56,7 +66,7 @@ public class UninstallerActivity extends Activity {
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             final PackageManager pm = getActivity().getPackageManager();
             final DialogInfo dialogInfo = ((UninstallerActivity) getActivity()).mDialogInfo;
-            final CharSequence appLabel = dialogInfo.appInfo.loadLabel(pm);
+            final CharSequence appLabel = loadSafeLabel(pm, dialogInfo.appInfo);
 
             AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
             StringBuilder messageBuilder = new StringBuilder();
@@ -64,7 +74,7 @@ public class UninstallerActivity extends Activity {
             // If the Activity label differs from the App label, then make sure the user
             // knows the Activity belongs to the App being uninstalled.
             if (dialogInfo.activityInfo != null) {
-                final CharSequence activityLabel = dialogInfo.activityInfo.loadLabel(pm);
+                final CharSequence activityLabel = loadSafeLabel(pm, dialogInfo.activityInfo);
                 if (!activityLabel.equals(appLabel)) {
                     messageBuilder.append(
                             getString(R.string.uninstall_activity_text, activityLabel));
@@ -204,6 +214,52 @@ public class UninstallerActivity extends Activity {
         }
 
         showConfirmationDialog();
+    }
+
+    private static @NonNull CharSequence loadSafeLabel(@NonNull PackageManager pm,
+            @NonNull PackageItemInfo pi) {
+        // loadLabel() always returns non-null
+        String label = pi.loadLabel(pm).toString();
+        // strip HTML tags to avoid <br> and other tags overwriting original message
+        String labelStr = Html.fromHtml(label).toString();
+
+        // If the label contains new line characters it may push the UI
+        // down to hide a part of it. Labels shouldn't have new line
+        // characters, so just truncate at the first time one is seen.
+        final int labelLength = Math.min(labelStr.length(), MAX_SAFE_LABEL_LENGTH);
+        final StringBuffer sb = new StringBuffer(labelLength);
+        int offset = 0;
+        while (offset < labelLength) {
+            final int codePoint = labelStr.codePointAt(offset);
+            final int type = Character.getType(codePoint);
+            if (type == Character.LINE_SEPARATOR
+                    || type == Character.CONTROL
+                    || type == Character.PARAGRAPH_SEPARATOR) {
+                labelStr = labelStr.substring(0, offset);
+                break;
+            }
+            // replace all non-break space to " " in order to be trimmed
+            final int charCount = Character.charCount(codePoint);
+            if (type == Character.SPACE_SEPARATOR) {
+                sb.append(' ');
+            } else {
+                sb.append(labelStr.charAt(offset));
+                if (charCount == 2) {
+                    sb.append(labelStr.charAt(offset + 1));
+                }
+            }
+            offset += charCount;
+        }
+
+        labelStr = sb.toString().trim();
+        if (labelStr.isEmpty()) {
+            return pi.packageName;
+        }
+        TextPaint paint = new TextPaint();
+        paint.setTextSize(42);
+
+        return TextUtils.ellipsize(labelStr, paint, MAX_LABEL_SIZE_PX,
+                TextUtils.TruncateAt.END);
     }
 
     private void showConfirmationDialog() {
