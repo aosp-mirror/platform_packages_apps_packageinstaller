@@ -37,15 +37,14 @@ public class UninstallAlertDialogFragment extends DialogFragment implements
         final PackageManager pm = getActivity().getPackageManager();
         final UninstallerActivity.DialogInfo dialogInfo =
                 ((UninstallerActivity) getActivity()).getDialogInfo();
-        final CharSequence appLabel = dialogInfo.appInfo.loadLabel(pm);
-
+        final CharSequence appLabel = dialogInfo.appInfo.loadSafeLabel(pm);
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
         StringBuilder messageBuilder = new StringBuilder();
 
         // If the Activity label differs from the App label, then make sure the user
         // knows the Activity belongs to the App being uninstalled.
         if (dialogInfo.activityInfo != null) {
-            final CharSequence activityLabel = dialogInfo.activityInfo.loadLabel(pm);
+            final CharSequence activityLabel = dialogInfo.activityInfo.loadSafeLabel(pm);
             if (!activityLabel.equals(appLabel)) {
                 messageBuilder.append(
                         getString(R.string.uninstall_activity_text, activityLabel));
