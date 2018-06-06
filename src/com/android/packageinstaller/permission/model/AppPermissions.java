@@ -156,13 +156,17 @@ public final class AppPermissions {
     /**
      * Find the group a permission belongs to.
      *
+     * <p>Note: If a background permission is passed in, this return the group holding the
+     * foreground permissions.
+     *
      * @param permission The name of the permission
      *
      * @return The group the permission belongs to
      */
     public AppPermissionGroup getGroupForPermission(String permission) {
         for (AppPermissionGroup group : mGroups) {
-            if (group.hasPermission(permission)) {
+            if (group.hasPermission(permission) || (group.getBackgroundPermissions() != null
+                    && group.getBackgroundPermissions().hasPermission(permission))) {
                 return group;
             }
         }
