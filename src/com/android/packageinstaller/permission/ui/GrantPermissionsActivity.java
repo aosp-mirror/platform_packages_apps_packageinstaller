@@ -254,12 +254,32 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
             }
         }
 
+        int numGroupStates = mRequestGrantPermissionGroups.size();
+        for (int groupStateNum = 0; groupStateNum < numGroupStates; groupStateNum++) {
+            GroupState groupState = mRequestGrantPermissionGroups.valueAt(groupStateNum);
+            AppPermissionGroup group = groupState.mGroup;
+
+            // Restore permission group state after lifecycle events
+            if (icicle != null) {
+                groupState.mState = icicle.getInt(
+                        getInstanceStateKey(mRequestGrantPermissionGroups.keyAt(groupStateNum)),
+                        groupState.mState);
+            }
+        }
+
         setContentView(mViewHandler.createView());
 
         Window window = getWindow();
         WindowManager.LayoutParams layoutParams = window.getAttributes();
         mViewHandler.updateWindowAttributes(layoutParams);
         window.setAttributes(layoutParams);
+
+        // Restore UI state after lifecycle events. This has to be before
+        // showNextPermissionGroupGrantRequest is called. showNextPermissionGroupGrantRequest might
+        // update the UI and the UI behaves differently for updates and initial creations.
+        if (icicle != null) {
+            mViewHandler.loadInstanceState(icicle);
+        }
 
         if (!showNextPermissionGroupGrantRequest()) {
             setResultAndFinish();
@@ -385,11 +405,12 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
 
         mViewHandler.saveInstanceState(outState);
 
-        for (GroupState groupState : mRequestGrantPermissionGroups.values()) {
-            int state = groupState.mState;
+        int numGroups = mRequestGrantPermissionGroups.size();
+        for (int i = 0; i < numGroups; i++) {
+            int state = mRequestGrantPermissionGroups.valueAt(i).mState;
 
             if (state != GroupState.STATE_UNKNOWN) {
-                outState.putInt(getInstanceStateKey(groupState.mGroup.getName()), state);
+                outState.putInt(getInstanceStateKey(mRequestGrantPermissionGroups.keyAt(i)), state);
             }
         }
     }
