@@ -858,7 +858,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         }
     }
 
-    public List<Permission> getPermissions() {
+    public ArrayList<Permission> getPermissions() {
         return new ArrayList<>(mPermissions.values());
     }
 

@@ -56,6 +56,7 @@ import com.android.packageinstaller.permission.utils.EventLogger;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class GrantPermissionsActivity extends OverlayTouchActivity
@@ -225,7 +226,7 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
             return;
         }
 
-        mAppPermissions = new AppPermissions(this, callingPackageInfo, null, false,
+        mAppPermissions = new AppPermissions(this, callingPackageInfo, false,
                 new Runnable() {
                     @Override
                     public void run() {
@@ -234,23 +235,18 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
                 });
 
         for (String requestedPermission : mRequestedPermissions) {
-            AppPermissionGroup group = null;
-            for (AppPermissionGroup nextGroup : mAppPermissions.getPermissionGroups()) {
-                if (nextGroup.hasPermission(requestedPermission)) {
-                    group = nextGroup;
-                    break;
-                }
-            }
-            if (group == null) {
-                continue;
-            }
+            ArrayList<String> affectedPermissions =
+                    computeAffectedPermissions(requestedPermission);
 
-            String[] affectedPermissions = computeAffectedPermissions(callingPackageInfo, group,
-                        requestedPermission);
-
-            int numAffectedPermissions = affectedPermissions.length;
+            int numAffectedPermissions = affectedPermissions.size();
             for (int i = 0; i < numAffectedPermissions; i++) {
-                addRequestedPermissions(group, affectedPermissions[i], icicle == null);
+                AppPermissionGroup group =
+                        mAppPermissions.getGroupForPermission(affectedPermissions.get(i));
+                if (group == null) {
+                    continue;
+                }
+
+                addRequestedPermissions(group, affectedPermissions.get(i), icicle == null);
             }
         }
 
@@ -633,43 +629,49 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
      * group to be granted. Another case are permissions that are split into two. For apps that
      * target an SDK before the split, this method automatically adds the split off permission.
      *
-     * @param callingPkg The package requesting the permission
-     * @param group The group the permission belongs to
      * @param permission The requested permission
      *
      * @return The actually requested permissions
      */
-    private static String[] computeAffectedPermissions(PackageInfo callingPkg,
-            AppPermissionGroup group, String permission) {
-        // For <= N_MR1 apps all permissions are affected.
-        if (callingPkg.applicationInfo.targetSdkVersion <= Build.VERSION_CODES.N_MR1) {
-            List<Permission> permissions = group.getPermissions();
+    private ArrayList<String> computeAffectedPermissions(String permission) {
+        int requestingAppTargetSDK =
+                mAppPermissions.getPackageInfo().applicationInfo.targetSdkVersion;
 
-            int numPermission = permissions.size();
-            String[] permissionNames = new String[numPermission];
-            for (int i = 0; i < numPermission; i++) {
-                permissionNames[i] = permissions.get(i).getName();
-            }
-
-            return permissionNames;
-        }
-
-        // For N_MR1+ apps only the requested permission is affected with addition
-        // to splits of this permission applicable to apps targeting N_MR1.
-        String[] permissions = new String[] {permission};
+        // If a permission is split, all permissions the original permission is split into are
+        // affected
+        ArrayList<String> splitPerms = new ArrayList<>();
+        splitPerms.add(permission);
         for (PackageParser.SplitPermissionInfo splitPerm : PackageParser.SPLIT_PERMISSIONS) {
-            if (splitPerm.targetSdk <= Build.VERSION_CODES.N_MR1
-                    || callingPkg.applicationInfo.targetSdkVersion >= splitPerm.targetSdk
-                    || !permission.equals(splitPerm.rootPerm)) {
-                continue;
-            }
-            for (int i = 0; i < splitPerm.newPerms.length; i++) {
-                final String newPerm = splitPerm.newPerms[i];
-                permissions = ArrayUtils.appendString(permissions, newPerm);
+            if (requestingAppTargetSDK < splitPerm.targetSdk
+                    && permission.equals(splitPerm.rootPerm)) {
+                Collections.addAll(splitPerms, splitPerm.newPerms);
             }
         }
 
-        return permissions;
+        // For <= N_MR1 apps all permissions of the groups of the requested permissions are affected
+        if (requestingAppTargetSDK <= Build.VERSION_CODES.N_MR1) {
+            ArrayList<String> extendedPermissions = new ArrayList<>();
+
+            int numSplitPerms = splitPerms.size();
+            for (int splitPermNum = 0; splitPermNum < numSplitPerms; splitPermNum++) {
+                AppPermissionGroup group = mAppPermissions.getGroupForPermission(
+                        splitPerms.get(splitPermNum));
+
+                if (group == null) {
+                    continue;
+                }
+
+                ArrayList<Permission> permissionsInGroup = group.getPermissions();
+                int numPermissionsInGroup = permissionsInGroup.size();
+                for (int permNum = 0; permNum < numPermissionsInGroup; permNum++) {
+                    extendedPermissions.add(permissionsInGroup.get(permNum).getName());
+                }
+            }
+
+            return extendedPermissions;
+        } else {
+            return splitPerms;
+        }
     }
 
     private static final class GroupState {

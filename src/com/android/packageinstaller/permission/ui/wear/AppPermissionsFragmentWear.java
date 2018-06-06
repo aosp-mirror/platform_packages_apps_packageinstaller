@@ -125,7 +125,7 @@ public final class AppPermissionsFragmentWear extends PreferenceFragment {
         }
 
         mAppPermissions = new AppPermissions(
-                activity, packageInfo, null, true, () -> getActivity().finish());
+                activity, packageInfo, true, () -> getActivity().finish());
 
         addPreferencesFromResource(R.xml.watch_permissions);
         initializePermissionGroupList();

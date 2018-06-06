@@ -97,7 +97,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         }
 
 
-        mAppPermissions = new AppPermissions(activity, packageInfo, null, true,
+        mAppPermissions = new AppPermissions(activity, packageInfo, true,
                 () -> getActivity().finish());
 
         if (mAppPermissions.isReviewRequired()) {

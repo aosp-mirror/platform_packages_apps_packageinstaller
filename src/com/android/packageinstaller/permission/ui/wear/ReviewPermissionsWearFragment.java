@@ -88,7 +88,7 @@ public class ReviewPermissionsWearFragment extends PreferenceFragment
             return;
         }
 
-        mAppPermissions = new AppPermissions(activity, packageInfo, null, false,
+        mAppPermissions = new AppPermissions(activity, packageInfo, false,
                 new Runnable() {
                     @Override
                     public void run() {

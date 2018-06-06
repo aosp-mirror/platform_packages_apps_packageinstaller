@@ -98,7 +98,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             return;
         }
 
-        mAppPermissions = new AppPermissions(activity, packageInfo, null, true, new Runnable() {
+        mAppPermissions = new AppPermissions(activity, packageInfo, true, new Runnable() {
             @Override
             public void run() {
                 getActivity().finish();
