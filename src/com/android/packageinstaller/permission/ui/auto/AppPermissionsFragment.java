@@ -27,17 +27,16 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Switch;
 import android.widget.Toast;
 
-import androidx.annotation.DrawableRes;
+import androidx.car.widget.ListItem;
+import androidx.car.widget.ListItemAdapter;
+import androidx.car.widget.ListItemProvider;
 import androidx.car.widget.PagedListView;
+import androidx.car.widget.TextListItem;
 
-import com.android.car.list.IconToggleLineItem;
-import com.android.car.list.TypedPagedListAdapter;
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
@@ -58,7 +57,7 @@ public final class AppPermissionsFragment extends Fragment{
     private String mPackageName;
 
     protected PagedListView mListView;
-    protected TypedPagedListAdapter mPagedListAdapter;
+    protected ListItemAdapter mPagedListAdapter;
 
 
     /**
@@ -82,7 +81,7 @@ public final class AppPermissionsFragment extends Fragment{
                 v -> getActivity().onBackPressed());
 
         mListView = (PagedListView) getView().findViewById(R.id.list);
-        mPagedListAdapter = new TypedPagedListAdapter(getLineItems());
+        mPagedListAdapter = new ListItemAdapter(getContext(), getItemProvider());
         mListView.setAdapter(mPagedListAdapter);
     }
 
@@ -142,11 +141,11 @@ public final class AppPermissionsFragment extends Fragment{
     /**
      * Gets the list of the LineItems to show up in the list
      */
-    public ArrayList<TypedPagedListAdapter.LineItem> getLineItems() {
-        ArrayList<TypedPagedListAdapter.LineItem> items = new ArrayList<>();
+    public ListItemProvider getItemProvider() {
+        ArrayList<ListItem> items = new ArrayList<>();
         Context context = getContext();
         if (context == null) {
-            return items;
+            return new ListItemProvider.ListProvider(items);
         }
 
         for (AppPermissionGroup group : mAppPermissions.getPermissionGroups()) {
@@ -155,7 +154,7 @@ public final class AppPermissionsFragment extends Fragment{
             }
             items.add(new PermissionLineItem(group, context));
         }
-        return items;
+        return new ListItemProvider.ListProvider(items);
     }
 
     private static PackageInfo getPackageInfo(Activity activity, String packageName) {
@@ -170,69 +169,36 @@ public final class AppPermissionsFragment extends Fragment{
         }
     }
 
-    private class PermissionLineItem extends IconToggleLineItem {
-        private final AppPermissionGroup mPermissionGroup;
-        private final Context mContext;
+    private class PermissionLineItem extends TextListItem {
 
         PermissionLineItem(AppPermissionGroup permissionGroup, Context context) {
-            super(permissionGroup.getLabel(), context);
-            mContext = context;
-            mPermissionGroup = permissionGroup;
-        }
-
-        @Override
-        public boolean onToggleTouched(Switch toggleSwitch, MotionEvent event) {
-            if (event.getAction() != MotionEvent.ACTION_DOWN) {
-                return true;
-            }
-            if (!isChecked()) {
-                mPermissionGroup.grantRuntimePermissions(false);
-                toggleSwitch.performClick();
-            } else {
-                final boolean grantedByDefault =
-                        mPermissionGroup.hasGrantedByDefaultPermission();
-                if (grantedByDefault || !mPermissionGroup.doesSupportRuntimePermissions()) {
-                    new AlertDialog.Builder(mContext)
-                            .setMessage(grantedByDefault
-                                    ? R.string.system_warning : R.string.old_sdk_deny_warning)
-                            .setNegativeButton(R.string.cancel, null /* listener */)
-                            .setPositiveButton(R.string.grant_dialog_button_deny_anyway,
-                                    (dialog, which) -> {
-                                        mPermissionGroup.revokeRuntimePermissions(false);
-                                        toggleSwitch.performClick();
-                                    })
-                            .show();
-                } else {
-                    mPermissionGroup.revokeRuntimePermissions(false);
-                    toggleSwitch.performClick();
-                }
-            }
-            return true;
-        }
-
-        @DrawableRes
-        public int getIcon() {
-            return mPermissionGroup.getIconResId();
-        }
-
-        @Override
-        public boolean isChecked() {
-            return mPermissionGroup.areRuntimePermissionsGranted();
-        }
-
-        @Override
-        public CharSequence getDesc() {
-            return null;
-        }
-
-        @Override
-        public boolean isEnabled() {
-            return true;
-        }
-
-        @Override
-        public boolean isExpandable() {
-            return false;
+            super(context);
+            setTitle(permissionGroup.getLabel().toString());
+            setPrimaryActionIcon(permissionGroup.getIconResId(), /* useLargeIcon= */ false);
+            setSwitch(
+                    permissionGroup.areRuntimePermissionsGranted(),
+                    /* showDivider= */ false,
+                    (button, isChecked) -> {
+                        if (isChecked) {
+                            permissionGroup.grantRuntimePermissions(/* fixedByTheUser= */ false);
+                            return;
+                        }
+                        boolean grantedByDefault = permissionGroup.hasGrantedByDefaultPermission();
+                        if (!grantedByDefault && permissionGroup.doesSupportRuntimePermissions()) {
+                            permissionGroup.revokeRuntimePermissions(/* fixedByTheUser= */ false);
+                            return;
+                        }
+                        new AlertDialog.Builder(context)
+                                .setMessage(grantedByDefault
+                                        ? R.string.system_warning
+                                        : R.string.old_sdk_deny_warning)
+                                .setNegativeButton(R.string.cancel, /* listener= */ null)
+                                .setPositiveButton(R.string.grant_dialog_button_deny_anyway,
+                                        (dialog, which) ->
+                                            permissionGroup.revokeRuntimePermissions(
+                                                /* fixedByTheUser= */ false))
+                                .show();
+                    });
         }
     }
 }
