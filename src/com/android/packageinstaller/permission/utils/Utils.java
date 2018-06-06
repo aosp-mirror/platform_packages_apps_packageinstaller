@@ -17,6 +17,7 @@
 package com.android.packageinstaller.permission.utils;
 
 import android.Manifest;
+import android.annotation.StringRes;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -25,10 +26,12 @@ import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.content.res.Resources.Theme;
 import android.graphics.drawable.Drawable;
+import android.text.Html;
 import android.util.ArraySet;
 import android.util.Log;
 import android.util.TypedValue;
 
+import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
@@ -173,5 +176,29 @@ public final class Utils {
                 || Manifest.permission.CALL_PHONE.equals(permission)
                 || Manifest.permission.READ_CALL_LOG.equals(permission)
                 || Manifest.permission.WRITE_CALL_LOG.equals(permission);
+    }
+
+    /**
+     * Get the message shown to grant a permission group to an app.
+     *
+     * @param appLabel The label of the app
+     * @param group the group to be granted
+     * @param context A context to resolve resources
+     * @param requestRes The resource id of the grant request message
+     *
+     * @return The formatted message to be used as title when granting permissions
+     */
+    public static CharSequence getRequestMessage(CharSequence appLabel, AppPermissionGroup group,
+            Context context, @StringRes int requestRes) {
+        if (requestRes != 0) {
+            try {
+                return Html.fromHtml(context.getPackageManager().getResourcesForApplication(
+                        group.getDeclaringPackage()).getString(requestRes, appLabel), 0);
+            } catch (PackageManager.NameNotFoundException ignored) {
+            }
+        }
+
+        return Html.fromHtml(context.getString(R.string.permission_warning_template, appLabel,
+                group.getDescription()), 0);
     }
 }

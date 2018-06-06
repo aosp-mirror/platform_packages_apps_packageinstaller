@@ -316,15 +316,19 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
                 if (mResultListener != null) {
                     view.performAccessibilityAction(
                             AccessibilityNodeInfo.ACTION_CLEAR_ACCESSIBILITY_FOCUS, null);
-                    mResultListener.onPermissionGrantResult(mGroupName, true, false);
+                    mResultListener.onPermissionGrantResult(mGroupName, GRANTED);
                 }
                 break;
             case R.id.permission_deny_button:
                 if (mResultListener != null) {
                     view.performAccessibilityAction(
                             AccessibilityNodeInfo.ACTION_CLEAR_ACCESSIBILITY_FOCUS, null);
-                    mResultListener.onPermissionGrantResult(mGroupName, false,
-                            mShowDonNotAsk && mDoNotAskCheckbox.isChecked());
+                    if (mDoNotAskCheckbox.isChecked()) {
+                        mResultListener.onPermissionGrantResult(mGroupName,
+                                DENIED_DO_NOT_ASK_AGAIN);
+                    } else {
+                        mResultListener.onPermissionGrantResult(mGroupName, DENIED);
+                    }
                 }
                 break;
             case R.id.permission_more_info_button:
@@ -342,8 +346,7 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
     @Override
     public void onBackPressed() {
         if (mResultListener != null) {
-            final boolean doNotAskAgain = mDoNotAskCheckbox.isChecked();
-            mResultListener.onPermissionGrantResult(mGroupName, false, doNotAskAgain);
+            mResultListener.onPermissionGrantResult(mGroupName, DENIED);
         }
     }
 }

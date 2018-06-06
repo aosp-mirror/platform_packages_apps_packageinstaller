@@ -5,23 +5,21 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.TypedArray;
+import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Icon;
-import android.graphics.PixelFormat;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
-import androidx.wear.ble.view.AcceptDenyDialog;
-import androidx.wear.ble.view.WearableDialogHelper;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
-import android.text.style.ImageSpan;
-import android.text.style.TextAppearanceSpan;
 import android.text.TextUtils;
+import android.text.style.TextAppearanceSpan;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Space;
+
+import androidx.wear.ble.view.AcceptDenyDialog;
+import androidx.wear.ble.view.WearableDialogHelper;
 
 import com.android.packageinstaller.R;
 
@@ -183,29 +181,32 @@ final class GrantPermissionsWatchViewHandler implements GrantPermissionsViewHand
 
     @Override
     public void onBackPressed() {
-        notifyListener(false, false);
+        notifyListener(DENIED);
     }
 
     @Override
     public void onClick(DialogInterface dialog, int which) {
         switch (which) {
             case DialogInterface.BUTTON_POSITIVE:
-                notifyListener(true, false);
+                notifyListener(GRANTED);
                 break;
             case DialogInterface.BUTTON_NEUTRAL:
-                notifyListener(false, false);
+                notifyListener(DENIED);
                 break;
             case DialogInterface.BUTTON_NEGATIVE:
-                notifyListener(false,
-                        /* In AlertDialog, the negative button is also a don't ask again button. */
-                        dialog instanceof AlertDialog);
+                /* In AlertDialog, the negative button is also a don't ask again button. */
+                if (dialog instanceof AlertDialog) {
+                    notifyListener(DENIED_DO_NOT_ASK_AGAIN);
+                } else {
+                    notifyListener(DENIED);
+                }
                 break;
         }
     }
 
-    private void notifyListener(boolean granted, boolean doNotAskAgain) {
+    private void notifyListener(@Result int result) {
         if (mResultListener != null) {
-            mResultListener.onPermissionGrantResult(mGroupName, granted, doNotAskAgain);
+            mResultListener.onPermissionGrantResult(mGroupName, result);
         }
     }
 }
