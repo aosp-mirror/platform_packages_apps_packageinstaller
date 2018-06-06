@@ -133,6 +133,12 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
     @Override
     public void updateUi(String groupName, int groupCount, int groupIndex, Icon icon,
             CharSequence message, boolean showDonNotAsk) {
+        boolean isNewGroup = mGroupIndex != groupIndex;
+        boolean isDoNotAskAgainChecked = mDoNotAskCheckbox.isChecked();
+        if (isNewGroup) {
+            isDoNotAskAgainChecked = false;
+        }
+
         mGroupName = groupName;
         mGroupCount = groupCount;
         mGroupIndex = groupIndex;
@@ -141,16 +147,12 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         mShowDonNotAsk = showDonNotAsk;
         // If this is a second (or later) permission and the views exist, then animate.
         if (mIconView != null) {
-            if (mGroupIndex > 0) {
-                animateToPermission();
+            if (isNewGroup) {
+                animateToPermission(isDoNotAskAgainChecked);
             } else {
-                updateAll(false);
+                updateAll(isDoNotAskAgainChecked);
             }
         }
-    }
-
-    public void onConfigurationChanged() {
-        mRootView.onConfigurationChanged();
     }
 
     private void fadeOutView(View v, Runnable onAnimationFinished, Interpolator interpolator) {
@@ -217,13 +219,13 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         }
     }
 
-    private void animateToPermission() {
+    private void animateToPermission(boolean isDoNotAskAgainChecked) {
         // Animate out the old content
         animateOldContent(numAnimationsActive -> {
             // Wait until all animations are done
             if (numAnimationsActive == 0) {
                 // Add the new content
-                updateAll(false);
+                updateAll(isDoNotAskAgainChecked);
 
                 // Animate in new content
                 animateNewContent();

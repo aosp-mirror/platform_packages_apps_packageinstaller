@@ -132,7 +132,7 @@
                 android:exported="false" />
 
         <activity android:name=".permission.ui.GrantPermissionsActivity"
-                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:configChanges="keyboardHidden|screenSize"
                 android:excludeFromRecents="true"
                 android:theme="@style/GrantPermissions"
                 android:visibleToInstantApps="true">
