@@ -15,14 +15,9 @@
  */
 package com.android.packageinstaller.permission.ui.handheld;
 
-import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
-
 import android.app.ActionBar;
-import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -30,7 +25,6 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
-import android.util.ArrayMap;
 import android.util.ArraySet;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -43,17 +37,18 @@ import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionApps;
 import com.android.packageinstaller.permission.model.PermissionApps.Callback;
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
-import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.settingslib.HelpUtils;
-import com.android.settingslib.RestrictedLockUtils;
 
-import java.util.ArrayList;
-import java.util.List;
-
+/**
+ * Show and manage apps which request a single permission group.
+ *
+ * <p>Shows a list of apps which request at least on permission of this group.
+ */
 public final class PermissionAppsFragment extends PermissionsFrameFragment implements Callback,
-        Preference.OnPreferenceChangeListener {
+        PermissionPreference.PermissionPreferenceOwnerFragment,
+        PermissionPreference.PermissionPreferenceChangeListener {
 
     private static final int MENU_SHOW_SYSTEM = Menu.FIRST;
     private static final int MENU_HIDE_SYSTEM = Menu.FIRST + 1;
@@ -77,7 +72,7 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
 
     private PreferenceScreen mExtraScreen;
 
-    private ArrayMap<String, AppPermissionGroup> mToggledGroups;
+    private ArraySet<AppPermissionGroup> mToggledGroups;
     private ArraySet<String> mLauncherPkgs;
     private boolean mHasConfirmedRevoke;
 
@@ -209,7 +204,7 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
         boolean menuOptionsInvalided = false;
 
         for (PermissionApp app : permissionApps.getApps()) {
-            if (!Utils.shouldShowPermission(app)) {
+            if (!Utils.shouldShowPermission(app.getPermissionGroup())) {
                 continue;
             }
 
@@ -240,46 +235,15 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
             }
 
             if (existingPref != null) {
-                // If existing preference - only update its state.
-                final boolean isPolicyFixed = app.isPolicyFixed();
-                EnforcedAdmin enforcedAdmin = RestrictedLockUtils.getProfileOrDeviceOwner(
-                        getActivity(), app.getUserId());
-                if (!isTelevision && (existingPref instanceof RestrictedSwitchPreference)) {
-                    ((RestrictedSwitchPreference) existingPref).setDisabledByAdmin(
-                            isPolicyFixed ? enforcedAdmin : null);
-                    existingPref.setSummary(isPolicyFixed ?
-                            getString(R.string.disabled_by_admin_summary_text) : null);
-                } else {
-                    existingPref.setEnabled(!isPolicyFixed);
-                    existingPref.setSummary(isPolicyFixed ?
-                            getString(R.string.permission_summary_enforced_by_policy) : null);
-                }
-                existingPref.setPersistent(false);
-                if (existingPref instanceof SwitchPreference) {
-                    ((SwitchPreference) existingPref)
-                            .setChecked(app.areRuntimePermissionsGranted());
-                }
+                ((PermissionPreference) existingPref).updateUi();
                 continue;
             }
 
-            RestrictedSwitchPreference pref = new RestrictedSwitchPreference(context);
-            pref.setOnPreferenceChangeListener(this);
+            PermissionPreference pref = new PermissionPreference(this, app.getPermissionGroup(),
+                    this);
             pref.setKey(app.getKey());
             pref.setIcon(app.getIcon());
             pref.setTitle(app.getLabel());
-            EnforcedAdmin enforcedAdmin = RestrictedLockUtils.getProfileOrDeviceOwner(
-                    getActivity(), app.getUserId());
-            if (app.isPolicyFixed()) {
-                if (!isTelevision && enforcedAdmin != null) {
-                    pref.setDisabledByAdmin(enforcedAdmin);
-                    pref.setSummary(R.string.disabled_by_admin_summary_text);
-                } else {
-                    pref.setEnabled(false);
-                    pref.setSummary(R.string.permission_summary_enforced_by_policy);
-                }
-            }
-            pref.setPersistent(false);
-            pref.setChecked(app.areRuntimePermissionsGranted());
 
             if (isSystemApp && isTelevision) {
                 if (mExtraScreen == null) {
@@ -347,49 +311,11 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
     }
 
     @Override
-    public boolean onPreferenceChange(final Preference preference, Object newValue) {
-        String pkg = preference.getKey();
-        final PermissionApp app = mPermissionApps.getApp(pkg);
-
-        if (app == null) {
-            return false;
+    public void onPreferenceChanged(String key) {
+        if (mToggledGroups == null) {
+            mToggledGroups = new ArraySet<>();
         }
-
-        addToggledGroup(app.getPackageName(), app.getPermissionGroup());
-
-        if (LocationUtils.isLocationGroupAndProvider(mPermissionApps.getGroupName(),
-                app.getPackageName())) {
-            LocationUtils.showLocationDialog(getContext(), app.getLabel());
-            return false;
-        }
-        if (newValue == Boolean.TRUE) {
-            app.grantRuntimePermissions();
-        } else {
-            final boolean grantedByDefault = app.hasGrantedByDefaultPermissions();
-            if (grantedByDefault || (!app.doesSupportRuntimePermissions()
-                    && !mHasConfirmedRevoke)) {
-                new AlertDialog.Builder(getContext())
-                        .setMessage(grantedByDefault ? R.string.system_warning
-                                : R.string.old_sdk_deny_warning)
-                        .setNegativeButton(R.string.cancel, null)
-                        .setPositiveButton(R.string.grant_dialog_button_deny_anyway,
-                                new OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                ((SwitchPreference) preference).setChecked(false);
-                                app.revokeRuntimePermissions();
-                                if (!grantedByDefault) {
-                                    mHasConfirmedRevoke = true;
-                                }
-                            }
-                        })
-                        .show();
-                return false;
-            } else {
-                app.revokeRuntimePermissions();
-            }
-        }
-        return true;
+        mToggledGroups.add(mPermissionApps.getApp(key).getPermissionGroup());
     }
 
     @Override
@@ -398,29 +324,26 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
         logToggledGroups();
     }
 
-    private void addToggledGroup(String packageName, AppPermissionGroup group) {
-        if (mToggledGroups == null) {
-            mToggledGroups = new ArrayMap<>();
-        }
-        // Double toggle is back to initial state.
-        if (mToggledGroups.containsKey(packageName)) {
-            mToggledGroups.remove(packageName);
-        } else {
-            mToggledGroups.put(packageName, group);
+    private void logToggledGroups() {
+        if (mToggledGroups != null) {
+            SafetyNetLogger.logPermissionsToggled(mToggledGroups);
+            mToggledGroups = null;
         }
     }
 
-    private void logToggledGroups() {
-        if (mToggledGroups != null) {
-            final int groupCount = mToggledGroups.size();
-            for (int i = 0; i < groupCount; i++) {
-                String packageName = mToggledGroups.keyAt(i);
-                List<AppPermissionGroup> groups = new ArrayList<>();
-                groups.add(mToggledGroups.valueAt(i));
-                SafetyNetLogger.logPermissionsToggled(packageName, groups);
-            }
-            mToggledGroups = null;
-        }
+    @Override
+    public void onDenyAnyWay(String key) {
+        ((PermissionPreference) getPreferenceScreen().findPreference(key)).onDenyAnyWay();
+    }
+
+    @Override
+    public boolean shouldConfirmDefaultPermissionRevoke() {
+        return !mHasConfirmedRevoke;
+    }
+
+    @Override
+    public void hasConfirmDefaultPermissionRevoke() {
+        mHasConfirmedRevoke = true;
     }
 
     public static class SystemAppsFragment extends PermissionsFrameFragment implements Callback {

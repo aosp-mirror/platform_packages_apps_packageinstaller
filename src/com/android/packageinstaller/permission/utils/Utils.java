@@ -79,11 +79,20 @@ public final class Utils {
         return false;
     }
 
-    public static boolean shouldShowPermission(AppPermissionGroup group, String packageName) {
+    /**
+     * Should UI show this permission.
+     *
+     * <p>If the user cannot change the group, it should not be shown.
+     *
+     * @param group The group that might need to be shown to the user
+     *
+     * @return
+     */
+    public static boolean shouldShowPermission(AppPermissionGroup group) {
         // We currently will not show permissions fixed by the system.
         // which is what the system does for system components.
         if (group.isSystemFixed() && !LocationUtils.isLocationGroupAndProvider(
-                group.getName(), packageName)) {
+                group.getName(), group.getApp().packageName)) {
             return false;
         }
 
@@ -97,17 +106,6 @@ public final class Utils {
                 && !Utils.isModernPermissionGroup(group.getName())) {
             return false;
         }
-        return true;
-    }
-
-    public static boolean shouldShowPermission(PermissionApp app) {
-        // We currently will not show permissions fixed by the system
-        // which is what the system does for system components.
-        if (app.isSystemFixed() && !LocationUtils.isLocationGroupAndProvider(
-                app.getPermissionGroup().getName(), app.getPackageName())) {
-            return false;
-        }
-
         return true;
     }
 
