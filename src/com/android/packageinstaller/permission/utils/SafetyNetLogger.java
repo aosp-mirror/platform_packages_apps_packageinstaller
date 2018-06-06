@@ -71,6 +71,9 @@ public final class SafetyNetLogger {
             }
 
             groupsForThisPackage.add(group);
+            if (group.getBackgroundPermissions() != null) {
+                groupsForThisPackage.add(group.getBackgroundPermissions());
+            }
         }
 
         int numPackages = groupsByPackage.size();
@@ -115,6 +118,9 @@ public final class SafetyNetLogger {
             AppPermissionGroup group = groups.get(groupNum);
 
             buildChangedPermissionForGroup(group, builder);
+            if (group.getBackgroundPermissions() != null) {
+                buildChangedPermissionForGroup(group.getBackgroundPermissions(), builder);
+            }
         }
 
         return builder.toString();

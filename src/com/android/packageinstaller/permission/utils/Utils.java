@@ -92,9 +92,18 @@ public final class Utils {
      * @return
      */
     public static boolean shouldShowPermission(AppPermissionGroup group) {
+        boolean isSystemFixed = group.isSystemFixed();
+        if (group.getBackgroundPermissions() != null) {
+            // If the foreground mode is fixed to "enabled", the background mode might still be
+            // switchable. We only want to suppress the group if nothing can be switched
+            if (group.areRuntimePermissionsGranted()) {
+                isSystemFixed &= group.getBackgroundPermissions().isSystemFixed();
+            }
+        }
+
         // We currently will not show permissions fixed by the system.
         // which is what the system does for system components.
-        if (group.isSystemFixed() && !LocationUtils.isLocationGroupAndProvider(
+        if (isSystemFixed && !LocationUtils.isLocationGroupAndProvider(
                 group.getName(), group.getApp().packageName)) {
             return false;
         }
