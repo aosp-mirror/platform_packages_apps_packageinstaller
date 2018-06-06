@@ -435,7 +435,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
      */
     private static @StringRes int getBackgroundRequest(PackageItemInfo info) {
         if (info instanceof PermissionGroupInfo) {
-            return ((PermissionGroupInfo) info).backgroundRequestDetailResourceId;
+            return ((PermissionGroupInfo) info).backgroundRequestResourceId;
         } else {
             return ResourceId.ID_NULL;
         }
