@@ -77,7 +77,11 @@ final class GrantPermissionsWatchViewHandler implements GrantPermissionsViewHand
 
     @Override
     public void updateUi(String groupName, int groupCount, int groupIndex, Icon icon,
-            CharSequence message, boolean showDoNotAsk) {
+            CharSequence message, CharSequence detailMessage, boolean showForegroundChooser,
+            boolean showDoNotAsk) {
+        // TODO: Handle detailMessage
+        // TODO: Handle showForegroundChooser
+
         if (Log.isLoggable(TAG, Log.DEBUG)) {
             Log.d(TAG, "updateUi() - groupName: " + groupName
                             + ", groupCount: " + groupCount
@@ -188,7 +192,7 @@ final class GrantPermissionsWatchViewHandler implements GrantPermissionsViewHand
     public void onClick(DialogInterface dialog, int which) {
         switch (which) {
             case DialogInterface.BUTTON_POSITIVE:
-                notifyListener(GRANTED);
+                notifyListener(GRANTED_ALWAYS);
                 break;
             case DialogInterface.BUTTON_NEUTRAL:
                 notifyListener(DENIED);

@@ -216,6 +216,27 @@
         &lt;b><xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b> to
         <xliff:g id="action" example="do something">%2$s</xliff:g>?</string>
 
+    <!-- Template for the warning message when an app requests the permission to access a
+    resource even while in the background (i.e. always). [CHAR LIMIT=100] -->
+    <string name="permission_add_background_warning_template">Always allow
+        &lt;b><xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b> to
+        <xliff:g id="action" example="do something">%2$s</xliff:g>?</string>
+
+    <!-- Radio button shown for permissions that can be granted either only while the app is in
+    foreground or always. If this button is selected the app only gets the permission while in
+    foreground [CHAR LIMIT=50] -->
+    <string name="allow_permission_foreground_only">Only while using app</string>
+
+    <!-- Radio button shown for permissions that can be granted either only while the app is in
+    foreground or always. If this button is selected the app always gets the permission (while in
+    foreground _and_ while in background) [CHAR LIMIT=50] -->
+    <string name="allow_permission_always">Always</string>
+
+    <!-- Radio button shown for permissions that can be granted either only while the app is in
+    foreground or always. If this button is selected the app does not get the permission and the
+    permissions will always be denied from now on [CHAR LIMIT=50] -->
+    <string name="deny_permission_deny_and_dont_ask_again">Deny and don\u2019t ask again</string>
+
     <!-- Template for the message how many permissions are disabled. [CHAR LIMIT=30] -->
     <string name="permission_revoked_count"><xliff:g id="count" example="2">%1$d</xliff:g> disabled</string>
 

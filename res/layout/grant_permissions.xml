@@ -50,6 +50,55 @@
                     layout="@layout/permission_description" />
             </FrameLayout>
 
+            <RadioGroup
+                android:id="@+id/foreground_or_always_radiogroup"
+                android:animateLayoutChanges="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="20dip"
+                android:layout_marginEnd="20dip"
+                android:layout_marginBottom="-12dp" >
+
+                <RadioButton
+                    android:id="@+id/foreground_only_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/allow_permission_foreground_only"
+                    style="@android:attr/radioButtonStyle" />
+
+                <RadioButton
+                    android:id="@+id/always_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/allow_permission_always"
+                    style="@android:attr/radioButtonStyle" />
+
+                <RadioButton
+                    android:id="@+id/deny_dont_ask_again_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/deny_permission_deny_and_dont_ask_again"
+                    style="@android:attr/radioButtonStyle" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/detail_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="20dip"
+                android:layout_marginEnd="20dip"
+                android:layout_marginBottom="-12dp"
+                android:textColor="?android:attr/textColorPrimary"
+                style="?android:attr/textAppearanceSmall"/>
+
+            <Space
+                android:id="@+id/detail_message_do_not_ask_checkbox_space"
+                android:layout_width="match_parent"
+                android:layout_height="12dp" />
+
             <CheckBox
                 android:id="@+id/do_not_ask_checkbox"
                 android:layout_width="fill_parent"

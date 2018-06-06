@@ -80,7 +80,11 @@ public final class GrantPermissionsViewHandlerImpl implements GrantPermissionsVi
 
     @Override
     public void updateUi(String groupName, int groupCount, int groupIndex, Icon icon,
-            CharSequence message, boolean showDoNotAsk) {
+            CharSequence message, CharSequence detailMessage, boolean showForegroundChooser,
+            boolean showDoNotAsk) {
+        // TODO: Handle detailMessage
+        // TODO: Handle showForegroundChooser
+
         mGroupName = groupName;
 
         mMessageView.setText(message);
@@ -113,7 +117,7 @@ public final class GrantPermissionsViewHandlerImpl implements GrantPermissionsVi
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.permission_allow_button:
-                mResultListener.onPermissionGrantResult(mGroupName, GRANTED);
+                mResultListener.onPermissionGrantResult(mGroupName, GRANTED_ALWAYS);
                 break;
             case R.id.permission_deny_button:
                 mResultListener.onPermissionGrantResult(mGroupName, DENIED);
