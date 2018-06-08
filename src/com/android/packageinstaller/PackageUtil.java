@@ -182,4 +182,29 @@ public class PackageUtil {
         }
         return new PackageUtil.AppSnippet(label, icon);
     }
+
+    /**
+     * Get the maximum target sdk for a UID.
+     *
+     * @param context The context to use
+     * @param uid The UID requesting the install/uninstall
+     *
+     * @return The maximum target SDK or -1 if the uid does not match any packages.
+     */
+    static int getMaxTargetSdkVersionForUid(@NonNull Context context, int uid) {
+        PackageManager pm = context.getPackageManager();
+        final String[] packages = pm.getPackagesForUid(uid);
+        int targetSdkVersion = -1;
+        if (packages != null) {
+            for (String packageName : packages) {
+                try {
+                    ApplicationInfo info = pm.getApplicationInfo(packageName, 0);
+                    targetSdkVersion = Math.max(targetSdkVersion, info.targetSdkVersion);
+                } catch (PackageManager.NameNotFoundException e) {
+                    // Ignore and try the next package
+                }
+            }
+        }
+        return targetSdkVersion;
+    }
 }
