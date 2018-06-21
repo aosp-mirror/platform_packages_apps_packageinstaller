@@ -18,6 +18,13 @@ package com.android.packageinstaller.permission.model;
 
 import android.graphics.drawable.Drawable;
 
+/**
+ * A permission group with runtime permission as defined in an app's manifest as
+ * {@code android:permission-group}.
+ *
+ * <p>For individual permissions that are not part of any group a {@link PermissionGroup} is created
+ * dynamically with the name and icon of the individual permission.
+ */
 public final class PermissionGroup implements Comparable<PermissionGroup> {
     private final String mName;
     private final String mDeclaringPackage;
