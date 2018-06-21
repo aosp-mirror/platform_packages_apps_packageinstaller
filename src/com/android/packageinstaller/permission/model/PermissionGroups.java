@@ -16,6 +16,9 @@
 
 package com.android.packageinstaller.permission.model;
 
+import static android.content.pm.PackageItemInfo.SAFE_LABEL_FLAG_FIRST_LINE;
+import static android.content.pm.PackageItemInfo.SAFE_LABEL_FLAG_TRIM;
+
 import android.app.LoaderManager;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.AsyncTaskLoader;
@@ -38,6 +41,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * All {@link PermissionGroup permission groups} defined by any app.
+ */
 public final class PermissionGroups implements LoaderCallbacks<List<PermissionGroup>> {
     private final ArrayList<PermissionGroup> mGroups = new ArrayList<>();
     private final Context mContext;
@@ -228,7 +234,8 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
         }
 
         private CharSequence loadItemInfoLabel(PackageItemInfo itemInfo) {
-            CharSequence label = itemInfo.loadLabel(getContext().getPackageManager());
+            CharSequence label = itemInfo.loadSafeLabel(getContext().getPackageManager(), 0,
+                    SAFE_LABEL_FLAG_FIRST_LINE | SAFE_LABEL_FLAG_TRIM);
             if (label == null) {
                 label = itemInfo.name;
             }
