@@ -165,7 +165,7 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
         final CharSequence label = permissionApps.getLabel();
         final ActionBar ab = fragment.getActivity().getActionBar();
         if (ab != null) {
-            ab.setTitle(fragment.getString(R.string.permission_title, label));
+            ab.setTitle(label);
         }
     }
 
