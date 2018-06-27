@@ -19,8 +19,16 @@ package com.android.packageinstaller.permission.model;
 import android.content.pm.PackageManager;
 import android.content.pm.PermissionInfo;
 
+import java.util.ArrayList;
+
+/**
+ * A permission and it's properties.
+ *
+ * @see AppPermissionGroup
+ */
 public final class Permission {
     private final String mName;
+    private final String mBackgroundPermissionName;
     private final String mAppOp;
 
     private boolean mGranted;
@@ -28,16 +36,40 @@ public final class Permission {
     private int mFlags;
     private boolean mIsEphemeral;
     private boolean mIsRuntimeOnly;
+    private Permission mBackgroundPermission;
+    private ArrayList<Permission> mForegroundPermissions;
 
-    public Permission(String name, boolean granted,
+    public Permission(String name, String backgroundPermissionName, boolean granted,
             String appOp, boolean appOpAllowed, int flags, int protectionLevel) {
         mName = name;
+        mBackgroundPermissionName = backgroundPermissionName;
         mGranted = granted;
         mAppOp = appOp;
         mAppOpAllowed = appOpAllowed;
         mFlags = flags;
         mIsEphemeral = (protectionLevel & PermissionInfo.PROTECTION_FLAG_INSTANT) != 0;
         mIsRuntimeOnly = (protectionLevel & PermissionInfo.PROTECTION_FLAG_RUNTIME_ONLY) != 0;
+    }
+
+    /**
+     * Mark this permission as background permission for {@code foregroundPermissions}.
+     *
+     * @param foregroundPermission The foreground permission
+     */
+    public void addForegroundPermissions(Permission foregroundPermission) {
+        if (mForegroundPermissions == null) {
+            mForegroundPermissions = new ArrayList<>(1);
+        }
+        mForegroundPermissions.add(foregroundPermission);
+    }
+
+    /**
+     * Mark this permission as foreground permission for {@code backgroundPermission}.
+     *
+     * @param backgroundPermission The background permission
+     */
+    public void setBackgroundPermission(Permission backgroundPermission) {
+        mBackgroundPermission = backgroundPermission;
     }
 
     public String getName() {
@@ -52,8 +84,16 @@ public final class Permission {
         return mFlags;
     }
 
-    public boolean hasAppOp() {
-        return mAppOp != null;
+    /**
+     * Does this permission affect app ops.
+     *
+     * <p>I.e. does this permission have a matching app op or is this a background permission. All
+     * background permissions affect the app op of it's assigned foreground permission.
+     *
+     * @return {@code true} if this permission affects app ops
+     */
+    public boolean affectsAppOp() {
+        return mAppOp != null || isBackgroundPermission();
     }
 
     public boolean isGranted() {
@@ -102,6 +142,48 @@ public final class Permission {
 
     public boolean isGrantedByDefault() {
         return (mFlags & PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT) != 0;
+    }
+
+    /**
+     * If this permission is split into a foreground and background permission, this is the name
+     * of the background permission.
+     *
+     * @return The name of the background permission or {@code null} if the permission is not split
+     */
+    public String getBackgroundPermissionName() {
+        return mBackgroundPermissionName;
+    }
+
+    /**
+     * @return If this permission is split into a foreground and background permission,
+     * returns the background permission
+     */
+    public Permission getBackgroundPermission() {
+        return mBackgroundPermission;
+    }
+
+    /**
+     * @return If this permission is split into a foreground and background permission,
+     * returns the foreground permission
+     */
+    public ArrayList<Permission> getForegroundPermissions() {
+        return mForegroundPermissions;
+    }
+
+    /**
+     * @return {@code true} iff this is the foreground permission of a background-foreground-split
+     * permission
+     */
+    public boolean hasBackgroundPermission() {
+        return mBackgroundPermissionName != null;
+    }
+
+    /**
+     * @return {@code true} iff this is the background permission of a background-foreground-split
+     * permission
+     */
+    public boolean isBackgroundPermission() {
+        return mForegroundPermissions != null;
     }
 
     public void setUserSet(boolean userSet) {
