@@ -97,7 +97,7 @@ public final class SafetyNetLogger {
                 builder.append(permission.isGranted()).append('|');
             } else {
                 builder.append(permission.isGranted()
-                        && (!permission.hasAppOp() || permission.isAppOpAllowed())).append('|');
+                        && (!permission.affectsAppOp() || permission.isAppOpAllowed())).append('|');
             }
 
             builder.append(permission.getFlags());
