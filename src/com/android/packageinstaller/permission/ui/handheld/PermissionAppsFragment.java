@@ -332,8 +332,15 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
     }
 
     @Override
-    public void onDenyAnyWay(String key) {
-        ((PermissionPreference) getPreferenceScreen().findPreference(key)).onDenyAnyWay();
+    public void onBackgroundAccessChosen(String key, int chosenItem) {
+        ((PermissionPreference) getPreferenceScreen().findPreference(key))
+                .onBackgroundAccessChosen(chosenItem);
+    }
+
+    @Override
+    public void onDenyAnyWay(String key, @PermissionPreference.ChangeTarget int changeTarget) {
+        ((PermissionPreference) getPreferenceScreen().findPreference(key)).onDenyAnyWay(
+                changeTarget);
     }
 
     @Override

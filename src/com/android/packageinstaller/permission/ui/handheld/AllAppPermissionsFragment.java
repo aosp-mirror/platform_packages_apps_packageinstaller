@@ -51,6 +51,11 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * Show and manage individual permissions for an app.
+ *
+ * <p>Shows the list of individual runtime and non-runtime permissions the app has requested.
+ */
 public final class AllAppPermissionsFragment extends SettingsWithHeader {
 
     private static final String LOG_TAG = "AllAppPermissionsFragment";
@@ -242,7 +247,7 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
         final boolean mutable = Utils.isPermissionIndividuallyControlled(getContext(), perm.name);
         if (mutable) {
             pref = new MyMultiTargetSwitchPreference(getContext(), perm.name,
-                    getPermissionGroup(packageInfo, perm.name));
+                    getPermissionForegroundGroup(packageInfo, perm.name));
         } else {
             pref = new Preference(getContext());
         }
@@ -271,7 +276,19 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
         return pref;
     }
 
-    private AppPermissionGroup getPermissionGroup(PackageInfo packageInfo,
+    /**
+     * Return the (foreground-) {@link AppPermissionGroup group} a permission belongs to.
+     *
+     * <p>For foreground or non background-foreground permissions this returns the group
+     * {@link AppPermissionGroup} the permission is in. For background permisisons this returns
+     * the group the matching foreground
+     *
+     * @param packageInfo Package information about the app
+     * @param permission The permission that belongs to a group
+     *
+     * @return the group the permissions belongs to
+     */
+    private AppPermissionGroup getPermissionForegroundGroup(PackageInfo packageInfo,
             String permission) {
         AppPermissionGroup appPermissionGroup = null;
         if (mGroups != null) {
@@ -280,6 +297,12 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
                 AppPermissionGroup currentPermissionGroup = mGroups.get(i);
                 if (currentPermissionGroup.hasPermission(permission)) {
                     appPermissionGroup = currentPermissionGroup;
+                    break;
+                }
+                if (currentPermissionGroup.getBackgroundPermissions() != null
+                        && currentPermissionGroup.getBackgroundPermissions().hasPermission(
+                        permission)) {
+                    appPermissionGroup = currentPermissionGroup.getBackgroundPermissions();
                     break;
                 }
             }
