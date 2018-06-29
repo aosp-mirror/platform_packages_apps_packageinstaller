@@ -17,7 +17,11 @@
 package com.android.packageinstaller.permission.ui;
 
 import static android.content.pm.PackageManager.PERMISSION_DENIED;
-import static android.content.pm.PackageManager.PERMISSION_GRANTED;
+
+import static com.android.packageinstaller.permission.ui.GrantPermissionsViewHandler.DENIED;
+import static com.android.packageinstaller.permission.ui.GrantPermissionsViewHandler
+        .DENIED_DO_NOT_ASK_AGAIN;
+import static com.android.packageinstaller.permission.ui.GrantPermissionsViewHandler.GRANTED;
 
 import android.app.admin.DevicePolicyManager;
 import android.content.Intent;
@@ -25,15 +29,13 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PackageParser;
-import android.content.pm.PermissionInfo;
-import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.drawable.Icon;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.Spanned;
-import android.util.ArraySet;
+import android.util.ArrayMap;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -49,14 +51,12 @@ import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.ui.auto.GrantPermissionsAutoViewHandler;
-import com.android.packageinstaller.permission.ui.handheld.GrantPermissionsViewHandlerImpl;
 import com.android.packageinstaller.permission.utils.ArrayUtils;
 import com.android.packageinstaller.permission.utils.EventLogger;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedHashMap;
+import java.util.Collections;
 import java.util.List;
 
 public class GrantPermissionsActivity extends OverlayTouchActivity
@@ -65,9 +65,8 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
     private static final String LOG_TAG = "GrantPermissionsActivity";
 
     private String[] mRequestedPermissions;
-    private int[] mGrantResults;
 
-    private LinkedHashMap<String, GroupState> mRequestGrantPermissionGroups = new LinkedHashMap<>();
+    private ArrayMap<String, GroupState> mRequestGrantPermissionGroups = new ArrayMap<>();
 
     private GrantPermissionsViewHandler mViewHandler;
     private AppPermissions mAppPermissions;
@@ -82,6 +81,73 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
     private int getPermissionPolicy() {
         DevicePolicyManager devicePolicyManager = getSystemService(DevicePolicyManager.class);
         return devicePolicyManager.getPermissionPolicy(null);
+    }
+
+    /**
+     * Try to add a single permission that is requested to be granted.
+     *
+     * <p>This does <u>not</u> expand the permissions into the {@link #computeAffectedPermissions
+     * affected permissions}.
+     *
+     * @param group The group the permission belongs to (might be a background permission group)
+     * @param permission The permission to add
+     * @param isFirstInstance Is this the first time the groupStates get created
+     */
+    private void addRequestedPermissions(AppPermissionGroup group, String permission,
+            boolean isFirstInstance) {
+        if (!group.isGrantingAllowed()) {
+            // Skip showing groups that we know cannot be granted.
+            return;
+        }
+
+        // We allow the user to choose only non-fixed permissions. A permission
+        // is fixed either by device policy or the user denying with prejudice.
+        if (!group.isUserFixed() && !group.isPolicyFixed()) {
+            String groupKey = group.getName();
+
+            GroupState state = mRequestGrantPermissionGroups.get(groupKey);
+            if (state == null) {
+                state = new GroupState(group);
+                mRequestGrantPermissionGroups.put(groupKey, state);
+            }
+            state.affectedPermissions = ArrayUtils.appendString(
+                    state.affectedPermissions, permission);
+
+            boolean skipGroup = false;
+            switch (getPermissionPolicy()) {
+                case DevicePolicyManager.PERMISSION_POLICY_AUTO_GRANT: {
+                    if (!group.areRuntimePermissionsGranted()) {
+                        group.grantRuntimePermissions(false, new String[]{permission});
+                    }
+                    state.mState = GroupState.STATE_ALLOWED;
+                    group.setPolicyFixed();
+                    skipGroup = true;
+                } break;
+
+                case DevicePolicyManager.PERMISSION_POLICY_AUTO_DENY: {
+                    if (group.areRuntimePermissionsGranted()) {
+                        group.revokeRuntimePermissions(false, new String[]{permission});
+                    }
+                    state.mState = GroupState.STATE_DENIED;
+                    group.setPolicyFixed();
+                    skipGroup = true;
+                } break;
+
+                default: {
+                    if (group.areRuntimePermissionsGranted()) {
+                        group.grantRuntimePermissions(false, new String[]{permission});
+                        state.mState = GroupState.STATE_ALLOWED;
+                        skipGroup = true;
+                    }
+                } break;
+            }
+
+            if (skipGroup && isFirstInstance) {
+                // Only allow to skip groups when this is the first time the dialog was created.
+                // Otherwise the number of groups changes between instances of the dialog.
+                state.mState = GroupState.STATE_SKIPPED;
+            }
+        }
     }
 
     @Override
@@ -131,8 +197,6 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
         }
 
         final int requestedPermCount = mRequestedPermissions.length;
-        mGrantResults = new int[requestedPermCount];
-        Arrays.fill(mGrantResults, PackageManager.PERMISSION_DENIED);
 
         if (requestedPermCount == 0) {
             setResultAndFinish();
@@ -158,14 +222,11 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
         if (callingPackageInfo.applicationInfo.targetSdkVersion < Build.VERSION_CODES.M) {
             // Returning empty arrays means a cancellation.
             mRequestedPermissions = new String[0];
-            mGrantResults = new int[0];
             setResultAndFinish();
             return;
         }
 
-        updateAlreadyGrantedPermissions(callingPackageInfo, getPermissionPolicy());
-
-        mAppPermissions = new AppPermissions(this, callingPackageInfo, null, false,
+        mAppPermissions = new AppPermissions(this, callingPackageInfo, false,
                 new Runnable() {
                     @Override
                     public void run() {
@@ -174,65 +235,31 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
                 });
 
         for (String requestedPermission : mRequestedPermissions) {
-            AppPermissionGroup group = null;
-            for (AppPermissionGroup nextGroup : mAppPermissions.getPermissionGroups()) {
-                if (nextGroup.hasPermission(requestedPermission)) {
-                    group = nextGroup;
-                    break;
-                }
-            }
-            if (group == null) {
-                continue;
-            }
-            if (!group.isGrantingAllowed()) {
-                // Skip showing groups that we know cannot be granted.
-                continue;
-            }
-            // We allow the user to choose only non-fixed permissions. A permission
-            // is fixed either by device policy or the user denying with prejudice.
-            if (!group.isUserFixed() && !group.isPolicyFixed()) {
-                switch (getPermissionPolicy()) {
-                    case DevicePolicyManager.PERMISSION_POLICY_AUTO_GRANT: {
-                        if (!group.areRuntimePermissionsGranted()) {
-                            group.grantRuntimePermissions(false, computeAffectedPermissions(
-                                    callingPackageInfo, requestedPermission));
-                        }
-                        group.setPolicyFixed();
-                    } break;
+            ArrayList<String> affectedPermissions =
+                    computeAffectedPermissions(requestedPermission);
 
-                    case DevicePolicyManager.PERMISSION_POLICY_AUTO_DENY: {
-                        if (group.areRuntimePermissionsGranted()) {
-                            group.revokeRuntimePermissions(false, computeAffectedPermissions(
-                                    callingPackageInfo, requestedPermission));
-                        }
-                        group.setPolicyFixed();
-                    } break;
-
-                    default: {
-                        if (!group.areRuntimePermissionsGranted()) {
-                            GroupState state = mRequestGrantPermissionGroups.get(group.getName());
-                            if (state == null) {
-                                state = new GroupState(group);
-                                mRequestGrantPermissionGroups.put(group.getName(), state);
-                            }
-                            String[] affectedPermissions = computeAffectedPermissions(
-                                    callingPackageInfo, requestedPermission);
-                            if (affectedPermissions != null) {
-                                for (String affectedPermission : affectedPermissions) {
-                                    state.affectedPermissions = ArrayUtils.appendString(
-                                            state.affectedPermissions, affectedPermission);
-                                }
-                            }
-                        } else {
-                            group.grantRuntimePermissions(false, computeAffectedPermissions(
-                                    callingPackageInfo, requestedPermission));
-                            updateGrantResults(group);
-                        }
-                    } break;
+            int numAffectedPermissions = affectedPermissions.size();
+            for (int i = 0; i < numAffectedPermissions; i++) {
+                AppPermissionGroup group =
+                        mAppPermissions.getGroupForPermission(affectedPermissions.get(i));
+                if (group == null) {
+                    continue;
                 }
-            } else {
-                // if the permission is fixed, ensure that we return the right request result
-                updateGrantResults(group);
+
+                addRequestedPermissions(group, affectedPermissions.get(i), icicle == null);
+            }
+        }
+
+        int numGroupStates = mRequestGrantPermissionGroups.size();
+        for (int groupStateNum = 0; groupStateNum < numGroupStates; groupStateNum++) {
+            GroupState groupState = mRequestGrantPermissionGroups.valueAt(groupStateNum);
+            AppPermissionGroup group = groupState.mGroup;
+
+            // Restore permission group state after lifecycle events
+            if (icicle != null) {
+                groupState.mState = icicle.getInt(
+                        getInstanceStateKey(mRequestGrantPermissionGroups.keyAt(groupStateNum)),
+                        groupState.mState);
             }
         }
 
@@ -242,6 +269,13 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
         WindowManager.LayoutParams layoutParams = window.getAttributes();
         mViewHandler.updateWindowAttributes(layoutParams);
         window.setAttributes(layoutParams);
+
+        // Restore UI state after lifecycle events. This has to be before
+        // showNextPermissionGroupGrantRequest is called. showNextPermissionGroupGrantRequest might
+        // update the UI and the UI behaves differently for updates and initial creations.
+        if (icicle != null) {
+            mViewHandler.loadInstanceState(icicle);
+        }
 
         if (!showNextPermissionGroupGrantRequest()) {
             setResultAndFinish();
@@ -257,7 +291,6 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
         }
     }
 
-
     /**
      * Update the {@link #mRequestedPermissions} if the system reports them as granted.
      *
@@ -265,20 +298,12 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
      * request if the current group becomes granted.
      */
     private void updateIfPermissionsWereGranted() {
-        updateAlreadyGrantedPermissions(getCallingPackageInfo(), getPermissionPolicy());
-
-        ArraySet<String> grantedPermissionNames = new ArraySet<>(mRequestedPermissions.length);
-        for (int i = 0; i < mRequestedPermissions.length; i++) {
-            if (mGrantResults[i] == PERMISSION_GRANTED) {
-                grantedPermissionNames.add(mRequestedPermissions[i]);
-            }
-        }
+        PackageManager pm = getPackageManager();
 
         boolean mightShowNextGroup = true;
-        int numGroups = mAppPermissions.getPermissionGroups().size();
-        for (int groupNum = 0; groupNum < numGroups; groupNum++) {
-            AppPermissionGroup group = mAppPermissions.getPermissionGroups().get(groupNum);
-            GroupState groupState = mRequestGrantPermissionGroups.get(group.getName());
+        int numGroupStates = mRequestGrantPermissionGroups.size();
+        for (int i = 0; i < numGroupStates; i++) {
+            GroupState groupState = mRequestGrantPermissionGroups.valueAt(i);
 
             if (groupState == null || groupState.mState != GroupState.STATE_UNKNOWN) {
                 // Group has already been approved / denied via the UI by the user
@@ -294,8 +319,8 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
             } else {
                 for (int permNum = 0; permNum < groupState.affectedPermissions.length;
                         permNum++) {
-                    if (!grantedPermissionNames.contains(
-                            groupState.affectedPermissions[permNum])) {
+                    if (pm.checkPermission(groupState.affectedPermissions[permNum], mCallingPackage)
+                            == PERMISSION_DENIED) {
                         allAffectedPermissionsOfThisGroupAreGranted = false;
                         break;
                     }
@@ -350,23 +375,6 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        // We need to relayout the window as dialog width may be
-        // different in landscape vs portrait which affect the min
-        // window height needed to show all content. We have to
-        // re-add the window to force it to be resized if needed.
-        View decor = getWindow().getDecorView();
-        if (decor.getParent() != null) {
-            getWindowManager().removeViewImmediate(decor);
-            getWindowManager().addView(decor, decor.getLayoutParams());
-            if (mViewHandler instanceof GrantPermissionsViewHandlerImpl) {
-                ((GrantPermissionsViewHandlerImpl) mViewHandler).onConfigurationChanged();
-            }
-        }
-    }
-
-    @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         View rootView = getWindow().getDecorView();
         if (rootView.getTop() != 0) {
@@ -376,20 +384,63 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
         return super.dispatchTouchEvent(ev);
     }
 
+    /**
+     * Compose a key that stores the GroupState.mState in the instance state.
+     *
+     * @param permissionGroupName The permission group name
+     *
+     * @return A unique key to be used in the instance state
+     */
+    private static String getInstanceStateKey(String permissionGroupName) {
+        return GrantPermissionsActivity.class.getName() + "_" + permissionGroupName;
+    }
+
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+
         mViewHandler.saveInstanceState(outState);
+
+        int numGroups = mRequestGrantPermissionGroups.size();
+        for (int i = 0; i < numGroups; i++) {
+            int state = mRequestGrantPermissionGroups.valueAt(i).mState;
+
+            if (state != GroupState.STATE_UNKNOWN) {
+                outState.putInt(getInstanceStateKey(mRequestGrantPermissionGroups.keyAt(i)), state);
+            }
+        }
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
+
+        // Restore permission group state after lifecycle events
+        for (GroupState groupState : mRequestGrantPermissionGroups.values()) {
+            if (savedInstanceState != null) {
+                groupState.mState = savedInstanceState.getInt(
+                        getInstanceStateKey(groupState.mGroup.getName()), groupState.mState);
+            }
+        }
+
         mViewHandler.loadInstanceState(savedInstanceState);
+        showNextPermissionGroupGrantRequest();
+    }
+
+    /**
+     * @return the group state for the permission group with the {@code name}
+     */
+    private GroupState getGroupState(String name) {
+        return mRequestGrantPermissionGroups.get(name);
     }
 
     private boolean showNextPermissionGroupGrantRequest() {
-        final int groupCount = mRequestGrantPermissionGroups.size();
+        int groupCount = 0;
+        for (GroupState groupState : mRequestGrantPermissionGroups.values()) {
+            if (groupState.mState != GroupState.STATE_SKIPPED) {
+                groupCount++;
+            }
+        }
 
         int currentIndex = 0;
         for (GroupState groupState : mRequestGrantPermissionGroups.values()) {
@@ -439,15 +490,47 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
                 return true;
             }
 
-            currentIndex++;
+            if (groupState.mState != GroupState.STATE_SKIPPED) {
+                currentIndex++;
+            }
         }
 
         return false;
     }
 
     @Override
-    public void onPermissionGrantResult(String name, boolean granted, boolean doNotAskAgain) {
-        GroupState groupState = mRequestGrantPermissionGroups.get(name);
+    public void onPermissionGrantResult(String name,
+            @GrantPermissionsViewHandler.Result int result) {
+        GroupState groupState = getGroupState(name);
+
+        switch (result) {
+            case GRANTED :
+                onPermissionGrantResultSingleState(groupState, true, false);
+                break;
+            case DENIED :
+                onPermissionGrantResultSingleState(groupState, false, false);
+                break;
+            case DENIED_DO_NOT_ASK_AGAIN :
+                onPermissionGrantResultSingleState(groupState, false, true);
+                break;
+        }
+
+        if (!showNextPermissionGroupGrantRequest()) {
+            setResultAndFinish();
+        }
+    }
+
+    /**
+     * Grants or revoked the affected permissions for a single {@link groupState}.
+     *
+     * @param groupState The group state with the permissions to grant/revoke
+     * @param granted {@code true} if the permissions should be granted, {@code false} if they
+     *        should be revoked
+     * @param doNotAskAgain if the permissions should be revoked should be app be allowed to ask
+     *        again for the same permissions?
+     */
+    private void onPermissionGrantResultSingleState(GroupState groupState, boolean granted,
+            boolean doNotAskAgain) {
         if (groupState != null && groupState.mGroup != null) {
             if (granted) {
                 groupState.mGroup.grantRuntimePermissions(doNotAskAgain,
@@ -468,21 +551,6 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
                                 mAppPermissions.getPackageInfo().packageName);
                     }
                 }
-            }
-            updateGrantResults(groupState.mGroup);
-        }
-        if (!showNextPermissionGroupGrantRequest()) {
-            setResultAndFinish();
-        }
-    }
-
-    private void updateGrantResults(AppPermissionGroup group) {
-        for (Permission permission : group.getPermissions()) {
-            final int index = ArrayUtils.indexOf(
-                    mRequestedPermissions, permission.getName());
-            if (index >= 0) {
-                mGrantResults[index] = permission.isGranted() ? PackageManager.PERMISSION_GRANTED
-                        : PackageManager.PERMISSION_DENIED;
             }
         }
     }
@@ -505,54 +573,6 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
         super.finish();
     }
 
-    private int computePermissionGrantState(PackageInfo callingPackageInfo,
-            String permission, int permissionPolicy) {
-        boolean permissionRequested = false;
-
-        for (int i = 0; i < callingPackageInfo.requestedPermissions.length; i++) {
-            if (permission.equals(callingPackageInfo.requestedPermissions[i])) {
-                permissionRequested = true;
-                if ((callingPackageInfo.requestedPermissionsFlags[i]
-                        & PackageInfo.REQUESTED_PERMISSION_GRANTED) != 0) {
-                    return PERMISSION_GRANTED;
-                }
-                break;
-            }
-        }
-
-        if (!permissionRequested) {
-            return PERMISSION_DENIED;
-        }
-
-        try {
-            PermissionInfo pInfo = getPackageManager().getPermissionInfo(permission, 0);
-            if ((pInfo.protectionLevel & PermissionInfo.PROTECTION_MASK_BASE)
-                    != PermissionInfo.PROTECTION_DANGEROUS) {
-                return PERMISSION_DENIED;
-            }
-            if ((pInfo.protectionLevel & PermissionInfo.PROTECTION_FLAG_INSTANT) == 0
-                    && callingPackageInfo.applicationInfo.isInstantApp()) {
-                return PERMISSION_DENIED;
-            }
-            if ((pInfo.protectionLevel & PermissionInfo.PROTECTION_FLAG_RUNTIME_ONLY) != 0
-                    && callingPackageInfo.applicationInfo.targetSdkVersion
-                    < Build.VERSION_CODES.M) {
-                return PERMISSION_DENIED;
-            }
-        } catch (NameNotFoundException e) {
-            return PERMISSION_DENIED;
-        }
-
-        switch (permissionPolicy) {
-            case DevicePolicyManager.PERMISSION_POLICY_AUTO_GRANT: {
-                return PERMISSION_GRANTED;
-            }
-            default: {
-                return PERMISSION_DENIED;
-            }
-        }
-    }
-
     private PackageInfo getCallingPackageInfo() {
         try {
             return getPackageManager().getPackageInfo(mCallingPackage,
@@ -563,28 +583,21 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
         }
     }
 
-    private void updateAlreadyGrantedPermissions(PackageInfo callingPackageInfo,
-            int permissionPolicy) {
-        final int requestedPermCount = mRequestedPermissions.length;
-        for (int i = 0; i < requestedPermCount; i++) {
-            String permission = mRequestedPermissions[i];
-
-            if (permission != null) {
-                if (computePermissionGrantState(callingPackageInfo, permission, permissionPolicy)
-                        == PERMISSION_GRANTED) {
-                    mGrantResults[i] = PERMISSION_GRANTED;
-                }
-            }
-        }
-    }
-
     private void setResultIfNeeded(int resultCode) {
         if (!mResultSet) {
             mResultSet = true;
             logRequestedPermissionGroups();
             Intent result = new Intent(PackageManager.ACTION_REQUEST_PERMISSIONS);
             result.putExtra(PackageManager.EXTRA_REQUEST_PERMISSIONS_NAMES, mRequestedPermissions);
-            result.putExtra(PackageManager.EXTRA_REQUEST_PERMISSIONS_RESULTS, mGrantResults);
+
+            PackageManager pm = getPackageManager();
+            int numRequestedPermissions = mRequestedPermissions.length;
+            int[] grantResults = new int[numRequestedPermissions];
+            for (int i = 0; i < numRequestedPermissions; i++) {
+                grantResults[i] = pm.checkPermission(mRequestedPermissions[i], mCallingPackage);
+            }
+
+            result.putExtra(PackageManager.EXTRA_REQUEST_PERMISSIONS_RESULTS, grantResults);
             setResult(resultCode, result);
         }
     }
@@ -608,40 +621,69 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
         SafetyNetLogger.logPermissionsRequested(mAppPermissions.getPackageInfo(), groups);
     }
 
-    private static String[] computeAffectedPermissions(PackageInfo callingPkg,
-            String permission) {
-        // For <= N_MR1 apps all permissions are affected.
-        if (callingPkg.applicationInfo.targetSdkVersion <= Build.VERSION_CODES.N_MR1) {
-            return null;
-        }
+    /**
+     * Get the actually requested permissions when a permission is requested.
+     *
+     * <p>>In some cases requesting to grant a single permission requires the system to grant
+     * additional permissions. E.g. before N-MR1 a single permission of a group caused the whole
+     * group to be granted. Another case are permissions that are split into two. For apps that
+     * target an SDK before the split, this method automatically adds the split off permission.
+     *
+     * @param permission The requested permission
+     *
+     * @return The actually requested permissions
+     */
+    private ArrayList<String> computeAffectedPermissions(String permission) {
+        int requestingAppTargetSDK =
+                mAppPermissions.getPackageInfo().applicationInfo.targetSdkVersion;
 
-        // For N_MR1+ apps only the requested permission is affected with addition
-        // to splits of this permission applicable to apps targeting N_MR1.
-        String[] permissions = new String[] {permission};
+        // If a permission is split, all permissions the original permission is split into are
+        // affected
+        ArrayList<String> splitPerms = new ArrayList<>();
+        splitPerms.add(permission);
         for (PackageParser.SplitPermissionInfo splitPerm : PackageParser.SPLIT_PERMISSIONS) {
-            if (splitPerm.targetSdk <= Build.VERSION_CODES.N_MR1
-                    || callingPkg.applicationInfo.targetSdkVersion >= splitPerm.targetSdk
-                    || !permission.equals(splitPerm.rootPerm)) {
-                continue;
-            }
-            for (int i = 0; i < splitPerm.newPerms.length; i++) {
-                final String newPerm = splitPerm.newPerms[i];
-                permissions = ArrayUtils.appendString(permissions, newPerm);
+            if (requestingAppTargetSDK < splitPerm.targetSdk
+                    && permission.equals(splitPerm.rootPerm)) {
+                Collections.addAll(splitPerms, splitPerm.newPerms);
             }
         }
 
-        return permissions;
+        // For <= N_MR1 apps all permissions of the groups of the requested permissions are affected
+        if (requestingAppTargetSDK <= Build.VERSION_CODES.N_MR1) {
+            ArrayList<String> extendedPermissions = new ArrayList<>();
+
+            int numSplitPerms = splitPerms.size();
+            for (int splitPermNum = 0; splitPermNum < numSplitPerms; splitPermNum++) {
+                AppPermissionGroup group = mAppPermissions.getGroupForPermission(
+                        splitPerms.get(splitPermNum));
+
+                if (group == null) {
+                    continue;
+                }
+
+                ArrayList<Permission> permissionsInGroup = group.getPermissions();
+                int numPermissionsInGroup = permissionsInGroup.size();
+                for (int permNum = 0; permNum < numPermissionsInGroup; permNum++) {
+                    extendedPermissions.add(permissionsInGroup.get(permNum).getName());
+                }
+            }
+
+            return extendedPermissions;
+        } else {
+            return splitPerms;
+        }
     }
 
     private static final class GroupState {
         static final int STATE_UNKNOWN = 0;
         static final int STATE_ALLOWED = 1;
         static final int STATE_DENIED = 2;
+        static final int STATE_SKIPPED = 3;
 
         final AppPermissionGroup mGroup;
         int mState = STATE_UNKNOWN;
 
-        /** Permissions of this group that need to be granted, null == all permissions of group */
+        /** Permissions of this group that need to be granted, null == no permissions of group */
         String[] affectedPermissions;
 
         GroupState(AppPermissionGroup group) {

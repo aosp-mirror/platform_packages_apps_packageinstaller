@@ -16,6 +16,10 @@
 
 package com.android.packageinstaller.permission.model;
 
+import static android.app.AppOpsManager.MODE_ALLOWED;
+import static android.app.AppOpsManager.MODE_FOREGROUND;
+import static android.app.AppOpsManager.MODE_IGNORED;
+
 import android.annotation.StringRes;
 import android.annotation.SystemApi;
 import android.app.ActivityManager;
@@ -26,6 +30,7 @@ import android.content.pm.PackageItemInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
+import android.content.res.ResourceId;
 import android.os.Build;
 import android.os.Process;
 import android.os.UserHandle;
@@ -39,6 +44,17 @@ import java.text.Collator;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * All permissions of a permission group that are requested by an app.
+ *
+ * <p>Some permissions only grant access to the protected resource while the app is running in the
+ * foreground. These permissions are considered "split" into this foreground and a matching
+ * "background" permission.
+ *
+ * <p>All background permissions of the group are not in the main group and will not be affected
+ * by operations on the group. The background permissions can be found in the {@link
+ * #getBackgroundPermissions() background permissions group}.
+ */
 public final class AppPermissionGroup implements Comparable<AppPermissionGroup> {
     private static final String PLATFORM_PACKAGE_NAME = "android";
 
@@ -56,15 +72,32 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
     private final String mDeclaringPackage;
     private final CharSequence mLabel;
     private final @StringRes int mRequest;
+    private final @StringRes int mRequestDetail;
+    private final @StringRes int mBackgroundRequest;
+    private final @StringRes int mBackgroundRequestDetail;
     private final CharSequence mDescription;
     private final ArrayMap<String, Permission> mPermissions = new ArrayMap<>();
     private final String mIconPkg;
     private final int mIconResId;
 
+    /**
+     * Some permissions are split into foreground and background permission. All non-split and
+     * foreground permissions are in {@link #mPermissions}, all background permissions are in
+     * this field.
+     */
+    private AppPermissionGroup mBackgroundPermissions;
+
     private final boolean mAppSupportsRuntimePermissions;
     private final boolean mIsEphemeralApp;
     private boolean mContainsEphemeralPermission;
     private boolean mContainsPreRuntimePermission;
+
+    /**
+     * Does this group contain at least one permission that is split into a foreground and
+     * background permission? This does not necessarily mean that the app also requested the
+     * background permission.
+     */
+    private boolean mHasPermissionWithBackgroundMode;
 
     public static AppPermissionGroup create(Context context, PackageInfo packageInfo,
             String permissionName) {
@@ -113,7 +146,9 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         AppPermissionGroup group = new AppPermissionGroup(context, packageInfo, groupInfo.name,
                 groupInfo.packageName, groupInfo.loadLabel(context.getPackageManager()),
                 loadGroupDescription(context, groupInfo), getRequest(groupInfo),
-                groupInfo.packageName, groupInfo.icon, userHandle);
+                getRequestDetail(groupInfo), getBackgroundRequest(groupInfo),
+                getBackgroundRequestDetail(groupInfo), groupInfo.packageName, groupInfo.icon,
+                userHandle);
 
         if (groupInfo instanceof PermissionInfo) {
             permissionInfos = new ArrayList<>();
@@ -124,6 +159,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             return null;
         }
 
+        // Parse and create permissions reqested by the app
+        ArrayMap<String, Permission> allPermissions = new ArrayMap<>();
         final int permissionCount = packageInfo.requestedPermissions.length;
         for (int i = 0; i < permissionCount; i++) {
             String requestedPermission = packageInfo.requestedPermissions[i];
@@ -162,14 +199,60 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             final boolean appOpAllowed = appOp != null
                     && context.getSystemService(AppOpsManager.class).checkOpNoThrow(appOp,
                     packageInfo.applicationInfo.uid, packageInfo.packageName)
-                    == AppOpsManager.MODE_ALLOWED;
+                    == MODE_ALLOWED;
 
             final int flags = context.getPackageManager().getPermissionFlags(
                     requestedPermission, packageInfo.packageName, userHandle);
 
-            Permission permission = new Permission(requestedPermission, granted,
+            Permission permission = new Permission(requestedPermission,
+                    requestedPermissionInfo.backgroundPermission, granted,
                     appOp, appOpAllowed, flags, requestedPermissionInfo.protectionLevel);
-            group.addPermission(permission);
+
+            if (requestedPermissionInfo.backgroundPermission != null) {
+                group.mHasPermissionWithBackgroundMode = true;
+            }
+
+            allPermissions.put(requestedPermission, permission);
+        }
+
+        int numPermissions = allPermissions.size();
+        if (numPermissions == 0) {
+            return null;
+        }
+
+        // Link up foreground and background permissions
+        for (int i = 0; i < allPermissions.size(); i++) {
+            Permission permission = allPermissions.valueAt(i);
+
+            if (permission.getBackgroundPermissionName() != null) {
+                Permission backgroundPermission = allPermissions.get(
+                        permission.getBackgroundPermissionName());
+
+                if (backgroundPermission != null) {
+                    backgroundPermission.addForegroundPermissions(permission);
+                    permission.setBackgroundPermission(backgroundPermission);
+                }
+            }
+        }
+
+        // Add permissions found to this group
+        for (int i = 0; i < numPermissions; i++) {
+            Permission permission = allPermissions.valueAt(i);
+
+            if (permission.isBackgroundPermission()) {
+                if (group.getBackgroundPermissions() == null) {
+                    group.mBackgroundPermissions = new AppPermissionGroup(group.mContext,
+                            group.getApp(), group.getName(), group.getDeclaringPackage(),
+                            group.getLabel(), group.getDescription(), group.getRequest(),
+                            group.getRequestDetail(), group.getBackgroundRequest(),
+                            group.getBackgroundRequestDetail(), group.getIconPkg(),
+                            group.getIconResId(), UserHandle.of(group.getUserId()));
+                }
+
+                group.getBackgroundPermissions().addPermission(permission);
+            } else {
+                group.addPermission(permission);
+            }
         }
 
         return group;
@@ -204,7 +287,9 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
     private AppPermissionGroup(Context context, PackageInfo packageInfo, String name,
             String declaringPackage, CharSequence label, CharSequence description,
-            @StringRes int request, String iconPkg, int iconResId, UserHandle userHandle) {
+            @StringRes int request, @StringRes int requestDetail,
+            @StringRes int backgroundRequest, @StringRes int backgroundRequestDetail,
+            String iconPkg, int iconResId, UserHandle userHandle) {
         mContext = context;
         mUserHandle = userHandle;
         mPackageManager = mContext.getPackageManager();
@@ -221,6 +306,9 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         mCollator = Collator.getInstance(
                 context.getResources().getConfiguration().getLocales().get(0));
         mRequest = request;
+        mRequestDetail = requestDetail;
+        mBackgroundRequest = backgroundRequest;
+        mBackgroundRequestDetail = backgroundRequestDetail;
         if (iconResId != 0) {
             mIconPkg = iconPkg;
             mIconResId = iconResId;
@@ -311,6 +399,84 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         return mRequest;
     }
 
+    /**
+     * Extract the (subtitle) message explaining to the user that the permission is only granted to
+     * the apps running in the foreground.
+     *
+     * @param info The package item info to extract the message from
+     *
+     * @return the message of {@link ResourceId#ID_NULL} if unset
+     */
+    private static @StringRes int getRequestDetail(PackageItemInfo info) {
+        if (info instanceof PermissionGroupInfo) {
+            return ((PermissionGroupInfo) info).requestDetailResourceId;
+        } else {
+            return ResourceId.ID_NULL;
+        }
+    }
+
+    /**
+     * Get the (subtitle) message explaining to the user that the permission is only granted to
+     * the apps running in the foreground.
+     *
+     * @return the message of {@link ResourceId#ID_NULL} if unset
+     */
+    public @StringRes int getRequestDetail() {
+        return mRequestDetail;
+    }
+
+    /**
+     * Extract the title of the dialog explaining to the user that the permission is granted while
+     * the app is in background and in foreground.
+     *
+     * @param info The package item info to extract the message from
+     *
+     * @return the message of {@link ResourceId#ID_NULL} if unset
+     */
+    private static @StringRes int getBackgroundRequest(PackageItemInfo info) {
+        if (info instanceof PermissionGroupInfo) {
+            return ((PermissionGroupInfo) info).backgroundRequestResourceId;
+        } else {
+            return ResourceId.ID_NULL;
+        }
+    }
+
+    /**
+     * Get the title of the dialog explaining to the user that the permission is granted while
+     * the app is in background and in foreground.
+     *
+     * @return the message of {@link ResourceId#ID_NULL} if unset
+     */
+    public @StringRes int getBackgroundRequest() {
+        return mBackgroundRequest;
+    }
+
+    /**
+     * Extract the (subtitle) message explaining to the user that the she/he is about to allow the
+     * app to have background access.
+     *
+     * @param info The package item info to extract the message from
+     *
+     * @return the message of {@link ResourceId#ID_NULL} if unset
+     */
+    private static @StringRes int getBackgroundRequestDetail(PackageItemInfo info) {
+        if (info instanceof PermissionGroupInfo) {
+            return ((PermissionGroupInfo) info).backgroundRequestDetailResourceId;
+        } else {
+            return ResourceId.ID_NULL;
+        }
+    }
+
+    /**
+     * Get the (subtitle) message explaining to the user that the she/he is about to allow the
+     * app to have background access.
+     *
+     * @return the message of {@link ResourceId#ID_NULL} if unset
+     */
+    public @StringRes int getBackgroundRequestDetail() {
+        return mBackgroundRequestDetail;
+    }
+
     public CharSequence getDescription() {
         return mDescription;
     }
@@ -342,8 +508,9 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                 if (permission.isGranted()) {
                     return true;
                 }
-            } else if (permission.isGranted() && (permission.getAppOp() == null
-                    || permission.isAppOpAllowed()) && !permission.isReviewRequired()) {
+            } else if (permission.isGranted()
+                    && (!permission.affectsAppOp() || permission.isAppOpAllowed())
+                    && !permission.isReviewRequired()) {
                 return true;
             }
         }
@@ -354,6 +521,75 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         return grantRuntimePermissions(fixedByTheUser, null);
     }
 
+    /**
+     * Allow the app op for a permission/uid.
+     *
+     * <p>There are three cases:
+     * <dl>
+     * <dt>The permission is not split into foreground/background</dt>
+     * <dd>The app op matching the permission will be set to {@link AppOpsManager#MODE_ALLOWED}</dd>
+     * <dt>The permission is a foreground permission:</dt>
+     * <dd><dl><dt>The background permission permission is granted</dt>
+     * <dd>The app op matching the permission will be set to {@link AppOpsManager#MODE_ALLOWED}</dd>
+     * <dt>The background permission permission is <u>not</u> granted</dt>
+     * <dd>The app op matching the permission will be set to
+     * {@link AppOpsManager#MODE_FOREGROUND}</dd>
+     * </dl></dd>
+     * <dt>The permission is a background permission:</dt>
+     * <dd>All granted foreground permissions for this background permission will be set to
+     * {@link AppOpsManager#MODE_ALLOWED}</dd>
+     * </dl>
+     *
+     * @param permission The permission which has an appOps that should be allowed
+     * @param uid        The uid of the process the app op if for
+     */
+    private void allowAppOp(Permission permission, int uid) {
+        if (permission.isBackgroundPermission()) {
+            ArrayList<Permission> foregroundPermissions = permission.getForegroundPermissions();
+
+            int numForegroundPermissions = foregroundPermissions.size();
+            for (int i = 0; i < numForegroundPermissions; i++) {
+                Permission foregroundPermission = foregroundPermissions.get(i);
+                if (foregroundPermission.isAppOpAllowed()) {
+                    mAppOps.setUidMode(foregroundPermission.getAppOp(), uid, MODE_ALLOWED);
+                }
+            }
+        } else {
+            if (permission.hasBackgroundPermission()) {
+                Permission backgroundPermission = permission.getBackgroundPermission();
+
+                if (backgroundPermission == null) {
+                    // The app requested a permission that has a background permission but it did
+                    // not request the background permission, hence it can never get background
+                    // access
+                    mAppOps.setUidMode(permission.getAppOp(), uid, MODE_FOREGROUND);
+                } else {
+                    if (backgroundPermission.isAppOpAllowed()) {
+                        mAppOps.setUidMode(permission.getAppOp(), uid, MODE_ALLOWED);
+                    } else {
+                        mAppOps.setUidMode(permission.getAppOp(), uid, MODE_FOREGROUND);
+                    }
+                }
+            } else {
+                mAppOps.setUidMode(permission.getAppOp(), uid, MODE_ALLOWED);
+            }
+        }
+    }
+
+    /**
+     * Grant permissions of the group.
+     *
+     * <p>This also automatically grants all app ops for permissions that have app ops.
+     * <p>This does <u>only</u> grant permissions in {@link #mPermissions}, i.e. usually not
+     * the background permissions.
+     *
+     * @param fixedByTheUser If the user requested that she/he does not want to be asked again
+     * @param filterPermissions If {@code null} all permissions of the group will be granted.
+     *                          Otherwise only permissions in {@code filterPermissions} will be
+     *                          granted.
+     *
+     * @return {@code true} iff all permissions of this group could be granted.
+     */
     public boolean grantRuntimePermissions(boolean fixedByTheUser, String[] filterPermissions) {
         final int uid = mPackageInfo.applicationInfo.uid;
 
@@ -378,9 +614,9 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                 }
 
                 // Ensure the permission app op enabled before the permission grant.
-                if (permission.hasAppOp() && !permission.isAppOpAllowed()) {
+                if (permission.affectsAppOp() && !permission.isAppOpAllowed()) {
                     permission.setAppOpAllowed(true);
-                    mAppOps.setUidMode(permission.getAppOp(), uid, AppOpsManager.MODE_ALLOWED);
+                    allowAppOp(permission, uid);
                 }
 
                 // Grant the permission if needed.
@@ -415,11 +651,10 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
                 // If the permissions has no corresponding app op, then it is a
                 // third-party one and we do not offer toggling of such permissions.
-                if (permission.hasAppOp()) {
+                if (permission.affectsAppOp()) {
                     if (!permission.isAppOpAllowed()) {
                         permission.setAppOpAllowed(true);
-                        // Enable the app op.
-                        mAppOps.setUidMode(permission.getAppOp(), uid, AppOpsManager.MODE_ALLOWED);
+                        allowAppOp(permission, uid);
 
                         // Legacy apps do not know that they have to retry access to a
                         // resource due to changes in runtime permissions (app ops in this
@@ -461,6 +696,53 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         return revokeRuntimePermissions(fixedByTheUser, null);
     }
 
+    /**
+     * Disallow the app op for a permission/uid.
+     *
+     * <p>There are three cases:
+     * <dl>
+     * <dt>The permission is not split into foreground/background</dt>
+     * <dd>The app op matching the permission will be set to {@link AppOpsManager#MODE_IGNORED}</dd>
+     * <dt>The permission is a foreground permission:</dt>
+     * <dd>The app op matching the permission will be set to {@link AppOpsManager#MODE_IGNORED}</dd>
+     * <dt>The permission is a background permission:</dt>
+     * <dd>All granted foreground permissions for this background permission will be set to
+     * {@link AppOpsManager#MODE_FOREGROUND}</dd>
+     * </dl>
+     *
+     * @param permission The permission which has an appOps that should be disallowed
+     * @param uid        The uid of the process the app op if for
+     */
+    private void disallowAppOp(Permission permission, int uid) {
+        if (permission.isBackgroundPermission()) {
+            ArrayList<Permission> foregroundPermissions = permission.getForegroundPermissions();
+
+            int numForegroundPermissions = foregroundPermissions.size();
+            for (int i = 0; i < numForegroundPermissions; i++) {
+                Permission foregroundPermission = foregroundPermissions.get(i);
+                if (foregroundPermission.isAppOpAllowed()) {
+                    mAppOps.setUidMode(foregroundPermission.getAppOp(), uid, MODE_FOREGROUND);
+                }
+            }
+        } else {
+            mAppOps.setUidMode(permission.getAppOp(), uid, MODE_IGNORED);
+        }
+    }
+
+    /**
+     * Revoke permissions of the group.
+     *
+     * <p>This also disallows all app ops for permissions that have app ops.
+     * <p>This does <u>only</u> revoke permissions in {@link #mPermissions}, i.e. usually not
+     * the background permissions.
+     *
+     * @param fixedByTheUser If the user requested that she/he does not want to be asked again
+     * @param filterPermissions If {@code null} all permissions of the group will be revoked.
+     *                          Otherwise only permissions in {@code filterPermissions} will be
+     *                          revoked.
+     *
+     * @return {@code true} iff all permissions of this group could be revoked.
+     */
     public boolean revokeRuntimePermissions(boolean fixedByTheUser, String[] filterPermissions) {
         final int uid = mPackageInfo.applicationInfo.uid;
 
@@ -512,6 +794,11 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                                 mUserHandle);
                     }
                 }
+
+                if (permission.affectsAppOp()) {
+                    permission.setAppOpAllowed(false);
+                    disallowAppOp(permission, uid);
+                }
             } else {
                 // Legacy apps cannot have a non-granted permission but just in case.
                 if (!permission.isGranted()) {
@@ -524,11 +811,10 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
                 // If the permission has no corresponding app op, then it is a
                 // third-party one and we do not offer toggling of such permissions.
-                if (permission.hasAppOp()) {
+                if (permission.affectsAppOp()) {
                     if (permission.isAppOpAllowed()) {
                         permission.setAppOpAllowed(false);
-                        // Disable the app op.
-                        mAppOps.setUidMode(permission.getAppOp(), uid, AppOpsManager.MODE_IGNORED);
+                        disallowAppOp(permission, uid);
 
                         // Disabling an app op may put the app in a situation in which it
                         // has a handle to state it shouldn't have, so we have to kill the
@@ -572,8 +858,37 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         }
     }
 
-    public List<Permission> getPermissions() {
+    public ArrayList<Permission> getPermissions() {
         return new ArrayList<>(mPermissions.values());
+    }
+
+    /**
+     * @return An {@link AppPermissionGroup}-object that contains all background permissions for
+     * this group.
+     */
+    public AppPermissionGroup getBackgroundPermissions() {
+        return mBackgroundPermissions;
+    }
+
+    /**
+     * @return {@code true} iff the app request at least one permission in this group that has a
+     * background permission. It is possible that the app does not request the matching background
+     * permission and hence will only ever get foreground access, never background access.
+     */
+    public boolean hasPermissionWithBackgroundMode() {
+        return mHasPermissionWithBackgroundMode;
+    }
+
+    /**
+     * Whether this is group that contains all the background permission for regular permission
+     * group.
+     *
+     * @return {@code true} iff this is a background permission group.
+     *
+     * @see #getBackgroundPermissions()
+     */
+    public boolean isBackgroundGroup() {
+        return mPermissions.valueAt(0).isBackgroundPermission();
     }
 
     public int getFlags() {
@@ -642,35 +957,20 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-
-        if (obj == null) {
+    public boolean equals(Object o) {
+        if (o == null || !(o instanceof AppPermissionGroup)) {
             return false;
         }
 
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-
-        AppPermissionGroup other = (AppPermissionGroup) obj;
-
-        if (mName == null) {
-            if (other.mName != null) {
-                return false;
-            }
-        } else if (!mName.equals(other.mName)) {
-            return false;
-        }
-
-        return true;
+        AppPermissionGroup other = (AppPermissionGroup) o;
+        return mName.equals(other.mName)
+                && mPackageInfo.packageName.equals(other.mPackageInfo.packageName)
+                && mUserHandle.equals(other.mUserHandle);
     }
 
     @Override
     public int hashCode() {
-        return mName != null ? mName.hashCode() : 0;
+        return mName.hashCode() + mPackageInfo.packageName.hashCode() + mUserHandle.hashCode();
     }
 
     @Override
@@ -678,6 +978,9 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         StringBuilder builder = new StringBuilder();
         builder.append(getClass().getSimpleName());
         builder.append("{name=").append(mName);
+        if (mBackgroundPermissions != null) {
+            builder.append(", <has background permissions>}");
+        }
         if (!mPermissions.isEmpty()) {
             builder.append(", <has permissions>}");
         } else {

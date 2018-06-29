@@ -92,7 +92,7 @@ public final class ReviewPermissionsFragment extends PreferenceFragment
             return;
         }
 
-        mAppPermissions = new AppPermissions(activity, packageInfo, null, false,
+        mAppPermissions = new AppPermissions(activity, packageInfo, false,
                 new Runnable() {
                     @Override
                     public void run() {
@@ -185,6 +185,21 @@ public final class ReviewPermissionsFragment extends PreferenceFragment
         fragment.show(getFragmentManager(), fragment.getClass().getName());
     }
 
+    private void grantReviewedPermission(AppPermissionGroup group) {
+        String[] permissionsToGrant = null;
+        final int permissionCount = group.getPermissions().size();
+        for (int j = 0; j < permissionCount; j++) {
+            final Permission permission = group.getPermissions().get(j);
+            if (permission.isReviewRequired()) {
+                permissionsToGrant = ArrayUtils.appendString(
+                        permissionsToGrant, permission.getName());
+            }
+        }
+        if (permissionsToGrant != null) {
+            group.grantRuntimePermissions(false, permissionsToGrant);
+        }
+    }
+
     private void confirmPermissionsReview() {
         final List<PreferenceGroup> preferenceGroups = new ArrayList<>();
         if (mNewPermissionsCategory != null) {
@@ -206,20 +221,17 @@ public final class ReviewPermissionsFragment extends PreferenceFragment
                     String groupName = preference.getKey();
                     AppPermissionGroup group = mAppPermissions.getPermissionGroup(groupName);
                     if (twoStatePreference.isChecked()) {
-                        String[] permissionsToGrant = null;
-                        final int permissionCount = group.getPermissions().size();
-                        for (int j = 0; j < permissionCount; j++) {
-                            final Permission permission = group.getPermissions().get(j);
-                            if (permission.isReviewRequired()) {
-                                permissionsToGrant = ArrayUtils.appendString(
-                                        permissionsToGrant, permission.getName());
-                            }
-                        }
-                        if (permissionsToGrant != null) {
-                            group.grantRuntimePermissions(false, permissionsToGrant);
+                        grantReviewedPermission(group);
+
+                        // TODO: Allow the user to only grant foreground permissions
+                        if (group.getBackgroundPermissions() != null) {
+                            grantReviewedPermission(group.getBackgroundPermissions());
                         }
                     } else {
                         group.revokeRuntimePermissions(false);
+                        if (group.getBackgroundPermissions() != null) {
+                            group.getBackgroundPermissions().revokeRuntimePermissions(false);
+                        }
                     }
                     group.resetReviewRequired();
                 }
@@ -286,7 +298,7 @@ public final class ReviewPermissionsFragment extends PreferenceFragment
         final boolean isPackageUpdated = isPackageUpdated();
 
         for (AppPermissionGroup group : mAppPermissions.getPermissionGroups()) {
-            if (!Utils.shouldShowPermission(group, mAppPermissions.getPackageInfo().packageName)
+            if (!Utils.shouldShowPermission(group)
                     || !Utils.OS_PKG.equals(group.getDeclaringPackage())) {
                 continue;
             }

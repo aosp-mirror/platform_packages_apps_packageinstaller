@@ -113,7 +113,7 @@ public final class AppPermissionsFragment extends Fragment{
             return;
         }
 
-        mAppPermissions = new AppPermissions(activity, packageInfo, null, true, new Runnable() {
+        mAppPermissions = new AppPermissions(activity, packageInfo, true, new Runnable() {
             @Override
             public void run() {
                 activity.finish();
@@ -150,7 +150,7 @@ public final class AppPermissionsFragment extends Fragment{
         }
 
         for (AppPermissionGroup group : mAppPermissions.getPermissionGroups()) {
-            if (!Utils.shouldShowPermission(group, mAppPermissions.getPackageInfo().packageName)) {
+            if (!Utils.shouldShowPermission(group)) {
                 continue;
             }
             items.add(new PermissionLineItem(group, context));

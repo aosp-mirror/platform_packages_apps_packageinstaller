@@ -286,7 +286,34 @@
    <!-- [CHAR LIMIT=NONE] Summary of a permission switch when it's enforced by policy -->
    <string name="permission_summary_enforced_by_policy">Enforced by policy</string>
 
-   <!-- Text displayed until loading is done [CHAR LIMIT=50] -->
+   <!-- [CHAR LIMIT=60] Summary of a permission switch when the background access is denied by policy -->
+   <string name="permission_summary_disabled_by_policy_background_only">Background access disabled by policy</string>
+
+   <!-- [CHAR LIMIT=60] Summary of a permission switch when the background access is enabled by policy -->
+   <string name="permission_summary_enabled_by_policy_background_only">Background access enabled by policy</string>
+
+   <!-- [CHAR LIMIT=60] Summary of a permission switch when the background access is enabled by policy -->
+   <string name="permission_summary_enabled_by_policy_foreground_only">Foreground access enabled by policy</string>
+
+    <!-- [CHAR LIMIT=60] Summary of a permission switch when it's enforced by an administrator -->
+   <string name="permission_summary_enforced_by_admin">Controlled by admin</string>
+
+    <string-array name="background_access_chooser_dialog_choices">
+       <item>@string/permission_access_always</item>
+       <item>@string/permission_access_only_foreground</item>
+       <item>@string/permission_access_never</item>
+   </string-array>
+
+   <!-- [CHAR LIMIT=30] App can always (when app is in foreground or background) access the resource protected by the permission -->
+   <string name="permission_access_always">Always</string>
+
+   <!-- [CHAR LIMIT=30] App can only access the resource protected by the permission while app is in foregroud -->
+   <string name="permission_access_only_foreground">Only while using app</string>
+
+   <!-- [CHAR LIMIT=30] App can never access the resource protected by the permission (Not while app is in foregound and not while app is in background) -->
+   <string name="permission_access_never">Never</string>
+
+    <!-- Text displayed until loading is done [CHAR LIMIT=50] -->
    <string name="loading">Loading\u2026</string>
 
    <!-- [CHAR LIMIT=45] Title of all permissions settings -->

@@ -16,7 +16,6 @@
 
 package com.android.packageinstaller.permission.ui.wear;
 
-import android.Manifest;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.DialogInterface;
@@ -31,12 +30,11 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
-import androidx.wear.ble.view.WearableDialogHelper;
+import android.util.ArraySet;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
+
+import androidx.wear.ble.view.WearableDialogHelper;
 
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
@@ -69,7 +67,7 @@ public final class AppPermissionsFragmentWear extends PreferenceFragment {
     }
 
     private PackageManager mPackageManager;
-    private List<AppPermissionGroup> mToggledGroups;
+    private ArraySet<AppPermissionGroup> mToggledGroups;
     private AppPermissions mAppPermissions;
 
     private boolean mHasConfirmedRevoke;
@@ -127,7 +125,7 @@ public final class AppPermissionsFragmentWear extends PreferenceFragment {
         }
 
         mAppPermissions = new AppPermissions(
-                activity, packageInfo, null, true, () -> getActivity().finish());
+                activity, packageInfo, true, () -> getActivity().finish());
 
         addPreferencesFromResource(R.xml.watch_permissions);
         initializePermissionGroupList();
@@ -158,7 +156,6 @@ public final class AppPermissionsFragmentWear extends PreferenceFragment {
     }
 
     private void initializePermissionGroupList() {
-        final String packageName = mAppPermissions.getPackageInfo().packageName;
         List<AppPermissionGroup> groups = mAppPermissions.getPermissionGroups();
         List<SwitchPreference> nonSystemPreferences = new ArrayList<>();
 
@@ -167,7 +164,7 @@ public final class AppPermissionsFragmentWear extends PreferenceFragment {
         }
 
         for (final AppPermissionGroup group : groups) {
-            if (!Utils.shouldShowPermission(group, packageName)) {
+            if (!Utils.shouldShowPermission(group)) {
                 continue;
             }
 
@@ -372,20 +369,15 @@ public final class AppPermissionsFragmentWear extends PreferenceFragment {
 
     private void addToggledGroup(AppPermissionGroup group) {
         if (mToggledGroups == null) {
-            mToggledGroups = new ArrayList<>();
+            mToggledGroups = new ArraySet<>();
         }
-        // Double toggle is back to initial state.
-        if (mToggledGroups.contains(group)) {
-            mToggledGroups.remove(group);
-        } else {
-            mToggledGroups.add(group);
-        }
+
+        mToggledGroups.add(group);
     }
 
     private void logAndClearToggledGroups() {
         if (mToggledGroups != null) {
-            String packageName = mAppPermissions.getPackageInfo().packageName;
-            SafetyNetLogger.logPermissionsToggled(packageName, mToggledGroups);
+            SafetyNetLogger.logPermissionsToggled(mToggledGroups);
             mToggledGroups = null;
         }
     }

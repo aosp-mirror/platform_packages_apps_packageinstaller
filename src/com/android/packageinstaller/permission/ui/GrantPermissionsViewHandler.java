@@ -16,23 +16,35 @@
 
 package com.android.packageinstaller.permission.ui;
 
+import static java.lang.annotation.RetentionPolicy.SOURCE;
+
 import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+
+import androidx.annotation.IntDef;
+
+import java.lang.annotation.Retention;
 
 /**
  * Class for managing the presentation and user interaction of the "grant
  * permissions" user interface.
  */
 public interface GrantPermissionsViewHandler {
+    @Retention(SOURCE)
+    @IntDef({GRANTED, DENIED, DENIED_DO_NOT_ASK_AGAIN})
+    @interface Result {}
+    int GRANTED = 0;
+    int DENIED = 1;
+    int DENIED_DO_NOT_ASK_AGAIN = 2;
 
     /**
      * Listener interface for getting notified when the user responds to a
      * permissions grant request.
      */
     interface ResultListener {
-        void onPermissionGrantResult(String groupName, boolean granted, boolean doNotAskAgain);
+        void onPermissionGrantResult(String groupName, @Result int result);
     }
 
     /**

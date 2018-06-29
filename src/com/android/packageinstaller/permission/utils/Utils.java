@@ -17,6 +17,7 @@
 package com.android.packageinstaller.permission.utils;
 
 import android.Manifest;
+import android.annotation.StringRes;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -25,10 +26,12 @@ import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.content.res.Resources.Theme;
 import android.graphics.drawable.Drawable;
+import android.text.Html;
 import android.util.ArraySet;
 import android.util.Log;
 import android.util.TypedValue;
 
+import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
@@ -79,11 +82,29 @@ public final class Utils {
         return false;
     }
 
-    public static boolean shouldShowPermission(AppPermissionGroup group, String packageName) {
+    /**
+     * Should UI show this permission.
+     *
+     * <p>If the user cannot change the group, it should not be shown.
+     *
+     * @param group The group that might need to be shown to the user
+     *
+     * @return
+     */
+    public static boolean shouldShowPermission(AppPermissionGroup group) {
+        boolean isSystemFixed = group.isSystemFixed();
+        if (group.getBackgroundPermissions() != null) {
+            // If the foreground mode is fixed to "enabled", the background mode might still be
+            // switchable. We only want to suppress the group if nothing can be switched
+            if (group.areRuntimePermissionsGranted()) {
+                isSystemFixed &= group.getBackgroundPermissions().isSystemFixed();
+            }
+        }
+
         // We currently will not show permissions fixed by the system.
         // which is what the system does for system components.
-        if (group.isSystemFixed() && !LocationUtils.isLocationGroupAndProvider(
-                group.getName(), packageName)) {
+        if (isSystemFixed && !LocationUtils.isLocationGroupAndProvider(
+                group.getName(), group.getApp().packageName)) {
             return false;
         }
 
@@ -97,17 +118,6 @@ public final class Utils {
                 && !Utils.isModernPermissionGroup(group.getName())) {
             return false;
         }
-        return true;
-    }
-
-    public static boolean shouldShowPermission(PermissionApp app) {
-        // We currently will not show permissions fixed by the system
-        // which is what the system does for system components.
-        if (app.isSystemFixed() && !LocationUtils.isLocationGroupAndProvider(
-                app.getPermissionGroup().getName(), app.getPackageName())) {
-            return false;
-        }
-
         return true;
     }
 
@@ -173,5 +183,29 @@ public final class Utils {
                 || Manifest.permission.CALL_PHONE.equals(permission)
                 || Manifest.permission.READ_CALL_LOG.equals(permission)
                 || Manifest.permission.WRITE_CALL_LOG.equals(permission);
+    }
+
+    /**
+     * Get the message shown to grant a permission group to an app.
+     *
+     * @param appLabel The label of the app
+     * @param group the group to be granted
+     * @param context A context to resolve resources
+     * @param requestRes The resource id of the grant request message
+     *
+     * @return The formatted message to be used as title when granting permissions
+     */
+    public static CharSequence getRequestMessage(CharSequence appLabel, AppPermissionGroup group,
+            Context context, @StringRes int requestRes) {
+        if (requestRes != 0) {
+            try {
+                return Html.fromHtml(context.getPackageManager().getResourcesForApplication(
+                        group.getDeclaringPackage()).getString(requestRes, appLabel), 0);
+            } catch (PackageManager.NameNotFoundException ignored) {
+            }
+        }
+
+        return Html.fromHtml(context.getString(R.string.permission_warning_template, appLabel,
+                group.getDescription()), 0);
     }
 }
