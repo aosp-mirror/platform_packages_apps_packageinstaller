@@ -235,6 +235,10 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
                 });
 
         for (String requestedPermission : mRequestedPermissions) {
+            if (requestedPermission == null) {
+                continue;
+            }
+
             ArrayList<String> affectedPermissions =
                     computeAffectedPermissions(requestedPermission);
 
@@ -409,22 +413,6 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
                 outState.putInt(getInstanceStateKey(mRequestGrantPermissionGroups.keyAt(i)), state);
             }
         }
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-
-        // Restore permission group state after lifecycle events
-        for (GroupState groupState : mRequestGrantPermissionGroups.values()) {
-            if (savedInstanceState != null) {
-                groupState.mState = savedInstanceState.getInt(
-                        getInstanceStateKey(groupState.mGroup.getName()), groupState.mState);
-            }
-        }
-
-        mViewHandler.loadInstanceState(savedInstanceState);
-        showNextPermissionGroupGrantRequest();
     }
 
     /**
