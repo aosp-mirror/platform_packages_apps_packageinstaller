@@ -21,7 +21,10 @@ import static android.content.pm.PackageManager.PERMISSION_DENIED;
 import static com.android.packageinstaller.permission.ui.GrantPermissionsViewHandler.DENIED;
 import static com.android.packageinstaller.permission.ui.GrantPermissionsViewHandler
         .DENIED_DO_NOT_ASK_AGAIN;
-import static com.android.packageinstaller.permission.ui.GrantPermissionsViewHandler.GRANTED;
+import static com.android.packageinstaller.permission.ui.GrantPermissionsViewHandler.GRANTED_ALWAYS;
+import static com.android.packageinstaller.permission.ui.GrantPermissionsViewHandler
+        .GRANTED_FOREGROUND_ONLY;
+import static com.android.packageinstaller.permission.utils.Utils.getRequestMessage;
 
 import android.app.admin.DevicePolicyManager;
 import android.content.Intent;
@@ -37,6 +40,7 @@ import android.text.Html;
 import android.text.Spanned;
 import android.util.ArrayMap;
 import android.util.Log;
+import android.util.Pair;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -66,7 +70,8 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
 
     private String[] mRequestedPermissions;
 
-    private ArrayMap<String, GroupState> mRequestGrantPermissionGroups = new ArrayMap<>();
+    private ArrayMap<Pair<String, Boolean>, GroupState> mRequestGrantPermissionGroups =
+            new ArrayMap<>();
 
     private GrantPermissionsViewHandler mViewHandler;
     private AppPermissions mAppPermissions;
@@ -103,7 +108,8 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
         // We allow the user to choose only non-fixed permissions. A permission
         // is fixed either by device policy or the user denying with prejudice.
         if (!group.isUserFixed() && !group.isPolicyFixed()) {
-            String groupKey = group.getName();
+            Pair<String, Boolean> groupKey = new Pair<>(group.getName(),
+                    group.isBackgroundGroup());
 
             GroupState state = mRequestGrantPermissionGroups.get(groupKey);
             if (state == null) {
@@ -265,6 +271,28 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
                         getInstanceStateKey(mRequestGrantPermissionGroups.keyAt(groupStateNum)),
                         groupState.mState);
             }
+
+            // Do not attempt to grant background access if foreground access is not either already
+            // granted or requested
+            if (group.isBackgroundGroup()) {
+                // Check if a foreground permission is already granted
+                boolean foregroundGroupAlreadyGranted = mAppPermissions.getPermissionGroup(
+                        group.getName()).areRuntimePermissionsGranted();
+                boolean hasForegroundRequest = (getForegroundGroupState(group.getName()) != null);
+
+                if (!foregroundGroupAlreadyGranted && !hasForegroundRequest) {
+                    // The background permission cannot be granted at this time
+                    int numPermissions = groupState.affectedPermissions.length;
+                    for (int permissionNum = 0; permissionNum < numPermissions; permissionNum++) {
+                        Log.w(LOG_TAG,
+                                "Cannot grant " + groupState.affectedPermissions[permissionNum]
+                                        + " as the matching foreground permission is not already "
+                                        + "granted.");
+                    }
+
+                    groupState.mState = GroupState.STATE_SKIPPED;
+                }
+            }
         }
 
         setContentView(mViewHandler.createView());
@@ -391,12 +419,15 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
     /**
      * Compose a key that stores the GroupState.mState in the instance state.
      *
-     * @param permissionGroupName The permission group name
+     * @param requestGrantPermissionGroupsKey The key of the permission group
      *
      * @return A unique key to be used in the instance state
      */
-    private static String getInstanceStateKey(String permissionGroupName) {
-        return GrantPermissionsActivity.class.getName() + "_" + permissionGroupName;
+    private static String getInstanceStateKey(
+            Pair<String, Boolean> requestGrantPermissionGroupsKey) {
+        return GrantPermissionsActivity.class.getName() + "_"
+                + requestGrantPermissionGroupsKey.first + "_"
+                + requestGrantPermissionGroupsKey.second;
     }
 
     @Override
@@ -416,43 +447,62 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
     }
 
     /**
-     * @return the group state for the permission group with the {@code name}
+     * @return the background group state for the permission group with the {@code name}
      */
-    private GroupState getGroupState(String name) {
-        return mRequestGrantPermissionGroups.get(name);
+    private GroupState getBackgroundGroupState(String name) {
+        return mRequestGrantPermissionGroups.get(new Pair<>(name, true));
+    }
+
+    /**
+     * @return the foreground group state for the permission group with the {@code name}
+     */
+    private GroupState getForegroundGroupState(String name) {
+        return mRequestGrantPermissionGroups.get(new Pair<>(name, false));
+    }
+
+    private boolean shouldShowRequestForGroupState(GroupState groupState) {
+        if (groupState.mState == GroupState.STATE_SKIPPED) {
+            return false;
+        }
+
+        GroupState foregroundGroup = getForegroundGroupState(groupState.mGroup.getName());
+        if (groupState.mGroup.isBackgroundGroup()
+                && (foregroundGroup != null && shouldShowRequestForGroupState(foregroundGroup))) {
+            // If an app requests both foreground and background permissions of the same group,
+            // we only show one request
+            return false;
+        }
+
+        return true;
     }
 
     private boolean showNextPermissionGroupGrantRequest() {
-        int groupCount = 0;
-        for (GroupState groupState : mRequestGrantPermissionGroups.values()) {
-            if (groupState.mState != GroupState.STATE_SKIPPED) {
-                groupCount++;
+        int numGroupStates = mRequestGrantPermissionGroups.size();
+        int numGrantRequests = 0;
+        for (int i = 0; i < numGroupStates; i++) {
+            if (shouldShowRequestForGroupState(mRequestGrantPermissionGroups.valueAt(i))) {
+                numGrantRequests++;
             }
         }
 
         int currentIndex = 0;
         for (GroupState groupState : mRequestGrantPermissionGroups.values()) {
+            if (!shouldShowRequestForGroupState(groupState)) {
+                continue;
+            }
+
             if (groupState.mState == GroupState.STATE_UNKNOWN) {
+                GroupState foregroundGroupState;
+                GroupState backgroundGroupState;
+                if (groupState.mGroup.isBackgroundGroup()) {
+                    backgroundGroupState = groupState;
+                    foregroundGroupState = getForegroundGroupState(groupState.mGroup.getName());
+                } else {
+                    foregroundGroupState = groupState;
+                    backgroundGroupState = getBackgroundGroupState(groupState.mGroup.getName());
+                }
+
                 CharSequence appLabel = mAppPermissions.getAppLabel();
-
-                Spanned message = null;
-                int requestMessageId = groupState.mGroup.getRequest();
-                if (requestMessageId != 0) {
-                    try {
-                        message = Html.fromHtml(getPackageManager().getResourcesForApplication(
-                                groupState.mGroup.getDeclaringPackage()).getString(requestMessageId,
-                                appLabel), 0);
-                    } catch (NameNotFoundException ignored) {
-                    }
-                }
-
-                if (message == null) {
-                    message = Html.fromHtml(getString(R.string.permission_warning_template,
-                            appLabel, groupState.mGroup.getDescription()), 0);
-                }
-
-                // Set the permission message as the title so it can be announced.
-                setTitle(message);
 
                 // Set the new grant view
                 // TODO: Use a real message for the action. We need group action APIs
@@ -473,8 +523,72 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
                     icon = null;
                 }
 
-                mViewHandler.updateUi(groupState.mGroup.getName(), groupCount, currentIndex,
-                        icon, message, groupState.mGroup.isUserSet());
+                // If no background permissions are granted yet, we need to ask for background
+                // permissions
+                boolean needBackgroundPermission = false;
+                boolean isBackgroundPermissionUserSet = false;
+                if (backgroundGroupState != null) {
+                    if (!backgroundGroupState.mGroup.areRuntimePermissionsGranted()) {
+                        needBackgroundPermission = true;
+                        isBackgroundPermissionUserSet = backgroundGroupState.mGroup.isUserSet();
+                    }
+                }
+
+                // If no foreground permissions are granted yet, we need to ask for foreground
+                // permissions
+                boolean needForegroundPermission = false;
+                boolean isForegroundPermissionUserSet = false;
+                if (foregroundGroupState != null) {
+                    if (!foregroundGroupState.mGroup.areRuntimePermissionsGranted()) {
+                        needForegroundPermission = true;
+                        isForegroundPermissionUserSet = foregroundGroupState.mGroup.isUserSet();
+                    }
+                }
+
+                boolean showForegroundChooser = false;
+                int messageId;
+                int detailMessageId = 0;
+                if (needForegroundPermission) {
+                    messageId = groupState.mGroup.getRequest();
+
+                    if (needBackgroundPermission) {
+                        showForegroundChooser = true;
+                    } else {
+                        if (foregroundGroupState.mGroup.hasPermissionWithBackgroundMode()) {
+                            detailMessageId = groupState.mGroup.getRequestDetail();
+                        }
+                    }
+                } else {
+                    if (needBackgroundPermission) {
+                        messageId = groupState.mGroup.getBackgroundRequest();
+                        detailMessageId = groupState.mGroup.getBackgroundRequestDetail();
+                    } else {
+                        // Not reached as the permissions should be auto-granted
+                        return false;
+                    }
+                }
+
+                CharSequence message = getRequestMessage(appLabel, groupState.mGroup, this,
+                        messageId);
+
+                Spanned detailMessage = null;
+                if (detailMessageId != 0) {
+                    try {
+                        detailMessage = Html.fromHtml(
+                                getPackageManager().getResourcesForApplication(
+                                        groupState.mGroup.getDeclaringPackage()).getString(
+                                        detailMessageId), 0);
+                    } catch (NameNotFoundException ignored) {
+                    }
+                }
+
+                // Set the permission message as the title so it can be announced.
+                setTitle(message);
+
+                mViewHandler.updateUi(groupState.mGroup.getName(), numGrantRequests, currentIndex,
+                        icon, message, detailMessage, showForegroundChooser,
+                        isForegroundPermissionUserSet || isBackgroundPermissionUserSet);
+
                 return true;
             }
 
@@ -489,17 +603,41 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
     @Override
     public void onPermissionGrantResult(String name,
             @GrantPermissionsViewHandler.Result int result) {
-        GroupState groupState = getGroupState(name);
+        GroupState foregroundGroupState = getForegroundGroupState(name);
+        GroupState backgroundGroupState = getBackgroundGroupState(name);
 
         switch (result) {
-            case GRANTED :
-                onPermissionGrantResultSingleState(groupState, true, false);
+            case GRANTED_ALWAYS :
+                if (foregroundGroupState != null) {
+                    onPermissionGrantResultSingleState(foregroundGroupState, true, false);
+                }
+                if (backgroundGroupState != null) {
+                    onPermissionGrantResultSingleState(backgroundGroupState, true, false);
+                }
+                break;
+            case GRANTED_FOREGROUND_ONLY :
+                if (foregroundGroupState != null) {
+                    onPermissionGrantResultSingleState(foregroundGroupState, true, false);
+                }
+                if (backgroundGroupState != null) {
+                    onPermissionGrantResultSingleState(backgroundGroupState, false, false);
+                }
                 break;
             case DENIED :
-                onPermissionGrantResultSingleState(groupState, false, false);
+                if (foregroundGroupState != null) {
+                    onPermissionGrantResultSingleState(foregroundGroupState, false, false);
+                }
+                if (backgroundGroupState != null) {
+                    onPermissionGrantResultSingleState(backgroundGroupState, false, false);
+                }
                 break;
             case DENIED_DO_NOT_ASK_AGAIN :
-                onPermissionGrantResultSingleState(groupState, false, true);
+                if (foregroundGroupState != null) {
+                    onPermissionGrantResultSingleState(foregroundGroupState, false, true);
+                }
+                if (backgroundGroupState != null) {
+                    onPermissionGrantResultSingleState(backgroundGroupState, false, true);
+                }
                 break;
         }
 

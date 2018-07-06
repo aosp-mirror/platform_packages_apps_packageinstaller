@@ -22,6 +22,7 @@ import android.content.Intent;
 import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -33,6 +34,9 @@ import android.view.animation.Interpolator;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Space;
 import android.widget.TextView;
 
 import com.android.packageinstaller.R;
@@ -45,15 +49,21 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.IntConsumer;
 
 public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHandler,
-        OnClickListener {
+        OnClickListener, RadioGroup.OnCheckedChangeListener {
 
     public static final String ARG_GROUP_NAME = "ARG_GROUP_NAME";
     public static final String ARG_GROUP_COUNT = "ARG_GROUP_COUNT";
     public static final String ARG_GROUP_INDEX = "ARG_GROUP_INDEX";
     public static final String ARG_GROUP_ICON = "ARG_GROUP_ICON";
     public static final String ARG_GROUP_MESSAGE = "ARG_GROUP_MESSAGE";
+    private static final String ARG_GROUP_DETAIL_MESSAGE = "ARG_GROUP_DETAIL_MESSAGE";
+
     public static final String ARG_GROUP_SHOW_DO_NOT_ASK = "ARG_GROUP_SHOW_DO_NOT_ASK";
+    private static final String ARG_GROUP_SHOW_FOREGOUND_CHOOSER =
+            "ARG_GROUP_SHOW_FOREGOUND_CHOOSER";
+
     public static final String ARG_GROUP_DO_NOT_ASK_CHECKED = "ARG_GROUP_DO_NOT_ASK_CHECKED";
+    private static final String ARG_GROUP_ALWAYS_OPTION_CHECKED = "ARG_GROUP_ALWAYS_OPTION_CHECKED";
 
     // Animation parameters.
     private static final long OUT_DURATION = 200;
@@ -73,18 +83,27 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
     private int mGroupIndex;
     private Icon mGroupIcon;
     private CharSequence mGroupMessage;
+    private CharSequence mDetailMessage;
+
     private boolean mShowDonNotAsk;
+    private boolean mShowForegroundChooser;
 
     // Views
     private ImageView mIconView;
     private TextView mCurrentGroupView;
     private TextView mMessageView;
+    private TextView mDetailMessageView;
     private CheckBox mDoNotAskCheckbox;
+    private RadioGroup mForegroundChooser;
+    private RadioButton mForegroundOnlyOption;
+    private RadioButton mAlwaysOption;
+    private RadioButton mDenyAndDontAskAgainOption;
     private Button mAllowButton;
     private Button mMoreInfoButton;
     private ManualLayoutFrame mRootView;
     private ViewGroup mDescContainer;
     private ViewGroup mCurrentDesc;
+    private Space mSpacer;
 
     public GrantPermissionsViewHandlerImpl(Activity activity, String appPackageName) {
         float animationScale = 1f;
@@ -114,8 +133,13 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         arguments.putInt(ARG_GROUP_INDEX, mGroupIndex);
         arguments.putParcelable(ARG_GROUP_ICON, mGroupIcon);
         arguments.putCharSequence(ARG_GROUP_MESSAGE, mGroupMessage);
+        arguments.putCharSequence(ARG_GROUP_DETAIL_MESSAGE, mDetailMessage);
+
         arguments.putBoolean(ARG_GROUP_SHOW_DO_NOT_ASK, mShowDonNotAsk);
-        arguments.putBoolean(ARG_GROUP_DO_NOT_ASK_CHECKED, mDoNotAskCheckbox.isChecked());
+        arguments.putBoolean(ARG_GROUP_SHOW_FOREGOUND_CHOOSER, mShowForegroundChooser);
+
+        arguments.putBoolean(ARG_GROUP_DO_NOT_ASK_CHECKED, isDoNotAskAgainChecked());
+        arguments.putBoolean(ARG_GROUP_ALWAYS_OPTION_CHECKED, mAlwaysOption.isSelected());
     }
 
     @Override
@@ -125,18 +149,25 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         mGroupIcon = savedInstanceState.getParcelable(ARG_GROUP_ICON);
         mGroupCount = savedInstanceState.getInt(ARG_GROUP_COUNT);
         mGroupIndex = savedInstanceState.getInt(ARG_GROUP_INDEX);
-        mShowDonNotAsk = savedInstanceState.getBoolean(ARG_GROUP_SHOW_DO_NOT_ASK);
+        mDetailMessage = savedInstanceState.getCharSequence(ARG_GROUP_DETAIL_MESSAGE);
 
-        updateAll(savedInstanceState.getBoolean(ARG_GROUP_DO_NOT_ASK_CHECKED));
+        mShowDonNotAsk = savedInstanceState.getBoolean(ARG_GROUP_SHOW_DO_NOT_ASK);
+        mShowForegroundChooser = savedInstanceState.getBoolean(ARG_GROUP_SHOW_FOREGOUND_CHOOSER);
+
+        updateAll(savedInstanceState.getBoolean(ARG_GROUP_DO_NOT_ASK_CHECKED),
+                savedInstanceState.getBoolean(ARG_GROUP_ALWAYS_OPTION_CHECKED));
     }
 
     @Override
     public void updateUi(String groupName, int groupCount, int groupIndex, Icon icon,
-            CharSequence message, boolean showDonNotAsk) {
+            CharSequence message, CharSequence detailMessage, boolean showForegroundChooser,
+            boolean showDonNotAsk) {
         boolean isNewGroup = mGroupIndex != groupIndex;
         boolean isDoNotAskAgainChecked = mDoNotAskCheckbox.isChecked();
+        boolean isAlwaysOptionChecked = mAlwaysOption.isChecked();
         if (isNewGroup) {
             isDoNotAskAgainChecked = false;
+            isAlwaysOptionChecked = false;
         }
 
         mGroupName = groupName;
@@ -145,12 +176,15 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         mGroupIcon = icon;
         mGroupMessage = message;
         mShowDonNotAsk = showDonNotAsk;
+        mDetailMessage = detailMessage;
+        mShowForegroundChooser = showForegroundChooser;
+
         // If this is a second (or later) permission and the views exist, then animate.
         if (mIconView != null) {
             if (isNewGroup) {
-                animateToPermission(isDoNotAskAgainChecked);
+                animateToPermission(isDoNotAskAgainChecked, isAlwaysOptionChecked);
             } else {
-                updateAll(isDoNotAskAgainChecked);
+                updateAll(isDoNotAskAgainChecked, isAlwaysOptionChecked);
             }
         }
     }
@@ -178,16 +212,30 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
 
         fadeOutView(mCurrentDesc, onAnimationFinished, interpolator);
 
-        if (!mShowDonNotAsk) {
+        if (mShowForegroundChooser || !mShowDonNotAsk) {
             numAnimationsActive.incrementAndGet();
             fadeOutView(mDoNotAskCheckbox, onAnimationFinished, interpolator);
         }
+        if (!TextUtils.equals(mDetailMessage, mDetailMessageView.getText())) {
+            numAnimationsActive.incrementAndGet();
+            fadeOutView(mDetailMessageView, onAnimationFinished, interpolator);
+        }
+        if (!mShowForegroundChooser || !mShowDonNotAsk) {
+            numAnimationsActive.incrementAndGet();
+            fadeOutView(mDenyAndDontAskAgainOption, onAnimationFinished, interpolator);
+        }
+        if (!mShowForegroundChooser) {
+            numAnimationsActive.addAndGet(2);
+            fadeOutView(mAlwaysOption, onAnimationFinished, interpolator);
+            fadeOutView(mForegroundOnlyOption, onAnimationFinished, interpolator);
+        }
     }
 
-    private void updateAll(boolean isDoNotAskAgainChecked) {
+    private void updateAll(boolean isDoNotAskAgainChecked, boolean isAlwaysOptionChecked) {
         updateDescription();
+        updateDetailDescription();
         updateGroup();
-        updateDoNotAskCheckBox(isDoNotAskAgainChecked);
+        updateDoNotAskCheckBoxAndForegroundOption(isDoNotAskAgainChecked, isAlwaysOptionChecked);
     }
 
     private void fadeInView(View v, Interpolator interpolator) {
@@ -217,15 +265,26 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         if (mShowDonNotAsk) {
             fadeInView(mDoNotAskCheckbox, interpolator);
         }
+        if (mShowForegroundChooser) {
+            if (mShowDonNotAsk) {
+                fadeInView(mDenyAndDontAskAgainOption, interpolator);
+            }
+            fadeInView(mAlwaysOption, interpolator);
+            fadeInView(mForegroundOnlyOption, interpolator);
+        }
+        if (mDetailMessage != null) {
+            fadeInView(mDetailMessageView, interpolator);
+        }
     }
 
-    private void animateToPermission(boolean isDoNotAskAgainChecked) {
+    private void animateToPermission(boolean isDoNotAskAgainChecked,
+            boolean isAlwaysOptionChecked) {
         // Animate out the old content
         animateOldContent(numAnimationsActive -> {
             // Wait until all animations are done
             if (numAnimationsActive == 0) {
                 // Add the new content
-                updateAll(isDoNotAskAgainChecked);
+                updateAll(isDoNotAskAgainChecked, isAlwaysOptionChecked);
 
                 // Animate in new content
                 animateNewContent();
@@ -238,10 +297,11 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         mRootView = (ManualLayoutFrame) LayoutInflater.from(mActivity)
                 .inflate(R.layout.grant_permissions, null);
         mMessageView = (TextView) mRootView.findViewById(R.id.permission_message);
+        mDetailMessageView = mRootView.requireViewById(R.id.detail_message);
         mIconView = (ImageView) mRootView.findViewById(R.id.permission_icon);
         mCurrentGroupView = (TextView) mRootView.findViewById(R.id.current_page_text);
         mDoNotAskCheckbox = (CheckBox) mRootView.findViewById(R.id.do_not_ask_checkbox);
-
+        mSpacer = mRootView.requireViewById(R.id.detail_message_do_not_ask_checkbox_space);
         mAllowButton = (Button) mRootView.findViewById(R.id.permission_allow_button);
         mAllowButton.setOnClickListener(this);
 
@@ -251,11 +311,18 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
             mMoreInfoButton.setOnClickListener(this);
         }
 
+        mForegroundChooser = mRootView.requireViewById(R.id.foreground_or_always_radiogroup);
+        mForegroundOnlyOption = mRootView.requireViewById(R.id.foreground_only_radio_button);
+        mAlwaysOption = mRootView.requireViewById(R.id.always_radio_button);
+        mDenyAndDontAskAgainOption = mRootView.requireViewById(
+                R.id.deny_dont_ask_again_radio_button);
         mDescContainer = (ViewGroup) mRootView.findViewById(R.id.desc_container);
         mCurrentDesc = (ViewGroup) mRootView.findViewById(R.id.perm_desc_root);
 
         mRootView.findViewById(R.id.permission_deny_button).setOnClickListener(this);
         mDoNotAskCheckbox.setOnClickListener(this);
+        mDenyAndDontAskAgainOption.setOnClickListener(this);
+        mForegroundChooser.setOnCheckedChangeListener(this);
 
         ((ButtonBarLayout) mRootView.requireViewById(R.id.button_group)).setAllowStacking(true);
 
@@ -267,7 +334,7 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         dialogContainer.getLayoutTransition().setDuration(mInDuration);
 
         if (mGroupName != null) {
-            updateAll(false);
+            updateAll(false, false);
         }
 
         return mRootView;
@@ -285,6 +352,22 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         mMessageView.setText(mGroupMessage);
     }
 
+    private void updateDetailDescription() {
+        if (mDetailMessage == null) {
+            mDetailMessageView.setVisibility(View.GONE);
+            mSpacer.setVisibility(View.GONE);
+        } else {
+            if (mShowDonNotAsk) {
+                mSpacer.setVisibility(View.VISIBLE);
+            } else {
+                mSpacer.setVisibility(View.GONE);
+            }
+
+            mDetailMessageView.setText(mDetailMessage);
+            mDetailMessageView.setVisibility(View.VISIBLE);
+        }
+    }
+
     private void updateGroup() {
         if (mGroupCount > 1) {
             mCurrentGroupView.setVisibility(View.VISIBLE);
@@ -295,20 +378,48 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         }
     }
 
-    private void updateDoNotAskCheckBox(boolean isDoNotAskAgainChecked) {
-        if (mShowDonNotAsk) {
-            mDoNotAskCheckbox.setVisibility(View.VISIBLE);
-            mDoNotAskCheckbox.setChecked(isDoNotAskAgainChecked);
-        } else {
+    private void updateDoNotAskCheckBoxAndForegroundOption(boolean isDoNotAskAgainChecked,
+            boolean isAlwaysSelected) {
+        if (mShowForegroundChooser) {
+            mForegroundChooser.setVisibility(View.VISIBLE);
             mDoNotAskCheckbox.setVisibility(View.GONE);
+
+            if (isAlwaysSelected) {
+                mAlwaysOption.setSelected(true);
+            }
+
+            if (mShowDonNotAsk) {
+                mDenyAndDontAskAgainOption.setSelected(isDoNotAskAgainChecked);
+                mDenyAndDontAskAgainOption.setVisibility(View.VISIBLE);
+            } else {
+                mDenyAndDontAskAgainOption.setVisibility(View.GONE);
+            }
+        } else {
+            mForegroundChooser.setVisibility(View.GONE);
+            if (mShowDonNotAsk) {
+                mDoNotAskCheckbox.setVisibility(View.VISIBLE);
+                mDoNotAskCheckbox.setChecked(isDoNotAskAgainChecked);
+            } else {
+                mDoNotAskCheckbox.setVisibility(View.GONE);
+            }
         }
 
-        mAllowButton.setEnabled(!isDoNotAskAgainChecked());
+        mAllowButton.setEnabled(!isDoNotAskAgainChecked() && isOptionChosenIfNeeded());
     }
 
     private boolean isDoNotAskAgainChecked() {
-        return mDoNotAskCheckbox.getVisibility() == View.VISIBLE
-                && mDoNotAskCheckbox.isChecked();
+        return (mDoNotAskCheckbox.getVisibility() == View.VISIBLE
+                && mDoNotAskCheckbox.isChecked())
+                || (mDenyAndDontAskAgainOption.getVisibility() == View.VISIBLE
+                && mDenyAndDontAskAgainOption.isChecked());
+    }
+
+    private boolean isOptionChosenIfNeeded() {
+        return !mShowForegroundChooser
+                || (mForegroundOnlyOption.isChecked()
+                || (mDenyAndDontAskAgainOption.getVisibility() == View.VISIBLE
+                && mDenyAndDontAskAgainOption.isChecked())
+                || (mAlwaysOption.getVisibility() == View.VISIBLE && mAlwaysOption.isChecked()));
     }
 
     @Override
@@ -318,14 +429,19 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
                 if (mResultListener != null) {
                     view.performAccessibilityAction(
                             AccessibilityNodeInfo.ACTION_CLEAR_ACCESSIBILITY_FOCUS, null);
-                    mResultListener.onPermissionGrantResult(mGroupName, GRANTED);
+                    if (mShowForegroundChooser && mForegroundOnlyOption.isChecked()) {
+                        mResultListener.onPermissionGrantResult(mGroupName,
+                                GRANTED_FOREGROUND_ONLY);
+                    } else {
+                        mResultListener.onPermissionGrantResult(mGroupName, GRANTED_ALWAYS);
+                    }
                 }
                 break;
             case R.id.permission_deny_button:
                 if (mResultListener != null) {
                     view.performAccessibilityAction(
                             AccessibilityNodeInfo.ACTION_CLEAR_ACCESSIBILITY_FOCUS, null);
-                    if (mDoNotAskCheckbox.isChecked()) {
+                    if (isDoNotAskAgainChecked()) {
                         mResultListener.onPermissionGrantResult(mGroupName,
                                 DENIED_DO_NOT_ASK_AGAIN);
                     } else {
@@ -341,7 +457,7 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
                 break;
         }
 
-        mAllowButton.setEnabled(!isDoNotAskAgainChecked());
+        mAllowButton.setEnabled(!isDoNotAskAgainChecked() && isOptionChosenIfNeeded());
 
     }
 
@@ -350,5 +466,10 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         if (mResultListener != null) {
             mResultListener.onPermissionGrantResult(mGroupName, DENIED);
         }
+    }
+
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        mAllowButton.setEnabled(!isDoNotAskAgainChecked() && isOptionChosenIfNeeded());
     }
 }

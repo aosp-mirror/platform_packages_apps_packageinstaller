@@ -33,11 +33,12 @@ import java.lang.annotation.Retention;
  */
 public interface GrantPermissionsViewHandler {
     @Retention(SOURCE)
-    @IntDef({GRANTED, DENIED, DENIED_DO_NOT_ASK_AGAIN})
+    @IntDef({GRANTED_ALWAYS, GRANTED_FOREGROUND_ONLY, DENIED, DENIED_DO_NOT_ASK_AGAIN})
     @interface Result {}
-    int GRANTED = 0;
-    int DENIED = 1;
-    int DENIED_DO_NOT_ASK_AGAIN = 2;
+    int GRANTED_ALWAYS = 0;
+    int GRANTED_FOREGROUND_ONLY = 1;
+    int DENIED = 2;
+    int DENIED_DO_NOT_ASK_AGAIN = 3;
 
     /**
      * Listener interface for getting notified when the user responds to a
@@ -71,10 +72,14 @@ public interface GrantPermissionsViewHandler {
      * @param groupIndex the index of the current group being requested
      * @param icon the icon representation of the current group
      * @param message the message to display the user
+     * @param detailMessage another message to display to the user. This clarifies "message" in more
+     *                      detail
+     * @param showForegroundChooser whether to show the "only in foreground / always" option
      * @param showDoNotAsk whether to show the "do not ask again" option
      */
     void updateUi(String groupName, int groupCount, int groupIndex, Icon icon,
-            CharSequence message, boolean showDoNotAsk);
+            CharSequence message, CharSequence detailMessage, boolean showForegroundChooser,
+            boolean showDoNotAsk);
 
     /**
      * Sets the result listener that will be notified when the user responds
