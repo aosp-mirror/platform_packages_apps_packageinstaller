@@ -141,7 +141,7 @@ public final class AppPermissions {
                 AppPermissionGroup group = AppPermissionGroup.create(mContext, mPackageInfo,
                         requestedPerm);
                 if (group == null) {
-                    return;
+                    continue;
                 }
 
                 mGroups.add(group);
