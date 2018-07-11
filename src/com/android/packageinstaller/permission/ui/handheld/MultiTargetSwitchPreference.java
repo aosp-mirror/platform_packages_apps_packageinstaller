@@ -49,8 +49,9 @@ class MultiTargetSwitchPreference extends SwitchPreference {
         super.onBindView(view);
         Switch switchView = (Switch) view.findViewById(
                 com.android.internal.R.id.switch_widget);
+        switchView.setOnClickListener(mSwitchOnClickLister);
+
         if (mSwitchOnClickLister != null) {
-            switchView.setOnClickListener(mSwitchOnClickLister);
             final int padding = (int) ((view.getMeasuredHeight()
                     - switchView.getMeasuredHeight()) / 2 + 0.5f);
             switchView.setPadding(padding, padding, 0, padding);
