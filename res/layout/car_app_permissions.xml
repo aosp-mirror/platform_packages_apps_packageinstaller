@@ -16,6 +16,7 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -27,22 +28,22 @@
             android:id="@+id/action_bar_icon_container"
             android:layout_width="@dimen/car_margin"
             android:layout_height="@dimen/car_app_bar_height"
-            android:foreground="@drawable/car_list_item_background"
+            android:foreground="@drawable/button_ripple_bg"
             android:layout_alignParentStart="true">
             <ImageView
-                android:tint="@color/car_accent"
+                android:layout_width="@dimen/car_primary_icon_size"
+                android:layout_height="@dimen/car_primary_icon_size"
+                android:tint="@color/car_tint"
+                android:scaleType="fitCenter"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_arrow_back"
-                style="@style/ListIcon"/>
+                android:src="@drawable/ic_arrow_back"/>
         </FrameLayout>
         <TextView
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/car_margin"
-            android:layout_marginTop="@dimen/optical_center_offset"
-            android:textAppearance="@style/TextAppearance.Car.Title"
-            android:textColor="@color/car_accent"
+            android:textAppearance="@style/TextAppearance.Car.Title2"
             android:text="@string/app_permissions"
             android:layout_gravity="center_vertical"
             android:layout_centerVertical="true"
@@ -56,6 +57,12 @@
         android:layout_height="@dimen/car_list_divider_height"
         android:background="@color/car_list_divider"/>
 
-    <include layout="@layout/list" />
+    <androidx.car.widget.PagedListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:showPagedListViewDivider="true"
+        app:alignDividerStartTo="@id/container"
+        app:gutter="both"/>
 
 </LinearLayout>
