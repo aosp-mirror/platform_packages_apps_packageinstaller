@@ -102,7 +102,6 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
     private Button mMoreInfoButton;
     private ManualLayoutFrame mRootView;
     private ViewGroup mDescContainer;
-    private ViewGroup mCurrentDesc;
     private Space mSpacer;
 
     public GrantPermissionsViewHandlerImpl(Activity activity, String appPackageName) {
@@ -210,7 +209,7 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
                 .setInterpolator(interpolator)
                 .withEndAction(onAnimationFinished);
 
-        fadeOutView(mCurrentDesc, onAnimationFinished, interpolator);
+        fadeOutView(mDescContainer, onAnimationFinished, interpolator);
 
         if (mShowForegroundChooser || !mShowDonNotAsk) {
             numAnimationsActive.incrementAndGet();
@@ -246,11 +245,11 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
 
     private void animateNewContent() {
         // Unhide description and slide it in
-        mCurrentDesc.setTranslationX(mDescContainer.getWidth());
+        mDescContainer.setTranslationX(mDescContainer.getWidth());
         mIconView.setScaleX(1);
         mIconView.setScaleY(1);
-        mCurrentDesc.setAlpha(1);
-        mCurrentDesc.animate()
+        mDescContainer.setAlpha(1);
+        mDescContainer.animate()
                 .translationX(0)
                 .setDuration(mInDuration)
                 .setInterpolator(AnimationUtils.loadInterpolator(mActivity,
@@ -317,7 +316,6 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         mDenyAndDontAskAgainOption = mRootView.requireViewById(
                 R.id.deny_dont_ask_again_radio_button);
         mDescContainer = (ViewGroup) mRootView.findViewById(R.id.desc_container);
-        mCurrentDesc = (ViewGroup) mRootView.findViewById(R.id.perm_desc_root);
 
         mRootView.findViewById(R.id.permission_deny_button).setOnClickListener(this);
         mDoNotAskCheckbox.setOnClickListener(this);
@@ -328,10 +326,10 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
 
         // The appearing + disappearing animations are controlled manually, hence disable the
         // automatic animations
-        ViewGroup dialogContainer = mRootView.requireViewById(R.id.dialog_container);
-        dialogContainer.getLayoutTransition().disableTransitionType(LayoutTransition.APPEARING);
-        dialogContainer.getLayoutTransition().disableTransitionType(LayoutTransition.DISAPPEARING);
-        dialogContainer.getLayoutTransition().setDuration(mInDuration);
+        ViewGroup contentContainer = mRootView.requireViewById(R.id.content_container);
+        contentContainer.getLayoutTransition().disableTransitionType(LayoutTransition.APPEARING);
+        contentContainer.getLayoutTransition().disableTransitionType(LayoutTransition.DISAPPEARING);
+        contentContainer.getLayoutTransition().setDuration(mInDuration);
 
         if (mGroupName != null) {
             updateAll(false, false);

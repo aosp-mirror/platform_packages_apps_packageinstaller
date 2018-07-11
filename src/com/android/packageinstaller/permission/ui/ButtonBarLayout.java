@@ -21,6 +21,7 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
+
 import com.android.packageinstaller.R;
 
 /**
@@ -101,13 +102,6 @@ public class ButtonBarLayout extends LinearLayout {
         final View spacer = findViewById(R.id.spacer);
         if (spacer != null) {
             spacer.setVisibility(stacked ? View.GONE : View.INVISIBLE);
-        }
-
-        // Reverse the child order. This is specific to the Material button
-        // bar's layout XML and will probably not generalize.
-        final int childCount = getChildCount();
-        for (int i = childCount - 2; i >= 0; i--) {
-            bringChildToFront(getChildAt(i));
         }
     }
 
