@@ -14,184 +14,203 @@
      limitations under the License.
 -->
 
+<!-- Position subsequent dialogs with the button bar at same height -->
 <com.android.packageinstaller.permission.ui.ManualLayoutFrame
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:clipChildren="false"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="8dp"
-    android:paddingBottom="32dp"
-    android:clipToPadding="false">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false">
 
+    <!-- In (hopefully very rare) case dialog is too high: allow scrolling -->
     <ScrollView
         android:animateLayoutChanges="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipChildren="false">
 
         <LinearLayout
-            android:id="@+id/dialog_container"
             android:animateLayoutChanges="true"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:elevation="16dp"
-            android:background="@drawable/dialog_background">
+            android:orientation="horizontal"
+            android:clipChildren="false">
 
-            <FrameLayout
-                android:id="@+id/desc_container"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="18dip"
-                android:paddingStart="20dip"
-                android:paddingEnd="16dip">
-                <include
-                    layout="@layout/permission_description" />
-            </FrameLayout>
-
-            <RadioGroup
-                android:id="@+id/foreground_or_always_radiogroup"
-                android:animateLayoutChanges="true"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginStart="20dip"
-                android:layout_marginEnd="20dip"
-                android:layout_marginBottom="-12dp" >
-
-                <RadioButton
-                    android:id="@+id/foreground_only_radio_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/allow_permission_foreground_only"
-                    style="@android:attr/radioButtonStyle" />
-
-                <RadioButton
-                    android:id="@+id/always_radio_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/allow_permission_always"
-                    style="@android:attr/radioButtonStyle" />
-
-                <RadioButton
-                    android:id="@+id/deny_dont_ask_again_radio_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/deny_permission_deny_and_dont_ask_again"
-                    style="@android:attr/radioButtonStyle" />
-
-            </RadioGroup>
-
-            <TextView
-                android:id="@+id/detail_message"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginStart="20dip"
-                android:layout_marginEnd="20dip"
-                android:layout_marginBottom="-12dp"
-                android:textColor="?android:attr/textColorPrimary"
-                style="?android:attr/textAppearanceSmall"/>
-
+            <!-- allow some space around dialog, esp. in landscape -->
             <Space
-                android:id="@+id/detail_message_do_not_ask_checkbox_space"
-                android:layout_width="match_parent"
-                android:layout_height="12dp" />
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="10"
+                android:visibility="invisible" />
 
-            <CheckBox
-                android:id="@+id/do_not_ask_checkbox"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginStart="20dip"
-                android:layout_marginEnd="16dip"
-                android:layout_marginBottom="-12dp"
-                android:minHeight="48dp"
-                android:text="@string/never_ask_again"
-                android:textColor="?android:attr/textColorPrimary"
-                style="?android:attr/textAppearanceSmall" />
-
+            <!-- The dialog -->
             <LinearLayout
-                android:layout_width="fill_parent"
+                android:animateLayoutChanges="true"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingStart="26dip"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp"
-                android:paddingEnd="16dip">
+                android:layout_width="0dp"
+                android:orientation="vertical"
+                android:theme="@*android:style/Theme.DeviceDefault.Light.Dialog.PermissionGrant"
+                style="@*android:style/PermissionGrantDialog">
 
+                <!-- Title of dialog -->
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:id="@+id/desc_container"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-                    <!-- dummy to enforce correct height -->
-                    <Button
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        style="?android:attr/buttonBarButtonStyle"
-                        android:visibility="invisible">
-                    </Button>
+                    android:orientation="horizontal"
+                    style="@*android:style/PermissionGrantDescription">
+
+                    <ImageView
+                        android:id="@+id/permission_icon"
+                        style="@*android:style/PermissionGrantTitleIcon" />
 
                     <TextView
-                        android:id="@+id/current_page_text"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/permission_message"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingEnd="12dp"
-                        android:singleLine="true"
-                        style="?android:attr/textAppearanceSmall"
-                        android:textColor="?android:attr/textColorSecondary"
-                        android:visibility="gone">
-                    </TextView>
+                        style="?android:attr/titleTextStyle" />
 
-                    <Button
-                        android:id="@+id/permission_more_info_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        style="?android:attr/buttonBarButtonStyle"
-                        android:text="@string/grant_dialog_button_more_info"
-                        android:visibility="gone">
-                    </Button>
                 </LinearLayout>
 
-                <com.android.packageinstaller.permission.ui.ButtonBarLayout
-                    android:id="@+id/button_group"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/content_container"
+                    android:animateLayoutChanges="true"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:gravity="bottom">
+                    android:orientation="vertical"
+                    style="@*android:style/PermissionGrantContent" >
 
+                    <!-- Option one: Show a radio group of foreground / always / deny -->
+                    <RadioGroup
+                        android:id="@+id/foreground_or_always_radiogroup"
+                        android:animateLayoutChanges="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@*android:style/PermissionGrantRadioGroup" >
+
+                        <RadioButton
+                            android:id="@+id/foreground_only_radio_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/allow_permission_foreground_only"
+                            style="@android:attr/radioButtonStyle" />
+
+                        <RadioButton
+                            android:id="@+id/always_radio_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/allow_permission_always"
+                            style="@android:attr/radioButtonStyle" />
+
+                        <RadioButton
+                            android:id="@+id/deny_dont_ask_again_radio_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/deny_permission_deny_and_dont_ask_again"
+                            style="@android:attr/radioButtonStyle" />
+
+                    </RadioGroup>
+
+                    <!-- Option two: Show a detailed message about the change -->
+                    <TextView
+                        android:id="@+id/detail_message"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@*android:style/PermissionGrantDetailMessage" />
+
+                    <!-- Shown when detail_message and do_not_ask_checkbox are shown -->
                     <Space
-                        android:id="@+id/spacer"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
+                        android:id="@+id/detail_message_do_not_ask_checkbox_space"
+                        android:layout_width="match_parent"
+                        style="@*android:style/PermissionGrantDetailMessageSpace" />
+
+                    <!-- Either with option two or by itself: Show a checkbox allowing to deny with
+                         prejudice -->
+                    <CheckBox
+                        android:id="@+id/do_not_ask_checkbox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/never_ask_again"
+                        style="@android:attr/checkboxStyle" />
+
+                </LinearLayout>
+
+                <!-- Button row on bottom of dialog -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="bottom"
+                    style="?android:attr/buttonBarStyle">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <!-- dummy to enforce height -->
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:visibility="invisible"
+                            style="?android:attr/buttonBarButtonStyle" />
+
+                        <!-- If several dialogs are shown in a row, show e.g. "1/3" -->
+                        <TextView
+                            android:id="@+id/current_page_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@*android:style/PermissionGrantIndex" />
+
+                    </LinearLayout>
+
+                    <com.android.packageinstaller.permission.ui.ButtonBarLayout
+                        android:id="@+id/button_group"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:visibility="invisible" >
-                    </Space>
+                        android:orientation="horizontal"
+                        android:gravity="end">
 
-                    <Button
-                        android:id="@+id/permission_deny_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        style="?android:attr/buttonBarButtonStyle"
-                        android:text="@string/grant_dialog_button_deny" >
-                    </Button>
+                        <Button
+                            android:id="@+id/permission_more_info_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/grant_dialog_button_more_info"
+                            android:visibility="gone"
+                            style="?android:attr/buttonBarButtonStyle" />
 
-                    <Button
-                        android:id="@+id/permission_allow_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        style="?android:attr/buttonBarButtonStyle"
-                        android:text="@string/grant_dialog_button_allow" >
-                    </Button>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:visibility="invisible" />
 
-                </com.android.packageinstaller.permission.ui.ButtonBarLayout>
+                        <Button
+                            android:id="@+id/permission_deny_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/grant_dialog_button_deny"
+                            style="?android:attr/buttonBarButtonStyle" />
+
+                        <Button
+                            android:id="@+id/permission_allow_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/grant_dialog_button_allow"
+                            style="?android:attr/buttonBarButtonStyle" />
+
+                     </com.android.packageinstaller.permission.ui.ButtonBarLayout>
+
+                </LinearLayout>
 
             </LinearLayout>
+
+            <!-- allow some space around dialog, esp. in landscape -->
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="10"
+                android:visibility="invisible" />
 
         </LinearLayout>
 
