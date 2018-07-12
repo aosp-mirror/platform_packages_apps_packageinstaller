@@ -18,8 +18,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Space;
 
-import androidx.wear.ble.view.AcceptDenyDialog;
-import androidx.wear.ble.view.WearableDialogHelper;
+import android.support.wearable.view.AcceptDenyDialog;
+import android.support.wearable.view.WearableDialogHelper;
 
 import com.android.packageinstaller.R;
 
