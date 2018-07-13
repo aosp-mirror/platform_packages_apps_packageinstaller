@@ -440,6 +440,19 @@ class PermissionPreference extends RestrictedSwitchPreference {
                 getRequestMessage(getAppLabel(), mGroup, getContext(), mGroup.getRequest()));
         args.putString(BackgroundAccessChooser.KEY, getKey());
 
+
+        if (mGroup.areRuntimePermissionsGranted()) {
+            if (mGroup.getBackgroundPermissions().areRuntimePermissionsGranted()) {
+                args.putInt(BackgroundAccessChooser.SELECTION,
+                        BackgroundAccessChooser.ALWAYS_OPTION);
+            } else {
+                args.putInt(BackgroundAccessChooser.SELECTION,
+                        BackgroundAccessChooser.FOREGROUND_ONLY_OPTION);
+            }
+        } else {
+            args.putInt(BackgroundAccessChooser.SELECTION, BackgroundAccessChooser.NEVER_OPTION);
+        }
+
         BackgroundAccessChooser chooserDialog = new BackgroundAccessChooser();
         chooserDialog.setArguments(args);
         chooserDialog.show(mFragment.getChildFragmentManager().beginTransaction(),
@@ -486,16 +499,16 @@ class PermissionPreference extends RestrictedSwitchPreference {
         AppPermissionGroup backgroundGroup = mGroup.getBackgroundPermissions();
 
         switch (choosenItem) {
-            case 0: // Always
+            case BackgroundAccessChooser.ALWAYS_OPTION:
                 requestChange(true, CHANGE_BOTH);
                 break;
-            case 1: // Foreground only
+            case BackgroundAccessChooser.FOREGROUND_ONLY_OPTION:
                 if (backgroundGroup.areRuntimePermissionsGranted()) {
                     requestChange(false, CHANGE_BACKGROUND);
                 }
                 requestChange(true, CHANGE_FOREGROUND);
                 break;
-            case 2: // Never
+            case BackgroundAccessChooser.NEVER_OPTION:
                 if (mGroup.areRuntimePermissionsGranted()
                         || mGroup.getBackgroundPermissions().areRuntimePermissionsGranted()) {
                     requestChange(false, CHANGE_BOTH);
@@ -540,12 +553,20 @@ class PermissionPreference extends RestrictedSwitchPreference {
     public static class BackgroundAccessChooser extends DialogFragment {
         private static final String TITLE = BackgroundAccessChooser.class.getName() + ".arg.title";
         private static final String KEY = BackgroundAccessChooser.class.getName() + ".arg.key";
+        private static final String SELECTION = BackgroundAccessChooser.class.getName()
+                + ".arg.selection";
+
+        // Needs to match the entries in R.array.background_access_chooser_dialog_choices
+        static final int ALWAYS_OPTION = 0;
+        static final int FOREGROUND_ONLY_OPTION = 1;
+        static final int NEVER_OPTION = 2;
 
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             AlertDialog.Builder b = new AlertDialog.Builder(getActivity())
                     .setTitle(getArguments().getCharSequence(TITLE))
-                    .setSingleChoiceItems(R.array.background_access_chooser_dialog_choices, -1,
+                    .setSingleChoiceItems(R.array.background_access_chooser_dialog_choices,
+                            getArguments().getInt(SELECTION),
                             (dialog, which) -> {
                                 dismissAllowingStateLoss();
                                 ((PermissionPreferenceOwnerFragment) getParentFragment())
