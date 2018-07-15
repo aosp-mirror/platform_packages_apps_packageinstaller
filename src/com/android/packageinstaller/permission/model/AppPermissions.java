@@ -136,28 +136,30 @@ public final class AppPermissions {
         mGroupNameToGroup.clear();
         mPermissionNameToGroup.clear();
 
-        for (String requestedPerm : mPackageInfo.requestedPermissions) {
-            if (getGroupForPermission(requestedPerm) == null) {
-                AppPermissionGroup group = AppPermissionGroup.create(mContext, mPackageInfo,
-                        requestedPerm);
-                if (group == null) {
-                    continue;
-                }
+        if (mPackageInfo.requestedPermissions != null) {
+            for (String requestedPerm : mPackageInfo.requestedPermissions) {
+                if (getGroupForPermission(requestedPerm) == null) {
+                    AppPermissionGroup group = AppPermissionGroup.create(mContext, mPackageInfo,
+                            requestedPerm);
+                    if (group == null) {
+                        continue;
+                    }
 
-                mGroups.add(group);
-                mGroupNameToGroup.put(group.getName(), group);
+                    mGroups.add(group);
+                    mGroupNameToGroup.put(group.getName(), group);
 
-                addAllPermissions(group);
+                    addAllPermissions(group);
 
-                AppPermissionGroup backgroundGroup = group.getBackgroundPermissions();
-                if (backgroundGroup != null) {
-                    addAllPermissions(backgroundGroup);
+                    AppPermissionGroup backgroundGroup = group.getBackgroundPermissions();
+                    if (backgroundGroup != null) {
+                        addAllPermissions(backgroundGroup);
+                    }
                 }
             }
-        }
 
-        if (mSortGroups) {
-            Collections.sort(mGroups);
+            if (mSortGroups) {
+                Collections.sort(mGroups);
+            }
         }
     }
 
