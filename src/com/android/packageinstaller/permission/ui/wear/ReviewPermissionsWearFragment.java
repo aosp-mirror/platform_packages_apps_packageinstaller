@@ -35,7 +35,7 @@ import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.util.TypedValue;
 
-import android.support.wearable.view.WearableDialogHelper;
+import androidx.wear.ble.view.WearableDialogHelper;
 
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;

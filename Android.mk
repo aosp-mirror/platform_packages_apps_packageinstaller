@@ -8,8 +8,6 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_SRC_FILES := \
     $(call all-java-files-under, src)
 
-LOCAL_JAVA_LIBRARIES := prebuilt-com.google.android.wearable
-
 LOCAL_STATIC_ANDROID_LIBRARIES += \
     androidx.car_car \
     androidx.design_design \
@@ -25,8 +23,7 @@ LOCAL_STATIC_ANDROID_LIBRARIES += \
     androidx.legacy_legacy-preference-v14 \
     androidx.leanback_leanback \
     androidx.leanback_leanback-preference \
-    SettingsLib \
-    wearable-support \
+    SettingsLib
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
     xz-java \
