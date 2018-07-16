@@ -22,7 +22,6 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.AppGlobals;
-import android.app.IActivityManager;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -34,10 +33,9 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.RemoteException;
-import androidx.annotation.Nullable;
 import android.util.Log;
 
-import com.android.internal.annotations.VisibleForTesting;
+import androidx.annotation.Nullable;
 
 /**
  * Select which activity is the first visible activity of the installation and forward the intent to
@@ -47,7 +45,6 @@ public class InstallStart extends Activity {
     private static final String LOG_TAG = InstallStart.class.getSimpleName();
 
     private static final String DOWNLOADS_AUTHORITY = "downloads";
-    private IActivityManager mIActivityManager;
     private IPackageManager mIPackageManager;
     private boolean mAbortInstall = false;
 
@@ -184,7 +181,7 @@ public class InstallStart extends Activity {
             callingUid = sourceInfo.uid;
         } else {
             try {
-                callingUid = getIActivityManager()
+                callingUid = ActivityManager.getService()
                         .getLaunchedFromUid(getActivityToken());
             } catch (RemoteException ex) {
                 // Cannot reach ActivityManager. Aborting install.
@@ -217,17 +214,5 @@ public class InstallStart extends Activity {
         }
         final ApplicationInfo appInfo = downloadProviderPackage.applicationInfo;
         return (appInfo.isSystemApp() && uid == appInfo.uid);
-    }
-
-    private IActivityManager getIActivityManager() {
-        if (mIActivityManager == null) {
-            return ActivityManager.getService();
-        }
-        return mIActivityManager;
-    }
-
-    @VisibleForTesting
-    void injectIActivityManager(IActivityManager iActivityManager) {
-        mIActivityManager = iActivityManager;
     }
 }
