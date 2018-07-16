@@ -34,7 +34,7 @@ import android.util.ArraySet;
 import android.util.Log;
 import android.widget.Toast;
 
-import androidx.wear.ble.view.WearableDialogHelper;
+import android.support.wearable.view.WearableDialogHelper;
 
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
