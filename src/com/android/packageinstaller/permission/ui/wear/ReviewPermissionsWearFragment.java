@@ -23,18 +23,18 @@ import android.content.pm.PackageInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.RemoteCallback;
-import android.preference.Preference;
-import android.preference.PreferenceCategory;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceGroup;
-import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
-import android.preference.TwoStatePreference;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.util.TypedValue;
 
+import androidx.preference.Preference;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceGroup;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreference;
+import androidx.preference.TwoStatePreference;
 import androidx.wear.ble.view.WearableDialogHelper;
 
 import com.android.packageinstaller.R;
@@ -44,11 +44,10 @@ import com.android.packageinstaller.permission.utils.Utils;
 
 import java.util.List;
 
-public class ReviewPermissionsWearFragment extends PreferenceFragment
+public class ReviewPermissionsWearFragment extends PreferenceFragmentCompat
         implements Preference.OnPreferenceChangeListener {
     private static final String TAG = "ReviewPermWear";
 
-    private static final int ORDER_TITLE = 0;
     private static final int ORDER_NEW_PERMS = 1;
     private static final int ORDER_CURRENT_PERMS = 2;
     // Category for showing actions should be displayed last.
@@ -74,9 +73,7 @@ public class ReviewPermissionsWearFragment extends PreferenceFragment
     private boolean mHasConfirmedRevoke;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         Activity activity = getActivity();
         if (activity == null) {
             return;
@@ -89,12 +86,7 @@ public class ReviewPermissionsWearFragment extends PreferenceFragment
         }
 
         mAppPermissions = new AppPermissions(activity, packageInfo, false,
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        getActivity().finish();
-                    }
-                });
+                () -> getActivity().finish());
 
         if (mAppPermissions.getPermissionGroups().isEmpty()) {
             activity.finish();
