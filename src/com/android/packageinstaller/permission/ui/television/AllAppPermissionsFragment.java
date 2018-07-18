@@ -302,7 +302,7 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
     }
 
     private boolean isMutableGranularPermission(String name) {
-        if (!getContext().getPackageManager().isPermissionReviewModeEnabled()) {
+        if (!getContext().getPackageManager().arePermissionsIndividuallyControlled()) {
             return false;
         }
         switch (name) {

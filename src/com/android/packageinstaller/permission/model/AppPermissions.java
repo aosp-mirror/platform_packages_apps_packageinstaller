@@ -92,9 +92,6 @@ public final class AppPermissions {
     }
 
     public boolean isReviewRequired() {
-        if (!mContext.getPackageManager().isPermissionReviewModeEnabled()) {
-            return false;
-        }
         final int groupCount = mGroups.size();
         for (int i = 0; i < groupCount; i++) {
             AppPermissionGroup group = mGroups.get(i);

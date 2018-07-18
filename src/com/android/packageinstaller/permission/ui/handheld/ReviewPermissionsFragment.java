@@ -267,9 +267,12 @@ public final class ReviewPermissionsFragment extends PreferenceFragmentCompat
         mCancelButton = getActivity().requireViewById(R.id.cancel_button);
         mCancelButton.setOnClickListener(this);
 
-        mMoreInfoButton = getActivity().requireViewById(
-                R.id.permission_more_info_button);
-        mMoreInfoButton.setOnClickListener(this);
+        if (activity.getPackageManager().arePermissionsIndividuallyControlled()) {
+            mMoreInfoButton = getActivity().requireViewById(
+                    R.id.permission_more_info_button);
+            mMoreInfoButton.setOnClickListener(this);
+            mMoreInfoButton.setVisibility(View.VISIBLE);
+        }
     }
 
     private void loadPreferences() {
