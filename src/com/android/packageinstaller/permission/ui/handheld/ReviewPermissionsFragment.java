@@ -17,26 +17,28 @@
 package com.android.packageinstaller.permission.ui.handheld;
 
 import android.app.Activity;
-import android.app.DialogFragment;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.RemoteCallback;
-import android.preference.Preference;
-import android.preference.PreferenceCategory;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceGroup;
-import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
-import android.preference.TwoStatePreference;
 import android.text.Html;
 import android.text.Spanned;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceGroup;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreference;
+import androidx.preference.TwoStatePreference;
 
 import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
@@ -50,11 +52,11 @@ import com.android.packageinstaller.permission.utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class ReviewPermissionsFragment extends PreferenceFragment
+public final class ReviewPermissionsFragment extends PreferenceFragmentCompat
         implements View.OnClickListener, Preference.OnPreferenceChangeListener,
         ConfirmActionDialogFragment.OnActionConfirmedListener {
 
-    public static final String EXTRA_PACKAGE_INFO =
+    private static final String EXTRA_PACKAGE_INFO =
             "com.android.packageinstaller.permission.ui.extra.PACKAGE_INFO";
 
     private AppPermissions mAppPermissions;
@@ -78,9 +80,7 @@ public final class ReviewPermissionsFragment extends PreferenceFragment
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         Activity activity = getActivity();
         if (activity == null) {
             return;
@@ -93,12 +93,7 @@ public final class ReviewPermissionsFragment extends PreferenceFragment
         }
 
         mAppPermissions = new AppPermissions(activity, packageInfo, false,
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        getActivity().finish();
-                    }
-                });
+                () -> getActivity().finish());
 
         if (mAppPermissions.getPermissionGroups().isEmpty()) {
             activity.finish();
@@ -119,7 +114,7 @@ public final class ReviewPermissionsFragment extends PreferenceFragment
     }
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         bindUi();
     }
@@ -182,7 +177,7 @@ public final class ReviewPermissionsFragment extends PreferenceFragment
     private void showWarnRevokeDialog(final String groupName) {
         DialogFragment fragment = ConfirmActionDialogFragment.newInstance(
                 getString(R.string.old_sdk_deny_warning), groupName);
-        fragment.show(getFragmentManager(), fragment.getClass().getName());
+        fragment.show(getActivity().getSupportFragmentManager(), fragment.getClass().getName());
     }
 
     private void grantReviewedPermission(AppPermissionGroup group) {
@@ -248,7 +243,7 @@ public final class ReviewPermissionsFragment extends PreferenceFragment
         // Set icon
         Drawable icon = mAppPermissions.getPackageInfo().applicationInfo.loadIcon(
                 activity.getPackageManager());
-        ImageView iconView = (ImageView) activity.findViewById(R.id.app_icon);
+        ImageView iconView = activity.requireViewById(R.id.app_icon);
         iconView.setImageDrawable(icon);
 
         // Set message
@@ -262,17 +257,17 @@ public final class ReviewPermissionsFragment extends PreferenceFragment
         activity.setTitle(message.toString());
 
         // Color the app name.
-        TextView permissionsMessageView = (TextView) activity.findViewById(
+        TextView permissionsMessageView = activity.requireViewById(
                 R.id.permissions_message);
         permissionsMessageView.setText(message);
 
-        mContinueButton = (Button) getActivity().findViewById(R.id.continue_button);
+        mContinueButton = getActivity().requireViewById(R.id.continue_button);
         mContinueButton.setOnClickListener(this);
 
-        mCancelButton = (Button) getActivity().findViewById(R.id.cancel_button);
+        mCancelButton = getActivity().requireViewById(R.id.cancel_button);
         mCancelButton.setOnClickListener(this);
 
-        mMoreInfoButton = (Button) getActivity().findViewById(
+        mMoreInfoButton = getActivity().requireViewById(
                 R.id.permission_more_info_button);
         mMoreInfoButton.setOnClickListener(this);
     }
