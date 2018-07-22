@@ -89,6 +89,10 @@
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"ยืนยันการปฏิเสธ"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> จาก <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> รายการ"</string>
     <string name="permission_warning_template" msgid="7332275268559121742">"อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>ไหม"</string>
+    <string name="permission_add_background_warning_template" msgid="5391175001698541141">"อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>ทุกครั้งใช่ไหม"</string>
+    <string name="allow_permission_foreground_only" msgid="1016389465002335286">"ขณะใช้แอปเท่านั้น"</string>
+    <string name="allow_permission_always" msgid="7047379650123289823">"ตลอดเวลา"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8003202275002645629">"ปฏิเสธและไม่ต้องถามอีก"</string>
     <string name="permission_revoked_count" msgid="7386129423432613024">"ปิดใช้ <xliff:g id="COUNT">%1$d</xliff:g> สิทธิ์"</string>
     <string name="permission_revoked_all" msgid="8595742638132863678">"ปิดใช้สิทธิ์ทั้งหมด"</string>
     <string name="permission_revoked_none" msgid="2059511550181271342">"ไม่มีการปิดใช้สิทธิ์"</string>
@@ -108,12 +112,21 @@
     <string name="app_permissions_group_summary" msgid="4787239772223699263">"อนุญาตแล้ว <xliff:g id="COUNT_0">%1$d</xliff:g> จาก <xliff:g id="COUNT_1">%2$d</xliff:g> แอป"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"แสดงระบบ"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"ซ่อนระบบ"</string>
-    <string name="permission_title" msgid="6495415273398916381">"สิทธิ์ในการใช้ <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
     <string name="no_apps" msgid="1965493419005012569">"ไม่มีแอป"</string>
     <string name="location_settings" msgid="1774875730854491297">"การตั้งค่าตำแหน่ง"</string>
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> เป็นผู้ให้บริการตำแหน่งสำหรับอุปกรณ์นี้ คุณสามารถแก้ไขสิทธิ์เข้าถึงตำแหน่งได้จากการตั้งค่าตำแหน่ง"</string>
     <string name="system_warning" msgid="7103819124542305179">"หากคุณปฏิเสธสิทธิ์นี้ ฟีเจอร์พื้นฐานของอุปกรณ์อาจไม่ทำงานตามที่ควรจะเป็นอีกต่อไป"</string>
     <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"บังคับใช้โดยนโยบาย"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="160007162349980265">"ปิดใช้การเข้าถึงในเบื้องหลังโดยนโยบาย"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="4834971700297385342">"เปิดใช้การเข้าถึงในเบื้องหลังโดยนโยบาย"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="5150061275247925588">"เปิดใช้การเข้าถึงในเบื้องหน้าโดยนโยบาย"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="1702707982488952544">"ผู้ดูแลระบบเป็นผู้ควบคุม"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
+    <string name="permission_access_always" msgid="5642491469836594184">"ตลอดเวลา"</string>
+    <string name="permission_access_only_foreground" msgid="6906814759741316041">"ขณะใช้แอปเท่านั้น"</string>
+    <string name="permission_access_never" msgid="1258330706341318622">"ไม่เลย"</string>
     <string name="loading" msgid="7811651799620593731">"กำลังโหลด…"</string>
     <string name="all_permissions" msgid="5156669007784613042">"สิทธิ์ทั้งหมด"</string>
     <string name="other_permissions" msgid="2016192512386091933">"ความสามารถอื่นๆ ของแอป"</string>

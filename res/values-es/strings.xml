@@ -89,6 +89,10 @@
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Denegar de todos modos"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> de <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="7332275268559121742">"¿Permitir a &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_add_background_warning_template" msgid="5391175001698541141">"¿Quieres permitir siempre que &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="allow_permission_foreground_only" msgid="1016389465002335286">"Solo mientras se usa la aplicación"</string>
+    <string name="allow_permission_always" msgid="7047379650123289823">"Siempre"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8003202275002645629">"Denegar y no volver a preguntar"</string>
     <string name="permission_revoked_count" msgid="7386129423432613024">"Inhabilitados: <xliff:g id="COUNT">%1$d</xliff:g>"</string>
     <string name="permission_revoked_all" msgid="8595742638132863678">"todos inhabilitados"</string>
     <string name="permission_revoked_none" msgid="2059511550181271342">"ninguno inhabilitado"</string>
@@ -108,12 +112,21 @@
     <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> de <xliff:g id="COUNT_1">%2$d</xliff:g> aplicaciones permitidas"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"Mostrar aplicaciones del sistema"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"Ocultar aplicaciones del sistema"</string>
-    <string name="permission_title" msgid="6495415273398916381">"Permisos: <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
     <string name="no_apps" msgid="1965493419005012569">"No hay aplicaciones"</string>
     <string name="location_settings" msgid="1774875730854491297">"Ajustes de ubicación"</string>
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> es un proveedor de servicios de ubicación de este dispositivo. El acceso a la ubicación se puede modificar en los ajustes de ubicación."</string>
     <string name="system_warning" msgid="7103819124542305179">"Si rechazas este permiso, es posible que funciones básicas de tu dispositivo dejen de funcionar correctamente."</string>
     <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Aplicado por política"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="160007162349980265">"Acceso en segundo plano inhabilitado por política"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="4834971700297385342">"Acceso en segundo plano habilitado por política"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="5150061275247925588">"Acceso en primer plano habilitado por política"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="1702707982488952544">"Controlado por el administrador"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
+    <string name="permission_access_always" msgid="5642491469836594184">"Siempre"</string>
+    <string name="permission_access_only_foreground" msgid="6906814759741316041">"Solo mientras se usa la app"</string>
+    <string name="permission_access_never" msgid="1258330706341318622">"Nunca"</string>
     <string name="loading" msgid="7811651799620593731">"Cargando..."</string>
     <string name="all_permissions" msgid="5156669007784613042">"Todos los permisos"</string>
     <string name="other_permissions" msgid="2016192512386091933">"Otras funciones de la aplicación"</string>

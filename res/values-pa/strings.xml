@@ -89,6 +89,10 @@
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"ਫੇਰ ਵੀ ਅਸਵੀਕਾਰ ਕਰੋ"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> ਦਾ <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="7332275268559121742">"ਕੀ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ਨੂੰ <xliff:g id="ACTION">%2$s</xliff:g> ਦੀ ਆਗਿਆ ਦੇਣੀ ਹੈ?"</string>
+    <string name="permission_add_background_warning_template" msgid="5391175001698541141">"ਹਮੇਸ਼ਾਂ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ਨੂੰ <xliff:g id="ACTION">%2$s</xliff:g> ਕਰਨ ਦਿਓ?"</string>
+    <string name="allow_permission_foreground_only" msgid="1016389465002335286">"ਸਿਰਫ਼ ਐਪ ਵਰਤਣ ਵੇਲੇ"</string>
+    <string name="allow_permission_always" msgid="7047379650123289823">"ਹਮੇਸ਼ਾਂ"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8003202275002645629">"ਅਸਵੀਕਾਰ ਕਰੋ ਅਤੇ ਦੁਬਾਰਾ ਨਾ ਪੁੱਛੋ"</string>
     <string name="permission_revoked_count" msgid="7386129423432613024">"<xliff:g id="COUNT">%1$d</xliff:g> ਨੂੰ ਅਯੋਗ ਬਣਾਇਆ ਗਿਆ ਹੈ"</string>
     <string name="permission_revoked_all" msgid="8595742638132863678">"ਸਭ ਨੂੰ ਅਯੋਗ ਬਣਾਇਆ ਗਿਆ ਹੈ"</string>
     <string name="permission_revoked_none" msgid="2059511550181271342">"ਕਿਸੇ ਨੂੰ ਵੀ ਅਯੋਗ ਨਹੀਂ ਬਣਾਇਆ ਗਿਆ ਹੈ"</string>
@@ -108,12 +112,21 @@
     <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_1">%2$d</xliff:g> ਵਿੱਚੋਂ <xliff:g id="COUNT_0">%1$d</xliff:g> ਐਪਾਂ ਨੂੰ ਆਗਿਆ ਦਿੱਤੀ"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"ਸਿਸਟਮ ਦਿਖਾਓ"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"ਸਿਸਟਮ ਲੁਕਾਓ"</string>
-    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> ਇਜਾਜ਼ਤਾਂ"</string>
     <string name="no_apps" msgid="1965493419005012569">"ਕੋਈ ਐਪਾਂ ਨਹੀਂ"</string>
     <string name="location_settings" msgid="1774875730854491297">"ਟਿਕਾਣਾ ਸੈਟਿੰਗਾਂ"</string>
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> ਇਸ ਡੀਵਾਈਸ ਲਈ ਟਿਕਾਣਾ ਸੇਵਾਵਾਂ ਦਾ ਇੱਕ ਪ੍ਰਦਾਤਾ ਹੈ। ਟਿਕਾਣਾ ਪਹੁੰਚ ਨੂੰ ਟਿਕਾਣਾ ਸੈਟਿੰਗਾਂ ਤੋਂ ਸੰਸ਼ੋਧਿਤ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ।"</string>
     <string name="system_warning" msgid="7103819124542305179">"ਜੇਕਰ ਤੁਸੀਂ ਇਸ ਇਜਾਜ਼ਤ ਨੂੰ ਅਸਵੀਕਾਰ ਕਰਦੇ ਹੋ, ਤਾਂ ਤੁੁਹਾਡੇ ਡੀਵਾਈਸ ਦੀਆਂ ਮੂੂਲ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਆਪਣੇ ਫੰਕਸ਼ਨ ਮੁਤਾਬਕ ਕੰਮ ਨਹੀਂ ਵੀ ਕਰ ਸਕਦੀਆਂ।"</string>
     <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"ਨੀਤੀ ਮੁਤਾਬਕ ਲਾਗੂ ਕੀਤਾ"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="160007162349980265">"ਨੀਤੀ ਵੱਲੋਂ ਬੈਕਗ੍ਰਾਊਂਡ ਪਹੁੰਚ ਨੂੰ ਬੰਦ ਕੀਤਾ ਗਿਆ"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="4834971700297385342">"ਨੀਤੀ ਵੱਲੋਂ ਬੈਕਗ੍ਰਾਊਂਡ ਪਹੁੰਚ ਨੂੰ ਚਾਲੂ ਕੀਤਾ ਗਿਆ"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="5150061275247925588">"ਨੀਤੀ ਵੱਲੋਂ ਫੋਰਗ੍ਰਾਊਂਡ ਪਹੁੰਚ ਨੂੰ ਚਾਲੂ ਕੀਤਾ ਗਿਆ"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="1702707982488952544">"ਪ੍ਰਸ਼ਾਸਕ ਵੱਲੋਂ ਕੰਟਰੋਲ ਕੀਤੀ ਗਈ"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
+    <string name="permission_access_always" msgid="5642491469836594184">"ਹਮੇਸ਼ਾਂ"</string>
+    <string name="permission_access_only_foreground" msgid="6906814759741316041">"ਸਿਰਫ਼ ਐਪ ਵਰਤਣ ਦੌਰਾਨ"</string>
+    <string name="permission_access_never" msgid="1258330706341318622">"ਕਦੇ ਵੀ ਨਹੀਂ"</string>
     <string name="loading" msgid="7811651799620593731">"ਲੋਡ ਕਰ ਰਿਹਾ ਹੈ…"</string>
     <string name="all_permissions" msgid="5156669007784613042">"ਸਾਰੀਆਂ ਅਨੁਮਤੀਆਂ"</string>
     <string name="other_permissions" msgid="2016192512386091933">"ਹੋਰ ਐਪ ਸਮਰੱਥਤਾਵਾਂ"</string>
