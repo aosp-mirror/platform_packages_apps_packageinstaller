@@ -19,8 +19,6 @@
     <string name="app_name">Package installer</string>
 
     <!-- [CHAR LIMIT=15] -->
-    <string name="next">Next</string>
-    <!-- [CHAR LIMIT=15] -->
     <string name="install">Install</string>
     <!-- [CHAR LIMIT=15] -->
     <string name="done">Done</string>
@@ -33,11 +31,8 @@
     <!-- [CHAR LIMIT=100] -->
     <string name="install_done">App installed.</string>
     <!-- Message for installing a new app that requires some permissions [CHAR LIMIT=NONE] -->
-    <string name="install_confirm_question">Do you want to install this application?
-            It will get access to:</string>
     <!-- Message for installing a new app that does not require permissions [CHAR LIMIT=NONE] -->
-    <string name="install_confirm_question_no_perms">Do you want to install this application?
-            It does not require any special access.</string>
+    <string name="install_confirm_question">Do you want to install this application?</string>
     <!-- Message for updating an existing app [CHAR LIMIT=NONE] -->
     <string name="install_confirm_question_update">Do you want to install an update
             to this existing application?  Your existing data will not
@@ -46,14 +41,6 @@
     <string name="install_confirm_question_update_system">Do you want to install an update
             to this built-in application?  Your existing data will not
             be lost.  The updated application will get access to:</string>
-    <!-- Message for updating an existing app, no permissions [CHAR LIMIT=NONE] -->
-    <string name="install_confirm_question_update_no_perms">Do you want to install an update
-            to this existing application?  Your existing data will not
-            be lost.  It does not require any special access.</string>
-    <!-- Message for updating an existing system app, no permissions [CHAR LIMIT=NONE] -->
-    <string name="install_confirm_question_update_system_no_perms">Do you want to install an update
-            to this built-in application?  Your existing data will not
-            be lost.  It does not require any special access.</string>
     <!-- [CHAR LIMIT=100] -->
     <string name="install_failed">App not installed.</string>
     <!-- Reason displayed when installation fails because the package was blocked
