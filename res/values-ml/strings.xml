@@ -89,6 +89,10 @@
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"എന്തായാലും നിരസിക്കുക"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> / <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="7332275268559121742">"<xliff:g id="ACTION">%2$s</xliff:g> &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ആപ്പിനെ അനുവദിക്കണോ?"</string>
+    <string name="permission_add_background_warning_template" msgid="5391175001698541141">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; എന്നതിനെ എല്ലായ്‌പ്പോഴും <xliff:g id="ACTION">%2$s</xliff:g> എന്നതിന് അനുവദിക്കണമോ?"</string>
+    <string name="allow_permission_foreground_only" msgid="1016389465002335286">"ആപ്പ് ഉപയോഗിക്കുമ്പോൾ മാത്രം"</string>
+    <string name="allow_permission_always" msgid="7047379650123289823">"എല്ലായ്‌പ്പോഴും"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8003202275002645629">"നിരസിക്കുക, വീണ്ടും ആവശ്യപ്പെടരുത്"</string>
     <string name="permission_revoked_count" msgid="7386129423432613024">"<xliff:g id="COUNT">%1$d</xliff:g> പ്രവർത്തനരഹിതമാക്കി"</string>
     <string name="permission_revoked_all" msgid="8595742638132863678">"എല്ലാം പ്രവർത്തനരഹിതമാക്കി"</string>
     <string name="permission_revoked_none" msgid="2059511550181271342">"ഒന്നും പ്രവർത്തനരഹിതമാക്കിയിട്ടില്ല"</string>
@@ -108,12 +112,21 @@
     <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> / <xliff:g id="COUNT_1">%2$d</xliff:g> ആപ്പുകൾ അനുവദനീയം"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"സിസ്റ്റം കാണിക്കുക"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"സിസ്റ്റം മറയ്‌ക്കുക"</string>
-    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> അനുമതികൾ"</string>
     <string name="no_apps" msgid="1965493419005012569">"ആപ്സ് ഒന്നുമില്ല"</string>
     <string name="location_settings" msgid="1774875730854491297">"ലൊക്കേഷൻ ക്രമീകരണം"</string>
     <string name="location_warning" msgid="8778701356292735971">"ഈ ഉപകരണത്തിനായുള്ള ലൊക്കേഷൻ സേവനങ്ങളുടെ ദാതാവ് <xliff:g id="APP_NAME">%1$s</xliff:g> ആണ്. ലൊക്കേഷൻ ക്രമീകരണത്തിൽ നിന്ന് ലൊക്കേഷൻ ആക്സസ് പരിഷ്കരിക്കാവുന്നതാണ്."</string>
     <string name="system_warning" msgid="7103819124542305179">"നിങ്ങൾ ഈ അനുമതി നിഷേധിക്കുന്നുവെങ്കിൽ, നിങ്ങളുടെ ഉപകരണത്തിന്റെ അടിസ്ഥാന ഫീച്ചറുകൾ ഉദ്ദേശിച്ചത് പോലെ തുടർന്ന് പ്രവർത്തിച്ചേക്കില്ല."</string>
     <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"നയം മുഖേനെ നടപ്പിലാക്കിയത്"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="160007162349980265">"നയം അനുസരിച്ച് ബാക്ക്‌ഗ്രൗണ്ട് ആക്‌സസ് പ്രവർത്തനരഹിതമാക്കി"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="4834971700297385342">"നയം അനുസരിച്ച് ബാക്ക്‌ഗ്രൗണ്ട് ആക്‌സസ് പ്രവർത്തനക്ഷമമാക്കി"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="5150061275247925588">"നയം അനുസരിച്ച് ഫോർഗ്രൗണ്ട് ആക്‌സസ് പ്രവർത്തനക്ഷമമാക്കി"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="1702707982488952544">"അഡ്‌മിൻ നിയന്ത്രിക്കുന്നത്"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
+    <string name="permission_access_always" msgid="5642491469836594184">"എല്ലായ്‌പ്പോഴും"</string>
+    <string name="permission_access_only_foreground" msgid="6906814759741316041">"ആപ്പ് ഉപയോഗിക്കുമ്പോൾ മാത്രം"</string>
+    <string name="permission_access_never" msgid="1258330706341318622">"ഒരിക്കലും"</string>
     <string name="loading" msgid="7811651799620593731">"ലോഡുചെയ്യുന്നു..."</string>
     <string name="all_permissions" msgid="5156669007784613042">"എല്ലാ അനുമതികളും"</string>
     <string name="other_permissions" msgid="2016192512386091933">"മറ്റ് ആപ്പ് ശേഷികൾ"</string>

@@ -89,6 +89,10 @@
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"பரவாயில்லை, நிராகரி"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> / <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="7332275268559121742">"செயலைச் செய்ய <xliff:g id="ACTION">%2$s</xliff:g>, &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ஐ அனுமதிக்கவா?"</string>
+    <string name="permission_add_background_warning_template" msgid="5391175001698541141">"<xliff:g id="ACTION">%2$s</xliff:g>ஐச் செய்ய &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ஆப்ஸை எப்போதும் அனுமதிக்கவா?"</string>
+    <string name="allow_permission_foreground_only" msgid="1016389465002335286">"ஆப்ஸைப் பயன்படுத்தும்போது மட்டும் அனுமதி"</string>
+    <string name="allow_permission_always" msgid="7047379650123289823">"எப்போதும் அனுமதி"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8003202275002645629">"நிராகரி, மீண்டும் கேட்காதே"</string>
     <string name="permission_revoked_count" msgid="7386129423432613024">"<xliff:g id="COUNT">%1$d</xliff:g> முடக்கப்பட்டன"</string>
     <string name="permission_revoked_all" msgid="8595742638132863678">"எல்லாம் முடக்கப்பட்டன"</string>
     <string name="permission_revoked_none" msgid="2059511550181271342">"எதுவும் முடக்கப்படவில்லை"</string>
@@ -108,12 +112,21 @@
     <string name="app_permissions_group_summary" msgid="4787239772223699263">"அனுமதிக்கப்பட்ட ஆப்ஸ்: <xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"எல்லாம் காட்டு"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"முறைமையை மறை"</string>
-    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> அனுமதிகள்"</string>
     <string name="no_apps" msgid="1965493419005012569">"பயன்பாடுகள் இல்லை"</string>
     <string name="location_settings" msgid="1774875730854491297">"இருப்பிட அமைப்புகள்"</string>
     <string name="location_warning" msgid="8778701356292735971">"இந்தச் சாதனத்திற்கான இருப்பிடச் சேவைகளின் வழங்குநர் <xliff:g id="APP_NAME">%1$s</xliff:g> ஆகும். இருப்பிட அமைப்புகளிலிருந்து இருப்பிட அணுகலை மாற்றலாம்."</string>
     <string name="system_warning" msgid="7103819124542305179">"இந்த அனுமதியை நிராகரித்தால், உங்கள் சாதனத்தின் அடிப்படை அம்சங்கள் சரியாகச் செயல்படாமல் போகலாம்."</string>
     <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"கொள்கையின் படி செயல்படுத்தப்பட்டது"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="160007162349980265">"கொள்கையின்படி பின்புல அணுகல் முடக்கப்பட்டது"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="4834971700297385342">"கொள்கையின்படி பின்புல அணுகல் இயக்கப்பட்டது"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="5150061275247925588">"கொள்கையின்படி முன்புல அணுகல் இயக்கப்பட்டது"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="1702707982488952544">"நிர்வாகி கட்டுப்படுத்துகிறார்"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
+    <string name="permission_access_always" msgid="5642491469836594184">"எப்போதும்"</string>
+    <string name="permission_access_only_foreground" msgid="6906814759741316041">"ஆப்ஸை உபயோகிக்கும்போது மட்டும்"</string>
+    <string name="permission_access_never" msgid="1258330706341318622">"ஒருபோதும் வேண்டாம்"</string>
     <string name="loading" msgid="7811651799620593731">"ஏற்றுகிறது..."</string>
     <string name="all_permissions" msgid="5156669007784613042">"எல்லா அனுமதிகளும்"</string>
     <string name="other_permissions" msgid="2016192512386091933">"பயன்பாட்டின் பிற திறன்கள்"</string>

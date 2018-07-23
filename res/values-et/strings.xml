@@ -89,6 +89,10 @@
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Keela ikkagi"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>/<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>-st"</string>
     <string name="permission_warning_template" msgid="7332275268559121742">"Kas lubada rakendusel &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_add_background_warning_template" msgid="5391175001698541141">"Kas lubada rakenduse puhul &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; alati toiming <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="allow_permission_foreground_only" msgid="1016389465002335286">"Ainult rakenduse kasutamise ajal"</string>
+    <string name="allow_permission_always" msgid="7047379650123289823">"Alati"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8003202275002645629">"Keela ja ära enam küsi"</string>
     <string name="permission_revoked_count" msgid="7386129423432613024">"<xliff:g id="COUNT">%1$d</xliff:g> on keelatud"</string>
     <string name="permission_revoked_all" msgid="8595742638132863678">"kõik on keelatud"</string>
     <string name="permission_revoked_none" msgid="2059511550181271342">"mitte ükski pole keelatud"</string>
@@ -108,12 +112,21 @@
     <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> rakendust <xliff:g id="COUNT_1">%2$d</xliff:g>-st on lubatud"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"Kuva süsteem"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"Peida süsteem"</string>
-    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> – load"</string>
     <string name="no_apps" msgid="1965493419005012569">"Rakendusi pole"</string>
     <string name="location_settings" msgid="1774875730854491297">"Asukohaseaded"</string>
     <string name="location_warning" msgid="8778701356292735971">"Rakendus <xliff:g id="APP_NAME">%1$s</xliff:g> on selle seadme asukohateenuste pakkuja. Asukoha juurdepääsu saab muuta asukohaseadetes."</string>
     <string name="system_warning" msgid="7103819124542305179">"Kui keelate loa, ei pruugi seadme põhifunktsioonid enam ootuspäraselt töötada."</string>
     <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Eeskirjadega jõustatud"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="160007162349980265">"Reegli alusel on taustale juurdepääs keelatud"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="4834971700297385342">"Reegli alusel on taustale juurdepääs lubatud"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="5150061275247925588">"Reegli alusel on esiplaanile juurdepääs lubatud"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="1702707982488952544">"Juhib administraator"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
+    <string name="permission_access_always" msgid="5642491469836594184">"Alati"</string>
+    <string name="permission_access_only_foreground" msgid="6906814759741316041">"Ainult rakenduse kasutamisel"</string>
+    <string name="permission_access_never" msgid="1258330706341318622">"Mitte kunagi"</string>
     <string name="loading" msgid="7811651799620593731">"Laadimine ..."</string>
     <string name="all_permissions" msgid="5156669007784613042">"Kõik load"</string>
     <string name="other_permissions" msgid="2016192512386091933">"Rakenduse muud funktsioonid"</string>
