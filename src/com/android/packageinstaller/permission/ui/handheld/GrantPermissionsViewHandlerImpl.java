@@ -16,13 +16,19 @@
 
 package com.android.packageinstaller.permission.ui.handheld;
 
-import android.animation.LayoutTransition;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Icon;
 import android.os.Bundle;
-import android.provider.Settings;
-import android.text.TextUtils;
+import android.transition.ChangeBounds;
+import android.transition.Transition;
+import android.transition.TransitionManager;
+import android.transition.TransitionSet;
+import android.transition.TransitionValues;
+import android.transition.Visibility;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -30,7 +36,6 @@ import android.view.ViewGroup;
 import android.view.WindowManager.LayoutParams;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.animation.AnimationUtils;
-import android.view.animation.Interpolator;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
@@ -44,9 +49,6 @@ import com.android.packageinstaller.permission.ui.ButtonBarLayout;
 import com.android.packageinstaller.permission.ui.GrantPermissionsViewHandler;
 import com.android.packageinstaller.permission.ui.ManagePermissionsActivity;
 import com.android.packageinstaller.permission.ui.ManualLayoutFrame;
-
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.function.IntConsumer;
 
 public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHandler,
         OnClickListener, RadioGroup.OnCheckedChangeListener {
@@ -66,14 +68,12 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
     private static final String ARG_GROUP_ALWAYS_OPTION_CHECKED = "ARG_GROUP_ALWAYS_OPTION_CHECKED";
 
     // Animation parameters.
-    private static final long OUT_DURATION = 200;
-    private static final long IN_DURATION = 300;
+    private static final long SWITCH_TIME_MILLIS = 75;
+    private static final long ANIMATION_DURATION_MILLIS = 200;
 
     private final Activity mActivity;
     private final String mAppPackageName;
     private final boolean mPermissionReviewRequired;
-    private final long mOutDuration;
-    private final long mInDuration;
 
     private ResultListener mResultListener;
 
@@ -101,19 +101,10 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
     private Button mAllowButton;
     private Button mMoreInfoButton;
     private ManualLayoutFrame mRootView;
-    private ViewGroup mDescContainer;
+    private ViewGroup mContentContainer;
     private Space mSpacer;
 
     public GrantPermissionsViewHandlerImpl(Activity activity, String appPackageName) {
-        float animationScale = 1f;
-        try {
-            Settings.Global.getFloat(activity.getContentResolver(),
-                    Settings.Global.ANIMATOR_DURATION_SCALE);
-        } catch (Settings.SettingNotFoundException ignored) {
-        }
-        mOutDuration = (long) (OUT_DURATION * animationScale);
-        mInDuration = (long) (IN_DURATION * animationScale);
-
         mActivity = activity;
         mAppPackageName = appPackageName;
         mPermissionReviewRequired = activity.getPackageManager().isPermissionReviewModeEnabled();
@@ -188,48 +179,6 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         }
     }
 
-    private void fadeOutView(View v, Runnable onAnimationFinished, Interpolator interpolator) {
-        v.animate().alpha(0).setDuration(mOutDuration).setInterpolator(interpolator)
-                .withEndAction(onAnimationFinished);
-    }
-
-    private void animateOldContent(IntConsumer callback) {
-        // Fade out old description group and scale out the icon for it.
-        Interpolator interpolator = AnimationUtils.loadInterpolator(mActivity,
-                android.R.interpolator.fast_out_linear_in);
-
-        AtomicInteger numAnimationsActive = new AtomicInteger(2);
-        Runnable onAnimationFinished = () -> callback.accept(numAnimationsActive.decrementAndGet());
-
-        // Icon scale to zero
-        mIconView.animate()
-                .scaleX(0)
-                .scaleY(0)
-                .setDuration(mOutDuration)
-                .setInterpolator(interpolator)
-                .withEndAction(onAnimationFinished);
-
-        fadeOutView(mDescContainer, onAnimationFinished, interpolator);
-
-        if (mShowForegroundChooser || !mShowDonNotAsk) {
-            numAnimationsActive.incrementAndGet();
-            fadeOutView(mDoNotAskCheckbox, onAnimationFinished, interpolator);
-        }
-        if (!TextUtils.equals(mDetailMessage, mDetailMessageView.getText())) {
-            numAnimationsActive.incrementAndGet();
-            fadeOutView(mDetailMessageView, onAnimationFinished, interpolator);
-        }
-        if (!mShowForegroundChooser || !mShowDonNotAsk) {
-            numAnimationsActive.incrementAndGet();
-            fadeOutView(mDenyAndDontAskAgainOption, onAnimationFinished, interpolator);
-        }
-        if (!mShowForegroundChooser) {
-            numAnimationsActive.addAndGet(2);
-            fadeOutView(mAlwaysOption, onAnimationFinished, interpolator);
-            fadeOutView(mForegroundOnlyOption, onAnimationFinished, interpolator);
-        }
-    }
-
     private void updateAll(boolean isDoNotAskAgainChecked, boolean isAlwaysOptionChecked) {
         updateDescription();
         updateDetailDescription();
@@ -237,70 +186,110 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         updateDoNotAskCheckBoxAndForegroundOption(isDoNotAskAgainChecked, isAlwaysOptionChecked);
     }
 
-    private void fadeInView(View v, Interpolator interpolator) {
-        if (v.getVisibility() == View.VISIBLE && v.getAlpha() < 1.0f) {
-            v.animate().alpha(1.0f).setDuration(mInDuration).setInterpolator(interpolator);
-        }
-    }
-
-    private void animateNewContent() {
-        // Unhide description and slide it in
-        mDescContainer.setTranslationX(mDescContainer.getWidth());
-        mIconView.setScaleX(1);
-        mIconView.setScaleY(1);
-        mDescContainer.setAlpha(1);
-        mDescContainer.animate()
-                .translationX(0)
-                .setDuration(mInDuration)
-                .setInterpolator(AnimationUtils.loadInterpolator(mActivity,
-                        android.R.interpolator.linear_out_slow_in));
-
-        // Use heavily accelerating animator so that at the beginning of the animation nothing
-        // is visible for a long time. This is needed as at this time the dialog is still growing
-        // and we don't want elements to overlap.
-        Interpolator interpolator = AnimationUtils.loadInterpolator(mActivity,
-                android.R.interpolator.accelerate_cubic);
-
-        if (mShowDonNotAsk) {
-            fadeInView(mDoNotAskCheckbox, interpolator);
-        }
-        if (mShowForegroundChooser) {
-            if (mShowDonNotAsk) {
-                fadeInView(mDenyAndDontAskAgainOption, interpolator);
-            }
-            fadeInView(mAlwaysOption, interpolator);
-            fadeInView(mForegroundOnlyOption, interpolator);
-        }
-        if (mDetailMessage != null) {
-            fadeInView(mDetailMessageView, interpolator);
-        }
-    }
-
     private void animateToPermission(boolean isDoNotAskAgainChecked,
             boolean isAlwaysOptionChecked) {
-        // Animate out the old content
-        animateOldContent(numAnimationsActive -> {
-            // Wait until all animations are done
-            if (numAnimationsActive == 0) {
-                // Add the new content
-                updateAll(isDoNotAskAgainChecked, isAlwaysOptionChecked);
+        final View newContent = bindNewContent();
 
-                // Animate in new content
-                animateNewContent();
+        updateDescription();
+        updateDetailDescription();
+        updateDoNotAskCheckBoxAndForegroundOption(isDoNotAskAgainChecked, isAlwaysOptionChecked);
+        // Update group when the content changes (in onAppear below)
+
+        final View oldView = mContentContainer.getChildAt(0);
+
+        // Grow or shrink the content container to size of new content
+        ChangeBounds growShrinkToNewContentSize = new ChangeBounds();
+        growShrinkToNewContentSize.setDuration(ANIMATION_DURATION_MILLIS);
+        growShrinkToNewContentSize.setInterpolator(AnimationUtils.loadInterpolator(mActivity,
+                android.R.interpolator.fast_out_slow_in));
+
+        // With a delay hide the old content and show the new content
+        Visibility changeContent = new Visibility() {
+            @Override
+            public Animator onAppear(ViewGroup sceneRoot, View view, TransitionValues startValues,
+                    TransitionValues endValues) {
+                view.setVisibility(View.INVISIBLE);
+
+                ValueAnimator v = ValueAnimator.ofFloat(0, 1);
+
+                v.addListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        view.setVisibility(View.VISIBLE);
+                        updateGroup();
+                    }
+                });
+
+                return v;
             }
-        });
+
+            @Override
+            public Animator onDisappear(ViewGroup sceneRoot, final View view,
+                    TransitionValues startValues, TransitionValues endValues) {
+                ValueAnimator v =  ValueAnimator.ofFloat(0, 1);
+
+                int[] location = new int[2];
+                // The removed view is put into the overlay that is relative to the window. Hence
+                // it does not get moved along with the changing parent view. This is done manually
+                // here.
+                v.addUpdateListener(animation -> {
+                    mContentContainer.getLocationInWindow(location);
+                    view.setTop(location[1]);
+                });
+
+                return v;
+            }
+        };
+        changeContent.setDuration(SWITCH_TIME_MILLIS);
+
+        TransitionSet combinedAnimation = new TransitionSet();
+        combinedAnimation.addTransition(growShrinkToNewContentSize);
+        combinedAnimation.addTransition(changeContent);
+        combinedAnimation.setOrdering(TransitionSet.ORDERING_TOGETHER);
+        combinedAnimation.setMatchOrder(Transition.MATCH_INSTANCE);
+
+        TransitionManager.beginDelayedTransition(mRootView, combinedAnimation);
+        mContentContainer.removeView(oldView);
+        mContentContainer.addView(newContent);
+    }
+
+    /**
+     * Update this objects fields to point to the a content view. A content view encapsulates the
+     * permission request message, the detail message, the always deny checkbox, and the foreground
+     * chooser.
+     *
+     * @return The new content view
+     */
+    private View bindNewContent() {
+        ViewGroup content = (ViewGroup) LayoutInflater.from(mActivity)
+                .inflate(R.layout.grant_permissions_content, mContentContainer, false);
+
+        mMessageView = content.requireViewById(R.id.permission_message);
+        mDetailMessageView = content.requireViewById(R.id.detail_message);
+        mIconView = content.requireViewById(R.id.permission_icon);
+        mDoNotAskCheckbox = content.requireViewById(R.id.do_not_ask_checkbox);
+        mSpacer = content.requireViewById(R.id.detail_message_do_not_ask_checkbox_space);
+        mForegroundChooser = content.requireViewById(R.id.foreground_or_always_radiogroup);
+        mForegroundOnlyOption = content.requireViewById(R.id.foreground_only_radio_button);
+        mAlwaysOption = content.requireViewById(R.id.always_radio_button);
+        mDenyAndDontAskAgainOption = content.requireViewById(R.id.deny_dont_ask_again_radio_button);
+
+        mDoNotAskCheckbox.setOnClickListener(this);
+        mDenyAndDontAskAgainOption.setOnClickListener(this);
+        mForegroundChooser.setOnCheckedChangeListener(this);
+
+        return content;
     }
 
     @Override
     public View createView() {
         mRootView = (ManualLayoutFrame) LayoutInflater.from(mActivity)
                 .inflate(R.layout.grant_permissions, null);
-        mMessageView = (TextView) mRootView.findViewById(R.id.permission_message);
-        mDetailMessageView = mRootView.requireViewById(R.id.detail_message);
-        mIconView = (ImageView) mRootView.findViewById(R.id.permission_icon);
+        mContentContainer = mRootView.requireViewById(R.id.content_container);
+        mContentContainer.removeAllViews();
+        mContentContainer.addView(bindNewContent());
+
         mCurrentGroupView = (TextView) mRootView.findViewById(R.id.current_page_text);
-        mDoNotAskCheckbox = (CheckBox) mRootView.findViewById(R.id.do_not_ask_checkbox);
-        mSpacer = mRootView.requireViewById(R.id.detail_message_do_not_ask_checkbox_space);
         mAllowButton = (Button) mRootView.findViewById(R.id.permission_allow_button);
         mAllowButton.setOnClickListener(this);
 
@@ -310,26 +299,9 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
             mMoreInfoButton.setOnClickListener(this);
         }
 
-        mForegroundChooser = mRootView.requireViewById(R.id.foreground_or_always_radiogroup);
-        mForegroundOnlyOption = mRootView.requireViewById(R.id.foreground_only_radio_button);
-        mAlwaysOption = mRootView.requireViewById(R.id.always_radio_button);
-        mDenyAndDontAskAgainOption = mRootView.requireViewById(
-                R.id.deny_dont_ask_again_radio_button);
-        mDescContainer = (ViewGroup) mRootView.findViewById(R.id.desc_container);
-
         mRootView.findViewById(R.id.permission_deny_button).setOnClickListener(this);
-        mDoNotAskCheckbox.setOnClickListener(this);
-        mDenyAndDontAskAgainOption.setOnClickListener(this);
-        mForegroundChooser.setOnCheckedChangeListener(this);
 
         ((ButtonBarLayout) mRootView.requireViewById(R.id.button_group)).setAllowStacking(true);
-
-        // The appearing + disappearing animations are controlled manually, hence disable the
-        // automatic animations
-        ViewGroup contentContainer = mRootView.requireViewById(R.id.content_container);
-        contentContainer.getLayoutTransition().disableTransitionType(LayoutTransition.APPEARING);
-        contentContainer.getLayoutTransition().disableTransitionType(LayoutTransition.DISAPPEARING);
-        contentContainer.getLayoutTransition().setDuration(mInDuration);
 
         if (mGroupName != null) {
             updateAll(false, false);
