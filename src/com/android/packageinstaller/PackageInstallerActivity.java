@@ -307,7 +307,7 @@ public class PackageInstallerActivity extends OverlayTouchActivity implements On
 
         final Uri packageUri;
 
-        if (PackageInstaller.ACTION_CONFIRM_PERMISSIONS.equals(intent.getAction())) {
+        if (PackageInstaller.ACTION_CONFIRM_INSTALL.equals(intent.getAction())) {
             final int sessionId = intent.getIntExtra(PackageInstaller.EXTRA_SESSION_ID, -1);
             final PackageInstaller.SessionInfo info = mInstaller.getSessionInfo(sessionId);
             if (info == null || !info.sealed || info.resolvedBaseCodePath == null) {
