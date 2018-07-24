@@ -20,6 +20,7 @@ import static com.android.packageinstaller.permission.utils.Utils.getRequestMess
 
 import static java.lang.annotation.RetentionPolicy.SOURCE;
 
+import android.annotation.LayoutRes;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -27,6 +28,7 @@ import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.pm.PackageItemInfo;
 import android.os.Bundle;
+import android.preference.PreferenceScreen;
 import android.text.BidiFormatter;
 import android.widget.Switch;
 
@@ -38,6 +40,7 @@ import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.settingslib.RestrictedLockUtils;
+import com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 
 import java.lang.annotation.Retention;
 import java.util.List;
@@ -45,7 +48,7 @@ import java.util.List;
 /**
  * A preference for representing a permission group requested by an app.
  */
-class PermissionPreference extends RestrictedSwitchPreference {
+class PermissionPreference extends MultiTargetSwitchPreference {
     @Retention(SOURCE)
     @IntDef(value = {CHANGE_FOREGROUND, CHANGE_BACKGROUND}, flag = true)
     @interface ChangeTarget {}
@@ -56,6 +59,7 @@ class PermissionPreference extends RestrictedSwitchPreference {
     private final AppPermissionGroup mGroup;
     private final Fragment mFragment;
     private final PermissionPreferenceChangeListener mCallBacks;
+    private final @LayoutRes int mOriginalWidgetLayoutRes;
 
     /** Callbacks for the permission to the fragment showing a list of permissions */
     interface PermissionPreferenceChangeListener {
@@ -118,9 +122,71 @@ class PermissionPreference extends RestrictedSwitchPreference {
         mFragment = fragment;
         mGroup = group;
         mCallBacks = callbacks;
+        mOriginalWidgetLayoutRes = getWidgetLayoutResource();
 
         setPersistent(false);
         updateUi();
+    }
+
+    /**
+     * Is any foreground permissions of this group fixed by the policy, i.e. not changeable by the
+     * user.
+     *
+     * @return {@code true} iff any foreground permission is fixed
+     */
+    private boolean isForegroundPolicyFixed() {
+        return mGroup.isPolicyFixed();
+    }
+
+    /**
+     * Is any background permissions of this group fixed by the policy, i.e. not changeable by the
+     * user.
+     *
+     * @return {@code true} iff any background permission is fixed
+     */
+    private boolean isBackgroundPolicyFixed() {
+        return mGroup.getBackgroundPermissions() != null
+                && mGroup.getBackgroundPermissions().isPolicyFixed();
+    }
+
+    /**
+     * Are there permissions fixed, so that the user cannot change the preference at all?
+     *
+     * @return {@code true} iff the permissions of this group are fixed
+     */
+    private boolean isPolicyFullyFixed() {
+        return isForegroundPolicyFixed() && (mGroup.getBackgroundPermissions() == null
+                || isBackgroundPolicyFixed());
+    }
+
+    /**
+     * Is the foreground part of this group disabled. If the foreground is disabled, there is no
+     * need to possible grant background access.
+     *
+     * @return {@code true} iff the permissions of this group are fixed
+     */
+    private boolean isForegroundDisabledByPolicy() {
+        return isForegroundPolicyFixed() && !mGroup.areRuntimePermissionsGranted();
+    }
+
+    /**
+     * Get the app that acts as admin for this profile.
+     *
+     * @return The admin or {@code null} if there is no admin.
+     */
+    private EnforcedAdmin getAdmin() {
+        return RestrictedLockUtils.getProfileOrDeviceOwner(getContext(), mGroup.getUserId());
+    }
+
+    @Override
+    public void performClick(PreferenceScreen preferenceScreen) {
+        EnforcedAdmin admin = getAdmin();
+
+        if (isPolicyFullyFixed() && admin != null) {
+            RestrictedLockUtils.sendShowAdminSupportDetailsIntent(getContext(), admin);
+        } else {
+            super.performClick(preferenceScreen);
+        }
     }
 
     /**
@@ -129,32 +195,25 @@ class PermissionPreference extends RestrictedSwitchPreference {
     void updateUi() {
         boolean arePermissionsIndividuallyControlled =
                 Utils.areGroupPermissionsIndividuallyControlled(getContext(), mGroup.getName());
-        RestrictedLockUtils.EnforcedAdmin admin =
-                RestrictedLockUtils.getProfileOrDeviceOwner(getContext(), mGroup.getUserId());
-        boolean isForegroundPolicyFixed = mGroup.isPolicyFixed();
-        boolean isBackgroundPolicyFixed = mGroup.getBackgroundPermissions() == null
-                || mGroup.getBackgroundPermissions().isPolicyFixed();
-        boolean isAdminFixed = admin != null;
-        boolean isPolicyFixed = (isForegroundPolicyFixed && isBackgroundPolicyFixed)
-                && !isAdminFixed;
+        EnforcedAdmin admin = getAdmin();
 
         // Reset ui state
-        setDisabledByAdmin(null);
         setEnabled(true);
+        setWidgetLayoutResource(mOriginalWidgetLayoutRes);
         setOnPreferenceClickListener(null);
         setSwitchOnClickListener(null);
         setSummary(null);
 
         setChecked(mGroup.areRuntimePermissionsGranted());
 
-        if (isAdminFixed) {
-            setDisabledByAdmin(admin);
-            setSummary(R.string.permission_summary_enforced_by_admin);
+        if (isPolicyFullyFixed() || isForegroundDisabledByPolicy()) {
             setEnabled(false);
-        } else if (isPolicyFixed) {
-            // Both foreground and background filed
-            setSummary(R.string.permission_summary_enforced_by_policy);
-            setEnabled(false);
+
+            if (admin != null) {
+                setWidgetLayoutResource(R.layout.restricted_icon);
+            }
+
+            updateSummaryForFixedByPolicyPermissionGroup();
         } else if (arePermissionsIndividuallyControlled) {
             setOnPreferenceClickListener((pref) -> {
                 showAllPermissions(mGroup.getName());
@@ -180,33 +239,16 @@ class PermissionPreference extends RestrictedSwitchPreference {
 
                     updateSummaryForPermissionGroupWithBackgroundPermission();
                 } else {
-                    AppPermissionGroup backgroundGroup = mGroup.getBackgroundPermissions();
-
-                    if (isBackgroundPolicyFixed) {
+                    if (isBackgroundPolicyFixed()) {
                         setOnPreferenceChangeListener((pref, newValue) ->
                                 requestChange((Boolean) newValue, CHANGE_FOREGROUND));
 
-                        if (backgroundGroup.areRuntimePermissionsGranted()) {
-                            setSummary(R.string
-                                    .permission_summary_enabled_by_policy_background_only);
-                        } else {
-                            setSummary(R.string
-                                    .permission_summary_disabled_by_policy_background_only);
-                        }
-                    } else if (isForegroundPolicyFixed) {
-                        if (mGroup.areRuntimePermissionsGranted()) {
-                            setOnPreferenceChangeListener((pref, newValue) ->
-                                    requestChange((Boolean) newValue, CHANGE_BACKGROUND));
+                        updateSummaryForFixedByPolicyPermissionGroup();
+                    } else if (isForegroundPolicyFixed()) {
+                        setOnPreferenceChangeListener((pref, newValue) ->
+                                requestChange((Boolean) newValue, CHANGE_BACKGROUND));
 
-                            setSummary(R.string
-                                    .permission_summary_enabled_by_policy_foreground_only);
-                        } else {
-                            // Background access can only be enabled once foreground access is
-                            // enabled. Hence if foreground access can never be enabled, there is
-                            // no point allowing background access to be enabled
-                            setSummary(R.string.permission_summary_enforced_by_policy);
-                            setEnabled(false);
-                        }
+                        updateSummaryForFixedByPolicyPermissionGroup();
                     } else {
                         updateSummaryForPermissionGroupWithBackgroundPermission();
 
@@ -285,6 +327,81 @@ class PermissionPreference extends RestrictedSwitchPreference {
             }
         } else {
             setSummary(R.string.permission_access_never);
+        }
+    }
+
+    /**
+     * Update the summary of a permission group that is at least partially fixed by policy.
+     */
+    private void updateSummaryForFixedByPolicyPermissionGroup() {
+        EnforcedAdmin admin = getAdmin();
+        AppPermissionGroup backgroundGroup = mGroup.getBackgroundPermissions();
+
+        boolean hasAdmin = admin != null;
+
+        if (isForegroundDisabledByPolicy()) {
+            // Permission is fully controlled by policy and cannot be switched
+
+            if (hasAdmin) {
+                setSummary(R.string.disabled_by_admin);
+            } else {
+                // Disabled state will be displayed by switch, so no need to add text for that
+                setSummary(R.string.permission_summary_enforced_by_policy);
+            }
+        } else if (isPolicyFullyFixed()) {
+            // Permission is fully controlled by policy and cannot be switched
+
+            if (backgroundGroup == null) {
+                if (hasAdmin) {
+                    setSummary(R.string.enabled_by_admin);
+                } else {
+                    // Enabled state will be displayed by switch, so no need to add text for
+                    // that
+                    setSummary(R.string.permission_summary_enforced_by_policy);
+                }
+            } else {
+                if (backgroundGroup.areRuntimePermissionsGranted()) {
+                    if (hasAdmin) {
+                        setSummary(R.string.enabled_by_admin);
+                    } else {
+                        // Enabled state will be displayed by switch, so no need to add text for
+                        // that
+                        setSummary(R.string.permission_summary_enforced_by_policy);
+                    }
+                } else {
+                    if (hasAdmin) {
+                        setSummary(
+                                R.string.permission_summary_enabled_by_admin_foreground_only);
+                    } else {
+                        setSummary(
+                                R.string.permission_summary_enabled_by_policy_foreground_only);
+                    }
+                }
+            }
+        } else {
+            // Part of the permission group can still be switched
+
+            if (isBackgroundPolicyFixed()) {
+                if (backgroundGroup.areRuntimePermissionsGranted()) {
+                    if (hasAdmin) {
+                        setSummary(R.string.permission_summary_enabled_by_admin_background_only);
+                    } else {
+                        setSummary(R.string.permission_summary_enabled_by_policy_background_only);
+                    }
+                } else {
+                    if (hasAdmin) {
+                        setSummary(R.string.permission_summary_disabled_by_admin_background_only);
+                    } else {
+                        setSummary(R.string.permission_summary_disabled_by_policy_background_only);
+                    }
+                }
+            } else if (isForegroundPolicyFixed()) {
+                if (hasAdmin) {
+                    setSummary(R.string.permission_summary_enabled_by_admin_foreground_only);
+                } else {
+                    setSummary(R.string.permission_summary_enabled_by_policy_foreground_only);
+                }
+            }
         }
     }
 

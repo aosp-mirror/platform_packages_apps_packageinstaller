@@ -303,6 +303,15 @@
     <!-- [CHAR LIMIT=60] Summary of a permission switch when it's enforced by an administrator -->
    <string name="permission_summary_enforced_by_admin">Controlled by admin</string>
 
+    <!-- [CHAR LIMIT=60] Summary of a permission switch when the background access is denied by an admin -->
+    <string name="permission_summary_disabled_by_admin_background_only">Background access disabled by admin</string>
+
+    <!-- [CHAR LIMIT=60] Summary of a permission switch when the background access is enabled an admin -->
+    <string name="permission_summary_enabled_by_admin_background_only">Background access enabled by admin</string>
+
+    <!-- [CHAR LIMIT=60] Summary of a permission switch when the background access is enabled an admin -->
+    <string name="permission_summary_enabled_by_admin_foreground_only">Foreground access enabled by admin</string>
+
     <string-array name="background_access_chooser_dialog_choices">
        <item>@string/permission_access_always</item>
        <item>@string/permission_access_only_foreground</item>
