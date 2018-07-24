@@ -53,10 +53,18 @@ public final class AppPermissions {
 
     private final boolean mSortGroups;
 
+    /** Do not actually commit changes to the platform until {@link #persistChanges} is called */
+    private final boolean mDelayChanges;
+
     private PackageInfo mPackageInfo;
 
     public AppPermissions(Context context, PackageInfo packageInfo, boolean sortGroups,
             Runnable onErrorCallback) {
+        this(context, packageInfo, sortGroups, false, onErrorCallback);
+    }
+
+    public AppPermissions(Context context, PackageInfo packageInfo, boolean sortGroups,
+            boolean delayChanges, Runnable onErrorCallback) {
         mContext = context;
         mPackageInfo = packageInfo;
         mAppLabel = BidiFormatter.getInstance().unicodeWrap(
@@ -66,6 +74,7 @@ public final class AppPermissions {
                                 | PackageItemInfo.SAFE_LABEL_FLAG_FIRST_LINE)
                         .toString());
         mSortGroups = sortGroups;
+        mDelayChanges = delayChanges;
         mOnErrorCallback = onErrorCallback;
         loadPermissionGroups();
     }
@@ -137,7 +146,7 @@ public final class AppPermissions {
             for (String requestedPerm : mPackageInfo.requestedPermissions) {
                 if (getGroupForPermission(requestedPerm) == null) {
                     AppPermissionGroup group = AppPermissionGroup.create(mContext, mPackageInfo,
-                            requestedPerm);
+                            requestedPerm, mDelayChanges);
                     if (group == null) {
                         continue;
                     }
@@ -171,5 +180,24 @@ public final class AppPermissions {
      */
     public AppPermissionGroup getGroupForPermission(String permission) {
         return mPermissionNameToGroup.get(permission);
+    }
+
+    /**
+     * If the changes to the permission groups were delayed, persist them now.
+     */
+    public void persistChanges() {
+        if (mDelayChanges) {
+            int numGroups = mGroups.size();
+
+            for (int i = 0; i < numGroups; i++) {
+                AppPermissionGroup group = mGroups.get(i);
+                group.persistChanges(true);
+
+                AppPermissionGroup backgroundGroup = group.getBackgroundPermissions();
+                if (backgroundGroup != null) {
+                    backgroundGroup.persistChanges(true);
+                }
+            }
+        }
     }
 }

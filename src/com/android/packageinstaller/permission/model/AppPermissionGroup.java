@@ -80,6 +80,9 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
     private final String mIconPkg;
     private final int mIconResId;
 
+    /** Delay changes until {@link #persistChanges} is called */
+    private final boolean mDelayChanges;
+
     /**
      * Some permissions are split into foreground and background permission. All non-split and
      * foreground permissions are in {@link #mPermissions}, all background permissions are in
@@ -100,7 +103,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
     private boolean mHasPermissionWithBackgroundMode;
 
     public static AppPermissionGroup create(Context context, PackageInfo packageInfo,
-            String permissionName) {
+            String permissionName, boolean delayChanges) {
         PermissionInfo permissionInfo;
         try {
             permissionInfo = context.getPackageManager().getPermissionInfo(permissionName, 0);
@@ -136,19 +139,19 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         }
 
         return create(context, packageInfo, groupInfo, permissionInfos,
-                Process.myUserHandle());
+                Process.myUserHandle(), delayChanges);
     }
 
     public static AppPermissionGroup create(Context context, PackageInfo packageInfo,
             PackageItemInfo groupInfo, List<PermissionInfo> permissionInfos,
-            UserHandle userHandle) {
+            UserHandle userHandle, boolean delayChanges) {
 
         AppPermissionGroup group = new AppPermissionGroup(context, packageInfo, groupInfo.name,
                 groupInfo.packageName, groupInfo.loadLabel(context.getPackageManager()),
                 loadGroupDescription(context, groupInfo), getRequest(groupInfo),
                 getRequestDetail(groupInfo), getBackgroundRequest(groupInfo),
                 getBackgroundRequestDetail(groupInfo), groupInfo.packageName, groupInfo.icon,
-                userHandle);
+                userHandle, delayChanges);
 
         if (groupInfo instanceof PermissionInfo) {
             permissionInfos = new ArrayList<>();
@@ -256,7 +259,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                             group.getLabel(), group.getDescription(), group.getRequest(),
                             group.getRequestDetail(), group.getBackgroundRequest(),
                             group.getBackgroundRequestDetail(), group.getIconPkg(),
-                            group.getIconResId(), UserHandle.of(group.getUserId()));
+                            group.getIconResId(), UserHandle.of(group.getUserId()),
+                            delayChanges);
                 }
 
                 group.getBackgroundPermissions().addPermission(permission);
@@ -299,7 +303,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             String declaringPackage, CharSequence label, CharSequence description,
             @StringRes int request, @StringRes int requestDetail,
             @StringRes int backgroundRequest, @StringRes int backgroundRequestDetail,
-            String iconPkg, int iconResId, UserHandle userHandle) {
+            String iconPkg, int iconResId, UserHandle userHandle, boolean delayChanges) {
         mContext = context;
         mUserHandle = userHandle;
         mPackageManager = mContext.getPackageManager();
@@ -319,6 +323,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         mRequestDetail = requestDetail;
         mBackgroundRequest = backgroundRequest;
         mBackgroundRequestDetail = backgroundRequestDetail;
+        mDelayChanges = delayChanges;
         if (iconResId != 0) {
             mIconPkg = iconPkg;
             mIconResId = iconResId;
@@ -357,11 +362,11 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             Permission permission = mPermissions.valueAt(i);
             if (permission.isReviewRequired()) {
                 permission.resetReviewRequired();
-                mPackageManager.updatePermissionFlags(permission.getName(),
-                        mPackageInfo.packageName,
-                        PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED,
-                        0, mUserHandle);
             }
+        }
+
+        if (!mDelayChanges) {
+            persistChanges(false);
         }
     }
 
@@ -587,6 +592,15 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
     }
 
     /**
+     * Kills the app the permissions belong to (and all apps sharing the same uid)
+     *
+     * @param reason The reason why the apps are killed
+     */
+    private void killApp(String reason) {
+        mActivityManager.killUid(mPackageInfo.applicationInfo.uid, reason);
+    }
+
+    /**
      * Grant permissions of the group.
      *
      * <p>This also automatically grants all app ops for permissions that have app ops.
@@ -601,7 +615,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
      * @return {@code true} iff all permissions of this group could be granted.
      */
     public boolean grantRuntimePermissions(boolean fixedByTheUser, String[] filterPermissions) {
-        final int uid = mPackageInfo.applicationInfo.uid;
+        boolean killApp = false;
+        boolean wasAllGranted = true;
 
         // We toggle permissions only to apps that support runtime
         // permissions, otherwise we toggle the app op corresponding
@@ -620,20 +635,18 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             if (mAppSupportsRuntimePermissions) {
                 // Do not touch permissions fixed by the system.
                 if (permission.isSystemFixed()) {
-                    return false;
+                    wasAllGranted = false;
+                    break;
                 }
 
                 // Ensure the permission app op enabled before the permission grant.
                 if (permission.affectsAppOp() && !permission.isAppOpAllowed()) {
                     permission.setAppOpAllowed(true);
-                    allowAppOp(permission, uid);
                 }
 
                 // Grant the permission if needed.
                 if (!permission.isGranted()) {
                     permission.setGranted(true);
-                    mPackageManager.grantRuntimePermission(mPackageInfo.packageName,
-                            permission.getName(), mUserHandle);
                 }
 
                 // Update the permission flags.
@@ -643,11 +656,6 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                     if (permission.isUserFixed() || permission.isUserSet()) {
                         permission.setUserFixed(false);
                         permission.setUserSet(false);
-                        mPackageManager.updatePermissionFlags(permission.getName(),
-                                mPackageInfo.packageName,
-                                PackageManager.FLAG_PERMISSION_USER_FIXED
-                                        | PackageManager.FLAG_PERMISSION_USER_SET,
-                                0, mUserHandle);
                     }
                 }
             } else {
@@ -656,28 +664,23 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                     continue;
                 }
 
-                int killUid = -1;
-                int mask = 0;
-
                 // If the permissions has no corresponding app op, then it is a
                 // third-party one and we do not offer toggling of such permissions.
                 if (permission.affectsAppOp()) {
                     if (!permission.isAppOpAllowed()) {
                         permission.setAppOpAllowed(true);
-                        allowAppOp(permission, uid);
 
                         // Legacy apps do not know that they have to retry access to a
                         // resource due to changes in runtime permissions (app ops in this
                         // case). Therefore, we restart them on app op change, so they
                         // can pick up the change.
-                        killUid = uid;
+                        killApp = true;
                     }
 
                     // Mark that the permission should not be be granted on upgrade
                     // when the app begins supporting runtime permissions.
                     if (permission.shouldRevokeOnUpgrade()) {
                         permission.setRevokeOnUpgrade(false);
-                        mask |= PackageManager.FLAG_PERMISSION_REVOKE_ON_UPGRADE;
                     }
                 }
 
@@ -685,21 +688,19 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                 // reviewed it so clear the review flag on every grant.
                 if (permission.isReviewRequired()) {
                     permission.resetReviewRequired();
-                    mask |= PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED;
-                }
-
-                if (mask != 0) {
-                    mPackageManager.updatePermissionFlags(permission.getName(),
-                            mPackageInfo.packageName, mask, 0, mUserHandle);
-                }
-
-                if (killUid != -1) {
-                    mActivityManager.killUid(uid, KILL_REASON_APP_OP_CHANGE);
                 }
             }
         }
 
-        return true;
+        if (!mDelayChanges) {
+            persistChanges(false);
+
+            if (killApp) {
+                killApp(KILL_REASON_APP_OP_CHANGE);
+            }
+        }
+
+        return wasAllGranted;
     }
 
     public boolean revokeRuntimePermissions(boolean fixedByTheUser) {
@@ -754,7 +755,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
      * @return {@code true} iff all permissions of this group could be revoked.
      */
     public boolean revokeRuntimePermissions(boolean fixedByTheUser, String[] filterPermissions) {
-        final int uid = mPackageInfo.applicationInfo.uid;
+        boolean killApp = false;
+        boolean wasAllRevoked = true;
 
         // We toggle permissions only to apps that support runtime
         // permissions, otherwise we toggle the app op corresponding
@@ -768,14 +770,13 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             if (mAppSupportsRuntimePermissions) {
                 // Do not touch permissions fixed by the system.
                 if (permission.isSystemFixed()) {
-                    return false;
+                    wasAllRevoked = false;
+                    break;
                 }
 
                 // Revoke the permission if needed.
                 if (permission.isGranted()) {
                     permission.setGranted(false);
-                    mPackageManager.revokeRuntimePermission(mPackageInfo.packageName,
-                            permission.getName(), mUserHandle);
                 }
 
                 // Update the permission flags.
@@ -784,30 +785,16 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                     if (permission.isUserSet() || !permission.isUserFixed()) {
                         permission.setUserSet(false);
                         permission.setUserFixed(true);
-                        mPackageManager.updatePermissionFlags(permission.getName(),
-                                mPackageInfo.packageName,
-                                PackageManager.FLAG_PERMISSION_USER_SET
-                                        | PackageManager.FLAG_PERMISSION_USER_FIXED,
-                                PackageManager.FLAG_PERMISSION_USER_FIXED,
-                                mUserHandle);
                     }
                 } else {
                     if (!permission.isUserSet() || permission.isUserFixed()) {
                         permission.setUserSet(true);
                         permission.setUserFixed(false);
-                        // Take a note that the user already chose once.
-                        mPackageManager.updatePermissionFlags(permission.getName(),
-                                mPackageInfo.packageName,
-                                PackageManager.FLAG_PERMISSION_USER_SET
-                                        | PackageManager.FLAG_PERMISSION_USER_FIXED,
-                                PackageManager.FLAG_PERMISSION_USER_SET,
-                                mUserHandle);
                     }
                 }
 
                 if (permission.affectsAppOp()) {
                     permission.setAppOpAllowed(false);
-                    disallowAppOp(permission, uid);
                 }
             } else {
                 // Legacy apps cannot have a non-granted permission but just in case.
@@ -815,44 +802,36 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                     continue;
                 }
 
-                int mask = 0;
-                int flags = 0;
-                int killUid = -1;
-
                 // If the permission has no corresponding app op, then it is a
                 // third-party one and we do not offer toggling of such permissions.
                 if (permission.affectsAppOp()) {
                     if (permission.isAppOpAllowed()) {
                         permission.setAppOpAllowed(false);
-                        disallowAppOp(permission, uid);
 
                         // Disabling an app op may put the app in a situation in which it
                         // has a handle to state it shouldn't have, so we have to kill the
                         // app. This matches the revoke runtime permission behavior.
-                        killUid = uid;
+                        killApp = true;
                     }
 
                     // Mark that the permission should not be granted on upgrade
                     // when the app begins supporting runtime permissions.
                     if (!permission.shouldRevokeOnUpgrade()) {
                         permission.setRevokeOnUpgrade(true);
-                        mask |= PackageManager.FLAG_PERMISSION_REVOKE_ON_UPGRADE;
-                        flags |= PackageManager.FLAG_PERMISSION_REVOKE_ON_UPGRADE;
                     }
-                }
-
-                if (mask != 0) {
-                    mPackageManager.updatePermissionFlags(permission.getName(),
-                            mPackageInfo.packageName, mask, flags, mUserHandle);
-                }
-
-                if (killUid != -1) {
-                    mActivityManager.killUid(uid, KILL_REASON_APP_OP_CHANGE);
                 }
             }
         }
 
-        return true;
+        if (!mDelayChanges) {
+            persistChanges(false);
+
+            if (killApp) {
+                killApp(KILL_REASON_APP_OP_CHANGE);
+            }
+        }
+
+        return wasAllRevoked;
     }
 
     public void setPolicyFixed() {
@@ -860,11 +839,10 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         for (int i = 0; i < permissionCount; i++) {
             Permission permission = mPermissions.valueAt(i);
             permission.setPolicyFixed(true);
-            mPackageManager.updatePermissionFlags(permission.getName(),
-                    mPackageInfo.packageName,
-                    PackageManager.FLAG_PERMISSION_POLICY_FIXED,
-                    PackageManager.FLAG_PERMISSION_POLICY_FIXED,
-                    mUserHandle);
+        }
+
+        if (!mDelayChanges) {
+            persistChanges(false);
         }
     }
 
@@ -1006,6 +984,64 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         }
         if (!permission.isRuntimeOnly()) {
             mContainsPreRuntimePermission = true;
+        }
+    }
+
+    /**
+     * If the changes to this group were delayed, persist them to the platform.
+     *
+     * @param mayKillBecauseOfAppOpsChange If the app these permissions belong to may be killed if
+     *                                     app ops change. If this is set to {@code false} the
+     *                                     caller has to make sure to kill the app if needed.
+     */
+    void persistChanges(boolean mayKillBecauseOfAppOpsChange) {
+        int numPermissions = mPermissions.size();
+        boolean shouldKillApp = false;
+
+        for (int i = 0; i < numPermissions; i++) {
+            Permission permission = mPermissions.valueAt(i);
+
+            if (permission.isGranted()) {
+                mPackageManager.grantRuntimePermission(mPackageInfo.packageName,
+                        permission.getName(), mUserHandle);
+            } else {
+                mPackageManager.revokeRuntimePermission(mPackageInfo.packageName,
+                        permission.getName(), mUserHandle);
+            }
+
+            int flags = (permission.isUserSet() ? PackageManager.FLAG_PERMISSION_USER_SET : 0)
+                    | (permission.isUserFixed() ? PackageManager.FLAG_PERMISSION_USER_FIXED : 0)
+                    | (permission.shouldRevokeOnUpgrade()
+                    ? PackageManager.FLAG_PERMISSION_REVOKE_ON_UPGRADE : 0)
+                    | (permission.isPolicyFixed() ? PackageManager.FLAG_PERMISSION_POLICY_FIXED : 0)
+                    | (permission.isReviewRequired()
+                    ? PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED : 0);
+
+            mPackageManager.updatePermissionFlags(permission.getName(),
+                    mPackageInfo.packageName,
+                    PackageManager.FLAG_PERMISSION_USER_SET
+                            | PackageManager.FLAG_PERMISSION_USER_FIXED
+                            | PackageManager.FLAG_PERMISSION_REVOKE_ON_UPGRADE
+                            | PackageManager.FLAG_PERMISSION_POLICY_FIXED
+                            | PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED,
+                    flags, mUserHandle);
+
+            if (permission.affectsAppOp()) {
+                if (permission.isAppOpAllowed()) {
+                    allowAppOp(permission, mPackageInfo.applicationInfo.uid);
+                } else {
+                    disallowAppOp(permission, mPackageInfo.applicationInfo.uid);
+                }
+
+                // Enabling/Disabling an app op may put the app in a situation in which it has a
+                // handle to state it shouldn't have, so we have to kill the app. This matches the
+                // revoke runtime permission behavior.
+                shouldKillApp = true;
+            }
+        }
+
+        if (mayKillBecauseOfAppOpsChange && shouldKillApp) {
+            killApp(KILL_REASON_APP_OP_CHANGE);
         }
     }
 }
