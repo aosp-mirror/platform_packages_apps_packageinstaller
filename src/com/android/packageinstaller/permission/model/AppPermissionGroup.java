@@ -36,9 +36,9 @@ import android.os.Process;
 import android.os.UserHandle;
 import android.util.ArrayMap;
 
-import com.android.permissioncontroller.R;
 import com.android.packageinstaller.permission.utils.ArrayUtils;
 import com.android.packageinstaller.permission.utils.LocationUtils;
+import com.android.permissioncontroller.R;
 
 import java.text.Collator;
 import java.util.ArrayList;
@@ -231,6 +231,16 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                 if (backgroundPermission != null) {
                     backgroundPermission.addForegroundPermissions(permission);
                     permission.setBackgroundPermission(backgroundPermission);
+
+                    // The background permissions isAppOpAllowed refers to the background state of
+                    // the foregound permission's appOp. Hence we can only set it once we know the
+                    // matching foreground permission.
+                    // @see #allowAppOp
+                    if (context.getSystemService(AppOpsManager.class).unsafeCheckOpRaw(
+                            permission.getAppOp(), packageInfo.applicationInfo.uid,
+                            packageInfo.packageName) == MODE_ALLOWED) {
+                        backgroundPermission.setAppOpAllowed(true);
+                    }
                 }
             }
         }
