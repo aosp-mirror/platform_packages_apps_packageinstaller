@@ -28,10 +28,11 @@ import android.content.pm.PackageParser;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.ProgressBar;
+
+import androidx.annotation.Nullable;
 
 import com.android.internal.content.PackageHelper;
 
@@ -388,8 +389,7 @@ public class InstallInstalling extends Activity {
             if (session != null) {
                 Intent broadcastIntent = new Intent(BROADCAST_ACTION);
                 broadcastIntent.setFlags(Intent.FLAG_RECEIVER_FOREGROUND);
-                broadcastIntent.setPackage(
-                        getPackageManager().getPermissionControllerPackageName());
+                broadcastIntent.setPackage(getPackageName());
                 broadcastIntent.putExtra(EventResultPersister.EXTRA_ID, mInstallId);
 
                 PendingIntent pendingIntent = PendingIntent.getBroadcast(
