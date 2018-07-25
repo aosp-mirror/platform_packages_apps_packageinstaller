@@ -162,7 +162,7 @@ public final class Utils {
     }
 
     public static boolean areGroupPermissionsIndividuallyControlled(Context context, String group) {
-        if (!context.getPackageManager().isPermissionReviewModeEnabled()) {
+        if (!context.getPackageManager().arePermissionsIndividuallyControlled()) {
             return false;
         }
         return Manifest.permission_group.SMS.equals(group)
@@ -171,7 +171,7 @@ public final class Utils {
     }
 
     public static boolean isPermissionIndividuallyControlled(Context context, String permission) {
-        if (!context.getPackageManager().isPermissionReviewModeEnabled()) {
+        if (!context.getPackageManager().arePermissionsIndividuallyControlled()) {
             return false;
         }
         return Manifest.permission.READ_CONTACTS.equals(permission)

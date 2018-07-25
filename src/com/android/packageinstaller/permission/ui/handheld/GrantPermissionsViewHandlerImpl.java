@@ -73,7 +73,7 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
 
     private final Activity mActivity;
     private final String mAppPackageName;
-    private final boolean mPermissionReviewRequired;
+    private final boolean mPermissionsIndividuallyControlled;
 
     private ResultListener mResultListener;
 
@@ -107,7 +107,8 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
     public GrantPermissionsViewHandlerImpl(Activity activity, String appPackageName) {
         mActivity = activity;
         mAppPackageName = appPackageName;
-        mPermissionReviewRequired = activity.getPackageManager().isPermissionReviewModeEnabled();
+        mPermissionsIndividuallyControlled =
+                activity.getPackageManager().arePermissionsIndividuallyControlled();
     }
 
     @Override
@@ -293,7 +294,7 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         mAllowButton = (Button) mRootView.findViewById(R.id.permission_allow_button);
         mAllowButton.setOnClickListener(this);
 
-        if (mPermissionReviewRequired) {
+        if (mPermissionsIndividuallyControlled) {
             mMoreInfoButton = (Button) mRootView.findViewById(R.id.permission_more_info_button);
             mMoreInfoButton.setVisibility(View.VISIBLE);
             mMoreInfoButton.setOnClickListener(this);

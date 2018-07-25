@@ -100,7 +100,7 @@ public class InstallStart extends Activity {
         nextActivity.putExtra(PackageInstallerActivity.EXTRA_ORIGINAL_SOURCE_INFO, sourceInfo);
         nextActivity.putExtra(Intent.EXTRA_ORIGINATING_UID, originatingUid);
 
-        if (PackageInstaller.ACTION_CONFIRM_PERMISSIONS.equals(intent.getAction())) {
+        if (PackageInstaller.ACTION_CONFIRM_INSTALL.equals(intent.getAction())) {
             nextActivity.setClass(this, PackageInstallerActivity.class);
         } else {
             Uri packageUri = intent.getData();

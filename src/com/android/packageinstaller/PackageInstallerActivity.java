@@ -36,24 +36,19 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PackageParser;
 import android.content.pm.PackageUserState;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Process;
 import android.os.RemoteException;
 import android.os.UserManager;
 import android.provider.Settings;
-import androidx.annotation.NonNull;
-import androidx.annotation.StringRes;
-import androidx.viewpager.widget.ViewPager;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.widget.AppSecurityPermissions;
 import android.widget.Button;
-import android.widget.TabHost;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 
 import com.android.packageinstaller.permission.ui.OverlayTouchActivity;
 
@@ -104,15 +99,10 @@ public class PackageInstallerActivity extends OverlayTouchActivity implements On
     // Buttons to indicate user acceptance
     private Button mOk;
     private Button mCancel;
-    CaffeinatedScrollView mScrollView = null;
-    private boolean mOkCanInstall = false;
 
     private PackageUtil.AppSnippet mAppSnippet;
 
     static final String PREFS_ALLOWED_SOURCES = "allowed_sources";
-
-    private static final String TAB_ID_ALL = "all";
-    private static final String TAB_ID_NEW = "new";
 
     // Dialog identifiers used in showDialog
     private static final int DLG_BASE = 0;
@@ -129,105 +119,24 @@ public class PackageInstallerActivity extends OverlayTouchActivity implements On
     private boolean mAllowUnknownSources;
 
     // Would the mOk button be enabled if this activity would be resumed
-    private boolean mEnableOk;
+    private boolean mEnableOk = false;
 
     private void startInstallConfirm() {
-        // We might need to show permissions, load layout with permissions
-        if (mAppInfo != null) {
-            bindUi(R.layout.install_confirm_perm_update, true);
-        } else {
-            bindUi(R.layout.install_confirm_perm, true);
-        }
+        int msg;
 
-        ((TextView) findViewById(R.id.install_confirm_question))
-                .setText(R.string.install_confirm_question);
-        TabHost tabHost = (TabHost)findViewById(android.R.id.tabhost);
-        tabHost.setup();
-        ViewPager viewPager = (ViewPager)findViewById(R.id.pager);
-        TabsAdapter adapter = new TabsAdapter(this, tabHost, viewPager);
-        // If the app supports runtime permissions the new permissions will
-        // be requested at runtime, hence we do not show them at install.
-        boolean supportsRuntimePermissions = mPkgInfo.applicationInfo.targetSdkVersion
-                >= Build.VERSION_CODES.M;
-        boolean permVisible = false;
-        mScrollView = null;
-        mOkCanInstall = false;
-        int msg = 0;
-
-        AppSecurityPermissions perms = new AppSecurityPermissions(this, mPkgInfo);
-        final int N = perms.getPermissionCount(AppSecurityPermissions.WHICH_ALL);
         if (mAppInfo != null) {
             msg = (mAppInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0
                     ? R.string.install_confirm_question_update_system
                     : R.string.install_confirm_question_update;
-            mScrollView = new CaffeinatedScrollView(this);
-            mScrollView.setFillViewport(true);
-            boolean newPermissionsFound = false;
-            if (!supportsRuntimePermissions) {
-                newPermissionsFound =
-                        (perms.getPermissionCount(AppSecurityPermissions.WHICH_NEW) > 0);
-                if (newPermissionsFound) {
-                    permVisible = true;
-                    mScrollView.addView(perms.getPermissionsView(
-                            AppSecurityPermissions.WHICH_NEW));
-                }
-            }
-            if (!supportsRuntimePermissions && !newPermissionsFound) {
-                LayoutInflater inflater = (LayoutInflater)getSystemService(
-                        Context.LAYOUT_INFLATER_SERVICE);
-                TextView label = (TextView)inflater.inflate(R.layout.label, null);
-                label.setText(R.string.no_new_perms);
-                mScrollView.addView(label);
-            }
-            adapter.addTab(tabHost.newTabSpec(TAB_ID_NEW).setIndicator(
-                    getText(R.string.newPerms)), mScrollView);
-        }
-        if (!supportsRuntimePermissions && N > 0) {
-            permVisible = true;
-            LayoutInflater inflater = (LayoutInflater)getSystemService(
-                    Context.LAYOUT_INFLATER_SERVICE);
-            View root = inflater.inflate(R.layout.permissions_list, null);
-            if (mScrollView == null) {
-                mScrollView = (CaffeinatedScrollView)root.findViewById(R.id.scrollview);
-            }
-            ((ViewGroup)root.findViewById(R.id.permission_list)).addView(
-                        perms.getPermissionsView(AppSecurityPermissions.WHICH_ALL));
-            adapter.addTab(tabHost.newTabSpec(TAB_ID_ALL).setIndicator(
-                    getText(R.string.allPerms)), root);
-        }
-        if (!permVisible) {
-            if (mAppInfo != null) {
-                // This is an update to an application, but there are no
-                // permissions at all.
-                msg = (mAppInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0
-                        ? R.string.install_confirm_question_update_system_no_perms
-                        : R.string.install_confirm_question_update_no_perms;
-            } else {
-                // This is a new application with no permissions.
-                msg = R.string.install_confirm_question_no_perms;
-            }
-
-            // We do not need to show any permissions, load layout without permissions
-            bindUi(R.layout.install_confirm, true);
-            mScrollView = null;
-        }
-        if (msg != 0) {
-            ((TextView)findViewById(R.id.install_confirm_question)).setText(msg);
-        }
-        if (mScrollView == null) {
-            // There is nothing to scroll view, so the ok button is immediately
-            // set to install.
-            mOk.setText(R.string.install);
-            mOkCanInstall = true;
         } else {
-            mScrollView.setFullScrollAction(new Runnable() {
-                @Override
-                public void run() {
-                    mOk.setText(R.string.install);
-                    mOkCanInstall = true;
-                }
-            });
+            // This is a new application with no permissions.
+            msg = R.string.install_confirm_question;
         }
+
+        ((TextView) findViewById(R.id.install_confirm_question)).setText(msg);
+
+        mEnableOk = true;
+        mOk.setEnabled(true);
     }
 
     /**
@@ -398,7 +307,7 @@ public class PackageInstallerActivity extends OverlayTouchActivity implements On
 
         final Uri packageUri;
 
-        if (PackageInstaller.ACTION_CONFIRM_PERMISSIONS.equals(intent.getAction())) {
+        if (PackageInstaller.ACTION_CONFIRM_INSTALL.equals(intent.getAction())) {
             final int sessionId = intent.getIntExtra(PackageInstaller.EXTRA_SESSION_ID, -1);
             final PackageInstaller.SessionInfo info = mInstaller.getSessionInfo(sessionId);
             if (info == null || !info.sealed || info.resolvedBaseCodePath == null) {
@@ -438,7 +347,7 @@ public class PackageInstallerActivity extends OverlayTouchActivity implements On
 
         // load dummy layout with OK button disabled until we override this layout in
         // startInstallConfirm
-        bindUi(R.layout.install_confirm, false);
+        bindUi(R.layout.install_confirm);
         checkIfAllowedAndInitiateInstall();
     }
 
@@ -468,7 +377,7 @@ public class PackageInstallerActivity extends OverlayTouchActivity implements On
         outState.putBoolean(ALLOW_UNKNOWN_SOURCES_KEY, mAllowUnknownSources);
     }
 
-    private void bindUi(int layout, boolean enableOk) {
+    private void bindUi(int layout) {
         setContentView(layout);
 
         mOk = (Button) findViewById(R.id.ok_button);
@@ -476,8 +385,7 @@ public class PackageInstallerActivity extends OverlayTouchActivity implements On
         mOk.setOnClickListener(this);
         mCancel.setOnClickListener(this);
 
-        mEnableOk = enableOk;
-        mOk.setEnabled(enableOk);
+        mOk.setEnabled(false);
 
         PackageUtil.initSnippetForNewApp(this, mAppSnippet, R.id.app_snippet);
     }
@@ -623,15 +531,11 @@ public class PackageInstallerActivity extends OverlayTouchActivity implements On
     public void onClick(View v) {
         if (v == mOk) {
             if (mOk.isEnabled()) {
-                if (mOkCanInstall || mScrollView == null) {
-                    if (mSessionId != -1) {
-                        mInstaller.setPermissionsResult(mSessionId, true);
-                        finish();
-                    } else {
-                        startInstall();
-                    }
+                if (mSessionId != -1) {
+                    mInstaller.setPermissionsResult(mSessionId, true);
+                    finish();
                 } else {
-                    mScrollView.pageScroll(View.FOCUS_DOWN);
+                    startInstall();
                 }
             }
         } else if (v == mCancel) {
