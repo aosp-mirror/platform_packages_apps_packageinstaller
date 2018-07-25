@@ -22,7 +22,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.android.packageinstaller.R;
+import com.android.permissioncontroller.R;
 
 /**
  * An extension of LinearLayout that automatically switches to vertical

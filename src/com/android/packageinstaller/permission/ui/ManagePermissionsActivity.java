@@ -23,7 +23,7 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.android.packageinstaller.DeviceUtils;
-import com.android.packageinstaller.R;
+import com.android.permissioncontroller.R;
 import com.android.packageinstaller.permission.ui.handheld.ManageStandardPermissionsFragment;
 import com.android.packageinstaller.permission.ui.wear.AppPermissionsFragmentWear;
 

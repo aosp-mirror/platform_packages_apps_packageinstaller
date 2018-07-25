@@ -30,7 +30,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.android.packageinstaller.R;
+import com.android.permissioncontroller.R;
 import com.android.packageinstaller.permission.model.PermissionApps.PmCache;
 import com.android.packageinstaller.permission.model.PermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionGroups;

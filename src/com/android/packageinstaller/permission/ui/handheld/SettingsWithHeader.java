@@ -27,7 +27,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.packageinstaller.DeviceUtils;
-import com.android.packageinstaller.R;
+import com.android.permissioncontroller.R;
 
 public abstract class SettingsWithHeader extends PermissionsFrameFragment
         implements OnClickListener {

@@ -32,7 +32,7 @@ import android.util.IconDrawableFactory;
 import android.util.Log;
 import android.util.SparseArray;
 
-import com.android.packageinstaller.R;
+import com.android.permissioncontroller.R;
 import com.android.packageinstaller.permission.utils.Utils;
 
 import java.util.ArrayList;

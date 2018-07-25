@@ -40,7 +40,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Switch;
 
-import com.android.packageinstaller.R;
+import com.android.permissioncontroller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.utils.ArrayUtils;

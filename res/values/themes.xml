@@ -39,25 +39,8 @@
         <item name="android:windowCloseOnTouchOutside">@*android:bool/config_closeDialogWhenTouchOutside</item>
     </style>
 
-    <style name="DialogWhenLarge"
-            parent="@android:style/Theme.DeviceDefault.Light.NoActionBar">
-        <item name="android:textAppearanceMedium">@style/MediumText</item>
-        <item name="android:textAppearanceSmall">@style/SmallText</item>
-        <item name="android:titleTextStyle">@style/TitleText</item>
-    </style>
-
-    <style name="DialogWhenLargeNoAnimation" parent="DialogWhenLarge">
-        <item name="android:windowAnimationStyle">@null</item>
-    </style>
-
-    <style name="AlertDialogActivity"
-            parent="@android:style/Theme.DeviceDefault.Light.Panel">
-        <item name="android:backgroundDimEnabled">true</item>
-    </style>
-
     <style name="Header.Settings"
             parent="@android:style/Theme.DeviceDefault.Settings">
     </style>
-
 
 </resources>

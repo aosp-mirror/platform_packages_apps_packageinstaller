@@ -36,7 +36,7 @@ import android.widget.Toast;
 
 import androidx.wear.ble.view.WearableDialogHelper;
 
-import com.android.packageinstaller.R;
+import com.android.permissioncontroller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.Permission;

@@ -33,7 +33,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.ArraySet;
 
-import com.android.packageinstaller.R;
+import com.android.permissioncontroller.R;
 import com.android.packageinstaller.permission.utils.Utils;
 
 import java.util.ArrayList;
