@@ -399,6 +399,10 @@ class PermissionPreference extends RestrictedSwitchPreference {
      * @param changeTarget Whether background or foreground should be changed
      */
     private void showDefaultDenyDialog(@ChangeTarget int changeTarget) {
+        if (!mFragment.isResumed()) {
+            return;
+        }
+
         Bundle args = new Bundle();
 
         boolean showGrantedByDefaultWarning = false;
@@ -435,6 +439,10 @@ class PermissionPreference extends RestrictedSwitchPreference {
      * </ol>
      */
     private void showBackgroundChooserDialog() {
+        if (!mFragment.isResumed()) {
+            return;
+        }
+
         Bundle args = new Bundle();
         args.putCharSequence(BackgroundAccessChooser.TITLE,
                 getRequestMessage(getAppLabel(), mGroup, getContext(), mGroup.getRequest()));
