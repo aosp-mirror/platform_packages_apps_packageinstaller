@@ -32,7 +32,7 @@
     </style>
 
     <style name="GrantPermissions"
-            parent="@*android:style/Theme.DeviceDefault.Light.Panel.PermissionGrantApp">
+            parent="@*android:style/Theme.DeviceDefault.PermissionGrantApp">
         <!-- The following attributes change the behavior of the dialog, hence they should not be
              themed -->
         <item name="android:windowIsTranslucent">true</item>
