@@ -21,7 +21,7 @@ import android.widget.Space;
 import androidx.wear.ble.view.AcceptDenyDialog;
 import androidx.wear.ble.view.WearableDialogHelper;
 
-import com.android.packageinstaller.R;
+import com.android.permissioncontroller.R;
 
 /**
  * Watch-specific view handler for the grant permissions activity.

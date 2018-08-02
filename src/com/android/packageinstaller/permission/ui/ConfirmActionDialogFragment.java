@@ -23,7 +23,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.DialogFragment;
 
-import com.android.packageinstaller.R;
+import com.android.permissioncontroller.R;
 
 public final class ConfirmActionDialogFragment extends DialogFragment {
     public static final String ARG_MESSAGE = "MESSAGE";

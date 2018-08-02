@@ -37,7 +37,7 @@ import androidx.car.widget.ListItemProvider;
 import androidx.car.widget.PagedListView;
 import androidx.car.widget.TextListItem;
 
-import com.android.packageinstaller.R;
+import com.android.permissioncontroller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.utils.Utils;

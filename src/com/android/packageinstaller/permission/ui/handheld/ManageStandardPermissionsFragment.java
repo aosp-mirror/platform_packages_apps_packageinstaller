@@ -20,7 +20,7 @@ import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.view.MenuItem;
 
-import com.android.packageinstaller.R;
+import com.android.permissioncontroller.R;
 import com.android.packageinstaller.permission.model.PermissionGroup;
 import com.android.packageinstaller.permission.utils.Utils;
 
@@ -43,7 +43,7 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
     public void onStart() {
         super.onStart();
 
-        getActivity().setTitle(com.android.packageinstaller.R.string.app_permissions);
+        getActivity().setTitle(com.android.permissioncontroller.R.string.app_permissions);
     }
 
 

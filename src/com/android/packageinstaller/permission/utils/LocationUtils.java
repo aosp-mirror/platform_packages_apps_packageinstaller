@@ -28,7 +28,7 @@ import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.provider.Settings;
 
-import com.android.packageinstaller.R;
+import com.android.permissioncontroller.R;
 
 import java.util.ArrayList;
 

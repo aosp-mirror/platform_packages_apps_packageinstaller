@@ -26,7 +26,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
 import com.android.packageinstaller.DeviceUtils;
-import com.android.packageinstaller.R;
+import com.android.permissioncontroller.R;
 import com.android.packageinstaller.permission.ui.ConfirmActionDialogFragment
         .OnActionConfirmedListener;
 import com.android.packageinstaller.permission.ui.handheld.ReviewPermissionsFragment;

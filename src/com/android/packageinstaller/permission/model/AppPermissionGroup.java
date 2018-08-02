@@ -36,7 +36,7 @@ import android.os.Process;
 import android.os.UserHandle;
 import android.util.ArrayMap;
 
-import com.android.packageinstaller.R;
+import com.android.permissioncontroller.R;
 import com.android.packageinstaller.permission.utils.ArrayUtils;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 

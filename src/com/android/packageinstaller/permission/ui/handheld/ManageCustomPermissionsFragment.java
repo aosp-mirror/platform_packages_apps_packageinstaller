@@ -26,7 +26,7 @@ public class ManageCustomPermissionsFragment extends ManagePermissionsFragment {
     public void onStart() {
         super.onStart();
 
-        getActivity().setTitle(com.android.packageinstaller.R.string.additional_permissions);
+        getActivity().setTitle(com.android.permissioncontroller.R.string.additional_permissions);
     }
 
     @Override
