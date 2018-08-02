@@ -16,74 +16,10 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2738748390251381682">"Бума орнатқыш"</string>
-    <string name="next" msgid="3057143178373252333">"Келесі"</string>
-    <string name="install" msgid="5896438203900042068">"Орнату"</string>
-    <string name="done" msgid="3889387558374211719">"Дайын"</string>
-    <string name="cancel" msgid="8360346460165114585">"Бас тарту"</string>
-    <string name="installing" msgid="8613631001631998372">"Орнатуда…"</string>
-    <string name="installing_app" msgid="4097935682329028894">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> орнатылуда…"</string>
-    <string name="install_done" msgid="3682715442154357097">"Қолданба орнатылды."</string>
-    <string name="install_confirm_question" msgid="7295206719219043890">"Бұл қолданбаны орнатуды қалайсыз ба? Оның келесі нәрселерге қол жетімділігі болады:"</string>
-    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Бұл қолданбаны орнатуды қалайсыз ба? Ол ерекше қол жетімділікті қажет етпейді."</string>
-    <string name="install_confirm_question_update" msgid="4624159567361487964">"Бұл қолданбаның жаңартылған нұсқасын орнатуды қалайсыз ба? Деректеріңіз жоғалмайды. Жаңартылған қолданбаның келесі нәрселерге қол жетімділігі болады:"</string>
-    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Бұл орнатылған қолданбаның жаңартылған нұсқасын орнатуды қалайсыз ба? Деректеріңіз жоғалмайды. Жаңартылған қолданбаның келесі нәрселерге қол жетімділігі болады:"</string>
-    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Бұл қолданбаның жаңартылған нұсқасын орнатуды қалайсыз ба? Деректеріңіз жоғалмайды. Ол ерекше қол жетімділікті қажет етпейді."</string>
-    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Бұл орнатылған қолданбаның жаңартылған нұсқасын орнатуды қалайсыз ба? Деректеріңіз жоғалмайды. Ол ерекше қол жетімділікті қажет етпейді."</string>
-    <string name="install_failed" msgid="6579998651498970899">"Қолданба орнатылмады."</string>
-    <string name="install_failed_blocked" msgid="1606870930588770025">"Буманы орнатуға тыйым салынды."</string>
-    <string name="install_failed_conflict" msgid="5336045235168070954">"Пакет түрінде орнатылмаған қолданба мен бұрыннан бар пакеттің арасында қайшылық туындайды."</string>
-    <string name="install_failed_incompatible" product="tablet" msgid="6682387386242708974">"Қолданба түрінде орнатылмаған қолданба, планшетіңізбен үйлесімді емес."</string>
-    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Бұл қолданба теледидарыңызбен үйлесімді емес."</string>
-    <string name="install_failed_incompatible" product="default" msgid="7917996365659426872">"Қолданба түрінде орнатылмаған қолданба, телефоныңызбен үйлесімді емес."</string>
-    <string name="install_failed_invalid_apk" msgid="269885385245534742">"Пакет түрінде орнатылмаған қолданба жарамсыз болып табылады."</string>
-    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> қолданбасын планшетіңізге орнату мүмкін емес"</string>
-    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> теледидарыңызда орнату мүмкін емес."</string>
-    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> қолданбасын телефоныңызға орнату мүмкін емес."</string>
-    <string name="launch" msgid="4826921505917605463">"Ашу"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"Әкімші белгісіз көздерден алынған қолданбаларды орнатуға рұқсат етпейді"</string>
-    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Бұл пайдаланушы белгісіз қолданбаларды орната алмайды"</string>
-    <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"Бұл пайдаланушының қолданбаларды орнату рұқсаты жоқ"</string>
+    <!-- no translation found for app_name (6793827020090537173) -->
+    <skip />
     <string name="ok" msgid="3468756155452870475">"Жарайды"</string>
-    <string name="manage_applications" msgid="4033876279091996596">"Қолданбаларды басқару"</string>
-    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Орнында емес"</string>
-    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> қолданбасын орнату мүмкін болмады. Орын босатып, қайта әрекеттеніп көріңіз."</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Қолданба табылмады"</string>
-    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Қолданба орнатылған қолданбалар тізімінен табылмады."</string>
-    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"Рұқсат етілмеген"</string>
-    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"Ағымдағы пайдаланушыға бұл жою әрекетіне рұқсат берілмеген."</string>
-    <string name="generic_error_dlg_title" msgid="2684806600635296961">"Қате"</string>
-    <string name="generic_error_dlg_text" msgid="4288738047825333954">"Қолданба жойылмады."</string>
-    <string name="uninstall_application_title" msgid="1860074100811653963">"Қолданбаны алып тастау"</string>
-    <string name="uninstall_update_title" msgid="4146940097553335390">"Жаңартуды алып тастау"</string>
-    <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> келесі қолданбаның бөлігі:"</string>
-    <string name="uninstall_application_text" msgid="6691975835951187030">"Бұл қолданбаны алып тастауды қалайсыз ба?"</string>
-    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Бұл қолданбаны "<b>"барлық"</b>" пайдаланушылар үшін алып тастауды қалайсыз ба? Қолданба және оның деректері құрылғыдағы "<b>"барлық"</b>" пайдаланушылардан алынады."</string>
-    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Пайдаланушы <xliff:g id="USERNAME">%1$s</xliff:g> үшін осы қолданбаны жою керек пе?"</string>
-    <string name="uninstall_update_text" msgid="1394549691152728409">"Осы қолданбаны зауыттық нұсқамен ауыстыру керек пе? Бүкіл деректер жойылады."</string>
-    <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Осы қолданбаны зауыттық нұсқамен ауыстыру керек пе? Бүкіл деректер жойылады. Бұл осы құрылғының барлық пайдаланушыларына, соның ішінде жұмыс профильдері бар пайдаланушыларға әсер етеді."</string>
-    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"Жұмыс істеп тұрған жою әрекеттері"</string>
-    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"Сәтсіз жою әрекеттері"</string>
-    <string name="uninstalling" msgid="5556217435895938250">"Алып тастау орындалуда..."</string>
-    <string name="uninstalling_app" msgid="2773617614877719294">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> жойылуда…"</string>
-    <string name="uninstall_done" msgid="3792487853420281888">"Алып тастау аяқталды."</string>
-    <string name="uninstall_done_app" msgid="775837862728680479">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> жойылды"</string>
-    <string name="uninstall_failed" msgid="631122574306299512">"Алып тастау сәтсіздікке ұшырады."</string>
-    <string name="uninstall_failed_app" msgid="945277834056527022">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> жою сәтсіз аяқталды."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"Белсенді құрылғының әкімші қолданбасын жою мүмкін емес"</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"<xliff:g id="USERNAME">%1$s</xliff:g> үшін белсенді құрылғының әкімші қолданбасын жою мүмкін емес"</string>
-    <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Бұл қолданба кейбір пайдаланушылар немесе профильдер үшін қажет және басқалар үшін жойылды"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"Бұл қолданба профиліңіз үшін қажет және оны жою мүмкін емес."</string>
-    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Әкімші осы қолданбаны талап етеді және оны жою мүмкін емес."</string>
-    <string name="manage_device_administrators" msgid="118178632652346535">"Құрылғы әкімшісі қолданбаларын басқару"</string>
-    <string name="manage_users" msgid="3125018886835668847">"Пайдаланушыларды басқару"</string>
-    <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> қолданбасын алып тастау мүмкін емес."</string>
-    <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Жинақты сараптау кезінде мәселе орын алды."</string>
-    <string name="newPerms" msgid="6039428254474104210">"Жаңа"</string>
-    <string name="allPerms" msgid="1024385515840703981">"Барлық"</string>
-    <string name="privacyPerms" msgid="1850527049572617">"Құпиялылық"</string>
-    <string name="devicePerms" msgid="6733560207731294504">"Құралға кіру"</string>
-    <string name="no_new_perms" msgid="6657813692169565975">"Бұл қолданба жаңа рұқсаттарды қажет етпейді."</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Тыйым салу"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Қосымша ақпарат"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Бәрібір рұқсат бермеу"</string>
@@ -121,6 +57,9 @@
     <string name="permission_summary_enabled_by_policy_background_only" msgid="4834971700297385342">"Саясат бойынша фондық режимде кіруге рұқсат етілген"</string>
     <string name="permission_summary_enabled_by_policy_foreground_only" msgid="5150061275247925588">"Саясат бойынша экрандық режимде кіруге рұқсат етілген"</string>
     <string name="permission_summary_enforced_by_admin" msgid="1702707982488952544">"Әкімші басқарады"</string>
+    <string name="permission_summary_disabled_by_admin_background_only" msgid="2185473379176174735">"Әкімші фондық режимде кіруге тыйым салған"</string>
+    <string name="permission_summary_enabled_by_admin_background_only" msgid="4558536214810713340">"Әкімші фондық режимде кіруге рұқсат еткен"</string>
+    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="3735312186687063512">"Әкімші экрандық режимде кіруге рұқсат еткен"</string>
     <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
     <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
@@ -144,13 +83,4 @@
     <string name="current_permissions_category" msgid="998210994450606094">"Ағымдағы рұқсаттар"</string>
     <string name="message_staging" msgid="6151794817691100003">"Қолданба реттелуде…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"Белгісіз"</string>
-    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Қауіпсіздікті сақтау үшін планшетке бұл дереккөзден белгісіз қолданбаларды орнатуға рұқсат берілмейді."</string>
-    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Қауіпсіздікті сақтау үшін теледидарға бұл дереккөзден белгісіз қолданбаларды орнатуға рұқсат берілмейді."</string>
-    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Қауіпсіздікті сақтау үшін телефонға бұл дереккөзден белгісіз қолданбаларды орнатуға рұқсат берілмейді."</string>
-    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"Телефон және жеке деректер белгісіз қолданбалардың шабуылына ұшырауы мүмкін. Бұл қолданбаны орнату арқылы оны пайдалану нәтижесіндегі телефонға келетін залалға немесе деректердің жоғалуына өзіңіз ғана жауапты болатыныңызға келісесіз."</string>
-    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"Планшет және жеке деректер белгісіз қолданбалардың шабуылына ұшырауы мүмкін. Бұл қолданбаны орнату арқылы оны пайдалану нәтижесіндегі планшетке келетін залалға немесе деректердің жоғалуына өзіңіз ғана жауапты болатыныңызға келісесіз."</string>
-    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Теледидар және жеке деректер белгісіз қолданбалардың шабуылына ұшырауы мүмкін. Бұл қолданбаны орнату арқылы оны пайдалану нәтижесіндегі теледидарға келетін қандай да бір залалға немесе деректердің жоғалуына өзіңіз ғана жауапты болатыныңызға келісесіз."</string>
-    <string name="anonymous_source_continue" msgid="2094381167954332292">"Жалғастыру"</string>
-    <string name="external_sources_settings" msgid="8601453744517291632">"Параметрлер"</string>
-    <string name="wear_app_channel" msgid="6200840123672949356">"Wear қолданбасын орнату/жою"</string>
 </resources>
