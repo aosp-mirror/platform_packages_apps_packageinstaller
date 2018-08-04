@@ -58,15 +58,15 @@
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Apl tidak ditemukan"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Apl tersebut tidak ditemukan di dalam daftar apl yang terpasang."</string>
     <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"Tidak diizinkan"</string>
-    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"Pengguna saat ini tidak diizinkan mencopot pemasangan."</string>
+    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"Pengguna saat ini tidak diizinkan meng-uninstal."</string>
     <string name="generic_error_dlg_title" msgid="2684806600635296961">"Kesalahan"</string>
     <string name="generic_error_dlg_text" msgid="4288738047825333954">"Aplikasi tidak dapat dipasang."</string>
     <string name="uninstall_application_title" msgid="1860074100811653963">"Uninstal apl"</string>
     <string name="uninstall_update_title" msgid="4146940097553335390">"Uninstal pembaruan"</string>
     <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> adalah bagian dari apl berikut:"</string>
-    <string name="uninstall_application_text" msgid="6691975835951187030">"Apakah Anda ingin mencopot pemasangan apl ini?"</string>
+    <string name="uninstall_application_text" msgid="6691975835951187030">"Apakah Anda ingin meng-uninstal apl ini?"</string>
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Anda ingin mencopot aplikasi ini untuk "<b>"semua"</b>" pengguna? Aplikasi dan datanya akan dihapus dari "<b>"semua"</b>" pengguna pada perangkat."</string>
-    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Ingin mencopot pemasangan aplikasi ini untuk pengguna <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
+    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Ingin meng-uninstal aplikasi ini untuk pengguna <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
     <string name="uninstall_update_text" msgid="1394549691152728409">"Gantikan aplikasi ini dengan versi pabrik? Semua data akan dihapus."</string>
     <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Gantikan aplikasi ini dengan versi pabrik? Semua data akan dihapus. Tindakan ini memengaruhi semua pengguna perangkat ini, termasuk yang memiliki profil kerja."</string>
     <string name="uninstalling_notification_channel" msgid="5698369661583525583">"Menjalankan uninstal"</string>
@@ -76,7 +76,7 @@
     <string name="uninstall_done" msgid="3792487853420281888">"Pencopotan pemasangan selesai."</string>
     <string name="uninstall_done_app" msgid="775837862728680479">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> di-uninstal"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"Pencopotan pemasangan tidak berhasil."</string>
-    <string name="uninstall_failed_app" msgid="945277834056527022">"Gagal mencopot pemasangan <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>."</string>
+    <string name="uninstall_failed_app" msgid="945277834056527022">"Gagal meng-uninstal <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"Tidak dapat meng-uninstal aplikasi admin perangkat yang aktif"</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"Tidak dapat meng-uninstal aplikasi admin perangkat yang aktif untuk <xliff:g id="USERNAME">%1$s</xliff:g>"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Aplikasi ini diperlukan untuk beberapa pengguna atau profil, dan telah dicopot pemasangannya untuk yang lainnya"</string>
@@ -106,6 +106,7 @@
     <string name="never_ask_again" msgid="1089938738199748687">"Jangan tanya lagi"</string>
     <string name="no_permissions" msgid="3210542466245591574">"Tidak ada izin"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Izin tambahan"</string>
+    <string name="app_permissions_info_button_label" msgid="7789812060395257748">"Buka info aplikasi"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> lainnya</item>
       <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> lainnya</item>

@@ -104,8 +104,9 @@
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Aplikacije"</string>
     <string name="app_permissions" msgid="3146758905824597178">"Odobrenja za aplikacije"</string>
     <string name="never_ask_again" msgid="1089938738199748687">"Ne pitaj ponovo"</string>
-    <string name="no_permissions" msgid="3210542466245591574">"Nijedno odobrenje"</string>
+    <string name="no_permissions" msgid="3210542466245591574">"Nema odobrenja"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"Dodatna odobrenja"</string>
+    <string name="app_permissions_info_button_label" msgid="7789812060395257748">"Otvori informacije o aplikaciji"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
       <item quantity="one">još <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="few">još <xliff:g id="COUNT_1">%1$d</xliff:g></item>
@@ -116,7 +117,7 @@
     <string name="app_permissions_group_summary" msgid="4787239772223699263">"Aplikacije sa odobrenjem: <xliff:g id="COUNT_0">%1$d</xliff:g> od <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"Prikaži sistemske aplikacije"</string>
     <string name="menu_hide_system" msgid="7595471742649432977">"Sakrij sistemske"</string>
-    <string name="permission_title" msgid="6495415273398916381">"Odobrenja za aplikaciju: <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
+    <string name="permission_title" msgid="6495415273398916381">"Odobrenja za: <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
     <string name="no_apps" msgid="1965493419005012569">"Nijedna aplikacija"</string>
     <string name="location_settings" msgid="1774875730854491297">"Postavke lokacije"</string>
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> pruža usluge lokacije za ovaj uređaj. Pristup lokaciji se može izmijeniti u postavkama lokacije."</string>
