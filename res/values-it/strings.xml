@@ -16,74 +16,10 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2738748390251381682">"Installazione pacchetti"</string>
-    <string name="next" msgid="3057143178373252333">"Avanti"</string>
-    <string name="install" msgid="5896438203900042068">"Installa"</string>
-    <string name="done" msgid="3889387558374211719">"Fine"</string>
-    <string name="cancel" msgid="8360346460165114585">"Annulla"</string>
-    <string name="installing" msgid="8613631001631998372">"Installazione..."</string>
-    <string name="installing_app" msgid="4097935682329028894">"Installazione di <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
-    <string name="install_done" msgid="3682715442154357097">"App installata."</string>
-    <string name="install_confirm_question" msgid="7295206719219043890">"Vuoi installare questa applicazione? Avrà accesso a:"</string>
-    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Vuoi installare questa applicazione? Non richiede alcun accesso speciale."</string>
-    <string name="install_confirm_question_update" msgid="4624159567361487964">"Vuoi installare un aggiornamento per questa applicazione esistente? I tuoi dati esistenti non andranno persi. L\'applicazione aggiornata avrà accesso a:"</string>
-    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Vuoi installare un aggiornamento per questa applicazione integrata? I tuoi dati esistenti non andranno persi. L\'applicazione aggiornata avrà accesso a:"</string>
-    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Vuoi installare un aggiornamento di questa applicazione esistente? I dati correnti verranno conservati. Non occorrono accessi speciali."</string>
-    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Vuoi installare un aggiornamento di questa applicazione integrata? I dati correnti verranno conservati. Non occorrono accessi speciali."</string>
-    <string name="install_failed" msgid="6579998651498970899">"App non installata."</string>
-    <string name="install_failed_blocked" msgid="1606870930588770025">"È stata bloccata l\'installazione del pacchetto."</string>
-    <string name="install_failed_conflict" msgid="5336045235168070954">"App non installata poiché il pacchetto è in conflitto con un pacchetto esistente."</string>
-    <string name="install_failed_incompatible" product="tablet" msgid="6682387386242708974">"App non installata poiché non compatibile con il tuo tablet."</string>
-    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Questa app non è compatibile con la tua TV."</string>
-    <string name="install_failed_incompatible" product="default" msgid="7917996365659426872">"App non installata poiché non compatibile con il tuo telefono."</string>
-    <string name="install_failed_invalid_apk" msgid="269885385245534742">"App non installata poiché il pacchetto risulta non valido."</string>
-    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Impossibile installare <xliff:g id="APP_NAME">%1$s</xliff:g> sul tablet."</string>
-    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Impossibile installare <xliff:g id="APP_NAME">%1$s</xliff:g> sulla tua TV."</string>
-    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Impossibile installare <xliff:g id="APP_NAME">%1$s</xliff:g> sul telefono."</string>
-    <string name="launch" msgid="4826921505917605463">"Apri"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"L\'amministratore non consente l\'installazione di app ottenute da fonti sconosciute"</string>
-    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Questo utente non può installare app sconosciute"</string>
-    <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"L\'utente non è autorizzato a installare app"</string>
+    <!-- no translation found for app_name (6793827020090537173) -->
+    <skip />
     <string name="ok" msgid="3468756155452870475">"OK"</string>
-    <string name="manage_applications" msgid="4033876279091996596">"Gestisci applicazioni"</string>
-    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Spazio esaurito"</string>
-    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"Impossibile installare <xliff:g id="APP_NAME">%1$s</xliff:g>. Libera dello spazio e riprova."</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Applicazione non trovata"</string>
-    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Impossibile trovare l\'applicazione nell\'elenco di applicazioni installate."</string>
-    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"Non autorizzato"</string>
-    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"L\'utente corrente non è autorizzato a eseguire questa disinstallazione."</string>
-    <string name="generic_error_dlg_title" msgid="2684806600635296961">"Errore"</string>
-    <string name="generic_error_dlg_text" msgid="4288738047825333954">"Impossibile disinstallare l\'app."</string>
-    <string name="uninstall_application_title" msgid="1860074100811653963">"Disinstalla applicazione"</string>
-    <string name="uninstall_update_title" msgid="4146940097553335390">"Disinstalla aggiornamento"</string>
-    <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> fa parte della seguente applicazione:"</string>
-    <string name="uninstall_application_text" msgid="6691975835951187030">"Vuoi disinstallare questa applicazione?"</string>
-    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Vuoi disinstallare questa applicazione per "<b>"tutti"</b>" gli utenti? L\'applicazione e i relativi dati verranno rimossi da "<b>"tutti"</b>" gli utenti configurati sul dispositivo."</string>
-    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Disinstallare l\'app per l\'utente <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
-    <string name="uninstall_update_text" msgid="1394549691152728409">"Sostituire questa app con la versione di fabbrica? Tutti i dati verranno rimossi."</string>
-    <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Sostituire questa app con la versione di fabbrica? Tutti i dati verranno rimossi. Saranno interessati tutti gli utenti del dispositivo, inclusi quelli che hanno profili di lavoro."</string>
-    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"Disinstallazioni attuali"</string>
-    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"Disinstallazioni non riuscite"</string>
-    <string name="uninstalling" msgid="5556217435895938250">"Disinstallazione..."</string>
-    <string name="uninstalling_app" msgid="2773617614877719294">"Disinstallazione di <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
-    <string name="uninstall_done" msgid="3792487853420281888">"Disinstallazione completata."</string>
-    <string name="uninstall_done_app" msgid="775837862728680479">"App <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> disinstallata"</string>
-    <string name="uninstall_failed" msgid="631122574306299512">"Disinstallazione non riuscita."</string>
-    <string name="uninstall_failed_app" msgid="945277834056527022">"Impossibile disinstallare <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"Impossibile disinstallare l\'app di amministrazione del dispositivo attiva"</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"Impossibile disinstallare l\'app di amministrazione del dispositivo attiva per <xliff:g id="USERNAME">%1$s</xliff:g>"</string>
-    <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"L\'app è necessaria per alcuni utenti/profili ed è stata disinstallata per altri"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"L\'app è necessaria per il tuo profilo e non può essere disinstallata."</string>
-    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"App richiesta dall\'amministratore del dispositivo. Non può essere disinstallata."</string>
-    <string name="manage_device_administrators" msgid="118178632652346535">"Gestisci app di amministrazione del dispositivo"</string>
-    <string name="manage_users" msgid="3125018886835668847">"Gestisci utenti"</string>
-    <string name="uninstall_failed_msg" msgid="8969754702803951175">"Impossibile disinstallare <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
-    <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Errore durante l\'analisi del pacchetto."</string>
-    <string name="newPerms" msgid="6039428254474104210">"Nuove"</string>
-    <string name="allPerms" msgid="1024385515840703981">"Tutte"</string>
-    <string name="privacyPerms" msgid="1850527049572617">"Privacy"</string>
-    <string name="devicePerms" msgid="6733560207731294504">"Accesso dispositivo"</string>
-    <string name="no_new_perms" msgid="6657813692169565975">"Questo aggiornamento non richiede nuove autorizzazioni."</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Nega"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Altre informazioni"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Nega comunque"</string>
@@ -121,6 +57,9 @@
     <string name="permission_summary_enabled_by_policy_background_only" msgid="4834971700297385342">"Accesso in background attivato in base alla norma"</string>
     <string name="permission_summary_enabled_by_policy_foreground_only" msgid="5150061275247925588">"Accesso in primo piano attivato in base alla norma"</string>
     <string name="permission_summary_enforced_by_admin" msgid="1702707982488952544">"Gestita dall\'amministratore"</string>
+    <string name="permission_summary_disabled_by_admin_background_only" msgid="2185473379176174735">"Accesso in background disattivato dall\'amministratore"</string>
+    <string name="permission_summary_enabled_by_admin_background_only" msgid="4558536214810713340">"Accesso in background attivato dall\'amministratore"</string>
+    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="3735312186687063512">"Accesso in primo piano attivato dall\'amministratore"</string>
     <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
     <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
@@ -144,13 +83,4 @@
     <string name="current_permissions_category" msgid="998210994450606094">"Autorizzazioni correnti"</string>
     <string name="message_staging" msgid="6151794817691100003">"App in preparazione…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"Sconosciuto"</string>
-    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Per sicurezza, il tuo tablet non è autorizzato a installare app sconosciute da questa origine."</string>
-    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Per sicurezza, la tua TV non è autorizzata a installare app sconosciute da questa origine."</string>
-    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Per sicurezza, il tuo telefono non è autorizzato a installare app sconosciute da questa origine."</string>
-    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"I dati del telefono e i dati personali sono più vulnerabili agli attacchi di app sconosciute. Se installi questa app, accetti di essere responsabile degli eventuali danni al telefono o dell\'eventuale perdita di dati derivanti dall\'uso dell\'app."</string>
-    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"I dati del tablet e i dati personali sono più vulnerabili agli attacchi di app sconosciute. Se installi questa app, accetti di essere responsabile degli eventuali danni al tablet o dell\'eventuale perdita di dati derivanti dall\'uso dell\'app."</string>
-    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"I dati della TV e i dati personali sono più vulnerabili agli attacchi di app sconosciute. Se installi questa app, accetti di essere responsabile degli eventuali danni alla TV o dell\'eventuale perdita di dati derivanti dall\'uso dell\'app."</string>
-    <string name="anonymous_source_continue" msgid="2094381167954332292">"Continua"</string>
-    <string name="external_sources_settings" msgid="8601453744517291632">"Impostazioni"</string>
-    <string name="wear_app_channel" msgid="6200840123672949356">"Installazione/disinstallazione di app Wear"</string>
 </resources>

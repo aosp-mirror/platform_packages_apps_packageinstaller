@@ -16,74 +16,10 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2738748390251381682">"Alat za instaliranje paketa"</string>
-    <string name="next" msgid="3057143178373252333">"Naprijed"</string>
-    <string name="install" msgid="5896438203900042068">"Instaliraj"</string>
-    <string name="done" msgid="3889387558374211719">"Gotovo"</string>
-    <string name="cancel" msgid="8360346460165114585">"Otkaži"</string>
-    <string name="installing" msgid="8613631001631998372">"Instalacija u toku..."</string>
-    <string name="installing_app" msgid="4097935682329028894">"Instaliranje <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
-    <string name="install_done" msgid="3682715442154357097">"Aplikacija je instalirana."</string>
-    <string name="install_confirm_question" msgid="7295206719219043890">"Želite li instalirati ovu aplikaciju? Ona će dobiti pristup:"</string>
-    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Želite li instalirati ovu aplikaciju? Ona ne zahtijeva poseban pristup."</string>
-    <string name="install_confirm_question_update" msgid="4624159567361487964">"Želite li ažurirati ovu postojeću aplikaciju? Vaši postojeći podaci neće biti izgubljeni. Ažurirana aplikacija će dobiti pristup:"</string>
-    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Želite li ažurirati ovu ugrađenu aplikaciju? Vaši postojeći podaci neće biti izgubljeni. Ažurirana aplikacija će dobiti pristup:"</string>
-    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Želite li ažurirati ovu postojeću aplikaciju? Vaši postojeći podaci neće biti izgubljeni. Za ovo nije potreban poseban pristup."</string>
-    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Želite li ažurirati ovu ugrađenu aplikaciju? Vaš postojeći podaci neće biti izgubljeni. Nije potreban poseban pristup."</string>
-    <string name="install_failed" msgid="6579998651498970899">"Aplikacija nije instalirana."</string>
-    <string name="install_failed_blocked" msgid="1606870930588770025">"Instaliranje ovog paketa je blokirano."</string>
-    <string name="install_failed_conflict" msgid="5336045235168070954">"Aplikacija nije instalirana jer paket nije usaglašen s postojećim paketom."</string>
-    <string name="install_failed_incompatible" product="tablet" msgid="6682387386242708974">"Aplikacija nije instalirana jer nije kompatibilna s vašim tabletom."</string>
-    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Ova aplikacija nije kompatibilna s vašim TV-om."</string>
-    <string name="install_failed_incompatible" product="default" msgid="7917996365659426872">"Aplikacija nije instalirana jer nije kompatibilna s vašim telefonom."</string>
-    <string name="install_failed_invalid_apk" msgid="269885385245534742">"Aplikacija nije instalirana jer izgleda da paket nije važeći."</string>
-    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> ne možete instalirati na svoj tablet."</string>
-    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Nije moguće instalirati aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> na vaš TV."</string>
-    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> ne možete instalirati na svoj telefon."</string>
-    <string name="launch" msgid="4826921505917605463">"Otvori"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"Vaš administrator ne dozvoljava instaliranje aplikacija iz nepoznatih izvora."</string>
-    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Ovaj korisnik ne može instalirati nepoznate aplikacije."</string>
-    <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"Ovom korisniku nije dozvoljeno instaliranje aplikacija"</string>
+    <!-- no translation found for app_name (6793827020090537173) -->
+    <skip />
     <string name="ok" msgid="3468756155452870475">"Uredu"</string>
-    <string name="manage_applications" msgid="4033876279091996596">"Upravljaj aplikacijama"</string>
-    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Nedostatak prostora"</string>
-    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"Ne možete instalirati aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g>. Oslobodite prostora u pohrani i pokušajte ponovo."</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Aplikacija nije pronađena"</string>
-    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Aplikacija nije pronađena na spisku instaliranih aplikacija."</string>
-    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"Nije dozvoljeno"</string>
-    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"Trenutnom korisniku nije dozvoljeno da izvrši ovu deinstalaciju."</string>
-    <string name="generic_error_dlg_title" msgid="2684806600635296961">"Greška"</string>
-    <string name="generic_error_dlg_text" msgid="4288738047825333954">"Nije bilo moguće deinstalirati aplikaciju."</string>
-    <string name="uninstall_application_title" msgid="1860074100811653963">"Uklanjanje aplikacije"</string>
-    <string name="uninstall_update_title" msgid="4146940097553335390">"Uklanjanje ažuriranja"</string>
-    <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> je dio sljedeće aplikacije:"</string>
-    <string name="uninstall_application_text" msgid="6691975835951187030">"Želite li ukloniti ovu aplikaciju?"</string>
-    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Želite li ukloniti ovu aplikaciju za "<b>" sve "</b>" korisnike? Aplikacija i njeni podaci će biti uklonjeni iz "<b>" svih "</b>" korisničkih računa na uređaju."</string>
-    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Želite li ukloniti ovu aplikaciju za korisnika <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
-    <string name="uninstall_update_text" msgid="1394549691152728409">"Želite li ovu aplikaciju zamijeniti s fabričkom verzijom? Svi podaci će biti uklonjeni."</string>
-    <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Želite li ovu aplikaciju zamijeniti s fabričkom verzijom? Svi podaci će biti uklonjeni. To će utjecati na sve korisnike uređaja, uključujući i one s radnim profilima."</string>
-    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"Tekuća deinstaliranja"</string>
-    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"Neuspjela deinstaliranja"</string>
-    <string name="uninstalling" msgid="5556217435895938250">"Uklanjanje u toku..."</string>
-    <string name="uninstalling_app" msgid="2773617614877719294">"Deinstalacija paketa <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
-    <string name="uninstall_done" msgid="3792487853420281888">"Uklanjanje završeno."</string>
-    <string name="uninstall_done_app" msgid="775837862728680479">"Deinstaliran je paket <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>"</string>
-    <string name="uninstall_failed" msgid="631122574306299512">"Uklanjanje nije uspjelo."</string>
-    <string name="uninstall_failed_app" msgid="945277834056527022">"Paket <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> nije uspješno deinstaliran."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"Nije moguće deinstalirati aktivnu aplikaciju administratora uređaja"</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"Nije moguće deinstalirati aktivnu aplikaciju administratora uređaja za korisnika <xliff:g id="USERNAME">%1$s</xliff:g>"</string>
-    <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Ova aplikacija je neophodna nekim korisnicima ili profilima, a kod ostalih je deinstalirana"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"Ova aplikacija je potrebna za vaš profil i ne može se deinstalirati."</string>
-    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Ova aplikacija je potrebna administratoru vašeg uređaja i ne može se ukloniti."</string>
-    <string name="manage_device_administrators" msgid="118178632652346535">"Upravljajte aplikacijama administratora uređaja"</string>
-    <string name="manage_users" msgid="3125018886835668847">"Upravljanje korisnicima"</string>
-    <string name="uninstall_failed_msg" msgid="8969754702803951175">"Aplikacija <xliff:g id="APP_NAME">%1$s</xliff:g> se ne može ukloniti."</string>
-    <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Došlo je do problema prilikom raščlanjivanja paketa."</string>
-    <string name="newPerms" msgid="6039428254474104210">"Novo"</string>
-    <string name="allPerms" msgid="1024385515840703981">"Sve"</string>
-    <string name="privacyPerms" msgid="1850527049572617">"Privatnost"</string>
-    <string name="devicePerms" msgid="6733560207731294504">"Pristup uređaju"</string>
-    <string name="no_new_perms" msgid="6657813692169565975">"Za ovo ažuriranje nisu potrebne nova odobrenja."</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Odbij"</string>
     <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Više informacija"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Odbij svakako"</string>
@@ -122,6 +58,9 @@
     <string name="permission_summary_enabled_by_policy_background_only" msgid="4834971700297385342">"Pristup pozadini je omogućen u skladu s pravilima"</string>
     <string name="permission_summary_enabled_by_policy_foreground_only" msgid="5150061275247925588">"Pristup u prvom planu je omogućen u skladu s pravilima"</string>
     <string name="permission_summary_enforced_by_admin" msgid="1702707982488952544">"Kontrolira administrator"</string>
+    <string name="permission_summary_disabled_by_admin_background_only" msgid="2185473379176174735">"Administrator je onemogućio pristup iz pozadine"</string>
+    <string name="permission_summary_enabled_by_admin_background_only" msgid="4558536214810713340">"Administrator je omogućio pristup iz pozadine"</string>
+    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="3735312186687063512">"Administrator je omogućio pristup iz prvog plana"</string>
     <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
     <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
@@ -145,13 +84,4 @@
     <string name="current_permissions_category" msgid="998210994450606094">"Postojeća odobrenja"</string>
     <string name="message_staging" msgid="6151794817691100003">"Aplikacija se postavlja…"</string>
     <string name="app_name_unknown" msgid="8931522764510159105">"Nepoznato"</string>
-    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Vašem tabletu iz sigurnosnih razloga nije dopušteno instaliranje nepoznatih aplikacija iz ovog izvora."</string>
-    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Vašem TV-u iz sigurnosnih razloga nije dopušteno instaliranje nepoznatih aplikacija iz ovog izvora."</string>
-    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Vašem telefonu iz sigurnosnih razloga nije dopušteno instaliranje nepoznatih aplikacija iz ovog izvora."</string>
-    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"Vaši podaci na telefonu i vaši lični podaci izloženiji su napadima nepoznatih aplikacija. Instaliranjem ove aplikacije, saglasni ste da ste vi odgovorni za bilo kakvu štetu na telefonu ili gubitak podataka do kojih može doći korištenjem aplikacije."</string>
-    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"Vaši podaci na tabletu i vaši lični podaci izloženiji su napadima nepoznatih aplikacija. Instaliranjem ove aplikacije, saglasni ste da ste vi odgovorni za bilo kakvu štetu na tabletu ili gubitak podataka do kojih može doći korištenjem aplikacije."</string>
-    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Vaši podaci na TV-u i vaši lični podaci izloženiji su napadima nepoznatih aplikacija. Instaliranjem ove aplikacije, saglasni ste da ste vi odgovorni za bilo kakvu štetu na TV-u ili gubitak podataka do kojih može doći korištenjem aplikacije."</string>
-    <string name="anonymous_source_continue" msgid="2094381167954332292">"Nastavi"</string>
-    <string name="external_sources_settings" msgid="8601453744517291632">"Postavke"</string>
-    <string name="wear_app_channel" msgid="6200840123672949356">"(De)instaliranje wear aplikacija"</string>
 </resources>
