@@ -115,6 +115,8 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         mGroupIndex = savedInstanceState.getInt(ARG_GROUP_INDEX);
         mShowDonNotAsk = savedInstanceState.getBoolean(ARG_GROUP_SHOW_DO_NOT_ASK);
         mDoNotAskChecked = savedInstanceState.getBoolean(ARG_GROUP_DO_NOT_ASK_CHECKED);
+
+        updateDoNotAskCheckBox();
     }
 
     @Override
@@ -310,7 +312,9 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
     }
 
     private void updateDescription() {
-        mIconView.setImageDrawable(mGroupIcon.loadDrawable(mActivity));
+        if (mGroupIcon != null) {
+            mIconView.setImageDrawable(mGroupIcon.loadDrawable(mActivity));
+        }
         mMessageView.setText(mGroupMessage);
     }
 
@@ -329,9 +333,11 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
             mDoNotAskCheckbox.setVisibility(View.VISIBLE);
             mDoNotAskCheckbox.setOnClickListener(this);
             mDoNotAskCheckbox.setChecked(mDoNotAskChecked);
+            mAllowButton.setEnabled(!mDoNotAskChecked);
         } else {
             mDoNotAskCheckbox.setVisibility(View.GONE);
             mDoNotAskCheckbox.setOnClickListener(null);
+            mAllowButton.setEnabled(true);
         }
     }
 

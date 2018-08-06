@@ -35,6 +35,7 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.os.UserHandle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.widget.Toast;
 
 /**
@@ -42,6 +43,8 @@ import android.widget.Toast;
  */
 public class UninstallUninstalling extends Activity implements
         EventResultPersister.EventResultObserver {
+    private static final String LOG_TAG = UninstallUninstalling.class.getSimpleName();
+
     private static final String UNINSTALL_ID = "com.android.packageinstaller.UNINSTALL_ID";
     private static final String BROADCAST_ACTION =
             "com.android.packageinstaller.ACTION_UNINSTALL_COMMIT";
@@ -105,7 +108,8 @@ public class UninstallUninstalling extends Activity implements
                 mUninstallId = savedInstanceState.getInt(UNINSTALL_ID);
                 UninstallEventReceiver.addObserver(this, mUninstallId, this);
             }
-        } catch (EventResultPersister.OutOfIdsException e) {
+        } catch (EventResultPersister.OutOfIdsException | IllegalArgumentException e) {
+            Log.e(LOG_TAG, "Fails to start uninstall", e);
             onResult(PackageInstaller.STATUS_FAILURE, PackageManager.DELETE_FAILED_INTERNAL_ERROR,
                     null);
         }

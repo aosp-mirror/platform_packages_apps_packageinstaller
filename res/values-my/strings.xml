@@ -22,7 +22,7 @@
     <string name="done" msgid="3889387558374211719">"ပြီးပါပြီ"</string>
     <string name="security_settings_desc" msgid="2706691034244052604">"ဒီအပလီကေးရှင်းကို ခွင့်ပြုရမှာကတော့:"</string>
     <string name="cancel" msgid="8360346460165114585">"မလုပ်တော့"</string>
-    <string name="unknown" msgid="4742479012767208045">"အကြောင်းအရာ မသိရှိ"</string>
+    <string name="unknown" msgid="4742479012767208045">"မသိပါ"</string>
     <string name="installing" msgid="8613631001631998372">"ထည့်သွင်းနေပါသည်"</string>
     <string name="installing_app" msgid="4097935682329028894">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ကို ထည့်သွင်းနေသည်…"</string>
     <string name="install_done" msgid="3682715442154357097">"အက်ပ်ထည့်သွင်းပြီး"</string>
@@ -46,7 +46,7 @@
     <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"သင်၏ စီမံခန့်ခွဲသူက ရင်းမြစ်မသိသော အက်ပ်များကို ထည့်သွင်းခွင့်မပြုပါ"</string>
     <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"အရင်းအမြစ်မသိသော အက်ပ်များကို ဤအသုံးပြုသူက ထည့်သွင်းခွင့်မရှိပါ"</string>
     <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"ဤအသုံးပြုသူသည် အက်ပ်များကို ထည့်သွင်းခွင့်မရှိပါ"</string>
-    <string name="ok" msgid="3468756155452870475">"အိုကေ"</string>
+    <string name="ok" msgid="3468756155452870475">"OK"</string>
     <string name="settings" msgid="6743583734099755409">"အပြင်အဆင်များ"</string>
     <string name="manage_applications" msgid="4033876279091996596">"အပလီကေးရှင်းများအား ထိန်းသိမ်းခြင်း"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"အပလီကေးရှင်းအား အစားထိုးမညိလား?"</string>
@@ -54,7 +54,7 @@
     <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"ဒီဟာသည် စနစ်၏အက်ပ်ဖြစ်ပါသည်။ \n\nယခင် သုံးစွဲသူအချက်အလက်များ ကို သိမ်းဆည်းပေးပါမည်။"</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"နေရာလွတ်မရှိပါ"</string>
     <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> ကို ထည့်သွင်းလို့ မရနိုင်ပါ။ နေရာအပိုရအောင် ရှင်းလင်းပြီး ပြန်ကြိုးစားပါ"</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"အိုကေ"</string>
+    <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"အက်ပ်အားမတွေ့ပါ"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"ထည့်သွင်းထားသော အပလီကေးရှင်းထဲတွင် ဤအပလီကေးရှင်း မတွေ့ရှိပါ"</string>
     <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"ခွင့်ပြုမထားပါ"</string>
@@ -106,6 +106,7 @@
     <string name="never_ask_again" msgid="1089938738199748687">"နောက်ထပ်မမေးပါနှင့်"</string>
     <string name="no_permissions" msgid="3210542466245591574">"ခွင့်ပြုချက်မရှိ"</string>
     <string name="additional_permissions" msgid="6667573114240111763">"ထပ်တိုး ခွင့်ပြုချက်များ"</string>
+    <string name="app_permissions_info_button_label" msgid="7789812060395257748">"အက်ပ်အချက်အလက် ဖွင့်ရန်"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
       <item quantity="other"> နောက်ထပ် <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="one"> နောက်ထပ် <xliff:g id="COUNT_0">%1$d</xliff:g> </item>
@@ -128,7 +129,7 @@
     <string name="screen_overlay_title" msgid="3021729846864038529">"မျက်နှာပြင် ထပ်ပေးမှုကို ရှာတွေ့ခဲ့"</string>
     <string name="screen_overlay_message" msgid="2141944461571677331">"ဒီခွင့်ပြုချက် ဆက်တင်ကို ပြောင်းရန်၊ သင်ဟာ ဦးစွာ ဆက်တင်များ &gt; အက်ပ်များ ထဲတွင် မျက်နှာပြင် ထပ်ပေးမှုကို ပိတ်လိုက်ရန် လိုမယ်"</string>
     <string name="screen_overlay_button" msgid="4344544843349937743">"ဆက်တင်းများ ဖွင့်ရန်"</string>
-    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android ဆောင်စရာ"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Wear ပေါ်တွင် ထည့်သွင်းခြင်း/ဖြုတ်ခြင်းများကို ပံ့ပိုးမထားပါ။"</string>
     <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> ကို အပ်ဒိတ် လုပ်ခဲ့သည်။<xliff:g id="APP_NAME_1">%1$s</xliff:g> အား အောက်ဖေါ်ပြပါကို သုံးခွင့် ပြုရမလား။"</string>
     <string name="permission_review_title_template_install" msgid="6819338441305295479">"&amp;It;b7gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&amp;It;/b&gt; က အသုံးပြုခွင့်ရမည့် အရာတို့ကို ရွေးပါ"</string>
