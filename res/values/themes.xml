@@ -21,6 +21,10 @@
            parent="@android:style/Theme.DeviceDefault.Settings">
     </style>
 
+    <style name="CarSettingTheme" parent="Theme.Car.Light.NoActionBar">
+        <item name="android:background">@color/car_card</item>
+    </style>
+
     <style name="Settings.NoActionBar" parent="@style/Settings">
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>

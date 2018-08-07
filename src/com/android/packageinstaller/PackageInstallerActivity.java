@@ -22,8 +22,6 @@ import android.app.AppGlobals;
 import android.app.AppOpsManager;
 import android.app.Dialog;
 import android.app.DialogFragment;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -238,20 +236,16 @@ public class PackageInstallerActivity extends OverlayTouchActivity implements On
      * @param id The dialog type to add
      */
     private void showDialogInner(int id) {
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-        Fragment currentDialog = getFragmentManager().findFragmentByTag("dialog");
+        DialogFragment currentDialog =
+                (DialogFragment) getFragmentManager().findFragmentByTag("dialog");
         if (currentDialog != null) {
-            transaction.remove(currentDialog);
+            currentDialog.dismissAllowingStateLoss();
         }
 
-        Fragment newDialog = createDialog(id);
-
+        DialogFragment newDialog = createDialog(id);
         if (newDialog != null) {
-            transaction.add(newDialog, "dialog");
+            newDialog.showAllowingStateLoss(getFragmentManager(), "dialog");
         }
-
-        transaction.commitNowAllowingStateLoss();
     }
 
     /**
@@ -290,11 +284,20 @@ public class PackageInstallerActivity extends OverlayTouchActivity implements On
     @Override
     public void onActivityResult(int request, int result, Intent data) {
         if (request == REQUEST_TRUST_EXTERNAL_SOURCE && result == RESULT_OK) {
+            // The user has just allowed this package to install other packages (via Settings).
             mAllowUnknownSources = true;
 
-            Fragment currentDialog = getFragmentManager().findFragmentByTag("dialog");
+            // Log the fact that the app is requesting an install, and is now allowed to do it
+            // (before this point we could only log that it's requesting an install, but isn't
+            // allowed to do it yet).
+            int appOpCode =
+                    AppOpsManager.permissionToOpCode(Manifest.permission.REQUEST_INSTALL_PACKAGES);
+            mAppOpsManager.noteOpNoThrow(appOpCode, mOriginatingUid, mOriginatingPackage);
+
+            DialogFragment currentDialog =
+                    (DialogFragment) getFragmentManager().findFragmentByTag("dialog");
             if (currentDialog != null) {
-                getFragmentManager().beginTransaction().remove(currentDialog).commit();
+                currentDialog.dismissAllowingStateLoss();
             }
 
             initiateInstall();
@@ -371,7 +374,7 @@ public class PackageInstallerActivity extends OverlayTouchActivity implements On
 
     @Override
     protected void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
+        super.onCreate(null);
 
         if (icicle != null) {
             mAllowUnknownSources = icicle.getBoolean(ALLOW_UNKNOWN_SOURCES_KEY);
@@ -522,7 +525,7 @@ public class PackageInstallerActivity extends OverlayTouchActivity implements On
         // Shouldn't use static constant directly, see b/65534401.
         final int appOpCode =
                 AppOpsManager.permissionToOpCode(Manifest.permission.REQUEST_INSTALL_PACKAGES);
-        final int appOpMode = mAppOpsManager.checkOpNoThrow(appOpCode,
+        final int appOpMode = mAppOpsManager.noteOpNoThrow(appOpCode,
                 mOriginatingUid, mOriginatingPackage);
         switch (appOpMode) {
             case AppOpsManager.MODE_DEFAULT:
@@ -665,8 +668,8 @@ public class PackageInstallerActivity extends OverlayTouchActivity implements On
         }
         if (getIntent().getBooleanExtra(Intent.EXTRA_RETURN_RESULT, false)) {
             newIntent.putExtra(Intent.EXTRA_RETURN_RESULT, true);
-            newIntent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
         }
+        newIntent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
         if(localLOGV) Log.i(TAG, "downloaded app uri="+mPackageURI);
         startActivity(newIntent);
         finish();
@@ -711,8 +714,13 @@ public class PackageInstallerActivity extends OverlayTouchActivity implements On
             return new AlertDialog.Builder(getActivity())
                     .setMessage(R.string.anonymous_source_warning)
                     .setPositiveButton(R.string.anonymous_source_continue,
-                            ((dialog, which) -> ((PackageInstallerActivity) getActivity())
-                                    .initiateInstall()))
+                            ((dialog, which) -> {
+                                PackageInstallerActivity activity = ((PackageInstallerActivity)
+                                        getActivity());
+
+                                activity.mAllowUnknownSources = true;
+                                activity.initiateInstall();
+                            }))
                     .setNegativeButton(R.string.cancel, ((dialog, which) -> getActivity().finish()))
                     .create();
         }
