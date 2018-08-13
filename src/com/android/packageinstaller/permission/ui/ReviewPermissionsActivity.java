@@ -26,11 +26,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
 import com.android.packageinstaller.DeviceUtils;
-import com.android.permissioncontroller.R;
 import com.android.packageinstaller.permission.ui.ConfirmActionDialogFragment
         .OnActionConfirmedListener;
 import com.android.packageinstaller.permission.ui.handheld.ReviewPermissionsFragment;
 import com.android.packageinstaller.permission.ui.wear.ReviewPermissionsWearFragment;
+import com.android.permissioncontroller.R;
 
 public final class ReviewPermissionsActivity extends FragmentActivity
         implements OnActionConfirmedListener {
@@ -52,7 +52,7 @@ public final class ReviewPermissionsActivity extends FragmentActivity
         } else {
             setContentView(R.layout.review_permissions);
             if (getSupportFragmentManager().findFragmentById(R.id.preferences_frame) == null) {
-                getSupportFragmentManager().beginTransaction().add(R.id.preferences_frame,
+                getFragmentManager().beginTransaction().add(R.id.preferences_frame,
                         ReviewPermissionsFragment.newInstance(packageInfo)).commit();
             }
         }

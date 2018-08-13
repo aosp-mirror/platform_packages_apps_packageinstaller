@@ -34,11 +34,11 @@ import android.widget.Switch;
 
 import androidx.annotation.IntDef;
 
-import com.android.permissioncontroller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.permissioncontroller.R;
 import com.android.settingslib.RestrictedLockUtils;
 import com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 
@@ -606,7 +606,7 @@ class PermissionPreference extends MultiTargetSwitchPreference {
             }
         }
 
-        if (hasDefaultPermissions) {
+        if (hasDefaultPermissions || !mGroup.doesSupportRuntimePermissions()) {
             mCallBacks.hasConfirmDefaultPermissionRevoke();
         }
         updateUi();
