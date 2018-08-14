@@ -43,6 +43,7 @@ public final class Utils {
 
     public static final String[] MODERN_PERMISSION_GROUPS = {
             Manifest.permission_group.CALENDAR,
+            Manifest.permission_group.CALL_LOG,
             Manifest.permission_group.CAMERA,
             Manifest.permission_group.CONTACTS,
             Manifest.permission_group.LOCATION,
