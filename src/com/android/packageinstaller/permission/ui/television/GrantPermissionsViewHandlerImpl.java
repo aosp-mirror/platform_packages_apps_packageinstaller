@@ -84,7 +84,11 @@ public final class GrantPermissionsViewHandlerImpl implements GrantPermissionsVi
         mGroupName = groupName;
 
         mMessageView.setText(message);
-        mIconView.setImageIcon(icon);
+
+        if (icon != null) {
+            mIconView.setImageIcon(icon);
+        }
+
         mHardDenyButton.setVisibility(showDoNotAsk ? View.VISIBLE : View.GONE);
         if (groupCount > 1) {
             mCurrentGroupView.setVisibility(View.VISIBLE);
