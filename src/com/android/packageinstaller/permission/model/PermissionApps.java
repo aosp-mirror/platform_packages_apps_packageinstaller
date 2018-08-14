@@ -32,8 +32,8 @@ import android.util.IconDrawableFactory;
 import android.util.Log;
 import android.util.SparseArray;
 
-import com.android.permissioncontroller.R;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.permissioncontroller.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -208,7 +208,7 @@ public class PermissionApps {
                     }
 
                     AppPermissionGroup group = AppPermissionGroup.create(mContext,
-                            app, groupInfo, groupPermInfos, user);
+                            app, groupInfo, groupPermInfos, user, false);
 
                     if (group == null) {
                         continue;

@@ -40,11 +40,11 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Switch;
 
-import com.android.permissioncontroller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.utils.ArrayUtils;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.permissioncontroller.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -309,7 +309,7 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
         }
         if (appPermissionGroup == null) {
             appPermissionGroup = AppPermissionGroup.create(
-                    getContext(), packageInfo, permission);
+                    getContext(), packageInfo, permission, false);
             if (mGroups == null) {
                 mGroups = new ArrayList<>();
             }
