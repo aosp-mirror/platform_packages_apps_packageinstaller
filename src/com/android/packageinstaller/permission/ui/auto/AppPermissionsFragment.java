@@ -37,10 +37,10 @@ import androidx.car.widget.ListItemProvider;
 import androidx.car.widget.PagedListView;
 import androidx.car.widget.TextListItem;
 
-import com.android.permissioncontroller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.permissioncontroller.R;
 
 import java.util.ArrayList;
 
@@ -174,7 +174,8 @@ public final class AppPermissionsFragment extends Fragment{
         PermissionLineItem(AppPermissionGroup permissionGroup, Context context) {
             super(context);
             setTitle(permissionGroup.getLabel().toString());
-            setPrimaryActionIcon(permissionGroup.getIconResId(), /* useLargeIcon= */ false);
+            setPrimaryActionIcon(permissionGroup.getIconResId(),
+                    TextListItem.PRIMARY_ACTION_ICON_SIZE_SMALL);
             setSwitch(
                     permissionGroup.areRuntimePermissionsGranted(),
                     /* showDivider= */ false,
