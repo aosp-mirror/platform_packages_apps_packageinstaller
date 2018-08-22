@@ -17,20 +17,23 @@
 package com.android.packageinstaller.permission.ui.handheld;
 
 import android.os.Bundle;
-import android.preference.PreferenceFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
-import android.widget.ListView;
 import android.widget.TextView;
+
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.android.permissioncontroller.R;
 
-public abstract class PermissionsFrameFragment extends PreferenceFragment {
+public abstract class PermissionsFrameFragment extends PreferenceFragmentCompat {
     private ViewGroup mPreferencesContainer;
 
+    private TextView mEmptyView;
     private View mLoadingView;
     private ViewGroup mPrefsView;
     private boolean mIsLoading;
@@ -52,12 +55,18 @@ public abstract class PermissionsFrameFragment extends PreferenceFragment {
         if (mPrefsView == null) {
             mPrefsView = rootView;
         }
+        mEmptyView = mPrefsView.findViewById(R.id.no_permissions);
         mLoadingView = rootView.findViewById(R.id.loading_container);
         mPreferencesContainer = (ViewGroup) super.onCreateView(
                 inflater, mPrefsView, savedInstanceState);
         setLoading(mIsLoading, false, true /* force */);
         mPrefsView.addView(mPreferencesContainer);
         return rootView;
+    }
+
+    @Override
+    public void onCreatePreferences(Bundle bundle, String s) {
+        // empty
     }
 
     protected void setLoading(boolean loading, boolean animate) {
@@ -80,14 +89,48 @@ public abstract class PermissionsFrameFragment extends PreferenceFragment {
         }
     }
 
-    @Override
-    public ListView getListView() {
-        ListView listView = super.getListView();
-        if (listView.getEmptyView() == null) {
-            TextView emptyView = (TextView) getView().findViewById(R.id.no_permissions);
-            listView.setEmptyView(emptyView);
+    /**
+     * Either show the empty view or the recycler view. To be called any time the adapter changes.
+     */
+    void updateEmptyState() {
+        RecyclerView prefs = getListView();
+        if (mEmptyView != null && prefs != null && prefs.getAdapter() != null
+                && prefs.getAdapter().getItemCount() != 0) {
+            mEmptyView.setVisibility(View.GONE);
+            getListView().setVisibility(View.VISIBLE);
+        } else {
+            mEmptyView.setVisibility(View.VISIBLE);
+            getListView().setVisibility(View.GONE);
         }
-        return listView;
+    }
+
+    @Override
+    protected void onBindPreferences() {
+        super.onBindPreferences();
+
+        RecyclerView.Adapter adapter = getListView().getAdapter();
+
+        if (adapter != null) {
+            adapter.registerAdapterDataObserver(
+                    new RecyclerView.AdapterDataObserver() {
+                        @Override
+                        public void onChanged() {
+                            updateEmptyState();
+                        }
+
+                        @Override
+                        public void onItemRangeInserted(int positionStart, int itemCount) {
+                            updateEmptyState();
+                        }
+
+                        @Override
+                        public void onItemRangeRemoved(int positionStart, int itemCount) {
+                            updateEmptyState();
+                        }
+                    });
+        }
+
+        updateEmptyState();
     }
 
     private void setViewShown(final View view, boolean shown, boolean animate) {

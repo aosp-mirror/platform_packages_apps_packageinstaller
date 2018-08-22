@@ -19,6 +19,7 @@
 
     <style name="Settings"
            parent="@android:style/Theme.DeviceDefault.Settings">
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
     </style>
 
     <style name="CarSettingTheme" parent="Theme.Car.Light.NoActionBar">
@@ -28,7 +29,6 @@
     <style name="Settings.NoActionBar" parent="@style/Settings">
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay.SettingsBase</item>
     </style>
 
     <style name="GrantPermissions"
