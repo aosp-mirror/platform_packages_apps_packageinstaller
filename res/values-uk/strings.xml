@@ -16,72 +16,72 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="6793827020090537173">"Контролер дозволів"</string>
-    <string name="ok" msgid="3468756155452870475">"OK"</string>
-    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Програму не знайдено"</string>
-    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Відхилити"</string>
-    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Докладніше"</string>
-    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Усе одно заборонити"</string>
-    <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> з <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="7332275268559121742">"Дозволити додатку &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
-    <string name="permission_add_background_warning_template" msgid="5391175001698541141">"Завжди дозволяти додатку &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
-    <string name="allow_permission_foreground_only" msgid="1016389465002335286">"Лише коли додаток активний"</string>
-    <string name="allow_permission_always" msgid="7047379650123289823">"Завжди"</string>
-    <string name="deny_permission_deny_and_dont_ask_again" msgid="8003202275002645629">"Відхилити й більше не запитувати"</string>
-    <string name="permission_revoked_count" msgid="7386129423432613024">"<xliff:g id="COUNT">%1$d</xliff:g> скасовано"</string>
-    <string name="permission_revoked_all" msgid="8595742638132863678">"усі скасовано"</string>
-    <string name="permission_revoked_none" msgid="2059511550181271342">"нічого не скасовано"</string>
-    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Дозволити"</string>
-    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Додатки"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"Дозволи додатків"</string>
-    <string name="never_ask_again" msgid="1089938738199748687">"Не запитувати знову"</string>
-    <string name="no_permissions" msgid="3210542466245591574">"Немає дозволів"</string>
-    <string name="additional_permissions" msgid="6667573114240111763">"Додаткові дозволи"</string>
-    <string name="app_permissions_info_button_label" msgid="7789812060395257748">"Відкрити інформацію про додаток"</string>
-    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+    <string name="app_name" msgid="2792757108872430971">"Контролер дозволів"</string>
+    <string name="ok" msgid="4417794827535157922">"OK"</string>
+    <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Додаток не знайдено"</string>
+    <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Відмовити"</string>
+    <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Докладніше"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Відмовити"</string>
+    <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> з <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
+    <string name="permission_warning_template" msgid="1353228984024423745">"Дозволити додатку &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; таке: <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_add_background_warning_template" msgid="1046864917164159751">"Завжди дозволяти додатку &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; таке: <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="allow_permission_foreground_only" msgid="7444689446874060511">"Лише коли додаток активний"</string>
+    <string name="allow_permission_always" msgid="4089537686339013930">"Завжди"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8131547398883397878">"Відмовити й більше не запитувати"</string>
+    <string name="permission_revoked_count" msgid="5556125174203696709">"скасовано <xliff:g id="COUNT">%1$d</xliff:g>"</string>
+    <string name="permission_revoked_all" msgid="6356577996164232918">"усі скасовано"</string>
+    <string name="permission_revoked_none" msgid="266013103540772023">"нічого не скасовано"</string>
+    <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Надати дозвіл"</string>
+    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Додатки"</string>
+    <string name="app_permissions" msgid="2778362347879465223">"Дозволи додатка"</string>
+    <string name="never_ask_again" msgid="7645304182523160030">"Більше не запитувати"</string>
+    <string name="no_permissions" msgid="2193893107241172888">"Немає дозволів"</string>
+    <string name="additional_permissions" msgid="7124470111123472154">"Додаткові дозволи"</string>
+    <string name="app_permissions_info_button_label" msgid="6566057048862462066">"Відкрити інформацію про додаток"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
       <item quantity="one">Ще <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="few">Ще <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="many">Ще <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="other">Ще <xliff:g id="COUNT_1">%1$d</xliff:g></item>
     </plurals>
-    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Цей додаток створено для старішої версії ОС Android. Якщо скасувати дозвіл, він може працювати неналежним чином."</string>
-    <string name="default_permission_description" msgid="4992892207044156668">"виконувати невідому дію"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"Додатки з дозволом: <xliff:g id="COUNT_0">%1$d</xliff:g> з <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
-    <string name="menu_show_system" msgid="6773743421743728921">"Показати системні додатки"</string>
-    <string name="menu_hide_system" msgid="7595471742649432977">"Сховати системні додатки"</string>
-    <string name="no_apps" msgid="1965493419005012569">"Немає додатків"</string>
-    <string name="location_settings" msgid="1774875730854491297">"Налаштування геоданих"</string>
-    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> є постачальником служб локації для цього пристрою. Доступом до місцезнаходження можна керувати в налаштуваннях геоданих."</string>
-    <string name="system_warning" msgid="7103819124542305179">"Якщо скасувати цей дозвіл, основні функції вашого пристрою можуть працювати неналежним чином."</string>
-    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Застосовується правилом"</string>
-    <string name="permission_summary_disabled_by_policy_background_only" msgid="160007162349980265">"Доступ у фоновому режимі вимкнено правилом"</string>
-    <string name="permission_summary_enabled_by_policy_background_only" msgid="4834971700297385342">"Доступ у фоновому режимі ввімкнено правилом"</string>
-    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="5150061275247925588">"Доступ в активному режимі ввімкнено правилом"</string>
-    <string name="permission_summary_enforced_by_admin" msgid="1702707982488952544">"Керує адміністратор"</string>
-    <string name="permission_summary_disabled_by_admin_background_only" msgid="2185473379176174735">"Адміністратор вимкнув доступ у фоновому режимі"</string>
-    <string name="permission_summary_enabled_by_admin_background_only" msgid="4558536214810713340">"Адміністратор увімкнув доступ у фоновому режимі"</string>
-    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="3735312186687063512">"Адміністратор увімкнув доступ в активному режимі"</string>
-    <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
-    <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
-    <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
-    <string name="permission_access_always" msgid="5642491469836594184">"Завжди"</string>
-    <string name="permission_access_only_foreground" msgid="6906814759741316041">"Лише коли додаток активний"</string>
-    <string name="permission_access_never" msgid="1258330706341318622">"Ніколи"</string>
-    <string name="loading" msgid="7811651799620593731">"Завантаження…"</string>
-    <string name="all_permissions" msgid="5156669007784613042">"Усі дозволи"</string>
-    <string name="other_permissions" msgid="2016192512386091933">"Інші дозволи додатка"</string>
-    <string name="permission_request_title" msgid="1204446718549121199">"Запит на дозвіл"</string>
-    <string name="screen_overlay_title" msgid="3021729846864038529">"Виявлено накладання на екрані"</string>
-    <string name="screen_overlay_message" msgid="2141944461571677331">"Щоб змінити налаштування цього дозволу, спершу вимкніть накладання на екрані в меню \"Налаштування\" &gt; \"Додатки\""</string>
-    <string name="screen_overlay_button" msgid="4344544843349937743">"Відкрити налаштування"</string>
-    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Дії \"установити\" або \"видалити\" не підтримуються на пристроях Android Wear."</string>
-    <string name="permission_review_title_template_install" msgid="6819338441305295479">"Виберіть, до чого &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; матиме доступ"</string>
-    <string name="permission_review_title_template_update" msgid="8632233603161669426">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; оновлено. Виберіть, до чого цей додаток матиме доступ."</string>
-    <string name="review_button_cancel" msgid="957906817733578877">"Скасувати"</string>
-    <string name="review_button_continue" msgid="4809162078179371370">"Продовжити"</string>
-    <string name="new_permissions_category" msgid="3213523410139204183">"Нові дозволи"</string>
-    <string name="current_permissions_category" msgid="998210994450606094">"Поточні дозволи"</string>
-    <string name="message_staging" msgid="6151794817691100003">"Підготовка додатка…"</string>
-    <string name="app_name_unknown" msgid="8931522764510159105">"Невідомо"</string>
+    <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Цей додаток створено для старішої версії ОС Android. Якщо скасувати дозвіл, він може працювати неналежним чином."</string>
+    <string name="default_permission_description" msgid="692254823411049573">"виконувати невідому дію"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"Додатки з дозволом: <xliff:g id="COUNT_0">%1$d</xliff:g> з <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"Показати системні додатки"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"Сховати системні додатки"</string>
+    <string name="no_apps" msgid="2377153782338039463">"Немає додатків"</string>
+    <string name="location_settings" msgid="547378321761364906">"Доступ до моїх геоданих"</string>
+    <string name="location_warning" msgid="4687406043150343369">"Додаток <xliff:g id="APP_NAME">%1$s</xliff:g> є постачальником служб локації для цього пристрою. Доступом до місцезнаходження можна керувати в налаштуваннях геоданих."</string>
+    <string name="system_warning" msgid="6868290533389195836">"Якщо ви не надасте цей дозвіл, основні функції пристрою можуть працювати неналежним чином."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"Застосовується правилом"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"Доступ у фоновому режимі вимкнено правилом"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"Доступ у фоновому режимі ввімкнено правилом"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="8652417310534780420">"Доступ в активному режимі ввімкнено правилом"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="5156952484229154563">"Керує адміністратор"</string>
+    <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"Адміністратор вимкнув доступ у фоновому режимі"</string>
+    <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"Адміністратор увімкнув доступ у фоновому режимі"</string>
+    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"Адміністратор увімкнув доступ в активному режимі"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
+    <string name="permission_access_always" msgid="2315256378850460955">"Завжди"</string>
+    <string name="permission_access_only_foreground" msgid="8109903552082630801">"Лише коли додаток активний"</string>
+    <string name="permission_access_never" msgid="4717648645876576508">"Ніколи"</string>
+    <string name="loading" msgid="323483393167148377">"Завантаження…"</string>
+    <string name="all_permissions" msgid="7813580062403112957">"Усі дозволи"</string>
+    <string name="other_permissions" msgid="1956312685853070715">"Інші дозволи додатка"</string>
+    <string name="permission_request_title" msgid="6779348653783761548">"Запит на дозвіл"</string>
+    <string name="screen_overlay_title" msgid="1632732130312696010">"Виявлено показ поверх інших вікон"</string>
+    <string name="screen_overlay_message" msgid="3222033787364955006">"Щоб змінити налаштування цього дозволу, спершу вимкніть показ додатка поверх інших вікон у меню \"Налаштування\" &gt; \"Додатки\""</string>
+    <string name="screen_overlay_button" msgid="3554849308322944411">"Відкрити налаштування"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="6923880912091041609">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="8731817202551430387">"Встановлення й видалення не підтримуються на пристроях Android Wear."</string>
+    <string name="permission_review_title_template_install" msgid="8131698354985303888">"Виберіть, до чого додаток &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; матиме доступ"</string>
+    <string name="permission_review_title_template_update" msgid="7597155653571395485">"Додаток &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; оновлено. Виберіть, до чого він матиме доступ."</string>
+    <string name="review_button_cancel" msgid="7108377593627664194">"Скасувати"</string>
+    <string name="review_button_continue" msgid="1367925420132212571">"Продовжити"</string>
+    <string name="new_permissions_category" msgid="7242713808413888679">"Нові дозволи"</string>
+    <string name="current_permissions_category" msgid="3835461245150972589">"Поточні дозволи"</string>
+    <string name="message_staging" msgid="641286607664721291">"Підготовка додатка…"</string>
+    <string name="app_name_unknown" msgid="8288360585728122735">"Невідомо"</string>
 </resources>

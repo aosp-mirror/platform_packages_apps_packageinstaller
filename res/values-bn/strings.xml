@@ -16,70 +16,70 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="6793827020090537173">"অনুমতির কন্ট্রোলার"</string>
-    <string name="ok" msgid="3468756155452870475">"ঠিক আছে"</string>
-    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"অ্যাপ্লিকেশান পাওয়া যায়নি"</string>
-    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"প্রত্যাখ্যান করুন"</string>
-    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"আরও তথ্য"</string>
-    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"যাইহোক অস্বীকার করুন"</string>
-    <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> এর <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="7332275268559121742">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;কে <xliff:g id="ACTION">%2$s</xliff:g> এর অনুমতি দেবেন?"</string>
-    <string name="permission_add_background_warning_template" msgid="5391175001698541141">"<xliff:g id="ACTION">%2$s</xliff:g>-এ সবসময় &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; অনুমতি দেবেন?"</string>
-    <string name="allow_permission_foreground_only" msgid="1016389465002335286">"অ্যাপটি ব্যবহার করার সময়"</string>
-    <string name="allow_permission_always" msgid="7047379650123289823">"সবসময়"</string>
-    <string name="deny_permission_deny_and_dont_ask_again" msgid="8003202275002645629">"অস্বীকার করুন এবং আবার জিজ্ঞাসা করবেন না"</string>
-    <string name="permission_revoked_count" msgid="7386129423432613024">"<xliff:g id="COUNT">%1$d</xliff:g>টি অক্ষম করা হয়েছে"</string>
-    <string name="permission_revoked_all" msgid="8595742638132863678">"সমস্ত অক্ষম করা হয়েছে"</string>
-    <string name="permission_revoked_none" msgid="2059511550181271342">"কোনো কিছুই অক্ষম করা হয়নি"</string>
-    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"অনুমতি দিন"</string>
-    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"অ্যাপ"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"অ্যাপ্লিকেশনের অনুমতি"</string>
-    <string name="never_ask_again" msgid="1089938738199748687">"আর জিজ্ঞাসা করবেন না"</string>
-    <string name="no_permissions" msgid="3210542466245591574">"কোনো অনুমতি নেই"</string>
-    <string name="additional_permissions" msgid="6667573114240111763">"অতিরিক্ত অনুমতিগুলি"</string>
-    <string name="app_permissions_info_button_label" msgid="7789812060395257748">"অ্যাপের তথ্য দেখুন"</string>
-    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+    <string name="app_name" msgid="2792757108872430971">"অনুমতি নিয়ন্ত্রক"</string>
+    <string name="ok" msgid="4417794827535157922">"ঠিক আছে"</string>
+    <string name="app_not_found_dlg_title" msgid="8897078571059217849">"অ্যাপটি পাওয়া যায়নি"</string>
+    <string name="grant_dialog_button_deny" msgid="1649644200597601964">"না বলুন"</string>
+    <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"আরও তথ্য"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"তবুও না বলুন"</string>
+    <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>টির মধ্যে <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> নম্বর"</string>
+    <string name="permission_warning_template" msgid="1353228984024423745">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; অ্যাপটিকে <xliff:g id="ACTION">%2$s</xliff:g> করার অনুমতি দেবেন?"</string>
+    <string name="permission_add_background_warning_template" msgid="1046864917164159751">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; অ্যাপটিকে সব সময় <xliff:g id="ACTION">%2$s</xliff:g> করার অনুমতি দেবেন?"</string>
+    <string name="allow_permission_foreground_only" msgid="7444689446874060511">"শুধুমাত্র অ্যাপ ব্যবহার করার সময়"</string>
+    <string name="allow_permission_always" msgid="4089537686339013930">"সব সময়"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8131547398883397878">"না বলুন, আবার জিজ্ঞেস না করার জন্য চিহ্নিত করুন"</string>
+    <string name="permission_revoked_count" msgid="5556125174203696709">"<xliff:g id="COUNT">%1$d</xliff:g>টি বন্ধ করা হয়েছে"</string>
+    <string name="permission_revoked_all" msgid="6356577996164232918">"সবগুলি বন্ধ করা হয়েছে"</string>
+    <string name="permission_revoked_none" msgid="266013103540772023">"কোনওটিই বন্ধ করা হয়নি"</string>
+    <string name="grant_dialog_button_allow" msgid="2137542756625939532">"হ্যাঁ বলুন"</string>
+    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"অ্যাপ"</string>
+    <string name="app_permissions" msgid="2778362347879465223">"অ্যাপের অনুমতি"</string>
+    <string name="never_ask_again" msgid="7645304182523160030">"আর জিজ্ঞেস না করার জন্য বলুন"</string>
+    <string name="no_permissions" msgid="2193893107241172888">"কোনও অনুমতি নেই"</string>
+    <string name="additional_permissions" msgid="7124470111123472154">"অতিরিক্ত অনুমতি"</string>
+    <string name="app_permissions_info_button_label" msgid="6566057048862462066">"অ্যাপের তথ্য দেখুন"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
       <item quantity="one">আরও <xliff:g id="COUNT_1">%1$d</xliff:g>টি</item>
       <item quantity="other">আরও <xliff:g id="COUNT_1">%1$d</xliff:g>টি</item>
     </plurals>
-    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"একটি পুরোনো সংস্করণের Android এর জন্য এই অ্যাপ্লিকেশানটি ডিজাইন করা হয়েছিল৷ অনুমতি অস্বীকার করলে এটিকে যে কাজের উদ্দেশ্যে তৈরি করা হয়েছিল সেটি নাও করতে পারে৷"</string>
-    <string name="default_permission_description" msgid="4992892207044156668">"কোনো অজানা কার্য সঞ্চালন করুন"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_1">%2$d</xliff:g>টির মধ্যে <xliff:g id="COUNT_0">%1$d</xliff:g>টি অ্যাপ্লিকেশান মঞ্জুরিপ্রাপ্ত"</string>
-    <string name="menu_show_system" msgid="6773743421743728921">"সিস্টেম দেখুন"</string>
-    <string name="menu_hide_system" msgid="7595471742649432977">"সিস্টেম লুকান"</string>
-    <string name="no_apps" msgid="1965493419005012569">"কোনো অ্যাপ্লিকেশান নেই"</string>
-    <string name="location_settings" msgid="1774875730854491297">"লোকেশন সেটিংস"</string>
-    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> এই ডিভাইসের জন্য একটি লোকেশন পরিষেবাগুলি প্রদান করে। লোকেশন সেটিংস থেকে লোকেশনের অ্যাক্সেস পরিবর্তন করা যায়।"</string>
-    <string name="system_warning" msgid="7103819124542305179">"আপনি যদি এই অনুমতিটি অস্বীকার করেন, তবে আপনার ডিভাইসের প্রাথমিক বৈশিষ্ট্যগুলিকে যে কাজের উদ্দেশ্যে তৈরি করা হয়েছিল সেগুলি নাও করতে পারে৷"</string>
-    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"নীতি দ্বারা প্রয়োগ করা হয়েছে"</string>
-    <string name="permission_summary_disabled_by_policy_background_only" msgid="160007162349980265">"নীতির কারণে ব্যাকগ্রাউন্ড অ্যাক্সেস বন্ধ করা আছে"</string>
-    <string name="permission_summary_enabled_by_policy_background_only" msgid="4834971700297385342">"নীতির কারণে ব্যাকগ্রাউন্ড অ্যাক্সেস চালু করা আছে"</string>
-    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="5150061275247925588">"নীতির কারণে খুলে রাখা অ্যাপের অ্যাক্সেস চালু করা আছে"</string>
-    <string name="permission_summary_enforced_by_admin" msgid="1702707982488952544">"অ্যাডমিনের দ্বারা নিয়ন্ত্রিত"</string>
-    <string name="permission_summary_disabled_by_admin_background_only" msgid="2185473379176174735">"অ্যাডমিন দ্বারা ব্যাকগ্রাউন্ড অ্যাক্সেস বন্ধ করা আছে"</string>
-    <string name="permission_summary_enabled_by_admin_background_only" msgid="4558536214810713340">"অ্যাডমিন দ্বারা ব্যাকগ্রাউন্ড অ্যাক্সেস চালু করা আছে"</string>
-    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="3735312186687063512">"অ্যাডমিন দ্বারা ফোরগ্রাউন্ড অ্যাক্সেস চালু করা আছে"</string>
-    <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
-    <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
-    <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
-    <string name="permission_access_always" msgid="5642491469836594184">"সবসময়"</string>
-    <string name="permission_access_only_foreground" msgid="6906814759741316041">"অ্যাপটি ব্যবহার করার সময়"</string>
-    <string name="permission_access_never" msgid="1258330706341318622">"কখনও না"</string>
-    <string name="loading" msgid="7811651799620593731">"লোড হচ্ছে..."</string>
-    <string name="all_permissions" msgid="5156669007784613042">"সমস্ত অনুমতি"</string>
-    <string name="other_permissions" msgid="2016192512386091933">"অন্যান্য অ্যাপ্লিকেশান ক্ষমতা"</string>
-    <string name="permission_request_title" msgid="1204446718549121199">"অনুমতির অনুরোধ"</string>
-    <string name="screen_overlay_title" msgid="3021729846864038529">"স্ক্রিন আচ্ছাদন শনাক্ত করা হয়েছে"</string>
-    <string name="screen_overlay_message" msgid="2141944461571677331">"এই অনুমতি সেটিংস পরিবর্তন করতে, আপনাকে প্রথমে সেটিংস &gt; এ গিয়ে অ্যাপ্লিকেশানগুলি থেকে স্ক্রিন ওভারলে বন্ধ করতে হবে"</string>
-    <string name="screen_overlay_button" msgid="4344544843349937743">"সেটিংস খুলুন"</string>
-    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"ওয়েরে ইনস্টল/আনইনস্টল করার কাজগুলি সমর্থিত নয়।"</string>
-    <string name="permission_review_title_template_install" msgid="6819338441305295479">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; কে কোন জিনিসগুলিতে অ্যাক্সেস দেবেন তা বেছে নিন"</string>
-    <string name="permission_review_title_template_update" msgid="8632233603161669426">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; আপডেট করা হয়েছে৷ এই অ্যাপ্লিকেশানটিকে কোন জিনিসগুলিতে অ্যাক্সেস দেবেন তা চয়ন করুন৷"</string>
-    <string name="review_button_cancel" msgid="957906817733578877">"বাতিল করুন"</string>
-    <string name="review_button_continue" msgid="4809162078179371370">"চালিয়ে যান"</string>
-    <string name="new_permissions_category" msgid="3213523410139204183">"নতুন অনুমতিগুলি"</string>
-    <string name="current_permissions_category" msgid="998210994450606094">"বর্তমান অনুমতিগুলি"</string>
-    <string name="message_staging" msgid="6151794817691100003">"অ্যাপ্লিকেশান স্টেজ করা হচ্ছে..."</string>
-    <string name="app_name_unknown" msgid="8931522764510159105">"অজানা"</string>
+    <string name="old_sdk_deny_warning" msgid="6018489265342857714">"এই অ্যাপটি Android-এর একটি পুরনো ভার্সনের জন্য ডিজাইন করা হয়েছিল৷ অনুমতি না দিলে এটি ঠিকভাবে কাজ নাও করতে পারে।"</string>
+    <string name="default_permission_description" msgid="692254823411049573">"কোনও অজানা অ্যাকশন নিন"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_1">%2$d</xliff:g>টি অ্যাপের মধ্যে <xliff:g id="COUNT_0">%1$d</xliff:g>টি অনুমোদিত"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"সিস্টেম অ্যাপ দেখুন"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"সিস্টেম অ্যাপ লুকান"</string>
+    <string name="no_apps" msgid="2377153782338039463">"কোনও অ্যাপ নেই"</string>
+    <string name="location_settings" msgid="547378321761364906">"লোকেশন সেটিংস"</string>
+    <string name="location_warning" msgid="4687406043150343369">"<xliff:g id="APP_NAME">%1$s</xliff:g> এই ডিভাইসের জন্য লোকেশন পরিষেবা প্রদান করে। লোকেশন সেটিংস থেকে লোকেশনের অ্যাক্সেস পরিবর্তন করা যায়।"</string>
+    <string name="system_warning" msgid="6868290533389195836">"আপনি যদি এই অনুমতিটি না দেন তাহলে আপনার ডিভাইসের প্রাথমিক ফিচারগুলি ঠিকভাবে কাজ নাও করতে পারে।"</string>
+    <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"নীতি অনুযায়ী এটি প্রয়োজন"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"নীতি অনুযায়ী ব্যাকগ্রাউন্ড অ্যাক্সেস বন্ধ করা আছে"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"নীতি অনুযায়ী ব্যাকগ্রাউন্ড অ্যাক্সেস চালু করা আছে"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="8652417310534780420">"নীতি অনুয়ায়ী ফোরগ্রাউন্ড অ্যাক্সেস চালু করা আছে"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="5156952484229154563">"অ্যাডমিন নিয়ন্ত্রণ করছেন"</string>
+    <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"অ্যাডমিন ব্যাকগ্রাউন্ড অ্যাক্সেস বন্ধ করেছেন"</string>
+    <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"অ্যাডমিন ব্যাকগ্রাউন্ড অ্যাক্সেস চালু করেছেন"</string>
+    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"অ্যাডমিন ফোরগ্রাউন্ড অ্যাক্সেস চালু করেছেন"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
+    <string name="permission_access_always" msgid="2315256378850460955">"সব সময়"</string>
+    <string name="permission_access_only_foreground" msgid="8109903552082630801">"শুধু অ্যাপ ব্যবহার করার সময়"</string>
+    <string name="permission_access_never" msgid="4717648645876576508">"কখনও না"</string>
+    <string name="loading" msgid="323483393167148377">"লোড হচ্ছে…"</string>
+    <string name="all_permissions" msgid="7813580062403112957">"সব অনুমতি"</string>
+    <string name="other_permissions" msgid="1956312685853070715">"অ্যাপের অন্যান্য কার্যক্ষমতা"</string>
+    <string name="permission_request_title" msgid="6779348653783761548">"অনুমতির অনুরোধ"</string>
+    <string name="screen_overlay_title" msgid="1632732130312696010">"স্ক্রিন ওভারলে শনাক্ত করা হয়েছে"</string>
+    <string name="screen_overlay_message" msgid="3222033787364955006">"অনুমতির এই সেটিংটি পরিবর্তন করতে আপনাকে প্রথমে সেটিংস &gt; অ্যাপ বিকল্পে গিয়ে স্ক্রিন ওভারলে বন্ধ করতে হবে"</string>
+    <string name="screen_overlay_button" msgid="3554849308322944411">"সেটিংসে যান"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="6923880912091041609">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="8731817202551430387">"Wear-এ ইনস্টল/আনইনস্টল করা যাবে না।"</string>
+    <string name="permission_review_title_template_install" msgid="8131698354985303888">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; অ্যাপটিকে কিসে কিসে অ্যাক্সেস দেবেন তা বেছে নিন"</string>
+    <string name="permission_review_title_template_update" msgid="7597155653571395485">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; আপডেট করা হয়েছে৷ অ্যাপটিকে কিসে কিসে অ্যাক্সেস দেবেন তা বেছে নিন।"</string>
+    <string name="review_button_cancel" msgid="7108377593627664194">"বাতিল করুন"</string>
+    <string name="review_button_continue" msgid="1367925420132212571">"চালিয়ে যান"</string>
+    <string name="new_permissions_category" msgid="7242713808413888679">"নতুন অনুমতি"</string>
+    <string name="current_permissions_category" msgid="3835461245150972589">"বর্তমান অনুমতি"</string>
+    <string name="message_staging" msgid="641286607664721291">"অ্যাপ স্টেজ করা হচ্ছে…"</string>
+    <string name="app_name_unknown" msgid="8288360585728122735">"অজানা"</string>
 </resources>

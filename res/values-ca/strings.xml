@@ -16,70 +16,70 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="6793827020090537173">"Controlador de permisos"</string>
-    <string name="ok" msgid="3468756155452870475">"D\'acord"</string>
-    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"No s\'ha trobat l\'aplicació"</string>
-    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Denega"</string>
-    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Més informació"</string>
-    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Denega de totes maneres"</string>
-    <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> de <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="7332275268559121742">"Vols permetre a &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
-    <string name="permission_add_background_warning_template" msgid="5391175001698541141">"Vols permetre que &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
-    <string name="allow_permission_foreground_only" msgid="1016389465002335286">"Només mentre s\'utilitzi l\'aplicació"</string>
-    <string name="allow_permission_always" msgid="7047379650123289823">"Sempre"</string>
-    <string name="deny_permission_deny_and_dont_ask_again" msgid="8003202275002645629">"Denega i no m\'ho tornis a preguntar"</string>
-    <string name="permission_revoked_count" msgid="7386129423432613024">"<xliff:g id="COUNT">%1$d</xliff:g> permisos desactivats"</string>
-    <string name="permission_revoked_all" msgid="8595742638132863678">"tots els permisos desactivats"</string>
-    <string name="permission_revoked_none" msgid="2059511550181271342">"cap permís desactivat"</string>
-    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Permet"</string>
-    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Aplicacions"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"Permisos d\'aplicacions"</string>
-    <string name="never_ask_again" msgid="1089938738199748687">"No m\'ho tornis a preguntar"</string>
-    <string name="no_permissions" msgid="3210542466245591574">"Sense permisos"</string>
-    <string name="additional_permissions" msgid="6667573114240111763">"Més permisos"</string>
-    <string name="app_permissions_info_button_label" msgid="7789812060395257748">"Obre la informació de l\'aplicació"</string>
-    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
-      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> més</item>
-      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> més</item>
+    <string name="app_name" msgid="2792757108872430971">"Controlador de permisos"</string>
+    <string name="ok" msgid="4417794827535157922">"D\'acord"</string>
+    <string name="app_not_found_dlg_title" msgid="8897078571059217849">"No s\'ha trobat l\'aplicació"</string>
+    <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Denega"</string>
+    <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Més informació"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Denega igualment"</string>
+    <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> de <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
+    <string name="permission_warning_template" msgid="1353228984024423745">"Vols permetre a &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_add_background_warning_template" msgid="1046864917164159751">"Vols permetre a &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="allow_permission_foreground_only" msgid="7444689446874060511">"Només mentre s\'utilitzi l\'aplicació"</string>
+    <string name="allow_permission_always" msgid="4089537686339013930">"Sempre"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8131547398883397878">"Denega i no m\'ho tornis a preguntar"</string>
+    <string name="permission_revoked_count" msgid="5556125174203696709">"<xliff:g id="COUNT">%1$d</xliff:g> permisos desactivats"</string>
+    <string name="permission_revoked_all" msgid="6356577996164232918">"tots els permisos desactivats"</string>
+    <string name="permission_revoked_none" msgid="266013103540772023">"cap permís desactivat"</string>
+    <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Permet"</string>
+    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Aplicacions"</string>
+    <string name="app_permissions" msgid="2778362347879465223">"Permisos d\'aplicacions"</string>
+    <string name="never_ask_again" msgid="7645304182523160030">"No m\'ho tornis a preguntar"</string>
+    <string name="no_permissions" msgid="2193893107241172888">"Sense permisos"</string>
+    <string name="additional_permissions" msgid="7124470111123472154">"Permisos addicionals"</string>
+    <string name="app_permissions_info_button_label" msgid="6566057048862462066">"Obre la informació de l\'aplicació"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> més</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> més</item>
     </plurals>
-    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Aquesta aplicació es va dissenyar per a una versió anterior d\'Android. És possible que no funcioni com està previst si li denegues el permís."</string>
-    <string name="default_permission_description" msgid="4992892207044156668">"dur a terme una acció desconeguda"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> de <xliff:g id="COUNT_1">%2$d</xliff:g> aplicacions permeses"</string>
-    <string name="menu_show_system" msgid="6773743421743728921">"Mostra aplicacions del sistema"</string>
-    <string name="menu_hide_system" msgid="7595471742649432977">"Amaga aplicacions del sistema"</string>
-    <string name="no_apps" msgid="1965493419005012569">"Cap aplicació"</string>
-    <string name="location_settings" msgid="1774875730854491297">"Configuració d\'ubicació"</string>
-    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> és un proveïdor de serveis d\'ubicació per a aquest dispositiu. L\'accés a la ubicació es pot modificar des de la configuració d\'ubicació."</string>
-    <string name="system_warning" msgid="7103819124542305179">"Si rebutges aquest permís, és possible que funcions bàsiques del dispositiu deixin de funcionar correctament."</string>
-    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Aplicat en funció de la política"</string>
-    <string name="permission_summary_disabled_by_policy_background_only" msgid="160007162349980265">"S\'ha desactivat l\'accés en segon pla per la política"</string>
-    <string name="permission_summary_enabled_by_policy_background_only" msgid="4834971700297385342">"S\'ha activat l\'accés en segon pla per la política"</string>
-    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="5150061275247925588">"S\'ha activat l\'accés en primer pla per la política"</string>
-    <string name="permission_summary_enforced_by_admin" msgid="1702707982488952544">"Controlat per l\'administrador"</string>
-    <string name="permission_summary_disabled_by_admin_background_only" msgid="2185473379176174735">"L\'administrador ha desactivat l\'accés en segon pla"</string>
-    <string name="permission_summary_enabled_by_admin_background_only" msgid="4558536214810713340">"L\'administrador ha activat l\'accés en segon pla"</string>
-    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="3735312186687063512">"L\'administrador ha activat l\'accés en primer pla"</string>
-    <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
-    <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
-    <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
-    <string name="permission_access_always" msgid="5642491469836594184">"Sempre"</string>
-    <string name="permission_access_only_foreground" msgid="6906814759741316041">"Només mentre s\'utilitzi l\'app"</string>
-    <string name="permission_access_never" msgid="1258330706341318622">"Mai"</string>
-    <string name="loading" msgid="7811651799620593731">"S\'està carregant..."</string>
-    <string name="all_permissions" msgid="5156669007784613042">"Tots els permisos"</string>
-    <string name="other_permissions" msgid="2016192512386091933">"Altres competències de l\'aplicació"</string>
-    <string name="permission_request_title" msgid="1204446718549121199">"Sol·licitud de permís"</string>
-    <string name="screen_overlay_title" msgid="3021729846864038529">"S\'ha detectat una superposició de pantalla"</string>
-    <string name="screen_overlay_message" msgid="2141944461571677331">"Per canviar la configuració de permisos, cal que desactivis la superposició de pantalla des de Configuració &gt; Aplicacions"</string>
-    <string name="screen_overlay_button" msgid="4344544843349937743">"Obre Configuració"</string>
-    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Les accions d\'instal·lar o de desinstal·lar no s\'admeten a Wear."</string>
-    <string name="permission_review_title_template_install" msgid="6819338441305295479">"Tria a què vols que tingui accés &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;"</string>
-    <string name="permission_review_title_template_update" msgid="8632233603161669426">"S\'ha actualitzat &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;. Tria a què vols que tingui accés aquesta aplicació."</string>
-    <string name="review_button_cancel" msgid="957906817733578877">"Cancel·la"</string>
-    <string name="review_button_continue" msgid="4809162078179371370">"Continua"</string>
-    <string name="new_permissions_category" msgid="3213523410139204183">"Permisos nous"</string>
-    <string name="current_permissions_category" msgid="998210994450606094">"Permisos actuals"</string>
-    <string name="message_staging" msgid="6151794817691100003">"S\'està preparant la instal·lació de l\'aplicació…"</string>
-    <string name="app_name_unknown" msgid="8931522764510159105">"Desconegut"</string>
+    <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Aquesta aplicació es va dissenyar per a una versió anterior d\'Android. És possible que no funcioni com està previst si li denegues el permís."</string>
+    <string name="default_permission_description" msgid="692254823411049573">"dur a terme una acció desconeguda"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> de <xliff:g id="COUNT_1">%2$d</xliff:g> aplicacions permeses"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"Mostra les aplicacions del sistema"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"Amaga les aplicacions del sistema"</string>
+    <string name="no_apps" msgid="2377153782338039463">"Cap aplicació"</string>
+    <string name="location_settings" msgid="547378321761364906">"Configuració d\'ubicació"</string>
+    <string name="location_warning" msgid="4687406043150343369">"<xliff:g id="APP_NAME">%1$s</xliff:g> és un proveïdor de serveis d\'ubicació per a aquest dispositiu. L\'accés a la ubicació es pot modificar des de la configuració d\'ubicació."</string>
+    <string name="system_warning" msgid="6868290533389195836">"Si rebutges aquest permís, és possible que funcions bàsiques del dispositiu deixin de funcionar correctament."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"Aplicat en funció de la política"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"S\'ha desactivat l\'accés en segon pla per la política"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"S\'ha activat l\'accés en segon pla per la política"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="8652417310534780420">"S\'ha activat l\'accés en primer pla per la política"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="5156952484229154563">"Controlat per l\'administrador"</string>
+    <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"L\'administrador ha desactivat l\'accés en segon pla"</string>
+    <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"L\'administrador ha activat l\'accés en segon pla"</string>
+    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"L\'administrador ha activat l\'accés en primer pla"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
+    <string name="permission_access_always" msgid="2315256378850460955">"Sempre"</string>
+    <string name="permission_access_only_foreground" msgid="8109903552082630801">"Només mentre s\'utilitzi l\'app"</string>
+    <string name="permission_access_never" msgid="4717648645876576508">"Mai"</string>
+    <string name="loading" msgid="323483393167148377">"S\'està carregant…"</string>
+    <string name="all_permissions" msgid="7813580062403112957">"Tots els permisos"</string>
+    <string name="other_permissions" msgid="1956312685853070715">"Altres competències de l\'aplicació"</string>
+    <string name="permission_request_title" msgid="6779348653783761548">"Sol·licitud de permís"</string>
+    <string name="screen_overlay_title" msgid="1632732130312696010">"S\'ha detectat una superposició de pantalla"</string>
+    <string name="screen_overlay_message" msgid="3222033787364955006">"Per canviar la configuració de permisos, cal que desactivis la superposició de pantalla des de Configuració &gt; Aplicacions"</string>
+    <string name="screen_overlay_button" msgid="3554849308322944411">"Obre la configuració"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="6923880912091041609">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="8731817202551430387">"Les accions d\'instal·lar o de desinstal·lar no s\'admeten a Wear."</string>
+    <string name="permission_review_title_template_install" msgid="8131698354985303888">"Tria a què vols que tingui accés &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;"</string>
+    <string name="permission_review_title_template_update" msgid="7597155653571395485">"S\'ha actualitzat &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;. Tria a què vols que tingui accés aquesta aplicació."</string>
+    <string name="review_button_cancel" msgid="7108377593627664194">"Cancel·la"</string>
+    <string name="review_button_continue" msgid="1367925420132212571">"Continua"</string>
+    <string name="new_permissions_category" msgid="7242713808413888679">"Permisos nous"</string>
+    <string name="current_permissions_category" msgid="3835461245150972589">"Permisos actuals"</string>
+    <string name="message_staging" msgid="641286607664721291">"S\'està preparant la instal·lació de l\'aplicació…"</string>
+    <string name="app_name_unknown" msgid="8288360585728122735">"Desconegut"</string>
 </resources>
