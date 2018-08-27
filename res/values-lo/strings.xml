@@ -16,70 +16,70 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="6793827020090537173">"ຕົວຄວບຄຸມສິດອະນຸຍາດ"</string>
-    <string name="ok" msgid="3468756155452870475">"ຕົກລົງ"</string>
-    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"ບໍ່ພົບເຫັນແອັບຯ"</string>
-    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"ປະຕິເສດ"</string>
-    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"ຂໍ້ມູນເພີ່ມເຕີມ"</string>
-    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"ຢືນຢັນປະຕິເສດ"</string>
-    <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> ໃນ <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="7332275268559121742">"ອະນຸຍາດໃຫ້ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ສາມາດ <xliff:g id="ACTION">%2$s</xliff:g> ບໍ?"</string>
-    <string name="permission_add_background_warning_template" msgid="5391175001698541141">"ອະນຸຍາດ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ໃຫ້ໃຊ້ <xliff:g id="ACTION">%2$s</xliff:g> ໄດ້ທຸກເທື່ອບໍ?"</string>
-    <string name="allow_permission_foreground_only" msgid="1016389465002335286">"ໃນເວລາໃຊ້ແອັບເທົ່ານັ້ນ"</string>
-    <string name="allow_permission_always" msgid="7047379650123289823">"ທຸກເທື່ອ"</string>
-    <string name="deny_permission_deny_and_dont_ask_again" msgid="8003202275002645629">"ປະຕິເສດ ແລະ ຢ່າຖາມອີກ"</string>
-    <string name="permission_revoked_count" msgid="7386129423432613024">"ປິດໄວ້ <xliff:g id="COUNT">%1$d</xliff:g> ສິດອະນຸຍາດແລ້ວ"</string>
-    <string name="permission_revoked_all" msgid="8595742638132863678">"ປິດໄວ້ທັງໝົດແລ້ວ"</string>
-    <string name="permission_revoked_none" msgid="2059511550181271342">"ບໍ່ມີອັນໃດປິດການນຳໃຊ້ໄວ້"</string>
-    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"ອະນຸຍາດ"</string>
-    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"ແອັບ"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"ການ​ອະ​ນຸ​ຍາດ​ແອັບ"</string>
-    <string name="never_ask_again" msgid="1089938738199748687">"ບໍ່ຕ້ອງຖາມອີກ"</string>
-    <string name="no_permissions" msgid="3210542466245591574">"​ບໍ່​ມີການ​ອະ​ນຸ​ຍາດ​"</string>
-    <string name="additional_permissions" msgid="6667573114240111763">"ການ​ອະ​ນຸ​ຍາດ​​ເພີ່ມ​ເຕີມ"</string>
-    <string name="app_permissions_info_button_label" msgid="7789812060395257748">"ເປີດຂໍ້ມູນແອັບ"</string>
-    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
-      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> ເພີ່ມ​ເຕີມ</item>
-      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> ເພີ່ມ​ເຕີມ</item>
+    <string name="app_name" msgid="2792757108872430971">"ຕົວຄວບຄຸມສິດອະນຸຍາດ"</string>
+    <string name="ok" msgid="4417794827535157922">"ຕົກລົງ"</string>
+    <string name="app_not_found_dlg_title" msgid="8897078571059217849">"ບໍ່ພົບແອັບ"</string>
+    <string name="grant_dialog_button_deny" msgid="1649644200597601964">"ປະຕິເສດ"</string>
+    <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"ຂໍ້ມູນເພີ່ມເຕີມ"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"ຢືນຢັນປະຕິເສດ"</string>
+    <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> ຈາກທັງໝົດ <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
+    <string name="permission_warning_template" msgid="1353228984024423745">"ອະນຸຍາດໃຫ້ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ສາມາດ <xliff:g id="ACTION">%2$s</xliff:g> ບໍ?"</string>
+    <string name="permission_add_background_warning_template" msgid="1046864917164159751">"ອະນຸຍາດ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ໃຫ້ໃຊ້ <xliff:g id="ACTION">%2$s</xliff:g> ໄດ້ທຸກເທື່ອບໍ?"</string>
+    <string name="allow_permission_foreground_only" msgid="7444689446874060511">"ໃນເວລາໃຊ້ແອັບເທົ່ານັ້ນ"</string>
+    <string name="allow_permission_always" msgid="4089537686339013930">"ທຸກເທື່ອ"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8131547398883397878">"ປະຕິເສດ ແລະ ຢ່າຖາມອີກ"</string>
+    <string name="permission_revoked_count" msgid="5556125174203696709">"ປິດໄວ້ <xliff:g id="COUNT">%1$d</xliff:g> ສິດອະນຸຍາດແລ້ວ"</string>
+    <string name="permission_revoked_all" msgid="6356577996164232918">"ປິດໄວ້ທັງໝົດແລ້ວ"</string>
+    <string name="permission_revoked_none" msgid="266013103540772023">"ບໍ່ມີອັນໃດປິດການນຳໃຊ້ໄວ້"</string>
+    <string name="grant_dialog_button_allow" msgid="2137542756625939532">"ອະນຸຍາດ"</string>
+    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"ແອັບ"</string>
+    <string name="app_permissions" msgid="2778362347879465223">"ສິດອະນຸຍາດແອັບ"</string>
+    <string name="never_ask_again" msgid="7645304182523160030">"ບໍ່ຕ້ອງຖາມອີກ"</string>
+    <string name="no_permissions" msgid="2193893107241172888">"ບໍ່ມີສິດອະນຸຍາດ"</string>
+    <string name="additional_permissions" msgid="7124470111123472154">"ການອະນຸຍາດເພີ່ມເຕີມ"</string>
+    <string name="app_permissions_info_button_label" msgid="6566057048862462066">"ເປີດຂໍ້ມູນແອັບ"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> ເພີ່ມເຕີມ</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> ເພີ່ມເຕີມ</item>
     </plurals>
-    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"ແອັບ​ນີ້​ຖືກ​ອອກ​ແບບ​ມາ​ສຳ​ລັບ Android ເວີ​ຊັນ​ເກົ່າ. ການ​ປະ​ຕິ​ເສດ​ການ​ອະ​ນຸ​ຍາດ​ອາດ​ຈະ​ເຮັດ​ໃຫ້​ມັນ​ບໍ່​ເຮັດ​ວຽກ​ຕາມ​ຕ້ອງ​ການ​ໄດ້​ອີກ."</string>
-    <string name="default_permission_description" msgid="4992892207044156668">"ເຮັດ​ການ​ດຳ​ເນີນ​ການ​ທີ່​ບໍ່​ຮູ້​ຈັກ"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> ໃນ <xliff:g id="COUNT_1">%2$d</xliff:g> ແອັບ​ໄດ້​ຮັບ​ອະ​ນຸ​ຍາດ​ແລ້ວ"</string>
-    <string name="menu_show_system" msgid="6773743421743728921">"ສະແດງລະບົບ"</string>
-    <string name="menu_hide_system" msgid="7595471742649432977">"ເຊື່ອງ​ລະ​ບົບ"</string>
-    <string name="no_apps" msgid="1965493419005012569">"ບໍ່ມີແອັບ"</string>
-    <string name="location_settings" msgid="1774875730854491297">"ການຕັ້ງຄ່າ​ທີ່​ຕັ້ງ"</string>
-    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> ແມ່ນ​ຜູ້​ໃຫ້​ບໍ​ລິ​ການ​ເລື່ອງ​ການ​ບໍ​ລິ​ການ​ທີ່​ຕັ້ງ​ສຳ​ລັບ​ອຸ​ປະ​ກອນ​ນີ້. ການ​ເຂົ້າ​ເຖິງ​ທີ່​ຕັ້ງ​ແມ່ນ​ສາ​ມາດ​ດັດ​ແປງ​ໄດ້​ຈາກ​ການ​ຕັ້ງ​ຄ່າ​ທີ່​ຕັ້ງ."</string>
-    <string name="system_warning" msgid="7103819124542305179">"ຖ້າ​ທ່ານ​ປະ​ຕິ​ເສດ​ການ​ອະ​ນຸ​ຍາດ​ນີ້, ຄຸນສົມບັດໃຊ້ງານ​ພື້ນ​ຖານ​ຂອງ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ​ອາດ​ຈະ​ບໍ່​ເຮັດ​ໜ້າ​ທີ່​ຕາມທີ່ກຳນົດໄວ້."</string>
-    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"ບັງ​ຄັບ​ໃຊ້​ຕາມ​ນະ​ໂຍ​ບາຍ​ແລ້ວ"</string>
-    <string name="permission_summary_disabled_by_policy_background_only" msgid="160007162349980265">"ປິດນຳໃຊ້ການເຂົ້າເຖິງໃນພື້ນຫຼັງຕາມນະໂຍບາຍແລ້ວ"</string>
-    <string name="permission_summary_enabled_by_policy_background_only" msgid="4834971700297385342">"ເປີດນຳໃຊ້ການເຂົ້າເຖິງໃນພື້ນຫຼັງຕາມນະໂຍບາຍແລ້ວ"</string>
-    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="5150061275247925588">"ເປີດນຳໃຊ້ການເຂົ້າເຖິງໃນພື້ນໜ້າຕາມນະໂຍບາຍແລ້ວ"</string>
-    <string name="permission_summary_enforced_by_admin" msgid="1702707982488952544">"ຄວບຄຸມໂດຍຜູ້ເບິ່ງແຍງລະບົບ"</string>
-    <string name="permission_summary_disabled_by_admin_background_only" msgid="2185473379176174735">"ຜູ້ເບິ່ງແຍງລະບົບໄດ້ປິດການເຂົ້າເຖິງພື້ນຫຼັງໄວ້ແລ້ວ"</string>
-    <string name="permission_summary_enabled_by_admin_background_only" msgid="4558536214810713340">"ຜູ້ເບິ່ງແຍງລະບົບໄດ້ເປີດການເຂົ້າເຖິງພື້ນຫຼັງໄວ້ແລ້ວ"</string>
-    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="3735312186687063512">"ຜູ້ເບິ່ງແຍງລະບົບໄດ້ເປີດການເຂົ້າເຖິງພື້ນໜ້າໄວ້ແລ້ວ"</string>
-    <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
-    <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
-    <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
-    <string name="permission_access_always" msgid="5642491469836594184">"ທຸກເທື່ອ"</string>
-    <string name="permission_access_only_foreground" msgid="6906814759741316041">"ໃນເວລາໃຊ້ແອັບເທົ່ານັ້ນ"</string>
-    <string name="permission_access_never" msgid="1258330706341318622">"ບໍ່ເລີຍ"</string>
-    <string name="loading" msgid="7811651799620593731">"ກຳລັງ​ໂຫລດ..."</string>
-    <string name="all_permissions" msgid="5156669007784613042">"ທຸກ​ການ​ອະ​ນຸ​ຍາດ"</string>
-    <string name="other_permissions" msgid="2016192512386091933">"ຄວາມ​​ສາ​ມາດ​​ອື່ນຂອງແອັບ"</string>
-    <string name="permission_request_title" msgid="1204446718549121199">"ການຮ້ອງຂໍການອະນຸຍາດ"</string>
-    <string name="screen_overlay_title" msgid="3021729846864038529">"ກວດ​ພົບ​ການ​ວາງ​ຊ້ອນ​ໜ້າ​ຈໍ​ແລ້ວ"</string>
-    <string name="screen_overlay_message" msgid="2141944461571677331">"ເພື່ອ​ປ່ຽນ​ແປງ​ການ​ຕັ້ງ​ຄ່າ​ການ​ອະ​ນຸ​ຍາດ​ນີ້, ກ່ອນ​ອື່ນ​ໝົດ​ທ່ານ​ຕ້ອງ​ປິດ​ການ​ວາງ​ຊ້ອນ​ໜ້າ​ຈໍ​ຈາກ​ແອັບ​ການ​ຕັ້ງ​ຄ່າ"</string>
-    <string name="screen_overlay_button" msgid="4344544843349937743">"ເປີດການຕັ້ງຄ່າ"</string>
-    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"ຕິດຕັ້ງ/ຖອນຕິດຕັ້ງ ຄຳສັ່ງທີ່ບໍ່ຮອງຮັບຢູ່ໃນ Wear."</string>
-    <string name="permission_review_title_template_install" msgid="6819338441305295479">"ເລືອກວ່າຈະອະນຸຍາດໃຫ້ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ເຂົ້າເຖິງຫຍັງໄດ້ແດ່"</string>
-    <string name="permission_review_title_template_update" msgid="8632233603161669426">"ອັບເດດ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ແລ້ວ. ກະລຸນາເລືອກວ່າຈະໃຫ້ແອັບນີ້ເຂົ້າເຖິງຫຍັງໄດ້ແດ່."</string>
-    <string name="review_button_cancel" msgid="957906817733578877">"​ຍົກ​ເລີກ"</string>
-    <string name="review_button_continue" msgid="4809162078179371370">"​ສືບ​ຕໍ່"</string>
-    <string name="new_permissions_category" msgid="3213523410139204183">"ການ​ອະ​ນຸ​ຍາດ​ໃໝ່"</string>
-    <string name="current_permissions_category" msgid="998210994450606094">"ການ​ອະນຸຍາດ​ປັດຈຸ​ບັນ"</string>
-    <string name="message_staging" msgid="6151794817691100003">"ກຳລັງຮຽງແອັບ…"</string>
-    <string name="app_name_unknown" msgid="8931522764510159105">"ບໍ່ຮູ້ຈັກ"</string>
+    <string name="old_sdk_deny_warning" msgid="6018489265342857714">"ແອັບນີ້ຖືກອອກແບບມາສຳລັບ Android ເວີຊັນເກົ່າ. ການປະຕິເສດການອະນຸຍາດອາດຈະເຮັດໃຫ້ມັນບໍ່ເຮັດວຽກຕາມຕ້ອງການໄດ້ອີກ."</string>
+    <string name="default_permission_description" msgid="692254823411049573">"ເຮັດການດຳເນີນການທີ່ບໍ່ຮູ້ຈັກ"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"ອະນຸຍາດແອັບ <xliff:g id="COUNT_0">%1$d</xliff:g> ຈາກທັງໝົດ <xliff:g id="COUNT_1">%2$d</xliff:g> ແອັບແລ້ວ"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"ສະແດງລະບົບ"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"ເຊື່ອງລະບົບ"</string>
+    <string name="no_apps" msgid="2377153782338039463">"ບໍ່ມີແອັບ"</string>
+    <string name="location_settings" msgid="547378321761364906">"ການຕັ້ງຄ່າສະຖານທີ່"</string>
+    <string name="location_warning" msgid="4687406043150343369">"<xliff:g id="APP_NAME">%1$s</xliff:g> ເປັນຜູ້ໃຫ້ບໍລິການເລື່ອງການບໍລິການສະຖານທີ່ສຳລັບອຸປະກອນນີ້. ການເຂົ້າເຖິງສະຖານທີ່ແມ່ນສາມາດແກ້ໄຂໄດ້ຈາກການຕັ້ງຄ່າສະຖານທີ່."</string>
+    <string name="system_warning" msgid="6868290533389195836">"ຖ້າທ່ານປະຕິເສດສິດອະນຸຍາດນີ້, ຄຸນສົມບັດພື້ນຖານຂອງອຸປະກອນຂອງທ່ານອາດຈະບໍ່ເຮັດໜ້າທີ່ຕາມທີ່ກຳນົດໄວ້."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"ບັງຄັບໃຊ້ຕາມນະໂຍບາຍແລ້ວ"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"ປິດນຳໃຊ້ການເຂົ້າເຖິງໃນພື້ນຫຼັງຕາມນະໂຍບາຍແລ້ວ"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"ເປີດນຳໃຊ້ການເຂົ້າເຖິງໃນພື້ນຫຼັງຕາມນະໂຍບາຍແລ້ວ"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="8652417310534780420">"ເປີດນຳໃຊ້ການເຂົ້າເຖິງໃນພື້ນໜ້າຕາມນະໂຍບາຍແລ້ວ"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="5156952484229154563">"ຄວບຄຸມໂດຍຜູ້ເບິ່ງແຍງລະບົບແລ້ວ"</string>
+    <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"ຜູ້ເບິ່ງແຍງລະບົບໄດ້ປິດການເຂົ້າເຖິງພື້ນຫຼັງໄວ້ແລ້ວ"</string>
+    <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"ຜູ້ເບິ່ງແຍງລະບົບໄດ້ເປີດການເຂົ້າເຖິງພື້ນຫຼັງໄວ້ແລ້ວ"</string>
+    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"ຜູ້ເບິ່ງແຍງລະບົບໄດ້ເປີດການເຂົ້າເຖິງພື້ນໜ້າໄວ້ແລ້ວ"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
+    <string name="permission_access_always" msgid="2315256378850460955">"ທຸກເທື່ອ"</string>
+    <string name="permission_access_only_foreground" msgid="8109903552082630801">"ໃນເວລາໃຊ້ແອັບເທົ່ານັ້ນ"</string>
+    <string name="permission_access_never" msgid="4717648645876576508">"ບໍ່"</string>
+    <string name="loading" msgid="323483393167148377">"ກຳລັງໂຫລດ…"</string>
+    <string name="all_permissions" msgid="7813580062403112957">"ທຸກການອະນຸຍາດ"</string>
+    <string name="other_permissions" msgid="1956312685853070715">"ຄວາມສາມາດອື່ນຂອງແອັບ"</string>
+    <string name="permission_request_title" msgid="6779348653783761548">"ການຮ້ອງຂໍການອະນຸຍາດ"</string>
+    <string name="screen_overlay_title" msgid="1632732130312696010">"ກວດພົບການວາງຊ້ອນໜ້າຈໍ"</string>
+    <string name="screen_overlay_message" msgid="3222033787364955006">"ເພື່ອປ່ຽນການຕັ້ງຄ່າສິດອະນຸຍາດນີ້, ກ່ອນອື່ນທ່ານຕ້ອງປິດການວາງຊ້ອນໜ້າຈໍຈາກການຕັ້ງຄ່າ &gt; ແອັບ"</string>
+    <string name="screen_overlay_button" msgid="3554849308322944411">"ເປີດການຕັ້ງຄ່າ"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="6923880912091041609">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="8731817202551430387">"ຕິດຕັ້ງ/ຖອນການຕິດຕັ້ງ ຄຳສັ່ງທີ່ບໍ່ຮອງຮັບຢູ່ Wear."</string>
+    <string name="permission_review_title_template_install" msgid="8131698354985303888">"ເລືອກວ່າຈະອະນຸຍາດໃຫ້ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ເຂົ້າເຖິງຫຍັງໄດ້ແດ່"</string>
+    <string name="permission_review_title_template_update" msgid="7597155653571395485">"ອັບເດດ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ແລ້ວ. ກະລຸນາເລືອກວ່າຈະໃຫ້ແອັບນີ້ເຂົ້າເຖິງຫຍັງໄດ້ແດ່."</string>
+    <string name="review_button_cancel" msgid="7108377593627664194">"ຍົກເລີກ"</string>
+    <string name="review_button_continue" msgid="1367925420132212571">"ສືບຕໍ່"</string>
+    <string name="new_permissions_category" msgid="7242713808413888679">"ການອະນຸຍາດໃໝ່"</string>
+    <string name="current_permissions_category" msgid="3835461245150972589">"ສິດອະນຸຍາດປັດຈຸບັນ"</string>
+    <string name="message_staging" msgid="641286607664721291">"ກຳລັງຮຽງແອັບ…"</string>
+    <string name="app_name_unknown" msgid="8288360585728122735">"ບໍ່ຮູ້ຈັກ"</string>
 </resources>

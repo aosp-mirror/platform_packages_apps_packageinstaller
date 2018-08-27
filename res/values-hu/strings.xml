@@ -16,70 +16,70 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="6793827020090537173">"Engedélykezelő"</string>
-    <string name="ok" msgid="3468756155452870475">"OK"</string>
-    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Az alkalmazás nem található"</string>
-    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Elutasítás"</string>
-    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"További információ"</string>
-    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Tiltás mindenképpen"</string>
-    <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>/<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="7332275268559121742">"Engedélyezi a(z) &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; számára a következőt: <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
-    <string name="permission_add_background_warning_template" msgid="5391175001698541141">"Mindig engedélyezi a(z) &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&amp;gt számára a következőt: <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
-    <string name="allow_permission_foreground_only" msgid="1016389465002335286">"Az alkalmazás használatakor"</string>
-    <string name="allow_permission_always" msgid="7047379650123289823">"Mindig"</string>
-    <string name="deny_permission_deny_and_dont_ask_again" msgid="8003202275002645629">"Megtagadás, és ne jelenjen meg többé"</string>
-    <string name="permission_revoked_count" msgid="7386129423432613024">"<xliff:g id="COUNT">%1$d</xliff:g> van letiltva"</string>
-    <string name="permission_revoked_all" msgid="8595742638132863678">"az összes le van tiltva"</string>
-    <string name="permission_revoked_none" msgid="2059511550181271342">"egy sincs letiltva"</string>
-    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Engedélyezés"</string>
-    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Alkalmazások"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"Alkalmazásengedélyek"</string>
-    <string name="never_ask_again" msgid="1089938738199748687">"Ne jelenjen meg többé"</string>
-    <string name="no_permissions" msgid="3210542466245591574">"Nincs engedély"</string>
-    <string name="additional_permissions" msgid="6667573114240111763">"További engedélyek"</string>
-    <string name="app_permissions_info_button_label" msgid="7789812060395257748">"Alkalmazásinformációk megnyitása"</string>
-    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+    <string name="app_name" msgid="2792757108872430971">"Engedélykezelő"</string>
+    <string name="ok" msgid="4417794827535157922">"OK"</string>
+    <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Az alkalmazás nem található"</string>
+    <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Tiltás"</string>
+    <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Bővebben"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Tiltás"</string>
+    <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>/<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>."</string>
+    <string name="permission_warning_template" msgid="1353228984024423745">"Engedélyezi a(z) &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; számára a következőt: <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_add_background_warning_template" msgid="1046864917164159751">"Mindig engedélyezi a(z) &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&amp;gt számára a következőt: <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="allow_permission_foreground_only" msgid="7444689446874060511">"Az alkalmazás használatakor"</string>
+    <string name="allow_permission_always" msgid="4089537686339013930">"Mindig"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8131547398883397878">"Tiltás, és ne jelenjen meg többé"</string>
+    <string name="permission_revoked_count" msgid="5556125174203696709">"<xliff:g id="COUNT">%1$d</xliff:g> van letiltva"</string>
+    <string name="permission_revoked_all" msgid="6356577996164232918">"az összes le van tiltva"</string>
+    <string name="permission_revoked_none" msgid="266013103540772023">"egy sincs letiltva"</string>
+    <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Engedélyezés"</string>
+    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Alkalmazások"</string>
+    <string name="app_permissions" msgid="2778362347879465223">"Alkalmazásengedélyek"</string>
+    <string name="never_ask_again" msgid="7645304182523160030">"Ne jelenjen meg többé"</string>
+    <string name="no_permissions" msgid="2193893107241172888">"Nincs engedély"</string>
+    <string name="additional_permissions" msgid="7124470111123472154">"További engedélyek"</string>
+    <string name="app_permissions_info_button_label" msgid="6566057048862462066">"Alkalmazásinformációk megnyitása"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> további</item>
       <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> további</item>
     </plurals>
-    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Ez az alkalmazás az Android egy korábbi verziójához készült. Az engedély megtagadása esetén előfordulhat, hogy a továbbiakban nem fog megfelelően működni."</string>
-    <string name="default_permission_description" msgid="4992892207044156668">"végrehajt egy ismeretlen műveletet"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_1">%2$d</xliff:g>/<xliff:g id="COUNT_0">%1$d</xliff:g> alkalmazás engedélyezve"</string>
-    <string name="menu_show_system" msgid="6773743421743728921">"Rendszerfolyamatok megjelenítése"</string>
-    <string name="menu_hide_system" msgid="7595471742649432977">"Rendszerfolyamatok elrejtése"</string>
-    <string name="no_apps" msgid="1965493419005012569">"Nincsenek alkalmazások"</string>
-    <string name="location_settings" msgid="1774875730854491297">"Helybeállítások"</string>
-    <string name="location_warning" msgid="8778701356292735971">"A(z) <xliff:g id="APP_NAME">%1$s</xliff:g> helyszolgáltatásokat biztosít ennek az eszköznek. A helyhozzáférést a helybeállításokban lehet módosítani."</string>
-    <string name="system_warning" msgid="7103819124542305179">"Ha ezt nem engedélyezi, akkor előfordulhat, hogy az eszköz egyes alapfunkciói nem megfelelően fognak működni."</string>
-    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Irányelv által kényszerítve"</string>
-    <string name="permission_summary_disabled_by_policy_background_only" msgid="160007162349980265">"Háttérhozzáférés házirend által letiltva"</string>
-    <string name="permission_summary_enabled_by_policy_background_only" msgid="4834971700297385342">"Háttérhozzáférés házirend által engedélyezve"</string>
-    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="5150061275247925588">"Előtérbeli hozzáférés házirend által engedélyezve"</string>
-    <string name="permission_summary_enforced_by_admin" msgid="1702707982488952544">"Rendszergazda által irányítva"</string>
-    <string name="permission_summary_disabled_by_admin_background_only" msgid="2185473379176174735">"A rendszergazda letiltotta a háttérhozzáférést"</string>
-    <string name="permission_summary_enabled_by_admin_background_only" msgid="4558536214810713340">"A rendszergazda engedélyezte a háttérhozzáférést"</string>
-    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="3735312186687063512">"A rendszergazda engedélyezte az előtérbeli hozzáférést"</string>
-    <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
-    <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
-    <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
-    <string name="permission_access_always" msgid="5642491469836594184">"Mindig"</string>
-    <string name="permission_access_only_foreground" msgid="6906814759741316041">"Az alkalmazás használatakor"</string>
-    <string name="permission_access_never" msgid="1258330706341318622">"Soha"</string>
-    <string name="loading" msgid="7811651799620593731">"Betöltés…"</string>
-    <string name="all_permissions" msgid="5156669007784613042">"Az összes engedély"</string>
-    <string name="other_permissions" msgid="2016192512386091933">"Egyéb alkalmazáslehetőségek"</string>
-    <string name="permission_request_title" msgid="1204446718549121199">"Engedélykérés"</string>
-    <string name="screen_overlay_title" msgid="3021729846864038529">"Képernyőfedvény észlelve"</string>
-    <string name="screen_overlay_message" msgid="2141944461571677331">"Ennek az engedélynek a módosításához először ki kell kapcsolnia a képernyőfedvényt a Beállítások &gt; Alkalmazások menüben"</string>
-    <string name="screen_overlay_button" msgid="4344544843349937743">"Beállítások megnyitása"</string>
-    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"A Wear nem támogatja a telepítés/eltávolítás műveletet."</string>
-    <string name="permission_review_title_template_install" msgid="6819338441305295479">"Válassza ki, hogy a(z) &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; mihez férjen hozzá"</string>
-    <string name="permission_review_title_template_update" msgid="8632233603161669426">"A(z) &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; frissítése megtörtént. Válassza ki, hogy mihez férjen hozzá ez az alkalmazás."</string>
-    <string name="review_button_cancel" msgid="957906817733578877">"Mégse"</string>
-    <string name="review_button_continue" msgid="4809162078179371370">"Tovább"</string>
-    <string name="new_permissions_category" msgid="3213523410139204183">"Új engedélyek"</string>
-    <string name="current_permissions_category" msgid="998210994450606094">"Jelenlegi engedélyek"</string>
-    <string name="message_staging" msgid="6151794817691100003">"Alkalmazás fokozatos közzététele…"</string>
-    <string name="app_name_unknown" msgid="8931522764510159105">"Ismeretlen"</string>
+    <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Ez az alkalmazás az Android egy korábbi verziójához készült. Az engedély megtagadása esetén előfordulhat, hogy az alkalmazás a továbbiakban nem működik majd megfelelően."</string>
+    <string name="default_permission_description" msgid="692254823411049573">"végrehajt egy ismeretlen műveletet"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_1">%2$d</xliff:g>/<xliff:g id="COUNT_0">%1$d</xliff:g> alkalmazás kapott engedélyt"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"Rendszer megjelenítése"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"Rendszer elrejtése"</string>
+    <string name="no_apps" msgid="2377153782338039463">"Nincsenek alkalmazások"</string>
+    <string name="location_settings" msgid="547378321761364906">"Helybeállítások"</string>
+    <string name="location_warning" msgid="4687406043150343369">"A(z) <xliff:g id="APP_NAME">%1$s</xliff:g> helyszolgáltatásokat biztosít ennek az eszköznek. A helyhozzáférést a helybeállításokban lehet módosítani."</string>
+    <string name="system_warning" msgid="6868290533389195836">"Ha ezt nem engedélyezi, akkor előfordulhat, hogy az eszköz egyes alapfunkciói nem megfelelően működnek majd."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"Házirend által kényszerítve"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"A házirend letiltotta a háttérhozzáférést"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"A házirend engedélyezte a háttérhozzáférést"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="8652417310534780420">"A házirend engedélyezte az előtérbeli hozzáférést"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="5156952484229154563">"Rendszergazda által irányítva"</string>
+    <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"A rendszergazda letiltotta a háttérhozzáférést"</string>
+    <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"A rendszergazda engedélyezte a háttérhozzáférést"</string>
+    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"A rendszergazda engedélyezte az előtérbeli hozzáférést"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
+    <string name="permission_access_always" msgid="2315256378850460955">"Mindig"</string>
+    <string name="permission_access_only_foreground" msgid="8109903552082630801">"Az alkalmazás használatakor"</string>
+    <string name="permission_access_never" msgid="4717648645876576508">"Soha"</string>
+    <string name="loading" msgid="323483393167148377">"Betöltés…"</string>
+    <string name="all_permissions" msgid="7813580062403112957">"Az összes engedély"</string>
+    <string name="other_permissions" msgid="1956312685853070715">"Egyéb alkalmazáslehetőségek"</string>
+    <string name="permission_request_title" msgid="6779348653783761548">"Engedélykérés"</string>
+    <string name="screen_overlay_title" msgid="1632732130312696010">"Képernyőfedvény észlelve"</string>
+    <string name="screen_overlay_message" msgid="3222033787364955006">"Ennek az engedélynek a módosításához először ki kell kapcsolnia a képernyőfedvényt a Beállítások &gt; Alkalmazások menüben"</string>
+    <string name="screen_overlay_button" msgid="3554849308322944411">"Beállítások megnyitása"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="6923880912091041609">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="8731817202551430387">"A Wear nem támogatja a telepítés/eltávolítás műveletet."</string>
+    <string name="permission_review_title_template_install" msgid="8131698354985303888">"Válassza ki, hogy a(z) &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; mihez férjen hozzá"</string>
+    <string name="permission_review_title_template_update" msgid="7597155653571395485">"A(z) &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; frissítése megtörtént. Válassza ki, hogy mihez férjen hozzá ez az alkalmazás."</string>
+    <string name="review_button_cancel" msgid="7108377593627664194">"Mégse"</string>
+    <string name="review_button_continue" msgid="1367925420132212571">"Tovább"</string>
+    <string name="new_permissions_category" msgid="7242713808413888679">"Új engedélyek"</string>
+    <string name="current_permissions_category" msgid="3835461245150972589">"Jelenlegi engedélyek"</string>
+    <string name="message_staging" msgid="641286607664721291">"Alkalmazás fokozatos közzététele…"</string>
+    <string name="app_name_unknown" msgid="8288360585728122735">"Ismeretlen"</string>
 </resources>

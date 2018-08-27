@@ -16,70 +16,70 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="6793827020090537173">"Permission controller"</string>
-    <string name="ok" msgid="3468756155452870475">"Во ред"</string>
-    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Апликацијата не е пронајдена"</string>
-    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Одбиј"</string>
-    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Повеќе информации"</string>
-    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Сепак одбиј"</string>
-    <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> од <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="7332275268559121742">"Дозволете &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; да <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
-    <string name="permission_add_background_warning_template" msgid="5391175001698541141">"Дали секогаш да се дозволи &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; да <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
-    <string name="allow_permission_foreground_only" msgid="1016389465002335286">"Само додека се користи апликацијата"</string>
-    <string name="allow_permission_always" msgid="7047379650123289823">"Секогаш"</string>
-    <string name="deny_permission_deny_and_dont_ask_again" msgid="8003202275002645629">"Одбиј и не прашувај повторно"</string>
-    <string name="permission_revoked_count" msgid="7386129423432613024">"Оневозможени се <xliff:g id="COUNT">%1$d</xliff:g>"</string>
-    <string name="permission_revoked_all" msgid="8595742638132863678">"сите се оневозможени"</string>
-    <string name="permission_revoked_none" msgid="2059511550181271342">"ниедна не е оневозможена"</string>
-    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Овозможи"</string>
-    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Апликации"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"Дозволи за апликацијата"</string>
-    <string name="never_ask_again" msgid="1089938738199748687">"Не прашувај повторно"</string>
-    <string name="no_permissions" msgid="3210542466245591574">"Нема дозволи"</string>
-    <string name="additional_permissions" msgid="6667573114240111763">"Дополнителни дозволи"</string>
-    <string name="app_permissions_info_button_label" msgid="7789812060395257748">"Отвора информации за апликација"</string>
-    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+    <string name="app_name" msgid="2792757108872430971">"Permission controller"</string>
+    <string name="ok" msgid="4417794827535157922">"Во ред"</string>
+    <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Апликацијата не е најдена"</string>
+    <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Одбиј"</string>
+    <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Уште информации"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Сепак одбиј"</string>
+    <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> од <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
+    <string name="permission_warning_template" msgid="1353228984024423745">"Да се дозволи &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; да <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_add_background_warning_template" msgid="1046864917164159751">"Дали секогаш да се дозволи &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; да <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="allow_permission_foreground_only" msgid="7444689446874060511">"Само додека се користи апликацијата"</string>
+    <string name="allow_permission_always" msgid="4089537686339013930">"Секогаш"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8131547398883397878">"Одбиј и не прашувај повторно"</string>
+    <string name="permission_revoked_count" msgid="5556125174203696709">"оневозможени се <xliff:g id="COUNT">%1$d</xliff:g>"</string>
+    <string name="permission_revoked_all" msgid="6356577996164232918">"сите се оневозможени"</string>
+    <string name="permission_revoked_none" msgid="266013103540772023">"ниедна не е оневозможена"</string>
+    <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Дозволи"</string>
+    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Апликации"</string>
+    <string name="app_permissions" msgid="2778362347879465223">"Дозволи за апликацијата"</string>
+    <string name="never_ask_again" msgid="7645304182523160030">"Не прашувај повторно"</string>
+    <string name="no_permissions" msgid="2193893107241172888">"Нема дозволи"</string>
+    <string name="additional_permissions" msgid="7124470111123472154">"Дополнителни дозволи"</string>
+    <string name="app_permissions_info_button_label" msgid="6566057048862462066">"Отвори информации за апликацијата"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
       <item quantity="one">Уште <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="other">Уште <xliff:g id="COUNT_1">%1$d</xliff:g></item>
     </plurals>
-    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Оваа апликација е дизајнирана за постара верзија на Android. Одбивањето на дозволата може да предизвика веќе да не функционира како што треба."</string>
-    <string name="default_permission_description" msgid="4992892207044156668">"изврши непознато дејство"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"Дозволени се <xliff:g id="COUNT_0">%1$d</xliff:g> од <xliff:g id="COUNT_1">%2$d</xliff:g> апликации"</string>
-    <string name="menu_show_system" msgid="6773743421743728921">"Прикажи систем"</string>
-    <string name="menu_hide_system" msgid="7595471742649432977">"Сокриј систем"</string>
-    <string name="no_apps" msgid="1965493419005012569">"Нема апликации"</string>
-    <string name="location_settings" msgid="1774875730854491297">"Поставки за локација"</string>
-    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> е давател на услуги според локација за овој уред. Пристапот до локацијата може да се смени од Поставките за локација."</string>
-    <string name="system_warning" msgid="7103819124542305179">"Ако ја одбиете оваа дозвола, основните функции на вашиот уред можеби веќе нема да функционираат како што треба."</string>
-    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Наложено од политиката"</string>
-    <string name="permission_summary_disabled_by_policy_background_only" msgid="160007162349980265">"Пристапот од заднина е оневозможен со правилото"</string>
-    <string name="permission_summary_enabled_by_policy_background_only" msgid="4834971700297385342">"Пристапот од заднина е овозможен со правилото"</string>
-    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="5150061275247925588">"Пристапот од преден план е овозможен со правилото"</string>
-    <string name="permission_summary_enforced_by_admin" msgid="1702707982488952544">"Контролирано од администраторот"</string>
-    <string name="permission_summary_disabled_by_admin_background_only" msgid="2185473379176174735">"Пристапот во заднина е оневозможен од администраторот"</string>
-    <string name="permission_summary_enabled_by_admin_background_only" msgid="4558536214810713340">"Пристапот во заднина е овозможен од администраторот"</string>
-    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="3735312186687063512">"Пристапот во преден план е е овозможен од администраторот"</string>
-    <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
-    <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
-    <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
-    <string name="permission_access_always" msgid="5642491469836594184">"Секогаш"</string>
-    <string name="permission_access_only_foreground" msgid="6906814759741316041">"Само додека се користи аплик."</string>
-    <string name="permission_access_never" msgid="1258330706341318622">"Никогаш"</string>
-    <string name="loading" msgid="7811651799620593731">"Се вчитува..."</string>
-    <string name="all_permissions" msgid="5156669007784613042">"Сите дозволи"</string>
-    <string name="other_permissions" msgid="2016192512386091933">"Други можности на апликацијата"</string>
-    <string name="permission_request_title" msgid="1204446718549121199">"Барање дозвола"</string>
-    <string name="screen_overlay_title" msgid="3021729846864038529">"Откривме преклопување на екранот"</string>
-    <string name="screen_overlay_message" msgid="2141944461571677331">"За да ја измените оваа поставка за дозвола, прво мора да го исклучите преклопувањето на екранот од Поставки &gt; Апликации"</string>
-    <string name="screen_overlay_button" msgid="4344544843349937743">"Отвори поставки"</string>
-    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Дејствата инсталирај/деинсталирај не се поддржани на Wear."</string>
-    <string name="permission_review_title_template_install" msgid="6819338441305295479">"Изберете што да ѝ се овозможи на &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; за пристап"</string>
-    <string name="permission_review_title_template_update" msgid="8632233603161669426">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; е ажурирана. Изберете што да ѝ се овозможи на оваа апликација за пристап."</string>
-    <string name="review_button_cancel" msgid="957906817733578877">"Откажи"</string>
-    <string name="review_button_continue" msgid="4809162078179371370">"Продолжи"</string>
-    <string name="new_permissions_category" msgid="3213523410139204183">"Нови дозволи"</string>
-    <string name="current_permissions_category" msgid="998210994450606094">"Тековни дозволи"</string>
-    <string name="message_staging" msgid="6151794817691100003">"Апликацијата се поставува…"</string>
-    <string name="app_name_unknown" msgid="8931522764510159105">"Непознато"</string>
+    <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Оваа апликација е дизајнирана за постара верзија на Android. Одбивањето на дозволата може да предизвика веќе да не функционира како што треба."</string>
+    <string name="default_permission_description" msgid="692254823411049573">"изврши непознато дејство"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"Дозволени се <xliff:g id="COUNT_0">%1$d</xliff:g> од <xliff:g id="COUNT_1">%2$d</xliff:g> апликации"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"Прикажи го системот"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"Сокриј го системот"</string>
+    <string name="no_apps" msgid="2377153782338039463">"Нема апликации"</string>
+    <string name="location_settings" msgid="547378321761364906">"Поставки за локација"</string>
+    <string name="location_warning" msgid="4687406043150343369">"<xliff:g id="APP_NAME">%1$s</xliff:g> е давател на услуги според локација за овој уред. Пристапот до локацијата може да се смени од поставките за локација."</string>
+    <string name="system_warning" msgid="6868290533389195836">"Ако ја одбиете дозволава, основните функции на уредот можеби веќе нема да функционираат како што треба."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"Наметнато со правило"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"Пристапот во заднина е оневозможен со правило"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"Пристапот во заднина е овозможен со правило"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="8652417310534780420">"Пристапот во преден план е овозможен со правило"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="5156952484229154563">"Контролирано од администраторот"</string>
+    <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"Пристапот во заднина е оневозможен од администраторот"</string>
+    <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"Пристапот во заднина е овозможен од администраторот"</string>
+    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"Пристапот во преден план е овозможен од администраторот"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
+    <string name="permission_access_always" msgid="2315256378850460955">"Секогаш"</string>
+    <string name="permission_access_only_foreground" msgid="8109903552082630801">"Само додека се користи аплик."</string>
+    <string name="permission_access_never" msgid="4717648645876576508">"Никогаш"</string>
+    <string name="loading" msgid="323483393167148377">"Се вчитува…"</string>
+    <string name="all_permissions" msgid="7813580062403112957">"Сите дозволи"</string>
+    <string name="other_permissions" msgid="1956312685853070715">"Други можности на апликацијата"</string>
+    <string name="permission_request_title" msgid="6779348653783761548">"Барање за дозвола"</string>
+    <string name="screen_overlay_title" msgid="1632732130312696010">"Откривме преклопување на екранот"</string>
+    <string name="screen_overlay_message" msgid="3222033787364955006">"За да ја измените оваа поставка за дозвола, прво мора да го исклучите преклопувањето на екранот од „Поставки &gt; Апликации“"</string>
+    <string name="screen_overlay_button" msgid="3554849308322944411">"Отвори ги поставките"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="6923880912091041609">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="8731817202551430387">"Дејствата „Инсталирај/деинсталирај“ не се поддржани на Wear."</string>
+    <string name="permission_review_title_template_install" msgid="8131698354985303888">"Изберете до што може да пристапува &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;"</string>
+    <string name="permission_review_title_template_update" msgid="7597155653571395485">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; е ажурирана. Изберете до што може да пристапува апликацијава."</string>
+    <string name="review_button_cancel" msgid="7108377593627664194">"Откажи"</string>
+    <string name="review_button_continue" msgid="1367925420132212571">"Продолжи"</string>
+    <string name="new_permissions_category" msgid="7242713808413888679">"Нови дозволи"</string>
+    <string name="current_permissions_category" msgid="3835461245150972589">"Тековни дозволи"</string>
+    <string name="message_staging" msgid="641286607664721291">"Апликацијата се поставува…"</string>
+    <string name="app_name_unknown" msgid="8288360585728122735">"Непознатo"</string>
 </resources>

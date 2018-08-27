@@ -16,70 +16,70 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="6793827020090537173">"កម្មវិធីគ្រប់គ្រង​ការអនុញ្ញាត"</string>
-    <string name="ok" msgid="3468756155452870475">"យល់​ព្រម​"</string>
-    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"រក​មិន​ឃើញ​កម្មវិធី"</string>
-    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"បដិសេធ"</string>
-    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"ព័ត៌មានបន្ថែម"</string>
-    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"បដិសេធទោះយ៉ាងណាក៏ដោយ"</string>
-    <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> នៃ <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="7332275268559121742">"អនុញ្ញាតឲ្យ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
-    <string name="permission_add_background_warning_template" msgid="5391175001698541141">"អនុញ្ញាតឱ្យ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g> ជានិច្ចមែនទេ?"</string>
-    <string name="allow_permission_foreground_only" msgid="1016389465002335286">"ខណៈពេលប្រើ​កម្មវិធីតែប៉ុណ្ណោះ"</string>
-    <string name="allow_permission_always" msgid="7047379650123289823">"ជានិច្ច"</string>
-    <string name="deny_permission_deny_and_dont_ask_again" msgid="8003202275002645629">"បដិសេធ ហើយកុំ​សួរម្តងទៀត"</string>
-    <string name="permission_revoked_count" msgid="7386129423432613024">"បានបិទ <xliff:g id="COUNT">%1$d</xliff:g>"</string>
-    <string name="permission_revoked_all" msgid="8595742638132863678">"បានបិទទាំងអស់"</string>
-    <string name="permission_revoked_none" msgid="2059511550181271342">"មិនបានបិទអ្វីទាំងអស់"</string>
-    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"អនុញ្ញាត"</string>
-    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"កម្មវិធី"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"ការអនុញ្ញាតកម្មវិធី"</string>
-    <string name="never_ask_again" msgid="1089938738199748687">"កុំសួរទៀត"</string>
-    <string name="no_permissions" msgid="3210542466245591574">"គ្មានសិទ្ធិអនុញ្ញាត"</string>
-    <string name="additional_permissions" msgid="6667573114240111763">"ការអនុញ្ញាតបន្ថែម"</string>
-    <string name="app_permissions_info_button_label" msgid="7789812060395257748">"បើក​ព័ត៌មាន​កម្មវិធី"</string>
-    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+    <string name="app_name" msgid="2792757108872430971">"កម្មវិធីគ្រប់គ្រង​ការអនុញ្ញាត"</string>
+    <string name="ok" msgid="4417794827535157922">"យល់ព្រម"</string>
+    <string name="app_not_found_dlg_title" msgid="8897078571059217849">"រក​មិន​ឃើញ​កម្មវិធីទេ"</string>
+    <string name="grant_dialog_button_deny" msgid="1649644200597601964">"បដិសេធ"</string>
+    <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"ព័ត៌មាន​បន្ថែម"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"បដិសេធចុះមិនអីទេ"</string>
+    <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> ក្នុងចំណោម <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
+    <string name="permission_warning_template" msgid="1353228984024423745">"អនុញ្ញាតឱ្យ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g> មែនទេ?"</string>
+    <string name="permission_add_background_warning_template" msgid="1046864917164159751">"អនុញ្ញាតឱ្យ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g> ជានិច្ចមែនទេ?"</string>
+    <string name="allow_permission_foreground_only" msgid="7444689446874060511">"ខណៈពេលប្រើ​កម្មវិធីតែប៉ុណ្ណោះ"</string>
+    <string name="allow_permission_always" msgid="4089537686339013930">"ជានិច្ច"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8131547398883397878">"បដិសេធ ហើយកុំ​សួរម្តងទៀត"</string>
+    <string name="permission_revoked_count" msgid="5556125174203696709">"បានបិទ <xliff:g id="COUNT">%1$d</xliff:g>"</string>
+    <string name="permission_revoked_all" msgid="6356577996164232918">"បានបិទទាំងអស់"</string>
+    <string name="permission_revoked_none" msgid="266013103540772023">"មិនបានបិទអ្វីទាំងអស់"</string>
+    <string name="grant_dialog_button_allow" msgid="2137542756625939532">"អនុញ្ញាត"</string>
+    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"កម្មវិធី"</string>
+    <string name="app_permissions" msgid="2778362347879465223">"ការអនុញ្ញាតកម្មវិធី"</string>
+    <string name="never_ask_again" msgid="7645304182523160030">"កុំសួរ​ម្ដងទៀត"</string>
+    <string name="no_permissions" msgid="2193893107241172888">"គ្មានការអនុញ្ញាតទេ"</string>
+    <string name="additional_permissions" msgid="7124470111123472154">"ការអនុញ្ញាតបន្ថែម"</string>
+    <string name="app_permissions_info_button_label" msgid="6566057048862462066">"បើក​ព័ត៌មាន​កម្មវិធី"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> ទៀត</item>
       <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> ទៀត</item>
     </plurals>
-    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"កម្មវិធីនេះត្រូវបានរចនាឡើងសម្រាប់កំណែចាស់របស់ Android។ ការបដិសេធសិទ្ធិអនុញ្ញាតអាចបណ្តាលឲ្យវាបំពេញមុខងារមិនដូចអ្វីដែលគេរំពឹងទុកតទៅទៀតទេ។"</string>
-    <string name="default_permission_description" msgid="4992892207044156668">"ប្រតិបត្តិការសកម្មភាពមិនស្គាល់"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"បានអនុញ្ញាតកម្មវិធី <xliff:g id="COUNT_0">%1$d</xliff:g> នៃ <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
-    <string name="menu_show_system" msgid="6773743421743728921">"បង្ហាញប្រព័ន្ធ"</string>
-    <string name="menu_hide_system" msgid="7595471742649432977">"លាក់ប្រព័ន្ធ"</string>
-    <string name="no_apps" msgid="1965493419005012569">"គ្មានកម្មវិធី"</string>
-    <string name="location_settings" msgid="1774875730854491297">"ការកំណត់ទីតាំង"</string>
-    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> គឺជាអ្នកផ្តល់សេវាកម្មទីតាំងសម្រាប់ឧបករណ៍នេះ។ ការចូលដំណើរការទីតាំងអាចកែសម្រួលបានចេញពីការកំណត់ទីតាំង។"</string>
-    <string name="system_warning" msgid="7103819124542305179">"ប្រសិនបើអ្នកបដិសេធសិទ្ធិអនុញ្ញាតនេះ លក្ខណៈពិសេសគោលនៃឧបករណ៍របស់អ្នកអាចមិនដំណើរការដូចដែលអ្នកចង់បានតទៅទៀតទេ។"</string>
-    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"អនុវត្តតាមគោលការណ៍"</string>
-    <string name="permission_summary_disabled_by_policy_background_only" msgid="160007162349980265">"ការចូលប្រើផ្ទៃខាងក្រោយ​ត្រូវបានបិទដោយគោលការណ៍"</string>
-    <string name="permission_summary_enabled_by_policy_background_only" msgid="4834971700297385342">"ការចូលប្រើផ្ទៃខាងក្រោយ​ត្រូវបានបើកដោយគោលការណ៍"</string>
-    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="5150061275247925588">"ការចូលប្រើផ្ទៃខាងមុខ​ត្រូវបានបើកដោយគោលការណ៍"</string>
-    <string name="permission_summary_enforced_by_admin" msgid="1702707982488952544">"គ្រប់គ្រងដោយអ្នកគ្រប់គ្រង"</string>
-    <string name="permission_summary_disabled_by_admin_background_only" msgid="2185473379176174735">"ការចូល​ប្រើ​ផ្ទៃខាងក្រោយ​ត្រូវបានបិទដោយ​អ្នកគ្រប់គ្រង"</string>
-    <string name="permission_summary_enabled_by_admin_background_only" msgid="4558536214810713340">"ការចូល​ប្រើ​ផ្ទៃខាងក្រោយ​ត្រូវបានបើកដោយ​អ្នកគ្រប់គ្រង"</string>
-    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="3735312186687063512">"ការចូល​ប្រើ​ផ្ទៃខាងមុខ​ត្រូវបានបើកដោយ​អ្នកគ្រប់គ្រង"</string>
-    <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
-    <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
-    <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
-    <string name="permission_access_always" msgid="5642491469836594184">"ជានិច្ច"</string>
-    <string name="permission_access_only_foreground" msgid="6906814759741316041">"ខណៈពេលប្រើ​កម្មវិធីតែប៉ុណ្ណោះ"</string>
-    <string name="permission_access_never" msgid="1258330706341318622">"កុំឱ្យសោះ"</string>
-    <string name="loading" msgid="7811651799620593731">"កំពុងដំណើរការ..."</string>
-    <string name="all_permissions" msgid="5156669007784613042">"សិទ្ធិអនុញ្ញាតទាំងអស់"</string>
-    <string name="other_permissions" msgid="2016192512386091933">"សមត្ថភាពកម្មវិធីផ្សេងទៀត"</string>
-    <string name="permission_request_title" msgid="1204446718549121199">"សំណើសុំសិទ្ធិអនុញ្ញាត"</string>
-    <string name="screen_overlay_title" msgid="3021729846864038529">"បានរកឃើញអេក្រង់ត្រួតគ្នា"</string>
-    <string name="screen_overlay_message" msgid="2141944461571677331">"ដើម្បីប្តូរការកំណត់សិទ្ធិអនុញ្ញាតនេះ ជាដំបូងអ្នកត្រូវបិទអេក្រង់ត្រួតគ្នានៅក្នុង ការកំណត់ &gt; កម្មវិធី"</string>
-    <string name="screen_overlay_button" msgid="4344544843349937743">"បើកការកំណត់"</string>
-    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"សកម្មភាពដំឡើង/លុបការដំឡើងមិនគាំទ្រនៅលើ Wear ទេ"</string>
-    <string name="permission_review_title_template_install" msgid="6819338441305295479">"ជ្រើសរើសអ្វីដែលត្រូវអនុញ្ញាតឲ្យ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ចូលដំណើរការ"</string>
-    <string name="permission_review_title_template_update" msgid="8632233603161669426">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ត្រូវបានអាប់ដេត។ ជ្រើសរើសអ្វីដែលត្រូវអនុញ្ញាតឲ្យកម្មវិធីនេះចូលដំណើរការ។"</string>
-    <string name="review_button_cancel" msgid="957906817733578877">"បោះបង់"</string>
-    <string name="review_button_continue" msgid="4809162078179371370">"បន្ត"</string>
-    <string name="new_permissions_category" msgid="3213523410139204183">"សិទ្ធិអនុញ្ញាតថ្មី"</string>
-    <string name="current_permissions_category" msgid="998210994450606094">"សិទ្ធិអនុញ្ញាតបច្ចុប្បន្ន"</string>
-    <string name="message_staging" msgid="6151794817691100003">"កំពុងសាកល្បងកម្មវិធី…"</string>
-    <string name="app_name_unknown" msgid="8931522764510159105">"មិនស្គាល់"</string>
+    <string name="old_sdk_deny_warning" msgid="6018489265342857714">"កម្មវិធីនេះ​ត្រូវបាន​រចនាឡើង​សម្រាប់​កំណែចាស់ជាងនេះ​របស់ Android ។ ការបដិសេធ​ការអនុញ្ញាត​អាចបណ្តាលឱ្យ​វាបំពេញ​មុខងារ​មិនដូចការគ្រោងទុក​តទៅទៀតទេ។"</string>
+    <string name="default_permission_description" msgid="692254823411049573">"ប្រតិបត្តិការសកម្មភាពមិនស្គាល់"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"បានអនុញ្ញាត​កម្មវិធី <xliff:g id="COUNT_0">%1$d</xliff:g> ក្នុងចំណោម​ <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"បង្ហាញ​ប្រព័ន្ធ"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"លាក់ប្រព័ន្ធ"</string>
+    <string name="no_apps" msgid="2377153782338039463">"គ្មានកម្មវិធី"</string>
+    <string name="location_settings" msgid="547378321761364906">"ការកំណត់ទីតាំង"</string>
+    <string name="location_warning" msgid="4687406043150343369">"<xliff:g id="APP_NAME">%1$s</xliff:g> គឺជាកម្មវិធី​ផ្តល់សេវាកម្ម​ទីតាំង​សម្រាប់​ឧបករណ៍នេះ។ ការចូលប្រើ​ទីតាំងអាច​កែសម្រួល​បានពីការកំណត់​ទីតាំង។"</string>
+    <string name="system_warning" msgid="6868290533389195836">"ប្រសិនបើ​អ្នកបដិសេធ​ការអនុញ្ញាត​នេះ មុខងារសំខាន់ៗ​នៃឧបករណ៍​របស់អ្នក​ប្រហែលជាមិនដំណើរការ​ដូចការគ្រោងទុកតទៅទៀតទេ។"</string>
+    <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"អនុវត្តតាមគោលការណ៍"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"ការចូលប្រើផ្ទៃខាងក្រោយ​ត្រូវបានបិទដោយគោលការណ៍"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"ការចូលប្រើផ្ទៃខាងក្រោយ​ត្រូវបានបើកដោយគោលការណ៍"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="8652417310534780420">"ការចូលប្រើផ្ទៃខាងមុខ​ត្រូវបានបើកដោយគោលការណ៍"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="5156952484229154563">"គ្រប់គ្រងដោយអ្នកគ្រប់គ្រង"</string>
+    <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"ការចូល​ប្រើ​ផ្ទៃខាងក្រោយ​ត្រូវបានបិទដោយ​អ្នកគ្រប់គ្រង"</string>
+    <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"ការចូល​ប្រើ​ផ្ទៃខាងក្រោយ​ត្រូវបានបើកដោយ​អ្នកគ្រប់គ្រង"</string>
+    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"ការចូល​ប្រើ​ផ្ទៃខាងមុខ​ត្រូវបានបើកដោយ​អ្នកគ្រប់គ្រង"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
+    <string name="permission_access_always" msgid="2315256378850460955">"ជានិច្ច"</string>
+    <string name="permission_access_only_foreground" msgid="8109903552082630801">"ខណៈពេលប្រើ​កម្មវិធីតែប៉ុណ្ណោះ"</string>
+    <string name="permission_access_never" msgid="4717648645876576508">"កុំឱ្យសោះ"</string>
+    <string name="loading" msgid="323483393167148377">"កំពុងផ្ទុក…"</string>
+    <string name="all_permissions" msgid="7813580062403112957">"ការអនុញ្ញាត​ទាំងអស់"</string>
+    <string name="other_permissions" msgid="1956312685853070715">"សមត្ថភាពកម្មវិធីផ្សេងទៀត"</string>
+    <string name="permission_request_title" msgid="6779348653783761548">"សំណើសុំ​ការអនុញ្ញាត"</string>
+    <string name="screen_overlay_title" msgid="1632732130312696010">"បានរកឃើញ​ការត្រួតគ្នា​លើអេក្រង់"</string>
+    <string name="screen_overlay_message" msgid="3222033787364955006">"ដើម្បី​ប្តូរការកំណត់​ការអនុញ្ញាតនេះ មុនដំបូងអ្នកត្រូវបិទ​ការត្រួតគ្នា​លើអេក្រង់​នៅក្នុង ការកំណត់ &gt; កម្មវិធី​"</string>
+    <string name="screen_overlay_button" msgid="3554849308322944411">"បើកការកំណត់"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="6923880912091041609">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="8731817202551430387">"សកម្មភាព​ដំឡើង/លុបចេញមិនអាចប្រើ​នៅលើ Wear បានទេ។"</string>
+    <string name="permission_review_title_template_install" msgid="8131698354985303888">"ជ្រើសរើស​អ្វីដែលត្រូវ​អនុញ្ញាតឱ្យ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ចូលប្រើ"</string>
+    <string name="permission_review_title_template_update" msgid="7597155653571395485">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ត្រូវបាន​ដំឡើងជំនាន់។ ជ្រើសរើស​អ្វីដែលត្រូវ​អនុញ្ញាតឱ្យ​កម្មវិធីនេះ​ចូលប្រើ។"</string>
+    <string name="review_button_cancel" msgid="7108377593627664194">"បោះបង់"</string>
+    <string name="review_button_continue" msgid="1367925420132212571">"បន្ត"</string>
+    <string name="new_permissions_category" msgid="7242713808413888679">"ការអនុញ្ញាតថ្មី"</string>
+    <string name="current_permissions_category" msgid="3835461245150972589">"ការអនុញ្ញាត​បច្ចុប្បន្ន"</string>
+    <string name="message_staging" msgid="641286607664721291">"កំពុងសាកល្បងកម្មវិធី…"</string>
+    <string name="app_name_unknown" msgid="8288360585728122735">"មិនស្គាល់"</string>
 </resources>

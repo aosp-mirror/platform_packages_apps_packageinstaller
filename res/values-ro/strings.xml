@@ -16,71 +16,71 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="6793827020090537173">"Controler de permisiuni"</string>
-    <string name="ok" msgid="3468756155452870475">"OK"</string>
-    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Aplicația nu a fost găsită"</string>
-    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Refuzați"</string>
-    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Mai multe informații"</string>
-    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Nu permiteți oricum"</string>
-    <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> din <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="7332275268559121742">"Permiteți &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; să <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
-    <string name="permission_add_background_warning_template" msgid="5391175001698541141">"Permiteți întotdeauna &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; să <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
-    <string name="allow_permission_foreground_only" msgid="1016389465002335286">"Doar în timp ce folosiți aplicația"</string>
-    <string name="allow_permission_always" msgid="7047379650123289823">"Întotdeauna"</string>
-    <string name="deny_permission_deny_and_dont_ask_again" msgid="8003202275002645629">"Respingeți și nu se mai întreabă"</string>
-    <string name="permission_revoked_count" msgid="7386129423432613024">"<xliff:g id="COUNT">%1$d</xliff:g> dezactivate"</string>
-    <string name="permission_revoked_all" msgid="8595742638132863678">"toate dezactivate"</string>
-    <string name="permission_revoked_none" msgid="2059511550181271342">"niciuna dezactivată"</string>
-    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Permiteți"</string>
-    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Aplicații"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"Permisiuni pentru aplicație"</string>
-    <string name="never_ask_again" msgid="1089938738199748687">"Nu mai întreba"</string>
-    <string name="no_permissions" msgid="3210542466245591574">"Fără permisiuni"</string>
-    <string name="additional_permissions" msgid="6667573114240111763">"Permisiuni suplimentare"</string>
-    <string name="app_permissions_info_button_label" msgid="7789812060395257748">"Deschideți informațiile despre aplicații"</string>
-    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+    <string name="app_name" msgid="2792757108872430971">"Controler de permisiuni"</string>
+    <string name="ok" msgid="4417794827535157922">"OK"</string>
+    <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Aplicația nu a fost găsită"</string>
+    <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Refuzați"</string>
+    <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Mai multe info."</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Nu perm. oricum"</string>
+    <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> din <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
+    <string name="permission_warning_template" msgid="1353228984024423745">"Permiteți &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; să <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_add_background_warning_template" msgid="1046864917164159751">"Permiteți întotdeauna &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; să <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="allow_permission_foreground_only" msgid="7444689446874060511">"Doar în timp ce folosiți aplicația"</string>
+    <string name="allow_permission_always" msgid="4089537686339013930">"Mereu"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8131547398883397878">"Respingeți și nu se mai întreabă"</string>
+    <string name="permission_revoked_count" msgid="5556125174203696709">"<xliff:g id="COUNT">%1$d</xliff:g> dezactivate"</string>
+    <string name="permission_revoked_all" msgid="6356577996164232918">"toate dezactivate"</string>
+    <string name="permission_revoked_none" msgid="266013103540772023">"niciuna dezactivată"</string>
+    <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Permiteți"</string>
+    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Aplicații"</string>
+    <string name="app_permissions" msgid="2778362347879465223">"Permisiuni pentru aplicații"</string>
+    <string name="never_ask_again" msgid="7645304182523160030">"Nu mai întrebați"</string>
+    <string name="no_permissions" msgid="2193893107241172888">"Nicio permisiune"</string>
+    <string name="additional_permissions" msgid="7124470111123472154">"Permisiuni suplimentare"</string>
+    <string name="app_permissions_info_button_label" msgid="6566057048862462066">"Deschideți informațiile despre aplicații"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
       <item quantity="few">Încă <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="other">Încă <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="one">Încă <xliff:g id="COUNT_0">%1$d</xliff:g></item>
     </plurals>
-    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Această aplicație a fost creată pentru o versiune Android mai veche. Dacă nu acordați permisiunea, este posibil ca aceasta să nu mai funcționeze corespunzător."</string>
-    <string name="default_permission_description" msgid="4992892207044156668">"efectuează o acțiune necunoscută"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> din <xliff:g id="COUNT_1">%2$d</xliff:g> aplicații au această permisiune"</string>
-    <string name="menu_show_system" msgid="6773743421743728921">"Afișați aplicațiile de sistem"</string>
-    <string name="menu_hide_system" msgid="7595471742649432977">"Ascundeți aplicațiile de sistem"</string>
-    <string name="no_apps" msgid="1965493419005012569">"Nicio aplicație"</string>
-    <string name="location_settings" msgid="1774875730854491297">"Setări privind locația"</string>
-    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> este un furnizor de servicii de localizare pentru acest dispozitiv. Accesul la locație poate fi modificat din setările privind locația."</string>
-    <string name="system_warning" msgid="7103819124542305179">"Dacă refuzați această permisiune, este posibil ca funcțiile de bază ale dispozitivului să nu mai funcționeze corespunzător."</string>
-    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Aplicată conform politicii"</string>
-    <string name="permission_summary_disabled_by_policy_background_only" msgid="160007162349980265">"Acces la fundal dezactivat de politică"</string>
-    <string name="permission_summary_enabled_by_policy_background_only" msgid="4834971700297385342">"Acces la fundal activat de politică"</string>
-    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="5150061275247925588">"Acces la prim-plan activat de politică"</string>
-    <string name="permission_summary_enforced_by_admin" msgid="1702707982488952544">"Controlat de administrator"</string>
-    <string name="permission_summary_disabled_by_admin_background_only" msgid="2185473379176174735">"Accesul la fundal dezactivat de admin"</string>
-    <string name="permission_summary_enabled_by_admin_background_only" msgid="4558536214810713340">"Accesul la fundal activat de admin"</string>
-    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="3735312186687063512">"Accesul la prim-plan activat de admin"</string>
-    <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
-    <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
-    <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
-    <string name="permission_access_always" msgid="5642491469836594184">"Întotdeauna"</string>
-    <string name="permission_access_only_foreground" msgid="6906814759741316041">"Doar în timp ce folosiți aplicația"</string>
-    <string name="permission_access_never" msgid="1258330706341318622">"Niciodată"</string>
-    <string name="loading" msgid="7811651799620593731">"Se încarcă..."</string>
-    <string name="all_permissions" msgid="5156669007784613042">"Toate permisiunile"</string>
-    <string name="other_permissions" msgid="2016192512386091933">"Alte funcții ale aplicației"</string>
-    <string name="permission_request_title" msgid="1204446718549121199">"Solicitare de permisiune"</string>
-    <string name="screen_overlay_title" msgid="3021729846864038529">"S-a detectat suprapunerea pe ecran"</string>
-    <string name="screen_overlay_message" msgid="2141944461571677331">"Ca să schimbați această setare pentru permisiuni, mai întâi trebuie să dezactivați suprapunerea pe ecran din Setări &gt; Aplicații"</string>
-    <string name="screen_overlay_button" msgid="4344544843349937743">"Deschideți setările"</string>
-    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Acțiunile Instalați/Dezinstalați nu sunt acceptate pe Wear."</string>
-    <string name="permission_review_title_template_install" msgid="6819338441305295479">"Alegeți ce va putea accesa &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;"</string>
-    <string name="permission_review_title_template_update" msgid="8632233603161669426">"Aplicația &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; a fost actualizată. Alegeți ce va putea accesa această aplicație."</string>
-    <string name="review_button_cancel" msgid="957906817733578877">"Anulați"</string>
-    <string name="review_button_continue" msgid="4809162078179371370">"Continuați"</string>
-    <string name="new_permissions_category" msgid="3213523410139204183">"Permisiuni noi"</string>
-    <string name="current_permissions_category" msgid="998210994450606094">"Permisiuni actuale"</string>
-    <string name="message_staging" msgid="6151794817691100003">"Se pregătește aplicația…"</string>
-    <string name="app_name_unknown" msgid="8931522764510159105">"Necunoscut"</string>
+    <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Această aplicație a fost creată pentru o versiune Android mai veche. Dacă nu acordați permisiunea, este posibil ca aceasta să nu mai funcționeze corespunzător."</string>
+    <string name="default_permission_description" msgid="692254823411049573">"efectuează o acțiune necunoscută"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> din <xliff:g id="COUNT_1">%2$d</xliff:g> aplicații au această permisiune"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"Afișați aplicațiile de sistem"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"Ascundeți aplicațiile de sistem"</string>
+    <string name="no_apps" msgid="2377153782338039463">"Nicio aplicație"</string>
+    <string name="location_settings" msgid="547378321761364906">"Setări privind locația"</string>
+    <string name="location_warning" msgid="4687406043150343369">"<xliff:g id="APP_NAME">%1$s</xliff:g> este un furnizor de servicii de localizare pentru acest dispozitiv. Accesul la locație poate fi modificat din setările privind locația."</string>
+    <string name="system_warning" msgid="6868290533389195836">"Dacă refuzați această permisiune, este posibil ca funcțiile de bază ale dispozitivului să nu mai funcționeze corespunzător."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"Aplicată conform politicii"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"Acces la fundal dezactivat de politică"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"Acces la fundal activat de politică"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="8652417310534780420">"Acces la prim-plan activat de politică"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="5156952484229154563">"Controlat de administrator"</string>
+    <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"Accesul la fundal dezactivat de administrator"</string>
+    <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"Accesul la fundal activat de administrator"</string>
+    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"Accesul la prim-plan activat de administrator"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
+    <string name="permission_access_always" msgid="2315256378850460955">"Mereu"</string>
+    <string name="permission_access_only_foreground" msgid="8109903552082630801">"Doar în timp ce fol. aplicația"</string>
+    <string name="permission_access_never" msgid="4717648645876576508">"Niciodată"</string>
+    <string name="loading" msgid="323483393167148377">"Se încarcă…"</string>
+    <string name="all_permissions" msgid="7813580062403112957">"Toate permisiunile"</string>
+    <string name="other_permissions" msgid="1956312685853070715">"Alte funcții ale aplicației"</string>
+    <string name="permission_request_title" msgid="6779348653783761548">"Solicitare de permisiune"</string>
+    <string name="screen_overlay_title" msgid="1632732130312696010">"S-a detectat suprapunerea pe ecran"</string>
+    <string name="screen_overlay_message" msgid="3222033787364955006">"Ca să schimbați această setare pentru permisiuni, mai întâi trebuie să dezactivați suprapunerea pe ecran din Setări &gt; Aplicații"</string>
+    <string name="screen_overlay_button" msgid="3554849308322944411">"Deschideți setările"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="6923880912091041609">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="8731817202551430387">"Acțiunile Instalați/Dezinstalați nu sunt acceptate pe Wear."</string>
+    <string name="permission_review_title_template_install" msgid="8131698354985303888">"Alegeți ce va putea accesa &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;"</string>
+    <string name="permission_review_title_template_update" msgid="7597155653571395485">"Aplicația &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; a fost actualizată. Alegeți ce va putea accesa această aplicație."</string>
+    <string name="review_button_cancel" msgid="7108377593627664194">"Anulați"</string>
+    <string name="review_button_continue" msgid="1367925420132212571">"Continuați"</string>
+    <string name="new_permissions_category" msgid="7242713808413888679">"Permisiuni noi"</string>
+    <string name="current_permissions_category" msgid="3835461245150972589">"Permisiuni actuale"</string>
+    <string name="message_staging" msgid="641286607664721291">"Se pregătește aplicația…"</string>
+    <string name="app_name_unknown" msgid="8288360585728122735">"Necunoscut"</string>
 </resources>
