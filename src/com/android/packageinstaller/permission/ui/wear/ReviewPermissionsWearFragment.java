@@ -30,7 +30,7 @@ import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.preference.TwoStatePreference;
-import android.support.wearable.view.WearableDialogHelper;
+import androidx.wear.ble.view.WearableDialogHelper;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
