@@ -15,14 +15,15 @@
  */
 package com.android.packageinstaller.permission.ui.handheld;
 
-import android.app.FragmentTransaction;
-import android.preference.Preference;
-import android.preference.PreferenceScreen;
 import android.view.MenuItem;
 
-import com.android.permissioncontroller.R;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
+
 import com.android.packageinstaller.permission.model.PermissionGroup;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.permissioncontroller.R;
 
 import java.util.List;
 
@@ -79,7 +80,8 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
             }
         } else {
             if (additionalPermissionsPreference == null) {
-                additionalPermissionsPreference = new Preference(getActivity());
+                additionalPermissionsPreference = new Preference(
+                        getPreferenceManager().getContext());
                 additionalPermissionsPreference.setKey(EXTRA_PREFS_KEY);
                 additionalPermissionsPreference.setIcon(Utils.applyTint(getActivity(),
                         R.drawable.ic_more_items,

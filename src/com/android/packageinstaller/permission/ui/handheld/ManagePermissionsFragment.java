@@ -20,16 +20,17 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceScreen;
 import android.util.ArraySet;
 import android.util.Log;
 
-import com.android.permissioncontroller.R;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
+
 import com.android.packageinstaller.permission.model.PermissionApps.PmCache;
 import com.android.packageinstaller.permission.model.PermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionGroups;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.permissioncontroller.R;
 
 import java.util.List;
 
@@ -57,7 +58,7 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
             ab.setDisplayHomeAsUpEnabled(true);
         }
         mLauncherPkgs = Utils.getLauncherPackages(getContext());
-        mPermissions = new PermissionGroups(getContext(), getLoaderManager(), this);
+        mPermissions = new PermissionGroups(getContext(), getActivity().getLoaderManager(), this);
     }
 
     @Override
@@ -105,7 +106,7 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
      * @return The preference screen the permissions were added to
      */
     protected PreferenceScreen updatePermissionsUi(boolean addSystemPermissions) {
-        Context context = getActivity();
+        Context context = getPreferenceManager().getContext();
         if (context == null) {
             return null;
         }
@@ -113,7 +114,7 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
         List<PermissionGroup> groups = mPermissions.getGroups();
         PreferenceScreen screen = getPreferenceScreen();
         if (screen == null) {
-            screen = getPreferenceManager().createPreferenceScreen(getActivity());
+            screen = getPreferenceManager().createPreferenceScreen(context);
             setPreferenceScreen(screen);
         } else {
             screen.removeAll();

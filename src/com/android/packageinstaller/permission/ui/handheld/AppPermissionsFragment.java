@@ -18,7 +18,6 @@ package com.android.packageinstaller.permission.ui.handheld;
 
 import android.app.ActionBar;
 import android.app.Activity;
-import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -27,9 +26,6 @@ import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceClickListener;
-import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.util.ArraySet;
 import android.util.IconDrawableFactory;
@@ -40,11 +36,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.android.permissioncontroller.R;
+import androidx.fragment.app.Fragment;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
+
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.permissioncontroller.R;
 import com.android.settingslib.HelpUtils;
 
 /**
@@ -177,14 +177,14 @@ public final class AppPermissionsFragment extends SettingsWithHeader
     }
 
     private void updatePreferences() {
-        Context context = getActivity();
+        Context context = getPreferenceManager().getContext();
         if (context == null) {
             return;
         }
 
         PreferenceScreen screen = getPreferenceScreen();
         if (screen == null) {
-            screen = getPreferenceManager().createPreferenceScreen(getActivity());
+            screen = getPreferenceManager().createPreferenceScreen(context);
             setPreferenceScreen(screen);
         }
 
@@ -209,7 +209,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             preference.setKey(group.getName());
             Drawable icon = Utils.loadDrawable(context.getPackageManager(),
                     group.getIconPkg(), group.getIconResId());
-            preference.setIcon(Utils.applyTint(getContext(), icon,
+            preference.setIcon(Utils.applyTint(context, icon,
                     android.R.attr.colorControlNormal));
             preference.setTitle(group.getLabel());
 
@@ -224,18 +224,15 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         }
 
         if (mExtraScreen != null) {
-            extraPerms.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-                @Override
-                public boolean onPreferenceClick(Preference preference) {
-                    AdditionalPermissionsFragment frag = new AdditionalPermissionsFragment();
-                    setPackageName(frag, getArguments().getString(Intent.EXTRA_PACKAGE_NAME));
-                    frag.setTargetFragment(AppPermissionsFragment.this, 0);
-                    getFragmentManager().beginTransaction()
-                            .replace(android.R.id.content, frag)
-                            .addToBackStack(null)
-                            .commit();
-                    return true;
-                }
+            extraPerms.setOnPreferenceClickListener(preference -> {
+                AdditionalPermissionsFragment frag = new AdditionalPermissionsFragment();
+                setPackageName(frag, getArguments().getString(Intent.EXTRA_PACKAGE_NAME));
+                frag.setTargetFragment(AppPermissionsFragment.this, 0);
+                getFragmentManager().beginTransaction()
+                        .replace(android.R.id.content, frag)
+                        .addToBackStack(null)
+                        .commit();
+                return true;
             });
             int count = mExtraScreen.getPreferenceCount();
             extraPerms.setSummary(getResources().getQuantityString(

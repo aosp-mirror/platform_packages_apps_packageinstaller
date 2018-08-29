@@ -17,18 +17,12 @@
 package com.android.packageinstaller.permission.ui.handheld;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.RemoteCallback;
-import android.preference.Preference;
-import android.preference.PreferenceCategory;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceGroup;
-import android.preference.PreferenceScreen;
 import android.text.Html;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -38,6 +32,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceGroup;
+import androidx.preference.PreferenceScreen;
 
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
@@ -54,7 +53,7 @@ import java.util.List;
  * If an app does not support runtime permissions the user is prompted via this fragment to select
  * which permissions to grant to the app before first use and if an update changed the permissions.
  */
-public final class ReviewPermissionsFragment extends PreferenceFragment
+public final class ReviewPermissionsFragment extends PreferenceFragmentCompat
         implements View.OnClickListener, PermissionPreference.PermissionPreferenceChangeListener,
         PermissionPreference.PermissionPreferenceOwnerFragment {
 
@@ -116,6 +115,11 @@ public final class ReviewPermissionsFragment extends PreferenceFragment
         if (!reviewRequired) {
             activity.finish();
         }
+    }
+
+    @Override
+    public void onCreatePreferences(Bundle bundle, String s) {
+        // empty
     }
 
     @Override
@@ -274,7 +278,7 @@ public final class ReviewPermissionsFragment extends PreferenceFragment
 
         PreferenceScreen screen = getPreferenceScreen();
         if (screen == null) {
-            screen = getPreferenceManager().createPreferenceScreen(getActivity());
+            screen = getPreferenceManager().createPreferenceScreen(getContext());
             setPreferenceScreen(screen);
         } else {
             screen.removeAll();
@@ -414,7 +418,7 @@ public final class ReviewPermissionsFragment extends PreferenceFragment
         private final AppPermissionGroup mGroup;
         private boolean mWasChanged;
 
-        PermissionReviewPreference(Fragment fragment, AppPermissionGroup group,
+        PermissionReviewPreference(PreferenceFragmentCompat fragment, AppPermissionGroup group,
                 PermissionPreferenceChangeListener callbacks) {
             super(fragment, group, callbacks);
 

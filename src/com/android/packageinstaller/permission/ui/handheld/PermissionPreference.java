@@ -23,16 +23,17 @@ import static java.lang.annotation.RetentionPolicy.SOURCE;
 import android.annotation.LayoutRes;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.DialogFragment;
-import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.pm.PackageItemInfo;
 import android.os.Bundle;
-import android.preference.PreferenceScreen;
 import android.text.BidiFormatter;
+import android.view.View;
 import android.widget.Switch;
 
 import androidx.annotation.IntDef;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+import androidx.preference.PreferenceFragmentCompat;
 
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.Permission;
@@ -57,7 +58,7 @@ class PermissionPreference extends MultiTargetSwitchPreference {
     static final int CHANGE_BOTH = CHANGE_FOREGROUND | CHANGE_BACKGROUND;
 
     private final AppPermissionGroup mGroup;
-    private final Fragment mFragment;
+    private final PreferenceFragmentCompat mFragment;
     private final PermissionPreferenceChangeListener mCallBacks;
     private final @LayoutRes int mOriginalWidgetLayoutRes;
 
@@ -115,9 +116,9 @@ class PermissionPreference extends MultiTargetSwitchPreference {
         void onBackgroundAccessChosen(String key, int chosenItem);
     }
 
-    PermissionPreference(Fragment fragment, AppPermissionGroup group,
+    PermissionPreference(PreferenceFragmentCompat fragment, AppPermissionGroup group,
             PermissionPreferenceChangeListener callbacks) {
-        super(fragment.getContext());
+        super(fragment.getPreferenceManager().getContext());
 
         mFragment = fragment;
         mGroup = group;
@@ -179,13 +180,13 @@ class PermissionPreference extends MultiTargetSwitchPreference {
     }
 
     @Override
-    public void performClick(PreferenceScreen preferenceScreen) {
+    public void performClick(View view) {
         EnforcedAdmin admin = getAdmin();
 
         if (isPolicyFullyFixed() && admin != null) {
             RestrictedLockUtils.sendShowAdminSupportDetailsIntent(getContext(), admin);
         } else {
-            super.performClick(preferenceScreen);
+            super.performClick(view);
         }
     }
 
