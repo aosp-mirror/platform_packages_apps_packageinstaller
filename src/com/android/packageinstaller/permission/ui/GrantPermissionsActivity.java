@@ -17,6 +17,7 @@
 package com.android.packageinstaller.permission.ui;
 
 import static android.content.pm.PackageManager.PERMISSION_DENIED;
+import static android.view.WindowManager.LayoutParams.PRIVATE_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS;
 
 import static com.android.packageinstaller.permission.ui.GrantPermissionsViewHandler.DENIED;
 import static com.android.packageinstaller.permission.ui.GrantPermissionsViewHandler
@@ -26,6 +27,7 @@ import static com.android.packageinstaller.permission.ui.GrantPermissionsViewHan
         .GRANTED_FOREGROUND_ONLY;
 import static com.android.packageinstaller.permission.utils.Utils.getRequestMessage;
 
+import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -50,7 +52,6 @@ import android.view.WindowManager;
 import com.android.internal.content.PackageMonitor;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.packageinstaller.DeviceUtils;
-import com.android.permissioncontroller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.Permission;
@@ -58,12 +59,13 @@ import com.android.packageinstaller.permission.ui.auto.GrantPermissionsAutoViewH
 import com.android.packageinstaller.permission.utils.ArrayUtils;
 import com.android.packageinstaller.permission.utils.EventLogger;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
+import com.android.permissioncontroller.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class GrantPermissionsActivity extends OverlayTouchActivity
+public class GrantPermissionsActivity extends Activity
         implements GrantPermissionsViewHandler.ResultListener {
 
     private static final String LOG_TAG = "GrantPermissionsActivity";
@@ -159,6 +161,8 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+
+        getWindow().addPrivateFlags(PRIVATE_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
 
         // Cache this as this can only read on onCreate, not later.
         mCallingPackage = getCallingPackage();

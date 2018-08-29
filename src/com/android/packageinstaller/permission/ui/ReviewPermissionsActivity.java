@@ -52,7 +52,7 @@ public final class ReviewPermissionsActivity extends FragmentActivity
         } else {
             setContentView(R.layout.review_permissions);
             if (getSupportFragmentManager().findFragmentById(R.id.preferences_frame) == null) {
-                getFragmentManager().beginTransaction().add(R.id.preferences_frame,
+                getSupportFragmentManager().beginTransaction().add(R.id.preferences_frame,
                         ReviewPermissionsFragment.newInstance(packageInfo)).commit();
             }
         }

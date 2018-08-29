@@ -31,10 +31,11 @@ import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.ArraySet;
 
-import com.android.permissioncontroller.R;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.permissioncontroller.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -47,7 +48,6 @@ import java.util.Set;
 public final class PermissionGroups implements LoaderCallbacks<List<PermissionGroup>> {
     private final ArrayList<PermissionGroup> mGroups = new ArrayList<>();
     private final Context mContext;
-    private final LoaderManager mLoaderManager;
     private final PermissionsGroupsChangeCallback mCallback;
 
     public interface PermissionsGroupsChangeCallback {
@@ -57,9 +57,11 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
     public PermissionGroups(Context context, LoaderManager loaderManager,
             PermissionsGroupsChangeCallback callback) {
         mContext = context;
-        mLoaderManager = loaderManager;
         mCallback = callback;
-        mLoaderManager.initLoader(0, null, this);
+
+        // Don't update immediately as otherwise we can get a callback before this object is
+        // initialized.
+        (new Handler()).post(() -> loaderManager.initLoader(0, null, this));
     }
 
     @Override

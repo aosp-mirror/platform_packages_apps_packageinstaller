@@ -16,29 +16,29 @@
 package com.android.packageinstaller.permission.ui.handheld;
 
 import android.app.ActionBar;
-import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceClickListener;
-import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
 import android.util.ArraySet;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.fragment.app.Fragment;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreferenceCompat;
+
 import com.android.packageinstaller.DeviceUtils;
-import com.android.permissioncontroller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionApps;
 import com.android.packageinstaller.permission.model.PermissionApps.Callback;
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.permissioncontroller.R;
 import com.android.settingslib.HelpUtils;
 
 /**
@@ -175,7 +175,7 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
 
     @Override
     public void onPermissionsLoaded(PermissionApps permissionApps) {
-        Context context = getActivity();
+        Context context = getPreferenceManager().getContext();
 
         if (context == null) {
             return;
@@ -184,7 +184,7 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
         boolean isTelevision = DeviceUtils.isTelevision(context);
         PreferenceScreen screen = getPreferenceScreen();
         if (screen == null) {
-            screen = getPreferenceManager().createPreferenceScreen(getActivity());
+            screen = getPreferenceManager().createPreferenceScreen(context);
             setPreferenceScreen(screen);
         }
 
@@ -265,25 +265,22 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
                 pref.setIcon(Utils.applyTint(context, R.drawable.ic_toc,
                         android.R.attr.colorControlNormal));
                 pref.setTitle(R.string.preference_show_system_apps);
-                pref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-                    @Override
-                    public boolean onPreferenceClick(Preference preference) {
-                        SystemAppsFragment frag = new SystemAppsFragment();
-                        setPermissionName(frag, getArguments().getString(Intent.EXTRA_PERMISSION_NAME));
-                        frag.setTargetFragment(PermissionAppsFragment.this, 0);
-                        getFragmentManager().beginTransaction()
-                            .replace(android.R.id.content, frag)
-                            .addToBackStack("SystemApps")
-                            .commit();
-                        return true;
-                    }
+                pref.setOnPreferenceClickListener(preference -> {
+                    SystemAppsFragment frag = new SystemAppsFragment();
+                    setPermissionName(frag, getArguments().getString(Intent.EXTRA_PERMISSION_NAME));
+                    frag.setTargetFragment(PermissionAppsFragment.this, 0);
+                    getFragmentManager().beginTransaction()
+                        .replace(android.R.id.content, frag)
+                        .addToBackStack("SystemApps")
+                        .commit();
+                    return true;
                 });
                 screen.addPreference(pref);
             }
 
             int grantedCount = 0;
             for (int i = 0, n = mExtraScreen.getPreferenceCount(); i < n; i++) {
-                if (((SwitchPreference) mExtraScreen.getPreference(i)).isChecked()) {
+                if (((SwitchPreferenceCompat) mExtraScreen.getPreference(i)).isChecked()) {
                     grantedCount++;
                 }
             }
