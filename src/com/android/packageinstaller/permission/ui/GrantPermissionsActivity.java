@@ -521,20 +521,10 @@ public class GrantPermissionsActivity extends Activity
 
                 CharSequence appLabel = mAppPermissions.getAppLabel();
 
-                // Set the new grant view
-                // TODO: Use a real message for the action. We need group action APIs
-                Resources resources;
-                try {
-                    resources = getPackageManager().getResourcesForApplication(
-                            groupState.mGroup.getIconPkg());
-                } catch (NameNotFoundException e) {
-                    // Fallback to system.
-                    resources = Resources.getSystem();
-                }
-
                 Icon icon;
                 try {
-                    icon = Icon.createWithResource(resources, groupState.mGroup.getIconResId());
+                    icon = Icon.createWithResource(groupState.mGroup.getIconPkg(),
+                            groupState.mGroup.getIconResId());
                 } catch (Resources.NotFoundException e) {
                     Log.e(LOG_TAG, "Cannot load icon for group" + groupState.mGroup.getName(), e);
                     icon = null;

@@ -49,8 +49,7 @@ class MultiTargetSwitchPreference extends SwitchPreference {
     @Override
     public void onBindViewHolder(PreferenceViewHolder holder) {
         super.onBindViewHolder(holder);
-        Switch switchView = holder.itemView.findViewById(
-                com.android.internal.R.id.switch_widget);
+        Switch switchView = holder.itemView.findViewById(android.R.id.switch_widget);
         if (switchView != null) {
             switchView.setOnClickListener(mSwitchOnClickLister);
 

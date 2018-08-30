@@ -220,7 +220,8 @@ public class PermissionApps {
                     Drawable icon = null;
                     if (!mSkipUi) {
                         icon = iconFactory.getBadgedIcon(app.applicationInfo,
-                                UserHandle.getUserId(group.getApp().applicationInfo.uid));
+                                UserHandle.getUserHandleForUid(group.getApp().applicationInfo.uid)
+                                        .getIdentifier());
                     }
 
                     PermissionApp permApp = new PermissionApp(app.packageName, group, label, icon,

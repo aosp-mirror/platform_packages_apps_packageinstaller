@@ -159,7 +159,8 @@ public final class Utils {
     }
 
     public static boolean isSystem(ApplicationInfo info, ArraySet<String> launcherPkgs) {
-        return info.isSystemApp() && (info.flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) == 0
+        return ((info.flags & ApplicationInfo.FLAG_SYSTEM) != 0)
+                && (info.flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) == 0
                 && !launcherPkgs.contains(info.packageName);
     }
 
