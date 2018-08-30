@@ -33,11 +33,11 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.content.pm.PackageParser;
 import android.content.res.Resources;
 import android.graphics.drawable.Icon;
 import android.os.Build;
 import android.os.Bundle;
+import android.permission.PermissionManager;
 import android.text.Html;
 import android.text.Spanned;
 import android.util.ArrayMap;
@@ -776,10 +776,11 @@ public class GrantPermissionsActivity extends Activity
         // affected
         ArrayList<String> splitPerms = new ArrayList<>();
         splitPerms.add(permission);
-        for (PackageParser.SplitPermissionInfo splitPerm : PackageParser.SPLIT_PERMISSIONS) {
-            if (requestingAppTargetSDK < splitPerm.targetSdk
-                    && permission.equals(splitPerm.rootPerm)) {
-                Collections.addAll(splitPerms, splitPerm.newPerms);
+        for (PermissionManager.SplitPermissionInfo splitPerm
+                : getSystemService(PermissionManager.class).getSplitPermissions()) {
+            if (requestingAppTargetSDK < splitPerm.getTargetSdk()
+                    && permission.equals(splitPerm.getRootPermission())) {
+                Collections.addAll(splitPerms, splitPerm.getNewPermissions());
             }
         }
 
