@@ -17,7 +17,6 @@
 package com.android.packageinstaller.permission.utils;
 
 import android.Manifest;
-import android.annotation.StringRes;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -31,10 +30,12 @@ import android.util.ArraySet;
 import android.util.Log;
 import android.util.TypedValue;
 
-import com.android.permissioncontroller.R;
+import androidx.annotation.StringRes;
+
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
+import com.android.permissioncontroller.R;
 
 import java.util.List;
 

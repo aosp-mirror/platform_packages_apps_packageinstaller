@@ -21,7 +21,6 @@ import static com.android.packageinstaller.permission.utils.Utils.getRequestMess
 
 import static java.lang.annotation.RetentionPolicy.SOURCE;
 
-import android.annotation.LayoutRes;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -32,6 +31,7 @@ import android.view.View;
 import android.widget.Switch;
 
 import androidx.annotation.IntDef;
+import androidx.annotation.LayoutRes;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceFragmentCompat;
