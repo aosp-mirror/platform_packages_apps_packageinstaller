@@ -51,14 +51,12 @@ import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
 
-import com.android.internal.logging.nano.MetricsProto;
 import com.android.packageinstaller.DeviceUtils;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.ui.auto.GrantPermissionsAutoViewHandler;
 import com.android.packageinstaller.permission.utils.ArrayUtils;
-import com.android.packageinstaller.permission.utils.EventLogger;
 import com.android.packageinstaller.permission.utils.PackageRemovalMonitor;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.permissioncontroller.R;
@@ -313,9 +311,11 @@ public class GrantPermissionsActivity extends Activity
             for (int permissionNum = 0; permissionNum < numRequestedPermissions; permissionNum++) {
                 String permission = mRequestedPermissions[permissionNum];
 
+                /* Replace by @SystemAPI logging
                 EventLogger.logPermission(
                         MetricsProto.MetricsEvent.ACTION_PERMISSION_REQUESTED, permission,
                         mAppPermissions.getPackageInfo().packageName);
+                 */
             }
         }
     }
@@ -689,9 +689,11 @@ public class GrantPermissionsActivity extends Activity
                     String permission = mRequestedPermissions[i];
 
                     if (groupState.mGroup.hasPermission(permission)) {
+                        /* Replace by @SystemAPI logging
                         EventLogger.logPermission(
                                 MetricsProto.MetricsEvent.ACTION_PERMISSION_DENIED, permission,
                                 mAppPermissions.getPackageInfo().packageName);
+                         */
                     }
                 }
             }
