@@ -31,8 +31,8 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.provider.Settings;
-import android.util.IconDrawableFactory;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Switch;
@@ -44,6 +44,7 @@ import androidx.preference.PreferenceGroup;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.utils.ArrayUtils;
+import com.android.packageinstaller.permission.utils.IconDrawableFactory;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 
@@ -130,7 +131,8 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
 
             ApplicationInfo appInfo = info.applicationInfo;
             final Drawable icon =
-                    IconDrawableFactory.newInstance(getContext()).getBadgedIcon(appInfo);
+                    IconDrawableFactory.getBadgedIcon(getContext(), appInfo,
+                            UserHandle.getUserHandleForUid(appInfo.uid));
             final CharSequence label = appInfo.loadLabel(pm);
             Intent infoIntent = null;
             if (!getActivity().getIntent().getBooleanExtra(
