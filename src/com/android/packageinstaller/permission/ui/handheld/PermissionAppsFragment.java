@@ -204,7 +204,7 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
         boolean menuOptionsInvalided = false;
 
         for (PermissionApp app : permissionApps.getApps()) {
-            if (!Utils.shouldShowPermission(app.getPermissionGroup())) {
+            if (!Utils.shouldShowPermission(getContext(), app.getPermissionGroup())) {
                 continue;
             }
 

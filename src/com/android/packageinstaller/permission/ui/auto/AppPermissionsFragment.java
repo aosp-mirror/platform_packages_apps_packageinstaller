@@ -149,7 +149,7 @@ public final class AppPermissionsFragment extends Fragment{
         }
 
         for (AppPermissionGroup group : mAppPermissions.getPermissionGroups()) {
-            if (!Utils.shouldShowPermission(group)) {
+            if (!Utils.shouldShowPermission(getContext(), group)) {
                 continue;
             }
             items.add(new PermissionLineItem(group, context));

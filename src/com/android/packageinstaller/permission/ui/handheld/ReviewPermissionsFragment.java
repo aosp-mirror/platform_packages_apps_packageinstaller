@@ -290,7 +290,7 @@ public final class ReviewPermissionsFragment extends PreferenceFragmentCompat
         final boolean isPackageUpdated = isPackageUpdated();
 
         for (AppPermissionGroup group : mAppPermissions.getPermissionGroups()) {
-            if (!Utils.shouldShowPermission(group)
+            if (!Utils.shouldShowPermission(getContext(), group)
                     || !Utils.OS_PKG.equals(group.getDeclaringPackage())) {
                 continue;
             }

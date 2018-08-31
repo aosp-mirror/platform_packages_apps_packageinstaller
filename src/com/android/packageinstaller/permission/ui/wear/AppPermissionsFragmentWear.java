@@ -164,7 +164,7 @@ public final class AppPermissionsFragmentWear extends PreferenceFragment {
         }
 
         for (final AppPermissionGroup group : groups) {
-            if (!Utils.shouldShowPermission(group)) {
+            if (!Utils.shouldShowPermission(getContext(), group)) {
                 continue;
             }
 
@@ -322,7 +322,7 @@ public final class AppPermissionsFragmentWear extends PreferenceFragment {
             pref.setEnabled(false);
         } else {
             pref.setOnPreferenceChangeListener((p, newVal) -> {
-                if (LocationUtils.isLocationGroupAndProvider(
+                if (LocationUtils.isLocationGroupAndProvider(getContext(),
                         group.getName(), group.getApp().packageName)) {
                     LocationUtils.showLocationDialog(
                             getContext(), mAppPermissions.getAppLabel());

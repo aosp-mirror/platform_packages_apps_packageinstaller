@@ -199,7 +199,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         extraPerms.setTitle(R.string.additional_permissions);
 
         for (AppPermissionGroup group : mAppPermissions.getPermissionGroups()) {
-            if (!Utils.shouldShowPermission(group)) {
+            if (!Utils.shouldShowPermission(getContext(), group)) {
                 continue;
             }
 

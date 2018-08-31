@@ -451,7 +451,7 @@ class PermissionPreference extends MultiTargetSwitchPreference {
      * @return If the request was processed.
      */
     private boolean requestChange(boolean requestGrant, @ChangeTarget int changeTarget) {
-        if (LocationUtils.isLocationGroupAndProvider(mGroup.getName(),
+        if (LocationUtils.isLocationGroupAndProvider(getContext(), mGroup.getName(),
                 mGroup.getApp().packageName)) {
             LocationUtils.showLocationDialog(getContext(), getAppLabel());
             return false;

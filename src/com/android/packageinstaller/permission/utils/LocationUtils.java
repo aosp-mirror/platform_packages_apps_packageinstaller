@@ -21,16 +21,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.location.ILocationManager;
 import android.location.LocationManager;
-import android.os.RemoteException;
-import android.os.ServiceManager;
 import android.provider.Settings;
 
 import com.android.permissioncontroller.R;
-
-import java.util.ArrayList;
 
 public class LocationUtils {
 
@@ -56,16 +50,17 @@ public class LocationUtils {
                 Settings.Secure.LOCATION_MODE_OFF) != Settings.Secure.LOCATION_MODE_OFF;
     }
 
-    public static boolean isLocationGroupAndProvider(String groupName, String packageName) {
-        return LOCATION_PERMISSION.equals(groupName) && isNetworkLocationProvider(packageName);
+    public static boolean isLocationGroupAndProvider(Context context, String groupName,
+            String packageName) {
+        return LOCATION_PERMISSION.equals(groupName)
+                && isNetworkLocationProvider(context, packageName);
     }
 
-    private static boolean isNetworkLocationProvider(String packageName) {
-        ILocationManager locationService = ILocationManager.Stub.asInterface(
-                ServiceManager.getService(Context.LOCATION_SERVICE));
+    private static boolean isNetworkLocationProvider(Context context, String packageName) {
         try {
-            return packageName.equals(locationService.getNetworkProviderPackage());
-        } catch (RemoteException e) {
+            return packageName.equals(context.getSystemService(LocationManager.class)
+                    .getNetworkProviderPackage());
+        } catch (Exception e) {
             return false;
         }
     }

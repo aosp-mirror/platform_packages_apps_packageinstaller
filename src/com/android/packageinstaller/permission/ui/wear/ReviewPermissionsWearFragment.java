@@ -135,7 +135,7 @@ public class ReviewPermissionsWearFragment extends PreferenceFragmentCompat
         int permOrder = ORDER_PERM_OFFSET_START;
 
         for (AppPermissionGroup group : mAppPermissions.getPermissionGroups()) {
-            if (!Utils.shouldShowPermission(group)
+            if (!Utils.shouldShowPermission(getContext(), group)
                     || !Utils.OS_PKG.equals(group.getDeclaringPackage())) {
                 continue;
             }
