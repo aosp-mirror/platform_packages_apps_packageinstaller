@@ -44,6 +44,8 @@ public final class Utils {
 
     public static final String OS_PKG = "android";
 
+    public static final float DEFAULT_MAX_LABEL_SIZE_PX = 500f;
+
     public static final String[] MODERN_PERMISSION_GROUPS = {
             Manifest.permission_group.CALENDAR,
             Manifest.permission_group.CALL_LOG,
