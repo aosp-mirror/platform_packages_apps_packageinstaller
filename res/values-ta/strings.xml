@@ -23,8 +23,8 @@
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"மேலும் தகவல்"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"நிராகரி"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> / <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="1353228984024423745">"<xliff:g id="ACTION">%2$s</xliff:g> &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ஆப்ஸை அனுமதிக்கவா?"</string>
-    <string name="permission_add_background_warning_template" msgid="1046864917164159751">"<xliff:g id="ACTION">%2$s</xliff:g> &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ஆப்ஸை எப்போதும் அனுமதிக்கவா?"</string>
+    <string name="permission_warning_template" msgid="1353228984024423745">"<xliff:g id="ACTION">%2$s</xliff:g> ஐ மேற்கொள்ள &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ஆப்ஸை அனுமதிக்கவா?"</string>
+    <string name="permission_add_background_warning_template" msgid="1046864917164159751">"<xliff:g id="ACTION">%2$s</xliff:g> ஐ மேற்கொள்ள &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ஆப்ஸை எப்போதும் அனுமதிக்கவா?"</string>
     <string name="allow_permission_foreground_only" msgid="7444689446874060511">"ஆப்ஸைப் பயன்படுத்தும்போது மட்டும்"</string>
     <string name="allow_permission_always" msgid="4089537686339013930">"எப்போதும்"</string>
     <string name="deny_permission_deny_and_dont_ask_again" msgid="8131547398883397878">"நிராகரி, மீண்டும் கேட்காதே"</string>
@@ -63,7 +63,7 @@
     <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
     <string name="permission_access_always" msgid="2315256378850460955">"எப்போதும்"</string>
-    <string name="permission_access_only_foreground" msgid="8109903552082630801">"ஆப்ஸைப் பயன்படுத்தும்போது மட்டும்"</string>
+    <string name="permission_access_only_foreground" msgid="8109903552082630801">"ஆப்ஸ் பயன்பாட்டில் மட்டும்"</string>
     <string name="permission_access_never" msgid="4717648645876576508">"ஒருபோதும் வேண்டாம்"</string>
     <string name="loading" msgid="323483393167148377">"ஏற்றுகிறது…"</string>
     <string name="all_permissions" msgid="7813580062403112957">"அனைத்து அனுமதிகளும்"</string>
@@ -81,5 +81,5 @@
     <string name="new_permissions_category" msgid="7242713808413888679">"புதிய அனுமதிகள்"</string>
     <string name="current_permissions_category" msgid="3835461245150972589">"தற்போதைய அனுமதிகள்"</string>
     <string name="message_staging" msgid="641286607664721291">"ஆப்ஸ் தயாராகிறது…"</string>
-    <string name="app_name_unknown" msgid="8288360585728122735">"அறியப்படாதது"</string>
+    <string name="app_name_unknown" msgid="8288360585728122735">"தெரியாதது"</string>
 </resources>
