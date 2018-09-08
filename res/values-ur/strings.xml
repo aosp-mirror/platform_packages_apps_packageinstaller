@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="2792757108872430971">"اجازت کنٹرولر"</string>
+    <string name="ok" msgid="4417794827535157922">"ٹھیک ہے"</string>
+    <string name="app_not_found_dlg_title" msgid="8897078571059217849">"ایپ نہیں ملی"</string>
+    <string name="grant_dialog_button_deny" msgid="1649644200597601964">"انکار کریں"</string>
+    <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"مزید معلومات"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"بہرصورت انکار کریں"</string>
+    <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> میں سے <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
+    <string name="permission_warning_template" msgid="1353228984024423745">"‏&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; کو <xliff:g id="ACTION">%2$s</xliff:g> کی اجازت دیں؟"</string>
+    <string name="permission_add_background_warning_template" msgid="1046864917164159751">"‏ہمیشہ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;b&gt; کو <xliff:g id="ACTION">%2$s</xliff:g> کی اجازت دیں؟"</string>
+    <string name="allow_permission_foreground_only" msgid="7444689446874060511">"صرف ایپ استعمال کرنے کے دوران"</string>
+    <string name="allow_permission_always" msgid="4089537686339013930">"ہمیشہ"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8131547398883397878">"انکار کریں اور دوبارہ نہ پوچھیں"</string>
+    <string name="permission_revoked_count" msgid="5556125174203696709">"<xliff:g id="COUNT">%1$d</xliff:g> غیر فعال ہے"</string>
+    <string name="permission_revoked_all" msgid="6356577996164232918">"سبھی غیر فعال ہیں"</string>
+    <string name="permission_revoked_none" msgid="266013103540772023">"کوئی بھی غیر فعال نہیں ہے"</string>
+    <string name="grant_dialog_button_allow" msgid="2137542756625939532">"اجازت دیں"</string>
+    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"ایپس"</string>
+    <string name="app_permissions" msgid="2778362347879465223">"ایپ کی اجازتیں"</string>
+    <string name="never_ask_again" msgid="7645304182523160030">"دوبارہ نہ پوچھیں"</string>
+    <string name="no_permissions" msgid="2193893107241172888">"کوئی اجازت نہیں ہے"</string>
+    <string name="additional_permissions" msgid="7124470111123472154">"اضافی اجازتیں"</string>
+    <string name="app_permissions_info_button_label" msgid="6566057048862462066">"ایپ کی معلومات کھولیں"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> مزید</item>
+      <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> مزید</item>
+    </plurals>
+    <string name="old_sdk_deny_warning" msgid="6018489265342857714">"‏یہ ایپ Android کے ایک پرانے ورژن کیلئے ڈیزائن کی گئی تھی۔ اجازت دینے سے انکار کرنے پر ممکن ہے کہ یہ مزید ٹھیک سے کام نہ کرے۔"</string>
+    <string name="default_permission_description" msgid="692254823411049573">"ایک نامعلوم کارروائی انجام دیں"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_1">%2$d</xliff:g> میں سے <xliff:g id="COUNT_0">%1$d</xliff:g> ایپس کو اجازت دے دی گئی"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"سسٹم دکھائیں"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"سسٹم چھپائیں"</string>
+    <string name="no_apps" msgid="2377153782338039463">"کوئی ایپ نہیں ہے"</string>
+    <string name="location_settings" msgid="547378321761364906">"مقام کی ترتیبات"</string>
+    <string name="location_warning" msgid="4687406043150343369">"<xliff:g id="APP_NAME">%1$s</xliff:g> اس آلہ کیلئے مقام کی سروسز کا فراہم کنندہ ہے۔ مقام کی رسائی میں مقام کی ترتیبات سے ترمیم کی جا سکتی ہے۔"</string>
+    <string name="system_warning" msgid="6868290533389195836">"اگرآپ اس اجازت کو مسترد کرتے ہیں تو شاید آپ کے آلہ کی بنیادی خصوصیات ٹھیک سے کام نہ کریں۔"</string>
+    <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"پالیسی کے تحت نافذ کردہ"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"پالیسی کے تحت پس منظر کی رسائی غیر فعال ہو گئی ہے"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"پالیسی کے تحت پس منظر کی رسائی فعال ہو گئی ہے"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="8652417310534780420">"پالیسی کے تحت پیش منظر کی رسائی فعال ہو گئی ہے"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="5156952484229154563">"کنٹرول کردہ بذریعہ منتظم"</string>
+    <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"منتظم نے پس منظر کی رسائی غیر فعال کر دی ہے"</string>
+    <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"منتظم نے پس منظر کی رسائی فعال کر دی ہے"</string>
+    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"منتظم نے پیش منظر کی رسائی فعال کر دی ہے"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
+    <string name="permission_access_always" msgid="2315256378850460955">"ہمیشہ"</string>
+    <string name="permission_access_only_foreground" msgid="8109903552082630801">"صرف ایپ استعمال کرنے کے دوران"</string>
+    <string name="permission_access_never" msgid="4717648645876576508">"کبھی نہیں"</string>
+    <string name="loading" msgid="323483393167148377">"لوڈ ہو رہا ہے…"</string>
+    <string name="all_permissions" msgid="7813580062403112957">"تمام اجازتیں"</string>
+    <string name="other_permissions" msgid="1956312685853070715">"ایپ کی دوسری اہلیتیں"</string>
+    <string name="permission_request_title" msgid="6779348653783761548">"اجازت کی درخواست"</string>
+    <string name="screen_overlay_title" msgid="1632732130312696010">"اسکرین اورلے کا پتا چلا ہے"</string>
+    <string name="screen_overlay_message" msgid="3222033787364955006">"اس اجازت کی ترتیب کو تبدیل کرنے کیلئے آپ کو پہلے ترتیبات &gt; ایپس سے اسکرین اورلے کو آف کرنا ہوگا"</string>
+    <string name="screen_overlay_button" msgid="3554849308322944411">"ترتیبات کھولیں"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="6923880912091041609">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="8731817202551430387">"‏\'کارروائیاں انسٹال/اَن انسٹال کریں\' Wear پر تعاون یافتہ نہیں ہے۔"</string>
+    <string name="permission_review_title_template_install" msgid="8131698354985303888">"‏منتخب کریں کہ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; کو کس چیز تک رسائی کی اجازت دینی ہے"</string>
+    <string name="permission_review_title_template_update" msgid="7597155653571395485">"‏&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; اپ ڈیٹ ہو گئی ہے۔ منتخب کریں کہ اس ایپ کو کس تک رسائی کی اجازت دینی ہے۔"</string>
+    <string name="review_button_cancel" msgid="7108377593627664194">"منسوخ کریں"</string>
+    <string name="review_button_continue" msgid="1367925420132212571">"جاری رکھیں"</string>
+    <string name="new_permissions_category" msgid="7242713808413888679">"نئی اجازتیں"</string>
+    <string name="current_permissions_category" msgid="3835461245150972589">"موجودہ اجازتیں"</string>
+    <string name="message_staging" msgid="641286607664721291">"ایپ کی مرحلہ بندی ہو رہی ہے…"</string>
+    <string name="app_name_unknown" msgid="8288360585728122735">"نامعلوم"</string>
+</resources>
