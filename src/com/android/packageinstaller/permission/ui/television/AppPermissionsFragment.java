@@ -190,7 +190,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         extraPerms.setTitle(R.string.additional_permissions);
 
         for (AppPermissionGroup group : mAppPermissions.getPermissionGroups()) {
-            if (!Utils.shouldShowPermission(group)) {
+            if (!Utils.shouldShowPermission(getContext(), group)) {
                 continue;
             }
 
@@ -277,7 +277,8 @@ public final class AppPermissionsFragment extends SettingsWithHeader
 
         addToggledGroup(group);
 
-        if (LocationUtils.isLocationGroupAndProvider(group.getName(), group.getApp().packageName)) {
+        if (LocationUtils.isLocationGroupAndProvider(getContext(), group.getName(),
+                group.getApp().packageName)) {
             LocationUtils.showLocationDialog(getContext(), mAppPermissions.getAppLabel());
             return false;
         }

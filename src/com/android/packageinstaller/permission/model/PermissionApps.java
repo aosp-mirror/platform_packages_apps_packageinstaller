@@ -109,7 +109,7 @@ public class PermissionApps {
     public int getGrantedCount(ArraySet<String> launcherPkgs) {
         int count = 0;
         for (PermissionApp app : mPermApps) {
-            if (!Utils.shouldShowPermission(app.getPermissionGroup())) {
+            if (!Utils.shouldShowPermission(mContext, app.getPermissionGroup())) {
                 continue;
             }
             if (Utils.isSystem(app, launcherPkgs)) {
@@ -126,7 +126,7 @@ public class PermissionApps {
     public int getTotalCount(ArraySet<String> launcherPkgs) {
         int count = 0;
         for (PermissionApp app : mPermApps) {
-            if (!Utils.shouldShowPermission(app.getPermissionGroup())) {
+            if (!Utils.shouldShowPermission(mContext, app.getPermissionGroup())) {
                 continue;
             }
             if (Utils.isSystem(app, launcherPkgs)) {

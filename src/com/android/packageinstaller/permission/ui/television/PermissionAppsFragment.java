@@ -185,7 +185,7 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
         boolean menuOptionsInvalided = false;
 
         for (PermissionApp app : permissionApps.getApps()) {
-            if (!Utils.shouldShowPermission(app.getPermissionGroup())) {
+            if (!Utils.shouldShowPermission(getContext(), app.getPermissionGroup())) {
                 continue;
             }
 
@@ -313,7 +313,7 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
             return false;
         }
 
-        if (LocationUtils.isLocationGroupAndProvider(mPermissionApps.getGroupName(),
+        if (LocationUtils.isLocationGroupAndProvider(getContext(), mPermissionApps.getGroupName(),
                 app.getPackageName())) {
             LocationUtils.showLocationDialog(getContext(), app.getLabel());
             return false;
