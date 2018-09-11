@@ -16,6 +16,7 @@
 
 package com.android.packageinstaller.permission.ui.handheld;
 
+import static com.android.packageinstaller.permission.utils.Utils.DEFAULT_MAX_LABEL_SIZE_PX;
 import static com.android.packageinstaller.permission.utils.Utils.getRequestMessage;
 
 import static java.lang.annotation.RetentionPolicy.SOURCE;
@@ -427,7 +428,7 @@ class PermissionPreference extends MultiTargetSwitchPreference {
     private String getAppLabel() {
         return BidiFormatter.getInstance().unicodeWrap(
                 mGroup.getApp().applicationInfo.loadSafeLabel(getContext().getPackageManager(),
-                        PackageItemInfo.DEFAULT_MAX_LABEL_SIZE_PX,
+                        DEFAULT_MAX_LABEL_SIZE_PX,
                         PackageItemInfo.SAFE_LABEL_FLAG_TRIM
                                 | PackageItemInfo.SAFE_LABEL_FLAG_FIRST_LINE)
                         .toString());
