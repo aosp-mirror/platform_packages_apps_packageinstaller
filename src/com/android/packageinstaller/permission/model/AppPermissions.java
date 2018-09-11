@@ -16,6 +16,8 @@
 
 package com.android.packageinstaller.permission.model;
 
+import static com.android.packageinstaller.permission.utils.Utils.DEFAULT_MAX_LABEL_SIZE_PX;
+
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageItemInfo;
@@ -69,7 +71,7 @@ public final class AppPermissions {
         mPackageInfo = packageInfo;
         mAppLabel = BidiFormatter.getInstance().unicodeWrap(
                 packageInfo.applicationInfo.loadSafeLabel(context.getPackageManager(),
-                        PackageItemInfo.DEFAULT_MAX_LABEL_SIZE_PX,
+                        DEFAULT_MAX_LABEL_SIZE_PX,
                         PackageItemInfo.SAFE_LABEL_FLAG_TRIM
                                 | PackageItemInfo.SAFE_LABEL_FLAG_FIRST_LINE)
                         .toString());
