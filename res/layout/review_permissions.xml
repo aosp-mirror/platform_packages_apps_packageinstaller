@@ -18,32 +18,23 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:layout_marginTop="32dip"
-    android:layout_marginBottom="8dip"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dip"
-        android:layout_marginEnd="16dip"
-        android:layout_marginBottom="16dip"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        style="@*android:style/PermissionReviewDescription">
 
         <ImageView
             android:id="@+id/app_icon"
-            android:layout_width="36dip"
-            android:layout_height="36dip"
-            android:scaleType="fitCenter">
-        </ImageView>
+            style="@*android:style/PermissionReviewTitleIcon" />
 
         <TextView
             android:id="@+id/permissions_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dip"
-            style="?android:attr/textAppearanceMedium">
-        </TextView>
+            style="?android:attr/titleTextStyle" />
 
     </LinearLayout>
 
@@ -51,17 +42,14 @@
         android:id="@+id/preferences_frame"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_marginStart="2dip"
-        android:layout_marginEnd="2dip"
-        android:layout_weight="1">
-    </FrameLayout>
+        android:layout_weight="1"
+        style="@*android:style/PermissionReviewSettings" />
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingStart="2dip"
-        android:paddingTop="16dip">
+        style="?android:attr/buttonBarStyle">
 
         <Button
             android:id="@+id/permission_more_info_button"
@@ -101,7 +89,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="?android:attr/buttonBarButtonStyle"
-                android:layout_marginStart="8dip"
                 android:text="@string/review_button_continue">
             </Button>
 
