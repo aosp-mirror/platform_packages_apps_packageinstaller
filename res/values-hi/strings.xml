@@ -21,12 +21,12 @@
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"ऐप्लिकेशन नहीं मिला"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"अनुमति न दें"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"ज़्यादा जानकारी"</string>
-    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"फिर भी मना करें"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"फिर भी अनुमति न दें"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> में से <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; को <xliff:g id="ACTION">%2$s</xliff:g> की अनुमति दें?"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; को <xliff:g id="ACTION">%2$s</xliff:g> की अनुमति हमेशा दें?"</string>
     <string name="allow_permission_foreground_only" msgid="7444689446874060511">"सिर्फ़ ऐप्लिकेशन इस्तेमाल करते समय"</string>
-    <string name="allow_permission_always" msgid="4089537686339013930">"हमेशा अनुमति दें"</string>
+    <string name="allow_permission_always" msgid="4089537686339013930">"हमेशा"</string>
     <string name="deny_permission_deny_and_dont_ask_again" msgid="8131547398883397878">"अनुमति न दें और दोबारा न पूछें"</string>
     <string name="permission_revoked_count" msgid="5556125174203696709">"<xliff:g id="COUNT">%1$d</xliff:g> अनुमतियां बंद हैं"</string>
     <string name="permission_revoked_all" msgid="6356577996164232918">"सभी अनुमतियां बंद हैं"</string>
@@ -43,7 +43,7 @@
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> और अनुमतियां</item>
     </plurals>
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"यह ऐप्लिकेशन Android के पुराने वर्शन के लिए बनाया गया था. अगर आप अनुमति नहीं देते हैं, तो हो सकता है कि यह ठीक तरह से काम न करे."</string>
-    <string name="default_permission_description" msgid="692254823411049573">"इससे होने वाली कार्रवाई की जानकारी नहीं"</string>
+    <string name="default_permission_description" msgid="692254823411049573">"ऐसी कार्रवाई करें जिसकी जानकारी नहीं है"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_1">%2$d</xliff:g> में से <xliff:g id="COUNT_0">%1$d</xliff:g> ऐप्लिकेशन को अनुमति मिली है"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"सिस्टम के ऐप्लिकेशन दिखाएं"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"सिस्टम के ऐप्लिकेशन छिपाएं"</string>
@@ -69,8 +69,8 @@
     <string name="all_permissions" msgid="7813580062403112957">"सभी अनुमतियां"</string>
     <string name="other_permissions" msgid="1956312685853070715">"ऐप्लिकेशन को ये अनुमतियां भी दी गई हैं"</string>
     <string name="permission_request_title" msgid="6779348653783761548">"अनुमति पाने का अनुरोध"</string>
-    <string name="screen_overlay_title" msgid="1632732130312696010">"स्क्रीन ओवरले चालू है"</string>
-    <string name="screen_overlay_message" msgid="3222033787364955006">"इस अनुमति की सेटिंग बदलने के लिए, आपको पहले सेटिंग &gt; ऐप्लिकेशन पर जाकर स्क्रीन ओवरले बंद करना होगा"</string>
+    <string name="screen_overlay_title" msgid="1632732130312696010">"स्क्रीन ओवरले मौजूद है"</string>
+    <string name="screen_overlay_message" msgid="3222033787364955006">"इस अनुमति की सेटिंग बदलने के लिए, आपको पहले \'सेटिंग &gt; ऐप्लिकेशन\' पर जाकर स्क्रीन ओवरले बंद करना होगा"</string>
     <string name="screen_overlay_button" msgid="3554849308322944411">"सेटिंग खोलें"</string>
     <string name="wear_not_allowed_dlg_title" msgid="6923880912091041609">"Android Wear"</string>
     <string name="wear_not_allowed_dlg_text" msgid="8731817202551430387">"Wear पर ऐप्लिकेशन इंस्टॉल या अनइंस्टॉल नहीं किए जा सकते."</string>
