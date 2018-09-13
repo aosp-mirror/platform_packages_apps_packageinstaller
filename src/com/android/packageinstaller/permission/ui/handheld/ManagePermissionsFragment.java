@@ -20,13 +20,11 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.ArraySet;
 import android.util.Log;
 
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 
-import com.android.packageinstaller.permission.model.PermissionApps.PmCache;
 import com.android.packageinstaller.permission.model.PermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionGroups;
 import com.android.packageinstaller.permission.utils.Utils;
@@ -44,8 +42,6 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
 
     static final String OS_PKG = "android";
 
-    private ArraySet<String> mLauncherPkgs;
-
     private PermissionGroups mPermissions;
 
     @Override
@@ -57,7 +53,6 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
         if (ab != null) {
             ab.setDisplayHomeAsUpEnabled(true);
         }
-        mLauncherPkgs = Utils.getLauncherPackages(getContext());
         mPermissions = new PermissionGroups(getContext(), getActivity().getLoaderManager(), this);
     }
 
@@ -122,7 +117,6 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
 
         // Use this to speed up getting the info for all of the PermissionApps below.
         // Create a new one for each refresh to make sure it has fresh data.
-        PmCache cache = new PmCache(getContext().getPackageManager());
         for (PermissionGroup group : groups) {
             boolean isSystemPermission = group.getDeclaringPackage().equals(OS_PKG);
 
