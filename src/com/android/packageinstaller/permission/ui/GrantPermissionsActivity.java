@@ -51,7 +51,6 @@ import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
 
-import com.android.internal.content.PackageMonitor;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.packageinstaller.DeviceUtils;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
@@ -60,6 +59,7 @@ import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.ui.auto.GrantPermissionsAutoViewHandler;
 import com.android.packageinstaller.permission.utils.ArrayUtils;
 import com.android.packageinstaller.permission.utils.EventLogger;
+import com.android.packageinstaller.permission.utils.PackageRemovalMonitor;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.permissioncontroller.R;
 
@@ -92,7 +92,7 @@ public class GrantPermissionsActivity extends Activity
      * Listens for changes to the app the permissions are currently getting granted to. {@code null}
      * when unregistered.
      */
-    private @Nullable PackageMonitor mPackageMonitor;
+    private @Nullable PackageRemovalMonitor mPackageRemovalMonitor;
 
     private String mCallingPackage;
 
@@ -387,17 +387,15 @@ public class GrantPermissionsActivity extends Activity
         pm.addOnPermissionsChangeListener(mPermissionChangeListener);
 
         // get notified when the package is removed
-        mPackageMonitor = new PackageMonitor() {
+        mPackageRemovalMonitor = new PackageRemovalMonitor(this, mCallingPackage) {
             @Override
-            public void onPackageRemoved(String packageName, int uid) {
-                if (mCallingPackage.equals(packageName)) {
-                    Log.w(LOG_TAG, mCallingPackage + " was uninstalled");
+            public void onPackageRemoved() {
+                Log.w(LOG_TAG, mCallingPackage + " was uninstalled");
 
-                    finish();
-                }
+                finish();
             }
         };
-        mPackageMonitor.register(this, getMainLooper(), false);
+        mPackageRemovalMonitor.register();
 
         // check if the package was removed while this activity was not started
         try {
@@ -414,9 +412,9 @@ public class GrantPermissionsActivity extends Activity
     protected void onStop() {
         super.onStop();
 
-        if (mPackageMonitor != null) {
-            mPackageMonitor.unregister();
-            mPackageMonitor = null;
+        if (mPackageRemovalMonitor != null) {
+            mPackageRemovalMonitor.unregister();
+            mPackageRemovalMonitor = null;
         }
 
         if (mPermissionChangeListener != null) {
