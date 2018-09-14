@@ -126,6 +126,7 @@ public class InstallStart extends Activity {
         }
 
         if (nextActivity != null) {
+            nextActivity.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             startActivity(nextActivity);
         }
         finish();
