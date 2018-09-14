@@ -49,6 +49,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import androidx.annotation.Nullable;
+
 import com.android.internal.content.PackageMonitor;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.packageinstaller.DeviceUtils;
@@ -80,8 +82,17 @@ public class GrantPermissionsActivity extends Activity
 
     boolean mResultSet;
 
-    private PackageManager.OnPermissionsChangedListener mPermissionChangeListener;
-    private PackageMonitor mPackageMonitor;
+    /**
+     * Listens for changes to the permission of the app the permissions are currently getting
+     * granted to. {@code null} when unregistered.
+     */
+    private @Nullable PackageManager.OnPermissionsChangedListener mPermissionChangeListener;
+
+    /**
+     * Listens for changes to the app the permissions are currently getting granted to. {@code null}
+     * when unregistered.
+     */
+    private @Nullable PackageMonitor mPackageMonitor;
 
     private String mCallingPackage;
 
@@ -167,17 +178,6 @@ public class GrantPermissionsActivity extends Activity
         // Cache this as this can only read on onCreate, not later.
         mCallingPackage = getCallingPackage();
 
-        mPackageMonitor = new PackageMonitor() {
-            @Override
-            public void onPackageRemoved(String packageName, int uid) {
-                if (mCallingPackage.equals(packageName)) {
-                    Log.w(LOG_TAG, mCallingPackage + " was uninstalled");
-
-                    finish();
-                }
-            }
-        };
-
         setFinishOnTouchOutside(false);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
@@ -209,13 +209,6 @@ public class GrantPermissionsActivity extends Activity
         final int requestedPermCount = mRequestedPermissions.length;
 
         if (requestedPermCount == 0) {
-            setResultAndFinish();
-            return;
-        }
-
-        try {
-            mPermissionChangeListener = new PermissionChangeListener();
-        } catch (NameNotFoundException e) {
             setResultAndFinish();
             return;
         }
@@ -384,10 +377,26 @@ public class GrantPermissionsActivity extends Activity
     protected void onStart() {
         super.onStart();
 
+        try {
+            mPermissionChangeListener = new PermissionChangeListener();
+        } catch (NameNotFoundException e) {
+            setResultAndFinish();
+            return;
+        }
         PackageManager pm = getPackageManager();
         pm.addOnPermissionsChangeListener(mPermissionChangeListener);
 
         // get notified when the package is removed
+        mPackageMonitor = new PackageMonitor() {
+            @Override
+            public void onPackageRemoved(String packageName, int uid) {
+                if (mCallingPackage.equals(packageName)) {
+                    Log.w(LOG_TAG, mCallingPackage + " was uninstalled");
+
+                    finish();
+                }
+            }
+        };
         mPackageMonitor.register(this, getMainLooper(), false);
 
         // check if the package was removed while this activity was not started
@@ -405,9 +414,15 @@ public class GrantPermissionsActivity extends Activity
     protected void onStop() {
         super.onStop();
 
-        mPackageMonitor.unregister();
+        if (mPackageMonitor != null) {
+            mPackageMonitor.unregister();
+            mPackageMonitor = null;
+        }
 
-        getPackageManager().removeOnPermissionsChangeListener(mPermissionChangeListener);
+        if (mPermissionChangeListener != null) {
+            getPackageManager().removeOnPermissionsChangeListener(mPermissionChangeListener);
+            mPermissionChangeListener = null;
+        }
     }
 
     @Override
