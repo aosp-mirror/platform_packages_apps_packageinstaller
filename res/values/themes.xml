@@ -26,9 +26,9 @@
         <item name="android:background">@color/car_card</item>
     </style>
 
-    <style name="Settings.NoActionBar" parent="@style/Settings">
-        <item name="android:windowActionBar">false</item>
-        <item name="android:windowNoTitle">true</item>
+    <style name="ReviewPermissions"
+           parent="@*android:style/Theme.DeviceDefault.PermissionReviewApp">
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
     </style>
 
     <style name="GrantPermissions"
