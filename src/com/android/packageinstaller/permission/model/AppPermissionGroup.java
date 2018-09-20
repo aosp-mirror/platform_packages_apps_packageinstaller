@@ -20,8 +20,6 @@ import static android.app.AppOpsManager.MODE_ALLOWED;
 import static android.app.AppOpsManager.MODE_FOREGROUND;
 import static android.app.AppOpsManager.MODE_IGNORED;
 
-import android.annotation.StringRes;
-import android.annotation.SystemApi;
 import android.app.ActivityManager;
 import android.app.AppOpsManager;
 import android.content.Context;
@@ -34,6 +32,8 @@ import android.os.Build;
 import android.os.Process;
 import android.os.UserHandle;
 import android.util.ArrayMap;
+
+import androidx.annotation.StringRes;
 
 import com.android.packageinstaller.permission.utils.ArrayUtils;
 import com.android.packageinstaller.permission.utils.LocationUtils;
@@ -408,7 +408,6 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
      * @hide
      * @return The resource Id of the request string.
      */
-    @SystemApi
     public @StringRes int getRequest() {
         return mRequest;
     }
