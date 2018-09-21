@@ -17,7 +17,6 @@
 package com.android.packageinstaller.permission.ui.wear;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -26,17 +25,17 @@ import android.content.pm.PermissionInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.UserHandle;
-import android.preference.Preference;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
 import android.util.ArraySet;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.SwitchPreference;
 import androidx.wear.ble.view.WearableDialogHelper;
 
-import com.android.permissioncontroller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.Permission;
@@ -44,13 +43,14 @@ import com.android.packageinstaller.permission.utils.ArrayUtils;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.permissioncontroller.R;
 import com.android.settingslib.RestrictedLockUtils;
 import com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public final class AppPermissionsFragmentWear extends PreferenceFragment {
+public final class AppPermissionsFragmentWear extends PreferenceFragmentCompat {
     private static final String LOG_TAG = "AppPermFragWear";
 
     private static final String KEY_NO_PERMISSIONS = "no_permissions";
@@ -74,8 +74,6 @@ public final class AppPermissionsFragmentWear extends PreferenceFragment {
 
     /**
      * Provides click behavior for disabled preferences.
-     * We can't use {@link PreferenceFragment#onPreferenceTreeClick}, as the base
-     * {@link SwitchPreference} doesn't delegate to that method if the preference is disabled.
      */
     private static class PermissionSwitchPreference extends SwitchPreference {
 
@@ -87,18 +85,24 @@ public final class AppPermissionsFragmentWear extends PreferenceFragment {
         }
 
         @Override
-        public void performClick(PreferenceScreen preferenceScreen) {
-            super.performClick(preferenceScreen);
+        protected void performClick(View view) {
+            super.performClick(view);
+
             if (!isEnabled()) {
                 // If setting the permission is disabled, it must have been locked
                 // by the device or profile owner. So get that info and pass it to
                 // the support details dialog.
                 EnforcedAdmin deviceOrProfileOwner = RestrictedLockUtils.getProfileOrDeviceOwner(
-                    mActivity, UserHandle.myUserId());
+                        mActivity, UserHandle.myUserId());
                 RestrictedLockUtils.sendShowAdminSupportDetailsIntent(
-                    mActivity, deviceOrProfileOwner);
+                        mActivity, deviceOrProfileOwner);
             }
         }
+    }
+
+    @Override
+    public void onCreatePreferences(Bundle bundle, String s) {
+        // empty
     }
 
     @Override
