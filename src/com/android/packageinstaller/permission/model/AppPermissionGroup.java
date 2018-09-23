@@ -20,8 +20,6 @@ import static android.app.AppOpsManager.MODE_ALLOWED;
 import static android.app.AppOpsManager.MODE_FOREGROUND;
 import static android.app.AppOpsManager.MODE_IGNORED;
 
-import android.annotation.StringRes;
-import android.annotation.SystemApi;
 import android.app.ActivityManager;
 import android.app.AppOpsManager;
 import android.content.Context;
@@ -30,11 +28,12 @@ import android.content.pm.PackageItemInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
-import android.content.res.ResourceId;
 import android.os.Build;
 import android.os.Process;
 import android.os.UserHandle;
 import android.util.ArrayMap;
+
+import androidx.annotation.StringRes;
 
 import com.android.packageinstaller.permission.utils.ArrayUtils;
 import com.android.packageinstaller.permission.utils.LocationUtils;
@@ -409,7 +408,6 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
      * @hide
      * @return The resource Id of the request string.
      */
-    @SystemApi
     public @StringRes int getRequest() {
         return mRequest;
     }
@@ -420,13 +418,13 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
      *
      * @param info The package item info to extract the message from
      *
-     * @return the message of {@link ResourceId#ID_NULL} if unset
+     * @return the message or 0 if unset
      */
     private static @StringRes int getRequestDetail(PackageItemInfo info) {
         if (info instanceof PermissionGroupInfo) {
             return ((PermissionGroupInfo) info).requestDetailResourceId;
         } else {
-            return ResourceId.ID_NULL;
+            return 0;
         }
     }
 
@@ -434,7 +432,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
      * Get the (subtitle) message explaining to the user that the permission is only granted to
      * the apps running in the foreground.
      *
-     * @return the message of {@link ResourceId#ID_NULL} if unset
+     * @return the message or 0 if unset
      */
     public @StringRes int getRequestDetail() {
         return mRequestDetail;
@@ -446,13 +444,13 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
      *
      * @param info The package item info to extract the message from
      *
-     * @return the message of {@link ResourceId#ID_NULL} if unset
+     * @return the message or 0 if unset
      */
     private static @StringRes int getBackgroundRequest(PackageItemInfo info) {
         if (info instanceof PermissionGroupInfo) {
             return ((PermissionGroupInfo) info).backgroundRequestResourceId;
         } else {
-            return ResourceId.ID_NULL;
+            return 0;
         }
     }
 
@@ -460,7 +458,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
      * Get the title of the dialog explaining to the user that the permission is granted while
      * the app is in background and in foreground.
      *
-     * @return the message of {@link ResourceId#ID_NULL} if unset
+     * @return the message or 0 if unset
      */
     public @StringRes int getBackgroundRequest() {
         return mBackgroundRequest;
@@ -472,13 +470,13 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
      *
      * @param info The package item info to extract the message from
      *
-     * @return the message of {@link ResourceId#ID_NULL} if unset
+     * @return the message or 0 if unset
      */
     private static @StringRes int getBackgroundRequestDetail(PackageItemInfo info) {
         if (info instanceof PermissionGroupInfo) {
             return ((PermissionGroupInfo) info).backgroundRequestDetailResourceId;
         } else {
-            return ResourceId.ID_NULL;
+            return 0;
         }
     }
 
@@ -486,7 +484,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
      * Get the (subtitle) message explaining to the user that the she/he is about to allow the
      * app to have background access.
      *
-     * @return the message of {@link ResourceId#ID_NULL} if unset
+     * @return the message or 0 if unset
      */
     public @StringRes int getBackgroundRequestDetail() {
         return mBackgroundRequestDetail;

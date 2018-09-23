@@ -75,7 +75,7 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                     fragment = com.android.packageinstaller.permission.ui.auto
                             .AppPermissionsFragment.newInstance(packageName);
                 } else if (DeviceUtils.isWear(this)) {
-                    fragment = AppPermissionsFragmentWear.newInstance(packageName);
+                    androidXFragment = AppPermissionsFragmentWear.newInstance(packageName);
                 } else if (DeviceUtils.isTelevision(this)) {
                     fragment = com.android.packageinstaller.permission.ui.television
                             .AppPermissionsFragment.newInstance(packageName);

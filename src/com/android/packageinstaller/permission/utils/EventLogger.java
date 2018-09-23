@@ -16,15 +16,13 @@
 
 package com.android.packageinstaller.permission.utils;
 
-import android.metrics.LogMaker;
 import androidx.annotation.NonNull;
 
-import com.android.internal.logging.MetricsLogger;
-import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-
 public class EventLogger {
+    /*
+    Replace by @SystemApi logging
     private static final MetricsLogger sMetricsLogger = new MetricsLogger();
-
+     */
     /**
      * Log that a permission was requested/denied.
      *
@@ -34,10 +32,13 @@ public class EventLogger {
      */
     public static void logPermission(int action, @NonNull String name,
             @NonNull String packageName) {
+        /*
+        Replace by @SystemApi logging
         final LogMaker log = new LogMaker(action);
         log.setPackageName(packageName);
         log.addTaggedData(MetricsEvent.FIELD_PERMISSION, name);
 
         sMetricsLogger.write(log);
+        */
     }
 }
