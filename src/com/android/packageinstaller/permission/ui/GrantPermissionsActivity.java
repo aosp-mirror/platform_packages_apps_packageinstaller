@@ -28,6 +28,7 @@ import static com.android.packageinstaller.permission.ui.GrantPermissionsViewHan
 import static com.android.packageinstaller.permission.utils.Utils.getRequestMessage;
 
 import android.app.Activity;
+import android.app.KeyguardManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -612,6 +613,35 @@ public class GrantPermissionsActivity extends Activity
             @GrantPermissionsViewHandler.Result int result) {
         GroupState foregroundGroupState = getForegroundGroupState(name);
         GroupState backgroundGroupState = getBackgroundGroupState(name);
+
+        if (result == GRANTED_ALWAYS || result == GRANTED_FOREGROUND_ONLY
+                || result == DENIED_DO_NOT_ASK_AGAIN) {
+            KeyguardManager kgm = getSystemService(KeyguardManager.class);
+
+            if (kgm.isDeviceLocked()) {
+                kgm.requestDismissKeyguard(this, new KeyguardManager.KeyguardDismissCallback() {
+                            @Override
+                            public void onDismissError() {
+                                Log.e(LOG_TAG, "Cannot dismiss keyguard perm=" + name + " result="
+                                        + result);
+                            }
+
+                            @Override
+                            public void onDismissCancelled() {
+                                // do nothing (i.e. stay at the current permission group)
+                            }
+
+                            @Override
+                            public void onDismissSucceeded() {
+                                // Now the keyguard is dismissed, hence the device is not locked
+                                // anymore
+                                onPermissionGrantResult(name, result);
+                            }
+                        });
+
+                return;
+            }
+        }
 
         switch (result) {
             case GRANTED_ALWAYS :
