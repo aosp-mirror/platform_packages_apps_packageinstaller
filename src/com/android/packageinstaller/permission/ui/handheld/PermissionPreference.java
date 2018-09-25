@@ -28,6 +28,7 @@ import android.content.pm.PackageItemInfo;
 import android.os.Bundle;
 import android.text.BidiFormatter;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Switch;
 
 import androidx.annotation.IntDef;
@@ -35,6 +36,7 @@ import androidx.annotation.LayoutRes;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceViewHolder;
 
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.Permission;
@@ -62,6 +64,7 @@ class PermissionPreference extends MultiTargetSwitchPreference {
     private final PreferenceFragmentCompat mFragment;
     private final PermissionPreferenceChangeListener mCallBacks;
     private final @LayoutRes int mOriginalWidgetLayoutRes;
+    private final int mIconSize;
 
     /** Callbacks for the permission to the fragment showing a list of permissions */
     interface PermissionPreferenceChangeListener {
@@ -118,13 +121,14 @@ class PermissionPreference extends MultiTargetSwitchPreference {
     }
 
     PermissionPreference(PreferenceFragmentCompat fragment, AppPermissionGroup group,
-            PermissionPreferenceChangeListener callbacks) {
+            PermissionPreferenceChangeListener callbacks, int iconSize) {
         super(fragment.getPreferenceManager().getContext());
 
         mFragment = fragment;
         mGroup = group;
         mCallBacks = callbacks;
         mOriginalWidgetLayoutRes = getWidgetLayoutResource();
+        mIconSize = iconSize;
 
         setPersistent(false);
         updateUi();
@@ -432,6 +436,18 @@ class PermissionPreference extends MultiTargetSwitchPreference {
                         PackageItemInfo.SAFE_LABEL_FLAG_TRIM
                                 | PackageItemInfo.SAFE_LABEL_FLAG_FIRST_LINE)
                         .toString());
+    }
+
+    @Override
+    public void onBindViewHolder(PreferenceViewHolder holder) {
+        if (mIconSize > 0) {
+            ImageView icon = ((ImageView) holder.findViewById(android.R.id.icon));
+
+            icon.setMaxWidth(mIconSize);
+            icon.setMaxHeight(mIconSize);
+        }
+
+        super.onBindViewHolder(holder);
     }
 
     /**

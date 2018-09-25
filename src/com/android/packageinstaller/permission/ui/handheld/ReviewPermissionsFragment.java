@@ -420,7 +420,7 @@ public final class ReviewPermissionsFragment extends PreferenceFragmentCompat
 
         PermissionReviewPreference(PreferenceFragmentCompat fragment, AppPermissionGroup group,
                 PermissionPreferenceChangeListener callbacks) {
-            super(fragment, group, callbacks);
+            super(fragment, group, callbacks, 0);
 
             mGroup = group;
             updateUi();

@@ -240,7 +240,7 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
             }
 
             PermissionPreference pref = new PermissionPreference(this, app.getPermissionGroup(),
-                    this);
+                    this, getResources().getDimensionPixelSize(R.dimen.secondary_app_icon_size));
             pref.setKey(app.getKey());
             pref.setIcon(app.getIcon());
             pref.setTitle(app.getLabel());

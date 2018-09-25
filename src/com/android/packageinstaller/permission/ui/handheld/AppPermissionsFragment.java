@@ -207,7 +207,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
 
             boolean isPlatform = group.getDeclaringPackage().equals(Utils.OS_PKG);
 
-            PermissionPreference preference = new PermissionPreference(this, group, this);
+            PermissionPreference preference = new PermissionPreference(this, group, this, 0);
             preference.setKey(group.getName());
             Drawable icon = Utils.loadDrawable(context.getPackageManager(),
                     group.getIconPkg(), group.getIconResId());
