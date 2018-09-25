@@ -30,7 +30,7 @@ import java.lang.reflect.Method;
  * Temporary wrapper for {@code android.util.IconDrawableFactory#getBadgedIcon} as the method is not
  * system API.
  *
- * DO NOT SHIP: Needs to be removed and replaced by proper system-api
+ * STOPSHIP: Needs to be removed and replaced by proper system-api (b/115891474)
  */
 public class IconDrawableFactory {
     private static final String LOG_TAG = IconDrawableFactory.class.getSimpleName();
