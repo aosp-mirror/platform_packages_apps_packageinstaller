@@ -93,16 +93,16 @@ public abstract class PermissionsFrameFragment extends PreferenceFragmentCompat 
      * Either show the empty view or the recycler view. To be called any time the adapter changes.
      */
     void updateEmptyState() {
-        if (mEmptyView != null) {
-            RecyclerView prefs = getListView();
+        RecyclerView prefs = getListView();
 
-            if (prefs != null && prefs.getAdapter() != null
-                    && prefs.getAdapter().getItemCount() != 0) {
+        // This might be called before onCreateView, hence emptyView and prefs can be null
+        if (mEmptyView != null && prefs != null) {
+            if (prefs.getAdapter() != null && prefs.getAdapter().getItemCount() != 0) {
                 mEmptyView.setVisibility(View.GONE);
-                getListView().setVisibility(View.VISIBLE);
+                prefs.setVisibility(View.VISIBLE);
             } else {
                 mEmptyView.setVisibility(View.VISIBLE);
-                getListView().setVisibility(View.GONE);
+                prefs.setVisibility(View.GONE);
             }
         }
     }
