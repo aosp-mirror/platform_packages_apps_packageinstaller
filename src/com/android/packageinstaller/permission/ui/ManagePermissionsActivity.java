@@ -29,7 +29,6 @@ import androidx.fragment.app.FragmentActivity;
 import com.android.packageinstaller.DeviceUtils;
 import com.android.packageinstaller.permission.ui.handheld.ManageStandardPermissionsFragment;
 import com.android.packageinstaller.permission.ui.wear.AppPermissionsFragmentWear;
-import com.android.permissioncontroller.R;
 
 public final class ManagePermissionsActivity extends FragmentActivity {
     private static final String LOG_TAG = "ManagePermissionsActivity";
@@ -39,9 +38,6 @@ public final class ManagePermissionsActivity extends FragmentActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        if (DeviceUtils.isAuto(this)) {
-            setTheme(R.style.CarSettingTheme);
-        }
         super.onCreate(savedInstanceState);
 
         if (savedInstanceState != null) {

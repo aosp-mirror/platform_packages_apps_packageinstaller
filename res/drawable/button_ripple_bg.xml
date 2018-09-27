@@ -16,7 +16,7 @@
 -->
 
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
-        android:color="@color/car_card_ripple_background"
+        android:color="@*android:color/car_card_ripple_background"
         android:radius="90dp">
     <item android:id="@android:id/mask"
           android:drawable="@drawable/rectangle_ripple_mask" />

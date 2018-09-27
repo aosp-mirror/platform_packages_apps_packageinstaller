@@ -21,10 +21,10 @@
            parent="@android:style/Theme.DeviceDefault.Settings">
         <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
     </style>
-
-    <style name="CarSettingTheme" parent="Theme.Car.Light.NoActionBar">
-        <item name="android:background">@color/car_card</item>
-    </style>
+    <style name="PagedListTheme" parent="Theme.Car.NoActionBar">
+        <item name="listItemPrimaryIconTint">?android:attr/textColorPrimary</item>
+        <item name="android:colorAccent">@*android:color/accent_device_default_light</item>
+     </style>
 
     <style name="ReviewPermissions"
            parent="@*android:style/Theme.DeviceDefault.PermissionReviewApp">
