@@ -23,20 +23,18 @@ LOCAL_STATIC_ANDROID_LIBRARIES += \
     androidx.legacy_legacy-preference-v14 \
     androidx.leanback_leanback \
     androidx.leanback_leanback-preference \
-    SettingsLib
+    SettingsLibHelpUtils \
+    SettingsLibRestrictedLockUtils \
+    SettingsLibAppPreference
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
     androidx.annotation_annotation
 
 LOCAL_PACKAGE_NAME := PermissionController
+LOCAL_SDK_VERSION := system_current
+LOCAL_PRIVILEGED_MODULE := true
 LOCAL_CERTIFICATE := platform
 
-LOCAL_PRIVILEGED_MODULE := true
-
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
-
-# Comment for now unitl all private API dependencies are removed
-# LOCAL_SDK_VERSION := system_current
-LOCAL_PRIVATE_PLATFORM_APIS := true
 
 include $(BUILD_PACKAGE)

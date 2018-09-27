@@ -28,10 +28,10 @@ import android.os.UserHandle;
 import android.os.UserManager;
 import android.util.ArrayMap;
 import android.util.ArraySet;
-import android.util.IconDrawableFactory;
 import android.util.Log;
 import android.util.SparseArray;
 
+import com.android.packageinstaller.permission.utils.IconDrawableFactory;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 
@@ -166,7 +166,6 @@ public class PermissionApps {
         }
 
         ArrayList<PermissionApp> permApps = new ArrayList<>();
-        IconDrawableFactory iconFactory = IconDrawableFactory.newInstance(mContext);
 
         UserManager userManager = mContext.getSystemService(UserManager.class);
         for (UserHandle user : userManager.getUserProfiles()) {
@@ -219,9 +218,8 @@ public class PermissionApps {
 
                     Drawable icon = null;
                     if (!mSkipUi) {
-                        icon = iconFactory.getBadgedIcon(app.applicationInfo,
-                                UserHandle.getUserHandleForUid(group.getApp().applicationInfo.uid)
-                                        .getIdentifier());
+                        icon = IconDrawableFactory.getBadgedIcon(mContext, app.applicationInfo,
+                                UserHandle.getUserHandleForUid(group.getApp().applicationInfo.uid));
                     }
 
                     PermissionApp permApp = new PermissionApp(app.packageName, group, label, icon,
