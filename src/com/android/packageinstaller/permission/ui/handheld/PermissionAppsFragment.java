@@ -50,8 +50,6 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
         PermissionPreference.PermissionPreferenceOwnerFragment,
         PermissionPreference.PermissionPreferenceChangeListener {
 
-    private static final int MENU_SHOW_SYSTEM = Menu.FIRST;
-    private static final int MENU_HIDE_SYSTEM = Menu.FIRST + 1;
     private static final String KEY_SHOW_SYSTEM_PREFS = "_showSystem";
 
     private static final String SHOW_SYSTEM_KEY = PermissionAppsFragment.class.getName()
@@ -119,6 +117,8 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+
         if (mHasSystemApps) {
             mShowSystemMenu = menu.add(Menu.NONE, MENU_SHOW_SYSTEM, Menu.NONE,
                     R.string.menu_show_system);
