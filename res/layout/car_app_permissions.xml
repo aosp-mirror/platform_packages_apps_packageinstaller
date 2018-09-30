@@ -22,18 +22,18 @@
     android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/car_app_bar_height"
+        android:layout_height="@*android:dimen/car_app_bar_height"
         android:gravity="end|center_vertical" >
         <FrameLayout
             android:id="@+id/action_bar_icon_container"
-            android:layout_width="@dimen/car_margin"
-            android:layout_height="@dimen/car_app_bar_height"
+            android:layout_width="@*android:dimen/car_margin"
+            android:layout_height="@*android:dimen/car_app_bar_height"
             android:foreground="@drawable/button_ripple_bg"
             android:layout_alignParentStart="true">
             <ImageView
-                android:layout_width="@dimen/car_primary_icon_size"
-                android:layout_height="@dimen/car_primary_icon_size"
-                android:tint="@color/car_tint"
+                android:layout_width="@*android:dimen/car_primary_icon_size"
+                android:layout_height="@*android:dimen/car_primary_icon_size"
+                android:tint="@*android:color/car_tint"
                 android:scaleType="fitCenter"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_arrow_back"/>
@@ -42,8 +42,9 @@
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/car_margin"
-            android:textAppearance="@style/TextAppearance.Car.Body1.Medium"
+            android:layout_marginStart="@*android:dimen/car_margin"
+            android:textAppearance="@*android:style/CarBody1"
+            android:fontFamily="medium"
             android:text="@string/app_permissions"
             android:layout_gravity="center_vertical"
             android:layout_centerVertical="true"
@@ -54,11 +55,12 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/car_list_divider_height"
-        android:background="@color/car_list_divider"/>
+        android:layout_height="@*android:dimen/car_list_divider_height"
+				android:background="@*android:color/car_list_divider"/>
 
     <androidx.car.widget.PagedListView
         android:id="@+id/list"
+				android:theme="@style/PagedListTheme"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:showPagedListViewDivider="true"
