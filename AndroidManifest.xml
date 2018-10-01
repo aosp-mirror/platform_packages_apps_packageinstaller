@@ -42,15 +42,24 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.android.packageinstaller.permission.ui.ManagePermissionsActivity"
+        <activity android:name="com.android.packageinstaller.permission.ui.DetailManagePermissionsActivity"
                   android:configChanges="orientation|keyboardHidden|screenSize"
                   android:label="@string/app_permissions"
                   android:theme="@style/Settings"
                   android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS">
             <intent-filter android:priority="1">
-                <action android:name="android.intent.action.MANAGE_PERMISSIONS" />
                 <action android:name="android.intent.action.MANAGE_APP_PERMISSIONS" />
                 <action android:name="android.intent.action.MANAGE_PERMISSION_APPS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.android.packageinstaller.permission.ui.ManagePermissionsActivity"
+                  android:configChanges="orientation|keyboardHidden|screenSize"
+                  android:label="@string/app_permissions"
+                  android:theme="@style/Settings">
+            <intent-filter android:priority="1">
+                <action android:name="android.intent.action.MANAGE_PERMISSIONS" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -68,6 +77,17 @@
         <activity android:name="com.android.packageinstaller.permission.ui.OverlayWarningDialog"
                 android:excludeFromRecents="true"
                 android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar" />
+
+        <provider android:name="com.android.packageinstaller.permission.service.PermissionSearchIndexablesProvider"
+            android:authorities="com.android.permissioncontroller"
+            android:multiprocess="false"
+            android:grantUriPermissions="true"
+            android:permission="android.permission.READ_SEARCH_INDEXABLES"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.content.action.SEARCH_INDEXABLES_PROVIDER" />
+            </intent-filter>
+        </provider>
 
         <!-- Wearable Components -->
         <service android:name="com.android.packageinstaller.permission.service.RuntimePermissionPresenterServiceImpl"

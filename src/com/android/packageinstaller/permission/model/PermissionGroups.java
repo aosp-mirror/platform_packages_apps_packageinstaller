@@ -34,6 +34,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.ArraySet;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 
@@ -41,6 +44,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Supplier;
 
 /**
  * All {@link PermissionGroup permission groups} defined by any app.
@@ -99,6 +103,155 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
         return null;
     }
 
+    private static @NonNull CharSequence loadItemInfoLabel(@NonNull Context context,
+            @NonNull PackageItemInfo itemInfo) {
+        CharSequence label = itemInfo.loadSafeLabel(context.getPackageManager(), 0,
+                SAFE_LABEL_FLAG_FIRST_LINE | SAFE_LABEL_FLAG_TRIM);
+        if (label == null) {
+            label = itemInfo.name;
+        }
+        return label;
+    }
+
+    private static @NonNull Drawable loadItemInfoIcon(@NonNull Context context,
+            @NonNull PackageItemInfo itemInfo) {
+        Drawable icon = null;
+        if (itemInfo.icon > 0) {
+            icon = Utils.loadDrawable(context.getPackageManager(),
+                    itemInfo.packageName, itemInfo.icon);
+        }
+        if (icon == null) {
+            icon = context.getDrawable(R.drawable.ic_perm_device_info);
+        }
+        return icon;
+    }
+
+    /**
+     * Return all permission groups in the system.
+     *
+     * @param context Context to use
+     * @param isCanceled callback checked if the group resolution should be aborted
+     *
+     * @return the list of all groups int the system
+     */
+    public static @NonNull List<PermissionGroup> getAllPermissionGroups(@NonNull Context context,
+            @Nullable Supplier<Boolean> isCanceled) {
+        ArraySet<String> launcherPkgs = Utils.getLauncherPackages(context);
+        PermissionApps.PmCache pmCache = new PermissionApps.PmCache(
+                context.getPackageManager());
+
+        List<PermissionGroup> groups = new ArrayList<>();
+        Set<String> seenPermissions = new ArraySet<>();
+
+        PackageManager packageManager = context.getPackageManager();
+        List<PermissionGroupInfo> groupInfos = packageManager.getAllPermissionGroups(0);
+
+        for (PermissionGroupInfo groupInfo : groupInfos) {
+            // Mare sure we respond to cancellation.
+            if (isCanceled != null && isCanceled.get()) {
+                return Collections.emptyList();
+            }
+
+            // Get the permissions in this group.
+            final List<PermissionInfo> groupPermissions;
+            try {
+                groupPermissions = packageManager.queryPermissionsByGroup(groupInfo.name, 0);
+            } catch (PackageManager.NameNotFoundException e) {
+                continue;
+            }
+
+            boolean hasRuntimePermissions = false;
+
+            // Cache seen permissions and see if group has runtime permissions.
+            for (PermissionInfo groupPermission : groupPermissions) {
+                seenPermissions.add(groupPermission.name);
+                if ((groupPermission.protectionLevel & PermissionInfo.PROTECTION_MASK_BASE)
+                        == PermissionInfo.PROTECTION_DANGEROUS
+                        && (groupPermission.flags & PermissionInfo.FLAG_INSTALLED) != 0
+                        && (groupPermission.flags & PermissionInfo.FLAG_REMOVED) == 0) {
+                    hasRuntimePermissions = true;
+                }
+            }
+
+            // No runtime permissions - not interesting for us.
+            if (!hasRuntimePermissions) {
+                continue;
+            }
+
+            CharSequence label = loadItemInfoLabel(context, groupInfo);
+            Drawable icon = loadItemInfoIcon(context, groupInfo);
+
+            PermissionApps permApps = new PermissionApps(context, groupInfo.name, null,
+                    pmCache);
+            permApps.refreshSync();
+
+            // Create the group and add to the list.
+            PermissionGroup group = new PermissionGroup(groupInfo.name,
+                    groupInfo.packageName, label, icon, permApps.getTotalCount(launcherPkgs),
+                    permApps.getGrantedCount(launcherPkgs));
+            groups.add(group);
+        }
+
+
+        // Make sure we add groups for lone runtime permissions.
+        List<PackageInfo> installedPackages = context.getPackageManager()
+                .getInstalledPackages(PackageManager.GET_PERMISSIONS);
+
+
+        // We will filter out permissions that no package requests.
+        Set<String> requestedPermissions = new ArraySet<>();
+        for (PackageInfo installedPackage : installedPackages) {
+            if (installedPackage.requestedPermissions == null) {
+                continue;
+            }
+            for (String requestedPermission : installedPackage.requestedPermissions) {
+                requestedPermissions.add(requestedPermission);
+            }
+        }
+
+        for (PackageInfo installedPackage : installedPackages) {
+            if (installedPackage.permissions == null) {
+                continue;
+            }
+
+            for (PermissionInfo permissionInfo : installedPackage.permissions) {
+                // If we have handled this permission, no more work to do.
+                if (!seenPermissions.add(permissionInfo.name)) {
+                    continue;
+                }
+
+                // We care only about installed runtime permissions.
+                if ((permissionInfo.protectionLevel & PermissionInfo.PROTECTION_MASK_BASE)
+                        != PermissionInfo.PROTECTION_DANGEROUS
+                        || (permissionInfo.flags & PermissionInfo.FLAG_INSTALLED) == 0) {
+                    continue;
+                }
+
+                // If no app uses this permission,
+                if (!requestedPermissions.contains(permissionInfo.name)) {
+                    continue;
+                }
+
+                CharSequence label = loadItemInfoLabel(context, permissionInfo);
+                Drawable icon = loadItemInfoIcon(context, permissionInfo);
+
+                PermissionApps permApps = new PermissionApps(context, permissionInfo.name,
+                        null, pmCache);
+                permApps.refreshSync();
+
+                // Create the group and add to the list.
+                PermissionGroup group = new PermissionGroup(permissionInfo.name,
+                        permissionInfo.packageName, label, icon,
+                        permApps.getTotalCount(launcherPkgs),
+                        permApps.getGrantedCount(launcherPkgs));
+                groups.add(group);
+            }
+        }
+
+        Collections.sort(groups);
+        return groups;
+    }
+
     private static final class PermissionsLoader extends AsyncTaskLoader<List<PermissionGroup>>
             implements PackageManager.OnPermissionsChangedListener {
 
@@ -119,141 +272,7 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
 
         @Override
         public List<PermissionGroup> loadInBackground() {
-            ArraySet<String> launcherPkgs = Utils.getLauncherPackages(getContext());
-            PermissionApps.PmCache pmCache = new PermissionApps.PmCache(
-                    getContext().getPackageManager());
-
-            List<PermissionGroup> groups = new ArrayList<>();
-            Set<String> seenPermissions = new ArraySet<>();
-
-            PackageManager packageManager = getContext().getPackageManager();
-            List<PermissionGroupInfo> groupInfos = packageManager.getAllPermissionGroups(0);
-
-            for (PermissionGroupInfo groupInfo : groupInfos) {
-                // Mare sure we respond to cancellation.
-                if (isLoadInBackgroundCanceled()) {
-                    return Collections.emptyList();
-                }
-
-                // Get the permissions in this group.
-                final List<PermissionInfo> groupPermissions;
-                try {
-                    groupPermissions = packageManager.queryPermissionsByGroup(groupInfo.name, 0);
-                } catch (PackageManager.NameNotFoundException e) {
-                    continue;
-                }
-
-                boolean hasRuntimePermissions = false;
-
-                // Cache seen permissions and see if group has runtime permissions.
-                for (PermissionInfo groupPermission : groupPermissions) {
-                    seenPermissions.add(groupPermission.name);
-                    if ((groupPermission.protectionLevel & PermissionInfo.PROTECTION_MASK_BASE)
-                            == PermissionInfo.PROTECTION_DANGEROUS
-                            && (groupPermission.flags & PermissionInfo.FLAG_INSTALLED) != 0
-                            && (groupPermission.flags & PermissionInfo.FLAG_REMOVED) == 0) {
-                        hasRuntimePermissions = true;
-                    }
-                }
-
-                // No runtime permissions - not interesting for us.
-                if (!hasRuntimePermissions) {
-                    continue;
-                }
-
-                CharSequence label = loadItemInfoLabel(groupInfo);
-                Drawable icon = loadItemInfoIcon(groupInfo);
-
-                PermissionApps permApps = new PermissionApps(getContext(), groupInfo.name, null,
-                        pmCache);
-                permApps.refreshSync();
-
-                // Create the group and add to the list.
-                PermissionGroup group = new PermissionGroup(groupInfo.name,
-                        groupInfo.packageName, label, icon, permApps.getTotalCount(launcherPkgs),
-                        permApps.getGrantedCount(launcherPkgs));
-                groups.add(group);
-            }
-
-
-            // Make sure we add groups for lone runtime permissions.
-            List<PackageInfo> installedPackages = getContext().getPackageManager()
-                    .getInstalledPackages(PackageManager.GET_PERMISSIONS);
-
-
-            // We will filter out permissions that no package requests.
-            Set<String> requestedPermissions = new ArraySet<>();
-            for (PackageInfo installedPackage : installedPackages) {
-                if (installedPackage.requestedPermissions == null) {
-                    continue;
-                }
-                for (String requestedPermission : installedPackage.requestedPermissions) {
-                    requestedPermissions.add(requestedPermission);
-                }
-            }
-
-            for (PackageInfo installedPackage : installedPackages) {
-                if (installedPackage.permissions == null) {
-                    continue;
-                }
-
-                for (PermissionInfo permissionInfo : installedPackage.permissions) {
-                    // If we have handled this permission, no more work to do.
-                    if (!seenPermissions.add(permissionInfo.name)) {
-                        continue;
-                    }
-
-                    // We care only about installed runtime permissions.
-                    if ((permissionInfo.protectionLevel & PermissionInfo.PROTECTION_MASK_BASE)
-                            != PermissionInfo.PROTECTION_DANGEROUS
-                            || (permissionInfo.flags & PermissionInfo.FLAG_INSTALLED) == 0) {
-                        continue;
-                    }
-
-                    // If no app uses this permission,
-                    if (!requestedPermissions.contains(permissionInfo.name)) {
-                        continue;
-                    }
-
-                    CharSequence label = loadItemInfoLabel(permissionInfo);
-                    Drawable icon = loadItemInfoIcon(permissionInfo);
-
-                    PermissionApps permApps = new PermissionApps(getContext(), permissionInfo.name,
-                            null, pmCache);
-                    permApps.refreshSync();
-
-                    // Create the group and add to the list.
-                    PermissionGroup group = new PermissionGroup(permissionInfo.name,
-                            permissionInfo.packageName, label, icon,
-                            permApps.getTotalCount(launcherPkgs),
-                            permApps.getGrantedCount(launcherPkgs));
-                    groups.add(group);
-                }
-            }
-
-            Collections.sort(groups);
-            return groups;
-        }
-
-        private CharSequence loadItemInfoLabel(PackageItemInfo itemInfo) {
-            CharSequence label = itemInfo.loadSafeLabel(getContext().getPackageManager(), 0,
-                    SAFE_LABEL_FLAG_FIRST_LINE | SAFE_LABEL_FLAG_TRIM);
-            if (label == null) {
-                label = itemInfo.name;
-            }
-            return label;
-        }
-
-        private Drawable loadItemInfoIcon(PackageItemInfo itemInfo) {
-            Drawable icon = null;
-            if (itemInfo.icon > 0) {
-                icon = Utils.loadDrawable(getContext().getPackageManager(),
-                        itemInfo.packageName, itemInfo.icon);
-            }
-            if (icon == null) {
-                icon = getContext().getDrawable(R.drawable.ic_perm_device_info);
-            }
-            return icon;
+            return getAllPermissionGroups(getContext(), this::isLoadInBackgroundCanceled);
         }
 
         @Override
