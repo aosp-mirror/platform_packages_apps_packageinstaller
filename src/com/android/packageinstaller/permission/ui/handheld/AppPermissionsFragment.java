@@ -61,8 +61,6 @@ public final class AppPermissionsFragment extends SettingsWithHeader
 
     static final String EXTRA_HIDE_INFO_BUTTON = "hideInfoButton";
 
-    private static final int MENU_ALL_PERMS = 0;
-
     private ArraySet<AppPermissionGroup> mToggledGroups;
     private AppPermissions mAppPermissions;
     private PreferenceScreen mExtraScreen;

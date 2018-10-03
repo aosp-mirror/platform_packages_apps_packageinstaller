@@ -25,7 +25,8 @@ LOCAL_STATIC_ANDROID_LIBRARIES += \
     androidx.leanback_leanback-preference \
     SettingsLibHelpUtils \
     SettingsLibRestrictedLockUtils \
-    SettingsLibAppPreference
+    SettingsLibAppPreference \
+    SettingsLibSearchWidget
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
     androidx.annotation_annotation
