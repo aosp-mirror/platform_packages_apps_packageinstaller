@@ -48,6 +48,7 @@ public final class Utils {
     public static final float DEFAULT_MAX_LABEL_SIZE_PX = 500f;
 
     public static final String[] MODERN_PERMISSION_GROUPS = {
+            Manifest.permission_group.ACTIVITY_RECOGNITION,
             Manifest.permission_group.CALENDAR,
             Manifest.permission_group.CALL_LOG,
             Manifest.permission_group.CAMERA,
