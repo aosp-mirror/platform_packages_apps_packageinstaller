@@ -31,6 +31,7 @@ import android.content.pm.PermissionInfo;
 import android.os.Build;
 import android.os.Process;
 import android.os.UserHandle;
+import android.provider.Settings;
 import android.util.ArrayMap;
 
 import androidx.annotation.StringRes;
@@ -164,6 +165,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         // Parse and create permissions reqested by the app
         ArrayMap<String, Permission> allPermissions = new ArrayMap<>();
         final int permissionCount = packageInfo.requestedPermissions.length;
+        String packageName = packageInfo.packageName;
         for (int i = 0; i < permissionCount; i++) {
             String requestedPermission = packageInfo.requestedPermissions[i];
 
@@ -200,11 +202,11 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
             final boolean appOpAllowed = appOp != null
                     && context.getSystemService(AppOpsManager.class).checkOpNoThrow(appOp,
-                    packageInfo.applicationInfo.uid, packageInfo.packageName)
+                    packageInfo.applicationInfo.uid, packageName)
                     == MODE_ALLOWED;
 
             final int flags = context.getPackageManager().getPermissionFlags(
-                    requestedPermission, packageInfo.packageName, userHandle);
+                    requestedPermission, packageName, userHandle);
 
             Permission permission = new Permission(requestedPermission,
                     requestedPermissionInfo.backgroundPermission, granted,
@@ -264,7 +266,20 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
                 group.getBackgroundPermissions().addPermission(permission);
             } else {
-                group.addPermission(permission);
+                boolean smsAccessRestrictionEnabled = Settings.Global.getInt(
+                        group.mContext.getContentResolver(),
+                        Settings.Global.SMS_ACCESS_RESTRICTION_ENABLED, 0) == 1;
+                if (!smsAccessRestrictionEnabled) {
+                    group.addPermission(permission);
+                } else {
+                    String appOp = permission.getAppOp();
+                    boolean appOpDefault = appOp != null && group.mAppOps.unsafeCheckOpNoThrow(
+                            appOp, packageInfo.applicationInfo.uid, packageName)
+                            == AppOpsManager.MODE_DEFAULT;
+                    if (!appOpDefault) {
+                        group.addPermission(permission);
+                    }
+                }
             }
         }
 
