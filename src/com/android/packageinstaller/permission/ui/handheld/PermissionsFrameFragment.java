@@ -16,6 +16,7 @@
 
 package com.android.packageinstaller.permission.ui.handheld;
 
+import static android.provider.Settings.ACTION_APP_SEARCH_SETTINGS;
 import static android.view.MenuItem.SHOW_AS_ACTION_ALWAYS;
 
 import android.content.ActivityNotFoundException;
@@ -41,8 +42,6 @@ import com.android.permissioncontroller.R;
 public abstract class PermissionsFrameFragment extends PreferenceFragmentCompat {
     private static final String LOG_TAG = PermissionsFrameFragment.class.getSimpleName();
 
-    private static final String ACTION_SEARCH_SETTINGS = "android.settings.SETTINGS_SEARCH";
-
     private static final int MENU_SEARCH_SETTINGS = Menu.FIRST;
     static final int MENU_ALL_PERMS = Menu.FIRST + 1;
     static final int MENU_SHOW_SYSTEM = Menu.FIRST + 2;
@@ -67,8 +66,8 @@ public abstract class PermissionsFrameFragment extends PreferenceFragmentCompat 
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
 
-        if (getContext().getPackageManager().resolveActivity(new Intent(ACTION_SEARCH_SETTINGS), 0)
-                != null) {
+        if (getContext().getPackageManager().resolveActivity(new Intent(ACTION_APP_SEARCH_SETTINGS),
+                0) != null) {
             MenuItem searchItem = menu.add(Menu.NONE, MENU_SEARCH_SETTINGS, Menu.NONE,
                     R.string.search_menu);
             searchItem.setIcon(R.drawable.ic_search_24dp);
@@ -81,7 +80,7 @@ public abstract class PermissionsFrameFragment extends PreferenceFragmentCompat 
         switch (item.getItemId()) {
             case MENU_SEARCH_SETTINGS:
                 try {
-                    getActivity().startActivity(new Intent(ACTION_SEARCH_SETTINGS));
+                    getActivity().startActivity(new Intent(ACTION_APP_SEARCH_SETTINGS));
                 } catch (ActivityNotFoundException e) {
                     Log.e(LOG_TAG, "Cannot search settings", e);
                 }
