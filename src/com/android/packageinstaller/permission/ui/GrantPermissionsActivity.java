@@ -42,6 +42,7 @@ import android.permission.PermissionManager;
 import android.text.Html;
 import android.text.Spanned;
 import android.util.ArrayMap;
+import android.util.ArraySet;
 import android.util.Log;
 import android.util.Pair;
 import android.view.KeyEvent;
@@ -63,7 +64,6 @@ import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.permissioncontroller.R;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class GrantPermissionsActivity extends Activity
@@ -804,24 +804,29 @@ public class GrantPermissionsActivity extends Activity
 
         // If a permission is split, all permissions the original permission is split into are
         // affected
-        ArrayList<String> splitPerms = new ArrayList<>();
-        splitPerms.add(permission);
-        for (PermissionManager.SplitPermissionInfo splitPerm
-                : getSystemService(PermissionManager.class).getSplitPermissions()) {
+        ArrayList<String> extendedBySplitPerms = new ArrayList<>();
+        extendedBySplitPerms.add(permission);
+
+        List<PermissionManager.SplitPermissionInfo> splitPerms = getSystemService(
+                PermissionManager.class).getSplitPermissions();
+        int numSplitPerms = splitPerms.size();
+        for (int i = 0; i < numSplitPerms; i++) {
+            PermissionManager.SplitPermissionInfo splitPerm = splitPerms.get(i);
+
             if (requestingAppTargetSDK < splitPerm.getTargetSdk()
-                    && permission.equals(splitPerm.getRootPermission())) {
-                Collections.addAll(splitPerms, splitPerm.getNewPermissions());
+                    && permission.equals(splitPerm.getSplitPermission())) {
+                extendedBySplitPerms.addAll(splitPerm.getNewPermissions());
             }
         }
 
         // For <= N_MR1 apps all permissions of the groups of the requested permissions are affected
         if (requestingAppTargetSDK <= Build.VERSION_CODES.N_MR1) {
-            ArrayList<String> extendedPermissions = new ArrayList<>();
+            ArrayList<String> extendedBySplitPermsAndGroup = new ArrayList<>();
 
-            int numSplitPerms = splitPerms.size();
-            for (int splitPermNum = 0; splitPermNum < numSplitPerms; splitPermNum++) {
+            int numExtendedBySplitPerms = extendedBySplitPerms.size();
+            for (int splitPermNum = 0; splitPermNum < numExtendedBySplitPerms; splitPermNum++) {
                 AppPermissionGroup group = mAppPermissions.getGroupForPermission(
-                        splitPerms.get(splitPermNum));
+                        extendedBySplitPerms.get(splitPermNum));
 
                 if (group == null) {
                     continue;
@@ -830,13 +835,13 @@ public class GrantPermissionsActivity extends Activity
                 ArrayList<Permission> permissionsInGroup = group.getPermissions();
                 int numPermissionsInGroup = permissionsInGroup.size();
                 for (int permNum = 0; permNum < numPermissionsInGroup; permNum++) {
-                    extendedPermissions.add(permissionsInGroup.get(permNum).getName());
+                    extendedBySplitPermsAndGroup.add(permissionsInGroup.get(permNum).getName());
                 }
             }
 
-            return extendedPermissions;
+            return extendedBySplitPermsAndGroup;
         } else {
-            return splitPerms;
+            return extendedBySplitPerms;
         }
     }
 
