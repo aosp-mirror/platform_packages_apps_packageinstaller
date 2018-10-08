@@ -93,7 +93,7 @@ public final class AppPermissionsFragmentWear extends PreferenceFragmentCompat {
                 // by the device or profile owner. So get that info and pass it to
                 // the support details dialog.
                 EnforcedAdmin deviceOrProfileOwner = RestrictedLockUtils.getProfileOrDeviceOwner(
-                        mActivity, UserHandle.myUserId());
+                        mActivity, UserHandle.of(UserHandle.myUserId()));
                 RestrictedLockUtils.sendShowAdminSupportDetailsIntent(
                         mActivity, deviceOrProfileOwner);
             }
