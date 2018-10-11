@@ -260,8 +260,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                             group.getLabel(), group.getDescription(), group.getRequest(),
                             group.getRequestDetail(), group.getBackgroundRequest(),
                             group.getBackgroundRequestDetail(), group.getIconPkg(),
-                            group.getIconResId(), UserHandle.of(group.getUserId()),
-                            delayChanges);
+                            group.getIconResId(), group.getUser(), delayChanges);
                 }
 
                 group.getBackgroundPermissions().addPermission(permission);
@@ -509,8 +508,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         return mDescription;
     }
 
-    public int getUserId() {
-        return mUserHandle.getIdentifier();
+    public UserHandle getUser() {
+        return mUserHandle;
     }
 
     public boolean hasPermission(String permission) {

@@ -181,7 +181,7 @@ class PermissionPreference extends MultiTargetSwitchPreference {
      * @return The admin or {@code null} if there is no admin.
      */
     private EnforcedAdmin getAdmin() {
-        return RestrictedLockUtils.getProfileOrDeviceOwner(getContext(), mGroup.getUserId());
+        return RestrictedLockUtils.getProfileOrDeviceOwner(getContext(), mGroup.getUser());
     }
 
     @Override
