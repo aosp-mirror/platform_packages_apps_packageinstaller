@@ -18,28 +18,59 @@ package com.android.packageinstaller.permission.ui;
 
 import static android.view.WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
 import com.android.packageinstaller.DeviceUtils;
 import com.android.packageinstaller.permission.ui.handheld.ManageStandardPermissionsFragment;
+import com.android.packageinstaller.permission.ui.handheld.PermissionUsageFragment;
 
 public final class ManagePermissionsActivity extends FragmentActivity {
+    private static final String LOG_TAG = ManagePermissionsActivity.class.getSimpleName();
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        android.app.Fragment fragment = null;
+        Fragment androidXFragment = null;
+        String action = getIntent().getAction();
+
         getWindow().addSystemFlags(SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
 
-        if (DeviceUtils.isTelevision(this)) {
-            getFragmentManager().beginTransaction().replace(android.R.id.content,
-                    com.android.packageinstaller.permission.ui.television.ManagePermissionsFragment
-                            .newInstance()).commit();
+        switch (action) {
+            case Intent.ACTION_MANAGE_PERMISSIONS:
+                if (DeviceUtils.isTelevision(this)) {
+                    fragment =
+                            com.android.packageinstaller.permission.ui.television
+                                    .ManagePermissionsFragment.newInstance();
+                } else {
+                    androidXFragment = ManageStandardPermissionsFragment.newInstance();
+                }
+                break;
+
+            case Intent.ACTION_REVIEW_PERMISSION_USAGE:
+                androidXFragment = PermissionUsageFragment.newInstance();
+                break;
+
+            default: {
+                Log.w(LOG_TAG, "Unrecognized action " + action);
+                finish();
+                return;
+            }
+        }
+
+        if (fragment != null) {
+            getFragmentManager().beginTransaction().replace(android.R.id.content, fragment)
+                    .commit();
         } else {
             getSupportFragmentManager().beginTransaction().replace(android.R.id.content,
-                    ManageStandardPermissionsFragment.newInstance()).commit();
+                    androidXFragment).commit();
         }
     }
 
