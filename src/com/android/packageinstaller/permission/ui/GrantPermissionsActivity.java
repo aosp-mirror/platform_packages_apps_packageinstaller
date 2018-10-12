@@ -694,7 +694,8 @@ public class GrantPermissionsActivity extends Activity
      */
     private void onPermissionGrantResultSingleState(GroupState groupState, boolean granted,
             boolean doNotAskAgain) {
-        if (groupState != null && groupState.mGroup != null) {
+        if (groupState != null && groupState.mGroup != null
+                && groupState.mState == GroupState.STATE_UNKNOWN) {
             if (granted) {
                 groupState.mGroup.grantRuntimePermissions(doNotAskAgain,
                         groupState.affectedPermissions);
