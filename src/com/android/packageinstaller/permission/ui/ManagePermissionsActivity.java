@@ -16,7 +16,7 @@
 
 package com.android.packageinstaller.permission.ui;
 
-import static android.view.WindowManager.LayoutParams.PRIVATE_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS;
+import static android.view.WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -44,7 +44,7 @@ public final class ManagePermissionsActivity extends FragmentActivity {
             return;
         }
 
-        getWindow().addPrivateFlags(PRIVATE_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
+        getWindow().addSystemFlags(SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
 
         android.app.Fragment fragment = null;
         Fragment androidXFragment = null;
