@@ -100,6 +100,7 @@ public abstract class PermissionsFrameFragment extends PreferenceFragmentCompat 
             mPrefsView = rootView;
         }
         mEmptyView = mPrefsView.findViewById(R.id.no_permissions);
+        mEmptyView.setText(getEmptyViewString());
         mLoadingView = rootView.findViewById(R.id.loading_container);
         mPreferencesContainer = (ViewGroup) super.onCreateView(
                 inflater, mPrefsView, savedInstanceState);
@@ -207,5 +208,12 @@ public abstract class PermissionsFrameFragment extends PreferenceFragmentCompat 
             view.clearAnimation();
             view.setVisibility(shown ? View.VISIBLE : View.INVISIBLE);
         }
+    }
+
+    /**
+     * @return the id of the string to display when there are no entries to show.
+     */
+    public int getEmptyViewString() {
+        return R.string.no_permissions;
     }
 }
