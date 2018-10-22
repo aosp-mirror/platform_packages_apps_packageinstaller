@@ -70,6 +70,7 @@ public class Roles {
     private static final String TAG_PREFERRED_ACTIVITIES = "preferred-activites";
     private static final String TAG_PREFERRED_ACTIVITY = "preferred-activity";
     private static final String ATTRIBUTE_NAME = "name";
+    private static final String ATTRIBUTE_EXCLUSIVE = "exclusive";
     private static final String ATTRIBUTE_PERMISSION = "permission";
     private static final String ATTRIBUTE_SCHEME = "scheme";
     private static final String ATTRIBUTE_MIME_TYPE = "mimeType";
@@ -251,6 +252,22 @@ public class Roles {
             return null;
         }
 
+        String exclusiveString = requireAttributeValue(parser, ATTRIBUTE_EXCLUSIVE, TAG_ROLE);
+        if (exclusiveString == null) {
+            skipCurrentTag(parser);
+            return null;
+        }
+        boolean exclusive;
+        if (Objects.equals(exclusiveString, Boolean.toString(true))) {
+            exclusive = true;
+        } else if (Objects.equals(exclusiveString, Boolean.toString(false))) {
+            exclusive = false;
+        } else {
+            throwOrLogMessage("Unknown value for \"exclusive\" on <role>: " + exclusiveString);
+            skipCurrentTag(parser);
+            return null;
+        }
+
         List<RequiredComponent> requiredComponents = null;
         List<String> permissions = null;
         List<AppOp> appOps = null;
@@ -315,7 +332,8 @@ public class Roles {
         if (preferredActivities == null) {
             preferredActivities = Collections.emptyList();
         }
-        return new Role(name, requiredComponents, permissions, appOps, preferredActivities);
+        return new Role(name, exclusive, requiredComponents, permissions, appOps,
+                preferredActivities);
     }
 
     @NonNull
