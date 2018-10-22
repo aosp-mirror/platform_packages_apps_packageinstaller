@@ -16,16 +16,20 @@
 
 package com.android.packageinstaller.role.service;
 
+import android.app.role.RoleManager;
 import android.app.role.RoleManagerCallback;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.os.Handler;
+import android.os.HandlerThread;
 import android.os.UserHandle;
 import android.rolecontrollerservice.RoleControllerService;
 import android.text.TextUtils;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
 
 import com.android.packageinstaller.role.model.AppOp;
 import com.android.packageinstaller.role.model.PreferredActivity;
@@ -37,10 +41,32 @@ import java.util.List;
 /**
  * Implementation of {@link RoleControllerService}.
  */
-// STOPSHIP: TODO: Make single thread or add locking.
 public class RoleControllerServiceImpl extends RoleControllerService {
 
     private static final String LOG_TAG = RoleControllerServiceImpl.class.getSimpleName();
+
+    private RoleManager mRoleManager;
+
+    private HandlerThread mWorkerThread;
+    private Handler mWorkerHandler;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        mRoleManager = getSystemService(RoleManager.class);
+
+        mWorkerThread = new HandlerThread(RoleControllerServiceImpl.class.getSimpleName());
+        mWorkerThread.start();
+        mWorkerHandler = new Handler(mWorkerThread.getLooper());
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        mWorkerThread.quitSafely();
+    }
 
     @Override
     public void onAddRoleHolder(@NonNull String roleName, @NonNull String packageName,
@@ -59,7 +85,47 @@ public class RoleControllerServiceImpl extends RoleControllerService {
             callback.onFailure();
             return;
         }
+        mWorkerHandler.post(() -> addRoleHolder(roleName, packageName, callback));
+    }
 
+    @Override
+    public void onRemoveRoleHolder(@NonNull String roleName, @NonNull String packageName,
+            @NonNull RoleManagerCallback callback) {
+        if (callback == null) {
+            Log.e(LOG_TAG, "callback cannot be null");
+            return;
+        }
+        if (TextUtils.isEmpty(roleName)) {
+            Log.e(LOG_TAG, "roleName cannot be null or empty: " + roleName);
+            callback.onFailure();
+            return;
+        }
+        if (TextUtils.isEmpty(packageName)) {
+            Log.e(LOG_TAG, "packageName cannot be null or empty: " + roleName);
+            callback.onFailure();
+            return;
+        }
+        mWorkerHandler.post(() -> removeRoleHolder(roleName, packageName, callback));
+    }
+
+    @Override
+    public void onClearRoleHolders(@NonNull String roleName,
+            @NonNull RoleManagerCallback callback) {
+        if (callback == null) {
+            Log.e(LOG_TAG, "callback cannot be null");
+            return;
+        }
+        if (TextUtils.isEmpty(roleName)) {
+            Log.e(LOG_TAG, "roleName cannot be null or empty: " + roleName);
+            callback.onFailure();
+            return;
+        }
+        mWorkerHandler.post(() -> clearRoleHolders(roleName, callback));
+    }
+
+    @WorkerThread
+    private void addRoleHolder(@NonNull String roleName, @NonNull String packageName,
+            @NonNull RoleManagerCallback callback) {
         Role role = Roles.getRoles(this).get(roleName);
         if (role == null) {
             Log.e(LOG_TAG, "Unknown role: " + roleName);
@@ -92,7 +158,21 @@ public class RoleControllerServiceImpl extends RoleControllerService {
             return;
         }
 
-        // TODO: Revoke privileges from previous holder if exclusive.
+        if (role.isExclusive()) {
+            List<String> previousPackageNames = mRoleManager.getRoleHolders(roleName);
+            int previousPackageNamesSize = previousPackageNames.size();
+            for (int i = 0; i < previousPackageNamesSize; i++) {
+                String previousPackageName = previousPackageNames.get(i);
+                boolean removed = removeRoleHolderInternal(role, previousPackageName);
+                if (!removed) {
+                    Log.e(LOG_TAG, "Failed to remove previous holder from role holders in"
+                            + " RoleManager, package: " + packageName + ", role: " + roleName);
+                    // TODO: Clean up?
+                    callback.onFailure();
+                    return;
+                }
+            }
+        }
 
         if (applicationInfo.targetSdkVersion >= Build.VERSION_CODES.M) {
             List<String> permissions = role.getPermissions();
@@ -105,7 +185,6 @@ public class RoleControllerServiceImpl extends RoleControllerService {
             }
         }
 
-        // TODO: Flip other app ops together with permissions.
         List<AppOp> appOps = role.getAppOps();
         int appOpsSize = appOps.size();
         for (int i = 0; i < appOpsSize; i++) {
@@ -121,28 +200,105 @@ public class RoleControllerServiceImpl extends RoleControllerService {
             preferredActivity.configure(packageName, this);
         }
 
-        // TODO: Call RoleManager.addRoleHolderByController() or something.
+        boolean added = mRoleManager.addRoleHolderFromController(roleName, packageName);
+        if (!added) {
+            Log.e(LOG_TAG, "Failed to add package to role holders in RoleManager, package: "
+                    + packageName + ", role: " + roleName);
+            callback.onFailure();
+            return;
+        }
 
         callback.onSuccess();
     }
 
-    @Override
-    public void onRemoveRoleHolder(@NonNull String roleName, @NonNull String packageName,
+    @WorkerThread
+    private void removeRoleHolder(@NonNull String roleName, @NonNull String packageName,
             @NonNull RoleManagerCallback callback) {
-        // TODO
+        Role role = Roles.getRoles(this).get(roleName);
+        if (role == null) {
+            Log.e(LOG_TAG, "Unknown role: " + roleName);
+            callback.onFailure();
+            return;
+        }
 
-        // TODO: Call RoleManager.removeRoleHolderByController() or something.
+        boolean removed = removeRoleHolderInternal(role, packageName);
+        if (!removed) {
+            Log.e(LOG_TAG, "Failed to remove package from role holders in RoleManager, package: "
+                    + packageName + ", role: " + roleName);
+            callback.onFailure();
+            return;
+        }
 
         callback.onSuccess();
     }
 
-    @Override
-    public void onClearRoleHolders(@NonNull String roleName,
-            @NonNull RoleManagerCallback callback) {
-        // TODO
+    @WorkerThread
+    private void clearRoleHolders(@NonNull String roleName, @NonNull RoleManagerCallback callback) {
+        Role role = Roles.getRoles(this).get(roleName);
+        if (role == null) {
+            Log.e(LOG_TAG, "Unknown role: " + roleName);
+            callback.onFailure();
+            return;
+        }
 
-        // TODO: Call RoleManager.clearRoleHolderByController() or something.
+        List<String> packageNames = mRoleManager.getRoleHolders(roleName);
+        int packageNamesSize = packageNames.size();
+        for (int i = 0; i < packageNamesSize; i++) {
+            String packageName = packageNames.get(i);
+            boolean removed = removeRoleHolderInternal(role, packageName);
+            if (!removed) {
+                Log.e(LOG_TAG, "Failed to remove package when clearing role holders in RoleManager,"
+                        + " package: " + packageName + ", role: " + roleName);
+                callback.onFailure();
+                return;
+            }
+        }
 
         callback.onSuccess();
+    }
+
+    @WorkerThread
+    private boolean removeRoleHolderInternal(@NonNull Role role, @NonNull String packageName) {
+        // TODO: STOPSHIP: Revoke privileges from previous holders.
+        PackageManager packageManager = getPackageManager();
+        ApplicationInfo applicationInfo = null;
+        try {
+            applicationInfo = packageManager.getApplicationInfo(packageName,
+                    // TODO: Add PackageManager.MATCH_UNINSTALLED_PACKAGES ?
+                    PackageManager.MATCH_DIRECT_BOOT_AWARE
+                            | PackageManager.MATCH_DIRECT_BOOT_UNAWARE);
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.w(LOG_TAG, "Unknown package: " + packageName, e);
+        }
+
+        if (applicationInfo != null) {
+            if (applicationInfo.targetSdkVersion >= Build.VERSION_CODES.M) {
+                List<String> permissions = role.getPermissions();
+                int permissionsSize = permissions.size();
+                for (int i = 0; i < permissionsSize; i++) {
+                    String permission = permissions.get(i);
+                    // TODO: DefaultPermissionGrantPolicy is also checking some other flags.
+                    packageManager.revokeRuntimePermission(packageName, permission, UserHandle.of(
+                            UserHandle.myUserId()));
+                }
+            }
+
+            List<AppOp> appOps = role.getAppOps();
+            int appOpsSize = appOps.size();
+            for (int i = 0; i < appOpsSize; i++) {
+                AppOp appOp = appOps.get(i);
+                appOp.revoke(applicationInfo, this);
+                // TODO: STOPSHIP: Do we kill apps?
+            }
+
+            List<PreferredActivity> preferredActivities = role.getPreferredActivities();
+            int preferredActivitiesSize = preferredActivities.size();
+            for (int i = 0; i < preferredActivitiesSize; i++) {
+                PreferredActivity preferredActivity = preferredActivities.get(i);
+                preferredActivity.configure(packageName, this);
+            }
+        }
+
+        return mRoleManager.removeRoleHolderFromController(role.getName(), packageName);
     }
 }
