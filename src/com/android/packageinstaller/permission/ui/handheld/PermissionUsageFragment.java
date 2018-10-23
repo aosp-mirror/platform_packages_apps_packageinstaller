@@ -239,6 +239,11 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         setLoading(false, true);
     }
 
+    @Override
+    public int getEmptyViewString() {
+        return R.string.no_permission_usages;
+    }
+
     private void addPreferences() {
         PreferenceScreen screen = getPreferenceScreen();
         if (screen == null) {
