@@ -17,6 +17,7 @@
 package com.android.packageinstaller.permission.service;
 
 import static android.content.Intent.ACTION_MANAGE_PERMISSIONS;
+import static android.content.Intent.ACTION_REVIEW_PERMISSION_USAGE;
 import static android.provider.SearchIndexablesContract.INDEXABLES_RAW_COLUMNS;
 import static android.provider.SearchIndexablesContract.INDEXABLES_XML_RES_COLUMNS;
 import static android.provider.SearchIndexablesContract.NON_INDEXABLES_KEYS_COLUMNS;
@@ -70,6 +71,12 @@ public class PermissionSearchIndexablesProvider extends SearchIndexablesProvider
                         .add(COLUMN_INTENT_ACTION, ACTION_MANAGE_PERMISSIONS);
             }
         }
+
+        cursor.newRow().add(COLUMN_RANK, 0)
+                .add(COLUMN_TITLE, getContext().getString(R.string.permission_usage_title))
+                .add(COLUMN_KEYWORDS, getContext().getString(R.string.permission_search_keyword))
+                .add(COLUMN_KEY, getContext().getPackageName() + " - " + "permissions usage")
+                .add(COLUMN_INTENT_ACTION, ACTION_REVIEW_PERMISSION_USAGE);
 
         return cursor;
     }
