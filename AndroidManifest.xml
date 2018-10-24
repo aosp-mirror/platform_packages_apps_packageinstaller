@@ -51,6 +51,7 @@
             <intent-filter android:priority="1">
                 <action android:name="android.intent.action.MANAGE_APP_PERMISSIONS" />
                 <action android:name="android.intent.action.MANAGE_PERMISSION_APPS" />
+                <action android:name="android.intent.action.REVIEW_APP_PERMISSION_USAGE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

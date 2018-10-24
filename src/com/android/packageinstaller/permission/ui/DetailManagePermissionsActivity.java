@@ -98,6 +98,17 @@ public final class DetailManagePermissionsActivity extends FragmentActivity {
                 }
             } break;
 
+            case Intent.ACTION_REVIEW_APP_PERMISSION_USAGE: {
+                String packageName = getIntent().getStringExtra(Intent.EXTRA_PACKAGE_NAME);
+                if (packageName == null) {
+                    Log.i(LOG_TAG, "Missing mandatory argument EXTRA_PACKAGE_NAME");
+                    finish();
+                    return;
+                }
+                androidXFragment = com.android.packageinstaller.permission.ui.handheld
+                        .AppPermissionUsageFragment.newInstance(packageName);
+            } break;
+
             default: {
                 Log.w(LOG_TAG, "Unrecognized action " + action);
                 finish();

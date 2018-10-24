@@ -18,8 +18,6 @@ package com.android.packageinstaller.permission.model;
 
 import android.graphics.drawable.Drawable;
 
-import java.util.List;
-
 /**
  * A permission group with runtime permission as defined in an app's manifest as
  * {@code android:permission-group}.
@@ -35,11 +33,9 @@ public final class PermissionGroup implements Comparable<PermissionGroup> {
     private final int mTotal;
     private final int mGranted;
     private final PermissionApps mPermApps;
-    private final List<AppPermissionUsage> mAppPermissionUsages;
 
     PermissionGroup(String name, String declaringPackage, CharSequence label, Drawable icon,
-            int total, int granted, PermissionApps permApps,
-            List<AppPermissionUsage> appPermissionUsages) {
+            int total, int granted, PermissionApps permApps) {
         mDeclaringPackage = declaringPackage;
         mName = name;
         mLabel = label;
@@ -47,7 +43,6 @@ public final class PermissionGroup implements Comparable<PermissionGroup> {
         mTotal = total;
         mGranted = granted;
         mPermApps = permApps;
-        mAppPermissionUsages = appPermissionUsages;
     }
 
     public String getName() {
@@ -85,13 +80,6 @@ public final class PermissionGroup implements Comparable<PermissionGroup> {
      */
     public PermissionApps getPermissionApps() {
         return mPermApps;
-    }
-
-    /**
-     * @return The list of app permission usages of this permission group.
-     */
-    public List<AppPermissionUsage> getAppPermissionUsage() {
-        return mAppPermissionUsages;
     }
 
     @Override

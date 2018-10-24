@@ -264,6 +264,12 @@
     <!-- Help URL, permission usage [DO NOT TRANSLATE] -->
     <string name="help_permission_usage" translatable="false"></string>
 
+    <!-- Title for permission usage [CHAR LIMIT=30] -->
+    <string name="app_permission_usage_title">App permissions usage</string>
+
+    <!-- Summary for showing a single permission access [CHAR LIMIT=60] -->
+    <string name="app_permission_usage_summary"><xliff:g id="time" example="2 hours">%1$s</xliff:g> ago</string>
+
     <!-- Time in days -->
     <plurals name="days">
         <item quantity="one">1 day</item>
