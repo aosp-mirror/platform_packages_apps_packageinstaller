@@ -234,4 +234,58 @@
     <!-- Help URL, application permissions [DO NOT TRANSLATE] -->
     <string name="help_app_permissions" translatable="false"></string>
 
+    <!-- Title for permission usage [CHAR LIMIT=30] -->
+    <string name="permission_usage_title">Permissions usage</string>
+
+    <!-- Summary for showing a single permission access [CHAR LIMIT=60] -->
+    <string name="permission_usage_summary"><xliff:g id="perm" example="Location">%1$s</xliff:g> - <xliff:g id="time" example="2 hours">%2$s</xliff:g> ago</string>
+
+    <!-- Description for showing permission accesses with any preference [CHAR LIMIT=30] -->
+    <string name="permission_usage_any_preference">Any preference</string>
+
+    <!-- Description for showing permission accesses accessed any time [CHAR LIMIT=30] -->
+    <string name="permission_usage_any_time">Any time</string>
+
+    <!-- Description for showing permissions accessed in the last 7 days [CHAR LIMIT=30] -->
+    <string name="permission_usage_last_7_days">Last 7 days</string>
+
+    <!-- Description for showing permissions accessed in the last day [CHAR LIMIT=30] -->
+    <string name="permission_usage_last_day">Last 24 hours</string>
+
+    <!-- Description for showing permissions accessed in the last hour [CHAR LIMIT=30] -->
+    <string name="permission_usage_last_hour">Last 1 hour</string>
+
+    <!-- Description for showing permissions accessed in the last 15 minutes [CHAR LIMIT=30] -->
+    <string name="permission_usage_last_15_minutes">Last 15 minutes</string>
+
+    <!-- Label when no apps have used the requested permissions [CHAR LIMIT=30] -->
+    <string name="no_permission_usages">No permission usages</string>
+
+    <!-- Help URL, permission usage [DO NOT TRANSLATE] -->
+    <string name="help_permission_usage" translatable="false"></string>
+
+    <!-- Time in days -->
+    <plurals name="days">
+        <item quantity="one">1 day</item>
+        <item quantity="other"><xliff:g id="number" example="7">%s</xliff:g> days</item>
+    </plurals>
+
+    <!-- Time in hours -->
+    <plurals name="hours">
+        <item quantity="one">1 hour</item>
+        <item quantity="other"><xliff:g id="number" example="7">%s</xliff:g> hours</item>
+    </plurals>
+
+    <!-- Time in minutes -->
+    <plurals name="minutes">
+        <item quantity="one">1 minute</item>
+        <item quantity="other"><xliff:g id="number" example="7">%s</xliff:g> minutes</item>
+    </plurals>
+
+    <!-- Time in seconds -->
+    <plurals name="seconds">
+        <item quantity="one">1 second</item>
+        <item quantity="other"><xliff:g id="number" example="7">%s</xliff:g> seconds</item>
+    </plurals>
+
 </resources>

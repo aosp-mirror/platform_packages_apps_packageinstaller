@@ -17,11 +17,6 @@
 package com.android.packageinstaller.permission.ui.television;
 
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.preference.PreferenceFragment;
-import androidx.leanback.widget.VerticalGridView;
-import androidx.preference.PreferenceScreen;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +24,12 @@ import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.leanback.widget.VerticalGridView;
+import androidx.preference.PreferenceFragment;
+import androidx.preference.PreferenceScreen;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.permissioncontroller.R;
 
@@ -147,6 +148,7 @@ public abstract class PermissionsFrameFragment extends PreferenceFragment {
 
         if (adapter != null) {
             final TextView emptyView = (TextView) getView().findViewById(R.id.no_permissions);
+            emptyView.setText(R.string.no_permissions);
             onSetEmptyText(emptyView);
             final RecyclerView recyclerView = getListView();
             adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {

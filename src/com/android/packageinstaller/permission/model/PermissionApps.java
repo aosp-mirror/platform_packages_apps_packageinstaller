@@ -101,8 +101,8 @@ public class PermissionApps {
      * Refresh the state and do not return until it finishes. Should not be called while an {@link
      * #refresh async referesh} is in progress.
      */
-    public void refreshSync() {
-        mSkipUi = true;
+    public void refreshSync(boolean getUiInfo) {
+        mSkipUi = !getUiInfo;
         createMap(loadPermissionApps());
     }
 
