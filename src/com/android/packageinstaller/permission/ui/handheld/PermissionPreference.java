@@ -571,6 +571,12 @@ class PermissionPreference extends MultiTargetSwitchPreference {
             return;
         }
 
+        if (LocationUtils.isLocationGroupAndProvider(getContext(), mGroup.getName(),
+                mGroup.getApp().packageName)) {
+            LocationUtils.showLocationDialog(getContext(), getAppLabel());
+            return;
+        }
+
         Bundle args = new Bundle();
         args.putCharSequence(BackgroundAccessChooser.TITLE,
                 getRequestMessage(getAppLabel(), mGroup, getContext(), mGroup.getRequest()));
