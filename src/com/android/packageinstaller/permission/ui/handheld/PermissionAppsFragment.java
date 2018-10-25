@@ -72,7 +72,6 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
 
     private ArraySet<AppPermissionGroup> mToggledGroups;
     private ArraySet<String> mLauncherPkgs;
-    private boolean mHasConfirmedRevoke;
 
     private boolean mShowSystem;
     private boolean mHasSystemApps;
@@ -342,12 +341,12 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
 
     @Override
     public boolean shouldConfirmDefaultPermissionRevoke() {
-        return !mHasConfirmedRevoke;
+        return true;
     }
 
     @Override
     public void hasConfirmDefaultPermissionRevoke() {
-        mHasConfirmedRevoke = true;
+        // do nothing
     }
 
     public static class SystemAppsFragment extends PermissionsFrameFragment implements Callback {
