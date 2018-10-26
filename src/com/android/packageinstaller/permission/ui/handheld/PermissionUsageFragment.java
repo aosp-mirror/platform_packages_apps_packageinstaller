@@ -371,7 +371,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         // Create the spinner entries.
         mFilterAdapterPermissions.clear();
         mFilterAdapterPermissions.addFilter(new PermissionFilterItem(null,
-                context.getString(R.string.permission_usage_any_preference)));
+                context.getString(R.string.permission_usage_any_permission)));
         for (int i = 0, numGroups = filterGroups.size(); i < numGroups; i++) {
             PermissionGroup group = filterGroups.get(i);
             mFilterAdapterPermissions.addFilter(new PermissionFilterItem(group,
