@@ -184,12 +184,7 @@
             <permission-set name="camera" />
         </permissions>
         <app-ops>
-            <app-op name="android:read_sms" mode="allowed" />
             <app-op name="android:write_sms" mode="allowed" />
-            <app-op name="android:receive_sms" mode="allowed" />
-            <app-op name="android:receive_wap_push" mode="allowed" />
-            <app-op name="android:send_sms" mode="allowed" />
-            <app-op name="android:read_cell_broadcasts" mode="allowed" />
         </app-ops>
         <preferred-activities>
             <preferred-activiy>

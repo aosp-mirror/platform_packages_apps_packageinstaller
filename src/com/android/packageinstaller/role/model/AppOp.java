@@ -18,12 +18,8 @@ package com.android.packageinstaller.role.model;
 
 import android.app.AppOpsManager;
 import android.content.Context;
-import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.PermissionInfo;
-import android.os.Build;
 import android.os.UserHandle;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -77,7 +73,7 @@ public class AppOp {
         if (grantedMode == null) {
             return;
         }
-        setAppOpMode(packageName, mName, grantedMode, context);
+        Permissions.setAppOpMode(packageName, mName, grantedMode, context);
     }
 
     /**
@@ -96,33 +92,34 @@ public class AppOp {
     @Nullable
     private Integer computeGrantedMode(@NonNull String packageName, boolean overrideUser,
             @NonNull Context context) {
-        String permission = AppOpsManager.opToPermission(mName);
+        String permission = Permissions.getPermissionAppOp(mName);
         if (permission == null) {
             // No permission associated with this app op, just return our mode.
             return mMode;
         }
 
-        boolean permissionFixed = isPermissionFixed(packageName, permission, overrideUser,
-                context);
-        String backgroundPermission = getBackgroundPermission(permission, context);
+        boolean isPermissionFixed = Permissions.isPermissionFixed(packageName, permission, false,
+                overrideUser, context);
+        String backgroundPermission = Permissions.getBackgroundPermission(permission, context);
 
         if (isAppOpModePermissive(mMode)) {
-            if (!isPermissionGranted(packageName, permission, context)) {
+            if (!Permissions.isPermissionGrantedWithoutCheckingAppOp(packageName, permission,
+                    context)) {
                 // The permission isn't granted, we can't set the mode to permissive.
                 return null;
             }
 
-            Integer currentMode = getAppOpMode(packageName, mName, context);
-            boolean currentModePermissive = currentMode != null && isAppOpModePermissive(
+            Integer currentMode = Permissions.getAppOpMode(packageName, mName, context);
+            boolean isCurrentModePermissive = currentMode != null && isAppOpModePermissive(
                     currentMode);
-            if (permissionFixed && !currentModePermissive) {
+            if (isPermissionFixed && !isCurrentModePermissive) {
                 // The permission is fixed to a non-permissive mode, we can't set it to a permissive
                 // mode.
                 return null;
             }
 
             if (backgroundPermission == null) {
-                if (permissionFixed) {
+                if (isPermissionFixed) {
                     // The permission doesn't have a background permission and is fixed, we can't
                     // change anything.
                     return null;
@@ -133,17 +130,19 @@ public class AppOp {
                 }
             }
 
-            if (isRuntimePermissionsSupported(packageName, context)) {
+            if (Permissions.isRuntimePermissionsSupported(packageName, context)) {
                 // Foreground permission is granted, derive the mode from whether the background
                 // permission is granted.
-                if (isPermissionGranted(packageName, backgroundPermission, context)) {
+                if (Permissions.isPermissionGrantedWithoutCheckingAppOp(packageName,
+                        backgroundPermission, context)) {
                     return AppOpsManager.MODE_ALLOWED;
                 } else {
                     return AppOpsManager.MODE_FOREGROUND;
                 }
             } else {
-                if (isPermissionFixed(packageName, backgroundPermission, overrideUser, context)) {
-                    if (currentModePermissive) {
+                if (Permissions.isPermissionFixed(packageName, backgroundPermission, false,
+                        overrideUser, context)) {
+                    if (isCurrentModePermissive) {
                         // The background permission is fixed to a permissive mode, we can't change
                         // anything.
                         return null;
@@ -161,7 +160,7 @@ public class AppOp {
                 return mMode;
             }
         } else {
-            if (permissionFixed) {
+            if (isPermissionFixed) {
                 // The permission is fixed, we can't set the mode to another non-permissive mode.
                 return null;
             }
@@ -172,7 +171,8 @@ public class AppOp {
                 return mMode;
             }
 
-            if (isPermissionFixed(packageName, backgroundPermission, overrideUser, context)) {
+            if (Permissions.isPermissionFixed(packageName, backgroundPermission, false,
+                    overrideUser, context)) {
                 // The background permission is fixed, we can't change anything.
                 return null;
             }
@@ -196,7 +196,7 @@ public class AppOp {
         if (revokedMode == null) {
             return;
         }
-        setAppOpMode(packageName, mName, revokedMode, context);
+        Permissions.setAppOpMode(packageName, mName, revokedMode, context);
     }
 
     /**
@@ -216,22 +216,24 @@ public class AppOp {
         String permission = AppOpsManager.opToPermission(mName);
         if (permission == null) {
             // No permission associated with this app op, just return the default mode.
-            return getDefaultAppOpMode(mName);
+            return Permissions.getDefaultAppOpMode(mName);
         }
 
-        String backgroundPermission = getBackgroundPermission(permission, context);
-        boolean permissionFixed = isPermissionFixed(packageName, permission, false, context);
-        boolean runtimePermissionsSupported = isRuntimePermissionsSupported(packageName, context);
+        String backgroundPermission = Permissions.getBackgroundPermission(permission, context);
+        boolean isPermissionFixed = Permissions.isPermissionFixed(packageName, permission, false,
+                false, context);
+        boolean isRuntimePermissionsSupported = Permissions.isRuntimePermissionsSupported(
+                packageName, context);
         if (backgroundPermission == null) {
-            if (permissionFixed) {
+            if (isPermissionFixed) {
                 // The permission doesn't have a background permission and is fixed, we can't change
                 // anything.
                 return null;
             } else {
                 // The permission doesn't have a background permission and isn't fixed, return the
                 // default mode.
-                int defaultMode = getDefaultAppOpMode(mName);
-                if (!runtimePermissionsSupported) {
+                int defaultMode = Permissions.getDefaultAppOpMode(mName);
+                if (!isRuntimePermissionsSupported) {
                     // The app doesn't support runtime permissions, let the user decide whether it
                     // gets the permission if we reset it to a permissive mode.
                     addPermissionReviewRequiredFlagForPermissiveAppOpMode(packageName, permission,
@@ -241,27 +243,29 @@ public class AppOp {
             }
         }
 
-        if (runtimePermissionsSupported) {
-            if (isPermissionGranted(packageName, permission, context)) {
+        if (isRuntimePermissionsSupported) {
+            if (Permissions.isPermissionGrantedWithoutCheckingAppOp(packageName,
+                    permission, context)) {
                 // Foreground permission is granted, derive the mode from whether the background
                 // permission is granted.
-                if (isPermissionGranted(packageName, backgroundPermission, context)) {
+                if (Permissions.isPermissionGrantedWithoutCheckingAppOp(packageName,
+                        backgroundPermission, context)) {
                     return AppOpsManager.MODE_ALLOWED;
                 } else {
                     return AppOpsManager.MODE_FOREGROUND;
                 }
             } else {
-                if (permissionFixed) {
+                if (isPermissionFixed) {
                     // Foreground permission is fixed to revoked, we can't change anything.
                     return null;
                 }
                 // Return the default mode.
-                return getDefaultAppOpMode(mName);
+                return Permissions.getDefaultAppOpMode(mName);
             }
         } else {
-            Integer currentMode = getAppOpMode(packageName, mName, context);
-            boolean backgroundPermissionFixed = isPermissionFixed(packageName, backgroundPermission,
-                    false, context);
+            Integer currentMode = Permissions.getAppOpMode(packageName, mName, context);
+            boolean backgroundPermissionFixed = Permissions.isPermissionFixed(packageName,
+                    backgroundPermission, false, false, context);
             if (backgroundPermissionFixed) {
                 if (currentMode != null && currentMode == AppOpsManager.MODE_ALLOWED) {
                     // The background permission is fixed to MODE_ALLOWED, we can't change anything.
@@ -270,7 +274,7 @@ public class AppOp {
                 // The background permission is fixed with a mode other than MODE_ALLOWED, keep
                 // going.
             }
-            if (permissionFixed) {
+            if (isPermissionFixed) {
                 if (currentMode != null && currentMode == AppOpsManager.MODE_ALLOWED) {
                     // The foreground permission is fixed with MODE_ALLOWED, and since we got here
                     // the background permission is not fixed, so we set the mode to
@@ -282,7 +286,7 @@ public class AppOp {
                 return null;
             }
             // Return the default mode.
-            int defaultMode = getDefaultAppOpMode(mName);
+            int defaultMode = Permissions.getDefaultAppOpMode(mName);
             if (backgroundPermissionFixed) {
                 if (defaultMode == AppOpsManager.MODE_ALLOWED) {
                     // The background permission is fixed with a mode other than MODE_ALLOWED, so
@@ -296,89 +300,6 @@ public class AppOp {
         }
     }
 
-    // TODO: Move into Permissions
-    /**
-     * Check if an application supports runtime permissions.
-     *
-     * @param packageName the package name of the application
-     * @param context the {@code Context} to retrieve system services
-     *
-     * @return whether the application supports runtime permissions, or {@code false} if the check
-     * failed.
-     */
-    private static boolean isRuntimePermissionsSupported(@NonNull String packageName,
-            @NonNull Context context) {
-        ApplicationInfo applicationInfo = getApplicationInfo(packageName, context);
-        if (applicationInfo == null) {
-            return false;
-        }
-        return applicationInfo.targetSdkVersion >= Build.VERSION_CODES.M;
-    }
-
-    // TODO: Move into Permissions
-    /**
-     * Check if a permission is fixed by flags.
-     *
-     * @param packageName the package name of the application
-     * @param permission the name of the permission
-     * @param overrideUser whether user's permission settings can be overridden
-     * @param context the {@code Context} to retrieve system services
-     *
-     * @return whether the permission is fixed by flags.
-     */
-    private boolean isPermissionFixed(@NonNull String packageName, @NonNull String permission,
-            boolean overrideUser, @NonNull Context context) {
-        PackageManager packageManager = context.getPackageManager();
-        UserHandle user = UserHandle.of(UserHandle.myUserId());
-        int flags = packageManager.getPermissionFlags(permission, packageName, user);
-        int fixedFlags = PackageManager.FLAG_PERMISSION_SYSTEM_FIXED
-                | PackageManager.FLAG_PERMISSION_POLICY_FIXED;
-        if (!overrideUser) {
-            fixedFlags |= PackageManager.FLAG_PERMISSION_USER_FIXED
-                    | PackageManager.FLAG_PERMISSION_USER_SET;
-        }
-        return (flags & fixedFlags) != 0;
-    }
-
-    // TODO: Move into Permissions
-    /**
-     * Check if a permission is granted to an application.
-     *
-     * @param packageName the package name of the application
-     * @param permission the name of the permission
-     * @param context the {@code Context} to retrieve system services
-     *
-     * @return whether the permission is granted to the application.
-     */
-    private static boolean isPermissionGranted(@NonNull String packageName,
-            @NonNull String permission, @NonNull Context context) {
-        return context.getPackageManager().checkPermission(permission, packageName)
-                == PackageManager.PERMISSION_GRANTED;
-    }
-
-    // TODO: Move into Permissions
-    /**
-     * Retrieve the background permission of a permission.
-     *
-     * @param permission the name of the permission
-     * @param context the {@code Context} to retrieve system services
-     *
-     * @return the background permission of the permission, or {@code null} if none
-     */
-    @Nullable
-    private static String getBackgroundPermission(@NonNull String permission,
-            @NonNull Context context) {
-        PermissionInfo permissionInfo;
-        try {
-            permissionInfo = context.getPackageManager().getPermissionInfo(permission, 0);
-        } catch (PackageManager.NameNotFoundException e) {
-            Log.e(LOG_TAG, "Cannot get PermissionInfo for permission: " + permission, e);
-            return null;
-        }
-        return permissionInfo.backgroundPermission;
-    }
-
-    // TODO: Move into Permissions
     /**
      * Add {@link PackageManager#FLAG_PERMISSION_REVIEW_REQUIRED} for the permission if the app op
      * mode is permissive.
@@ -411,85 +332,6 @@ public class AppOp {
      */
     private static boolean isAppOpModePermissive(int mode) {
         return mode == AppOpsManager.MODE_ALLOWED || mode == AppOpsManager.MODE_FOREGROUND;
-    }
-
-    /**
-     * Retrieve an app op mode for an application.
-     *
-     * @param packageName the package name of the application
-     * @param appOp the name of the app op to retrieve
-     * @param context the {@code Context} to retrieve system services
-     *
-     * @return the app op mode for the application, or {@code null} if it cannot be retrieved
-     */
-    @Nullable
-    private static Integer getAppOpMode(@NonNull String packageName,
-            @NonNull String appOp, @NonNull Context context) {
-        ApplicationInfo applicationInfo = getApplicationInfo(packageName, context);
-        if (applicationInfo == null) {
-            return null;
-        }
-        AppOpsManager appOpsManager = context.getSystemService(AppOpsManager.class);
-        return appOpsManager.unsafeCheckOpRaw(appOp, applicationInfo.uid, packageName);
-    }
-
-    /**
-     * Retrieve the default mode of an app op
-     *
-     * @param appOp the name of the app op to retrieve
-     *
-     * @return the default mode of the app op
-     */
-    private static int getDefaultAppOpMode(@NonNull String appOp) {
-        return AppOpsManager.opToDefaultMode(appOp);
-    }
-
-    /**
-     * Set an app op mode for an application.
-     *
-     * @param packageName the package name of the application
-     * @param appOp the name of the app op to set
-     * @param mode the mode of the app op to set
-     * @param context the {@code Context} to retrieve system services
-     *
-     * @return whether app op mode is changed
-     */
-    private static boolean setAppOpMode(@NonNull String packageName, @NonNull String appOp,
-            int mode, @NonNull Context context) {
-        Integer currentMode = getAppOpMode(packageName, appOp, context);
-        if (currentMode != null && currentMode == mode) {
-            return false;
-        }
-        ApplicationInfo applicationInfo = getApplicationInfo(packageName, context);
-        if (applicationInfo == null) {
-            Log.e(LOG_TAG, "Cannot get ApplicationInfo for package to set app op mode: "
-                    + packageName);
-            return false;
-        }
-        AppOpsManager appOpsManager = context.getSystemService(AppOpsManager.class);
-        appOpsManager.setUidMode(appOp, applicationInfo.uid, mode);
-        return true;
-    }
-
-    /**
-     * Retrieve the {@link ApplicationInfo} of an application.
-     *
-     * @param packageName the package name of the application
-     * @param context the {@code Context} to retrieve system services
-     *
-     * @return the {@link ApplicationInfo} of the application, or {@code null} if it cannot be
-     *         retrieved
-     */
-    @Nullable
-    private static ApplicationInfo getApplicationInfo(@NonNull String packageName,
-            @NonNull Context context) {
-        try {
-            return context.getPackageManager().getApplicationInfo(packageName,
-                    PackageManager.MATCH_DIRECT_BOOT_AWARE
-                            | PackageManager.MATCH_DIRECT_BOOT_UNAWARE);
-        } catch (PackageManager.NameNotFoundException e) {
-            return null;
-        }
     }
 
     @Override
