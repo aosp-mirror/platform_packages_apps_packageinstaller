@@ -58,7 +58,9 @@ public final class Utils {
             Manifest.permission_group.SMS,
             Manifest.permission_group.PHONE,
             Manifest.permission_group.MICROPHONE,
-            Manifest.permission_group.STORAGE
+            Manifest.permission_group.STORAGE,
+            Manifest.permission_group.MEDIA_AURAL,
+            Manifest.permission_group.MEDIA_VISUAL,
     };
 
     private static final Intent LAUNCHER_INTENT = new Intent(Intent.ACTION_MAIN, null)
