@@ -27,7 +27,6 @@ import android.content.DialogInterface;
 import android.content.pm.PackageItemInfo;
 import android.os.Bundle;
 import android.text.BidiFormatter;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.Switch;
 
@@ -184,17 +183,6 @@ class PermissionPreference extends MultiTargetSwitchPreference {
         return RestrictedLockUtils.getProfileOrDeviceOwner(getContext(), mGroup.getUser());
     }
 
-    @Override
-    public void performClick(View view) {
-        EnforcedAdmin admin = getAdmin();
-
-        if (isPolicyFullyFixed() && admin != null) {
-            RestrictedLockUtils.sendShowAdminSupportDetailsIntent(getContext(), admin);
-        } else {
-            super.performClick(view);
-        }
-    }
-
     /**
      * Update the preference after the state might have changed.
      */
@@ -213,10 +201,15 @@ class PermissionPreference extends MultiTargetSwitchPreference {
         setChecked(mGroup.areRuntimePermissionsGranted());
 
         if (isPolicyFullyFixed() || isForegroundDisabledByPolicy()) {
-            setEnabled(false);
-
             if (admin != null) {
                 setWidgetLayoutResource(R.layout.restricted_icon);
+
+                setOnPreferenceClickListener((v) -> {
+                    RestrictedLockUtils.sendShowAdminSupportDetailsIntent(getContext(), admin);
+                    return true;
+                });
+            } else {
+                setEnabled(false);
             }
 
             updateSummaryForFixedByPolicyPermissionGroup();
@@ -575,6 +568,12 @@ class PermissionPreference extends MultiTargetSwitchPreference {
      */
     private void showBackgroundChooserDialog() {
         if (!mFragment.isResumed()) {
+            return;
+        }
+
+        if (LocationUtils.isLocationGroupAndProvider(getContext(), mGroup.getName(),
+                mGroup.getApp().packageName)) {
+            LocationUtils.showLocationDialog(getContext(), getAppLabel());
             return;
         }
 
