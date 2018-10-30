@@ -51,6 +51,11 @@ public class Role {
     private final String mName;
 
     /**
+     * Whether this role is exclusive, i.e. allows at most one holder.
+     */
+    private final boolean mExclusive;
+
+    /**
      * The required components for an application to qualify for this role.
      */
     @NonNull
@@ -74,10 +79,11 @@ public class Role {
     @NonNull
     private final List<PreferredActivity> mPreferredActivities;
 
-    public Role(@NonNull String name, @NonNull List<RequiredComponent> requiredComponents,
-            @NonNull List<String> permissions, @NonNull List<AppOp> appOps,
-            @NonNull List<PreferredActivity> preferredActivities) {
+    public Role(@NonNull String name, boolean exclusive,
+            @NonNull List<RequiredComponent> requiredComponents, @NonNull List<String> permissions,
+            @NonNull List<AppOp> appOps, @NonNull List<PreferredActivity> preferredActivities) {
         mName = name;
+        mExclusive = exclusive;
         mRequiredComponents = requiredComponents;
         mPermissions = permissions;
         mAppOps = appOps;
@@ -87,6 +93,10 @@ public class Role {
     @NonNull
     public String getName() {
         return mName;
+    }
+
+    public boolean isExclusive() {
+        return mExclusive;
     }
 
     @NonNull
@@ -179,6 +189,7 @@ public class Role {
     public String toString() {
         return "Role{"
                 + "mName='" + mName + '\''
+                + ", mExclusive=" + mExclusive
                 + ", mRequiredComponents=" + mRequiredComponents
                 + ", mPermissions=" + mPermissions
                 + ", mAppOps=" + mAppOps
@@ -195,7 +206,8 @@ public class Role {
             return false;
         }
         Role role = (Role) object;
-        return Objects.equals(mName, role.mName)
+        return mExclusive == role.mExclusive
+                && Objects.equals(mName, role.mName)
                 && Objects.equals(mRequiredComponents, role.mRequiredComponents)
                 && Objects.equals(mPermissions, role.mPermissions)
                 && Objects.equals(mAppOps, role.mAppOps)
@@ -204,7 +216,7 @@ public class Role {
 
     @Override
     public int hashCode() {
-        return Objects.hash(mName, mRequiredComponents, mPermissions, mAppOps,
+        return Objects.hash(mName, mExclusive, mRequiredComponents, mPermissions, mAppOps,
                 mPreferredActivities);
     }
 }
