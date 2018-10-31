@@ -18,6 +18,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="2792757108872430971">"Baimenen kontrolatzailea"</string>
     <string name="ok" msgid="4417794827535157922">"Ados"</string>
+    <string name="permission_search_keyword" msgid="1652964722383449182">"baimenak"</string>
     <string name="cancel" msgid="7279939269964834974">"Utzi"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Ez da aurkitu aplikazioa"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Ukatu"</string>
@@ -83,4 +84,29 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Uneko baimenak"</string>
     <string name="message_staging" msgid="641286607664721291">"Aplikazioa prestatzen…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Ezezaguna"</string>
+    <string name="permission_usage_title" msgid="8266350477620264117">"Eskatutako baimenak"</string>
+    <string name="permission_usage_summary" msgid="6578074505443814465">"<xliff:g id="PERM">%1$s</xliff:g>: duela <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Edozein baimen"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"Edonoiz"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Azken 7 egunetan"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"Azken 24 orduetan"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Azken orduan"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Azken 15 minutuetan"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"Ez da eskatu baimenik"</string>
+    <plurals name="days" formatted="false" msgid="3903419301028414979">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> egun</item>
+      <item quantity="one">1 egun</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="2123927014975877155">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ordu</item>
+      <item quantity="one">1 ordu</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="4331145652577957044">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> minutu</item>
+      <item quantity="one">1 minutu</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="1632909606956324957">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> segundo</item>
+      <item quantity="one">1 segundo</item>
+    </plurals>
 </resources>

@@ -18,6 +18,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="2792757108872430971">"Engedélykezelő"</string>
     <string name="ok" msgid="4417794827535157922">"OK"</string>
+    <string name="permission_search_keyword" msgid="1652964722383449182">"engedélyek"</string>
     <string name="cancel" msgid="7279939269964834974">"Mégse"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Az alkalmazás nem található"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Tiltás"</string>
@@ -83,4 +84,29 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Jelenlegi engedélyek"</string>
     <string name="message_staging" msgid="641286607664721291">"Alkalmazás fokozatos közzététele…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Ismeretlen"</string>
+    <string name="permission_usage_title" msgid="8266350477620264117">"Engedélyhasználat"</string>
+    <string name="permission_usage_summary" msgid="6578074505443814465">"<xliff:g id="PERM">%1$s</xliff:g> – ennyivel ezelőtt: <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Bármely engedély"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"Bármikor"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Elmúlt 7 nap"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"Elmúlt 24 óra"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Elmúlt 1 óra"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Elmúlt 15 perc"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"Nincs engedélyhasználat"</string>
+    <plurals name="days" formatted="false" msgid="3903419301028414979">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> nap</item>
+      <item quantity="one">1 nap</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="2123927014975877155">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> óra</item>
+      <item quantity="one">1 óra</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="4331145652577957044">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> perc</item>
+      <item quantity="one">1 perc</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="1632909606956324957">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> másodperc</item>
+      <item quantity="one">1 másodperc</item>
+    </plurals>
 </resources>
