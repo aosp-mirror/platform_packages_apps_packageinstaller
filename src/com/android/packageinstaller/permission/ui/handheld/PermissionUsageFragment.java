@@ -18,7 +18,6 @@ package com.android.packageinstaller.permission.ui.handheld;
 
 import android.app.ActionBar;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.ArrayMap;
 import android.util.ArraySet;
@@ -269,12 +268,12 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         mHasSystemApps = false;
         boolean menuOptionsInvalided = false;
         Context context = getPreferenceManager().getContext();
-        Set<String> addedEntries = new ArraySet<>();
         List<AppPermissionUsage> appPermissionUsages = new ArrayList<>();
         List<PermissionGroup> groups = mPermissionGroups.getGroups();
         Map<AppPermissionUsage, PermissionApp> usageToApp = new ArrayMap<>();
-        for (int i = 0, numGroups = groups.size(); i < numGroups; i++) {
-            PermissionGroup permissionGroup = groups.get(i);
+        int numGroups = groups.size();
+        for (int groupNum = 0; groupNum < numGroups; groupNum++) {
+            PermissionGroup permissionGroup = groups.get(groupNum);
             // Filter out third party permissions
             if (!permissionGroup.getDeclaringPackage().equals(ManagePermissionsFragment.OS_PKG)) {
                 continue;
@@ -289,59 +288,57 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
                 continue;
             }
             PermissionApps permApps = permissionGroup.getPermissionApps();
-            List<AppPermissionUsage> usages = permissionGroup.getAppPermissionUsage();
-            for (int j = 0, numUsages = usages.size(); j < numUsages; j++) {
-                AppPermissionUsage usage = usages.get(j);
-                PermissionApp permApp = permApps.getApp(usage.getPackageName() + usage.getUid());
-                if (permApp == null) {
-                    continue;
-                }
+            List<PermissionApp> permissionApps = permApps.getApps();
+            int numApps = permissionApps.size();
+            for (int appNum = 0; appNum < numApps; appNum++) {
+                PermissionApp permApp = permissionApps.get(appNum);
                 AppPermissionGroup group = permApp.getPermissionGroup();
-                if (group == null || !Utils.shouldShowPermission(context, group)) {
+                if (!Utils.shouldShowPermission(context, group)) {
                     continue;
                 }
-                // Implement time filter.
-                if ((System.currentTimeMillis() - usage.getTime()) / 1000 > timeFilter) {
-                    continue;
-                }
-                // Filter out entries we've seen before.
-                if (!addedEntries.add(usage.getPackageName() + "," + permissionGroup.getName())) {
-                    continue;
-                }
+                List<AppPermissionUsage> groupUsages = group.getAppPermissionUsage();
+                int numUsages = groupUsages.size();
+                for (int usageNum = 0; usageNum < numUsages; usageNum++) {
+                    AppPermissionUsage usage = groupUsages.get(usageNum);
+                    if (usage.getTime() == 0) {
+                        continue;
+                    }
+                    // Implement time filter.
+                    if ((System.currentTimeMillis() - usage.getTime()) / 1000 > timeFilter) {
+                        continue;
+                    }
 
-                boolean isSystemApp = Utils.isSystem(permApp, mLauncherPkgs);
-                if (isSystemApp && !menuOptionsInvalided) {
-                    mHasSystemApps = true;
-                    getActivity().invalidateOptionsMenu();
-                    menuOptionsInvalided = true;
-                }
+                    boolean isSystemApp = Utils.isSystem(permApp, mLauncherPkgs);
+                    if (isSystemApp && !menuOptionsInvalided) {
+                        mHasSystemApps = true;
+                        getActivity().invalidateOptionsMenu();
+                        menuOptionsInvalided = true;
+                    }
 
-                if (!isSystemApp || mShowSystem) {
-                    appPermissionUsages.add(usage);
-                    usageToApp.put(usage, permApp);
+                    if (!isSystemApp || mShowSystem) {
+                        appPermissionUsages.add(usage);
+                        usageToApp.put(usage, permApp);
+                    }
                 }
             }
         }
 
         // Add the permission usages.
         appPermissionUsages.sort(Comparator.comparing(AppPermissionUsage::getTime).reversed());
+        Set<String> addedEntries = new ArraySet<>();
         for (int i = 0, numUsages = appPermissionUsages.size(); i < numUsages; i++) {
             AppPermissionUsage usage = appPermissionUsages.get(i);
+            // Filter out entries we've seen before.
+            if (!addedEntries.add(usage.getPackageName() + "," + usage.getPermissionGroupName())) {
+                continue;
+            }
             PermissionApp permApp = usageToApp.get(usage);
-            Preference pref = new Preference(context);
-            pref.setKey(usage.getPackageName() + "," + usage.getPermissionGroupLabel());
-            pref.setTitle(permApp.getLabel());
-            pref.setIcon(permApp.getIcon());
             long timeDiff = System.currentTimeMillis() - usage.getTime();
-            String timeDiffStr = getTimeDiffStr(context, timeDiff);
-            pref.setSummary(context.getString(R.string.permission_usage_summary,
-                    usage.getPermissionGroupLabel(), timeDiffStr));
-            pref.setOnPreferenceClickListener(preference -> {
-                Intent intent = new Intent(Intent.ACTION_MANAGE_APP_PERMISSIONS);
-                intent.putExtra(Intent.EXTRA_PACKAGE_NAME, usage.getPackageName());
-                context.startActivity(intent);
-                return true;
-            });
+            String timeDiffStr = Utils.getTimeDiffStr(context, timeDiff);
+            String summary = context.getString(R.string.permission_usage_summary,
+                    usage.getPermissionGroupLabel(), timeDiffStr);
+            Preference pref = new PermissionUsagePreference(context, usage, permApp.getLabel(),
+                    summary, permApp.getIcon());
             screen.addPreference(pref);
         }
     }
@@ -390,33 +387,6 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
             }
         }
         mFilterSpinnerPermissions.setSelection(selectedPosition);
-    }
-
-    /**
-     * Build a string representing the number of milliseconds passed in.  It rounds to the nearest
-     * unit.  For example, given a duration of 3500 and an English locale, this can return
-     * "3 seconds".
-     * @param context The context.
-     * @param duration The number of milliseconds.
-     * @return a string representing the given number of milliseconds.
-     */
-    private static @NonNull String getTimeDiffStr(Context context, long duration) {
-        long seconds = Math.max(1, duration / 1000);
-        if (seconds < 60) {
-            return context.getResources().getQuantityString(R.plurals.seconds, (int) seconds,
-                    seconds);
-        }
-        long minutes = seconds / 60;
-        if (minutes < 60) {
-            return context.getResources().getQuantityString(R.plurals.minutes, (int) minutes,
-                    minutes);
-        }
-        long hours = minutes / 60;
-        if (hours < 24) {
-            return context.getResources().getQuantityString(R.plurals.hours, (int) hours, hours);
-        }
-        long days = hours / 24;
-        return context.getResources().getQuantityString(R.plurals.days, (int) days, days);
     }
 
     /**

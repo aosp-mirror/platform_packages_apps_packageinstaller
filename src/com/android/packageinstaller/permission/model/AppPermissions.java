@@ -22,12 +22,8 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageItemInfo;
 import android.content.pm.PackageManager;
-import android.graphics.drawable.Drawable;
-import android.os.UserHandle;
 import android.text.BidiFormatter;
 import android.util.ArrayMap;
-
-import com.android.packageinstaller.permission.utils.IconDrawableFactory;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -64,8 +60,6 @@ public final class AppPermissions {
 
     private PackageInfo mPackageInfo;
 
-    private Drawable mIcon;
-
     public AppPermissions(Context context, PackageInfo packageInfo, boolean sortGroups,
             Runnable onErrorCallback) {
         this(context, packageInfo, sortGroups, false, onErrorCallback);
@@ -84,8 +78,6 @@ public final class AppPermissions {
         mSortGroups = sortGroups;
         mDelayChanges = delayChanges;
         mOnErrorCallback = onErrorCallback;
-        mIcon = IconDrawableFactory.getBadgedIcon(mContext, mPackageInfo.applicationInfo,
-                UserHandle.getUserHandleForUid(mPackageInfo.applicationInfo.uid));
         loadPermissionGroups();
     }
 
@@ -108,10 +100,6 @@ public final class AppPermissions {
 
     public List<AppPermissionGroup> getPermissionGroups() {
         return mGroups;
-    }
-
-    public Drawable getIcon() {
-        return mIcon;
     }
 
     public boolean isReviewRequired() {

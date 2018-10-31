@@ -19,7 +19,6 @@ package com.android.packageinstaller.permission.model;
 import static android.content.pm.PackageItemInfo.SAFE_LABEL_FLAG_FIRST_LINE;
 import static android.content.pm.PackageItemInfo.SAFE_LABEL_FLAG_TRIM;
 
-import android.app.AppOpsManager;
 import android.app.LoaderManager;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.AsyncTaskLoader;
@@ -41,8 +40,6 @@ import androidx.annotation.Nullable;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -149,9 +146,6 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
         PackageManager packageManager = context.getPackageManager();
         List<PermissionGroupInfo> groupInfos = packageManager.getAllPermissionGroups(0);
 
-        AppOpsManager appOpsManager = (AppOpsManager) context.getSystemService(
-                AppOpsManager.class);
-
         for (PermissionGroupInfo groupInfo : groupInfos) {
             // Mare sure we respond to cancellation.
             if (isCanceled != null && isCanceled.get()) {
@@ -166,12 +160,10 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
                 continue;
             }
 
-            ArraySet<String> groupPermissionNames = new ArraySet<>();
             boolean hasRuntimePermissions = false;
 
             // Cache seen permissions and see if group has runtime permissions.
             for (PermissionInfo groupPermission : groupPermissions) {
-                groupPermissionNames.add(groupPermission.name);
                 seenPermissions.add(groupPermission.name);
                 if ((groupPermission.protectionLevel & PermissionInfo.PROTECTION_MASK_BASE)
                         == PermissionInfo.PROTECTION_DANGEROUS
@@ -193,13 +185,10 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
                     pmCache);
             permApps.refreshSync(true);
 
-            List<AppPermissionUsage> appPermissionUsages = getAppUsages(label,
-                    groupPermissionNames, appOpsManager);
-
             // Create the group and add to the list.
             PermissionGroup group = new PermissionGroup(groupInfo.name,
                     groupInfo.packageName, label, icon, permApps.getTotalCount(launcherPkgs),
-                    permApps.getGrantedCount(launcherPkgs), permApps, appPermissionUsages);
+                    permApps.getGrantedCount(launcherPkgs), permApps);
             groups.add(group);
         }
 
@@ -250,63 +239,17 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
                         null, pmCache);
                 permApps.refreshSync(true);
 
-                ArraySet<String> groupPermissionNames = new ArraySet<>();
-                groupPermissionNames.add(permissionInfo.name);
-                List<AppPermissionUsage> appPermissionUsages = getAppUsages(label,
-                        groupPermissionNames, appOpsManager);
-
                 // Create the group and add to the list.
                 PermissionGroup group = new PermissionGroup(permissionInfo.name,
                         permissionInfo.packageName, label, icon,
                         permApps.getTotalCount(launcherPkgs),
-                        permApps.getGrantedCount(launcherPkgs), permApps, appPermissionUsages);
+                        permApps.getGrantedCount(launcherPkgs), permApps);
                 groups.add(group);
             }
         }
 
         Collections.sort(groups);
         return groups;
-    }
-
-    private static List<AppPermissionUsage> getAppUsages(CharSequence permissionGroupLabel,
-            ArraySet<String> permissions, AppOpsManager appOpsManager) {
-        try {
-            // Get the appops for the given permissions.  Note that this does not get the appops
-            // whose switch is this permission group.
-            // TODO: Use the real API instead of reflection once the API is finalized.
-            int[] ops = new int[permissions.size()];
-            Method permissionToOpCodeMethod = AppOpsManager.class.getMethod("permissionToOpCode",
-                    String.class);
-            for (int i = 0, numPermissions = permissions.size(); i < numPermissions; i++) {
-                ops[i] = (int) permissionToOpCodeMethod.invoke(null, permissions.valueAt(i));
-            }
-            Method getPackagesForOpsMethod = AppOpsManager.class.getMethod("getPackagesForOps",
-                    int[].class);
-            List<AppOpsManager.PackageOps> pkgOps =
-                    (List<AppOpsManager.PackageOps>) getPackagesForOpsMethod.invoke(appOpsManager,
-                            ops);
-
-            if (pkgOps == null) {
-                return Collections.emptyList();
-            }
-            List<AppPermissionUsage> appPermissionUsages = new ArrayList<>();
-            // Convert each single appop into an AppPermissionUsage.
-            int numPkgOps = pkgOps.size();
-            for (int packageNum = 0; packageNum < numPkgOps; packageNum++) {
-                AppOpsManager.PackageOps pkgOp = pkgOps.get(packageNum);
-                List<AppOpsManager.OpEntry> curOps = pkgOp.getOps();
-                int numOps = curOps.size();
-                for (int opNum = 0; opNum < numOps; opNum++) {
-                    AppOpsManager.OpEntry op = curOps.get(opNum);
-                    AppPermissionUsage appPermissionUsage = new AppPermissionUsage(pkgOp, op,
-                            permissionGroupLabel);
-                    appPermissionUsages.add(appPermissionUsage);
-                }
-            }
-            return appPermissionUsages;
-        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-            return Collections.emptyList();
-        }
     }
 
     private static final class PermissionsLoader extends AsyncTaskLoader<List<PermissionGroup>>
