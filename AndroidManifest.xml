@@ -21,6 +21,7 @@
     <uses-permission android:name="android.permission.MANAGE_APP_OPS_RESTRICTIONS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.HIDE_NON_SYSTEM_OVERLAY_WINDOWS" />
+    <uses-permission android:name="android.permission.MANAGE_ROLE_HOLDERS" />
 
     <uses-permission android:name="android.permission.ACCESS_INSTANT_APPS" />
 
@@ -96,6 +97,13 @@
                  android:permission="android.permission.BIND_RUNTIME_PERMISSION_PRESENTER_SERVICE">
             <intent-filter android:priority="1">
                 <action android:name="android.permissionpresenterservice.RuntimePermissionPresenterService"/>
+            </intent-filter>
+        </service>
+
+        <service android:name="com.android.packageinstaller.role.service.RoleControllerServiceImpl"
+                 android:permission="android.permission.BIND_ROLE_CONTROLLER_SERVICE">
+            <intent-filter android:priority="1">
+                <action android:name="android.rolecontrollerservice.RoleControllerService"/>
             </intent-filter>
         </service>
     </application>
