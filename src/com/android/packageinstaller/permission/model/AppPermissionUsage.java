@@ -24,14 +24,16 @@ import androidx.annotation.NonNull;
  * A single instance of an app accessing a permission.
  */
 public final class AppPermissionUsage {
-    private final AppOpsManager.PackageOps mPkgOp;
-    private final AppOpsManager.OpEntry mOp;
-    private final CharSequence mPermissionGroupLabel;
+    private final @NonNull AppOpsManager.PackageOps mPkgOp;
+    private final @NonNull AppOpsManager.OpEntry mOp;
+    private final @NonNull String mPermissionGroupName;
+    private final @NonNull CharSequence mPermissionGroupLabel;
 
     AppPermissionUsage(@NonNull AppOpsManager.PackageOps pkgOp, @NonNull AppOpsManager.OpEntry op,
-            @NonNull CharSequence permissionGroupLabel) {
+            @NonNull String permissionGroupName, @NonNull CharSequence permissionGroupLabel) {
         mPkgOp = pkgOp;
         mOp = op;
+        mPermissionGroupName = permissionGroupName;
         mPermissionGroupLabel = permissionGroupLabel;
     }
 
@@ -45,6 +47,10 @@ public final class AppPermissionUsage {
 
     public long getTime() {
         return mOp.getLastAccessTime();
+    }
+
+    public @NonNull String getPermissionGroupName() {
+        return mPermissionGroupName;
     }
 
     public @NonNull CharSequence getPermissionGroupLabel() {
