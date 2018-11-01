@@ -18,6 +18,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="2792757108872430971">"Ovládač povolení"</string>
     <string name="ok" msgid="4417794827535157922">"OK"</string>
+    <string name="permission_search_keyword" msgid="1652964722383449182">"povolenia"</string>
     <string name="cancel" msgid="7279939269964834974">"Zrušiť"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Aplikácia sa nenašla"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Zamietnuť"</string>
@@ -85,4 +86,37 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Aktuálne povolenia"</string>
     <string name="message_staging" msgid="641286607664721291">"Aplikácia je zavádzaná po etapách…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Neznáme"</string>
+    <string name="permission_usage_title" msgid="8266350477620264117">"Využitie povolení"</string>
+    <string name="permission_usage_summary" msgid="6578074505443814465">"<xliff:g id="PERM">%1$s</xliff:g> – pred <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Všetky povolenia"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"Kedykoľvek"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Posledných 7 dní"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"Posledných 24 hodín"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Posledná hodina"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Posledných 15 minút"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"Žiadne využitie povolení"</string>
+    <plurals name="days" formatted="false" msgid="3903419301028414979">
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> dni</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> dňa</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> dní</item>
+      <item quantity="one">1 deň</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="2123927014975877155">
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> hodiny</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> hodiny</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> hodín</item>
+      <item quantity="one">1 hodina</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="4331145652577957044">
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> minúty</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> minúty</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> minút</item>
+      <item quantity="one">1 minúta</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="1632909606956324957">
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> sekundy</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> sekundy</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sekúnd</item>
+      <item quantity="one">1 sekunda</item>
+    </plurals>
 </resources>

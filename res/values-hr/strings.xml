@@ -18,6 +18,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="2792757108872430971">"Upravljač dopuštenjima"</string>
     <string name="ok" msgid="4417794827535157922">"U redu"</string>
+    <string name="permission_search_keyword" msgid="1652964722383449182">"dopuštenja"</string>
     <string name="cancel" msgid="7279939269964834974">"Odustani"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Aplikacija nije pronađena"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Odbij"</string>
@@ -84,4 +85,33 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Trenutačna dopuštenja"</string>
     <string name="message_staging" msgid="641286607664721291">"Postavljanje aplikacije…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Nepoznato"</string>
+    <string name="permission_usage_title" msgid="8266350477620264117">"Upotreba dopuštenja"</string>
+    <string name="permission_usage_summary" msgid="6578074505443814465">"<xliff:g id="PERM">%1$s</xliff:g> – prije <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Bilo koje dopuštenje"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"Bilo kad"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Posljednjih tjedan dana"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"Posljednja 24 sata"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Posljednjih sat vremena"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Posljednjih 15 minuta"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"Nema upotreba dopuštenja"</string>
+    <plurals name="days" formatted="false" msgid="3903419301028414979">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> dana</item>
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> dana</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> dana</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="2123927014975877155">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> sata</item>
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> sata</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sati</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="4331145652577957044">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> minute</item>
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> minute</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> minuta</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="1632909606956324957">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> sekunde</item>
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> sekunde</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sekundi</item>
+    </plurals>
 </resources>

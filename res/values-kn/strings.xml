@@ -18,6 +18,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="2792757108872430971">"ಅನುಮತಿ ನಿಯಂತ್ರಕ"</string>
     <string name="ok" msgid="4417794827535157922">"ಸರಿ"</string>
+    <string name="permission_search_keyword" msgid="1652964722383449182">"ಅನುಮತಿಗಳು"</string>
     <string name="cancel" msgid="7279939269964834974">"ರದ್ದುಮಾಡಿ"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"ಆ್ಯಪ್ ಕಂಡುಬಂದಿಲ್ಲ"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"ನಿರಾಕರಿಸಿ"</string>
@@ -83,4 +84,29 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"ಪ್ರಸ್ತುತ ಅನುಮತಿಗಳು"</string>
     <string name="message_staging" msgid="641286607664721291">"ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಲು ಸಿದ್ಧವಿರುವ ಆ್ಯಪ್…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"ಅಪರಿಚಿತ"</string>
+    <string name="permission_usage_title" msgid="8266350477620264117">"ಅನುಮತಿಗಳ ಬಳಕೆ"</string>
+    <string name="permission_usage_summary" msgid="6578074505443814465">"<xliff:g id="PERM">%1$s</xliff:g> - <xliff:g id="TIME">%2$s</xliff:g> ಹಿಂದೆ"</string>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"ಯಾವುದೇ ಅನುಮತಿ"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"ಯಾವುದಾದರೂ ಸಮಯದಲ್ಲಿ"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"ಕಳೆದ 7 ದಿನಗಳು"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"ಕೊನೆಯ 24 ಗಂಟೆಗಳು"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"1 ಗಂಟೆಯ ಹಿಂದೆ"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"ಹಿಂದಿನ 15 ನಿಮಿಷಗಳು"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"ಅನುಮತಿಯ ಬಳಕೆಗಳು ಇಲ್ಲ"</string>
+    <plurals name="days" formatted="false" msgid="3903419301028414979">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> ದಿನಗಳು</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ದಿನಗಳು</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="2123927014975877155">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> ಗಂಟೆಗಳು</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ಗಂಟೆಗಳು</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="4331145652577957044">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> ನಿಮಿಷಗಳು</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ನಿಮಿಷಗಳು</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="1632909606956324957">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> ಸೆಕೆಂಡುಗಳು</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ಸೆಕೆಂಡುಗಳು</item>
+    </plurals>
 </resources>
