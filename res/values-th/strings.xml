@@ -18,6 +18,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="2792757108872430971">"ตัวควบคุมสิทธิ์"</string>
     <string name="ok" msgid="4417794827535157922">"ตกลง"</string>
+    <string name="permission_search_keyword" msgid="1652964722383449182">"สิทธิ์"</string>
     <string name="cancel" msgid="7279939269964834974">"ยกเลิก"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"ไม่พบแอปพลิเคชัน"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"ปฏิเสธ"</string>
@@ -83,4 +84,29 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"สิทธิ์ปัจจุบัน"</string>
     <string name="message_staging" msgid="641286607664721291">"กำลังปรับสภาพแวดล้อมของแอป…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"ไม่ทราบ"</string>
+    <string name="permission_usage_title" msgid="8266350477620264117">"การใช้สิทธิ์"</string>
+    <string name="permission_usage_summary" msgid="6578074505443814465">"<xliff:g id="PERM">%1$s</xliff:g> - <xliff:g id="TIME">%2$s</xliff:g> ที่ผ่านมา"</string>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"สิทธิ์ใดก็ได้"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"ทุกเวลา"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"7 วันที่ผ่านมา"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"24 ชั่วโมงที่ผ่านมา"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"1 ชั่วโมงที่ผ่านมา"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"15 นาทีที่ผ่านมา"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"ไม่มีการใช้สิทธิ์"</string>
+    <plurals name="days" formatted="false" msgid="3903419301028414979">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> วัน</item>
+      <item quantity="one">1 วัน</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="2123927014975877155">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ชั่วโมง</item>
+      <item quantity="one">1 ชั่วโมง</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="4331145652577957044">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> นาที</item>
+      <item quantity="one">1 นาที</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="1632909606956324957">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> วินาที</item>
+      <item quantity="one">1 วินาที</item>
+    </plurals>
 </resources>

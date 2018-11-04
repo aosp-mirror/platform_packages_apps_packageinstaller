@@ -56,7 +56,7 @@ class MultiTargetSwitchPreference extends SwitchPreference {
             if (mSwitchOnClickLister != null) {
                 final int padding = (int) ((holder.itemView.getMeasuredHeight()
                         - switchView.getMeasuredHeight()) / 2 + 0.5f);
-                switchView.setPadding(padding, padding, 0, padding);
+                switchView.setPaddingRelative(padding, padding, 0, padding);
             }
         }
     }

@@ -18,6 +18,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="2792757108872430971">"Kontroler uprawnień"</string>
     <string name="ok" msgid="4417794827535157922">"OK"</string>
+    <string name="permission_search_keyword" msgid="1652964722383449182">"uprawnienia"</string>
     <string name="cancel" msgid="7279939269964834974">"Anuluj"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Nie znaleziono aplikacji"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Odmów"</string>
@@ -85,4 +86,37 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Aktualne uprawnienia"</string>
     <string name="message_staging" msgid="641286607664721291">"Przygotowuję aplikację…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Inny"</string>
+    <string name="permission_usage_title" msgid="8266350477620264117">"Użycie uprawnień"</string>
+    <string name="permission_usage_summary" msgid="6578074505443814465">"<xliff:g id="PERM">%1$s</xliff:g> – <xliff:g id="TIME">%2$s</xliff:g> temu"</string>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Dowolne uprawnienie"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"Dowolny czas"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Ostatnie 7 dni"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"Ostatnie 24 godziny"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Ostatnia godzina"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Ostatnie 15 minut"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"Brak użycia uprawnień"</string>
+    <plurals name="days" formatted="false" msgid="3903419301028414979">
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> dni</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> dni</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> dnia</item>
+      <item quantity="one">1 dzień</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="2123927014975877155">
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> godziny</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> godzin</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> godziny</item>
+      <item quantity="one">1 godzina</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="4331145652577957044">
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> minuty</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> minut</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> minuty</item>
+      <item quantity="one">1 minuta</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="1632909606956324957">
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> sekundy</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> sekund</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sekundy</item>
+      <item quantity="one">1 sekunda</item>
+    </plurals>
 </resources>

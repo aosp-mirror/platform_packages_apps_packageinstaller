@@ -18,6 +18,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="2792757108872430971">"Kidhibiti cha ruhusa"</string>
     <string name="ok" msgid="4417794827535157922">"Sawa"</string>
+    <string name="permission_search_keyword" msgid="1652964722383449182">"ruhusa"</string>
     <string name="cancel" msgid="7279939269964834974">"Ghairi"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Programu haikupatikana"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Kataa"</string>
@@ -83,4 +84,29 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Ruhusa zilizopo"</string>
     <string name="message_staging" msgid="641286607664721291">"Inatayarisha programu…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Haijulikani"</string>
+    <string name="permission_usage_title" msgid="8266350477620264117">"Matumizi ya ruhusa"</string>
+    <string name="permission_usage_summary" msgid="6578074505443814465">"<xliff:g id="PERM">%1$s</xliff:g> - <xliff:g id="TIME">%2$s</xliff:g> zilizopita"</string>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Ruhusa yoyote"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"Wakati wowote"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Siku 7 zilizopita"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"Saa 24 zilizopita"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Saa 1 iliyopita"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Dakika 15 zilizopita"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"Hakuna matumizi ya ruhusa"</string>
+    <plurals name="days" formatted="false" msgid="3903419301028414979">
+      <item quantity="other">Siku <xliff:g id="NUMBER">%s</xliff:g></item>
+      <item quantity="one">Siku 1</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="2123927014975877155">
+      <item quantity="other">Saa <xliff:g id="NUMBER">%s</xliff:g></item>
+      <item quantity="one">Saa 1</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="4331145652577957044">
+      <item quantity="other">Dakika <xliff:g id="NUMBER">%s</xliff:g></item>
+      <item quantity="one">Dakika 1</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="1632909606956324957">
+      <item quantity="other">Sekunde <xliff:g id="NUMBER">%s</xliff:g></item>
+      <item quantity="one">Sekunde 1</item>
+    </plurals>
 </resources>

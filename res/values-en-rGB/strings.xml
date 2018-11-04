@@ -18,6 +18,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="2792757108872430971">"Permission controller"</string>
     <string name="ok" msgid="4417794827535157922">"OK"</string>
+    <string name="permission_search_keyword" msgid="1652964722383449182">"permissions"</string>
     <string name="cancel" msgid="7279939269964834974">"Cancel"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"App not found"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Deny"</string>
@@ -83,4 +84,29 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Current permissions"</string>
     <string name="message_staging" msgid="641286607664721291">"Staging app…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Unknown"</string>
+    <string name="permission_usage_title" msgid="8266350477620264117">"Permissions usage"</string>
+    <string name="permission_usage_summary" msgid="6578074505443814465">"<xliff:g id="PERM">%1$s</xliff:g> – <xliff:g id="TIME">%2$s</xliff:g> ago"</string>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Any permission"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"Any time"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Last 7 days"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"Last 24 hours"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Last 1 hour"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Last 15 minutes"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"No permission usages"</string>
+    <plurals name="days" formatted="false" msgid="3903419301028414979">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> days</item>
+      <item quantity="one">1 day</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="2123927014975877155">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> hours</item>
+      <item quantity="one">1 hour</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="4331145652577957044">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> minutes</item>
+      <item quantity="one">1 minute</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="1632909606956324957">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> seconds</item>
+      <item quantity="one">1 second</item>
+    </plurals>
 </resources>
