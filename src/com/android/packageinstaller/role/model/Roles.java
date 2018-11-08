@@ -757,8 +757,8 @@ public class Roles {
             role.getPermissions().forEach(permission -> validatePermission(permission, context));
             role.getAppOps().forEach(appOp -> {
                 String permission = AppOpsManager.opToPermission(appOp.getName());
-                if (permission != null && !role.getPermissions().contains(permission)) {
-                    throw new IllegalArgumentException("Missing <permission> for app op: "
+                if (permission != null) {
+                    throw new IllegalArgumentException("App op has an associated permission: "
                             + appOp.getName());
                 }
             });

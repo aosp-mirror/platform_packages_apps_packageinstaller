@@ -496,7 +496,7 @@ public class Permissions {
     }
 
     @Nullable
-    static ApplicationInfo getApplicationInfo(@NonNull String packageName,
+    private static ApplicationInfo getApplicationInfo(@NonNull String packageName,
             @NonNull Context context) {
         try {
             return context.getPackageManager().getApplicationInfo(packageName,
@@ -507,7 +507,7 @@ public class Permissions {
         }
     }
 
-    static boolean isRuntimePermissionsSupported(@NonNull String packageName,
+    private static boolean isRuntimePermissionsSupported(@NonNull String packageName,
             @NonNull Context context) {
         ApplicationInfo applicationInfo = getApplicationInfo(packageName, context);
         if (applicationInfo == null) {
@@ -523,9 +523,9 @@ public class Permissions {
         return packageManager.getPermissionFlags(permission, packageName, user);
     }
 
-    static boolean isPermissionFixed(@NonNull String packageName, @NonNull String permission,
-            boolean overrideSystemFixed, boolean overrideUserSetAndFixed,
-            @NonNull Context context) {
+    private static boolean isPermissionFixed(@NonNull String packageName,
+            @NonNull String permission, boolean overrideSystemFixed,
+            boolean overrideUserSetAndFixed, @NonNull Context context) {
         int flags = getPermissionFlags(packageName, permission, context);
         int fixedFlags = PackageManager.FLAG_PERMISSION_POLICY_FIXED;
         if (!overrideSystemFixed) {
@@ -555,7 +555,7 @@ public class Permissions {
      * Most of the time {@link #isPermissionOrAppOpGranted(String, String, Context)} should be used
      * instead.
      */
-    static boolean isPermissionGrantedWithoutCheckingAppOp(@NonNull String packageName,
+    private static boolean isPermissionGrantedWithoutCheckingAppOp(@NonNull String packageName,
             @NonNull String permission, @NonNull Context context) {
         return context.getPackageManager().checkPermission(permission, packageName)
                 == PackageManager.PERMISSION_GRANTED;
@@ -568,7 +568,7 @@ public class Permissions {
     }
 
     @Nullable
-    static String getBackgroundPermission(@NonNull String foregroundPermission,
+    private static String getBackgroundPermission(@NonNull String foregroundPermission,
             @NonNull Context context) {
         ensureForegroundBackgroundPermissionMappings(context);
         return sForegroundToBackgroundPermission.get(foregroundPermission);
@@ -668,21 +668,12 @@ public class Permissions {
     }
 
     @Nullable
-    static String getPermissionAppOp(@NonNull String permission) {
+    private static String getPermissionAppOp(@NonNull String permission) {
         return AppOpsManager.permissionToOp(permission);
     }
 
-    /**
-     * Retrieve an app op mode for an application.
-     *
-     * @param packageName the package name of the application
-     * @param appOp the name of the app op to retrieve
-     * @param context the {@code Context} to retrieve system services
-     *
-     * @return the app op mode for the application, or {@code null} if it cannot be retrieved
-     */
     @Nullable
-    static Integer getAppOpMode(@NonNull String packageName, @NonNull String appOp,
+    private static Integer getAppOpMode(@NonNull String packageName, @NonNull String appOp,
             @NonNull Context context) {
         ApplicationInfo applicationInfo = Permissions.getApplicationInfo(packageName, context);
         if (applicationInfo == null) {
@@ -692,27 +683,10 @@ public class Permissions {
         return appOpsManager.unsafeCheckOpRaw(appOp, applicationInfo.uid, packageName);
     }
 
-    /**
-     * Retrieve the default mode of an app op
-     *
-     * @param appOp the name of the app op to retrieve
-     *
-     * @return the default mode of the app op
-     */
     static int getDefaultAppOpMode(@NonNull String appOp) {
         return AppOpsManager.opToDefaultMode(appOp);
     }
 
-    /**
-     * Set an app op mode for an application.
-     *
-     * @param packageName the package name of the application
-     * @param appOp the name of the app op to set
-     * @param mode the mode of the app op to set
-     * @param context the {@code Context} to retrieve system services
-     *
-     * @return whether app op mode is changed
-     */
     static boolean setAppOpMode(@NonNull String packageName, @NonNull String appOp, int mode,
             @NonNull Context context) {
         Integer currentMode = getAppOpMode(packageName, appOp, context);

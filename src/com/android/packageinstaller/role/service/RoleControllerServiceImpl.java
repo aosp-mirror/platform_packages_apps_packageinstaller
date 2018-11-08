@@ -190,7 +190,7 @@ public class RoleControllerServiceImpl extends RoleControllerService {
         for (int i = 0; i < appOpsSize; i++) {
             AppOp appOp = appOps.get(i);
             // TODO: STOPSHIP: When to pass true?
-            appOp.grant(packageName, false, this);
+            appOp.grant(packageName, this);
             // TODO: STOPSHIP: Kill apps?
         }
 
