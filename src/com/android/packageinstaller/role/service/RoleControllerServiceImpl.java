@@ -189,7 +189,8 @@ public class RoleControllerServiceImpl extends RoleControllerService {
         int appOpsSize = appOps.size();
         for (int i = 0; i < appOpsSize; i++) {
             AppOp appOp = appOps.get(i);
-            appOp.grant(applicationInfo, this);
+            // TODO: STOPSHIP: When to pass true?
+            appOp.grant(packageName, false, this);
             // TODO: STOPSHIP: Kill apps?
         }
 
@@ -287,7 +288,7 @@ public class RoleControllerServiceImpl extends RoleControllerService {
             int appOpsSize = appOps.size();
             for (int i = 0; i < appOpsSize; i++) {
                 AppOp appOp = appOps.get(i);
-                appOp.revoke(applicationInfo, this);
+                appOp.revoke(packageName, this);
                 // TODO: STOPSHIP: Do we kill apps?
             }
 
