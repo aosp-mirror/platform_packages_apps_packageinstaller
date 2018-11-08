@@ -20,6 +20,9 @@ import android.app.AppOpsManager;
 
 import androidx.annotation.NonNull;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 /**
  * A single instance of an app accessing a permission.
  */
@@ -55,5 +58,22 @@ public final class AppPermissionUsage {
 
     public @NonNull CharSequence getPermissionGroupLabel() {
         return mPermissionGroupLabel;
+    }
+
+    /**
+     * Get the name of the permission (not the group) this represents.
+     *
+     * @return the name of the permission this represents.
+     */
+    public String getPermissionName() {
+        // TODO: Replace reflection with a proper API (probably in AppOpsManager).
+        try {
+            Method getOpMethod = AppOpsManager.OpEntry.class.getMethod("getOp");
+            Method opToPermissionMethod = AppOpsManager.class.getMethod("opToPermission",
+                    int.class);
+            return (String) opToPermissionMethod.invoke(null, (int) getOpMethod.invoke(mOp));
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+            return null;
+        }
     }
 }
