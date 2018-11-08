@@ -48,29 +48,30 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.android.packageinstaller.permission.ui.DetailManagePermissionsActivity"
+        <activity android:name="com.android.packageinstaller.permission.ui.ManagePermissionsActivity"
                   android:configChanges="orientation|keyboardHidden|screenSize"
                   android:label="@string/app_permissions"
                   android:theme="@style/Settings"
                   android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS">
             <intent-filter android:priority="1">
+                <action android:name="android.intent.action.MANAGE_APP_PERMISSION" />
                 <action android:name="android.intent.action.MANAGE_APP_PERMISSIONS" />
                 <action android:name="android.intent.action.MANAGE_PERMISSION_APPS" />
                 <action android:name="android.intent.action.REVIEW_APP_PERMISSION_USAGE" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name="com.android.packageinstaller.permission.ui.ManagePermissionsActivity"
-                  android:configChanges="orientation|keyboardHidden|screenSize"
-                  android:label="@string/app_permissions"
-                  android:theme="@style/Settings">
-            <intent-filter android:priority="1">
                 <action android:name="android.intent.action.MANAGE_PERMISSIONS" />
                 <action android:name="android.intent.action.REVIEW_PERMISSION_USAGE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <activity-alias android:targetActivity="com.android.packageinstaller.permission.ui.ManagePermissionsActivity"
+                  android:name="om.android.packageinstaller.permission.ManagePermissionsActivityTrampoline">
+            <intent-filter android:priority="1">
+                <action android:name="com.android.permissioncontroller.settingssearch.action.MANAGE_PERMISSION_APPS" />
+                <action android:name="com.android.permissioncontroller.settingssearch.action.REVIEW_PERMISSION_USAGE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity-alias>
 
         <activity android:name="com.android.packageinstaller.permission.ui.ReviewPermissionsActivity"
                   android:excludeFromRecents="true"
