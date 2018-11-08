@@ -35,6 +35,7 @@ import androidx.annotation.Nullable;
 
 import com.android.packageinstaller.permission.utils.ArrayUtils;
 import com.android.packageinstaller.permission.utils.CollectionUtils;
+import com.android.packageinstaller.role.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,20 +58,21 @@ public class Permissions {
      *
      * @param packageName the package name of the application to be granted permissions to
      * @param permissions the list of permissions to be granted
-     * @param overrideDisabledSystemPackageAndUser whether to ignore the permissions of a disabled
-     *                                             system package (if this package is an updated
-     *                                             system package), and whether to override user
-     *                                             set and fixed flags on the permission.
+     * @param overrideDisabledSystemPackageAndUserSetAndFixed whether to ignore the permissions of a
+     *                                                        disabled system package (if this
+     *                                                        package is an updated system package),
+     *                                                        and whether to override user set and
+     *                                                        fixed flags on the permission
      * @param setSystemFixed whether the permissions will be granted as system-fixed
-     * @param context the {@code Context} to retrieve system services.
+     * @param context the {@code Context} to retrieve system services
      *
-     * @return whether any app mode has changed
+     * @return whether any permission or app op changed
      *
      * @see com.android.server.pm.permission.DefaultPermissionGrantPolicy#grantRuntimePermissions(
      *      PackageInfo, java.util.Set, boolean, boolean, int)
      */
     public static boolean grant(@NonNull String packageName, @NonNull List<String> permissions,
-            boolean overrideDisabledSystemPackageAndUser, boolean setSystemFixed,
+            boolean overrideDisabledSystemPackageAndUserSetAndFixed, boolean setSystemFixed,
             @NonNull Context context) {
         PackageInfo packageInfo = getPackageInfo(packageName, context);
         if (packageInfo == null) {
@@ -108,7 +110,7 @@ public class Permissions {
         // choice to grant this app the permissions needed to function. For all other
         // apps, (default grants on first boot and user creation) we don't grant default
         // permissions if the version on the system image does not declare them.
-        if (!overrideDisabledSystemPackageAndUser && isUpdatedSystemApp(packageInfo)) {
+        if (!overrideDisabledSystemPackageAndUserSetAndFixed && isUpdatedSystemApp(packageInfo)) {
             PackageInfo disabledSystemPackageInfo = getFactoryPackageInfo(packageName, context);
             if (disabledSystemPackageInfo != null) {
                 if (ArrayUtils.isEmpty(disabledSystemPackageInfo.requestedPermissions)) {
@@ -141,16 +143,16 @@ public class Permissions {
             }
         }
 
-        boolean appOpModeChanged = false;
+        boolean permissionOrAppOpChanged = false;
         int sortedPermissionsToGrantLength = sortedPermissionsToGrant.length;
         for (int i = 0; i < sortedPermissionsToGrantLength; i++) {
             String permission = sortedPermissionsToGrant[i];
 
-            appOpModeChanged |= grantSingle(packageName, permission,
-                    overrideDisabledSystemPackageAndUser, setSystemFixed, context);
+            permissionOrAppOpChanged |= grantSingle(packageName, permission,
+                    overrideDisabledSystemPackageAndUserSetAndFixed, setSystemFixed, context);
         }
 
-        return appOpModeChanged;
+        return permissionOrAppOpChanged;
     }
 
     private static boolean grantSingle(@NonNull String packageName, @NonNull String permission,
@@ -183,7 +185,8 @@ public class Permissions {
             }
         }
 
-        boolean appOpModeChanged = grantPermissionAndAppOp(packageName, permission, context);
+        boolean permissionOrAppOpChanged = grantPermissionAndAppOp(packageName, permission,
+                context);
 
         // Update permission flags.
         int newFlags = PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT;
@@ -196,11 +199,10 @@ public class Permissions {
             newMask |= PackageManager.FLAG_PERMISSION_USER_FIXED
                     | PackageManager.FLAG_PERMISSION_USER_SET;
         }
-        // TODO: Why this?
-        // If a component gets a permission for being the default handler A
-        // and also default handler B, we grant the weaker grant form.
+        // If a component gets a permission for being the default handler A and also default handler
+        // B, we grant the weaker grant form.
         if (!setSystemFixed) {
-            int oldFlags = getPermissionFlags(permission, packageName, context);
+            int oldFlags = getPermissionFlags(packageName, permission, context);
             if ((oldFlags & PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT) != 0
                     && (oldFlags & PackageManager.FLAG_PERMISSION_SYSTEM_FIXED) != 0) {
                 if (DEBUG) {
@@ -210,9 +212,9 @@ public class Permissions {
                 newMask |= PackageManager.FLAG_PERMISSION_SYSTEM_FIXED;
             }
         }
-        setPermissionFlags(permission, packageName, newFlags, newMask, context);
+        setPermissionFlags(packageName, permission, newFlags, newMask, context);
 
-        return appOpModeChanged;
+        return permissionOrAppOpChanged;
     }
 
     private static boolean isPermissionOrAppOpGranted(@NonNull String packageName,
@@ -273,9 +275,8 @@ public class Permissions {
     private static boolean grantPermissionAndAppOp(@NonNull String packageName,
             @NonNull String permission, @NonNull Context context) {
         // Grant the permission.
-        PackageManager packageManager = context.getPackageManager();
-        UserHandle user = UserHandle.of(UserHandle.myUserId());
-        packageManager.grantRuntimePermission(packageName, permission, user);
+        boolean permissionOrAppOpChanged = grantPermissionWithoutAppOp(packageName, permission,
+                context);
 
         // Grant the app op.
         if (!isBackgroundPermission(permission, context)) {
@@ -298,11 +299,10 @@ public class Permissions {
                     appOpMode = AppOpsManager.MODE_ALLOWED;
                 }
             }
-            return setAppOpMode(packageName, appOp, appOpMode, context);
+            permissionOrAppOpChanged = setAppOpMode(packageName, appOp, appOpMode, context);
         } else {
             // This permission is a background permission, set all its foreground permissions' app
             // op modes to MODE_ALLOWED.
-            boolean appOpModeChanged = false;
             List<String> foregroundPermissions = getForegroundPermissions(permission, context);
             int foregroundPermissionsSize = foregroundPermissions.size();
             for (int i = 0; i < foregroundPermissionsSize; i++) {
@@ -312,11 +312,12 @@ public class Permissions {
                 if (foregroundAppOp == null) {
                     continue;
                 }
-                appOpModeChanged |= setAppOpMode(packageName, foregroundAppOp,
+                permissionOrAppOpChanged |= setAppOpMode(packageName, foregroundAppOp,
                         AppOpsManager.MODE_ALLOWED, context);
             }
-            return appOpModeChanged;
         }
+
+        return permissionOrAppOpChanged;
     }
 
     /**
@@ -324,13 +325,15 @@ public class Permissions {
      *
      * @param packageName the package name of the application to be revoke permissions from
      * @param permissions the list of permissions to be revoked
-     * @param overrideSystemFixed whether system-fixed permissions will be revoked
-     * @param context the {@code Context} to retrieve system services.
+     * @param overrideSystemFixed whether system-fixed permissions can be revoked
+     * @param context the {@code Context} to retrieve system services
+     *
+     * @return whether any permission or app op changed
      *
      * @see com.android.server.pm.permission.DefaultPermissionGrantPolicy#revokeRuntimePermissions(
      *      String, java.util.Set, boolean, int)
      */
-    public boolean revoke(@NonNull String packageName, @NonNull List<String> permissions,
+    public static boolean revoke(@NonNull String packageName, @NonNull List<String> permissions,
             boolean overrideSystemFixed, @NonNull Context context) {
         PackageInfo packageInfo = getPackageInfo(packageName, context);
         if (packageInfo == null) {
@@ -366,15 +369,16 @@ public class Permissions {
             }
         }
 
-        boolean appOpModeChanged = false;
+        boolean permissionOrAppOpChanged = false;
         int sortedPermissionsToRevokeLength = sortedPermissionsToRevoke.length;
         for (int i = 0; i < sortedPermissionsToRevokeLength; i++) {
             String permission = sortedPermissionsToRevoke[i];
 
-            appOpModeChanged |= revokeSingle(packageName, permission, overrideSystemFixed, context);
+            permissionOrAppOpChanged |= revokeSingle(packageName, permission, overrideSystemFixed,
+                    context);
         }
 
-        return appOpModeChanged;
+        return permissionOrAppOpChanged;
     }
 
     private static boolean revokeSingle(@NonNull String packageName, @NonNull String permission,
@@ -384,9 +388,8 @@ public class Permissions {
         }
 
         // Remove the granted-by-default permission flag.
-        setPermissionFlags(permission, packageName, 0,
+        setPermissionFlags(packageName, permission, 0,
                 PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT, context);
-        // TODO: Why?
         // Note that we do not revoke FLAG_PERMISSION_SYSTEM_FIXED. That bit remains sticky once
         // set.
 
@@ -409,12 +412,13 @@ public class Permissions {
 
     private static boolean revokePermissionAndAppOp(@NonNull String packageName,
             @NonNull String permission, @NonNull Context context) {
-        boolean runtimePermissionsSupported = isRuntimePermissionsSupported(packageName, context);
-        PackageManager packageManager = context.getPackageManager();
-        UserHandle user = UserHandle.of(UserHandle.myUserId());
-        if (runtimePermissionsSupported) {
+        boolean permissionOrAppOpChanged = false;
+
+        boolean isRuntimePermissionsSupported = isRuntimePermissionsSupported(packageName, context);
+        if (isRuntimePermissionsSupported) {
             // Revoke the permission.
-            packageManager.revokeRuntimePermission(packageName, permission, user);
+            permissionOrAppOpChanged |= revokePermissionWithoutAppOp(packageName, permission,
+                    context);
         }
 
         // Revoke the app op.
@@ -428,21 +432,21 @@ public class Permissions {
             // default.
             int appOpMode = getDefaultAppOpMode(appOp);
             boolean appOpModeChanged = setAppOpMode(packageName, appOp, appOpMode, context);
+            permissionOrAppOpChanged |= appOpModeChanged;
+
             if (appOpModeChanged) {
-                if (!runtimePermissionsSupported && (appOpMode == AppOpsManager.MODE_FOREGROUND
+                if (!isRuntimePermissionsSupported && (appOpMode == AppOpsManager.MODE_FOREGROUND
                         || appOpMode == AppOpsManager.MODE_ALLOWED)) {
                     // We've reset this permission's app op mode to be permissive, so we'll need the
                     // user to review it again.
-                    packageManager.updatePermissionFlags(permission, packageName,
+                    setPermissionFlags(packageName, permission,
                             PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED,
-                            PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED, user);
+                            PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED, context);
                 }
             }
-            return appOpModeChanged;
         } else {
             // This permission is a background permission, set all its granted foreground
             // permissions' app op modes to MODE_FOREGROUND.
-            boolean appOpModeChanged = false;
             List<String> foregroundPermissions = getForegroundPermissions(permission, context);
             int foregroundPermissionsSize = foregroundPermissions.size();
             for (int i = 0; i < foregroundPermissionsSize; i++) {
@@ -456,11 +460,12 @@ public class Permissions {
                 if (foregroundAppOp == null) {
                     continue;
                 }
-                appOpModeChanged |= setAppOpMode(packageName, foregroundAppOp,
+                permissionOrAppOpChanged |= setAppOpMode(packageName, foregroundAppOp,
                         AppOpsManager.MODE_FOREGROUND, context);
             }
-            return appOpModeChanged;
         }
+
+        return permissionOrAppOpChanged;
     }
 
     @Nullable
@@ -478,16 +483,10 @@ public class Permissions {
     @Nullable
     private static PackageInfo getPackageInfo(@NonNull String packageName, int extraFlags,
             @NonNull Context context) {
-        try {
-            return context.getPackageManager().getPackageInfo(packageName,
-                    PackageManager.MATCH_DIRECT_BOOT_AWARE
-                            | PackageManager.MATCH_DIRECT_BOOT_UNAWARE
-                            // TODO: Why MATCH_UNINSTALLED_PACKAGES?
-                            | PackageManager.MATCH_UNINSTALLED_PACKAGES
-                            | PackageManager.GET_PERMISSIONS | extraFlags);
-        } catch (PackageManager.NameNotFoundException e) {
-            return null;
-        }
+        return Utils.getPackageInfo(packageName, extraFlags
+                // TODO: Why MATCH_UNINSTALLED_PACKAGES?
+                | PackageManager.MATCH_UNINSTALLED_PACKAGES | PackageManager.GET_PERMISSIONS,
+                context);
     }
 
     private static boolean isUpdatedSystemApp(@NonNull PackageInfo packageInfo) {
@@ -495,21 +494,9 @@ public class Permissions {
                 & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) != 0;
     }
 
-    @Nullable
-    private static ApplicationInfo getApplicationInfo(@NonNull String packageName,
+    static boolean isRuntimePermissionsSupported(@NonNull String packageName,
             @NonNull Context context) {
-        try {
-            return context.getPackageManager().getApplicationInfo(packageName,
-                    PackageManager.MATCH_DIRECT_BOOT_AWARE
-                            | PackageManager.MATCH_DIRECT_BOOT_UNAWARE);
-        } catch (PackageManager.NameNotFoundException e) {
-            return null;
-        }
-    }
-
-    private static boolean isRuntimePermissionsSupported(@NonNull String packageName,
-            @NonNull Context context) {
-        ApplicationInfo applicationInfo = getApplicationInfo(packageName, context);
+        ApplicationInfo applicationInfo = Utils.getApplicationInfo(packageName, context);
         if (applicationInfo == null) {
             return false;
         }
@@ -557,8 +544,31 @@ public class Permissions {
      */
     private static boolean isPermissionGrantedWithoutCheckingAppOp(@NonNull String packageName,
             @NonNull String permission, @NonNull Context context) {
-        return context.getPackageManager().checkPermission(permission, packageName)
+        PackageManager packageManager = context.getPackageManager();
+        return packageManager.checkPermission(permission, packageName)
                 == PackageManager.PERMISSION_GRANTED;
+    }
+
+    private static boolean grantPermissionWithoutAppOp(@NonNull String packageName,
+            @NonNull String permission, @NonNull Context context) {
+        if (isPermissionGrantedWithoutCheckingAppOp(packageName, permission, context)) {
+            return false;
+        }
+        PackageManager packageManager = context.getPackageManager();
+        UserHandle user = UserHandle.of(UserHandle.myUserId());
+        packageManager.grantRuntimePermission(packageName, permission, user);
+        return true;
+    }
+
+    private static boolean revokePermissionWithoutAppOp(@NonNull String packageName,
+            @NonNull String permission, @NonNull Context context) {
+        if (!isPermissionGrantedWithoutCheckingAppOp(packageName, permission, context)) {
+            return false;
+        }
+        PackageManager packageManager = context.getPackageManager();
+        UserHandle user = UserHandle.of(UserHandle.myUserId());
+        packageManager.revokeRuntimePermission(packageName, permission, user);
+        return true;
     }
 
     private static boolean isForegroundPermission(@NonNull String permission,
@@ -675,7 +685,7 @@ public class Permissions {
     @Nullable
     private static Integer getAppOpMode(@NonNull String packageName, @NonNull String appOp,
             @NonNull Context context) {
-        ApplicationInfo applicationInfo = Permissions.getApplicationInfo(packageName, context);
+        ApplicationInfo applicationInfo = Utils.getApplicationInfo(packageName, context);
         if (applicationInfo == null) {
             return null;
         }
@@ -693,7 +703,7 @@ public class Permissions {
         if (currentMode != null && currentMode == mode) {
             return false;
         }
-        ApplicationInfo applicationInfo = Permissions.getApplicationInfo(packageName, context);
+        ApplicationInfo applicationInfo = Utils.getApplicationInfo(packageName, context);
         if (applicationInfo == null) {
             Log.e(LOG_TAG, "Cannot get ApplicationInfo for package to set app op mode: "
                     + packageName);

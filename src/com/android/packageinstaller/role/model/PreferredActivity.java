@@ -19,6 +19,7 @@ package com.android.packageinstaller.role.model;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 
 import androidx.annotation.NonNull;
 
@@ -63,7 +64,7 @@ public class PreferredActivity {
      * Configure this preferred activity specification for an application.
      *
      * @param packageName the package name of the application
-     * @param context the {@code Context} to retrieve the {@code PackageManager}
+     * @param context the {@code Context} to retrieve system services
      */
     public void configure(@NonNull String packageName, @NonNull Context context) {
         IntentFilter intentFilter = mActivity.getIntentFilterData().createIntentFilter();
@@ -74,10 +75,10 @@ public class PreferredActivity {
         if (packageActivity == null) {
             return;
         }
-        context.getPackageManager().replacePreferredActivity(intentFilter,
-                // TODO: STOPSHIP: MATCH_CATEGORY_SCHEME ?
-                IntentFilter.MATCH_CATEGORY_SCHEME | IntentFilter.MATCH_ADJUSTMENT_NORMAL,
-                activities, packageActivity);
+        PackageManager packageManager = context.getPackageManager();
+        // TODO: STOPSHIP: MATCH_CATEGORY_SCHEME ?
+        packageManager.replacePreferredActivity(intentFilter, IntentFilter.MATCH_CATEGORY_SCHEME
+                | IntentFilter.MATCH_ADJUSTMENT_NORMAL, activities, packageActivity);
     }
 
     @Override

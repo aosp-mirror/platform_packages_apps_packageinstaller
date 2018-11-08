@@ -19,11 +19,8 @@ package com.android.packageinstaller.role.service;
 import android.app.role.RoleManager;
 import android.app.role.RoleManagerCallback;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.os.UserHandle;
 import android.rolecontrollerservice.RoleControllerService;
 import android.text.TextUtils;
 import android.util.Log;
@@ -31,10 +28,9 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
 
-import com.android.packageinstaller.role.model.AppOp;
-import com.android.packageinstaller.role.model.PreferredActivity;
 import com.android.packageinstaller.role.model.Role;
 import com.android.packageinstaller.role.model.Roles;
+import com.android.packageinstaller.role.utils.Utils;
 
 import java.util.List;
 
@@ -133,14 +129,9 @@ public class RoleControllerServiceImpl extends RoleControllerService {
             return;
         }
 
-        PackageManager packageManager = getPackageManager();
-        ApplicationInfo applicationInfo;
-        try {
-            applicationInfo = packageManager.getApplicationInfo(packageName,
-                    PackageManager.MATCH_DIRECT_BOOT_AWARE
-                            | PackageManager.MATCH_DIRECT_BOOT_UNAWARE);
-        } catch (PackageManager.NameNotFoundException e) {
-            Log.e(LOG_TAG, "Unknown package: " + packageName, e);
+        ApplicationInfo applicationInfo = Utils.getApplicationInfo(packageName, this);
+        if (applicationInfo == null) {
+            Log.e(LOG_TAG, "Cannot get ApplicationInfo for package: " + packageName);
             callback.onFailure();
             return;
         }
@@ -174,32 +165,8 @@ public class RoleControllerServiceImpl extends RoleControllerService {
             }
         }
 
-        if (applicationInfo.targetSdkVersion >= Build.VERSION_CODES.M) {
-            List<String> permissions = role.getPermissions();
-            int permissionsSize = permissions.size();
-            for (int i = 0; i < permissionsSize; i++) {
-                String permission = permissions.get(i);
-                // TODO: STOPSHIP: DefaultPermissionGrantPolicy is also checking some other flags.
-                packageManager.grantRuntimePermission(packageName, permission, UserHandle.of(
-                        UserHandle.myUserId()));
-            }
-        }
-
-        List<AppOp> appOps = role.getAppOps();
-        int appOpsSize = appOps.size();
-        for (int i = 0; i < appOpsSize; i++) {
-            AppOp appOp = appOps.get(i);
-            // TODO: STOPSHIP: When to pass true?
-            appOp.grant(packageName, this);
-            // TODO: STOPSHIP: Kill apps?
-        }
-
-        List<PreferredActivity> preferredActivities = role.getPreferredActivities();
-        int preferredActivitiesSize = preferredActivities.size();
-        for (int i = 0; i < preferredActivitiesSize; i++) {
-            PreferredActivity preferredActivity = preferredActivities.get(i);
-            preferredActivity.configure(packageName, this);
-        }
+        // TODO: STOPSHIP: Pass in appropriate arguments.
+        role.grant(packageName, true, true, false, this);
 
         boolean added = mRoleManager.addRoleHolderFromController(roleName, packageName);
         if (!added) {
@@ -260,44 +227,14 @@ public class RoleControllerServiceImpl extends RoleControllerService {
 
     @WorkerThread
     private boolean removeRoleHolderInternal(@NonNull Role role, @NonNull String packageName) {
-        // TODO: STOPSHIP: Revoke privileges from previous holders.
-        PackageManager packageManager = getPackageManager();
-        ApplicationInfo applicationInfo = null;
-        try {
-            applicationInfo = packageManager.getApplicationInfo(packageName,
-                    // TODO: Add PackageManager.MATCH_UNINSTALLED_PACKAGES ?
-                    PackageManager.MATCH_DIRECT_BOOT_AWARE
-                            | PackageManager.MATCH_DIRECT_BOOT_UNAWARE);
-        } catch (PackageManager.NameNotFoundException e) {
-            Log.w(LOG_TAG, "Unknown package: " + packageName, e);
+        ApplicationInfo applicationInfo = Utils.getApplicationInfo(packageName, this);
+        if (applicationInfo == null) {
+            Log.w(LOG_TAG, "Cannot get ApplicationInfo for package: " + packageName);
         }
 
         if (applicationInfo != null) {
-            if (applicationInfo.targetSdkVersion >= Build.VERSION_CODES.M) {
-                List<String> permissions = role.getPermissions();
-                int permissionsSize = permissions.size();
-                for (int i = 0; i < permissionsSize; i++) {
-                    String permission = permissions.get(i);
-                    // TODO: DefaultPermissionGrantPolicy is also checking some other flags.
-                    packageManager.revokeRuntimePermission(packageName, permission, UserHandle.of(
-                            UserHandle.myUserId()));
-                }
-            }
-
-            List<AppOp> appOps = role.getAppOps();
-            int appOpsSize = appOps.size();
-            for (int i = 0; i < appOpsSize; i++) {
-                AppOp appOp = appOps.get(i);
-                appOp.revoke(packageName, this);
-                // TODO: STOPSHIP: Do we kill apps?
-            }
-
-            List<PreferredActivity> preferredActivities = role.getPreferredActivities();
-            int preferredActivitiesSize = preferredActivities.size();
-            for (int i = 0; i < preferredActivitiesSize; i++) {
-                PreferredActivity preferredActivity = preferredActivities.get(i);
-                preferredActivity.configure(packageName, this);
-            }
+            // TODO: STOPSHIP: Pass in appropriate arguments.
+            role.revoke(packageName, true, false, this);
         }
 
         return mRoleManager.removeRoleHolderFromController(role.getName(), packageName);

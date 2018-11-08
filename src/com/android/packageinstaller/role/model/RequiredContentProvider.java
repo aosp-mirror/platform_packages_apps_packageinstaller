@@ -41,7 +41,8 @@ public class RequiredContentProvider extends RequiredComponent {
     @Override
     protected List<ResolveInfo> queryIntentComponents(@NonNull Intent intent,
             @NonNull Context context) {
-        return context.getPackageManager().queryIntentContentProviders(intent,
+        PackageManager packageManager = context.getPackageManager();
+        return packageManager.queryIntentContentProviders(intent,
                 PackageManager.MATCH_DIRECT_BOOT_AWARE | PackageManager.MATCH_DIRECT_BOOT_UNAWARE);
     }
 
@@ -55,7 +56,7 @@ public class RequiredContentProvider extends RequiredComponent {
     @Nullable
     @Override
     protected String getComponentPermission(@NonNull ResolveInfo resolveInfo) {
-        // STOPSHIP: TODO: Which permission? Or both?
+        // TODO: STOPSHIP: Which permission? Or both?
         //return resolveInfo.providerInfo.readPermission;
         throw new UnsupportedOperationException();
     }

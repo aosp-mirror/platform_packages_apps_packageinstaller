@@ -16,11 +16,16 @@
 
 package com.android.packageinstaller.role.model;
 
+import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
 import android.util.ArrayMap;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
+
+import com.android.packageinstaller.role.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +48,8 @@ import java.util.Objects;
  * @see android.app.role.RoleManager
  */
 public class Role {
+
+    private static final String LOG_TAG = Role.class.getSimpleName();
 
     /**
      * The name of this role. Must be unique.
@@ -124,7 +131,7 @@ public class Role {
      * components.
      *
      * @param packageName the package name to check for
-     * @param context the {@code Context} to retrieve the {@code PackageManager}
+     * @param context the {@code Context} to retrieve system services
      *
      * @return whether the package is qualified for a role
      */
@@ -143,7 +150,7 @@ public class Role {
      * Get the set of packages that are qualified for this role, i.e. packages containing all the
      * required components.
      *
-     * @param context the {@code Context} for this query
+     * @param context the {@code Context} to retrieve system services
      *
      * @return the set of packages that are qualified for this role
      */
@@ -183,6 +190,83 @@ public class Role {
         }
 
         return qualifyingPackages;
+    }
+
+    /**
+     * Grant this role to an application.
+     *
+     * @param packageName the package name of the application to be granted this role to
+     * @param mayKillApp whether this application may be killed due to changes
+     * @param overrideDisabledSystemPackageAndUserSetAndFixedPermissions whether to ignore the
+     *                                                                   permissions of a disabled
+     *                                                                   system package (if this
+     *                                                                   package is an updated
+     *                                                                   system package), and
+     *                                                                   whether to override user
+     *                                                                   set and fixed flags on the
+     *                                                                   permission
+     * @param setPermissionsSystemFixed whether the permissions will be granted as system-fixed
+     * @param context the {@code Context} to retrieve system services
+     */
+    public void grant(@NonNull String packageName, boolean mayKillApp,
+            boolean overrideDisabledSystemPackageAndUserSetAndFixedPermissions,
+            boolean setPermissionsSystemFixed, @NonNull Context context) {
+        boolean permissionOrAppOpChanged = Permissions.grant(packageName, mPermissions,
+                overrideDisabledSystemPackageAndUserSetAndFixedPermissions,
+                setPermissionsSystemFixed, context);
+
+        int appOpsSize = mAppOps.size();
+        for (int i = 0; i < appOpsSize; i++) {
+            AppOp appOp = mAppOps.get(i);
+            permissionOrAppOpChanged |= appOp.grant(packageName, context);
+        }
+
+        int preferredActivitiesSize = mPreferredActivities.size();
+        for (int i = 0; i < preferredActivitiesSize; i++) {
+            PreferredActivity preferredActivity = mPreferredActivities.get(i);
+            preferredActivity.configure(packageName, context);
+        }
+
+        if (mayKillApp && !Permissions.isRuntimePermissionsSupported(packageName, context)
+                && permissionOrAppOpChanged) {
+            killApp(packageName, context);
+        }
+    }
+
+    /**
+     * Revoke this role to an application.
+     *
+     * @param packageName the package name of the application to be granted this role to
+     * @param mayKillApp whether this application may be killed due to changes
+     * @param overrideSystemFixedPermissions whether system-fixed permissions can be revoked
+     * @param context the {@code Context} to retrieve system services
+     */
+    public void revoke(@NonNull String packageName, boolean mayKillApp,
+            boolean overrideSystemFixedPermissions, @NonNull Context context) {
+        boolean permissionOrAppOpChanged = Permissions.revoke(packageName, mPermissions,
+                overrideSystemFixedPermissions, context);
+
+        int appOpsSize = mAppOps.size();
+        for (int i = 0; i < appOpsSize; i++) {
+            AppOp appOp = mAppOps.get(i);
+            permissionOrAppOpChanged |= appOp.revoke(packageName, context);
+        }
+
+        // TODO: STOPSHIP: Revoke preferred activities?
+
+        if (mayKillApp && permissionOrAppOpChanged) {
+            killApp(packageName, context);
+        }
+    }
+
+    private void killApp(@NonNull String packageName, @NonNull Context context) {
+        ApplicationInfo applicationInfo = Utils.getApplicationInfo(packageName, context);
+        if (applicationInfo == null) {
+            Log.w(LOG_TAG, "Cannot get ApplicationInfo for package: " + packageName);
+            return;
+        }
+        ActivityManager activityManager = context.getSystemService(ActivityManager.class);
+        activityManager.killUid(applicationInfo.uid, "Permission or app op changed");
     }
 
     @Override
