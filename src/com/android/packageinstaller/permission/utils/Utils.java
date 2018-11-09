@@ -26,12 +26,14 @@ import android.content.res.Resources;
 import android.content.res.Resources.Theme;
 import android.graphics.drawable.Drawable;
 import android.text.Html;
+import android.text.TextUtils;
 import android.util.ArraySet;
 import android.util.Log;
 import android.util.TypedValue;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
+import androidx.core.text.BidiFormatter;
 
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
@@ -69,6 +71,23 @@ public final class Utils {
 
     private Utils() {
         /* do nothing - hide constructor */
+    }
+
+    /**
+     * Get the label for an application.
+     *
+     * @param applicationInfo the {@link ApplicationInfo} of the application
+     * @param context the {@code Context} to retrieve {@code PackageManager}
+     *
+     * @return the label for the application
+     */
+    @NonNull
+    public static String getAppLabel(@NonNull ApplicationInfo applicationInfo,
+            @NonNull Context context) {
+        return BidiFormatter.getInstance().unicodeWrap(applicationInfo.loadSafeLabel(
+                context.getPackageManager(), DEFAULT_MAX_LABEL_SIZE_PX,
+                TextUtils.SAFE_STRING_FLAG_TRIM | TextUtils.SAFE_STRING_FLAG_FIRST_LINE)
+                .toString());
     }
 
     public static Drawable loadDrawable(PackageManager pm, String pkg, int resId) {

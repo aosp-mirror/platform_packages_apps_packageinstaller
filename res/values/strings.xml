@@ -294,4 +294,14 @@
         <item quantity="other"><xliff:g id="number" example="7">%s</xliff:g> seconds</item>
     </plurals>
 
+    <!-- Template for the message when an app requests a role and will be added to the role holding apps. [CHAR LIMIT=100] -->
+    <string name="role_request_message_add">Use
+        &lt;b><xliff:g id="app_name" example="Super Duper SMS">%1$s</xliff:g>&lt;/b> as your
+        <xliff:g id="role_name" example="SMS app">%2$s</xliff:g>?</string>
+
+    <!-- Template for the message when an app requests a role and will be replacing the current role holding app. [CHAR LIMIT=100] -->
+    <string name="role_request_message_replace">Use
+        &lt;b><xliff:g id="new_app_name" example="Super Duper SMS">%1$s</xliff:g>&lt;/b> instead of
+        &lt;b><xliff:g id="current_app_name" example="Messages">%1$s</xliff:g>&lt;/b> as your
+        <xliff:g id="role_name" example="SMS app">%2$s</xliff:g>?</string>
 </resources>

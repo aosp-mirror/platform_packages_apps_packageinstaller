@@ -87,6 +87,15 @@
                 android:excludeFromRecents="true"
                 android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar" />
 
+        <activity android:name="com.android.packageinstaller.role.ui.RequestRoleActivity"
+                  android:excludeFromRecents="true"
+                  android:theme="@style/RequestRole">
+            <intent-filter android:priority="1">
+                <action android:name="android.app.role.action.REQUEST_ROLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <provider android:name="com.android.packageinstaller.permission.service.PermissionSearchIndexablesProvider"
             android:authorities="com.android.permissioncontroller"
             android:multiprocess="false"

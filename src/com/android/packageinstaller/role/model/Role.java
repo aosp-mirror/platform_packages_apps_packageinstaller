@@ -25,7 +25,7 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.android.packageinstaller.role.utils.Utils;
+import com.android.packageinstaller.role.utils.PackageUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -260,7 +260,7 @@ public class Role {
     }
 
     private void killApp(@NonNull String packageName, @NonNull Context context) {
-        ApplicationInfo applicationInfo = Utils.getApplicationInfo(packageName, context);
+        ApplicationInfo applicationInfo = PackageUtils.getApplicationInfo(packageName, context);
         if (applicationInfo == null) {
             Log.w(LOG_TAG, "Cannot get ApplicationInfo for package: " + packageName);
             return;
