@@ -41,7 +41,7 @@ import androidx.preference.PreferenceScreen;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.Permission;
-import com.android.packageinstaller.permission.ui.DetailManagePermissionsActivity;
+import com.android.packageinstaller.permission.ui.ManagePermissionsActivity;
 import com.android.packageinstaller.permission.utils.ArrayUtils;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
@@ -151,7 +151,7 @@ public final class ReviewPermissionsFragment extends PreferenceFragmentCompat
             Intent intent = new Intent(Intent.ACTION_MANAGE_APP_PERMISSIONS);
             intent.putExtra(Intent.EXTRA_PACKAGE_NAME,
                     mAppPermissions.getPackageInfo().packageName);
-            intent.putExtra(DetailManagePermissionsActivity.EXTRA_ALL_PERMISSIONS, true);
+            intent.putExtra(ManagePermissionsActivity.EXTRA_ALL_PERMISSIONS, true);
             getActivity().startActivity(intent);
         }
         activity.finish();
