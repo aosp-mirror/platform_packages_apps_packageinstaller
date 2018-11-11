@@ -41,8 +41,9 @@ public class RequiredService extends RequiredComponent {
     @Override
     protected List<ResolveInfo> queryIntentComponents(@NonNull Intent intent,
             @NonNull Context context) {
-        return context.getPackageManager().queryIntentServices(intent,
-                PackageManager.MATCH_DIRECT_BOOT_AWARE | PackageManager.MATCH_DIRECT_BOOT_UNAWARE);
+        PackageManager packageManager = context.getPackageManager();
+        return packageManager.queryIntentServices(intent, PackageManager.MATCH_DIRECT_BOOT_AWARE
+                | PackageManager.MATCH_DIRECT_BOOT_UNAWARE);
     }
 
     @NonNull

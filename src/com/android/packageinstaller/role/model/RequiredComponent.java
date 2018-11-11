@@ -66,7 +66,7 @@ public abstract class RequiredComponent {
      * Get the component that matches this required component within a package, if any.
      *
      * @param packageName the package name for this query
-     * @param context the {@code Context} to retrieve the {@code PackageManager}
+     * @param context the {@code Context} to retrieve system services
      *
      * @return the matching component, or {@code null} if none.
      */
@@ -82,7 +82,7 @@ public abstract class RequiredComponent {
      * Get the list of components that match this required component, <b>at most one component per
      * package</b> and ordered from best to worst.
      *
-     * @param context the {@code Context} to retrieve the {@code PackageManager}
+     * @param context the {@code Context} to retrieve system services
      *
      * @return the list of matching components
      *
@@ -126,7 +126,7 @@ public abstract class RequiredComponent {
      * to worst.
      *
      * @param intent the {@code Intent} to match against
-     * @param context the {@code Context} to retrieve the {@code PackageManager}
+     * @param context the {@code Context} to retrieve system services
      *
      * @return the list of matching components
      */

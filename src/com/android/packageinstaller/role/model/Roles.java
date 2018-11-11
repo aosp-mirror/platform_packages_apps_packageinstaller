@@ -103,7 +103,7 @@ public class Roles {
      *
      * @param context the {@code Context} used to read the XML resource
      *
-     * @return a map from role name to {@link Role} instances.
+     * @return a map from role name to {@link Role} instances
      */
     @NonNull
     public static Map<String, Role> getRoles(@NonNull Context context) {
@@ -757,8 +757,8 @@ public class Roles {
             role.getPermissions().forEach(permission -> validatePermission(permission, context));
             role.getAppOps().forEach(appOp -> {
                 String permission = AppOpsManager.opToPermission(appOp.getName());
-                if (permission != null && !role.getPermissions().contains(permission)) {
-                    throw new IllegalArgumentException("Missing <permission> for app op: "
+                if (permission != null) {
+                    throw new IllegalArgumentException("App op has an associated permission: "
                             + appOp.getName());
                 }
             });
@@ -773,8 +773,9 @@ public class Roles {
     }
 
     private static void validatePermission(@NonNull String permission, @NonNull Context context) {
+        PackageManager packageManager = context.getPackageManager();
         try {
-            context.getPackageManager().getPermissionInfo(permission, 0);
+            packageManager.getPermissionInfo(permission, 0);
         } catch (PackageManager.NameNotFoundException e) {
             throw new IllegalArgumentException("Unknown permission: " + permission, e);
         }

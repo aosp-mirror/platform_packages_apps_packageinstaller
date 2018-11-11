@@ -44,11 +44,11 @@ import android.widget.RadioGroup;
 import android.widget.Space;
 import android.widget.TextView;
 
-import com.android.packageinstaller.permission.ui.DetailManagePermissionsActivity;
-import com.android.permissioncontroller.R;
 import com.android.packageinstaller.permission.ui.ButtonBarLayout;
 import com.android.packageinstaller.permission.ui.GrantPermissionsViewHandler;
+import com.android.packageinstaller.permission.ui.ManagePermissionsActivity;
 import com.android.packageinstaller.permission.ui.ManualLayoutFrame;
+import com.android.permissioncontroller.R;
 
 public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHandler,
         OnClickListener, RadioGroup.OnCheckedChangeListener {
@@ -423,7 +423,7 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
             case R.id.permission_more_info_button:
                 Intent intent = new Intent(Intent.ACTION_MANAGE_APP_PERMISSIONS);
                 intent.putExtra(Intent.EXTRA_PACKAGE_NAME, mAppPackageName);
-                intent.putExtra(DetailManagePermissionsActivity.EXTRA_ALL_PERMISSIONS, true);
+                intent.putExtra(ManagePermissionsActivity.EXTRA_ALL_PERMISSIONS, true);
                 mActivity.startActivity(intent);
                 break;
         }
