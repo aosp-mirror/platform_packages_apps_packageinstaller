@@ -35,7 +35,7 @@ import androidx.annotation.Nullable;
 
 import com.android.packageinstaller.permission.utils.ArrayUtils;
 import com.android.packageinstaller.permission.utils.CollectionUtils;
-import com.android.packageinstaller.role.utils.Utils;
+import com.android.packageinstaller.role.utils.PackageUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -483,7 +483,7 @@ public class Permissions {
     @Nullable
     private static PackageInfo getPackageInfo(@NonNull String packageName, int extraFlags,
             @NonNull Context context) {
-        return Utils.getPackageInfo(packageName, extraFlags
+        return PackageUtils.getPackageInfo(packageName, extraFlags
                 // TODO: Why MATCH_UNINSTALLED_PACKAGES?
                 | PackageManager.MATCH_UNINSTALLED_PACKAGES | PackageManager.GET_PERMISSIONS,
                 context);
@@ -496,7 +496,7 @@ public class Permissions {
 
     static boolean isRuntimePermissionsSupported(@NonNull String packageName,
             @NonNull Context context) {
-        ApplicationInfo applicationInfo = Utils.getApplicationInfo(packageName, context);
+        ApplicationInfo applicationInfo = PackageUtils.getApplicationInfo(packageName, context);
         if (applicationInfo == null) {
             return false;
         }
@@ -685,7 +685,7 @@ public class Permissions {
     @Nullable
     private static Integer getAppOpMode(@NonNull String packageName, @NonNull String appOp,
             @NonNull Context context) {
-        ApplicationInfo applicationInfo = Utils.getApplicationInfo(packageName, context);
+        ApplicationInfo applicationInfo = PackageUtils.getApplicationInfo(packageName, context);
         if (applicationInfo == null) {
             return null;
         }
@@ -703,7 +703,7 @@ public class Permissions {
         if (currentMode != null && currentMode == mode) {
             return false;
         }
-        ApplicationInfo applicationInfo = Utils.getApplicationInfo(packageName, context);
+        ApplicationInfo applicationInfo = PackageUtils.getApplicationInfo(packageName, context);
         if (applicationInfo == null) {
             Log.e(LOG_TAG, "Cannot get ApplicationInfo for package to set app op mode: "
                     + packageName);

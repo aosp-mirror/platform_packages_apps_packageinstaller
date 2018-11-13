@@ -16,14 +16,12 @@
 
 package com.android.packageinstaller.permission.model;
 
-import static com.android.packageinstaller.permission.utils.Utils.DEFAULT_MAX_LABEL_SIZE_PX;
-
 import android.content.Context;
 import android.content.pm.PackageInfo;
-import android.content.pm.PackageItemInfo;
 import android.content.pm.PackageManager;
-import android.text.BidiFormatter;
 import android.util.ArrayMap;
+
+import com.android.packageinstaller.permission.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -69,12 +67,7 @@ public final class AppPermissions {
             boolean delayChanges, Runnable onErrorCallback) {
         mContext = context;
         mPackageInfo = packageInfo;
-        mAppLabel = BidiFormatter.getInstance().unicodeWrap(
-                packageInfo.applicationInfo.loadSafeLabel(context.getPackageManager(),
-                        DEFAULT_MAX_LABEL_SIZE_PX,
-                        PackageItemInfo.SAFE_LABEL_FLAG_TRIM
-                                | PackageItemInfo.SAFE_LABEL_FLAG_FIRST_LINE)
-                        .toString());
+        mAppLabel = Utils.getAppLabel(packageInfo.applicationInfo, context);
         mSortGroups = sortGroups;
         mDelayChanges = delayChanges;
         mOnErrorCallback = onErrorCallback;

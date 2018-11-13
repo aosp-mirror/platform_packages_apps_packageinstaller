@@ -25,32 +25,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 /**
- * Miscellaneous utility methods.
+ * Utility methods about application packages.
  */
-public final class Utils {
+public final class PackageUtils {
 
-    private Utils() {}
-
-    /**
-     * Retrieve the {@link ApplicationInfo} of an application.
-     *
-     * @param packageName the package name of the application
-     * @param context the {@code Context} to retrieve system services
-     *
-     * @return the {@link ApplicationInfo} of the application, or {@code null} if not found.
-     */
-    @Nullable
-    public static ApplicationInfo getApplicationInfo(@NonNull String packageName,
-            @NonNull Context context) {
-        PackageManager packageManager = context.getPackageManager();
-        try {
-            return packageManager.getApplicationInfo(packageName,
-                    PackageManager.MATCH_DIRECT_BOOT_AWARE
-                            | PackageManager.MATCH_DIRECT_BOOT_UNAWARE);
-        } catch (PackageManager.NameNotFoundException e) {
-            return null;
-        }
-    }
+    private PackageUtils() {}
 
     /**
      * Retrieve the {@link PackageInfo} of an application.
@@ -60,7 +39,7 @@ public final class Utils {
      *                   int)}
      * @param context the {@code Context} to retrieve system services
      *
-     * @return the {@link PackageInfo} of the application, or {@code null} if not found.
+     * @return the {@link PackageInfo} of the application, or {@code null} if not found
      */
     @Nullable
     public static PackageInfo getPackageInfo(@NonNull String packageName, int extraFlags,
@@ -69,6 +48,27 @@ public final class Utils {
         try {
             return packageManager.getPackageInfo(packageName, PackageManager.MATCH_DIRECT_BOOT_AWARE
                     | PackageManager.MATCH_DIRECT_BOOT_UNAWARE | extraFlags);
+        } catch (PackageManager.NameNotFoundException e) {
+            return null;
+        }
+    }
+
+    /**
+     * Retrieve the {@link ApplicationInfo} of an application.
+     *
+     * @param packageName the package name of the application
+     * @param context the {@code Context} to retrieve system services
+     *
+     * @return the {@link ApplicationInfo} of the application, or {@code null} if not found
+     */
+    @Nullable
+    public static ApplicationInfo getApplicationInfo(@NonNull String packageName,
+            @NonNull Context context) {
+        PackageManager packageManager = context.getPackageManager();
+        try {
+            return packageManager.getApplicationInfo(packageName,
+                    PackageManager.MATCH_DIRECT_BOOT_AWARE
+                            | PackageManager.MATCH_DIRECT_BOOT_UNAWARE);
         } catch (PackageManager.NameNotFoundException e) {
             return null;
         }

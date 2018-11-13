@@ -30,7 +30,7 @@ import androidx.annotation.WorkerThread;
 
 import com.android.packageinstaller.role.model.Role;
 import com.android.packageinstaller.role.model.Roles;
-import com.android.packageinstaller.role.utils.Utils;
+import com.android.packageinstaller.role.utils.PackageUtils;
 
 import java.util.List;
 
@@ -129,7 +129,7 @@ public class RoleControllerServiceImpl extends RoleControllerService {
             return;
         }
 
-        ApplicationInfo applicationInfo = Utils.getApplicationInfo(packageName, this);
+        ApplicationInfo applicationInfo = PackageUtils.getApplicationInfo(packageName, this);
         if (applicationInfo == null) {
             Log.e(LOG_TAG, "Cannot get ApplicationInfo for package: " + packageName);
             callback.onFailure();
@@ -150,13 +150,13 @@ public class RoleControllerServiceImpl extends RoleControllerService {
         }
 
         if (role.isExclusive()) {
-            List<String> previousPackageNames = mRoleManager.getRoleHolders(roleName);
-            int previousPackageNamesSize = previousPackageNames.size();
-            for (int i = 0; i < previousPackageNamesSize; i++) {
-                String previousPackageName = previousPackageNames.get(i);
-                boolean removed = removeRoleHolderInternal(role, previousPackageName);
+            List<String> currentPackageNames = mRoleManager.getRoleHolders(roleName);
+            int currentPackageNamesSize = currentPackageNames.size();
+            for (int i = 0; i < currentPackageNamesSize; i++) {
+                String currentPackageName = currentPackageNames.get(i);
+                boolean removed = removeRoleHolderInternal(role, currentPackageName);
                 if (!removed) {
-                    Log.e(LOG_TAG, "Failed to remove previous holder from role holders in"
+                    Log.e(LOG_TAG, "Failed to remove current holder from role holders in"
                             + " RoleManager, package: " + packageName + ", role: " + roleName);
                     // TODO: Clean up?
                     callback.onFailure();
@@ -227,7 +227,7 @@ public class RoleControllerServiceImpl extends RoleControllerService {
 
     @WorkerThread
     private boolean removeRoleHolderInternal(@NonNull Role role, @NonNull String packageName) {
-        ApplicationInfo applicationInfo = Utils.getApplicationInfo(packageName, this);
+        ApplicationInfo applicationInfo = PackageUtils.getApplicationInfo(packageName, this);
         if (applicationInfo == null) {
             Log.w(LOG_TAG, "Cannot get ApplicationInfo for package: " + packageName);
         }
