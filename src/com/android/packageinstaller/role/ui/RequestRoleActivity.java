@@ -77,16 +77,16 @@ public class RequestRoleActivity extends FragmentActivity {
         RoleManager roleManager = getSystemService(RoleManager.class);
         List<String> currentPackageNames = roleManager.getRoleHolders(roleName);
         if (currentPackageNames.contains(packageName)) {
-            Log.i(LOG_TAG, "Application is already a role holder, role: " + roleName
-                    + ", application: " + packageName);
+            Log.i(LOG_TAG, "Application is already a role holder, role: " + roleName + ", package: "
+                    + packageName);
             setResult(RESULT_OK);
             finish();
             return;
         }
 
         if (!role.isPackageQualified(packageName, this)) {
-            Log.w(LOG_TAG, "Application doesn't qualify for role, role: " + roleName
-                    + ", application: " + packageName);
+            Log.w(LOG_TAG, "Application doesn't qualify for role, role: " + roleName + ", package: "
+                    + packageName);
             finish();
             return;
         }

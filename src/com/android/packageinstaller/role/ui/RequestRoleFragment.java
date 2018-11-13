@@ -19,18 +19,17 @@ package com.android.packageinstaller.role.ui;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.role.RoleManager;
-import android.app.role.RoleManagerCallback;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.os.Bundle;
-import android.os.UserHandle;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.android.packageinstaller.permission.utils.PackageRemovalMonitor;
 import com.android.packageinstaller.permission.utils.Utils;
@@ -40,7 +39,6 @@ import com.android.packageinstaller.role.utils.PackageUtils;
 import com.android.permissioncontroller.R;
 
 import java.util.List;
-import java.util.concurrent.Executor;
 
 /**
  * {@code Fragment} for a role request.
@@ -52,7 +50,8 @@ public class RequestRoleFragment extends DialogFragment {
     private String mRoleName;
     private String mPackageName;
 
-    @Nullable
+    private RequestRoleViewModel mViewModel;
+
     private PackageRemovalMonitor mPackageRemovalMonitor;
 
     /**
@@ -107,7 +106,7 @@ public class RequestRoleFragment extends DialogFragment {
         List<String> currentPackageNames = roleManager.getRoleHolders(mRoleName);
         if (currentPackageNames.contains(mPackageName)) {
             Log.i(LOG_TAG, "Application is already a role holder, role: " + mRoleName
-                    + ", application: " + mPackageName);
+                    + ", package: " + mPackageName);
             setResultOkAndFinish();
             return super.onCreateDialog(savedInstanceState);
         }
@@ -127,6 +126,14 @@ public class RequestRoleFragment extends DialogFragment {
                 .setPositiveButton(android.R.string.ok, (dialog, which) -> addRoleHolder())
                 .setNegativeButton(android.R.string.cancel, (dialog, which) -> finish())
                 .create();
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        mViewModel = ViewModelProviders.of(this).get(RequestRoleViewModel.class);
+        mViewModel.getLiveData().observe(this, this::onRequestRoleStateChanged);
     }
 
     @Override
@@ -150,30 +157,28 @@ public class RequestRoleFragment extends DialogFragment {
         mPackageRemovalMonitor = null;
     }
 
+    private void onRequestRoleStateChanged(int state) {
+        AlertDialog dialog = (AlertDialog) getDialog();
+        switch (state) {
+            case RequestRoleLiveData.STATE_IDLE:
+                dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
+                dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setEnabled(true);
+                break;
+            case RequestRoleLiveData.STATE_ADDING:
+                dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+                dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setEnabled(false);
+                break;
+            case RequestRoleLiveData.STATE_SUCCESS:
+                setResultOkAndFinish();
+                break;
+            case RequestRoleLiveData.STATE_FAILURE:
+                finish();
+                break;
+        }
+    }
+
     private void addRoleHolder() {
-        Log.i(LOG_TAG, "Adding package as role holder, role: " + mRoleName + ", package: "
-                + mPackageName);
-        Context context = requireContext();
-        RoleManager roleManager = context.getSystemService(RoleManager.class);
-        UserHandle user = UserHandle.of(UserHandle.myUserId());
-        Executor executor = context.getMainExecutor();
-        roleManager.addRoleHolderAsUser(mRoleName, mPackageName, user, executor,
-                // TODO: Add progress or simply disable UI.
-                // FIXME: STOPSHIP: Leaking, and NPE! Use something like Loader or LiveData instead.
-                new RoleManagerCallback() {
-                    @Override
-                    public void onSuccess() {
-                        Log.e(LOG_TAG, "Package added as role holder, role: " + mRoleName
-                                + ", package: " + mPackageName);
-                        setResultOkAndFinish();
-                    }
-                    @Override
-                    public void onFailure() {
-                        Log.e(LOG_TAG, "Failed to add package as role holder, role: " + mRoleName
-                                + ", package: " + mPackageName);
-                        finish();
-                    }
-                });
+        mViewModel.getLiveData().addRoleHolder(mRoleName, mPackageName, requireContext());
     }
 
     private void setResultOkAndFinish() {
