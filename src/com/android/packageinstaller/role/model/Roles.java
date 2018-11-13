@@ -30,7 +30,6 @@ import androidx.annotation.Nullable;
 
 import com.android.permissioncontroller.R;
 
-import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
@@ -71,6 +70,7 @@ public class Roles {
     private static final String TAG_PREFERRED_ACTIVITY = "preferred-activity";
     private static final String ATTRIBUTE_NAME = "name";
     private static final String ATTRIBUTE_EXCLUSIVE = "exclusive";
+    private static final String ATTRIBUTE_LABEL = "label";
     private static final String ATTRIBUTE_PERMISSION = "permission";
     private static final String ATTRIBUTE_SCHEME = "scheme";
     private static final String ATTRIBUTE_MIME_TYPE = "mimeType";
@@ -134,14 +134,14 @@ public class Roles {
 
     @Nullable
     private static Pair<Map<String, PermissionSet>, Map<String, Role>> parseXml(
-            @NonNull XmlPullParser parser) throws IOException, XmlPullParserException {
+            @NonNull XmlResourceParser parser) throws IOException, XmlPullParserException {
         Pair<Map<String, PermissionSet>, Map<String, Role>> xml = null;
 
         int outerDepth = parser.getDepth();
         int type;
-        while ((type = parser.next()) != XmlPullParser.END_DOCUMENT
-                && (type != XmlPullParser.END_TAG || parser.getDepth() > outerDepth)) {
-            if (type == XmlPullParser.END_TAG || type == XmlPullParser.TEXT) {
+        while ((type = parser.next()) != XmlResourceParser.END_DOCUMENT
+                && (type != XmlResourceParser.END_TAG || parser.getDepth() > outerDepth)) {
+            if (type == XmlResourceParser.END_TAG || type == XmlResourceParser.TEXT) {
                 continue;
             }
 
@@ -166,15 +166,15 @@ public class Roles {
 
     @NonNull
     private static Pair<Map<String, PermissionSet>, Map<String, Role>> parseRoles(
-            @NonNull XmlPullParser parser) throws IOException, XmlPullParserException {
+            @NonNull XmlResourceParser parser) throws IOException, XmlPullParserException {
         Map<String, PermissionSet> permissionSets = new ArrayMap<>();
         Map<String, Role> roles = new ArrayMap<>();
 
         int outerDepth = parser.getDepth();
         int type;
-        while ((type = parser.next()) != XmlPullParser.END_DOCUMENT
-                && (type != XmlPullParser.END_TAG || parser.getDepth() > outerDepth)) {
-            if (type == XmlPullParser.END_TAG || type == XmlPullParser.TEXT) {
+        while ((type = parser.next()) != XmlResourceParser.END_DOCUMENT
+                && (type != XmlResourceParser.END_TAG || parser.getDepth() > outerDepth)) {
+            if (type == XmlResourceParser.END_TAG || type == XmlResourceParser.TEXT) {
                 continue;
             }
 
@@ -208,7 +208,7 @@ public class Roles {
     }
 
     @Nullable
-    private static PermissionSet parsePermissionSet(@NonNull XmlPullParser parser)
+    private static PermissionSet parsePermissionSet(@NonNull XmlResourceParser parser)
             throws IOException, XmlPullParserException {
         String name = requireAttributeValue(parser, ATTRIBUTE_NAME, TAG_PERMISSION_SET);
         if (name == null) {
@@ -220,9 +220,9 @@ public class Roles {
 
         int outerDepth = parser.getDepth();
         int type;
-        while ((type = parser.next()) != XmlPullParser.END_DOCUMENT
-                && (type != XmlPullParser.END_TAG || parser.getDepth() > outerDepth)) {
-            if (type == XmlPullParser.END_TAG || type == XmlPullParser.TEXT) {
+        while ((type = parser.next()) != XmlResourceParser.END_DOCUMENT
+                && (type != XmlResourceParser.END_TAG || parser.getDepth() > outerDepth)) {
+            if (type == XmlResourceParser.END_TAG || type == XmlResourceParser.TEXT) {
                 continue;
             }
 
@@ -243,7 +243,7 @@ public class Roles {
     }
 
     @Nullable
-    private static Role parseRole(@NonNull XmlPullParser parser,
+    private static Role parseRole(@NonNull XmlResourceParser parser,
             @NonNull Map<String, PermissionSet> permissionSets) throws IOException,
             XmlPullParserException {
         String name = requireAttributeValue(parser, ATTRIBUTE_NAME, TAG_ROLE);
@@ -252,18 +252,15 @@ public class Roles {
             return null;
         }
 
-        String exclusiveString = requireAttributeValue(parser, ATTRIBUTE_EXCLUSIVE, TAG_ROLE);
-        if (exclusiveString == null) {
+        Integer labelResource = requireAttributeResourceValue(parser, ATTRIBUTE_LABEL, 0, TAG_ROLE);
+        if (labelResource == null) {
             skipCurrentTag(parser);
             return null;
         }
-        boolean exclusive;
-        if (Objects.equals(exclusiveString, Boolean.toString(true))) {
-            exclusive = true;
-        } else if (Objects.equals(exclusiveString, Boolean.toString(false))) {
-            exclusive = false;
-        } else {
-            throwOrLogMessage("Unknown value for \"exclusive\" on <role>: " + exclusiveString);
+
+        Boolean exclusive = requireAttributeBooleanValue(parser, ATTRIBUTE_EXCLUSIVE, true,
+                TAG_ROLE);
+        if (exclusive == null) {
             skipCurrentTag(parser);
             return null;
         }
@@ -275,9 +272,9 @@ public class Roles {
 
         int outerDepth = parser.getDepth();
         int type;
-        while ((type = parser.next()) != XmlPullParser.END_DOCUMENT
-                && (type != XmlPullParser.END_TAG || parser.getDepth() > outerDepth)) {
-            if (type == XmlPullParser.END_TAG || type == XmlPullParser.TEXT) {
+        while ((type = parser.next()) != XmlResourceParser.END_DOCUMENT
+                && (type != XmlResourceParser.END_TAG || parser.getDepth() > outerDepth)) {
+            if (type == XmlResourceParser.END_TAG || type == XmlResourceParser.TEXT) {
                 continue;
             }
 
@@ -332,20 +329,20 @@ public class Roles {
         if (preferredActivities == null) {
             preferredActivities = Collections.emptyList();
         }
-        return new Role(name, exclusive, requiredComponents, permissions, appOps,
+        return new Role(name, labelResource, exclusive, requiredComponents, permissions, appOps,
                 preferredActivities);
     }
 
     @NonNull
-    private static List<RequiredComponent> parseRequiredComponents(@NonNull XmlPullParser parser)
-            throws IOException, XmlPullParserException {
+    private static List<RequiredComponent> parseRequiredComponents(
+            @NonNull XmlResourceParser parser) throws IOException, XmlPullParserException {
         List<RequiredComponent> requiredComponents = new ArrayList<>();
 
         int outerDepth = parser.getDepth();
         int type;
-        while ((type = parser.next()) != XmlPullParser.END_DOCUMENT
-                && (type != XmlPullParser.END_TAG || parser.getDepth() > outerDepth)) {
-            if (type == XmlPullParser.END_TAG || type == XmlPullParser.TEXT) {
+        while ((type = parser.next()) != XmlResourceParser.END_DOCUMENT
+                && (type != XmlResourceParser.END_TAG || parser.getDepth() > outerDepth)) {
+            if (type == XmlResourceParser.END_TAG || type == XmlResourceParser.TEXT) {
                 continue;
             }
 
@@ -374,16 +371,16 @@ public class Roles {
     }
 
     @Nullable
-    private static RequiredComponent parseRequiredComponent(@NonNull XmlPullParser parser,
+    private static RequiredComponent parseRequiredComponent(@NonNull XmlResourceParser parser,
             @NonNull String name) throws IOException, XmlPullParserException {
         String permission = getAttributeValue(parser, ATTRIBUTE_PERMISSION);
         IntentFilterData intentFilterData = null;
 
         int outerDepth = parser.getDepth();
         int type;
-        while ((type = parser.next()) != XmlPullParser.END_DOCUMENT
-                && (type != XmlPullParser.END_TAG || parser.getDepth() > outerDepth)) {
-            if (type == XmlPullParser.END_TAG || type == XmlPullParser.TEXT) {
+        while ((type = parser.next()) != XmlResourceParser.END_DOCUMENT
+                && (type != XmlResourceParser.END_TAG || parser.getDepth() > outerDepth)) {
+            if (type == XmlResourceParser.END_TAG || type == XmlResourceParser.TEXT) {
                 continue;
             }
 
@@ -420,7 +417,7 @@ public class Roles {
     }
 
     @Nullable
-    private static IntentFilterData parseIntentFilterData(@NonNull XmlPullParser parser)
+    private static IntentFilterData parseIntentFilterData(@NonNull XmlResourceParser parser)
             throws IOException, XmlPullParserException {
         String action = null;
         List<String> categories = new ArrayList<>();
@@ -430,9 +427,9 @@ public class Roles {
 
         int outerDepth = parser.getDepth();
         int type;
-        while ((type = parser.next()) != XmlPullParser.END_DOCUMENT
-                && (type != XmlPullParser.END_TAG || parser.getDepth() > outerDepth)) {
-            if (type == XmlPullParser.END_TAG || type == XmlPullParser.TEXT) {
+        while ((type = parser.next()) != XmlResourceParser.END_DOCUMENT
+                && (type != XmlResourceParser.END_TAG || parser.getDepth() > outerDepth)) {
+            if (type == XmlResourceParser.END_TAG || type == XmlResourceParser.TEXT) {
                 continue;
             }
 
@@ -501,16 +498,16 @@ public class Roles {
     }
 
     @NonNull
-    private static List<String> parsePermissions(@NonNull XmlPullParser parser,
+    private static List<String> parsePermissions(@NonNull XmlResourceParser parser,
             @NonNull Map<String, PermissionSet> permissionSets) throws IOException,
             XmlPullParserException {
         List<String> permissions = new ArrayList<>();
 
         int outerDepth = parser.getDepth();
         int type;
-        while ((type = parser.next()) != XmlPullParser.END_DOCUMENT
-                && (type != XmlPullParser.END_TAG || parser.getDepth() > outerDepth)) {
-            if (type == XmlPullParser.END_TAG || type == XmlPullParser.TEXT) {
+        while ((type = parser.next()) != XmlResourceParser.END_DOCUMENT
+                && (type != XmlResourceParser.END_TAG || parser.getDepth() > outerDepth)) {
+            if (type == XmlResourceParser.END_TAG || type == XmlResourceParser.TEXT) {
                 continue;
             }
 
@@ -550,16 +547,16 @@ public class Roles {
     }
 
     @NonNull
-    private static List<AppOp> parseAppOps(@NonNull XmlPullParser parser) throws IOException,
+    private static List<AppOp> parseAppOps(@NonNull XmlResourceParser parser) throws IOException,
             XmlPullParserException {
         List<String> appOpNames = new ArrayList<>();
         List<AppOp> appOps = new ArrayList<>();
 
         int outerDepth = parser.getDepth();
         int type;
-        while ((type = parser.next()) != XmlPullParser.END_DOCUMENT
-                && (type != XmlPullParser.END_TAG || parser.getDepth() > outerDepth)) {
-            if (type == XmlPullParser.END_TAG || type == XmlPullParser.TEXT) {
+        while ((type = parser.next()) != XmlResourceParser.END_DOCUMENT
+                && (type != XmlResourceParser.END_TAG || parser.getDepth() > outerDepth)) {
+            if (type == XmlResourceParser.END_TAG || type == XmlResourceParser.TEXT) {
                 continue;
             }
 
@@ -600,15 +597,15 @@ public class Roles {
     }
 
     @NonNull
-    private static List<PreferredActivity> parsePreferredActivities(@NonNull XmlPullParser parser)
-            throws IOException, XmlPullParserException {
+    private static List<PreferredActivity> parsePreferredActivities(
+            @NonNull XmlResourceParser parser) throws IOException, XmlPullParserException {
         List<PreferredActivity> preferredActivities = new ArrayList<>();
 
         int outerDepth = parser.getDepth();
         int type;
-        while ((type = parser.next()) != XmlPullParser.END_DOCUMENT
-                && (type != XmlPullParser.END_TAG || parser.getDepth() > outerDepth)) {
-            if (type == XmlPullParser.END_TAG || type == XmlPullParser.TEXT) {
+        while ((type = parser.next()) != XmlResourceParser.END_DOCUMENT
+                && (type != XmlResourceParser.END_TAG || parser.getDepth() > outerDepth)) {
+            if (type == XmlResourceParser.END_TAG || type == XmlResourceParser.TEXT) {
                 continue;
             }
 
@@ -630,16 +627,16 @@ public class Roles {
     }
 
     @Nullable
-    private static PreferredActivity parsePreferredActivity(@NonNull XmlPullParser parser)
+    private static PreferredActivity parsePreferredActivity(@NonNull XmlResourceParser parser)
             throws IOException, XmlPullParserException {
         RequiredActivity activity = null;
         List<IntentFilterData> intentFilterDatas = new ArrayList<>();
 
         int outerDepth = parser.getDepth();
         int type;
-        while ((type = parser.next()) != XmlPullParser.END_DOCUMENT
-                && (type != XmlPullParser.END_TAG || parser.getDepth() > outerDepth)) {
-            if (type == XmlPullParser.END_TAG || type == XmlPullParser.TEXT) {
+        while ((type = parser.next()) != XmlResourceParser.END_DOCUMENT
+                && (type != XmlResourceParser.END_TAG || parser.getDepth() > outerDepth)) {
+            if (type == XmlResourceParser.END_TAG || type == XmlResourceParser.TEXT) {
                 continue;
             }
 
@@ -678,29 +675,60 @@ public class Roles {
         return new PreferredActivity(activity, intentFilterDatas);
     }
 
-    private static void skipCurrentTag(@NonNull XmlPullParser parser) throws XmlPullParserException,
-            IOException {
+    private static void skipCurrentTag(@NonNull XmlResourceParser parser)
+            throws XmlPullParserException, IOException {
         int outerDepth = parser.getDepth();
         int type;
-        while ((type = parser.next()) != XmlPullParser.END_DOCUMENT
-                && (type != XmlPullParser.END_TAG || parser.getDepth() > outerDepth)) {
+        while ((type = parser.next()) != XmlResourceParser.END_DOCUMENT
+                && (type != XmlResourceParser.END_TAG || parser.getDepth() > outerDepth)) {
             // Do nothing
         }
     }
 
     @Nullable
-    private static String getAttributeValue(@NonNull XmlPullParser parser, @NonNull String name) {
+    private static String getAttributeValue(@NonNull XmlResourceParser parser,
+            @NonNull String name) {
         return parser.getAttributeValue(null, name);
     }
 
     @Nullable
-    private static String requireAttributeValue(@NonNull XmlPullParser parser, @NonNull String name,
-            @NonNull String tagName) {
+    private static String requireAttributeValue(@NonNull XmlResourceParser parser,
+            @NonNull String name, @NonNull String tagName) {
         String value = getAttributeValue(parser, name);
         if (value == null) {
             throwOrLogMessage("Missing attribute \"" + name + "\" on <" + tagName + ">");
         }
         return value;
+    }
+
+    private static boolean getAttributeBooleanValue(@NonNull XmlResourceParser parser,
+            @NonNull String name, boolean defaultValue) {
+        return parser.getAttributeBooleanValue(null, name, defaultValue);
+    }
+
+    @Nullable
+    private static Boolean requireAttributeBooleanValue(@NonNull XmlResourceParser parser,
+            @NonNull String name, boolean defaultValue, @NonNull String tagName) {
+        String value = requireAttributeValue(parser, name, tagName);
+        if (value == null) {
+            return null;
+        }
+        return getAttributeBooleanValue(parser, name, defaultValue);
+    }
+
+    private static int getAttributeResourceValue(@NonNull XmlResourceParser parser,
+            @NonNull String name, int defaultValue) {
+        return parser.getAttributeResourceValue(null, name, defaultValue);
+    }
+
+    @Nullable
+    private static Integer requireAttributeResourceValue(@NonNull XmlResourceParser parser,
+            @NonNull String name, int defaultValue, @NonNull String tagName) {
+        String value = requireAttributeValue(parser, name, tagName);
+        if (value == null) {
+            return null;
+        }
+        return getAttributeResourceValue(parser, name, defaultValue);
     }
 
     private static void throwOrLogMessage(String message) {
@@ -719,7 +747,7 @@ public class Roles {
         }
     }
 
-    private static void throwOrLogForUnknownTag(@NonNull XmlPullParser parser) {
+    private static void throwOrLogForUnknownTag(@NonNull XmlResourceParser parser) {
         throwOrLogMessage("Unknown tag: " + parser.getName());
     }
 

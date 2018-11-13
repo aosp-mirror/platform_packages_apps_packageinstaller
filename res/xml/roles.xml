@@ -95,7 +95,7 @@
     </permission-set>
 
     <!--- @see android.telecom.DefaultDialerManager -->
-    <role name="android.app.role.DIALER" exclusive="true">
+    <role name="android.app.role.DIALER" exclusive="true" label="@string/role_label_dialer">
         <required-components>
             <activity>
                 <intent-filter>
@@ -134,7 +134,7 @@
     </role>
 
     <!--- @see com.android.internal.telephony.SmsApplication -->
-    <role name="android.app.role.SMS" exclusive="true">
+    <role name="android.app.role.SMS" exclusive="true" label="@string/role_label_sms">
         <required-components>
             <receiver permission="android.permission.BROADCAST_SMS">
                 <intent-filter>
@@ -215,7 +215,7 @@
     </role>
 
     <!--- @see com.android.settings.applications.defaultapps.DefaultBrowserPreferenceController -->
-    <role name="android.app.role.BROWSER" exclusive="true">
+    <role name="android.app.role.BROWSER" exclusive="true" label="@string/role_label_browser">
         <required-components>
             <activity>
                 <intent-filter>

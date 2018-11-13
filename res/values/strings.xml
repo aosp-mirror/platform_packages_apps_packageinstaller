@@ -304,4 +304,15 @@
         &lt;b><xliff:g id="new_app_name" example="Super Duper SMS">%1$s</xliff:g>&lt;/b> instead of
         &lt;b><xliff:g id="current_app_name" example="Messages">%1$s</xliff:g>&lt;/b> as your
         <xliff:g id="role_name" example="SMS app">%2$s</xliff:g>?</string>
+
+    <!-- TODO: STOPSHIP: Migrate all default app titles from packages/apps/Settings/res/values/strings.xml . -->
+
+    <!-- Label for the dialer role. [CHAR LIMIT=30] -->
+    <string name="role_label_dialer">Phone app</string>
+
+    <!-- Label for the SMS role. [CHAR LIMIT=30] -->
+    <string name="role_label_sms">SMS app</string>
+
+    <!-- Label for the browser role. [CHAR LIMIT=30] -->
+    <string name="role_label_browser">Browser app</string>
 </resources>
