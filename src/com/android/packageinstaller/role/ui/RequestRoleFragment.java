@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -113,13 +114,14 @@ public class RequestRoleFragment extends DialogFragment {
         String currentApplicationLabel = role.isExclusive() ? getCurrentApplicationLabel(
                 currentPackageNames, context) : null;
 
-        String message;
+        String messageHtml;
         if (currentApplicationLabel == null) {
-            message = getString(R.string.role_request_message_add, applicationLabel, roleLabel);
+            messageHtml = getString(R.string.role_request_message_add, applicationLabel, roleLabel);
         } else {
-            message = getString(R.string.role_request_message_replace, applicationLabel,
+            messageHtml = getString(R.string.role_request_message_replace, applicationLabel,
                     currentApplicationLabel, roleLabel);
         }
+        CharSequence message = Html.fromHtml(messageHtml, Html.FROM_HTML_MODE_LEGACY);
 
         return new AlertDialog.Builder(context, getTheme())
                 .setMessage(message)
