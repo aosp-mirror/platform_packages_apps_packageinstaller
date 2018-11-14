@@ -102,7 +102,7 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                 permissionName = verifyIntent(this, getIntent());
                 // fall through
             case Intent.ACTION_MANAGE_PERMISSION_APPS: {
-                if (permissionName != null) {
+                if (permissionName == null) {
                     permissionName = getIntent().getStringExtra(Intent.EXTRA_PERMISSION_NAME);
                 }
 
