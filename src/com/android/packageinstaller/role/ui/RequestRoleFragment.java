@@ -92,8 +92,7 @@ public class RequestRoleFragment extends DialogFragment {
             finish();
             return super.onCreateDialog(savedInstanceState);
         }
-        // FIXME: STOPSHIP: Add a label for role.
-        String roleLabel = role.getName();
+        String roleLabel = getString(role.getLabelResource());
 
         ApplicationInfo applicationInfo = PackageUtils.getApplicationInfo(mPackageName, context);
         if (applicationInfo == null) {
