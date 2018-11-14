@@ -156,7 +156,7 @@ public class AppPermissionUsageFragment extends SettingsWithHeader {
             if (group.getLabel().equals("Storage")) {
                 continue;
             }
-            if (!Utils.shouldShowPermission(getContext(), group)) {
+            if (!Utils.shouldShowPermission(context, group)) {
                 continue;
             }
             List<AppPermissionUsage> groupUsages = group.getAppPermissionUsage();

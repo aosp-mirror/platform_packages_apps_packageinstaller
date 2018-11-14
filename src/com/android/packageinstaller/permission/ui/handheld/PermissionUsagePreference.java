@@ -49,8 +49,9 @@ public class PermissionUsagePreference extends Preference {
         setTitle(title);
         setSummary(summary);
         setOnPreferenceClickListener(preference -> {
-            Intent intent = new Intent(Intent.ACTION_MANAGE_APP_PERMISSIONS);
+            Intent intent = new Intent(Intent.ACTION_MANAGE_APP_PERMISSION);
             intent.putExtra(Intent.EXTRA_PACKAGE_NAME, usage.getPackageName());
+            intent.putExtra(Intent.EXTRA_PERMISSION_NAME, usage.getPermissionName());
             context.startActivity(intent);
             return true;
         });
