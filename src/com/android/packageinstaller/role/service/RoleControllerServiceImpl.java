@@ -21,6 +21,7 @@ import android.app.role.RoleManagerCallback;
 import android.content.pm.ApplicationInfo;
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.os.UserHandle;
 import android.rolecontrollerservice.RoleControllerService;
 import android.text.TextUtils;
 import android.util.Log;
@@ -117,6 +118,13 @@ public class RoleControllerServiceImpl extends RoleControllerService {
             return;
         }
         mWorkerHandler.post(() -> clearRoleHolders(roleName, callback));
+    }
+
+    @Override
+    public void onGrantDefaultRoles(@NonNull RoleManagerCallback callback) {
+        //TODO grant default permissions and appops
+        Log.i(LOG_TAG, "Granting defaults for user " + UserHandle.myUserId());
+        callback.onSuccess();
     }
 
     @WorkerThread
