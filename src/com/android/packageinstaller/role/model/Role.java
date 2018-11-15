@@ -24,6 +24,7 @@ import android.util.ArrayMap;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 
 import com.android.packageinstaller.role.utils.PackageUtils;
 
@@ -58,6 +59,12 @@ public class Role {
     private final String mName;
 
     /**
+     * The string resource for the label of this role.
+     */
+    @StringRes
+    private final int mLabelResource;
+
+    /**
      * Whether this role is exclusive, i.e. allows at most one holder.
      */
     private final boolean mExclusive;
@@ -86,10 +93,11 @@ public class Role {
     @NonNull
     private final List<PreferredActivity> mPreferredActivities;
 
-    public Role(@NonNull String name, boolean exclusive,
+    public Role(@NonNull String name, @StringRes int labelResource, boolean exclusive,
             @NonNull List<RequiredComponent> requiredComponents, @NonNull List<String> permissions,
             @NonNull List<AppOp> appOps, @NonNull List<PreferredActivity> preferredActivities) {
         mName = name;
+        mLabelResource = labelResource;
         mExclusive = exclusive;
         mRequiredComponents = requiredComponents;
         mPermissions = permissions;
@@ -100,6 +108,11 @@ public class Role {
     @NonNull
     public String getName() {
         return mName;
+    }
+
+    @StringRes
+    public int getLabelResource() {
+        return mLabelResource;
     }
 
     public boolean isExclusive() {
