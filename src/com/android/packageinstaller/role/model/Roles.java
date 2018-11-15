@@ -52,6 +52,7 @@ public class Roles {
 
     private static final String TAG_ROLES = "roles";
     private static final String TAG_PERMISSION_SET = "permission-set";
+    private static final String TAG_PERMISSION = "permission";
     private static final String TAG_ROLE = "role";
     private static final String TAG_REQUIRED_COMPONENTS = "required-components";
     private static final String TAG_ACTIVITY = "activity";
@@ -62,18 +63,19 @@ public class Roles {
     private static final String TAG_ACTION = "action";
     private static final String TAG_CATEGORY = "category";
     private static final String TAG_DATA = "data";
+    private static final String TAG_META_DATA = "meta-data";
     private static final String TAG_PERMISSIONS = "permissions";
-    private static final String TAG_PERMISSION = "permission";
     private static final String TAG_APP_OPS = "app-ops";
     private static final String TAG_APP_OP = "app-op";
     private static final String TAG_PREFERRED_ACTIVITIES = "preferred-activites";
     private static final String TAG_PREFERRED_ACTIVITY = "preferred-activity";
     private static final String ATTRIBUTE_NAME = "name";
+    private static final String ATTRIBUTE_PERMISSION = "permission";
     private static final String ATTRIBUTE_EXCLUSIVE = "exclusive";
     private static final String ATTRIBUTE_LABEL = "label";
-    private static final String ATTRIBUTE_PERMISSION = "permission";
     private static final String ATTRIBUTE_SCHEME = "scheme";
     private static final String ATTRIBUTE_MIME_TYPE = "mimeType";
+    private static final String ATTRIBUTE_VALUE = "value";
     private static final String ATTRIBUTE_MODE = "mode";
 
     private static final String MODE_NAME_ALLOWED = "allowed";
@@ -375,6 +377,7 @@ public class Roles {
             @NonNull String name) throws IOException, XmlPullParserException {
         String permission = getAttributeValue(parser, ATTRIBUTE_PERMISSION);
         IntentFilterData intentFilterData = null;
+        ArrayMap<String, Object> metaData = new ArrayMap<>();
 
         int outerDepth = parser.getDepth();
         int type;
@@ -384,16 +387,35 @@ public class Roles {
                 continue;
             }
 
-            if (parser.getName().equals(TAG_INTENT_FILTER)) {
-                if (intentFilterData != null) {
-                    throwOrLogMessage("Duplicate <intent-filter> in <" + name + ">");
+            switch (parser.getName()) {
+                case TAG_INTENT_FILTER:
+                    if (intentFilterData != null) {
+                        throwOrLogMessage("Duplicate <intent-filter> in <" + name + ">");
+                        skipCurrentTag(parser);
+                        continue;
+                    }
+                    intentFilterData = parseIntentFilterData(parser);
+                    break;
+                case TAG_META_DATA:
+                    String metaDataName = requireAttributeValue(parser, ATTRIBUTE_NAME,
+                            TAG_META_DATA);
+                    if (metaDataName == null) {
+                        continue;
+                    }
+                    checkDuplicateElement(metaDataName, metaData.keySet(), "meta data");
+                    // HACK: Only support boolean for now.
+                    // TODO: Support android:resource and other types of android:value, maybe by
+                    // switching to TypedArray and styleables.
+                    Boolean metaDataValue = requireAttributeBooleanValue(parser, ATTRIBUTE_VALUE,
+                            false, TAG_META_DATA);
+                    if (metaDataValue == null) {
+                        continue;
+                    }
+                    metaData.put(metaDataName, metaDataValue);
+                    break;
+                default:
+                    throwOrLogForUnknownTag(parser);
                     skipCurrentTag(parser);
-                    continue;
-                }
-                intentFilterData = parseIntentFilterData(parser);
-            } else {
-                throwOrLogForUnknownTag(parser);
-                skipCurrentTag(parser);
             }
         }
 
@@ -403,13 +425,13 @@ public class Roles {
         }
         switch (name) {
             case TAG_ACTIVITY:
-                return new RequiredActivity(permission, intentFilterData);
+                return new RequiredActivity(intentFilterData, permission, metaData);
             case TAG_PROVIDER:
-                return new RequiredContentProvider(permission, intentFilterData);
+                return new RequiredContentProvider(intentFilterData, permission, metaData);
             case TAG_RECEIVER:
-                return new RequiredBroadcastReceiver(permission, intentFilterData);
+                return new RequiredBroadcastReceiver(intentFilterData, permission, metaData);
             case TAG_SERVICE:
-                return new RequiredService(permission, intentFilterData);
+                return new RequiredService(intentFilterData, permission, metaData);
             default:
                 throwOrLogMessage("Unknown tag <" + name + ">");
                 return null;

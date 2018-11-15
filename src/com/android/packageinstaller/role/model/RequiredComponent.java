@@ -19,7 +19,10 @@ package com.android.packageinstaller.role.model;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.os.Bundle;
+import android.util.ArrayMap;
 import android.util.ArraySet;
 
 import androidx.annotation.NonNull;
@@ -35,21 +38,38 @@ import java.util.Objects;
 public abstract class RequiredComponent {
 
     /**
-     * Optional permission required on a component for match to succeed.
-     */
-    @Nullable
-    private final String mPermission;
-
-    /**
      * The {@code Intent} or {@code IntentFilter} data to match the components.
      */
     @NonNull
     private final IntentFilterData mIntentFilterData;
 
-    public RequiredComponent(@Nullable String permission,
-            @NonNull IntentFilterData intentFilterData) {
-        mPermission = permission;
+    /**
+     * Optional permission required on a component for match to succeed.
+     *
+     * @see android.content.pm.ActivityInfo#permission
+     * @see android.content.pm.ServiceInfo#permission
+     */
+    @Nullable
+    private final String mPermission;
+
+    /**
+     * The meta data required on a component for match to succeed.
+     *
+     * @see android.content.pm.PackageItemInfo#metaData
+     */
+    @NonNull
+    private final ArrayMap<String, Object> mMetaData;
+
+    public RequiredComponent(@NonNull IntentFilterData intentFilterData,
+            @Nullable String permission, @NonNull ArrayMap<String, Object> metaData) {
         mIntentFilterData = intentFilterData;
+        mPermission = permission;
+        mMetaData = metaData;
+    }
+
+    @NonNull
+    public IntentFilterData getIntentFilterData() {
+        return mIntentFilterData;
     }
 
     @Nullable
@@ -58,8 +78,8 @@ public abstract class RequiredComponent {
     }
 
     @NonNull
-    public IntentFilterData getIntentFilterData() {
-        return mIntentFilterData;
+    public ArrayMap<String, Object> getMetaData() {
+        return mMetaData;
     }
 
     /**
@@ -100,23 +120,59 @@ public abstract class RequiredComponent {
         if (packageName != null) {
             intent.setPackage(packageName);
         }
-        List<ResolveInfo> resolveInfos = queryIntentComponents(intent, context);
+        int flags = PackageManager.MATCH_DIRECT_BOOT_AWARE
+                | PackageManager.MATCH_DIRECT_BOOT_UNAWARE;
+        boolean hasMetaData = !mMetaData.isEmpty();
+        if (hasMetaData) {
+            flags |= PackageManager.GET_META_DATA;
+        }
+        List<ResolveInfo> resolveInfos = queryIntentComponents(intent, flags, context);
 
         ArraySet<String> componentPackageNames = new ArraySet<>();
         List<ComponentName> componentNames = new ArrayList<>();
         int resolveInfosSize = resolveInfos.size();
-        for (int i = 0; i < resolveInfosSize; i++) {
-            ResolveInfo resolveInfo = resolveInfos.get(i);
-            if (mPermission == null || Objects.equals(getComponentPermission(resolveInfo),
-                    mPermission)) {
-                ComponentName componentName = getComponentComponentName(resolveInfo);
-                String componentPackageName = componentName.getPackageName();
-                if (componentPackageNames.contains(componentPackageName)) {
+        for (int resolveInfosIndex = 0; resolveInfosIndex < resolveInfosSize; resolveInfosIndex++) {
+            ResolveInfo resolveInfo = resolveInfos.get(resolveInfosIndex);
+
+            if (mPermission != null) {
+                String componentPermission = getComponentPermission(resolveInfo);
+                if (!Objects.equals(componentPermission, mPermission)) {
                     continue;
                 }
-                componentPackageNames.add(componentPackageName);
-                componentNames.add(componentName);
             }
+
+            if (hasMetaData) {
+                Bundle componentMetaData = getComponentMetaData(resolveInfo);
+                if (componentMetaData == null) {
+                    continue;
+                }
+                int metaDataSize = mMetaData.size();
+                if (componentMetaData.size() < metaDataSize) {
+                    continue;
+                }
+                boolean containsAllMetaData = true;
+                for (int metaDataIndex = 0; metaDataIndex < metaDataSize; metaDataIndex++) {
+                    String metaDataName = mMetaData.keyAt(metaDataIndex);
+                    Object metaDataValue = mMetaData.valueAt(metaDataIndex);
+                    Object componentMetaDataValue = componentMetaData.get(metaDataName);
+                    if (!Objects.equals(componentMetaDataValue, metaDataValue)) {
+                        containsAllMetaData = false;
+                        break;
+                    }
+                }
+                if (!containsAllMetaData) {
+                    continue;
+                }
+            }
+
+            ComponentName componentName = getComponentComponentName(resolveInfo);
+            String componentPackageName = componentName.getPackageName();
+            if (componentPackageNames.contains(componentPackageName)) {
+                continue;
+            }
+
+            componentPackageNames.add(componentPackageName);
+            componentNames.add(componentName);
         }
         return componentNames;
     }
@@ -126,12 +182,13 @@ public abstract class RequiredComponent {
      * to worst.
      *
      * @param intent the {@code Intent} to match against
+     * @param flags the flags to be used for this query
      * @param context the {@code Context} to retrieve system services
      *
      * @return the list of matching components
      */
     @NonNull
-    protected abstract List<ResolveInfo> queryIntentComponents(@NonNull Intent intent,
+    protected abstract List<ResolveInfo> queryIntentComponents(@NonNull Intent intent, int flags,
             @NonNull Context context);
 
     /**
@@ -154,11 +211,22 @@ public abstract class RequiredComponent {
     @Nullable
     protected abstract String getComponentPermission(@NonNull ResolveInfo resolveInfo);
 
+    /**
+     * Get the meta data associated with a component.
+     *
+     * @param resolveInfo the {@code ResolveInfo} of the component
+     *
+     * @return the meta data associated with a component
+     */
+    @Nullable
+    protected abstract Bundle getComponentMetaData(@NonNull ResolveInfo resolveInfo);
+
     @Override
     public String toString() {
         return "RequiredComponent{"
-                + "mPermission='" + mPermission + '\''
-                + ", mIntentFilterData=" + mIntentFilterData
+                + "mIntentFilterData=" + mIntentFilterData
+                + ", mPermission='" + mPermission + '\''
+                + ", mMetaData=" + mMetaData
                 + '}';
     }
 
@@ -171,12 +239,13 @@ public abstract class RequiredComponent {
             return false;
         }
         RequiredComponent that = (RequiredComponent) object;
-        return Objects.equals(mPermission, that.mPermission)
-                && Objects.equals(mIntentFilterData, that.mIntentFilterData);
+        return Objects.equals(mIntentFilterData, that.mIntentFilterData)
+                && Objects.equals(mPermission, that.mPermission)
+                && Objects.equals(mMetaData, that.mMetaData);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(mPermission, mIntentFilterData);
+        return Objects.hash(mIntentFilterData, mPermission, mMetaData);
     }
 }

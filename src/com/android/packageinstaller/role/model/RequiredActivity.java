@@ -21,6 +21,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.os.Bundle;
+import android.util.ArrayMap;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -32,18 +34,17 @@ import java.util.List;
  */
 public class RequiredActivity extends RequiredComponent {
 
-    public RequiredActivity(@Nullable String permission,
-            @NonNull IntentFilterData intentFilterData) {
-        super(permission, intentFilterData);
+    public RequiredActivity(@NonNull IntentFilterData intentFilterData,
+            @Nullable String permission, @NonNull ArrayMap<String, Object> metaData) {
+        super(intentFilterData, permission, metaData);
     }
 
     @NonNull
     @Override
-    protected List<ResolveInfo> queryIntentComponents(@NonNull Intent intent,
+    protected List<ResolveInfo> queryIntentComponents(@NonNull Intent intent, int flags,
             @NonNull Context context) {
         PackageManager packageManager = context.getPackageManager();
-        return packageManager.queryIntentActivities(intent, PackageManager.MATCH_DIRECT_BOOT_AWARE
-                | PackageManager.MATCH_DIRECT_BOOT_UNAWARE);
+        return packageManager.queryIntentActivities(intent, flags);
     }
 
     @NonNull
@@ -57,5 +58,11 @@ public class RequiredActivity extends RequiredComponent {
     @Override
     protected String getComponentPermission(@NonNull ResolveInfo resolveInfo) {
         return resolveInfo.activityInfo.permission;
+    }
+
+    @Nullable
+    @Override
+    protected Bundle getComponentMetaData(@NonNull ResolveInfo resolveInfo) {
+        return resolveInfo.activityInfo.metaData;
     }
 }
