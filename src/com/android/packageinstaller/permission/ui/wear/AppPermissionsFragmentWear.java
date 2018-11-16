@@ -322,7 +322,7 @@ public final class AppPermissionsFragmentWear extends PreferenceFragmentCompat {
         pref.setTitle(group.getLabel());
         pref.setChecked(group.areRuntimePermissionsGranted());
 
-        if (group.isPolicyFixed()) {
+        if (group.isSystemFixed() || group.isPolicyFixed()) {
             pref.setEnabled(false);
         } else {
             pref.setOnPreferenceChangeListener((p, newVal) -> {
