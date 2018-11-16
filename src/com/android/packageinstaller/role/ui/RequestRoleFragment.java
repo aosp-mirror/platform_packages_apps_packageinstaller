@@ -17,6 +17,7 @@
 package com.android.packageinstaller.role.ui;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.role.RoleManager;
 import android.content.Context;
@@ -28,7 +29,6 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -122,11 +122,17 @@ public class RequestRoleFragment extends DialogFragment {
         }
         CharSequence message = Html.fromHtml(messageHtml, Html.FROM_HTML_MODE_LEGACY);
 
-        return new AlertDialog.Builder(context, getTheme())
+        // Set the button listeners later to get rid of the automatic dismiss behavior.
+        AlertDialog dialog = new AlertDialog.Builder(context, getTheme())
                 .setMessage(message)
-                .setPositiveButton(android.R.string.ok, (dialog, which) -> addRoleHolder())
-                .setNegativeButton(android.R.string.cancel, (dialog, which) -> finish())
+                .setPositiveButton(android.R.string.ok, null)
+                .setNegativeButton(android.R.string.cancel, null)
                 .create();
+        dialog.setOnShowListener(dialog2 -> {
+            dialog.getButton(Dialog.BUTTON_POSITIVE).setOnClickListener(view -> addRoleHolder());
+            dialog.getButton(Dialog.BUTTON_NEGATIVE).setOnClickListener(view -> finish());
+        });
+        return dialog;
     }
 
     @Override
