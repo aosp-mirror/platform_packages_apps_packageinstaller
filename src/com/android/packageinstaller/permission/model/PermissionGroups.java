@@ -155,7 +155,7 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
             // Get the permissions in this group.
             final List<PermissionInfo> groupPermissions;
             try {
-                groupPermissions = packageManager.queryPermissionsByGroup(groupInfo.name, 0);
+                groupPermissions = Utils.getPermissionInfosForGroup(packageManager, groupInfo.name);
             } catch (PackageManager.NameNotFoundException e) {
                 continue;
             }

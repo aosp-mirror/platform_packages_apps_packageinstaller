@@ -260,7 +260,7 @@ public class PermissionApps {
 
     private List<PermissionInfo> getGroupPermissionInfos(String groupName) {
         try {
-            return mContext.getPackageManager().queryPermissionsByGroup(groupName, 0);
+            return Utils.getPermissionInfosForGroup(mContext.getPackageManager(), groupName);
         } catch (NameNotFoundException e) {
             /* ignore */
         }

@@ -35,6 +35,7 @@ import androidx.annotation.Nullable;
 
 import com.android.packageinstaller.permission.utils.ArrayUtils;
 import com.android.packageinstaller.permission.utils.CollectionUtils;
+import com.android.packageinstaller.permission.utils.Utils;
 import com.android.packageinstaller.role.utils.PackageUtils;
 
 import java.util.ArrayList;
@@ -621,8 +622,8 @@ public class Permissions {
 
             List<PermissionInfo> permissionInfos;
             try {
-                permissionInfos = packageManager.queryPermissionsByGroup(permissionGroupInfo.name,
-                        0);
+                permissionInfos = Utils.getPermissionInfosForGroup(packageManager,
+                        permissionGroupInfo.name);
             } catch (PackageManager.NameNotFoundException e) {
                 Log.e(LOG_TAG, "Cannot get permissions for group: " + permissionGroupInfo.name);
                 continue;

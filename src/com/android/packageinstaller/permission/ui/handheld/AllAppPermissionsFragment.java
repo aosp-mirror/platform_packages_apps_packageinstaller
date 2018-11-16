@@ -171,7 +171,7 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
 
                     if ((perm.protectionLevel & PermissionInfo.PROTECTION_MASK_BASE)
                             == PermissionInfo.PROTECTION_DANGEROUS) {
-                        PackageItemInfo group = getGroup(perm.group, pm);
+                        PackageItemInfo group = getGroup(Utils.getGroupOfPermission(perm), pm);
                         if (group == null) {
                             group = perm;
                         }
