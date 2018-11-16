@@ -51,6 +51,7 @@ public abstract class PackageRemovalMonitor extends BroadcastReceiver {
     public void register() {
         IntentFilter packageRemovedFilter = new IntentFilter();
         packageRemovedFilter.addAction(Intent.ACTION_PACKAGE_REMOVED);
+        packageRemovedFilter.addDataScheme("package");
 
         mContext.registerReceiver(this, packageRemovedFilter);
     }

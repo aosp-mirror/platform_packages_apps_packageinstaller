@@ -28,6 +28,7 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -50,6 +51,7 @@ import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissionUsage;
 import com.android.packageinstaller.permission.utils.IconDrawableFactory;
 import com.android.packageinstaller.permission.utils.LocationUtils;
+import com.android.packageinstaller.permission.utils.PackageRemovalMonitor;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 import com.android.settingslib.RestrictedLockUtils;
@@ -86,6 +88,18 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
     private boolean mHasConfirmedRevoke;
 
     /**
+     * Listens for changes to the permission of the app the permission is currently getting
+     * granted to. {@code null} when unregistered.
+     */
+    private @Nullable PackageManager.OnPermissionsChangedListener mPermissionChangeListener;
+
+    /**
+     * Listens for changes to the app the permission is currently getting granted to. {@code null}
+     * when unregistered.
+     */
+    private @Nullable PackageRemovalMonitor mPackageRemovalMonitor;
+
+    /**
      * @return A new fragment
      */
     public static @NonNull AppPermissionFragment newInstance(@NonNull String packageName,
@@ -107,6 +121,16 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
             ab.setDisplayHomeAsUpEnabled(true);
         }
 
+        mHasConfirmedRevoke = false;
+
+        createAppPermissionGroup();
+
+        getActivity().setTitle(
+                getPreferenceManager().getContext().getString(R.string.app_permission_title,
+                        mGroup.getLabel()));
+    }
+
+    private void createAppPermissionGroup() {
         String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
         Activity activity = getActivity();
         Context context = getPreferenceManager().getContext();
@@ -119,10 +143,6 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
             activity.finish();
             return;
         }
-
-        mHasConfirmedRevoke = false;
-
-        activity.setTitle(context.getString(R.string.app_permission_title, mGroup.getLabel()));
     }
 
     @Override
@@ -169,6 +189,62 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
         updateButtons();
 
         return root;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
+        Activity activity = getActivity();
+
+        // Get notified when permissions change.
+        try {
+            mPermissionChangeListener = new PermissionChangeListener(
+                    mGroup.getApp().applicationInfo.uid);
+        } catch (NameNotFoundException e) {
+            activity.setResult(Activity.RESULT_CANCELED);
+            activity.finish();
+            return;
+        }
+        PackageManager pm = activity.getPackageManager();
+        pm.addOnPermissionsChangeListener(mPermissionChangeListener);
+
+        // Get notified when the package is removed.
+        mPackageRemovalMonitor = new PackageRemovalMonitor(getContext(), packageName) {
+            @Override
+            public void onPackageRemoved() {
+                Log.w(LOG_TAG, packageName + " was uninstalled");
+                activity.setResult(Activity.RESULT_CANCELED);
+                activity.finish();
+            }
+        };
+        mPackageRemovalMonitor.register();
+
+        // Check if the package was removed while this activity was not started.
+        try {
+            pm.getPackageInfo(packageName, 0);
+        } catch (NameNotFoundException e) {
+            Log.w(LOG_TAG, packageName + " was uninstalled while this activity was stopped", e);
+            activity.setResult(Activity.RESULT_CANCELED);
+            activity.finish();
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        if (mPackageRemovalMonitor != null) {
+            mPackageRemovalMonitor.unregister();
+            mPackageRemovalMonitor = null;
+        }
+
+        if (mPermissionChangeListener != null) {
+            getActivity().getPackageManager().removeOnPermissionsChangeListener(
+                    mPermissionChangeListener);
+            mPermissionChangeListener = null;
+        }
     }
 
     /**
@@ -661,6 +737,26 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
                                     mFragment.onDenyAnyWay(getArguments().getInt(CHANGE_TARGET)));
 
             return b.create();
+        }
+    }
+
+    /**
+     * A listener for permission changes.
+     */
+    private class PermissionChangeListener implements PackageManager.OnPermissionsChangedListener {
+        private final int mUid;
+
+        PermissionChangeListener(int uid) throws NameNotFoundException {
+            mUid = uid;
+        }
+
+        @Override
+        public void onPermissionsChanged(int uid) {
+            if (uid == mUid) {
+                Log.w(LOG_TAG, "Permissions changed.");
+                createAppPermissionGroup();
+                updateButtons();
+            }
         }
     }
 }
