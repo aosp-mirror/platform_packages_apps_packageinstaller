@@ -16,22 +16,39 @@
 
 package com.android.packageinstaller.permission.utils;
 
+import static android.Manifest.permission_group.ACTIVITY_RECOGNITION;
+import static android.Manifest.permission_group.CALENDAR;
+import static android.Manifest.permission_group.CALL_LOG;
+import static android.Manifest.permission_group.CAMERA;
+import static android.Manifest.permission_group.CONTACTS;
+import static android.Manifest.permission_group.LOCATION;
+import static android.Manifest.permission_group.MEDIA_AURAL;
+import static android.Manifest.permission_group.MEDIA_VISUAL;
+import static android.Manifest.permission_group.MICROPHONE;
+import static android.Manifest.permission_group.PHONE;
+import static android.Manifest.permission_group.SENSORS;
+import static android.Manifest.permission_group.SMS;
+import static android.Manifest.permission_group.STORAGE;
+
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.PermissionInfo;
 import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.content.res.Resources.Theme;
 import android.graphics.drawable.Drawable;
 import android.text.Html;
 import android.text.TextUtils;
+import android.util.ArrayMap;
 import android.util.ArraySet;
 import android.util.Log;
 import android.util.TypedValue;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.core.text.BidiFormatter;
 
@@ -40,6 +57,8 @@ import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
 import com.android.permissioncontroller.R;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public final class Utils {
@@ -50,27 +69,166 @@ public final class Utils {
 
     public static final float DEFAULT_MAX_LABEL_SIZE_PX = 500f;
 
-    public static final String[] MODERN_PERMISSION_GROUPS = {
-            Manifest.permission_group.ACTIVITY_RECOGNITION,
-            Manifest.permission_group.CALENDAR,
-            Manifest.permission_group.CALL_LOG,
-            Manifest.permission_group.CAMERA,
-            Manifest.permission_group.CONTACTS,
-            Manifest.permission_group.LOCATION,
-            Manifest.permission_group.SENSORS,
-            Manifest.permission_group.SMS,
-            Manifest.permission_group.PHONE,
-            Manifest.permission_group.MICROPHONE,
-            Manifest.permission_group.STORAGE,
-            Manifest.permission_group.MEDIA_AURAL,
-            Manifest.permission_group.MEDIA_VISUAL,
-    };
+    /** Mapping permission -> group for all dangerous platform permissions */
+    private static final ArrayMap<String, String> PLATFORM_PERMISSIONS;
+
+    /** Mapping group -> permissions for all dangerous platform permissions */
+    private static final ArrayMap<String, ArrayList<String>> PLATFORM_PERMISSION_GROUPS;
 
     private static final Intent LAUNCHER_INTENT = new Intent(Intent.ACTION_MAIN, null)
-                            .addCategory(Intent.CATEGORY_LAUNCHER);
+            .addCategory(Intent.CATEGORY_LAUNCHER);
+
+    static {
+        PLATFORM_PERMISSIONS = new ArrayMap<>();
+
+        PLATFORM_PERMISSIONS.put(Manifest.permission.READ_CONTACTS, CONTACTS);
+        PLATFORM_PERMISSIONS.put(Manifest.permission.WRITE_CONTACTS, CONTACTS);
+        PLATFORM_PERMISSIONS.put(Manifest.permission.GET_ACCOUNTS, CONTACTS);
+
+        PLATFORM_PERMISSIONS.put(Manifest.permission.READ_CALENDAR, CALENDAR);
+        PLATFORM_PERMISSIONS.put(Manifest.permission.WRITE_CALENDAR, CALENDAR);
+
+        PLATFORM_PERMISSIONS.put(Manifest.permission.SEND_SMS, SMS);
+        PLATFORM_PERMISSIONS.put(Manifest.permission.RECEIVE_SMS, SMS);
+        PLATFORM_PERMISSIONS.put(Manifest.permission.READ_SMS, SMS);
+        PLATFORM_PERMISSIONS.put(Manifest.permission.RECEIVE_MMS, SMS);
+        PLATFORM_PERMISSIONS.put(Manifest.permission.RECEIVE_WAP_PUSH, SMS);
+        PLATFORM_PERMISSIONS.put(Manifest.permission.READ_CELL_BROADCASTS, SMS);
+
+        PLATFORM_PERMISSIONS.put(Manifest.permission.READ_EXTERNAL_STORAGE, STORAGE);
+        PLATFORM_PERMISSIONS.put(Manifest.permission.WRITE_EXTERNAL_STORAGE, STORAGE);
+
+        PLATFORM_PERMISSIONS.put(Manifest.permission.READ_MEDIA_AUDIO, MEDIA_AURAL);
+        PLATFORM_PERMISSIONS.put(Manifest.permission.WRITE_MEDIA_AUDIO, MEDIA_AURAL);
+
+        PLATFORM_PERMISSIONS.put(Manifest.permission.READ_MEDIA_IMAGES, MEDIA_VISUAL);
+        PLATFORM_PERMISSIONS.put(Manifest.permission.WRITE_MEDIA_IMAGES, MEDIA_VISUAL);
+        PLATFORM_PERMISSIONS.put(Manifest.permission.READ_MEDIA_VIDEO, MEDIA_VISUAL);
+        PLATFORM_PERMISSIONS.put(Manifest.permission.WRITE_MEDIA_VIDEO, MEDIA_VISUAL);
+        PLATFORM_PERMISSIONS.put(Manifest.permission.ACCESS_MEDIA_LOCATION, MEDIA_VISUAL);
+
+        PLATFORM_PERMISSIONS.put(Manifest.permission.ACCESS_FINE_LOCATION, LOCATION);
+        PLATFORM_PERMISSIONS.put(Manifest.permission.ACCESS_COARSE_LOCATION, LOCATION);
+        PLATFORM_PERMISSIONS.put(Manifest.permission.ACCESS_BACKGROUND_LOCATION, LOCATION);
+
+        PLATFORM_PERMISSIONS.put(Manifest.permission.READ_CALL_LOG, CALL_LOG);
+        PLATFORM_PERMISSIONS.put(Manifest.permission.WRITE_CALL_LOG, CALL_LOG);
+        PLATFORM_PERMISSIONS.put(Manifest.permission.PROCESS_OUTGOING_CALLS, CALL_LOG);
+
+        PLATFORM_PERMISSIONS.put(Manifest.permission.READ_PHONE_STATE, PHONE);
+        PLATFORM_PERMISSIONS.put(Manifest.permission.READ_PHONE_NUMBERS, PHONE);
+        PLATFORM_PERMISSIONS.put(Manifest.permission.CALL_PHONE, PHONE);
+        PLATFORM_PERMISSIONS.put(Manifest.permission.ADD_VOICEMAIL, PHONE);
+        PLATFORM_PERMISSIONS.put(Manifest.permission.USE_SIP, PHONE);
+        PLATFORM_PERMISSIONS.put(Manifest.permission.ANSWER_PHONE_CALLS, PHONE);
+        PLATFORM_PERMISSIONS.put(Manifest.permission.ACCEPT_HANDOVER, PHONE);
+
+        PLATFORM_PERMISSIONS.put(Manifest.permission.RECORD_AUDIO, MICROPHONE);
+
+        PLATFORM_PERMISSIONS.put(Manifest.permission.ACTIVITY_RECOGNITION, ACTIVITY_RECOGNITION);
+
+        PLATFORM_PERMISSIONS.put(Manifest.permission.CAMERA, CAMERA);
+
+        PLATFORM_PERMISSIONS.put(Manifest.permission.BODY_SENSORS, SENSORS);
+
+        PLATFORM_PERMISSION_GROUPS = new ArrayMap<>();
+        int numPlatformPermissions = PLATFORM_PERMISSIONS.size();
+        for (int i = 0; i < numPlatformPermissions; i++) {
+            String permission = PLATFORM_PERMISSIONS.keyAt(i);
+            String permissionGroup = PLATFORM_PERMISSIONS.valueAt(i);
+
+            ArrayList<String> permissionsOfThisGroup = PLATFORM_PERMISSION_GROUPS.get(
+                    permissionGroup);
+            if (permissionsOfThisGroup == null) {
+                permissionsOfThisGroup = new ArrayList<>();
+                PLATFORM_PERMISSION_GROUPS.put(permissionGroup, permissionsOfThisGroup);
+            }
+
+            permissionsOfThisGroup.add(permission);
+        }
+    }
 
     private Utils() {
         /* do nothing - hide constructor */
+    }
+
+    /**
+     * Get permission group a platform permission belongs to.
+     *
+     * @param permission the permission to resolve
+     *
+     * @return The group the permission belongs to
+     */
+    private static @Nullable String getGroupOfPlatformPermission(@NonNull String permission) {
+        return PLATFORM_PERMISSIONS.get(permission);
+    }
+
+    /**
+     * Get name of the permission group a permission belongs to.
+     *
+     * @param permission the {@link PermissionInfo info} of the permission to resolve
+     *
+     * @return The group the permission belongs to
+     */
+    public static @Nullable String getGroupOfPermission(@NonNull PermissionInfo permission) {
+        String groupName = permission.group;
+        if (groupName == null) {
+            groupName = Utils.getGroupOfPlatformPermission(permission.name);
+        }
+
+        return groupName;
+    }
+
+    /**
+     * Get the {@link PermissionInfo infos} for all platform permissions belonging to a group.
+     *
+     * @param pm    Package manager to use to resolve permission infos
+     * @param group the group
+     *
+     * @return The infos for platform permissions belonging to the group or an empty list if the
+     *         group is not does not have platform runtime permissions
+     */
+    private static @NonNull List<PermissionInfo> getPlatformPermissionsOfGroup(
+            @NonNull PackageManager pm, @NonNull String group) {
+        ArrayList<PermissionInfo> permInfos = new ArrayList<>();
+
+        ArrayList<String> permissions = PLATFORM_PERMISSION_GROUPS.get(group);
+        if (permissions == null) {
+            return Collections.emptyList();
+        }
+
+        int numPermissions = permissions.size();
+        for (int i = 0; i < numPermissions; i++) {
+            String permName = permissions.get(i);
+            PermissionInfo permInfo;
+            try {
+                permInfo = pm.getPermissionInfo(permName, 0);
+            } catch (PackageManager.NameNotFoundException e) {
+                throw new IllegalStateException(permName + " not defined by platform", e);
+            }
+
+            permInfos.add(permInfo);
+        }
+
+        return permInfos;
+    }
+
+    /**
+     * Get the {@link PermissionInfo infos} for all permission infos belonging to a group.
+     *
+     * @param pm    Package manager to use to resolve permission infos
+     * @param group the group
+     *
+     * @return The infos of permissions belonging to the group or an empty list if the group is not
+     *         does not have runtime permissions
+     */
+    public static @NonNull List<PermissionInfo> getPermissionInfosForGroup(
+            @NonNull PackageManager pm, @NonNull String group)
+            throws PackageManager.NameNotFoundException {
+        List<PermissionInfo> permissions = pm.queryPermissionsByGroup(group, 0);
+        permissions.addAll(Utils.getPlatformPermissionsOfGroup(pm, group));
+
+        return permissions;
     }
 
     /**
@@ -100,12 +258,7 @@ public final class Utils {
     }
 
     public static boolean isModernPermissionGroup(String name) {
-        for (String modernGroup : MODERN_PERMISSION_GROUPS) {
-            if (modernGroup.equals(name)) {
-                return true;
-            }
-        }
-        return false;
+        return PLATFORM_PERMISSION_GROUPS.containsKey(name);
     }
 
     /**

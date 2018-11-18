@@ -38,6 +38,7 @@ import androidx.annotation.StringRes;
 
 import com.android.packageinstaller.permission.utils.ArrayUtils;
 import com.android.packageinstaller.permission.utils.LocationUtils;
+import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 
 import java.lang.reflect.InvocationTargetException;
@@ -122,11 +123,11 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             return null;
         }
 
+        String group = Utils.getGroupOfPermission(permissionInfo);
         PackageItemInfo groupInfo = permissionInfo;
-        if (permissionInfo.group != null) {
+        if (group != null) {
             try {
-                groupInfo = context.getPackageManager().getPermissionGroupInfo(
-                        permissionInfo.group, 0);
+                groupInfo = context.getPackageManager().getPermissionGroupInfo(group, 0);
             } catch (PackageManager.NameNotFoundException e) {
                 /* ignore */
             }
@@ -135,8 +136,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         List<PermissionInfo> permissionInfos = null;
         if (groupInfo instanceof PermissionGroupInfo) {
             try {
-                permissionInfos = context.getPackageManager().queryPermissionsByGroup(
-                        groupInfo.name, 0);
+                permissionInfos = Utils.getPermissionInfosForGroup(context.getPackageManager(),
+                        groupInfo.name);
             } catch (PackageManager.NameNotFoundException e) {
                 /* ignore */
             }

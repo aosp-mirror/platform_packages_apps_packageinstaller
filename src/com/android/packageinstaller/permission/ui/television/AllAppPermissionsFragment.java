@@ -43,10 +43,10 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceGroup;
 import androidx.preference.SwitchPreference;
 
-import com.android.permissioncontroller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.permissioncontroller.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -167,8 +167,7 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
                     continue;
                 }
 
-
-                PermissionGroupInfo group = getGroup(perm.group, pm);
+                PermissionGroupInfo group = getGroup(Utils.getGroupOfPermission(perm), pm);
                 if ((perm.protectionLevel & PermissionInfo.PROTECTION_MASK_BASE)
                         == PermissionInfo.PROTECTION_DANGEROUS) {
                     PreferenceGroup pref = findOrCreate(group != null ? group : perm, pm, prefs);
