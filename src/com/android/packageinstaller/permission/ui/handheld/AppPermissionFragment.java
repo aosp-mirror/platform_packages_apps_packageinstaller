@@ -34,6 +34,7 @@ import android.os.Bundle;
 import android.os.UserHandle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -245,6 +246,15 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
                     mPermissionChangeListener);
             mPermissionChangeListener = null;
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            getActivity().finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     /**
