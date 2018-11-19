@@ -20,6 +20,7 @@ import android.app.AppOpsManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.XmlResourceParser;
 import android.util.ArrayMap;
 import android.util.Log;
@@ -97,6 +98,8 @@ public class Roles {
     @Nullable
     private static ArrayMap<String, Role> sRoles;
 
+    private static boolean sIsolatedStorage;
+
     private Roles() {}
 
     /**
@@ -118,6 +121,17 @@ public class Roles {
 
     @NonNull
     private static ArrayMap<String, Role> loadRoles(@NonNull Context context) {
+        // If the storage model feature flag is disabled, we need to fiddle
+        // around with permission definitions to return us to pre-Q behavior.
+        // STOPSHIP(b/112545973): remove once feature enabled by default
+        try {
+            context.getPackageManager()
+                    .getPermissionInfo(android.Manifest.permission.READ_MEDIA_AUDIO, 0);
+            sIsolatedStorage = true;
+        } catch (NameNotFoundException e) {
+            sIsolatedStorage = false;
+        }
+
         try (XmlResourceParser parser = context.getResources().getXml(R.xml.roles)) {
             Pair<ArrayMap<String, PermissionSet>, ArrayMap<String, Role>> xml = parseXml(parser);
             if (xml == null) {
@@ -577,6 +591,20 @@ public class Roles {
                 default:
                     throwOrLogForUnknownTag(parser);
                     skipCurrentTag(parser);
+            }
+        }
+
+        // If the storage model feature flag is disabled, we need to fiddle
+        // around with permission definitions to return us to pre-Q behavior.
+        // STOPSHIP(b/112545973): remove once feature enabled by default
+        if (!sIsolatedStorage) {
+            boolean removed = false;
+            removed |= permissions.remove(android.Manifest.permission.READ_MEDIA_AUDIO);
+            removed |= permissions.remove(android.Manifest.permission.READ_MEDIA_VIDEO);
+            removed |= permissions.remove(android.Manifest.permission.READ_MEDIA_IMAGES);
+            if (removed) {
+                permissions.add(android.Manifest.permission.READ_EXTERNAL_STORAGE);
+                permissions.add(android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
             }
         }
 
