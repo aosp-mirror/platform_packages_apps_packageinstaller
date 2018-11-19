@@ -158,6 +158,9 @@
     <!-- [CHAR LIMIT=60] Summary of a permission switch when the background access is enabled an admin -->
     <string name="permission_summary_enabled_by_admin_foreground_only">Foreground access enabled by admin</string>
 
+    <!-- [CHAR LIMIT=60] Summary of a permission switch when the access is enabled by the system -->
+    <string name="permission_summary_enabled_system_fixed">Permission set by system</string>
+
     <string-array name="background_access_chooser_dialog_choices">
        <item>@string/permission_access_always</item>
        <item>@string/permission_access_only_foreground</item>

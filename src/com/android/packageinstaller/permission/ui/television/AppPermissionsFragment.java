@@ -43,13 +43,13 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.PreferenceViewHolder;
 import androidx.preference.SwitchPreference;
 
-import com.android.permissioncontroller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.ui.ReviewPermissionsActivity;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.permissioncontroller.R;
 
 public final class AppPermissionsFragment extends SettingsWithHeader
         implements OnPreferenceChangeListener {
@@ -204,11 +204,13 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             preference.setIcon(Utils.applyTint(getContext(), icon,
                     android.R.attr.colorControlNormal));
             preference.setTitle(group.getLabel());
-            if (group.isPolicyFixed()) {
+            if (group.isSystemFixed()) {
+                preference.setSummary(getString(R.string.permission_summary_enabled_system_fixed));
+            } else if (group.isPolicyFixed()) {
                 preference.setSummary(getString(R.string.permission_summary_enforced_by_policy));
             }
             preference.setPersistent(false);
-            preference.setEnabled(!group.isPolicyFixed());
+            preference.setEnabled(!group.isSystemFixed() && !group.isPolicyFixed());
             preference.setChecked(group.areRuntimePermissionsGranted());
 
             if (isPlatform) {
