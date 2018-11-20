@@ -97,7 +97,9 @@ public class ButtonBarLayout extends LinearLayout {
 
     private void setStacked(boolean stacked) {
         setOrientation(stacked ? LinearLayout.VERTICAL : LinearLayout.HORIZONTAL);
-        setGravity(stacked ? Gravity.END : Gravity.BOTTOM);
+        if (getGravity() != Gravity.CENTER) {
+            setGravity(stacked ? Gravity.END : Gravity.BOTTOM);
+        }
 
         final View spacer = findViewById(R.id.spacer);
         if (spacer != null) {
