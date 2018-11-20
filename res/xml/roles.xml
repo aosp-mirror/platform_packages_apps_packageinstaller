@@ -68,31 +68,31 @@
         <permission name="android.permission.BODY_SENSORS" />
     </permission-set>
 
+    <!-- STOPSHIP(b/112545973): remove once feature enabled by default -->
+    <!--if (!SystemProperties.getBoolean(StorageManager.PROP_ISOLATED_STORAGE, false)) { -->
     <permission-set name="storage">
-        <!-- STOPSHIP(b/112545973): remove once feature enabled by default -->
-        <!--if (!SystemProperties.getBoolean(StorageManager.PROP_ISOLATED_STORAGE, false)) { -->
         <permission name="android.permission.READ_EXTERNAL_STORAGE" />
         <permission name="android.permission.WRITE_EXTERNAL_STORAGE" />
-        <!-- } -->
     </permission-set>
+    <!-- } -->
 
+    <!-- // STOPSHIP(b/112545973): remove once feature enabled by default
+    if (SystemProperties.getBoolean(StorageManager.PROP_ISOLATED_STORAGE, false)) {
     <permission-set name="media_aural">
-        <!-- // STOPSHIP(b/112545973): remove once feature enabled by default -->
-        <!-- if (SystemProperties.getBoolean(StorageManager.PROP_ISOLATED_STORAGE, false)) { -->
         <permission name="android.permission.READ_MEDIA_AUDIO" />
         <permission name="android.permission.WRITE_MEDIA_AUDIO" />
-        <!-- } -->
     </permission-set>
+    } -->
 
+    <!-- // STOPSHIP(b/112545973): remove once feature enabled by default
+    if (SystemProperties.getBoolean(StorageManager.PROP_ISOLATED_STORAGE, false)) {
     <permission-set name="media_visual">
-        <!-- // STOPSHIP(b/112545973): remove once feature enabled by default -->
-        <!-- if (SystemProperties.getBoolean(StorageManager.PROP_ISOLATED_STORAGE, false)) { -->
         <permission name="android.permission.READ_MEDIA_IMAGES" />
         <permission name="android.permission.WRITE_MEDIA_IMAGES" />
         <permission name="android.permission.READ_MEDIA_VIDEO" />
         <permission name="android.permission.WRITE_MEDIA_VIDEO" />
-        <!-- } -->
     </permission-set>
+    } -->
 
     <!--- @see android.telecom.DefaultDialerManager -->
     <role name="android.app.role.DIALER" exclusive="true" label="@string/role_label_dialer">
@@ -117,7 +117,7 @@
             <permission-set name="camera" />
         </permissions>
         <preferred-activities>
-            <preferred-activiy>
+            <preferred-activity>
                 <activity>
                     <intent-filter>
                         <action name="android.intent.action.DIAL" />
@@ -129,7 +129,7 @@
                     <action name="android.intent.action.DIAL" />
                     <data scheme="tel" />
                 </intent-filter>
-            </preferred-activiy>
+            </preferred-activity>
         </preferred-activities>
     </role>
 
@@ -187,7 +187,7 @@
             <app-op name="android:write_sms" mode="allowed" />
         </app-ops>
         <preferred-activities>
-            <preferred-activiy>
+            <preferred-activity>
                 <activity>
                     <intent-filter>
                         <action name="android.intent.action.SENDTO" />
@@ -210,7 +210,7 @@
                     <action name="android.intent.action.SENDTO" />
                     <data scheme="mmsto" />
                 </intent-filter>
-            </preferred-activiy>
+            </preferred-activity>
         </preferred-activities>
     </role>
 

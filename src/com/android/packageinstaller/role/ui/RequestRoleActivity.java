@@ -96,7 +96,7 @@ public class RequestRoleActivity extends FragmentActivity {
             RequestRoleFragment fragment = RequestRoleFragment.newInstance(
                     roleName, packageName);
             getSupportFragmentManager().beginTransaction()
-                    .replace(android.R.id.content, fragment)
+                    .add(fragment, null)
                     .commit();
         }
     }

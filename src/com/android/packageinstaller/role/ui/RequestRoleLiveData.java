@@ -19,6 +19,7 @@ package com.android.packageinstaller.role.ui;
 import android.app.role.RoleManager;
 import android.app.role.RoleManagerCallback;
 import android.content.Context;
+import android.os.Process;
 import android.os.UserHandle;
 import android.util.Log;
 
@@ -63,7 +64,7 @@ public class RequestRoleLiveData extends LiveData<Integer> {
         setValue(STATE_ADDING);
 
         RoleManager roleManager = context.getSystemService(RoleManager.class);
-        UserHandle user = UserHandle.of(UserHandle.myUserId());
+        UserHandle user = Process.myUserHandle();
         Executor executor = context.getMainExecutor();
         roleManager.addRoleHolderAsUser(roleName, packageName, user, executor,
                 new RoleManagerCallback() {

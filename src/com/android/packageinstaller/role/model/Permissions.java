@@ -24,6 +24,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
 import android.os.Build;
+import android.os.Process;
 import android.os.UserHandle;
 import android.permission.PermissionManager;
 import android.util.ArrayMap;
@@ -507,7 +508,7 @@ public class Permissions {
     private static int getPermissionFlags(@NonNull String packageName, @NonNull String permission,
             @NonNull Context context) {
         PackageManager packageManager = context.getPackageManager();
-        UserHandle user = UserHandle.of(UserHandle.myUserId());
+        UserHandle user = Process.myUserHandle();
         return packageManager.getPermissionFlags(permission, packageName, user);
     }
 
@@ -535,7 +536,7 @@ public class Permissions {
     private static void setPermissionFlags(@NonNull String packageName, @NonNull String permission,
             int flags, int mask, @NonNull Context context) {
         PackageManager packageManager = context.getPackageManager();
-        UserHandle user = UserHandle.of(UserHandle.myUserId());
+        UserHandle user = Process.myUserHandle();
         packageManager.updatePermissionFlags(permission, packageName, mask, flags, user);
     }
 
@@ -556,7 +557,7 @@ public class Permissions {
             return false;
         }
         PackageManager packageManager = context.getPackageManager();
-        UserHandle user = UserHandle.of(UserHandle.myUserId());
+        UserHandle user = Process.myUserHandle();
         packageManager.grantRuntimePermission(packageName, permission, user);
         return true;
     }
@@ -567,7 +568,7 @@ public class Permissions {
             return false;
         }
         PackageManager packageManager = context.getPackageManager();
-        UserHandle user = UserHandle.of(UserHandle.myUserId());
+        UserHandle user = Process.myUserHandle();
         packageManager.revokeRuntimePermission(packageName, permission, user);
         return true;
     }
