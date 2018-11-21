@@ -28,7 +28,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.Settings;
-import android.util.ArraySet;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -38,12 +37,12 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.preference.Preference;
+import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.utils.IconDrawableFactory;
-import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 import com.android.settingslib.HelpUtils;
@@ -53,15 +52,12 @@ import com.android.settingslib.HelpUtils;
  *
  * <p>Shows the list of permission groups the app has requested at one permission for.
  */
-public final class AppPermissionsFragment extends SettingsWithHeader
-        implements PermissionPreference.PermissionPreferenceChangeListener,
-        PermissionPreference.PermissionPreferenceOwnerFragment {
+public final class AppPermissionsFragment extends SettingsWithHeader {
 
     private static final String LOG_TAG = "ManagePermsFragment";
 
     static final String EXTRA_HIDE_INFO_BUTTON = "hideInfoButton";
 
-    private ArraySet<AppPermissionGroup> mToggledGroups;
     private AppPermissions mAppPermissions;
     private PreferenceScreen mExtraScreen;
 
@@ -96,6 +92,8 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             activity.finish();
             return;
         }
+
+        addPreferencesFromResource(R.xml.allowed_denied);
 
         mAppPermissions = new AppPermissions(activity, packageInfo, true, new Runnable() {
             @Override
@@ -182,13 +180,11 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             return;
         }
 
-        PreferenceScreen screen = getPreferenceScreen();
-        if (screen == null) {
-            screen = getPreferenceManager().createPreferenceScreen(context);
-            setPreferenceScreen(screen);
-        }
+        PreferenceCategory allowed = (PreferenceCategory) findPreference("allowed");
+        PreferenceCategory denied = (PreferenceCategory) findPreference("denied");
 
-        screen.removeAll();
+        allowed.removeAll();
+        denied.removeAll();
 
         if (mExtraScreen != null) {
             mExtraScreen.removeAll();
@@ -197,6 +193,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         final Preference extraPerms = new Preference(context);
         extraPerms.setIcon(R.drawable.ic_toc);
         extraPerms.setTitle(R.string.additional_permissions);
+        boolean extraPermsAreAllowed = false;
 
         for (AppPermissionGroup group : mAppPermissions.getPermissionGroups()) {
             if (!Utils.shouldShowPermission(getContext(), group)) {
@@ -205,21 +202,33 @@ public final class AppPermissionsFragment extends SettingsWithHeader
 
             boolean isPlatform = group.getDeclaringPackage().equals(Utils.OS_PKG);
 
-            PermissionPreference preference = new PermissionPreference(this, group, this, 0);
+            Preference preference = new PermissionUsagePreference(context, group);
             preference.setKey(group.getName());
             Drawable icon = Utils.loadDrawable(context.getPackageManager(),
                     group.getIconPkg(), group.getIconResId());
             preference.setIcon(Utils.applyTint(context, icon,
                     android.R.attr.colorControlNormal));
             preference.setTitle(group.getLabel());
+            String timeDiffStr = Utils.getUsageTimeDiffString(context, group);
+            // Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
+            if (timeDiffStr != null && !group.getLabel().equals("Storage")) {
+                preference.setSummary(
+                        context.getString(R.string.app_permission_most_recent_summary,
+                                timeDiffStr));
+            }
 
             if (isPlatform) {
-                screen.addPreference(preference);
+                PreferenceCategory category =
+                        group.areRuntimePermissionsGranted() ? allowed : denied;
+                category.addPreference(preference);
             } else {
                 if (mExtraScreen == null) {
                     mExtraScreen = getPreferenceManager().createPreferenceScreen(context);
                 }
                 mExtraScreen.addPreference(preference);
+                if (group.areRuntimePermissionsGranted()) {
+                    extraPermsAreAllowed = true;
+                }
             }
         }
 
@@ -237,31 +246,11 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             int count = mExtraScreen.getPreferenceCount();
             extraPerms.setSummary(getResources().getQuantityString(
                     R.plurals.additional_permissions_more, count, count));
-            screen.addPreference(extraPerms);
+            PreferenceCategory category = extraPermsAreAllowed ? allowed : denied;
+            category.addPreference(extraPerms);
         }
 
         setLoading(false /* loading */, true /* animate */);
-    }
-
-    @Override
-    public void onPreferenceChanged(String key) {
-        if (mToggledGroups == null) {
-            mToggledGroups = new ArraySet<>();
-        }
-        mToggledGroups.add(mAppPermissions.getPermissionGroup(key));
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        logToggledGroups();
-    }
-
-    private void logToggledGroups() {
-        if (mToggledGroups != null) {
-            SafetyNetLogger.logPermissionsToggled(mToggledGroups);
-            mToggledGroups = null;
-        }
     }
 
     private static PackageInfo getPackageInfo(Activity activity, String packageName) {
@@ -272,28 +261,6 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             Log.i(LOG_TAG, "No package:" + activity.getCallingPackage(), e);
             return null;
         }
-    }
-
-    @Override
-    public boolean shouldConfirmDefaultPermissionRevoke() {
-        return !mHasConfirmedRevoke;
-    }
-
-    @Override
-    public void hasConfirmDefaultPermissionRevoke() {
-        mHasConfirmedRevoke = true;
-    }
-
-    @Override
-    public void onBackgroundAccessChosen(String key, int chosenItem) {
-        ((PermissionPreference) getPreferenceScreen().findPreference(key))
-                .onBackgroundAccessChosen(chosenItem);
-    }
-
-    @Override
-    public void onDenyAnyWay(String key, @PermissionPreference.ChangeTarget int changeTarget) {
-        ((PermissionPreference) getPreferenceScreen().findPreference(key)).onDenyAnyWay(
-                changeTarget);
     }
 
     public static class AdditionalPermissionsFragment extends SettingsWithHeader {

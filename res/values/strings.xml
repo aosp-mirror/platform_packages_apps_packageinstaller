@@ -294,8 +294,20 @@
     <!-- Summary for showing a single permission access [CHAR LIMIT=60] -->
     <string name="app_permission_footer_usage_summary"><xliff:g id="app" example="Maps">%1$s</xliff:g> accessed your <xliff:g id="perm" example="location">%2$s</xliff:g> <xliff:g id="time" example="2 hours">%3$s</xliff:g> ago.</string>
 
+    <!-- Summary for showing a single permission access that has not accessed the permission [CHAR LIMIT=60] -->
+    <string name="app_permission_footer_no_usages"><xliff:g id="app" example="Maps">%1$s</xliff:g> has not accessed your <xliff:g id="perm" example="location">%2$s</xliff:g>.</string>
+
     <!-- Summary for linking to the page that shows an app's use of permissions [CHAR LIMIT=none] -->
     <string name="app_permission_footer_usage_link">View detailed permissions usage</string>
+
+    <!-- Summary for showing the most recent access of a permission [CHAR LIMIT=60] -->
+    <string name="app_permission_most_recent_summary">Most recent access <xliff:g id="time" example="2 hours">%1$s</xliff:g> ago</string>
+
+    <!-- Header for granted permissions/apps [CHAR LIMIT=40] -->
+    <string name="allowed_header">Allowed</string>
+
+    <!-- Header for denied permissions/apps [CHAR LIMIT=40] -->
+    <string name="denied_header">Denied</string>
 
     <!-- Time in days -->
     <plurals name="days">

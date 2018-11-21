@@ -27,8 +27,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageItemInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.pm.PermissionInfo;
 import android.content.pm.UsesPermissionInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -51,11 +53,11 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
-import com.android.packageinstaller.permission.model.AppPermissionUsage;
 import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.utils.IconDrawableFactory;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.PackageRemovalMonitor;
+import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 import com.android.settingslib.RestrictedLockUtils;
@@ -131,19 +133,31 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
 
         createAppPermissionGroup();
 
-        getActivity().setTitle(
-                getPreferenceManager().getContext().getString(R.string.app_permission_title,
-                        mGroup.getLabel()));
+        if (mGroup != null) {
+            getActivity().setTitle(
+                    getPreferenceManager().getContext().getString(R.string.app_permission_title,
+                            mGroup.getLabel()));
+        }
     }
 
     private void createAppPermissionGroup() {
-        String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
-        UserHandle userHandle = getArguments().getParcelable(Intent.EXTRA_USER);
         Activity activity = getActivity();
         Context context = getPreferenceManager().getContext();
+
+        String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
+        String groupName = getArguments().getString(Intent.EXTRA_PERMISSION_NAME);
+        PackageItemInfo groupInfo = Utils.getGroupInfo(groupName, context);
+        List<PermissionInfo> groupPermInfos = Utils.getGroupPermissionInfos(groupName, context);
+        if (groupInfo == null || groupPermInfos == null) {
+            Log.i(LOG_TAG, "Illegal group: " + groupName);
+            activity.setResult(Activity.RESULT_CANCELED);
+            activity.finish();
+            return;
+        }
+        UserHandle userHandle = getArguments().getParcelable(Intent.EXTRA_USER);
         mGroup = AppPermissionGroup.create(context,
                 getPackageInfo(activity, packageName, userHandle),
-                getArguments().getString(Intent.EXTRA_PERMISSION_NAME), userHandle, false);
+                groupInfo, groupPermInfos, userHandle, false);
 
         if (mGroup == null || !Utils.shouldShowPermission(context, mGroup)) {
             Log.i(LOG_TAG, "Illegal group: " + (mGroup == null ? "null" : mGroup.getName()));
@@ -172,11 +186,21 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
         ((TextView) root.requireViewById(R.id.permission_message)).setText(
                 context.getString(R.string.app_permission_header, mGroup.getLabel(), appLabel));
 
-        ((TextView) root.requireViewById(R.id.usage_summary)).setText(
-                context.getString(
-                        R.string.app_permission_footer_usage_summary,
-                        appLabel,
-                        mGroup.getLabel().toString().toLowerCase(), getUsageTimeDiffString()));
+        String timeDiffStr = Utils.getUsageTimeDiffString(context, mGroup);
+        if (timeDiffStr == null) {
+            ((TextView) root.requireViewById(R.id.usage_summary)).setText(
+                    context.getString(
+                            R.string.app_permission_footer_no_usages,
+                            appLabel,
+                            mGroup.getLabel().toString().toLowerCase()));
+        } else {
+            ((TextView) root.requireViewById(R.id.usage_summary)).setText(
+                    context.getString(
+                            R.string.app_permission_footer_usage_summary,
+                            appLabel,
+                            mGroup.getLabel().toString().toLowerCase(),
+                            timeDiffStr));
+        }
 
         TextView usageLink = root.requireViewById(R.id.usage_link);
         usageLink.setText(context.getString(R.string.app_permission_footer_usage_link));
@@ -203,6 +227,10 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
     @Override
     public void onStart() {
         super.onStart();
+
+        if (mGroup == null) {
+            return;
+        }
 
         String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
         UserHandle userHandle = getArguments().getParcelable(Intent.EXTRA_USER);
@@ -267,27 +295,6 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * Build a string representing the amount of time passed since the most recent permission usage
-     * by this AppPermissionGroup.
-     *
-     * @return a string representing the amount of time since this app's most recent permission
-     * usage.
-     */
-    private @NonNull String getUsageTimeDiffString() {
-        long mostRecentTime = 0;
-        List<AppPermissionUsage> groupUsages = mGroup.getAppPermissionUsage();
-        int numUsages = groupUsages.size();
-        for (int usageNum = 0; usageNum < numUsages; usageNum++) {
-            AppPermissionUsage usage = groupUsages.get(usageNum);
-            mostRecentTime = Math.max(mostRecentTime, usage.getTime());
-        }
-        if (mostRecentTime == 0) {
-            Log.e(LOG_TAG, "Unexpected usage time of 0.");
-        }
-        return Utils.getTimeDiffStr(getContext(), System.currentTimeMillis() - mostRecentTime);
-    }
-
     private void updateButtons() {
         // Reset everything to the "default" state: tri-state buttons are shown with exactly one
         // selected and no special messages.
@@ -337,6 +344,8 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
             mDivider.setVisibility(View.VISIBLE);
             showRightIcon(R.drawable.ic_settings);
             mWidgetFrame.setOnClickListener(v -> showAllPermissions(mGroup.getName()));
+
+            updateDetailForIndividuallyControlledPermissionGroup();
         } else {
             if (mGroup.hasPermissionWithBackgroundMode()) {
                 if (mGroup.getBackgroundPermissions() == null) {
@@ -630,6 +639,34 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
     }
 
     /**
+     * Update the detail in the case the permission group has individually controlled permissions.
+     */
+    private void updateDetailForIndividuallyControlledPermissionGroup() {
+        int revokedCount = 0;
+        List<Permission> permissions = mGroup.getPermissions();
+        int permissionCount = permissions.size();
+        for (int i = 0; i < permissionCount; i++) {
+            Permission permission = permissions.get(i);
+            if (mGroup.doesSupportRuntimePermissions()
+                    ? !permission.isGranted() : !permission.isAppOpAllowed()) {
+                revokedCount++;
+            }
+        }
+
+        int resId;
+        if (revokedCount == 0) {
+            resId = R.string.permission_revoked_none;
+        } else if (revokedCount == permissionCount) {
+            resId = R.string.permission_revoked_all;
+        } else {
+            resId = R.string.permission_revoked_count;
+        }
+
+        mPermissionDetails.setText(getContext().getString(resId, revokedCount));
+        mPermissionDetails.setVisibility(View.VISIBLE);
+    }
+
+    /**
      * Update the detail of a permission group that is at least partially fixed by policy.
      */
     private void updateDetailForFixedByPolicyPermissionGroup() {
@@ -771,10 +808,18 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
 
         if (requestGrant) {
             if ((changeTarget & CHANGE_FOREGROUND) != 0) {
+                if (!mGroup.areRuntimePermissionsGranted()) {
+                    SafetyNetLogger.logPermissionToggled(mGroup);
+                }
+
                 mGroup.grantRuntimePermissions(false);
             }
             if ((changeTarget & CHANGE_BACKGROUND) != 0) {
                 if (mGroup.getBackgroundPermissions() != null) {
+                    if (!mGroup.getBackgroundPermissions().areRuntimePermissionsGranted()) {
+                        SafetyNetLogger.logPermissionToggled(mGroup.getBackgroundPermissions());
+                    }
+
                     mGroup.getBackgroundPermissions().grantRuntimePermissions(false);
                 }
             }
@@ -801,11 +846,19 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
             } else {
                 if ((changeTarget & CHANGE_FOREGROUND) != 0
                         && mGroup.areRuntimePermissionsGranted()) {
+                    if (mGroup.areRuntimePermissionsGranted()) {
+                        SafetyNetLogger.logPermissionToggled(mGroup);
+                    }
+
                     mGroup.revokeRuntimePermissions(false);
                 }
                 if ((changeTarget & CHANGE_BACKGROUND) != 0) {
                     if (mGroup.getBackgroundPermissions() != null
                             && mGroup.getBackgroundPermissions().areRuntimePermissionsGranted()) {
+                        if (mGroup.getBackgroundPermissions().areRuntimePermissionsGranted()) {
+                            SafetyNetLogger.logPermissionToggled(mGroup.getBackgroundPermissions());
+                        }
+
                         mGroup.getBackgroundPermissions().revokeRuntimePermissions(false);
                     }
                 }
@@ -865,11 +918,19 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
     void onDenyAnyWay(@ChangeTarget int changeTarget) {
         boolean hasDefaultPermissions = false;
         if ((changeTarget & CHANGE_FOREGROUND) != 0) {
+            if (mGroup.areRuntimePermissionsGranted()) {
+                SafetyNetLogger.logPermissionToggled(mGroup);
+            }
+
             mGroup.revokeRuntimePermissions(false);
             hasDefaultPermissions = mGroup.hasGrantedByDefaultPermission();
         }
         if ((changeTarget & CHANGE_BACKGROUND) != 0) {
             if (mGroup.getBackgroundPermissions() != null) {
+                if (mGroup.getBackgroundPermissions().areRuntimePermissionsGranted()) {
+                    SafetyNetLogger.logPermissionToggled(mGroup.getBackgroundPermissions());
+                }
+
                 mGroup.getBackgroundPermissions().revokeRuntimePermissions(false);
                 hasDefaultPermissions |=
                         mGroup.getBackgroundPermissions().hasGrantedByDefaultPermission();

@@ -193,13 +193,14 @@ public class AppPermissionUsageFragment extends SettingsWithHeader {
                 continue;
             }
 
+            Preference pref = new PermissionUsagePreference(context, group);
+            pref.setTitle(usage.getPermissionGroupLabel());
             long timeDiff = System.currentTimeMillis() - usage.getTime();
             String timeDiffStr = Utils.getTimeDiffStr(context, timeDiff);
-            String summary = context.getString(R.string.app_permission_usage_summary, timeDiffStr);
-            Preference pref = new PermissionUsagePreference(context, usage,
-                    usage.getPermissionGroupLabel(), summary,
-                    Utils.applyTint(context, group.getIconResId(),
-                            android.R.attr.colorControlNormal));
+            pref.setSummary(context.getString(R.string.app_permission_usage_summary, timeDiffStr));
+            pref.setIcon(Utils.applyTint(context, group.getIconResId(),
+                    android.R.attr.colorControlNormal));
+            pref.setKey(usage.getPackageName() + "," + usage.getPermissionGroupName());
             screen.addPreference(pref);
         }
 

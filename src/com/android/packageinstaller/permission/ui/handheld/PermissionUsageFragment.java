@@ -270,6 +270,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         Context context = getPreferenceManager().getContext();
         List<AppPermissionUsage> appPermissionUsages = new ArrayList<>();
         List<PermissionGroup> groups = mPermissionGroups.getGroups();
+        Map<AppPermissionUsage, AppPermissionGroup> usageToGroup = new ArrayMap<>();
         Map<AppPermissionUsage, PermissionApp> usageToApp = new ArrayMap<>();
         int numGroups = groups.size();
         for (int groupNum = 0; groupNum < numGroups; groupNum++) {
@@ -317,6 +318,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
 
                     if (!isSystemApp || mShowSystem) {
                         appPermissionUsages.add(usage);
+                        usageToGroup.put(usage, group);
                         usageToApp.put(usage, permApp);
                     }
                 }
@@ -333,13 +335,16 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
                     + usage.getPermissionGroupName())) {
                 continue;
             }
+            AppPermissionGroup group = usageToGroup.get(usage);
             PermissionApp permApp = usageToApp.get(usage);
+            Preference pref = new PermissionUsagePreference(context, group);
+            pref.setTitle(permApp.getLabel());
             long timeDiff = System.currentTimeMillis() - usage.getTime();
             String timeDiffStr = Utils.getTimeDiffStr(context, timeDiff);
-            String summary = context.getString(R.string.permission_usage_summary,
-                    usage.getPermissionGroupLabel(), timeDiffStr);
-            Preference pref = new PermissionUsagePreference(context, usage, permApp.getLabel(),
-                    summary, permApp.getIcon());
+            pref.setSummary(context.getString(R.string.permission_usage_summary,
+                    usage.getPermissionGroupLabel(), timeDiffStr));
+            pref.setIcon(permApp.getIcon());
+            pref.setKey(usage.getPackageName() + "," + usage.getPermissionGroupName());
             screen.addPreference(pref);
         }
     }
