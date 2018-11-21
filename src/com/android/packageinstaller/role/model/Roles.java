@@ -37,7 +37,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -96,7 +95,7 @@ public class Roles {
     private static final Object sLock = new Object();
 
     @Nullable
-    private static Map<String, Role> sRoles;
+    private static ArrayMap<String, Role> sRoles;
 
     private Roles() {}
 
@@ -108,7 +107,7 @@ public class Roles {
      * @return a map from role name to {@link Role} instances
      */
     @NonNull
-    public static Map<String, Role> getRoles(@NonNull Context context) {
+    public static ArrayMap<String, Role> getRoles(@NonNull Context context) {
         synchronized (sLock) {
             if (sRoles == null) {
                 sRoles = loadRoles(context);
@@ -118,26 +117,26 @@ public class Roles {
     }
 
     @NonNull
-    private static Map<String, Role> loadRoles(@NonNull Context context) {
+    private static ArrayMap<String, Role> loadRoles(@NonNull Context context) {
         try (XmlResourceParser parser = context.getResources().getXml(R.xml.roles)) {
-            Pair<Map<String, PermissionSet>, Map<String, Role>> xml = parseXml(parser);
+            Pair<ArrayMap<String, PermissionSet>, ArrayMap<String, Role>> xml = parseXml(parser);
             if (xml == null) {
-                return Collections.emptyMap();
+                return new ArrayMap<>();
             }
-            Map<String, PermissionSet> permissionSets = xml.first;
-            Map<String, Role> roles = xml.second;
+            ArrayMap<String, PermissionSet> permissionSets = xml.first;
+            ArrayMap<String, Role> roles = xml.second;
             validateParseResult(permissionSets, roles, context);
             return roles;
         } catch (XmlPullParserException | IOException e) {
             throwOrLogMessage("Unable to parse roles.xml", e);
-            return Collections.emptyMap();
+            return new ArrayMap<>();
         }
     }
 
     @Nullable
-    private static Pair<Map<String, PermissionSet>, Map<String, Role>> parseXml(
+    private static Pair<ArrayMap<String, PermissionSet>, ArrayMap<String, Role>> parseXml(
             @NonNull XmlResourceParser parser) throws IOException, XmlPullParserException {
-        Pair<Map<String, PermissionSet>, Map<String, Role>> xml = null;
+        Pair<ArrayMap<String, PermissionSet>, ArrayMap<String, Role>> xml = null;
 
         int type;
         int depth;
@@ -169,10 +168,10 @@ public class Roles {
     }
 
     @NonNull
-    private static Pair<Map<String, PermissionSet>, Map<String, Role>> parseRoles(
+    private static Pair<ArrayMap<String, PermissionSet>, ArrayMap<String, Role>> parseRoles(
             @NonNull XmlResourceParser parser) throws IOException, XmlPullParserException {
-        Map<String, PermissionSet> permissionSets = new ArrayMap<>();
-        Map<String, Role> roles = new ArrayMap<>();
+        ArrayMap<String, PermissionSet> permissionSets = new ArrayMap<>();
+        ArrayMap<String, Role> roles = new ArrayMap<>();
 
         int type;
         int depth;
@@ -252,7 +251,7 @@ public class Roles {
 
     @Nullable
     private static Role parseRole(@NonNull XmlResourceParser parser,
-            @NonNull Map<String, PermissionSet> permissionSets) throws IOException,
+            @NonNull ArrayMap<String, PermissionSet> permissionSets) throws IOException,
             XmlPullParserException {
         String name = requireAttributeValue(parser, ATTRIBUTE_NAME, TAG_ROLE);
         if (name == null) {
@@ -535,7 +534,7 @@ public class Roles {
 
     @NonNull
     private static List<String> parsePermissions(@NonNull XmlResourceParser parser,
-            @NonNull Map<String, PermissionSet> permissionSets) throws IOException,
+            @NonNull ArrayMap<String, PermissionSet> permissionSets) throws IOException,
             XmlPullParserException {
         List<String> permissions = new ArrayList<>();
 
@@ -809,38 +808,77 @@ public class Roles {
      * a permission in {@code AppOpsManager} have declared that permission in its role and ensures
      * that all preferred activities are listed in the required components.
      */
-    private static void validateParseResult(@NonNull Map<String, PermissionSet> permissionSets,
-            @NonNull Map<String, Role> roles, @NonNull Context context) {
+    private static void validateParseResult(@NonNull ArrayMap<String, PermissionSet> permissionSets,
+            @NonNull ArrayMap<String, Role> roles, @NonNull Context context) {
         if (!DEBUG) {
             return;
         }
 
-        for (PermissionSet permissionSet : permissionSets.values()) {
-            permissionSet.getPermissions().forEach(permission -> validatePermission(permission,
-                    context));
+        int permissionSetsSize = permissionSets.size();
+        for (int permissionSetsIndex = 0; permissionSetsIndex < permissionSetsSize;
+                permissionSetsIndex++) {
+            PermissionSet permissionSet = permissionSets.valueAt(permissionSetsIndex);
+
+            List<String> permissions = permissionSet.getPermissions();
+            int permissionsSize = permissions.size();
+            for (int permissionsIndex = 0; permissionsIndex < permissionsSize; permissionsIndex++) {
+                String permission = permissions.get(permissionsIndex);
+
+                validatePermission(permission, context);
+            }
         }
-        for (Role role : roles.values()) {
-            role.getRequiredComponents().forEach(requiredComponent -> {
+
+        int rolesSize = roles.size();
+        for (int rolesIndex = 0; rolesIndex < rolesSize; rolesIndex++) {
+            Role role = roles.valueAt(rolesIndex);
+
+            List<RequiredComponent> requiredComponents = role.getRequiredComponents();
+            int requiredComponentsSize = requiredComponents.size();
+            for (int requiredComponentsIndex = 0; requiredComponentsIndex < requiredComponentsSize;
+                    requiredComponentsIndex++) {
+                RequiredComponent requiredComponent = requiredComponents.get(
+                        requiredComponentsIndex);
+
                 String permission = requiredComponent.getPermission();
                 if (permission != null) {
                     validatePermission(permission, context);
                 }
-            });
-            role.getPermissions().forEach(permission -> validatePermission(permission, context));
-            role.getAppOps().forEach(appOp -> {
+            }
+
+            List<String> permissions = role.getPermissions();
+            int permissionsSize = permissions.size();
+            for (int i = 0; i < permissionsSize; i++) {
+                String permission = permissions.get(i);
+
+                validatePermission(permission, context);
+            }
+
+            List<AppOp> appOps = role.getAppOps();
+            int appOpsSize = appOps.size();
+            for (int i = 0; i < appOpsSize; i++) {
+                AppOp appOp = appOps.get(i);
+
                 String permission = AppOpsManager.opToPermission(appOp.getName());
                 if (permission != null) {
                     throw new IllegalArgumentException("App op has an associated permission: "
                             + appOp.getName());
                 }
-            });
-            role.getPreferredActivities().forEach(preferredActivity -> {
+            }
+
+            List<PreferredActivity> preferredActivities = role.getPreferredActivities();
+            int preferredActivitiesSize = preferredActivities.size();
+            for (int preferredActivitiesIndex = 0;
+                    preferredActivitiesIndex < preferredActivitiesSize;
+                    preferredActivitiesIndex++) {
+                PreferredActivity preferredActivity = preferredActivities.get(
+                        preferredActivitiesIndex);
+
                 if (!role.getRequiredComponents().contains(preferredActivity.getActivity())) {
                     throw new IllegalArgumentException("<activity> of <preferred-activity> not"
                             + " required in <required-components>, role: " + role.getName()
                             + ", preferred activity: " + preferredActivity);
                 }
-            });
+            }
         }
     }
 
