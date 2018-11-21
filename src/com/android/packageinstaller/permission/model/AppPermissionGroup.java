@@ -109,6 +109,22 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
     public static AppPermissionGroup create(Context context, PackageInfo packageInfo,
             String permissionName, boolean delayChanges) {
+        return create(context, packageInfo, permissionName, Process.myUserHandle(), delayChanges);
+    }
+
+    /**
+     * Create the app permission group.
+     *
+     * @param context the {@code Context} to retrieve system services.
+     * @param packageInfo package information about the app.
+     * @param permissionName the name of the permission this object represents.
+     * @param userHandle the user who owns the app.
+     * @param delayChanges whether to delay changes until {@link #persistChanges} is called.
+     *
+     * @return the AppPermissionGroup.
+     */
+    public static AppPermissionGroup create(Context context, PackageInfo packageInfo,
+            String permissionName, UserHandle userHandle, boolean delayChanges) {
         PermissionInfo permissionInfo;
         try {
             permissionInfo = context.getPackageManager().getPermissionInfo(permissionName, 0);
@@ -144,7 +160,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         }
 
         return create(context, packageInfo, groupInfo, permissionInfos,
-                Process.myUserHandle(), delayChanges);
+                userHandle, delayChanges);
     }
 
     public static AppPermissionGroup create(Context context, PackageInfo packageInfo,
