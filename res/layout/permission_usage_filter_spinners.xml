@@ -15,7 +15,7 @@
      limitations under the License.
 -->
 
-<RelativeLayout
+<com.android.packageinstaller.permission.ui.ButtonBarLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -32,6 +32,12 @@
         android:layout_marginTop="24dp"
         android:layout_marginBottom="8dp"/>
 
+    <View
+        android:id="@+id/spacer"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
+
     <com.android.settingslib.widget.settingsspinner.SettingsSpinner
         android:id="@+id/filter_spinner_time"
         android:layout_height="wrap_content"
@@ -40,4 +46,4 @@
         android:layout_marginTop="24dp"
         android:layout_marginBottom="8dp"/>
 
-</RelativeLayout>
+</com.android.packageinstaller.permission.ui.ButtonBarLayout>

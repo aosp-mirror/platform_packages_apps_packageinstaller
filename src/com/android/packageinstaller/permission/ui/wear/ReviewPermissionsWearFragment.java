@@ -37,10 +37,10 @@ import androidx.preference.SwitchPreference;
 import androidx.preference.TwoStatePreference;
 import androidx.wear.ble.view.WearableDialogHelper;
 
-import com.android.permissioncontroller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.permissioncontroller.R;
 
 import java.util.List;
 
@@ -159,7 +159,7 @@ public class ReviewPermissionsWearFragment extends PreferenceFragmentCompat
             preference.setChecked(group.areRuntimePermissionsGranted());
 
             // Mutable state
-            if (group.isPolicyFixed()) {
+            if (group.isSystemFixed() || group.isPolicyFixed()) {
                 preference.setEnabled(false);
             } else {
                 preference.setEnabled(true);

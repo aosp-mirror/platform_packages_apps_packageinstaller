@@ -34,6 +34,7 @@ import android.os.Bundle;
 import android.os.UserHandle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -247,6 +248,15 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
         }
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            getActivity().finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     /**
      * Build a string representing the amount of time passed since the most recent permission usage
      * by this AppPermissionGroup.
@@ -296,23 +306,20 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
 
         // Handle the UI for various special cases.
         Context context = getContext();
-        if (isPolicyFullyFixed() || isForegroundDisabledByPolicy()) {
+        if (isSystemFixed() || isPolicyFullyFixed() || isForegroundDisabledByPolicy()) {
             // Disable changing permissions and potentially show administrator message.
+            mAlwaysButton.setEnabled(false);
+            mForegroundOnlyButton.setEnabled(false);
+            mDenyButton.setEnabled(false);
+
             EnforcedAdmin admin = getAdmin();
             if (admin != null) {
-                mAlwaysButton.setEnabled(false);
-                mForegroundOnlyButton.setEnabled(false);
-                mDenyButton.setEnabled(false);
-
                 showRightIcon(R.drawable.ic_info);
                 mWidgetFrame.setOnClickListener(v ->
                         RestrictedLockUtils.sendShowAdminSupportDetailsIntent(context, admin)
                 );
-            } else {
-                mAlwaysButton.setEnabled(false);
-                mForegroundOnlyButton.setEnabled(false);
-                mDenyButton.setEnabled(false);
             }
+
             updateDetailForFixedByPolicyPermissionGroup();
         } else if (Utils.areGroupPermissionsIndividuallyControlled(context, mGroup.getName())) {
             // If the permissions are individually controlled, also show a link to the page that
@@ -410,6 +417,15 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
     }
 
     /**
+     * Are any permissions of this group fixed by the system, i.e. not changeable by the user.
+     *
+     * @return {@code true} iff any permission is fixed
+     */
+    private boolean isSystemFixed() {
+        return mGroup.isSystemFixed();
+    }
+
+    /**
      * Is any foreground permissions of this group fixed by the policy, i.e. not changeable by the
      * user.
      *
@@ -468,7 +484,11 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
 
         boolean hasAdmin = admin != null;
 
-        if (isForegroundDisabledByPolicy()) {
+        if (isSystemFixed()) {
+            // Permission is fully controlled by the system and cannot be switched
+
+            setDetail(R.string.permission_summary_enabled_system_fixed);
+        } else if (isForegroundDisabledByPolicy()) {
             // Permission is fully controlled by policy and cannot be switched
 
             if (hasAdmin) {

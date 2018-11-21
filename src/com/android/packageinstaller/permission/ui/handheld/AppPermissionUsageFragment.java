@@ -29,6 +29,7 @@ import android.os.UserHandle;
 import android.util.ArrayMap;
 import android.util.ArraySet;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -115,6 +116,15 @@ public class AppPermissionUsageFragment extends SettingsWithHeader {
             CharSequence label = appInfo.loadLabel(getActivity().getPackageManager());
             setHeader(icon, label, null);
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            getActivity().finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private static PackageInfo getPackageInfo(@NonNull Activity activity,

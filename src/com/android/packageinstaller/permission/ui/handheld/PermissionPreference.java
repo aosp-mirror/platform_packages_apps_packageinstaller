@@ -134,6 +134,15 @@ class PermissionPreference extends MultiTargetSwitchPreference {
     }
 
     /**
+     * Are any permissions of this group fixed by the system, i.e. not changeable by the user.
+     *
+     * @return {@code true} iff any permission is fixed
+     */
+    private boolean isSystemFixed() {
+        return mGroup.isSystemFixed();
+    }
+
+    /**
      * Is any foreground permissions of this group fixed by the policy, i.e. not changeable by the
      * user.
      *
@@ -200,7 +209,7 @@ class PermissionPreference extends MultiTargetSwitchPreference {
 
         setChecked(mGroup.areRuntimePermissionsGranted());
 
-        if (isPolicyFullyFixed() || isForegroundDisabledByPolicy()) {
+        if (isSystemFixed() || isPolicyFullyFixed() || isForegroundDisabledByPolicy()) {
             if (admin != null) {
                 setWidgetLayoutResource(R.layout.restricted_icon);
 
@@ -338,7 +347,11 @@ class PermissionPreference extends MultiTargetSwitchPreference {
 
         boolean hasAdmin = admin != null;
 
-        if (isForegroundDisabledByPolicy()) {
+        if (isSystemFixed()) {
+            // Permission is fully controlled by the system and cannot be switched
+
+            setSummary(R.string.permission_summary_enabled_system_fixed);
+        } else if (isForegroundDisabledByPolicy()) {
             // Permission is fully controlled by policy and cannot be switched
 
             if (hasAdmin) {

@@ -38,7 +38,6 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreference;
 
 import com.android.packageinstaller.DeviceUtils;
-import com.android.permissioncontroller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionApps;
 import com.android.packageinstaller.permission.model.PermissionApps.Callback;
@@ -47,6 +46,7 @@ import com.android.packageinstaller.permission.ui.ReviewPermissionsActivity;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.permissioncontroller.R;
 
 public final class PermissionAppsFragment extends SettingsWithHeader implements Callback,
         OnPreferenceChangeListener {
@@ -213,12 +213,15 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
 
             if (existingPref != null) {
                 // If existing preference - only update its state.
-                if (app.isPolicyFixed()) {
+                if (app.isSystemFixed()) {
+                    existingPref.setSummary(getString(
+                            R.string.permission_summary_enabled_system_fixed));
+                } else if (app.isPolicyFixed()) {
                     existingPref.setSummary(getString(
                             R.string.permission_summary_enforced_by_policy));
                 }
                 existingPref.setPersistent(false);
-                existingPref.setEnabled(!app.isPolicyFixed());
+                existingPref.setEnabled(!app.isSystemFixed() && !app.isPolicyFixed());
                 if (existingPref instanceof SwitchPreference) {
                     ((SwitchPreference) existingPref)
                             .setChecked(app.areRuntimePermissionsGranted());
@@ -231,11 +234,13 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
             pref.setKey(app.getKey());
             pref.setIcon(app.getIcon());
             pref.setTitle(app.getLabel());
-            if (app.isPolicyFixed()) {
+            if (app.isSystemFixed()) {
+                pref.setSummary(getString(R.string.permission_summary_enabled_system_fixed));
+            } else if (app.isPolicyFixed()) {
                 pref.setSummary(getString(R.string.permission_summary_enforced_by_policy));
             }
             pref.setPersistent(false);
-            pref.setEnabled(!app.isPolicyFixed());
+            pref.setEnabled(!app.isSystemFixed() && !app.isPolicyFixed());
             pref.setChecked(app.areRuntimePermissionsGranted());
 
             if (isSystemApp && isTelevision) {
