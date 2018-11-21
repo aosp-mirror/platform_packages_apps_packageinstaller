@@ -56,7 +56,15 @@ public class LocationUtils {
                 && isNetworkLocationProvider(context, packageName);
     }
 
-    private static boolean isNetworkLocationProvider(Context context, String packageName) {
+    /**
+     * Check if a package is the location provider.
+     *
+     * @param context used to resolve managers
+     * @param packageName the potential location provider
+     *
+     * @return {@code true} iff the package is the location provider
+     */
+    public static boolean isNetworkLocationProvider(Context context, String packageName) {
         try {
             return packageName.equals(context.getSystemService(LocationManager.class)
                     .getNetworkProviderPackage());
