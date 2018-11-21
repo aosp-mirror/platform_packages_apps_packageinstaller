@@ -76,23 +76,23 @@
     </permission-set>
     <!-- } -->
 
-    <!-- // STOPSHIP(b/112545973): remove once feature enabled by default
-    if (SystemProperties.getBoolean(StorageManager.PROP_ISOLATED_STORAGE, false)) {
     <permission-set name="media_aural">
-        <permission name="android.permission.READ_MEDIA_AUDIO" />
-        <permission name="android.permission.WRITE_MEDIA_AUDIO" />
+        <!-- // STOPSHIP(b/112545973): remove once feature enabled by default -->
+        <!-- if (SystemProperties.getBoolean(StorageManager.PROP_ISOLATED_STORAGE, false)) { -->
+        <!-- <permission name="android.permission.READ_MEDIA_AUDIO" /> -->
+        <!-- <permission name="android.permission.WRITE_MEDIA_AUDIO" /> -->
+        <!-- } -->
     </permission-set>
-    } -->
 
-    <!-- // STOPSHIP(b/112545973): remove once feature enabled by default
-    if (SystemProperties.getBoolean(StorageManager.PROP_ISOLATED_STORAGE, false)) {
     <permission-set name="media_visual">
-        <permission name="android.permission.READ_MEDIA_IMAGES" />
-        <permission name="android.permission.WRITE_MEDIA_IMAGES" />
-        <permission name="android.permission.READ_MEDIA_VIDEO" />
-        <permission name="android.permission.WRITE_MEDIA_VIDEO" />
+        <!-- // STOPSHIP(b/112545973): remove once feature enabled by default -->
+        <!-- if (SystemProperties.getBoolean(StorageManager.PROP_ISOLATED_STORAGE, false)) { -->
+        <!-- <permission name="android.permission.READ_MEDIA_IMAGES" /> -->
+        <!-- <permission name="android.permission.WRITE_MEDIA_IMAGES" /> -->
+        <!-- <permission name="android.permission.READ_MEDIA_VIDEO" /> -->
+        <!-- <permission name="android.permission.WRITE_MEDIA_VIDEO" /> -->
+        <!-- } -->
     </permission-set>
-    } -->
 
     <!--- @see android.telecom.DefaultDialerManager -->
     <role name="android.app.role.DIALER" exclusive="true" label="@string/role_label_dialer">
