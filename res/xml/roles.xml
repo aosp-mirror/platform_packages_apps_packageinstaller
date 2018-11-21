@@ -230,4 +230,34 @@
         </permissions>
         <!-- TODO: STOPSHIP: Set preferred? -->
     </role>
+
+    <role name="android.app.role.GALLERY" exclusive="true" label="@string/role_label_gallery">
+        <required-components>
+            <activity>
+                <intent-filter>
+                    <action name="android.intent.action.MAIN" />
+                    <category name="android.intent.category.APP_GALLERY" />
+                </intent-filter>
+            </activity>
+        </required-components>
+        <permissions>
+            <permission-set name="media_visual" />
+        </permissions>
+        <!-- TODO: STOPSHIP: Set preferred? -->
+    </role>
+
+    <role name="android.app.role.MUSIC" exclusive="true" label="@string/role_label_music">
+        <required-components>
+            <activity>
+                <intent-filter>
+                    <action name="android.intent.action.MAIN" />
+                    <category name="android.intent.category.APP_MUSIC" />
+                </intent-filter>
+            </activity>
+        </required-components>
+        <permissions>
+            <permission-set name="media_aural" />
+        </permissions>
+        <!-- TODO: STOPSHIP: Set preferred? -->
+    </role>
 </roles>
