@@ -76,23 +76,23 @@
     </permission-set>
     <!-- } -->
 
-    <!-- // STOPSHIP(b/112545973): remove once feature enabled by default
-    if (SystemProperties.getBoolean(StorageManager.PROP_ISOLATED_STORAGE, false)) {
     <permission-set name="media_aural">
-        <permission name="android.permission.READ_MEDIA_AUDIO" />
-        <permission name="android.permission.WRITE_MEDIA_AUDIO" />
+        <!-- // STOPSHIP(b/112545973): remove once feature enabled by default -->
+        <!-- if (SystemProperties.getBoolean(StorageManager.PROP_ISOLATED_STORAGE, false)) { -->
+        <!-- <permission name="android.permission.READ_MEDIA_AUDIO" /> -->
+        <!-- <permission name="android.permission.WRITE_MEDIA_AUDIO" /> -->
+        <!-- } -->
     </permission-set>
-    } -->
 
-    <!-- // STOPSHIP(b/112545973): remove once feature enabled by default
-    if (SystemProperties.getBoolean(StorageManager.PROP_ISOLATED_STORAGE, false)) {
     <permission-set name="media_visual">
-        <permission name="android.permission.READ_MEDIA_IMAGES" />
-        <permission name="android.permission.WRITE_MEDIA_IMAGES" />
-        <permission name="android.permission.READ_MEDIA_VIDEO" />
-        <permission name="android.permission.WRITE_MEDIA_VIDEO" />
+        <!-- // STOPSHIP(b/112545973): remove once feature enabled by default -->
+        <!-- if (SystemProperties.getBoolean(StorageManager.PROP_ISOLATED_STORAGE, false)) { -->
+        <!-- <permission name="android.permission.READ_MEDIA_IMAGES" /> -->
+        <!-- <permission name="android.permission.WRITE_MEDIA_IMAGES" /> -->
+        <!-- <permission name="android.permission.READ_MEDIA_VIDEO" /> -->
+        <!-- <permission name="android.permission.WRITE_MEDIA_VIDEO" /> -->
+        <!-- } -->
     </permission-set>
-    } -->
 
     <!--- @see android.telecom.DefaultDialerManager -->
     <role name="android.app.role.DIALER" exclusive="true" label="@string/role_label_dialer">
@@ -227,6 +227,36 @@
         </required-components>
         <permissions>
             <permission-set name="location" />
+        </permissions>
+        <!-- TODO: STOPSHIP: Set preferred? -->
+    </role>
+
+    <role name="android.app.role.GALLERY" exclusive="true" label="@string/role_label_gallery">
+        <required-components>
+            <activity>
+                <intent-filter>
+                    <action name="android.intent.action.MAIN" />
+                    <category name="android.intent.category.APP_GALLERY" />
+                </intent-filter>
+            </activity>
+        </required-components>
+        <permissions>
+            <permission-set name="media_visual" />
+        </permissions>
+        <!-- TODO: STOPSHIP: Set preferred? -->
+    </role>
+
+    <role name="android.app.role.MUSIC" exclusive="true" label="@string/role_label_music">
+        <required-components>
+            <activity>
+                <intent-filter>
+                    <action name="android.intent.action.MAIN" />
+                    <category name="android.intent.category.APP_MUSIC" />
+                </intent-filter>
+            </activity>
+        </required-components>
+        <permissions>
+            <permission-set name="media_aural" />
         </permissions>
         <!-- TODO: STOPSHIP: Set preferred? -->
     </role>
