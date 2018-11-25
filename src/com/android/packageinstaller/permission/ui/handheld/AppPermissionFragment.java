@@ -104,11 +104,12 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
      * @return A new fragment
      */
     public static @NonNull AppPermissionFragment newInstance(@NonNull String packageName,
-            @NonNull String permissionName) {
+            @NonNull String permissionName, @NonNull UserHandle userHandle) {
         AppPermissionFragment fragment = new AppPermissionFragment();
         Bundle arguments = new Bundle();
         arguments.putString(Intent.EXTRA_PACKAGE_NAME, packageName);
         arguments.putString(Intent.EXTRA_PERMISSION_NAME, permissionName);
+        arguments.putParcelable(Intent.EXTRA_USER, userHandle);
         fragment.setArguments(arguments);
         return fragment;
     }
@@ -133,10 +134,12 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
 
     private void createAppPermissionGroup() {
         String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
+        UserHandle userHandle = getArguments().getParcelable(Intent.EXTRA_USER);
         Activity activity = getActivity();
         Context context = getPreferenceManager().getContext();
-        mGroup = AppPermissionGroup.create(context, getPackageInfo(activity, packageName),
-                getArguments().getString(Intent.EXTRA_PERMISSION_NAME), false);
+        mGroup = AppPermissionGroup.create(context,
+                getPackageInfo(activity, packageName, userHandle),
+                getArguments().getString(Intent.EXTRA_PERMISSION_NAME), userHandle, false);
 
         if (mGroup == null || !Utils.shouldShowPermission(context, mGroup)) {
             Log.i(LOG_TAG, "Illegal group: " + (mGroup == null ? "null" : mGroup.getName()));
@@ -197,6 +200,7 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
         super.onStart();
 
         String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
+        UserHandle userHandle = getArguments().getParcelable(Intent.EXTRA_USER);
         Activity activity = getActivity();
 
         // Get notified when permissions change.
@@ -224,7 +228,7 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
 
         // Check if the package was removed while this activity was not started.
         try {
-            pm.getPackageInfo(packageName, 0);
+            pm.getPackageInfoAsUser(packageName, 0, userHandle);
         } catch (NameNotFoundException e) {
             Log.w(LOG_TAG, packageName + " was uninstalled while this activity was stopped", e);
             activity.setResult(Activity.RESULT_CANCELED);
@@ -404,10 +408,10 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
     }
 
     private static @Nullable PackageInfo getPackageInfo(@NonNull Activity activity,
-            @NonNull String packageName) {
+            @NonNull String packageName, @NonNull UserHandle userHandle) {
         try {
-            return activity.getPackageManager().getPackageInfo(
-                    packageName, PackageManager.GET_PERMISSIONS);
+            return activity.getPackageManager().getPackageInfoAsUser(
+                    packageName, PackageManager.GET_PERMISSIONS, userHandle);
         } catch (PackageManager.NameNotFoundException e) {
             Log.i(LOG_TAG, "No package: " + activity.getCallingPackage(), e);
             activity.setResult(Activity.RESULT_CANCELED);
