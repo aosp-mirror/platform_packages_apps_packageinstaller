@@ -187,7 +187,9 @@ public class AppPermissionUsageFragment extends SettingsWithHeader {
             String timeDiffStr = Utils.getTimeDiffStr(context, timeDiff);
             String summary = context.getString(R.string.app_permission_usage_summary, timeDiffStr);
             Preference pref = new PermissionUsagePreference(context, usage,
-                    usage.getPermissionGroupLabel(), summary, group.getIconResId());
+                    usage.getPermissionGroupLabel(), summary,
+                    Utils.applyTint(context, group.getIconResId(),
+                            android.R.attr.colorControlNormal));
             screen.addPreference(pref);
         }
 
