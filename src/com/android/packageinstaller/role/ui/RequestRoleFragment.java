@@ -122,16 +122,19 @@ public class RequestRoleFragment extends DialogFragment {
         }
         CharSequence message = Html.fromHtml(messageHtml, Html.FROM_HTML_MODE_LEGACY);
 
-        // Set the button listeners later to get rid of the automatic dismiss behavior.
         AlertDialog dialog = new AlertDialog.Builder(context, getTheme())
                 .setMessage(message)
+                // Set the positive button listener later to avoid the automatic dismiss behavior.
                 .setPositiveButton(android.R.string.ok, null)
                 .setNegativeButton(android.R.string.cancel, null)
+                .setOnDismissListener(dialog2 -> {
+                    Log.i(LOG_TAG, "Dialog dismissed, role: " + mRoleName + ", package: "
+                            + mPackageName);
+                    finish();
+                })
                 .create();
-        dialog.setOnShowListener(dialog2 -> {
-            dialog.getButton(Dialog.BUTTON_POSITIVE).setOnClickListener(view -> addRoleHolder());
-            dialog.getButton(Dialog.BUTTON_NEGATIVE).setOnClickListener(view -> finish());
-        });
+        dialog.setOnShowListener(dialog2 -> dialog.getButton(Dialog.BUTTON_POSITIVE)
+                .setOnClickListener(view -> addRoleHolder()));
         return dialog;
     }
 
@@ -150,6 +153,8 @@ public class RequestRoleFragment extends DialogFragment {
         mPackageRemovalMonitor = new PackageRemovalMonitor(requireContext(), mPackageName) {
             @Override
             protected void onPackageRemoved() {
+                Log.w(LOG_TAG, "Application is uninstalled, role: " + mRoleName + ", package: "
+                        + mPackageName);
                 finish();
             }
         };
