@@ -68,30 +68,13 @@
         <permission name="android.permission.BODY_SENSORS" />
     </permission-set>
 
-    <!-- STOPSHIP(b/112545973): remove once feature enabled by default -->
-    <!--if (!SystemProperties.getBoolean(StorageManager.PROP_ISOLATED_STORAGE, false)) { -->
-    <permission-set name="storage">
-        <permission name="android.permission.READ_EXTERNAL_STORAGE" />
-        <permission name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    </permission-set>
-    <!-- } -->
-
     <permission-set name="media_aural">
-        <!-- // STOPSHIP(b/112545973): remove once feature enabled by default -->
-        <!-- if (SystemProperties.getBoolean(StorageManager.PROP_ISOLATED_STORAGE, false)) { -->
-        <!-- <permission name="android.permission.READ_MEDIA_AUDIO" /> -->
-        <!-- <permission name="android.permission.WRITE_MEDIA_AUDIO" /> -->
-        <!-- } -->
+        <permission name="android.permission.READ_MEDIA_AUDIO" />
     </permission-set>
 
     <permission-set name="media_visual">
-        <!-- // STOPSHIP(b/112545973): remove once feature enabled by default -->
-        <!-- if (SystemProperties.getBoolean(StorageManager.PROP_ISOLATED_STORAGE, false)) { -->
-        <!-- <permission name="android.permission.READ_MEDIA_IMAGES" /> -->
-        <!-- <permission name="android.permission.WRITE_MEDIA_IMAGES" /> -->
-        <!-- <permission name="android.permission.READ_MEDIA_VIDEO" /> -->
-        <!-- <permission name="android.permission.WRITE_MEDIA_VIDEO" /> -->
-        <!-- } -->
+        <permission name="android.permission.READ_MEDIA_VIDEO" />
+        <permission name="android.permission.READ_MEDIA_IMAGES" />
     </permission-set>
 
     <!--- @see android.telecom.DefaultDialerManager -->
@@ -179,7 +162,8 @@
             <permission-set name="phone" />
             <permission-set name="contacts" />
             <permission-set name="sms" />
-            <permission-set name="storage" />
+            <permission-set name="media_aural" />
+            <permission-set name="media_visual" />
             <permission-set name="microphone" />
             <permission-set name="camera" />
         </permissions>
@@ -231,21 +215,6 @@
         <!-- TODO: STOPSHIP: Set preferred? -->
     </role>
 
-    <role name="android.app.role.GALLERY" exclusive="true" label="@string/role_label_gallery">
-        <required-components>
-            <activity>
-                <intent-filter>
-                    <action name="android.intent.action.MAIN" />
-                    <category name="android.intent.category.APP_GALLERY" />
-                </intent-filter>
-            </activity>
-        </required-components>
-        <permissions>
-            <permission-set name="media_visual" />
-        </permissions>
-        <!-- TODO: STOPSHIP: Set preferred? -->
-    </role>
-
     <role name="android.app.role.MUSIC" exclusive="true" label="@string/role_label_music">
         <required-components>
             <activity>
@@ -258,6 +227,54 @@
         <permissions>
             <permission-set name="media_aural" />
         </permissions>
-        <!-- TODO: STOPSHIP: Set preferred? -->
+        <app-ops>
+            <app-op name="android:write_media_audio" mode="allowed" />
+        </app-ops>
+        <preferred-activities>
+            <preferred-activity>
+                <activity>
+                    <intent-filter>
+                        <action name="android.intent.action.MAIN" />
+                        <category name="android.intent.category.APP_MUSIC" />
+                    </intent-filter>
+                </activity>
+                <intent-filter>
+                    <action name="android.intent.action.MAIN" />
+                    <category name="android.intent.category.APP_MUSIC" />
+                </intent-filter>
+            </preferred-activity>
+        </preferred-activities>
+    </role>
+
+    <role name="android.app.role.GALLERY" exclusive="true" label="@string/role_label_gallery">
+        <required-components>
+            <activity>
+                <intent-filter>
+                    <action name="android.intent.action.MAIN" />
+                    <category name="android.intent.category.APP_GALLERY" />
+                </intent-filter>
+            </activity>
+        </required-components>
+        <permissions>
+            <permission-set name="media_visual" />
+        </permissions>
+        <app-ops>
+            <app-op name="android:write_media_video" mode="allowed" />
+            <app-op name="android:write_media_images" mode="allowed" />
+        </app-ops>
+        <preferred-activities>
+            <preferred-activity>
+                <activity>
+                    <intent-filter>
+                        <action name="android.intent.action.MAIN" />
+                        <category name="android.intent.category.APP_GALLERY" />
+                    </intent-filter>
+                </activity>
+                <intent-filter>
+                    <action name="android.intent.action.MAIN" />
+                    <category name="android.intent.category.APP_GALLERY" />
+                </intent-filter>
+            </preferred-activity>
+        </preferred-activities>
     </role>
 </roles>

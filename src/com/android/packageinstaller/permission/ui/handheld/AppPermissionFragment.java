@@ -228,7 +228,8 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
 
         // Check if the package was removed while this activity was not started.
         try {
-            pm.getPackageInfoAsUser(packageName, 0, userHandle);
+            activity.createPackageContextAsUser(
+                    packageName, 0, userHandle).getPackageManager().getPackageInfo(packageName, 0);
         } catch (NameNotFoundException e) {
             Log.w(LOG_TAG, packageName + " was uninstalled while this activity was stopped", e);
             activity.setResult(Activity.RESULT_CANCELED);
@@ -410,8 +411,9 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
     private static @Nullable PackageInfo getPackageInfo(@NonNull Activity activity,
             @NonNull String packageName, @NonNull UserHandle userHandle) {
         try {
-            return activity.getPackageManager().getPackageInfoAsUser(
-                    packageName, PackageManager.GET_PERMISSIONS, userHandle);
+            return activity.createPackageContextAsUser(packageName, 0,
+                    userHandle).getPackageManager().getPackageInfo(packageName,
+                    PackageManager.GET_PERMISSIONS);
         } catch (PackageManager.NameNotFoundException e) {
             Log.i(LOG_TAG, "No package: " + activity.getCallingPackage(), e);
             activity.setResult(Activity.RESULT_CANCELED);
