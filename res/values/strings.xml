@@ -341,6 +341,16 @@
     <!-- The notification content for background location access reminder notification [CHAR LIMIT=none] -->
     <string name="background_location_access_reminder_notification_content">This app can always access your location. Tap to change.</string>
 
+    <!-- Title for page of managing default apps. [CHAR LIMIT=30] -->
+    <string name="default_apps">Default apps</string>
+
+    <!-- TODO: STOPSHIP: I cannot find its value in Settings. -->
+    <!-- Help URI, default apps [DO NOT TRANSLATE] -->
+    <string name="help_uri_default_apps" translatable="false"></string>
+
+    <!-- Label when there is no default apps [CHAR LIMIT=30] -->
+    <string name="no_default_apps">No default apps</string>
+
     <!-- TODO: STOPSHIP: Migrate all default app titles from packages/apps/Settings/res/values/strings.xml . -->
 
     <!-- Label for the dialer role. [CHAR LIMIT=30] -->

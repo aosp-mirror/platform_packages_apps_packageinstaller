@@ -31,6 +31,7 @@ import static android.Manifest.permission_group.SMS;
 import static android.Manifest.permission_group.STORAGE;
 
 import android.Manifest;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -42,12 +43,15 @@ import android.content.res.Resources.Theme;
 import android.graphics.drawable.Drawable;
 import android.os.Parcelable;
 import android.os.UserHandle;
+import android.provider.Settings;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.ArraySet;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -438,5 +442,29 @@ public final class Utils {
         }
         long days = hours / 24;
         return context.getResources().getQuantityString(R.plurals.days, (int) days, days);
+    }
+
+    /**
+     * Add a menu item for searching Settings, if there is an activity handling the action.
+     *
+     * @param menu the menu to add the menu item into
+     * @param context the context for checking whether there is an activity handling the action
+     */
+    public static void prepareSearchMenuItem(@NonNull Menu menu, @NonNull Context context) {
+        Intent intent = new Intent(Settings.ACTION_APP_SEARCH_SETTINGS);
+        if (context.getPackageManager().resolveActivity(intent, 0) == null) {
+            return;
+        }
+        MenuItem searchItem = menu.add(Menu.NONE, Menu.NONE, Menu.NONE, R.string.search_menu);
+        searchItem.setIcon(R.drawable.ic_search_24dp);
+        searchItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        searchItem.setOnMenuItemClickListener(item -> {
+            try {
+                context.startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+                Log.e(LOG_TAG, "Cannot start activity to search settings", e);
+            }
+            return true;
+        });
     }
 }
