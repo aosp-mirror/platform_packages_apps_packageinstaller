@@ -341,29 +341,6 @@
     <!-- The notification content for background location access reminder notification [CHAR LIMIT=none] -->
     <string name="background_location_access_reminder_notification_content">This app can always access your location. Tap to change.</string>
 
-    <!-- Title for page of managing default apps. [CHAR LIMIT=30] -->
-    <string name="default_apps">Default apps</string>
-
-    <!-- TODO: STOPSHIP: I cannot find its value in Settings. -->
-    <!-- Help URI, default apps [DO NOT TRANSLATE] -->
-    <string name="help_uri_default_apps" translatable="false"></string>
-
-    <!-- Label when there is no default apps [CHAR LIMIT=30] -->
-    <string name="no_default_apps">No default apps</string>
-
-    <!-- TODO: STOPSHIP: Migrate all default app titles from packages/apps/Settings/res/values/strings.xml . -->
-
-    <!-- Label for the dialer role. [CHAR LIMIT=30] -->
-    <string name="role_label_dialer">Phone app</string>
-    <!-- Label for the SMS role. [CHAR LIMIT=30] -->
-    <string name="role_label_sms">SMS app</string>
-    <!-- Label for the browser role. [CHAR LIMIT=30] -->
-    <string name="role_label_browser">Browser app</string>
-    <!-- Label for the gallery role. [CHAR LIMIT=30] -->
-    <string name="role_label_gallery">Gallery app</string>
-    <!-- Label for the music player role. [CHAR LIMIT=30] -->
-    <string name="role_label_music">Music app</string>
-
     <!-- Header for permission justifications [CHAR LIMIT=none] -->
     <string name="permission_justification_header">The app developer says your data may be:</string>
 
@@ -403,4 +380,29 @@
     <!-- Permission justification string when not all justfications are defined [CHAR LIMIT=none] -->
     <string name="permission_justification_undefined">The app developer did not specify how the app uses your data.</string>
 
+    <!-- Title for page of managing default apps. [CHAR LIMIT=30] -->
+    <string name="default_apps">Default apps</string>
+
+    <!-- TODO: STOPSHIP: I cannot find its value in Settings. -->
+    <!-- Help URI, default apps [DO NOT TRANSLATE] -->
+    <string name="help_uri_default_apps" translatable="false"></string>
+
+    <!-- Label when there is no default apps [CHAR LIMIT=30] -->
+    <string name="no_default_apps">No default apps</string>
+
+    <!-- Label when there are no apps for a default app [CHAR LIMIT=30] -->
+    <string name="no_apps_for_default_app">No apps</string>
+
+    <!-- TODO: STOPSHIP: Migrate all default app titles from packages/apps/Settings/res/values/strings.xml . -->
+
+    <!-- Label for the dialer role. [CHAR LIMIT=30] -->
+    <string name="role_label_dialer">Phone app</string>
+    <!-- Label for the SMS role. [CHAR LIMIT=30] -->
+    <string name="role_label_sms">SMS app</string>
+    <!-- Label for the browser role. [CHAR LIMIT=30] -->
+    <string name="role_label_browser">Browser app</string>
+    <!-- Label for the gallery role. [CHAR LIMIT=30] -->
+    <string name="role_label_gallery">Gallery app</string>
+    <!-- Label for the music player role. [CHAR LIMIT=30] -->
+    <string name="role_label_music">Music app</string>
 </resources>
