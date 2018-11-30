@@ -235,9 +235,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             final int flags = context.getPackageManager().getPermissionFlags(
                     requestedPermission, packageName, userHandle);
 
-            Permission permission = new Permission(requestedPermission,
-                    requestedPermissionInfo.backgroundPermission, granted,
-                    appOp, appOpAllowed, flags, requestedPermissionInfo.protectionLevel);
+            Permission permission = new Permission(requestedPermission, requestedPermissionInfo,
+                    granted, appOp, appOpAllowed, flags);
 
             if (requestedPermissionInfo.backgroundPermission != null) {
                 group.mHasPermissionWithBackgroundMode = true;
