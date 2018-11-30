@@ -25,6 +25,7 @@ import androidx.annotation.NonNull;
 import androidx.preference.Preference;
 
 import com.android.packageinstaller.permission.model.AppPermissionUsage;
+import com.android.packageinstaller.permission.ui.AppPermissionActivity;
 
 /**
  * A preference for representing a permission usage by an app.
@@ -43,7 +44,7 @@ public class PermissionUsagePreference extends Preference {
         setSummary(summary);
         setIcon(icon);
         setOnPreferenceClickListener(preference -> {
-            Intent intent = new Intent(Intent.ACTION_MANAGE_APP_PERMISSION);
+            Intent intent = new Intent(context, AppPermissionActivity.class);
             intent.putExtra(Intent.EXTRA_PACKAGE_NAME, usage.getPackageName());
             intent.putExtra(Intent.EXTRA_PERMISSION_NAME, usage.getPermissionName());
             intent.putExtra(Intent.EXTRA_USER, UserHandle.getUserHandleForUid(usage.getUid()));
