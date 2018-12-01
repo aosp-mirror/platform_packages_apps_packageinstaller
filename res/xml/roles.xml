@@ -142,21 +142,6 @@
                     <data scheme="smsto" />
                 </intent-filter>
             </activity>
-            <receiver>
-                <intent-filter>
-                    <action name="android.provider.action.DEFAULT_SMS_PACKAGE_CHANGED" />
-                </intent-filter>
-            </receiver>
-            <receiver>
-                <intent-filter>
-                    <action name="android.provider.action.EXTERNAL_PROVIDER_CHANGE" />
-                </intent-filter>
-            </receiver>
-            <receiver>
-                <intent-filter>
-                    <action name="android.provider.Telephony.SIM_FULL" />
-                </intent-filter>
-            </receiver>
         </required-components>
         <permissions>
             <permission-set name="phone" />
