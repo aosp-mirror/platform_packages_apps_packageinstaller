@@ -29,6 +29,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.android.packageinstaller.DeviceUtils;
 import com.android.packageinstaller.permission.ui.handheld.AppPermissionFragment;
+import com.android.packageinstaller.permission.utils.LocationUtils;
 
 /**
  * Manage a single permission of a single app
@@ -59,6 +60,14 @@ public final class AppPermissionActivity extends FragmentActivity {
         UserHandle userHandle = getIntent().getParcelableExtra(Intent.EXTRA_USER);
         if (userHandle == null) {
             Log.i(LOG_TAG, "Missing mandatory argument EXTRA_USER");
+            finish();
+            return;
+        }
+
+        if (LocationUtils.isLocationGroupAndControllerExtraPackage(
+                this, permissionName, packageName)) {
+            // Redirect to location controller extra package settings.
+            LocationUtils.startLocationControllerExtraPackageSettings(this);
             finish();
             return;
         }
