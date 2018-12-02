@@ -168,9 +168,9 @@ public final class Utils {
      * @return The group the permission belongs to
      */
     public static @Nullable String getGroupOfPermission(@NonNull PermissionInfo permission) {
-        String groupName = permission.group;
+        String groupName = Utils.getGroupOfPlatformPermission(permission.name);
         if (groupName == null) {
-            groupName = Utils.getGroupOfPlatformPermission(permission.name);
+            groupName = permission.group;
         }
 
         return groupName;
