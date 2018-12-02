@@ -19,6 +19,7 @@ package com.android.packageinstaller.permission.model;
 import static android.content.pm.PackageItemInfo.SAFE_LABEL_FLAG_FIRST_LINE;
 import static android.content.pm.PackageItemInfo.SAFE_LABEL_FLAG_TRIM;
 
+import android.Manifest;
 import android.app.LoaderManager;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.AsyncTaskLoader;
@@ -245,6 +246,17 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
                         permApps.getTotalCount(launcherPkgs),
                         permApps.getGrantedCount(launcherPkgs), permApps);
                 groups.add(group);
+            }
+        }
+
+        // Hide undefined group if no 3rd party permissions are in it
+        int numGroups = groups.size();
+        for (int i = 0; i < numGroups; i++) {
+            PermissionGroup group = groups.get(i);
+            if (group.getName().equals(Manifest.permission_group.UNDEFINED)
+                    && group.getTotal() == 0) {
+                groups.remove(i);
+                break;
             }
         }
 
