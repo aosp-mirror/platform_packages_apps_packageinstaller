@@ -21,6 +21,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.role.RoleManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.os.Bundle;
@@ -53,6 +54,7 @@ public class RequestRoleFragment extends DialogFragment {
 
     private RequestRoleViewModel mViewModel;
 
+    @Nullable
     private PackageRemovalMonitor mPackageRemovalMonitor;
 
     /**
@@ -127,11 +129,6 @@ public class RequestRoleFragment extends DialogFragment {
                 // Set the positive button listener later to avoid the automatic dismiss behavior.
                 .setPositiveButton(android.R.string.ok, null)
                 .setNegativeButton(android.R.string.cancel, null)
-                .setOnDismissListener(dialog2 -> {
-                    Log.i(LOG_TAG, "Dialog dismissed, role: " + mRoleName + ", package: "
-                            + mPackageName);
-                    finish();
-                })
                 .create();
         dialog.setOnShowListener(dialog2 -> dialog.getButton(Dialog.BUTTON_POSITIVE)
                 .setOnClickListener(view -> addRoleHolder()));
@@ -150,7 +147,14 @@ public class RequestRoleFragment extends DialogFragment {
     public void onStart() {
         super.onStart();
 
-        mPackageRemovalMonitor = new PackageRemovalMonitor(requireContext(), mPackageName) {
+        Context context = requireContext();
+        if (PackageUtils.getApplicationInfo(mPackageName, context) == null) {
+            Log.w(LOG_TAG, "Unknown application: " + mPackageName);
+            finish();
+            return;
+        }
+
+        mPackageRemovalMonitor = new PackageRemovalMonitor(context, mPackageName) {
             @Override
             protected void onPackageRemoved() {
                 Log.w(LOG_TAG, "Application is uninstalled, role: " + mRoleName + ", package: "
@@ -165,8 +169,19 @@ public class RequestRoleFragment extends DialogFragment {
     public void onStop() {
         super.onStop();
 
-        mPackageRemovalMonitor.unregister();
-        mPackageRemovalMonitor = null;
+        if (mPackageRemovalMonitor != null) {
+            mPackageRemovalMonitor.unregister();
+            mPackageRemovalMonitor = null;
+        }
+    }
+
+    @Override
+    public void onDismiss(DialogInterface dialog) {
+        super.onDismiss(dialog);
+
+        Log.i(LOG_TAG, "Dialog dismissed, role: " + mRoleName + ", package: "
+                + mPackageName);
+        finish();
     }
 
     private void onRequestRoleStateChanged(int state) {

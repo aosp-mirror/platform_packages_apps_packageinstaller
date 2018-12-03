@@ -43,7 +43,7 @@
             parent="@android:style/Theme.DeviceDefault.Settings">
     </style>
 
-    <style name="RequestRole" parent="@android:style/Theme.DeviceDefault.Light.Dialog">
-        <!-- TODO: STOPSHIP: Anything else, e.g. windowIsTranslucent? And make themeable? -->
+    <style name="RequestRole" parent="android:Theme.DeviceDefault.Light.NoActionBar.TranslucentDecor">
+        <!-- TODO: STOPSHIP: Make themeable? -->
     </style>
 </resources>
