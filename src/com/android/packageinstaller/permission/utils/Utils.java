@@ -40,6 +40,8 @@ import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.content.res.Resources.Theme;
 import android.graphics.drawable.Drawable;
+import android.os.Parcelable;
+import android.os.UserHandle;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.ArrayMap;
@@ -51,6 +53,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.core.text.BidiFormatter;
+import androidx.core.util.Preconditions;
 
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
@@ -147,6 +150,46 @@ public final class Utils {
 
     private Utils() {
         /* do nothing - hide constructor */
+    }
+
+    /**
+     * {@code @NonNull} version of {@link Context#getSystemService(Class)}
+     */
+    public static @NonNull <M> M getSystemServiceSafe(@NonNull Context context, Class<M> clazz) {
+        return Preconditions.checkNotNull(context.getSystemService(clazz),
+                "Could not resolve " + clazz.getSimpleName());
+    }
+
+    /**
+     * {@code @NonNull} version of {@link Context#getSystemService(Class)}
+     */
+    public static @NonNull <M> M getSystemServiceSafe(@NonNull Context context, Class<M> clazz,
+            @NonNull UserHandle user) {
+        try {
+            return Preconditions.checkNotNull(context.createPackageContextAsUser(
+                    context.getPackageName(), 0, user).getSystemService(clazz),
+                    "Could not resolve " + clazz.getSimpleName());
+        } catch (PackageManager.NameNotFoundException neverHappens) {
+            throw new IllegalStateException();
+        }
+    }
+
+    /**
+     * {@code @NonNull} version of {@link Intent#getParcelableExtra(String)}
+     */
+    public static @NonNull <T extends Parcelable> T getParcelableExtraSafe(@NonNull Intent intent,
+            @NonNull String name) {
+        return Preconditions.checkNotNull(intent.getParcelableExtra(name),
+                "Could not get parcelable extra for " + name);
+    }
+
+    /**
+     * {@code @NonNull} version of {@link Intent#getStringExtra(String)}
+     */
+    public static @NonNull String getStringExtraSafe(@NonNull Intent intent,
+            @NonNull String name) {
+        return Preconditions.checkNotNull(intent.getStringExtra(name),
+                "Could not get string extra for " + name);
     }
 
     /**

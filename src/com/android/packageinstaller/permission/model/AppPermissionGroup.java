@@ -16,9 +16,14 @@
 
 package com.android.packageinstaller.permission.model;
 
+import static android.Manifest.permission.ACCESS_BACKGROUND_LOCATION;
+import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import static android.app.AppOpsManager.MODE_ALLOWED;
 import static android.app.AppOpsManager.MODE_FOREGROUND;
 import static android.app.AppOpsManager.MODE_IGNORED;
+
+import static com.android.packageinstaller.permission.service.LocationAccessCheck
+        .checkLocationAccessSoon;
 
 import android.app.ActivityManager;
 import android.app.AppOpsManager;
@@ -34,6 +39,8 @@ import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.ArrayMap;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 
 import com.android.packageinstaller.permission.utils.ArrayUtils;
@@ -191,7 +198,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
         // Parse and create permissions reqested by the app
         ArrayMap<String, Permission> allPermissions = new ArrayMap<>();
-        final int permissionCount = packageInfo.requestedPermissions.length;
+        final int permissionCount = packageInfo.requestedPermissions == null ? 0
+                : packageInfo.requestedPermissions.length;
         String packageName = packageInfo.packageName;
         for (int i = 0; i < permissionCount; i++) {
             String requestedPermission = packageInfo.requestedPermissions[i];
@@ -592,6 +600,17 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         return mPermissions.get(permission) != null;
     }
 
+    /**
+     * Return a permission if in this group.
+     *
+     * @param permissionName The name of the permission
+     *
+     * @return The permission
+     */
+    public @Nullable Permission getPermission(@NonNull String permissionName) {
+        return mPermissions.get(permissionName);
+    }
+
     public boolean areRuntimePermissionsGranted() {
         return areRuntimePermissionsGranted(null);
     }
@@ -720,6 +739,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                 continue;
             }
 
+            boolean wasGranted = permission.isGranted() && permission.isAppOpAllowed();
+
             if (mAppSupportsRuntimePermissions) {
                 // Do not touch permissions fixed by the system.
                 if (permission.isSystemFixed()) {
@@ -776,6 +797,35 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                 // reviewed it so clear the review flag on every grant.
                 if (permission.isReviewRequired()) {
                     permission.resetReviewRequired();
+                }
+            }
+
+            // If we newly grant background access to the fine location, double-guess the user some
+            // time later if this was really the right choice.
+            if (!wasGranted && !(permission.isGranted() && permission.isAppOpAllowed())) {
+                if (mName.equals(ACCESS_FINE_LOCATION)) {
+                    Permission bgPerm = permission.getBackgroundPermission();
+                    if (bgPerm != null) {
+                        if (bgPerm.isGranted() && bgPerm.isAppOpAllowed()) {
+                            checkLocationAccessSoon(mContext);
+                        }
+                    }
+                } else if (mName.equals(ACCESS_BACKGROUND_LOCATION)) {
+                    ArrayList<Permission> fgPerms = permission.getForegroundPermissions();
+                    if (fgPerms != null) {
+                        int numFgPerms = fgPerms.size();
+                        for (int fgPermNum = 0; fgPermNum < numFgPerms; fgPermNum++) {
+                            Permission fgPerm = fgPerms.get(fgPermNum);
+
+                            if (fgPerm.getName().equals(ACCESS_FINE_LOCATION)) {
+                                if (fgPerm.isGranted() && fgPerm.isAppOpAllowed()) {
+                                    checkLocationAccessSoon(mContext);
+                                }
+
+                                break;
+                            }
+                        }
+                    }
                 }
             }
         }

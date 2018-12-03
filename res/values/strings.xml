@@ -332,6 +332,15 @@
         &lt;b><xliff:g id="current_app_name" example="Messages">%1$s</xliff:g>&lt;/b> as your
         <xliff:g id="role_name" example="SMS app">%2$s</xliff:g>?</string>
 
+    <!-- The name of the notification channel containing reminders about permission [CHAR LIMIT=60]-->
+    <string name="permission_reminders">Permission reminders</string>
+
+    <!-- The notification title for background location access reminder notification [CHAR LIMIT=60] -->
+    <string name="background_location_access_reminder_notification_title"><xliff:g id="app_name" example="Gmail">%s</xliff:g> has been using your location</string>
+
+    <!-- The notification content for background location access reminder notification [CHAR LIMIT=none] -->
+    <string name="background_location_access_reminder_notification_content">This app can always access your location. Tap to change.</string>
+
     <!-- TODO: STOPSHIP: Migrate all default app titles from packages/apps/Settings/res/values/strings.xml . -->
 
     <!-- Label for the dialer role. [CHAR LIMIT=30] -->
