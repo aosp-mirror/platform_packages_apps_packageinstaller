@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (C) 2017 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.android.packageinstaller.permission.ui.auto;
 
 
@@ -48,7 +47,7 @@ import java.util.ArrayList;
 /**
  * Contains all permissions in a list for a given application.
  */
-public final class AppPermissionsFragment extends Fragment{
+public final class AppPermissionsFragment extends Fragment {
 
     private static final String LOG_TAG = "ManagePermsFragment";
     public static final String EXTRA_LAYOUT = "extra_layout";
@@ -63,6 +62,7 @@ public final class AppPermissionsFragment extends Fragment{
 
     /**
      * Creates a new instance.
+     *
      * @param packageName the packageName of the application that we are listing the
      *                    permissions here.
      */
@@ -172,6 +172,8 @@ public final class AppPermissionsFragment extends Fragment{
 
     private class PermissionLineItem extends TextListItem {
 
+        private boolean mSwitchState;
+
         PermissionLineItem(AppPermissionGroup permissionGroup, Context context) {
             super(context);
             setTitle(permissionGroup.getLabel().toString());
@@ -182,26 +184,38 @@ public final class AppPermissionsFragment extends Fragment{
                     permissionGroup.areRuntimePermissionsGranted(),
                     /* showDivider= */ false,
                     (button, isChecked) -> {
-                        if (isChecked) {
-                            permissionGroup.grantRuntimePermissions(/* fixedByTheUser= */ false);
-                            return;
-                        }
-                        boolean grantedByDefault = permissionGroup.hasGrantedByDefaultPermission();
-                        if (!grantedByDefault && permissionGroup.doesSupportRuntimePermissions()) {
-                            permissionGroup.revokeRuntimePermissions(/* fixedByTheUser= */ false);
-                            return;
-                        }
-                        new AlertDialog.Builder(context)
-                                .setMessage(grantedByDefault
-                                        ? R.string.system_warning
-                                        : R.string.old_sdk_deny_warning)
-                                .setNegativeButton(R.string.cancel, /* listener= */ null)
-                                .setPositiveButton(R.string.grant_dialog_button_deny_anyway,
-                                        (dialog, which) ->
-                                            permissionGroup.revokeRuntimePermissions(
-                                                /* fixedByTheUser= */ false))
-                                .show();
+                        mSwitchState = isChecked;
+                        updatePermission(permissionGroup, context, mSwitchState);
                     });
+            setOnClickListener(v -> {
+                mSwitchState = !mSwitchState;
+                setSwitchState(mSwitchState);
+                updatePermission(permissionGroup, context, mSwitchState);
+                notifyDataSetChanged();
+            });
+        }
+
+        private void updatePermission(AppPermissionGroup permissionGroup, Context context,
+                boolean isGranted) {
+            if (isGranted) {
+                permissionGroup.grantRuntimePermissions(/* fixedByTheUser= */ false);
+                return;
+            }
+            boolean grantedByDefault = permissionGroup.hasGrantedByDefaultPermission();
+            if (!grantedByDefault && permissionGroup.doesSupportRuntimePermissions()) {
+                permissionGroup.revokeRuntimePermissions(/* fixedByTheUser= */ false);
+                return;
+            }
+            new AlertDialog.Builder(context)
+                    .setMessage(grantedByDefault
+                            ? R.string.system_warning
+                            : R.string.old_sdk_deny_warning)
+                    .setNegativeButton(R.string.cancel, /* listener= */ null)
+                    .setPositiveButton(R.string.grant_dialog_button_deny_anyway,
+                            (dialog, which) ->
+                                    permissionGroup.revokeRuntimePermissions(
+                                            /* fixedByTheUser= */ false))
+                    .show();
         }
     }
 }
