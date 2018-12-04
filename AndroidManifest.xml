@@ -135,8 +135,14 @@
             </intent-filter>
         </provider>
 
-        <!-- Wearable Components -->
         <service android:name="com.android.packageinstaller.permission.service.RuntimePermissionPresenterServiceImpl"
+                 android:permission="android.permission.BIND_RUNTIME_PERMISSION_PRESENTER_SERVICE">
+            <intent-filter android:priority="1">
+                <action android:name="android.permission.RuntimePermissionPresenterService"/>
+            </intent-filter>
+        </service>
+
+        <service android:name="com.android.packageinstaller.permission.service.RuntimePermissionPresenterServiceLegacyImpl"
                  android:permission="android.permission.BIND_RUNTIME_PERMISSION_PRESENTER_SERVICE">
             <intent-filter android:priority="1">
                 <action android:name="android.permissionpresenterservice.RuntimePermissionPresenterService"/>
