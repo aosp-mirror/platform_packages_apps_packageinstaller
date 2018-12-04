@@ -40,6 +40,27 @@
             android:defaultToDeviceProtectedStorage="true"
             android:directBootAware="true">
 
+        <receiver android:name="com.android.packageinstaller.permission.service.LocationAccessCheck$SetupPeriodicBackgroundLocationAccessCheck">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.android.packageinstaller.permission.service.LocationAccessCheck$NotificationDeleteHandler" />
+
+        <receiver android:name="com.android.packageinstaller.permission.service.LocationAccessCheck$NotificationClickHandler" />
+
+        <receiver android:name="com.android.packageinstaller.permission.service.LocationAccessCheck$PackageResetHandler">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_FULLY_REMOVED"/>
+                <action android:name="android.intent.action.PACKAGE_DATA_CLEARED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.android.packageinstaller.permission.service.LocationAccessCheck"
+                 android:permission="android.permission.BIND_JOB_SERVICE" />
+
         <activity android:name="com.android.packageinstaller.permission.ui.GrantPermissionsActivity"
                 android:configChanges="keyboardHidden|screenSize"
                 android:excludeFromRecents="true"
