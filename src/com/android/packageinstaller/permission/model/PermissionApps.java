@@ -155,12 +155,12 @@ public class PermissionApps {
     }
 
     private List<PermissionApp> loadPermissionApps() {
-        PackageItemInfo groupInfo = getGroupInfo(mGroupName);
+        PackageItemInfo groupInfo = Utils.getGroupInfo(mGroupName, mContext);
         if (groupInfo == null) {
             return Collections.emptyList();
         }
 
-        List<PermissionInfo> groupPermInfos = getGroupPermissionInfos(mGroupName);
+        List<PermissionInfo> groupPermInfos = Utils.getGroupPermissionInfos(mGroupName, mContext);
         if (groupPermInfos == null) {
             return Collections.emptyList();
         }
@@ -242,38 +242,6 @@ public class PermissionApps {
             mAppLookup.put(app.getKey(), app);
         }
         mPermApps = result;
-    }
-
-    private PackageItemInfo getGroupInfo(String groupName) {
-        try {
-            return mContext.getPackageManager().getPermissionGroupInfo(groupName, 0);
-        } catch (NameNotFoundException e) {
-            /* ignore */
-        }
-        try {
-            return mContext.getPackageManager().getPermissionInfo(groupName, 0);
-        } catch (NameNotFoundException e2) {
-            /* ignore */
-        }
-        return null;
-    }
-
-    private List<PermissionInfo> getGroupPermissionInfos(String groupName) {
-        try {
-            return Utils.getPermissionInfosForGroup(mContext.getPackageManager(), groupName);
-        } catch (NameNotFoundException e) {
-            /* ignore */
-        }
-        try {
-            PermissionInfo permissionInfo = mContext.getPackageManager()
-                    .getPermissionInfo(groupName, 0);
-            List<PermissionInfo> permissions = new ArrayList<>();
-            permissions.add(permissionInfo);
-            return permissions;
-        } catch (NameNotFoundException e2) {
-            /* ignore */
-        }
-        return null;
     }
 
     private void loadGroupInfo() {

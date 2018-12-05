@@ -18,36 +18,24 @@ package com.android.packageinstaller.permission.ui.handheld;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.os.UserHandle;
 
 import androidx.annotation.NonNull;
 import androidx.preference.Preference;
 
-import com.android.packageinstaller.permission.model.AppPermissionUsage;
+import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.ui.AppPermissionActivity;
 
 /**
  * A preference for representing a permission usage by an app.
  */
 public class PermissionUsagePreference extends Preference {
-    public PermissionUsagePreference(@NonNull Context context, @NonNull AppPermissionUsage usage,
-            @NonNull CharSequence title, @NonNull String summary, @NonNull Drawable icon) {
+    public PermissionUsagePreference(@NonNull Context context, @NonNull AppPermissionGroup group) {
         super(context);
-        updateUi(context, usage, title, summary, icon);
-    }
-
-    private void updateUi(@NonNull Context context, @NonNull AppPermissionUsage usage,
-            @NonNull CharSequence title, @NonNull String summary, @NonNull Drawable icon) {
-        setKey(usage.getPackageName() + "," + usage.getPermissionGroupName());
-        setTitle(title);
-        setSummary(summary);
-        setIcon(icon);
         setOnPreferenceClickListener(preference -> {
             Intent intent = new Intent(context, AppPermissionActivity.class);
-            intent.putExtra(Intent.EXTRA_PACKAGE_NAME, usage.getPackageName());
-            intent.putExtra(Intent.EXTRA_PERMISSION_NAME, usage.getPermissionName());
-            intent.putExtra(Intent.EXTRA_USER, UserHandle.getUserHandleForUid(usage.getUid()));
+            intent.putExtra(Intent.EXTRA_PACKAGE_NAME, group.getApp().packageName);
+            intent.putExtra(Intent.EXTRA_PERMISSION_NAME, group.getName());
+            intent.putExtra(Intent.EXTRA_USER, group.getUser());
             context.startActivity(intent);
             return true;
         });
