@@ -124,6 +124,19 @@
             </intent-filter>
         </activity>
 
+        <!-- TODO: STOPSHIP: Removed permissions because apps were able to launch it. Is this good? -->
+        <activity android:name="com.android.packageinstaller.role.ui.DefaultAppListActivity"
+                  android:label="@string/default_apps"
+                  android:theme="@style/Settings">
+            <!-- TODO: STOPSHIP: give this a priority greater than 1 to override Settings. -->
+            <intent-filter android:priority="0">
+                <action android:name="android.settings.MANAGE_DEFAULT_APPS_SETTINGS" />
+                <!-- TODO: Redirect into role page? -->
+                <action android:name="android.settings.HOME_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <provider android:name="com.android.packageinstaller.permission.service.PermissionSearchIndexablesProvider"
             android:authorities="com.android.permissioncontroller"
             android:multiprocess="false"
