@@ -18,9 +18,11 @@ package com.android.packageinstaller.permission.ui.handheld;
 
 import android.app.ActionBar;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.ArrayMap;
 import android.util.ArraySet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -32,6 +34,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 
@@ -61,6 +64,7 @@ import java.util.Set;
  */
 public class PermissionUsageFragment extends PermissionsFrameFragment implements
         PermissionGroups.PermissionsGroupsChangeCallback, OnItemSelectedListener {
+    private static final String LOG_TAG = "PermissionUsageFragment";
 
     private static final String KEY_SHOW_SYSTEM_PREFS = "_show_system";
     private static final String SHOW_SYSTEM_KEY = PermissionUsageFragment.class.getName()
@@ -102,8 +106,14 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
     /**
      * @return A new fragment
      */
-    public static @NonNull PermissionUsageFragment newInstance() {
-        return new PermissionUsageFragment();
+    public static @NonNull PermissionUsageFragment newInstance(@Nullable String permissionName) {
+        PermissionUsageFragment fragment = new PermissionUsageFragment();
+        Bundle arguments = new Bundle();
+        if (permissionName != null) {
+            arguments.putString(Intent.EXTRA_PERMISSION_NAME, permissionName);
+        }
+        fragment.setArguments(arguments);
+        return fragment;
     }
 
     @Override
@@ -346,6 +356,11 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
 
     private void createPermissionSpinnerEntries() {
         Context context = getPreferenceManager().getContext();
+        String permName = getArguments().getString(Intent.EXTRA_PERMISSION_NAME);
+        String groupName = Utils.getGroupOfPlatformPermission(permName);
+        if (permName != null && groupName == null) {
+            Log.w(LOG_TAG, "Invalid platform permission: " + permName);
+        }
 
         // Remember the selected item so we can restore it.
         int selectedPosition = mFilterSpinnerPermissions.getSelectedItemPosition();
@@ -374,18 +389,22 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
             PermissionGroup group = filterGroups.get(i);
             mFilterAdapterPermissions.addFilter(new PermissionFilterItem(group,
                     group.getLabel().toString()));
+
+            // Use the permission group passed as an argument, if applicable.
+            if (group.getName().equals(groupName) && selectedPosition == -1) {
+                selectedLabel = group.getLabel();
+                selectedPosition = mFilterAdapterPermissions.getCount() - 1;
+            }
         }
 
         // Restore the previously-selected item.
         if (selectedPosition == -1) {
             // Nothing was selected, so use the saved value.
             selectedPosition = mSavedPermsSpinnerIndex;
-        } else {
-            selectedPosition = mFilterAdapterPermissions.getPosition(selectedLabel);
-            if (selectedPosition == -1) {
-                // The previously-selected value no longer exists, so use the default "show all".
-                selectedPosition = 0;
-            }
+        } else if (!mFilterAdapterPermissions.getFilter(selectedPosition).getLabel().equals(
+                selectedLabel)) {
+            // The previously-selected value no longer exists, so use the default "show all".
+            selectedPosition = 0;
         }
         mFilterSpinnerPermissions.setSelection(selectedPosition);
     }
