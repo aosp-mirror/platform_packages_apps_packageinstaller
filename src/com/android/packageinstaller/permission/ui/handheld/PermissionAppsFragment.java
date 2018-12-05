@@ -183,6 +183,9 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
         PreferenceCategory allowed = (PreferenceCategory) findPreference("allowed");
         PreferenceCategory denied = (PreferenceCategory) findPreference("denied");
 
+        allowed.setOrderingAsAdded(false);
+        denied.setOrderingAsAdded(false);
+
         ArraySet<String> preferencesToRemove = new ArraySet<>();
         int numPreferences = allowed.getPreferenceCount();
         for (int i = 0; i < numPreferences; i++) {
