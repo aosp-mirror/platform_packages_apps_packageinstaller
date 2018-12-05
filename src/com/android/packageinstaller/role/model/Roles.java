@@ -99,6 +99,17 @@ public class Roles {
     private static ArrayMap<String, Role> sRoles;
 
     private static boolean sIsolatedStorage;
+    private static final List<String> ISOLATED_STORAGE_PERMISSIONS = new ArrayList<>();
+    static {
+        ISOLATED_STORAGE_PERMISSIONS.add(android.Manifest.permission.READ_MEDIA_AUDIO);
+        ISOLATED_STORAGE_PERMISSIONS.add(android.Manifest.permission.READ_MEDIA_VIDEO);
+        ISOLATED_STORAGE_PERMISSIONS.add(android.Manifest.permission.READ_MEDIA_IMAGES);
+    }
+    private static final List<String> LEGACY_STORAGE_PERMISSIONS = new ArrayList<>();
+    static {
+        LEGACY_STORAGE_PERMISSIONS.add(android.Manifest.permission.READ_EXTERNAL_STORAGE);
+        LEGACY_STORAGE_PERMISSIONS.add(android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
+    }
 
     private Roles() {}
 
@@ -125,8 +136,7 @@ public class Roles {
         // around with permission definitions to return us to pre-Q behavior.
         // STOPSHIP(b/112545973): remove once feature enabled by default
         try {
-            context.getPackageManager()
-                    .getPermissionInfo(android.Manifest.permission.READ_MEDIA_AUDIO, 0);
+            context.getPackageManager().getPermissionInfo(ISOLATED_STORAGE_PERMISSIONS.get(0), 0);
             sIsolatedStorage = true;
         } catch (NameNotFoundException e) {
             sIsolatedStorage = false;
@@ -598,13 +608,9 @@ public class Roles {
         // around with permission definitions to return us to pre-Q behavior.
         // STOPSHIP(b/112545973): remove once feature enabled by default
         if (!sIsolatedStorage) {
-            boolean removed = false;
-            removed |= permissions.remove(android.Manifest.permission.READ_MEDIA_AUDIO);
-            removed |= permissions.remove(android.Manifest.permission.READ_MEDIA_VIDEO);
-            removed |= permissions.remove(android.Manifest.permission.READ_MEDIA_IMAGES);
+            boolean removed = permissions.removeAll(ISOLATED_STORAGE_PERMISSIONS);
             if (removed) {
-                permissions.add(android.Manifest.permission.READ_EXTERNAL_STORAGE);
-                permissions.add(android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
+                permissions.addAll(LEGACY_STORAGE_PERMISSIONS);
             }
         }
 
@@ -851,6 +857,15 @@ public class Roles {
             int permissionsSize = permissions.size();
             for (int permissionsIndex = 0; permissionsIndex < permissionsSize; permissionsIndex++) {
                 String permission = permissions.get(permissionsIndex);
+
+                // If the storage model feature flag is disabled, we need to fiddle
+                // around with permission definitions to return us to pre-Q behavior.
+                // STOPSHIP(b/112545973): remove once feature enabled by default
+                if (!sIsolatedStorage) {
+                    if (ISOLATED_STORAGE_PERMISSIONS.contains(permission)) {
+                        continue;
+                    }
+                }
 
                 validatePermission(permission, context);
             }

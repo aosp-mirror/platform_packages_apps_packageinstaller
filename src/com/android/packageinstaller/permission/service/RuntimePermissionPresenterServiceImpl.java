@@ -22,6 +22,8 @@ import android.content.pm.permission.RuntimePermissionPresentationInfo;
 import android.permissionpresenterservice.RuntimePermissionPresenterService;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.utils.Utils;
@@ -36,7 +38,8 @@ public final class RuntimePermissionPresenterServiceImpl extends RuntimePermissi
     private static final String LOG_TAG = "PermissionPresenter";
 
     @Override
-    public List<RuntimePermissionPresentationInfo> onGetAppPermissions(String packageName) {
+    public List<RuntimePermissionPresentationInfo> onGetAppPermissions(
+            @NonNull String packageName) {
         final PackageInfo packageInfo;
         try {
             packageInfo = getPackageManager().getPackageInfo(packageName,
@@ -64,7 +67,8 @@ public final class RuntimePermissionPresenterServiceImpl extends RuntimePermissi
     }
 
     @Override
-    public void onRevokeRuntimePermission(String packageName, String permissionName) {
+    public void onRevokeRuntimePermission(@NonNull String packageName,
+            @NonNull String permissionName) {
         try {
             final PackageInfo packageInfo = getPackageManager().getPackageInfo(packageName,
                     PackageManager.GET_PERMISSIONS);
