@@ -296,6 +296,8 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
     }
 
     private void updateButtons() {
+        Context context = getContext();
+
         // Reset everything to the "default" state: tri-state buttons are shown with exactly one
         // selected and no special messages.
         mDivider.setVisibility(View.GONE);
@@ -321,8 +323,21 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
         });
         mDenyButton.setOnClickListener((v) -> requestChange(false, CHANGE_BOTH));
 
+        // Set the allow and foreground-only button states appropriately.
+        if (mGroup.hasPermissionWithBackgroundMode()) {
+            if (mGroup.getBackgroundPermissions() == null) {
+                mAlwaysButton.setVisibility(View.GONE);
+            } else {
+                mForegroundOnlyButton.setVisibility(View.VISIBLE);
+                mAlwaysButton.setText(
+                        context.getString(R.string.app_permission_button_allow_always));
+            }
+        } else {
+            mForegroundOnlyButton.setVisibility(View.GONE);
+            mAlwaysButton.setText(context.getString(R.string.app_permission_button_allow));
+        }
+
         // Handle the UI for various special cases.
-        Context context = getContext();
         if (isSystemFixed() || isPolicyFullyFixed() || isForegroundDisabledByPolicy()) {
             // Disable changing permissions and potentially show administrator message.
             mAlwaysButton.setEnabled(false);
@@ -383,9 +398,7 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
                 }
 
             } else {
-                // The default bi-state.
-                mForegroundOnlyButton.setVisibility(View.GONE);
-                mAlwaysButton.setText(context.getString(R.string.app_permission_button_allow));
+                // The default bi-state case is handled by default.
             }
         }
     }
