@@ -354,4 +354,43 @@
     <!-- Label for the music player role. [CHAR LIMIT=30] -->
     <string name="role_label_music">Music app</string>
 
+    <!-- Header for permission justifications [CHAR LIMIT=none] -->
+    <string name="permission_justification_header">The app developer says your data may be:</string>
+
+    <!-- Footer for permission justifications [CHAR LIMIT=none] -->
+    <string name="permission_justification_footer">If you don\u2019t like how this app developer is using your data you can deny the permission.</string>
+
+    <!-- Permission justification entry for data being sent off the device [CHAR LIMIT=none] -->
+    <string name="permission_justification_data_sent_off_device">Uploaded to cloud</string>
+
+    <!-- Permission justification entry for data being sent off the device when explicitly triggered by a user action [CHAR LIMIT=none] -->
+    <string name="permission_justification_data_sent_off_device_user_triggered">Uploaded to cloud when you explicitly allow it</string>
+
+    <!-- Permission justification entry for data being shared with third parties [CHAR LIMIT=none] -->
+    <string name="permission_justification_data_shared_with_third_party">Shared with advertisers or businesses</string>
+
+    <!-- Permission justification entry for data being shared with third parties when explicitly triggered by a user action [CHAR LIMIT=none] -->
+    <string name="permission_justification_data_shared_with_third_party_user_triggered">Shared with advertisers or businesses when you explicitly allow it</string>
+
+    <!-- Permission justification entry for data being used for monetization [CHAR LIMIT=none] -->
+    <string name="permission_justification_data_used_for_monetization">Used for monetization</string>
+
+    <!-- Permission justification entry for data being used for monetization when explicitly triggered by a user action [CHAR LIMIT=none] -->
+    <string name="permission_justification_data_used_for_monetization_user_triggered">Used for monetization when you explicitly allow it</string>
+
+    <!-- Permission justification entry for data being stored forever [CHAR LIMIT=none] -->
+    <string name="permission_justification_data_retention_unlimited">Saved and analyzed forever</string>
+
+    <!-- Permission justification entry for data being stored for a duration specified by the user [CHAR LIMIT=none] -->
+    <string name="permission_justification_data_retention_user_selected">Saved and analyzed for a duration you specify</string>
+
+    <!-- Permission justification entry for data being stored for a specified time [CHAR LIMIT=none] -->
+    <plurals name="permission_justification_data_retention_specified">
+        <item quantity="one">Saved and analyzed for 1 week</item>
+        <item quantity="other">Saved and analyzed for <xliff:g id="num_weeks" example="7">%s</xliff:g> weeks</item>
+    </plurals>
+
+    <!-- Permission justification string when not all justfications are defined [CHAR LIMIT=none] -->
+    <string name="permission_justification_undefined">The app developer did not specify how the app uses your data.</string>
+
 </resources>

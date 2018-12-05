@@ -132,6 +132,59 @@
             android:layout_height="wrap_content"
             style="@style/FooterText"/>
 
+        <LinearLayout
+            android:id="@+id/justification_all"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/justification_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/FooterText"/>
+
+            <LinearLayout
+                android:id="@+id/justification_entries"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/justification_sent_off_device"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/FooterListEntry"/>
+
+                <TextView
+                    android:id="@+id/justification_shared_with_third_party"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/FooterListEntry"/>
+
+                <TextView
+                    android:id="@+id/justification_used_for_monetization"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/FooterListEntry"/>
+
+                <TextView
+                    android:id="@+id/justification_retention"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/FooterListEntry"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/justification_footer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/permission_justification_footer"
+                style="@style/FooterText"/>
+
+        </LinearLayout>
+
         <TextView
             android:id="@+id/usage_link"
             android:layout_width="wrap_content"
