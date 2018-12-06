@@ -28,6 +28,7 @@ import static android.content.Intent.EXTRA_PACKAGE_NAME;
 import static android.content.Intent.EXTRA_PERMISSION_NAME;
 import static android.content.Intent.EXTRA_UID;
 import static android.content.Intent.EXTRA_USER;
+import static android.content.Intent.FLAG_ACTIVITY_MULTIPLE_TASK;
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 import static android.content.pm.PackageManager.GET_PERMISSIONS;
 import static android.graphics.Bitmap.Config.ARGB_8888;
@@ -758,7 +759,7 @@ public class LocationAccessCheck extends JobService {
             markAsNotified(context, pkg, user);
 
             Intent manageAppPermission = new Intent(context, AppPermissionActivity.class);
-            manageAppPermission.addFlags(FLAG_ACTIVITY_NEW_TASK);
+            manageAppPermission.addFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_MULTIPLE_TASK);
             manageAppPermission.putExtra(EXTRA_PERMISSION_NAME, ACCESS_FINE_LOCATION);
             manageAppPermission.putExtra(EXTRA_PACKAGE_NAME, pkg);
             manageAppPermission.putExtra(EXTRA_USER, user);
