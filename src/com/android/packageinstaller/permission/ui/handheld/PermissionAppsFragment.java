@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.ArrayMap;
 import android.util.ArraySet;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -39,6 +40,10 @@ import com.android.packageinstaller.permission.model.PermissionApps.PermissionAp
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 import com.android.settingslib.HelpUtils;
+
+import java.text.Collator;
+import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * Show and manage apps which request a single permission group.
@@ -76,6 +81,8 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
 
     private Callback mOnPermissionsLoadedListener;
 
+    private Collator mCollator;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,6 +102,9 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
         String groupName = getArguments().getString(Intent.EXTRA_PERMISSION_NAME);
         mPermissionApps = new PermissionApps(getActivity(), groupName, this);
         mPermissionApps.refresh(true);
+
+        mCollator = Collator.getInstance(
+                getContext().getResources().getConfiguration().getLocales().get(0));
 
         addPreferencesFromResource(R.xml.allowed_denied);
     }
@@ -183,28 +193,39 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
         PreferenceCategory allowed = (PreferenceCategory) findPreference("allowed");
         PreferenceCategory denied = (PreferenceCategory) findPreference("denied");
 
-        allowed.setOrderingAsAdded(false);
-        denied.setOrderingAsAdded(false);
+        allowed.setOrderingAsAdded(true);
+        denied.setOrderingAsAdded(true);
 
-        ArraySet<String> preferencesToRemove = new ArraySet<>();
+        Map<String, Preference> existingPrefs = new ArrayMap<>();
         int numPreferences = allowed.getPreferenceCount();
         for (int i = 0; i < numPreferences; i++) {
-            preferencesToRemove.add(allowed.getPreference(i).getKey());
+            Preference preference = allowed.getPreference(i);
+            existingPrefs.put(preference.getKey(), preference);
         }
+        allowed.removeAll();
         numPreferences = denied.getPreferenceCount();
         for (int i = 0; i < numPreferences; i++) {
-            preferencesToRemove.add(denied.getPreference(i).getKey());
+            Preference preference = denied.getPreference(i);
+            existingPrefs.put(preference.getKey(), preference);
         }
+        denied.removeAll();
         if (mExtraScreen != null) {
             for (int i = 0, n = mExtraScreen.getPreferenceCount(); i < n; i++) {
-                preferencesToRemove.add(mExtraScreen.getPreference(i).getKey());
+                Preference preference = mExtraScreen.getPreference(i);
+                existingPrefs.put(preference.getKey(), preference);
             }
+            mExtraScreen.removeAll();
         }
 
         mHasSystemApps = false;
         boolean menuOptionsInvalided = false;
 
-        for (PermissionApp app : permissionApps.getApps()) {
+        ArrayList<PermissionApp> sortedApps = new ArrayList<>(permissionApps.getApps());
+        sortedApps.sort((x, y) -> mCollator.compare(x.getLabel(), y.getLabel()));
+
+        for (int i = 0; i < sortedApps.size(); i++) {
+            PermissionApp app = sortedApps.get(i);
+
             if (!Utils.shouldShowPermission(getContext(), app.getPermissionGroup())) {
                 continue;
             }
@@ -214,8 +235,11 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
             }
 
             String key = app.getKey();
-            preferencesToRemove.remove(key);
-            Preference existingPref = findExistingPreference(key, allowed, denied);
+            Preference existingPref = existingPrefs.get(key);
+            if (existingPref != null) {
+                // Without this, existing preferences remember their old order.
+                existingPref.setOrder(Preference.DEFAULT_ORDER);
+            }
 
             boolean isSystemApp = Utils.isSystem(app, mLauncherPkgs);
 
@@ -226,25 +250,18 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
             }
 
             if (isSystemApp && !isTelevision && !mShowSystem) {
-                if (existingPref != null) {
-                    existingPref.getParent().removePreference(existingPref);
-                }
                 continue;
             }
 
             PreferenceCategory category = app.areRuntimePermissionsGranted() ? allowed : denied;
 
             if (existingPref != null) {
-                // If the granted status has changed, move the permission to the new category.
-                if (category != existingPref.getParent()) {
-                    existingPref.getParent().removePreference(existingPref);
-                    category.addPreference(existingPref);
-                }
+                category.addPreference(existingPref);
                 continue;
             }
 
             Preference pref = new PermissionUsagePreference(context, app.getPermissionGroup());
-            pref.setKey(app.getKey());
+            pref.setKey(key);
             pref.setIcon(app.getIcon());
             pref.setTitle(app.getLabel());
 
@@ -259,7 +276,6 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
         }
 
         if (mExtraScreen != null) {
-            preferencesToRemove.remove(KEY_SHOW_SYSTEM_PREFS);
             Preference pref = allowed.findPreference(KEY_SHOW_SYSTEM_PREFS);
 
             int grantedCount = 0;
@@ -293,37 +309,11 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
                     grantedCount, mExtraScreen.getPreferenceCount()));
         }
 
-        for (String key : preferencesToRemove) {
-            Preference pref = findExistingPreference(key, allowed, denied);
-            if (pref != null) {
-                pref.getParent().removePreference(pref);
-            }
-        }
-
         setLoading(false /* loading */, true /* animate */);
 
         if (mOnPermissionsLoadedListener != null) {
             mOnPermissionsLoadedListener.onPermissionsLoaded(permissionApps);
         }
-    }
-
-    private Preference findExistingPreference(String key, PreferenceCategory allowed,
-            PreferenceCategory denied) {
-        Preference preference = allowed.findPreference(key);
-        if (preference != null) {
-            return preference;
-        }
-        preference = denied.findPreference(key);
-        if (preference != null) {
-            return preference;
-        }
-        if (mExtraScreen != null) {
-            preference = mExtraScreen.findPreference(key);
-            if (preference != null) {
-                return preference;
-            }
-        }
-        return null;
     }
 
     public static class SystemAppsFragment extends PermissionsFrameFragment implements Callback {

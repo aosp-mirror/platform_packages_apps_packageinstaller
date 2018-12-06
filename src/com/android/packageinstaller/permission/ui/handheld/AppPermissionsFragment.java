@@ -47,6 +47,9 @@ import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 import com.android.settingslib.HelpUtils;
 
+import java.text.Collator;
+import java.util.ArrayList;
+
 /**
  * Show and manage permission groups for an app.
  *
@@ -60,6 +63,8 @@ public final class AppPermissionsFragment extends SettingsWithHeader {
 
     private AppPermissions mAppPermissions;
     private PreferenceScreen mExtraScreen;
+
+    private Collator mCollator;
 
     private boolean mHasConfirmedRevoke;
 
@@ -101,6 +106,8 @@ public final class AppPermissionsFragment extends SettingsWithHeader {
                 getActivity().finish();
             }
         });
+        mCollator = Collator.getInstance(
+                getContext().getResources().getConfiguration().getLocales().get(0));
         updatePreferences();
     }
 
@@ -195,7 +202,14 @@ public final class AppPermissionsFragment extends SettingsWithHeader {
         extraPerms.setTitle(R.string.additional_permissions);
         boolean extraPermsAreAllowed = false;
 
-        for (AppPermissionGroup group : mAppPermissions.getPermissionGroups()) {
+        ArrayList<AppPermissionGroup> groups = new ArrayList<>(
+                mAppPermissions.getPermissionGroups());
+        groups.sort((x, y) -> mCollator.compare(x.getLabel(), y.getLabel()));
+        allowed.setOrderingAsAdded(true);
+        denied.setOrderingAsAdded(true);
+
+        for (int i = 0; i < groups.size(); i++) {
+            AppPermissionGroup group = groups.get(i);
             if (!Utils.shouldShowPermission(getContext(), group)) {
                 continue;
             }
