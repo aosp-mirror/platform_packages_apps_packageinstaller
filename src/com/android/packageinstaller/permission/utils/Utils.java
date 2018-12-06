@@ -206,7 +206,7 @@ public final class Utils {
      *
      * @return The group the permission belongs to
      */
-    private static @Nullable String getGroupOfPlatformPermission(@NonNull String permission) {
+    public static @Nullable String getGroupOfPlatformPermission(@NonNull String permission) {
         return PLATFORM_PERMISSIONS.get(permission);
     }
 
