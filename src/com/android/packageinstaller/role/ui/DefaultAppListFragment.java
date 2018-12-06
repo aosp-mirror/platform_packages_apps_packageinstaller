@@ -17,6 +17,7 @@
 package com.android.packageinstaller.role.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -130,7 +131,9 @@ public class DefaultAppListFragment extends SettingsFragment
 
     @Override
     public boolean onPreferenceClick(@NonNull Preference preference) {
-        // TODO
+        String roleName = preference.getKey();
+        Intent intent = DefaultAppActivity.createIntent(roleName, requireContext());
+        startActivity(intent);
         return true;
     }
 }
