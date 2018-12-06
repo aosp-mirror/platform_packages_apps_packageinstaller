@@ -31,10 +31,13 @@ import static android.Manifest.permission_group.SMS;
 import static android.Manifest.permission_group.STORAGE;
 
 import android.Manifest;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageItemInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PermissionInfo;
 import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
@@ -42,12 +45,15 @@ import android.content.res.Resources.Theme;
 import android.graphics.drawable.Drawable;
 import android.os.Parcelable;
 import android.os.UserHandle;
+import android.provider.Settings;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.ArraySet;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -56,6 +62,7 @@ import androidx.core.text.BidiFormatter;
 import androidx.core.util.Preconditions;
 
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
+import com.android.packageinstaller.permission.model.AppPermissionUsage;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
 import com.android.permissioncontroller.R;
@@ -259,7 +266,7 @@ public final class Utils {
      * @param pm    Package manager to use to resolve permission infos
      * @param group the group
      *
-     * @return The infos of permissions belonging to the group or an empty list if the group is not
+     * @return The infos of permissions belonging to the group or an empty list if the group
      *         does not have runtime permissions
      */
     public static @NonNull List<PermissionInfo> getPermissionInfosForGroup(
@@ -269,6 +276,57 @@ public final class Utils {
         permissions.addAll(Utils.getPlatformPermissionsOfGroup(pm, group));
 
         return permissions;
+    }
+
+    /**
+     * Get the {@link PackageItemInfo infos} for the given permission group.
+     *
+     * @param groupName the group
+     * @param context the {@code Context} to retrieve {@code PackageManager}
+     *
+     * @return The info of permission group or null if the group does not have runtime permissions.
+     */
+    public static @Nullable PackageItemInfo getGroupInfo(@NonNull String groupName,
+            @NonNull Context context) {
+        try {
+            return context.getPackageManager().getPermissionGroupInfo(groupName, 0);
+        } catch (NameNotFoundException e) {
+            /* ignore */
+        }
+        try {
+            return context.getPackageManager().getPermissionInfo(groupName, 0);
+        } catch (NameNotFoundException e) {
+            /* ignore */
+        }
+        return null;
+    }
+
+    /**
+     * Get the {@link PermissionInfo infos} for all permission infos belonging to a group.
+     *
+     * @param groupName the group
+     * @param context the {@code Context} to retrieve {@code PackageManager}
+     *
+     * @return The infos of permissions belonging to the group or null if the group does not have
+     *         runtime permissions.
+     */
+    public static @Nullable List<PermissionInfo> getGroupPermissionInfos(@NonNull String groupName,
+            @NonNull Context context) {
+        try {
+            return Utils.getPermissionInfosForGroup(context.getPackageManager(), groupName);
+        } catch (NameNotFoundException e) {
+            /* ignore */
+        }
+        try {
+            PermissionInfo permissionInfo = context.getPackageManager()
+                    .getPermissionInfo(groupName, 0);
+            List<PermissionInfo> permissions = new ArrayList<>();
+            permissions.add(permissionInfo);
+            return permissions;
+        } catch (NameNotFoundException e) {
+            /* ignore */
+        }
+        return null;
     }
 
     /**
@@ -414,6 +472,28 @@ public final class Utils {
     }
 
     /**
+     * Build a string representing the amount of time passed since the most recent permission usage
+     * by this AppPermissionGroup.
+     *
+     * @return a string representing the amount of time since this app's most recent permission
+     * usage or null if there are no usages.
+     */
+    public static @Nullable String getUsageTimeDiffString(@NonNull Context context,
+            @NonNull AppPermissionGroup group) {
+        long mostRecentTime = 0;
+        List<AppPermissionUsage> groupUsages = group.getAppPermissionUsage();
+        int numUsages = groupUsages.size();
+        for (int usageNum = 0; usageNum < numUsages; usageNum++) {
+            AppPermissionUsage usage = groupUsages.get(usageNum);
+            mostRecentTime = Math.max(mostRecentTime, usage.getTime());
+        }
+        if (mostRecentTime <= 0) {
+            return null;
+        }
+        return getTimeDiffStr(context, System.currentTimeMillis() - mostRecentTime);
+    }
+
+    /**
      * Build a string representing the number of milliseconds passed in.  It rounds to the nearest
      * unit.  For example, given a duration of 3500 and an English locale, this can return
      * "3 seconds".
@@ -438,5 +518,29 @@ public final class Utils {
         }
         long days = hours / 24;
         return context.getResources().getQuantityString(R.plurals.days, (int) days, days);
+    }
+
+    /**
+     * Add a menu item for searching Settings, if there is an activity handling the action.
+     *
+     * @param menu the menu to add the menu item into
+     * @param context the context for checking whether there is an activity handling the action
+     */
+    public static void prepareSearchMenuItem(@NonNull Menu menu, @NonNull Context context) {
+        Intent intent = new Intent(Settings.ACTION_APP_SEARCH_SETTINGS);
+        if (context.getPackageManager().resolveActivity(intent, 0) == null) {
+            return;
+        }
+        MenuItem searchItem = menu.add(Menu.NONE, Menu.NONE, Menu.NONE, R.string.search_menu);
+        searchItem.setIcon(R.drawable.ic_search_24dp);
+        searchItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        searchItem.setOnMenuItemClickListener(item -> {
+            try {
+                context.startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+                Log.e(LOG_TAG, "Cannot start activity to search settings", e);
+            }
+            return true;
+        });
     }
 }

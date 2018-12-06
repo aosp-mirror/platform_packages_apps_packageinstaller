@@ -67,12 +67,12 @@ public class RequestRoleFragment extends DialogFragment {
      */
     public static RequestRoleFragment newInstance(@NonNull String roleName,
             @NonNull String packageName) {
-        RequestRoleFragment instance = new RequestRoleFragment();
+        RequestRoleFragment fragment = new RequestRoleFragment();
         Bundle arguments = new Bundle();
         arguments.putString(RoleManager.EXTRA_REQUEST_ROLE_NAME, roleName);
         arguments.putString(Intent.EXTRA_PACKAGE_NAME, packageName);
-        instance.setArguments(arguments);
-        return instance;
+        fragment.setArguments(arguments);
+        return fragment;
     }
 
     @Override

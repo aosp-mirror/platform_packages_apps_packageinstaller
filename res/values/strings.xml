@@ -294,8 +294,20 @@
     <!-- Summary for showing a single permission access [CHAR LIMIT=60] -->
     <string name="app_permission_footer_usage_summary"><xliff:g id="app" example="Maps">%1$s</xliff:g> accessed your <xliff:g id="perm" example="location">%2$s</xliff:g> <xliff:g id="time" example="2 hours">%3$s</xliff:g> ago.</string>
 
+    <!-- Summary for showing a single permission access that has not accessed the permission [CHAR LIMIT=60] -->
+    <string name="app_permission_footer_no_usages"><xliff:g id="app" example="Maps">%1$s</xliff:g> has not accessed your <xliff:g id="perm" example="location">%2$s</xliff:g>.</string>
+
     <!-- Summary for linking to the page that shows an app's use of permissions [CHAR LIMIT=none] -->
     <string name="app_permission_footer_usage_link">View detailed permissions usage</string>
+
+    <!-- Summary for showing the most recent access of a permission [CHAR LIMIT=60] -->
+    <string name="app_permission_most_recent_summary">Most recent access <xliff:g id="time" example="2 hours">%1$s</xliff:g> ago</string>
+
+    <!-- Header for granted permissions/apps [CHAR LIMIT=40] -->
+    <string name="allowed_header">Allowed</string>
+
+    <!-- Header for denied permissions/apps [CHAR LIMIT=40] -->
+    <string name="denied_header">Denied</string>
 
     <!-- Time in days -->
     <plurals name="days">
@@ -341,6 +353,16 @@
     <!-- The notification content for background location access reminder notification [CHAR LIMIT=none] -->
     <string name="background_location_access_reminder_notification_content">This app can always access your location. Tap to change.</string>
 
+    <!-- Title for page of managing default apps. [CHAR LIMIT=30] -->
+    <string name="default_apps">Default apps</string>
+
+    <!-- TODO: STOPSHIP: I cannot find its value in Settings. -->
+    <!-- Help URI, default apps [DO NOT TRANSLATE] -->
+    <string name="help_uri_default_apps" translatable="false"></string>
+
+    <!-- Label when there is no default apps [CHAR LIMIT=30] -->
+    <string name="no_default_apps">No default apps</string>
+
     <!-- TODO: STOPSHIP: Migrate all default app titles from packages/apps/Settings/res/values/strings.xml . -->
 
     <!-- Label for the dialer role. [CHAR LIMIT=30] -->
@@ -353,5 +375,44 @@
     <string name="role_label_gallery">Gallery app</string>
     <!-- Label for the music player role. [CHAR LIMIT=30] -->
     <string name="role_label_music">Music app</string>
+
+    <!-- Header for permission justifications [CHAR LIMIT=none] -->
+    <string name="permission_justification_header">The app developer says your data may be:</string>
+
+    <!-- Footer for permission justifications [CHAR LIMIT=none] -->
+    <string name="permission_justification_footer">If you don\u2019t like how this app developer is using your data you can deny the permission.</string>
+
+    <!-- Permission justification entry for data being sent off the device [CHAR LIMIT=none] -->
+    <string name="permission_justification_data_sent_off_device">Uploaded to cloud</string>
+
+    <!-- Permission justification entry for data being sent off the device when explicitly triggered by a user action [CHAR LIMIT=none] -->
+    <string name="permission_justification_data_sent_off_device_user_triggered">Uploaded to cloud when you explicitly allow it</string>
+
+    <!-- Permission justification entry for data being shared with third parties [CHAR LIMIT=none] -->
+    <string name="permission_justification_data_shared_with_third_party">Shared with advertisers or businesses</string>
+
+    <!-- Permission justification entry for data being shared with third parties when explicitly triggered by a user action [CHAR LIMIT=none] -->
+    <string name="permission_justification_data_shared_with_third_party_user_triggered">Shared with advertisers or businesses when you explicitly allow it</string>
+
+    <!-- Permission justification entry for data being used for monetization [CHAR LIMIT=none] -->
+    <string name="permission_justification_data_used_for_monetization">Used for monetization</string>
+
+    <!-- Permission justification entry for data being used for monetization when explicitly triggered by a user action [CHAR LIMIT=none] -->
+    <string name="permission_justification_data_used_for_monetization_user_triggered">Used for monetization when you explicitly allow it</string>
+
+    <!-- Permission justification entry for data being stored forever [CHAR LIMIT=none] -->
+    <string name="permission_justification_data_retention_unlimited">Saved and analyzed forever</string>
+
+    <!-- Permission justification entry for data being stored for a duration specified by the user [CHAR LIMIT=none] -->
+    <string name="permission_justification_data_retention_user_selected">Saved and analyzed for a duration you specify</string>
+
+    <!-- Permission justification entry for data being stored for a specified time [CHAR LIMIT=none] -->
+    <plurals name="permission_justification_data_retention_specified">
+        <item quantity="one">Saved and analyzed for 1 week</item>
+        <item quantity="other">Saved and analyzed for <xliff:g id="num_weeks" example="7">%s</xliff:g> weeks</item>
+    </plurals>
+
+    <!-- Permission justification string when not all justfications are defined [CHAR LIMIT=none] -->
+    <string name="permission_justification_undefined">The app developer did not specify how the app uses your data.</string>
 
 </resources>

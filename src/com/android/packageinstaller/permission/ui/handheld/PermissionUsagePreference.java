@@ -19,37 +19,53 @@ package com.android.packageinstaller.permission.ui.handheld;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.os.UserHandle;
+import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.preference.Preference;
+import androidx.preference.PreferenceViewHolder;
 
-import com.android.packageinstaller.permission.model.AppPermissionUsage;
+import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.ui.AppPermissionActivity;
+import com.android.permissioncontroller.R;
 
 /**
  * A preference for representing a permission usage by an app.
  */
 public class PermissionUsagePreference extends Preference {
-    public PermissionUsagePreference(@NonNull Context context, @NonNull AppPermissionUsage usage,
-            @NonNull CharSequence title, @NonNull String summary, @NonNull Drawable icon) {
-        super(context);
-        updateUi(context, usage, title, summary, icon);
-    }
+    private final @NonNull AppPermissionGroup mGroup;
+    private final @Nullable Drawable mWidgetIcon;
 
-    private void updateUi(@NonNull Context context, @NonNull AppPermissionUsage usage,
-            @NonNull CharSequence title, @NonNull String summary, @NonNull Drawable icon) {
-        setKey(usage.getPackageName() + "," + usage.getPermissionGroupName());
-        setTitle(title);
-        setSummary(summary);
-        setIcon(icon);
+    public PermissionUsagePreference(@NonNull Context context, @NonNull AppPermissionGroup group,
+            @Nullable Drawable widgetIcon) {
+        super(context);
+        mGroup = group;
+        mWidgetIcon = widgetIcon;
+        if (mWidgetIcon != null) {
+            setWidgetLayoutResource(R.layout.image_view);
+        }
         setOnPreferenceClickListener(preference -> {
             Intent intent = new Intent(context, AppPermissionActivity.class);
-            intent.putExtra(Intent.EXTRA_PACKAGE_NAME, usage.getPackageName());
-            intent.putExtra(Intent.EXTRA_PERMISSION_NAME, usage.getPermissionName());
-            intent.putExtra(Intent.EXTRA_USER, UserHandle.getUserHandleForUid(usage.getUid()));
+            intent.putExtra(Intent.EXTRA_PACKAGE_NAME, mGroup.getApp().packageName);
+            intent.putExtra(Intent.EXTRA_PERMISSION_NAME, mGroup.getName());
+            intent.putExtra(Intent.EXTRA_USER, mGroup.getUser());
             context.startActivity(intent);
             return true;
         });
+    }
+
+    public PermissionUsagePreference(@NonNull Context context, @NonNull AppPermissionGroup group) {
+        this(context, group, null);
+    }
+
+    @Override
+    public void onBindViewHolder(PreferenceViewHolder holder) {
+        super.onBindViewHolder(holder);
+        if (mWidgetIcon != null) {
+            View widgetFrame = holder.findViewById(android.R.id.widget_frame);
+            ((ImageView) widgetFrame.findViewById(R.id.icon)).setImageDrawable(mWidgetIcon);
+        }
     }
 }
