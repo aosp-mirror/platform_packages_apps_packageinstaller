@@ -63,6 +63,7 @@
     <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"Prístup na pozadí bol zakázaný správcom"</string>
     <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"Prístup na pozadí bol povolený správcom"</string>
     <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"Prístup na popredí bol povolený správcom"</string>
+    <string name="permission_summary_enabled_system_fixed" msgid="1648259601814176611">"Povolenie nastavené systémom"</string>
     <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
     <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
@@ -97,6 +98,22 @@
     <string name="no_permission_usages" msgid="698858628357371611">"Žiadne využitie povolení"</string>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"Využitie povolení aplikácie"</string>
     <string name="app_permission_usage_summary" msgid="3430707165417747223">"pred <xliff:g id="TIME">%1$s</xliff:g>"</string>
+    <string name="app_permission_button_allow" msgid="1358817292836175593">"Povoliť"</string>
+    <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Povoliť po celý čas"</string>
+    <string name="app_permission_button_allow_foreground" msgid="6366222217615376397">"Povoliť iba počas používania aplikácie"</string>
+    <string name="app_permission_button_deny" msgid="5716368368650638408">"Odmietnuť"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"Povolenie <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_header" msgid="5704679725169517493">"Prístup k <xliff:g id="PERM">%1$s</xliff:g> pre <xliff:g id="APP">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"Aplikácia <xliff:g id="APP">%1$s</xliff:g> použila <xliff:g id="PERM">%2$s</xliff:g> pred <xliff:g id="TIME">%3$s</xliff:g>."</string>
+    <!-- no translation found for app_permission_footer_no_usages (8176256750330679454) -->
+    <skip />
+    <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Zobraziť podrobné údaje o využití povolení"</string>
+    <!-- no translation found for app_permission_most_recent_summary (6866863855248795166) -->
+    <skip />
+    <!-- no translation found for allowed_header (6279244592227088158) -->
+    <skip />
+    <!-- no translation found for denied_header (2277998574238617699) -->
+    <skip />
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> dni</item>
       <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> dňa</item>
@@ -121,4 +138,44 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sekúnd</item>
       <item quantity="one">1 sekunda</item>
     </plurals>
+    <string name="role_request_message_add" msgid="1977772335648650272">"Chcete aplikáciu &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; použiť ako <xliff:g id="ROLE_NAME">%2$s</xliff:g>?"</string>
+    <string name="role_request_message_replace" msgid="6367571247558110210">"Chcete použiť aplikáciu &lt;b&gt;<xliff:g id="NEW_APP_NAME">%1$s</xliff:g>&lt;/b&gt; (namiesto aplikácie &lt;b&gt;<xliff:g id="CURRENT_APP_NAME">%1$s</xliff:g>&lt;/b&gt;) ako <xliff:g id="ROLE_NAME">%2$s</xliff:g>?"</string>
+    <!-- no translation found for permission_reminders (8040710767178843151) -->
+    <skip />
+    <!-- no translation found for background_location_access_reminder_notification_title (3986986240015907758) -->
+    <skip />
+    <!-- no translation found for background_location_access_reminder_notification_content (2715202570602748060) -->
+    <skip />
+    <!-- no translation found for default_apps (8554530939151957828) -->
+    <skip />
+    <!-- no translation found for no_default_apps (5642715159090903032) -->
+    <skip />
+    <string name="role_label_dialer" msgid="3345895090725237533">"Aplikácia Telefón"</string>
+    <string name="role_label_sms" msgid="2262769075496017522">"Aplikácia pre SMS a MMS"</string>
+    <string name="role_label_browser" msgid="6266502234308421457">"Prehliadač"</string>
+    <string name="role_label_gallery" msgid="6939560238495155209">"Aplikácia Galéria"</string>
+    <string name="role_label_music" msgid="5900245414865932272">"Aplikácia Hudba"</string>
+    <!-- no translation found for permission_justification_header (8855642235625782751) -->
+    <skip />
+    <!-- no translation found for permission_justification_footer (4098097763461100468) -->
+    <skip />
+    <!-- no translation found for permission_justification_data_sent_off_device (2503905652716735222) -->
+    <skip />
+    <!-- no translation found for permission_justification_data_sent_off_device_user_triggered (4122793147247661083) -->
+    <skip />
+    <!-- no translation found for permission_justification_data_shared_with_third_party (5249440580654050831) -->
+    <skip />
+    <!-- no translation found for permission_justification_data_shared_with_third_party_user_triggered (2920721327430861150) -->
+    <skip />
+    <!-- no translation found for permission_justification_data_used_for_monetization (3098933808750278119) -->
+    <skip />
+    <!-- no translation found for permission_justification_data_used_for_monetization_user_triggered (8264335769735917408) -->
+    <skip />
+    <!-- no translation found for permission_justification_data_retention_unlimited (3921406322987911863) -->
+    <skip />
+    <!-- no translation found for permission_justification_data_retention_user_selected (7440816502916014127) -->
+    <skip />
+    <!-- no translation found for permission_justification_data_retention_specified (4132895033914113182) -->
+    <!-- no translation found for permission_justification_undefined (5711347441966109267) -->
+    <skip />
 </resources>
