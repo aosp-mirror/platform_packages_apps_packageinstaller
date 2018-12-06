@@ -506,7 +506,9 @@ public class LocationAccessCheck extends JobService {
         Drawable pkgIcon = mPackageManager.getApplicationIcon(pkg.applicationInfo);
         Bitmap pkgIconBmp = createBitmap(pkgIcon.getIntrinsicWidth(), pkgIcon.getIntrinsicHeight(),
                 ARGB_8888);
-        pkgIcon.draw(new Canvas(pkgIconBmp));
+        Canvas canvas = new Canvas(pkgIconBmp);
+        pkgIcon.setBounds(0, 0, pkgIcon.getIntrinsicWidth(), pkgIcon.getIntrinsicHeight());
+        pkgIcon.draw(canvas);
 
         String pkgName = pkg.packageName;
         UserHandle user = getUserHandleForUid(pkg.applicationInfo.uid);
@@ -527,6 +529,8 @@ public class LocationAccessCheck extends JobService {
                         R.string.background_location_access_reminder_notification_title, pkgLabel))
                 .setContentText(getString(
                         R.string.background_location_access_reminder_notification_content))
+                .setStyle(new Notification.BigTextStyle().bigText(getString(
+                        R.string.background_location_access_reminder_notification_content)))
                 .setSmallIcon(R.drawable.ic_signal_location)
                 .setLargeIcon(pkgIconBmp)
                 .setAutoCancel(true)
