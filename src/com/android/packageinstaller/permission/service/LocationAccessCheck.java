@@ -47,6 +47,7 @@ import static com.android.packageinstaller.Constants.PERMISSION_REMINDER_CHANNEL
 import static com.android.packageinstaller.Constants.PREFERENCES_FILE;
 import static com.android.packageinstaller.permission.utils.LocationUtils.isNetworkLocationProvider;
 import static com.android.packageinstaller.permission.utils.Utils.OS_PKG;
+import static com.android.packageinstaller.permission.utils.Utils.getGroupOfPlatformPermission;
 import static com.android.packageinstaller.permission.utils.Utils.getParcelableExtraSafe;
 import static com.android.packageinstaller.permission.utils.Utils.getStringExtraSafe;
 import static com.android.packageinstaller.permission.utils.Utils.getSystemServiceSafe;
@@ -764,7 +765,8 @@ public class LocationAccessCheck extends JobService {
 
             Intent manageAppPermission = new Intent(context, AppPermissionActivity.class);
             manageAppPermission.addFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_MULTIPLE_TASK);
-            manageAppPermission.putExtra(EXTRA_PERMISSION_NAME, ACCESS_FINE_LOCATION);
+            manageAppPermission.putExtra(EXTRA_PERMISSION_NAME,
+                    getGroupOfPlatformPermission(ACCESS_FINE_LOCATION));
             manageAppPermission.putExtra(EXTRA_PACKAGE_NAME, pkg);
             manageAppPermission.putExtra(EXTRA_USER, user);
 
