@@ -34,6 +34,7 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.packageinstaller.DeviceUtils;
+import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionApps;
 import com.android.packageinstaller.permission.model.PermissionApps.Callback;
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
@@ -225,8 +226,9 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
 
         for (int i = 0; i < sortedApps.size(); i++) {
             PermissionApp app = sortedApps.get(i);
+            AppPermissionGroup group = app.getPermissionGroup();
 
-            if (!Utils.shouldShowPermission(getContext(), app.getPermissionGroup())) {
+            if (!Utils.shouldShowPermission(getContext(), group)) {
                 continue;
             }
 
@@ -256,14 +258,16 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
             PreferenceCategory category = app.areRuntimePermissionsGranted() ? allowed : denied;
 
             if (existingPref != null) {
+                setSummary(existingPref, group);
                 category.addPreference(existingPref);
                 continue;
             }
 
-            Preference pref = new PermissionUsagePreference(context, app.getPermissionGroup());
+            Preference pref = new PermissionUsagePreference(context, group);
             pref.setKey(key);
             pref.setIcon(app.getIcon());
             pref.setTitle(app.getLabel());
+            setSummary(pref, group);
 
             if (isSystemApp && isTelevision) {
                 if (mExtraScreen == null) {
@@ -314,6 +318,17 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
         if (mOnPermissionsLoadedListener != null) {
             mOnPermissionsLoadedListener.onPermissionsLoaded(permissionApps);
         }
+    }
+
+    private void setSummary(Preference pref, AppPermissionGroup group) {
+        if (group.hasPermissionWithBackgroundMode() && group.areRuntimePermissionsGranted()) {
+            AppPermissionGroup backgroundGroup = group.getBackgroundPermissions();
+            if (backgroundGroup == null || !backgroundGroup.areRuntimePermissionsGranted()) {
+                pref.setSummary(R.string.permission_access_only_foreground);
+                return;
+            }
+        }
+        pref.setSummary("");
     }
 
     public static class SystemAppsFragment extends PermissionsFrameFragment implements Callback {

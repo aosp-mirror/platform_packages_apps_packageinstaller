@@ -229,6 +229,12 @@ public final class AppPermissionsFragment extends SettingsWithHeader {
                 preference.setSummary(
                         context.getString(R.string.app_permission_most_recent_summary,
                                 timeDiffStr));
+            } else if (group.hasPermissionWithBackgroundMode()
+                    && group.areRuntimePermissionsGranted()) {
+                AppPermissionGroup backgroundGroup = group.getBackgroundPermissions();
+                if (backgroundGroup == null || !backgroundGroup.areRuntimePermissionsGranted()) {
+                    preference.setSummary(R.string.permission_access_only_foreground);
+                }
             }
 
             if (isPlatform) {
