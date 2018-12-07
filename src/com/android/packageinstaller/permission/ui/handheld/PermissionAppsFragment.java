@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.ArraySet;
 import android.view.Menu;
@@ -263,10 +264,13 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
                 continue;
             }
 
-            Preference pref = new PermissionUsagePreference(context, group, null, true);
+            PermissionUsagePreference pref = new PermissionUsagePreference(context, group, null,
+                    true);
             pref.setKey(key);
             pref.setIcon(app.getIcon());
-            pref.setTitle(app.getLabel());
+            pref.setTitle(app.getAppInfo().loadSafeLabel(context.getPackageManager(), 0,
+                    TextUtils.SAFE_STRING_FLAG_TRIM | TextUtils.SAFE_STRING_FLAG_FIRST_LINE));
+            pref.setEllipsizeEnd();
             setSummary(pref, group);
 
             if (isSystemApp && isTelevision) {
