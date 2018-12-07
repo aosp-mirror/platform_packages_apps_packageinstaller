@@ -165,15 +165,12 @@ public class DefaultAppFragment extends SettingsFragment
                     public void onSuccess() {
                         Log.i(LOG_TAG, "Added application as role holder, role: " + mRoleName
                                 + ", package: " + packageName);
-                        // TODO: STOPSHIP: Use role holder observation instead.
-                        mViewModel.getLiveData().loadValue();
                     }
                     @Override
                     public void onFailure() {
                         Log.i(LOG_TAG, "Failed to add application as role holder, role: "
                                 + mRoleName + ", package: " + packageName);
-                        // TODO: STOPSHIP: Use role holder observation instead.
-                        mViewModel.getLiveData().loadValue();
+                        // TODO: STOPSHIP: Notify user.
                     }
                 });
         return true;
