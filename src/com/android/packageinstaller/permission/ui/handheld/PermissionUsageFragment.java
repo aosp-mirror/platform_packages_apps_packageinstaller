@@ -349,7 +349,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
             PermissionApp permApp = usageToApp.get(usage);
             Preference pref = new PermissionUsagePreference(context, group,
                     Utils.applyTint(context, group.getIconResId(),
-                            android.R.attr.colorControlNormal));
+                            android.R.attr.colorControlNormal), true);
             pref.setTitle(permApp.getLabel());
             long timeDiff = System.currentTimeMillis() - usage.getTime();
             String timeDiffStr = Utils.getTimeDiffStr(context, timeDiff);

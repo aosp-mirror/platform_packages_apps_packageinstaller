@@ -37,12 +37,16 @@ import com.android.permissioncontroller.R;
 public class PermissionUsagePreference extends Preference {
     private final @NonNull AppPermissionGroup mGroup;
     private final @Nullable Drawable mWidgetIcon;
+    private final @NonNull Context mContext;
+    private final boolean mUseSmallerIcon;
 
     public PermissionUsagePreference(@NonNull Context context, @NonNull AppPermissionGroup group,
-            @Nullable Drawable widgetIcon) {
+            @Nullable Drawable widgetIcon, boolean useSmallerIcon) {
         super(context);
         mGroup = group;
         mWidgetIcon = widgetIcon;
+        mContext = context;
+        mUseSmallerIcon = useSmallerIcon;
         if (mWidgetIcon != null) {
             setWidgetLayoutResource(R.layout.image_view);
         }
@@ -56,12 +60,16 @@ public class PermissionUsagePreference extends Preference {
         });
     }
 
-    public PermissionUsagePreference(@NonNull Context context, @NonNull AppPermissionGroup group) {
-        this(context, group, null);
-    }
-
     @Override
     public void onBindViewHolder(PreferenceViewHolder holder) {
+        if (mUseSmallerIcon) {
+            ImageView icon = ((ImageView) holder.findViewById(android.R.id.icon));
+            icon.setMaxWidth(
+                    mContext.getResources().getDimensionPixelSize(R.dimen.secondary_app_icon_size));
+            icon.setMaxHeight(
+                    mContext.getResources().getDimensionPixelSize(R.dimen.secondary_app_icon_size));
+        }
+
         super.onBindViewHolder(holder);
         if (mWidgetIcon != null) {
             View widgetFrame = holder.findViewById(android.R.id.widget_frame);

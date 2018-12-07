@@ -263,7 +263,7 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
                 continue;
             }
 
-            Preference pref = new PermissionUsagePreference(context, group);
+            Preference pref = new PermissionUsagePreference(context, group, null, true);
             pref.setKey(key);
             pref.setIcon(app.getIcon());
             pref.setTitle(app.getLabel());
