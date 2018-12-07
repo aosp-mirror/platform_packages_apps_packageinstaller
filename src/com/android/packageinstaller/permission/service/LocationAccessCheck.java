@@ -16,7 +16,6 @@
 
 package com.android.packageinstaller.permission.service;
 
-import static android.Manifest.permission.ACCESS_BACKGROUND_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import static android.app.AppOpsManager.OPSTR_FINE_LOCATION;
 import static android.app.NotificationManager.IMPORTANCE_LOW;
@@ -409,6 +408,8 @@ public class LocationAccessCheck extends JobService {
             // Get a random package and resolve package info
             PackageInfo pkgInfo = null;
             while (pkgInfo == null) {
+                throwInterruptedExceptionIfTaskIsCanceledLocked();
+
                 if (packages.isEmpty()) {
                     return;
                 }
@@ -436,11 +437,16 @@ public class LocationAccessCheck extends JobService {
                     pkgInfo = packageToNotifyFor.getPackageInfo(this);
                 } catch (PackageManager.NameNotFoundException e) {
                     packages.remove(packageToNotifyFor);
+                    continue;
                 }
 
-                createPermissionReminderChannel(packageToNotifyFor.user);
+                if (!isBackgroundLocationPermissionGranted(pkgInfo)) {
+                    pkgInfo = null;
+                    packages.remove(packageToNotifyFor);
+                }
             }
 
+            createPermissionReminderChannel(getUserHandleForUid(pkgInfo.applicationInfo.uid));
             createNotificationForLocationUser(pkgInfo);
         }
     }
@@ -581,6 +587,35 @@ public class LocationAccessCheck extends JobService {
     }
 
     /**
+     * Check is a package currently has the background access to
+     * {@link android.Manifest.permission#ACCESS_FINE_LOCATION} or can get it without user
+     * interaction.
+     *
+     * @param pkg The package that might have access.
+     *
+     * @return {@code true} iff the app currently has access to the fine background location
+     */
+    private boolean isBackgroundLocationPermissionGranted(@NonNull PackageInfo pkg) {
+        AppPermissionGroup locationGroup = AppPermissionGroup.create(this, pkg,
+                ACCESS_FINE_LOCATION, false);
+
+        if (locationGroup == null) {
+            // All location permissions have been removed from this package
+            return false;
+        } else {
+            AppPermissionGroup locationBgGroup = locationGroup.getBackgroundPermissions();
+            Permission locationPerm = locationGroup.getPermission(ACCESS_FINE_LOCATION);
+
+            // Individual permission have been removed
+            return locationBgGroup != null
+                    && locationPerm != null
+                    && locationBgGroup.hasPermission(locationPerm.getBackgroundPermissionName())
+                    && locationGroup.areRuntimePermissionsGranted()
+                    && locationBgGroup.areRuntimePermissionsGranted();
+        }
+    }
+
+    /**
      * Go through the list of packages we already shown a notification for and remove those that do
      * not request fine background location access.
      *
@@ -594,6 +629,8 @@ public class LocationAccessCheck extends JobService {
         ArrayList<UserPackage> packagesToRemove = new ArrayList<>();
 
         for (UserPackage userPkg : alreadyNotifiedPkgs) {
+            throwInterruptedExceptionIfTaskIsCanceledLocked();
+
             PackageInfo pkgInfo;
             try {
                 pkgInfo = userPkg.getPackageInfo(this);
@@ -602,29 +639,8 @@ public class LocationAccessCheck extends JobService {
                 continue;
             }
 
-            AppPermissionGroup locationGroup = AppPermissionGroup.create(this, pkgInfo,
-                    ACCESS_FINE_LOCATION, false);
-            throwInterruptedExceptionIfTaskIsCanceledLocked();
-
-            if (locationGroup == null) {
-                // All permission of the group have been removed
+            if (!isBackgroundLocationPermissionGranted(pkgInfo)) {
                 packagesToRemove.add(userPkg);
-            } else {
-                Permission fgPerm = locationGroup.getPermission(ACCESS_FINE_LOCATION);
-
-                Permission bgPerm = null;
-                AppPermissionGroup bgPerms = locationGroup.getBackgroundPermissions();
-                if (bgPerms != null) {
-                    bgPerm = bgPerms.getPermission(ACCESS_BACKGROUND_LOCATION);
-                }
-
-                // Individual permission have been removed
-                if (fgPerm == null || bgPerm == null
-                        // Permissions are not granted
-                        || !fgPerm.isGranted() || !fgPerm.isAppOpAllowed()
-                        || !bgPerm.isGranted() || !bgPerm.isAppOpAllowed()) {
-                    packagesToRemove.add(userPkg);
-                }
             }
         }
 
