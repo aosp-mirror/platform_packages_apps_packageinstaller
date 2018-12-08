@@ -140,7 +140,7 @@ public class RequestRoleFragment extends DialogFragment {
         super.onActivityCreated(savedInstanceState);
 
         mViewModel = ViewModelProviders.of(this).get(RequestRoleViewModel.class);
-        mViewModel.getLiveData().observe(this, this::onRequestRoleStateChanged);
+        mViewModel.getLiveData().observe(this, this::onAddRoleHolderStateChanged);
     }
 
     @Override
@@ -176,7 +176,7 @@ public class RequestRoleFragment extends DialogFragment {
     }
 
     @Override
-    public void onDismiss(DialogInterface dialog) {
+    public void onDismiss(@NonNull DialogInterface dialog) {
         super.onDismiss(dialog);
 
         Log.i(LOG_TAG, "Dialog dismissed, role: " + mRoleName + ", package: "
@@ -184,21 +184,21 @@ public class RequestRoleFragment extends DialogFragment {
         finish();
     }
 
-    private void onRequestRoleStateChanged(int state) {
+    private void onAddRoleHolderStateChanged(int state) {
         AlertDialog dialog = (AlertDialog) getDialog();
         switch (state) {
-            case RequestRoleLiveData.STATE_IDLE:
+            case AddRoleHolderStateLiveData.STATE_IDLE:
                 dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
                 dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setEnabled(true);
                 break;
-            case RequestRoleLiveData.STATE_ADDING:
+            case AddRoleHolderStateLiveData.STATE_ADDING:
                 dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
                 dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setEnabled(false);
                 break;
-            case RequestRoleLiveData.STATE_SUCCESS:
+            case AddRoleHolderStateLiveData.STATE_SUCCESS:
                 setResultOkAndFinish();
                 break;
-            case RequestRoleLiveData.STATE_FAILURE:
+            case AddRoleHolderStateLiveData.STATE_FAILURE:
                 finish();
                 break;
         }
