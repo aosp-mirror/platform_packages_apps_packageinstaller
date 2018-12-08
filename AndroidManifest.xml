@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
           package="com.android.permissioncontroller" coreApp="true" android:versionCode="290000"
           android:versionName="29.0.0">
 
@@ -39,6 +40,13 @@
             android:supportsRtl="true"
             android:defaultToDeviceProtectedStorage="true"
             android:directBootAware="true">
+
+        <provider
+            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+            tools:replace="android:authorities"
+            android:authorities="${applicationId}.lifecycle-process"
+            android:exported="false"
+            android:multiprocess="true" />
 
         <receiver android:name="com.android.packageinstaller.permission.service.LocationAccessCheck$SetupPeriodicBackgroundLocationAccessCheck">
             <intent-filter>
