@@ -66,7 +66,8 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                 verifyIntent(this, getIntent());
                 // fall through
             case Intent.ACTION_REVIEW_PERMISSION_USAGE:
-                androidXFragment = PermissionUsageFragment.newInstance();
+                permissionName = getIntent().getStringExtra(Intent.EXTRA_PERMISSION_NAME);
+                androidXFragment = PermissionUsageFragment.newInstance(permissionName);
                 break;
 
             case Intent.ACTION_MANAGE_APP_PERMISSIONS: {

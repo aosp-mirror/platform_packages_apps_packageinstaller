@@ -270,8 +270,11 @@
     <!-- Title for permission usage [CHAR LIMIT=30] -->
     <string name="app_permission_usage_title">App permissions usage</string>
 
-    <!-- Summary for showing a single permission access [CHAR LIMIT=60] -->
-    <string name="app_permission_usage_summary"><xliff:g id="time" example="2 hours">%1$s</xliff:g> ago</string>
+    <!-- Summary for an app's use of a permission [CHAR LIMIT=none] -->
+    <string name="app_permission_usage_summary">Access: <xliff:g id="num" example="2">%1$s</xliff:g> times. Total duration: <xliff:g id="duration" example="2 hours">%2$s</xliff:g>. Last used <xliff:g id="time" example="2 hours">%3$s</xliff:g> ago.</string>
+
+    <!-- Summary for an app's use of a permission without duration [CHAR LIMIT=none] -->
+    <string name="app_permission_usage_summary_no_duration">Access: <xliff:g id="num" example="2">%1$s</xliff:g> times. Last used <xliff:g id="time" example="2 hours">%2$s</xliff:g> ago.</string>
 
     <!-- Title for the dialog button to allow a permission grant when you cannot only allow in the foreground. [CHAR LIMIT=60] -->
     <string name="app_permission_button_allow">Allow</string>
@@ -353,29 +356,6 @@
     <!-- The notification content for background location access reminder notification [CHAR LIMIT=none] -->
     <string name="background_location_access_reminder_notification_content">This app can always access your location. Tap to change.</string>
 
-    <!-- Title for page of managing default apps. [CHAR LIMIT=30] -->
-    <string name="default_apps">Default apps</string>
-
-    <!-- TODO: STOPSHIP: I cannot find its value in Settings. -->
-    <!-- Help URI, default apps [DO NOT TRANSLATE] -->
-    <string name="help_uri_default_apps" translatable="false"></string>
-
-    <!-- Label when there is no default apps [CHAR LIMIT=30] -->
-    <string name="no_default_apps">No default apps</string>
-
-    <!-- TODO: STOPSHIP: Migrate all default app titles from packages/apps/Settings/res/values/strings.xml . -->
-
-    <!-- Label for the dialer role. [CHAR LIMIT=30] -->
-    <string name="role_label_dialer">Phone app</string>
-    <!-- Label for the SMS role. [CHAR LIMIT=30] -->
-    <string name="role_label_sms">SMS app</string>
-    <!-- Label for the browser role. [CHAR LIMIT=30] -->
-    <string name="role_label_browser">Browser app</string>
-    <!-- Label for the gallery role. [CHAR LIMIT=30] -->
-    <string name="role_label_gallery">Gallery app</string>
-    <!-- Label for the music player role. [CHAR LIMIT=30] -->
-    <string name="role_label_music">Music app</string>
-
     <!-- Header for permission justifications [CHAR LIMIT=none] -->
     <string name="permission_justification_header">The app developer says your data may be:</string>
 
@@ -415,4 +395,29 @@
     <!-- Permission justification string when not all justfications are defined [CHAR LIMIT=none] -->
     <string name="permission_justification_undefined">The app developer did not specify how the app uses your data.</string>
 
+    <!-- Title for page of managing default apps. [CHAR LIMIT=30] -->
+    <string name="default_apps">Default apps</string>
+
+    <!-- TODO: STOPSHIP: I cannot find its value in Settings. -->
+    <!-- Help URI, default apps [DO NOT TRANSLATE] -->
+    <string name="help_uri_default_apps" translatable="false"></string>
+
+    <!-- Label when there is no default apps [CHAR LIMIT=30] -->
+    <string name="no_default_apps">No default apps</string>
+
+    <!-- Label when there are no apps for a default app [CHAR LIMIT=30] -->
+    <string name="no_apps_for_default_app">No apps</string>
+
+    <!-- TODO: STOPSHIP: Migrate all default app titles from packages/apps/Settings/res/values/strings.xml . -->
+
+    <!-- Label for the dialer role. [CHAR LIMIT=30] -->
+    <string name="role_label_dialer">Phone app</string>
+    <!-- Label for the SMS role. [CHAR LIMIT=30] -->
+    <string name="role_label_sms">SMS app</string>
+    <!-- Label for the browser role. [CHAR LIMIT=30] -->
+    <string name="role_label_browser">Browser app</string>
+    <!-- Label for the gallery role. [CHAR LIMIT=30] -->
+    <string name="role_label_gallery">Gallery app</string>
+    <!-- Label for the music player role. [CHAR LIMIT=30] -->
+    <string name="role_label_music">Music app</string>
 </resources>
