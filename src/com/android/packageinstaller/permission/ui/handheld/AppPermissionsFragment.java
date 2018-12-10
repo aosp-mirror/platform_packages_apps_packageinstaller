@@ -270,6 +270,17 @@ public final class AppPermissionsFragment extends SettingsWithHeader {
             category.addPreference(extraPerms);
         }
 
+        if (allowed.getPreferenceCount() == 0) {
+            Preference empty = new Preference(context);
+            empty.setTitle(getString(R.string.no_permissions_allowed));
+            allowed.addPreference(empty);
+        }
+        if (denied.getPreferenceCount() == 0) {
+            Preference empty = new Preference(context);
+            empty.setTitle(getString(R.string.no_permissions_denied));
+            denied.addPreference(empty);
+        }
+
         setLoading(false /* loading */, true /* animate */);
     }
 

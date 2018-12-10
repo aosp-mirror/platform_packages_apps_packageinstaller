@@ -317,6 +317,17 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
                     grantedCount, mExtraScreen.getPreferenceCount()));
         }
 
+        if (allowed.getPreferenceCount() == 0) {
+            Preference empty = new Preference(context);
+            empty.setTitle(getString(R.string.no_apps_allowed));
+            allowed.addPreference(empty);
+        }
+        if (denied.getPreferenceCount() == 0) {
+            Preference empty = new Preference(context);
+            empty.setTitle(getString(R.string.no_apps_denied));
+            denied.addPreference(empty);
+        }
+
         setLoading(false /* loading */, true /* animate */);
 
         if (mOnPermissionsLoadedListener != null) {
