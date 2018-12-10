@@ -395,6 +395,18 @@
     <!-- Permission justification string when not all justfications are defined [CHAR LIMIT=none] -->
     <string name="permission_justification_undefined">The app developer did not specify how the app uses your data.</string>
 
+    <!-- Label when app has been granted no permissions [CHAR LIMIT=none] -->
+    <string name="no_permissions_allowed">No permissions allowed</string>
+
+    <!-- Label when app has been denied no permissions [CHAR LIMIT=none] -->
+    <string name="no_permissions_denied">No permissions denied</string>
+
+    <!-- Label when no apps have been granted a given permission [CHAR LIMIT=none] -->
+    <string name="no_apps_allowed">No apps allowed</string>
+
+    <!-- Label when no apps have been denied a given permission [CHAR LIMIT=none] -->
+    <string name="no_apps_denied">No apps denied</string>
+
     <!-- Title for page of managing default apps. [CHAR LIMIT=30] -->
     <string name="default_apps">Default apps</string>
 
