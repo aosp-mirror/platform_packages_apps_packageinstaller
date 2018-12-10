@@ -30,7 +30,8 @@ import com.android.packageinstaller.permission.model.PermissionGroups;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 
-import java.util.List;
+import java.text.Collator;
+import java.util.ArrayList;
 
 /**
  * Superclass for fragments allowing the user to manage permissions.
@@ -44,6 +45,8 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
 
     private PermissionGroups mPermissions;
 
+    private Collator mCollator;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -54,6 +57,8 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
             ab.setDisplayHomeAsUpEnabled(true);
         }
         mPermissions = new PermissionGroups(getContext(), getActivity().getLoaderManager(), this);
+        mCollator = Collator.getInstance(
+                getContext().getResources().getConfiguration().getLocales().get(0));
     }
 
     @Override
@@ -106,7 +111,8 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
             return null;
         }
 
-        List<PermissionGroup> groups = mPermissions.getGroups();
+        ArrayList<PermissionGroup> groups = new ArrayList<>(mPermissions.getGroups());
+        groups.sort((x, y) -> mCollator.compare(x.getLabel(), y.getLabel()));
         PreferenceScreen screen = getPreferenceScreen();
         if (screen == null) {
             screen = getPreferenceManager().createPreferenceScreen(context);
@@ -114,10 +120,12 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
         } else {
             screen.removeAll();
         }
+        screen.setOrderingAsAdded(true);
 
         // Use this to speed up getting the info for all of the PermissionApps below.
         // Create a new one for each refresh to make sure it has fresh data.
-        for (PermissionGroup group : groups) {
+        for (int i = 0; i < groups.size(); i++) {
+            PermissionGroup group = groups.get(i);
             boolean isSystemPermission = group.getDeclaringPackage().equals(OS_PKG);
 
             if (addSystemPermissions == isSystemPermission) {
