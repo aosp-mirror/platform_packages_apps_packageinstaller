@@ -16,10 +16,15 @@
 
 package com.android.packageinstaller.permission.service;
 
+import static android.content.pm.PackageManager.GET_PERMISSIONS;
+
+import static com.android.packageinstaller.permission.utils.Utils.shouldShowPermission;
+
+import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.permission.RuntimePermissionPresentationInfo;
-import android.permissionpresenterservice.RuntimePermissionPresenterService;
+import android.permission.RuntimePermissionPresentationInfo;
+import android.permission.RuntimePermissionPresenterService;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -29,6 +34,7 @@ import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.utils.Utils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -38,22 +44,30 @@ public final class RuntimePermissionPresenterServiceImpl extends RuntimePermissi
     private static final String LOG_TAG = "PermissionPresenter";
 
     @Override
-    public List<RuntimePermissionPresentationInfo> onGetAppPermissions(
+    public @NonNull List<RuntimePermissionPresentationInfo> onGetAppPermissions(
             @NonNull String packageName) {
+        return onGetAppPermissions(this, packageName);
+    }
+
+    /**
+     * Implementation of {@link RuntimePermissionPresenterService#onGetAppPermissions(String)}}.
+     * Called by this class and the legacy implementation.
+     */
+    static @NonNull List<RuntimePermissionPresentationInfo> onGetAppPermissions(
+            @NonNull Context context, @NonNull String packageName) {
         final PackageInfo packageInfo;
         try {
-            packageInfo = getPackageManager().getPackageInfo(packageName,
-                    PackageManager.GET_PERMISSIONS);
+            packageInfo = context.getPackageManager().getPackageInfo(packageName, GET_PERMISSIONS);
         } catch (PackageManager.NameNotFoundException e) {
             Log.e(LOG_TAG, "Error getting package:" + packageName, e);
-            return null;
+            return Collections.emptyList();
         }
 
         List<RuntimePermissionPresentationInfo> permissions = new ArrayList<>();
 
-        AppPermissions appPermissions = new AppPermissions(this, packageInfo, false, null);
+        AppPermissions appPermissions = new AppPermissions(context, packageInfo, false, null);
         for (AppPermissionGroup group : appPermissions.getPermissionGroups()) {
-            if (Utils.shouldShowPermission(this, group)) {
+            if (shouldShowPermission(context, group)) {
                 final boolean granted = group.areRuntimePermissionsGranted();
                 final boolean standard = Utils.OS_PKG.equals(group.getDeclaringPackage());
                 RuntimePermissionPresentationInfo permission =
@@ -69,10 +83,20 @@ public final class RuntimePermissionPresenterServiceImpl extends RuntimePermissi
     @Override
     public void onRevokeRuntimePermission(@NonNull String packageName,
             @NonNull String permissionName) {
+        onRevokeRuntimePermission(this, packageName, permissionName);
+    }
+
+    /**
+     * Implementation of
+     * {@link RuntimePermissionPresenterService#onRevokeRuntimePermission(String, String)}}. Called
+     * by this class and the legacy implementation.
+     */
+    static void onRevokeRuntimePermission(@NonNull Context context,
+            @NonNull String packageName, @NonNull String permissionName) {
         try {
-            final PackageInfo packageInfo = getPackageManager().getPackageInfo(packageName,
-                    PackageManager.GET_PERMISSIONS);
-            final AppPermissions appPermissions = new AppPermissions(this, packageInfo, false,
+            final PackageInfo packageInfo = context.getPackageManager().getPackageInfo(packageName,
+                    GET_PERMISSIONS);
+            final AppPermissions appPermissions = new AppPermissions(context, packageInfo, false,
                     null);
 
             final AppPermissionGroup appPermissionGroup = appPermissions.getGroupForPermission(
