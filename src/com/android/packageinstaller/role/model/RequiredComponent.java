@@ -22,8 +22,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
-import android.util.ArrayMap;
 import android.util.ArraySet;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -36,6 +36,8 @@ import java.util.Objects;
  * Specifies a required component for an application to qualify for a {@link Role}.
  */
 public abstract class RequiredComponent {
+
+    private static final String LOG_TAG = RequiredComponent.class.getSimpleName();
 
     /**
      * The {@code Intent} or {@code IntentFilter} data to match the components.
@@ -58,10 +60,11 @@ public abstract class RequiredComponent {
      * @see android.content.pm.PackageItemInfo#metaData
      */
     @NonNull
-    private final ArrayMap<String, Object> mMetaData;
+    private final List<RequiredMetaData> mMetaData;
 
     public RequiredComponent(@NonNull IntentFilterData intentFilterData,
-            @Nullable String permission, @NonNull ArrayMap<String, Object> metaData) {
+            @Nullable String permission,
+            @NonNull List<RequiredMetaData> metaData) {
         mIntentFilterData = intentFilterData;
         mPermission = permission;
         mMetaData = metaData;
@@ -78,7 +81,7 @@ public abstract class RequiredComponent {
     }
 
     @NonNull
-    public ArrayMap<String, Object> getMetaData() {
+    public List<RequiredMetaData> getMetaData() {
         return mMetaData;
     }
 
@@ -144,23 +147,20 @@ public abstract class RequiredComponent {
             if (hasMetaData) {
                 Bundle componentMetaData = getComponentMetaData(resolveInfo);
                 if (componentMetaData == null) {
+                    Log.w(LOG_TAG, "Component meta data is null");
                     continue;
                 }
+                boolean isMetaDataQualified = true;
                 int metaDataSize = mMetaData.size();
-                if (componentMetaData.size() < metaDataSize) {
-                    continue;
-                }
-                boolean containsAllMetaData = true;
                 for (int metaDataIndex = 0; metaDataIndex < metaDataSize; metaDataIndex++) {
-                    String metaDataName = mMetaData.keyAt(metaDataIndex);
-                    Object metaDataValue = mMetaData.valueAt(metaDataIndex);
-                    Object componentMetaDataValue = componentMetaData.get(metaDataName);
-                    if (!Objects.equals(componentMetaDataValue, metaDataValue)) {
-                        containsAllMetaData = false;
+                    RequiredMetaData metaData = mMetaData.get(metaDataIndex);
+
+                    if (!metaData.isQualified(componentMetaData)) {
+                        isMetaDataQualified = false;
                         break;
                     }
                 }
-                if (!containsAllMetaData) {
+                if (!isMetaDataQualified) {
                     continue;
                 }
             }
