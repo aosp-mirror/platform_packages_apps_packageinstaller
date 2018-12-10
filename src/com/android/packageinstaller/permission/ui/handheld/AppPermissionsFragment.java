@@ -216,7 +216,8 @@ public final class AppPermissionsFragment extends SettingsWithHeader {
 
             boolean isPlatform = group.getDeclaringPackage().equals(Utils.OS_PKG);
 
-            Preference preference = new PermissionUsagePreference(context, group, null, false);
+            PermissionControlPreference preference = new PermissionControlPreference(context,
+                    group);
             preference.setKey(group.getName());
             Drawable icon = Utils.loadDrawable(context.getPackageManager(),
                     group.getIconPkg(), group.getIconResId());
@@ -229,12 +230,8 @@ public final class AppPermissionsFragment extends SettingsWithHeader {
                 preference.setSummary(
                         context.getString(R.string.app_permission_most_recent_summary,
                                 timeDiffStr));
-            } else if (group.hasPermissionWithBackgroundMode()
-                    && group.areRuntimePermissionsGranted()) {
-                AppPermissionGroup backgroundGroup = group.getBackgroundPermissions();
-                if (backgroundGroup == null || !backgroundGroup.areRuntimePermissionsGranted()) {
-                    preference.setSummary(R.string.permission_access_only_foreground);
-                }
+            } else {
+                preference.setGroupSummary(group);
             }
 
             if (isPlatform) {

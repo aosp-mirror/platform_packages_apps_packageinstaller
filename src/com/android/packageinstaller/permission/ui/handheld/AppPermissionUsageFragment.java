@@ -228,7 +228,7 @@ public class AppPermissionUsageFragment extends SettingsWithHeader {
                         + historyEntry.getBackgroundAccessDuration();
             }
 
-            Preference pref = new PermissionUsagePreference(context, group, null, false);
+            Preference pref = new PermissionControlPreference(context, group);
             pref.setTitle(usage.getPermissionGroupLabel());
             long timeDiff = System.currentTimeMillis() - usage.getTime();
             if (totalDuration == 0) {

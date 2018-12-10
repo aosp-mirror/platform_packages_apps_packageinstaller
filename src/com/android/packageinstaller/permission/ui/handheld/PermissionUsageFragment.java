@@ -35,7 +35,6 @@ import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
@@ -347,16 +346,17 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
             }
             AppPermissionGroup group = usageToGroup.get(usage);
             PermissionApp permApp = usageToApp.get(usage);
-            Preference pref = new PermissionUsagePreference(context, group,
-                    Utils.applyTint(context, group.getIconResId(),
-                            android.R.attr.colorControlNormal), true);
+            PermissionControlPreference pref = new PermissionControlPreference(context, group);
             pref.setTitle(permApp.getLabel());
             long timeDiff = System.currentTimeMillis() - usage.getTime();
             String timeDiffStr = Utils.getTimeDiffStr(context, timeDiff);
             pref.setSummary(context.getString(R.string.permission_usage_summary,
                     usage.getPermissionGroupLabel(), timeDiffStr));
             pref.setIcon(permApp.getIcon());
+            pref.setRightIcon(Utils.applyTint(context, group.getIconResId(),
+                    android.R.attr.colorControlNormal));
             pref.setKey(usage.getPackageName() + "," + usage.getPermissionGroupName());
+            pref.useSmallerIcon();
             screen.addPreference(pref);
         }
     }
