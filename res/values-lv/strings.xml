@@ -96,7 +96,8 @@
     <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Pēdējās 15 minūtēs"</string>
     <string name="no_permission_usages" msgid="698858628357371611">"Nav lietota neviena atļauja"</string>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"Lietotņu atļauju lietojums"</string>
-    <string name="app_permission_usage_summary" msgid="3430707165417747223">"Pirms <xliff:g id="TIME">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"Piekļuve: <xliff:g id="NUM">%1$s</xliff:g> reizes. Kopējais ilgums: <xliff:g id="DURATION">%2$s</xliff:g>. Pēdējā lietošanas reize pirms šāda laika: <xliff:g id="TIME">%3$s</xliff:g>."</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Piekļuve: <xliff:g id="NUM">%1$s</xliff:g> reizes. Pēdējā lietošanas reize pirms šāda laika: <xliff:g id="TIME">%2$s</xliff:g>."</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Atļaut"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Vienmēr atļaut"</string>
     <string name="app_permission_button_allow_foreground" msgid="6366222217615376397">"Atļaut tikai lietotnes izmantošanas laikā"</string>
@@ -104,15 +105,11 @@
     <string name="app_permission_title" msgid="2453000050669052385">"Atļauja: <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="5704679725169517493">"<xliff:g id="PERM">%1$s</xliff:g>: lietotnes <xliff:g id="APP">%2$s</xliff:g> piekļuve"</string>
     <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="APP">%1$s</xliff:g> piekļuva jūsu atļaujai <xliff:g id="PERM">%2$s</xliff:g> pirms: <xliff:g id="TIME">%3$s</xliff:g>."</string>
-    <!-- no translation found for app_permission_footer_no_usages (8176256750330679454) -->
-    <skip />
+    <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"Lietotnei <xliff:g id="APP">%1$s</xliff:g> nav piekļuves <xliff:g id="PERM">%2$s</xliff:g>."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Skatīt detalizētu informāciju par atļauju lietojumu"</string>
-    <!-- no translation found for app_permission_most_recent_summary (6866863855248795166) -->
-    <skip />
-    <!-- no translation found for allowed_header (6279244592227088158) -->
-    <skip />
-    <!-- no translation found for denied_header (2277998574238617699) -->
-    <skip />
+    <string name="app_permission_most_recent_summary" msgid="6866863855248795166">"Pēdējā piekļuve pirms: <xliff:g id="TIME">%1$s</xliff:g>"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"Atļauts"</string>
+    <string name="denied_header" msgid="2277998574238617699">"Noraidīts"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="zero"><xliff:g id="NUMBER">%s</xliff:g> dienu</item>
       <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> diena</item>
@@ -141,36 +138,36 @@
     <skip />
     <!-- no translation found for background_location_access_reminder_notification_content (2715202570602748060) -->
     <skip />
-    <!-- no translation found for default_apps (8554530939151957828) -->
+    <string name="permission_justification_header" msgid="8855642235625782751">"Lietotnes izstrādātājs saka, ka jūsu dati, iespējams, ir:"</string>
+    <string name="permission_justification_footer" msgid="4098097763461100468">"Ja neesat apmierināts ar to, kā šis lietotnes izstrādātājs izmanto jūsu datus, varat noraidīt atļauju."</string>
+    <string name="permission_justification_data_sent_off_device" msgid="2503905652716735222">"Augšupielādēts mākonī"</string>
+    <string name="permission_justification_data_sent_off_device_user_triggered" msgid="4122793147247661083">"Augšupielādēts mākonī, ja jūs to skaidri atļaujat"</string>
+    <string name="permission_justification_data_shared_with_third_party" msgid="5249440580654050831">"Kopīgots ar reklāmdevējiem vai uzņēmumiem"</string>
+    <string name="permission_justification_data_shared_with_third_party_user_triggered" msgid="2920721327430861150">"Kopīgots ar reklāmdevējiem vai uzņēmumiem, ja jūs to skaidri atļaujat"</string>
+    <string name="permission_justification_data_used_for_monetization" msgid="3098933808750278119">"Izmantots monetizācijai"</string>
+    <string name="permission_justification_data_used_for_monetization_user_triggered" msgid="8264335769735917408">"Izmantots monetizācijai, ja jūs to skaidri atļaujat"</string>
+    <string name="permission_justification_data_retention_unlimited" msgid="3921406322987911863">"Saglabāts un analizēts bezgalīgi"</string>
+    <string name="permission_justification_data_retention_user_selected" msgid="7440816502916014127">"Saglabāts un analizēts tik ilgi, cik esat norādījis"</string>
+    <plurals name="permission_justification_data_retention_specified" formatted="false" msgid="4132895033914113182">
+      <item quantity="zero">Saglabāts un analizēts <xliff:g id="NUM_WEEKS">%s</xliff:g> nedēļas</item>
+      <item quantity="one">Saglabāts un analizēts <xliff:g id="NUM_WEEKS">%s</xliff:g> nedēļu</item>
+      <item quantity="other">Saglabāts un analizēts <xliff:g id="NUM_WEEKS">%s</xliff:g> nedēļas</item>
+    </plurals>
+    <string name="permission_justification_undefined" msgid="5711347441966109267">"Lietotnes izstrādātājs nenorādīja, kā lietotne izmantos jūsu datus."</string>
+    <!-- no translation found for no_permissions_allowed (5781278485002145993) -->
     <skip />
-    <!-- no translation found for no_default_apps (5642715159090903032) -->
+    <!-- no translation found for no_permissions_denied (2449583707612365442) -->
     <skip />
+    <!-- no translation found for no_apps_allowed (4529095928504611810) -->
+    <skip />
+    <!-- no translation found for no_apps_denied (2736758388618487796) -->
+    <skip />
+    <string name="default_apps" msgid="8554530939151957828">"Noklusējuma lietotnes"</string>
+    <string name="no_default_apps" msgid="5642715159090903032">"Nav noklusējuma lietotņu"</string>
+    <string name="no_apps_for_default_app" msgid="5671673478949659841">"Nav lietotņu"</string>
     <string name="role_label_dialer" msgid="3345895090725237533">"Lietotne Tālrunis"</string>
     <string name="role_label_sms" msgid="2262769075496017522">"Īsziņu lietotne"</string>
     <string name="role_label_browser" msgid="6266502234308421457">"Pārlūkprogrammas lietotne"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"Galerijas lietotne"</string>
     <string name="role_label_music" msgid="5900245414865932272">"Mūzikas lietotne"</string>
-    <!-- no translation found for permission_justification_header (8855642235625782751) -->
-    <skip />
-    <!-- no translation found for permission_justification_footer (4098097763461100468) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_sent_off_device (2503905652716735222) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_sent_off_device_user_triggered (4122793147247661083) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_shared_with_third_party (5249440580654050831) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_shared_with_third_party_user_triggered (2920721327430861150) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_used_for_monetization (3098933808750278119) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_used_for_monetization_user_triggered (8264335769735917408) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_retention_unlimited (3921406322987911863) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_retention_user_selected (7440816502916014127) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_retention_specified (4132895033914113182) -->
-    <!-- no translation found for permission_justification_undefined (5711347441966109267) -->
-    <skip />
 </resources>

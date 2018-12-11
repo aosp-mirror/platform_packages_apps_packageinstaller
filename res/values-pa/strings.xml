@@ -95,7 +95,10 @@
     <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"ਪਿਛਲੇ 15 ਮਿੰਟ"</string>
     <string name="no_permission_usages" msgid="698858628357371611">"ਕੋਈ ਇਜਾਜ਼ਤ ਨਹੀਂ ਵਰਤੀ ਗਈ"</string>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"ਐਪ ਇਜਾਜ਼ਤਾਂ ਵਰਤੋ"</string>
-    <string name="app_permission_usage_summary" msgid="3430707165417747223">"<xliff:g id="TIME">%1$s</xliff:g> ਪਹਿਲਾਂ"</string>
+    <!-- no translation found for app_permission_usage_summary (8560461104458882198) -->
+    <skip />
+    <!-- no translation found for app_permission_usage_summary_no_duration (4040424337831328212) -->
+    <skip />
     <string name="app_permission_button_allow" msgid="1358817292836175593">"ਕਰਨ ਦਿਓ"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"ਹਰ ਵੇਲੇ ਕਰਨ ਦਿਓ"</string>
     <string name="app_permission_button_allow_foreground" msgid="6366222217615376397">"ਸਿਰਫ਼ ਐਪ ਵਰਤੇ ਜਾਣ ਵੇਲੇ ਕਰਨ ਦਿਓ"</string>
@@ -103,15 +106,11 @@
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> ਇਜਾਜ਼ਤ"</string>
     <string name="app_permission_header" msgid="5704679725169517493">"<xliff:g id="APP">%2$s</xliff:g> ਲਈ <xliff:g id="PERM">%1$s</xliff:g> ਪਹੁੰਚ"</string>
     <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="APP">%1$s</xliff:g> ਨੇ <xliff:g id="TIME">%3$s</xliff:g> ਪਹਿਲਾਂ ਤੁਹਾਡੇ <xliff:g id="PERM">%2$s</xliff:g> ਤੱਕ ਪਹੁੰਚ ਕੀਤੀ।"</string>
-    <!-- no translation found for app_permission_footer_no_usages (8176256750330679454) -->
-    <skip />
+    <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> ਨੇ ਤੁਹਾਡੇ <xliff:g id="PERM">%2$s</xliff:g> ਤੱਕ ਪਹੁੰਚ ਨਹੀਂ ਕੀਤੀ।"</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"ਇਜਾਜ਼ਤਾਂ ਦੀ ਵਰਤੋਂ ਵੇਰਵੇ-ਸਹਿਤ ਦੇਖੋ"</string>
-    <!-- no translation found for app_permission_most_recent_summary (6866863855248795166) -->
-    <skip />
-    <!-- no translation found for allowed_header (6279244592227088158) -->
-    <skip />
-    <!-- no translation found for denied_header (2277998574238617699) -->
-    <skip />
+    <string name="app_permission_most_recent_summary" msgid="6866863855248795166">"ਸਭ ਤੋਂ ਹਾਲੀਆ ਪਹੁੰਚ <xliff:g id="TIME">%1$s</xliff:g> ਪਹਿਲਾਂ"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"ਮਨਜ਼ੂਰਸ਼ੁਦਾ"</string>
+    <string name="denied_header" msgid="2277998574238617699">"ਗੈਰ-ਮਨਜ਼ੂਰਸ਼ੁਦਾ"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> ਦਿਨ</item>
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ਦਿਨ</item>
@@ -136,36 +135,36 @@
     <skip />
     <!-- no translation found for background_location_access_reminder_notification_content (2715202570602748060) -->
     <skip />
-    <!-- no translation found for default_apps (8554530939151957828) -->
+    <string name="permission_justification_header" msgid="8855642235625782751">"ਐਪ ਵਿਕਾਸਕਾਰ ਦਾ ਕਹਿਣਾ ਹੈ ਕਿ ਸ਼ਾਇਦ ਤੁਹਾਡੇ ਡਾਟੇ ਨੂੰ:"</string>
+    <string name="permission_justification_footer" msgid="4098097763461100468">"ਜੇ ਤੁਹਾਨੂੰ ਐਪ ਵਿਕਾਸਕਾਰ ਵੱਲੋਂ ਤੁਹਾਡਾ ਡਾਟਾ ਵਰਤੇ ਜਾਣਾ ਪਸੰਦ ਨਹੀਂ ਹੈ, ਤਾਂ ਤੁਸੀਂ ਇਜਾਜ਼ਤ ਨੂੰ ਅਸਵੀਕਾਰ ਕਰ ਸਕਦੇ ਹੋ।"</string>
+    <string name="permission_justification_data_sent_off_device" msgid="2503905652716735222">"ਕਲਾਊਡ \'ਤੇ ਅੱਪਲੋਡ ਕੀਤਾ ਜਾਂਦਾ ਹੈ"</string>
+    <string name="permission_justification_data_sent_off_device_user_triggered" msgid="4122793147247661083">"ਤੁਹਾਡੇ ਵੱਲੋਂ ਸਾਫ਼ ਤੌਰ \'ਤੇ ਇੰਝ ਕਰਨ ਦੇਣ ਕਰਕੇ ਡਾਟਾ ਕਲਾਊਡ \'ਤੇ ਅੱਪਲੋਡ ਕੀਤਾ ਜਾਂਦਾ ਹੈ"</string>
+    <string name="permission_justification_data_shared_with_third_party" msgid="5249440580654050831">"ਵਿਗਿਆਪਨਦਾਤਾਵਾਂ ਜਾਂ ਕਾਰੋਬਾਰਾਂ ਨਾਲ ਸਾਂਝਾ ਕੀਤਾ ਜਾਂਦਾ ਹੈ"</string>
+    <string name="permission_justification_data_shared_with_third_party_user_triggered" msgid="2920721327430861150">"ਤੁਹਾਡੇ ਵੱਲੋਂ ਸਾਫ਼ ਤੌਰ \'ਤੇ ਇੰਝ ਕਰਨ ਦੇਣ ਕਰਕੇ ਵਿਗਿਆਪਨਦਾਤਾਵਾਂ ਜਾਂ ਕਾਰੋਬਾਰਾਂ ਨਾਲ ਸਾਂਝਾ ਕੀਤਾ ਜਾਂਦਾ ਹੈ"</string>
+    <string name="permission_justification_data_used_for_monetization" msgid="3098933808750278119">"ਮੁਦਰੀਕਰਨ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ"</string>
+    <string name="permission_justification_data_used_for_monetization_user_triggered" msgid="8264335769735917408">"ਤੁਹਾਡੇ ਵੱਲੋਂ ਸਾਫ਼ ਤੌਰ \'ਤੇ ਇੰਝ ਕਰਨ ਦੇਣ ਕਰਕੇ ਇਹ ਮੁਦਰੀਕਰਨ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ"</string>
+    <string name="permission_justification_data_retention_unlimited" msgid="3921406322987911863">"ਹਮੇਸ਼ਾਂ ਰੱਖਿਅਤ ਕੀਤਾ ਅਤੇ ਵਿਸ਼ਲੇਸ਼ਣ ਕੀਤਾ ਜਾਂਦਾ ਹੈ"</string>
+    <string name="permission_justification_data_retention_user_selected" msgid="7440816502916014127">"ਤੁਹਾਡੇ ਵੱਲੋਂ ਦੱਸੀ ਇੱਕ ਮਿਆਦ ਲਈ ਰੱਖਿਅਤ ਕੀਤਾ ਅਤੇ ਵਿਸ਼ਲੇਸ਼ਣ ਕੀਤਾ ਜਾਂਦਾ ਹੈ"</string>
+    <plurals name="permission_justification_data_retention_specified" formatted="false" msgid="4132895033914113182">
+      <item quantity="one"><xliff:g id="NUM_WEEKS">%s</xliff:g> ਹਫ਼ਤੇ ਲਈ ਰੱਖਿਅਤ ਕੀਤਾ ਅਤੇ ਵਿਸ਼ਲੇਸ਼ਣ ਕੀਤਾ ਜਾਂਦਾ ਹੈ</item>
+      <item quantity="other"><xliff:g id="NUM_WEEKS">%s</xliff:g> ਹਫ਼ਤਿਆਂ ਲਈ ਰੱਖਿਅਤ ਕੀਤਾ ਅਤੇ ਵਿਸ਼ਲੇਸ਼ਣ ਕੀਤਾ ਜਾਂਦਾ ਹੈ</item>
+    </plurals>
+    <string name="permission_justification_undefined" msgid="5711347441966109267">"ਐਪ ਵਿਕਾਸਕਾਰ ਨੇ ਐਪ ਵੱਲੋਂ ਤੁਹਾਡਾ ਡਾਟਾ ਵਰਤੇ ਜਾਣ ਬਾਰੇ ਕੁਝ ਨਹੀਂ ਦੱਸਿਆ ਹੈ।"</string>
+    <!-- no translation found for no_permissions_allowed (5781278485002145993) -->
     <skip />
-    <!-- no translation found for no_default_apps (5642715159090903032) -->
+    <!-- no translation found for no_permissions_denied (2449583707612365442) -->
+    <skip />
+    <!-- no translation found for no_apps_allowed (4529095928504611810) -->
+    <skip />
+    <!-- no translation found for no_apps_denied (2736758388618487796) -->
+    <skip />
+    <string name="default_apps" msgid="8554530939151957828">"ਪੂਰਵ-ਨਿਰਧਾਰਤ ਐਪਾਂ"</string>
+    <string name="no_default_apps" msgid="5642715159090903032">"ਕੋਈ ਪੂਰਵ-ਨਿਰਧਾਰਤ ਐਪਾਂ ਨਹੀਂ"</string>
+    <!-- no translation found for no_apps_for_default_app (5671673478949659841) -->
     <skip />
     <string name="role_label_dialer" msgid="3345895090725237533">"ਫ਼ੋਨ ਐਪ"</string>
     <string name="role_label_sms" msgid="2262769075496017522">"SMS ਐਪ"</string>
     <string name="role_label_browser" msgid="6266502234308421457">"ਬ੍ਰਾਊਜ਼ਰ ਐਪ"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"ਗੈਲਰੀ ਐਪ"</string>
     <string name="role_label_music" msgid="5900245414865932272">"ਸੰਗੀਤ ਐਪ"</string>
-    <!-- no translation found for permission_justification_header (8855642235625782751) -->
-    <skip />
-    <!-- no translation found for permission_justification_footer (4098097763461100468) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_sent_off_device (2503905652716735222) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_sent_off_device_user_triggered (4122793147247661083) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_shared_with_third_party (5249440580654050831) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_shared_with_third_party_user_triggered (2920721327430861150) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_used_for_monetization (3098933808750278119) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_used_for_monetization_user_triggered (8264335769735917408) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_retention_unlimited (3921406322987911863) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_retention_user_selected (7440816502916014127) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_retention_specified (4132895033914113182) -->
-    <!-- no translation found for permission_justification_undefined (5711347441966109267) -->
-    <skip />
 </resources>
