@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -575,4 +575,31 @@
 
     <!-- Dialog body explaining that the app just selected by the user will not work after a reboot until the user enters their credentials, such as a PIN or password. [CHAR LIMIT=NONE] -->
     <string name="encryption_unaware_confirmation_message">Note: If you restart your device and have a screen lock set, this app can\u2019t start until you unlock your device.</string>
+
+    <!-- Name for the notification channel for incident / bug report confirmation
+    [CHAR LIMIT=50] -->
+    <string name="incident_report_channel_name">Share Debugging Data</string>
+
+    <!-- Title for notification shown when the user should confirm an incident / bug report.
+    [CHAR LIMIT=50] -->
+    <string name="incident_report_notification_title">Share detailed debugging data?</string>
+
+    <!-- Content for notification shown when the user should confirm an incident / bug report.
+    [CHAR LIMIT=120] -->
+    <string name="incident_report_notification_text"><xliff:g id="app_name" example="Gmail">%1$s</xliff:g> would like to upload debugging information.</string>
+
+    <!-- Title for the incident / bug report confirmation dialog [CHAR LIMIT=50] -->
+    <string name="incident_report_dialog_title">Share Debugging Data</string>
+
+    <!-- Content for dialog shown when the user should confirm an incident / bug report.
+    [CHAR LIMIT=none] -->
+    <string name="incident_report_dialog_text">"<xliff:g id="app_name" example="Gmail">%1$s</xliff:g> is requesting to upload a bug report from this device taken on <xliff:g id="date" example="December 26, 2018">%2$s</xliff:g> at <xliff:g id="time" example="1:20 PM">%3$s</xliff:g>. Bug reports include personal information about your device or logged by apps, for example, user names, location data, device identifiers, and network information. Only share bug reports with people and apps you trust with this information.
+
+Allow <xliff:g id="app_name" example="Gmail">%4$s</xliff:g> to upload a bug report?"</string>
+
+    <!-- Label for the button to allow sharing of the report. [CHAR LIMIT=20]-->
+    <string name="incident_report_dialog_allow_label">Allow</string>
+
+    <!-- Label for the button to NOT allow sharing of the report. [CHAR LIMIT=20] -->
+    <string name="incident_report_dialog_deny_label">Deny</string>
 </resources>
