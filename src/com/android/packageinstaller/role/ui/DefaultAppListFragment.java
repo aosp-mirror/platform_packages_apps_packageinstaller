@@ -100,12 +100,6 @@ public class DefaultAppListFragment extends SettingsFragment
         for (int roleItemsIndex = 0; roleItemsIndex < roleItemsSize; roleItemsIndex++) {
             RoleItem roleItem = roleItems.get(roleItemsIndex);
 
-            List<ApplicationInfo> holderApplicationInfos = roleItem.getHolderApplicationInfos();
-            if (holderApplicationInfos.isEmpty()) {
-                // TODO: Handle Assistant which is visible even without holder.
-                continue;
-            }
-
             Role role = roleItem.getRole();
             Preference preference = oldPreferences.get(role.getName());
             if (preference == null) {
@@ -117,10 +111,16 @@ public class DefaultAppListFragment extends SettingsFragment
                 preference.setOnPreferenceClickListener(this);
             }
 
-            ApplicationInfo holderApplicationInfo = holderApplicationInfos.get(0);
-            preference.setIcon(IconDrawableFactory.getBadgedIcon(context, holderApplicationInfo,
-                    UserHandle.getUserHandleForUid(holderApplicationInfo.uid)));
-            preference.setSummary(Utils.getAppLabel(holderApplicationInfo, context));
+            List<ApplicationInfo> holderApplicationInfos = roleItem.getHolderApplicationInfos();
+            if (holderApplicationInfos.isEmpty()) {
+                preference.setIcon(null);
+                preference.setSummary(R.string.default_app_none);
+            } else {
+                ApplicationInfo holderApplicationInfo = holderApplicationInfos.get(0);
+                preference.setIcon(IconDrawableFactory.getBadgedIcon(context, holderApplicationInfo,
+                        UserHandle.getUserHandleForUid(holderApplicationInfo.uid)));
+                preference.setSummary(Utils.getAppLabel(holderApplicationInfo, context));
+            }
 
             // TODO: Ordering?
             preferenceScreen.addPreference(preference);

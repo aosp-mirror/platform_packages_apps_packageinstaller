@@ -89,6 +89,10 @@ public class RoleListLiveData extends AsyncTaskLiveData<List<RoleItem>>
                 continue;
             }
 
+            if (role.getQualifyingPackages(mContext).isEmpty()) {
+                continue;
+            }
+
             List<ApplicationInfo> holderApplicationInfos = new ArrayList<>();
             List<String> holderPackageNames = roleManager.getRoleHolders(role.getName());
             int holderPackageNamesSize = holderPackageNames.size();

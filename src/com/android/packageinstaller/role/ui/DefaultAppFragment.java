@@ -98,7 +98,7 @@ public class DefaultAppFragment extends SettingsFragment
     @Override
     @StringRes
     protected int getEmptyTextResource() {
-        return R.string.no_apps_for_default_app;
+        return R.string.default_app_no_apps;
     }
 
     private void onRoleInfoChanged(@NonNull RoleInfo roleInfo) {
