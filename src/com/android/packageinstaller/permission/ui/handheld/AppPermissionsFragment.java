@@ -47,6 +47,9 @@ import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 import com.android.settingslib.HelpUtils;
 
+import java.text.Collator;
+import java.util.ArrayList;
+
 /**
  * Show and manage permission groups for an app.
  *
@@ -60,6 +63,8 @@ public final class AppPermissionsFragment extends SettingsWithHeader {
 
     private AppPermissions mAppPermissions;
     private PreferenceScreen mExtraScreen;
+
+    private Collator mCollator;
 
     private boolean mHasConfirmedRevoke;
 
@@ -101,6 +106,8 @@ public final class AppPermissionsFragment extends SettingsWithHeader {
                 getActivity().finish();
             }
         });
+        mCollator = Collator.getInstance(
+                getContext().getResources().getConfiguration().getLocales().get(0));
         updatePreferences();
     }
 
@@ -195,14 +202,21 @@ public final class AppPermissionsFragment extends SettingsWithHeader {
         extraPerms.setTitle(R.string.additional_permissions);
         boolean extraPermsAreAllowed = false;
 
-        for (AppPermissionGroup group : mAppPermissions.getPermissionGroups()) {
+        ArrayList<AppPermissionGroup> groups = new ArrayList<>(
+                mAppPermissions.getPermissionGroups());
+        groups.sort((x, y) -> mCollator.compare(x.getLabel(), y.getLabel()));
+        allowed.setOrderingAsAdded(true);
+        denied.setOrderingAsAdded(true);
+
+        for (int i = 0; i < groups.size(); i++) {
+            AppPermissionGroup group = groups.get(i);
             if (!Utils.shouldShowPermission(getContext(), group)) {
                 continue;
             }
 
             boolean isPlatform = group.getDeclaringPackage().equals(Utils.OS_PKG);
 
-            Preference preference = new PermissionUsagePreference(context, group);
+            Preference preference = new PermissionUsagePreference(context, group, null, false);
             preference.setKey(group.getName());
             Drawable icon = Utils.loadDrawable(context.getPackageManager(),
                     group.getIconPkg(), group.getIconResId());
@@ -215,6 +229,12 @@ public final class AppPermissionsFragment extends SettingsWithHeader {
                 preference.setSummary(
                         context.getString(R.string.app_permission_most_recent_summary,
                                 timeDiffStr));
+            } else if (group.hasPermissionWithBackgroundMode()
+                    && group.areRuntimePermissionsGranted()) {
+                AppPermissionGroup backgroundGroup = group.getBackgroundPermissions();
+                if (backgroundGroup == null || !backgroundGroup.areRuntimePermissionsGranted()) {
+                    preference.setSummary(R.string.permission_access_only_foreground);
+                }
             }
 
             if (isPlatform) {
@@ -248,6 +268,17 @@ public final class AppPermissionsFragment extends SettingsWithHeader {
                     R.plurals.additional_permissions_more, count, count));
             PreferenceCategory category = extraPermsAreAllowed ? allowed : denied;
             category.addPreference(extraPerms);
+        }
+
+        if (allowed.getPreferenceCount() == 0) {
+            Preference empty = new Preference(context);
+            empty.setTitle(getString(R.string.no_permissions_allowed));
+            allowed.addPreference(empty);
+        }
+        if (denied.getPreferenceCount() == 0) {
+            Preference empty = new Preference(context);
+            empty.setTitle(getString(R.string.no_permissions_denied));
+            denied.addPreference(empty);
         }
 
         setLoading(false /* loading */, true /* animate */);

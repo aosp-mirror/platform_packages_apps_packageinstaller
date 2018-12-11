@@ -463,32 +463,38 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
             // Show/hide or set the text of the various text views.
             ((TextView) root.requireViewById(R.id.justification_header)).setText(
                     context.getString(R.string.permission_justification_header));
-            setUsageText(root.requireViewById(R.id.justification_sent_off_device), sentOffDevice,
+            setUsageText(root.requireViewById(R.id.justification_sent_off_device),
+                    root.requireViewById(R.id.justification_sent_off_device_text), sentOffDevice,
                     R.string.permission_justification_data_sent_off_device,
                     R.string.permission_justification_data_sent_off_device_user_triggered, context);
             setUsageText(root.requireViewById(R.id.justification_shared_with_third_party),
+                    root.requireViewById(R.id.justification_shared_with_third_party_text),
                     sharedWithThirdParty,
                     R.string.permission_justification_data_shared_with_third_party,
                     R.string.permission_justification_data_shared_with_third_party_user_triggered,
                     context);
             setUsageText(root.requireViewById(R.id.justification_used_for_monetization),
+                    root.requireViewById(R.id.justification_used_for_monetization_text),
                     usedForMonetization,
                     R.string.permission_justification_data_used_for_monetization,
                     R.string.permission_justification_data_used_for_monetization_user_triggered,
                     context);
-            TextView retentionTextView = root.requireViewById(R.id.justification_retention);
             if (retention == UsesPermissionInfo.RETENTION_NOT_RETAINED) {
-                retentionTextView.setVisibility(View.GONE);
+                root.requireViewById(R.id.justification_retention).setVisibility(View.GONE);
             } else if (retention == UsesPermissionInfo.RETENTION_USER_SELECTED) {
-                retentionTextView.setText(context.getString(
-                        R.string.permission_justification_data_retention_user_selected));
+                ((TextView) root.requireViewById(R.id.justification_retention_text)).setText(
+                        context.getString(
+                                R.string.permission_justification_data_retention_user_selected));
             } else if (retention == UsesPermissionInfo.RETENTION_SPECIFIED) {
-                retentionTextView.setText(context.getResources().getQuantityString(
-                        R.plurals.permission_justification_data_retention_specified, retentionWeeks,
-                        retentionWeeks));
+                ((TextView) root.requireViewById(R.id.justification_retention_text)).setText(
+                        context.getResources().getQuantityString(
+                                R.plurals.permission_justification_data_retention_specified,
+                                retentionWeeks,
+                                retentionWeeks));
             } else {
-                retentionTextView.setText(context.getString(
-                        R.string.permission_justification_data_retention_unlimited));
+                ((TextView) root.requireViewById(R.id.justification_retention_text)).setText(
+                        context.getString(
+                                R.string.permission_justification_data_retention_unlimited));
             }
         }
     }
@@ -528,6 +534,7 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
     /**
      * Set the text of the given view to one of the given values or hide it if necessary.
      *
+     * @param container the view that contains the given text view.
      * @param textView the TextView to change
      * @param value the value that controls which text to use
      * @param yesStrId the resId of the string to use if the usage is allowed
@@ -535,10 +542,10 @@ public class AppPermissionFragment extends PermissionsFrameFragment {
      * triggered actions.
      * @param context the context
      */
-    private void setUsageText(TextView textView, int value, int yesStrId, int userTriggeredStrId,
-            Context context) {
+    private void setUsageText(View container, TextView textView, int value, int yesStrId,
+            int userTriggeredStrId, Context context) {
         if (value == UsesPermissionInfo.USAGE_NO) {
-            textView.setVisibility(View.GONE);
+            container.setVisibility(View.GONE);
         } else if (value == UsesPermissionInfo.USAGE_USER_TRIGGERED) {
             textView.setText(context.getString(userTriggeredStrId));
         } else {

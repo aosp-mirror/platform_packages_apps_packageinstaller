@@ -19,8 +19,10 @@ package com.android.packageinstaller.permission.ui.handheld;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -37,12 +39,18 @@ import com.android.permissioncontroller.R;
 public class PermissionUsagePreference extends Preference {
     private final @NonNull AppPermissionGroup mGroup;
     private final @Nullable Drawable mWidgetIcon;
+    private final @NonNull Context mContext;
+    private final boolean mUseSmallerIcon;
+    private boolean mEllipsizeEnd;
 
     public PermissionUsagePreference(@NonNull Context context, @NonNull AppPermissionGroup group,
-            @Nullable Drawable widgetIcon) {
+            @Nullable Drawable widgetIcon, boolean useSmallerIcon) {
         super(context);
         mGroup = group;
         mWidgetIcon = widgetIcon;
+        mContext = context;
+        mUseSmallerIcon = useSmallerIcon;
+        mEllipsizeEnd = false;
         if (mWidgetIcon != null) {
             setWidgetLayoutResource(R.layout.image_view);
         }
@@ -56,16 +64,36 @@ public class PermissionUsagePreference extends Preference {
         });
     }
 
-    public PermissionUsagePreference(@NonNull Context context, @NonNull AppPermissionGroup group) {
-        this(context, group, null);
+    /**
+     * Sets this preference's title to use an ellipsis at the end.
+     *
+     * Note that this must be called before preference layout to take effect.
+     */
+    public void setEllipsizeEnd() {
+        mEllipsizeEnd = true;
     }
 
     @Override
     public void onBindViewHolder(PreferenceViewHolder holder) {
+        if (mUseSmallerIcon) {
+            ImageView icon = ((ImageView) holder.findViewById(android.R.id.icon));
+            icon.setMaxWidth(
+                    mContext.getResources().getDimensionPixelSize(R.dimen.secondary_app_icon_size));
+            icon.setMaxHeight(
+                    mContext.getResources().getDimensionPixelSize(R.dimen.secondary_app_icon_size));
+        }
+
         super.onBindViewHolder(holder);
+
         if (mWidgetIcon != null) {
             View widgetFrame = holder.findViewById(android.R.id.widget_frame);
             ((ImageView) widgetFrame.findViewById(R.id.icon)).setImageDrawable(mWidgetIcon);
+        }
+
+        if (mEllipsizeEnd) {
+            TextView title = (TextView) holder.findViewById(android.R.id.title);
+            title.setMaxLines(1);
+            title.setEllipsize(TextUtils.TruncateAt.END);
         }
     }
 }
