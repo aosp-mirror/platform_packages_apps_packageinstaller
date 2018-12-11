@@ -17,12 +17,9 @@
 package com.android.packageinstaller.role.ui;
 
 import android.app.Activity;
-import android.app.role.RoleManager;
-import android.app.role.RoleManagerCallback;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.os.Bundle;
-import android.os.Process;
 import android.os.UserHandle;
 import android.util.ArrayMap;
 import android.util.Log;
@@ -59,7 +56,7 @@ public class DefaultAppFragment extends SettingsFragment
 
     private Role mRole;
 
-    private RoleViewModel mViewModel;
+    private DefaultAppViewModel mViewModel;
 
     /**
      * Create a new instance of this fragment.
@@ -92,9 +89,10 @@ public class DefaultAppFragment extends SettingsFragment
         mRole = Roles.getRoles(activity).get(mRoleName);
         activity.setTitle(mRole.getLabelResource());
 
-        mViewModel = ViewModelProviders.of(this, new RoleViewModel.Factory(mRole,
-                activity.getApplication())).get(RoleViewModel.class);
-        mViewModel.getLiveData().observe(this, this::onRoleInfoChanged);
+        mViewModel = ViewModelProviders.of(this, new DefaultAppViewModel.Factory(mRole,
+                activity.getApplication())).get(DefaultAppViewModel.class);
+        mViewModel.getRoleLiveData().observe(this, this::onRoleInfoChanged);
+        mViewModel.getAddRoleHolderStateLiveData().observe(this, this::onAddRoleHolderStateChanged);
     }
 
     @Override
@@ -151,28 +149,31 @@ public class DefaultAppFragment extends SettingsFragment
         updateState();
     }
 
+    private void onAddRoleHolderStateChanged(int state) {
+        AddRoleHolderStateLiveData addRoleHolderStateLiveData =
+                mViewModel.getAddRoleHolderStateLiveData();
+        switch (state) {
+            case AddRoleHolderStateLiveData.STATE_SUCCESS:
+                addRoleHolderStateLiveData.resetState();
+                break;
+            case AddRoleHolderStateLiveData.STATE_FAILURE:
+                // TODO: STOPSHIP: Notify user.
+                addRoleHolderStateLiveData.resetState();
+                break;
+        }
+    }
+
     @Override
     public boolean onPreferenceClick(@NonNull Preference preference) {
-        // TODO: STOPSHIP: Support multiple role holders.
+        AddRoleHolderStateLiveData addRoleHolderStateLiveData =
+                mViewModel.getAddRoleHolderStateLiveData();
+        if (addRoleHolderStateLiveData.getValue() != AddRoleHolderStateLiveData.STATE_IDLE) {
+            Log.i(LOG_TAG, "Trying to set default app while another request is on-going");
+            return true;
+        }
+
         String packageName = preference.getKey();
-        Log.i(LOG_TAG, "Adding application as role holder, role: " + mRoleName + ", package: "
-                + packageName);
-        Context context = requireContext();
-        RoleManager roleManager = context.getSystemService(RoleManager.class);
-        roleManager.addRoleHolderAsUser(mRoleName, packageName, Process.myUserHandle(),
-                context.getMainExecutor(), new RoleManagerCallback() {
-                    @Override
-                    public void onSuccess() {
-                        Log.i(LOG_TAG, "Added application as role holder, role: " + mRoleName
-                                + ", package: " + packageName);
-                    }
-                    @Override
-                    public void onFailure() {
-                        Log.i(LOG_TAG, "Failed to add application as role holder, role: "
-                                + mRoleName + ", package: " + packageName);
-                        // TODO: STOPSHIP: Notify user.
-                    }
-                });
+        addRoleHolderStateLiveData.addRoleHolder(mRoleName, packageName, requireContext());
         return true;
     }
 }
