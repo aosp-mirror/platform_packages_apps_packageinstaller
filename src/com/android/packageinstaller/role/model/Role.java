@@ -247,7 +247,7 @@ public class Role {
     }
 
     /**
-     * Revoke this role to an application.
+     * Revoke this role from an application.
      *
      * @param packageName the package name of the application to be granted this role to
      * @param mayKillApp whether this application may be killed due to changes

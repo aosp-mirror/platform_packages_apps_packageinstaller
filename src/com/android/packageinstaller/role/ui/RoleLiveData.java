@@ -16,9 +16,12 @@
 
 package com.android.packageinstaller.role.ui;
 
+import android.app.role.OnRoleHoldersChangedListener;
 import android.app.role.RoleManager;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.os.Process;
+import android.os.UserHandle;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -34,7 +37,8 @@ import java.util.List;
 /**
  * {@link LiveData} for a role.
  */
-public class RoleLiveData extends AsyncTaskLiveData<RoleInfo> {
+public class RoleLiveData extends AsyncTaskLiveData<RoleInfo>
+        implements OnRoleHoldersChangedListener {
 
     private static final String LOG_TAG = RoleLiveData.class.getSimpleName();
 
@@ -44,7 +48,27 @@ public class RoleLiveData extends AsyncTaskLiveData<RoleInfo> {
     public RoleLiveData(@NonNull Role role, @NonNull Context context) {
         mRole = role;
         mContext = context;
+    }
 
+    @Override
+    protected void onActive() {
+        loadValue();
+
+        RoleManager roleManager = mContext.getSystemService(RoleManager.class);
+        // TODO: STOPSHIP: Handle work profile?
+        roleManager.addOnRoleHoldersChangedListenerAsUser(mContext.getMainExecutor(), this,
+                Process.myUserHandle());
+    }
+
+    @Override
+    protected void onInactive() {
+        RoleManager roleManager = mContext.getSystemService(RoleManager.class);
+        // TODO: STOPSHIP: Handle work profile?
+        roleManager.removeOnRoleHoldersChangedListenerAsUser(this, Process.myUserHandle());
+    }
+
+    @Override
+    public void onRoleHoldersChanged(@NonNull String roleName, @NonNull UserHandle user) {
         loadValue();
     }
 

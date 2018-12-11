@@ -124,6 +124,10 @@ public class RoleControllerServiceImpl extends RoleControllerService {
 
     @Override
     public void onGrantDefaultRoles(@NonNull RoleManagerCallback callback) {
+        if (callback == null) {
+            Log.e(LOG_TAG, "callback cannot be null");
+            return;
+        }
         ArrayMap<String, Role> roles = Roles.getRoles(this);
         // TODO: Clean up holders of roles that will be removed.
         List<String> roleNames = new ArrayList<>(roles.keySet());
