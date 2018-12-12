@@ -177,7 +177,7 @@ public class AppPermissionFragment extends SettingsWithButtonHeader {
             return root;
         }
 
-        String appLabel = Utils.getAppLabel(mGroup.getApp().applicationInfo, context);
+        String appLabel = Utils.getFullAppLabel(mGroup.getApp().applicationInfo, context);
         setHeader(getAppIcon(), appLabel);
         updateHeader(root.requireViewById(R.id.button_header));
 

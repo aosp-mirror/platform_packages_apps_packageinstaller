@@ -330,7 +330,7 @@ public final class Utils {
     }
 
     /**
-     * Get the label for an application.
+     * Get the label for an application, truncating if it is too long.
      *
      * @param applicationInfo the {@link ApplicationInfo} of the application
      * @param context the {@code Context} to retrieve {@code PackageManager}
@@ -340,8 +340,37 @@ public final class Utils {
     @NonNull
     public static String getAppLabel(@NonNull ApplicationInfo applicationInfo,
             @NonNull Context context) {
+        return getAppLabel(applicationInfo, DEFAULT_MAX_LABEL_SIZE_PX, context);
+    }
+
+    /**
+     * Get the full label for an application without truncation.
+     *
+     * @param applicationInfo the {@link ApplicationInfo} of the application
+     * @param context the {@code Context} to retrieve {@code PackageManager}
+     *
+     * @return the label for the application
+     */
+    @NonNull
+    public static String getFullAppLabel(@NonNull ApplicationInfo applicationInfo,
+            @NonNull Context context) {
+        return getAppLabel(applicationInfo, 0, context);
+    }
+
+    /**
+     * Get the label for an application with the ability to control truncating.
+     *
+     * @param applicationInfo the {@link ApplicationInfo} of the application
+     * @param ellipsizeDip see {@link TextUtils#makeSafeForPresentation}.
+     * @param context the {@code Context} to retrieve {@code PackageManager}
+     *
+     * @return the label for the application
+     */
+    @NonNull
+    private static String getAppLabel(@NonNull ApplicationInfo applicationInfo, float ellipsizeDip,
+            @NonNull Context context) {
         return BidiFormatter.getInstance().unicodeWrap(applicationInfo.loadSafeLabel(
-                context.getPackageManager(), DEFAULT_MAX_LABEL_SIZE_PX,
+                context.getPackageManager(), ellipsizeDip,
                 TextUtils.SAFE_STRING_FLAG_TRIM | TextUtils.SAFE_STRING_FLAG_FIRST_LINE)
                 .toString());
     }

@@ -20,7 +20,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.ArraySet;
 import android.view.Menu;
@@ -269,8 +268,7 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
             PermissionControlPreference pref = new PermissionControlPreference(context, group);
             pref.setKey(key);
             pref.setIcon(app.getIcon());
-            pref.setTitle(app.getAppInfo().loadSafeLabel(context.getPackageManager(), 0,
-                    TextUtils.SAFE_STRING_FLAG_TRIM | TextUtils.SAFE_STRING_FLAG_FIRST_LINE));
+            pref.setTitle(Utils.getFullAppLabel(app.getAppInfo(), context));
             pref.setEllipsizeEnd();
             pref.useSmallerIcon();
             pref.setGroupSummary(group);
