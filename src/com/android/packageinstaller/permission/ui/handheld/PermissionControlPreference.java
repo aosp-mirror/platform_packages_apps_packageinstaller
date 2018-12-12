@@ -101,7 +101,7 @@ public class PermissionControlPreference extends Preference {
         if (group.hasPermissionWithBackgroundMode() && group.areRuntimePermissionsGranted()) {
             AppPermissionGroup backgroundGroup = group.getBackgroundPermissions();
             if (backgroundGroup == null || !backgroundGroup.areRuntimePermissionsGranted()) {
-                setSummary(R.string.permission_access_only_foreground);
+                setSummary(R.string.permission_subtitle_only_in_foreground);
                 return;
             }
         }
