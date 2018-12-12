@@ -17,6 +17,7 @@
 package com.android.packageinstaller.role.model;
 
 import android.app.ActivityManager;
+import android.app.role.RoleManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
@@ -158,6 +159,8 @@ public class Role {
         for (int i = 0; i < requiredComponentsSize; i++) {
             RequiredComponent requiredComponent = mRequiredComponents.get(i);
             if (requiredComponent.getQualifyingComponentForPackage(packageName, context) == null) {
+                Log.w(LOG_TAG, packageName + " not qualified for " + mName
+                        + " due to missing " + requiredComponent);
                 return false;
             }
         }
@@ -264,13 +267,30 @@ public class Role {
      */
     public void revoke(@NonNull String packageName, boolean mayKillApp,
             boolean overrideSystemFixedPermissions, @NonNull Context context) {
-        boolean permissionOrAppOpChanged = Permissions.revoke(packageName, mPermissions,
+        List<String> remainingRolesHeld = context.getSystemService(RoleManager.class)
+                .getHeldRolesFromController(packageName);
+        remainingRolesHeld.remove(mName);
+
+        // Revoke permissions
+        ArrayMap<String, Role> roles = Roles.getRoles(context);
+        List<String> permissionsToRevoke = new ArrayList<>(mPermissions);
+        int size = remainingRolesHeld.size();
+        for (int i = 0; i < size; i++) {
+            String remainingRole = remainingRolesHeld.get(i);
+            permissionsToRevoke.removeAll(roles.get(remainingRole).getPermissions());
+        }
+        boolean permissionOrAppOpChanged = Permissions.revoke(packageName, permissionsToRevoke,
                 overrideSystemFixedPermissions, context);
 
-        int appOpsSize = mAppOps.size();
+        // Revoke appops
+        List<AppOp> appOpsToRevoke = new ArrayList<>(mAppOps);
+        size = remainingRolesHeld.size();
+        for (int i = 0; i < size; i++) {
+            appOpsToRevoke.removeAll(roles.get(remainingRolesHeld.get(i)).getAppOps());
+        }
+        int appOpsSize = appOpsToRevoke.size();
         for (int i = 0; i < appOpsSize; i++) {
-            AppOp appOp = mAppOps.get(i);
-            permissionOrAppOpChanged |= appOp.revoke(packageName, context);
+            permissionOrAppOpChanged |= appOpsToRevoke.get(i).revoke(packageName, context);
         }
 
         // TODO: STOPSHIP: Revoke preferred activities?
