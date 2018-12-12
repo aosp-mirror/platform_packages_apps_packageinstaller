@@ -417,8 +417,11 @@
     <!-- Label when there is no default apps [CHAR LIMIT=30] -->
     <string name="no_default_apps">No default apps</string>
 
-    <!-- Label when there are no apps for a default app [CHAR LIMIT=30] -->
-    <string name="no_apps_for_default_app">No apps</string>
+    <!-- Summary of a default app when there is no app set [CHAR LIMIT=60] -->
+    <string name="default_app_none">None</string>
+
+    <!-- Label when there are no apps available for a default app [CHAR LIMIT=30] -->
+    <string name="default_app_no_apps">No apps</string>
 
     <!-- TODO: STOPSHIP: Migrate all default app titles from packages/apps/Settings/res/values/strings.xml . -->
 

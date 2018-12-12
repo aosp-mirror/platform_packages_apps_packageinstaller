@@ -18,6 +18,8 @@ package com.android.packageinstaller.permission.service;
 
 import static android.content.pm.PackageManager.GET_PERMISSIONS;
 
+import static com.android.packageinstaller.permission.utils.Utils.getLauncherPackages;
+import static com.android.packageinstaller.permission.utils.Utils.isSystem;
 import static com.android.packageinstaller.permission.utils.Utils.shouldShowPermission;
 
 import android.content.Context;
@@ -25,6 +27,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.permission.RuntimePermissionPresentationInfo;
 import android.permission.RuntimePermissionPresenterService;
+import android.util.ArraySet;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -108,5 +111,57 @@ public final class RuntimePermissionPresenterServiceImpl extends RuntimePermissi
         } catch (PackageManager.NameNotFoundException e) {
             Log.e(LOG_TAG, "Error getting package:" + packageName, e);
         }
+    }
+
+    @Override
+    public int onCountPermissionApps(@NonNull List<String> permissionNames,
+            boolean countOnlyGranted, boolean countSystem) {
+        final List<PackageInfo> pkgs = getPackageManager().getInstalledPackages(GET_PERMISSIONS);
+        final ArraySet<String> launcherPkgs = getLauncherPackages(this);
+
+        int numApps = 0;
+
+        final int numPkgs = pkgs.size();
+        for (int pkgNum = 0; pkgNum < numPkgs; pkgNum++) {
+            final PackageInfo pkg = pkgs.get(pkgNum);
+
+            if (!countSystem && isSystem(pkg.applicationInfo, launcherPkgs)) {
+                continue;
+            }
+
+            final int numPerms = permissionNames.size();
+            for (int permNum = 0; permNum < numPerms; permNum++) {
+                final String perm = permissionNames.get(permNum);
+
+                final AppPermissionGroup group = AppPermissionGroup.create(this, pkg,
+                        permissionNames.get(permNum), true);
+                if (group == null || !shouldShowPermission(this, group)) {
+                    continue;
+                }
+
+                AppPermissionGroup subGroup = null;
+                if (group.hasPermission(perm)) {
+                    subGroup = group;
+                } else {
+                    AppPermissionGroup bgGroup = group.getBackgroundPermissions();
+                    if (bgGroup != null && bgGroup.hasPermission(perm)) {
+                        subGroup = group;
+                    }
+                }
+
+                if (subGroup != null) {
+                    if (!countOnlyGranted || subGroup.areRuntimePermissionsGranted()) {
+                        // The permission might not be granted, but some permissions of the group
+                        // are granted. In this case the permission is granted silently when the app
+                        // asks for it.
+                        // Hence this is as-good-as-granted and we count it.
+                        numApps++;
+                        break;
+                    }
+                }
+            }
+        }
+
+        return numApps;
     }
 }

@@ -95,7 +95,8 @@
     <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Акыркы 15 мүнөттө"</string>
     <string name="no_permission_usages" msgid="698858628357371611">"Уруксаттар колдонулган жок"</string>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"Колдонмонун уруксаттарын пайдалануу"</string>
-    <string name="app_permission_usage_summary" msgid="3430707165417747223">"<xliff:g id="TIME">%1$s</xliff:g> мурун"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"Кирүү: <xliff:g id="NUM">%1$s</xliff:g> жолу. Жалпы колдонулган убакыт: <xliff:g id="DURATION">%2$s</xliff:g>. Акыркы жолу <xliff:g id="TIME">%3$s</xliff:g> колдонулган."</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Кирүү: <xliff:g id="NUM">%1$s</xliff:g> жолу. Акыркы жолу <xliff:g id="TIME">%2$s</xliff:g> колдонулган."</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Уруксат берүү"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Бардык учурда уруксат берүү"</string>
     <string name="app_permission_button_allow_foreground" msgid="6366222217615376397">"Колдонмо пайдаланылып жаткан учурда гана уруксат берүү"</string>
@@ -103,15 +104,11 @@
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> дайындарына уруксаттар"</string>
     <string name="app_permission_header" msgid="5704679725169517493">"<xliff:g id="APP">%2$s</xliff:g> үчүн <xliff:g id="PERM">%1$s</xliff:g> дайындарына кирүү"</string>
     <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="PERM">%2$s</xliff:g> дайындарыңызга <xliff:g id="TIME">%3$s</xliff:g> мурун кирген."</string>
-    <!-- no translation found for app_permission_footer_no_usages (8176256750330679454) -->
-    <skip />
+    <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="PERM">%2$s</xliff:g> уруксаттарыңызга кирген жок."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Уруксаттардын колдонулушун чоо-жайы менен көрүү"</string>
-    <!-- no translation found for app_permission_most_recent_summary (6866863855248795166) -->
-    <skip />
-    <!-- no translation found for allowed_header (6279244592227088158) -->
-    <skip />
-    <!-- no translation found for denied_header (2277998574238617699) -->
-    <skip />
+    <string name="app_permission_most_recent_summary" msgid="6866863855248795166">"Эң акыркы жолу <xliff:g id="TIME">%1$s</xliff:g> мурун кирген"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"Уруксат берилген"</string>
+    <string name="denied_header" msgid="2277998574238617699">"Четке кагылды"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> күн</item>
       <item quantity="one">1 күн</item>
@@ -136,36 +133,35 @@
     <skip />
     <!-- no translation found for background_location_access_reminder_notification_content (2715202570602748060) -->
     <skip />
-    <!-- no translation found for default_apps (8554530939151957828) -->
+    <string name="permission_justification_header" msgid="8855642235625782751">"Колдонмону иштеп чыгуучулардын айтышы боюнча, дайындарыңыз төмөнкүдөй болушу мүмкүн:"</string>
+    <string name="permission_justification_footer" msgid="4098097763461100468">"Бул колдонмону иштеп чыгуучунун дайындарыңызды кандайча колдонгонун жактырбасаңыз, уруксаттардан баш тартсаңыз болот."</string>
+    <string name="permission_justification_data_sent_off_device" msgid="2503905652716735222">"Булутка жүктөлүп берилет"</string>
+    <string name="permission_justification_data_sent_off_device_user_triggered" msgid="4122793147247661083">"Уруксат берсеңиз, булутка жүктөлүп берилет"</string>
+    <string name="permission_justification_data_shared_with_third_party" msgid="5249440580654050831">"Жарнамачылар жана компаниялар менен бөлүшүлөт"</string>
+    <string name="permission_justification_data_shared_with_third_party_user_triggered" msgid="2920721327430861150">"Уруксат берсеңиз, жарнамачылар жана компаниялар менен бөлүшүлөт"</string>
+    <string name="permission_justification_data_used_for_monetization" msgid="3098933808750278119">"Акча табуу үчүн колдонулат"</string>
+    <string name="permission_justification_data_used_for_monetization_user_triggered" msgid="8264335769735917408">"Сиз уруксат бергенде, акча табууга колдонулат"</string>
+    <string name="permission_justification_data_retention_unlimited" msgid="3921406322987911863">"Түбөлүккө сакталат жана талдалат"</string>
+    <string name="permission_justification_data_retention_user_selected" msgid="7440816502916014127">"Сиз көрсөткөн узактыкка сакталган жана талдалган"</string>
+    <plurals name="permission_justification_data_retention_specified" formatted="false" msgid="4132895033914113182">
+      <item quantity="other"><xliff:g id="NUM_WEEKS">%s</xliff:g> аптага сакталып, талдалат</item>
+      <item quantity="one">1 аптага сакталып, талдалат</item>
+    </plurals>
+    <string name="permission_justification_undefined" msgid="5711347441966109267">"Колдонмону иштеп чыгуучу колдонмо дайындарыңызды кандайча колдонгонун көрсөткөн жок."</string>
+    <!-- no translation found for no_permissions_allowed (5781278485002145993) -->
     <skip />
-    <!-- no translation found for no_default_apps (5642715159090903032) -->
+    <!-- no translation found for no_permissions_denied (2449583707612365442) -->
     <skip />
+    <!-- no translation found for no_apps_allowed (4529095928504611810) -->
+    <skip />
+    <!-- no translation found for no_apps_denied (2736758388618487796) -->
+    <skip />
+    <string name="default_apps" msgid="8554530939151957828">"Демейки колдонмолор"</string>
+    <string name="no_default_apps" msgid="5642715159090903032">"Демейки колдонмолор жок"</string>
+    <string name="no_apps_for_default_app" msgid="5671673478949659841">"Бир да колдонмо жок"</string>
     <string name="role_label_dialer" msgid="3345895090725237533">"¨Телефон\" колдонмосу"</string>
     <string name="role_label_sms" msgid="2262769075496017522">"\"SMS\" колдонмосу"</string>
     <string name="role_label_browser" msgid="6266502234308421457">"\"Серепчи\" колдонмосу"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"Галерея колдонмосу"</string>
     <string name="role_label_music" msgid="5900245414865932272">"Музыка колдонмосу"</string>
-    <!-- no translation found for permission_justification_header (8855642235625782751) -->
-    <skip />
-    <!-- no translation found for permission_justification_footer (4098097763461100468) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_sent_off_device (2503905652716735222) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_sent_off_device_user_triggered (4122793147247661083) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_shared_with_third_party (5249440580654050831) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_shared_with_third_party_user_triggered (2920721327430861150) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_used_for_monetization (3098933808750278119) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_used_for_monetization_user_triggered (8264335769735917408) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_retention_unlimited (3921406322987911863) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_retention_user_selected (7440816502916014127) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_retention_specified (4132895033914113182) -->
-    <!-- no translation found for permission_justification_undefined (5711347441966109267) -->
-    <skip />
 </resources>

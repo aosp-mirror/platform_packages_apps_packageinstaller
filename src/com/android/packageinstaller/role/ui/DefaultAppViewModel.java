@@ -26,26 +26,35 @@ import androidx.lifecycle.ViewModelProvider;
 import com.android.packageinstaller.role.model.Role;
 
 /**
- * {@link ViewModel} for a role.
+ * {@link ViewModel} for a default app.
  */
-public class RoleViewModel extends AndroidViewModel {
+public class DefaultAppViewModel extends AndroidViewModel {
 
     @NonNull
-    private final RoleLiveData mLiveData;
+    private final RoleLiveData mRoleLiveData;
 
-    public RoleViewModel(@NonNull Role role, @NonNull Application application) {
+    @NonNull
+    private final AddRoleHolderStateLiveData mAddRoleHolderStateLiveData =
+            new AddRoleHolderStateLiveData();
+
+    public DefaultAppViewModel(@NonNull Role role, @NonNull Application application) {
         super(application);
 
-        mLiveData = new RoleLiveData(role, application);
+        mRoleLiveData = new RoleLiveData(role, application);
     }
 
     @NonNull
-    public RoleLiveData getLiveData() {
-        return mLiveData;
+    public RoleLiveData getRoleLiveData() {
+        return mRoleLiveData;
+    }
+
+    @NonNull
+    public AddRoleHolderStateLiveData getAddRoleHolderStateLiveData() {
+        return mAddRoleHolderStateLiveData;
     }
 
     /**
-     * {@link ViewModelProvider.Factory} for {@link RoleViewModel}.
+     * {@link ViewModelProvider.Factory} for {@link DefaultAppViewModel}.
      */
     public static class Factory implements ViewModelProvider.Factory {
 
@@ -64,7 +73,7 @@ public class RoleViewModel extends AndroidViewModel {
         @Override
         public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
             //noinspection unchecked
-            return (T) new RoleViewModel(mRole, mApplication);
+            return (T) new DefaultAppViewModel(mRole, mApplication);
         }
     }
 }

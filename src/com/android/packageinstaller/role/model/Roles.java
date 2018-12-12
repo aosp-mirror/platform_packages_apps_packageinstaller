@@ -76,6 +76,7 @@ public class Roles {
     private static final String ATTRIBUTE_SCHEME = "scheme";
     private static final String ATTRIBUTE_MIME_TYPE = "mimeType";
     private static final String ATTRIBUTE_VALUE = "value";
+    private static final String ATTRIBUTE_OPTIONAL = "optional";
     private static final String ATTRIBUTE_MODE = "mode";
 
     private static final String MODE_NAME_ALLOWED = "allowed";
@@ -410,7 +411,11 @@ public class Roles {
             @NonNull String name) throws IOException, XmlPullParserException {
         String permission = getAttributeValue(parser, ATTRIBUTE_PERMISSION);
         IntentFilterData intentFilterData = null;
-        ArrayMap<String, Object> metaData = new ArrayMap<>();
+        List<RequiredMetaData> metaData = new ArrayList<>();
+        List<String> metaDataNames;
+        if (DEBUG) {
+            metaDataNames = new ArrayList<>();
+        }
 
         int type;
         int depth;
@@ -437,7 +442,9 @@ public class Roles {
                     if (metaDataName == null) {
                         continue;
                     }
-                    checkDuplicateElement(metaDataName, metaData.keySet(), "meta data");
+                    if (DEBUG) {
+                        checkDuplicateElement(metaDataName, metaDataNames, "meta data");
+                    }
                     // HACK: Only support boolean for now.
                     // TODO: Support android:resource and other types of android:value, maybe by
                     // switching to TypedArray and styleables.
@@ -446,7 +453,14 @@ public class Roles {
                     if (metaDataValue == null) {
                         continue;
                     }
-                    metaData.put(metaDataName, metaDataValue);
+                    boolean metaDataOptional = getAttributeBooleanValue(parser, ATTRIBUTE_OPTIONAL,
+                            false);
+                    RequiredMetaData requiredMetaData = new RequiredMetaData(metaDataName,
+                            metaDataValue, metaDataOptional);
+                    metaData.add(requiredMetaData);
+                    if (DEBUG) {
+                        metaDataNames.add(metaDataName);
+                    }
                     break;
                 default:
                     throwOrLogForUnknownTag(parser);
