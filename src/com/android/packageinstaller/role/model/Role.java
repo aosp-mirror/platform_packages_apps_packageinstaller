@@ -20,6 +20,7 @@ import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.os.UserHandle;
 import android.util.ArrayMap;
 import android.util.Log;
 
@@ -160,15 +161,17 @@ public class Role {
     }
 
     /**
-     * Get the set of packages that are qualified for this role, i.e. packages containing all the
+     * Get the list of packages that are qualified for this role, i.e. packages containing all the
      * required components.
      *
+     * @param user the user to get the qualifying packages.
      * @param context the {@code Context} to retrieve system services
      *
      * @return the set of packages that are qualified for this role
      */
     @NonNull
-    public List<String> getQualifyingPackages(@NonNull Context context) {
+    public List<String> getQualifyingPackagesAsUser(@NonNull UserHandle user,
+            @NonNull Context context) {
         ArrayMap<String, Integer> packageComponentCountMap = new ArrayMap<>();
         int requiredComponentsSize = mRequiredComponents.size();
         for (int requiredComponentsIndex = 0; requiredComponentsIndex < requiredComponentsSize;
@@ -176,8 +179,8 @@ public class Role {
             RequiredComponent requiredComponent = mRequiredComponents.get(requiredComponentsIndex);
 
             // This returns at most one component per package.
-            List<ComponentName> qualifyingComponents = requiredComponent.getQualifyingComponents(
-                    context);
+            List<ComponentName> qualifyingComponents =
+                    requiredComponent.getQualifyingComponentsAsUser(user, context);
             int qualifyingComponentsSize = qualifyingComponents.size();
             for (int qualifyingComponentsIndex = 0;
                     qualifyingComponentsIndex < qualifyingComponentsSize;
