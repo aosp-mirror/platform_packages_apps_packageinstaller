@@ -99,7 +99,8 @@
     <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"آخر 15 دقيقة"</string>
     <string name="no_permission_usages" msgid="698858628357371611">"لم يتمّ استخدام الأذونات"</string>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"استخدام أذونات التطبيق"</string>
-    <string name="app_permission_usage_summary" msgid="3430707165417747223">"قبل <xliff:g id="TIME">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"استخدام الإذن: <xliff:g id="NUM">%1$s</xliff:g> مرّة إجمالي المدّة: <xliff:g id="DURATION">%2$s</xliff:g>. آخر استخدام قبل <xliff:g id="TIME">%3$s</xliff:g>."</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"استخدام الإذن: <xliff:g id="NUM">%1$s</xliff:g> مرّة آخر استخدام قبل <xliff:g id="TIME">%2$s</xliff:g>."</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"سماح"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"السماح طوال الوقت"</string>
     <string name="app_permission_button_allow_foreground" msgid="6366222217615376397">"السماح فقط أثناء استخدام التطبيق"</string>
@@ -107,15 +108,11 @@
     <string name="app_permission_title" msgid="2453000050669052385">"إذن <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="5704679725169517493">"إذن <xliff:g id="PERM">%1$s</xliff:g> الممنوح للتطبيق <xliff:g id="APP">%2$s</xliff:g>"</string>
     <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"قبل <xliff:g id="TIME">%3$s</xliff:g>، استخدَم تطبيق <xliff:g id="APP">%1$s</xliff:g> إذن <xliff:g id="PERM">%2$s</xliff:g> الذي منحته."</string>
-    <!-- no translation found for app_permission_footer_no_usages (8176256750330679454) -->
-    <skip />
+    <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"لم يحصل تطبيق <xliff:g id="APP">%1$s</xliff:g> على إذن <xliff:g id="PERM">%2$s</xliff:g>."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"عرض تفاصيل استخدام الأذونات"</string>
-    <!-- no translation found for app_permission_most_recent_summary (6866863855248795166) -->
-    <skip />
-    <!-- no translation found for allowed_header (6279244592227088158) -->
-    <skip />
-    <!-- no translation found for denied_header (2277998574238617699) -->
-    <skip />
+    <string name="app_permission_most_recent_summary" msgid="6866863855248795166">"أحدث دخول إلى البيانات كان قبل <xliff:g id="TIME">%1$s</xliff:g>."</string>
+    <string name="allowed_header" msgid="6279244592227088158">"التطبيقات أو الأذونات المسموح بها"</string>
+    <string name="denied_header" msgid="2277998574238617699">"التطبيقات أو الأذونات المرفوضة"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="zero"><xliff:g id="NUMBER">%s</xliff:g> يوم</item>
       <item quantity="two">يومان (<xliff:g id="NUMBER">%s</xliff:g>)</item>
@@ -156,36 +153,39 @@
     <skip />
     <!-- no translation found for background_location_access_reminder_notification_content (2715202570602748060) -->
     <skip />
-    <!-- no translation found for default_apps (8554530939151957828) -->
+    <string name="permission_justification_header" msgid="8855642235625782751">"يشير مطوّر التطبيق إلى احتمالية إجراء ما يلي بشأن البيانات:"</string>
+    <string name="permission_justification_footer" msgid="4098097763461100468">"إذا لم تعجبك طريقة استخدام مطوّر هذا التطبيق لبياناتك، يمكنك رفض الإذن."</string>
+    <string name="permission_justification_data_sent_off_device" msgid="2503905652716735222">"يتم تحميل البيانات إلى السحابة الإلكترونية."</string>
+    <string name="permission_justification_data_sent_off_device_user_triggered" msgid="4122793147247661083">"يتم تحميل البيانات إلى السحابة الإلكترونية عند السماح بذلك بوضوح."</string>
+    <string name="permission_justification_data_shared_with_third_party" msgid="5249440580654050831">"تتم مشاركة البيانات مع المعلنين أو الأنشطة التجارية."</string>
+    <string name="permission_justification_data_shared_with_third_party_user_triggered" msgid="2920721327430861150">"تتم مشاركة البيانات مع المعلنين أو الأنشطة التجارية عند السماح بذلك بوضوح."</string>
+    <string name="permission_justification_data_used_for_monetization" msgid="3098933808750278119">"يتم استخدام البيانات لتحقيق الربح المادي."</string>
+    <string name="permission_justification_data_used_for_monetization_user_triggered" msgid="8264335769735917408">"يتم استخدام الإذن لتحقيق ربح مادي عند السماح بذلك بوضوح."</string>
+    <string name="permission_justification_data_retention_unlimited" msgid="3921406322987911863">"يتم تحليل البيانات وحفظها إلى الأبد."</string>
+    <string name="permission_justification_data_retention_user_selected" msgid="7440816502916014127">"يتم تحليل البيانات وحفظها للمدة التي تحدّدها."</string>
+    <plurals name="permission_justification_data_retention_specified" formatted="false" msgid="4132895033914113182">
+      <item quantity="zero">يتم تحليل البيانات وحفظها لمدة <xliff:g id="NUM_WEEKS">%s</xliff:g> أسبوع.​</item>
+      <item quantity="two">يتم تحليل البيانات وحفظها لمدة أسبوعين (<xliff:g id="NUM_WEEKS">%s</xliff:g>).</item>
+      <item quantity="few">يتم تحليل البيانات وحفظها لمدة <xliff:g id="NUM_WEEKS">%s</xliff:g> أسابيع.</item>
+      <item quantity="many">يتم تحليل البيانات وحفظها لمدة <xliff:g id="NUM_WEEKS">%s</xliff:g> أسبوعًا.</item>
+      <item quantity="other">يتم تحليل البيانات وحفظها لمدة <xliff:g id="NUM_WEEKS">%s</xliff:g> أسبوع.​</item>
+      <item quantity="one">يتم تحليل البيانات وحفظها لمدة أسبوع واحد.</item>
+    </plurals>
+    <string name="permission_justification_undefined" msgid="5711347441966109267">"لم يحدّد المطوّر طريقة استخدام التطبيق للبيانات."</string>
+    <!-- no translation found for no_permissions_allowed (5781278485002145993) -->
     <skip />
-    <!-- no translation found for no_default_apps (5642715159090903032) -->
+    <!-- no translation found for no_permissions_denied (2449583707612365442) -->
     <skip />
+    <!-- no translation found for no_apps_allowed (4529095928504611810) -->
+    <skip />
+    <!-- no translation found for no_apps_denied (2736758388618487796) -->
+    <skip />
+    <string name="default_apps" msgid="8554530939151957828">"التطبيقات التلقائية"</string>
+    <string name="no_default_apps" msgid="5642715159090903032">"ليست هناك تطبيقات تلقائية."</string>
+    <string name="no_apps_for_default_app" msgid="5671673478949659841">"ليس هناك أيّ تطبيقات."</string>
     <string name="role_label_dialer" msgid="3345895090725237533">"تطبيق الهاتف"</string>
     <string name="role_label_sms" msgid="2262769075496017522">"‏تطبيق SMS"</string>
     <string name="role_label_browser" msgid="6266502234308421457">"تطبيق المتصفّح"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"تطبيق المعرض"</string>
     <string name="role_label_music" msgid="5900245414865932272">"تطبيق الموسيقى"</string>
-    <!-- no translation found for permission_justification_header (8855642235625782751) -->
-    <skip />
-    <!-- no translation found for permission_justification_footer (4098097763461100468) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_sent_off_device (2503905652716735222) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_sent_off_device_user_triggered (4122793147247661083) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_shared_with_third_party (5249440580654050831) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_shared_with_third_party_user_triggered (2920721327430861150) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_used_for_monetization (3098933808750278119) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_used_for_monetization_user_triggered (8264335769735917408) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_retention_unlimited (3921406322987911863) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_retention_user_selected (7440816502916014127) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_retention_specified (4132895033914113182) -->
-    <!-- no translation found for permission_justification_undefined (5711347441966109267) -->
-    <skip />
 </resources>

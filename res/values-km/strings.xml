@@ -95,7 +95,8 @@
     <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"15 នាទី​ចុងក្រោយ"</string>
     <string name="no_permission_usages" msgid="698858628357371611">"គ្មាន​ការប្រើប្រាស់​ការអនុញ្ញាត​ទេ"</string>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"ការប្រើប្រាស់​ការអនុញ្ញាត​កម្មវិធី"</string>
-    <string name="app_permission_usage_summary" msgid="3430707165417747223">"<xliff:g id="TIME">%1$s</xliff:g> មុន"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"ចូលប្រើ៖ <xliff:g id="NUM">%1$s</xliff:g> ដង។ រយៈពេល​សរុប៖ <xliff:g id="DURATION">%2$s</xliff:g>។ បានប្រើចុងក្រោយ <xliff:g id="TIME">%3$s</xliff:g> មុន។"</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"ចូលប្រើ៖ <xliff:g id="NUM">%1$s</xliff:g> ដង។ បានប្រើចុងក្រោយ <xliff:g id="TIME">%2$s</xliff:g> មុន។"</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"អនុញ្ញាត"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"អនុញ្ញាតគ្រប់ពេល"</string>
     <string name="app_permission_button_allow_foreground" msgid="6366222217615376397">"អនុញ្ញាត​ពេល​កំពុង​ប្រើប្រាស់​កម្មវិធីតែ​ប៉ុណ្ណោះ"</string>
@@ -103,15 +104,11 @@
     <string name="app_permission_title" msgid="2453000050669052385">"ការអនុញ្ញាត <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="5704679725169517493">"ការចូលប្រើ <xliff:g id="PERM">%1$s</xliff:g> សម្រាប់ <xliff:g id="APP">%2$s</xliff:g>"</string>
     <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="APP">%1$s</xliff:g> បាន​ចូលប្រើ <xliff:g id="PERM">%2$s</xliff:g> របស់អ្នកកាលពី <xliff:g id="TIME">%3$s</xliff:g> មុន។"</string>
-    <!-- no translation found for app_permission_footer_no_usages (8176256750330679454) -->
-    <skip />
+    <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> មិន​បាន​ចូលប្រើ <xliff:g id="PERM">%2$s</xliff:g> របស់អ្នក​ទេ។"</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"មើល​ការ​ប្រើប្រាស់​ការអនុញ្ញាត​លម្អិត"</string>
-    <!-- no translation found for app_permission_most_recent_summary (6866863855248795166) -->
-    <skip />
-    <!-- no translation found for allowed_header (6279244592227088158) -->
-    <skip />
-    <!-- no translation found for denied_header (2277998574238617699) -->
-    <skip />
+    <string name="app_permission_most_recent_summary" msgid="6866863855248795166">"ការចូល​ប្រើ​​ចុងក្រោយបំផុត <xliff:g id="TIME">%1$s</xliff:g> មុន"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"បាន​អនុញ្ញាត"</string>
+    <string name="denied_header" msgid="2277998574238617699">"បានបដិសេធ"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ថ្ងៃ</item>
       <item quantity="one">1 ថ្ងៃ</item>
@@ -136,36 +133,35 @@
     <skip />
     <!-- no translation found for background_location_access_reminder_notification_content (2715202570602748060) -->
     <skip />
-    <!-- no translation found for default_apps (8554530939151957828) -->
+    <string name="permission_justification_header" msgid="8855642235625782751">"អ្នក​អភិវឌ្ឍន៍​កម្មវិធី​និយាយ​ថា ទិន្នន័យរបស់អ្នក​អាច៖"</string>
+    <string name="permission_justification_footer" msgid="4098097763461100468">"ប្រសិនបើអ្នក​មិន​ពេញ​ចិត្ត​នឹងរបៀបដែល​អ្នក​អភិវឌ្ឍន៍​កម្មវិធី​កំពុង​ប្រើប្រាស់​ទិន្នន័យ​របស់អ្នក អ្នក​អាច​បដិសេធ​មិនឱ្យចូលប្រើ។"</string>
+    <string name="permission_justification_data_sent_off_device" msgid="2503905652716735222">"​បង្ហោះ​ទៅក្នុង​ពពក"</string>
+    <string name="permission_justification_data_sent_off_device_user_triggered" msgid="4122793147247661083">"បង្ហោះ​ទៅក្នុង​ពពក នៅពេល​អ្នក​អនុញ្ញាត​ច្បាស់​លាស់"</string>
+    <string name="permission_justification_data_shared_with_third_party" msgid="5249440580654050831">"​ចែករំលែក​ជាមួយ​អ្នកផ្សាយពាណិជ្ជកម្ម ឬ​អាជីវកម្ម​ផ្សេងៗ"</string>
+    <string name="permission_justification_data_shared_with_third_party_user_triggered" msgid="2920721327430861150">"​ចែករំលែក​ជាមួយ​អ្នកផ្សាយពាណិជ្ជកម្ម ឬ​អាជីវកម្ម​ផ្សេងៗ នៅពេល​អ្នក​អនុញ្ញាត​ច្បាស់​លាស់"</string>
+    <string name="permission_justification_data_used_for_monetization" msgid="3098933808750278119">"​ប្រើ​សម្រាប់​រកប្រាក់"</string>
+    <string name="permission_justification_data_used_for_monetization_user_triggered" msgid="8264335769735917408">"ប្រើ​សម្រាប់​រកប្រាក់ នៅពេល​អ្នក​អនុញ្ញាត​ច្បាស់​លាស់"</string>
+    <string name="permission_justification_data_retention_unlimited" msgid="3921406322987911863">"​រក្សា​ទុក និង​វិភាគ​ជារៀងរហូត"</string>
+    <string name="permission_justification_data_retention_user_selected" msgid="7440816502916014127">"​រក្សាទុក និងវិភាគ​ក្នុងរយៈពេលដែលអ្នកបញ្ជាក់"</string>
+    <plurals name="permission_justification_data_retention_specified" formatted="false" msgid="4132895033914113182">
+      <item quantity="other">​រក្សាទុក និងវិភាគ​រយៈពេល <xliff:g id="NUM_WEEKS">%s</xliff:g> សប្តាហ៍</item>
+      <item quantity="one">រក្សាទុក និងវិភាគ​រយៈពេល​ 1 សប្តាហ៍</item>
+    </plurals>
+    <string name="permission_justification_undefined" msgid="5711347441966109267">"អ្នក​អភិវឌ្ឍន៍​កម្មវិធី​មិន​បាន​បញ្ជាក់ថា កម្មវិធី​ប្រើប្រាស់​ទិន្នន័យ​របស់អ្នករបៀប​ណា​ទេ។"</string>
+    <!-- no translation found for no_permissions_allowed (5781278485002145993) -->
     <skip />
-    <!-- no translation found for no_default_apps (5642715159090903032) -->
+    <!-- no translation found for no_permissions_denied (2449583707612365442) -->
     <skip />
+    <!-- no translation found for no_apps_allowed (4529095928504611810) -->
+    <skip />
+    <!-- no translation found for no_apps_denied (2736758388618487796) -->
+    <skip />
+    <string name="default_apps" msgid="8554530939151957828">"កម្មវិធី​លំនាំដើម"</string>
+    <string name="no_default_apps" msgid="5642715159090903032">"គ្មានកម្មវិធីលំនាំដើមទេ"</string>
+    <string name="no_apps_for_default_app" msgid="5671673478949659841">"គ្មានកម្មវិធី​ទេ​"</string>
     <string name="role_label_dialer" msgid="3345895090725237533">"កម្មវិធីទូរសព្ទ"</string>
     <string name="role_label_sms" msgid="2262769075496017522">"កម្មវិធីផ្ញើសារ SMS"</string>
     <string name="role_label_browser" msgid="6266502234308421457">"កម្មវិធីរុករកតាមអ៊ីនធឺណិត"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"កម្មវិធីសាល​រូបភាព"</string>
     <string name="role_label_music" msgid="5900245414865932272">"កម្មវិធី​តន្រី្ត"</string>
-    <!-- no translation found for permission_justification_header (8855642235625782751) -->
-    <skip />
-    <!-- no translation found for permission_justification_footer (4098097763461100468) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_sent_off_device (2503905652716735222) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_sent_off_device_user_triggered (4122793147247661083) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_shared_with_third_party (5249440580654050831) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_shared_with_third_party_user_triggered (2920721327430861150) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_used_for_monetization (3098933808750278119) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_used_for_monetization_user_triggered (8264335769735917408) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_retention_unlimited (3921406322987911863) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_retention_user_selected (7440816502916014127) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_retention_specified (4132895033914113182) -->
-    <!-- no translation found for permission_justification_undefined (5711347441966109267) -->
-    <skip />
 </resources>

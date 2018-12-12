@@ -95,7 +95,10 @@
     <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"ಹಿಂದಿನ 15 ನಿಮಿಷಗಳು"</string>
     <string name="no_permission_usages" msgid="698858628357371611">"ಅನುಮತಿಯ ಬಳಕೆಗಳು ಇಲ್ಲ"</string>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"ಆ್ಯಪ್‌ ಅನುಮತಿಗಳ ಬಳಕೆ"</string>
-    <string name="app_permission_usage_summary" msgid="3430707165417747223">"<xliff:g id="TIME">%1$s</xliff:g> ನಿಮಿಷಗಳ ಹಿಂದೆ"</string>
+    <!-- no translation found for app_permission_usage_summary (8560461104458882198) -->
+    <skip />
+    <!-- no translation found for app_permission_usage_summary_no_duration (4040424337831328212) -->
+    <skip />
     <string name="app_permission_button_allow" msgid="1358817292836175593">"ಅನುಮತಿಸಿ"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"ಎಲ್ಲಾ ಸಮಯದಲ್ಲೂ ಅನುಮತಿಸಿ"</string>
     <string name="app_permission_button_allow_foreground" msgid="6366222217615376397">"ಆ್ಯಪ್ ಬಳಕೆಯಲ್ಲಿದ್ದಾಗ ಮಾತ್ರ ಅನುಮತಿಸಿ"</string>
@@ -103,15 +106,11 @@
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> ಅನುಮತಿ"</string>
     <string name="app_permission_header" msgid="5704679725169517493">"<xliff:g id="APP">%2$s</xliff:g> ಆ್ಯಪ್‌ಗಾಗಿ <xliff:g id="PERM">%1$s</xliff:g> ಪ್ರವೇಶ"</string>
     <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="APP">%1$s</xliff:g> ಆ್ಯಪ್ ನಿಮ್ಮ <xliff:g id="PERM">%2$s</xliff:g> ಅನ್ನು <xliff:g id="TIME">%3$s</xliff:g> ಹಿಂದೆ ಪ್ರವೇಶಿಸಿದೆ."</string>
-    <!-- no translation found for app_permission_footer_no_usages (8176256750330679454) -->
-    <skip />
+    <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> ನಿಮ್ಮ <xliff:g id="PERM">%2$s</xliff:g> ಅನ್ನು ಪ್ರವೇಶಿಸಿಲ್ಲ."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"ವಿವರವಾದ ಅನುಮತಿಗಳ ಬಳಕೆಯನ್ನು ವೀಕ್ಷಿಸಿ"</string>
-    <!-- no translation found for app_permission_most_recent_summary (6866863855248795166) -->
-    <skip />
-    <!-- no translation found for allowed_header (6279244592227088158) -->
-    <skip />
-    <!-- no translation found for denied_header (2277998574238617699) -->
-    <skip />
+    <string name="app_permission_most_recent_summary" msgid="6866863855248795166">"<xliff:g id="TIME">%1$s</xliff:g> ಹಿಂದೆ ತೀರಾ ಇತ್ತೀಚಿನ ಪ್ರವೇಶವಾಗಿದೆ"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"ಅನುಮತಿಸಲಾಗಿದೆ"</string>
+    <string name="denied_header" msgid="2277998574238617699">"ನಿರಾಕರಿಸಲಾಗಿದೆ"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> ದಿನಗಳು</item>
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ದಿನಗಳು</item>
@@ -136,36 +135,36 @@
     <skip />
     <!-- no translation found for background_location_access_reminder_notification_content (2715202570602748060) -->
     <skip />
-    <!-- no translation found for default_apps (8554530939151957828) -->
+    <string name="permission_justification_header" msgid="8855642235625782751">"ಆ್ಯಪ್ ಡೆವಲಪರ್ ಈ ರೀತಿಯಾಗಿ ಹೇಳುತ್ತಾರೆ ನಿಮ್ಮ ಡೇಟಾ ಈ ರೀತಿಯಾಗಿರಬಹುದು:"</string>
+    <string name="permission_justification_footer" msgid="4098097763461100468">"ಈ ಆ್ಯಪ್ ಡೆವಲಪರ್, ನಿಮ್ಮ ಡೇಟಾವನ್ನು ಬಳಸುವ ರೀತಿಯು ನಿಮಗೆ ಇಷ್ಟವಾಗದಿದ್ದಲ್ಲಿ, ನೀವು ಅನುಮತಿಯನ್ನು ನಿರಾಕರಿಸಬಹುದು."</string>
+    <string name="permission_justification_data_sent_off_device" msgid="2503905652716735222">"ಕ್ಲೌಡ್‌ಗೆ ಅಪ್‌ಲೋಡ್ ಮಾಡಲಾಗಿದೆ"</string>
+    <string name="permission_justification_data_sent_off_device_user_triggered" msgid="4122793147247661083">"ಡೇಟಾ ಅಪ್‌ಲೋಡ್ ಮಾಡುವುದನ್ನು ನೀವು ಸ್ಪಷ್ಟವಾಗಿ ಅನುಮತಿಸಿದಾಗ, ಇದನ್ನು ಕ್ಲೌಡ್‌ಗೆ ಅಪ್‌ಲೋಡ್ ಮಾಡಲಾಗಿದೆ"</string>
+    <string name="permission_justification_data_shared_with_third_party" msgid="5249440580654050831">"ಜಾಹೀರಾತುದಾರರು ಅಥವಾ ವ್ಯಾಪಾರಗಳ ಜೊತೆಗೆ ಹಂಚಿಕೊಳ್ಳಲಾಗಿದೆ"</string>
+    <string name="permission_justification_data_shared_with_third_party_user_triggered" msgid="2920721327430861150">"ಡೇಟಾ ಹಂಚಿಕೊಳ್ಳುವುದನ್ನು ನೀವು ಸ್ಪಷ್ಟವಾಗಿ ಅನುಮತಿಸಿದಾಗ, ಇದನ್ನು ಜಾಹೀರಾತುದಾರರು ಅಥವಾ ವ್ಯಾಪಾರಗಳ ಜೊತೆಗೆ ಹಂಚಿಕೊಳ್ಳಲಾಗಿದೆ"</string>
+    <string name="permission_justification_data_used_for_monetization" msgid="3098933808750278119">"ಹಣ ಗಳಿಕೆಗಾಗಿ ಬಳಸಲಾಗಿದೆ"</string>
+    <string name="permission_justification_data_used_for_monetization_user_triggered" msgid="8264335769735917408">"ಡೇಟಾ ಬಳಸುವುದನ್ನು ನೀವು ಸ್ಪಷ್ಟವಾಗಿ ಅನುಮತಿಸಿದಾಗ, ಇದನ್ನು ಹಣ ಗಳಿಕೆಗಾಗಿ ಬಳಸಲಾಗಿದೆ"</string>
+    <string name="permission_justification_data_retention_unlimited" msgid="3921406322987911863">"ಶಾಶ್ವತವಾಗಿ ಉಳಿಸಲಾಗಿದೆ ಮತ್ತು ವಿಶ್ಲೇಷಿಸಲಾಗಿದೆ"</string>
+    <string name="permission_justification_data_retention_user_selected" msgid="7440816502916014127">"ನೀವು ನಿರ್ದಿಷ್ಟಪಡಿಸಿದ ಅವಧಿಗಾಗಿ ಉಳಿಸಲಾಗಿದೆ ಮತ್ತು ವಿಶ್ಲೇಷಿಸಲಾಗಿದೆ"</string>
+    <plurals name="permission_justification_data_retention_specified" formatted="false" msgid="4132895033914113182">
+      <item quantity="one"><xliff:g id="NUM_WEEKS">%s</xliff:g> ವಾರಗಳವರೆಗೆ ಉಳಿಸಲಾಗಿದೆ ಮತ್ತು ವಿಶ್ಲೇಷಿಸಲಾಗಿದೆ</item>
+      <item quantity="other"><xliff:g id="NUM_WEEKS">%s</xliff:g> ವಾರಗಳವರೆಗೆ ಉಳಿಸಲಾಗಿದೆ ಮತ್ತು ವಿಶ್ಲೇಷಿಸಲಾಗಿದೆ</item>
+    </plurals>
+    <string name="permission_justification_undefined" msgid="5711347441966109267">"ಆ್ಯಪ್ ಹೇಗೆ ನಿಮ್ಮ ಡೇಟಾವನ್ನು ಬಳಸುತ್ತದೆ ಎಂಬುದನ್ನು ಆ್ಯಪ್ ಡೆವಲಪರ್ ನಿರ್ದಿಷ್ಟಪಡಿಸಿಲ್ಲ."</string>
+    <!-- no translation found for no_permissions_allowed (5781278485002145993) -->
     <skip />
-    <!-- no translation found for no_default_apps (5642715159090903032) -->
+    <!-- no translation found for no_permissions_denied (2449583707612365442) -->
+    <skip />
+    <!-- no translation found for no_apps_allowed (4529095928504611810) -->
+    <skip />
+    <!-- no translation found for no_apps_denied (2736758388618487796) -->
+    <skip />
+    <string name="default_apps" msgid="8554530939151957828">"ಡೀಫಾಲ್ಟ್ ಆ್ಯಪ್‌ಗಳು"</string>
+    <string name="no_default_apps" msgid="5642715159090903032">"ಯಾವುದೇ ಡೀಫಾಲ್ಟ್‌ ಆ್ಯಪ್‌ಗಳಿಲ್ಲ"</string>
+    <!-- no translation found for no_apps_for_default_app (5671673478949659841) -->
     <skip />
     <string name="role_label_dialer" msgid="3345895090725237533">"ಫೋನ್ ಆ್ಯಪ್"</string>
     <string name="role_label_sms" msgid="2262769075496017522">"ಎಸ್ಎಂಎಸ್ ಆ್ಯಪ್"</string>
     <string name="role_label_browser" msgid="6266502234308421457">"ಬ್ರೌಸರ್ ಆ್ಯಪ್"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"ಗ್ಯಾಲರಿ ಆ್ಯಪ್‌"</string>
     <string name="role_label_music" msgid="5900245414865932272">"ಸಂಗೀತ ಆ್ಯಪ್‌"</string>
-    <!-- no translation found for permission_justification_header (8855642235625782751) -->
-    <skip />
-    <!-- no translation found for permission_justification_footer (4098097763461100468) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_sent_off_device (2503905652716735222) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_sent_off_device_user_triggered (4122793147247661083) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_shared_with_third_party (5249440580654050831) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_shared_with_third_party_user_triggered (2920721327430861150) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_used_for_monetization (3098933808750278119) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_used_for_monetization_user_triggered (8264335769735917408) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_retention_unlimited (3921406322987911863) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_retention_user_selected (7440816502916014127) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_retention_specified (4132895033914113182) -->
-    <!-- no translation found for permission_justification_undefined (5711347441966109267) -->
-    <skip />
 </resources>

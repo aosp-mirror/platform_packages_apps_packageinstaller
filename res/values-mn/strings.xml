@@ -95,7 +95,8 @@
     <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Сүүлийн 15 минут"</string>
     <string name="no_permission_usages" msgid="698858628357371611">"Зөвшөөрлийн хэрэглээ алга"</string>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"Аппын зөвшөөрлийн ашиглалт"</string>
-    <string name="app_permission_usage_summary" msgid="3430707165417747223">"<xliff:g id="TIME">%1$s</xliff:g>-н өмнө"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"Хандалт: <xliff:g id="NUM">%1$s</xliff:g> удаа. Нийт хугацаа: <xliff:g id="DURATION">%2$s</xliff:g>. Хамгийн сүүлд <xliff:g id="TIME">%3$s</xliff:g>-н өмнө ашигласан."</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Хандалт: <xliff:g id="NUM">%1$s</xliff:g> удаа. Хамгийн сүүлд <xliff:g id="TIME">%2$s</xliff:g>-н өмнө ашигласан."</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Зөвшөөрөх"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Ямар ч үед зөвшөөрөх"</string>
     <string name="app_permission_button_allow_foreground" msgid="6366222217615376397">"Зөвхөн аппыг ашиглаж байх үед зөвшөөрөх"</string>
@@ -103,15 +104,11 @@
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g>-н зөвшөөрөл"</string>
     <string name="app_permission_header" msgid="5704679725169517493">"<xliff:g id="APP">%2$s</xliff:g>-н <xliff:g id="PERM">%1$s</xliff:g>-н хандалт"</string>
     <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="APP">%1$s</xliff:g> таны <xliff:g id="PERM">%2$s</xliff:g>-д <xliff:g id="TIME">%3$s</xliff:g>-н өмнө хандсан байна."</string>
-    <!-- no translation found for app_permission_footer_no_usages (8176256750330679454) -->
-    <skip />
+    <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> таны <xliff:g id="PERM">%2$s</xliff:g>-д хандаагүй байна."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Зөвшөөрлийн дэлгэрэнгүй ашиглалтыг харах"</string>
-    <!-- no translation found for app_permission_most_recent_summary (6866863855248795166) -->
-    <skip />
-    <!-- no translation found for allowed_header (6279244592227088158) -->
-    <skip />
-    <!-- no translation found for denied_header (2277998574238617699) -->
-    <skip />
+    <string name="app_permission_most_recent_summary" msgid="6866863855248795166">"Хамгийн сүүлд <xliff:g id="TIME">%1$s</xliff:g>-н өмнө хандсан"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"Зөвшөөрсөн"</string>
+    <string name="denied_header" msgid="2277998574238617699">"Татгалзсан"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> өдөр</item>
       <item quantity="one">1 өдөр</item>
@@ -136,36 +133,35 @@
     <skip />
     <!-- no translation found for background_location_access_reminder_notification_content (2715202570602748060) -->
     <skip />
-    <!-- no translation found for default_apps (8554530939151957828) -->
+    <string name="permission_justification_header" msgid="8855642235625782751">"Апп хөгжүүлэгч таны өгөгдлийг дараах байдлаар ашиглаж болзошгүй:"</string>
+    <string name="permission_justification_footer" msgid="4098097763461100468">"Танд энэ апп хөгжүүлэгчийн таны өгөгдлийг хэрхэн ашиглаж байгаа нь таалагдахгүй байвал зөвшөөрлөөс татгалзаж болно."</string>
+    <string name="permission_justification_data_sent_off_device" msgid="2503905652716735222">"Үүлэнд байршуулна"</string>
+    <string name="permission_justification_data_sent_off_device_user_triggered" msgid="4122793147247661083">"Таныг тодорхой байдлааар зөвшөөрсөн тохиолдолд үүлэнд байршуулна"</string>
+    <string name="permission_justification_data_shared_with_third_party" msgid="5249440580654050831">"Сурталчлагчид эсвэл бизнесүүдтэй хуваалцана"</string>
+    <string name="permission_justification_data_shared_with_third_party_user_triggered" msgid="2920721327430861150">"Таныг тодорхой байдлаар зөвшөөрсөн тохиолдолд сурталчлагчид эсвэл бизнесүүдтэй хуваалцана"</string>
+    <string name="permission_justification_data_used_for_monetization" msgid="3098933808750278119">"Мөнгө олох арга болгож ашиглана"</string>
+    <string name="permission_justification_data_used_for_monetization_user_triggered" msgid="8264335769735917408">"Таныг тодорхой байдлаар зөвшөөрсөн тохиолдолд үүнийг мөнгө олох арга болгож ашиглана"</string>
+    <string name="permission_justification_data_retention_unlimited" msgid="3921406322987911863">"Бүрмөсөн хадгалж, анализ хийнэ"</string>
+    <string name="permission_justification_data_retention_user_selected" msgid="7440816502916014127">"Таны тогтоосон хугацааны турш хадгалж, анализ хийнэ"</string>
+    <plurals name="permission_justification_data_retention_specified" formatted="false" msgid="4132895033914113182">
+      <item quantity="other"><xliff:g id="NUM_WEEKS">%s</xliff:g> долоо хоногийн турш хадгалж, анализ хийнэ</item>
+      <item quantity="one">1 долоо хоногийн турш хадгалж, анализ хийнэ</item>
+    </plurals>
+    <string name="permission_justification_undefined" msgid="5711347441966109267">"Апп хөгжүүлэгч энэ апп таны өгөгдлийг хэрхэн ашиглах талаар тодорхойлоогүй байна."</string>
+    <!-- no translation found for no_permissions_allowed (5781278485002145993) -->
     <skip />
-    <!-- no translation found for no_default_apps (5642715159090903032) -->
+    <!-- no translation found for no_permissions_denied (2449583707612365442) -->
     <skip />
+    <!-- no translation found for no_apps_allowed (4529095928504611810) -->
+    <skip />
+    <!-- no translation found for no_apps_denied (2736758388618487796) -->
+    <skip />
+    <string name="default_apps" msgid="8554530939151957828">"Өгөгдмөл аппууд"</string>
+    <string name="no_default_apps" msgid="5642715159090903032">"Өгөгдмөл аппууд алга"</string>
+    <string name="no_apps_for_default_app" msgid="5671673478949659841">"Апп алга"</string>
     <string name="role_label_dialer" msgid="3345895090725237533">"Гар утасны апп"</string>
     <string name="role_label_sms" msgid="2262769075496017522">"SMS апп"</string>
     <string name="role_label_browser" msgid="6266502234308421457">"Хөтөч апп"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"Галерейны апп"</string>
     <string name="role_label_music" msgid="5900245414865932272">"Хөгжмийн апп"</string>
-    <!-- no translation found for permission_justification_header (8855642235625782751) -->
-    <skip />
-    <!-- no translation found for permission_justification_footer (4098097763461100468) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_sent_off_device (2503905652716735222) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_sent_off_device_user_triggered (4122793147247661083) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_shared_with_third_party (5249440580654050831) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_shared_with_third_party_user_triggered (2920721327430861150) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_used_for_monetization (3098933808750278119) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_used_for_monetization_user_triggered (8264335769735917408) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_retention_unlimited (3921406322987911863) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_retention_user_selected (7440816502916014127) -->
-    <skip />
-    <!-- no translation found for permission_justification_data_retention_specified (4132895033914113182) -->
-    <!-- no translation found for permission_justification_undefined (5711347441966109267) -->
-    <skip />
 </resources>
