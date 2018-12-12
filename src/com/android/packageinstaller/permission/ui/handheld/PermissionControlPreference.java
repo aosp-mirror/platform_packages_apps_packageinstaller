@@ -34,34 +34,53 @@ import com.android.packageinstaller.permission.ui.AppPermissionActivity;
 import com.android.permissioncontroller.R;
 
 /**
- * A preference for representing a permission usage by an app.
+ * A preference that links to the screen where a permission can be toggled.
  */
-public class PermissionUsagePreference extends Preference {
-    private final @NonNull AppPermissionGroup mGroup;
-    private final @Nullable Drawable mWidgetIcon;
+public class PermissionControlPreference extends Preference {
     private final @NonNull Context mContext;
-    private final boolean mUseSmallerIcon;
+    private @Nullable Drawable mWidgetIcon;
+    private boolean mUseSmallerIcon;
     private boolean mEllipsizeEnd;
 
-    public PermissionUsagePreference(@NonNull Context context, @NonNull AppPermissionGroup group,
-            @Nullable Drawable widgetIcon, boolean useSmallerIcon) {
+    public PermissionControlPreference(@NonNull Context context,
+            @NonNull AppPermissionGroup group) {
         super(context);
-        mGroup = group;
-        mWidgetIcon = widgetIcon;
         mContext = context;
-        mUseSmallerIcon = useSmallerIcon;
+        mWidgetIcon = null;
+        mUseSmallerIcon = false;
         mEllipsizeEnd = false;
         if (mWidgetIcon != null) {
             setWidgetLayoutResource(R.layout.image_view);
         }
         setOnPreferenceClickListener(preference -> {
             Intent intent = new Intent(context, AppPermissionActivity.class);
-            intent.putExtra(Intent.EXTRA_PACKAGE_NAME, mGroup.getApp().packageName);
-            intent.putExtra(Intent.EXTRA_PERMISSION_NAME, mGroup.getName());
-            intent.putExtra(Intent.EXTRA_USER, mGroup.getUser());
+            intent.putExtra(Intent.EXTRA_PACKAGE_NAME, group.getApp().packageName);
+            intent.putExtra(Intent.EXTRA_PERMISSION_NAME, group.getName());
+            intent.putExtra(Intent.EXTRA_USER, group.getUser());
             context.startActivity(intent);
             return true;
         });
+    }
+
+    /**
+     * Sets this preference's right icon.
+     *
+     * Note that this must be called before preference layout to take effect.
+     *
+     * @param widgetIcon the icon to use.
+     */
+    public void setRightIcon(@NonNull Drawable widgetIcon) {
+        mWidgetIcon = widgetIcon;
+        setWidgetLayoutResource(R.layout.image_view);
+    }
+
+    /**
+     * Sets this preference's left icon to be smaller than normal.
+     *
+     * Note that this must be called before preference layout to take effect.
+     */
+    public void useSmallerIcon() {
+        mUseSmallerIcon = true;
     }
 
     /**
@@ -71,6 +90,22 @@ public class PermissionUsagePreference extends Preference {
      */
     public void setEllipsizeEnd() {
         mEllipsizeEnd = true;
+    }
+
+    /**
+     * Sets this preference's summary based on the group it represents, if applicable.
+     *
+     * @param group the permission group this preference represents.
+     */
+    public void setGroupSummary(@NonNull AppPermissionGroup group) {
+        if (group.hasPermissionWithBackgroundMode() && group.areRuntimePermissionsGranted()) {
+            AppPermissionGroup backgroundGroup = group.getBackgroundPermissions();
+            if (backgroundGroup == null || !backgroundGroup.areRuntimePermissionsGranted()) {
+                setSummary(R.string.permission_access_only_foreground);
+                return;
+            }
+        }
+        setSummary("");
     }
 
     @Override
