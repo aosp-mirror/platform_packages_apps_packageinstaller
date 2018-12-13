@@ -118,8 +118,7 @@ public class AppPermissionUsageFragment extends SettingsWithButtonHeader {
             ApplicationInfo appInfo = mAppPermissions.getPackageInfo().applicationInfo;
             Drawable icon = IconDrawableFactory.getBadgedIcon(getActivity(), appInfo,
                     UserHandle.getUserHandleForUid(appInfo.uid));
-            CharSequence label = appInfo.loadLabel(getActivity().getPackageManager());
-            setHeader(icon, label);
+            setHeader(icon, Utils.getFullAppLabel(appInfo, getContext()));
         }
     }
 
