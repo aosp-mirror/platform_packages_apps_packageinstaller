@@ -52,6 +52,8 @@ public class Role {
 
     private static final String LOG_TAG = Role.class.getSimpleName();
 
+    private static final String PACKAGE_NAME_ANDROID_SYSTEM = "android";
+
     /**
      * The name of this role. Must be unique.
      */
@@ -149,6 +151,9 @@ public class Role {
      * @return whether the package is qualified for a role
      */
     public boolean isPackageQualified(@NonNull String packageName, @NonNull Context context) {
+        if (Objects.equals(packageName, PACKAGE_NAME_ANDROID_SYSTEM)) {
+            return false;
+        }
         int requiredComponentsSize = mRequiredComponents.size();
         for (int i = 0; i < requiredComponentsSize; i++) {
             RequiredComponent requiredComponent = mRequiredComponents.get(i);
@@ -185,6 +190,9 @@ public class Role {
                 ComponentName componentName = qualifyingComponents.get(qualifyingComponentsIndex);
 
                 String packageName = componentName.getPackageName();
+                if (Objects.equals(packageName, PACKAGE_NAME_ANDROID_SYSTEM)) {
+                    continue;
+                }
                 Integer componentCount = packageComponentCountMap.get(packageName);
                 packageComponentCountMap.put(packageName, componentCount == null ? 1
                         : componentCount + 1);
