@@ -24,10 +24,8 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.UserHandle;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -55,7 +53,7 @@ import java.util.ArrayList;
  *
  * <p>Shows the list of permission groups the app has requested at one permission for.
  */
-public final class AppPermissionsFragment extends SettingsWithHeader {
+public final class AppPermissionsFragment extends SettingsWithButtonHeader {
 
     private static final String LOG_TAG = "ManagePermsFragment";
 
@@ -160,20 +158,15 @@ public final class AppPermissionsFragment extends SettingsWithHeader {
                 .commit();
     }
 
-    private static void bindUi(SettingsWithHeader fragment, PackageInfo packageInfo) {
+    private static void bindUi(SettingsWithButtonHeader fragment, PackageInfo packageInfo) {
         Activity activity = fragment.getActivity();
         PackageManager pm = activity.getPackageManager();
         ApplicationInfo appInfo = packageInfo.applicationInfo;
-        Intent infoIntent = null;
-        if (!activity.getIntent().getBooleanExtra(EXTRA_HIDE_INFO_BUTTON, false)) {
-            infoIntent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                    .setData(Uri.fromParts("package", packageInfo.packageName, null));
-        }
 
         Drawable icon = IconDrawableFactory.getBadgedIcon(activity, appInfo,
                 UserHandle.getUserHandleForUid(appInfo.uid));
         CharSequence label = appInfo.loadLabel(pm);
-        fragment.setHeader(icon, label, infoIntent);
+        fragment.setHeader(icon, label);
 
         ActionBar ab = activity.getActionBar();
         if (ab != null) {
@@ -216,7 +209,8 @@ public final class AppPermissionsFragment extends SettingsWithHeader {
 
             boolean isPlatform = group.getDeclaringPackage().equals(Utils.OS_PKG);
 
-            Preference preference = new PermissionUsagePreference(context, group, null, false);
+            PermissionControlPreference preference = new PermissionControlPreference(context,
+                    group);
             preference.setKey(group.getName());
             Drawable icon = Utils.loadDrawable(context.getPackageManager(),
                     group.getIconPkg(), group.getIconResId());
@@ -229,12 +223,8 @@ public final class AppPermissionsFragment extends SettingsWithHeader {
                 preference.setSummary(
                         context.getString(R.string.app_permission_most_recent_summary,
                                 timeDiffStr));
-            } else if (group.hasPermissionWithBackgroundMode()
-                    && group.areRuntimePermissionsGranted()) {
-                AppPermissionGroup backgroundGroup = group.getBackgroundPermissions();
-                if (backgroundGroup == null || !backgroundGroup.areRuntimePermissionsGranted()) {
-                    preference.setSummary(R.string.permission_access_only_foreground);
-                }
+            } else {
+                preference.setGroupSummary(group);
             }
 
             if (isPlatform) {
@@ -294,14 +284,17 @@ public final class AppPermissionsFragment extends SettingsWithHeader {
         }
     }
 
-    public static class AdditionalPermissionsFragment extends SettingsWithHeader {
+    /**
+     * Class that shows additional permissions.
+     */
+    public static class AdditionalPermissionsFragment extends SettingsWithButtonHeader {
         AppPermissionsFragment mOuterFragment;
 
         @Override
         public void onCreate(Bundle savedInstanceState) {
             mOuterFragment = (AppPermissionsFragment) getTargetFragment();
             super.onCreate(savedInstanceState);
-            setHeader(mOuterFragment.mIcon, mOuterFragment.mLabel, mOuterFragment.mInfoIntent);
+            setHeader(mOuterFragment.mIcon, mOuterFragment.mLabel);
             setHasOptionsMenu(true);
             setPreferenceScreen(mOuterFragment.mExtraScreen);
         }

@@ -59,7 +59,7 @@ import java.util.Set;
  * <p>Shows a list of app usage of permission groups, each of which links to
  * AppPermissionsFragment.
  */
-public class AppPermissionUsageFragment extends SettingsWithHeader {
+public class AppPermissionUsageFragment extends SettingsWithButtonHeader {
 
     private static final String LOG_TAG = "AppPermissionUsageFragment";
 
@@ -119,7 +119,7 @@ public class AppPermissionUsageFragment extends SettingsWithHeader {
             Drawable icon = IconDrawableFactory.getBadgedIcon(getActivity(), appInfo,
                     UserHandle.getUserHandleForUid(appInfo.uid));
             CharSequence label = appInfo.loadLabel(getActivity().getPackageManager());
-            setHeader(icon, label, null);
+            setHeader(icon, label);
         }
     }
 
@@ -228,7 +228,7 @@ public class AppPermissionUsageFragment extends SettingsWithHeader {
                         + historyEntry.getBackgroundAccessDuration();
             }
 
-            Preference pref = new PermissionUsagePreference(context, group, null, false);
+            Preference pref = new PermissionControlPreference(context, group);
             pref.setTitle(usage.getPermissionGroupLabel());
             long timeDiff = System.currentTimeMillis() - usage.getTime();
             if (totalDuration == 0) {
