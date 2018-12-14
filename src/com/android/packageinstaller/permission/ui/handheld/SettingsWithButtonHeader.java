@@ -80,6 +80,9 @@ public abstract class SettingsWithButtonHeader extends PermissionsFrameFragment 
             TextView appName = header.requireViewById(R.id.entity_header_title);
             appName.setText(mLabel);
 
+            header.requireViewById(R.id.entity_header_summary).setVisibility(View.GONE);
+            header.requireViewById(R.id.entity_header_second_summary).setVisibility(View.GONE);
+
             Button button1 = header.requireViewById(R.id.button1);
             button1.setText(R.string.launch_app);
             setButtonIcon(button1, R.drawable.ic_open);
