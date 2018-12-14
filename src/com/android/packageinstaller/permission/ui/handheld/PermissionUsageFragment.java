@@ -253,6 +253,10 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
     }
 
     private void addPreferences() {
+        if (getActivity() == null) {
+            return;
+        }
+
         PreferenceScreen screen = getPreferenceScreen();
         if (screen == null) {
             Context context = getPreferenceManager().getContext();

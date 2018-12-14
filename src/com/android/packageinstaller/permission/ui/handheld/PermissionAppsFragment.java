@@ -185,7 +185,7 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
     public void onPermissionsLoaded(PermissionApps permissionApps) {
         Context context = getPreferenceManager().getContext();
 
-        if (context == null) {
+        if (context == null || getActivity() == null) {
             return;
         }
 

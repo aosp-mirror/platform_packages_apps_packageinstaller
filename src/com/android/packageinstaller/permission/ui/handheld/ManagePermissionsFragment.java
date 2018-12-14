@@ -107,7 +107,7 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
      */
     protected PreferenceScreen updatePermissionsUi(boolean addSystemPermissions) {
         Context context = getPreferenceManager().getContext();
-        if (context == null) {
+        if (context == null || getActivity() == null) {
             return null;
         }
 
