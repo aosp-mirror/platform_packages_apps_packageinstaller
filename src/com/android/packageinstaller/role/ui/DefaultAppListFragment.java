@@ -28,6 +28,8 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.preference.Preference;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceManager;
 import androidx.preference.PreferenceScreen;
 
@@ -45,6 +47,8 @@ public class DefaultAppListFragment extends SettingsFragment
         implements Preference.OnPreferenceClickListener {
 
     private static final String LOG_TAG = DefaultAppListFragment.class.getSimpleName();
+
+    private static final String PREFERENCE_KEY_WORK_CATEGORY = "work_category";
 
     private RoleListViewModel mViewModel;
 
@@ -64,7 +68,10 @@ public class DefaultAppListFragment extends SettingsFragment
 
         mViewModel = ViewModelProviders.of(this, new RoleListViewModel.Factory(true,
                 requireActivity().getApplication())).get(RoleListViewModel.class);
-        mViewModel.getLiveData().observe(this, this::onRoleListChanged);
+        mViewModel.getLiveData().observe(this, roleItems -> onRoleListChanged());
+        if (mViewModel.hasWorkProfile()) {
+            mViewModel.getWorkLiveData().observe(this, roleItems -> onRoleListChanged());
+        }
     }
 
     @Override
@@ -78,27 +85,72 @@ public class DefaultAppListFragment extends SettingsFragment
         return R.string.help_uri_default_apps;
     }
 
-    private void onRoleListChanged(@NonNull List<RoleItem> roleItems) {
+    private void onRoleListChanged() {
+        List<RoleItem> roleItems = mViewModel.getLiveData().getValue();
+        if (roleItems == null) {
+            return;
+        }
+        boolean hasWorkProfile = mViewModel.hasWorkProfile();
+        List<RoleItem> workRoleItems = null;
+        if (hasWorkProfile) {
+            workRoleItems = mViewModel.getWorkLiveData().getValue();
+            if (workRoleItems == null) {
+                return;
+            }
+        }
+
         PreferenceManager preferenceManager = getPreferenceManager();
         Context context = preferenceManager.getContext();
-
         PreferenceScreen preferenceScreen = getPreferenceScreen();
         ArrayMap<String, Preference> oldPreferences = new ArrayMap<>();
+        PreferenceCategory oldWorkPreferenceCategory = null;
+        ArrayMap<String, Preference> oldWorkPreferences = new ArrayMap<>();
         if (preferenceScreen == null) {
             preferenceScreen = preferenceManager.createPreferenceScreen(context);
             setPreferenceScreen(preferenceScreen);
         } else {
-            for (int i = preferenceScreen.getPreferenceCount() - 1; i >= 0; --i) {
-                Preference preference = preferenceScreen.getPreference(i);
-
-                preferenceScreen.removePreference(preference);
-                oldPreferences.put(preference.getKey(), preference);
+            oldWorkPreferenceCategory = (PreferenceCategory) preferenceScreen.findPreference(
+                    PREFERENCE_KEY_WORK_CATEGORY);
+            if (oldWorkPreferenceCategory != null) {
+                clearPreferences(oldWorkPreferenceCategory, oldWorkPreferences);
+                preferenceScreen.removePreference(oldWorkPreferenceCategory);
             }
+            clearPreferences(preferenceScreen, oldPreferences);
         }
 
+        addPreferences(preferenceScreen, roleItems, oldPreferences, this, mViewModel.getUser(),
+                context);
+        if (hasWorkProfile) {
+            PreferenceCategory workPreferenceCategory = oldWorkPreferenceCategory;
+            if (workPreferenceCategory == null) {
+                workPreferenceCategory = new PreferenceCategory(context);
+                workPreferenceCategory.setKey(PREFERENCE_KEY_WORK_CATEGORY);
+                workPreferenceCategory.setTitle(R.string.default_apps_for_work);
+            }
+            preferenceScreen.addPreference(workPreferenceCategory);
+            addPreferences(workPreferenceCategory, workRoleItems, oldWorkPreferences, this,
+                    mViewModel.getWorkProfile(), context);
+        }
+
+        updateState();
+    }
+
+    private static void clearPreferences(@NonNull PreferenceGroup preferenceGroup,
+            @NonNull ArrayMap<String, Preference> oldPreferences) {
+        for (int i = preferenceGroup.getPreferenceCount() - 1; i >= 0; --i) {
+            Preference Preference = preferenceGroup.getPreference(i);
+
+            oldPreferences.put(Preference.getKey(), Preference);
+        }
+    }
+
+    private static void addPreferences(@NonNull PreferenceGroup preferenceGroup,
+            @NonNull List<RoleItem> roleItems, @NonNull ArrayMap<String, Preference> oldPreferences,
+            @NonNull Preference.OnPreferenceClickListener listener, @NonNull UserHandle user,
+            @NonNull Context context) {
         int roleItemsSize = roleItems.size();
-        for (int roleItemsIndex = 0; roleItemsIndex < roleItemsSize; roleItemsIndex++) {
-            RoleItem roleItem = roleItems.get(roleItemsIndex);
+        for (int i = 0; i < roleItemsSize; i++) {
+            RoleItem roleItem = roleItems.get(i);
 
             Role role = roleItem.getRole();
             Preference preference = oldPreferences.get(role.getName());
@@ -108,7 +160,8 @@ public class DefaultAppListFragment extends SettingsFragment
                 preference.setIconSpaceReserved(true);
                 preference.setTitle(role.getLabelResource());
                 preference.setPersistent(false);
-                preference.setOnPreferenceClickListener(this);
+                preference.setOnPreferenceClickListener(listener);
+                preference.getExtras().putParcelable(Intent.EXTRA_USER, user);
             }
 
             List<ApplicationInfo> holderApplicationInfos = roleItem.getHolderApplicationInfos();
@@ -123,16 +176,15 @@ public class DefaultAppListFragment extends SettingsFragment
             }
 
             // TODO: Ordering?
-            preferenceScreen.addPreference(preference);
+            preferenceGroup.addPreference(preference);
         }
-
-        updateState();
     }
 
     @Override
     public boolean onPreferenceClick(@NonNull Preference preference) {
         String roleName = preference.getKey();
-        Intent intent = DefaultAppActivity.createIntent(roleName, requireContext());
+        UserHandle user = preference.getExtras().getParcelable(Intent.EXTRA_USER);
+        Intent intent = DefaultAppActivity.createIntent(roleName, user, requireContext());
         startActivity(intent);
         return true;
     }
