@@ -24,6 +24,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -174,8 +175,9 @@ public final class AppPermissionsFragment extends Fragment{
         PermissionLineItem(AppPermissionGroup permissionGroup, Context context) {
             super(context);
             setTitle(permissionGroup.getLabel().toString());
-            setPrimaryActionIcon(permissionGroup.getIconResId(),
-                    TextListItem.PRIMARY_ACTION_ICON_SIZE_SMALL);
+            Drawable icon = Utils.loadDrawable(context.getPackageManager(),
+                    permissionGroup.getIconPkg(), permissionGroup.getIconResId());
+            setPrimaryActionIcon(icon, TextListItem.PRIMARY_ACTION_ICON_SIZE_SMALL);
             setSwitch(
                     permissionGroup.areRuntimePermissionsGranted(),
                     /* showDivider= */ false,

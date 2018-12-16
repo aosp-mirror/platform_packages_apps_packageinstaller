@@ -30,8 +30,8 @@ LOCAL_STATIC_ANDROID_LIBRARIES += \
     SettingsLibAppPreference \
     SettingsLibSearchWidget \
     SettingsLibSettingsSpinner \
-    SettingsLayoutPreference \
-    ActionButtonsPreference
+    SettingsLibLayoutPreference \
+    SettingsLibActionButtonsPreference
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
     androidx.annotation_annotation

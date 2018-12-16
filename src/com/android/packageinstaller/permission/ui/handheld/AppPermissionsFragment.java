@@ -160,13 +160,11 @@ public final class AppPermissionsFragment extends SettingsWithButtonHeader {
 
     private static void bindUi(SettingsWithButtonHeader fragment, PackageInfo packageInfo) {
         Activity activity = fragment.getActivity();
-        PackageManager pm = activity.getPackageManager();
         ApplicationInfo appInfo = packageInfo.applicationInfo;
 
         Drawable icon = IconDrawableFactory.getBadgedIcon(activity, appInfo,
                 UserHandle.getUserHandleForUid(appInfo.uid));
-        CharSequence label = appInfo.loadLabel(pm);
-        fragment.setHeader(icon, label);
+        fragment.setHeader(icon, Utils.getFullAppLabel(appInfo, activity));
 
         ActionBar ab = activity.getActionBar();
         if (ab != null) {

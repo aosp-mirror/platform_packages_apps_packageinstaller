@@ -20,6 +20,7 @@ import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.os.UserHandle;
 import android.util.ArrayMap;
 import android.util.Log;
 
@@ -51,6 +52,8 @@ import java.util.Objects;
 public class Role {
 
     private static final String LOG_TAG = Role.class.getSimpleName();
+
+    private static final String PACKAGE_NAME_ANDROID_SYSTEM = "android";
 
     /**
      * The name of this role. Must be unique.
@@ -149,6 +152,9 @@ public class Role {
      * @return whether the package is qualified for a role
      */
     public boolean isPackageQualified(@NonNull String packageName, @NonNull Context context) {
+        if (Objects.equals(packageName, PACKAGE_NAME_ANDROID_SYSTEM)) {
+            return false;
+        }
         int requiredComponentsSize = mRequiredComponents.size();
         for (int i = 0; i < requiredComponentsSize; i++) {
             RequiredComponent requiredComponent = mRequiredComponents.get(i);
@@ -160,15 +166,17 @@ public class Role {
     }
 
     /**
-     * Get the set of packages that are qualified for this role, i.e. packages containing all the
+     * Get the list of packages that are qualified for this role, i.e. packages containing all the
      * required components.
      *
+     * @param user the user to get the qualifying packages.
      * @param context the {@code Context} to retrieve system services
      *
      * @return the set of packages that are qualified for this role
      */
     @NonNull
-    public List<String> getQualifyingPackages(@NonNull Context context) {
+    public List<String> getQualifyingPackagesAsUser(@NonNull UserHandle user,
+            @NonNull Context context) {
         ArrayMap<String, Integer> packageComponentCountMap = new ArrayMap<>();
         int requiredComponentsSize = mRequiredComponents.size();
         for (int requiredComponentsIndex = 0; requiredComponentsIndex < requiredComponentsSize;
@@ -176,8 +184,8 @@ public class Role {
             RequiredComponent requiredComponent = mRequiredComponents.get(requiredComponentsIndex);
 
             // This returns at most one component per package.
-            List<ComponentName> qualifyingComponents = requiredComponent.getQualifyingComponents(
-                    context);
+            List<ComponentName> qualifyingComponents =
+                    requiredComponent.getQualifyingComponentsAsUser(user, context);
             int qualifyingComponentsSize = qualifyingComponents.size();
             for (int qualifyingComponentsIndex = 0;
                     qualifyingComponentsIndex < qualifyingComponentsSize;
@@ -185,6 +193,9 @@ public class Role {
                 ComponentName componentName = qualifyingComponents.get(qualifyingComponentsIndex);
 
                 String packageName = componentName.getPackageName();
+                if (Objects.equals(packageName, PACKAGE_NAME_ANDROID_SYSTEM)) {
+                    continue;
+                }
                 Integer componentCount = packageComponentCountMap.get(packageName);
                 packageComponentCountMap.put(packageName, componentCount == null ? 1
                         : componentCount + 1);
