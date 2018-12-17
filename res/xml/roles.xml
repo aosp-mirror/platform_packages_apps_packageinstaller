@@ -77,6 +77,75 @@
         <permission name="android.permission.READ_MEDIA_IMAGES" />
     </permission-set>
 
+    <!--- @see android.telecom.CallRedirectionService -->
+    <role
+        name="android.app.role.PROXY_CALLING_APP"
+        exclusive="true"
+        label="@string/role_label_proxy_calling">
+        <required-components>
+            <service permission="android.permission.BIND_CALL_REDIRECTION_SERVICE">
+                <intent-filter>
+                    <action name="android.telecom.CallRedirectionService" />
+                </intent-filter>
+            </service>
+        </required-components>
+    </role>
+
+    <!--- @see android.telecom.CallScreeningService -->
+    <role
+        name="android.app.role.CALL_SCREENING_APP"
+        exclusive="true"
+        label="@string/role_label_call_screening">
+        <required-components>
+            <service permission="android.permission.BIND_SCREENING_SERVICE">
+                <intent-filter>
+                    <action name="android.telecom.CallScreeningService" />
+                </intent-filter>
+            </service>
+        </required-components>
+    </role>
+
+    <!--- @see android.telecom.InCallService -->
+    <role
+        name="android.app.role.CALL_COMPANION_APP"
+        exclusive="false"
+        label="@string/role_label_call_companion">
+        <required-components>
+            <service permission="android.permission.BIND_INCALL_SERVICE">
+                <meta-data
+                    name="android.telecom.IN_CALL_SERVICE_UI"
+                    value="false"
+                    optional="true" />
+                <meta-data
+                    name="android.telecom.IN_CALL_SERVICE_CAR_MODE_UI"
+                    value="false"
+                    optional="true" />
+                <intent-filter>
+                    <action name="android.telecom.InCallService" />
+                </intent-filter>
+            </service>
+        </required-components>
+    </role>
+
+    <!--- @see android.telecom.InCallService -->
+    <role
+        name="android.app.role.CAR_MODE_DIALER_APP"
+        exclusive="true"
+        label="@string/role_label_car_mode_dialer">
+        <required-components>
+            <service permission="android.permission.BIND_INCALL_SERVICE">
+                <meta-data
+                    name="android.telecom.IN_CALL_SERVICE_UI"
+                    value="false"
+                    optional="true" />
+                <meta-data name="android.telecom.IN_CALL_SERVICE_CAR_MODE_UI" value="true" />
+                <intent-filter>
+                    <action name="android.telecom.InCallService" />
+                </intent-filter>
+            </service>
+        </required-components>
+    </role>
+
     <!--- @see android.telecom.DefaultDialerManager -->
     <role name="android.app.role.DIALER" exclusive="true" label="@string/role_label_dialer">
         <required-components>
@@ -91,6 +160,16 @@
                     <data scheme="tel" />
                 </intent-filter>
             </activity>
+            <service permission="android.permission.BIND_INCALL_SERVICE">
+                <meta-data name="android.telecom.IN_CALL_SERVICE_UI" value="true" />
+                <meta-data
+                    name="android.telecom.IN_CALL_SERVICE_CAR_MODE_UI"
+                    value="false"
+                    optional="true" />
+                <intent-filter>
+                    <action name="android.telecom.InCallService" />
+                </intent-filter>
+            </service>
         </required-components>
         <permissions>
             <permission-set name="phone" />
