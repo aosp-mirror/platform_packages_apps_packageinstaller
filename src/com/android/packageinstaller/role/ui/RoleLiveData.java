@@ -20,7 +20,6 @@ import android.app.role.OnRoleHoldersChangedListener;
 import android.app.role.RoleManager;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
-import android.os.Process;
 import android.os.UserHandle;
 import android.util.Log;
 
@@ -42,11 +41,16 @@ public class RoleLiveData extends AsyncTaskLiveData<RoleInfo>
 
     private static final String LOG_TAG = RoleLiveData.class.getSimpleName();
 
+    @NonNull
     private final Role mRole;
+    @NonNull
+    private final UserHandle mUser;
+    @NonNull
     private final Context mContext;
 
-    public RoleLiveData(@NonNull Role role, @NonNull Context context) {
+    public RoleLiveData(@NonNull Role role, @NonNull UserHandle user, @NonNull Context context) {
         mRole = role;
+        mUser = user;
         mContext = context;
     }
 
@@ -55,16 +59,13 @@ public class RoleLiveData extends AsyncTaskLiveData<RoleInfo>
         loadValue();
 
         RoleManager roleManager = mContext.getSystemService(RoleManager.class);
-        // TODO: STOPSHIP: Handle work profile?
-        roleManager.addOnRoleHoldersChangedListenerAsUser(mContext.getMainExecutor(), this,
-                Process.myUserHandle());
+        roleManager.addOnRoleHoldersChangedListenerAsUser(mContext.getMainExecutor(), this, mUser);
     }
 
     @Override
     protected void onInactive() {
         RoleManager roleManager = mContext.getSystemService(RoleManager.class);
-        // TODO: STOPSHIP: Handle work profile?
-        roleManager.removeOnRoleHoldersChangedListenerAsUser(this, Process.myUserHandle());
+        roleManager.removeOnRoleHoldersChangedListenerAsUser(this, mUser);
     }
 
     @Override
@@ -75,14 +76,14 @@ public class RoleLiveData extends AsyncTaskLiveData<RoleInfo>
     @Override
     @WorkerThread
     protected RoleInfo loadValueInBackground() {
-        List<String> qualifyingPackageNames = mRole.getQualifyingPackages(mContext);
+        List<String> qualifyingPackageNames = mRole.getQualifyingPackagesAsUser(mUser, mContext);
         List<ApplicationInfo> qualifyingApplicationInfos = new ArrayList<>();
         int qualifyingPackageNamesSize = qualifyingPackageNames.size();
         for (int i = 0; i < qualifyingPackageNamesSize; i++) {
             String qualifyingPackageName = qualifyingPackageNames.get(i);
 
-            ApplicationInfo qualifyingApplicationInfo = PackageUtils.getApplicationInfo(
-                    qualifyingPackageName, mContext);
+            ApplicationInfo qualifyingApplicationInfo = PackageUtils.getApplicationInfoAsUser(
+                    qualifyingPackageName, mUser, mContext);
             if (qualifyingApplicationInfo == null) {
                 Log.w(LOG_TAG, "Cannot get ApplicationInfo for application, skipping: "
                         + qualifyingPackageName);
@@ -92,7 +93,7 @@ public class RoleLiveData extends AsyncTaskLiveData<RoleInfo>
         }
 
         RoleManager roleManager = mContext.getSystemService(RoleManager.class);
-        List<String> holderPackageNames = roleManager.getRoleHolders(mRole.getName());
+        List<String> holderPackageNames = roleManager.getRoleHoldersAsUser(mRole.getName(), mUser);
 
         return new RoleInfo(qualifyingApplicationInfos, holderPackageNames);
     }
