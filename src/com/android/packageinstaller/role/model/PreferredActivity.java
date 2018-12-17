@@ -20,7 +20,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
-import android.os.Process;
 
 import androidx.annotation.NonNull;
 
@@ -69,8 +68,7 @@ public class PreferredActivity {
      */
     public void configure(@NonNull String packageName, @NonNull Context context) {
         IntentFilter intentFilter = mActivity.getIntentFilterData().createIntentFilter();
-        List<ComponentName> activities = mActivity.getQualifyingComponentsAsUser(
-                Process.myUserHandle(), context);
+        List<ComponentName> activities = mActivity.getQualifyingComponents(context);
         ComponentName packageActivity = mActivity.getQualifyingComponentForPackage(
                 packageName, context);
         // TODO: STOPSHIP: Race condition, what if packageActivity became null? Just don't crash?

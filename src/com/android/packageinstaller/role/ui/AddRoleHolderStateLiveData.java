@@ -19,6 +19,7 @@ package com.android.packageinstaller.role.ui;
 import android.app.role.RoleManager;
 import android.app.role.RoleManagerCallback;
 import android.content.Context;
+import android.os.Process;
 import android.os.UserHandle;
 import android.util.Log;
 
@@ -49,11 +50,10 @@ public class AddRoleHolderStateLiveData extends LiveData<Integer> {
      *
      * @param roleName the name of the role
      * @param packageName the package name of the application
-     * @param user the user to add the role holder for
      * @param context the {@code Context} to retrieve system services
      */
-    public void addRoleHolderAsUser(@NonNull String roleName, @NonNull String packageName,
-            @NonNull UserHandle user, @NonNull Context context) {
+    public void addRoleHolder(@NonNull String roleName, @NonNull String packageName,
+            @NonNull Context context) {
         if (getValue() != STATE_IDLE) {
             Log.e(LOG_TAG, "Already (tried) adding package as role holder, requested role: "
                     + roleName + ", requested package: " + packageName);
@@ -64,6 +64,7 @@ public class AddRoleHolderStateLiveData extends LiveData<Integer> {
         setValue(STATE_ADDING);
 
         RoleManager roleManager = context.getSystemService(RoleManager.class);
+        UserHandle user = Process.myUserHandle();
         Executor executor = context.getMainExecutor();
         roleManager.addRoleHolderAsUser(roleName, packageName, user, executor,
                 new RoleManagerCallback() {
