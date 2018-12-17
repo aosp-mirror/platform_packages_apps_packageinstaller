@@ -17,7 +17,6 @@
 package com.android.packageinstaller.role.ui;
 
 import android.app.Application;
-import android.os.UserHandle;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -38,11 +37,10 @@ public class DefaultAppViewModel extends AndroidViewModel {
     private final AddRoleHolderStateLiveData mAddRoleHolderStateLiveData =
             new AddRoleHolderStateLiveData();
 
-    public DefaultAppViewModel(@NonNull Role role, @NonNull UserHandle user,
-            @NonNull Application application) {
+    public DefaultAppViewModel(@NonNull Role role, @NonNull Application application) {
         super(application);
 
-        mRoleLiveData = new RoleLiveData(role, user, application);
+        mRoleLiveData = new RoleLiveData(role, application);
     }
 
     @NonNull
@@ -64,15 +62,10 @@ public class DefaultAppViewModel extends AndroidViewModel {
         private Role mRole;
 
         @NonNull
-        private UserHandle mUser;
-
-        @NonNull
         private Application mApplication;
 
-        public Factory(@NonNull Role role, @NonNull UserHandle user,
-                @NonNull Application application) {
+        public Factory(@NonNull Role role, @NonNull Application application) {
             mRole = role;
-            mUser = user;
             mApplication = application;
         }
 
@@ -80,7 +73,7 @@ public class DefaultAppViewModel extends AndroidViewModel {
         @Override
         public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
             //noinspection unchecked
-            return (T) new DefaultAppViewModel(mRole, mUser, mApplication);
+            return (T) new DefaultAppViewModel(mRole, mApplication);
         }
     }
 }

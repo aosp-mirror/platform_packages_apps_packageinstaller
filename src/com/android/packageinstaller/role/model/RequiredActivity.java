@@ -22,7 +22,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
-import android.os.UserHandle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -41,10 +40,10 @@ public class RequiredActivity extends RequiredComponent {
 
     @NonNull
     @Override
-    protected List<ResolveInfo> queryIntentComponentsAsUser(@NonNull Intent intent, int flags,
-            @NonNull UserHandle user, @NonNull Context context) {
+    protected List<ResolveInfo> queryIntentComponents(@NonNull Intent intent, int flags,
+            @NonNull Context context) {
         PackageManager packageManager = context.getPackageManager();
-        return packageManager.queryIntentActivitiesAsUser(intent, flags, user);
+        return packageManager.queryIntentActivities(intent, flags);
     }
 
     @NonNull
