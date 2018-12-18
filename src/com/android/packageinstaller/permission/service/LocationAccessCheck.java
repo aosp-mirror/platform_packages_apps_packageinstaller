@@ -541,6 +541,7 @@ public class LocationAccessCheck extends JobService {
                         R.string.background_location_access_reminder_notification_content)))
                 .setSmallIcon(R.drawable.ic_signal_location)
                 .setLargeIcon(pkgIconBmp)
+                .setColor(getColor(android.R.color.system_notification_accent_color))
                 .setAutoCancel(true)
                 .setDeleteIntent(getBroadcast(this, 0, deleteIntent,
                         FLAG_ONE_SHOT | FLAG_UPDATE_CURRENT))
