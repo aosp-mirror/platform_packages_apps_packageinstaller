@@ -182,7 +182,9 @@ public class RequestRoleFragment extends DialogFragment {
 
         Log.i(LOG_TAG, "Dialog dismissed, role: " + mRoleName + ", package: "
                 + mPackageName);
-        finish();
+        if (getActivity() != null) {
+            finish();
+        }
     }
 
     private void onAddRoleHolderStateChanged(int state) {
