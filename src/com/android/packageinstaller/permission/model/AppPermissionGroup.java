@@ -643,13 +643,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                     && !ArrayUtils.contains(filterPermissions, permission.getName())) {
                 continue;
             }
-            if (mAppSupportsRuntimePermissions) {
-                if (permission.isGranted()) {
-                    return true;
-                }
-            } else if (permission.isGranted()
-                    && (!permission.affectsAppOp() || permission.isAppOpAllowed())
-                    && !permission.isReviewRequired()) {
+            if (permission.isGrantedIncludingAppOp()) {
                 return true;
             }
         }
@@ -756,7 +750,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                 continue;
             }
 
-            boolean wasGranted = permission.isGranted() && permission.isAppOpAllowed();
+            boolean wasGranted = permission.isGrantedIncludingAppOp();
 
             if (mAppSupportsRuntimePermissions) {
                 // Do not touch permissions fixed by the system.
@@ -819,11 +813,11 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
             // If we newly grant background access to the fine location, double-guess the user some
             // time later if this was really the right choice.
-            if (!wasGranted && !(permission.isGranted() && permission.isAppOpAllowed())) {
+            if (!wasGranted && permission.isGrantedIncludingAppOp()) {
                 if (permission.getName().equals(ACCESS_FINE_LOCATION)) {
                     Permission bgPerm = permission.getBackgroundPermission();
                     if (bgPerm != null) {
-                        if (bgPerm.isGranted() && bgPerm.isAppOpAllowed()) {
+                        if (bgPerm.isGrantedIncludingAppOp()) {
                             checkLocationAccessSoon(mContext);
                         }
                     }
@@ -835,7 +829,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                             Permission fgPerm = fgPerms.get(fgPermNum);
 
                             if (fgPerm.getName().equals(ACCESS_FINE_LOCATION)) {
-                                if (fgPerm.isGranted() && fgPerm.isAppOpAllowed()) {
+                                if (fgPerm.isGrantedIncludingAppOp()) {
                                     checkLocationAccessSoon(mContext);
                                 }
 

@@ -106,8 +106,28 @@ public final class Permission {
         return mAppOp != null || isBackgroundPermission();
     }
 
+    /**
+     * Check if the permission is granted.
+     *
+     * <p>This ignores the state of the app-op. I.e. for apps not handling runtime permissions, this
+     * always returns {@code true}.
+     *
+     * @return If the permission is granted
+     */
     public boolean isGranted() {
         return mGranted;
+    }
+
+    /**
+     * Check if the permission is granted, also considering the state of the app-op.
+     *
+     * <p>For the UI, check the grant state of the whole group via
+     * {@link AppPermissionGroup#areRuntimePermissionsGranted}.
+     *
+     * @return {@code true} if the permission (and the app-op) is granted.
+     */
+    public boolean isGrantedIncludingAppOp() {
+        return mGranted && (!affectsAppOp() || isAppOpAllowed()) && !isReviewRequired();
     }
 
     public boolean isReviewRequired() {
