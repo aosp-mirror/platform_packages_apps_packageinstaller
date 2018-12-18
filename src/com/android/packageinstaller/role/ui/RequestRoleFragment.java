@@ -25,7 +25,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.os.Bundle;
-import android.os.Process;
 import android.text.Html;
 import android.util.Log;
 
@@ -206,8 +205,7 @@ public class RequestRoleFragment extends DialogFragment {
     }
 
     private void addRoleHolder() {
-        mViewModel.getLiveData().addRoleHolderAsUser(mRoleName, mPackageName,
-                Process.myUserHandle(), requireContext());
+        mViewModel.getLiveData().addRoleHolder(mRoleName, mPackageName, requireContext());
     }
 
     private void setResultOkAndFinish() {

@@ -22,8 +22,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
-import android.os.Process;
-import android.os.UserHandle;
 import android.util.ArraySet;
 import android.util.Log;
 
@@ -98,8 +96,8 @@ public abstract class RequiredComponent {
     @Nullable
     public ComponentName getQualifyingComponentForPackage(@NonNull String packageName,
             @NonNull Context context) {
-        List<ComponentName> componentNames = getQualifyingComponentsInternal(packageName,
-                Process.myUserHandle(), context);
+        List<ComponentName> componentNames = getQualifyingComponents(packageName,
+                context);
         return !componentNames.isEmpty() ? componentNames.get(0) : null;
     }
 
@@ -107,22 +105,20 @@ public abstract class RequiredComponent {
      * Get the list of components that match this required component, <b>at most one component per
      * package</b> and ordered from best to worst.
      *
-     * @param user the user to get the qualifying components.
      * @param context the {@code Context} to retrieve system services
      *
      * @return the list of matching components
      *
-     * @see Role#getQualifyingPackagesAsUser(UserHandle, Context)
+     * @see Role#getQualifyingPackages(Context)
      */
     @NonNull
-    public List<ComponentName> getQualifyingComponentsAsUser(@NonNull UserHandle user,
-            @NonNull Context context) {
-        return getQualifyingComponentsInternal(null, user, context);
+    public List<ComponentName> getQualifyingComponents(@NonNull Context context) {
+        return getQualifyingComponents(null, context);
     }
 
     @NonNull
-    private List<ComponentName> getQualifyingComponentsInternal(@Nullable String packageName,
-            @NonNull UserHandle user, @NonNull Context context) {
+    private List<ComponentName> getQualifyingComponents(@Nullable String packageName,
+            @NonNull Context context) {
         Intent intent = mIntentFilterData.createIntent();
         if (packageName != null) {
             intent.setPackage(packageName);
@@ -133,7 +129,7 @@ public abstract class RequiredComponent {
         if (hasMetaData) {
             flags |= PackageManager.GET_META_DATA;
         }
-        List<ResolveInfo> resolveInfos = queryIntentComponentsAsUser(intent, flags, user, context);
+        List<ResolveInfo> resolveInfos = queryIntentComponents(intent, flags, context);
 
         ArraySet<String> componentPackageNames = new ArraySet<>();
         List<ComponentName> componentNames = new ArrayList<>();
@@ -186,15 +182,14 @@ public abstract class RequiredComponent {
      * to worst.
      *
      * @param intent the {@code Intent} to match against
-     * @param flags the flags for this query
-     * @param user the user for this query
+     * @param flags the flags to be used for this query
      * @param context the {@code Context} to retrieve system services
      *
      * @return the list of matching components
      */
     @NonNull
-    protected abstract List<ResolveInfo> queryIntentComponentsAsUser(@NonNull Intent intent,
-            int flags, @NonNull UserHandle user, @NonNull Context context);
+    protected abstract List<ResolveInfo> queryIntentComponents(@NonNull Intent intent, int flags,
+            @NonNull Context context);
 
     /**
      * Get the {@code ComponentName} of a component.

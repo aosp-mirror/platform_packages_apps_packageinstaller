@@ -17,19 +17,11 @@
 package com.android.packageinstaller.role.ui;
 
 import android.app.Application;
-import android.content.Context;
-import android.os.Process;
-import android.os.UserHandle;
-import android.os.UserManager;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
-
-import java.util.List;
-import java.util.Objects;
 
 /**
  * {@link ViewModel} for a list of roles.
@@ -37,72 +29,17 @@ import java.util.Objects;
 public class RoleListViewModel extends AndroidViewModel {
 
     @NonNull
-    private final UserHandle mUser;
-    @NonNull
-    private final RoleListLiveData mUserLiveData;
-    @Nullable
-    private final UserHandle mWorkProfile;
-    @Nullable
-    private final RoleListLiveData mWorkLiveData;
+    private final RoleListLiveData mLiveData;
 
     public RoleListViewModel(boolean exclusive, @NonNull Application application) {
         super(application);
 
-        mUser = Process.myUserHandle();
-        mUserLiveData = new RoleListLiveData(exclusive, mUser, application);
-        mWorkProfile = getWorkProfile(application);
-        mWorkLiveData = mWorkProfile != null ? new RoleListLiveData(exclusive, mWorkProfile,
-                application) : null;
-    }
-
-    @Nullable
-    private static UserHandle getWorkProfile(@NonNull Context context) {
-        UserManager userManager = context.getSystemService(UserManager.class);
-        List<UserHandle> profiles = userManager.getUserProfiles();
-        UserHandle user = Process.myUserHandle();
-
-        int profilesSize = profiles.size();
-        for (int i = 0; i < profilesSize; i++) {
-            UserHandle profile = profiles.get(i);
-
-            if (Objects.equals(profile, user)) {
-                continue;
-            }
-            if (!userManager.isManagedProfile(profile.getIdentifier())) {
-                continue;
-            }
-            return profile;
-        }
-        return null;
-    }
-
-    @NonNull
-    public UserHandle getUser() {
-        return mUser;
+        mLiveData = new RoleListLiveData(exclusive, application);
     }
 
     @NonNull
     public RoleListLiveData getLiveData() {
-        return mUserLiveData;
-    }
-
-    /**
-     * Check whether the user has a work profile.
-     *
-     * @return whether the user has a work profile.
-     */
-    public boolean hasWorkProfile() {
-        return mWorkProfile != null;
-    }
-
-    @Nullable
-    public UserHandle getWorkProfile() {
-        return mWorkProfile;
-    }
-
-    @Nullable
-    public RoleListLiveData getWorkLiveData() {
-        return mWorkLiveData;
+        return mLiveData;
     }
 
     /**

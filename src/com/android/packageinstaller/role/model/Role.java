@@ -17,10 +17,10 @@
 package com.android.packageinstaller.role.model;
 
 import android.app.ActivityManager;
+import android.app.role.RoleManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
-import android.os.UserHandle;
 import android.util.ArrayMap;
 import android.util.Log;
 
@@ -159,6 +159,8 @@ public class Role {
         for (int i = 0; i < requiredComponentsSize; i++) {
             RequiredComponent requiredComponent = mRequiredComponents.get(i);
             if (requiredComponent.getQualifyingComponentForPackage(packageName, context) == null) {
+                Log.w(LOG_TAG, packageName + " not qualified for " + mName
+                        + " due to missing " + requiredComponent);
                 return false;
             }
         }
@@ -166,17 +168,15 @@ public class Role {
     }
 
     /**
-     * Get the list of packages that are qualified for this role, i.e. packages containing all the
+     * Get the set of packages that are qualified for this role, i.e. packages containing all the
      * required components.
      *
-     * @param user the user to get the qualifying packages.
      * @param context the {@code Context} to retrieve system services
      *
      * @return the set of packages that are qualified for this role
      */
     @NonNull
-    public List<String> getQualifyingPackagesAsUser(@NonNull UserHandle user,
-            @NonNull Context context) {
+    public List<String> getQualifyingPackages(@NonNull Context context) {
         ArrayMap<String, Integer> packageComponentCountMap = new ArrayMap<>();
         int requiredComponentsSize = mRequiredComponents.size();
         for (int requiredComponentsIndex = 0; requiredComponentsIndex < requiredComponentsSize;
@@ -184,8 +184,8 @@ public class Role {
             RequiredComponent requiredComponent = mRequiredComponents.get(requiredComponentsIndex);
 
             // This returns at most one component per package.
-            List<ComponentName> qualifyingComponents =
-                    requiredComponent.getQualifyingComponentsAsUser(user, context);
+            List<ComponentName> qualifyingComponents = requiredComponent.getQualifyingComponents(
+                    context);
             int qualifyingComponentsSize = qualifyingComponents.size();
             for (int qualifyingComponentsIndex = 0;
                     qualifyingComponentsIndex < qualifyingComponentsSize;
@@ -267,13 +267,30 @@ public class Role {
      */
     public void revoke(@NonNull String packageName, boolean mayKillApp,
             boolean overrideSystemFixedPermissions, @NonNull Context context) {
-        boolean permissionOrAppOpChanged = Permissions.revoke(packageName, mPermissions,
+        List<String> remainingRolesHeld = context.getSystemService(RoleManager.class)
+                .getHeldRolesFromController(packageName);
+        remainingRolesHeld.remove(mName);
+
+        // Revoke permissions
+        ArrayMap<String, Role> roles = Roles.getRoles(context);
+        List<String> permissionsToRevoke = new ArrayList<>(mPermissions);
+        int size = remainingRolesHeld.size();
+        for (int i = 0; i < size; i++) {
+            String remainingRole = remainingRolesHeld.get(i);
+            permissionsToRevoke.removeAll(roles.get(remainingRole).getPermissions());
+        }
+        boolean permissionOrAppOpChanged = Permissions.revoke(packageName, permissionsToRevoke,
                 overrideSystemFixedPermissions, context);
 
-        int appOpsSize = mAppOps.size();
+        // Revoke appops
+        List<AppOp> appOpsToRevoke = new ArrayList<>(mAppOps);
+        size = remainingRolesHeld.size();
+        for (int i = 0; i < size; i++) {
+            appOpsToRevoke.removeAll(roles.get(remainingRolesHeld.get(i)).getAppOps());
+        }
+        int appOpsSize = appOpsToRevoke.size();
         for (int i = 0; i < appOpsSize; i++) {
-            AppOp appOp = mAppOps.get(i);
-            permissionOrAppOpChanged |= appOp.revoke(packageName, context);
+            permissionOrAppOpChanged |= appOpsToRevoke.get(i).revoke(packageName, context);
         }
 
         // TODO: STOPSHIP: Revoke preferred activities?

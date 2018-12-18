@@ -170,7 +170,7 @@
    <!-- [CHAR LIMIT=30] App can always (when app is in foreground or background) access the resource protected by the permission -->
    <string name="permission_access_always">Always</string>
 
-   <!-- [CHAR LIMIT=30] App can only access the resource protected by the permission while app is in foregroud -->
+   <!-- [CHAR LIMIT=30] App can only access the resource protected by the permission while app is in foreground -->
    <string name="permission_access_only_foreground">Only while using app</string>
 
    <!-- [CHAR LIMIT=30] App can never access the resource protected by the permission (Not while app is in foregound and not while app is in background) -->
@@ -240,8 +240,8 @@
     <!-- Title for permission usage [CHAR LIMIT=30] -->
     <string name="permission_usage_title">Permissions usage</string>
 
-    <!-- Summary for showing a single permission access [CHAR LIMIT=60] -->
-    <string name="permission_usage_summary"><xliff:g id="perm" example="Location">%1$s</xliff:g> - <xliff:g id="time" example="2 hours">%2$s</xliff:g> ago</string>
+    <!-- Summary for showing a single permission access [CHAR LIMIT=80] -->
+    <string name="permission_usage_summary"><xliff:g id="perm" example="Location">%1$s</xliff:g> - Last access <xliff:g id="time" example="2 hours">%2$s</xliff:g> ago</string>
 
     <!-- Description for showing permission accesses with any permission [CHAR LIMIT=30] -->
     <string name="permission_usage_any_permission">Any permission</string>
@@ -395,6 +395,9 @@
     <!-- Permission justification string when not all justfications are defined [CHAR LIMIT=none] -->
     <string name="permission_justification_undefined">The app developer did not specify how the app uses your data.</string>
 
+    <!-- Subtitle for the preference that is currently granted only when the app is in the foreground. [CHAR LIMIT=60] -->
+    <string name="permission_subtitle_only_in_foreground">Only while app is in use</string>
+
     <!-- Label when app has been granted no permissions [CHAR LIMIT=none] -->
     <string name="no_permissions_allowed">No permissions allowed</string>
 
@@ -426,9 +429,6 @@
     <!-- Label when there is no default apps [CHAR LIMIT=30] -->
     <string name="no_default_apps">No default apps</string>
 
-    <!-- Title for category of default apps for work [CHAR LIMIT=30] -->
-    <string name="default_apps_for_work">Default for work</string>
-
     <!-- Summary of a default app when there is no app set [CHAR LIMIT=60] -->
     <string name="default_app_none">None</string>
 
@@ -439,6 +439,14 @@
 
     <!-- Label for the dialer role. [CHAR LIMIT=30] -->
     <string name="role_label_dialer">Phone app</string>
+    <!-- Label for the automotive dialer role. [CHAR LIMIT=30] -->
+    <string name="role_label_car_mode_dialer">Car mode phone app</string>
+    <!-- Label for the call screening role. [CHAR LIMIT=30] -->
+    <string name="role_label_call_screening">Call screening app</string>
+    <!-- Label for the call companion app role. [CHAR LIMIT=30] -->
+    <string name="role_label_call_companion">Call companion app</string>
+    <!-- Label for the proxy calling app role. [CHAR LIMIT=30] -->
+    <string name="role_label_proxy_calling">Proxy calling app</string>
     <!-- Label for the SMS role. [CHAR LIMIT=30] -->
     <string name="role_label_sms">SMS app</string>
     <!-- Label for the browser role. [CHAR LIMIT=30] -->
