@@ -56,76 +56,60 @@
 
                 </FrameLayout>
 
-                <!-- Button row on bottom of dialog -->
+                <!-- Buttons on bottom of dialog -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:gravity="bottom"
-                    style="?android:attr/buttonBarStyle">
+                    android:divider="@*android:drawable/list_divider_material"
+                    android:showDividers="beginning|middle">
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                    <Button
+                        android:id="@+id/permission_allow_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/grant_permissions_dialog_button_height"
+                        android:text="@string/grant_dialog_button_allow"
+                        android:background="?android:attr/selectableItemBackground"
+                        style="?android:attr/buttonBarButtonStyle" />
 
-                        <!-- dummy to enforce height -->
-                        <Button
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:visibility="invisible"
-                            style="?android:attr/buttonBarButtonStyle" />
+                    <Button
+                        android:id="@+id/permission_allow_always_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/grant_permissions_dialog_button_height"
+                        android:text="@string/grant_dialog_button_allow_always"
+                        android:background="?android:attr/selectableItemBackground"
+                        style="?android:attr/buttonBarButtonStyle" />
 
-                        <!-- If several dialogs are shown in a row, show e.g. "1/3" -->
-                        <TextView
-                            android:id="@+id/current_page_text"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            style="@*android:style/PermissionGrantIndex" />
+                    <Button
+                        android:id="@+id/permission_allow_foreground_only_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/grant_permissions_dialog_button_height"
+                        android:text="@string/grant_dialog_button_allow_foreground"
+                        android:background="?android:attr/selectableItemBackground"
+                        style="?android:attr/buttonBarButtonStyle" />
 
-                    </LinearLayout>
+                    <Button
+                        android:id="@+id/permission_deny_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/grant_permissions_dialog_button_height"
+                        android:text="@string/grant_dialog_button_deny"
+                        android:background="?android:attr/selectableItemBackground"
+                        style="?android:attr/buttonBarButtonStyle" />
 
-                    <com.android.packageinstaller.permission.ui.ButtonBarLayout
-                        android:id="@+id/button_group"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:gravity="end">
+                    <Button
+                        android:id="@+id/permission_deny_and_dont_ask_again_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/grant_permissions_dialog_button_height"
+                        android:text="@string/grant_dialog_button_deny_and_dont_ask_again"
+                        android:background="?android:attr/selectableItemBackground"
+                        style="?android:attr/buttonBarButtonStyle" />
 
-                        <Button
-                            android:id="@+id/permission_more_info_button"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/grant_dialog_button_more_info"
-                            android:visibility="gone"
-                            style="?android:attr/buttonBarButtonStyle" />
-
-                        <Space
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:visibility="invisible" />
-
-                        <Button
-                            android:id="@+id/permission_deny_button"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/grant_dialog_button_deny"
-                            style="?android:attr/buttonBarButtonStyle" />
-
-                        <Button
-                            android:id="@+id/permission_allow_button"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/grant_dialog_button_allow"
-                            style="?android:attr/buttonBarButtonStyle" />
-
-                     </com.android.packageinstaller.permission.ui.ButtonBarLayout>
 
                 </LinearLayout>
 
-            </LinearLayout>
+             </LinearLayout>
+
 
             <!-- allow some space around dialog, esp. in landscape -->
             <Space
