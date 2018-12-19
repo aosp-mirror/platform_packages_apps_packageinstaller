@@ -100,10 +100,4 @@ public class RequestRoleActivity extends FragmentActivity {
                     .commit();
         }
     }
-
-    @Override
-    public void onBackPressed() {
-        // Don't allow back.
-        // TODO: STOPSHIP: Or do we allow?
-    }
 }
