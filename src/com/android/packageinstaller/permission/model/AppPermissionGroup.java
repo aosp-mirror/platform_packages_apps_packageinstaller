@@ -53,6 +53,7 @@ import java.lang.reflect.Method;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -383,6 +384,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                     appPermissionUsages.add(appPermissionUsage);
                 }
             }
+            appPermissionUsages.sort(Comparator.comparing(AppPermissionUsage::getTime).reversed());
             return appPermissionUsages;
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
             return Collections.emptyList();
@@ -497,6 +499,12 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         return mLabel;
     }
 
+    /**
+     * Get a list of the permission usages by this app, sorted by last access time, with the most
+     * recent first.
+     *
+     * @return a sort list of this app's permission usages.
+     */
     public List<AppPermissionUsage> getAppPermissionUsage() {
         return mAppPermissionUsages;
     }

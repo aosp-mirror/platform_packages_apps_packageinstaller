@@ -20,7 +20,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -33,6 +35,8 @@ import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.ui.AppPermissionActivity;
 import com.android.permissioncontroller.R;
 
+import java.util.List;
+
 /**
  * A preference that links to the screen where a permission can be toggled.
  */
@@ -41,6 +45,7 @@ public class PermissionControlPreference extends Preference {
     private @Nullable Drawable mWidgetIcon;
     private boolean mUseSmallerIcon;
     private boolean mEllipsizeEnd;
+    private @Nullable List<Integer> mSummaryIcons;
 
     public PermissionControlPreference(@NonNull Context context,
             @NonNull AppPermissionGroup group) {
@@ -49,9 +54,7 @@ public class PermissionControlPreference extends Preference {
         mWidgetIcon = null;
         mUseSmallerIcon = false;
         mEllipsizeEnd = false;
-        if (mWidgetIcon != null) {
-            setWidgetLayoutResource(R.layout.image_view);
-        }
+        mSummaryIcons = null;
         setOnPreferenceClickListener(preference -> {
             Intent intent = new Intent(context, AppPermissionActivity.class);
             intent.putExtra(Intent.EXTRA_PACKAGE_NAME, group.getApp().packageName);
@@ -108,6 +111,16 @@ public class PermissionControlPreference extends Preference {
         setSummary("");
     }
 
+    /**
+     * Sets this preference to show the given icons to the left of its summary.
+     *
+     * @param summaryIcons the icons to show.
+     */
+    public void setSummaryIcons(@NonNull List<Integer> summaryIcons) {
+        mSummaryIcons = summaryIcons;
+        setLayoutResource(R.layout.preference_usage);
+    }
+
     @Override
     public void onBindViewHolder(PreferenceViewHolder holder) {
         if (mUseSmallerIcon) {
@@ -129,6 +142,22 @@ public class PermissionControlPreference extends Preference {
             TextView title = (TextView) holder.findViewById(android.R.id.title);
             title.setMaxLines(1);
             title.setEllipsize(TextUtils.TruncateAt.END);
+        }
+
+        if (mSummaryIcons != null && !mSummaryIcons.isEmpty()) {
+            ViewGroup summaryFrame = (ViewGroup) holder.findViewById(R.id.summary_widget_frame);
+            summaryFrame.removeAllViews();
+            int summaryIconSize = mContext.getResources().getDimensionPixelSize(
+                    R.dimen.preference_usage_summary_icon_size);
+            int numIcons = mSummaryIcons.size();
+            for (int i = 0; i < numIcons; i++) {
+                LayoutInflater inflater = mContext.getSystemService(LayoutInflater.class);
+                ViewGroup layoutView = (ViewGroup) inflater.inflate(R.layout.summary_image_view,
+                        null);
+                ImageView imageView = layoutView.requireViewById(R.id.icon);
+                imageView.setImageResource(mSummaryIcons.get(i));
+                summaryFrame.addView(layoutView);
+            }
         }
     }
 }
