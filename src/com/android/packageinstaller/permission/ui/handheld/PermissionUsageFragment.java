@@ -474,7 +474,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         mPermissionUsages.load(null /*filterPackageName*/, null,
                 filterTimeBeginMillis, Long.MAX_VALUE, PermissionUsages.USAGE_FLAG_LAST
                         | PermissionUsages.USAGE_FLAG_HISTORICAL, getActivity().getLoaderManager(),
-                true /*getUiInfo*/, this /*callback*/);
+                true /*getUiInfo*/, this /*callback*/, false /*sync*/);
     }
 
     /**

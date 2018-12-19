@@ -30,6 +30,7 @@ import android.content.pm.PackageManager;
 import android.permission.PermissionControllerService;
 import android.permission.PermissionManager;
 import android.permission.RuntimePermissionPresentationInfo;
+import android.permission.RuntimePermissionUsageInfo;
 import android.util.ArrayMap;
 import android.util.ArraySet;
 import android.util.Log;
@@ -38,8 +39,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
+import com.android.packageinstaller.permission.model.AppPermissionUsage;
+import com.android.packageinstaller.permission.model.AppPermissionUsage.GroupUsage;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.Permission;
+import com.android.packageinstaller.permission.model.PermissionUsages;
 import com.android.packageinstaller.permission.utils.Utils;
 
 import java.util.ArrayList;
@@ -389,5 +393,62 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
         }
 
         return numApps;
+    }
+
+    @Override public @NonNull List<RuntimePermissionUsageInfo> onPermissionUsageResult(
+            boolean countSystem, long numMillis) {
+        ArraySet<String> launcherPkgs = getLauncherPackages(this);
+
+        ArrayMap<CharSequence, Integer> groupUsers = new ArrayMap<>();
+
+        long curTime = System.currentTimeMillis();
+        PermissionUsages usages = new PermissionUsages(this);
+        long filterTimeBeginMillis = Math.max(System.currentTimeMillis() - numMillis,
+                System.currentTimeMillis());
+        usages.load(null, null, filterTimeBeginMillis, Long.MAX_VALUE,
+                PermissionUsages.USAGE_FLAG_LAST | PermissionUsages.USAGE_FLAG_HISTORICAL, null,
+                false, null, true);
+
+        List<AppPermissionUsage> appPermissionUsages = usages.getUsages();
+        int numApps = appPermissionUsages.size();
+        for (int appNum = 0; appNum < numApps; appNum++) {
+            AppPermissionUsage appPermissionUsage = appPermissionUsages.get(appNum);
+
+            if (appPermissionUsage.getAccessCount() <= 0) {
+                continue;
+            }
+            if (!countSystem && isSystem(appPermissionUsage.getApp(), launcherPkgs)) {
+                continue;
+            }
+
+            List<GroupUsage> appGroups = appPermissionUsage.getGroupUsages();
+            int numGroups = appGroups.size();
+            for (int groupNum = 0; groupNum < numGroups; groupNum++) {
+                GroupUsage groupUsage = appGroups.get(groupNum);
+
+                if (groupUsage.getAccessCount() <= 0) {
+                    continue;
+                }
+                if (!shouldShowPermission(this, groupUsage.getGroup())) {
+                    continue;
+                }
+
+                CharSequence groupLabel = groupUsage.getGroup().getName();
+                Integer numUsers = groupUsers.get(groupLabel);
+                if (numUsers == null) {
+                    groupUsers.put(groupLabel, 1);
+                } else {
+                    groupUsers.put(groupLabel, numUsers + 1);
+                }
+            }
+        }
+
+        List<RuntimePermissionUsageInfo> users = new ArrayList<>();
+        int numGroups = groupUsers.size();
+        for (int groupNum = 0; groupNum < numGroups; groupNum++) {
+            users.add(new RuntimePermissionUsageInfo(groupUsers.keyAt(groupNum),
+                    groupUsers.valueAt(groupNum)));
+        }
+        return users;
     }
 }

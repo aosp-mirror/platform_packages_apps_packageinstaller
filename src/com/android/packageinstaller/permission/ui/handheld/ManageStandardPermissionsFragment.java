@@ -154,7 +154,7 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
                 Long.MAX_VALUE, PermissionUsages.USAGE_FLAG_LAST
                         | PermissionUsages.USAGE_FLAG_HISTORICAL,
                 getActivity().getLoaderManager(),
-                true, this::updateRecentlyUsedWidget);
+                true, this::updateRecentlyUsedWidget, false);
     }
 
     private void updateRecentlyUsedWidget() {
