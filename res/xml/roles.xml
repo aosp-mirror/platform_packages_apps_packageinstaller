@@ -147,7 +147,11 @@
     </role>
 
     <!--- @see android.telecom.DefaultDialerManager -->
-    <role name="android.app.role.DIALER" exclusive="true" label="@string/role_label_dialer">
+    <role
+        name="android.app.role.DIALER"
+        availabilityProvider="DialerRoleAvailabilityProvider"
+        exclusive="true"
+        label="@string/role_label_dialer">
         <required-components>
             <activity>
                 <intent-filter>
@@ -196,7 +200,11 @@
     </role>
 
     <!--- @see com.android.internal.telephony.SmsApplication -->
-    <role name="android.app.role.SMS" exclusive="true" label="@string/role_label_sms">
+    <role
+        name="android.app.role.SMS"
+        availabilityProvider="SmsRoleAvailabilityProvider"
+        exclusive="true"
+        label="@string/role_label_sms">
         <required-components>
             <receiver permission="android.permission.BROADCAST_SMS">
                 <intent-filter>
