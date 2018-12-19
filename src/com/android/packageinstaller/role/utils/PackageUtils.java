@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.os.UserHandle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -69,6 +70,28 @@ public final class PackageUtils {
             return packageManager.getApplicationInfo(packageName,
                     PackageManager.MATCH_DIRECT_BOOT_AWARE
                             | PackageManager.MATCH_DIRECT_BOOT_UNAWARE);
+        } catch (PackageManager.NameNotFoundException e) {
+            return null;
+        }
+    }
+
+    /**
+     * Retrieve the {@link ApplicationInfo} of an application.
+     *
+     * @param packageName the package name of the application
+     * @param user the user of the application
+     * @param context the {@code Context} to retrieve system services
+     *
+     * @return the {@link ApplicationInfo} of the application, or {@code null} if not found
+     */
+    @Nullable
+    public static ApplicationInfo getApplicationInfoAsUser(@NonNull String packageName,
+            @NonNull UserHandle user, @NonNull Context context) {
+        PackageManager packageManager = context.getPackageManager();
+        try {
+            return packageManager.getApplicationInfoAsUser(packageName,
+                    PackageManager.MATCH_DIRECT_BOOT_AWARE
+                            | PackageManager.MATCH_DIRECT_BOOT_UNAWARE, user);
         } catch (PackageManager.NameNotFoundException e) {
             return null;
         }

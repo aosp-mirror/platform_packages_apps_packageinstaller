@@ -25,6 +25,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.os.Bundle;
+import android.os.Process;
 import android.text.Html;
 import android.util.Log;
 
@@ -181,7 +182,9 @@ public class RequestRoleFragment extends DialogFragment {
 
         Log.i(LOG_TAG, "Dialog dismissed, role: " + mRoleName + ", package: "
                 + mPackageName);
-        finish();
+        if (getActivity() != null) {
+            finish();
+        }
     }
 
     private void onAddRoleHolderStateChanged(int state) {
@@ -205,7 +208,8 @@ public class RequestRoleFragment extends DialogFragment {
     }
 
     private void addRoleHolder() {
-        mViewModel.getLiveData().addRoleHolder(mRoleName, mPackageName, requireContext());
+        mViewModel.getLiveData().addRoleHolderAsUser(mRoleName, mPackageName,
+                Process.myUserHandle(), requireContext());
     }
 
     private void setResultOkAndFinish() {

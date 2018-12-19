@@ -18,6 +18,7 @@ package com.android.packageinstaller.role.ui;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -54,6 +55,8 @@ public class DefaultAppFragment extends SettingsFragment
 
     private String mRoleName;
 
+    private UserHandle mUser;
+
     private Role mRole;
 
     private DefaultAppViewModel mViewModel;
@@ -61,15 +64,18 @@ public class DefaultAppFragment extends SettingsFragment
     /**
      * Create a new instance of this fragment.
      *
-     * @param roleName the name of the role to be managed
+     * @param roleName the name of the role for the default app
+     * @param user the user for the default app
      *
      * @return a new instance of this fragment
      */
     @NonNull
-    public static DefaultAppFragment newInstance(@NonNull String roleName) {
+    public static DefaultAppFragment newInstance(@NonNull String roleName,
+            @NonNull UserHandle user) {
         DefaultAppFragment fragment = new DefaultAppFragment();
         Bundle arguments = new Bundle();
         arguments.putString(EXTRA_ROLE_NAME, roleName);
+        arguments.putParcelable(Intent.EXTRA_USER, user);
         fragment.setArguments(arguments);
         return fragment;
     }
@@ -78,7 +84,9 @@ public class DefaultAppFragment extends SettingsFragment
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mRoleName = getArguments().getString(EXTRA_ROLE_NAME);
+        Bundle arguments = getArguments();
+        mRoleName = arguments.getString(EXTRA_ROLE_NAME);
+        mUser = arguments.getParcelable(Intent.EXTRA_USER);
     }
 
     @Override
@@ -89,7 +97,7 @@ public class DefaultAppFragment extends SettingsFragment
         mRole = Roles.getRoles(activity).get(mRoleName);
         activity.setTitle(mRole.getLabelResource());
 
-        mViewModel = ViewModelProviders.of(this, new DefaultAppViewModel.Factory(mRole,
+        mViewModel = ViewModelProviders.of(this, new DefaultAppViewModel.Factory(mRole, mUser,
                 activity.getApplication())).get(DefaultAppViewModel.class);
         mViewModel.getRoleLiveData().observe(this, this::onRoleInfoChanged);
         mViewModel.getAddRoleHolderStateLiveData().observe(this, this::onAddRoleHolderStateChanged);
@@ -173,7 +181,8 @@ public class DefaultAppFragment extends SettingsFragment
         }
 
         String packageName = preference.getKey();
-        addRoleHolderStateLiveData.addRoleHolder(mRoleName, packageName, requireContext());
+        addRoleHolderStateLiveData.addRoleHolderAsUser(mRoleName, packageName, mUser,
+                requireContext());
         return true;
     }
 }
