@@ -618,6 +618,12 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         if (LocationUtils.isLocationGroupAndProvider(mContext, mName, mPackageInfo.packageName)) {
             return LocationUtils.isLocationEnabled(mContext);
         }
+        // The permission of the extra location controller package is determined by the status of
+        // the controller package itself.
+        if (LocationUtils.isLocationGroupAndControllerExtraPackage(
+                mContext, mName, mPackageInfo.packageName)) {
+            return LocationUtils.isLocationControllerExtraPackageEnabled(mContext);
+        }
         final int permissionCount = mPermissions.size();
         for (int i = 0; i < permissionCount; i++) {
             Permission permission = mPermissions.valueAt(i);
