@@ -812,14 +812,14 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             // If we newly grant background access to the fine location, double-guess the user some
             // time later if this was really the right choice.
             if (!wasGranted && !(permission.isGranted() && permission.isAppOpAllowed())) {
-                if (mName.equals(ACCESS_FINE_LOCATION)) {
+                if (permission.getName().equals(ACCESS_FINE_LOCATION)) {
                     Permission bgPerm = permission.getBackgroundPermission();
                     if (bgPerm != null) {
                         if (bgPerm.isGranted() && bgPerm.isAppOpAllowed()) {
                             checkLocationAccessSoon(mContext);
                         }
                     }
-                } else if (mName.equals(ACCESS_BACKGROUND_LOCATION)) {
+                } else if (permission.getName().equals(ACCESS_BACKGROUND_LOCATION)) {
                     ArrayList<Permission> fgPerms = permission.getForegroundPermissions();
                     if (fgPerms != null) {
                         int numFgPerms = fgPerms.size();
