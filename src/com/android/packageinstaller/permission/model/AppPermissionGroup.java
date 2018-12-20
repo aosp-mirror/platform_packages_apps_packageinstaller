@@ -235,10 +235,14 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             final String appOp = PLATFORM_PACKAGE_NAME.equals(requestedPermissionInfo.packageName)
                     ? AppOpsManager.permissionToOp(requestedPermissionInfo.name) : null;
 
-            final boolean appOpAllowed = appOp != null
-                    && context.getSystemService(AppOpsManager.class).checkOpNoThrow(appOp,
-                    packageInfo.applicationInfo.uid, packageName)
-                    == MODE_ALLOWED;
+            final boolean appOpAllowed;
+            if (appOp == null) {
+                appOpAllowed = false;
+            } else {
+                int appOpsMode = context.getSystemService(AppOpsManager.class).unsafeCheckOpRaw(
+                        appOp, packageInfo.applicationInfo.uid, packageName);
+                appOpAllowed = appOpsMode == MODE_ALLOWED || appOpsMode == MODE_FOREGROUND;
+            }
 
             final int flags = context.getPackageManager().getPermissionFlags(
                     requestedPermission, packageName, userHandle);
