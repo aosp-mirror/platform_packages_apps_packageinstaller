@@ -33,7 +33,7 @@ public final class RuntimePermissionPresenterServiceLegacyImpl extends
     public @NonNull List<RuntimePermissionPresentationInfo> onGetAppPermissions(
             @NonNull String packageName) {
         List<android.permission.RuntimePermissionPresentationInfo> permissions =
-                RuntimePermissionPresenterServiceImpl.onGetAppPermissions(this, packageName);
+                PermissionControllerServiceImpl.onGetAppPermissions(this, packageName);
 
         ArrayList<RuntimePermissionPresentationInfo> legacyPermissions = new ArrayList<>(
                 permissions.size());
@@ -51,7 +51,7 @@ public final class RuntimePermissionPresenterServiceLegacyImpl extends
     @Override
     public void onRevokeRuntimePermission(@NonNull String packageName,
             @NonNull String permissionName) {
-        RuntimePermissionPresenterServiceImpl.onRevokeRuntimePermission(this, packageName,
+        PermissionControllerServiceImpl.onRevokeRuntimePermission(this, packageName,
                 permissionName);
     }
 }
