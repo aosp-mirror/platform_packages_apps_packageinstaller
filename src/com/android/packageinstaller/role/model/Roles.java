@@ -22,6 +22,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.XmlResourceParser;
+import android.os.Build;
 import android.util.ArrayMap;
 import android.util.Log;
 import android.util.Pair;
@@ -77,6 +78,7 @@ public class Roles {
     private static final String ATTRIBUTE_MIME_TYPE = "mimeType";
     private static final String ATTRIBUTE_VALUE = "value";
     private static final String ATTRIBUTE_OPTIONAL = "optional";
+    private static final String ATTRIBUTE_MAX_TARGET_SDK_VERSION = "maxTargetSdkVersion";
     private static final String ATTRIBUTE_MODE = "mode";
 
     private static final String MODE_NAME_ALLOWED = "allowed";
@@ -655,6 +657,18 @@ public class Roles {
                 validateAppOpName(name);
                 checkDuplicateElement(name, appOpNames, "app op");
                 appOpNames.add(name);
+                Integer maxTargetSdkVersion = getAttributeIntValue(parser,
+                        ATTRIBUTE_MAX_TARGET_SDK_VERSION, Integer.MIN_VALUE);
+                if (maxTargetSdkVersion == Integer.MIN_VALUE) {
+                    maxTargetSdkVersion = null;
+                }
+                if (DEBUG) {
+                    if (maxTargetSdkVersion != null
+                            && maxTargetSdkVersion < Build.VERSION_CODES.BASE) {
+                        throwOrLogMessage("Invalid value for \"maxTargetSdkVersion\": "
+                                + maxTargetSdkVersion);
+                    }
+                }
                 String modeName = requireAttributeValue(parser, ATTRIBUTE_MODE, TAG_APP_OP);
                 if (modeName == null) {
                     continue;
@@ -665,7 +679,7 @@ public class Roles {
                     continue;
                 }
                 int mode = sModeNameToMode.valueAt(modeIndex);
-                AppOp appOp = new AppOp(name, mode);
+                AppOp appOp = new AppOp(name, maxTargetSdkVersion, mode);
                 appOps.add(appOp);
             } else {
                 throwOrLogForUnknownTag(parser);
@@ -805,6 +819,11 @@ public class Roles {
             return null;
         }
         return getAttributeBooleanValue(parser, name, defaultValue);
+    }
+
+    private static int getAttributeIntValue(@NonNull XmlResourceParser parser,
+            @NonNull String name, int defaultValue) {
+        return parser.getAttributeIntValue(null, name, defaultValue);
     }
 
     private static int getAttributeResourceValue(@NonNull XmlResourceParser parser,
