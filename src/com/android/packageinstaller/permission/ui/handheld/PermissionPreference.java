@@ -295,9 +295,7 @@ class PermissionPreference extends MultiTargetSwitchPreference {
         final int permissionCount = permissions.size();
         for (int i = 0; i < permissionCount; i++) {
             Permission permission = permissions.get(i);
-            if (mGroup.doesSupportRuntimePermissions()
-                    ? !permission.isGranted() : (!permission.isAppOpAllowed()
-                    || permission.isReviewRequired())) {
+            if (!permission.isGrantedIncludingAppOp()) {
                 revokedCount++;
             }
         }

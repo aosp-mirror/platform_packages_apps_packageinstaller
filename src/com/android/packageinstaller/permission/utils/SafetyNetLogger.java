@@ -106,14 +106,7 @@ public final class SafetyNetLogger {
             }
 
             builder.append(permission.getName()).append('|');
-
-            if (group.doesSupportRuntimePermissions()) {
-                builder.append(permission.isGranted()).append('|');
-            } else {
-                builder.append(permission.isGranted()
-                        && (!permission.affectsAppOp() || permission.isAppOpAllowed())).append('|');
-            }
-
+            builder.append(permission.isGrantedIncludingAppOp()).append('|');
             builder.append(permission.getFlags());
         }
     }

@@ -347,7 +347,7 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
                         final int permissionCount = appPermissionGroup.getPermissions().size();
                         for (int i = 0; i < permissionCount; i++) {
                             Permission current = appPermissionGroup.getPermissions().get(i);
-                            if (!current.isGranted()) {
+                            if (!current.isGrantedIncludingAppOp()) {
                                 if (!current.isUserFixed()) {
                                     revokedPermissionsToFix = ArrayUtils.appendString(
                                             revokedPermissionsToFix, current.getName());

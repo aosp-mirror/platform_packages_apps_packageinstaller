@@ -17,7 +17,11 @@
 package com.android.packageinstaller.role.ui;
 
 import android.app.role.RoleManager;
+import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Telephony;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.WindowManager;
@@ -30,6 +34,7 @@ import com.android.packageinstaller.role.model.Roles;
 import com.android.packageinstaller.role.utils.PackageUtils;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * {@code Activity} for a role request.
@@ -38,6 +43,9 @@ public class RequestRoleActivity extends FragmentActivity {
 
     private static final String LOG_TAG = RequestRoleActivity.class.getSimpleName();
 
+    private String mRoleName;
+    private String mPackageName;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,65 +53,103 @@ public class RequestRoleActivity extends FragmentActivity {
         getWindow().addSystemFlags(
                 WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
 
-        String roleName = getIntent().getStringExtra(RoleManager.EXTRA_REQUEST_ROLE_NAME);
-        if (TextUtils.isEmpty(roleName)) {
-            Log.w(LOG_TAG, "Role name cannot be null or empty: " + roleName);
+        mRoleName = getIntent().getStringExtra(RoleManager.EXTRA_REQUEST_ROLE_NAME);
+        mPackageName = getCallingPackage();
+
+        ensureSmsDefaultDialogCompatibility();
+
+        if (TextUtils.isEmpty(mRoleName)) {
+            Log.w(LOG_TAG, "Role name cannot be null or empty: " + mRoleName);
             finish();
             return;
         }
-
-        // TODO: Allow proxy package?
-        String packageName = getCallingPackage();
-        if (TextUtils.isEmpty(packageName)) {
-            Log.w(LOG_TAG, "Package name cannot be null or empty: " + packageName);
+        if (TextUtils.isEmpty(mPackageName)) {
+            Log.w(LOG_TAG, "Package name cannot be null or empty: " + mPackageName);
             finish();
             return;
         }
 
         // Perform checks here so that we have a chance to finish without being visible to user.
-        Role role = Roles.getRoles(this).get(roleName);
+        Role role = Roles.getRoles(this).get(mRoleName);
         if (role == null) {
-            Log.w(LOG_TAG, "Unknown role: " + roleName);
+            Log.w(LOG_TAG, "Unknown role: " + mRoleName);
             finish();
             return;
         }
 
-        if (PackageUtils.getApplicationInfo(packageName, this) == null) {
-            Log.w(LOG_TAG, "Unknown application: " + packageName);
+        if (PackageUtils.getApplicationInfo(mPackageName, this) == null) {
+            Log.w(LOG_TAG, "Unknown application: " + mPackageName);
             finish();
             return;
         }
 
         RoleManager roleManager = getSystemService(RoleManager.class);
-        List<String> currentPackageNames = roleManager.getRoleHolders(roleName);
-        if (currentPackageNames.contains(packageName)) {
-            Log.i(LOG_TAG, "Application is already a role holder, role: " + roleName + ", package: "
-                    + packageName);
+        List<String> currentPackageNames = roleManager.getRoleHolders(mRoleName);
+        if (currentPackageNames.contains(mPackageName)) {
+            Log.i(LOG_TAG, "Application is already a role holder, role: " + mRoleName
+                    + ", package: " + mPackageName);
             setResult(RESULT_OK);
             finish();
             return;
         }
 
-        if (!role.isPackageQualified(packageName, this)) {
-            Log.w(LOG_TAG, "Application doesn't qualify for role, role: " + roleName + ", package: "
-                    + packageName);
+        if (!role.isPackageQualified(mPackageName, this)) {
+            Log.w(LOG_TAG, "Application doesn't qualify for role, role: " + mRoleName
+                    + ", package: " + mPackageName);
             finish();
             return;
         }
 
         // TODO: STOPSHIP: Handle other form factors.
         if (savedInstanceState == null) {
-            RequestRoleFragment fragment = RequestRoleFragment.newInstance(
-                    roleName, packageName);
+            RequestRoleFragment fragment = RequestRoleFragment.newInstance(mRoleName, mPackageName);
             getSupportFragmentManager().beginTransaction()
                     .add(fragment, null)
                     .commit();
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        // Don't allow back.
-        // TODO: STOPSHIP: Or do we allow?
+    /**
+     * @see com.android.settings.SmsDefaultDialog
+     */
+    private void ensureSmsDefaultDialogCompatibility() {
+        Intent intent = getIntent();
+        if (!Objects.equals(intent.getAction(), Telephony.Sms.Intents.ACTION_CHANGE_DEFAULT)) {
+            return;
+        }
+        if (intent.hasExtra(RoleManager.EXTRA_REQUEST_ROLE_NAME)) {
+            // Don't allow calling legacy interface with a role name.
+            return;
+        }
+
+        Log.w(LOG_TAG, "Telephony.Sms.Intents.ACTION_CHANGE_DEFAULT is deprecated; please use"
+                + " RoleManager.createRequestRoleIntent() and Activity.startActivityForResult()"
+                + " instead");
+        if (intent.hasExtra(Intent.EXTRA_PACKAGE_NAME)) {
+            Log.w(LOG_TAG, "Intent.EXTRA_PACKAGE_NAME is deprecated, and will be ignored in most"
+                    + " cases. For SMS backup, please use the new backup role instead.");
+        }
+
+        mRoleName = null;
+        mPackageName = null;
+
+        String packageName = getCallingPackage();
+        if (packageName == null) {
+            return;
+        }
+        ApplicationInfo applicationInfo = PackageUtils.getApplicationInfo(packageName, this);
+        if (applicationInfo == null || applicationInfo.targetSdkVersion >= Build.VERSION_CODES.Q) {
+            return;
+        }
+
+        mRoleName = RoleManager.ROLE_SMS;
+        mPackageName = packageName;
+
+        RoleManager roleManager = getSystemService(RoleManager.class);
+        if (roleManager.getRoleHolders(RoleManager.ROLE_SMS).contains(mPackageName)) {
+            if (intent.hasExtra(Intent.EXTRA_PACKAGE_NAME)) {
+                mPackageName = intent.getStringExtra(Intent.EXTRA_PACKAGE_NAME);
+            }
+        }
     }
 }

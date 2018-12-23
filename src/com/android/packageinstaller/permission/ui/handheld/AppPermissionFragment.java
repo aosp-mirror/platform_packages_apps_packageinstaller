@@ -665,8 +665,7 @@ public class AppPermissionFragment extends SettingsWithButtonHeader {
         int permissionCount = permissions.size();
         for (int i = 0; i < permissionCount; i++) {
             Permission permission = permissions.get(i);
-            if (mGroup.doesSupportRuntimePermissions()
-                    ? !permission.isGranted() : !permission.isAppOpAllowed()) {
+            if (!permission.isGrantedIncludingAppOp()) {
                 revokedCount++;
             }
         }

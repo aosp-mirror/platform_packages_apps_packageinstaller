@@ -53,6 +53,7 @@ import java.lang.reflect.Method;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -235,10 +236,14 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             final String appOp = PLATFORM_PACKAGE_NAME.equals(requestedPermissionInfo.packageName)
                     ? AppOpsManager.permissionToOp(requestedPermissionInfo.name) : null;
 
-            final boolean appOpAllowed = appOp != null
-                    && context.getSystemService(AppOpsManager.class).checkOpNoThrow(appOp,
-                    packageInfo.applicationInfo.uid, packageName)
-                    == MODE_ALLOWED;
+            final boolean appOpAllowed;
+            if (appOp == null) {
+                appOpAllowed = false;
+            } else {
+                int appOpsMode = context.getSystemService(AppOpsManager.class).unsafeCheckOpRaw(
+                        appOp, packageInfo.applicationInfo.uid, packageName);
+                appOpAllowed = appOpsMode == MODE_ALLOWED || appOpsMode == MODE_FOREGROUND;
+            }
 
             final int flags = context.getPackageManager().getPermissionFlags(
                     requestedPermission, packageName, userHandle);
@@ -383,6 +388,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                     appPermissionUsages.add(appPermissionUsage);
                 }
             }
+            appPermissionUsages.sort(Comparator.comparing(AppPermissionUsage::getTime).reversed());
             return appPermissionUsages;
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
             return Collections.emptyList();
@@ -497,6 +503,12 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         return mLabel;
     }
 
+    /**
+     * Get a list of the permission usages by this app, sorted by last access time, with the most
+     * recent first.
+     *
+     * @return a sort list of this app's permission usages.
+     */
     public List<AppPermissionUsage> getAppPermissionUsage() {
         return mAppPermissionUsages;
     }
@@ -618,6 +630,12 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         if (LocationUtils.isLocationGroupAndProvider(mContext, mName, mPackageInfo.packageName)) {
             return LocationUtils.isLocationEnabled(mContext);
         }
+        // The permission of the extra location controller package is determined by the status of
+        // the controller package itself.
+        if (LocationUtils.isLocationGroupAndControllerExtraPackage(
+                mContext, mName, mPackageInfo.packageName)) {
+            return LocationUtils.isLocationControllerExtraPackageEnabled(mContext);
+        }
         final int permissionCount = mPermissions.size();
         for (int i = 0; i < permissionCount; i++) {
             Permission permission = mPermissions.valueAt(i);
@@ -625,13 +643,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                     && !ArrayUtils.contains(filterPermissions, permission.getName())) {
                 continue;
             }
-            if (mAppSupportsRuntimePermissions) {
-                if (permission.isGranted()) {
-                    return true;
-                }
-            } else if (permission.isGranted()
-                    && (!permission.affectsAppOp() || permission.isAppOpAllowed())
-                    && !permission.isReviewRequired()) {
+            if (permission.isGrantedIncludingAppOp()) {
                 return true;
             }
         }
@@ -738,7 +750,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                 continue;
             }
 
-            boolean wasGranted = permission.isGranted() && permission.isAppOpAllowed();
+            boolean wasGranted = permission.isGrantedIncludingAppOp();
 
             if (mAppSupportsRuntimePermissions) {
                 // Do not touch permissions fixed by the system.
@@ -801,15 +813,15 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
             // If we newly grant background access to the fine location, double-guess the user some
             // time later if this was really the right choice.
-            if (!wasGranted && !(permission.isGranted() && permission.isAppOpAllowed())) {
-                if (mName.equals(ACCESS_FINE_LOCATION)) {
+            if (!wasGranted && permission.isGrantedIncludingAppOp()) {
+                if (permission.getName().equals(ACCESS_FINE_LOCATION)) {
                     Permission bgPerm = permission.getBackgroundPermission();
                     if (bgPerm != null) {
-                        if (bgPerm.isGranted() && bgPerm.isAppOpAllowed()) {
+                        if (bgPerm.isGrantedIncludingAppOp()) {
                             checkLocationAccessSoon(mContext);
                         }
                     }
-                } else if (mName.equals(ACCESS_BACKGROUND_LOCATION)) {
+                } else if (permission.getName().equals(ACCESS_BACKGROUND_LOCATION)) {
                     ArrayList<Permission> fgPerms = permission.getForegroundPermissions();
                     if (fgPerms != null) {
                         int numFgPerms = fgPerms.size();
@@ -817,7 +829,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                             Permission fgPerm = fgPerms.get(fgPermNum);
 
                             if (fgPerm.getName().equals(ACCESS_FINE_LOCATION)) {
-                                if (fgPerm.isGranted() && fgPerm.isAppOpAllowed()) {
+                                if (fgPerm.isGrantedIncludingAppOp()) {
                                     checkLocationAccessSoon(mContext);
                                 }
 
