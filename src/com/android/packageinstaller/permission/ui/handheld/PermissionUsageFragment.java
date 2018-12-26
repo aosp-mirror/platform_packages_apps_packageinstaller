@@ -35,18 +35,21 @@ import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceScreen;
 
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissionUsage;
-import com.android.packageinstaller.permission.model.PermissionApps;
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
 import com.android.packageinstaller.permission.model.PermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionGroups;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 import com.android.settingslib.HelpUtils;
+import com.android.settingslib.widget.BarChartPreference;
+import com.android.settingslib.widget.BarViewInfo;
 import com.android.settingslib.widget.settingsspinner.SettingsSpinnerAdapter;
 
 import java.text.Collator;
@@ -151,34 +154,45 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        // Setup filter spinners.
+        Context context = getPreferenceManager().getContext();
         ViewGroup root = (ViewGroup) super.onCreateView(inflater, container, savedInstanceState);
+
+        // Setup filter spinners.
         View header = inflater.inflate(R.layout.permission_usage_filter_spinners, root, false);
         getPreferencesContainer().addView(header, 0);
 
         mFilterSpinnerPermissions = header.requireViewById(R.id.filter_spinner_permissions);
-        mFilterAdapterPermissions = new FilterSpinnerAdapter<>(getContext());
+        mFilterAdapterPermissions = new FilterSpinnerAdapter<>(context);
         mFilterSpinnerPermissions.setAdapter(mFilterAdapterPermissions);
         mFilterSpinnerPermissions.setOnItemSelectedListener(this);
 
         mFilterSpinnerTime = header.requireViewById(R.id.filter_spinner_time);
-        mFilterAdapterTime = new FilterSpinnerAdapter<>(getContext());
+        mFilterAdapterTime = new FilterSpinnerAdapter<>(context);
         mFilterSpinnerTime.setAdapter(mFilterAdapterTime);
         mFilterSpinnerTime.setOnItemSelectedListener(this);
 
         // Add time spinner entries.  We can't add the permissions spinner entries yet since we
         // first have to load the permission groups.
-        Context context = getPreferenceManager().getContext();
         mFilterAdapterTime.addFilter(new TimeFilterItem(Long.MAX_VALUE,
-                context.getString(R.string.permission_usage_any_time)));
+                context.getString(R.string.permission_usage_any_time),
+                R.string.permission_usage_bar_chart_title_any_time,
+                R.string.permission_usage_list_title_any_time));
         mFilterAdapterTime.addFilter(new TimeFilterItem(60 * 60 * 24 * 7,
-                context.getString(R.string.permission_usage_last_7_days)));
+                context.getString(R.string.permission_usage_last_7_days),
+                R.string.permission_usage_bar_chart_title_last_7_days,
+                R.string.permission_usage_list_title_last_7_days));
         mFilterAdapterTime.addFilter(new TimeFilterItem(60 * 60 * 24,
-                context.getString(R.string.permission_usage_last_day)));
+                context.getString(R.string.permission_usage_last_day),
+                R.string.permission_usage_bar_chart_title_last_day,
+                R.string.permission_usage_list_title_last_day));
         mFilterAdapterTime.addFilter(new TimeFilterItem(60 * 60,
-                context.getString(R.string.permission_usage_last_hour)));
+                context.getString(R.string.permission_usage_last_hour),
+                R.string.permission_usage_bar_chart_title_last_hour,
+                R.string.permission_usage_list_title_last_hour));
         mFilterAdapterTime.addFilter(new TimeFilterItem(60 * 15,
-                context.getString(R.string.permission_usage_last_15_minutes)));
+                context.getString(R.string.permission_usage_last_15_minutes),
+                R.string.permission_usage_bar_chart_title_last_15_minutes,
+                R.string.permission_usage_list_title_last_15_minutes));
         mFilterSpinnerTime.setSelection(mSavedTimeSpinnerIndex);
 
         return root;
@@ -186,7 +200,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        addPreferences();
+        updateUI();
     }
 
     @Override
@@ -225,7 +239,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
             case MENU_SHOW_SYSTEM:
             case MENU_HIDE_SYSTEM:
                 mShowSystem = item.getItemId() == MENU_SHOW_SYSTEM;
-                addPreferences();
+                updateUI();
                 updateMenu();
                 break;
         }
@@ -243,7 +257,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
             return;
         }
         createPermissionSpinnerEntries();
-        addPreferences();
+        updateUI();
         setLoading(false, true);
     }
 
@@ -252,8 +266,9 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         return R.string.no_permission_usages;
     }
 
-    private void addPreferences() {
-        if (getActivity() == null) {
+    private void updateUI() {
+        List<PermissionGroup> groups = new ArrayList<>(mPermissionGroups.getGroups());
+        if (groups.isEmpty() || getActivity() == null) {
             return;
         }
 
@@ -273,37 +288,35 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         }
         long timeFilter = Long.MAX_VALUE;
         pos = mFilterSpinnerTime.getSelectedItemPosition();
+        TimeFilterItem timeFilterItem = null;
         if (pos != AdapterView.INVALID_POSITION) {
-            timeFilter = mFilterAdapterTime.getFilter(pos).getTime();
+            timeFilterItem = mFilterAdapterTime.getFilter(pos);
+            timeFilter = timeFilterItem.getTime();
         }
 
         // Find the permission usages we want to add.
         mHasSystemApps = false;
         boolean menuOptionsInvalided = false;
         Context context = getPreferenceManager().getContext();
-        List<AppPermissionUsage> appPermissionUsages = new ArrayList<>();
-        List<PermissionGroup> groups = mPermissionGroups.getGroups();
         ArrayMap<AppPermissionGroup, PermissionApp> groupToApp = new ArrayMap<>();
         ArrayMap<String, List<AppPermissionUsage>> appToUsages = new ArrayMap<>();
         ArrayMap<String, ArraySet<AppPermissionGroup>> appToGroups = new ArrayMap<>();
+        ArrayMap<PermissionGroup, Integer> groupUsers = new ArrayMap<>();
         int numGroups = groups.size();
         for (int groupNum = 0; groupNum < numGroups; groupNum++) {
             PermissionGroup permissionGroup = groups.get(groupNum);
+            groupUsers.put(permissionGroup, 0);
+
             // Filter out third party permissions
             if (!permissionGroup.getDeclaringPackage().equals(ManagePermissionsFragment.OS_PKG)) {
-                continue;
-            }
-            // Implement group filter.
-            if (permissionGroupFilter != null
-                    && !permissionGroup.getLabel().equals(permissionGroupFilter)) {
                 continue;
             }
             // Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
             if (permissionGroup.getLabel().equals("Storage")) {
                 continue;
             }
-            PermissionApps permApps = permissionGroup.getPermissionApps();
-            List<PermissionApp> permissionApps = permApps.getApps();
+
+            List<PermissionApp> permissionApps = permissionGroup.getPermissionApps().getApps();
             int numApps = permissionApps.size();
             for (int appNum = 0; appNum < numApps; appNum++) {
                 PermissionApp permApp = permissionApps.get(appNum);
@@ -331,7 +344,16 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
                     }
 
                     if (!isSystemApp || mShowSystem) {
-                        appPermissionUsages.add(usage);
+                        groupUsers.put(permissionGroup, groupUsers.get(permissionGroup) + 1);
+
+                        // Implement group filter.
+                        // We can't do this earlier because we still need to compute which apps have
+                        // used other permissions for the bar chart.
+                        if (permissionGroupFilter != null
+                                && !permissionGroup.getLabel().equals(permissionGroupFilter)) {
+                            break;
+                        }
+
                         groupToApp.put(group, permApp);
                         if (!appToUsages.containsKey(permApp.getKey())) {
                             appToUsages.put(permApp.getKey(), new ArrayList<>());
@@ -341,10 +363,40 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
                             appToGroups.put(permApp.getKey(), new ArraySet<>());
                         }
                         appToGroups.get(permApp.getKey()).add(group);
+
+                        break;
                     }
                 }
             }
         }
+
+        // Update bar chart
+        groups.sort((x, y) -> groupUsers.get(y) - groupUsers.get(x));
+        BarChartPreference barChart = new BarChartPreference(context, null);
+        if (timeFilterItem != null) {
+            barChart.setBarChartTitle(timeFilterItem.getGraphTitleRes());
+        }
+
+        BarViewInfo[] barViewsInfo = new BarViewInfo[4];
+        for (int i = 0; i < barViewsInfo.length; i++) {
+            PermissionGroup group = groups.get(i);
+            BarViewInfo barViewInfo = new BarViewInfo(
+                    Utils.applyTint(context, group.getIcon(), android.R.attr.colorControlNormal),
+                    groupUsers.get(group), R.string.app_permission_usage_bar_label);
+
+            barViewInfo.setClickListener(v -> {
+                int numFilters = mFilterAdapterPermissions.getCount();
+                for (int filterNum = 0; filterNum < numFilters; filterNum++) {
+                    if (group.equals(mFilterAdapterPermissions.getFilter(filterNum).getGroup())) {
+                        mFilterSpinnerPermissions.setSelection(filterNum);
+                        break;
+                    }
+                }
+            });
+            barViewsInfo[i] = barViewInfo;
+        }
+        barChart.setAllBarViewsInfo(barViewsInfo);
+        screen.addPreference(barChart);
 
         // Sort the apps, first by number of permissions then by last access time.
         List<String> apps = new ArrayList<>(appToUsages.keySet());
@@ -357,6 +409,11 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         });
 
         // Add the preferences.
+        PreferenceCategory category = new PreferenceCategory(context);
+        if (timeFilterItem != null) {
+            category.setTitle(timeFilterItem.getListTitleRes());
+        }
+        screen.addPreference(category);
         Set<String> addedEntries = new ArraySet<>();
         int numApps = apps.size();
         for (int appNum = 0; appNum < numApps; appNum++) {
@@ -365,7 +422,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
             appGroups.sort((x, y) -> compareAccessTime(x.getAppPermissionUsage().get(0),
                     y.getAppPermissionUsage().get(0)));
 
-            PreferenceGroup parent = screen;
+            PreferenceGroup parent = category;
             if (appGroups.size() > 1) {
                 // Add a "parent" entry for the app that will expand to the individual entries.
 
@@ -379,7 +436,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
                 parent = new ExpandablePreferenceGroup(context, groupIcons);
                 parent.setTitle(app.getLabel());
                 parent.setIcon(app.getIcon());
-                screen.addPreference(parent);
+                category.addPreference(parent);
             }
 
             numGroups = appGroups.size();
@@ -544,6 +601,10 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
             mLabel = label;
         }
 
+        public @NonNull PermissionGroup getGroup() {
+            return mGroup;
+        }
+
         public String getGroupLabel() {
             return (mGroup == null ? null : mGroup.getLabel().toString());
         }
@@ -559,10 +620,15 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
     private static class TimeFilterItem implements FilterItem {
         private final long mTime;
         private final @NonNull String mLabel;
+        private final @StringRes int mGraphTitleRes;
+        private final @StringRes int mListTitleRes;
 
-        TimeFilterItem(long time, @NonNull String label) {
+        TimeFilterItem(long time, @NonNull String label, @StringRes int graphTitleRes,
+                @StringRes int listTitleRes) {
             mTime = time;
             mLabel = label;
+            mGraphTitleRes = graphTitleRes;
+            mListTitleRes = listTitleRes;
         }
 
         public long getTime() {
@@ -571,6 +637,14 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
 
         public @NonNull String getLabel() {
             return mLabel;
+        }
+
+        public @StringRes int getGraphTitleRes() {
+            return mGraphTitleRes;
+        }
+
+        public @StringRes int getListTitleRes() {
+            return mListTitleRes;
         }
     }
 }
