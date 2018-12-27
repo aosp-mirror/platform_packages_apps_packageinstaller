@@ -17,9 +17,13 @@
 package com.android.packageinstaller.permission.ui.handheld;
 
 import static java.lang.annotation.RetentionPolicy.SOURCE;
+import static java.util.concurrent.TimeUnit.DAYS;
+import static java.util.concurrent.TimeUnit.HOURS;
+import static java.util.concurrent.TimeUnit.MINUTES;
 
 import android.app.ActionBar;
 import android.app.AlertDialog;
+import android.app.AppOpsManager;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -76,10 +80,11 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
     private static final String LOG_TAG = "PermissionUsageFragment";
 
     @Retention(SOURCE)
-    @IntDef(value = {SORT_MOST_PERMISSIONS, SORT_RECENT})
+    @IntDef(value = {SORT_MOST_PERMISSIONS, SORT_MOST_ACCESSES, SORT_RECENT})
     @interface SortOption {}
     static final int SORT_MOST_PERMISSIONS = 1;
-    static final int SORT_RECENT = 2;
+    static final int SORT_MOST_ACCESSES = 2;
+    static final int SORT_RECENT = 3;
 
     private static final int MENU_FILTER_BY_PERMISSIONS = MENU_HIDE_SYSTEM + 1;
 
@@ -98,6 +103,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
 
     private PermissionGroups mPermissionGroups;
 
+    private @NonNull AppOpsManager mAppOpsManager;
     private Collator mCollator;
     private ArraySet<String> mLauncherPkgs;
 
@@ -174,6 +180,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
 
         Context context = getPreferenceManager().getContext();
         mFilterGroup = null;
+        mAppOpsManager = context.getSystemService(AppOpsManager.class);
         mCollator = Collator.getInstance(
                 context.getResources().getConfiguration().getLocales().get(0));
         mLauncherPkgs = Utils.getLauncherPackages(context);
@@ -205,19 +212,19 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
                 context.getString(R.string.permission_usage_any_time),
                 R.string.permission_usage_bar_chart_title_any_time,
                 R.string.permission_usage_list_title_any_time));
-        mFilterAdapterTime.addFilter(new TimeFilterItem(60 * 60 * 24 * 7,
+        mFilterAdapterTime.addFilter(new TimeFilterItem(DAYS.toMillis(7),
                 context.getString(R.string.permission_usage_last_7_days),
                 R.string.permission_usage_bar_chart_title_last_7_days,
                 R.string.permission_usage_list_title_last_7_days));
-        mFilterAdapterTime.addFilter(new TimeFilterItem(60 * 60 * 24,
+        mFilterAdapterTime.addFilter(new TimeFilterItem(DAYS.toMillis(1),
                 context.getString(R.string.permission_usage_last_day),
                 R.string.permission_usage_bar_chart_title_last_day,
                 R.string.permission_usage_list_title_last_day));
-        mFilterAdapterTime.addFilter(new TimeFilterItem(60 * 60,
+        mFilterAdapterTime.addFilter(new TimeFilterItem(HOURS.toMillis(1),
                 context.getString(R.string.permission_usage_last_hour),
                 R.string.permission_usage_bar_chart_title_last_hour,
                 R.string.permission_usage_list_title_last_hour));
-        mFilterAdapterTime.addFilter(new TimeFilterItem(60 * 15,
+        mFilterAdapterTime.addFilter(new TimeFilterItem(MINUTES.toMillis(15),
                 context.getString(R.string.permission_usage_last_15_minutes),
                 R.string.permission_usage_bar_chart_title_last_15_minutes,
                 R.string.permission_usage_list_title_last_15_minutes));
@@ -227,6 +234,8 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         mSortAdapter.addFilter(
                 new SortItem(context.getString(R.string.sort_spinner_most_permissions),
                         SORT_MOST_PERMISSIONS));
+        mSortAdapter.addFilter(new SortItem(context.getString(R.string.sort_spinner_most_accesses),
+                SORT_MOST_ACCESSES));
         mSortAdapter.addFilter(new SortItem(context.getString(R.string.sort_spinner_recent),
                 SORT_RECENT));
         mSortSpinner.setSelection(mSavedSortSpinnerIndex);
@@ -352,6 +361,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
             timeFilterItem = mFilterAdapterTime.getFilter(pos);
             timeFilter = timeFilterItem.getTime();
         }
+        long curTime = System.currentTimeMillis();
 
         // Find the permission usages we want to add.
         mHasSystemApps = false;
@@ -391,7 +401,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
                         continue;
                     }
                     // Implement time filter.
-                    if ((System.currentTimeMillis() - usage.getTime()) / 1000 > timeFilter) {
+                    if (curTime - usage.getTime() > timeFilter) {
                         continue;
                     }
 
@@ -413,15 +423,16 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
                             break;
                         }
 
+                        String key = permApp.getKey();
                         groupToApp.put(group, permApp);
-                        if (!appToUsages.containsKey(permApp.getKey())) {
-                            appToUsages.put(permApp.getKey(), new ArrayList<>());
+                        if (!appToUsages.containsKey(key)) {
+                            appToUsages.put(key, new ArrayList<>());
                         }
-                        appToUsages.get(permApp.getKey()).add(usage);
-                        if (!appToGroups.containsKey(permApp.getKey())) {
-                            appToGroups.put(permApp.getKey(), new ArraySet<>());
+                        appToUsages.get(key).add(usage);
+                        if (!appToGroups.containsKey(key)) {
+                            appToGroups.put(key, new ArraySet<>());
                         }
-                        appToGroups.get(permApp.getKey()).add(group);
+                        appToGroups.get(key).add(group);
 
                         break;
                     }
@@ -466,6 +477,9 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
             pos = 0;
         }
         sortOption = mSortAdapter.getFilter(pos).getSortOption();
+
+        ArrayMap<AppPermissionGroup, Integer> groupToNumForegroundAccesses = new ArrayMap<>();
+        ArrayMap<AppPermissionGroup, Integer> groupToNumBackgroundAccesses = new ArrayMap<>();
         List<String> apps = new ArrayList<>(appToUsages.keySet());
         if (sortOption == SORT_MOST_PERMISSIONS) {
             // Sort by number of permissions then by last access time.
@@ -475,6 +489,40 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
                     return groupDiff;
                 }
                 return compareAccessTime(appToUsages.get(x).get(0), appToUsages.get(y).get(0));
+            });
+        } else if (sortOption == SORT_MOST_ACCESSES) {
+            // Sort by number of accesses
+            ArrayMap<String, Integer> appToNumAccesses = new ArrayMap<>();
+
+            int numApps = apps.size();
+            for (int appNum = 0; appNum < numApps; appNum++) {
+                String appKey = apps.get(appNum);
+                ArraySet<AppPermissionGroup> appGroups = appToGroups.get(appKey);
+                int numAppAccesses = 0;
+
+                numGroups = appGroups.size();
+                for (int groupNum = 0; groupNum < numGroups; groupNum++) {
+                    AppPermissionGroup group = appGroups.valueAt(groupNum);
+                    int numForegroundAccesses = 0, numBackgroundAccesses = 0;
+                    AppOpsManager.HistoricalPackageOps history = Utils.getUsageForGroup(group,
+                            mAppOpsManager, timeFilter);
+                    int numEntries = history.getEntryCount();
+                    for (int accessNum = 0; accessNum < numEntries; accessNum++) {
+                        AppOpsManager.HistoricalOpEntry historyEntry = history.getEntryAt(
+                                accessNum);
+                        numForegroundAccesses += historyEntry.getForegroundAccessCount();
+                        numBackgroundAccesses += historyEntry.getBackgroundAccessCount();
+                    }
+
+                    groupToNumForegroundAccesses.put(group, numForegroundAccesses);
+                    groupToNumBackgroundAccesses.put(group, numBackgroundAccesses);
+                    numAppAccesses += numForegroundAccesses + numBackgroundAccesses;
+                }
+                appToNumAccesses.put(appKey, numAppAccesses);
+            }
+
+            apps.sort((x, y) -> {
+                return appToNumAccesses.get(y) - appToNumAccesses.get(x);
             });
         } else if (sortOption == SORT_RECENT) {
             // Sort by last access time then by number of permissions.
@@ -501,8 +549,14 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         for (int appNum = 0; appNum < numApps; appNum++) {
             String appKey = apps.get(appNum);
             List<AppPermissionGroup> appGroups = new ArrayList<>(appToGroups.get(appKey));
-            appGroups.sort((x, y) -> compareAccessTime(x.getAppPermissionUsage().get(0),
-                    y.getAppPermissionUsage().get(0)));
+            if (sortOption == SORT_MOST_ACCESSES) {
+                appGroups.sort((x, y) -> (groupToNumForegroundAccesses.get(y)
+                        + groupToNumBackgroundAccesses.get(y)) - (groupToNumForegroundAccesses.get(
+                        x) + groupToNumBackgroundAccesses.get(x)));
+            } else {
+                appGroups.sort((x, y) -> compareAccessTime(x.getAppPermissionUsage().get(0),
+                        y.getAppPermissionUsage().get(0)));
+            }
 
             PreferenceGroup parent = category;
             if (appGroups.size() > 1) {
@@ -532,10 +586,26 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
                 PermissionApp permApp = groupToApp.get(group);
                 PermissionControlPreference pref = new PermissionControlPreference(context, group);
                 pref.setTitle(permApp.getLabel());
-                long timeDiff = System.currentTimeMillis() - usage.getTime();
-                String timeDiffStr = Utils.getTimeDiffStr(context, timeDiff);
-                pref.setSummary(context.getString(R.string.permission_usage_summary,
-                        usage.getPermissionGroupLabel(), timeDiffStr));
+
+                if (sortOption == SORT_MOST_ACCESSES) {
+                    int numForeground = groupToNumForegroundAccesses.get(group);
+                    int numBackground = groupToNumBackgroundAccesses.get(group);
+                    if (numBackground == 0) {
+                        pref.setSummary(
+                                context.getString(R.string.permission_usage_summary_num_accesses,
+                                        usage.getPermissionGroupLabel(), numForeground));
+                    } else {
+                        pref.setSummary(
+                                context.getString(
+                                        R.string.permission_usage_summary_num_accesses_background,
+                                        usage.getPermissionGroupLabel(),
+                                        numForeground + numBackground, numBackground));
+                    }
+                } else {
+                    pref.setSummary(context.getString(R.string.permission_usage_summary_last_access,
+                            usage.getPermissionGroupLabel(), Utils.getTimeDiffStr(context,
+                                    curTime - usage.getTime())));
+                }
                 if (appGroups.size() == 1) {
                     pref.setIcon(permApp.getIcon());
                 }
@@ -736,6 +806,11 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
             mListTitleRes = listTitleRes;
         }
 
+        /**
+         * Get the time represented by this object in milliseconds.
+         *
+         * @return the time represented by this object.
+         */
         public long getTime() {
             return mTime;
         }
