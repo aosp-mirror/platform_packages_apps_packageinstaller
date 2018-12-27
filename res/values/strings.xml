@@ -315,6 +315,12 @@
     <!-- Label for the menu item allowing filtering by permissions [CHAR LIMIT=none] -->
     <string name="filter_by_permissions">Filter by permissions</string>
 
+    <!-- Label for sorting usages by the number of permissions used [CHAR LIMIT=30] -->
+    <string name="sort_spinner_most_permissions">Most permissions</string>
+
+    <!-- Label for sorting usages by the most recent accesses [CHAR LIMIT=30] -->
+    <string name="sort_spinner_recent">Recent</string>
+
     <!-- Help URL, permission usage [DO NOT TRANSLATE] -->
     <string name="help_permission_usage" translatable="false"></string>
 

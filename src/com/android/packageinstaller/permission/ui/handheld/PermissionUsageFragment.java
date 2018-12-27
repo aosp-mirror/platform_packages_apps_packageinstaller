@@ -16,6 +16,8 @@
 
 package com.android.packageinstaller.permission.ui.handheld;
 
+import static java.lang.annotation.RetentionPolicy.SOURCE;
+
 import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -35,6 +37,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Spinner;
 
+import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
@@ -55,6 +58,7 @@ import com.android.settingslib.widget.BarChartPreference;
 import com.android.settingslib.widget.BarViewInfo;
 import com.android.settingslib.widget.settingsspinner.SettingsSpinnerAdapter;
 
+import java.lang.annotation.Retention;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -71,6 +75,12 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         PermissionGroups.PermissionsGroupsChangeCallback, OnItemSelectedListener {
     private static final String LOG_TAG = "PermissionUsageFragment";
 
+    @Retention(SOURCE)
+    @IntDef(value = {SORT_MOST_PERMISSIONS, SORT_RECENT})
+    @interface SortOption {}
+    static final int SORT_MOST_PERMISSIONS = 1;
+    static final int SORT_RECENT = 2;
+
     private static final int MENU_FILTER_BY_PERMISSIONS = MENU_HIDE_SYSTEM + 1;
 
     private static final String KEY_SHOW_SYSTEM_PREFS = "_show_system";
@@ -82,6 +92,9 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
     private static final String KEY_SPINNER_TIME_INDEX = "_time_index";
     private static final String SPINNER_TIME_INDEX_KEY = PermissionUsageFragment.class.getName()
             + KEY_SPINNER_TIME_INDEX;
+    private static final String KEY_SPINNER_SORT_INDEX = "_sort_index";
+    private static final String SPINNER_SORT_INDEX_KEY = PermissionUsageFragment.class.getName()
+            + KEY_SPINNER_SORT_INDEX;
 
     private PermissionGroups mPermissionGroups;
 
@@ -97,6 +110,8 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
 
     private Spinner mFilterSpinnerTime;
     private FilterSpinnerAdapter<TimeFilterItem> mFilterAdapterTime;
+    private Spinner mSortSpinner;
+    private FilterSpinnerAdapter<SortItem> mSortAdapter;
 
     /**
      * Only used to restore permission selection state after onCreate. Once the first list of groups
@@ -109,6 +124,12 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
      * this becomes invalid.
      */
     private int mSavedTimeSpinnerIndex;
+
+    /**
+     * Only used to restore sort spinner state after onCreate. Once the list of sorts is reported,
+     * this becomes invalid.
+     */
+    private int mSavedSortSpinnerIndex;
 
     /**
      * @return A new fragment
@@ -137,9 +158,11 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
             mShowSystem = savedInstanceState.getBoolean(SHOW_SYSTEM_KEY);
             mSavedPermLabel = savedInstanceState.getCharSequence(PERMS_INDEX_KEY);
             mSavedTimeSpinnerIndex = savedInstanceState.getInt(SPINNER_TIME_INDEX_KEY);
+            mSavedSortSpinnerIndex = savedInstanceState.getInt(SPINNER_SORT_INDEX_KEY);
         } else {
             mSavedPermLabel = null;
             mSavedTimeSpinnerIndex = 0;
+            mSavedSortSpinnerIndex = 0;
         }
 
         setLoading(true, false);
@@ -172,6 +195,11 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         mFilterSpinnerTime.setAdapter(mFilterAdapterTime);
         mFilterSpinnerTime.setOnItemSelectedListener(this);
 
+        mSortSpinner = header.requireViewById(R.id.sort_spinner);
+        mSortAdapter = new FilterSpinnerAdapter<>(context);
+        mSortSpinner.setAdapter(mSortAdapter);
+        mSortSpinner.setOnItemSelectedListener(this);
+
         // Add time spinner entries.
         mFilterAdapterTime.addFilter(new TimeFilterItem(Long.MAX_VALUE,
                 context.getString(R.string.permission_usage_any_time),
@@ -195,6 +223,14 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
                 R.string.permission_usage_list_title_last_15_minutes));
         mFilterSpinnerTime.setSelection(mSavedTimeSpinnerIndex);
 
+        // Add sort spinner entries.
+        mSortAdapter.addFilter(
+                new SortItem(context.getString(R.string.sort_spinner_most_permissions),
+                        SORT_MOST_PERMISSIONS));
+        mSortAdapter.addFilter(new SortItem(context.getString(R.string.sort_spinner_recent),
+                SORT_RECENT));
+        mSortSpinner.setSelection(mSavedSortSpinnerIndex);
+
         return root;
     }
 
@@ -214,6 +250,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         outState.putCharSequence(PERMS_INDEX_KEY,
                 mFilterGroup == null ? null : mFilterGroup.getLabel());
         outState.putInt(SPINNER_TIME_INDEX_KEY, mFilterSpinnerTime.getSelectedItemPosition());
+        outState.putInt(SPINNER_SORT_INDEX_KEY, mSortSpinner.getSelectedItemPosition());
     }
 
     @Override
@@ -422,15 +459,36 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         barChart.setAllBarViewsInfo(barViewsInfo);
         screen.addPreference(barChart);
 
-        // Sort the apps, first by number of permissions then by last access time.
+        // Sort the apps.
+        int sortOption;
+        pos = mSortSpinner.getSelectedItemPosition();
+        if (pos == AdapterView.INVALID_POSITION) {
+            pos = 0;
+        }
+        sortOption = mSortAdapter.getFilter(pos).getSortOption();
         List<String> apps = new ArrayList<>(appToUsages.keySet());
-        apps.sort((x, y) -> {
-            int groupDiff = appToGroups.get(y).size() - appToGroups.get(x).size();
-            if (groupDiff != 0) {
-                return groupDiff;
-            }
-            return compareAccessTime(appToUsages.get(x).get(0), appToUsages.get(y).get(0));
-        });
+        if (sortOption == SORT_MOST_PERMISSIONS) {
+            // Sort by number of permissions then by last access time.
+            apps.sort((x, y) -> {
+                int groupDiff = appToGroups.get(y).size() - appToGroups.get(x).size();
+                if (groupDiff != 0) {
+                    return groupDiff;
+                }
+                return compareAccessTime(appToUsages.get(x).get(0), appToUsages.get(y).get(0));
+            });
+        } else if (sortOption == SORT_RECENT) {
+            // Sort by last access time then by number of permissions.
+            apps.sort((x, y) -> {
+                int timeDiff = compareAccessTime(appToUsages.get(x).get(0),
+                        appToUsages.get(y).get(0));
+                if (timeDiff != 0) {
+                    return timeDiff;
+                }
+                return appToGroups.get(y).size() - appToGroups.get(x).size();
+            });
+        } else {
+            Log.w(LOG_TAG, "Unexpected sort option: " + sortOption);
+        }
 
         // Add the preferences.
         PreferenceCategory category = new PreferenceCategory(context);
@@ -620,7 +678,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
      * An adapter that stores the entries in a filter spinner.
      * @param <T> The type of the entries in the filter spinner.
      */
-    private static class FilterSpinnerAdapter<T extends FilterItem> extends
+    private static class FilterSpinnerAdapter<T extends SpinnerItem> extends
             SettingsSpinnerAdapter<CharSequence> {
         private final ArrayList<T> mFilterOptions = new ArrayList<>();
 
@@ -657,14 +715,14 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
     /**
      * An interface to represent items that we can use as filters.
      */
-    private interface FilterItem {
+    private interface SpinnerItem {
         @NonNull String getLabel();
     }
 
     /**
-     * A filter item representing a given time, e.g., "in the last hour".
+     * A spinner item representing a given time, e.g., "in the last hour".
      */
-    private static class TimeFilterItem implements FilterItem {
+    private static class TimeFilterItem implements SpinnerItem {
         private final long mTime;
         private final @NonNull String mLabel;
         private final @StringRes int mGraphTitleRes;
@@ -692,6 +750,27 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
 
         public @StringRes int getListTitleRes() {
             return mListTitleRes;
+        }
+    }
+
+    /**
+     * A spinner item representing different ways to sort the entries.
+     */
+    private static class SortItem implements SpinnerItem {
+        private final @NonNull String mLabel;
+        private final @SortOption int mSortOption;
+
+        SortItem(@NonNull String label, @SortOption int sortOption) {
+            mLabel = label;
+            mSortOption = sortOption;
+        }
+
+        public @NonNull String getLabel() {
+            return mLabel;
+        }
+
+        public @SortOption int getSortOption() {
+            return mSortOption;
         }
     }
 }
