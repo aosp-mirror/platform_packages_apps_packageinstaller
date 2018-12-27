@@ -17,6 +17,8 @@
 package com.android.packageinstaller.permission.ui.handheld;
 
 import android.app.ActionBar;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -36,6 +38,7 @@ import android.widget.Spinner;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
+import androidx.fragment.app.DialogFragment;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceScreen;
@@ -68,12 +71,14 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         PermissionGroups.PermissionsGroupsChangeCallback, OnItemSelectedListener {
     private static final String LOG_TAG = "PermissionUsageFragment";
 
+    private static final int MENU_FILTER_BY_PERMISSIONS = MENU_HIDE_SYSTEM + 1;
+
     private static final String KEY_SHOW_SYSTEM_PREFS = "_show_system";
     private static final String SHOW_SYSTEM_KEY = PermissionUsageFragment.class.getName()
             + KEY_SHOW_SYSTEM_PREFS;
-    private static final String KEY_SPINNER_PERMS_INDEX = "_time_index";
-    private static final String SPINNER_PERMS_INDEX_KEY = PermissionUsageFragment.class.getName()
-            + KEY_SPINNER_PERMS_INDEX;
+    private static final String KEY_PERMS_INDEX = "_time_index";
+    private static final String PERMS_INDEX_KEY = PermissionUsageFragment.class.getName()
+            + KEY_PERMS_INDEX;
     private static final String KEY_SPINNER_TIME_INDEX = "_time_index";
     private static final String SPINNER_TIME_INDEX_KEY = PermissionUsageFragment.class.getName()
             + KEY_SPINNER_TIME_INDEX;
@@ -83,21 +88,21 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
     private Collator mCollator;
     private ArraySet<String> mLauncherPkgs;
 
+    private PermissionGroup mFilterGroup;
+
     private boolean mShowSystem;
     private boolean mHasSystemApps;
     private MenuItem mShowSystemMenu;
     private MenuItem mHideSystemMenu;
 
-    private Spinner mFilterSpinnerPermissions;
-    private FilterSpinnerAdapter<PermissionFilterItem> mFilterAdapterPermissions;
     private Spinner mFilterSpinnerTime;
     private FilterSpinnerAdapter<TimeFilterItem> mFilterAdapterTime;
 
     /**
-     * Only used to restore permission spinner state after onCreate. Once the first list of groups
+     * Only used to restore permission selection state after onCreate. Once the first list of groups
      * is reported, this becomes invalid.
      */
-    private int mSavedPermsSpinnerIndex;
+    private CharSequence mSavedPermLabel;
 
     /**
      * Only used to restore time spinner state after onCreate. Once the list of times is reported,
@@ -130,10 +135,10 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
 
         if (savedInstanceState != null) {
             mShowSystem = savedInstanceState.getBoolean(SHOW_SYSTEM_KEY);
-            mSavedPermsSpinnerIndex = savedInstanceState.getInt(SPINNER_PERMS_INDEX_KEY);
+            mSavedPermLabel = savedInstanceState.getCharSequence(PERMS_INDEX_KEY);
             mSavedTimeSpinnerIndex = savedInstanceState.getInt(SPINNER_TIME_INDEX_KEY);
         } else {
-            mSavedPermsSpinnerIndex = 0;
+            mSavedPermLabel = null;
             mSavedTimeSpinnerIndex = 0;
         }
 
@@ -145,6 +150,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         }
 
         Context context = getPreferenceManager().getContext();
+        mFilterGroup = null;
         mCollator = Collator.getInstance(
                 context.getResources().getConfiguration().getLocales().get(0));
         mLauncherPkgs = Utils.getLauncherPackages(context);
@@ -161,18 +167,12 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         View header = inflater.inflate(R.layout.permission_usage_filter_spinners, root, false);
         getPreferencesContainer().addView(header, 0);
 
-        mFilterSpinnerPermissions = header.requireViewById(R.id.filter_spinner_permissions);
-        mFilterAdapterPermissions = new FilterSpinnerAdapter<>(context);
-        mFilterSpinnerPermissions.setAdapter(mFilterAdapterPermissions);
-        mFilterSpinnerPermissions.setOnItemSelectedListener(this);
-
         mFilterSpinnerTime = header.requireViewById(R.id.filter_spinner_time);
         mFilterAdapterTime = new FilterSpinnerAdapter<>(context);
         mFilterSpinnerTime.setAdapter(mFilterAdapterTime);
         mFilterSpinnerTime.setOnItemSelectedListener(this);
 
-        // Add time spinner entries.  We can't add the permissions spinner entries yet since we
-        // first have to load the permission groups.
+        // Add time spinner entries.
         mFilterAdapterTime.addFilter(new TimeFilterItem(Long.MAX_VALUE,
                 context.getString(R.string.permission_usage_any_time),
                 R.string.permission_usage_bar_chart_title_any_time,
@@ -211,14 +211,15 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBoolean(SHOW_SYSTEM_KEY, mShowSystem);
-        outState.putInt(SPINNER_PERMS_INDEX_KEY,
-                mFilterSpinnerPermissions.getSelectedItemPosition());
+        outState.putCharSequence(PERMS_INDEX_KEY,
+                mFilterGroup == null ? null : mFilterGroup.getLabel());
         outState.putInt(SPINNER_TIME_INDEX_KEY, mFilterSpinnerTime.getSelectedItemPosition());
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
+        menu.add(Menu.NONE, MENU_FILTER_BY_PERMISSIONS, Menu.NONE, R.string.filter_by_permissions);
         if (mHasSystemApps) {
             mShowSystemMenu = menu.add(Menu.NONE, MENU_SHOW_SYSTEM, Menu.NONE,
                     R.string.menu_show_system);
@@ -236,6 +237,9 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
             case android.R.id.home:
                 getActivity().finish();
                 return true;
+            case MENU_FILTER_BY_PERMISSIONS:
+                showPermissionFilterDialog();
+                break;
             case MENU_SHOW_SYSTEM:
             case MENU_HIDE_SYSTEM:
                 mShowSystem = item.getItemId() == MENU_SHOW_SYSTEM;
@@ -256,7 +260,28 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         if (mPermissionGroups.getGroups().isEmpty()) {
             return;
         }
-        createPermissionSpinnerEntries();
+
+        // Use the saved permission group or the one passed as an argument, if applicable.
+        String groupName = (mSavedPermLabel == null ? null : mSavedPermLabel.toString());
+        if (groupName == null) {
+            String permName = getArguments().getString(Intent.EXTRA_PERMISSION_NAME);
+            groupName = Utils.getGroupOfPlatformPermission(permName);
+            if (permName != null && groupName == null) {
+                Log.w(LOG_TAG, "Invalid platform permission: " + permName);
+            }
+        }
+
+        if (groupName != null && mFilterGroup == null) {
+            List<PermissionGroup> groups = getOSPermissionGroups();
+            int numGroups = groups.size();
+            for (int i = 0; i < numGroups; i++) {
+                PermissionGroup group = groups.get(i);
+                if (group.getName().equals(groupName)) {
+                    mFilterGroup = group;
+                }
+            }
+        }
+
         updateUI();
         setLoading(false, true);
     }
@@ -280,14 +305,11 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         }
         screen.removeAll();
 
-        // Get the current values of the filters from the spinners.
-        String permissionGroupFilter = null;
-        int pos = mFilterSpinnerPermissions.getSelectedItemPosition();
-        if (pos != AdapterView.INVALID_POSITION) {
-            permissionGroupFilter = mFilterAdapterPermissions.getFilter(pos).getGroupLabel();
-        }
+        // Get the current values of the filters.
+        String permissionGroupFilter =
+                (mFilterGroup == null ? null : mFilterGroup.getLabel().toString());
         long timeFilter = Long.MAX_VALUE;
-        pos = mFilterSpinnerTime.getSelectedItemPosition();
+        int pos = mFilterSpinnerTime.getSelectedItemPosition();
         TimeFilterItem timeFilterItem = null;
         if (pos != AdapterView.INVALID_POSITION) {
             timeFilterItem = mFilterAdapterTime.getFilter(pos);
@@ -376,6 +398,13 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         if (timeFilterItem != null) {
             barChart.setBarChartTitle(timeFilterItem.getGraphTitleRes());
         }
+        if (mFilterGroup != null) {
+            barChart.setBarChartDetails(R.string.app_permission_usage_detail_label);
+            barChart.setBarChartDetailsClickListener(v -> {
+                mFilterGroup = null;
+                updateUI();
+            });
+        }
 
         BarViewInfo[] barViewsInfo = new BarViewInfo[4];
         for (int i = 0; i < barViewsInfo.length; i++) {
@@ -385,13 +414,8 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
                     groupUsers.get(group), R.string.app_permission_usage_bar_label);
 
             barViewInfo.setClickListener(v -> {
-                int numFilters = mFilterAdapterPermissions.getCount();
-                for (int filterNum = 0; filterNum < numFilters; filterNum++) {
-                    if (group.equals(mFilterAdapterPermissions.getFilter(filterNum).getGroup())) {
-                        mFilterSpinnerPermissions.setSelection(filterNum);
-                        break;
-                    }
-                }
+                mFilterGroup = group;
+                updateUI();
             });
             barViewsInfo[i] = barViewInfo;
         }
@@ -489,59 +513,107 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         }
     }
 
-    private void createPermissionSpinnerEntries() {
-        Context context = getPreferenceManager().getContext();
-        String permName = getArguments().getString(Intent.EXTRA_PERMISSION_NAME);
-        String groupName = Utils.getGroupOfPlatformPermission(permName);
-        if (permName != null && groupName == null) {
-            Log.w(LOG_TAG, "Invalid platform permission: " + permName);
-        }
-
-        // Remember the selected item so we can restore it.
-        int selectedPosition = mFilterSpinnerPermissions.getSelectedItemPosition();
-        CharSequence selectedLabel = null;
-        if (selectedPosition != -1) {
-            selectedLabel = mFilterAdapterPermissions.getItem(selectedPosition);
-        }
-
-        // Get the permission labels.
+    /**
+     * Get the permission groups declared by the OS.
+     *
+     * @return a list of the permission groups declared by the OS.
+     */
+    private @NonNull List<PermissionGroup> getOSPermissionGroups() {
         List<PermissionGroup> filterGroups = new ArrayList<>();
         List<PermissionGroup> groups = mPermissionGroups.getGroups();
-        for (int i = 0, numGroups = groups.size(); i < numGroups; i++) {
+        int numGroups = groups.size();
+        for (int i = 0; i < numGroups; i++) {
             PermissionGroup permissionGroup = groups.get(i);
-            if (permissionGroup.getDeclaringPackage().equals(ManagePermissionsFragment.OS_PKG)) {
+            if (Utils.isModernPermissionGroup(permissionGroup.getName())) {
                 filterGroups.add(permissionGroup);
             }
         }
-        filterGroups.sort(
+        return filterGroups;
+    }
+
+    /**
+     * Show a dialog that allows selecting a permission group by which to filter the entries.
+     */
+    private void showPermissionFilterDialog() {
+        Context context = getPreferenceManager().getContext();
+
+        // Get the permission labels.
+        List<PermissionGroup> groups = getOSPermissionGroups();
+        groups.sort(
                 (x, y) -> mCollator.compare(x.getLabel().toString(), y.getLabel().toString()));
 
         // Create the spinner entries.
-        mFilterAdapterPermissions.clear();
-        mFilterAdapterPermissions.addFilter(new PermissionFilterItem(null,
-                context.getString(R.string.permission_usage_any_permission)));
-        for (int i = 0, numGroups = filterGroups.size(); i < numGroups; i++) {
-            PermissionGroup group = filterGroups.get(i);
-            mFilterAdapterPermissions.addFilter(new PermissionFilterItem(group,
-                    group.getLabel().toString()));
-
-            // Use the permission group passed as an argument, if applicable.
-            if (group.getName().equals(groupName) && selectedPosition == -1) {
-                selectedLabel = group.getLabel();
-                selectedPosition = mFilterAdapterPermissions.getCount() - 1;
+        PermissionGroup[] groupsArr = new PermissionGroup[groups.size() + 1];
+        CharSequence[] groupLabels = new CharSequence[groupsArr.length];
+        groupsArr[0] = null;
+        groupLabels[0] = context.getString(R.string.permission_usage_any_permission);
+        int selection = 0;
+        int numGroups = groups.size();
+        for (int i = 0; i < numGroups; i++) {
+            PermissionGroup group = groups.get(i);
+            groupsArr[i + 1] = group;
+            groupLabels[i + 1] = group.getLabel();
+            if (group.equals(mFilterGroup)) {
+                selection = i + 1;
             }
         }
 
-        // Restore the previously-selected item.
-        if (selectedPosition == -1) {
-            // Nothing was selected, so use the saved value.
-            selectedPosition = mSavedPermsSpinnerIndex;
-        } else if (!mFilterAdapterPermissions.getFilter(selectedPosition).getLabel().equals(
-                selectedLabel)) {
-            // The previously-selected value no longer exists, so use the default "show all".
-            selectedPosition = 0;
+        // Create the dialog
+        Bundle args = new Bundle();
+        args.putCharSequence(PermissionsFilterDialog.TITLE,
+                context.getString(R.string.filter_by_title));
+        args.putCharSequenceArray(PermissionsFilterDialog.ELEMS, groupLabels);
+        args.putInt(PermissionsFilterDialog.SELECTION, selection);
+        PermissionsFilterDialog chooserDialog = new PermissionsFilterDialog(this, groupsArr);
+        chooserDialog.setArguments(args);
+        chooserDialog.show(getChildFragmentManager().beginTransaction(), "backgroundChooser");
+    }
+
+    /**
+     * Callback when the user selects a permission group by which to filter.
+     *
+     * @param selectedGroup The PermissionGroup to use to filter entries, or null if we should show
+     *                      all entries.
+     */
+    private void onPermissionGroupSelected(@Nullable PermissionGroup selectedGroup) {
+        mFilterGroup = selectedGroup;
+        updateUI();
+    }
+
+    /**
+     * A dialog that allows the user to select a permission group by which to filter entries.
+     *
+     * @see #showPermissionFilterDialog()
+     */
+    public static class PermissionsFilterDialog extends DialogFragment {
+        private static final String TITLE = PermissionsFilterDialog.class.getName() + ".arg.title";
+        private static final String ELEMS = PermissionsFilterDialog.class.getName() + ".arg.elems";
+        private static final String SELECTION = PermissionsFilterDialog.class.getName()
+                + ".arg.selection";
+
+        private @NonNull PermissionUsageFragment mFragment;
+        private @NonNull PermissionGroup[] mGroups;
+
+        public PermissionsFilterDialog(@NonNull PermissionUsageFragment fragment,
+                @NonNull PermissionGroup[] groups) {
+            mFragment = fragment;
+            mGroups = groups;
         }
-        mFilterSpinnerPermissions.setSelection(selectedPosition);
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            CharSequence[] elems = getArguments().getCharSequenceArray(ELEMS);
+            AlertDialog.Builder b = new AlertDialog.Builder(getActivity())
+                    .setTitle(getArguments().getCharSequence(TITLE))
+                    .setSingleChoiceItems(elems, getArguments().getInt(SELECTION),
+                            (dialog, which) -> {
+                                dismissAllowingStateLoss();
+                                mFragment.onPermissionGroupSelected(mGroups[which]);
+                            }
+                    );
+
+            return b.create();
+        }
     }
 
     /**
@@ -587,31 +659,6 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
      */
     private interface FilterItem {
         @NonNull String getLabel();
-    }
-
-    /**
-     * A filter item representing a permission group (or all groups if the given group is null).
-     */
-    private static class PermissionFilterItem implements FilterItem {
-        private final @NonNull PermissionGroup mGroup;
-        private final @NonNull String mLabel;
-
-        PermissionFilterItem(PermissionGroup group, @NonNull String label) {
-            mGroup = group;
-            mLabel = label;
-        }
-
-        public @NonNull PermissionGroup getGroup() {
-            return mGroup;
-        }
-
-        public String getGroupLabel() {
-            return (mGroup == null ? null : mGroup.getLabel().toString());
-        }
-
-        public @NonNull String getLabel() {
-            return mLabel;
-        }
     }
 
     /**
