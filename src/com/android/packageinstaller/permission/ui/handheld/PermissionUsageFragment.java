@@ -31,6 +31,7 @@ import android.os.Bundle;
 import android.util.ArrayMap;
 import android.util.ArraySet;
 import android.util.Log;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -342,18 +343,16 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         if (groups.isEmpty() || getActivity() == null) {
             return;
         }
+        Context context = getPreferenceManager().getContext();
 
         PreferenceScreen screen = getPreferenceScreen();
         if (screen == null) {
-            Context context = getPreferenceManager().getContext();
             screen = getPreferenceManager().createPreferenceScreen(context);
             setPreferenceScreen(screen);
         }
         screen.removeAll();
 
-        // Get the current values of the filters.
-        String permissionGroupFilter =
-                (mFilterGroup == null ? null : mFilterGroup.getLabel().toString());
+        // Get the current values of the time filter.
         long timeFilter = Long.MAX_VALUE;
         int pos = mFilterSpinnerTime.getSelectedItemPosition();
         TimeFilterItem timeFilterItem = null;
@@ -364,13 +363,120 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         long curTime = System.currentTimeMillis();
 
         // Find the permission usages we want to add.
-        mHasSystemApps = false;
-        boolean menuOptionsInvalided = false;
-        Context context = getPreferenceManager().getContext();
         ArrayMap<AppPermissionGroup, PermissionApp> groupToApp = new ArrayMap<>();
         ArrayMap<String, List<AppPermissionUsage>> appToUsages = new ArrayMap<>();
         ArrayMap<String, ArraySet<AppPermissionGroup>> appToGroups = new ArrayMap<>();
         ArrayMap<PermissionGroup, Integer> groupUsers = new ArrayMap<>();
+        analyzeUsages(groups, groupToApp, appToUsages, appToGroups, groupUsers, timeFilter,
+                context);
+
+        // Update bar chart
+        BarChartPreference barChart = createBarChart(groups, groupUsers, timeFilterItem, context);
+        screen.addPreference(barChart);
+
+        // Sort the apps.
+        pos = mSortSpinner.getSelectedItemPosition();
+        if (pos == AdapterView.INVALID_POSITION) {
+            pos = 0;
+        }
+        int sortOption = mSortAdapter.getFilter(pos).getSortOption();
+        ArrayMap<AppPermissionGroup, Pair<Integer, Integer>> groupToNumAccesses = new ArrayMap<>();
+        List<String> apps = new ArrayList<>(appToUsages.keySet());
+        if (sortOption == SORT_MOST_PERMISSIONS) {
+            // Sort by number of permissions then by last access time.
+            apps.sort((x, y) -> {
+                int groupDiff = appToGroups.get(y).size() - appToGroups.get(x).size();
+                if (groupDiff != 0) {
+                    return groupDiff;
+                }
+                return compareAccessTime(appToUsages.get(x).get(0), appToUsages.get(y).get(0));
+            });
+        } else if (sortOption == SORT_MOST_ACCESSES) {
+            // Sort by number of accesses
+            sortAppsByNumAccesses(apps, appToGroups, groupToNumAccesses, timeFilter);
+        } else if (sortOption == SORT_RECENT) {
+            // Sort by last access time then by number of permissions.
+            apps.sort((x, y) -> {
+                int timeDiff = compareAccessTime(appToUsages.get(x).get(0),
+                        appToUsages.get(y).get(0));
+                if (timeDiff != 0) {
+                    return timeDiff;
+                }
+                return appToGroups.get(y).size() - appToGroups.get(x).size();
+            });
+        } else {
+            Log.w(LOG_TAG, "Unexpected sort option: " + sortOption);
+        }
+
+        // Add the preferences.
+        PreferenceCategory category = new PreferenceCategory(context);
+        if (timeFilterItem != null) {
+            category.setTitle(timeFilterItem.getListTitleRes());
+        }
+        screen.addPreference(category);
+        Set<String> addedEntries = new ArraySet<>();
+        int numApps = apps.size();
+        for (int appNum = 0; appNum < numApps; appNum++) {
+            String appKey = apps.get(appNum);
+            List<AppPermissionGroup> appGroups = new ArrayList<>(appToGroups.get(appKey));
+            if (sortOption == SORT_MOST_ACCESSES) {
+                appGroups.sort((x, y) -> {
+                    Pair<Integer, Integer> xNums = groupToNumAccesses.get(x);
+                    Pair<Integer, Integer> yNums = groupToNumAccesses.get(y);
+                    return (yNums.first + yNums.second) - (xNums.first + xNums.second);
+                });
+            } else {
+                appGroups.sort((x, y) -> compareAccessTime(x.getAppPermissionUsage().get(0),
+                        y.getAppPermissionUsage().get(0)));
+            }
+
+            PreferenceGroup parent = category;
+            if (appGroups.size() > 1) {
+                // Add a "parent" entry for the app that will expand to the individual entries.
+                parent = createExpandablePreferenceGroup(groupToApp.get(appGroups.get(0)),
+                        appGroups, context);
+                category.addPreference(parent);
+            }
+
+            int numGroups = appGroups.size();
+            for (int groupNum = 0; groupNum < numGroups; groupNum++) {
+                AppPermissionGroup group = appGroups.get(groupNum);
+                AppPermissionUsage usage = group.getAppPermissionUsage().get(0);
+                // Filter out entries we've seen before.
+                if (!addedEntries.add(appKey + "," + usage.getPermissionGroupName())) {
+                    continue;
+                }
+                PermissionControlPreference pref = createPreference(group, usage,
+                        groupToApp.get(group), appGroups, groupToNumAccesses, sortOption, context);
+                parent.addPreference(pref);
+            }
+        }
+    }
+
+    /**
+     * Analyze all of the usage data and build the data structures we need to build our UI.
+     *
+     * @param groups all of the permission groups
+     * @param groupToApp a map from AppPermissionGroup to PermissionApp
+     * @param appToUsages a map from app key to that app's most recent permission usages for each
+     *                    permission
+     * @param appToGroups a map from app key to that app's AppPermissionGroups
+     * @param groupUsers a map of how many apps use each permission group
+     * @param timeDiff the number of milliseconds in the past to get usage information.
+     * @param context the context
+     */
+    private void analyzeUsages(@NonNull List<PermissionGroup> groups,
+            @NonNull ArrayMap<AppPermissionGroup, PermissionApp> groupToApp,
+            @NonNull ArrayMap<String, List<AppPermissionUsage>> appToUsages,
+            @NonNull ArrayMap<String, ArraySet<AppPermissionGroup>> appToGroups,
+            @NonNull ArrayMap<PermissionGroup, Integer> groupUsers, long timeDiff,
+            @NonNull Context context) {
+        String permissionGroupFilter =
+                (mFilterGroup == null ? null : mFilterGroup.getLabel().toString());
+        mHasSystemApps = false;
+        boolean menuOptionsInvalided = false;
+        long curTime = System.currentTimeMillis();
+
         int numGroups = groups.size();
         for (int groupNum = 0; groupNum < numGroups; groupNum++) {
             PermissionGroup permissionGroup = groups.get(groupNum);
@@ -401,7 +507,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
                         continue;
                     }
                     // Implement time filter.
-                    if (curTime - usage.getTime() > timeFilter) {
+                    if (curTime - usage.getTime() > timeDiff) {
                         continue;
                     }
 
@@ -439,9 +545,21 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
                 }
             }
         }
+    }
 
-        // Update bar chart
-        groups.sort((x, y) -> groupUsers.get(y) - groupUsers.get(x));
+    /**
+     * Create a bar chart showing the permissions that are used by the most apps.
+     *
+     * @param groups all of the permission groups
+     * @param groupUsers a map of how many apps use each permission group
+     * @param timeFilterItem the time filter, or null if no filter is set
+     * @param context the context
+     *
+     * @return the Preference representing the bar chart
+     */
+    private BarChartPreference createBarChart(@NonNull List<PermissionGroup> groups,
+            @NonNull ArrayMap<PermissionGroup, Integer> groupUsers,
+            @Nullable TimeFilterItem timeFilterItem, @NonNull Context context) {
         BarChartPreference barChart = new BarChartPreference(context, null);
         if (timeFilterItem != null) {
             barChart.setBarChartTitle(timeFilterItem.getGraphTitleRes());
@@ -453,6 +571,8 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
                 updateUI();
             });
         }
+
+        groups.sort((x, y) -> groupUsers.get(y) - groupUsers.get(x));
 
         BarViewInfo[] barViewsInfo = new BarViewInfo[4];
         for (int i = 0; i < barViewsInfo.length; i++) {
@@ -468,153 +588,124 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
             barViewsInfo[i] = barViewInfo;
         }
         barChart.setAllBarViewsInfo(barViewsInfo);
-        screen.addPreference(barChart);
+        return barChart;
+    }
 
-        // Sort the apps.
-        int sortOption;
-        pos = mSortSpinner.getSelectedItemPosition();
-        if (pos == AdapterView.INVALID_POSITION) {
-            pos = 0;
-        }
-        sortOption = mSortAdapter.getFilter(pos).getSortOption();
+    /**
+     * Sort the list of apps by the number of times they were accessed
+     *
+     * @param apps the list of app keys
+     * @param appToGroups a map from app key to that app's AppPermissionGroups
+     * @param groupToNumAccesses a map of the number of foreground and background accesses by an app
+     * @param timeDiff the number of milliseconds in the past to get usage information.  If this is
+     *                 larger than the current time in milliseconds, we go back as far as possible.
+     */
+    private void sortAppsByNumAccesses(@NonNull List<String> apps,
+            @NonNull ArrayMap<String, ArraySet<AppPermissionGroup>> appToGroups,
+            @NonNull ArrayMap<AppPermissionGroup, Pair<Integer, Integer>> groupToNumAccesses,
+            long timeDiff) {
+        ArrayMap<String, Integer> appToNumAccesses = new ArrayMap<>();
+        long curTime = System.currentTimeMillis();
 
-        ArrayMap<AppPermissionGroup, Integer> groupToNumForegroundAccesses = new ArrayMap<>();
-        ArrayMap<AppPermissionGroup, Integer> groupToNumBackgroundAccesses = new ArrayMap<>();
-        List<String> apps = new ArrayList<>(appToUsages.keySet());
-        if (sortOption == SORT_MOST_PERMISSIONS) {
-            // Sort by number of permissions then by last access time.
-            apps.sort((x, y) -> {
-                int groupDiff = appToGroups.get(y).size() - appToGroups.get(x).size();
-                if (groupDiff != 0) {
-                    return groupDiff;
-                }
-                return compareAccessTime(appToUsages.get(x).get(0), appToUsages.get(y).get(0));
-            });
-        } else if (sortOption == SORT_MOST_ACCESSES) {
-            // Sort by number of accesses
-            ArrayMap<String, Integer> appToNumAccesses = new ArrayMap<>();
-
-            int numApps = apps.size();
-            for (int appNum = 0; appNum < numApps; appNum++) {
-                String appKey = apps.get(appNum);
-                ArraySet<AppPermissionGroup> appGroups = appToGroups.get(appKey);
-                int numAppAccesses = 0;
-
-                numGroups = appGroups.size();
-                for (int groupNum = 0; groupNum < numGroups; groupNum++) {
-                    AppPermissionGroup group = appGroups.valueAt(groupNum);
-                    int numForegroundAccesses = 0, numBackgroundAccesses = 0;
-                    AppOpsManager.HistoricalPackageOps history = Utils.getUsageForGroup(group,
-                            mAppOpsManager, timeFilter);
-                    int numEntries = history.getEntryCount();
-                    for (int accessNum = 0; accessNum < numEntries; accessNum++) {
-                        AppOpsManager.HistoricalOpEntry historyEntry = history.getEntryAt(
-                                accessNum);
-                        numForegroundAccesses += historyEntry.getForegroundAccessCount();
-                        numBackgroundAccesses += historyEntry.getBackgroundAccessCount();
-                    }
-
-                    groupToNumForegroundAccesses.put(group, numForegroundAccesses);
-                    groupToNumBackgroundAccesses.put(group, numBackgroundAccesses);
-                    numAppAccesses += numForegroundAccesses + numBackgroundAccesses;
-                }
-                appToNumAccesses.put(appKey, numAppAccesses);
-            }
-
-            apps.sort((x, y) -> {
-                return appToNumAccesses.get(y) - appToNumAccesses.get(x);
-            });
-        } else if (sortOption == SORT_RECENT) {
-            // Sort by last access time then by number of permissions.
-            apps.sort((x, y) -> {
-                int timeDiff = compareAccessTime(appToUsages.get(x).get(0),
-                        appToUsages.get(y).get(0));
-                if (timeDiff != 0) {
-                    return timeDiff;
-                }
-                return appToGroups.get(y).size() - appToGroups.get(x).size();
-            });
-        } else {
-            Log.w(LOG_TAG, "Unexpected sort option: " + sortOption);
-        }
-
-        // Add the preferences.
-        PreferenceCategory category = new PreferenceCategory(context);
-        if (timeFilterItem != null) {
-            category.setTitle(timeFilterItem.getListTitleRes());
-        }
-        screen.addPreference(category);
-        Set<String> addedEntries = new ArraySet<>();
         int numApps = apps.size();
         for (int appNum = 0; appNum < numApps; appNum++) {
             String appKey = apps.get(appNum);
-            List<AppPermissionGroup> appGroups = new ArrayList<>(appToGroups.get(appKey));
-            if (sortOption == SORT_MOST_ACCESSES) {
-                appGroups.sort((x, y) -> (groupToNumForegroundAccesses.get(y)
-                        + groupToNumBackgroundAccesses.get(y)) - (groupToNumForegroundAccesses.get(
-                        x) + groupToNumBackgroundAccesses.get(x)));
-            } else {
-                appGroups.sort((x, y) -> compareAccessTime(x.getAppPermissionUsage().get(0),
-                        y.getAppPermissionUsage().get(0)));
-            }
+            ArraySet<AppPermissionGroup> appGroups = appToGroups.get(appKey);
+            int numAppAccesses = 0;
 
-            PreferenceGroup parent = category;
-            if (appGroups.size() > 1) {
-                // Add a "parent" entry for the app that will expand to the individual entries.
-
-                List<Integer> groupIcons = new ArrayList<>(appGroups.size());
-                numGroups = appGroups.size();
-                for (int groupNum = 0; groupNum < numGroups; groupNum++) {
-                    groupIcons.add(appGroups.get(groupNum).getIconResId());
-                }
-
-                PermissionApp app = groupToApp.get(appGroups.get(0));
-                parent = new ExpandablePreferenceGroup(context, groupIcons);
-                parent.setTitle(app.getLabel());
-                parent.setIcon(app.getIcon());
-                category.addPreference(parent);
-            }
-
-            numGroups = appGroups.size();
+            int numGroups = appGroups.size();
             for (int groupNum = 0; groupNum < numGroups; groupNum++) {
-                AppPermissionGroup group = appGroups.get(groupNum);
-                AppPermissionUsage usage = group.getAppPermissionUsage().get(0);
-                // Filter out entries we've seen before.
-                if (!addedEntries.add(appKey + "," + usage.getPermissionGroupName())) {
-                    continue;
+                AppPermissionGroup group = appGroups.valueAt(groupNum);
+                int numFGAccesses = 0, numBGAccesses = 0;
+                AppOpsManager.HistoricalPackageOps history = Utils.getUsageForGroup(group,
+                        mAppOpsManager, timeDiff);
+                int numEntries = history.getEntryCount();
+                for (int accessNum = 0; accessNum < numEntries; accessNum++) {
+                    AppOpsManager.HistoricalOpEntry historyEntry = history.getEntryAt(accessNum);
+                    numFGAccesses += historyEntry.getForegroundAccessCount();
+                    numBGAccesses += historyEntry.getBackgroundAccessCount();
                 }
-                PermissionApp permApp = groupToApp.get(group);
-                PermissionControlPreference pref = new PermissionControlPreference(context, group);
-                pref.setTitle(permApp.getLabel());
 
-                if (sortOption == SORT_MOST_ACCESSES) {
-                    int numForeground = groupToNumForegroundAccesses.get(group);
-                    int numBackground = groupToNumBackgroundAccesses.get(group);
-                    if (numBackground == 0) {
-                        pref.setSummary(
-                                context.getString(R.string.permission_usage_summary_num_accesses,
-                                        usage.getPermissionGroupLabel(), numForeground));
-                    } else {
-                        pref.setSummary(
-                                context.getString(
-                                        R.string.permission_usage_summary_num_accesses_background,
-                                        usage.getPermissionGroupLabel(),
-                                        numForeground + numBackground, numBackground));
-                    }
-                } else {
-                    pref.setSummary(context.getString(R.string.permission_usage_summary_last_access,
-                            usage.getPermissionGroupLabel(), Utils.getTimeDiffStr(context,
-                                    curTime - usage.getTime())));
-                }
-                if (appGroups.size() == 1) {
-                    pref.setIcon(permApp.getIcon());
-                }
-                pref.setSummaryIcons(Collections.singletonList(group.getIconResId()));
-                pref.setKey(usage.getPackageName() + "," + usage.getPermissionGroupName());
-                pref.useSmallerIcon();
-                parent.addPreference(pref);
+                groupToNumAccesses.put(group, Pair.create(numFGAccesses, numBGAccesses));
+                numAppAccesses += numFGAccesses + numBGAccesses;
             }
+            appToNumAccesses.put(appKey, numAppAccesses);
         }
+
+        apps.sort((x, y) -> {
+            return appToNumAccesses.get(y) - appToNumAccesses.get(x);
+        });
+    }
+
+    /**
+     * Create an expandable preference group that can hold children.
+     *
+     * @param app the app this group represents
+     * @param appGroups the permission groups this app has accessed
+     * @param context the context
+     *
+     * @return the expandable preference group.
+     */
+    private PreferenceGroup createExpandablePreferenceGroup(@NonNull PermissionApp app,
+            @NonNull List<AppPermissionGroup> appGroups, @NonNull Context context) {
+        List<Integer> groupIcons = new ArrayList<>(appGroups.size());
+        int numGroups = appGroups.size();
+        for (int groupNum = 0; groupNum < numGroups; groupNum++) {
+            groupIcons.add(appGroups.get(groupNum).getIconResId());
+        }
+
+        PreferenceGroup preference = new ExpandablePreferenceGroup(context, groupIcons);
+        preference.setTitle(app.getLabel());
+        preference.setIcon(app.getIcon());
+        return preference;
+    }
+
+    /**
+     * Create a preference representing an app's use of a permission
+     *
+     * @param group the AppPermissionGroup
+     * @param usage the AppPermissionUsage
+     * @param permApp the PermissionApp
+     * @param appGroups the permission groups this app has accessed
+     * @param groupToNumAccesses a map of the number of foreground and background accesses by an app
+     * @param sortOption how the entries should be sorted
+     * @param context the context
+     *
+     * @return the Preference
+     */
+    private PermissionControlPreference createPreference(@NonNull AppPermissionGroup group,
+            @NonNull AppPermissionUsage usage, @NonNull PermissionApp permApp,
+            @NonNull List<AppPermissionGroup> appGroups,
+            @NonNull ArrayMap<AppPermissionGroup, Pair<Integer, Integer>> groupToNumAccesses,
+            @SortOption int sortOption, @NonNull Context context) {
+        PermissionControlPreference pref = new PermissionControlPreference(context, group);
+        pref.setTitle(permApp.getLabel());
+
+        if (sortOption == SORT_MOST_ACCESSES) {
+            Pair<Integer, Integer> numAccesses = groupToNumAccesses.get(group);
+            if (numAccesses.second == 0) {
+                pref.setSummary(
+                        context.getString(R.string.permission_usage_summary_num_accesses,
+                                usage.getPermissionGroupLabel(), numAccesses.first));
+            } else {
+                pref.setSummary(
+                        context.getString(
+                                R.string.permission_usage_summary_num_accesses_background,
+                                usage.getPermissionGroupLabel(),
+                                numAccesses.first + numAccesses.second, numAccesses.second));
+            }
+        } else {
+            pref.setSummary(context.getString(R.string.permission_usage_summary_last_access,
+                    usage.getPermissionGroupLabel(), Utils.getTimeDiffStr(context,
+                            System.currentTimeMillis() - usage.getTime())));
+        }
+        if (appGroups.size() == 1) {
+            pref.setIcon(permApp.getIcon());
+        }
+        pref.setSummaryIcons(Collections.singletonList(group.getIconResId()));
+        pref.setKey(usage.getPackageName() + "," + usage.getPermissionGroupName());
+        pref.useSmallerIcon();
+        return pref;
     }
 
     /**
