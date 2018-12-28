@@ -140,6 +140,8 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
         ArraySet<String> launcherPkgs = Utils.getLauncherPackages(context);
         PermissionApps.PmCache pmCache = new PermissionApps.PmCache(
                 context.getPackageManager());
+        PermissionApps.AppDataCache appDataCache = new PermissionApps.AppDataCache(
+                context.getPackageManager(), context);
 
         List<PermissionGroup> groups = new ArrayList<>();
         Set<String> seenPermissions = new ArraySet<>();
@@ -183,7 +185,7 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
             Drawable icon = loadItemInfoIcon(context, groupInfo);
 
             PermissionApps permApps = new PermissionApps(context, groupInfo.name, null,
-                    pmCache);
+                    pmCache, appDataCache);
             permApps.refreshSync(true);
 
             // Create the group and add to the list.
@@ -237,7 +239,7 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
                 Drawable icon = loadItemInfoIcon(context, permissionInfo);
 
                 PermissionApps permApps = new PermissionApps(context, permissionInfo.name,
-                        null, pmCache);
+                        null, pmCache, appDataCache);
                 permApps.refreshSync(true);
 
                 // Create the group and add to the list.

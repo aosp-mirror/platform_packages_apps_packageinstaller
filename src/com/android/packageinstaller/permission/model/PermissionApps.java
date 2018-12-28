@@ -29,7 +29,11 @@ import android.os.UserManager;
 import android.util.ArrayMap;
 import android.util.ArraySet;
 import android.util.Log;
+import android.util.Pair;
 import android.util.SparseArray;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.android.packageinstaller.permission.utils.IconDrawableFactory;
 import com.android.packageinstaller.permission.utils.Utils;
@@ -47,7 +51,8 @@ public class PermissionApps {
     private final PackageManager mPm;
     private final Callback mCallback;
 
-    private final PmCache mCache;
+    private final @Nullable PmCache mPmCache;
+    private final @Nullable AppDataCache mAppDataCache;
 
     private CharSequence mLabel;
     private Drawable mIcon;
@@ -59,11 +64,13 @@ public class PermissionApps {
     private boolean mRefreshing;
 
     public PermissionApps(Context context, String groupName, Callback callback) {
-        this(context, groupName, callback, null);
+        this(context, groupName, callback, null, null);
     }
 
-    public PermissionApps(Context context, String groupName, Callback callback, PmCache cache) {
-        mCache = cache;
+    public PermissionApps(Context context, String groupName, Callback callback,
+            @Nullable PmCache pmCache, @Nullable AppDataCache appDataCache) {
+        mPmCache = pmCache;
+        mAppDataCache = appDataCache;
         mContext = context;
         mPm = mContext.getPackageManager();
         mGroupName = groupName;
@@ -169,7 +176,7 @@ public class PermissionApps {
 
         UserManager userManager = mContext.getSystemService(UserManager.class);
         for (UserHandle user : userManager.getUserProfiles()) {
-            List<PackageInfo> apps = mCache != null ? mCache.getPackages(user.getIdentifier())
+            List<PackageInfo> apps = mPmCache != null ? mPmCache.getPackages(user.getIdentifier())
                     : mPm.getInstalledPackagesAsUser(PackageManager.GET_PERMISSIONS,
                             user.getIdentifier());
 
@@ -213,13 +220,28 @@ public class PermissionApps {
                         continue;
                     }
 
-                    String label = mSkipUi ? app.packageName
-                            : app.applicationInfo.loadLabel(mPm).toString();
+                    Pair<String, Drawable> appData = null;
+                    if (mAppDataCache != null && !mSkipUi) {
+                        appData = mAppDataCache.getAppData(user.getIdentifier(), app);
+                    }
+
+                    String label;
+                    if (mSkipUi) {
+                        label = app.packageName;
+                    } else if (appData != null) {
+                        label = appData.first;
+                    } else {
+                        label = app.applicationInfo.loadLabel(mPm).toString();
+                    }
 
                     Drawable icon = null;
                     if (!mSkipUi) {
-                        icon = IconDrawableFactory.getBadgedIcon(mContext, app.applicationInfo,
-                                UserHandle.getUserHandleForUid(group.getApp().applicationInfo.uid));
+                        if (appData != null) {
+                            icon = appData.second;
+                        } else {
+                            icon = IconDrawableFactory.getBadgedIcon(mContext, app.applicationInfo,
+                                    UserHandle.getUserHandleForUid(app.applicationInfo.uid));
+                        }
                     }
 
                     PermissionApp permApp = new PermissionApp(app.packageName, group, label, icon,
@@ -395,6 +417,48 @@ public class PermissionApps {
                 mPackageInfoCache.put(userId, ret);
             }
             return ret;
+        }
+    }
+
+    /**
+     * Class used to reduce the number of calls to loading labels and icons.
+     * This caches app information so it should only be used across parallel PermissionApps
+     * instances, and should not be retained across UI refresh.
+     */
+    public static class AppDataCache {
+        private final @NonNull SparseArray<ArrayMap<String, Pair<String, Drawable>>> mCache =
+                new SparseArray<>();
+        private final @NonNull PackageManager mPm;
+        private final @NonNull Context mContext;
+
+        public AppDataCache(@NonNull PackageManager pm, @NonNull Context context) {
+            mPm = pm;
+            mContext = context;
+        }
+
+        /**
+         * Get the label and icon for the given app.
+         *
+         * @param userId the user id.
+         * @param app The app
+         *
+         * @return a pair of the label and icon.
+         */
+        public @NonNull Pair<String, Drawable> getAppData(int userId,
+                @NonNull PackageInfo app) {
+            ArrayMap<String, Pair<String, Drawable>> dataForUser = mCache.get(userId);
+            if (dataForUser == null) {
+                dataForUser = new ArrayMap<>();
+                mCache.put(userId, dataForUser);
+            }
+            Pair<String, Drawable> data = dataForUser.get(app.applicationInfo.packageName);
+            if (data == null) {
+                data = Pair.create(app.applicationInfo.loadLabel(mPm).toString(),
+                        IconDrawableFactory.getBadgedIcon(mContext, app.applicationInfo,
+                                UserHandle.getUserHandleForUid(app.applicationInfo.uid)));
+                dataForUser.put(app.applicationInfo.packageName, data);
+            }
+            return data;
         }
     }
 
