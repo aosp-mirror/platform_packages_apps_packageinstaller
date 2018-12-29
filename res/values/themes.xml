@@ -27,12 +27,19 @@
      </style>
 
     <style name="ReviewPermissions"
-           parent="@*android:style/Theme.DeviceDefault.PermissionReviewApp">
+           parent="@android:style/Theme.DeviceDefault.Settings">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:titleTextStyle">@style/PermissionReviewTitleMessage</item>
         <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
     </style>
 
     <style name="GrantPermissions"
-            parent="@*android:style/Theme.DeviceDefault.PermissionGrantApp">
+           parent="@android:style/Theme.DeviceDefault.Light.Panel">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowAnimationStyle">@*android:style/Animation.Material.Dialog</item>
         <!-- The following attributes change the behavior of the dialog, hence they should not be
              themed -->
         <item name="android:windowIsTranslucent">true</item>
@@ -46,4 +53,10 @@
     <style name="RequestRole" parent="android:Theme.DeviceDefault.Light.NoActionBar.TranslucentDecor">
         <!-- TODO: STOPSHIP: Make themeable? -->
     </style>
+
+    <style name="PermissionGrant"
+           parent="@android:style/Theme.DeviceDefault.Light.Dialog">
+        <item name="titleTextStyle">@style/PermissionGrantTitleMessage</item>
+    </style>
+
 </resources>

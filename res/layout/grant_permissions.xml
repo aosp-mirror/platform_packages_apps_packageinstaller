@@ -44,8 +44,8 @@
             <LinearLayout
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:theme="@*android:style/Theme.DeviceDefault.PermissionGrant"
-                style="@*android:style/PermissionGrantDialog">
+                android:theme="@style/PermissionGrant"
+                style="@style/PermissionGrantDialog">
 
                 <FrameLayout
                     android:id="@+id/content_container"
@@ -105,11 +105,9 @@
                         android:background="?android:attr/selectableItemBackground"
                         style="?android:attr/buttonBarButtonStyle" />
 
-
                 </LinearLayout>
 
              </LinearLayout>
-
 
             <!-- allow some space around dialog, esp. in landscape -->
             <Space
