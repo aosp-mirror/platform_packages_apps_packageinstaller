@@ -159,7 +159,7 @@ public class Permissions {
 
     private static boolean grantSingle(@NonNull String packageName, @NonNull String permission,
             boolean overrideUserSetAndFixed, boolean setSystemFixed, @NonNull Context context) {
-        boolean wasPermissionOrAppOpGranted = isPermissionOrAppOpGranted(packageName, permission,
+        boolean wasPermissionOrAppOpGranted = isPermissionAndAppOpGranted(packageName, permission,
                 context);
         if (isPermissionFixed(packageName, permission, false, overrideUserSetAndFixed, context)
                 && !wasPermissionOrAppOpGranted) {
@@ -174,7 +174,7 @@ public class Permissions {
             for (int i = 0; i < foregroundPermissionsSize; i++) {
                 String foregroundPermission = foregroundPermissions.get(i);
 
-                if (isPermissionOrAppOpGranted(packageName, foregroundPermission, context)) {
+                if (isPermissionAndAppOpGranted(packageName, foregroundPermission, context)) {
                     isAnyForegroundPermissionGranted = true;
                     break;
                 }
@@ -196,6 +196,7 @@ public class Permissions {
             newFlags |= PackageManager.FLAG_PERMISSION_SYSTEM_FIXED;
         }
         int newMask = newFlags;
+        newMask |= PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED;
         if (!wasPermissionOrAppOpGranted) {
             // If we've granted a permission which wasn't granted, it's no longer user set or fixed.
             newMask |= PackageManager.FLAG_PERMISSION_USER_FIXED
@@ -219,27 +220,28 @@ public class Permissions {
         return permissionOrAppOpChanged;
     }
 
-    private static boolean isPermissionOrAppOpGranted(@NonNull String packageName,
+    private static boolean isPermissionAndAppOpGranted(@NonNull String packageName,
             @NonNull String permission, @NonNull Context context) {
+        // Check this permission.
         if (!isPermissionGrantedWithoutCheckingAppOp(packageName, permission, context)) {
             return false;
         }
 
-        if (isRuntimePermissionsSupported(packageName, context)) {
-            return true;
-        }
-
-        // Check app op mode for pre-M apps.
-        String appOp = getPermissionAppOp(permission);
-        if (appOp == null) {
-            return false;
-        }
-        Integer appOpMode = getAppOpMode(packageName, appOp, context);
-        if (appOpMode == null) {
+        // Check if the permission is review required.
+        if (isPermissionReviewRequired(packageName, permission, context)) {
             return false;
         }
 
         if (!isBackgroundPermission(permission, context)) {
+            // This permission is not a background permission, check its app op.
+            String appOp = getPermissionAppOp(permission);
+            if (appOp == null) {
+                return true;
+            }
+            Integer appOpMode = getAppOpMode(packageName, appOp, context);
+            if (appOpMode == null) {
+                return false;
+            }
             if (!isForegroundPermission(permission, context)) {
                 // This permission is an ordinary permission, return true if its app op mode is
                 // MODE_ALLOWED.
@@ -295,7 +297,7 @@ public class Permissions {
                 // This permission is a foreground permission, set its app op mode according to
                 // whether its background permission is granted.
                 String backgroundPermission = getBackgroundPermission(permission, context);
-                if (!isPermissionOrAppOpGranted(packageName, backgroundPermission, context)) {
+                if (!isPermissionAndAppOpGranted(packageName, backgroundPermission, context)) {
                     appOpMode = AppOpsManager.MODE_FOREGROUND;
                 } else {
                     appOpMode = AppOpsManager.MODE_ALLOWED;
@@ -396,14 +398,14 @@ public class Permissions {
         // set.
 
         if (isPermissionFixed(packageName, permission, overrideSystemFixed, false, context)
-                && isPermissionOrAppOpGranted(packageName, permission, context)) {
+                && isPermissionAndAppOpGranted(packageName, permission, context)) {
             // Stop revoking if this permission is fixed to granted.
             return false;
         }
 
         if (isForegroundPermission(permission, context)) {
             String backgroundPermission = getBackgroundPermission(permission, context);
-            if (isPermissionOrAppOpGranted(packageName, backgroundPermission, context)) {
+            if (isPermissionAndAppOpGranted(packageName, backgroundPermission, context)) {
                 // Stop revoking if this foreground permission has a granted background permission.
                 return false;
             }
@@ -454,7 +456,7 @@ public class Permissions {
             for (int i = 0; i < foregroundPermissionsSize; i++) {
                 String foregroundPermission = foregroundPermissions.get(i);
 
-                if (!isPermissionOrAppOpGranted(packageName, foregroundPermission, context)) {
+                if (!isPermissionAndAppOpGranted(packageName, foregroundPermission, context)) {
                     continue;
                 }
 
@@ -533,6 +535,12 @@ public class Permissions {
         return (flags & PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT) != 0;
     }
 
+    private static boolean isPermissionReviewRequired(@NonNull String packageName,
+            @NonNull String permission, @NonNull Context context) {
+        int flags = getPermissionFlags(packageName, permission, context);
+        return (flags & PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED) != 0;
+    }
+
     private static void setPermissionFlags(@NonNull String packageName, @NonNull String permission,
             int flags, int mask, @NonNull Context context) {
         PackageManager packageManager = context.getPackageManager();
@@ -541,7 +549,7 @@ public class Permissions {
     }
 
     /**
-     * Most of the time {@link #isPermissionOrAppOpGranted(String, String, Context)} should be used
+     * Most of the time {@link #isPermissionAndAppOpGranted(String, String, Context)} should be used
      * instead.
      */
     private static boolean isPermissionGrantedWithoutCheckingAppOp(@NonNull String packageName,
