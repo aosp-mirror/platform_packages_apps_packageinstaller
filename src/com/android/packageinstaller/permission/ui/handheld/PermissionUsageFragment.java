@@ -185,7 +185,8 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         mCollator = Collator.getInstance(
                 context.getResources().getConfiguration().getLocales().get(0));
         mLauncherPkgs = Utils.getLauncherPackages(context);
-        mPermissionGroups = new PermissionGroups(context, getActivity().getLoaderManager(), this);
+        mPermissionGroups = new PermissionGroups(context, getActivity().getLoaderManager(), this,
+                true);
     }
 
     @Override

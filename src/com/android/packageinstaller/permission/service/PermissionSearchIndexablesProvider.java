@@ -73,7 +73,7 @@ public class PermissionSearchIndexablesProvider extends SearchIndexablesProvider
     public Cursor queryRawData(String[] projection) {
         String password = getPassword(getContext());
 
-        List<PermissionGroup> permissionGroups = getAllPermissionGroups(getContext(), null);
+        List<PermissionGroup> permissionGroups = getAllPermissionGroups(getContext(), null, false);
         MatrixCursor cursor = new MatrixCursor(INDEXABLES_RAW_COLUMNS);
 
         int numPermissionGroups = permissionGroups.size();
