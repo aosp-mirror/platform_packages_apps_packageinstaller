@@ -22,6 +22,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.os.UserHandle;
 import android.util.Log;
+import android.util.Pair;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
@@ -36,7 +37,7 @@ import java.util.List;
 /**
  * {@link LiveData} for a role.
  */
-public class RoleLiveData extends AsyncTaskLiveData<RoleInfo>
+public class RoleLiveData extends AsyncTaskLiveData<List<Pair<ApplicationInfo, Boolean>>>
         implements OnRoleHoldersChangedListener {
 
     private static final String LOG_TAG = RoleLiveData.class.getSimpleName();
@@ -75,9 +76,12 @@ public class RoleLiveData extends AsyncTaskLiveData<RoleInfo>
 
     @Override
     @WorkerThread
-    protected RoleInfo loadValueInBackground() {
+    protected List<Pair<ApplicationInfo, Boolean>> loadValueInBackground() {
+        RoleManager roleManager = mContext.getSystemService(RoleManager.class);
+        List<String> holderPackageNames = roleManager.getRoleHoldersAsUser(mRole.getName(), mUser);
+
         List<String> qualifyingPackageNames = mRole.getQualifyingPackagesAsUser(mUser, mContext);
-        List<ApplicationInfo> qualifyingApplicationInfos = new ArrayList<>();
+        List<Pair<ApplicationInfo, Boolean>> qualifyingApplications = new ArrayList<>();
         int qualifyingPackageNamesSize = qualifyingPackageNames.size();
         for (int i = 0; i < qualifyingPackageNamesSize; i++) {
             String qualifyingPackageName = qualifyingPackageNames.get(i);
@@ -89,12 +93,10 @@ public class RoleLiveData extends AsyncTaskLiveData<RoleInfo>
                         + qualifyingPackageName);
                 continue;
             }
-            qualifyingApplicationInfos.add(qualifyingApplicationInfo);
+            boolean isHolderPackage = holderPackageNames.contains(qualifyingPackageName);
+            qualifyingApplications.add(new Pair<>(qualifyingApplicationInfo, isHolderPackage));
         }
 
-        RoleManager roleManager = mContext.getSystemService(RoleManager.class);
-        List<String> holderPackageNames = roleManager.getRoleHoldersAsUser(mRole.getName(), mUser);
-
-        return new RoleInfo(qualifyingApplicationInfos, holderPackageNames);
+        return qualifyingApplications;
     }
 }
