@@ -71,9 +71,10 @@ public class Roles {
     private static final String TAG_PREFERRED_ACTIVITIES = "preferred-activities";
     private static final String TAG_PREFERRED_ACTIVITY = "preferred-activity";
     private static final String ATTRIBUTE_NAME = "name";
-    private static final String ATTRIBUTE_PERMISSION = "permission";
+    private static final String ATTRIBUTE_AVAILABILITY_PROVIDER = "availabilityProvider";
     private static final String ATTRIBUTE_EXCLUSIVE = "exclusive";
     private static final String ATTRIBUTE_LABEL = "label";
+    private static final String ATTRIBUTE_PERMISSION = "permission";
     private static final String ATTRIBUTE_SCHEME = "scheme";
     private static final String ATTRIBUTE_MIME_TYPE = "mimeType";
     private static final String ATTRIBUTE_VALUE = "value";
@@ -292,6 +293,25 @@ public class Roles {
             return null;
         }
 
+        String availabilityProviderClassSimpleName = getAttributeValue(parser,
+                ATTRIBUTE_AVAILABILITY_PROVIDER);
+        RoleAvailabilityProvider availabilityProvider;
+        if (availabilityProviderClassSimpleName != null) {
+            String availabilityProviderClassName = Roles.class.getPackage().getName() + '.'
+                    + availabilityProviderClassSimpleName;
+            try {
+                availabilityProvider = (RoleAvailabilityProvider) Class.forName(
+                        availabilityProviderClassName).newInstance();
+            } catch (ClassNotFoundException | IllegalAccessException | InstantiationException e) {
+                throwOrLogMessage("Unable to instantiate availability provider: "
+                        + availabilityProviderClassName, e);
+                skipCurrentTag(parser);
+                return null;
+            }
+        } else {
+            availabilityProvider = null;
+        }
+
         Boolean exclusive = requireAttributeBooleanValue(parser, ATTRIBUTE_EXCLUSIVE, true,
                 TAG_ROLE);
         if (exclusive == null) {
@@ -365,8 +385,8 @@ public class Roles {
         if (preferredActivities == null) {
             preferredActivities = Collections.emptyList();
         }
-        return new Role(name, labelResource, exclusive, requiredComponents, permissions, appOps,
-                preferredActivities);
+        return new Role(name, availabilityProvider, exclusive, labelResource, requiredComponents,
+                permissions, appOps, preferredActivities);
     }
 
     @NonNull

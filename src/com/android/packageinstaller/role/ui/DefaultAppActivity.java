@@ -67,6 +67,11 @@ public class DefaultAppActivity extends FragmentActivity {
             finish();
             return;
         }
+        if (!role.isAvailableAsUser(user, this)) {
+            Log.e(LOG_TAG, "Role is unavailable: " + roleName);
+            finish();
+            return;
+        }
 
         if (savedInstanceState == null) {
             DefaultAppFragment fragment = DefaultAppFragment.newInstance(roleName, user);
