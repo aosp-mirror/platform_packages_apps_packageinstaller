@@ -38,6 +38,7 @@
             android:label="@string/app_name"
             android:icon="@drawable/ic_permission_controller_app_icon"
             android:allowBackup="false"
+            android:allowClearUserData="false"
             android:supportsRtl="true"
             android:defaultToDeviceProtectedStorage="true"
             android:directBootAware="true">
