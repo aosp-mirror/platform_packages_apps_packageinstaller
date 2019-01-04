@@ -59,6 +59,7 @@ import com.android.packageinstaller.permission.model.PermissionGroups;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 import com.android.settingslib.HelpUtils;
+import com.android.settingslib.widget.BarChartInfo;
 import com.android.settingslib.widget.BarChartPreference;
 import com.android.settingslib.widget.BarViewInfo;
 import com.android.settingslib.widget.settingsspinner.SettingsSpinnerAdapter;
@@ -561,13 +562,14 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
     private BarChartPreference createBarChart(@NonNull List<PermissionGroup> groups,
             @NonNull ArrayMap<PermissionGroup, Integer> groupUsers,
             @Nullable TimeFilterItem timeFilterItem, @NonNull Context context) {
+        BarChartInfo.Builder builder = new BarChartInfo.Builder();
         BarChartPreference barChart = new BarChartPreference(context, null);
         if (timeFilterItem != null) {
-            barChart.setBarChartTitle(timeFilterItem.getGraphTitleRes());
+            builder.setTitle(timeFilterItem.getGraphTitleRes());
         }
         if (mFilterGroup != null) {
-            barChart.setBarChartDetails(R.string.app_permission_usage_detail_label);
-            barChart.setBarChartDetailsClickListener(v -> {
+            builder.setDetails(R.string.app_permission_usage_detail_label);
+            builder.setDetailsOnClickListener(v -> {
                 mFilterGroup = null;
                 updateUI();
             });
@@ -575,8 +577,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
 
         groups.sort((x, y) -> groupUsers.get(y) - groupUsers.get(x));
 
-        BarViewInfo[] barViewsInfo = new BarViewInfo[4];
-        for (int i = 0; i < barViewsInfo.length; i++) {
+        for (int i = 0; i < 4; i++) {
             PermissionGroup group = groups.get(i);
             BarViewInfo barViewInfo = new BarViewInfo(
                     Utils.applyTint(context, group.getIcon(), android.R.attr.colorControlNormal),
@@ -586,9 +587,9 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
                 mFilterGroup = group;
                 updateUI();
             });
-            barViewsInfo[i] = barViewInfo;
+            builder.addBarViewInfo(barViewInfo);
         }
-        barChart.setAllBarViewsInfo(barViewsInfo);
+        barChart.initializeBarChart(builder.build());
         return barChart;
     }
 
