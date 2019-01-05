@@ -48,4 +48,82 @@
         <item name="android:layout_marginEnd">8dp</item>
         <item name="android:tint">?android:attr/colorControlNormal</item>
     </style>
+
+    <style name="PermissionGrantDialog">
+        <item name="android:background">?android:attr/windowBackground</item>
+        <item name="android:elevation">?android:attr/windowElevation</item>
+        <item name="android:layout_weight">@dimen/permissionGrantDialogWeight</item>
+        <item name="android:layout_width">@dimen/permissionGrantDialogWidth</item>
+    </style>
+
+    <style name="PermissionGrantTitleIcon">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:tint">?android:attr/colorAccent</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <style name="PermissionGrantTitleMessage"
+           parent="@android:style/TextAppearance.DeviceDefault">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:fontFamily">google-sans-medium</item>
+    </style>
+
+    <style name="PermissionGrantDescription">
+        <item name="android:layout_marginStart">24dp</item>
+        <item name="android:layout_marginEnd">24dp</item>
+    </style>
+
+    <style name="PermissionGrantDescriptionText">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="PermissionGrantContent">
+        <item name="android:layout_marginStart">24dp</item>
+        <item name="android:layout_marginEnd">24dp</item>
+    </style>
+
+    <style name="PermissionGrantDetailMessage"
+           parent="@android:style/TextAppearance.DeviceDefault">
+        <item name="android:layout_marginTop">18dp</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- styles for the permission review screen. -->
+    <style name="PermissionReviewDescription">
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginStart">24dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:layout_marginEnd">24dp</item>
+    </style>
+
+    <style name="PermissionReviewTitleIcon">
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_width">36dp</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <style name="PermissionReviewTitleMessage"
+           parent="@android:style/TextAppearance.DeviceDefault">
+        <item name="android:paddingStart">22dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="PermissionReviewSettings">
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+    </style>
+
+    <style name="PermissionReviewButtonBar">
+        <item name="android:layout_marginStart">24dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+    </style>
+
 </resources>

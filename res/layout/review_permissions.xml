@@ -24,11 +24,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        style="@*android:style/PermissionReviewDescription">
+        style="@style/PermissionReviewDescription">
 
         <ImageView
             android:id="@+id/app_icon"
-            style="@*android:style/PermissionReviewTitleIcon" />
+            style="@style/PermissionReviewTitleIcon" />
 
         <TextView
             android:id="@+id/permissions_message"
@@ -43,7 +43,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_weight="1"
-        style="@*android:style/PermissionReviewSettings" />
+        style="@style/PermissionReviewSettings" />
 
     <LinearLayout
         android:layout_width="fill_parent"
