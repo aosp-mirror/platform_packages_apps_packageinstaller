@@ -307,13 +307,29 @@ public class LocationAccessCheck {
      * @param shouldCancel If supplied, can be used to interrupt long running operations
      */
     public LocationAccessCheck(@NonNull Context context, @Nullable BooleanSupplier shouldCancel) {
-        mContext = context;
-        mJobScheduler = getSystemServiceSafe(context, JobScheduler.class);
-        mAppOpsManager = getSystemServiceSafe(context, AppOpsManager.class);
-        mPackageManager = context.getPackageManager();
-        mUserManager = getSystemServiceSafe(context, UserManager.class);
-        mSharedPrefs = context.getSharedPreferences(PREFERENCES_FILE, MODE_PRIVATE);
-        mContentResolver = context.getContentResolver();
+        UserHandle parentUser = getSystemServiceSafe(context, UserManager.class)
+                .getProfileParent(UserHandle.of(myUserId()));
+
+        if (parentUser != null) {
+            // In a multi profile environment perform all operations as the parent user of the
+            // current profile
+            try {
+                mContext = context.createPackageContextAsUser(context.getPackageName(), 0,
+                        parentUser);
+            } catch (PackageManager.NameNotFoundException e) {
+                // cannot happen
+                throw new IllegalStateException("Could not switch to parent user " + parentUser, e);
+            }
+        } else {
+            mContext = context;
+        }
+
+        mJobScheduler = getSystemServiceSafe(mContext, JobScheduler.class);
+        mAppOpsManager = getSystemServiceSafe(mContext, AppOpsManager.class);
+        mPackageManager = mContext.getPackageManager();
+        mUserManager = getSystemServiceSafe(mContext, UserManager.class);
+        mSharedPrefs = mContext.getSharedPreferences(PREFERENCES_FILE, MODE_PRIVATE);
+        mContentResolver = mContext.getContentResolver();
 
         mShouldCancel = shouldCancel;
     }
@@ -624,6 +640,18 @@ public class LocationAccessCheck {
     }
 
     /**
+     * Check if the current user is the profile parent.
+     *
+     * @return {@code true} if the current user is the profile parent.
+     */
+    private boolean isRunningInParentProfile() {
+        UserHandle user = UserHandle.of(myUserId());
+        UserHandle parent = mUserManager.getProfileParent(user);
+
+        return parent == null || user.equals(parent);
+    }
+
+    /**
      * On boot set up a periodic job that starts {@link #addLocationNotificationIfNeeded() checks}.
      */
     public static class SetupPeriodicBackgroundLocationAccessCheck extends BroadcastReceiver {
@@ -631,11 +659,8 @@ public class LocationAccessCheck {
         public void onReceive(Context context, Intent intent) {
             LocationAccessCheck locationAccessCheck = new LocationAccessCheck(context, null);
             JobScheduler jobScheduler = getSystemServiceSafe(context, JobScheduler.class);
-            UserManager userManager = getSystemServiceSafe(context, UserManager.class);
 
-            UserHandle user = UserHandle.of(myUserId());
-            UserHandle parent = userManager.getProfileParent(user);
-            if (parent != null && !user.equals(parent)) {
+            if (!locationAccessCheck.isRunningInParentProfile()) {
                 // Profile parent handles child profiles too.
                 return;
             }
