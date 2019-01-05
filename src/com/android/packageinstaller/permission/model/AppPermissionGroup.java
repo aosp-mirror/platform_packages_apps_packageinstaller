@@ -18,9 +18,15 @@ package com.android.packageinstaller.permission.model;
 
 import static android.Manifest.permission.ACCESS_BACKGROUND_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+import static android.Manifest.permission.READ_MEDIA_AUDIO;
+import static android.Manifest.permission.READ_MEDIA_IMAGES;
+import static android.Manifest.permission.READ_MEDIA_VIDEO;
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static android.app.AppOpsManager.MODE_ALLOWED;
 import static android.app.AppOpsManager.MODE_FOREGROUND;
 import static android.app.AppOpsManager.MODE_IGNORED;
+import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 
 import static com.android.packageinstaller.permission.service.LocationAccessCheck
         .checkLocationAccessSoon;
@@ -33,9 +39,11 @@ import android.content.pm.PackageItemInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
+import android.content.pm.UsesPermissionInfo;
 import android.os.Build;
 import android.os.Process;
 import android.os.UserHandle;
+import android.os.storage.StorageManager;
 import android.provider.Settings;
 import android.util.ArrayMap;
 
@@ -1146,6 +1154,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
     void persistChanges(boolean mayKillBecauseOfAppOpsChange) {
         int numPermissions = mPermissions.size();
         boolean shouldKillApp = false;
+        boolean shouldUpdateStorage = false;
 
         for (int i = 0; i < numPermissions; i++) {
             Permission permission = mPermissions.valueAt(i);
@@ -1186,6 +1195,46 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                 // handle to state it shouldn't have, so we have to kill the app. This matches the
                 // revoke runtime permission behavior.
                 shouldKillApp = true;
+            }
+
+            switch (permission.getName()) {
+                case READ_MEDIA_AUDIO:
+                case READ_MEDIA_VIDEO:
+                case READ_MEDIA_IMAGES:
+                    shouldUpdateStorage = true;
+                    break;
+            }
+        }
+
+        // Starting in Q, the legacy "Storage" permission has been split into
+        // new strongly-typed runtime permissions. When older apps request
+        // the "Storage" permission, we already translate that into requests for
+        // the new split permissions, but those older apps may be confused if
+        // the legacy permission isn't actually granted. Thus, as a special
+        // case, whenever any of the new split permissions are granted to an
+        // app, we also grant them the legacy "Storage" permission.
+        if (StorageManager.hasIsolatedStorage() && shouldUpdateStorage) {
+            boolean audioGranted = mPackageManager.checkPermission(READ_MEDIA_AUDIO,
+                    mPackageInfo.packageName) == PERMISSION_GRANTED;
+            boolean videoGranted = mPackageManager.checkPermission(READ_MEDIA_VIDEO,
+                    mPackageInfo.packageName) == PERMISSION_GRANTED;
+            boolean imagesGranted = mPackageManager.checkPermission(READ_MEDIA_IMAGES,
+                    mPackageInfo.packageName) == PERMISSION_GRANTED;
+
+            if (!ArrayUtils.isEmpty(mPackageInfo.usesPermissions)) {
+                for (UsesPermissionInfo upi : mPackageInfo.usesPermissions) {
+                    final String permission = upi.getPermission();
+                    if (READ_EXTERNAL_STORAGE.equals(permission)
+                            || WRITE_EXTERNAL_STORAGE.equals(permission)) {
+                        if (audioGranted || videoGranted || imagesGranted) {
+                            mPackageManager.grantRuntimePermission(mPackageInfo.packageName,
+                                    permission, mUserHandle);
+                        } else {
+                            mPackageManager.revokeRuntimePermission(mPackageInfo.packageName,
+                                    permission, mUserHandle);
+                        }
+                    }
+                }
             }
         }
 
