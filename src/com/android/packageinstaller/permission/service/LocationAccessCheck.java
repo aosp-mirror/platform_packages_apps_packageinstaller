@@ -57,8 +57,10 @@ import static java.util.concurrent.TimeUnit.DAYS;
 import static java.util.concurrent.TimeUnit.MINUTES;
 
 import android.app.AppOpsManager;
-import android.app.AppOpsManager.HistoricalOpEntry;
+import android.app.AppOpsManager.HistoricalOp;
+import android.app.AppOpsManager.HistoricalOps;
 import android.app.AppOpsManager.HistoricalPackageOps;
+import android.app.AppOpsManager.HistoricalUidOps;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -79,6 +81,7 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Process;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
@@ -102,6 +105,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
@@ -339,10 +343,9 @@ public class LocationAccessCheck {
      *
      * <p>Always run async inside a
      * {@link LocationAccessCheckJobService.AddLocationNotificationIfNeededTask}.
-     *
-     * @throws InterruptedException If {@link #mShouldCancel}
      */
-    private void addLocationNotificationIfNeeded() throws InterruptedException {
+    private void addLocationNotificationIfNeeded(@NonNull JobParameters params,
+            @NonNull LocationAccessCheckJobService service) {
         synchronized (sLock) {
             if (currentTimeMillis() - mSharedPrefs.getLong(
                     KEY_LAST_LOCATION_ACCESS_NOTIFICATION_SHOWN, 0)
@@ -354,7 +357,32 @@ public class LocationAccessCheck {
                 return;
             }
 
-            List<UserPackage> packages = getLocationUsersWithNoNotificationYetLocked();
+            mAppOpsManager.getHistoricalOps(Process.INVALID_UID, null /*packageName*/,
+                    new String[]{OPSTR_FINE_LOCATION},
+                    Calendar.getInstance().getTimeInMillis(), System.currentTimeMillis(),
+                    mContext.getMainExecutor(), (HistoricalOps ops)
+                            -> addLocationNotificationIfNeededInterruptive(ops, params, service));
+        }
+    }
+
+    private void addLocationNotificationIfNeededInterruptive(@NonNull HistoricalOps ops,
+            @Nullable JobParameters params, @NonNull LocationAccessCheckJobService service) {
+        try {
+            addLocationNotificationIfNeeded(ops);
+            service.jobFinished(params, false);
+        } catch (InterruptedException e) {
+            service.jobFinished(params, true);
+        } finally {
+            synchronized (sLock) {
+                service.mAddLocationNotificationIfNeededTask = null;
+            }
+        }
+    }
+
+    private void addLocationNotificationIfNeeded(@NonNull HistoricalOps ops)
+            throws InterruptedException {
+        synchronized (sLock) {
+            List<UserPackage> packages = getLocationUsersWithNoNotificationYetLocked(ops);
 
             // Get a random package and resolve package info
             PackageInfo pkgInfo = null;
@@ -410,36 +438,32 @@ public class LocationAccessCheck {
      *
      * @throws InterruptedException If {@link #mShouldCancel}
      */
-    private @NonNull List<UserPackage> getLocationUsersWithNoNotificationYetLocked()
-            throws InterruptedException {
+    private @NonNull List<UserPackage> getLocationUsersWithNoNotificationYetLocked(
+            @NonNull HistoricalOps ops) throws InterruptedException {
         List<UserPackage> pkgsWithLocationAccess = new ArrayList<>();
         List<UserHandle> profiles = mUserManager.getUserProfiles();
 
-        List<HistoricalPackageOps> pkgOps = mAppOpsManager.getAllHistoricPackagesOps(
-                new String[]{OPSTR_FINE_LOCATION}, 0, System.currentTimeMillis());
-
-        int numPkgOps = pkgOps.size();
-        for (int pkgOpsNum = 0; pkgOpsNum < numPkgOps; pkgOpsNum++) {
-            HistoricalPackageOps ops = pkgOps.get(pkgOpsNum);
-
-            String pkg = ops.getPackageName();
-            if (pkg.equals(OS_PKG) || isNetworkLocationProvider(mContext, pkg)) {
-                continue;
-            }
-
-            UserHandle user = getUserHandleForUid(ops.getUid());
-            if (!profiles.contains(user)) {
-                continue;
-            }
-
-            int numEntries = ops.getEntryCount();
-            for (int entryNum = 0; entryNum < numEntries; entryNum++) {
-                HistoricalOpEntry entry = ops.getEntryAt(entryNum);
-
-                if (entry.getBackgroundAccessCount() > 0) {
-                    pkgsWithLocationAccess.add(new UserPackage(pkg, user));
-
-                    break;
+        final int numUidOps = ops.getUidCount();
+        for (int uidOpsNum = 0; uidOpsNum < numUidOps; uidOpsNum++) {
+            final HistoricalUidOps uidOps = ops.getUidOpsAt(uidOpsNum);
+            final int numPkgOps = uidOps.getPackageCount();
+            for (int pkgOpsNum = 0; pkgOpsNum < numPkgOps; pkgOpsNum++) {
+                final HistoricalPackageOps pkgOps = uidOps.getPackageOpsAt(pkgOpsNum);
+                final String pkg = pkgOps.getPackageName();
+                if (pkg.equals(OS_PKG) || isNetworkLocationProvider(mContext, pkg)) {
+                    continue;
+                }
+                final UserHandle user = getUserHandleForUid(uidOps.getUid());
+                if (!profiles.contains(user)) {
+                    continue;
+                }
+                final int numOps = pkgOps.getOpCount();
+                for (int opsNum = 0; opsNum < numOps; opsNum++) {
+                    final HistoricalOp op = pkgOps.getOpAt(opsNum);
+                    if (op.getBackgroundAccessCount() > 0) {
+                        pkgsWithLocationAccess.add(new UserPackage(pkg, user));
+                        break;
+                    }
                 }
             }
         }
@@ -621,8 +645,7 @@ public class LocationAccessCheck {
     }
 
     /**
-     * After a small delay schedule a {@link #addLocationNotificationIfNeeded() check} if we should
-     * show a notification.
+     * After a small delay schedule a check if we should show a notification.
      *
      * <p>This is called when location access is granted to an app. In this case it is likely that
      * the app will access the location soon. If this happens the notification will appear only a
@@ -652,7 +675,7 @@ public class LocationAccessCheck {
     }
 
     /**
-     * On boot set up a periodic job that starts {@link #addLocationNotificationIfNeeded() checks}.
+     * On boot set up a periodic job that starts checks.
      */
     public static class SetupPeriodicBackgroundLocationAccessCheck extends BroadcastReceiver {
         @Override
@@ -681,8 +704,7 @@ public class LocationAccessCheck {
     }
 
     /**
-     * Checks if a new notification should be shown by calling
-     * {@link #addLocationNotificationIfNeeded()}.
+     * Checks if a new notification should be shown.
      */
     public static class LocationAccessCheckJobService extends JobService {
         private LocationAccessCheck mLocationAccessCheck;
@@ -704,8 +726,7 @@ public class LocationAccessCheck {
         }
 
         /**
-         * Starts an asynchronous {@link #addLocationNotificationIfNeeded() check} if a location
-         * access notification should be shown.
+         * Starts an asynchronous check if a location access notification should be shown.
          *
          * @param params Not used other than for interacting with job scheduling
          *
@@ -721,14 +742,14 @@ public class LocationAccessCheck {
                 mAddLocationNotificationIfNeededTask =
                         new AddLocationNotificationIfNeededTask();
 
-                mAddLocationNotificationIfNeededTask.execute(params);
+                mAddLocationNotificationIfNeededTask.execute(params, this);
             }
 
             return true;
         }
 
         /**
-         * Abort the {@link #addLocationNotificationIfNeeded() check} if still running.
+         * Abort the check if still running.
          *
          * @param params ignored
          *
@@ -758,27 +779,15 @@ public class LocationAccessCheck {
         }
 
         /**
-         * A {@link AsyncTask task} that runs {@link #addLocationNotificationIfNeeded()} in the
-         * background.
+         * A {@link AsyncTask task} that runs the check in the background.
          */
         private class AddLocationNotificationIfNeededTask extends
-                AsyncTask<JobParameters, Void, Void> {
+                AsyncTask<Object, Void, Void> {
             @Override
-            protected final Void doInBackground(JobParameters... in) {
-                JobParameters params = in[0];
-
-                try {
-                    mLocationAccessCheck.addLocationNotificationIfNeeded();
-                } catch (InterruptedException e) {
-                    jobFinished(params, true);
-                    return null;
-                } finally {
-                    synchronized (sLock) {
-                        mAddLocationNotificationIfNeededTask = null;
-                    }
-                }
-
-                jobFinished(params, false);
+            protected final Void doInBackground(Object... in) {
+                JobParameters params = (JobParameters) in[0];
+                LocationAccessCheckJobService service = (LocationAccessCheckJobService) in[1];
+                mLocationAccessCheck.addLocationNotificationIfNeeded(params, service);
                 return null;
             }
         }

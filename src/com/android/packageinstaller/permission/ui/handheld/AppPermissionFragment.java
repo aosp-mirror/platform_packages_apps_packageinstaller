@@ -54,6 +54,7 @@ import androidx.fragment.app.Fragment;
 
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.Permission;
+import com.android.packageinstaller.permission.model.PermissionUsages;
 import com.android.packageinstaller.permission.utils.IconDrawableFactory;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.PackageRemovalMonitor;
@@ -184,7 +185,8 @@ public class AppPermissionFragment extends SettingsWithButtonHeader {
         ((TextView) root.requireViewById(R.id.permission_message)).setText(
                 context.getString(R.string.app_permission_header, mGroup.getLabel(), appLabel));
 
-        String timeDiffStr = Utils.getUsageTimeDiffString(context, mGroup);
+        String timeDiffStr = Utils.getLastUsageString(context,
+                PermissionUsages.loadLastGroupUsage(context, mGroup));
         if (timeDiffStr == null) {
             ((TextView) root.requireViewById(R.id.usage_summary)).setText(
                     context.getString(

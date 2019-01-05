@@ -40,6 +40,7 @@ import androidx.preference.PreferenceScreen;
 
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
+import com.android.packageinstaller.permission.model.PermissionUsages;
 import com.android.packageinstaller.permission.utils.IconDrawableFactory;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
@@ -63,8 +64,6 @@ public final class AppPermissionsFragment extends SettingsWithButtonHeader {
     private PreferenceScreen mExtraScreen;
 
     private Collator mCollator;
-
-    private boolean mHasConfirmedRevoke;
 
     public static AppPermissionsFragment newInstance(String packageName) {
         return setPackageName(new AppPermissionsFragment(), packageName);
@@ -104,6 +103,7 @@ public final class AppPermissionsFragment extends SettingsWithButtonHeader {
                 getActivity().finish();
             }
         });
+
         mCollator = Collator.getInstance(
                 getContext().getResources().getConfiguration().getLocales().get(0));
         updatePreferences();
@@ -215,7 +215,8 @@ public final class AppPermissionsFragment extends SettingsWithButtonHeader {
             preference.setIcon(Utils.applyTint(context, icon,
                     android.R.attr.colorControlNormal));
             preference.setTitle(group.getLabel());
-            String timeDiffStr = Utils.getUsageTimeDiffString(context, group);
+            String timeDiffStr = Utils.getLastUsageString(context,
+                    PermissionUsages.loadLastGroupUsage(context, group));
             // Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
             if (timeDiffStr != null && !group.getLabel().equals("Storage")) {
                 preference.setSummary(
