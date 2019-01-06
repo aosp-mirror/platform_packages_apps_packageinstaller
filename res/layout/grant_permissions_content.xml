@@ -23,24 +23,24 @@
     android:orientation="vertical"
     android:paddingTop="18dp"
     android:paddingBottom="24dp"
-    android:theme="@*android:style/Theme.DeviceDefault.PermissionGrant">
+    android:theme="@style/PermissionGrant">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
-        style="@*android:style/PermissionGrantDescription">
+        style="@style/PermissionGrantDescription">
 
         <ImageView
             android:id="@+id/permission_icon"
-            style="@*android:style/PermissionGrantTitleIcon" />
+            style="@style/PermissionGrantTitleIcon" />
 
         <TextView
             android:id="@+id/permission_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="?android:attr/titleTextStyle" />
+            style="?attr/titleTextStyle" />
 
     </LinearLayout>
 
@@ -48,14 +48,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        style="@*android:style/PermissionGrantContent" >
+        style="@style/PermissionGrantContent" >
 
-        <!-- Option two: Show a detailed message about the change -->
         <TextView
             android:id="@+id/detail_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@*android:style/PermissionGrantDetailMessage" />
+            style="@style/PermissionGrantDetailMessage" />
 
     </LinearLayout>
 

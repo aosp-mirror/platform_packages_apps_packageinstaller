@@ -38,6 +38,7 @@
             android:label="@string/app_name"
             android:icon="@drawable/ic_permission_controller_app_icon"
             android:allowBackup="false"
+            android:allowClearUserData="false"
             android:supportsRtl="true"
             android:defaultToDeviceProtectedStorage="true"
             android:directBootAware="true">
@@ -165,10 +166,9 @@
             </intent-filter>
         </provider>
 
-        <service android:name="com.android.packageinstaller.permission.service.RuntimePermissionPresenterServiceImpl"
-                 android:permission="android.permission.BIND_RUNTIME_PERMISSION_PRESENTER_SERVICE">
+        <service android:name="com.android.packageinstaller.permission.service.PermissionControllerServiceImpl">
             <intent-filter android:priority="1">
-                <action android:name="android.permission.RuntimePermissionPresenterService"/>
+                <action android:name="android.permission.PermissionControllerService"/>
             </intent-filter>
         </service>
 

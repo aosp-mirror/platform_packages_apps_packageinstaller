@@ -42,7 +42,6 @@ import androidx.preference.PreferenceScreen;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissionUsage;
 import com.android.packageinstaller.permission.model.AppPermissions;
-import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.utils.IconDrawableFactory;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
@@ -187,20 +186,8 @@ public class AppPermissionUsageFragment extends SettingsWithButtonHeader {
                 usageToGroup.put(usage, group);
             }
 
-            ArrayList<Permission> permissions = group.getPermissions();
-            ArrayList<String> permissionNames = new ArrayList<>();
-            for (int i = 0; i < permissions.size(); i++) {
-                String opName = AppOpsManager.permissionToOp(permissions.get(i).getName());
-                if (opName != null) {
-                    permissionNames.add(opName);
-                }
-            }
-            long curTime = System.currentTimeMillis();
             groupToHistory.put(group,
-                    mAppOpsManager.getHistoricalPackagesOps(packageInfo.applicationInfo.uid,
-                            packageInfo.packageName,
-                            permissionNames.toArray(new String[permissionNames.size()]),
-                            curTime - 1000 * 60 * 60 * 24, curTime));
+                    Utils.getUsageForGroup(group, mAppOpsManager, 1000 * 60 * 60 * 24));
         }
 
         // Add the permission usages.

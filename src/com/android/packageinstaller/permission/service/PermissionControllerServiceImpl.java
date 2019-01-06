@@ -22,11 +22,12 @@ import static com.android.packageinstaller.permission.utils.Utils.getLauncherPac
 import static com.android.packageinstaller.permission.utils.Utils.isSystem;
 import static com.android.packageinstaller.permission.utils.Utils.shouldShowPermission;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.permission.PermissionControllerService;
 import android.permission.RuntimePermissionPresentationInfo;
-import android.permission.RuntimePermissionPresenterService;
 import android.util.ArraySet;
 import android.util.Log;
 
@@ -41,10 +42,10 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Service that provides presentation information for runtime permissions.
+ * Calls from the system into the permission controller
  */
-public final class RuntimePermissionPresenterServiceImpl extends RuntimePermissionPresenterService {
-    private static final String LOG_TAG = "PermissionPresenter";
+public final class PermissionControllerServiceImpl extends PermissionControllerService {
+    private static final String LOG_TAG = PermissionControllerServiceImpl.class.getSimpleName();
 
     @Override
     public @NonNull List<RuntimePermissionPresentationInfo> onGetAppPermissions(
@@ -53,7 +54,7 @@ public final class RuntimePermissionPresenterServiceImpl extends RuntimePermissi
     }
 
     /**
-     * Implementation of {@link RuntimePermissionPresenterService#onGetAppPermissions(String)}}.
+     * Implementation of {@link PermissionControllerService#onGetAppPermissions(String)}}.
      * Called by this class and the legacy implementation.
      */
     static @NonNull List<RuntimePermissionPresentationInfo> onGetAppPermissions(
@@ -91,7 +92,7 @@ public final class RuntimePermissionPresenterServiceImpl extends RuntimePermissi
 
     /**
      * Implementation of
-     * {@link RuntimePermissionPresenterService#onRevokeRuntimePermission(String, String)}}. Called
+     * {@link PermissionControllerService#onRevokeRuntimePermission(String, String)}}. Called
      * by this class and the legacy implementation.
      */
     static void onRevokeRuntimePermission(@NonNull Context context,

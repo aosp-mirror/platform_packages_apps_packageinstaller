@@ -249,8 +249,14 @@
     <!-- Title for permission usage [CHAR LIMIT=30] -->
     <string name="permission_usage_title">Permissions usage</string>
 
-    <!-- Summary for showing a single permission access [CHAR LIMIT=80] -->
-    <string name="permission_usage_summary"><xliff:g id="perm" example="Location">%1$s</xliff:g> - Last access <xliff:g id="time" example="2 hours">%2$s</xliff:g> ago</string>
+    <!-- Summary for showing a single permission access and the time of the last access [CHAR LIMIT=80] -->
+    <string name="permission_usage_summary_last_access"><xliff:g id="perm" example="Location">%1$s</xliff:g> - Last access <xliff:g id="time" example="2 hours">%2$s</xliff:g> ago</string>
+
+    <!-- Summary for showing a single permission access and the number of accesses [CHAR LIMIT=80] -->
+    <string name="permission_usage_summary_num_accesses"><xliff:g id="perm" example="Location">%1$s</xliff:g> - <xliff:g id="num" example="42">%2$s</xliff:g> accesses</string>
+
+    <!-- Summary for showing a single permission access and the number of accesses, including those in the background [CHAR LIMIT=80] -->
+    <string name="permission_usage_summary_num_accesses_background"><xliff:g id="perm" example="Location">%1$s</xliff:g> - <xliff:g id="num" example="42">%2$s</xliff:g> accesses (<xliff:g id="num" example="7">%3$s</xliff:g> in background)</string>
 
     <!-- Description for showing permission accesses with any permission [CHAR LIMIT=30] -->
     <string name="permission_usage_any_permission">Any permission</string>
@@ -272,6 +278,57 @@
 
     <!-- Label when no apps have used the requested permissions [CHAR LIMIT=30] -->
     <string name="no_permission_usages">No permission usages</string>
+
+    <!-- Label for the title of the list of permission usages that shows which apps used which permissions[CHAR LIMIT=50] -->
+    <string name="permission_usage_list_title_any_time">Access at any time</string>
+
+    <!-- Label for the title of the list of permission usages that shows which apps used which permissions[CHAR LIMIT=50] -->
+    <string name="permission_usage_list_title_last_7_days">Access in last 7 days</string>
+
+    <!-- Label for the title of the list of permission usages that shows which apps used which permissions[CHAR LIMIT=50] -->
+    <string name="permission_usage_list_title_last_day">Access in last 24 hours</string>
+
+    <!-- Label for the title of the list of permission usages that shows which apps used which permissions[CHAR LIMIT=50] -->
+    <string name="permission_usage_list_title_last_hour">Access in the last hour</string>
+
+    <!-- Label for the title of the list of permission usages that shows which apps used which permissions[CHAR LIMIT=50] -->
+    <string name="permission_usage_list_title_last_15_minutes">Access in last 15 minutes</string>
+
+    <!-- Label for the title of the permission bar chart showing how often the most common permissions are used [CHAR LIMIT=50] -->
+    <string name="permission_usage_bar_chart_title_any_time">Top permission usage at any time</string>
+
+    <!-- Label for the title of the permission bar chart showing how often the most common permissions are used [CHAR LIMIT=50] -->
+    <string name="permission_usage_bar_chart_title_last_7_days">Top permission usage in last 7 days</string>
+
+    <!-- Label for the title of the permission bar chart showing how often the most common permissions are used [CHAR LIMIT=50] -->
+    <string name="permission_usage_bar_chart_title_last_day">Top permission usage in last 24 hours</string>
+
+    <!-- Label for the title of the permission bar chart showing how often the most common permissions are used [CHAR LIMIT=50] -->
+    <string name="permission_usage_bar_chart_title_last_hour">Top permission usage in last 1 hour</string>
+
+    <!-- Label for the title of the permission bar chart showing how often the most common permissions are used [CHAR LIMIT=50] -->
+    <string name="permission_usage_bar_chart_title_last_15_minutes">Top permission usage in last 15 minutes</string>
+
+    <!-- Label for the bars on the chart that shows how many apps have used various permissions [CHAR LIMIT=10] -->
+    <string name="app_permission_usage_bar_label">Apps</string>
+
+    <!-- Label for the text at the bottom of the permission bar chart that allows viewing usage of all permissions [CHAR LIMIT=none] -->
+    <string name="app_permission_usage_detail_label">See all usage</string>
+
+    <!-- Label for the title of the dialog allowing filtering by permissions [CHAR LIMIT=none] -->
+    <string name="filter_by_title">Filter by</string>
+
+    <!-- Label for the menu item allowing filtering by permissions [CHAR LIMIT=none] -->
+    <string name="filter_by_permissions">Filter by permissions</string>
+
+    <!-- Label for sorting usages by the number of permissions used [CHAR LIMIT=30] -->
+    <string name="sort_spinner_most_permissions">Most permissions</string>
+
+    <!-- Label for sorting usages by the number of accesses [CHAR LIMIT=30] -->
+    <string name="sort_spinner_most_accesses">Most accesses</string>
+
+    <!-- Label for sorting usages by the most recent accesses [CHAR LIMIT=30] -->
+    <string name="sort_spinner_recent">Recent</string>
 
     <!-- Help URL, permission usage [DO NOT TRANSLATE] -->
     <string name="help_permission_usage" translatable="false"></string>

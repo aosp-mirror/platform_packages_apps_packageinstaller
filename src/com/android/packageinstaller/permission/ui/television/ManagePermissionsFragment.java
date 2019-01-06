@@ -66,7 +66,7 @@ public final class ManagePermissionsFragment extends SettingsWithHeader
             ab.setDisplayHomeAsUpEnabled(true);
         }
         mLauncherPkgs = Utils.getLauncherPackages(getContext());
-        mPermissions = new PermissionGroups(getContext(), getLoaderManager(), this);
+        mPermissions = new PermissionGroups(getContext(), getLoaderManager(), this, false);
     }
 
     @Override

@@ -91,6 +91,10 @@ public class RoleListLiveData extends AsyncTaskLiveData<List<RoleItem>>
                 continue;
             }
 
+            if (!role.isAvailableAsUser(mUser, mContext)) {
+                continue;
+            }
+
             if (role.getQualifyingPackagesAsUser(mUser, mContext).isEmpty()) {
                 continue;
             }

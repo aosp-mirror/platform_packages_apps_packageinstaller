@@ -31,6 +31,7 @@ import static android.Manifest.permission_group.SMS;
 import static android.Manifest.permission_group.STORAGE;
 
 import android.Manifest;
+import android.app.AppOpsManager;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -64,6 +65,7 @@ import androidx.core.util.Preconditions;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissionUsage;
 import com.android.packageinstaller.permission.model.AppPermissions;
+import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
 import com.android.permissioncontroller.R;
 
@@ -547,6 +549,41 @@ public final class Utils {
         }
         long days = hours / 24;
         return context.getResources().getQuantityString(R.plurals.days, (int) days, days);
+    }
+
+    /**
+     * Get the historical usage information for the given app and permission group.
+     *
+     * @param group the AppPermissionGroup.
+     * @param appOpsManager the AppOpsManager object.
+     * @param timeDiff the number of milliseconds in the past to get usage information.  If this is
+     *                 larger than the current time in milliseconds, we go back as far as possible.
+     *
+     * @return the historical usage information or {@code null} if there are no ops for this group.
+     */
+    public static @Nullable AppOpsManager.HistoricalPackageOps getUsageForGroup(
+            @NonNull AppPermissionGroup group, @NonNull AppOpsManager appOpsManager,
+            long timeDiff) {
+        ArrayList<Permission> permissions = group.getPermissions();
+        ArrayList<String> permissionNames = new ArrayList<>();
+
+        int size = permissions.size();
+        for (int i = 0; i < size; i++) {
+            String opName = AppOpsManager.permissionToOp(permissions.get(i).getName());
+            if (opName != null) {
+                permissionNames.add(opName);
+            }
+        }
+
+        long curTime = System.currentTimeMillis();
+        if (timeDiff >= curTime) {
+            timeDiff = curTime;
+        }
+
+        return appOpsManager.getHistoricalPackagesOps(group.getApp().applicationInfo.uid,
+                group.getApp().packageName,
+                permissionNames.toArray(new String[permissionNames.size()]),
+                curTime - timeDiff, curTime);
     }
 
     /**
