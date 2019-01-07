@@ -125,10 +125,10 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
     private FilterSpinnerAdapter<SortItem> mSortAdapter;
 
     /**
-     * Only used to restore group selection state after onCreate. Once the first list of groups
-     * is reported, this becomes invalid.
+     * Only used to restore permission selection state or use the passed permission after onCreate.
+     * Once the first list of groups is reported, this becomes invalid.
      */
-    private String mSavedGroup;
+    private String mSavedGroupName;
 
     /**
      * Only used to restore time spinner state after onCreate. Once the list of times is reported,
@@ -145,11 +145,11 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
     /**
      * @return A new fragment
      */
-    public static @NonNull PermissionUsageFragment newInstance(@Nullable String permissionName) {
+    public static @NonNull PermissionUsageFragment newInstance(@Nullable String groupName) {
         PermissionUsageFragment fragment = new PermissionUsageFragment();
         Bundle arguments = new Bundle();
-        if (permissionName != null) {
-            arguments.putString(Intent.EXTRA_PERMISSION_NAME, permissionName);
+        if (groupName != null) {
+            arguments.putString(Intent.EXTRA_PERMISSION_GROUP_NAME, groupName);
         }
         fragment.setArguments(arguments);
         return fragment;
@@ -167,7 +167,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
 
         if (savedInstanceState != null) {
             mShowSystem = savedInstanceState.getBoolean(SHOW_SYSTEM_KEY);
-            mSavedGroup = savedInstanceState.getString(PERMS_INDEX_KEY);
+            mSavedGroupName = savedInstanceState.getString(PERMS_INDEX_KEY);
             mSavedTimeSpinnerIndex = savedInstanceState.getInt(SPINNER_TIME_INDEX_KEY);
             mSavedSortSpinnerIndex = savedInstanceState.getInt(SPINNER_SORT_INDEX_KEY);
         }
@@ -177,6 +177,10 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         ActionBar ab = getActivity().getActionBar();
         if (ab != null) {
             ab.setDisplayHomeAsUpEnabled(true);
+        }
+
+        if (mSavedGroupName == null) {
+            mSavedGroupName = getArguments().getString(Intent.EXTRA_PERMISSION_GROUP_NAME);
         }
 
         Context context = getPreferenceManager().getContext();
@@ -313,12 +317,13 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         }
 
         // Use the saved permission group or the one passed as an argument, if applicable.
-        mFilterGroup = mSavedGroup;
-        if (mFilterGroup == null) {
-            String permName = getArguments().getString(Intent.EXTRA_PERMISSION_NAME);
-            mFilterGroup = Utils.getGroupOfPlatformPermission(permName);
-            if (mFilterGroup == null) {
-                Log.w(LOG_TAG, "Invalid platform permission: " + permName);
+        if (mSavedGroupName != null && mFilterGroup == null) {
+            List<AppPermissionGroup> groups = getOSPermissionGroups();
+            int numGroups = groups.size();
+            for (int i = 0; i < numGroups; i++) {
+                if (groups.get(i).getName().equals(mSavedGroupName)) {
+                    mFilterGroup = mSavedGroupName;
+                }
             }
         }
 
