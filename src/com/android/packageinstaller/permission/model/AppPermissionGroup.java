@@ -121,6 +121,12 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
      */
     private boolean mHasPermissionWithBackgroundMode;
 
+    /**
+     * Set if {@link LocationAccessCheck#checkLocationAccessSoon()} should be triggered once the
+     * changes are persisted.
+     */
+    private boolean mTriggerLocationAccessCheckOnPersist;
+
     public static AppPermissionGroup create(Context context, PackageInfo packageInfo,
             String permissionName, boolean delayChanges) {
         return create(context, packageInfo, permissionName, Process.myUserHandle(), delayChanges);
@@ -824,7 +830,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                     Permission bgPerm = permission.getBackgroundPermission();
                     if (bgPerm != null) {
                         if (bgPerm.isGrantedIncludingAppOp()) {
-                            new LocationAccessCheck(mContext, null).checkLocationAccessSoon();
+                            mTriggerLocationAccessCheckOnPersist = true;
                         }
                     }
                 } else if (permission.getName().equals(ACCESS_BACKGROUND_LOCATION)) {
@@ -836,8 +842,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
                             if (fgPerm.getName().equals(ACCESS_FINE_LOCATION)) {
                                 if (fgPerm.isGrantedIncludingAppOp()) {
-                                    new LocationAccessCheck(mContext, null)
-                                            .checkLocationAccessSoon();
+                                    mTriggerLocationAccessCheckOnPersist = true;
                                 }
 
                                 break;
@@ -1239,6 +1244,11 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
         if (mayKillBecauseOfAppOpsChange && shouldKillApp) {
             killApp(KILL_REASON_APP_OP_CHANGE);
+        }
+
+        if (mTriggerLocationAccessCheckOnPersist) {
+            new LocationAccessCheck(mContext, null).checkLocationAccessSoon();
+            mTriggerLocationAccessCheckOnPersist = false;
         }
     }
 }
