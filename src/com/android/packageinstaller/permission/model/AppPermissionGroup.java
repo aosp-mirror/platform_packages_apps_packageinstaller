@@ -28,9 +28,6 @@ import static android.app.AppOpsManager.MODE_FOREGROUND;
 import static android.app.AppOpsManager.MODE_IGNORED;
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 
-import static com.android.packageinstaller.permission.service.LocationAccessCheck
-        .checkLocationAccessSoon;
-
 import android.app.ActivityManager;
 import android.app.AppOpsManager;
 import android.content.Context;
@@ -51,6 +48,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 
+import com.android.packageinstaller.permission.service.LocationAccessCheck;
 import com.android.packageinstaller.permission.utils.ArrayUtils;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.Utils;
@@ -826,7 +824,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                     Permission bgPerm = permission.getBackgroundPermission();
                     if (bgPerm != null) {
                         if (bgPerm.isGrantedIncludingAppOp()) {
-                            checkLocationAccessSoon(mContext);
+                            new LocationAccessCheck(mContext, null).checkLocationAccessSoon();
                         }
                     }
                 } else if (permission.getName().equals(ACCESS_BACKGROUND_LOCATION)) {
@@ -838,7 +836,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
                             if (fgPerm.getName().equals(ACCESS_FINE_LOCATION)) {
                                 if (fgPerm.isGrantedIncludingAppOp()) {
-                                    checkLocationAccessSoon(mContext);
+                                    new LocationAccessCheck(mContext, null)
+                                            .checkLocationAccessSoon();
                                 }
 
                                 break;
