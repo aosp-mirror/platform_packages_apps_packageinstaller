@@ -33,6 +33,7 @@ import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 import static android.content.pm.PackageManager.GET_PERMISSIONS;
 import static android.graphics.Bitmap.Config.ARGB_8888;
 import static android.graphics.Bitmap.createBitmap;
+import static android.os.Process.INVALID_UID;
 import static android.os.UserHandle.getUserHandleForUid;
 import static android.os.UserHandle.myUserId;
 import static android.provider.Settings.Secure.LOCATION_ACCESS_CHECK_DELAY_MILLIS;
@@ -57,10 +58,8 @@ import static java.util.concurrent.TimeUnit.DAYS;
 import static java.util.concurrent.TimeUnit.MINUTES;
 
 import android.app.AppOpsManager;
-import android.app.AppOpsManager.HistoricalOp;
 import android.app.AppOpsManager.HistoricalOps;
 import android.app.AppOpsManager.HistoricalPackageOps;
-import android.app.AppOpsManager.HistoricalUidOps;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -81,7 +80,6 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Process;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
@@ -91,10 +89,10 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 import androidx.core.util.Preconditions;
 
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
-import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.ui.AppPermissionActivity;
 import com.android.permissioncontroller.R;
 
@@ -105,7 +103,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
@@ -220,7 +217,7 @@ public class LocationAccessCheck {
                         Long.valueOf(lineComponents[1]));
 
                 if (user != null) {
-                    packages.add(new UserPackage(pkg, user));
+                    packages.add(new UserPackage(mContext, pkg, user));
                 } else {
                     Log.i(LOG_TAG, "Not restoring state \"" + line + "\" as user is unknown");
                 }
@@ -275,7 +272,7 @@ public class LocationAccessCheck {
     private void markAsNotified(@NonNull String pkg, @NonNull UserHandle user) {
         synchronized (sLock) {
             ArraySet<UserPackage> alreadyNotifiedPackages = loadAlreadyNotifiedPackagesLocked();
-            alreadyNotifiedPackages.add(new UserPackage(pkg, user));
+            alreadyNotifiedPackages.add(new UserPackage(mContext, pkg, user));
             safeAlreadyNotifiedPackagesLocked(alreadyNotifiedPackages);
         }
     }
@@ -344,37 +341,48 @@ public class LocationAccessCheck {
      * <p>Always run async inside a
      * {@link LocationAccessCheckJobService.AddLocationNotificationIfNeededTask}.
      */
+    @WorkerThread
     private void addLocationNotificationIfNeeded(@NonNull JobParameters params,
             @NonNull LocationAccessCheckJobService service) {
         synchronized (sLock) {
-            if (currentTimeMillis() - mSharedPrefs.getLong(
-                    KEY_LAST_LOCATION_ACCESS_NOTIFICATION_SHOWN, 0)
-                    < getInBetweenNotificationsMillis()) {
-                return;
-            }
+            try {
+                if (currentTimeMillis() - mSharedPrefs.getLong(
+                        KEY_LAST_LOCATION_ACCESS_NOTIFICATION_SHOWN, 0)
+                        < getInBetweenNotificationsMillis()) {
+                    service.jobFinished(params, false);
+                    return;
+                }
 
-            if (getCurrentlyShownNotificationLocked() != null) {
-                return;
-            }
+                if (getCurrentlyShownNotificationLocked() != null) {
+                    service.jobFinished(params, false);
+                    return;
+                }
 
-            mAppOpsManager.getHistoricalOps(Process.INVALID_UID, null /*packageName*/,
-                    new String[]{OPSTR_FINE_LOCATION},
-                    Calendar.getInstance().getTimeInMillis(), System.currentTimeMillis(),
-                    mContext.getMainExecutor(), (HistoricalOps ops)
-                            -> addLocationNotificationIfNeededInterruptive(ops, params, service));
-        }
-    }
+                HistoricalOps[] ops = new HistoricalOps[1];
+                mAppOpsManager.getHistoricalOps(INVALID_UID, null,
+                        new String[]{OPSTR_FINE_LOCATION}, 0, Long.MAX_VALUE,
+                        mContext.getMainExecutor(), (h) -> {
+                            synchronized (ops) {
+                                ops[0] = h;
+                                ops.notifyAll();
+                            }
+                        }
+                );
 
-    private void addLocationNotificationIfNeededInterruptive(@NonNull HistoricalOps ops,
-            @Nullable JobParameters params, @NonNull LocationAccessCheckJobService service) {
-        try {
-            addLocationNotificationIfNeeded(ops);
-            service.jobFinished(params, false);
-        } catch (InterruptedException e) {
-            service.jobFinished(params, true);
-        } finally {
-            synchronized (sLock) {
-                service.mAddLocationNotificationIfNeededTask = null;
+                synchronized (ops) {
+                    while (ops[0] == null) {
+                        ops.wait();
+                    }
+                }
+
+                addLocationNotificationIfNeeded(ops[0]);
+                service.jobFinished(params, false);
+            } catch (InterruptedException e) {
+                service.jobFinished(params, true);
+            } finally {
+                synchronized (sLock) {
+                    service.mAddLocationNotificationIfNeededTask = null;
+                }
             }
         }
     }
@@ -413,14 +421,8 @@ public class LocationAccessCheck {
                 }
 
                 try {
-                    pkgInfo = packageToNotifyFor.getPackageInfo(mContext);
+                    pkgInfo = packageToNotifyFor.getPackageInfo();
                 } catch (PackageManager.NameNotFoundException e) {
-                    packages.remove(packageToNotifyFor);
-                    continue;
-                }
-
-                if (!isBackgroundLocationPermissionGranted(pkgInfo)) {
-                    pkgInfo = null;
                     packages.remove(packageToNotifyFor);
                 }
             }
@@ -434,34 +436,69 @@ public class LocationAccessCheck {
      * Get the {@link UserPackage packages} which accessed the location but we have not yet shown
      * a notification for.
      *
+     * <p>This also ignores all packages that are excepted from the notification.
+     *
      * @return The packages we need to show a notification for
      *
      * @throws InterruptedException If {@link #mShouldCancel}
      */
     private @NonNull List<UserPackage> getLocationUsersWithNoNotificationYetLocked(
-            @NonNull HistoricalOps ops) throws InterruptedException {
+            @NonNull HistoricalOps allOps) throws InterruptedException {
         List<UserPackage> pkgsWithLocationAccess = new ArrayList<>();
         List<UserHandle> profiles = mUserManager.getUserProfiles();
 
-        final int numUidOps = ops.getUidCount();
-        for (int uidOpsNum = 0; uidOpsNum < numUidOps; uidOpsNum++) {
-            final HistoricalUidOps uidOps = ops.getUidOpsAt(uidOpsNum);
-            final int numPkgOps = uidOps.getPackageCount();
-            for (int pkgOpsNum = 0; pkgOpsNum < numPkgOps; pkgOpsNum++) {
-                final HistoricalPackageOps pkgOps = uidOps.getPackageOpsAt(pkgOpsNum);
-                final String pkg = pkgOps.getPackageName();
+        int numUid = allOps.getUidCount();
+        for (int uidNum = 0; uidNum < numUid; uidNum++) {
+            AppOpsManager.HistoricalUidOps uidOps = allOps.getUidOpsAt(uidNum);
+
+            int numPkgs = uidOps.getPackageCount();
+            for (int pkgNum = 0; pkgNum < numPkgs; pkgNum++) {
+                HistoricalPackageOps ops = uidOps.getPackageOpsAt(pkgNum);
+
+                String pkg = ops.getPackageName();
                 if (pkg.equals(OS_PKG) || isNetworkLocationProvider(mContext, pkg)) {
                     continue;
                 }
-                final UserHandle user = getUserHandleForUid(uidOps.getUid());
+
+                UserHandle user = getUserHandleForUid(uidOps.getUid());
+                // Do not handle apps that belong to a different profile user group
                 if (!profiles.contains(user)) {
                     continue;
                 }
-                final int numOps = pkgOps.getOpCount();
-                for (int opsNum = 0; opsNum < numOps; opsNum++) {
-                    final HistoricalOp op = pkgOps.getOpAt(opsNum);
+
+                UserPackage userPkg = new UserPackage(mContext, pkg, user);
+
+                AppPermissionGroup bgLocationGroup;
+                try {
+                    bgLocationGroup = userPkg.getBackgroundLocationGroup();
+                } catch (PackageManager.NameNotFoundException e) {
+                    // Package was uninstalled
+                    continue;
+                }
+
+                // Do not show notification that do not request the background permission anymore
+                if (bgLocationGroup == null) {
+                    continue;
+                }
+
+                // Do not show notification that do not currently have the background permission
+                // granted
+                if (!bgLocationGroup.areRuntimePermissionsGranted()) {
+                    continue;
+                }
+
+                // Do not show notification for apps that have the background permission by default
+                if (bgLocationGroup.hasGrantedByDefaultPermission()) {
+                    continue;
+                }
+
+                int numOps = ops.getOpCount();
+                for (int opNum = 0; opNum < numOps; opNum++) {
+                    AppOpsManager.HistoricalOp op = ops.getOpAt(opNum);
+
                     if (op.getBackgroundAccessCount() > 0) {
-                        pkgsWithLocationAccess.add(new UserPackage(pkg, user));
+                        pkgsWithLocationAccess.add(userPkg);
+
                         break;
                     }
                 }
@@ -559,35 +596,6 @@ public class LocationAccessCheck {
     }
 
     /**
-     * Check is a package currently has the background access to
-     * {@link android.Manifest.permission#ACCESS_FINE_LOCATION} or can get it without user
-     * interaction.
-     *
-     * @param pkg The package that might have access.
-     *
-     * @return {@code true} iff the app currently has access to the fine background location
-     */
-    private boolean isBackgroundLocationPermissionGranted(@NonNull PackageInfo pkg) {
-        AppPermissionGroup locationGroup = AppPermissionGroup.create(mContext, pkg,
-                ACCESS_FINE_LOCATION, false);
-
-        if (locationGroup == null) {
-            // All location permissions have been removed from this package
-            return false;
-        } else {
-            AppPermissionGroup locationBgGroup = locationGroup.getBackgroundPermissions();
-            Permission locationPerm = locationGroup.getPermission(ACCESS_FINE_LOCATION);
-
-            // Individual permission have been removed
-            return locationBgGroup != null
-                    && locationPerm != null
-                    && locationBgGroup.hasPermission(locationPerm.getBackgroundPermissionName())
-                    && locationGroup.areRuntimePermissionsGranted()
-                    && locationBgGroup.areRuntimePermissionsGranted();
-        }
-    }
-
-    /**
      * Go through the list of packages we already shown a notification for and remove those that do
      * not request fine background location access.
      *
@@ -603,15 +611,12 @@ public class LocationAccessCheck {
         for (UserPackage userPkg : alreadyNotifiedPkgs) {
             throwInterruptedExceptionIfTaskIsCanceled();
 
-            PackageInfo pkgInfo;
             try {
-                pkgInfo = userPkg.getPackageInfo(mContext);
+                AppPermissionGroup bgLocationGroup = userPkg.getBackgroundLocationGroup();
+                if (bgLocationGroup == null || !bgLocationGroup.areRuntimePermissionsGranted()) {
+                    packagesToRemove.add(userPkg);
+                }
             } catch (PackageManager.NameNotFoundException e) {
-                packagesToRemove.add(userPkg);
-                continue;
-            }
-
-            if (!isBackgroundLocationPermissionGranted(pkgInfo)) {
                 packagesToRemove.add(userPkg);
             }
         }
@@ -639,7 +644,7 @@ public class LocationAccessCheck {
             }
 
             ArraySet<UserPackage> packages = loadAlreadyNotifiedPackagesLocked();
-            packages.remove(new UserPackage(pkg, user));
+            packages.remove(new UserPackage(mContext, pkg, user));
             safeAlreadyNotifiedPackagesLocked(packages);
         }
     }
@@ -849,10 +854,25 @@ public class LocationAccessCheck {
      * A immutable class containing a package name and a {@link UserHandle}.
      */
     private static final class UserPackage {
+        private final @NonNull Context mContext;
+
         public final @NonNull String pkg;
         public final @NonNull UserHandle user;
 
-        private UserPackage(@NonNull String pkg, @NonNull UserHandle user) {
+        /**
+         * Create a new {@link UserPackage}
+         *
+         * @param context A context to be used by methods of this object
+         * @param pkg The name of the package
+         * @param user The user the package belongs to
+         */
+        UserPackage(@NonNull Context context, @NonNull String pkg, @NonNull UserHandle user) {
+            try {
+                mContext = context.createPackageContextAsUser(context.getPackageName(), 0, user);
+            } catch (PackageManager.NameNotFoundException e) {
+                throw new IllegalStateException(e);
+            }
+
             this.pkg = pkg;
             this.user = user;
         }
@@ -860,16 +880,45 @@ public class LocationAccessCheck {
         /**
          * Get {@link PackageInfo} for this user package.
          *
-         * @param context A context used to resolve the info
-         *
          * @return The package info
          *
          * @throws PackageManager.NameNotFoundException if package/user does not exist
          */
-        public @NonNull PackageInfo getPackageInfo(@NonNull Context context)
+        @NonNull PackageInfo getPackageInfo() throws PackageManager.NameNotFoundException {
+            return mContext.getPackageManager().getPackageInfo(pkg, GET_PERMISSIONS);
+        }
+
+        /**
+         * Get the {@link AppPermissionGroup} for
+         * {@link android.Manifest.permission#ACCESS_FINE_LOCATION} and this user package.
+         *
+         * @return The app permission group or {@code null} if the app does not request location
+         *
+         * @throws PackageManager.NameNotFoundException if package/user does not exist
+         */
+        @Nullable AppPermissionGroup getLocationGroup()
                 throws PackageManager.NameNotFoundException {
-            return context.createPackageContextAsUser(pkg, 0, user)
-                    .getPackageManager().getPackageInfo(pkg, GET_PERMISSIONS);
+            return AppPermissionGroup.create(mContext, getPackageInfo(), ACCESS_FINE_LOCATION, user,
+                    false);
+        }
+
+        /**
+         * Get the {@link AppPermissionGroup} for the background location of
+         * {@link android.Manifest.permission#ACCESS_FINE_LOCATION} and this user package.
+         *
+         * @return The app permission group or {@code null} if the app does not request background
+         *         location
+         *
+         * @throws PackageManager.NameNotFoundException if package/user does not exist
+         */
+        @Nullable AppPermissionGroup getBackgroundLocationGroup()
+                throws PackageManager.NameNotFoundException {
+            AppPermissionGroup locationGroup = getLocationGroup();
+            if (locationGroup == null) {
+                return null;
+            }
+
+            return locationGroup.getBackgroundPermissions();
         }
 
         @Override
