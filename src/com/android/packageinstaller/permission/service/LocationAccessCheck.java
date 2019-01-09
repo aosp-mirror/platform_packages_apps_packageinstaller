@@ -78,6 +78,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.UserHandle;
@@ -403,18 +404,19 @@ public class LocationAccessCheck {
 
                 UserPackage packageToNotifyFor = null;
 
-                // Prefer location history
-                /* TODO: Enable once we know the location history package
+                // Prefer to show notification for location controller extra package
                 int numPkgs = packages.size();
                 for (int i = 0; i < numPkgs; i++) {
                     UserPackage pkg = packages.get(i);
 
-                    if (pkg.pkg.equals(getSystemServiceSafe(this, LocationManager.class,
-                            pkg.user).getLocationHistoryProviderPackage())) {
+                    LocationManager locationManager = getSystemServiceSafe(mContext,
+                            LocationManager.class, pkg.user);
+                    if (locationManager.isLocationControllerExtraPackageEnabled() && pkg.pkg.equals(
+                            locationManager.getLocationControllerExtraPackage())) {
                         packageToNotifyFor = pkg;
+                        break;
                     }
                 }
-                */
 
                 if (packageToNotifyFor == null) {
                     packageToNotifyFor = packages.get(mRandom.nextInt(packages.size()));
