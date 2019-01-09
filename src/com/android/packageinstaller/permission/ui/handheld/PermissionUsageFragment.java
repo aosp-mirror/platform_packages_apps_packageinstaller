@@ -28,6 +28,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.util.ArrayMap;
 import android.util.ArraySet;
 import android.util.Log;
@@ -68,6 +69,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 /**
@@ -81,11 +83,11 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
     private static final String LOG_TAG = "PermissionUsageFragment";
 
     @Retention(SOURCE)
-    @IntDef(value = {SORT_MOST_PERMISSIONS, SORT_MOST_ACCESSES, SORT_RECENT})
+    @IntDef(value = {SORT_RECENT, SORT_MOST_PERMISSIONS, SORT_MOST_ACCESSES})
     @interface SortOption {}
-    static final int SORT_MOST_PERMISSIONS = 1;
-    static final int SORT_MOST_ACCESSES = 2;
-    static final int SORT_RECENT = 3;
+    static final int SORT_RECENT = 1;
+    static final int SORT_MOST_PERMISSIONS = 2;
+    static final int SORT_MOST_ACCESSES = 3;
 
     private static final int MENU_FILTER_BY_PERMISSIONS = MENU_HIDE_SYSTEM + 1;
 
@@ -232,16 +234,20 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
                 context.getString(R.string.permission_usage_last_15_minutes),
                 R.string.permission_usage_bar_chart_title_last_15_minutes,
                 R.string.permission_usage_list_title_last_15_minutes));
+        mFilterAdapterTime.addFilter(new TimeFilterItem(MINUTES.toMillis(1),
+                context.getString(R.string.permission_usage_last_minute),
+                R.string.permission_usage_bar_chart_title_last_minute,
+                R.string.permission_usage_list_title_last_minute));
         mFilterSpinnerTime.setSelection(mSavedTimeSpinnerIndex);
 
         // Add sort spinner entries.
+        mSortAdapter.addFilter(new SortItem(context.getString(R.string.sort_spinner_recent),
+                SORT_RECENT));
         mSortAdapter.addFilter(
                 new SortItem(context.getString(R.string.sort_spinner_most_permissions),
                         SORT_MOST_PERMISSIONS));
         mSortAdapter.addFilter(new SortItem(context.getString(R.string.sort_spinner_most_accesses),
                 SORT_MOST_ACCESSES));
-        mSortAdapter.addFilter(new SortItem(context.getString(R.string.sort_spinner_recent),
-                SORT_RECENT));
         mSortSpinner.setSelection(mSavedSortSpinnerIndex);
 
         return root;
@@ -378,6 +384,9 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
 
         mHasSystemApps = false;
 
+        java.text.DateFormat timeFormat = DateFormat.getTimeFormat(context);
+        java.text.DateFormat dateFormat = DateFormat.getMediumDateFormat(context);
+
         final int numApps = appPermissionUsages.size();
         for (int appNum = 0; appNum < numApps; appNum++) {
             final AppPermissionUsage appPermissionUsage = appPermissionUsages.get(appNum);
@@ -415,22 +424,30 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
                 if (mFilterGroup != null && !mFilterGroup.equals(groupUsage.getGroup().getName())) {
                     continue;
                 }
-                // Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
+                // STOPSHIP: Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
                 if (groupUsage.getGroup().getLabel().equals("Storage")) {
                     continue;
                 }
                 if (groupUsage.getAccessCount() > 0) {
+                    String accessTimeString = null;
+                    if (isToday(groupUsage.getLastAccessTime())) {
+                        accessTimeString = timeFormat.format(groupUsage.getLastAccessTime());
+                    } else {
+                        accessTimeString = dateFormat.format(groupUsage.getLastAccessTime());
+                    }
+
                     permissionPrefs.add(createPermissionUsagePreference(context,
-                            appPermissionUsage, groupUsage, sortOption));
+                            appPermissionUsage, groupUsage, accessTimeString));
                 }
             }
 
-            PreferenceGroup parent = category;
-            if (permissionPrefs.size() > 1) {
-                // Add a "parent" entry for the app that will expand to the individual entries.
-                parent = createExpandablePreferenceGroup(context, appPermissionUsage);
-                category.addPreference(parent);
+            if (permissionPrefs.isEmpty()) {
+                continue;
             }
+
+            // Add a "parent" entry for the app that will expand to the individual entries.
+            PreferenceGroup parent = createExpandablePreferenceGroup(context, appPermissionUsage);
+            category.addPreference(parent);
 
             final int permissionPrefCount = permissionPrefs.size();
             for (int i = 0; i < permissionPrefCount; i++) {
@@ -515,6 +532,10 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
                 if (groupUsage.getAccessCount() <= 0) {
                     continue;
                 }
+                // STOPSHIP: Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
+                if (groupUsage.getGroup().getLabel().equals("Storage")) {
+                    continue;
+                }
                 final Integer count = groupToAppCount.get(groupUsage.getGroup().getName());
                 if (count == null) {
                     groups.add(groupUsage.getGroup());
@@ -571,6 +592,10 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         final int permissionUsageCount = groupUsages.size();
         for (int i = 0; i < permissionUsageCount; i++) {
             final AppPermissionUsage.GroupUsage groupUsage = groupUsages.get(i);
+            // STOPSHIP: Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
+            if (groupUsage.getGroup().getLabel().equals("Storage")) {
+                continue;
+            }
             if (groupUsage.getAccessCount() > 0) {
                 permissionIcons.add(groupUsage.getGroup().getIconResId());
             }
@@ -587,36 +612,30 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
      * @param context the context
      * @param appPermissionUsage the permission usage for the app
      * @param groupUsage the permission item to add
-     * @param sortOption how the entries should be sorted
+     * @param accessTimeStr the string representing the access time
      *
      * @return the Preference
      */
     private PermissionControlPreference createPermissionUsagePreference(@NonNull Context context,
             @NonNull AppPermissionUsage appPermissionUsage,
-            @NonNull GroupUsage groupUsage, @SortOption int sortOption) {
+            @NonNull GroupUsage groupUsage, @NonNull String accessTimeStr) {
         final PermissionControlPreference pref = new PermissionControlPreference(context,
                 groupUsage.getGroup());
-        pref.setTitle(appPermissionUsage.getApp().getLabel());
 
         final AppPermissionGroup group = groupUsage.getGroup();
-        if (sortOption == SORT_MOST_ACCESSES) {
-            if (groupUsage.getBackgroundAccessCount() == 0) {
-                pref.setSummary(
-                        context.getString(R.string.permission_usage_summary_num_accesses,
-                                group.getLabel(), groupUsage.getForegroundAccessCount()));
-            } else {
-                pref.setSummary(
-                        context.getString(
-                                R.string.permission_usage_summary_num_accesses_background,
-                                group.getLabel(), groupUsage.getAccessCount(),
-                                groupUsage.getBackgroundAccessCount()));
-            }
+        pref.setTitle(group.getLabel());
+        if (groupUsage.getBackgroundAccessCount() == 0) {
+            pref.setSummary(
+                    context.getString(R.string.permission_usage_summary,
+                            accessTimeStr, groupUsage.getForegroundAccessCount()));
         } else {
-            pref.setSummary(context.getString(R.string.permission_usage_summary_last_access,
-                    group.getLabel(), Utils.getTimeDiffStr(context, System.currentTimeMillis()
-                            - groupUsage.getLastAccessTime())));
+            pref.setSummary(
+                    context.getString(
+                            R.string.permission_usage_summary_background,
+                            accessTimeStr, groupUsage.getAccessCount(),
+                            groupUsage.getBackgroundAccessCount()));
         }
-        pref.setSummaryIcons(Collections.singletonList(group.getIconResId()));
+        pref.setTitleIcons(Collections.singletonList(group.getIconResId()));
         pref.setKey(group.getApp().packageName + "," + group.getName());
         pref.useSmallerIcon();
         return pref;
@@ -653,6 +672,10 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         final int groupCount = groupUsages.size();
         for (int i = 0; i < groupCount; i++) {
             final GroupUsage groupUsage = groupUsages.get(i);
+            // STOPSHIP: Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
+            if (groupUsage.getGroup().getLabel().equals("Storage")) {
+                continue;
+            }
             if (groupUsage.getAccessCount() > 0) {
                 accessedCount++;
             }
@@ -692,12 +715,35 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
      */
     private static int compareAccessTime(@NonNull AppPermissionUsage x,
             @NonNull AppPermissionUsage y) {
-        final int timeDiff = compareLong(x.getLastAccessTime(), y.getLastAccessTime());
+        final int timeDiff = compareLong(getLastAccessTime(x), getLastAccessTime(y));
         if (timeDiff != 0) {
             return timeDiff;
         }
         // Make sure we lose no data if same
         return x.hashCode() - y.hashCode();
+    }
+
+    /**
+     * Gets the last time the given app used a permission.
+     *
+     * @param appPermissionUsage The app permission usage.
+     *
+     * @return The last access time.
+     */
+    private static long getLastAccessTime(@NonNull AppPermissionUsage appPermissionUsage) {
+        long lastAccessTime = 0;
+        final List<GroupUsage> groupUsages = appPermissionUsage.getGroupUsages();
+        final int groupCount = groupUsages.size();
+        for (int i = 0; i < groupCount; i++) {
+            final GroupUsage groupUsage = groupUsages.get(i);
+            // STOPSHIP: Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
+            // We can replace this with AppPermissionUsage.getLastAccessTime then.
+            if (groupUsage.getGroup().getLabel().equals("Storage")) {
+                continue;
+            }
+            lastAccessTime = Math.max(lastAccessTime, groupUsage.getLastAccessTime());
+        }
+        return lastAccessTime;
     }
 
     /**
@@ -712,12 +758,11 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
      */
     private static int compareAccessCount(@NonNull AppPermissionUsage x,
             @NonNull AppPermissionUsage y) {
-        final int accessDiff = compareLong(x.getAccessCount(), y.getAccessCount());
+        final int accessDiff = compareLong(getAccessCount(x), getAccessCount(y));
         if (accessDiff != 0) {
             return accessDiff;
         }
-        // Make sure we lose no data if same
-        return y.hashCode() - x.hashCode();
+        return compareAccessTime(x, y);
     }
 
     /**
@@ -738,6 +783,29 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         }
         // Make sure we lose no data if same
         return y.hashCode() - x.hashCode();
+    }
+
+    /**
+     * Gets the number of permission usages.
+     *
+     * @param appPermissionUsage The app permission usage.
+     *
+     * @return The number of permission usages.
+     */
+    private static long getAccessCount(@NonNull AppPermissionUsage appPermissionUsage) {
+        long accessCount = 0;
+        final List<GroupUsage> groupUsages = appPermissionUsage.getGroupUsages();
+        final int groupCount = groupUsages.size();
+        for (int i = 0; i < groupCount; i++) {
+            final GroupUsage groupUsage = groupUsages.get(i);
+            // STOPSHIP: Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
+            // We can replace this with AppPermissionUsage.getAccessCount then.
+            if (groupUsage.getGroup().getLabel().equals("Storage")) {
+                continue;
+            }
+            accessCount += groupUsage.getAccessCount();
+        }
+        return accessCount;
     }
 
     /**
@@ -775,7 +843,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         if (timeDiff != 0) {
             return timeDiff;
         }
-        final int countDiff = y.getGroupUsages().size() - x.getGroupUsages().size();
+        final int countDiff = compareAccessUsage(x, y);
         if (countDiff != 0) {
             return countDiff;
         }
@@ -807,6 +875,25 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
             }
         }
         return groups;
+    }
+
+    /**
+     * Check whether the given time (in milliseconds) is in the current day.
+     *
+     * @param time the time in milliseconds
+     *
+     * @return whether the given time is in the current day.
+     */
+    private static boolean isToday(long time) {
+        Calendar today = Calendar.getInstance(Locale.getDefault());
+        today.setTimeInMillis(System.currentTimeMillis());
+        today.set(Calendar.HOUR, 0);
+        today.set(Calendar.MINUTE, 0);
+        today.set(Calendar.SECOND, 0);
+
+        Calendar date = Calendar.getInstance(Locale.getDefault());
+        date.setTimeInMillis(time);
+        return date.after(today);
     }
 
     /**

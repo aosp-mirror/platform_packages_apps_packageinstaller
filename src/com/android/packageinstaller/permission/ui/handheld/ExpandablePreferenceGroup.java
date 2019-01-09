@@ -87,21 +87,21 @@ public class ExpandablePreferenceGroup extends PreferenceGroup {
         holder.setDividerAllowedAbove(false);
         holder.setDividerAllowedBelow(false);
 
+        holder.findViewById(R.id.title_widget_frame).setVisibility(View.GONE);
+
         ViewGroup summaryFrame = (ViewGroup) holder.findViewById(R.id.summary_widget_frame);
         if (mSummaryIcons.isEmpty()) {
             summaryFrame.setVisibility(View.GONE);
         } else {
             summaryFrame.removeAllViews();
-            int summaryIconSize = mContext.getResources().getDimensionPixelSize(
-                    R.dimen.preference_usage_summary_icon_size);
             int numIcons = mSummaryIcons.size();
             for (int i = 0; i < numIcons; i++) {
                 LayoutInflater inflater = mContext.getSystemService(LayoutInflater.class);
-                ViewGroup layoutView = (ViewGroup) inflater.inflate(R.layout.summary_image_view,
+                ViewGroup group = (ViewGroup) inflater.inflate(R.layout.title_summary_image_view,
                         null);
-                ImageView imageView = layoutView.requireViewById(R.id.icon);
+                ImageView imageView = group.requireViewById(R.id.icon);
                 imageView.setImageResource(mSummaryIcons.get(i));
-                summaryFrame.addView(layoutView);
+                summaryFrame.addView(group);
             }
         }
     }

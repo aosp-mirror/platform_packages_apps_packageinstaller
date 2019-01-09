@@ -45,6 +45,7 @@ public class PermissionControlPreference extends Preference {
     private @Nullable Drawable mWidgetIcon;
     private boolean mUseSmallerIcon;
     private boolean mEllipsizeEnd;
+    private @Nullable List<Integer> mTitleIcons;
     private @Nullable List<Integer> mSummaryIcons;
 
     public PermissionControlPreference(@NonNull Context context,
@@ -54,6 +55,7 @@ public class PermissionControlPreference extends Preference {
         mWidgetIcon = null;
         mUseSmallerIcon = false;
         mEllipsizeEnd = false;
+        mTitleIcons = null;
         mSummaryIcons = null;
         setOnPreferenceClickListener(preference -> {
             Intent intent = new Intent(context, AppPermissionActivity.class);
@@ -112,6 +114,16 @@ public class PermissionControlPreference extends Preference {
     }
 
     /**
+     * Sets this preference to show the given icons to the left of its title.
+     *
+     * @param titleIcons the icons to show.
+     */
+    public void setTitleIcons(@NonNull List<Integer> titleIcons) {
+        mTitleIcons = titleIcons;
+        setLayoutResource(R.layout.preference_usage);
+    }
+
+    /**
      * Sets this preference to show the given icons to the left of its summary.
      *
      * @param summaryIcons the icons to show.
@@ -144,20 +156,26 @@ public class PermissionControlPreference extends Preference {
             title.setEllipsize(TextUtils.TruncateAt.END);
         }
 
-        if (mSummaryIcons != null && !mSummaryIcons.isEmpty()) {
-            ViewGroup summaryFrame = (ViewGroup) holder.findViewById(R.id.summary_widget_frame);
-            summaryFrame.removeAllViews();
-            int summaryIconSize = mContext.getResources().getDimensionPixelSize(
-                    R.dimen.preference_usage_summary_icon_size);
-            int numIcons = mSummaryIcons.size();
+        setIcons(holder, mSummaryIcons, R.id.summary_widget_frame);
+        setIcons(holder, mTitleIcons, R.id.title_widget_frame);
+    }
+
+    private void setIcons(PreferenceViewHolder holder, @Nullable List<Integer> icons, int frameId) {
+        ViewGroup frame = (ViewGroup) holder.findViewById(frameId);
+        if (icons != null && !icons.isEmpty()) {
+            frame.setVisibility(View.VISIBLE);
+            frame.removeAllViews();
+            int numIcons = icons.size();
             for (int i = 0; i < numIcons; i++) {
                 LayoutInflater inflater = mContext.getSystemService(LayoutInflater.class);
-                ViewGroup layoutView = (ViewGroup) inflater.inflate(R.layout.summary_image_view,
+                ViewGroup group = (ViewGroup) inflater.inflate(R.layout.title_summary_image_view,
                         null);
-                ImageView imageView = layoutView.requireViewById(R.id.icon);
-                imageView.setImageResource(mSummaryIcons.get(i));
-                summaryFrame.addView(layoutView);
+                ImageView imageView = group.requireViewById(R.id.icon);
+                imageView.setImageResource(icons.get(i));
+                frame.addView(group);
             }
+        } else if (frame != null) {
+            frame.setVisibility(View.GONE);
         }
     }
 }
