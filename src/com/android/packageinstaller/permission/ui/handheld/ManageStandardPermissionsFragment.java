@@ -15,16 +15,33 @@
  */
 package com.android.packageinstaller.permission.ui.handheld;
 
-import android.view.MenuItem;
+import static java.util.concurrent.TimeUnit.DAYS;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.ArraySet;
+import android.util.Pair;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 
+import com.android.packageinstaller.permission.model.AppPermissionUsage;
+import com.android.packageinstaller.permission.model.AppPermissionUsage.GroupUsage;
+import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
 import com.android.packageinstaller.permission.model.PermissionGroup;
+import com.android.packageinstaller.permission.model.PermissionUsages;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
+import com.android.settingslib.widget.AppEntitiesHeaderController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,6 +49,11 @@ import java.util.List;
  */
 public final class ManageStandardPermissionsFragment extends ManagePermissionsFragment {
     private static final String EXTRA_PREFS_KEY = "extra_prefs_key";
+    private static final int MAXIMUM_APP_COUNT = 3;
+
+    private @NonNull PermissionUsages mPermissionUsages;
+    private @NonNull AppEntitiesHeaderController mAppUsageController;
+    private @NonNull ArraySet<String> mLauncherPkgs;
 
     /**
      * @return A new fragment
@@ -45,8 +67,30 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
         super.onStart();
 
         getActivity().setTitle(com.android.permissioncontroller.R.string.app_permissions);
+
+        mPermissionUsages = new PermissionUsages(getContext());
+        mLauncherPkgs = Utils.getLauncherPackages(getContext());
     }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
+        Context context = getPreferenceManager().getContext();
+        ViewGroup root = (ViewGroup) super.onCreateView(inflater, container, savedInstanceState);
+
+        View header = inflater.inflate(R.layout.recent_usage_layout, root, false);
+        getPreferencesContainer().addView(header, 0);
+
+        View usageView = header.requireViewById(R.id.app_entities_header);
+        mAppUsageController = AppEntitiesHeaderController.newInstance(context, usageView)
+                .setHeaderTitleRes(R.string.permission_usage_header)
+                .setHeaderDetailsRes(R.string.permission_usage_view_details)
+                .setHeaderDetailsClickListener((View v) -> {
+                    context.startActivity(new Intent(Intent.ACTION_REVIEW_PERMISSION_USAGE));
+                });
+
+        return root;
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -104,6 +148,86 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
             additionalPermissionsPreference.setSummary(getResources().getQuantityString(
                     R.plurals.additional_permissions_more, numExtraPermissions,
                     numExtraPermissions));
+        }
+
+        mPermissionUsages.load(null, null, System.currentTimeMillis() - DAYS.toMillis(1),
+                Long.MAX_VALUE, PermissionUsages.USAGE_FLAG_LAST
+                        | PermissionUsages.USAGE_FLAG_HISTORICAL,
+                getActivity().getLoaderManager(),
+                true, this::updateRecentlyUsedWidget);
+    }
+
+    private void updateRecentlyUsedWidget() {
+        // Collect the apps that have used permissions.
+        Context context = getPreferenceManager().getContext();
+        List<Pair<PermissionApp, GroupUsage>> usages = new ArrayList<>();
+        List<AppPermissionUsage> permissionUsages = mPermissionUsages.getUsages();
+        int numApps = permissionUsages.size();
+        for (int appNum = 0; appNum < numApps; appNum++) {
+            AppPermissionUsage appPermissionUsage = permissionUsages.get(appNum);
+
+            if (appPermissionUsage.getAccessCount() <= 0) {
+                continue;
+            }
+            if (Utils.isSystem(appPermissionUsage.getApp(), mLauncherPkgs)) {
+                continue;
+            }
+
+            // Get the msot recent usage by this app.
+            GroupUsage mostRecentUsage = null;
+            List<GroupUsage> appGroups = appPermissionUsage.getGroupUsages();
+            int numGroups = appGroups.size();
+            for (int groupNum = 0; groupNum < numGroups; groupNum++) {
+                GroupUsage groupUsage = appGroups.get(groupNum);
+
+                if (!Utils.shouldShowPermission(context, groupUsage.getGroup())) {
+                    continue;
+                }
+                // STOPSHIP: Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
+                if (groupUsage.getGroup().getLabel().equals("Storage")) {
+                    continue;
+                }
+
+                if (mostRecentUsage == null
+                        || groupUsage.getLastAccessTime() >= mostRecentUsage.getLastAccessTime()) {
+                    mostRecentUsage = groupUsage;
+                }
+            }
+
+            if (mostRecentUsage != null) {
+                usages.add(Pair.create(appPermissionUsage.getApp(), mostRecentUsage));
+            }
+        }
+        usages.sort((x, y) -> compareAccessTime(x.second, y.second));
+
+        if (usages.isEmpty()) {
+            return;
+        }
+
+        // Show the most recent three usages.
+        int numAppsToShow = Math.min(usages.size(), MAXIMUM_APP_COUNT);
+        int i = 0;
+        for (; i < numAppsToShow; i++) {
+            Pair<PermissionApp, GroupUsage> info = usages.get(i);
+            mAppUsageController.setAppEntity(i, info.first.getIcon(), info.first.getLabel(),
+                    info.second.getGroup().getLabel());
+        }
+        for (; i < MAXIMUM_APP_COUNT; i++) {
+            mAppUsageController.removeAppEntity(i);
+        }
+        mAppUsageController.apply();
+    }
+
+    private static int compareAccessTime(@NonNull GroupUsage x, @NonNull GroupUsage y) {
+        long lastXAccess = x.getLastAccessTime();
+        long lastYAccess = y.getLastAccessTime();
+
+        if (lastXAccess > lastYAccess) {
+            return -1;
+        } else if (lastYAccess > lastXAccess) {
+            return 1;
+        } else {
+            return x.hashCode() - y.hashCode();
         }
     }
 }
