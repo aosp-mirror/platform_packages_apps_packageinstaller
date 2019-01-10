@@ -504,6 +504,19 @@
     <!-- Label when there are no apps available for a default app [CHAR LIMIT=30] -->
     <string name="default_app_no_apps">No apps</string>
 
+    <!-- Title for page of managing special app access. [CHAR LIMIT=30] -->
+    <string name="special_app_access">Special app access</string>
+
+    <!-- TODO: STOPSHIP: I cannot find its value in Settings. -->
+    <!-- Help URI, special app access [DO NOT TRANSLATE] -->
+    <string name="help_uri_special_app_access" translatable="false"></string>
+
+    <!-- Label when there is no special app access [CHAR LIMIT=30] -->
+    <string name="no_special_app_access">No special app access</string>
+
+    <!-- Label when there are no apps available for a special app access [CHAR LIMIT=30] -->
+    <string name="special_app_access_no_apps">No apps</string>
+
     <!-- TODO: STOPSHIP: Migrate all default app titles from packages/apps/Settings/res/values/strings.xml . -->
 
     <!-- Label for the dialer role. [CHAR LIMIT=30] -->

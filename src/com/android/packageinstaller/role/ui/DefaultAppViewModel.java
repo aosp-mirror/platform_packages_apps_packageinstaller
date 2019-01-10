@@ -35,8 +35,8 @@ public class DefaultAppViewModel extends AndroidViewModel {
     private final RoleLiveData mRoleLiveData;
 
     @NonNull
-    private final AddRoleHolderStateLiveData mAddRoleHolderStateLiveData =
-            new AddRoleHolderStateLiveData();
+    private final ManageRoleHolderStateLiveData mManageRoleHolderStateLiveData =
+            new ManageRoleHolderStateLiveData();
 
     public DefaultAppViewModel(@NonNull Role role, @NonNull UserHandle user,
             @NonNull Application application) {
@@ -51,8 +51,8 @@ public class DefaultAppViewModel extends AndroidViewModel {
     }
 
     @NonNull
-    public AddRoleHolderStateLiveData getAddRoleHolderStateLiveData() {
-        return mAddRoleHolderStateLiveData;
+    public ManageRoleHolderStateLiveData getManageRoleHolderStateLiveData() {
+        return mManageRoleHolderStateLiveData;
     }
 
     /**

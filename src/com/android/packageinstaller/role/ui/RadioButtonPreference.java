@@ -19,6 +19,7 @@ package com.android.packageinstaller.role.ui;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.RadioButton;
 
 import androidx.annotation.AttrRes;
@@ -37,6 +38,9 @@ import com.android.permissioncontroller.R;
  * @see com.android.settings.widget.RadioButtonPreference
  */
 public class RadioButtonPreference extends TwoStatePreference {
+
+    @NonNull
+    private final OnCheckedChangeListener mOnCheckedChangeListener = new OnCheckedChangeListener();
 
     public RadioButtonPreference(@NonNull Context context) {
         this(context, null);
@@ -75,11 +79,22 @@ public class RadioButtonPreference extends TwoStatePreference {
         }
 
         RadioButton radioButton = (RadioButton) holder.findViewById(R.id.radio_button);
+        radioButton.setOnCheckedChangeListener(null);
         radioButton.setChecked(mChecked);
+        radioButton.setOnCheckedChangeListener(mOnCheckedChangeListener);
     }
 
-    @Override
-    protected void onClick() {
-        // Ignored.
+    private class OnCheckedChangeListener implements CompoundButton.OnCheckedChangeListener {
+
+        OnCheckedChangeListener() {}
+
+        @Override
+        public void onCheckedChanged(@NonNull CompoundButton buttonView, boolean isChecked) {
+            if (!callChangeListener(isChecked)) {
+                buttonView.setChecked(!isChecked);
+                return;
+            }
+            setChecked(isChecked);
+        }
     }
 }
