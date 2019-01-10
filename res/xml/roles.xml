@@ -149,7 +149,7 @@
     <!--- @see android.telecom.DefaultDialerManager -->
     <role
         name="android.app.role.DIALER"
-        availabilityProvider="DialerRoleAvailabilityProvider"
+        behavior="DialerRoleBehavior"
         exclusive="true"
         label="@string/role_label_dialer">
         <required-components>
@@ -212,7 +212,7 @@
     <!--- @see com.android.internal.telephony.SmsApplication -->
     <role
         name="android.app.role.SMS"
-        availabilityProvider="SmsRoleAvailabilityProvider"
+        behavior="SmsRoleBehavior"
         exclusive="true"
         label="@string/role_label_sms">
         <required-components>

@@ -537,4 +537,7 @@
     <string name="role_label_gallery">Gallery app</string>
     <!-- Label for the music player role. [CHAR LIMIT=30] -->
     <string name="role_label_music">Music app</string>
+
+    <!-- [CHAR LIMIT=NONE] Dialog body explaining that the app just selected by the user will not work after a reboot until the user enters their credentials, such as a PIN or password. -->
+    <string name="encryption_unaware_confirmation_message">Note: If you restart your device and have a screen lock set, this app can\u2019t start until you unlock your device.</string>
 </resources>

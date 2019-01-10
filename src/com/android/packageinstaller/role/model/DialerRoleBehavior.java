@@ -21,18 +21,29 @@ import android.os.UserHandle;
 import android.telephony.TelephonyManager;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /**
- * Class for determining whether the dialer role is available.
+ * Class for behavior of the dialer role.
  *
  * @see com.android.settings.applications.DefaultAppSettings
- * @see com.android.settings.applications.defaultapps.DefaultPhonePreferenceController#isAvailable()
+ * @see com.android.settings.applications.defaultapps.DefaultPhonePreferenceController
+ * @see com.android.settings.applications.defaultapps.DefaultPhonePicker
  */
-public class DialerRoleAvailabilityProvider implements RoleAvailabilityProvider {
+public class DialerRoleBehavior implements RoleBehavior {
 
     @Override
-    public boolean isRoleAvailableAsUser(@NonNull UserHandle user, @NonNull Context context) {
+    public boolean isAvailableAsUser(@NonNull UserHandle user,
+            @NonNull Context context) {
         TelephonyManager telephonyManager = context.getSystemService(TelephonyManager.class);
         return telephonyManager.isVoiceCapable();
+    }
+
+    @Nullable
+    @Override
+    public CharSequence getConfirmationMessage(@NonNull String packageName,
+            @NonNull Context context) {
+        return EncryptionUnawareConfirmationMixin.getConfirmationMessage(packageName,
+                context);
     }
 }

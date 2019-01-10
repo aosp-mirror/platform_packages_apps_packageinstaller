@@ -46,7 +46,8 @@ import java.util.List;
  * Fragment for a default app.
  */
 public class DefaultAppFragment extends SettingsFragment
-        implements Preference.OnPreferenceClickListener {
+        implements DefaultAppConfirmationDialogFragment.Listener,
+        Preference.OnPreferenceClickListener {
 
     private static final String LOG_TAG = DefaultAppFragment.class.getSimpleName();
 
@@ -173,14 +174,24 @@ public class DefaultAppFragment extends SettingsFragment
 
     @Override
     public boolean onPreferenceClick(@NonNull Preference preference) {
+        String packageName = preference.getKey();
+        CharSequence confirmationMessage = mRole.getConfirmationMessage(packageName,
+                requireContext());
+        if (confirmationMessage != null) {
+            DefaultAppConfirmationDialogFragment.show(packageName, confirmationMessage, this);
+        } else {
+            setDefaultApp(packageName);
+        }
+        return true;
+    }
+
+    @Override
+    public void setDefaultApp(@NonNull String packageName) {
         ManageRoleHolderStateLiveData liveData = mViewModel.getManageRoleHolderStateLiveData();
         if (liveData.getValue() != ManageRoleHolderStateLiveData.STATE_IDLE) {
             Log.i(LOG_TAG, "Trying to set default app while another request is on-going");
-            return true;
+            return;
         }
-
-        String packageName = preference.getKey();
         liveData.manageRoleHolderAsUser(mRoleName, packageName, mUser, true, requireContext());
-        return true;
     }
 }
