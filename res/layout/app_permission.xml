@@ -254,6 +254,14 @@
                         android:text="@string/permission_justification_footer"
                         style="@style/FooterText"/>
 
+                    <TextView
+                        android:id="@+id/justification_info_intent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/FooterText"
+                        android:textColor="?android:attr/colorAccent"
+                        android:clickable="true"/>
+
                 </LinearLayout>
 
                 <TextView
@@ -262,7 +270,8 @@
                     android:layout_height="wrap_content"
                     style="@style/FooterText"
                     android:textColor="?android:attr/colorAccent"
-                    android:clickable="true" />
+                    android:clickable="true"
+                    android:text="@string/app_permission_footer_usage_link"/>
 
             </LinearLayout>
 

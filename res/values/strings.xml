@@ -428,6 +428,9 @@
     <!-- Footer for permission justifications [CHAR LIMIT=none] -->
     <string name="permission_justification_footer">If you don\u2019t like how this app developer is using your data you can deny the permission.</string>
 
+    <!-- Text for permission justifications intent allowing users to get more information from an app on how it is using a permission [CHAR LIMIT=none] -->
+    <string name="permission_justification_info_intent">Go to <xliff:g id="app_name" example="Gmail">%s</xliff:g> for more information.</string>
+
     <!-- Permission justification entry for data being sent off the device [CHAR LIMIT=none] -->
     <string name="permission_justification_data_sent_off_device">Uploaded to cloud</string>
 
