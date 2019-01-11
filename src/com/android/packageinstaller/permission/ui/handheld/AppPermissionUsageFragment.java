@@ -127,6 +127,11 @@ public class AppPermissionUsageFragment extends SettingsWithButtonHeader {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public int getEmptyViewString() {
+        return R.string.no_permission_usages;
+    }
+
     private static ApplicationInfo getApplicationInfo(@NonNull Activity activity,
             @NonNull String packageName) {
         try {
