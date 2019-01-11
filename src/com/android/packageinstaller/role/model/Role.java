@@ -56,6 +56,8 @@ public class Role {
 
     private static final String LOG_TAG = Role.class.getSimpleName();
 
+    private static final boolean DEBUG = false;
+
     private static final String PACKAGE_NAME_ANDROID_SYSTEM = "android";
 
     /**
@@ -362,7 +364,12 @@ public class Role {
         }
     }
 
-    private static void killApp(@NonNull String packageName, @NonNull Context context) {
+    private void killApp(@NonNull String packageName, @NonNull Context context) {
+        if (DEBUG) {
+            Log.i(LOG_TAG, "Killing " + packageName + " due to "
+                    + Thread.currentThread().getStackTrace()[3].getMethodName()
+                    + "(" + mName + ")");
+        }
         ApplicationInfo applicationInfo = PackageUtils.getApplicationInfo(packageName, context);
         if (applicationInfo == null) {
             Log.w(LOG_TAG, "Cannot get ApplicationInfo for package: " + packageName);

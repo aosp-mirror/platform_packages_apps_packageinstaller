@@ -182,11 +182,18 @@ public class RoleControllerServiceImpl extends RoleControllerService {
             return;
         }
 
+        boolean added = false;
         if (role.isExclusive()) {
             List<String> currentPackageNames = mRoleManager.getRoleHolders(roleName);
             int currentPackageNamesSize = currentPackageNames.size();
             for (int i = 0; i < currentPackageNamesSize; i++) {
                 String currentPackageName = currentPackageNames.get(i);
+
+                if (currentPackageName.equals(packageName)) {
+                    Log.i(LOG_TAG, packageName + " already holds " + roleName);
+                    added = true;
+                    continue;
+                }
 
                 boolean removed = removeRoleHolderInternal(role, currentPackageName);
                 if (!removed) {
@@ -202,7 +209,9 @@ public class RoleControllerServiceImpl extends RoleControllerService {
         // TODO: STOPSHIP: Pass in appropriate arguments.
         role.grant(packageName, true, true, false, this);
 
-        boolean added = mRoleManager.addRoleHolderFromController(roleName, packageName);
+        if (!added) {
+            added = mRoleManager.addRoleHolderFromController(roleName, packageName);
+        }
         if (!added) {
             Log.e(LOG_TAG, "Failed to add package to role holders in RoleManager, package: "
                     + packageName + ", role: " + roleName);
