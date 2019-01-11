@@ -53,7 +53,7 @@ public class RequestRoleActivity extends FragmentActivity {
         getWindow().addSystemFlags(
                 WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
 
-        mRoleName = getIntent().getStringExtra(RoleManager.EXTRA_REQUEST_ROLE_NAME);
+        mRoleName = getIntent().getStringExtra(Intent.EXTRA_ROLE_NAME);
         mPackageName = getCallingPackage();
 
         ensureSmsDefaultDialogCompatibility();
@@ -123,7 +123,7 @@ public class RequestRoleActivity extends FragmentActivity {
         if (!Objects.equals(intent.getAction(), Telephony.Sms.Intents.ACTION_CHANGE_DEFAULT)) {
             return;
         }
-        if (intent.hasExtra(RoleManager.EXTRA_REQUEST_ROLE_NAME)) {
+        if (intent.hasExtra(Intent.EXTRA_ROLE_NAME)) {
             // Don't allow calling legacy interface with a role name.
             return;
         }

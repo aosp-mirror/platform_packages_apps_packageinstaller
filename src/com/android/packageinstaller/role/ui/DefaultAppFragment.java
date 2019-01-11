@@ -51,9 +51,6 @@ public class DefaultAppFragment extends SettingsFragment
 
     private static final String LOG_TAG = DefaultAppFragment.class.getSimpleName();
 
-    public static final String EXTRA_ROLE_NAME =
-            "com.android.packageinstaller.role.ui.extra.ROLE_NAME";
-
     private String mRoleName;
 
     private UserHandle mUser;
@@ -75,7 +72,7 @@ public class DefaultAppFragment extends SettingsFragment
             @NonNull UserHandle user) {
         DefaultAppFragment fragment = new DefaultAppFragment();
         Bundle arguments = new Bundle();
-        arguments.putString(EXTRA_ROLE_NAME, roleName);
+        arguments.putString(Intent.EXTRA_ROLE_NAME, roleName);
         arguments.putParcelable(Intent.EXTRA_USER, user);
         fragment.setArguments(arguments);
         return fragment;
@@ -86,7 +83,7 @@ public class DefaultAppFragment extends SettingsFragment
         super.onCreate(savedInstanceState);
 
         Bundle arguments = getArguments();
-        mRoleName = arguments.getString(EXTRA_ROLE_NAME);
+        mRoleName = arguments.getString(Intent.EXTRA_ROLE_NAME);
         mUser = arguments.getParcelable(Intent.EXTRA_USER);
     }
 

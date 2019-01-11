@@ -18,6 +18,7 @@ package com.android.packageinstaller.role.ui;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -49,9 +50,6 @@ public class SpecialAppAccessFragment extends SettingsFragment
 
     private static final String LOG_TAG = SpecialAppAccessFragment.class.getSimpleName();
 
-    public static final String EXTRA_ROLE_NAME =
-            "com.android.packageinstaller.role.ui.extra.ROLE_NAME";
-
     private static final String PREFERENCE_EXTRA_APPLICATION_INFO =
             "com.android.packageinstaller.role.ui.extra.APPLICATION_INFO";
 
@@ -72,7 +70,7 @@ public class SpecialAppAccessFragment extends SettingsFragment
     public static SpecialAppAccessFragment newInstance(@NonNull String roleName) {
         SpecialAppAccessFragment fragment = new SpecialAppAccessFragment();
         Bundle arguments = new Bundle();
-        arguments.putString(EXTRA_ROLE_NAME, roleName);
+        arguments.putString(Intent.EXTRA_ROLE_NAME, roleName);
         fragment.setArguments(arguments);
         return fragment;
     }
@@ -82,7 +80,7 @@ public class SpecialAppAccessFragment extends SettingsFragment
         super.onCreate(savedInstanceState);
 
         Bundle arguments = getArguments();
-        mRoleName = arguments.getString(EXTRA_ROLE_NAME);
+        mRoleName = arguments.getString(Intent.EXTRA_ROLE_NAME);
     }
 
     @Override
