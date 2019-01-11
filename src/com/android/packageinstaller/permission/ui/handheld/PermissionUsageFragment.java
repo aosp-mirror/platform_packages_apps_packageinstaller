@@ -410,6 +410,10 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
                 if (mFilterGroup != null && !mFilterGroup.equals(groupUsage.getGroup().getName())) {
                     continue;
                 }
+                // Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
+                if (groupUsage.getGroup().getLabel().equals("Storage")) {
+                    continue;
+                }
                 if (groupUsage.getAccessCount() > 0) {
                     permissionPrefs.add(createPermissionUsagePreference(context,
                             appPermissionUsage, groupUsage, sortOption));
@@ -462,7 +466,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         }
         final long filterTimeBeginMillis = Math.max(System.currentTimeMillis()
                 - timeFilterItem.getTime(), Calendar.getInstance().getTimeInMillis());
-        mPermissionUsages.load(null /*filterPackageName*/, mFilterGroup,
+        mPermissionUsages.load(null /*filterPackageName*/, null,
                 filterTimeBeginMillis, Long.MAX_VALUE, PermissionUsages.USAGE_FLAG_LAST
                         | PermissionUsages.USAGE_FLAG_HISTORICAL, getActivity().getLoaderManager(),
                 true /*getUiInfo*/, this /*callback*/);
@@ -488,7 +492,8 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
             builder.setDetails(R.string.app_permission_usage_detail_label);
             builder.setDetailsOnClickListener(v -> {
                 mFilterGroup = null;
-                reloadData();
+                // We already loaded all data, so don't reload
+                updateUI();
             });
         }
 
@@ -537,7 +542,8 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
 
             barViewInfo.setClickListener(v -> {
                 mFilterGroup = group.getName();
-                reloadData();
+                // We already loaded all data, so don't reload
+                updateUI();
             });
             builder.addBarViewInfo(barViewInfo);
         }
