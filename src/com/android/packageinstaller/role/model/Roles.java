@@ -781,6 +781,12 @@ public class Roles {
                     }
                     checkDuplicateElement(intentFilterData, intentFilterDatas,
                             "intent filter");
+                    if (DEBUG) {
+                        if (intentFilterData.getDataType() != null) {
+                            throwOrLogMessage("mimeType in <data> is not supported when setting a"
+                                    + " preferred activity");
+                        }
+                    }
                     intentFilterDatas.add(intentFilterData);
                     break;
                 default:
