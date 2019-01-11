@@ -7,7 +7,7 @@
 }
 -dontwarn androidx.core.**
 
-# Keep classes that implements RoleAvailabilityProvider, which are used by reflection.
--keep class * implements com.android.packageinstaller.role.model.RoleAvailabilityProvider {
+# Keep classes that implements RoleBehavior, which are used by reflection.
+-keep class * implements com.android.packageinstaller.role.model.RoleBehavior {
     *;
 }

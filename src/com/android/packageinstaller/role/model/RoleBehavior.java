@@ -20,19 +20,26 @@ import android.content.Context;
 import android.os.UserHandle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /**
- * Interface for determining whether a role is available.
+ * Interface for behavior of a role.
  */
-public interface RoleAvailabilityProvider {
+public interface RoleBehavior {
 
     /**
-     * Check whether a role is available
-     *
-     * @param user the user to check for
-     * @param context the {@code Context} to retrieve system services
-     *
-     * @return Whether the role is available
+     * @see Role#isAvailableAsUser(UserHandle, Context)
      */
-    boolean isRoleAvailableAsUser(@NonNull UserHandle user, @NonNull Context context);
+    default boolean isAvailableAsUser(@NonNull UserHandle user, @NonNull Context context) {
+        return true;
+    }
+
+    /**
+     * @see Role#getConfirmationMessage(String, Context)
+     */
+    @Nullable
+    default CharSequence getConfirmationMessage(@NonNull String packageName,
+            @NonNull Context context) {
+        return null;
+    }
 }

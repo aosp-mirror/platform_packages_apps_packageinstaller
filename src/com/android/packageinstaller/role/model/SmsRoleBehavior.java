@@ -22,17 +22,21 @@ import android.os.UserManager;
 import android.telephony.TelephonyManager;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /**
- * Class for determining whether the SMS role is available.
+ * Class for behavior of the SMS role.
  *
  * @see com.android.settings.applications.DefaultAppSettings
- * @see com.android.settings.applications.defaultapps.DefaultSmsPreferenceController#isAvailable()
+ * @see com.android.settings.applications.defaultapps.DefaultSmsPreferenceController
+ * @see com.android.settings.applications.defaultapps.DefaultSmsPicker
+ *
  */
-public class SmsRoleAvailabilityProvider implements RoleAvailabilityProvider {
+public class SmsRoleBehavior implements RoleBehavior {
 
     @Override
-    public boolean isRoleAvailableAsUser(@NonNull UserHandle user, @NonNull Context context) {
+    public boolean isAvailableAsUser(@NonNull UserHandle user,
+            @NonNull Context context) {
         UserManager userManager = context.getSystemService(UserManager.class);
         if (userManager.isManagedProfile(user.getIdentifier())) {
             return false;
@@ -46,5 +50,13 @@ public class SmsRoleAvailabilityProvider implements RoleAvailabilityProvider {
             return false;
         }
         return true;
+    }
+
+    @Nullable
+    @Override
+    public CharSequence getConfirmationMessage(@NonNull String packageName,
+            @NonNull Context context) {
+        return EncryptionUnawareConfirmationMixin.getConfirmationMessage(packageName,
+                context);
     }
 }
