@@ -27,15 +27,17 @@ import android.content.AsyncTaskLoader;
 import android.content.Context;
 import android.content.Loader;
 import android.os.Bundle;
-
 import android.os.Process;
 import android.util.ArrayMap;
 import android.util.ArraySet;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import com.android.packageinstaller.permission.model.AppPermissionUsage.Builder;
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
 import com.android.packageinstaller.permission.utils.Utils;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
