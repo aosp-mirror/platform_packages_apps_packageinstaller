@@ -259,7 +259,18 @@ public final class AppPermissionsFragment extends SettingsWithButtonHeader {
             category.addPreference(extraPerms);
         }
 
-        if (allowed.getPreferenceCount() == 0) {
+        if (allowed.getPreferenceCount() > 0) {
+            Preference details = new Preference(context);
+            details.setTitle(R.string.detailed_usage_link);
+            details.setOnPreferenceClickListener(preference -> {
+                Intent intent = new Intent(Intent.ACTION_REVIEW_APP_PERMISSION_USAGE);
+                intent.putExtra(Intent.EXTRA_PACKAGE_NAME,
+                        getArguments().getString(Intent.EXTRA_PACKAGE_NAME));
+                context.startActivity(intent);
+                return true;
+            });
+            allowed.addPreference(details);
+        } else {
             Preference empty = new Preference(context);
             empty.setTitle(getString(R.string.no_permissions_allowed));
             allowed.addPreference(empty);
