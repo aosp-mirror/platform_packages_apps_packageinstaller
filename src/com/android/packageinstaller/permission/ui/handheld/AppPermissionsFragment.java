@@ -25,7 +25,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.UserHandle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -41,7 +40,6 @@ import androidx.preference.PreferenceScreen;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.PermissionUsages;
-import com.android.packageinstaller.permission.utils.IconDrawableFactory;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 import com.android.settingslib.HelpUtils;
@@ -162,8 +160,7 @@ public final class AppPermissionsFragment extends SettingsWithButtonHeader {
         Activity activity = fragment.getActivity();
         ApplicationInfo appInfo = packageInfo.applicationInfo;
 
-        Drawable icon = IconDrawableFactory.getBadgedIcon(activity, appInfo,
-                UserHandle.getUserHandleForUid(appInfo.uid));
+        Drawable icon = Utils.getBadgedIcon(activity, appInfo);
         fragment.setHeader(icon, Utils.getFullAppLabel(appInfo, activity));
 
         ActionBar ab = activity.getActionBar();

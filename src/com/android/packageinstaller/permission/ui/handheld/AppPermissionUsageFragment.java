@@ -24,7 +24,6 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.UserHandle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -39,7 +38,6 @@ import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissionUsage;
 import com.android.packageinstaller.permission.model.AppPermissionUsage.GroupUsage;
 import com.android.packageinstaller.permission.model.PermissionUsages;
-import com.android.packageinstaller.permission.utils.IconDrawableFactory;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 
@@ -112,8 +110,7 @@ public class AppPermissionUsageFragment extends SettingsWithButtonHeader {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Drawable icon = IconDrawableFactory.getBadgedIcon(getActivity(), mAppInfo,
-                UserHandle.getUserHandleForUid(mAppInfo.uid));
+        Drawable icon = Utils.getBadgedIcon(getActivity(), mAppInfo);
         setHeader(icon, Utils.getFullAppLabel(mAppInfo, getContext()));
     }
 
