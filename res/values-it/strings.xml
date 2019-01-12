@@ -22,6 +22,7 @@
     <string name="cancel" msgid="7279939269964834974">"Annulla"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"App non trovata"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Nega"</string>
+    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Nega e non chiedermelo più"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Altre info"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Nega comunque"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> di <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
@@ -34,6 +35,8 @@
     <string name="permission_revoked_all" msgid="6356577996164232918">"tutte disattivate"</string>
     <string name="permission_revoked_none" msgid="266013103540772023">"nessuna disattivata"</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Consenti"</string>
+    <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"Consenti sempre"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Consenti solo mentre l\'app è in uso"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"App"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Autorizzazioni app"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Non chiedermelo più"</string>
@@ -86,7 +89,9 @@
     <string name="message_staging" msgid="641286607664721291">"App in preparazione…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Sconosciuto"</string>
     <string name="permission_usage_title" msgid="8266350477620264117">"Uso delle autorizzazioni"</string>
-    <string name="permission_usage_summary" msgid="6578074505443814465">"<xliff:g id="PERM">%1$s</xliff:g> - <xliff:g id="TIME">%2$s</xliff:g> fa"</string>
+    <string name="permission_usage_summary_last_access" msgid="7173761056935772053">"<xliff:g id="PERM">%1$s</xliff:g> - Ultimo accesso <xliff:g id="TIME">%2$s</xliff:g> fa"</string>
+    <string name="permission_usage_summary_num_accesses" msgid="2854280891054741976">"<xliff:g id="PERM">%1$s</xliff:g> - <xliff:g id="NUM">%2$s</xliff:g> accessi"</string>
+    <string name="permission_usage_summary_num_accesses_background" msgid="2003785497588289009">"<xliff:g id="PERM">%1$s</xliff:g> - <xliff:g id="NUM_0">%2$s</xliff:g> accessi (<xliff:g id="NUM_1">%3$s</xliff:g> in background)"</string>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Qualsiasi autorizzazione"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"Qualsiasi data"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Ultimi 7 giorni"</string>
@@ -94,6 +99,23 @@
     <string name="permission_usage_last_hour" msgid="2907717357748648755">"Ultima ora"</string>
     <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Ultimi 15 minuti"</string>
     <string name="no_permission_usages" msgid="698858628357371611">"Autorizzazioni non usate"</string>
+    <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"Accedi in qualsiasi momento"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"Accesso negli ultimi 7 giorni"</string>
+    <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"Accesso nelle ultime 24 ore"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"Accesso nell\'ultima ora"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"Accesso negli ultimi 15 minuti"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"Uso di autorizzazioni principali sempre"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"Uso autorizzazioni principali, ultimi 7 giorni"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"Uso autorizzazioni principali nelle ultime 24 ore"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"Uso di autorizzazioni principali nell\'ultima ora"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"Uso autorizzazioni principali, ultimi 15 minuti"</string>
+    <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"App"</string>
+    <string name="app_permission_usage_detail_label" msgid="675382489654882532">"Mostra tutti gli utilizzi"</string>
+    <string name="filter_by_title" msgid="5940302511365561845">"Filtra per"</string>
+    <string name="filter_by_permissions" msgid="7761207093643478436">"Filtra per autorizzazioni"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Maggior numero autorizzazioni"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Maggior numero di accessi"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"Recenti"</string>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"Uso delle autorizzazioni app"</string>
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"Accesso: <xliff:g id="NUM">%1$s</xliff:g> volte. Durata totale: <xliff:g id="DURATION">%2$s</xliff:g>. Ultimo utilizzo: <xliff:g id="TIME">%3$s</xliff:g> fa."</string>
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Accesso: <xliff:g id="NUM">%1$s</xliff:g> volte. Ultimo utilizzo: <xliff:g id="TIME">%2$s</xliff:g> fa."</string>
@@ -148,20 +170,31 @@
       <item quantity="one">Memorizzati e analizzati per 1 settimana</item>
     </plurals>
     <string name="permission_justification_undefined" msgid="5711347441966109267">"Lo sviluppatore dell\'app non ha indicato la modalità di utilizzo dei tuoi dati nell\'app."</string>
-    <!-- no translation found for no_permissions_allowed (5781278485002145993) -->
-    <skip />
-    <!-- no translation found for no_permissions_denied (2449583707612365442) -->
-    <skip />
-    <!-- no translation found for no_apps_allowed (4529095928504611810) -->
-    <skip />
-    <!-- no translation found for no_apps_denied (2736758388618487796) -->
-    <skip />
+    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Solo mentre l\'app è in uso"</string>
+    <string name="no_permissions_allowed" msgid="5781278485002145993">"Nessuna autorizzazione consentita"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"Nessuna autorizzazione negata"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"Nessuna app consentita"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"Nessuna app rifiutata"</string>
+    <string name="launch_app" msgid="5641437562665039291">"Apri"</string>
+    <string name="uninstall_app" msgid="8756507666995809214">"Disinstalla"</string>
+    <string name="force_stop_app" msgid="4253426323145479826">"Forza interruzione"</string>
     <string name="default_apps" msgid="8554530939151957828">"App predefinite"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Nessuna app predefinita"</string>
-    <string name="no_apps_for_default_app" msgid="5671673478949659841">"Nessuna app"</string>
+    <string name="default_apps_for_work" msgid="8582151955372061208">"Predefinite per il lavoro"</string>
+    <string name="default_app_none" msgid="7671097769303174666">"Nessuna"</string>
+    <string name="default_app_no_apps" msgid="5344668465735677271">"Nessuna app"</string>
+    <string name="special_app_access" msgid="2561673957499408877">"Accesso speciale alle app"</string>
+    <string name="no_special_app_access" msgid="994977666694457811">"Nessun accesso speciale ad app"</string>
+    <string name="special_app_access_no_apps" msgid="3934763650592564818">"Nessuna app"</string>
     <string name="role_label_dialer" msgid="3345895090725237533">"App Telefono"</string>
+    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"App telefono modalità auto"</string>
+    <string name="role_label_call_screening" msgid="411212589764916370">"App per screening chiamate"</string>
+    <string name="role_label_call_companion" msgid="7369723859682076467">"App complementare chiamate"</string>
+    <string name="role_label_proxy_calling" msgid="2432073053878466863">"App per chiamate proxy"</string>
     <string name="role_label_sms" msgid="2262769075496017522">"App per SMS"</string>
     <string name="role_label_browser" msgid="6266502234308421457">"App browser"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"App Galleria"</string>
     <string name="role_label_music" msgid="5900245414865932272">"App per la musica"</string>
+    <!-- no translation found for encryption_unaware_confirmation_message (1366058948707595596) -->
+    <skip />
 </resources>

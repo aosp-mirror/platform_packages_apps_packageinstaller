@@ -22,6 +22,7 @@
     <string name="cancel" msgid="7279939269964834974">"ਰੱਦ ਕਰੋ"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"ਐਪ ਨਹੀਂ ਮਿਲੀ"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"ਅਸਵੀਕਾਰ ਕਰੋ"</string>
+    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"ਅਸਵੀਕਾਰ ਕਰੋ ਅਤੇ ਦੁਬਾਰਾ ਨਾ ਪੁੱਛੋ"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"ਹੋਰ ਜਾਣਕਾਰੀ"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"ਫਿਰ ਵੀ ਅਸਵੀਕਾਰ ਕਰੋ"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> ਵਿੱਚੋਂ <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
@@ -34,6 +35,8 @@
     <string name="permission_revoked_all" msgid="6356577996164232918">"ਸਾਰੀਆਂ ਇਜਾਜ਼ਤਾਂ ਬੰਦ ਕਰ ਦਿੱਤੀਆਂ ਗਈਆਂ"</string>
     <string name="permission_revoked_none" msgid="266013103540772023">"ਕਿਸੇ ਨੂੰ ਵੀ ਬੰਦ ਨਹੀਂ ਕੀਤਾ ਗਿਆ"</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"ਕਰਨ ਦਿਓ"</string>
+    <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"ਹਰ ਵੇਲੇ ਕਰਨ ਦਿਓ"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"ਸਿਰਫ਼ ਐਪ ਵਰਤੇ ਜਾਣ ਵੇਲੇ ਕਰਨ ਦਿਓ"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"ਐਪਾਂ"</string>
     <string name="app_permissions" msgid="2778362347879465223">"ਐਪ ਇਜਾਜ਼ਤਾਂ"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"ਦੁਬਾਰਾ ਨਾ ਪੁੱਛੋ"</string>
@@ -86,7 +89,9 @@
     <string name="message_staging" msgid="641286607664721291">"ਐਪ ਨੂੰ ਸਟੇਜ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"ਅਗਿਆਤ"</string>
     <string name="permission_usage_title" msgid="8266350477620264117">"ਇਜਾਜ਼ਤਾਂ ਵਰਤੋ"</string>
-    <string name="permission_usage_summary" msgid="6578074505443814465">"<xliff:g id="PERM">%1$s</xliff:g> - <xliff:g id="TIME">%2$s</xliff:g> ਪਹਿਲਾਂ"</string>
+    <string name="permission_usage_summary_last_access" msgid="7173761056935772053">"<xliff:g id="PERM">%1$s</xliff:g> - ਪਿਛਲੀ ਵਾਰ ਪਹੁੰਚ <xliff:g id="TIME">%2$s</xliff:g> ਪਹਿਲਾਂ"</string>
+    <string name="permission_usage_summary_num_accesses" msgid="2854280891054741976">"<xliff:g id="PERM">%1$s</xliff:g> - <xliff:g id="NUM">%2$s</xliff:g> ਪਹੁੰਚ"</string>
+    <string name="permission_usage_summary_num_accesses_background" msgid="2003785497588289009">"<xliff:g id="PERM">%1$s</xliff:g> - <xliff:g id="NUM_0">%2$s</xliff:g> ਪਹੁੰਚ (ਬੈਕਗ੍ਰਾਊਂਡ ਵਿੱਚ <xliff:g id="NUM_1">%3$s</xliff:g>)"</string>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"ਕੋਈ ਵੀ ਇਜਾਜ਼ਤ"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"ਕਿਸੇ ਵੀ ਵੇਲੇ"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"ਪਿਛਲੇ 7 ਦਿਨ"</string>
@@ -94,11 +99,26 @@
     <string name="permission_usage_last_hour" msgid="2907717357748648755">"ਪਿਛਲਾ 1 ਘੰਟਾ"</string>
     <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"ਪਿਛਲੇ 15 ਮਿੰਟ"</string>
     <string name="no_permission_usages" msgid="698858628357371611">"ਕੋਈ ਇਜਾਜ਼ਤ ਨਹੀਂ ਵਰਤੀ ਗਈ"</string>
+    <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"ਕਿਸੇ ਵੀ ਵੇਲੇ ਪਹੁੰਚ"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"ਪਿਛਲੇ 7 ਦਿਨਾਂ ਵਿੱਚ ਪਹੁੰਚ"</string>
+    <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"ਪਿਛਲੇ 24 ਘੰਟਿਆਂ ਵਿੱਚ ਪਹੁੰਚ"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"ਪਿਛਲੇ ਘੰਟੇ ਵਿੱਚ ਪਹੁੰਚ"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"ਪਿਛਲੇ 15 ਮਿੰਟ ਵਿੱਚ ਪਹੁੰਚ"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"ਕਿਸੇ ਵੇਲੇ ਵੀ ਆਮ ਇਜਾਜ਼ਤ ਵਰਤੋਂ"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"ਪਿਛਲੇ 7 ਦਿਨਾਂ ਵਿੱਚ ਆਮ ਇਜਾਜ਼ਤ ਵਰਤੋਂ"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"ਪਿਛਲੇ 24 ਘੰਟਿਆਂ ਵਿੱਚ ਆਮ ਇਜਾਜ਼ਤ ਵਰਤੋਂ"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"ਪਿਛਲੇ 1 ਘੰਟੇ ਵਿੱਚ ਆਮ ਇਜਾਜ਼ਤ ਵਰਤੋਂ"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"ਪਿਛਲੇ 15 ਮਿੰਟ ਵਿੱਚ ਆਮ ਇਜਾਜ਼ਤ ਵਰਤੋਂ"</string>
+    <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"ਐਪਾਂ"</string>
+    <string name="app_permission_usage_detail_label" msgid="675382489654882532">"ਸਾਰੀ ਵਰਤੋਂ ਦੇਖੋ"</string>
+    <string name="filter_by_title" msgid="5940302511365561845">"ਇਸ ਮੁਤਾਬਕ ਫਿਲਟਰ ਕਰੋ"</string>
+    <string name="filter_by_permissions" msgid="7761207093643478436">"ਇਜਾਜ਼ਤਾਂ ਮੁਤਾਬਕ ਫਿਲਟਰ ਕਰੋ"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"ਸਭ ਤੋਂ ਵੱਧ ਇਜਾਜ਼ਤਾਂ"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"ਸਭ ਤੋਂ ਵੱਧ ਪਹੁੰਚ"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"ਹਾਲੀਆ"</string>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"ਐਪ ਇਜਾਜ਼ਤਾਂ ਵਰਤੋ"</string>
-    <!-- no translation found for app_permission_usage_summary (8560461104458882198) -->
-    <skip />
-    <!-- no translation found for app_permission_usage_summary_no_duration (4040424337831328212) -->
-    <skip />
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"ਪਹੁੰਚ: <xliff:g id="NUM">%1$s</xliff:g> ਵਾਰ। ਕੁੱਲ ਮਿਆਦ: <xliff:g id="DURATION">%2$s</xliff:g>। ਪਿਛਲੀ ਵਾਰ <xliff:g id="TIME">%3$s</xliff:g> ਪਹਿਲਾਂ ਵਰਤੀ ਗਈ।"</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"ਪਹੁੰਚ: <xliff:g id="NUM">%1$s</xliff:g> ਵਾਰ। ਪਿਛਲੀ ਵਾਰ <xliff:g id="TIME">%2$s</xliff:g> ਪਹਿਲਾਂ ਵਰਤੀ ਗਈ।"</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"ਕਰਨ ਦਿਓ"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"ਹਰ ਵੇਲੇ ਕਰਨ ਦਿਓ"</string>
     <string name="app_permission_button_allow_foreground" msgid="6366222217615376397">"ਸਿਰਫ਼ ਐਪ ਵਰਤੇ ਜਾਣ ਵੇਲੇ ਕਰਨ ਦਿਓ"</string>
@@ -138,7 +158,7 @@
     <string name="permission_justification_header" msgid="8855642235625782751">"ਐਪ ਵਿਕਾਸਕਾਰ ਦਾ ਕਹਿਣਾ ਹੈ ਕਿ ਸ਼ਾਇਦ ਤੁਹਾਡੇ ਡਾਟੇ ਨੂੰ:"</string>
     <string name="permission_justification_footer" msgid="4098097763461100468">"ਜੇ ਤੁਹਾਨੂੰ ਐਪ ਵਿਕਾਸਕਾਰ ਵੱਲੋਂ ਤੁਹਾਡਾ ਡਾਟਾ ਵਰਤੇ ਜਾਣਾ ਪਸੰਦ ਨਹੀਂ ਹੈ, ਤਾਂ ਤੁਸੀਂ ਇਜਾਜ਼ਤ ਨੂੰ ਅਸਵੀਕਾਰ ਕਰ ਸਕਦੇ ਹੋ।"</string>
     <string name="permission_justification_data_sent_off_device" msgid="2503905652716735222">"ਕਲਾਊਡ \'ਤੇ ਅੱਪਲੋਡ ਕੀਤਾ ਜਾਂਦਾ ਹੈ"</string>
-    <string name="permission_justification_data_sent_off_device_user_triggered" msgid="4122793147247661083">"ਤੁਹਾਡੇ ਵੱਲੋਂ ਸਾਫ਼ ਤੌਰ \'ਤੇ ਇੰਝ ਕਰਨ ਦੇਣ ਕਰਕੇ ਡਾਟਾ ਕਲਾਊਡ \'ਤੇ ਅੱਪਲੋਡ ਕੀਤਾ ਜਾਂਦਾ ਹੈ"</string>
+    <string name="permission_justification_data_sent_off_device_user_triggered" msgid="4122793147247661083">"ਤੁਹਾਡੇ ਵੱਲੋਂ ਸਾਫ਼ ਤੌਰ \'ਤੇ ਇੰਝ ਕਰਨ ਦੇਣ ਕਰਕੇ ਕਲਾਊਡ \'ਤੇ ਅੱਪਲੋਡ ਕੀਤਾ ਜਾਂਦਾ ਹੈ"</string>
     <string name="permission_justification_data_shared_with_third_party" msgid="5249440580654050831">"ਵਿਗਿਆਪਨਦਾਤਾਵਾਂ ਜਾਂ ਕਾਰੋਬਾਰਾਂ ਨਾਲ ਸਾਂਝਾ ਕੀਤਾ ਜਾਂਦਾ ਹੈ"</string>
     <string name="permission_justification_data_shared_with_third_party_user_triggered" msgid="2920721327430861150">"ਤੁਹਾਡੇ ਵੱਲੋਂ ਸਾਫ਼ ਤੌਰ \'ਤੇ ਇੰਝ ਕਰਨ ਦੇਣ ਕਰਕੇ ਵਿਗਿਆਪਨਦਾਤਾਵਾਂ ਜਾਂ ਕਾਰੋਬਾਰਾਂ ਨਾਲ ਸਾਂਝਾ ਕੀਤਾ ਜਾਂਦਾ ਹੈ"</string>
     <string name="permission_justification_data_used_for_monetization" msgid="3098933808750278119">"ਮੁਦਰੀਕਰਨ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ"</string>
@@ -150,21 +170,34 @@
       <item quantity="other"><xliff:g id="NUM_WEEKS">%s</xliff:g> ਹਫ਼ਤਿਆਂ ਲਈ ਰੱਖਿਅਤ ਕੀਤਾ ਅਤੇ ਵਿਸ਼ਲੇਸ਼ਣ ਕੀਤਾ ਜਾਂਦਾ ਹੈ</item>
     </plurals>
     <string name="permission_justification_undefined" msgid="5711347441966109267">"ਐਪ ਵਿਕਾਸਕਾਰ ਨੇ ਐਪ ਵੱਲੋਂ ਤੁਹਾਡਾ ਡਾਟਾ ਵਰਤੇ ਜਾਣ ਬਾਰੇ ਕੁਝ ਨਹੀਂ ਦੱਸਿਆ ਹੈ।"</string>
-    <!-- no translation found for no_permissions_allowed (5781278485002145993) -->
-    <skip />
-    <!-- no translation found for no_permissions_denied (2449583707612365442) -->
-    <skip />
-    <!-- no translation found for no_apps_allowed (4529095928504611810) -->
-    <skip />
-    <!-- no translation found for no_apps_denied (2736758388618487796) -->
-    <skip />
+    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"ਸਿਰਫ਼ ਐਪ ਵਰਤੇ ਜਾਣ ਵੇਲੇ"</string>
+    <string name="no_permissions_allowed" msgid="5781278485002145993">"ਕੋਈ ਇਜਾਜ਼ਤਾਂ ਨਹੀਂ ਦਿੱਤੀਆਂ ਗਈਆਂ ਹਨ"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"ਕੋਈ ਇਜਾਜ਼ਤਾਂ ਅਸਵੀਕਾਰ ਨਹੀਂ ਕੀਤੀਆਂ ਗਈਆਂ ਹਨ"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"ਕਿਸੇ ਵੀ ਐਪ ਨੂੰ ਇਜਾਜ਼ਤ ਨਹੀਂ ਦਿੱਤੀ ਹੈ"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"ਕਿਸੇ ਵੀ ਐਪ ਦੀ ਇਜਾਜ਼ਤ ਅਸਵੀਕਾਰ ਨਹੀਂ ਕੀਤੀ ਗਈ"</string>
+    <string name="launch_app" msgid="5641437562665039291">"ਖੋਲ੍ਹੋ"</string>
+    <string name="uninstall_app" msgid="8756507666995809214">"ਅਣਸਥਾਪਤ ਕਰੋ"</string>
+    <string name="force_stop_app" msgid="4253426323145479826">"ਜ਼ਬਰਦਸਤੀ ਬੰਦ ਕਰੋ"</string>
     <string name="default_apps" msgid="8554530939151957828">"ਪੂਰਵ-ਨਿਰਧਾਰਤ ਐਪਾਂ"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"ਕੋਈ ਪੂਰਵ-ਨਿਰਧਾਰਤ ਐਪਾਂ ਨਹੀਂ"</string>
-    <!-- no translation found for no_apps_for_default_app (5671673478949659841) -->
+    <string name="default_apps_for_work" msgid="8582151955372061208">"ਕੰਮ ਲਈ ਪੂਰਵ-ਨਿਰਧਾਰਤ"</string>
+    <string name="default_app_none" msgid="7671097769303174666">"ਕੋਈ ਨਹੀਂ"</string>
+    <string name="default_app_no_apps" msgid="5344668465735677271">"ਕੋਈ ਐਪਾਂ ਨਹੀਂ"</string>
+    <!-- no translation found for special_app_access (2561673957499408877) -->
+    <skip />
+    <!-- no translation found for no_special_app_access (994977666694457811) -->
+    <skip />
+    <!-- no translation found for special_app_access_no_apps (3934763650592564818) -->
     <skip />
     <string name="role_label_dialer" msgid="3345895090725237533">"ਫ਼ੋਨ ਐਪ"</string>
+    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"ਕਾਰ ਮੋਡ ਫ਼ੋਨ ਐਪ"</string>
+    <string name="role_label_call_screening" msgid="411212589764916370">"ਕਾਲ ਸਕ੍ਰੀਨਿੰਗ ਐਪ"</string>
+    <string name="role_label_call_companion" msgid="7369723859682076467">"ਕਾਲ ਸੰਬੰਧੀ ਐਪ"</string>
+    <string name="role_label_proxy_calling" msgid="2432073053878466863">"ਪ੍ਰੌਕਸੀ ਕਾਲਿੰਗ ਐਪ"</string>
     <string name="role_label_sms" msgid="2262769075496017522">"SMS ਐਪ"</string>
     <string name="role_label_browser" msgid="6266502234308421457">"ਬ੍ਰਾਊਜ਼ਰ ਐਪ"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"ਗੈਲਰੀ ਐਪ"</string>
     <string name="role_label_music" msgid="5900245414865932272">"ਸੰਗੀਤ ਐਪ"</string>
+    <!-- no translation found for encryption_unaware_confirmation_message (1366058948707595596) -->
+    <skip />
 </resources>
