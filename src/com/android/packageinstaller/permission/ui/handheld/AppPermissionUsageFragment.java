@@ -101,11 +101,10 @@ public class AppPermissionUsageFragment extends SettingsWithButtonHeader {
             return;
         }
 
-        final long endTimeMillis = System.currentTimeMillis() - TimeUnit.HOURS.toMillis(24);
+        final long beginTimeMillis = System.currentTimeMillis() - TimeUnit.HOURS.toMillis(24);
         mPermissionUsages = new PermissionUsages(getContext());
-        mPermissionUsages.load(packageName, null, 0 /*filterBeginTimeMillis*/,
-                endTimeMillis, PermissionUsages.USAGE_FLAG_LAST
-                        | PermissionUsages.USAGE_FLAG_HISTORICAL,
+        mPermissionUsages.load(packageName, null, beginTimeMillis, Long.MAX_VALUE,
+                PermissionUsages.USAGE_FLAG_LAST | PermissionUsages.USAGE_FLAG_HISTORICAL,
                 getActivity().getLoaderManager(),
                 true, this::updateUi);
     }
@@ -152,7 +151,10 @@ public class AppPermissionUsageFragment extends SettingsWithButtonHeader {
 
         // Add the permission usages.
         final List<AppPermissionUsage> permissionUsages = mPermissionUsages.getUsages();
-        if (permissionUsages.isEmpty() || permissionUsages.size() > 1) {
+        if (permissionUsages.isEmpty()) {
+            return;
+        }
+        if (permissionUsages.size() > 1) {
             Log.e(LOG_TAG, "Expected one AppPermissionUsage but got: " + permissionUsages);
             getActivity().finish();
             return;
