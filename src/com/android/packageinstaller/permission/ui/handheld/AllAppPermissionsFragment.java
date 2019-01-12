@@ -258,9 +258,9 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
 
         Drawable icon = null;
         if (perm.icon != 0) {
-            icon = perm.loadIcon(pm);
+            icon = perm.loadUnbadgedIcon(pm);
         } else if (group != null && group.icon != 0) {
-            icon = group.loadIcon(pm);
+            icon = group.loadUnbadgedIcon(pm);
         } else {
             icon = context.getDrawable(R.drawable.ic_perm_device_info);
         }
