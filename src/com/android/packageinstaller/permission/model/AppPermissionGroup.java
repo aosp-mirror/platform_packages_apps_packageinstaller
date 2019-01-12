@@ -38,7 +38,6 @@ import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
 import android.content.pm.UsesPermissionInfo;
 import android.os.Build;
-import android.os.Process;
 import android.os.UserHandle;
 import android.os.storage.StorageManager;
 import android.provider.Settings;
@@ -122,24 +121,18 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
      */
     private boolean mTriggerLocationAccessCheckOnPersist;
 
-    public static AppPermissionGroup create(Context context, PackageInfo packageInfo,
-            String permissionName, boolean delayChanges) {
-        return create(context, packageInfo, permissionName, Process.myUserHandle(), delayChanges);
-    }
-
     /**
      * Create the app permission group.
      *
      * @param context the {@code Context} to retrieve system services.
      * @param packageInfo package information about the app.
      * @param permissionName the name of the permission this object represents.
-     * @param userHandle the user who owns the app.
      * @param delayChanges whether to delay changes until {@link #persistChanges} is called.
      *
      * @return the AppPermissionGroup.
      */
     public static AppPermissionGroup create(Context context, PackageInfo packageInfo,
-            String permissionName, UserHandle userHandle, boolean delayChanges) {
+            String permissionName, boolean delayChanges) {
         PermissionInfo permissionInfo;
         try {
             permissionInfo = context.getPackageManager().getPermissionInfo(permissionName, 0);
@@ -174,13 +167,23 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             }
         }
 
-        return create(context, packageInfo, groupInfo, permissionInfos,
-                userHandle, delayChanges);
+        return create(context, packageInfo, groupInfo, permissionInfos, delayChanges);
     }
 
+    /**
+     * Create the app permission group.
+     *
+     * @param context the {@code Context} to retrieve system services.
+     * @param packageInfo package information about the app.
+     * @param groupInfo the information about the group created.
+     * @param permissionInfos the information about the permissions belonging to the group.
+     * @param delayChanges whether to delay changes until {@link #persistChanges} is called.
+     *
+     * @return the AppPermissionGroup.
+     */
     public static AppPermissionGroup create(Context context, PackageInfo packageInfo,
-            PackageItemInfo groupInfo, List<PermissionInfo> permissionInfos,
-            UserHandle userHandle, boolean delayChanges) {
+            PackageItemInfo groupInfo, List<PermissionInfo> permissionInfos, boolean delayChanges) {
+        UserHandle userHandle = UserHandle.getUserHandleForUid(packageInfo.applicationInfo.uid);
 
         if (groupInfo instanceof PermissionInfo) {
             permissionInfos = new ArrayList<>();

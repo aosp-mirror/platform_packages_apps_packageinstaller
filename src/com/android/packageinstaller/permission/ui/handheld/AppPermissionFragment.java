@@ -158,7 +158,7 @@ public class AppPermissionFragment extends SettingsWithButtonHeader {
         UserHandle userHandle = getArguments().getParcelable(Intent.EXTRA_USER);
         mGroup = AppPermissionGroup.create(context,
                 getPackageInfo(activity, packageName, userHandle),
-                groupInfo, groupPermInfos, userHandle, false);
+                groupInfo, groupPermInfos, false);
 
         if (mGroup == null || !Utils.shouldShowPermission(context, mGroup)) {
             Log.i(LOG_TAG, "Illegal group: " + (mGroup == null ? "null" : mGroup.getName()));
