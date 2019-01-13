@@ -16,64 +16,196 @@
 
 package com.android.packageinstaller.permission.model;
 
-import android.app.AppOpsManager;
+import android.app.AppOpsManager.HistoricalOp;
+import android.app.AppOpsManager.HistoricalPackageOps;
+import android.app.AppOpsManager.OpEntry;
+
+import android.app.AppOpsManager.PackageOps;
 
 import androidx.annotation.NonNull;
-
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import androidx.annotation.Nullable;
+import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Function;
 
 /**
- * A single instance of an app accessing a permission.
+ * Stats for permission usage of an app. This data is for a given time period,
+ * i.e. does not contain the full history.
  */
 public final class AppPermissionUsage {
-    private final @NonNull AppOpsManager.PackageOps mPkgOp;
-    private final @NonNull AppOpsManager.OpEntry mOp;
-    private final @NonNull String mPermissionGroupName;
-    private final @NonNull CharSequence mPermissionGroupLabel;
+    private final @NonNull List<GroupUsage> mGroupUsages = new ArrayList<>();
+    private final @NonNull PermissionApp mPermissionApp;
 
-    AppPermissionUsage(@NonNull AppOpsManager.PackageOps pkgOp, @NonNull AppOpsManager.OpEntry op,
-            @NonNull String permissionGroupName, @NonNull CharSequence permissionGroupLabel) {
-        mPkgOp = pkgOp;
-        mOp = op;
-        mPermissionGroupName = permissionGroupName;
-        mPermissionGroupLabel = permissionGroupLabel;
+    private AppPermissionUsage(@NonNull PermissionApp permissionApp,
+            @NonNull List<AppPermissionGroup> groups, @Nullable PackageOps lastUsage,
+            @Nullable HistoricalPackageOps historicalUsage) {
+        mPermissionApp = permissionApp;
+        final int groupCount = groups.size();
+        for (int i = 0; i < groupCount; i++) {
+            final AppPermissionGroup group = groups.get(i);
+            mGroupUsages.add(new GroupUsage(group, lastUsage, historicalUsage));
+        }
+    }
+
+    public @NonNull PermissionApp getApp() {
+        return mPermissionApp;
     }
 
     public @NonNull String getPackageName() {
-        return mPkgOp.getPackageName();
+        return mPermissionApp.getPackageName();
     }
 
     public int getUid() {
-        return mPkgOp.getUid();
+        return mPermissionApp.getUid();
     }
 
-    public long getTime() {
-        return mOp.getLastAccessTime();
+    public long getLastAccessTime() {
+        long lastAccessTime = 0;
+        final int permissionCount = mGroupUsages.size();
+        for (int i = 0; i < permissionCount; i++) {
+            final GroupUsage groupUsage = mGroupUsages.get(i);
+            lastAccessTime = Math.max(lastAccessTime, groupUsage.getLastAccessTime());
+        }
+        return lastAccessTime;
     }
 
-    public @NonNull String getPermissionGroupName() {
-        return mPermissionGroupName;
+    public long getAccessCount() {
+        long accessCount = 0;
+        final int permissionCount = mGroupUsages.size();
+        for (int i = 0; i < permissionCount; i++) {
+            final GroupUsage permission = mGroupUsages.get(i);
+            accessCount += permission.getAccessCount();
+        }
+        return accessCount;
     }
 
-    public @NonNull CharSequence getPermissionGroupLabel() {
-        return mPermissionGroupLabel;
+    public @NonNull List<GroupUsage> getGroupUsages() {
+        return mGroupUsages;
     }
 
     /**
-     * Get the name of the permission (not the group) this represents.
-     *
-     * @return the name of the permission this represents.
+     * Stats for permission usage of a permission group. This data is for a
+     * given time period, i.e. does not contain the full history.
      */
-    public String getPermissionName() {
-        // TODO: Replace reflection with a proper API (probably in AppOpsManager).
-        try {
-            Method getOpMethod = AppOpsManager.OpEntry.class.getMethod("getOp");
-            Method opToPermissionMethod = AppOpsManager.class.getMethod("opToPermission",
-                    int.class);
-            return (String) opToPermissionMethod.invoke(null, (int) getOpMethod.invoke(mOp));
-        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-            return null;
+    public static class GroupUsage {
+        private final @NonNull AppPermissionGroup mGroup;
+        private final @Nullable PackageOps mLastUsage;
+        private final @Nullable HistoricalPackageOps mHistoricalUsage;
+
+        GroupUsage(@NonNull AppPermissionGroup group, @Nullable PackageOps lastUsage,
+                @Nullable HistoricalPackageOps historicalUsage) {
+            mGroup = group;
+            mLastUsage = lastUsage;
+            mHistoricalUsage = historicalUsage;
+        }
+
+        public long getLastAccessTime() {
+            if (mLastUsage == null) {
+                return 0;
+            }
+            long lastAccessTime = 0;
+            final ArrayList<Permission> permissions = mGroup.getPermissions();
+            final int permissionCount = permissions.size();
+            for (int i = 0; i < permissionCount; i++) {
+                final Permission permission = permissions.get(i);
+                final String opName = permission.getAppOp();
+                final List<OpEntry> ops = mLastUsage.getOps();
+                final int opCount = ops.size();
+                for (int j = 0; j < opCount; j++) {
+                    final OpEntry op = ops.get(j);
+                    if (op.getOpStr().equals(opName)) {
+                        lastAccessTime = Math.max(lastAccessTime, op.getLastAccessTime());
+                    }
+                }
+            }
+            return lastAccessTime;
+        }
+
+
+        public long getForegroundAccessCount() {
+            if (mHistoricalUsage == null) {
+                return 0;
+            }
+            return extractAggregate(HistoricalOp::getForegroundAccessCount);
+        }
+
+        public long getBackgroundAccessCount() {
+            if (mHistoricalUsage == null) {
+                return 0;
+            }
+            return extractAggregate(HistoricalOp::getBackgroundAccessCount);
+        }
+
+        public long getAccessCount() {
+            if (mHistoricalUsage == null) {
+                return 0;
+            }
+            return extractAggregate((HistoricalOp op) ->
+                op.getForegroundAccessCount() + op.getBackgroundAccessCount()
+            );
+        }
+
+        public long getAccessDuration() {
+            if (mHistoricalUsage == null) {
+                return 0;
+            }
+            return extractAggregate((HistoricalOp op) ->
+                    op.getForegroundAccessDuration() + op.getBackgroundAccessDuration()
+            );
+        }
+
+        private long extractAggregate(@NonNull Function<HistoricalOp, Long> extractor) {
+            long aggregate = 0;
+            final ArrayList<Permission> permissions = mGroup.getPermissions();
+            final int permissionCount = permissions.size();
+            for (int i = 0; i < permissionCount; i++) {
+                final Permission permission = permissions.get(i);
+                final String opName = permission.getAppOp();
+                final HistoricalOp historicalOp = mHistoricalUsage.getOp(opName);
+                if (historicalOp != null) {
+                    aggregate += extractor.apply(historicalOp);
+                }
+            }
+            return aggregate;
+        }
+
+        public @NonNull AppPermissionGroup getGroup() {
+            return mGroup;
+        }
+    }
+
+    public static class Builder {
+        private final @NonNull List<AppPermissionGroup> mGroups = new ArrayList<>();
+        private final @NonNull PermissionApp mPermissionApp;
+        private @Nullable PackageOps mLastUsage;
+        private @Nullable HistoricalPackageOps mHistoricalUsage;
+
+        public Builder(@NonNull PermissionApp permissionApp) {
+            mPermissionApp = permissionApp;
+        }
+
+        public @NonNull Builder addGroup(@NonNull AppPermissionGroup group) {
+            mGroups.add(group);
+            return this;
+        }
+
+        public @NonNull Builder setLastUsage(@Nullable PackageOps lastUsage) {
+            mLastUsage = lastUsage;
+            return this;
+        }
+
+        public @NonNull Builder setHistoricalUsage(@Nullable HistoricalPackageOps historicalUsage) {
+            mHistoricalUsage = historicalUsage;
+            return this;
+        }
+
+        public @NonNull
+        AppPermissionUsage build() {
+            if (mGroups.isEmpty()) {
+                throw new IllegalStateException("mGroups cannot be empty.");
+            }
+            return new AppPermissionUsage(mPermissionApp, mGroups, mLastUsage, mHistoricalUsage);
         }
     }
 }

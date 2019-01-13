@@ -54,12 +54,8 @@ import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.text.Collator;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -97,7 +93,6 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
     private final ArrayMap<String, Permission> mPermissions = new ArrayMap<>();
     private final String mIconPkg;
     private final int mIconResId;
-    private final List<AppPermissionUsage> mAppPermissionUsages;
 
     /** Delay changes until {@link #persistChanges} is called */
     private final boolean mDelayChanges;
@@ -206,7 +201,6 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                 groupInfo.packageName, groupLabel, loadGroupDescription(context, groupInfo),
                 getRequest(groupInfo), getRequestDetail(groupInfo), getBackgroundRequest(groupInfo),
                 getBackgroundRequestDetail(groupInfo), groupInfo.packageName, groupInfo.icon,
-                getAppUsages(context, packageInfo, groupInfo.name, groupLabel, permissionNames),
                 userHandle, delayChanges);
 
         // Parse and create permissions reqested by the app
@@ -306,14 +300,12 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
             if (permission.isBackgroundPermission()) {
                 if (group.getBackgroundPermissions() == null) {
-                    List<AppPermissionUsage> usages = getAppUsages(context, group.getApp(),
-                            group.getName(), group.getLabel(), new String[] { group.getName() });
                     group.mBackgroundPermissions = new AppPermissionGroup(group.mContext,
                             group.getApp(), group.getName(), group.getDeclaringPackage(),
                             group.getLabel(), group.getDescription(), group.getRequest(),
                             group.getRequestDetail(), group.getBackgroundRequest(),
                             group.getBackgroundRequestDetail(), group.getIconPkg(),
-                            group.getIconResId(), usages, group.getUser(), delayChanges);
+                            group.getIconResId(), group.getUser(), delayChanges);
                 }
 
                 group.getBackgroundPermissions().addPermission(permission);
@@ -365,53 +357,11 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         return description;
     }
 
-    private static List<AppPermissionUsage> getAppUsages(Context context, PackageInfo packageInfo,
-            String groupName, CharSequence groupLabel, String[] permissionNames) {
-        try {
-            AppOpsManager appOpsManager = (AppOpsManager) context.getSystemService(
-                    AppOpsManager.class);
-
-            // Get the appops for the given permissions.  Note that this does not get the appops
-            // whose switch is this permission group.
-            // TODO: Use the real API instead of reflection once the API is finalized.
-            int[] ops = new int[permissionNames.length];
-            Method permissionToOpCodeMethod = AppOpsManager.class.getMethod("permissionToOpCode",
-                    String.class);
-            for (int i = 0, numPerms = permissionNames.length; i < numPerms; i++) {
-                ops[i] = (int) permissionToOpCodeMethod.invoke(null, permissionNames[i]);
-            }
-            List<AppOpsManager.PackageOps> pkgOps = appOpsManager.getOpsForPackage(
-                    packageInfo.applicationInfo.uid, packageInfo.packageName, ops);
-            if (pkgOps == null) {
-                return Collections.emptyList();
-            }
-
-            // Convert each single appop into an AppPermissionUsage.
-            List<AppPermissionUsage> appPermissionUsages = new ArrayList<>();
-            int numPkgOps = pkgOps.size();
-            for (int packageNum = 0; packageNum < numPkgOps; packageNum++) {
-                AppOpsManager.PackageOps pkgOp = pkgOps.get(packageNum);
-                List<AppOpsManager.OpEntry> curOps = pkgOp.getOps();
-                int numOps = curOps.size();
-                for (int opNum = 0; opNum < numOps; opNum++) {
-                    AppOpsManager.OpEntry op = curOps.get(opNum);
-                    AppPermissionUsage appPermissionUsage = new AppPermissionUsage(pkgOp, op,
-                            groupName, groupLabel);
-                    appPermissionUsages.add(appPermissionUsage);
-                }
-            }
-            appPermissionUsages.sort(Comparator.comparing(AppPermissionUsage::getTime).reversed());
-            return appPermissionUsages;
-        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-            return Collections.emptyList();
-        }
-    }
-
     private AppPermissionGroup(Context context, PackageInfo packageInfo, String name,
             String declaringPackage, CharSequence label, CharSequence description,
             @StringRes int request, @StringRes int requestDetail,
             @StringRes int backgroundRequest, @StringRes int backgroundRequestDetail,
-            String iconPkg, int iconResId, List<AppPermissionUsage> appPermissionUsages,
+            String iconPkg, int iconResId,
             UserHandle userHandle, boolean delayChanges) {
         mContext = context;
         mUserHandle = userHandle;
@@ -440,7 +390,6 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             mIconPkg = context.getPackageName();
             mIconResId = R.drawable.ic_perm_device_info;
         }
-        mAppPermissionUsages = appPermissionUsages;
     }
 
     public boolean doesSupportRuntimePermissions() {
@@ -513,16 +462,6 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
     public CharSequence getLabel() {
         return mLabel;
-    }
-
-    /**
-     * Get a list of the permission usages by this app, sorted by last access time, with the most
-     * recent first.
-     *
-     * @return a sort list of this app's permission usages.
-     */
-    public List<AppPermissionUsage> getAppPermissionUsage() {
-        return mAppPermissionUsages;
     }
 
     /**

@@ -30,6 +30,7 @@ import android.content.pm.PackageItemInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
+import android.content.pm.UsesPermissionInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -140,6 +141,23 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
      */
     public static @NonNull List<PermissionGroup> getAllPermissionGroups(@NonNull Context context,
             @Nullable Supplier<Boolean> isCanceled, boolean getUiInfo) {
+        return getPermissionGroups(context, isCanceled, getUiInfo, null, null);
+    }
+
+    /**
+     * Return all permission groups in the system.
+     *
+     * @param context Context to use
+     * @param isCanceled callback checked if the group resolution should be aborted
+     * @param getUiInfo If the UI info for apps should be updated
+     * @param groupName Optional group to filter for.
+     * @param packageName Optional package to filter for.
+     *
+     * @return the list of all groups int the system
+     */
+    public static @NonNull List<PermissionGroup> getPermissionGroups(@NonNull Context context,
+            @Nullable Supplier<Boolean> isCanceled, boolean getUiInfo, @Nullable String groupName,
+            @Nullable String  packageName) {
         ArraySet<String> launcherPkgs = Utils.getLauncherPackages(context);
         PermissionApps.PmCache pmCache = new PermissionApps.PmCache(
                 context.getPackageManager());
@@ -150,7 +168,7 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
         Set<String> seenPermissions = new ArraySet<>();
 
         PackageManager packageManager = context.getPackageManager();
-        List<PermissionGroupInfo> groupInfos = packageManager.getAllPermissionGroups(0);
+        List<PermissionGroupInfo> groupInfos = getPermissionGroupInfos(context, groupName);
 
         for (PermissionGroupInfo groupInfo : groupInfos) {
             // Mare sure we respond to cancellation.
@@ -171,8 +189,7 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
             // Cache seen permissions and see if group has runtime permissions.
             for (PermissionInfo groupPermission : groupPermissions) {
                 seenPermissions.add(groupPermission.name);
-                if ((groupPermission.protectionLevel & PermissionInfo.PROTECTION_MASK_BASE)
-                        == PermissionInfo.PROTECTION_DANGEROUS
+                if (groupPermission.getProtection() == PermissionInfo.PROTECTION_DANGEROUS
                         && (groupPermission.flags & PermissionInfo.FLAG_INSTALLED) != 0
                         && (groupPermission.flags & PermissionInfo.FLAG_REMOVED) == 0) {
                     hasRuntimePermissions = true;
@@ -187,8 +204,8 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
             CharSequence label = loadItemInfoLabel(context, groupInfo);
             Drawable icon = loadItemInfoIcon(context, groupInfo);
 
-            PermissionApps permApps = new PermissionApps(context, groupInfo.name, null,
-                    pmCache, appDataCache);
+            PermissionApps permApps = new PermissionApps(context, groupInfo.name, packageName,
+                    null, pmCache, appDataCache);
             permApps.refreshSync(getUiInfo);
 
             // Create the group and add to the list.
@@ -207,11 +224,11 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
         // We will filter out permissions that no package requests.
         Set<String> requestedPermissions = new ArraySet<>();
         for (PackageInfo installedPackage : installedPackages) {
-            if (installedPackage.requestedPermissions == null) {
+            if (installedPackage.usesPermissions == null) {
                 continue;
             }
-            for (String requestedPermission : installedPackage.requestedPermissions) {
-                requestedPermissions.add(requestedPermission);
+            for (UsesPermissionInfo usedPermission : installedPackage.usesPermissions) {
+                requestedPermissions.add(usedPermission.name);
             }
         }
 
@@ -227,8 +244,7 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
                 }
 
                 // We care only about installed runtime permissions.
-                if ((permissionInfo.protectionLevel & PermissionInfo.PROTECTION_MASK_BASE)
-                        != PermissionInfo.PROTECTION_DANGEROUS
+                if (permissionInfo.getProtection() != PermissionInfo.PROTECTION_DANGEROUS
                         || (permissionInfo.flags & PermissionInfo.FLAG_INSTALLED) == 0) {
                     continue;
                 }
@@ -242,7 +258,7 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
                 Drawable icon = loadItemInfoIcon(context, permissionInfo);
 
                 PermissionApps permApps = new PermissionApps(context, permissionInfo.name,
-                        null, pmCache, appDataCache);
+                        packageName, null, pmCache, appDataCache);
                 permApps.refreshSync(getUiInfo);
 
                 // Create the group and add to the list.
@@ -267,6 +283,22 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
 
         Collections.sort(groups);
         return groups;
+    }
+
+    private static @NonNull List<PermissionGroupInfo> getPermissionGroupInfos(
+            @NonNull Context context, @Nullable String groupName) {
+        if (groupName == null) {
+            return context.getPackageManager().getAllPermissionGroups(0);
+        }
+        try {
+            final PermissionGroupInfo groupInfo = context.getPackageManager()
+                    .getPermissionGroupInfo(groupName, 0);
+            final List<PermissionGroupInfo> groupInfos = new ArrayList<>(1);
+            groupInfos.add(groupInfo);
+            return groupInfos;
+        } catch (PackageManager.NameNotFoundException e) {
+            return Collections.emptyList();
+        }
     }
 
     private static final class PermissionsLoader extends AsyncTaskLoader<List<PermissionGroup>>

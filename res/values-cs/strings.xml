@@ -22,6 +22,7 @@
     <string name="cancel" msgid="7279939269964834974">"Zrušit"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Aplikace nebyla nalezena"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Zakázat"</string>
+    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Odmítnout a už se neptat"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Další informace"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Zamítnout"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> z <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
@@ -34,6 +35,8 @@
     <string name="permission_revoked_all" msgid="6356577996164232918">"vše zakázáno"</string>
     <string name="permission_revoked_none" msgid="266013103540772023">"nic nezakázáno"</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Povolit"</string>
+    <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"Povolit vždy"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Povolit jen během používání aplikace"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Aplikace"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Oprávnění aplikací"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Již se neptat"</string>
@@ -88,7 +91,9 @@
     <string name="message_staging" msgid="641286607664721291">"Příprava instalace…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Neznámé"</string>
     <string name="permission_usage_title" msgid="8266350477620264117">"Využití oprávnění"</string>
-    <string name="permission_usage_summary" msgid="6578074505443814465">"<xliff:g id="PERM">%1$s</xliff:g> – před <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="permission_usage_summary_last_access" msgid="7173761056935772053">"<xliff:g id="PERM">%1$s</xliff:g> – naposledy použito před <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="permission_usage_summary_num_accesses" msgid="2854280891054741976">"<xliff:g id="PERM">%1$s</xliff:g> – <xliff:g id="NUM">%2$s</xliff:g> použití"</string>
+    <string name="permission_usage_summary_num_accesses_background" msgid="2003785497588289009">"<xliff:g id="PERM">%1$s</xliff:g> – <xliff:g id="NUM_0">%2$s</xliff:g> použití (<xliff:g id="NUM_1">%3$s</xliff:g> na pozadí)"</string>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Všechna oprávnění"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"Kdykoli"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Posledních 7 dnů"</string>
@@ -96,6 +101,23 @@
     <string name="permission_usage_last_hour" msgid="2907717357748648755">"Poslední hodina"</string>
     <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Posledních 15 minut"</string>
     <string name="no_permission_usages" msgid="698858628357371611">"Žádné využití oprávnění"</string>
+    <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"Použití kdykoliv"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"Použití za posledních 7 dní"</string>
+    <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"Použití za posledních 24 hodin"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"Použití za poslední hodinu"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"Použití za posledních 15 minut"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"Nejpoužívanější oprávnění (kdykoliv)"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"Nejpoužívanější oprávnění za posledních 7 dní"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"Nejpoužívanější oprávnění za posledních 24 hodin"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"Nejpoužívanější oprávnění za poslední 1 hodinu"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"Nejpoužívanější oprávnění za posledních 15 minut"</string>
+    <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"Aplikace"</string>
+    <string name="app_permission_usage_detail_label" msgid="675382489654882532">"Zobrazit všechna použití"</string>
+    <string name="filter_by_title" msgid="5940302511365561845">"Filtrovat podle"</string>
+    <string name="filter_by_permissions" msgid="7761207093643478436">"Filtrovat podle oprávnění"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Nejvíce oprávnění"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Nejvíce použití"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"Nedávné"</string>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"Využití oprávnění aplikace"</string>
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"Přístup: <xliff:g id="NUM">%1$s</xliff:g>×. Celkový čas: <xliff:g id="DURATION">%2$s</xliff:g>. Naposledy použito před <xliff:g id="TIME">%3$s</xliff:g>."</string>
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Přístup: <xliff:g id="NUM">%1$s</xliff:g>×. Naposledy použito před <xliff:g id="TIME">%2$s</xliff:g>."</string>
@@ -160,20 +182,31 @@
       <item quantity="one">Uložena a analyzována po dobu jednoho týdne</item>
     </plurals>
     <string name="permission_justification_undefined" msgid="5711347441966109267">"Vývojář aplikace neurčil, jak aplikace využívá vaše data."</string>
-    <!-- no translation found for no_permissions_allowed (5781278485002145993) -->
-    <skip />
-    <!-- no translation found for no_permissions_denied (2449583707612365442) -->
-    <skip />
-    <!-- no translation found for no_apps_allowed (4529095928504611810) -->
-    <skip />
-    <!-- no translation found for no_apps_denied (2736758388618487796) -->
-    <skip />
+    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Jen během používání aplikace"</string>
+    <string name="no_permissions_allowed" msgid="5781278485002145993">"Nejsou povolena žádná oprávnění"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"Nejsou zakázána žádná oprávnění"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"Nejsou povoleny žádné aplikace"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"Nejsou zakázány žádné aplikace"</string>
+    <string name="launch_app" msgid="5641437562665039291">"Otevřít"</string>
+    <string name="uninstall_app" msgid="8756507666995809214">"Odinstalovat"</string>
+    <string name="force_stop_app" msgid="4253426323145479826">"Vynutit ukončení"</string>
     <string name="default_apps" msgid="8554530939151957828">"Výchozí aplikace"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Žádné výchozí aplikace"</string>
-    <string name="no_apps_for_default_app" msgid="5671673478949659841">"Žádné aplikace"</string>
+    <string name="default_apps_for_work" msgid="8582151955372061208">"Výchozí pracovní"</string>
+    <string name="default_app_none" msgid="7671097769303174666">"Žádné"</string>
+    <string name="default_app_no_apps" msgid="5344668465735677271">"Žádné aplikace"</string>
+    <string name="special_app_access" msgid="2561673957499408877">"Přístup ke spec. aplikacím"</string>
+    <string name="no_special_app_access" msgid="994977666694457811">"Žádný přístup ke spec. aplik."</string>
+    <string name="special_app_access_no_apps" msgid="3934763650592564818">"Žádné aplikace"</string>
     <string name="role_label_dialer" msgid="3345895090725237533">"Aplikace Telefon"</string>
+    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"Telefonování v autě"</string>
+    <string name="role_label_call_screening" msgid="411212589764916370">"Ohlašování jména volajícího"</string>
+    <string name="role_label_call_companion" msgid="7369723859682076467">"Doprovod. aplikace na volání"</string>
+    <string name="role_label_proxy_calling" msgid="2432073053878466863">"Zprostředkování hovorů"</string>
     <string name="role_label_sms" msgid="2262769075496017522">"Aplikace pro SMS"</string>
     <string name="role_label_browser" msgid="6266502234308421457">"Prohlížeč"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"Aplikace Galerie"</string>
     <string name="role_label_music" msgid="5900245414865932272">"Aplikace Hudba"</string>
+    <!-- no translation found for encryption_unaware_confirmation_message (1366058948707595596) -->
+    <skip />
 </resources>

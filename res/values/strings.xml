@@ -378,6 +378,9 @@
     <!-- Header for denied permissions/apps [CHAR LIMIT=40] -->
     <string name="denied_header">Denied</string>
 
+    <!-- Permission entry to show detailed permission usage information by an app [CHAR LIMIT=40] -->
+    <string name="detailed_usage_link">See detailed usage</string>
+
     <!-- Time in days -->
     <plurals name="days">
         <item quantity="one">1 day</item>
@@ -427,6 +430,9 @@
 
     <!-- Footer for permission justifications [CHAR LIMIT=none] -->
     <string name="permission_justification_footer">If you don\u2019t like how this app developer is using your data you can deny the permission.</string>
+
+    <!-- Text for permission justifications intent allowing users to get more information from an app on how it is using a permission [CHAR LIMIT=none] -->
+    <string name="permission_justification_info_intent">Go to <xliff:g id="app_name" example="Gmail">%s</xliff:g> for more information.</string>
 
     <!-- Permission justification entry for data being sent off the device [CHAR LIMIT=none] -->
     <string name="permission_justification_data_sent_off_device">Uploaded to cloud</string>
@@ -537,4 +543,11 @@
     <string name="role_label_gallery">Gallery app</string>
     <!-- Label for the music player role. [CHAR LIMIT=30] -->
     <string name="role_label_music">Music app</string>
+    <!-- Label for the home role. [CHAR LIMIT=30] -->
+    <string name="role_label_home">Home app</string>
+    <!-- Label for the emergency role. [CHAR LIMIT=30] -->
+    <string name="role_label_emergency">Emergency app</string>
+
+    <!-- Dialog body explaining that the app just selected by the user will not work after a reboot until the user enters their credentials, such as a PIN or password. [CHAR LIMIT=NONE] -->
+    <string name="encryption_unaware_confirmation_message">Note: If you restart your device and have a screen lock set, this app can\u2019t start until you unlock your device.</string>
 </resources>

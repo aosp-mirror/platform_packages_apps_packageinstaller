@@ -36,6 +36,7 @@ import com.android.packageinstaller.role.utils.PackageUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Implementation of {@link RoleControllerService}.
@@ -65,6 +66,15 @@ public class RoleControllerServiceImpl extends RoleControllerService {
         super.onDestroy();
 
         mWorkerThread.quitSafely();
+    }
+
+    @Override
+    public void onGrantDefaultRoles(@NonNull RoleManagerCallback callback) {
+        if (callback == null) {
+            Log.e(LOG_TAG, "callback cannot be null");
+            return;
+        }
+        mWorkerHandler.post(() -> grantDefaultRoles(callback));
     }
 
     @Override
@@ -122,18 +132,14 @@ public class RoleControllerServiceImpl extends RoleControllerService {
         mWorkerHandler.post(() -> clearRoleHolders(roleName, callback));
     }
 
-    @Override
-    public void onGrantDefaultRoles(@NonNull RoleManagerCallback callback) {
-        if (callback == null) {
-            Log.e(LOG_TAG, "callback cannot be null");
-            return;
-        }
-
+    @WorkerThread
+    private void grantDefaultRoles(@NonNull RoleManagerCallback callback) {
         ArrayMap<String, Role> roles = Roles.getRoles(this);
         List<String> roleNames = new ArrayList<>();
         int rolesSize = roles.size();
         for (int i = 0; i < rolesSize; i++) {
             Role role = roles.valueAt(i);
+
             if (!role.isAvailable(this)) {
                 continue;
             }
@@ -182,11 +188,18 @@ public class RoleControllerServiceImpl extends RoleControllerService {
             return;
         }
 
+        boolean added = false;
         if (role.isExclusive()) {
             List<String> currentPackageNames = mRoleManager.getRoleHolders(roleName);
             int currentPackageNamesSize = currentPackageNames.size();
             for (int i = 0; i < currentPackageNamesSize; i++) {
                 String currentPackageName = currentPackageNames.get(i);
+
+                if (Objects.equals(currentPackageName, packageName)) {
+                    Log.i(LOG_TAG, packageName + " already holds " + roleName);
+                    added = true;
+                    continue;
+                }
 
                 boolean removed = removeRoleHolderInternal(role, currentPackageName);
                 if (!removed) {
@@ -202,7 +215,9 @@ public class RoleControllerServiceImpl extends RoleControllerService {
         // TODO: STOPSHIP: Pass in appropriate arguments.
         role.grant(packageName, true, true, false, this);
 
-        boolean added = mRoleManager.addRoleHolderFromController(roleName, packageName);
+        if (!added) {
+            added = mRoleManager.addRoleHolderFromController(roleName, packageName);
+        }
         if (!added) {
             Log.e(LOG_TAG, "Failed to add package to role holders in RoleManager, package: "
                     + packageName + ", role: " + roleName);

@@ -22,6 +22,7 @@
     <string name="cancel" msgid="7279939269964834974">"Cancelar"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"App não encontrado"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Negar"</string>
+    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Negar e não perguntar de novo"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Mais inform."</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Negar mesmo assim"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> de <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
@@ -34,6 +35,8 @@
     <string name="permission_revoked_all" msgid="6356577996164232918">"todas desativadas"</string>
     <string name="permission_revoked_none" msgid="266013103540772023">"nenhuma desativada"</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Permitir"</string>
+    <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"Permitir o tempo todo"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Permitir apenas enquanto o app estiver em uso"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Apps"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Permissões do app"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Não perguntar novamente"</string>
@@ -86,7 +89,9 @@
     <string name="message_staging" msgid="641286607664721291">"Promovendo app…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Desconhecido"</string>
     <string name="permission_usage_title" msgid="8266350477620264117">"Uso de permissões"</string>
-    <string name="permission_usage_summary" msgid="6578074505443814465">"<xliff:g id="PERM">%1$s</xliff:g>: <xliff:g id="TIME">%2$s</xliff:g> atrás"</string>
+    <string name="permission_usage_summary_last_access" msgid="7173761056935772053">"<xliff:g id="PERM">%1$s</xliff:g>: último acesso há <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="permission_usage_summary_num_accesses" msgid="2854280891054741976">"<xliff:g id="PERM">%1$s</xliff:g>: <xliff:g id="NUM">%2$s</xliff:g> acessos"</string>
+    <string name="permission_usage_summary_num_accesses_background" msgid="2003785497588289009">"<xliff:g id="PERM">%1$s</xliff:g>: <xliff:g id="NUM_0">%2$s</xliff:g> acessos (<xliff:g id="NUM_1">%3$s</xliff:g> em segundo plano)"</string>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Qualquer permissão"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"Qualquer horário"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Últimos 7 dias"</string>
@@ -94,6 +99,23 @@
     <string name="permission_usage_last_hour" msgid="2907717357748648755">"Última hora"</string>
     <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Últimos 15 minutos"</string>
     <string name="no_permission_usages" msgid="698858628357371611">"Nenhum uso de permissões"</string>
+    <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"Acesso a qualquer momento"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"Acesso nos últimos sete dias"</string>
+    <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"Acesso nas últimas 24 horas"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"Acesso na última hora"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"Acesso nos últimos 15 minutos"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"Permissão mais usada a qualquer momento"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"Permissão mais usada nos últimos sete dias"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"Permissão mais usada nas últimas 24 horas"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"Permissão mais usada na última hora"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"Permissão mais usada nos últimos 15 minutos"</string>
+    <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"Apps"</string>
+    <string name="app_permission_usage_detail_label" msgid="675382489654882532">"Ver todo o uso"</string>
+    <string name="filter_by_title" msgid="5940302511365561845">"Filtrar por"</string>
+    <string name="filter_by_permissions" msgid="7761207093643478436">"Filtrar por permissões"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Maior número de permissões"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Maior número de acessos"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"Recentes"</string>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"Uso de permissões do app"</string>
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"Acesso: <xliff:g id="NUM">%1$s</xliff:g> vezes. Duração total: <xliff:g id="DURATION">%2$s</xliff:g>. Última utilização: <xliff:g id="TIME">%3$s</xliff:g> atrás."</string>
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Acesso: <xliff:g id="NUM">%1$s</xliff:g> vezes. Última utilização: <xliff:g id="TIME">%2$s</xliff:g> atrás."</string>
@@ -107,8 +129,8 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"O app <xliff:g id="APP">%1$s</xliff:g> não acessou seu <xliff:g id="PERM">%2$s</xliff:g>."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Ver uso detalhado das permissões"</string>
     <string name="app_permission_most_recent_summary" msgid="6866863855248795166">"Acesso mais recente há <xliff:g id="TIME">%1$s</xliff:g>"</string>
-    <string name="allowed_header" msgid="6279244592227088158">"Permitida"</string>
-    <string name="denied_header" msgid="2277998574238617699">"Negada"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"Permitido"</string>
+    <string name="denied_header" msgid="2277998574238617699">"Negado"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> dia</item>
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> dias</item>
@@ -148,20 +170,31 @@
       <item quantity="other">salvos e analisados por <xliff:g id="NUM_WEEKS">%s</xliff:g> semanas;​</item>
     </plurals>
     <string name="permission_justification_undefined" msgid="5711347441966109267">"O desenvolvedor do app não especificou como seus dados são usados."</string>
-    <!-- no translation found for no_permissions_allowed (5781278485002145993) -->
-    <skip />
-    <!-- no translation found for no_permissions_denied (2449583707612365442) -->
-    <skip />
-    <!-- no translation found for no_apps_allowed (4529095928504611810) -->
-    <skip />
-    <!-- no translation found for no_apps_denied (2736758388618487796) -->
-    <skip />
+    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Apenas enquanto o app estiver em uso"</string>
+    <string name="no_permissions_allowed" msgid="5781278485002145993">"Nenhuma permissão autorizada"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"Nenhuma permissão negada"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"Nenhum app permitido"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"Nenhum app negado"</string>
+    <string name="launch_app" msgid="5641437562665039291">"Abrir"</string>
+    <string name="uninstall_app" msgid="8756507666995809214">"Desinstalar"</string>
+    <string name="force_stop_app" msgid="4253426323145479826">"Forçar fechamento"</string>
     <string name="default_apps" msgid="8554530939151957828">"Apps padrão"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Nenhum app padrão"</string>
-    <string name="no_apps_for_default_app" msgid="5671673478949659841">"Nenhum app"</string>
+    <string name="default_apps_for_work" msgid="8582151955372061208">"Padrão para trabalho"</string>
+    <string name="default_app_none" msgid="7671097769303174666">"Nenhum"</string>
+    <string name="default_app_no_apps" msgid="5344668465735677271">"Nenhum app"</string>
+    <string name="special_app_access" msgid="2561673957499408877">"Acesso especial ao app"</string>
+    <string name="no_special_app_access" msgid="994977666694457811">"Nenhum acesso especial ao app"</string>
+    <string name="special_app_access_no_apps" msgid="3934763650592564818">"Nenhum app"</string>
     <string name="role_label_dialer" msgid="3345895090725237533">"App Telefone"</string>
+    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"App Telefone no modo carro"</string>
+    <string name="role_label_call_screening" msgid="411212589764916370">"App identificador de chamadas"</string>
+    <string name="role_label_call_companion" msgid="7369723859682076467">"App complementar de chamadas"</string>
+    <string name="role_label_proxy_calling" msgid="2432073053878466863">"App de chamadas de proxy"</string>
     <string name="role_label_sms" msgid="2262769075496017522">"App de SMS"</string>
     <string name="role_label_browser" msgid="6266502234308421457">"App de navegação"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"App de galeria"</string>
     <string name="role_label_music" msgid="5900245414865932272">"App de música"</string>
+    <!-- no translation found for encryption_unaware_confirmation_message (1366058948707595596) -->
+    <skip />
 </resources>

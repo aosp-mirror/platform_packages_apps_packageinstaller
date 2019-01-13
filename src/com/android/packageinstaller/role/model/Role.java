@@ -56,6 +56,8 @@ public class Role {
 
     private static final String LOG_TAG = Role.class.getSimpleName();
 
+    private static final boolean DEBUG = false;
+
     private static final String PACKAGE_NAME_ANDROID_SYSTEM = "android";
 
     /**
@@ -65,10 +67,10 @@ public class Role {
     private final String mName;
 
     /**
-     * Whether this role is available in managed profile, i.e. work profile.
+     * The behavior of this role.
      */
     @Nullable
-    private final RoleAvailabilityProvider mAvailabilityProvider;
+    private final RoleBehavior mBehavior;
 
     /**
      * Whether this role is exclusive, i.e. allows at most one holder.
@@ -105,12 +107,12 @@ public class Role {
     @NonNull
     private final List<PreferredActivity> mPreferredActivities;
 
-    public Role(@NonNull String name, @Nullable RoleAvailabilityProvider availabilityProvider,
-            boolean exclusive, @StringRes int labelResource,
-            @NonNull List<RequiredComponent> requiredComponents, @NonNull List<String> permissions,
-            @NonNull List<AppOp> appOps, @NonNull List<PreferredActivity> preferredActivities) {
+    public Role(@NonNull String name, @Nullable RoleBehavior behavior, boolean exclusive,
+            @StringRes int labelResource, @NonNull List<RequiredComponent> requiredComponents,
+            @NonNull List<String> permissions, @NonNull List<AppOp> appOps,
+            @NonNull List<PreferredActivity> preferredActivities) {
         mName = name;
-        mAvailabilityProvider = availabilityProvider;
+        mBehavior = behavior;
         mExclusive = exclusive;
         mLabelResource = labelResource;
         mRequiredComponents = requiredComponents;
@@ -125,8 +127,8 @@ public class Role {
     }
 
     @Nullable
-    public RoleAvailabilityProvider getAvailabilityProvider() {
-        return mAvailabilityProvider;
+    public RoleBehavior getBehavior() {
+        return mBehavior;
     }
 
     public boolean isExclusive() {
@@ -167,8 +169,8 @@ public class Role {
      * @return whether this role is available.
      */
     public boolean isAvailableAsUser(@NonNull UserHandle user, @NonNull Context context) {
-        if (mAvailabilityProvider != null) {
-            return mAvailabilityProvider.isRoleAvailableAsUser(user, context);
+        if (mBehavior != null) {
+            return mBehavior.isAvailableAsUser(user, context);
         }
         return true;
     }
@@ -182,6 +184,23 @@ public class Role {
      */
     public boolean isAvailable(@NonNull Context context) {
         return isAvailableAsUser(Process.myUserHandle(), context);
+    }
+
+    /**
+     * Get the confirmation message for adding an application as a holder of this role.
+     *
+     * @param packageName the package name of the application to get confirmation message for
+     * @param context the {@code Context} to retrieve system services
+     *
+     * @return the confirmation message, or {@code null} if no confirmation is needed.
+     */
+    @Nullable
+    public CharSequence getConfirmationMessage(@NonNull String packageName,
+            @NonNull Context context) {
+        if (mBehavior != null) {
+            return mBehavior.getConfirmationMessage(packageName, context);
+        }
+        return null;
     }
 
     /**
@@ -345,7 +364,12 @@ public class Role {
         }
     }
 
-    private static void killApp(@NonNull String packageName, @NonNull Context context) {
+    private void killApp(@NonNull String packageName, @NonNull Context context) {
+        if (DEBUG) {
+            Log.i(LOG_TAG, "Killing " + packageName + " due to "
+                    + Thread.currentThread().getStackTrace()[3].getMethodName()
+                    + "(" + mName + ")");
+        }
         ApplicationInfo applicationInfo = PackageUtils.getApplicationInfo(packageName, context);
         if (applicationInfo == null) {
             Log.w(LOG_TAG, "Cannot get ApplicationInfo for package: " + packageName);
@@ -359,7 +383,7 @@ public class Role {
     public String toString() {
         return "Role{"
                 + "mName='" + mName + '\''
-                + ", mAvailabilityProvider=" + mAvailabilityProvider
+                + ", mBehavior=" + mBehavior
                 + ", mExclusive=" + mExclusive
                 + ", mLabelResource=" + mLabelResource
                 + ", mRequiredComponents=" + mRequiredComponents
@@ -381,7 +405,7 @@ public class Role {
         return mExclusive == role.mExclusive
                 && mLabelResource == role.mLabelResource
                 && Objects.equals(mName, role.mName)
-                && Objects.equals(mAvailabilityProvider, role.mAvailabilityProvider)
+                && Objects.equals(mBehavior, role.mBehavior)
                 && Objects.equals(mRequiredComponents, role.mRequiredComponents)
                 && Objects.equals(mPermissions, role.mPermissions)
                 && Objects.equals(mAppOps, role.mAppOps)
@@ -390,7 +414,7 @@ public class Role {
 
     @Override
     public int hashCode() {
-        return Objects.hash(mName, mAvailabilityProvider, mExclusive, mLabelResource,
+        return Objects.hash(mName, mBehavior, mExclusive, mLabelResource,
                 mRequiredComponents, mPermissions, mAppOps, mPreferredActivities);
     }
 }

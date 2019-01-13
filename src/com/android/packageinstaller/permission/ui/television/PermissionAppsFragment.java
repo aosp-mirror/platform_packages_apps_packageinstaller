@@ -407,7 +407,8 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
         public void onViewCreated(View view, Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
             String groupName = getArguments().getString(Intent.EXTRA_PERMISSION_NAME);
-            PermissionApps permissionApps = new PermissionApps(getActivity(), groupName, null);
+            PermissionApps permissionApps = new PermissionApps(getActivity(), groupName,
+                    (Callback) null);
             bindUi(this, permissionApps);
         }
 

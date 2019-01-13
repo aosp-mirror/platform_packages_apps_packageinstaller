@@ -22,6 +22,7 @@
     <string name="cancel" msgid="7279939269964834974">"Tühista"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Rakendust ei leitud"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Keela"</string>
+    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Keela ja ära enam küsi"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Lisateave"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Keela ikkagi"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>/<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
@@ -34,6 +35,8 @@
     <string name="permission_revoked_all" msgid="6356577996164232918">"kõik on keelatud"</string>
     <string name="permission_revoked_none" msgid="266013103540772023">"mitte ükski pole keelatud"</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Luba"</string>
+    <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"Luba alati"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Luba ainult rakenduse kasutamise ajal"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Rakendused"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Rakenduse load"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Ära enam küsi"</string>
@@ -86,7 +89,9 @@
     <string name="message_staging" msgid="641286607664721291">"Rakenduse koondamine …"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Tundmatu"</string>
     <string name="permission_usage_title" msgid="8266350477620264117">"Lubade kasutus"</string>
-    <string name="permission_usage_summary" msgid="6578074505443814465">"<xliff:g id="PERM">%1$s</xliff:g> – <xliff:g id="TIME">%2$s</xliff:g> tagasi"</string>
+    <string name="permission_usage_summary_last_access" msgid="7173761056935772053">"<xliff:g id="PERM">%1$s</xliff:g> – viimane juurdepääs <xliff:g id="TIME">%2$s</xliff:g> tagasi"</string>
+    <string name="permission_usage_summary_num_accesses" msgid="2854280891054741976">"<xliff:g id="PERM">%1$s</xliff:g> – <xliff:g id="NUM">%2$s</xliff:g> juurdepääsu"</string>
+    <string name="permission_usage_summary_num_accesses_background" msgid="2003785497588289009">"<xliff:g id="PERM">%1$s</xliff:g> – <xliff:g id="NUM_0">%2$s</xliff:g> juurdepääsu (<xliff:g id="NUM_1">%3$s</xliff:g> taustal)"</string>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Mis tahes luba"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"Mis tahes ajal"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Viimased seitse päeva"</string>
@@ -94,6 +99,23 @@
     <string name="permission_usage_last_hour" msgid="2907717357748648755">"Viimane tund"</string>
     <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Viimased 15 minutit"</string>
     <string name="no_permission_usages" msgid="698858628357371611">"Lube pole kasutatud"</string>
+    <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"Juurdepääs mis tahes ajal"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"Juurdepääs viimase seitsme päeva jooksul"</string>
+    <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"Juurdepääs viimase 24 tunni jooksul"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"Juurdepääs viimase tunni jooksul"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"Juurdepääs viimase 15 minuti jooksul"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"Populaarseima loa kasutus mis tahes ajal"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"Populaarseima loa kasutus viimase 7 päeva jooksul"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"Populaarseima loa kasutus viimase 24 tunni jooksul"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"Populaarseima loa kasutus viimase tunni jooksul"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"Populaarseima loa kasutus viimase 15 min jooksul"</string>
+    <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"Rakendused"</string>
+    <string name="app_permission_usage_detail_label" msgid="675382489654882532">"Kuva kogu kasutus"</string>
+    <string name="filter_by_title" msgid="5940302511365561845">"Filter:"</string>
+    <string name="filter_by_permissions" msgid="7761207093643478436">"Filtreeri lubade järgi"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Enim lube"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Kõige rohkem juurdepääsemisi"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"Hiljutised"</string>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"Rakenduse lubade kasutus"</string>
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"Juurdepääs: <xliff:g id="NUM">%1$s</xliff:g> korda. Kogukestus: <xliff:g id="DURATION">%2$s</xliff:g>. Viimati kasutati <xliff:g id="TIME">%3$s</xliff:g> tagasi."</string>
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Juurdepääs: <xliff:g id="NUM">%1$s</xliff:g> korda. Viimati kasutati <xliff:g id="TIME">%2$s</xliff:g> tagasi."</string>
@@ -148,20 +170,34 @@
       <item quantity="one">Analüüsitakse ja salvestatakse 1 nädalaks</item>
     </plurals>
     <string name="permission_justification_undefined" msgid="5711347441966109267">"Rakenduse arendaja ei täpsustanud, kuidas rakendus teie andmeid kasutab."</string>
-    <!-- no translation found for no_permissions_allowed (5781278485002145993) -->
-    <skip />
-    <!-- no translation found for no_permissions_denied (2449583707612365442) -->
-    <skip />
-    <!-- no translation found for no_apps_allowed (4529095928504611810) -->
-    <skip />
-    <!-- no translation found for no_apps_denied (2736758388618487796) -->
-    <skip />
+    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Ainult rakenduse kasutamise ajal"</string>
+    <string name="no_permissions_allowed" msgid="5781278485002145993">"Ühtegi luba pole antud"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"Ükski luba pole keelatud"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"Ükski rakendus pole lubatud"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"Ükski rakendus pole keelatud"</string>
+    <string name="launch_app" msgid="5641437562665039291">"Ava"</string>
+    <string name="uninstall_app" msgid="8756507666995809214">"Desinstalli"</string>
+    <string name="force_stop_app" msgid="4253426323145479826">"Sundpeata"</string>
     <string name="default_apps" msgid="8554530939151957828">"Vaikerakendused"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Vaikerakendusi pole"</string>
-    <string name="no_apps_for_default_app" msgid="5671673478949659841">"Rakendusi pole"</string>
+    <string name="default_apps_for_work" msgid="8582151955372061208">"Vaikerakendused töö jaoks"</string>
+    <string name="default_app_none" msgid="7671097769303174666">"Puudub"</string>
+    <string name="default_app_no_apps" msgid="5344668465735677271">"Rakendusi pole"</string>
+    <!-- no translation found for special_app_access (2561673957499408877) -->
+    <skip />
+    <!-- no translation found for no_special_app_access (994977666694457811) -->
+    <skip />
+    <!-- no translation found for special_app_access_no_apps (3934763650592564818) -->
+    <skip />
     <string name="role_label_dialer" msgid="3345895090725237533">"Telefonirakendus"</string>
+    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"Autorežiimi telefonirakendus"</string>
+    <string name="role_label_call_screening" msgid="411212589764916370">"Kõnede filtreerimise rakendus"</string>
+    <string name="role_label_call_companion" msgid="7369723859682076467">"Helistamise kaasrakendus"</string>
+    <string name="role_label_proxy_calling" msgid="2432073053878466863">"Puhverserv. kaudu helist. rak."</string>
     <string name="role_label_sms" msgid="2262769075496017522">"SMS-i rakendus"</string>
     <string name="role_label_browser" msgid="6266502234308421457">"Brauserirakendus"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"Galeriirakendus"</string>
     <string name="role_label_music" msgid="5900245414865932272">"Muusikarakendus"</string>
+    <!-- no translation found for encryption_unaware_confirmation_message (1366058948707595596) -->
+    <skip />
 </resources>

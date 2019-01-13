@@ -71,7 +71,7 @@ public class Roles {
     private static final String TAG_PREFERRED_ACTIVITIES = "preferred-activities";
     private static final String TAG_PREFERRED_ACTIVITY = "preferred-activity";
     private static final String ATTRIBUTE_NAME = "name";
-    private static final String ATTRIBUTE_AVAILABILITY_PROVIDER = "availabilityProvider";
+    private static final String ATTRIBUTE_BEHAVIOR = "behavior";
     private static final String ATTRIBUTE_EXCLUSIVE = "exclusive";
     private static final String ATTRIBUTE_LABEL = "label";
     private static final String ATTRIBUTE_PERMISSION = "permission";
@@ -293,23 +293,20 @@ public class Roles {
             return null;
         }
 
-        String availabilityProviderClassSimpleName = getAttributeValue(parser,
-                ATTRIBUTE_AVAILABILITY_PROVIDER);
-        RoleAvailabilityProvider availabilityProvider;
-        if (availabilityProviderClassSimpleName != null) {
-            String availabilityProviderClassName = Roles.class.getPackage().getName() + '.'
-                    + availabilityProviderClassSimpleName;
+        String behaviorClassSimpleName = getAttributeValue(parser, ATTRIBUTE_BEHAVIOR);
+        RoleBehavior behavior;
+        if (behaviorClassSimpleName != null) {
+            String behaviorClassName = Roles.class.getPackage().getName() + '.'
+                    + behaviorClassSimpleName;
             try {
-                availabilityProvider = (RoleAvailabilityProvider) Class.forName(
-                        availabilityProviderClassName).newInstance();
+                behavior = (RoleBehavior) Class.forName(behaviorClassName).newInstance();
             } catch (ClassNotFoundException | IllegalAccessException | InstantiationException e) {
-                throwOrLogMessage("Unable to instantiate availability provider: "
-                        + availabilityProviderClassName, e);
+                throwOrLogMessage("Unable to instantiate behavior: " + behaviorClassName, e);
                 skipCurrentTag(parser);
                 return null;
             }
         } else {
-            availabilityProvider = null;
+            behavior = null;
         }
 
         Boolean exclusive = requireAttributeBooleanValue(parser, ATTRIBUTE_EXCLUSIVE, true,
@@ -385,7 +382,7 @@ public class Roles {
         if (preferredActivities == null) {
             preferredActivities = Collections.emptyList();
         }
-        return new Role(name, availabilityProvider, exclusive, labelResource, requiredComponents,
+        return new Role(name, behavior, exclusive, labelResource, requiredComponents,
                 permissions, appOps, preferredActivities);
     }
 
@@ -781,6 +778,12 @@ public class Roles {
                     }
                     checkDuplicateElement(intentFilterData, intentFilterDatas,
                             "intent filter");
+                    if (DEBUG) {
+                        if (intentFilterData.getDataType() != null) {
+                            throwOrLogMessage("mimeType in <data> is not supported when setting a"
+                                    + " preferred activity");
+                        }
+                    }
                     intentFilterDatas.add(intentFilterData);
                     break;
                 default:

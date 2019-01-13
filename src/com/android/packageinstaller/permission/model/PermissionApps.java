@@ -48,6 +48,7 @@ public class PermissionApps {
 
     private final Context mContext;
     private final String mGroupName;
+    private final String mPackageName;
     private final PackageManager mPm;
     private final Callback mCallback;
 
@@ -63,18 +64,23 @@ public class PermissionApps {
     private boolean mSkipUi;
     private boolean mRefreshing;
 
-    public PermissionApps(Context context, String groupName, Callback callback) {
-        this(context, groupName, callback, null, null);
+    public PermissionApps(Context context, String groupName, String packageName) {
+        this(context, groupName, packageName, null, null, null);
     }
 
-    public PermissionApps(Context context, String groupName, Callback callback,
-            @Nullable PmCache pmCache, @Nullable AppDataCache appDataCache) {
+    public PermissionApps(Context context, String groupName, Callback callback) {
+        this(context, groupName, null, callback, null, null);
+    }
+
+    public PermissionApps(Context context, String groupName, String packageName,
+            Callback callback, @Nullable PmCache pmCache, @Nullable AppDataCache appDataCache) {
         mPmCache = pmCache;
         mAppDataCache = appDataCache;
         mContext = context;
         mPm = mContext.getPackageManager();
         mGroupName = groupName;
         mCallback = callback;
+        mPackageName = packageName;
         loadGroupInfo();
     }
 
@@ -93,10 +99,6 @@ public class PermissionApps {
      * @param getUiInfo If the UI info should be updated
      */
     public void refresh(boolean getUiInfo) {
-        if (mCallback == null) {
-            throw new IllegalStateException("callback needs to be set");
-        }
-
         if (!mRefreshing) {
             mRefreshing = true;
             mSkipUi = !getUiInfo;
@@ -161,6 +163,39 @@ public class PermissionApps {
         return mIcon;
     }
 
+    private @NonNull List<PackageInfo> getPackageInfos(@NonNull UserHandle user) {
+        List<PackageInfo> apps = (mPmCache != null) ? mPmCache.getPackages(
+                user.getIdentifier()) : null;
+        if (apps != null) {
+            if (mPackageName != null) {
+                final int appCount = apps.size();
+                for (int i = 0; i < appCount; i++) {
+                    final PackageInfo app = apps.get(i);
+                    if (mPackageName.equals(app.packageName)) {
+                        apps = new ArrayList<>(1);
+                        apps.add(app);
+                        return apps;
+                    }
+                }
+            }
+            return apps;
+        }
+        if (mPackageName == null) {
+            return mPm.getInstalledPackagesAsUser(PackageManager.GET_PERMISSIONS,
+                    user.getIdentifier());
+        } else {
+            try {
+                final PackageInfo packageInfo = mPm.getPackageInfo(mPackageName,
+                        PackageManager.GET_PERMISSIONS);
+                apps = new ArrayList<>(1);
+                apps.add(packageInfo);
+                return apps;
+            } catch (NameNotFoundException e) {
+                return Collections.emptyList();
+            }
+        }
+    }
+
     private List<PermissionApp> loadPermissionApps() {
         PackageItemInfo groupInfo = Utils.getGroupInfo(mGroupName, mContext);
         if (groupInfo == null) {
@@ -176,10 +211,7 @@ public class PermissionApps {
 
         UserManager userManager = mContext.getSystemService(UserManager.class);
         for (UserHandle user : userManager.getUserProfiles()) {
-            List<PackageInfo> apps = mPmCache != null ? mPmCache.getPackages(user.getIdentifier())
-                    : mPm.getInstalledPackagesAsUser(PackageManager.GET_PERMISSIONS,
-                            user.getIdentifier());
-
+            List<PackageInfo> apps = getPackageInfos(user);
             final int N = apps.size();
             for (int i = 0; i < N; i++) {
                 PackageInfo app = apps.get(i);

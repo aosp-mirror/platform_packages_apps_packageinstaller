@@ -68,7 +68,13 @@ public class PreferredActivity {
      * @param context the {@code Context} to retrieve system services
      */
     public void configure(@NonNull String packageName, @NonNull Context context) {
-        IntentFilter intentFilter = mActivity.getIntentFilterData().createIntentFilter();
+        PackageManager packageManager = context.getPackageManager();
+        IntentFilterData intentFilterData = mActivity.getIntentFilterData();
+        IntentFilter intentFilter = intentFilterData.createIntentFilter();
+        // PackageManager.replacePreferredActivity() expects filter to have no data authorities,
+        // paths, or types; and at most one scheme.
+        int match = intentFilterData.getDataScheme() != null ? IntentFilter.MATCH_CATEGORY_SCHEME
+                : IntentFilter.MATCH_CATEGORY_EMPTY;
         List<ComponentName> activities = mActivity.getQualifyingComponentsAsUser(
                 Process.myUserHandle(), context);
         ComponentName packageActivity = mActivity.getQualifyingComponentForPackage(
@@ -77,10 +83,7 @@ public class PreferredActivity {
         if (packageActivity == null) {
             return;
         }
-        PackageManager packageManager = context.getPackageManager();
-        // TODO: STOPSHIP: MATCH_CATEGORY_SCHEME ?
-        packageManager.replacePreferredActivity(intentFilter, IntentFilter.MATCH_CATEGORY_SCHEME
-                | IntentFilter.MATCH_ADJUSTMENT_NORMAL, activities, packageActivity);
+        packageManager.replacePreferredActivity(intentFilter, match, activities, packageActivity);
     }
 
     @Override
