@@ -75,7 +75,8 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
     public void load(@Nullable String filterPackageName,
             @Nullable String filterPermissionGroup, long filterBeginTimeMillis,
             long filterEndTimeMillis, int usageFlags, @NonNull LoaderManager loaderManager,
-            boolean getUiInfo, @NonNull PermissionsUsagesChangeCallback callback) {
+            boolean getUiInfo, @NonNull PermissionsUsagesChangeCallback callback,
+            boolean sync) {
         mCallback = callback;
         final Bundle args = new Bundle();
         args.putString(KEY_FILTER_PACKAGE_NAME, filterPackageName);
@@ -84,7 +85,13 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
         args.putLong(KEY_FILTER_END_TIME_MILLIS, filterEndTimeMillis);
         args.putInt(KEY_USAGE_FLAGS, usageFlags);
         args.putBoolean(KEY_GET_UI_INFO, getUiInfo);
-        loaderManager.restartLoader(0, args, this);
+        if (sync) {
+            final UsageLoader loader = new UsageLoader(mContext, args);
+            final List<AppPermissionUsage> usages = loader.loadInBackground();
+            onLoadFinished(loader, usages);
+        } else {
+            loaderManager.restartLoader(0, args, this);
+        }
     }
 
     @Override
@@ -253,7 +260,7 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
                 final CountDownLatch latch = new CountDownLatch(1);
                 appOpsManager.getHistoricalOps(Process.INVALID_UID,
                         mFilterPackageName, opNamesArray, mFilterBeginTimeMillis,
-                        mFilterEndTimeMillis, getContext().getMainExecutor(),
+                        mFilterEndTimeMillis, Runnable::run,
                         (HistoricalOps ops) -> {
                             historicalOpsRef.set(ops);
                             latch.countDown();

@@ -106,7 +106,7 @@ public class AppPermissionUsageFragment extends SettingsWithButtonHeader {
         mPermissionUsages.load(packageName, null, beginTimeMillis, Long.MAX_VALUE,
                 PermissionUsages.USAGE_FLAG_LAST | PermissionUsages.USAGE_FLAG_HISTORICAL,
                 getActivity().getLoaderManager(),
-                true, this::updateUi);
+                true, this::updateUi, false);
     }
 
     @Override
