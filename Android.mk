@@ -32,7 +32,8 @@ LOCAL_STATIC_ANDROID_LIBRARIES += \
     SettingsLibSettingsSpinner \
     SettingsLibLayoutPreference \
     SettingsLibActionButtonsPreference \
-    SettingsLibBarChartPreference
+    SettingsLibBarChartPreference \
+    SettingsLibEntityHeaderWidgets
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
     androidx.annotation_annotation

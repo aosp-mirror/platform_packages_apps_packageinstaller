@@ -57,7 +57,7 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
             ab.setDisplayHomeAsUpEnabled(true);
         }
         mPermissions = new PermissionGroups(getContext(), getActivity().getLoaderManager(), this,
-                false);
+                true);
         mCollator = Collator.getInstance(
                 getContext().getResources().getConfiguration().getLocales().get(0));
     }

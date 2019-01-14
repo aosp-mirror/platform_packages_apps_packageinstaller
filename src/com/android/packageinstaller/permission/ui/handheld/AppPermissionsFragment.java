@@ -217,7 +217,7 @@ public final class AppPermissionsFragment extends SettingsWithButtonHeader {
             preference.setTitle(group.getLabel());
             String timeDiffStr = Utils.getLastUsageString(context,
                     PermissionUsages.loadLastGroupUsage(context, group));
-            // Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
+            // STOPSHIP: Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
             if (timeDiffStr != null && !group.getLabel().equals("Storage")) {
                 preference.setSummary(
                         context.getString(R.string.app_permission_most_recent_summary,
