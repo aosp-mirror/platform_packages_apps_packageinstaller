@@ -246,7 +246,7 @@ public class PermissionApps {
                     }
 
                     AppPermissionGroup group = AppPermissionGroup.create(mContext,
-                            app, groupInfo, groupPermInfos, user, false);
+                            app, groupInfo, groupPermInfos, false);
 
                     if (group == null) {
                         continue;
