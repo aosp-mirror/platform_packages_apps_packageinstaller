@@ -34,7 +34,6 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceManager;
 import androidx.preference.PreferenceScreen;
 
-import com.android.packageinstaller.permission.utils.IconDrawableFactory;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.packageinstaller.role.model.Role;
 import com.android.packageinstaller.role.model.Roles;
@@ -135,9 +134,7 @@ public class SpecialAppAccessFragment extends SettingsFragment
             if (preference == null) {
                 preference = new AppIconSwitchPreference(context);
                 preference.setKey(key);
-                preference.setIcon(IconDrawableFactory.getBadgedIcon(context,
-                        qualifyingApplicationInfo, UserHandle.getUserHandleForUid(
-                                qualifyingApplicationInfo.uid)));
+                preference.setIcon(Utils.getBadgedIcon(context, qualifyingApplicationInfo));
                 preference.setTitle(Utils.getAppLabel(qualifyingApplicationInfo, context));
                 preference.setPersistent(false);
                 preference.setOnPreferenceChangeListener((preference2, newValue) -> false);

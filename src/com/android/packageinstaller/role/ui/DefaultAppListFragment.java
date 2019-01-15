@@ -33,7 +33,6 @@ import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceManager;
 import androidx.preference.PreferenceScreen;
 
-import com.android.packageinstaller.permission.utils.IconDrawableFactory;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.packageinstaller.role.model.Role;
 import com.android.permissioncontroller.R;
@@ -169,8 +168,7 @@ public class DefaultAppListFragment extends SettingsFragment
                 preference.setSummary(R.string.default_app_none);
             } else {
                 ApplicationInfo holderApplicationInfo = holderApplicationInfos.get(0);
-                preference.setIcon(IconDrawableFactory.getBadgedIcon(context, holderApplicationInfo,
-                        UserHandle.getUserHandleForUid(holderApplicationInfo.uid)));
+                preference.setIcon(Utils.getBadgedIcon(context, holderApplicationInfo));
                 preference.setSummary(Utils.getAppLabel(holderApplicationInfo, context));
             }
 
