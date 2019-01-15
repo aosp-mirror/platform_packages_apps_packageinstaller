@@ -90,7 +90,7 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
             final List<AppPermissionUsage> usages = loader.loadInBackground();
             onLoadFinished(loader, usages);
         } else {
-            loaderManager.restartLoader(0, args, this);
+            loaderManager.restartLoader(1, args, this);
         }
     }
 
