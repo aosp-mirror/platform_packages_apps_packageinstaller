@@ -55,7 +55,6 @@ import static com.android.packageinstaller.permission.utils.Utils.getSystemServi
 
 import static java.lang.System.currentTimeMillis;
 import static java.util.concurrent.TimeUnit.DAYS;
-import static java.util.concurrent.TimeUnit.MINUTES;
 
 import android.app.AppOpsManager;
 import android.app.AppOpsManager.HistoricalOps;
@@ -151,8 +150,9 @@ public class LocationAccessCheck {
      * @return The time in between check in milliseconds
      */
     private long getPeriodicCheckIntervalMillis() {
+        // STOPSHIP: Set delay back to 1 day once location access should be checked again
         return Settings.Secure.getLong(mContentResolver,
-                LOCATION_ACCESS_CHECK_INTERVAL_MILLIS, DAYS.toMillis(1));
+                LOCATION_ACCESS_CHECK_INTERVAL_MILLIS, DAYS.toMillis(10000));
     }
 
     /**
@@ -174,8 +174,9 @@ public class LocationAccessCheck {
      * @return The delay in milliseconds
      */
     private long getDelayMillis() {
+        // STOPSHIP: Set delay back to 10 minutes once location access should be checked again
         return Settings.Secure.getLong(mContentResolver,
-                LOCATION_ACCESS_CHECK_DELAY_MILLIS, MINUTES.toMillis(10));
+                LOCATION_ACCESS_CHECK_DELAY_MILLIS, DAYS.toMillis(1000));
     }
 
     /**
