@@ -167,20 +167,6 @@ public class RoleControllerServiceImpl extends RoleControllerService {
             callback.onFailure();
             return;
         }
-
-        ApplicationInfo applicationInfo = PackageUtils.getApplicationInfo(packageName, this);
-        if (applicationInfo == null) {
-            Log.e(LOG_TAG, "Cannot get ApplicationInfo for package: " + packageName);
-            callback.onFailure();
-            return;
-        }
-        // TODO: STOPSHIP: Check for disabled packages?
-        // TODO: STOPSHIP: Add and check PackageManager.getSharedLibraryInfo().
-        if (applicationInfo.isInstantApp()) {
-            Log.e(LOG_TAG, "Cannot set Instant App as role holder, package: " + packageName);
-            callback.onFailure();
-            return;
-        }
         if (!role.isPackageQualified(packageName, this)) {
             Log.e(LOG_TAG, "Package does not qualify for the role, package: " + packageName
                     + ", role: " + roleName);
