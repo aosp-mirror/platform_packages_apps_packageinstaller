@@ -62,14 +62,20 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
         return new ManageStandardPermissionsFragment();
     }
 
+
+    @Override
+    public void onCreate(Bundle icicle) {
+        super.onCreate(icicle);
+
+        mPermissionUsages = new PermissionUsages(getContext());
+        mLauncherPkgs = Utils.getLauncherPackages(getContext());
+    }
+
     @Override
     public void onStart() {
         super.onStart();
 
         getActivity().setTitle(com.android.permissioncontroller.R.string.app_permissions);
-
-        mPermissionUsages = new PermissionUsages(getContext());
-        mLauncherPkgs = Utils.getLauncherPackages(getContext());
     }
 
     @Override
@@ -88,6 +94,12 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
                 .setHeaderDetailsClickListener((View v) -> {
                     context.startActivity(new Intent(Intent.ACTION_REVIEW_PERMISSION_USAGE));
                 });
+
+        mPermissionUsages.load(null, null, System.currentTimeMillis() - DAYS.toMillis(1),
+                Long.MAX_VALUE, PermissionUsages.USAGE_FLAG_LAST
+                        | PermissionUsages.USAGE_FLAG_HISTORICAL,
+                getActivity().getLoaderManager(),
+                true, this::updateRecentlyUsedWidget, false);
 
         return root;
     }
@@ -149,12 +161,6 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
                     R.plurals.additional_permissions_more, numExtraPermissions,
                     numExtraPermissions));
         }
-
-        mPermissionUsages.load(null, null, System.currentTimeMillis() - DAYS.toMillis(1),
-                Long.MAX_VALUE, PermissionUsages.USAGE_FLAG_LAST
-                        | PermissionUsages.USAGE_FLAG_HISTORICAL,
-                getActivity().getLoaderManager(),
-                true, this::updateRecentlyUsedWidget, false);
     }
 
     private void updateRecentlyUsedWidget() {
