@@ -33,6 +33,7 @@ import androidx.annotation.StringRes;
 import com.android.packageinstaller.role.utils.PackageUtils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -184,6 +185,37 @@ public class Role {
      */
     public boolean isAvailable(@NonNull Context context) {
         return isAvailableAsUser(Process.myUserHandle(), context);
+    }
+
+    /**
+     * Get the default holders of this role, which will be added when the role is added for the
+     * first time.
+     *
+     * @param context the {@code Context} to retrieve system services
+     *
+     * @return the list of package names of the default holders
+     */
+    @NonNull
+    public List<String> getDefaultHolders(@NonNull Context context) {
+        if (mBehavior != null) {
+            return mBehavior.getDefaultHolders(context);
+        }
+        return Collections.emptyList();
+    }
+
+    /**
+     * Get the fallback holder of this role, which will be added whenever there are no role holders.
+     *
+     * @param context the {@code Context} to retrieve system services
+     *
+     * @return the package name of the fallback holder, or {@code null} if none
+     */
+    @Nullable
+    public String getFallbackHolder(@NonNull Context context) {
+        if (mBehavior != null) {
+            return mBehavior.getFallbackHolder(context);
+        }
+        return null;
     }
 
     /**
