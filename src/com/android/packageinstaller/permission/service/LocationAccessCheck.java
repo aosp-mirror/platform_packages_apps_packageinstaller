@@ -900,7 +900,7 @@ public class LocationAccessCheck {
          */
         @Nullable AppPermissionGroup getLocationGroup()
                 throws PackageManager.NameNotFoundException {
-            return AppPermissionGroup.create(mContext, getPackageInfo(), ACCESS_FINE_LOCATION, user,
+            return AppPermissionGroup.create(mContext, getPackageInfo(), ACCESS_FINE_LOCATION,
                     false);
         }
 

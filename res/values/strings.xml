@@ -126,6 +126,12 @@
     <!-- Summary of number of apps currently granted a single permission [CHAR LIMIT=45] -->
    <string name="app_permissions_group_summary"><xliff:g id="count" example="10">%1$d</xliff:g> of <xliff:g id="count" example="10">%2$d</xliff:g> apps allowed</string>
 
+    <!-- The header for the widget showing recent permission usage [CHAR LIMIT=50] -->
+    <string name="permission_usage_header">Recent usage</string>
+
+    <!-- The button to bring the user to view the details of recent permission accesses [CHAR LIMIT=30] -->
+    <string name="permission_usage_view_details">View details</string>
+
    <!-- [CHAR LIMIT=NONE] Menu for manage permissions to control whether system apps are shown -->
    <string name="menu_show_system">Show system</string>
    <!-- [CHAR LIMIT=NONE] Menu for manage permissions to control whether system apps are hidden -->
@@ -249,14 +255,11 @@
     <!-- Title for permission usage [CHAR LIMIT=30] -->
     <string name="permission_usage_title">Permissions usage</string>
 
-    <!-- Summary for showing a single permission access and the time of the last access [CHAR LIMIT=80] -->
-    <string name="permission_usage_summary_last_access"><xliff:g id="perm" example="Location">%1$s</xliff:g> - Last access <xliff:g id="time" example="2 hours">%2$s</xliff:g> ago</string>
-
     <!-- Summary for showing a single permission access and the number of accesses [CHAR LIMIT=80] -->
-    <string name="permission_usage_summary_num_accesses"><xliff:g id="perm" example="Location">%1$s</xliff:g> - <xliff:g id="num" example="42">%2$s</xliff:g> accesses</string>
+    <string name="permission_usage_summary">Last access: <xliff:g id="time" example="12:10 PM">%1$s</xliff:g>\n<xliff:g id="num" example="42">%2$s</xliff:g> accesses</string>
 
     <!-- Summary for showing a single permission access and the number of accesses, including those in the background [CHAR LIMIT=80] -->
-    <string name="permission_usage_summary_num_accesses_background"><xliff:g id="perm" example="Location">%1$s</xliff:g> - <xliff:g id="num" example="42">%2$s</xliff:g> accesses (<xliff:g id="num" example="7">%3$s</xliff:g> in background)</string>
+    <string name="permission_usage_summary_background">Last access: <xliff:g id="time" example="12:10 PM">%1$s</xliff:g>\n<xliff:g id="num" example="42">%2$s</xliff:g> accesses (<xliff:g id="num" example="7">%3$s</xliff:g> in background)</string>
 
     <!-- Description for showing permission accesses with any permission [CHAR LIMIT=30] -->
     <string name="permission_usage_any_permission">Any permission</string>
@@ -276,6 +279,9 @@
     <!-- Description for showing permissions accessed in the last 15 minutes [CHAR LIMIT=30] -->
     <string name="permission_usage_last_15_minutes">Last 15 minutes</string>
 
+    <!-- Description for showing permissions accessed in the last minute [CHAR LIMIT=30] -->
+    <string name="permission_usage_last_minute">Last 1 minute</string>
+
     <!-- Label when no apps have used the requested permissions [CHAR LIMIT=30] -->
     <string name="no_permission_usages">No permission usages</string>
 
@@ -294,6 +300,9 @@
     <!-- Label for the title of the list of permission usages that shows which apps used which permissions[CHAR LIMIT=50] -->
     <string name="permission_usage_list_title_last_15_minutes">Access in last 15 minutes</string>
 
+    <!-- Label for the title of the list of permission usages that shows which apps used which permissions[CHAR LIMIT=50] -->
+    <string name="permission_usage_list_title_last_minute">Access in last 1 minute</string>
+
     <!-- Label for the title of the permission bar chart showing how often the most common permissions are used [CHAR LIMIT=50] -->
     <string name="permission_usage_bar_chart_title_any_time">Top permission usage at any time</string>
 
@@ -308,6 +317,9 @@
 
     <!-- Label for the title of the permission bar chart showing how often the most common permissions are used [CHAR LIMIT=50] -->
     <string name="permission_usage_bar_chart_title_last_15_minutes">Top permission usage in last 15 minutes</string>
+
+    <!-- Label for the title of the permission bar chart showing how often the most common permissions are used [CHAR LIMIT=50] -->
+    <string name="permission_usage_bar_chart_title_last_minute">Top permission usage in last 1 minute</string>
 
     <!-- Label for the bars on the chart that shows how many apps have used various permissions [CHAR LIMIT=10] -->
     <string name="app_permission_usage_bar_label">Apps</string>

@@ -106,7 +106,7 @@ public class AppPermissionUsageFragment extends SettingsWithButtonHeader {
         mPermissionUsages.load(packageName, null, beginTimeMillis, Long.MAX_VALUE,
                 PermissionUsages.USAGE_FLAG_LAST | PermissionUsages.USAGE_FLAG_HISTORICAL,
                 getActivity().getLoaderManager(),
-                true, this::updateUi);
+                true, this::updateUi, false);
     }
 
     @Override
@@ -176,6 +176,10 @@ public class AppPermissionUsageFragment extends SettingsWithButtonHeader {
                 continue;
             }
             final AppPermissionGroup group = groupUsage.getGroup();
+            // STOPSHIP: Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
+            if (group.getLabel().equals("Storage")) {
+                continue;
+            }
             Preference pref = new PermissionControlPreference(context, group);
             pref.setTitle(groupUsage.getGroup().getLabel());
             if (groupUsage.getAccessDuration() == 0) {
