@@ -17,11 +17,11 @@
 package com.android.packageinstaller.permission.ui.television;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v14.preference.PreferenceFragment;
-import android.support.v17.leanback.widget.VerticalGridView;
-import android.support.v7.preference.PreferenceScreen;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.preference.PreferenceFragment;
+import androidx.leanback.widget.VerticalGridView;
+import androidx.preference.PreferenceScreen;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

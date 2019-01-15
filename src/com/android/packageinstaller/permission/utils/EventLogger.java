@@ -17,7 +17,7 @@
 package com.android.packageinstaller.permission.utils;
 
 import android.metrics.LogMaker;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
