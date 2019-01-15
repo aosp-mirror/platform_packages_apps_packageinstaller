@@ -46,14 +46,14 @@ public class SpecialAppAccessActivity extends FragmentActivity {
     @NonNull
     public static Intent createIntent(@NonNull String roleName, @NonNull Context context) {
         return new Intent(context, SpecialAppAccessActivity.class)
-                .putExtra(SpecialAppAccessFragment.EXTRA_ROLE_NAME, roleName);
+                .putExtra(Intent.EXTRA_ROLE_NAME, roleName);
     }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        String roleName = getIntent().getStringExtra(SpecialAppAccessFragment.EXTRA_ROLE_NAME);
+        String roleName = getIntent().getStringExtra(Intent.EXTRA_ROLE_NAME);
 
         Role role = Roles.getRoles(this).get(roleName);
         if (role == null) {

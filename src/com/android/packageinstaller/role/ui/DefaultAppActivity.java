@@ -19,6 +19,7 @@ package com.android.packageinstaller.role.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Process;
 import android.os.UserHandle;
 import android.util.Log;
 
@@ -49,7 +50,7 @@ public class DefaultAppActivity extends FragmentActivity {
     public static Intent createIntent(@NonNull String roleName, @NonNull UserHandle user,
             @NonNull Context context) {
         return new Intent(context, DefaultAppActivity.class)
-                .putExtra(DefaultAppFragment.EXTRA_ROLE_NAME, roleName)
+                .putExtra(Intent.EXTRA_ROLE_NAME, roleName)
                 .putExtra(Intent.EXTRA_USER, user);
     }
 
@@ -58,8 +59,12 @@ public class DefaultAppActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
 
         Intent intent = getIntent();
-        String roleName = intent.getStringExtra(DefaultAppFragment.EXTRA_ROLE_NAME);
+        String roleName = intent.getStringExtra(Intent.EXTRA_ROLE_NAME);
         UserHandle user = intent.getParcelableExtra(Intent.EXTRA_USER);
+        // External callers might omit the user.
+        if (user == null) {
+            user = Process.myUserHandle();
+        }
 
         Role role = Roles.getRoles(this).get(roleName);
         if (role == null) {
