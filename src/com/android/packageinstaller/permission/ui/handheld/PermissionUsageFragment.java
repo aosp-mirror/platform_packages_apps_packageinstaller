@@ -105,9 +105,9 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
             + KEY_SPINNER_SORT_INDEX;
 
     /**
-     * The number of columns shown in the bar chart.
+     * The maximum number of columns shown in the bar chart.
      */
-    private static final int BAR_CHART_COLUMN_COUNT = 4;
+    private static final int MAXIMUM_NUM_BARS = 4;
 
     private @NonNull PermissionUsages mPermissionUsages;
 
@@ -556,7 +556,8 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
             return y.hashCode() - x.hashCode();
         });
 
-        for (int i = 0; i < BAR_CHART_COLUMN_COUNT; i++) {
+        int numBarsToShow = Math.min(groups.size(), MAXIMUM_NUM_BARS);
+        for (int i = 0; i < numBarsToShow; i++) {
             final AppPermissionGroup group = groups.get(i);
             final Drawable icon = Utils.loadDrawable(context.getPackageManager(),
                     group.getIconPkg(), group.getIconResId());
