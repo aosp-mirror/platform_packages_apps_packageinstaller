@@ -25,6 +25,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -263,6 +264,8 @@ public final class AppPermissionsFragment extends SettingsWithButtonHeader {
                 Intent intent = new Intent(Intent.ACTION_REVIEW_APP_PERMISSION_USAGE);
                 intent.putExtra(Intent.EXTRA_PACKAGE_NAME,
                         getArguments().getString(Intent.EXTRA_PACKAGE_NAME));
+                intent.putExtra(Intent.EXTRA_USER, UserHandle.getUserHandleForUid(
+                        mAppPermissions.getPackageInfo().applicationInfo.uid));
                 context.startActivity(intent);
                 return true;
             });

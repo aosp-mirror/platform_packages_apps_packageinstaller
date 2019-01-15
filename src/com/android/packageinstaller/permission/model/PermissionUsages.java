@@ -30,6 +30,7 @@ import android.os.Bundle;
 import android.os.Process;
 import android.util.ArrayMap;
 import android.util.ArraySet;
+import android.util.Pair;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -55,6 +56,7 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
     private final ArrayList<AppPermissionUsage> mUsages = new ArrayList<>();
     private final @NonNull Context mContext;
 
+    private static final String KEY_FILTER_UID =  "KEY_FILTER_UID";
     private static final String KEY_FILTER_PACKAGE_NAME =  "KEY_FILTER_PACKAGE_NAME";
     private static final String KEY_FILTER_PERMISSION_GROUP =  "KEY_FILTER_PERMISSION_GROUP";
     private static final String KEY_FILTER_BEGIN_TIME_MILLIS =  "KEY_FILTER_BEGIN_TIME_MILLIS";
@@ -72,13 +74,22 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
         mContext = context;
     }
 
-    public void load(@Nullable String filterPackageName,
+    public void load(@Nullable String filterPackageName, @Nullable String filterPermissionGroup,
+            long filterBeginTimeMillis, long filterEndTimeMillis, int usageFlags,
+            @NonNull LoaderManager loaderManager, boolean getUiInfo,
+            @NonNull PermissionsUsagesChangeCallback callback, boolean sync) {
+        load(Process.INVALID_UID, filterPackageName, filterPermissionGroup, filterBeginTimeMillis,
+                filterEndTimeMillis, usageFlags, loaderManager, getUiInfo, callback, sync);
+    }
+
+    public void load(int filterUid, @Nullable String filterPackageName,
             @Nullable String filterPermissionGroup, long filterBeginTimeMillis,
             long filterEndTimeMillis, int usageFlags, @NonNull LoaderManager loaderManager,
             boolean getUiInfo, @NonNull PermissionsUsagesChangeCallback callback,
             boolean sync) {
         mCallback = callback;
         final Bundle args = new Bundle();
+        args.putInt(KEY_FILTER_UID, filterUid);
         args.putString(KEY_FILTER_PACKAGE_NAME, filterPackageName);
         args.putString(KEY_FILTER_PERMISSION_GROUP, filterPermissionGroup);
         args.putLong(KEY_FILTER_BEGIN_TIME_MILLIS, filterBeginTimeMillis);
@@ -145,6 +156,7 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
     }
 
     private static final class UsageLoader extends AsyncTaskLoader<List<AppPermissionUsage>> {
+        private final int mFilterUid;
         private @Nullable String mFilterPackageName;
         private @Nullable String mFilterPermissionGroup;
         private final long mFilterBeginTimeMillis;
@@ -154,6 +166,7 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
 
         UsageLoader(@NonNull Context context, @NonNull Bundle args) {
             super(context);
+            mFilterUid = args.getInt(KEY_FILTER_UID);
             mFilterPackageName = args.getString(KEY_FILTER_PACKAGE_NAME);
             mFilterPermissionGroup = args.getString(KEY_FILTER_PERMISSION_GROUP);
             mFilterBeginTimeMillis = args.getLong(KEY_FILTER_BEGIN_TIME_MILLIS);
@@ -178,8 +191,8 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
 
             final List<AppPermissionUsage> usages = new ArrayList<>();
             final ArraySet<String> opNames = new ArraySet<>();
-            final ArrayMap<String, AppPermissionUsage.Builder> usageBuilders = new ArrayMap<>();
-            int filterUid = Process.INVALID_UID;
+            final ArrayMap<Pair<Integer, String>, AppPermissionUsage.Builder> usageBuilders =
+                    new ArrayMap<>();
 
             final int groupCount = groups.size();
             for (int groupIdx = 0; groupIdx < groupCount; groupIdx++) {
@@ -195,19 +208,21 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
                 final int appCount = permissionApps.size();
                 for (int appIdx = 0; appIdx < appCount; appIdx++) {
                     final PermissionApp permissionApp = permissionApps.get(appIdx);
+                    if (mFilterUid != Process.INVALID_UID
+                            && permissionApp.getAppInfo().uid != mFilterUid) {
+                        continue;
+                    }
 
                     final AppPermissionGroup appPermGroup = permissionApp.getPermissionGroup();
                     if (!Utils.shouldShowPermission(getContext(), appPermGroup)) {
                         continue;
                     }
-                    final String packageName = permissionApp.getPackageName();
-                    if (packageName.equals(mFilterPackageName)) {
-                        filterUid = permissionApp.getUid();
-                    }
-                    AppPermissionUsage.Builder usageBuilder = usageBuilders.get(packageName);
+                    final Pair<Integer, String> usageKey = Pair.create(permissionApp.getUid(),
+                            permissionApp.getPackageName());
+                    AppPermissionUsage.Builder usageBuilder = usageBuilders.get(usageKey);
                     if (usageBuilder == null) {
                         usageBuilder = new Builder(permissionApp);
-                        usageBuilders.put(packageName, usageBuilder);
+                        usageBuilders.put(usageKey, usageBuilder);
                     }
                     usageBuilder.addGroup(appPermGroup);
                     final List<Permission> permissions = appPermGroup.getPermissions();
@@ -229,12 +244,13 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
             final AppOpsManager appOpsManager = getContext().getSystemService(AppOpsManager.class);
 
             // Get last usage data and put in a map for a quick lookup.
-            final ArrayMap<String, PackageOps> lastUsages = new ArrayMap<>(usageBuilders.size());
+            final ArrayMap<Pair<Integer, String>, PackageOps> lastUsages =
+                    new ArrayMap<>(usageBuilders.size());
             final String[] opNamesArray = opNames.toArray(new String[opNames.size()]);
             if ((mUsageFlags & USAGE_FLAG_LAST) != 0) {
                 final List<PackageOps> usageOps;
-                if (mFilterPackageName != null) {
-                    usageOps = appOpsManager.getOpsForPackage(filterUid, mFilterPackageName,
+                if (mFilterPackageName != null || mFilterUid != Process.INVALID_UID) {
+                    usageOps = appOpsManager.getOpsForPackage(mFilterUid, mFilterPackageName,
                             opNamesArray);
                 } else {
                     usageOps = appOpsManager.getPackagesForOps(opNamesArray);
@@ -243,7 +259,8 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
                     final int usageOpsCount = usageOps.size();
                     for (int i = 0; i < usageOpsCount; i++) {
                         final PackageOps usageOp = usageOps.get(i);
-                        lastUsages.put(usageOp.getPackageName(), usageOp);
+                        lastUsages.put(Pair.create(usageOp.getUid(), usageOp.getPackageName()),
+                                usageOp);
                     }
                 }
             }
@@ -253,12 +270,12 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
             }
 
             // Get historical usage data and put in a map for a quick lookup
-            final ArrayMap<String, HistoricalPackageOps> historicalUsages =
+            final ArrayMap<Pair<Integer, String>, HistoricalPackageOps> historicalUsages =
                     new ArrayMap<>(usageBuilders.size());
             if ((mUsageFlags & USAGE_FLAG_HISTORICAL) != 0) {
                 final AtomicReference<HistoricalOps> historicalOpsRef = new AtomicReference<>();
                 final CountDownLatch latch = new CountDownLatch(1);
-                appOpsManager.getHistoricalOps(Process.INVALID_UID,
+                appOpsManager.getHistoricalOps(mFilterUid,
                         mFilterPackageName, opNamesArray, mFilterBeginTimeMillis,
                         mFilterEndTimeMillis, Runnable::run,
                         (HistoricalOps ops) -> {
@@ -277,7 +294,9 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
                         final int packageCount = uidOps.getPackageCount();
                         for (int j = 0; j < packageCount; j++) {
                             final HistoricalPackageOps packageOps = uidOps.getPackageOpsAt(j);
-                            historicalUsages.put(packageOps.getPackageName(), packageOps);
+                            historicalUsages.put(
+                                    Pair.create(uidOps.getUid(), packageOps.getPackageName()),
+                                    packageOps);
                         }
                     }
                 }
@@ -286,11 +305,11 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
             // Construct the historical usages based on data we fetched
             final int builderCount = usageBuilders.size();
             for (int i = 0; i < builderCount; i++) {
-                final String packageName = usageBuilders.keyAt(i);
+                final Pair<Integer, String> key = usageBuilders.keyAt(i);
                 final Builder usageBuilder = usageBuilders.valueAt(i);
-                final PackageOps lastUsage = lastUsages.get(packageName);
+                final PackageOps lastUsage = lastUsages.get(key);
                 usageBuilder.setLastUsage(lastUsage);
-                final HistoricalPackageOps historicalUsage = historicalUsages.get(packageName);
+                final HistoricalPackageOps historicalUsage = historicalUsages.get(key);
                 usageBuilder.setHistoricalUsage(historicalUsage);
                 usages.add(usageBuilder.build());
             }
