@@ -33,6 +33,7 @@ import androidx.annotation.StringRes;
 import com.android.packageinstaller.role.utils.PackageUtils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -170,7 +171,7 @@ public class Role {
      */
     public boolean isAvailableAsUser(@NonNull UserHandle user, @NonNull Context context) {
         if (mBehavior != null) {
-            return mBehavior.isAvailableAsUser(user, context);
+            return mBehavior.isAvailableAsUser(this, user, context);
         }
         return true;
     }
@@ -187,6 +188,37 @@ public class Role {
     }
 
     /**
+     * Get the default holders of this role, which will be added when the role is added for the
+     * first time.
+     *
+     * @param context the {@code Context} to retrieve system services
+     *
+     * @return the list of package names of the default holders
+     */
+    @NonNull
+    public List<String> getDefaultHolders(@NonNull Context context) {
+        if (mBehavior != null) {
+            return mBehavior.getDefaultHolders(this, context);
+        }
+        return Collections.emptyList();
+    }
+
+    /**
+     * Get the fallback holder of this role, which will be added whenever there are no role holders.
+     *
+     * @param context the {@code Context} to retrieve system services
+     *
+     * @return the package name of the fallback holder, or {@code null} if none
+     */
+    @Nullable
+    public String getFallbackHolder(@NonNull Context context) {
+        if (mBehavior != null) {
+            return mBehavior.getFallbackHolder(this, context);
+        }
+        return null;
+    }
+
+    /**
      * Get the confirmation message for adding an application as a holder of this role.
      *
      * @param packageName the package name of the application to get confirmation message for
@@ -198,7 +230,7 @@ public class Role {
     public CharSequence getConfirmationMessage(@NonNull String packageName,
             @NonNull Context context) {
         if (mBehavior != null) {
-            return mBehavior.getConfirmationMessage(packageName, context);
+            return mBehavior.getConfirmationMessage(this, packageName, context);
         }
         return null;
     }

@@ -27,7 +27,7 @@ import com.android.packageinstaller.role.utils.PackageUtils;
 import com.android.permissioncontroller.R;
 
 /**
- * Mixin for {@link RoleBehavior#getConfirmationMessage(String, Context)}
+ * Mixin for {@link RoleBehavior#getConfirmationMessage(Role, String, Context)}
  * that returns a confirmation message when the application is not direct boot aware.
  */
 public class EncryptionUnawareConfirmationMixin {
@@ -35,11 +35,11 @@ public class EncryptionUnawareConfirmationMixin {
     private static final String LOG_TAG = EncryptionUnawareConfirmationMixin.class.getSimpleName();
 
     /**
-     * @see RoleBehavior#getConfirmationMessage(String, Context)
+     * @see RoleBehavior#getConfirmationMessage(Role, String, Context)
      */
     @Nullable
-    public static CharSequence getConfirmationMessage(@NonNull String packageName,
-            @NonNull Context context) {
+    public static CharSequence getConfirmationMessage(@NonNull Role role,
+            @NonNull String packageName, @NonNull Context context) {
         ApplicationInfo applicationInfo = PackageUtils.getApplicationInfo(packageName, context);
         if (applicationInfo == null) {
             Log.w(LOG_TAG, "Cannot get ApplicationInfo for application, package name: "
