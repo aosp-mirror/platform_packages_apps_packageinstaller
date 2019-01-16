@@ -89,7 +89,7 @@ public class RequestRoleFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         Context context = requireContext();
-        Role role = Roles.getRoles(context).get(mRoleName);
+        Role role = Roles.get(context).get(mRoleName);
         if (role == null) {
             Log.w(LOG_TAG, "Unknown role: " + mRoleName);
             finish();

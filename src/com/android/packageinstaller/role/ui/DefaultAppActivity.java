@@ -61,7 +61,7 @@ public class DefaultAppActivity extends FragmentActivity {
         String roleName = intent.getStringExtra(DefaultAppFragment.EXTRA_ROLE_NAME);
         UserHandle user = intent.getParcelableExtra(Intent.EXTRA_USER);
 
-        Role role = Roles.getRoles(this).get(roleName);
+        Role role = Roles.get(this).get(roleName);
         if (role == null) {
             Log.e(LOG_TAG, "Unknown role: " + roleName);
             finish();

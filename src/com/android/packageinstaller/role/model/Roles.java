@@ -125,17 +125,17 @@ public class Roles {
      * @return a map from role name to {@link Role} instances
      */
     @NonNull
-    public static ArrayMap<String, Role> getRoles(@NonNull Context context) {
+    public static ArrayMap<String, Role> get(@NonNull Context context) {
         synchronized (sLock) {
             if (sRoles == null) {
-                sRoles = loadRoles(context);
+                sRoles = load(context);
             }
             return sRoles;
         }
     }
 
     @NonNull
-    private static ArrayMap<String, Role> loadRoles(@NonNull Context context) {
+    private static ArrayMap<String, Role> load(@NonNull Context context) {
         // If the storage model feature flag is disabled, we need to fiddle
         // around with permission definitions to return us to pre-Q behavior.
         // STOPSHIP(b/112545973): remove once feature enabled by default

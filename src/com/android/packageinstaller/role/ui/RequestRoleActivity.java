@@ -70,7 +70,7 @@ public class RequestRoleActivity extends FragmentActivity {
         }
 
         // Perform checks here so that we have a chance to finish without being visible to user.
-        Role role = Roles.getRoles(this).get(mRoleName);
+        Role role = Roles.get(this).get(mRoleName);
         if (role == null) {
             Log.w(LOG_TAG, "Unknown role: " + mRoleName);
             finish();

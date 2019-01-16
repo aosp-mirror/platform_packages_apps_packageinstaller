@@ -65,8 +65,15 @@ public class SmsRoleBehavior implements RoleBehavior {
 
     @Nullable
     private String getDefaultHolder(@NonNull Role role, @NonNull Context context) {
-        // TODO: STOPSHIP: Read system resource for default handler.
-        return null;
+        String defaultPackageName = CollectionUtils.firstOrNull(DefaultRoleHolders.get(context).get(
+                role.getName()));
+        if (defaultPackageName == null) {
+            return null;
+        }
+        if (!role.isPackageQualified(defaultPackageName, context)) {
+            return null;
+        }
+        return defaultPackageName;
     }
 
     @Nullable
@@ -77,6 +84,8 @@ public class SmsRoleBehavior implements RoleBehavior {
             return defaultPackageName;
         }
 
+        // TODO: STOPSHIP: This was the previous behavior, however this allows any third-party app
+        // to suddenly become the default SMS app and get the permissions.
         List<String> qualifyingPackageNames = role.getQualifyingPackagesAsUser(
                 Process.myUserHandle(), context);
         return CollectionUtils.firstOrNull(qualifyingPackageNames);
