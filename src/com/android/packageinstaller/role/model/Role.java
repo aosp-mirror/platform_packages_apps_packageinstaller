@@ -171,7 +171,7 @@ public class Role {
      */
     public boolean isAvailableAsUser(@NonNull UserHandle user, @NonNull Context context) {
         if (mBehavior != null) {
-            return mBehavior.isAvailableAsUser(user, context);
+            return mBehavior.isAvailableAsUser(this, user, context);
         }
         return true;
     }
@@ -198,7 +198,7 @@ public class Role {
     @NonNull
     public List<String> getDefaultHolders(@NonNull Context context) {
         if (mBehavior != null) {
-            return mBehavior.getDefaultHolders(context);
+            return mBehavior.getDefaultHolders(this, context);
         }
         return Collections.emptyList();
     }
@@ -213,7 +213,7 @@ public class Role {
     @Nullable
     public String getFallbackHolder(@NonNull Context context) {
         if (mBehavior != null) {
-            return mBehavior.getFallbackHolder(context);
+            return mBehavior.getFallbackHolder(this, context);
         }
         return null;
     }
@@ -230,7 +230,7 @@ public class Role {
     public CharSequence getConfirmationMessage(@NonNull String packageName,
             @NonNull Context context) {
         if (mBehavior != null) {
-            return mBehavior.getConfirmationMessage(packageName, context);
+            return mBehavior.getConfirmationMessage(this, packageName, context);
         }
         return null;
     }

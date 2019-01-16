@@ -18,12 +18,43 @@ package com.android.packageinstaller.permission.utils;
 
 import android.util.ArraySet;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * Utility methods for dealing with {@link java.util.Collection}s.
  */
 public final class CollectionUtils {
 
     private CollectionUtils() {}
+
+    /**
+     * Check whether a collection is {@code null} or empty.
+     *
+     * @param collection the collection to check
+     *
+     * @return whether the collection is {@code null} or empty
+     */
+    public static boolean isEmpty(@Nullable Collection<?> collection) {
+        return collection == null || collection.isEmpty();
+    }
+
+    /**
+     * Return the first element of a list, or {@code null} if the list is {@code null} or empty.
+     *
+     * @param <T> the class of the elements of the list
+     * @param list the list to get the first element
+     *
+     * @return the first element of the list, or {@code null} if the list is {@code null} or empty
+     */
+    @Nullable
+    public static <T> T firstOrNull(@Nullable List<T> list) {
+        return !isEmpty(list) ? list.get(0) : null;
+    }
 
     /**
      * Remove all values in the array set that do <b>not</b> exist in the given collection.
@@ -46,5 +77,20 @@ public final class CollectionUtils {
             }
         }
         return removed;
+    }
+
+    /**
+     * Return a singleton list containing the element, or an empty list if the element is
+     * {@code null}.
+     *
+     * @param <T> the class of the element
+     * @param element the element to be put into the list
+     *
+     * @return a singleton list containing the element, or an empty list if the element is
+     *         {@code null}.
+     */
+    @NonNull
+    public static <T> List<T> singletonOrEmpty(@Nullable T element) {
+        return element != null ? Collections.singletonList(element) : Collections.emptyList();
     }
 }

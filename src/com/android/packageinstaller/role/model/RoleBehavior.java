@@ -33,7 +33,8 @@ public interface RoleBehavior {
     /**
      * @see Role#isAvailableAsUser(UserHandle, Context)
      */
-    default boolean isAvailableAsUser(@NonNull UserHandle user, @NonNull Context context) {
+    default boolean isAvailableAsUser(@NonNull Role role, @NonNull UserHandle user,
+            @NonNull Context context) {
         return true;
     }
 
@@ -41,7 +42,7 @@ public interface RoleBehavior {
      * @see Role#getDefaultHolders(Context)
      */
     @NonNull
-    default List<String> getDefaultHolders(@NonNull Context context) {
+    default List<String> getDefaultHolders(@NonNull Role role, @NonNull Context context) {
         return Collections.emptyList();
     }
 
@@ -49,7 +50,7 @@ public interface RoleBehavior {
      * @see Role#getFallbackHolder(Context)
      */
     @Nullable
-    default String getFallbackHolder(@NonNull Context context) {
+    default String getFallbackHolder(@NonNull Role role, @NonNull Context context) {
         return null;
     }
 
@@ -57,7 +58,7 @@ public interface RoleBehavior {
      * @see Role#getConfirmationMessage(String, Context)
      */
     @Nullable
-    default CharSequence getConfirmationMessage(@NonNull String packageName,
+    default CharSequence getConfirmationMessage(@NonNull Role role, @NonNull String packageName,
             @NonNull Context context) {
         return null;
     }

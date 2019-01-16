@@ -31,7 +31,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
 
-import com.android.internal.util.CollectionUtils;
+import com.android.packageinstaller.permission.utils.CollectionUtils;
 import com.android.packageinstaller.role.model.Role;
 import com.android.packageinstaller.role.model.Roles;
 import com.android.packageinstaller.role.utils.PackageUtils;

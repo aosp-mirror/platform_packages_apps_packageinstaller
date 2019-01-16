@@ -33,7 +33,7 @@ import androidx.annotation.Nullable;
 public class DialerRoleBehavior implements RoleBehavior {
 
     @Override
-    public boolean isAvailableAsUser(@NonNull UserHandle user,
+    public boolean isAvailableAsUser(@NonNull Role role, @NonNull UserHandle user,
             @NonNull Context context) {
         TelephonyManager telephonyManager = context.getSystemService(TelephonyManager.class);
         return telephonyManager.isVoiceCapable();
@@ -41,9 +41,9 @@ public class DialerRoleBehavior implements RoleBehavior {
 
     @Nullable
     @Override
-    public CharSequence getConfirmationMessage(@NonNull String packageName,
+    public CharSequence getConfirmationMessage(@NonNull Role role, @NonNull String packageName,
             @NonNull Context context) {
-        return EncryptionUnawareConfirmationMixin.getConfirmationMessage(packageName,
+        return EncryptionUnawareConfirmationMixin.getConfirmationMessage(role, packageName,
                 context);
     }
 }
