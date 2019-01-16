@@ -55,7 +55,6 @@ import androidx.fragment.app.Fragment;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.model.PermissionUsages;
-import com.android.packageinstaller.permission.utils.IconDrawableFactory;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.PackageRemovalMonitor;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
@@ -805,8 +804,7 @@ public class AppPermissionFragment extends SettingsWithButtonHeader {
      */
     private @NonNull Drawable getAppIcon() {
         ApplicationInfo appInfo = mGroup.getApp().applicationInfo;
-        return IconDrawableFactory.getBadgedIcon(getActivity(), appInfo,
-                UserHandle.getUserHandleForUid(appInfo.uid));
+        return Utils.getBadgedIcon(getActivity(), appInfo);
     }
 
     /**

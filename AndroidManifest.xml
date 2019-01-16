@@ -153,7 +153,13 @@
         </activity>
 
         <activity android:name="com.android.packageinstaller.role.ui.DefaultAppActivity"
-                  android:theme="@style/Settings" />
+                  android:permission="android.permission.MANAGE_ROLE_HOLDERS"
+                  android:theme="@style/Settings">
+            <intent-filter android:priority="1">
+                <action android:name="android.intent.action.MANAGE_DEFAULT_APP" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
         <activity android:name="com.android.packageinstaller.role.ui.SpecialAppAccessListActivity"
                   android:label="@string/special_app_access"

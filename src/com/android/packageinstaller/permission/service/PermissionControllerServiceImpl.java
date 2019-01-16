@@ -16,17 +16,27 @@
 
 package com.android.packageinstaller.permission.service;
 
+import static android.content.pm.PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT;
+import static android.content.pm.PackageManager.FLAG_PERMISSION_POLICY_FIXED;
+import static android.content.pm.PackageManager.FLAG_PERMISSION_REVOKE_ON_UPGRADE;
+import static android.content.pm.PackageManager.FLAG_PERMISSION_SYSTEM_FIXED;
+import static android.content.pm.PackageManager.FLAG_PERMISSION_USER_FIXED;
+import static android.content.pm.PackageManager.FLAG_PERMISSION_USER_SET;
 import static android.content.pm.PackageManager.GET_PERMISSIONS;
 import static android.permission.PermissionControllerManager.REASON_INSTALLER_POLICY_VIOLATION;
 import static android.permission.PermissionControllerManager.REASON_MALWARE;
+import static android.util.Xml.newSerializer;
 
 import static com.android.packageinstaller.permission.utils.Utils.getLauncherPackages;
 import static com.android.packageinstaller.permission.utils.Utils.isSystem;
 import static com.android.packageinstaller.permission.utils.Utils.shouldShowPermission;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.os.UserHandle;
 import android.permission.PermissionControllerService;
 import android.permission.PermissionManager;
 import android.permission.RuntimePermissionPresentationInfo;
@@ -46,16 +56,45 @@ import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.model.PermissionUsages;
 import com.android.packageinstaller.permission.utils.Utils;
 
+import org.xmlpull.v1.XmlSerializer;
+
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Supplier;
 
 /**
  * Calls from the system into the permission controller
  */
 public final class PermissionControllerServiceImpl extends PermissionControllerService {
     private static final String LOG_TAG = PermissionControllerServiceImpl.class.getSimpleName();
+
+    private static final String TAG_PERMISSION_BACKUP = "perm-grant-backup";
+
+    private static final String TAG_ALL_GRANTS = "rt-grants";
+
+    private static final String TAG_GRANT = "grant";
+    private static final String ATTR_PACKAGE_NAME = "pkg";
+
+    private static final String TAG_PERMISSION = "perm";
+    private static final String ATTR_PERMISSION_NAME = "name";
+    private static final String ATTR_IS_GRANTED = "g";
+    private static final String ATTR_USER_SET = "set";
+    private static final String ATTR_USER_FIXED = "fixed";
+    private static final String ATTR_REVOKE_ON_UPGRADE = "rou";
+
+    /** Flags of permissions to <u>not</u> back up */
+    private static final int SYSTEM_RUNTIME_GRANT_MASK = FLAG_PERMISSION_POLICY_FIXED
+            | FLAG_PERMISSION_SYSTEM_FIXED
+            | FLAG_PERMISSION_GRANTED_BY_DEFAULT;
+
+    /** Flags that need to be backed up even if permission is revoked */
+    private static final int USER_RUNTIME_GRANT_MASK = FLAG_PERMISSION_USER_SET
+            | FLAG_PERMISSION_USER_FIXED
+            | FLAG_PERMISSION_REVOKE_ON_UPGRADE;
 
     /**
      * Expand {@code perms} by split permissions for an app with the given targetSDK.
@@ -274,6 +313,147 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
         }
 
         return actuallyRevokedPerms;
+    }
+
+    /**
+     * Backup state of a permission if needed.
+     *
+     * @param serializer The serializer to back up to
+     * @param perm The permission to back up
+     * @param beforeBackup code to run before adding to the backup
+     *
+     * @throws IOException if there was an issue while backing up
+     */
+    private void backupPermissionState(@NonNull XmlSerializer serializer,
+            @NonNull Permission perm, @NonNull Supplier<IOException> beforeBackup)
+            throws IOException {
+        int grantFlags = perm.getFlags();
+
+        // only look at grants that are not system/policy fixed
+        if ((grantFlags & SYSTEM_RUNTIME_GRANT_MASK) == 0) {
+            // And only back up the user-twiddled state bits
+            if (perm.isGranted() || (grantFlags & USER_RUNTIME_GRANT_MASK) != 0) {
+                IOException errorWhileStartingBackup = beforeBackup.get();
+                if (errorWhileStartingBackup != null) {
+                    throw errorWhileStartingBackup;
+                }
+
+                serializer.startTag(null, TAG_PERMISSION);
+                serializer.attribute(null, ATTR_PERMISSION_NAME, perm.getName());
+
+                if (perm.isGranted()) {
+                    serializer.attribute(null, ATTR_IS_GRANTED, "true");
+                }
+
+                if (perm.isUserSet()) {
+                    serializer.attribute(null, ATTR_USER_SET, "true");
+                }
+
+                if (perm.isUserFixed()) {
+                    serializer.attribute(null, ATTR_USER_FIXED, "true");
+                }
+
+                if ((grantFlags & FLAG_PERMISSION_REVOKE_ON_UPGRADE) != 0) {
+                    serializer.attribute(null, ATTR_REVOKE_ON_UPGRADE, "true");
+                }
+
+                serializer.endTag(null, TAG_PERMISSION);
+            }
+        }
+    }
+
+    /**
+     * Backup state of all permission in this group.
+     *
+     * @param serializer The serializer to back up to
+     * @param group The group to back up
+     * @param beforeBackup code to run before adding to the backup
+     *
+     * @throws IOException if there was an issue while backing up
+     */
+    private void backupGroupState(@NonNull XmlSerializer serializer,
+            @NonNull AppPermissionGroup group, @NonNull Supplier<IOException> beforeBackup)
+            throws IOException {
+        List<Permission> perms = group.getPermissions();
+
+        int numPerms = perms.size();
+        for (int i = 0; i < numPerms; i++) {
+            backupPermissionState(serializer, perms.get(i), beforeBackup);
+        }
+
+        // Background permissions are in a subgroup that is not part of
+        // {@link AppPermission#getPermissionGroups}. Hence add it explicitly here.
+        if (group.getBackgroundPermissions() != null) {
+            backupGroupState(serializer, group.getBackgroundPermissions(), beforeBackup);
+        }
+    }
+
+    /**
+     * Backup per-app runtime permission state.
+     *
+     * @param serializer The serializer to back up to
+     * @param app The app to back up
+     *
+     * @throws IOException if there was an issue while backing up
+     */
+    private void backupAppState(@NonNull XmlSerializer serializer, @NonNull AppPermissions app)
+            throws IOException {
+        List<AppPermissionGroup> groups = app.getPermissionGroups();
+
+        // We want to delay adding the per-package tag (TAG_GRANT) until we find a permission that
+        // is needs to be backed up. This let's us avoid a lot of empty TAG_GRANT tags.
+        final boolean[] wasAnyPermissionBackedUp = {false};
+
+        int numGroups = groups.size();
+        for (int i = 0; i < numGroups; i++) {
+            backupGroupState(serializer, groups.get(i), () -> {
+                if (!wasAnyPermissionBackedUp[0]) {
+                    try {
+                        serializer.startTag(null, TAG_GRANT);
+                        serializer.attribute(null, ATTR_PACKAGE_NAME,
+                                app.getPackageInfo().packageName);
+                    } catch (IOException e) {
+                        return e;
+                    }
+
+                    wasAnyPermissionBackedUp[0] = true;
+                }
+
+                return null;
+            });
+        }
+
+        if (wasAnyPermissionBackedUp[0]) {
+            serializer.endTag(null, TAG_GRANT);
+        }
+    }
+
+    @Override
+    public void onGetRuntimePermissionsBackup(@NonNull UserHandle user, @NonNull OutputStream out) {
+        try {
+            XmlSerializer serializer = newSerializer();
+            serializer.setOutput(out, UTF_8.name());
+            serializer.startDocument(null, true);
+
+            serializer.startTag(null, TAG_PERMISSION_BACKUP);
+            serializer.startTag(null, TAG_ALL_GRANTS);
+
+            List<PackageInfo> pkgs = getPackageManager().getInstalledPackagesAsUser(GET_PERMISSIONS,
+                    user.getIdentifier());
+
+            int numPkgs = pkgs.size();
+            for (int i = 0; i < numPkgs; i++) {
+                backupAppState(serializer, new AppPermissions(this, pkgs.get(i), false, null));
+            }
+
+            serializer.endTag(null, TAG_ALL_GRANTS);
+            serializer.endTag(null, TAG_PERMISSION_BACKUP);
+
+            serializer.endDocument();
+            serializer.flush();
+        } catch (Exception e) {
+            Log.e(LOG_TAG, "Unable to write default apps for backup", e);
+        }
     }
 
     @Override

@@ -35,7 +35,6 @@ import android.util.SparseArray;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.android.packageinstaller.permission.utils.IconDrawableFactory;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 
@@ -271,8 +270,7 @@ public class PermissionApps {
                         if (appData != null) {
                             icon = appData.second;
                         } else {
-                            icon = IconDrawableFactory.getBadgedIcon(mContext, app.applicationInfo,
-                                    UserHandle.getUserHandleForUid(app.applicationInfo.uid));
+                            icon = Utils.getBadgedIcon(mContext, app.applicationInfo);
                         }
                     }
 
@@ -486,8 +484,7 @@ public class PermissionApps {
             Pair<String, Drawable> data = dataForUser.get(app.applicationInfo.packageName);
             if (data == null) {
                 data = Pair.create(app.applicationInfo.loadLabel(mPm).toString(),
-                        IconDrawableFactory.getBadgedIcon(mContext, app.applicationInfo,
-                                UserHandle.getUserHandleForUid(app.applicationInfo.uid)));
+                        Utils.getBadgedIcon(mContext, app.applicationInfo));
                 dataForUser.put(app.applicationInfo.packageName, data);
             }
             return data;

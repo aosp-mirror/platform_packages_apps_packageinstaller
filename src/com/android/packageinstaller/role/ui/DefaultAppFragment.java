@@ -34,7 +34,6 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceManager;
 import androidx.preference.PreferenceScreen;
 
-import com.android.packageinstaller.permission.utils.IconDrawableFactory;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.packageinstaller.role.model.Role;
 import com.android.packageinstaller.role.model.Roles;
@@ -50,9 +49,6 @@ public class DefaultAppFragment extends SettingsFragment
         Preference.OnPreferenceClickListener {
 
     private static final String LOG_TAG = DefaultAppFragment.class.getSimpleName();
-
-    public static final String EXTRA_ROLE_NAME =
-            "com.android.packageinstaller.role.ui.extra.ROLE_NAME";
 
     private String mRoleName;
 
@@ -75,7 +71,7 @@ public class DefaultAppFragment extends SettingsFragment
             @NonNull UserHandle user) {
         DefaultAppFragment fragment = new DefaultAppFragment();
         Bundle arguments = new Bundle();
-        arguments.putString(EXTRA_ROLE_NAME, roleName);
+        arguments.putString(Intent.EXTRA_ROLE_NAME, roleName);
         arguments.putParcelable(Intent.EXTRA_USER, user);
         fragment.setArguments(arguments);
         return fragment;
@@ -86,7 +82,7 @@ public class DefaultAppFragment extends SettingsFragment
         super.onCreate(savedInstanceState);
 
         Bundle arguments = getArguments();
-        mRoleName = arguments.getString(EXTRA_ROLE_NAME);
+        mRoleName = arguments.getString(Intent.EXTRA_ROLE_NAME);
         mUser = arguments.getParcelable(Intent.EXTRA_USER);
     }
 
@@ -141,9 +137,7 @@ public class DefaultAppFragment extends SettingsFragment
             if (preference == null) {
                 preference = new AppIconRadioButtonPreference(context);
                 preference.setKey(qualifyingApplicationInfo.packageName);
-                preference.setIcon(IconDrawableFactory.getBadgedIcon(context,
-                        qualifyingApplicationInfo, UserHandle.getUserHandleForUid(
-                                qualifyingApplicationInfo.uid)));
+                preference.setIcon(Utils.getBadgedIcon(context, qualifyingApplicationInfo));
                 preference.setTitle(Utils.getAppLabel(qualifyingApplicationInfo, context));
                 preference.setPersistent(false);
                 preference.setOnPreferenceChangeListener((preference2, newValue) -> false);

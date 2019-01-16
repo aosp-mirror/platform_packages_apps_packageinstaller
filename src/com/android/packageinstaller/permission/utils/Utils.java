@@ -42,6 +42,8 @@ import android.content.pm.PermissionInfo;
 import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.content.res.Resources.Theme;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Parcelable;
 import android.os.UserHandle;
@@ -61,6 +63,7 @@ import androidx.annotation.StringRes;
 import androidx.core.text.BidiFormatter;
 import androidx.core.util.Preconditions;
 
+import com.android.launcher3.icons.IconFactory;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissionUsage;
 import com.android.packageinstaller.permission.model.AppPermissions;
@@ -579,5 +582,24 @@ public final class Utils {
             }
             return true;
         });
+    }
+
+    /**
+     * Get badged app icon similar as used in the Settings UI.
+     *
+     * @param context The context to use
+     * @param appInfo The app the icon belong to
+     *
+     * @return The icon to use
+     */
+    public static @NonNull Drawable getBadgedIcon(@NonNull Context context,
+            @NonNull ApplicationInfo appInfo) {
+        try (IconFactory iconFactory = IconFactory.obtain(context)) {
+            Bitmap iconBmp = iconFactory.createBadgedIconBitmap(
+                    appInfo.loadIcon(context.getPackageManager()),
+                    UserHandle.getUserHandleForUid(appInfo.uid), false).icon;
+
+            return new BitmapDrawable(context.getResources(), iconBmp);
+        }
     }
 }

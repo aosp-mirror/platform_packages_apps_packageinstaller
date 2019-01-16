@@ -70,7 +70,7 @@ public class RequestRoleFragment extends DialogFragment {
             @NonNull String packageName) {
         RequestRoleFragment fragment = new RequestRoleFragment();
         Bundle arguments = new Bundle();
-        arguments.putString(RoleManager.EXTRA_REQUEST_ROLE_NAME, roleName);
+        arguments.putString(Intent.EXTRA_ROLE_NAME, roleName);
         arguments.putString(Intent.EXTRA_PACKAGE_NAME, packageName);
         fragment.setArguments(arguments);
         return fragment;
@@ -82,7 +82,7 @@ public class RequestRoleFragment extends DialogFragment {
 
         Bundle arguments = getArguments();
         mPackageName = arguments.getString(Intent.EXTRA_PACKAGE_NAME);
-        mRoleName = arguments.getString(RoleManager.EXTRA_REQUEST_ROLE_NAME);
+        mRoleName = arguments.getString(Intent.EXTRA_ROLE_NAME);
     }
 
     @NonNull
