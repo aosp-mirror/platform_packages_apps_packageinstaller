@@ -20,6 +20,7 @@ import static android.content.pm.PackageManager.PERMISSION_DENIED;
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 
 import android.app.admin.DevicePolicyManager;
+import android.app.KeyguardManager;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -302,6 +303,32 @@ public class GrantPermissionsActivity extends OverlayTouchActivity
 
     @Override
     public void onPermissionGrantResult(String name, boolean granted, boolean doNotAskAgain) {
+        KeyguardManager kgm = getSystemService(KeyguardManager.class);
+
+        if (kgm.isDeviceLocked()) {
+            kgm.requestDismissKeyguard(this, new KeyguardManager.KeyguardDismissCallback() {
+                        @Override
+                        public void onDismissError() {
+                            Log.e(LOG_TAG, "Cannot dismiss keyguard perm=" + name + " granted="
+                                   + granted + " doNotAskAgain=" + doNotAskAgain);
+                        }
+
+                        @Override
+                        public void onDismissCancelled() {
+                            // do nothing (i.e. stay at the current permission group)
+                        }
+
+                        @Override
+                        public void onDismissSucceeded() {
+                            // Now the keyguard is dismissed, hence the device is not locked
+                            // anymore
+                            onPermissionGrantResult(name, granted, doNotAskAgain);
+                        }
+                    });
+
+            return;
+        }
+
         GroupState groupState = mRequestGrantPermissionGroups.get(name);
         if (groupState.mGroup != null) {
             if (granted) {
