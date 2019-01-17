@@ -397,7 +397,7 @@ public class Role {
         otherRoleNames.remove(mName);
 
         List<String> permissionsToRevoke = new ArrayList<>(mPermissions);
-        ArrayMap<String, Role> roles = Roles.getRoles(context);
+        ArrayMap<String, Role> roles = Roles.get(context);
         int otherRoleNamesSize = otherRoleNames.size();
         for (int i = 0; i < otherRoleNamesSize; i++) {
             String roleName = otherRoleNames.get(i);

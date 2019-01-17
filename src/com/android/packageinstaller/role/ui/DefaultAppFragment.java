@@ -91,7 +91,7 @@ public class DefaultAppFragment extends SettingsFragment
         super.onActivityCreated(savedInstanceState);
 
         Activity activity = requireActivity();
-        mRole = Roles.getRoles(activity).get(mRoleName);
+        mRole = Roles.get(activity).get(mRoleName);
         activity.setTitle(mRole.getLabelResource());
 
         mViewModel = ViewModelProviders.of(this, new DefaultAppViewModel.Factory(mRole, mUser,

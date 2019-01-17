@@ -79,7 +79,7 @@ public class RoleListLiveData extends AsyncTaskLiveData<List<RoleItem>>
     @Override
     @WorkerThread
     protected List<RoleItem> loadValueInBackground() {
-        ArrayMap<String, Role> roles = Roles.getRoles(mContext);
+        ArrayMap<String, Role> roles = Roles.get(mContext);
 
         List<RoleItem> roleItems = new ArrayList<>();
         RoleManager roleManager = mContext.getSystemService(RoleManager.class);

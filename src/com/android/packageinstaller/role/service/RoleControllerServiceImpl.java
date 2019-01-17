@@ -47,6 +47,9 @@ public class RoleControllerServiceImpl extends RoleControllerService {
 
     private static final String LOG_TAG = RoleControllerServiceImpl.class.getSimpleName();
 
+    // TODO: STOPSHIP: Turn off debugging before we ship.
+    private static final boolean DEBUG = true;
+
     private RoleManager mRoleManager;
 
     private HandlerThread mWorkerThread;
@@ -136,10 +139,12 @@ public class RoleControllerServiceImpl extends RoleControllerService {
 
     @WorkerThread
     private void grantDefaultRoles(@NonNull RoleManagerCallback callback) {
-        Log.i(LOG_TAG, "Granting default roles, user: " + UserHandle.myUserId());
+        if (DEBUG) {
+            Log.i(LOG_TAG, "Granting default roles, user: " + UserHandle.myUserId());
+        }
 
         // Gather the available roles for current user.
-        ArrayMap<String, Role> roleMap = Roles.getRoles(this);
+        ArrayMap<String, Role> roleMap = Roles.get(this);
         List<Role> roles = new ArrayList<>();
         List<String> roleNames = new ArrayList<>();
         ArraySet<String> addedRoleNames = new ArraySet<>();
@@ -248,7 +253,7 @@ public class RoleControllerServiceImpl extends RoleControllerService {
     @WorkerThread
     private void addRoleHolder(@NonNull String roleName, @NonNull String packageName,
             @NonNull RoleManagerCallback callback) {
-        Role role = Roles.getRoles(this).get(roleName);
+        Role role = Roles.get(this).get(roleName);
         if (role == null) {
             Log.e(LOG_TAG, "Unknown role: " + roleName);
             callback.onFailure();
@@ -302,7 +307,7 @@ public class RoleControllerServiceImpl extends RoleControllerService {
     @WorkerThread
     private void removeRoleHolder(@NonNull String roleName, @NonNull String packageName,
             @NonNull RoleManagerCallback callback) {
-        Role role = Roles.getRoles(this).get(roleName);
+        Role role = Roles.get(this).get(roleName);
         if (role == null) {
             Log.e(LOG_TAG, "Unknown role: " + roleName);
             callback.onFailure();
@@ -332,7 +337,7 @@ public class RoleControllerServiceImpl extends RoleControllerService {
 
     @WorkerThread
     private void clearRoleHolders(@NonNull String roleName, @NonNull RoleManagerCallback callback) {
-        Role role = Roles.getRoles(this).get(roleName);
+        Role role = Roles.get(this).get(roleName);
         if (role == null) {
             Log.e(LOG_TAG, "Unknown role: " + roleName);
             callback.onFailure();
