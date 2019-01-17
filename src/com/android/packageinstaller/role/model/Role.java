@@ -245,9 +245,15 @@ public class Role {
      * @return whether the package is qualified for a role
      */
     public boolean isPackageQualified(@NonNull String packageName, @NonNull Context context) {
-        if (!isPackageQualifiedWithoutCheckingRequiredComponentsAsUser(packageName,
-                Process.myUserHandle(), context)) {
+        if (!isPackageMinimallyQualifiedAsUser(packageName, Process.myUserHandle(), context)) {
             return false;
+        }
+
+        if (mBehavior != null) {
+            Boolean isPackageQualified = mBehavior.isPackageQualified(packageName, context);
+            if (isPackageQualified != null) {
+                return isPackageQualified;
+            }
         }
 
         int requiredComponentsSize = mRequiredComponents.size();
@@ -275,6 +281,24 @@ public class Role {
     @NonNull
     public List<String> getQualifyingPackagesAsUser(@NonNull UserHandle user,
             @NonNull Context context) {
+        if (mBehavior != null) {
+            List<String> qualifyingPackages = mBehavior.getQualifyingPackagesAsUser(user, context);
+
+            if (qualifyingPackages != null) {
+                // Still check generic properties of the packages
+                int numQualifyingPackages = qualifyingPackages.size();
+                for (int i = 0; i < numQualifyingPackages; i++) {
+                    if (!isPackageMinimallyQualifiedAsUser(qualifyingPackages.get(i), user,
+                            context)) {
+                        qualifyingPackages.remove(i);
+                        i--;
+                    }
+                }
+
+                return qualifyingPackages;
+            }
+        }
+
         ArrayMap<String, Integer> packageComponentCountMap = new ArrayMap<>();
         int requiredComponentsSize = mRequiredComponents.size();
         for (int requiredComponentsIndex = 0; requiredComponentsIndex < requiredComponentsSize;
@@ -306,7 +330,7 @@ public class Role {
                 continue;
             }
             String packageName = packageComponentCountMap.keyAt(i);
-            if (!isPackageQualifiedWithoutCheckingRequiredComponentsAsUser(packageName, user,
+            if (!isPackageMinimallyQualifiedAsUser(packageName, user,
                     context)) {
                 continue;
             }
@@ -316,7 +340,7 @@ public class Role {
         return qualifyingPackages;
     }
 
-    private boolean isPackageQualifiedWithoutCheckingRequiredComponentsAsUser(
+    private boolean isPackageMinimallyQualifiedAsUser(
             @NonNull String packageName, @NonNull UserHandle user, @NonNull Context context) {
         if (Objects.equals(packageName, PACKAGE_NAME_ANDROID_SYSTEM)) {
             return false;
