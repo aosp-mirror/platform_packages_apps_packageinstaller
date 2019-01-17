@@ -208,8 +208,8 @@ public class RequestRoleFragment extends DialogFragment {
     }
 
     private void addRoleHolder() {
-        mViewModel.getLiveData().manageRoleHolderAsUser(mRoleName, mPackageName,
-                Process.myUserHandle(), true, requireContext());
+        mViewModel.getLiveData().setRoleHolderAsUser(mRoleName, mPackageName, true,
+                Process.myUserHandle(), requireContext());
     }
 
     private void setResultOkAndFinish() {

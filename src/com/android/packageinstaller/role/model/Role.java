@@ -85,6 +85,13 @@ public class Role {
     private final int mLabelResource;
 
     /**
+     * Whether the UI for this role will show the "None" item. Only valid if this role is
+     * {@link #mExclusive exclusive}, and {@link #getFallbackHolder(Context)} should also return
+     * empty to allow actually selecting "None".
+     */
+    private final boolean mShowNone;
+
+    /**
      * The required components for an application to qualify for this role.
      */
     @NonNull
@@ -109,13 +116,14 @@ public class Role {
     private final List<PreferredActivity> mPreferredActivities;
 
     public Role(@NonNull String name, @Nullable RoleBehavior behavior, boolean exclusive,
-            @StringRes int labelResource, @NonNull List<RequiredComponent> requiredComponents,
-            @NonNull List<String> permissions, @NonNull List<AppOp> appOps,
-            @NonNull List<PreferredActivity> preferredActivities) {
+            @StringRes int labelResource, boolean showNone,
+            @NonNull List<RequiredComponent> requiredComponents, @NonNull List<String> permissions,
+            @NonNull List<AppOp> appOps, @NonNull List<PreferredActivity> preferredActivities) {
         mName = name;
         mBehavior = behavior;
         mExclusive = exclusive;
         mLabelResource = labelResource;
+        mShowNone = showNone;
         mRequiredComponents = requiredComponents;
         mPermissions = permissions;
         mAppOps = appOps;
@@ -139,6 +147,13 @@ public class Role {
     @StringRes
     public int getLabelResource() {
         return mLabelResource;
+    }
+
+    /**
+     * @see #mShowNone
+     */
+    public boolean shouldShowNone() {
+        return mShowNone;
     }
 
     @NonNull
@@ -205,6 +220,8 @@ public class Role {
 
     /**
      * Get the fallback holder of this role, which will be added whenever there are no role holders.
+     * <p>
+     * Should return empty if this role {@link #mShowNone shows a "None" item}.
      *
      * @param context the {@code Context} to retrieve system services
      *
@@ -250,7 +267,7 @@ public class Role {
         }
 
         if (mBehavior != null) {
-            Boolean isPackageQualified = mBehavior.isPackageQualified(packageName, context);
+            Boolean isPackageQualified = mBehavior.isPackageQualified(this, packageName, context);
             if (isPackageQualified != null) {
                 return isPackageQualified;
             }
@@ -281,60 +298,60 @@ public class Role {
     @NonNull
     public List<String> getQualifyingPackagesAsUser(@NonNull UserHandle user,
             @NonNull Context context) {
+        List<String> qualifyingPackages = null;
+
         if (mBehavior != null) {
-            List<String> qualifyingPackages = mBehavior.getQualifyingPackagesAsUser(user, context);
+            qualifyingPackages = mBehavior.getQualifyingPackagesAsUser(this, user, context);
+        }
 
-            if (qualifyingPackages != null) {
-                // Still check generic properties of the packages
-                int numQualifyingPackages = qualifyingPackages.size();
-                for (int i = 0; i < numQualifyingPackages; i++) {
-                    if (!isPackageMinimallyQualifiedAsUser(qualifyingPackages.get(i), user,
-                            context)) {
-                        qualifyingPackages.remove(i);
-                        i--;
-                    }
+        if (qualifyingPackages == null) {
+            ArrayMap<String, Integer> packageComponentCountMap = new ArrayMap<>();
+            int requiredComponentsSize = mRequiredComponents.size();
+            for (int requiredComponentsIndex = 0; requiredComponentsIndex < requiredComponentsSize;
+                    requiredComponentsIndex++) {
+                RequiredComponent requiredComponent = mRequiredComponents.get(
+                        requiredComponentsIndex);
+
+                // This returns at most one component per package.
+                List<ComponentName> qualifyingComponents =
+                        requiredComponent.getQualifyingComponentsAsUser(user, context);
+                int qualifyingComponentsSize = qualifyingComponents.size();
+                for (int qualifyingComponentsIndex = 0;
+                        qualifyingComponentsIndex < qualifyingComponentsSize;
+                        ++qualifyingComponentsIndex) {
+                    ComponentName componentName = qualifyingComponents.get(
+                            qualifyingComponentsIndex);
+
+                    String packageName = componentName.getPackageName();
+                    Integer componentCount = packageComponentCountMap.get(packageName);
+                    packageComponentCountMap.put(packageName, componentCount == null ? 1
+                            : componentCount + 1);
                 }
+            }
 
-                return qualifyingPackages;
+            qualifyingPackages = new ArrayList<>();
+            int packageComponentCountMapSize = packageComponentCountMap.size();
+            for (int i = 0; i < packageComponentCountMapSize; i++) {
+                int componentCount = packageComponentCountMap.valueAt(i);
+
+                if (componentCount != requiredComponentsSize) {
+                    continue;
+                }
+                String packageName = packageComponentCountMap.keyAt(i);
+                qualifyingPackages.add(packageName);
             }
         }
 
-        ArrayMap<String, Integer> packageComponentCountMap = new ArrayMap<>();
-        int requiredComponentsSize = mRequiredComponents.size();
-        for (int requiredComponentsIndex = 0; requiredComponentsIndex < requiredComponentsSize;
-                requiredComponentsIndex++) {
-            RequiredComponent requiredComponent = mRequiredComponents.get(requiredComponentsIndex);
+        int qualifyingPackagesSize = qualifyingPackages.size();
+        for (int i = 0; i < qualifyingPackagesSize; ) {
+            String packageName = qualifyingPackages.get(i);
 
-            // This returns at most one component per package.
-            List<ComponentName> qualifyingComponents =
-                    requiredComponent.getQualifyingComponentsAsUser(user, context);
-            int qualifyingComponentsSize = qualifyingComponents.size();
-            for (int qualifyingComponentsIndex = 0;
-                    qualifyingComponentsIndex < qualifyingComponentsSize;
-                    ++qualifyingComponentsIndex) {
-                ComponentName componentName = qualifyingComponents.get(qualifyingComponentsIndex);
-
-                String packageName = componentName.getPackageName();
-                Integer componentCount = packageComponentCountMap.get(packageName);
-                packageComponentCountMap.put(packageName, componentCount == null ? 1
-                        : componentCount + 1);
+            if (!isPackageMinimallyQualifiedAsUser(packageName, user, context)) {
+                qualifyingPackages.remove(i);
+                qualifyingPackagesSize--;
+            } else {
+                i++;
             }
-        }
-
-        List<String> qualifyingPackages = new ArrayList<>();
-        int packageComponentCountMapSize = packageComponentCountMap.size();
-        for (int i = 0; i < packageComponentCountMapSize; i++) {
-            int componentCount = packageComponentCountMap.valueAt(i);
-
-            if (componentCount != requiredComponentsSize) {
-                continue;
-            }
-            String packageName = packageComponentCountMap.keyAt(i);
-            if (!isPackageMinimallyQualifiedAsUser(packageName, user,
-                    context)) {
-                continue;
-            }
-            qualifyingPackages.add(packageName);
         }
 
         return qualifyingPackages;
