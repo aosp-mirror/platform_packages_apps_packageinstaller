@@ -583,8 +583,7 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
 
         long curTime = System.currentTimeMillis();
         PermissionUsages usages = new PermissionUsages(this);
-        long filterTimeBeginMillis = Math.max(System.currentTimeMillis() - numMillis,
-                System.currentTimeMillis());
+        long filterTimeBeginMillis = Math.max(System.currentTimeMillis() - numMillis, 0);
         usages.load(null, null, filterTimeBeginMillis, Long.MAX_VALUE,
                 PermissionUsages.USAGE_FLAG_LAST | PermissionUsages.USAGE_FLAG_HISTORICAL, null,
                 false, null, true);

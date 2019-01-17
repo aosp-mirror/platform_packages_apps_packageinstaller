@@ -359,6 +359,10 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
 
         mHasSystemApps = false;
 
+        final TimeFilterItem timeFilterItem = getSelectedFilterItem();
+        long curTime = System.currentTimeMillis();
+        long startTime = (timeFilterItem == null ? 0 : (curTime - timeFilterItem.getTime()));
+
         List<Pair<AppPermissionUsage, GroupUsage>> usages = new ArrayList<>();
         int numApps = appPermissionUsages.size();
         for (int appNum = 0; appNum < numApps; appNum++) {
@@ -368,7 +372,8 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
             for (int groupNum = 0; groupNum < numGroups; groupNum++) {
                 GroupUsage groupUsage = appGroups.get(groupNum);
 
-                if (groupUsage.getAccessCount() <= 0) {
+                if (groupUsage.getAccessCount() <= 0
+                        || groupUsage.getLastAccessTime() < startTime) {
                     continue;
                 }
                 final boolean isSystemApp = Utils.isSystem(appUsage.getApp(), mLauncherPkgs);
@@ -391,7 +396,6 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         }
 
         // Update bar chart.
-        final TimeFilterItem timeFilterItem = getSelectedFilterItem();
         final BarChartPreference barChart = createBarChart(usages, timeFilterItem, context);
         screen.addPreference(barChart);
 
@@ -478,7 +482,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
             return;
         }
         final long filterTimeBeginMillis = Math.max(System.currentTimeMillis()
-                - timeFilterItem.getTime(), Calendar.getInstance().getTimeInMillis());
+                - timeFilterItem.getTime(), 0);
         mPermissionUsages.load(null /*filterPackageName*/, null,
                 filterTimeBeginMillis, Long.MAX_VALUE, PermissionUsages.USAGE_FLAG_LAST
                         | PermissionUsages.USAGE_FLAG_HISTORICAL, getActivity().getLoaderManager(),
