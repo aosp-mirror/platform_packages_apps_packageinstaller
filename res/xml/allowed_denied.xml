@@ -22,6 +22,10 @@
         android:title="@string/allowed_header" />
 
     <PreferenceCategory
+        android:key="allowed_foreground"
+        android:title="@string/allowed_foreground_header" />
+
+    <PreferenceCategory
         android:key="denied"
         android:title="@string/denied_header" />
 

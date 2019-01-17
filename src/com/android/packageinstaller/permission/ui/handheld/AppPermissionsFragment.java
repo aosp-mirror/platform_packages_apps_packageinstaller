@@ -182,6 +182,8 @@ public final class AppPermissionsFragment extends SettingsWithButtonHeader {
         allowed.removeAll();
         denied.removeAll();
 
+        findPreference("allowed_foreground").setVisible(false);
+
         if (mExtraScreen != null) {
             mExtraScreen.removeAll();
         }
@@ -213,13 +215,13 @@ public final class AppPermissionsFragment extends SettingsWithButtonHeader {
             preference.setIcon(Utils.applyTint(context, icon,
                     android.R.attr.colorControlNormal));
             preference.setTitle(group.getLabel());
-            String timeDiffStr = Utils.getLastUsageString(context,
+            String lastAccessStr = Utils.getAbsoluteLastUsageString(context,
                     PermissionUsages.loadLastGroupUsage(context, group));
             // STOPSHIP: Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
-            if (timeDiffStr != null && !group.getLabel().equals("Storage")) {
+            if (lastAccessStr != null && !group.getLabel().equals("Storage")) {
                 preference.setSummary(
                         context.getString(R.string.app_permission_most_recent_summary,
-                                timeDiffStr));
+                                lastAccessStr));
             } else {
                 preference.setGroupSummary(group);
             }
