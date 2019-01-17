@@ -246,8 +246,6 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         mSortAdapter.addFilter(
                 new SortItem(context.getString(R.string.sort_spinner_most_permissions),
                         SORT_MOST_PERMISSIONS));
-        mSortAdapter.addFilter(new SortItem(context.getString(R.string.sort_spinner_most_accesses),
-                SORT_MOST_ACCESSES));
         mSortSpinner.setSelection(mSavedSortSpinnerIndex);
 
         return root;
