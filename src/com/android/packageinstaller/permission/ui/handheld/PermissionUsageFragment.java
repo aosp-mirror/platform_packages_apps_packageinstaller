@@ -32,6 +32,7 @@ import android.text.format.DateFormat;
 import android.util.ArrayMap;
 import android.util.ArraySet;
 import android.util.Log;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -48,7 +49,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.DialogFragment;
 import androidx.preference.PreferenceCategory;
-import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceScreen;
 
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
@@ -357,13 +357,45 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         }
         screen.removeAll();
 
-        // Update bar chart
+        mHasSystemApps = false;
+
+        List<Pair<AppPermissionUsage, GroupUsage>> usages = new ArrayList<>();
+        int numApps = appPermissionUsages.size();
+        for (int appNum = 0; appNum < numApps; appNum++) {
+            AppPermissionUsage appUsage = appPermissionUsages.get(appNum);
+            List<GroupUsage> appGroups = appUsage.getGroupUsages();
+            int numGroups = appGroups.size();
+            for (int groupNum = 0; groupNum < numGroups; groupNum++) {
+                GroupUsage groupUsage = appGroups.get(groupNum);
+
+                if (groupUsage.getAccessCount() <= 0) {
+                    continue;
+                }
+                final boolean isSystemApp = Utils.isSystem(appUsage.getApp(), mLauncherPkgs);
+                if (!mHasSystemApps) {
+                    if (isSystemApp) {
+                        mHasSystemApps = true;
+                        getActivity().invalidateOptionsMenu();
+                    }
+                }
+                if (isSystemApp && !mShowSystem) {
+                    continue;
+                }
+                // STOPSHIP: Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
+                if (groupUsage.getGroup().getLabel().equals("Storage")) {
+                    continue;
+                }
+
+                usages.add(Pair.create(appUsage, appGroups.get(groupNum)));
+            }
+        }
+
+        // Update bar chart.
         final TimeFilterItem timeFilterItem = getSelectedFilterItem();
-        final BarChartPreference barChart = createBarChart(appPermissionUsages,
-                timeFilterItem, context);
+        final BarChartPreference barChart = createBarChart(usages, timeFilterItem, context);
         screen.addPreference(barChart);
 
-        // Add the preferences.
+        // Add the preference header.
         PreferenceCategory category = new PreferenceCategory(context);
         screen.addPreference(category);
         if (timeFilterItem != null) {
@@ -372,91 +404,50 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
 
         // Sort the apps.
         final int sortOption = getSelectedSortOption();
-        if (sortOption == SORT_MOST_PERMISSIONS) {
-            appPermissionUsages.sort(PermissionUsageFragment::compareAccessUsage);
+        if (sortOption == SORT_RECENT) {
+            usages.sort(PermissionUsageFragment::compareAccessRecency);
+        } else if (sortOption == SORT_MOST_PERMISSIONS) {
+            usages.sort(PermissionUsageFragment::compareAccessUsage);
         } else if (sortOption == SORT_MOST_ACCESSES) {
-            appPermissionUsages.sort(PermissionUsageFragment::compareAccessCount);
-        } else if (sortOption == SORT_RECENT) {
-            appPermissionUsages.sort(PermissionUsageFragment::compareAccessRecency);
+            usages.sort(PermissionUsageFragment::compareAccessCount);
         } else {
             Log.w(LOG_TAG, "Unexpected sort option: " + sortOption);
         }
 
-        mHasSystemApps = false;
-
         java.text.DateFormat timeFormat = DateFormat.getTimeFormat(context);
         java.text.DateFormat dateFormat = DateFormat.getMediumDateFormat(context);
 
-        final int numApps = appPermissionUsages.size();
-        for (int appNum = 0; appNum < numApps; appNum++) {
-            final AppPermissionUsage appPermissionUsage = appPermissionUsages.get(appNum);
+        ExpandablePreferenceGroup parent = null;
+        AppPermissionUsage lastAppPermissionUsage = null;
 
-            if (appPermissionUsage.getAccessCount() <= 0) {
+        final int numUsages = usages.size();
+        for (int usageNum = 0; usageNum < numUsages; usageNum++) {
+            final Pair<AppPermissionUsage, GroupUsage> usage = usages.get(usageNum);
+            AppPermissionUsage appPermissionUsage = usage.first;
+            GroupUsage groupUsage = usage.second;
+
+            if (mFilterGroup != null && !mFilterGroup.equals(groupUsage.getGroup().getName())) {
                 continue;
             }
 
-            final boolean isSystemApp = Utils.isSystem(appPermissionUsage.getApp(),
-                    mLauncherPkgs);
-            if (!mHasSystemApps) {
-                if (isSystemApp) {
-                    mHasSystemApps = true;
-                    getActivity().invalidateOptionsMenu();
-                }
-            }
-            if (isSystemApp && !mShowSystem) {
-                continue;
-            }
-
-            if (sortOption == SORT_MOST_ACCESSES) {
-                appPermissionUsage.getGroupUsages().sort(
-                        PermissionUsageFragment::compareAccessCount);
+            String accessTimeString = null;
+            if (isToday(groupUsage.getLastAccessTime())) {
+                accessTimeString = timeFormat.format(groupUsage.getLastAccessTime());
             } else {
-                appPermissionUsage.getGroupUsages().sort(
-                        PermissionUsageFragment::compareAccessTime);
+                accessTimeString = dateFormat.format(groupUsage.getLastAccessTime());
             }
 
-            final List<GroupUsage> appGroups = appPermissionUsage.getGroupUsages();
-
-            final List<PermissionControlPreference> permissionPrefs = new ArrayList<>();
-            final int numGroups = appGroups.size();
-            for (int groupNum = 0; groupNum < numGroups; groupNum++) {
-                final GroupUsage groupUsage = appGroups.get(groupNum);
-                if (mFilterGroup != null && !mFilterGroup.equals(groupUsage.getGroup().getName())) {
-                    continue;
-                }
-                // STOPSHIP: Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
-                if (groupUsage.getGroup().getLabel().equals("Storage")) {
-                    continue;
-                }
-                if (groupUsage.getAccessCount() > 0) {
-                    String accessTimeString = null;
-                    if (isToday(groupUsage.getLastAccessTime())) {
-                        accessTimeString = timeFormat.format(groupUsage.getLastAccessTime());
-                    } else {
-                        accessTimeString = dateFormat.format(groupUsage.getLastAccessTime());
-                    }
-
-                    permissionPrefs.add(createPermissionUsagePreference(context,
-                            appPermissionUsage, groupUsage, accessTimeString));
-                }
+            if (lastAppPermissionUsage != appPermissionUsage) {
+                // Add a "parent" entry for the app that will expand to the individual entries.
+                parent = createExpandablePreferenceGroup(context, appPermissionUsage,
+                        sortOption == SORT_RECENT ? accessTimeString : null);
+                category.addPreference(parent);
+                lastAppPermissionUsage = appPermissionUsage;
             }
 
-            if (permissionPrefs.isEmpty()) {
-                continue;
-            }
-
-            // Add a "parent" entry for the app that will expand to the individual entries.
-            PreferenceGroup parent = createExpandablePreferenceGroup(context, appPermissionUsage);
-            category.addPreference(parent);
-
-            final int permissionPrefCount = permissionPrefs.size();
-            for (int i = 0; i < permissionPrefCount; i++) {
-                final PermissionControlPreference permissionPref = permissionPrefs.get(i);
-                if (permissionPrefs.size() == 1) {
-                    permissionPref.setIcon(appPermissionUsage.getApp().getIcon());
-                }
-                parent.addPreference(permissionPrefs.get(i));
-            }
+            parent.addPreference(createPermissionUsagePreference(context, appPermissionUsage,
+                    groupUsage, accessTimeString));
+            parent.addSummaryIcon(groupUsage.getGroup().getIconResId());
         }
     }
 
@@ -497,13 +488,14 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
     /**
      * Create a bar chart showing the permissions that are used by the most apps.
      *
-     * @param appPermissionUsages app permission usages
+     * @param usages the usages
      * @param timeFilterItem the time filter, or null if no filter is set
      * @param context the context
      *
      * @return the Preference representing the bar chart
      */
-    private BarChartPreference createBarChart(@NonNull List<AppPermissionUsage> appPermissionUsages,
+    private BarChartPreference createBarChart(
+            @NonNull List<Pair<AppPermissionUsage, GroupUsage>> usages,
             @Nullable TimeFilterItem timeFilterItem, @NonNull Context context) {
         BarChartInfo.Builder builder = new BarChartInfo.Builder();
         BarChartPreference barChart = new BarChartPreference(context, null);
@@ -521,28 +513,16 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
 
         final ArrayList<AppPermissionGroup> groups = new ArrayList<>();
         final ArrayMap<String, Integer> groupToAppCount = new ArrayMap<>();
-        final int appCount = appPermissionUsages.size();
-        for (int i = 0; i < appCount; i++) {
-            final AppPermissionUsage appPermissionUsage = appPermissionUsages.get(i);
-            final List<AppPermissionUsage.GroupUsage> groupUsages =
-                    appPermissionUsage.getGroupUsages();
-            final int groupCount = groupUsages.size();
-            for (int j = 0; j < groupCount; j++) {
-                final GroupUsage groupUsage = groupUsages.get(j);
-                if (groupUsage.getAccessCount() <= 0) {
-                    continue;
-                }
-                // STOPSHIP: Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
-                if (groupUsage.getGroup().getLabel().equals("Storage")) {
-                    continue;
-                }
-                final Integer count = groupToAppCount.get(groupUsage.getGroup().getName());
-                if (count == null) {
-                    groups.add(groupUsage.getGroup());
-                    groupToAppCount.put(groupUsage.getGroup().getName(), 1);
-                } else {
-                    groupToAppCount.put(groupUsage.getGroup().getName(), count + 1);
-                }
+        final int usageCount = usages.size();
+        for (int i = 0; i < usageCount; i++) {
+            final Pair<AppPermissionUsage, GroupUsage> usage = usages.get(i);
+            GroupUsage groupUsage = usage.second;
+            final Integer count = groupToAppCount.get(groupUsage.getGroup().getName());
+            if (count == null) {
+                groups.add(groupUsage.getGroup());
+                groupToAppCount.put(groupUsage.getGroup().getName(), 1);
+            } else {
+                groupToAppCount.put(groupUsage.getGroup().getName(), count + 1);
             }
         }
 
@@ -586,24 +566,14 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
      *
      * @return the expandable preference group.
      */
-    private PreferenceGroup createExpandablePreferenceGroup(@NonNull Context context,
-            @NonNull AppPermissionUsage appPermissionUsage) {
-        final List<GroupUsage> groupUsages = appPermissionUsage.getGroupUsages();
-        final List<Integer> permissionIcons = new ArrayList<>(groupUsages.size());
-        final int permissionUsageCount = groupUsages.size();
-        for (int i = 0; i < permissionUsageCount; i++) {
-            final AppPermissionUsage.GroupUsage groupUsage = groupUsages.get(i);
-            // STOPSHIP: Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
-            if (groupUsage.getGroup().getLabel().equals("Storage")) {
-                continue;
-            }
-            if (groupUsage.getAccessCount() > 0) {
-                permissionIcons.add(groupUsage.getGroup().getIconResId());
-            }
-        }
-        PreferenceGroup preference = new ExpandablePreferenceGroup(context, permissionIcons);
+    private ExpandablePreferenceGroup createExpandablePreferenceGroup(@NonNull Context context,
+            @NonNull AppPermissionUsage appPermissionUsage, @Nullable String summaryString) {
+        ExpandablePreferenceGroup preference = new ExpandablePreferenceGroup(context);
         preference.setTitle(appPermissionUsage.getApp().getLabel());
         preference.setIcon(appPermissionUsage.getApp().getIcon());
+        if (summaryString != null) {
+            preference.setSummary(summaryString);
+        }
         return preference;
     }
 
@@ -643,22 +613,24 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
     }
 
     /**
-     * Compare two AppPermissionUsage by their permission usage.
+     * Compare two usages by the number of apps that accessed each group.
      *
      * Can be used as a {@link java.util.Comparator}.
      *
-     * @param x an AppPermissionUsage.
-     * @param y an AppPermissionUsage.
+     * We ignore the GroupUsage here to ensure that we keep all usages by the same app together.
+     *
+     * @param x a usage.
+     * @param y a usage.
      *
      * @return see {@link java.util.Comparator#compare(Object, Object)}.
      */
-    private static int compareAccessUsage(@NonNull AppPermissionUsage x,
-            @NonNull AppPermissionUsage y) {
-        final int groupDiff = getAccessedGroupCount(y) - getAccessedGroupCount(x);
+    private static int compareAccessUsage(@NonNull Pair<AppPermissionUsage, GroupUsage> x,
+            @NonNull Pair<AppPermissionUsage, GroupUsage> y) {
+        final int groupDiff = getAccessedGroupCount(y.first) - getAccessedGroupCount(x.first);
         if (groupDiff != 0) {
             return groupDiff;
         }
-        return compareAccessTime(x, y);
+        return compareAccessTime(x.first, y.first);
     }
 
     /**
@@ -685,18 +657,19 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
     }
 
     /**
-     * Compare two AppPermissionUsage by their access time.
+     * Compare two usages by their access time.
      *
      * Can be used as a {@link java.util.Comparator}.
      *
-     * @param x an AppPermissionUsage.
-     * @param y an AppPermissionUsage.
+     * @param x a usage.
+     * @param y a usage.
      *
      * @return see {@link java.util.Comparator#compare(Object, Object)}.
      */
-    private static int compareAccessTime(@NonNull AppPermissionUsage.GroupUsage x,
-            @NonNull AppPermissionUsage.GroupUsage y) {
-        final int timeDiff = compareLong(x.getLastAccessTime(), y.getLastAccessTime());
+    private static int compareAccessTime(@NonNull Pair<AppPermissionUsage, GroupUsage> x,
+            @NonNull Pair<AppPermissionUsage, GroupUsage> y) {
+        final int timeDiff = compareLong(x.second.getLastAccessTime(),
+                y.second.getLastAccessTime());
         if (timeDiff != 0) {
             return timeDiff;
         }
@@ -716,7 +689,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
      */
     private static int compareAccessTime(@NonNull AppPermissionUsage x,
             @NonNull AppPermissionUsage y) {
-        final int timeDiff = compareLong(getLastAccessTime(x), getLastAccessTime(y));
+        final int timeDiff = compareLong(x.getLastAccessTime(), y.getLastAccessTime());
         if (timeDiff != 0) {
             return timeDiff;
         }
@@ -725,88 +698,22 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
     }
 
     /**
-     * Gets the last time the given app used a permission.
-     *
-     * @param appPermissionUsage The app permission usage.
-     *
-     * @return The last access time.
-     */
-    private static long getLastAccessTime(@NonNull AppPermissionUsage appPermissionUsage) {
-        long lastAccessTime = 0;
-        final List<GroupUsage> groupUsages = appPermissionUsage.getGroupUsages();
-        final int groupCount = groupUsages.size();
-        for (int i = 0; i < groupCount; i++) {
-            final GroupUsage groupUsage = groupUsages.get(i);
-            // STOPSHIP: Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
-            // We can replace this with AppPermissionUsage.getLastAccessTime then.
-            if (groupUsage.getGroup().getLabel().equals("Storage")) {
-                continue;
-            }
-            lastAccessTime = Math.max(lastAccessTime, groupUsage.getLastAccessTime());
-        }
-        return lastAccessTime;
-    }
-
-    /**
-     * Compare two AppPermissionUsage by their access count.
+     * Compare two usages by their access count.
      *
      * Can be used as a {@link java.util.Comparator}.
      *
-     * @param x an AppPermissionUsage.
-     * @param y an AppPermissionUsage.
+     * @param x a usage.
+     * @param y a usage.
      *
      * @return see {@link java.util.Comparator#compare(Object, Object)}.
      */
-    private static int compareAccessCount(@NonNull AppPermissionUsage x,
-            @NonNull AppPermissionUsage y) {
-        final int accessDiff = compareLong(getAccessCount(x), getAccessCount(y));
+    private static int compareAccessCount(@NonNull Pair<AppPermissionUsage, GroupUsage> x,
+            @NonNull Pair<AppPermissionUsage, GroupUsage> y) {
+        final int accessDiff = compareLong(x.second.getAccessCount(), y.second.getAccessCount());
         if (accessDiff != 0) {
             return accessDiff;
         }
         return compareAccessTime(x, y);
-    }
-
-    /**
-     * Compare two AppPermissionUsage by their access count.
-     *
-     * Can be used as a {@link java.util.Comparator}.
-     *
-     * @param x an AppPermissionUsage.
-     * @param y an AppPermissionUsage.
-     *
-     * @return see {@link java.util.Comparator#compare(Object, Object)}.
-     */
-    private static int compareAccessCount(@NonNull AppPermissionUsage.GroupUsage x,
-            @NonNull GroupUsage y) {
-        final int accessDiff = compareLong(x.getAccessCount(), y.getAccessCount());
-        if (accessDiff != 0) {
-            return accessDiff;
-        }
-        // Make sure we lose no data if same
-        return y.hashCode() - x.hashCode();
-    }
-
-    /**
-     * Gets the number of permission usages.
-     *
-     * @param appPermissionUsage The app permission usage.
-     *
-     * @return The number of permission usages.
-     */
-    private static long getAccessCount(@NonNull AppPermissionUsage appPermissionUsage) {
-        long accessCount = 0;
-        final List<GroupUsage> groupUsages = appPermissionUsage.getGroupUsages();
-        final int groupCount = groupUsages.size();
-        for (int i = 0; i < groupCount; i++) {
-            final GroupUsage groupUsage = groupUsages.get(i);
-            // STOPSHIP: Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
-            // We can replace this with AppPermissionUsage.getAccessCount then.
-            if (groupUsage.getGroup().getLabel().equals("Storage")) {
-                continue;
-            }
-            accessCount += groupUsage.getAccessCount();
-        }
-        return accessCount;
     }
 
     /**
@@ -829,17 +736,17 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
     }
 
     /**
-     * Compare two AppPermissionUsage by recency of access.
+     * Compare two usages by recency of access.
      *
      * Can be used as a {@link java.util.Comparator}.
      *
-     * @param x an AppPermissionUsage.
-     * @param y an AppPermissionUsage.
+     * @param x a usage.
+     * @param y a usage.
      *
      * @return see {@link java.util.Comparator#compare(Object, Object)}.
      */
-    private static int compareAccessRecency(@NonNull AppPermissionUsage x,
-            @NonNull AppPermissionUsage y) {
+    private static int compareAccessRecency(@NonNull Pair<AppPermissionUsage, GroupUsage> x,
+            @NonNull Pair<AppPermissionUsage, GroupUsage> y) {
         final int timeDiff = compareAccessTime(x, y);
         if (timeDiff != 0) {
             return timeDiff;
