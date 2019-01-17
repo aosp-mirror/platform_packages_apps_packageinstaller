@@ -204,6 +204,8 @@ public class AppPermissionFragment extends SettingsWithButtonHeader {
         root.requireViewById(R.id.usage_link).setOnClickListener((v) -> {
             Intent intent = new Intent(Intent.ACTION_REVIEW_APP_PERMISSION_USAGE);
             intent.putExtra(Intent.EXTRA_PACKAGE_NAME, mGroup.getApp().packageName);
+            intent.putExtra(Intent.EXTRA_USER,
+                    UserHandle.getUserHandleForUid(mGroup.getApp().applicationInfo.uid));
             context.startActivity(intent);
         });
 

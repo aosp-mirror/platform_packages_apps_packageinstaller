@@ -17,12 +17,17 @@
 package com.android.packageinstaller.role.model;
 
 import android.content.Context;
+import android.os.Process;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.telephony.TelephonyManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.android.packageinstaller.permission.utils.CollectionUtils;
+
+import java.util.List;
 
 /**
  * Class for behavior of the SMS role.
@@ -35,7 +40,7 @@ import androidx.annotation.Nullable;
 public class SmsRoleBehavior implements RoleBehavior {
 
     @Override
-    public boolean isAvailableAsUser(@NonNull UserHandle user,
+    public boolean isAvailableAsUser(@NonNull Role role, @NonNull UserHandle user,
             @NonNull Context context) {
         UserManager userManager = context.getSystemService(UserManager.class);
         if (userManager.isManagedProfile(user.getIdentifier())) {
@@ -52,11 +57,36 @@ public class SmsRoleBehavior implements RoleBehavior {
         return true;
     }
 
+    @NonNull
+    @Override
+    public List<String> getDefaultHolders(@NonNull Role role, @NonNull Context context) {
+        return CollectionUtils.singletonOrEmpty(getDefaultHolder(role, context));
+    }
+
+    @Nullable
+    private String getDefaultHolder(@NonNull Role role, @NonNull Context context) {
+        // TODO: STOPSHIP: Read system resource for default handler.
+        return null;
+    }
+
     @Nullable
     @Override
-    public CharSequence getConfirmationMessage(@NonNull String packageName,
+    public String getFallbackHolder(@NonNull Role role, @NonNull Context context) {
+        String defaultPackageName = getDefaultHolder(role, context);
+        if (defaultPackageName != null) {
+            return defaultPackageName;
+        }
+
+        List<String> qualifyingPackageNames = role.getQualifyingPackagesAsUser(
+                Process.myUserHandle(), context);
+        return CollectionUtils.firstOrNull(qualifyingPackageNames);
+    }
+
+    @Nullable
+    @Override
+    public CharSequence getConfirmationMessage(@NonNull Role role, @NonNull String packageName,
             @NonNull Context context) {
-        return EncryptionUnawareConfirmationMixin.getConfirmationMessage(packageName,
+        return EncryptionUnawareConfirmationMixin.getConfirmationMessage(role, packageName,
                 context);
     }
 }

@@ -58,42 +58,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" >
 
-                    <LinearLayout
+                    <RadioButton
+                        android:id="@+id/allow_radio_button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/allow_radio_button"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/app_permission_button_allow_always"
-                            style="@style/PermissionGrantRadioButton" />
-
-                        <LinearLayout
-                            android:id="@+id/two_target_divider"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:orientation="horizontal"
-                            android:paddingTop="@dimen/app_permission_vertical_divider_padding_top"
-                            android:paddingBottom="@dimen/app_permission_vertical_divider_padding_bottom">
-                            <View
-                                android:layout_width="1dp"
-                                android:layout_height="match_parent"
-                                android:background="@drawable/list_divider_dark" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/widget_frame"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:minWidth="64dp"
-                            android:orientation="vertical" />
-
-                    </LinearLayout>
+                        android:text="@string/app_permission_button_allow_always"
+                        style="@style/PermissionGrantRadioButton" />
 
                     <RadioButton
                         android:id="@+id/foreground_only_radio_button"
@@ -111,12 +81,40 @@
 
                 </RadioGroup>
 
-                <TextView
-                    android:id="@+id/permission_details"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/app_permission_detail_margin_start"
-                    android:layout_marginTop="@dimen/app_permission_detail_margin_top" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/permission_details"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/app_permission_detail_margin_start"
+                        android:layout_marginTop="@dimen/app_permission_detail_margin_top" />
+
+                    <LinearLayout
+                        android:id="@+id/two_target_divider"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingTop="@dimen/app_permission_vertical_divider_padding_top"
+                        android:paddingBottom="@dimen/app_permission_vertical_divider_padding_bottom">
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/list_divider_dark" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/widget_frame"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:minWidth="64dp" />
+
+                </LinearLayout>
 
             </LinearLayout>
 

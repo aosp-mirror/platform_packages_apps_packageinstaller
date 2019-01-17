@@ -22,6 +22,7 @@ import static com.android.packageinstaller.permission.service.PermissionSearchIn
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.util.Log;
 import android.view.MenuItem;
 
@@ -146,8 +147,14 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                     finish();
                     return;
                 }
+                UserHandle userHandle = getIntent().getParcelableExtra(Intent.EXTRA_USER);
+                if (userHandle == null) {
+                    Log.i(LOG_TAG, "Missing mandatory argument EXTRA_USER");
+                    finish();
+                    return;
+                }
                 androidXFragment = com.android.packageinstaller.permission.ui.handheld
-                        .AppPermissionUsageFragment.newInstance(packageName);
+                        .AppPermissionUsageFragment.newInstance(packageName, userHandle);
             } break;
 
             default: {

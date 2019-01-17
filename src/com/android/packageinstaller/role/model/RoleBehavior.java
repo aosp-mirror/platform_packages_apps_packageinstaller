@@ -22,6 +22,9 @@ import android.os.UserHandle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.util.Collections;
+import java.util.List;
+
 /**
  * Interface for behavior of a role.
  */
@@ -30,15 +33,32 @@ public interface RoleBehavior {
     /**
      * @see Role#isAvailableAsUser(UserHandle, Context)
      */
-    default boolean isAvailableAsUser(@NonNull UserHandle user, @NonNull Context context) {
+    default boolean isAvailableAsUser(@NonNull Role role, @NonNull UserHandle user,
+            @NonNull Context context) {
         return true;
+    }
+
+    /**
+     * @see Role#getDefaultHolders(Context)
+     */
+    @NonNull
+    default List<String> getDefaultHolders(@NonNull Role role, @NonNull Context context) {
+        return Collections.emptyList();
+    }
+
+    /**
+     * @see Role#getFallbackHolder(Context)
+     */
+    @Nullable
+    default String getFallbackHolder(@NonNull Role role, @NonNull Context context) {
+        return null;
     }
 
     /**
      * @see Role#getConfirmationMessage(String, Context)
      */
     @Nullable
-    default CharSequence getConfirmationMessage(@NonNull String packageName,
+    default CharSequence getConfirmationMessage(@NonNull Role role, @NonNull String packageName,
             @NonNull Context context) {
         return null;
     }

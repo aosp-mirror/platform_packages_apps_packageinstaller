@@ -24,13 +24,13 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 
@@ -63,13 +63,12 @@ public class AppPermissionUsageFragment extends SettingsWithButtonHeader {
     /**
      * @return A new fragment
      */
-    public static @NonNull AppPermissionUsageFragment newInstance(@NonNull String packageName) {
-        return setPackageName(new AppPermissionUsageFragment(), packageName);
-    }
-
-    private static <T extends Fragment> T setPackageName(T fragment, @NonNull String packageName) {
+    public static @NonNull AppPermissionUsageFragment newInstance(@NonNull String packageName,
+            @NonNull UserHandle userHandle) {
+        AppPermissionUsageFragment fragment = new AppPermissionUsageFragment();
         Bundle arguments = new Bundle();
         arguments.putString(Intent.EXTRA_PACKAGE_NAME, packageName);
+        arguments.putParcelable(Intent.EXTRA_USER, userHandle);
         fragment.setArguments(arguments);
         return fragment;
     }
@@ -91,8 +90,9 @@ public class AppPermissionUsageFragment extends SettingsWithButtonHeader {
         }
 
         String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
+        UserHandle userHandle = getArguments().getParcelable(Intent.EXTRA_USER);
         Activity activity = getActivity();
-        mAppInfo = getApplicationInfo(getActivity(), packageName);
+        mAppInfo = getApplicationInfo(getActivity(), packageName, userHandle);
         if (mAppInfo == null) {
             Toast.makeText(activity, R.string.app_not_found_dlg_title, Toast.LENGTH_LONG).show();
             activity.finish();
@@ -101,7 +101,7 @@ public class AppPermissionUsageFragment extends SettingsWithButtonHeader {
 
         final long beginTimeMillis = System.currentTimeMillis() - TimeUnit.HOURS.toMillis(24);
         mPermissionUsages = new PermissionUsages(getContext());
-        mPermissionUsages.load(packageName, null, beginTimeMillis, Long.MAX_VALUE,
+        mPermissionUsages.load(mAppInfo.uid, packageName, null, beginTimeMillis, Long.MAX_VALUE,
                 PermissionUsages.USAGE_FLAG_LAST | PermissionUsages.USAGE_FLAG_HISTORICAL,
                 getActivity().getLoaderManager(),
                 true, this::updateUi, false);
@@ -129,9 +129,10 @@ public class AppPermissionUsageFragment extends SettingsWithButtonHeader {
     }
 
     private static ApplicationInfo getApplicationInfo(@NonNull Activity activity,
-            @NonNull String packageName) {
+            @NonNull String packageName, @NonNull UserHandle userHandle) {
         try {
-            return activity.getPackageManager().getApplicationInfo(packageName, 0);
+            return activity.createPackageContextAsUser(packageName, 0,
+                    userHandle).getPackageManager().getApplicationInfo(packageName, 0);
         } catch (PackageManager.NameNotFoundException e) {
             Log.i(LOG_TAG, "No package: " + activity.getCallingPackage(), e);
             return null;
