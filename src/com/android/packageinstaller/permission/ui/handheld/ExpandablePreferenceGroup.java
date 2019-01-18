@@ -115,7 +115,7 @@ public class ExpandablePreferenceGroup extends PreferenceGroup {
     /**
      * Show the given icon next to this preference's summary.
      *
-     * @param resId the the resourceId of the drawable to use as the icon.
+     * @param resId the resourceId of the drawable to use as the icon.
      */
     public void addSummaryIcon(@DrawableRes int resId) {
         mSummaryIcons.add(resId);
