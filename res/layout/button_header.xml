@@ -21,7 +21,15 @@
     android:orientation="vertical"
     android:gravity="center" >
 
-    <include layout="@layout/settings_entity_header" />X
+    <include layout="@layout/settings_entity_header" />
+
+    <TextView
+        android:id="@+id/header_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:textColor="?android:attr/colorAccent"
+        android:clickable="true"/>
 
     <View
         android:layout_width="match_parent"

@@ -75,7 +75,7 @@ import java.util.Set;
  * <p>Shows a filterable list of app usage of permission groups, each of which links to
  * AppPermissionsFragment.
  */
-public class PermissionUsageFragment extends PermissionsFrameFragment implements
+public class PermissionUsageFragment extends SettingsWithButtonHeader implements
         PermissionUsages.PermissionsUsagesChangeCallback, OnItemSelectedListener {
     private static final String LOG_TAG = "PermissionUsageFragment";
 
@@ -198,7 +198,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
 
         // Setup filter spinners.
         View header = inflater.inflate(R.layout.permission_usage_filter_spinners, root, false);
-        getPreferencesContainer().addView(header, 0);
+        getPreferencesContainer().addView(header, 1);
 
         mFilterSpinnerTime = header.requireViewById(R.id.filter_spinner_time);
         mFilterAdapterTime = new FilterSpinnerAdapter<>(context);
@@ -319,12 +319,8 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
 
         // Use the saved permission group or the one passed as an argument, if applicable.
         if (mSavedGroupName != null && mFilterGroup == null) {
-            List<AppPermissionGroup> groups = getOSPermissionGroups();
-            int numGroups = groups.size();
-            for (int i = 0; i < numGroups; i++) {
-                if (groups.get(i).getName().equals(mSavedGroupName)) {
-                    mFilterGroup = mSavedGroupName;
-                }
+            if (getGroup(mSavedGroupName) != null) {
+                mFilterGroup = mSavedGroupName;
             }
         }
 
@@ -390,9 +386,25 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
             }
         }
 
-        // Update bar chart.
-        final BarChartPreference barChart = createBarChart(usages, timeFilterItem, context);
-        screen.addPreference(barChart);
+        // Update header.
+        if (mFilterGroup == null) {
+            final BarChartPreference barChart = createBarChart(usages, timeFilterItem, context);
+            screen.addPreference(barChart);
+            hideHeader();
+        } else {
+            AppPermissionGroup group = getGroup(mFilterGroup);
+            if (group != null) {
+                setHeader(Utils.applyTint(context, context.getDrawable(group.getIconResId()),
+                        android.R.attr.colorControlNormal),
+                        context.getString(R.string.app_permission_usage_filter_label,
+                                group.getLabel()), false);
+                setSummary(context.getString(R.string.app_permission_usage_remove_filter), v -> {
+                    mFilterGroup = null;
+                    // We already loaded all data, so don't reload
+                    updateUI();
+                });
+            }
+        }
 
         // Add the preference header.
         PreferenceCategory category = new PreferenceCategory(context);
@@ -492,14 +504,6 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         BarChartPreference barChart = new BarChartPreference(context, null);
         if (timeFilterItem != null) {
             builder.setTitle(timeFilterItem.getGraphTitleRes());
-        }
-        if (mFilterGroup != null) {
-            builder.setDetails(R.string.app_permission_usage_detail_label);
-            builder.setDetailsOnClickListener(v -> {
-                mFilterGroup = null;
-                // We already loaded all data, so don't reload
-                updateUI();
-            });
         }
 
         final ArrayList<AppPermissionGroup> groups = new ArrayList<>();
@@ -774,6 +778,25 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
             }
         }
         return groups;
+    }
+
+    /**
+     * Get an AppPermissionGroup that represents the given permission group (and an arbitrary app).
+     *
+     * @param groupName The name of the permission group.
+     *
+     * @return an AppPermissionGroup rerepsenting the given permission group or null if no such
+     * AppPermissionGroup is found.
+     */
+    private @Nullable AppPermissionGroup getGroup(@NonNull String groupName) {
+        List<AppPermissionGroup> groups = getOSPermissionGroups();
+        int numGroups = groups.size();
+        for (int i = 0; i < numGroups; i++) {
+            if (groups.get(i).getName().equals(groupName)) {
+                return groups.get(i);
+            }
+        }
+        return null;
     }
 
     /**

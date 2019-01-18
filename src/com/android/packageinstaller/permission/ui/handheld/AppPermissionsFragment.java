@@ -162,7 +162,7 @@ public final class AppPermissionsFragment extends SettingsWithButtonHeader {
         ApplicationInfo appInfo = packageInfo.applicationInfo;
 
         Drawable icon = Utils.getBadgedIcon(activity, appInfo);
-        fragment.setHeader(icon, Utils.getFullAppLabel(appInfo, activity));
+        fragment.setHeader(icon, Utils.getFullAppLabel(appInfo, activity), true);
 
         ActionBar ab = activity.getActionBar();
         if (ab != null) {
@@ -306,7 +306,7 @@ public final class AppPermissionsFragment extends SettingsWithButtonHeader {
         public void onCreate(Bundle savedInstanceState) {
             mOuterFragment = (AppPermissionsFragment) getTargetFragment();
             super.onCreate(savedInstanceState);
-            setHeader(mOuterFragment.mIcon, mOuterFragment.mLabel);
+            setHeader(mOuterFragment.mIcon, mOuterFragment.mLabel, true);
             setHasOptionsMenu(true);
             setPreferenceScreen(mOuterFragment.mExtraScreen);
         }
