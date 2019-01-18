@@ -182,13 +182,13 @@ public class AppPermissionUsageFragment extends SettingsWithButtonHeader {
             pref.setTitle(groupUsage.getGroup().getLabel());
             if (groupUsage.getAccessDuration() == 0) {
                 pref.setSummary(context.getString(R.string.app_permission_usage_summary_no_duration,
-                        groupUsage.getAccessCount(), Utils.getLastUsageString(context,
+                        groupUsage.getAccessCount(), Utils.getRelativeLastUsageString(context,
                                 groupUsage)));
             } else {
                 pref.setSummary(context.getString(R.string.app_permission_usage_summary,
                         groupUsage.getAccessCount(),
                         Utils.getUsageDurationString(context, groupUsage),
-                        Utils.getLastUsageString(context, groupUsage)));
+                        Utils.getRelativeLastUsageString(context, groupUsage)));
             }
             pref.setIcon(Utils.applyTint(context, group.getIconResId(),
                     android.R.attr.colorControlNormal));

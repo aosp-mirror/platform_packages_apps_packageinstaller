@@ -28,7 +28,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.text.format.DateFormat;
 import android.util.ArrayMap;
 import android.util.ArraySet;
 import android.util.Log;
@@ -66,10 +65,8 @@ import com.android.settingslib.widget.settingsspinner.SettingsSpinnerAdapter;
 import java.lang.annotation.Retention;
 import java.text.Collator;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
 import java.util.Set;
 
 /**
@@ -418,9 +415,6 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
             Log.w(LOG_TAG, "Unexpected sort option: " + sortOption);
         }
 
-        java.text.DateFormat timeFormat = DateFormat.getTimeFormat(context);
-        java.text.DateFormat dateFormat = DateFormat.getMediumDateFormat(context);
-
         ExpandablePreferenceGroup parent = null;
         AppPermissionUsage lastAppPermissionUsage = null;
 
@@ -434,12 +428,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
                 continue;
             }
 
-            String accessTimeString = null;
-            if (isToday(groupUsage.getLastAccessTime())) {
-                accessTimeString = timeFormat.format(groupUsage.getLastAccessTime());
-            } else {
-                accessTimeString = dateFormat.format(groupUsage.getLastAccessTime());
-            }
+            String accessTimeString = Utils.getAbsoluteLastUsageString(context, groupUsage);
 
             if (lastAppPermissionUsage != appPermissionUsage) {
                 // Add a "parent" entry for the app that will expand to the individual entries.
@@ -787,25 +776,6 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
             }
         }
         return groups;
-    }
-
-    /**
-     * Check whether the given time (in milliseconds) is in the current day.
-     *
-     * @param time the time in milliseconds
-     *
-     * @return whether the given time is in the current day.
-     */
-    private static boolean isToday(long time) {
-        Calendar today = Calendar.getInstance(Locale.getDefault());
-        today.setTimeInMillis(System.currentTimeMillis());
-        today.set(Calendar.HOUR, 0);
-        today.set(Calendar.MINUTE, 0);
-        today.set(Calendar.SECOND, 0);
-
-        Calendar date = Calendar.getInstance(Locale.getDefault());
-        date.setTimeInMillis(time);
-        return date.after(today);
     }
 
     /**

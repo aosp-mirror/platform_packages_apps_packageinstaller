@@ -184,7 +184,7 @@ public class AppPermissionFragment extends SettingsWithButtonHeader {
         ((TextView) root.requireViewById(R.id.permission_message)).setText(
                 context.getString(R.string.app_permission_header, mGroup.getLabel(), appLabel));
 
-        String timeDiffStr = Utils.getLastUsageString(context,
+        String timeDiffStr = Utils.getRelativeLastUsageString(context,
                 PermissionUsages.loadLastGroupUsage(context, mGroup));
         if (timeDiffStr == null) {
             ((TextView) root.requireViewById(R.id.usage_summary)).setText(
