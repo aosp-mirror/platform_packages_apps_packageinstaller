@@ -427,6 +427,11 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
                     groupUsage, accessTimeString));
             parent.addSummaryIcon(groupUsage.getGroup().getIconResId());
         }
+
+        // If there are no entries, don't show anything.
+        if (parent == null) {
+            screen.removeAll();
+        }
     }
 
     private TimeFilterItem getSelectedFilterItem() {

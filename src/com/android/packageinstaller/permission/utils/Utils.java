@@ -599,13 +599,14 @@ public final class Utils {
     private static boolean isToday(long time) {
         Calendar today = Calendar.getInstance(Locale.getDefault());
         today.setTimeInMillis(System.currentTimeMillis());
-        today.set(Calendar.HOUR, 0);
+        today.set(Calendar.HOUR_OF_DAY, 0);
         today.set(Calendar.MINUTE, 0);
         today.set(Calendar.SECOND, 0);
+        today.set(Calendar.MILLISECOND, 0);
 
         Calendar date = Calendar.getInstance(Locale.getDefault());
         date.setTimeInMillis(time);
-        return date.after(today);
+        return !date.before(today);
     }
 
     /**
