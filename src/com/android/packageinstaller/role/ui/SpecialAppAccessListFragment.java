@@ -26,7 +26,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.preference.Preference;
-import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceManager;
 import androidx.preference.PreferenceScreen;
 
@@ -88,26 +87,13 @@ public class SpecialAppAccessListFragment extends SettingsFragment
             preferenceScreen = preferenceManager.createPreferenceScreen(context);
             setPreferenceScreen(preferenceScreen);
         } else {
-            clearPreferences(preferenceScreen, oldPreferences);
+            for (int i = preferenceScreen.getPreferenceCount() - 1; i >= 0; --i) {
+                Preference preference = preferenceScreen.getPreference(i);
+
+                oldPreferences.put(preference.getKey(), preference);
+            }
         }
 
-        addPreferences(preferenceScreen, roleItems, oldPreferences, this, context);
-
-        updateState();
-    }
-
-    private static void clearPreferences(@NonNull PreferenceGroup preferenceGroup,
-            @NonNull ArrayMap<String, Preference> oldPreferences) {
-        for (int i = preferenceGroup.getPreferenceCount() - 1; i >= 0; --i) {
-            Preference preference = preferenceGroup.getPreference(i);
-
-            oldPreferences.put(preference.getKey(), preference);
-        }
-    }
-
-    private static void addPreferences(@NonNull PreferenceGroup preferenceGroup,
-            @NonNull List<RoleItem> roleItems, @NonNull ArrayMap<String, Preference> oldPreferences,
-            @NonNull Preference.OnPreferenceClickListener listener, @NonNull Context context) {
         int roleItemsSize = roleItems.size();
         for (int i = 0; i < roleItemsSize; i++) {
             RoleItem roleItem = roleItems.get(i);
@@ -120,12 +106,14 @@ public class SpecialAppAccessListFragment extends SettingsFragment
                 preference.setIconSpaceReserved(true);
                 preference.setTitle(role.getLabelResource());
                 preference.setPersistent(false);
-                preference.setOnPreferenceClickListener(listener);
+                preference.setOnPreferenceClickListener(this);
             }
 
             // TODO: Ordering?
-            preferenceGroup.addPreference(preference);
+            preferenceScreen.addPreference(preference);
         }
+
+        updateState();
     }
 
     @Override
