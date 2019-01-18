@@ -62,4 +62,34 @@ public interface RoleBehavior {
             @NonNull Context context) {
         return null;
     }
+
+    /**
+     * Gets the packages that qualify to hold the role.
+     *
+     * @param user The user the package belong to
+     * @param context A context to use
+     *
+     * @return the list of qualifying packages (might be empty) or {@code null} if the role
+     *         description is enough to find the qualified packages
+     */
+    @Nullable
+    default List<String> getQualifyingPackagesAsUser(@NonNull UserHandle user,
+            @NonNull Context context) {
+        return null;
+    }
+
+    /**
+     * Check whether a package is qualified for this role, i.e. whether it contains all the required
+     * components (plus meeting some other general restrictions).
+     *
+     * @param packageName the package name to check for
+     * @param context the {@code Context} to retrieve system services
+     *
+     * @return whether the package is qualified for a role of {@code null} if the role description
+     *         is enough to find the qualified packages
+     */
+    @Nullable
+    default Boolean isPackageQualified(@NonNull String packageName, @NonNull Context context) {
+        return null;
+    }
 }
