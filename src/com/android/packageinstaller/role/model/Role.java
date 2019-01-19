@@ -20,6 +20,7 @@ import android.app.ActivityManager;
 import android.app.role.RoleManager;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.os.Process;
 import android.os.UserHandle;
@@ -231,6 +232,22 @@ public class Role {
     public String getFallbackHolder(@NonNull Context context) {
         if (mBehavior != null) {
             return mBehavior.getFallbackHolder(this, context);
+        }
+        return null;
+    }
+
+    /**
+     * Get the {@link Intent} to manage this role, or {@code null} to use the default UI.
+     *
+     * @param user the user to manage this role for
+     * @param context the {@code Context} to retrieve system services
+     *
+     * @return the {@link Intent} to manage this role, or {@code null} to use the default UI.
+     */
+    @Nullable
+    public Intent getManageIntentAsUser(@NonNull UserHandle user, @NonNull Context context) {
+        if (mBehavior != null) {
+            return mBehavior.getManageIntentAsUser(this, user, context);
         }
         return null;
     }

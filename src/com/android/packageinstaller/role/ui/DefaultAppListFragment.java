@@ -35,6 +35,7 @@ import androidx.preference.PreferenceScreen;
 
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.packageinstaller.role.model.Role;
+import com.android.packageinstaller.role.model.Roles;
 import com.android.permissioncontroller.R;
 
 import java.util.List;
@@ -180,8 +181,13 @@ public class DefaultAppListFragment extends SettingsFragment
     @Override
     public boolean onPreferenceClick(@NonNull Preference preference) {
         String roleName = preference.getKey();
+        Context context = requireContext();
+        Role role = Roles.get(context).get(roleName);
         UserHandle user = preference.getExtras().getParcelable(Intent.EXTRA_USER);
-        Intent intent = DefaultAppActivity.createIntent(roleName, user, requireContext());
+        Intent intent = role.getManageIntentAsUser(user, context);
+        if (intent == null) {
+            intent = DefaultAppActivity.createIntent(roleName, user, requireContext());
+        }
         startActivity(intent);
         return true;
     }
