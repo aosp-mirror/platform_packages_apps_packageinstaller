@@ -543,28 +543,28 @@
 
     <!-- TODO: STOPSHIP: Migrate all default app titles from packages/apps/Settings/res/values/strings.xml . -->
 
+    <!-- Label for the browser role. [CHAR LIMIT=30] -->
+    <string name="role_label_browser">Browser app</string>
     <!-- Label for the dialer role. [CHAR LIMIT=30] -->
     <string name="role_label_dialer">Phone app</string>
+    <!-- Label for the SMS role. [CHAR LIMIT=30] -->
+    <string name="role_label_sms">SMS app</string>
+    <!-- Label for the emergency role. [CHAR LIMIT=30] -->
+    <string name="role_label_emergency">Emergency app</string>
+    <!-- Label for the home role. [CHAR LIMIT=30] -->
+    <string name="role_label_home">Home app</string>
+    <!-- Label for the music player role. [CHAR LIMIT=30] -->
+    <string name="role_label_music">Music app</string>
+    <!-- Label for the gallery role. [CHAR LIMIT=30] -->
+    <string name="role_label_gallery">Gallery app</string>
     <!-- Label for the automotive dialer role. [CHAR LIMIT=30] -->
     <string name="role_label_car_mode_dialer">Car mode phone app</string>
+    <!-- Label for the proxy calling app role. [CHAR LIMIT=30] -->
+    <string name="role_label_proxy_calling">Proxy calling app</string>
     <!-- Label for the call screening role. [CHAR LIMIT=30] -->
     <string name="role_label_call_screening">Call screening app</string>
     <!-- Label for the call companion app role. [CHAR LIMIT=30] -->
     <string name="role_label_call_companion">Call companion app</string>
-    <!-- Label for the proxy calling app role. [CHAR LIMIT=30] -->
-    <string name="role_label_proxy_calling">Proxy calling app</string>
-    <!-- Label for the SMS role. [CHAR LIMIT=30] -->
-    <string name="role_label_sms">SMS app</string>
-    <!-- Label for the browser role. [CHAR LIMIT=30] -->
-    <string name="role_label_browser">Browser app</string>
-    <!-- Label for the gallery role. [CHAR LIMIT=30] -->
-    <string name="role_label_gallery">Gallery app</string>
-    <!-- Label for the music player role. [CHAR LIMIT=30] -->
-    <string name="role_label_music">Music app</string>
-    <!-- Label for the home role. [CHAR LIMIT=30] -->
-    <string name="role_label_home">Home app</string>
-    <!-- Label for the emergency role. [CHAR LIMIT=30] -->
-    <string name="role_label_emergency">Emergency app</string>
 
     <!-- Dialog body explaining that the app just selected by the user will not work after a reboot until the user enters their credentials, such as a PIN or password. [CHAR LIMIT=NONE] -->
     <string name="encryption_unaware_confirmation_message">Note: If you restart your device and have a screen lock set, this app can\u2019t start until you unlock your device.</string>

@@ -77,6 +77,36 @@
         <permission name="android.permission.READ_MEDIA_IMAGES" />
     </permission-set>
 
+    <!---
+      ~ @see com.android.settings.applications.defaultapps.DefaultBrowserPreferenceController
+      ~ @see com.android.settings.applications.defaultapps.DefaultBrowserPicker
+      ~ @see com.android.server.pm.PackageManagerService.resolveAllBrowserApps(int)
+      ~ @see com.android.server.pm.PackageManagerService.setDefaultBrowserPackageName(String, int)
+      ~ @see com.android.server.pm.permission.DefaultPermissionGrantPolicy.grantDefaultPermissionsToDefaultBrowser(String, int)
+      -->
+    <role name="android.app.role.BROWSER" exclusive="true" label="@string/role_label_browser">
+        <!--
+          ~ Required components matching is handled in BrowserRoleBehavior because it needs the
+          ~ PackageManager.MATCH_ALL flag and other manual filtering, which cannot fit in our
+          ~ current mechanism easily.
+          -->
+        <!--
+        <required-components>
+            <activity>
+                <intent-filter>
+                    <action name="android.intent.action.VIEW" />
+                    <category name="android.intent.category.BROWSABLE" />
+                    <data scheme="http" />
+                </intent-filter>
+            </activity>
+        </required-components>
+        -->
+        <!--
+          ~ Not need to set preferred activity because PackageManager handles browser intents
+          ~ specially.
+          -->
+    </role>
+
     <!--
       ~ @see com.android.settings.applications.defaultapps.DefaultPhonePreferenceController
       ~ @see com.android.settings.applications.defaultapps.DefaultPhonePicker
@@ -226,27 +256,55 @@
         </preferred-activities>
     </role>
 
+    <!-- TODO: STOPSHIP: Add availability and confirmation message in role behavior. -->
+    <!-- TODO: STOPSHIP: Intent action sometimes changing dynamically in com.android.phone.EmergencyAssistanceHelper.getIntentAction -->
+    <!-- TODO: STOPSHIP: Make this non-configurable at least by default. -->
+    <!-- TODO: STOPSHIP: Make sure we initialize an emergency app for user. -->
     <!---
-      ~ @see com.android.settings.applications.defaultapps.DefaultBrowserPreferenceController
-      ~ @see com.android.settings.applications.defaultapps.DefaultBrowserPicker
-      ~ @see com.android.server.pm.PackageManagerService.setDefaultBrowserPackageName(String, int)
-      ~ @see com.android.server.pm.permission.DefaultPermissionGrantPolicy.grantDefaultPermissionsToDefaultBrowser(String, int)
+      ~ @see com.android.settings.applications.defaultapps.DefaultEmergencyPreferenceController
+      ~ @see com.android.settings.applications.defaultapps.DefaultEmergencyPicker
+      ~ @see com.android.phone.EmergencyAssistanceHelper
       -->
-    <role name="android.app.role.BROWSER" exclusive="true" label="@string/role_label_browser">
+    <role name="android.app.role.EMERGENCY" exclusive="true" label="@string/role_label_emergency">
         <required-components>
             <activity>
                 <intent-filter>
-                    <action name="android.intent.action.VIEW" />
-                    <category name="android.intent.category.BROWSABLE" />
-                    <data scheme="http" />
+                    <action name="android.telephony.action.EMERGENCY_ASSISTANCE" />
                 </intent-filter>
             </activity>
         </required-components>
-        <permissions>
-            <!-- FIXME: STOPSHIP: This should only be granted to system app? -->
-            <permission-set name="location" />
-        </permissions>
-        <!-- TODO: STOPSHIP: Set preferred? -->
+    </role>
+
+    <!-- TODO: STOPSHIP: Add availability in role behavior. -->
+    <!-- TODO: STOPSHIP: Filter qualifiying apps according to work profile support as in com.android.settings.applications.defaultapps.DefaultHomePicker.getCandidates() -->
+    <!---
+      ~ @see com.android.settings.applications.defaultapps.DefaultHomePreferenceController
+      ~ @see com.android.settings.applications.defaultapps.DefaultHomePicker
+      ~ @see com.android.server.pm.PackageManagerService#setHomeActivity(ComponentName, int)
+      -->
+    <role name="android.app.role.HOME" exclusive="true" label="@string/role_label_home">
+        <required-components>
+            <activity>
+                <intent-filter>
+                    <action name="android.intent.action.MAIN" />
+                    <category name="android.intent.category.HOME" />
+                </intent-filter>
+            </activity>
+        </required-components>
+        <preferred-activities>
+            <preferred-activity>
+                <activity>
+                    <intent-filter>
+                        <action name="android.intent.action.MAIN" />
+                        <category name="android.intent.category.HOME" />
+                    </intent-filter>
+                </activity>
+                <intent-filter>
+                    <action name="android.intent.action.MAIN" />
+                    <category name="android.intent.category.HOME" />
+                </intent-filter>
+            </preferred-activity>
+        </preferred-activities>
     </role>
 
     <role name="android.app.role.MUSIC" exclusive="true" label="@string/role_label_music">
@@ -310,57 +368,6 @@
                 </intent-filter>
             </preferred-activity>
         </preferred-activities>
-    </role>
-
-    <!-- TODO: STOPSHIP: Add availability in role behavior. -->
-    <!-- TODO: STOPSHIP: Filter qualifiying apps according to work profile support as in com.android.settings.applications.defaultapps.DefaultHomePicker.getCandidates() -->
-    <!---
-      ~ @see com.android.settings.applications.defaultapps.DefaultHomePreferenceController
-      ~ @see com.android.settings.applications.defaultapps.DefaultHomePicker
-      ~ @see com.android.server.pm.PackageManagerService#setHomeActivity(ComponentName, int)
-      -->
-    <role name="android.app.role.HOME" exclusive="true" label="@string/role_label_home">
-        <required-components>
-            <activity>
-                <intent-filter>
-                    <action name="android.intent.action.MAIN" />
-                    <category name="android.intent.category.HOME" />
-                </intent-filter>
-            </activity>
-        </required-components>
-        <preferred-activities>
-            <preferred-activity>
-                <activity>
-                    <intent-filter>
-                        <action name="android.intent.action.MAIN" />
-                        <category name="android.intent.category.HOME" />
-                    </intent-filter>
-                </activity>
-                <intent-filter>
-                    <action name="android.intent.action.MAIN" />
-                    <category name="android.intent.category.HOME" />
-                </intent-filter>
-            </preferred-activity>
-        </preferred-activities>
-    </role>
-
-    <!-- TODO: STOPSHIP: Add availability and confirmation message in role behavior. -->
-    <!-- TODO: STOPSHIP: Intent action sometimes changing dynamically in com.android.phone.EmergencyAssistanceHelper.getIntentAction -->
-    <!-- TODO: STOPSHIP: Make this non-configurable at least by default. -->
-    <!-- TODO: STOPSHIP: Make sure we initialize an emergency app for user. -->
-    <!---
-      ~ @see com.android.settings.applications.defaultapps.DefaultEmergencyPreferenceController
-      ~ @see com.android.settings.applications.defaultapps.DefaultEmergencyPicker
-      ~ @see com.android.phone.EmergencyAssistanceHelper
-      -->
-    <role name="android.app.role.EMERGENCY" exclusive="true" label="@string/role_label_emergency">
-        <required-components>
-            <activity>
-                <intent-filter>
-                    <action name="android.telephony.action.EMERGENCY_ASSISTANCE" />
-                </intent-filter>
-            </activity>
-        </required-components>
     </role>
 
     <!--- @see android.telecom.InCallService -->
