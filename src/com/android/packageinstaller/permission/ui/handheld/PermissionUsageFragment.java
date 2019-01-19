@@ -17,9 +17,6 @@
 package com.android.packageinstaller.permission.ui.handheld;
 
 import static java.lang.annotation.RetentionPolicy.SOURCE;
-import static java.util.concurrent.TimeUnit.DAYS;
-import static java.util.concurrent.TimeUnit.HOURS;
-import static java.util.concurrent.TimeUnit.MINUTES;
 
 import android.app.ActionBar;
 import android.app.AlertDialog;
@@ -45,7 +42,6 @@ import android.widget.Spinner;
 import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 import androidx.fragment.app.DialogFragment;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
@@ -54,13 +50,15 @@ import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissionUsage;
 import com.android.packageinstaller.permission.model.AppPermissionUsage.GroupUsage;
 import com.android.packageinstaller.permission.model.PermissionUsages;
+import com.android.packageinstaller.permission.ui.handheld.FilterSpinner.FilterSpinnerAdapter;
+import com.android.packageinstaller.permission.ui.handheld.FilterSpinner.SpinnerItem;
+import com.android.packageinstaller.permission.ui.handheld.FilterSpinner.TimeFilterItem;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 import com.android.settingslib.HelpUtils;
 import com.android.settingslib.widget.BarChartInfo;
 import com.android.settingslib.widget.BarChartPreference;
 import com.android.settingslib.widget.BarViewInfo;
-import com.android.settingslib.widget.settingsspinner.SettingsSpinnerAdapter;
 
 import java.lang.annotation.Retention;
 import java.text.Collator;
@@ -211,30 +209,7 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
         mSortSpinner.setOnItemSelectedListener(this);
 
         // Add time spinner entries.
-        mFilterAdapterTime.addFilter(new TimeFilterItem(Long.MAX_VALUE,
-                context.getString(R.string.permission_usage_any_time),
-                R.string.permission_usage_bar_chart_title_any_time,
-                R.string.permission_usage_list_title_any_time));
-        mFilterAdapterTime.addFilter(new TimeFilterItem(DAYS.toMillis(7),
-                context.getString(R.string.permission_usage_last_7_days),
-                R.string.permission_usage_bar_chart_title_last_7_days,
-                R.string.permission_usage_list_title_last_7_days));
-        mFilterAdapterTime.addFilter(new TimeFilterItem(DAYS.toMillis(1),
-                context.getString(R.string.permission_usage_last_day),
-                R.string.permission_usage_bar_chart_title_last_day,
-                R.string.permission_usage_list_title_last_day));
-        mFilterAdapterTime.addFilter(new TimeFilterItem(HOURS.toMillis(1),
-                context.getString(R.string.permission_usage_last_hour),
-                R.string.permission_usage_bar_chart_title_last_hour,
-                R.string.permission_usage_list_title_last_hour));
-        mFilterAdapterTime.addFilter(new TimeFilterItem(MINUTES.toMillis(15),
-                context.getString(R.string.permission_usage_last_15_minutes),
-                R.string.permission_usage_bar_chart_title_last_15_minutes,
-                R.string.permission_usage_list_title_last_15_minutes));
-        mFilterAdapterTime.addFilter(new TimeFilterItem(MINUTES.toMillis(1),
-                context.getString(R.string.permission_usage_last_minute),
-                R.string.permission_usage_bar_chart_title_last_minute,
-                R.string.permission_usage_list_title_last_minute));
+        FilterSpinner.addTimeFilters(mFilterAdapterTime, context);
         mFilterSpinnerTime.setSelection(mSavedTimeSpinnerIndex);
 
         // Add sort spinner entries.
@@ -590,17 +565,7 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
 
         final AppPermissionGroup group = groupUsage.getGroup();
         pref.setTitle(group.getLabel());
-        if (groupUsage.getBackgroundAccessCount() == 0) {
-            pref.setSummary(
-                    context.getString(R.string.permission_usage_summary,
-                            accessTimeStr, groupUsage.getForegroundAccessCount()));
-        } else {
-            pref.setSummary(
-                    context.getString(
-                            R.string.permission_usage_summary_background,
-                            accessTimeStr, groupUsage.getAccessCount(),
-                            groupUsage.getBackgroundAccessCount()));
-        }
+        pref.setUsageSummary(groupUsage, accessTimeStr);
         pref.setTitleIcons(Collections.singletonList(group.getIconResId()));
         pref.setKey(group.getApp().packageName + "," + group.getName());
         pref.useSmallerIcon();
@@ -882,90 +847,6 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
                     );
 
             return b.create();
-        }
-    }
-
-    /**
-     * An adapter that stores the entries in a filter spinner.
-     * @param <T> The type of the entries in the filter spinner.
-     */
-    private static class FilterSpinnerAdapter<T extends SpinnerItem> extends
-            SettingsSpinnerAdapter<CharSequence> {
-        private final ArrayList<T> mFilterOptions = new ArrayList<>();
-
-        FilterSpinnerAdapter(@NonNull Context context) {
-            super(context);
-        }
-
-        public void addFilter(@NonNull T filter) {
-            mFilterOptions.add(filter);
-            notifyDataSetChanged();
-        }
-
-        public T getFilter(int position) {
-            return mFilterOptions.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return mFilterOptions.size();
-        }
-
-        @Override
-        public CharSequence getItem(int position) {
-            return mFilterOptions.get(position).getLabel();
-        }
-
-        @Override
-        public void clear() {
-            mFilterOptions.clear();
-            super.clear();
-        }
-    }
-
-    /**
-     * An interface to represent items that we can use as filters.
-     */
-    private interface SpinnerItem {
-        @NonNull String getLabel();
-    }
-
-    /**
-     * A spinner item representing a given time, e.g., "in the last hour".
-     */
-    private static class TimeFilterItem implements SpinnerItem {
-        private final long mTime;
-        private final @NonNull String mLabel;
-        private final @StringRes int mGraphTitleRes;
-        private final @StringRes int mListTitleRes;
-
-        TimeFilterItem(long time, @NonNull String label, @StringRes int graphTitleRes,
-                @StringRes int listTitleRes) {
-            mTime = time;
-            mLabel = label;
-            mGraphTitleRes = graphTitleRes;
-            mListTitleRes = listTitleRes;
-        }
-
-        /**
-         * Get the time represented by this object in milliseconds.
-         *
-         * @return the time represented by this object.
-         */
-        public long getTime() {
-            return mTime;
-        }
-
-        public @NonNull String getLabel() {
-            return mLabel;
-        }
-
-        public @StringRes int getGraphTitleRes() {
-            return mGraphTitleRes;
-        }
-
-        public @StringRes int getListTitleRes() {
-            return mListTitleRes;
         }
     }
 
