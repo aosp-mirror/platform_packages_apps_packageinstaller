@@ -84,4 +84,10 @@ public class Constants {
      * role holder for a role.
      */
     public static final String IS_NONE_ROLE_HOLDER_SELECTED_KEY = "is_none_role_holder_selected:";
+
+    /**
+     * Name of file containing the permissions that should be restored, but have not been restored
+     * yet.
+     */
+    public static final String DELAYED_RESTORE_PERMISSIONS_FILE = "delayed_restore_permissions.xml";
 }
