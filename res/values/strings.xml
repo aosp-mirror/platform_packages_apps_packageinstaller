@@ -324,8 +324,11 @@
     <!-- Label for the bars on the chart that shows how many apps have used various permissions [CHAR LIMIT=10] -->
     <string name="app_permission_usage_bar_label">Apps</string>
 
-    <!-- Label for the text at the bottom of the permission bar chart that allows viewing usage of all permissions [CHAR LIMIT=none] -->
-    <string name="app_permission_usage_detail_label">See all usage</string>
+    <!-- Label for filtered view that shows permission usages of a single permission [CHAR LIMIT=40] -->
+    <string name="app_permission_usage_filter_label">Filtered by: <xliff:g id="perm" example="Location">%1$s</xliff:g> </string>
+
+    <!-- Label for the text that removes the filter by permission to view all usages [CHAR LIMIT=none] -->
+    <string name="app_permission_usage_remove_filter">Remove filter</string>
 
     <!-- Label for the title of the dialog allowing filtering by permissions [CHAR LIMIT=none] -->
     <string name="filter_by_title">Filter by</string>
@@ -381,11 +384,14 @@
     <!-- Summary for linking to the page that shows an app's use of permissions [CHAR LIMIT=none] -->
     <string name="app_permission_footer_usage_link">View detailed permissions usage</string>
 
-    <!-- Summary for showing the most recent access of a permission [CHAR LIMIT=60] -->
-    <string name="app_permission_most_recent_summary">Most recent access <xliff:g id="time" example="2 hours">%1$s</xliff:g> ago</string>
+    <!-- Summary for showing the time and/or date of the most recent access of a permission by an app [CHAR LIMIT=60] -->
+    <string name="app_permission_most_recent_summary">Last access: <xliff:g id="time_date" example="12:42 PM">%1$s</xliff:g></string>
 
     <!-- Header for granted permissions/apps [CHAR LIMIT=40] -->
     <string name="allowed_header">Allowed</string>
+
+    <!-- Header for permissions/apps that are granted only when in the foreground [CHAR LIMIT=40] -->
+    <string name="allowed_foreground_header">Allowed only while in use</string>
 
     <!-- Header for denied permissions/apps [CHAR LIMIT=40] -->
     <string name="denied_header">Denied</string>
@@ -537,28 +543,28 @@
 
     <!-- TODO: STOPSHIP: Migrate all default app titles from packages/apps/Settings/res/values/strings.xml . -->
 
+    <!-- Label for the browser role. [CHAR LIMIT=30] -->
+    <string name="role_label_browser">Browser app</string>
     <!-- Label for the dialer role. [CHAR LIMIT=30] -->
     <string name="role_label_dialer">Phone app</string>
+    <!-- Label for the SMS role. [CHAR LIMIT=30] -->
+    <string name="role_label_sms">SMS app</string>
+    <!-- Label for the emergency role. [CHAR LIMIT=30] -->
+    <string name="role_label_emergency">Emergency app</string>
+    <!-- Label for the home role. [CHAR LIMIT=30] -->
+    <string name="role_label_home">Home app</string>
+    <!-- Label for the music player role. [CHAR LIMIT=30] -->
+    <string name="role_label_music">Music app</string>
+    <!-- Label for the gallery role. [CHAR LIMIT=30] -->
+    <string name="role_label_gallery">Gallery app</string>
     <!-- Label for the automotive dialer role. [CHAR LIMIT=30] -->
     <string name="role_label_car_mode_dialer">Car mode phone app</string>
+    <!-- Label for the proxy calling app role. [CHAR LIMIT=30] -->
+    <string name="role_label_proxy_calling">Proxy calling app</string>
     <!-- Label for the call screening role. [CHAR LIMIT=30] -->
     <string name="role_label_call_screening">Call screening app</string>
     <!-- Label for the call companion app role. [CHAR LIMIT=30] -->
     <string name="role_label_call_companion">Call companion app</string>
-    <!-- Label for the proxy calling app role. [CHAR LIMIT=30] -->
-    <string name="role_label_proxy_calling">Proxy calling app</string>
-    <!-- Label for the SMS role. [CHAR LIMIT=30] -->
-    <string name="role_label_sms">SMS app</string>
-    <!-- Label for the browser role. [CHAR LIMIT=30] -->
-    <string name="role_label_browser">Browser app</string>
-    <!-- Label for the gallery role. [CHAR LIMIT=30] -->
-    <string name="role_label_gallery">Gallery app</string>
-    <!-- Label for the music player role. [CHAR LIMIT=30] -->
-    <string name="role_label_music">Music app</string>
-    <!-- Label for the home role. [CHAR LIMIT=30] -->
-    <string name="role_label_home">Home app</string>
-    <!-- Label for the emergency role. [CHAR LIMIT=30] -->
-    <string name="role_label_emergency">Emergency app</string>
 
     <!-- Dialog body explaining that the app just selected by the user will not work after a reboot until the user enters their credentials, such as a PIN or password. [CHAR LIMIT=NONE] -->
     <string name="encryption_unaware_confirmation_message">Note: If you restart your device and have a screen lock set, this app can\u2019t start until you unlock your device.</string>

@@ -17,9 +17,6 @@
 package com.android.packageinstaller.permission.ui.handheld;
 
 import static java.lang.annotation.RetentionPolicy.SOURCE;
-import static java.util.concurrent.TimeUnit.DAYS;
-import static java.util.concurrent.TimeUnit.HOURS;
-import static java.util.concurrent.TimeUnit.MINUTES;
 
 import android.app.ActionBar;
 import android.app.AlertDialog;
@@ -28,7 +25,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.text.format.DateFormat;
 import android.util.ArrayMap;
 import android.util.ArraySet;
 import android.util.Log;
@@ -46,7 +42,6 @@ import android.widget.Spinner;
 import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 import androidx.fragment.app.DialogFragment;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
@@ -55,21 +50,21 @@ import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissionUsage;
 import com.android.packageinstaller.permission.model.AppPermissionUsage.GroupUsage;
 import com.android.packageinstaller.permission.model.PermissionUsages;
+import com.android.packageinstaller.permission.ui.handheld.FilterSpinner.FilterSpinnerAdapter;
+import com.android.packageinstaller.permission.ui.handheld.FilterSpinner.SpinnerItem;
+import com.android.packageinstaller.permission.ui.handheld.FilterSpinner.TimeFilterItem;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 import com.android.settingslib.HelpUtils;
 import com.android.settingslib.widget.BarChartInfo;
 import com.android.settingslib.widget.BarChartPreference;
 import com.android.settingslib.widget.BarViewInfo;
-import com.android.settingslib.widget.settingsspinner.SettingsSpinnerAdapter;
 
 import java.lang.annotation.Retention;
 import java.text.Collator;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
 import java.util.Set;
 
 /**
@@ -78,7 +73,7 @@ import java.util.Set;
  * <p>Shows a filterable list of app usage of permission groups, each of which links to
  * AppPermissionsFragment.
  */
-public class PermissionUsageFragment extends PermissionsFrameFragment implements
+public class PermissionUsageFragment extends SettingsWithButtonHeader implements
         PermissionUsages.PermissionsUsagesChangeCallback, OnItemSelectedListener {
     private static final String LOG_TAG = "PermissionUsageFragment";
 
@@ -201,7 +196,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
 
         // Setup filter spinners.
         View header = inflater.inflate(R.layout.permission_usage_filter_spinners, root, false);
-        getPreferencesContainer().addView(header, 0);
+        getPreferencesContainer().addView(header, 1);
 
         mFilterSpinnerTime = header.requireViewById(R.id.filter_spinner_time);
         mFilterAdapterTime = new FilterSpinnerAdapter<>(context);
@@ -214,30 +209,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         mSortSpinner.setOnItemSelectedListener(this);
 
         // Add time spinner entries.
-        mFilterAdapterTime.addFilter(new TimeFilterItem(Long.MAX_VALUE,
-                context.getString(R.string.permission_usage_any_time),
-                R.string.permission_usage_bar_chart_title_any_time,
-                R.string.permission_usage_list_title_any_time));
-        mFilterAdapterTime.addFilter(new TimeFilterItem(DAYS.toMillis(7),
-                context.getString(R.string.permission_usage_last_7_days),
-                R.string.permission_usage_bar_chart_title_last_7_days,
-                R.string.permission_usage_list_title_last_7_days));
-        mFilterAdapterTime.addFilter(new TimeFilterItem(DAYS.toMillis(1),
-                context.getString(R.string.permission_usage_last_day),
-                R.string.permission_usage_bar_chart_title_last_day,
-                R.string.permission_usage_list_title_last_day));
-        mFilterAdapterTime.addFilter(new TimeFilterItem(HOURS.toMillis(1),
-                context.getString(R.string.permission_usage_last_hour),
-                R.string.permission_usage_bar_chart_title_last_hour,
-                R.string.permission_usage_list_title_last_hour));
-        mFilterAdapterTime.addFilter(new TimeFilterItem(MINUTES.toMillis(15),
-                context.getString(R.string.permission_usage_last_15_minutes),
-                R.string.permission_usage_bar_chart_title_last_15_minutes,
-                R.string.permission_usage_list_title_last_15_minutes));
-        mFilterAdapterTime.addFilter(new TimeFilterItem(MINUTES.toMillis(1),
-                context.getString(R.string.permission_usage_last_minute),
-                R.string.permission_usage_bar_chart_title_last_minute,
-                R.string.permission_usage_list_title_last_minute));
+        FilterSpinner.addTimeFilters(mFilterAdapterTime, context);
         mFilterSpinnerTime.setSelection(mSavedTimeSpinnerIndex);
 
         // Add sort spinner entries.
@@ -246,8 +218,6 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         mSortAdapter.addFilter(
                 new SortItem(context.getString(R.string.sort_spinner_most_permissions),
                         SORT_MOST_PERMISSIONS));
-        mSortAdapter.addFilter(new SortItem(context.getString(R.string.sort_spinner_most_accesses),
-                SORT_MOST_ACCESSES));
         mSortSpinner.setSelection(mSavedSortSpinnerIndex);
 
         return root;
@@ -324,12 +294,8 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
 
         // Use the saved permission group or the one passed as an argument, if applicable.
         if (mSavedGroupName != null && mFilterGroup == null) {
-            List<AppPermissionGroup> groups = getOSPermissionGroups();
-            int numGroups = groups.size();
-            for (int i = 0; i < numGroups; i++) {
-                if (groups.get(i).getName().equals(mSavedGroupName)) {
-                    mFilterGroup = mSavedGroupName;
-                }
+            if (getGroup(mSavedGroupName) != null) {
+                mFilterGroup = mSavedGroupName;
             }
         }
 
@@ -359,6 +325,10 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
 
         mHasSystemApps = false;
 
+        final TimeFilterItem timeFilterItem = getSelectedFilterItem();
+        long curTime = System.currentTimeMillis();
+        long startTime = (timeFilterItem == null ? 0 : (curTime - timeFilterItem.getTime()));
+
         List<Pair<AppPermissionUsage, GroupUsage>> usages = new ArrayList<>();
         int numApps = appPermissionUsages.size();
         for (int appNum = 0; appNum < numApps; appNum++) {
@@ -368,7 +338,8 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
             for (int groupNum = 0; groupNum < numGroups; groupNum++) {
                 GroupUsage groupUsage = appGroups.get(groupNum);
 
-                if (groupUsage.getAccessCount() <= 0) {
+                if (groupUsage.getAccessCount() <= 0
+                        || groupUsage.getLastAccessTime() < startTime) {
                     continue;
                 }
                 final boolean isSystemApp = Utils.isSystem(appUsage.getApp(), mLauncherPkgs);
@@ -390,10 +361,25 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
             }
         }
 
-        // Update bar chart.
-        final TimeFilterItem timeFilterItem = getSelectedFilterItem();
-        final BarChartPreference barChart = createBarChart(usages, timeFilterItem, context);
-        screen.addPreference(barChart);
+        // Update header.
+        if (mFilterGroup == null) {
+            final BarChartPreference barChart = createBarChart(usages, timeFilterItem, context);
+            screen.addPreference(barChart);
+            hideHeader();
+        } else {
+            AppPermissionGroup group = getGroup(mFilterGroup);
+            if (group != null) {
+                setHeader(Utils.applyTint(context, context.getDrawable(group.getIconResId()),
+                        android.R.attr.colorControlNormal),
+                        context.getString(R.string.app_permission_usage_filter_label,
+                                group.getLabel()), false);
+                setSummary(context.getString(R.string.app_permission_usage_remove_filter), v -> {
+                    mFilterGroup = null;
+                    // We already loaded all data, so don't reload
+                    updateUI();
+                });
+            }
+        }
 
         // Add the preference header.
         PreferenceCategory category = new PreferenceCategory(context);
@@ -414,9 +400,6 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
             Log.w(LOG_TAG, "Unexpected sort option: " + sortOption);
         }
 
-        java.text.DateFormat timeFormat = DateFormat.getTimeFormat(context);
-        java.text.DateFormat dateFormat = DateFormat.getMediumDateFormat(context);
-
         ExpandablePreferenceGroup parent = null;
         AppPermissionUsage lastAppPermissionUsage = null;
 
@@ -430,12 +413,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
                 continue;
             }
 
-            String accessTimeString = null;
-            if (isToday(groupUsage.getLastAccessTime())) {
-                accessTimeString = timeFormat.format(groupUsage.getLastAccessTime());
-            } else {
-                accessTimeString = dateFormat.format(groupUsage.getLastAccessTime());
-            }
+            String accessTimeString = Utils.getAbsoluteLastUsageString(context, groupUsage);
 
             if (lastAppPermissionUsage != appPermissionUsage) {
                 // Add a "parent" entry for the app that will expand to the individual entries.
@@ -448,6 +426,11 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
             parent.addPreference(createPermissionUsagePreference(context, appPermissionUsage,
                     groupUsage, accessTimeString));
             parent.addSummaryIcon(groupUsage.getGroup().getIconResId());
+        }
+
+        // If there are no entries, don't show anything.
+        if (parent == null) {
+            screen.removeAll();
         }
     }
 
@@ -478,7 +461,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
             return;
         }
         final long filterTimeBeginMillis = Math.max(System.currentTimeMillis()
-                - timeFilterItem.getTime(), Calendar.getInstance().getTimeInMillis());
+                - timeFilterItem.getTime(), 0);
         mPermissionUsages.load(null /*filterPackageName*/, null,
                 filterTimeBeginMillis, Long.MAX_VALUE, PermissionUsages.USAGE_FLAG_LAST
                         | PermissionUsages.USAGE_FLAG_HISTORICAL, getActivity().getLoaderManager(),
@@ -501,14 +484,6 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
         BarChartPreference barChart = new BarChartPreference(context, null);
         if (timeFilterItem != null) {
             builder.setTitle(timeFilterItem.getGraphTitleRes());
-        }
-        if (mFilterGroup != null) {
-            builder.setDetails(R.string.app_permission_usage_detail_label);
-            builder.setDetailsOnClickListener(v -> {
-                mFilterGroup = null;
-                // We already loaded all data, so don't reload
-                updateUI();
-            });
         }
 
         final ArrayList<AppPermissionGroup> groups = new ArrayList<>();
@@ -595,17 +570,7 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
 
         final AppPermissionGroup group = groupUsage.getGroup();
         pref.setTitle(group.getLabel());
-        if (groupUsage.getBackgroundAccessCount() == 0) {
-            pref.setSummary(
-                    context.getString(R.string.permission_usage_summary,
-                            accessTimeStr, groupUsage.getForegroundAccessCount()));
-        } else {
-            pref.setSummary(
-                    context.getString(
-                            R.string.permission_usage_summary_background,
-                            accessTimeStr, groupUsage.getAccessCount(),
-                            groupUsage.getBackgroundAccessCount()));
-        }
+        pref.setUsageSummary(groupUsage, accessTimeStr);
         pref.setTitleIcons(Collections.singletonList(group.getIconResId()));
         pref.setKey(group.getApp().packageName + "," + group.getName());
         pref.useSmallerIcon();
@@ -786,22 +751,22 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
     }
 
     /**
-     * Check whether the given time (in milliseconds) is in the current day.
+     * Get an AppPermissionGroup that represents the given permission group (and an arbitrary app).
      *
-     * @param time the time in milliseconds
+     * @param groupName The name of the permission group.
      *
-     * @return whether the given time is in the current day.
+     * @return an AppPermissionGroup rerepsenting the given permission group or null if no such
+     * AppPermissionGroup is found.
      */
-    private static boolean isToday(long time) {
-        Calendar today = Calendar.getInstance(Locale.getDefault());
-        today.setTimeInMillis(System.currentTimeMillis());
-        today.set(Calendar.HOUR, 0);
-        today.set(Calendar.MINUTE, 0);
-        today.set(Calendar.SECOND, 0);
-
-        Calendar date = Calendar.getInstance(Locale.getDefault());
-        date.setTimeInMillis(time);
-        return date.after(today);
+    private @Nullable AppPermissionGroup getGroup(@NonNull String groupName) {
+        List<AppPermissionGroup> groups = getOSPermissionGroups();
+        int numGroups = groups.size();
+        for (int i = 0; i < numGroups; i++) {
+            if (groups.get(i).getName().equals(groupName)) {
+                return groups.get(i);
+            }
+        }
+        return null;
     }
 
     /**
@@ -887,90 +852,6 @@ public class PermissionUsageFragment extends PermissionsFrameFragment implements
                     );
 
             return b.create();
-        }
-    }
-
-    /**
-     * An adapter that stores the entries in a filter spinner.
-     * @param <T> The type of the entries in the filter spinner.
-     */
-    private static class FilterSpinnerAdapter<T extends SpinnerItem> extends
-            SettingsSpinnerAdapter<CharSequence> {
-        private final ArrayList<T> mFilterOptions = new ArrayList<>();
-
-        FilterSpinnerAdapter(@NonNull Context context) {
-            super(context);
-        }
-
-        public void addFilter(@NonNull T filter) {
-            mFilterOptions.add(filter);
-            notifyDataSetChanged();
-        }
-
-        public T getFilter(int position) {
-            return mFilterOptions.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return mFilterOptions.size();
-        }
-
-        @Override
-        public CharSequence getItem(int position) {
-            return mFilterOptions.get(position).getLabel();
-        }
-
-        @Override
-        public void clear() {
-            mFilterOptions.clear();
-            super.clear();
-        }
-    }
-
-    /**
-     * An interface to represent items that we can use as filters.
-     */
-    private interface SpinnerItem {
-        @NonNull String getLabel();
-    }
-
-    /**
-     * A spinner item representing a given time, e.g., "in the last hour".
-     */
-    private static class TimeFilterItem implements SpinnerItem {
-        private final long mTime;
-        private final @NonNull String mLabel;
-        private final @StringRes int mGraphTitleRes;
-        private final @StringRes int mListTitleRes;
-
-        TimeFilterItem(long time, @NonNull String label, @StringRes int graphTitleRes,
-                @StringRes int listTitleRes) {
-            mTime = time;
-            mLabel = label;
-            mGraphTitleRes = graphTitleRes;
-            mListTitleRes = listTitleRes;
-        }
-
-        /**
-         * Get the time represented by this object in milliseconds.
-         *
-         * @return the time represented by this object.
-         */
-        public long getTime() {
-            return mTime;
-        }
-
-        public @NonNull String getLabel() {
-            return mLabel;
-        }
-
-        public @StringRes int getGraphTitleRes() {
-            return mGraphTitleRes;
-        }
-
-        public @StringRes int getListTitleRes() {
-            return mListTitleRes;
         }
     }
 

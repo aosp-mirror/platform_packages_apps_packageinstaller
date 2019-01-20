@@ -20,6 +20,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.util.ArrayMap;
@@ -29,6 +30,7 @@ import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceManager;
@@ -40,6 +42,7 @@ import com.android.packageinstaller.role.model.Roles;
 import com.android.permissioncontroller.R;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Fragment for a default app.
@@ -49,6 +52,9 @@ public class DefaultAppFragment extends SettingsFragment
         Preference.OnPreferenceClickListener {
 
     private static final String LOG_TAG = DefaultAppFragment.class.getSimpleName();
+
+    private static final String PREFERENCE_KEY_NONE =
+            DefaultAppFragment.class.getPackage().getName() + ".preference.NONE";
 
     private String mRoleName;
 
@@ -91,7 +97,7 @@ public class DefaultAppFragment extends SettingsFragment
         super.onActivityCreated(savedInstanceState);
 
         Activity activity = requireActivity();
-        mRole = Roles.getRoles(activity).get(mRoleName);
+        mRole = Roles.get(activity).get(mRoleName);
         activity.setTitle(mRole.getLabelResource());
 
         mViewModel = ViewModelProviders.of(this, new DefaultAppViewModel.Factory(mRole, mUser,
@@ -126,31 +132,62 @@ public class DefaultAppFragment extends SettingsFragment
             }
         }
 
+        if (mRole.shouldShowNone()) {
+            Drawable icon = AppCompatResources.getDrawable(context, R.drawable.ic_remove_circle);
+            String title = context.getString(R.string.default_app_none);
+            boolean noHolderApplication = !hasHolderApplication(qualifyingApplications);
+            addPreference(PREFERENCE_KEY_NONE, icon, title, noHolderApplication, oldPreferences,
+                    preferenceScreen, context);
+        }
+
         int qualifyingApplicationsSize = qualifyingApplications.size();
         for (int i = 0; i < qualifyingApplicationsSize; i++) {
             Pair<ApplicationInfo, Boolean> qualifyingApplication = qualifyingApplications.get(i);
             ApplicationInfo qualifyingApplicationInfo = qualifyingApplication.first;
-            boolean isHolderPackage = qualifyingApplication.second;
+            boolean isHolderApplication = qualifyingApplication.second;
 
-            AppIconRadioButtonPreference preference = (AppIconRadioButtonPreference)
-                    oldPreferences.get(qualifyingApplicationInfo.packageName);
-            if (preference == null) {
-                preference = new AppIconRadioButtonPreference(context);
-                preference.setKey(qualifyingApplicationInfo.packageName);
-                preference.setIcon(Utils.getBadgedIcon(context, qualifyingApplicationInfo));
-                preference.setTitle(Utils.getAppLabel(qualifyingApplicationInfo, context));
-                preference.setPersistent(false);
-                preference.setOnPreferenceChangeListener((preference2, newValue) -> false);
-                preference.setOnPreferenceClickListener(this);
-            }
-
-            preference.setChecked(isHolderPackage);
-
-            // TODO: Ordering?
-            preferenceScreen.addPreference(preference);
+            String key = qualifyingApplicationInfo.packageName;
+            Drawable icon = Utils.getBadgedIcon(context, qualifyingApplicationInfo);
+            String title = Utils.getAppLabel(qualifyingApplicationInfo, context);
+            addPreference(key, icon, title, isHolderApplication, oldPreferences, preferenceScreen,
+                    context);
         }
 
         updateState();
+    }
+
+    private static boolean hasHolderApplication(
+            @NonNull List<Pair<ApplicationInfo, Boolean>> qualifyingApplications) {
+        int qualifyingApplicationsSize = qualifyingApplications.size();
+        for (int i = 0; i < qualifyingApplicationsSize; i++) {
+            Pair<ApplicationInfo, Boolean> qualifyingApplication = qualifyingApplications.get(i);
+            boolean isHolderApplication = qualifyingApplication.second;
+
+            if (isHolderApplication) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void addPreference(@NonNull String key, @NonNull Drawable icon,
+            @NonNull CharSequence title, boolean checked,
+            @NonNull ArrayMap<String, Preference> oldPreferences,
+            @NonNull PreferenceScreen preferenceScreen, @NonNull Context context) {
+        AppIconRadioButtonPreference preference = (AppIconRadioButtonPreference) oldPreferences.get(
+                key);
+        if (preference == null) {
+            preference = new AppIconRadioButtonPreference(context);
+            preference.setKey(key);
+            preference.setIcon(icon);
+            preference.setTitle(title);
+            preference.setPersistent(false);
+            preference.setOnPreferenceChangeListener((preference2, newValue) -> false);
+            preference.setOnPreferenceClickListener(this);
+        }
+        preference.setChecked(checked);
+        // TODO: Ordering?
+        preferenceScreen.addPreference(preference);
     }
 
     private void onManageRoleHolderStateChanged(int state) {
@@ -168,13 +205,18 @@ public class DefaultAppFragment extends SettingsFragment
 
     @Override
     public boolean onPreferenceClick(@NonNull Preference preference) {
-        String packageName = preference.getKey();
-        CharSequence confirmationMessage = mRole.getConfirmationMessage(packageName,
-                requireContext());
-        if (confirmationMessage != null) {
-            DefaultAppConfirmationDialogFragment.show(packageName, confirmationMessage, this);
+        String key = preference.getKey();
+        if (Objects.equals(key, PREFERENCE_KEY_NONE)) {
+            clearDefaultApp();
         } else {
-            setDefaultApp(packageName);
+            String packageName = key;
+            CharSequence confirmationMessage = mRole.getConfirmationMessage(packageName,
+                    requireContext());
+            if (confirmationMessage != null) {
+                DefaultAppConfirmationDialogFragment.show(packageName, confirmationMessage, this);
+            } else {
+                setDefaultApp(packageName);
+            }
         }
         return true;
     }
@@ -186,6 +228,15 @@ public class DefaultAppFragment extends SettingsFragment
             Log.i(LOG_TAG, "Trying to set default app while another request is on-going");
             return;
         }
-        liveData.manageRoleHolderAsUser(mRoleName, packageName, mUser, true, requireContext());
+        liveData.setRoleHolderAsUser(mRoleName, packageName, true, mUser, requireContext());
+    }
+
+    private void clearDefaultApp() {
+        ManageRoleHolderStateLiveData liveData = mViewModel.getManageRoleHolderStateLiveData();
+        if (liveData.getValue() != ManageRoleHolderStateLiveData.STATE_IDLE) {
+            Log.i(LOG_TAG, "Trying to set default app while another request is on-going");
+            return;
+        }
+        liveData.clearRoleHoldersAsUser(mRoleName, mUser, requireContext());
     }
 }

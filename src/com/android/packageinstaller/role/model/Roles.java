@@ -74,6 +74,7 @@ public class Roles {
     private static final String ATTRIBUTE_BEHAVIOR = "behavior";
     private static final String ATTRIBUTE_EXCLUSIVE = "exclusive";
     private static final String ATTRIBUTE_LABEL = "label";
+    private static final String ATTRIBUTE_SHOW_NONE = "showNone";
     private static final String ATTRIBUTE_PERMISSION = "permission";
     private static final String ATTRIBUTE_SCHEME = "scheme";
     private static final String ATTRIBUTE_MIME_TYPE = "mimeType";
@@ -125,17 +126,17 @@ public class Roles {
      * @return a map from role name to {@link Role} instances
      */
     @NonNull
-    public static ArrayMap<String, Role> getRoles(@NonNull Context context) {
+    public static ArrayMap<String, Role> get(@NonNull Context context) {
         synchronized (sLock) {
             if (sRoles == null) {
-                sRoles = loadRoles(context);
+                sRoles = load(context);
             }
             return sRoles;
         }
     }
 
     @NonNull
-    private static ArrayMap<String, Role> loadRoles(@NonNull Context context) {
+    private static ArrayMap<String, Role> load(@NonNull Context context) {
         // If the storage model feature flag is disabled, we need to fiddle
         // around with permission definitions to return us to pre-Q behavior.
         // STOPSHIP(b/112545973): remove once feature enabled by default
@@ -287,12 +288,6 @@ public class Roles {
             return null;
         }
 
-        Integer labelResource = requireAttributeResourceValue(parser, ATTRIBUTE_LABEL, 0, TAG_ROLE);
-        if (labelResource == null) {
-            skipCurrentTag(parser);
-            return null;
-        }
-
         String behaviorClassSimpleName = getAttributeValue(parser, ATTRIBUTE_BEHAVIOR);
         RoleBehavior behavior;
         if (behaviorClassSimpleName != null) {
@@ -312,6 +307,19 @@ public class Roles {
         Boolean exclusive = requireAttributeBooleanValue(parser, ATTRIBUTE_EXCLUSIVE, true,
                 TAG_ROLE);
         if (exclusive == null) {
+            skipCurrentTag(parser);
+            return null;
+        }
+
+        Integer labelResource = requireAttributeResourceValue(parser, ATTRIBUTE_LABEL, 0, TAG_ROLE);
+        if (labelResource == null) {
+            skipCurrentTag(parser);
+            return null;
+        }
+
+        boolean showNone = getAttributeBooleanValue(parser, ATTRIBUTE_SHOW_NONE, false);
+        if (showNone && !exclusive) {
+            throwOrLogMessage("showNone=\"true\" is invalid for a non-exclusive role: " + name);
             skipCurrentTag(parser);
             return null;
         }
@@ -382,7 +390,7 @@ public class Roles {
         if (preferredActivities == null) {
             preferredActivities = Collections.emptyList();
         }
-        return new Role(name, behavior, exclusive, labelResource, requiredComponents,
+        return new Role(name, behavior, exclusive, labelResource, showNone, requiredComponents,
                 permissions, appOps, preferredActivities);
     }
 

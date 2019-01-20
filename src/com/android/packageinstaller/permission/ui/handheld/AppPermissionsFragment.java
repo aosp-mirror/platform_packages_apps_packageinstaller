@@ -162,7 +162,7 @@ public final class AppPermissionsFragment extends SettingsWithButtonHeader {
         ApplicationInfo appInfo = packageInfo.applicationInfo;
 
         Drawable icon = Utils.getBadgedIcon(activity, appInfo);
-        fragment.setHeader(icon, Utils.getFullAppLabel(appInfo, activity));
+        fragment.setHeader(icon, Utils.getFullAppLabel(appInfo, activity), true);
 
         ActionBar ab = activity.getActionBar();
         if (ab != null) {
@@ -181,6 +181,8 @@ public final class AppPermissionsFragment extends SettingsWithButtonHeader {
 
         allowed.removeAll();
         denied.removeAll();
+
+        findPreference("allowed_foreground").setVisible(false);
 
         if (mExtraScreen != null) {
             mExtraScreen.removeAll();
@@ -213,13 +215,13 @@ public final class AppPermissionsFragment extends SettingsWithButtonHeader {
             preference.setIcon(Utils.applyTint(context, icon,
                     android.R.attr.colorControlNormal));
             preference.setTitle(group.getLabel());
-            String timeDiffStr = Utils.getLastUsageString(context,
+            String lastAccessStr = Utils.getAbsoluteLastUsageString(context,
                     PermissionUsages.loadLastGroupUsage(context, group));
             // STOPSHIP: Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
-            if (timeDiffStr != null && !group.getLabel().equals("Storage")) {
+            if (lastAccessStr != null && !group.getLabel().equals("Storage")) {
                 preference.setSummary(
                         context.getString(R.string.app_permission_most_recent_summary,
-                                timeDiffStr));
+                                lastAccessStr));
             } else {
                 preference.setGroupSummary(group);
             }
@@ -304,7 +306,7 @@ public final class AppPermissionsFragment extends SettingsWithButtonHeader {
         public void onCreate(Bundle savedInstanceState) {
             mOuterFragment = (AppPermissionsFragment) getTargetFragment();
             super.onCreate(savedInstanceState);
-            setHeader(mOuterFragment.mIcon, mOuterFragment.mLabel);
+            setHeader(mOuterFragment.mIcon, mOuterFragment.mLabel, true);
             setHasOptionsMenu(true);
             setPreferenceScreen(mOuterFragment.mExtraScreen);
         }

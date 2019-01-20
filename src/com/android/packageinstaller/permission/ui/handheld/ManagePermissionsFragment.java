@@ -21,9 +21,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
+import androidx.preference.PreferenceViewHolder;
 
 import com.android.packageinstaller.permission.model.PermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionGroups;
@@ -133,7 +135,7 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
                 Preference preference = findPreference(group.getName());
 
                 if (preference == null) {
-                    preference = new Preference(context);
+                    preference = new FixedSizeIconPreference(context);
                     preference.setOnPreferenceClickListener(this);
                     preference.setKey(group.getName());
                     preference.setIcon(Utils.applyTint(context, group.getIcon(),
@@ -154,5 +156,24 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
         }
 
         return screen;
+    }
+
+    /**
+     * A preference whose icons have the same fixed size.
+     */
+    private static final class FixedSizeIconPreference extends Preference {
+        FixedSizeIconPreference(Context context) {
+            super(context);
+        }
+
+        @Override
+        public void onBindViewHolder(PreferenceViewHolder holder) {
+            super.onBindViewHolder(holder);
+            ImageView icon = ((ImageView) holder.findViewById(android.R.id.icon));
+            icon.setMaxWidth(getContext().getResources().getDimensionPixelSize(
+                    R.dimen.secondary_app_icon_size));
+            icon.setMaxHeight(getContext().getResources().getDimensionPixelSize(
+                    R.dimen.secondary_app_icon_size));
+        }
     }
 }

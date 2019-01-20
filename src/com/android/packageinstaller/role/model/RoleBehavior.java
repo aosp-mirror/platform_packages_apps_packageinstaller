@@ -62,4 +62,22 @@ public interface RoleBehavior {
             @NonNull Context context) {
         return null;
     }
+
+    /**
+     * @see Role#getQualifyingPackagesAsUser(UserHandle, Context)
+     */
+    @Nullable
+    default List<String> getQualifyingPackagesAsUser(@NonNull Role role, @NonNull UserHandle user,
+            @NonNull Context context) {
+        return null;
+    }
+
+    /**
+     * @see Role#isPackageQualified(String, Context)
+     */
+    @Nullable
+    default Boolean isPackageQualified(@NonNull Role role, @NonNull String packageName,
+            @NonNull Context context) {
+        return null;
+    }
 }

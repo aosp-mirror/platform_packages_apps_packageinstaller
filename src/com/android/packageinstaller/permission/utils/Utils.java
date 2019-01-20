@@ -50,6 +50,7 @@ import android.os.UserHandle;
 import android.provider.Settings;
 import android.text.Html;
 import android.text.TextUtils;
+import android.text.format.DateFormat;
 import android.util.ArrayMap;
 import android.util.ArraySet;
 import android.util.Log;
@@ -71,8 +72,10 @@ import com.android.packageinstaller.permission.model.PermissionApps.PermissionAp
 import com.android.permissioncontroller.R;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 public final class Utils {
 
@@ -509,13 +512,39 @@ public final class Utils {
      * @return a string representing the amount of time since this app's most recent permission
      * usage or null if there are no usages.
      */
-    public static @Nullable String getLastUsageString(@NonNull Context context,
+    public static @Nullable String getRelativeLastUsageString(@NonNull Context context,
             @Nullable AppPermissionUsage.GroupUsage groupUsage) {
         if (groupUsage == null) {
             return null;
         }
         return getTimeDiffStr(context, System.currentTimeMillis()
                 - groupUsage.getLastAccessTime());
+    }
+
+    /**
+     * Build a string representing the time of the most recent permission usage if it happened on
+     * the current day and the date otherwise.
+     *
+     * @param context the context.
+     * @param groupUsage the permission usage.
+     *
+     * @return a string representing the time or date of the most recent usage or null if there are
+     * no usages.
+     */
+    public static @Nullable String getAbsoluteLastUsageString(@NonNull Context context,
+            @Nullable AppPermissionUsage.GroupUsage groupUsage) {
+        if (groupUsage == null) {
+            return null;
+        }
+        long lastAccessTime = groupUsage.getLastAccessTime();
+        if (lastAccessTime == 0) {
+            return null;
+        }
+        if (isToday(lastAccessTime)) {
+            return DateFormat.getTimeFormat(context).format(groupUsage.getLastAccessTime());
+        } else {
+            return DateFormat.getMediumDateFormat(context).format(groupUsage.getLastAccessTime());
+        }
     }
 
     /**
@@ -558,6 +587,26 @@ public final class Utils {
         }
         long days = hours / 24;
         return context.getResources().getQuantityString(R.plurals.days, (int) days, days);
+    }
+
+    /**
+     * Check whether the given time (in milliseconds) is in the current day.
+     *
+     * @param time the time in milliseconds
+     *
+     * @return whether the given time is in the current day.
+     */
+    private static boolean isToday(long time) {
+        Calendar today = Calendar.getInstance(Locale.getDefault());
+        today.setTimeInMillis(System.currentTimeMillis());
+        today.set(Calendar.HOUR_OF_DAY, 0);
+        today.set(Calendar.MINUTE, 0);
+        today.set(Calendar.SECOND, 0);
+        today.set(Calendar.MILLISECOND, 0);
+
+        Calendar date = Calendar.getInstance(Locale.getDefault());
+        date.setTimeInMillis(time);
+        return !date.before(today);
     }
 
     /**

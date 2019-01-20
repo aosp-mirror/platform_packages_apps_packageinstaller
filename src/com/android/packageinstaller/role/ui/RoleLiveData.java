@@ -93,8 +93,8 @@ public class RoleLiveData extends AsyncTaskLiveData<List<Pair<ApplicationInfo, B
                         + qualifyingPackageName);
                 continue;
             }
-            boolean isHolderPackage = holderPackageNames.contains(qualifyingPackageName);
-            qualifyingApplications.add(new Pair<>(qualifyingApplicationInfo, isHolderPackage));
+            boolean isHolderApplication = holderPackageNames.contains(qualifyingPackageName);
+            qualifyingApplications.add(new Pair<>(qualifyingApplicationInfo, isHolderApplication));
         }
 
         return qualifyingApplications;

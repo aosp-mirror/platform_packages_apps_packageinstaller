@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2018 The Android Open Source Project
+<!--
+     Copyright (C) 2019 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,19 +15,19 @@
      limitations under the License.
 -->
 
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:gravity="center" >
 
-    <PreferenceCategory
-        android:key="allowed"
-        android:title="@string/allowed_header" />
+    <com.android.settingslib.widget.settingsspinner.SettingsSpinner
+        android:id="@+id/filter_spinner"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="8dp"/>
 
-    <PreferenceCategory
-        android:key="allowed_foreground"
-        android:title="@string/allowed_foreground_header" />
-
-    <PreferenceCategory
-        android:key="denied"
-        android:title="@string/denied_header" />
-
-</PreferenceScreen>
+</LinearLayout>

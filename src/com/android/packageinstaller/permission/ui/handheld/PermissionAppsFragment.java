@@ -38,6 +38,7 @@ import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionApps;
 import com.android.packageinstaller.permission.model.PermissionApps.Callback;
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
+import com.android.packageinstaller.permission.model.PermissionUsages;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 import com.android.settingslib.HelpUtils;
@@ -192,9 +193,11 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
         boolean isTelevision = DeviceUtils.isTelevision(context);
 
         PreferenceCategory allowed = (PreferenceCategory) findPreference("allowed");
+        PreferenceCategory allowedForeground = findPreference("allowed_foreground");
         PreferenceCategory denied = (PreferenceCategory) findPreference("denied");
 
         allowed.setOrderingAsAdded(true);
+        allowedForeground.setOrderingAsAdded(true);
         denied.setOrderingAsAdded(true);
 
         Map<String, Preference> existingPrefs = new ArrayMap<>();
@@ -204,6 +207,12 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
             existingPrefs.put(preference.getKey(), preference);
         }
         allowed.removeAll();
+        numPreferences = allowedForeground.getPreferenceCount();
+        for (int i = 0; i < numPreferences; i++) {
+            Preference preference = allowedForeground.getPreference(i);
+            existingPrefs.put(preference.getKey(), preference);
+        }
+        allowedForeground.removeAll();
         numPreferences = denied.getPreferenceCount();
         for (int i = 0; i < numPreferences; i++) {
             Preference preference = denied.getPreference(i);
@@ -255,11 +264,23 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
                 continue;
             }
 
-            PreferenceCategory category = app.areRuntimePermissionsGranted() ? allowed : denied;
+            PreferenceCategory category = null;
+            if (group.areRuntimePermissionsGranted()) {
+                if (!group.hasPermissionWithBackgroundMode()
+                        || (group.getBackgroundPermissions() != null
+                        && group.getBackgroundPermissions().areRuntimePermissionsGranted())) {
+                    category = allowed;
+                } else {
+                    category = allowedForeground;
+                }
+            } else {
+                category = denied;
+            }
 
             if (existingPref != null) {
                 if (existingPref instanceof PermissionControlPreference) {
-                    ((PermissionControlPreference) existingPref).setGroupSummary(group);
+                    setPreferenceSummary(group, (PermissionControlPreference) existingPref,
+                            context);
                 }
                 category.addPreference(existingPref);
                 continue;
@@ -271,7 +292,7 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
             pref.setTitle(Utils.getFullAppLabel(app.getAppInfo(), context));
             pref.setEllipsizeEnd();
             pref.useSmallerIcon();
-            pref.setGroupSummary(group);
+            setPreferenceSummary(group, pref, context);
 
             if (isSystemApp && isTelevision) {
                 if (mExtraScreen == null) {
@@ -322,6 +343,11 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
             empty.setTitle(getString(R.string.no_apps_allowed));
             allowed.addPreference(empty);
         }
+        if (allowedForeground.getPreferenceCount() == 0) {
+            findPreference("allowed_foreground").setVisible(false);
+        } else {
+            findPreference("allowed_foreground").setVisible(true);
+        }
         if (denied.getPreferenceCount() == 0) {
             Preference empty = new Preference(context);
             empty.setTitle(getString(R.string.no_apps_denied));
@@ -332,6 +358,17 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
 
         if (mOnPermissionsLoadedListener != null) {
             mOnPermissionsLoadedListener.onPermissionsLoaded(permissionApps);
+        }
+    }
+
+    private void setPreferenceSummary(AppPermissionGroup group, PermissionControlPreference pref,
+            Context context) {
+        String lastAccessStr = Utils.getAbsoluteLastUsageString(context,
+                PermissionUsages.loadLastGroupUsage(context, group));
+        // STOPSHIP: Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
+        if (lastAccessStr != null && !group.getLabel().equals("Storage")) {
+            pref.setSummary(context.getString(R.string.app_permission_most_recent_summary,
+                    lastAccessStr));
         }
     }
 

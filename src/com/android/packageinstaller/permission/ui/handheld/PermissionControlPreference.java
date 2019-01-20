@@ -32,6 +32,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceViewHolder;
 
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
+import com.android.packageinstaller.permission.model.AppPermissionUsage.GroupUsage;
 import com.android.packageinstaller.permission.ui.AppPermissionActivity;
 import com.android.permissioncontroller.R;
 
@@ -111,6 +112,23 @@ public class PermissionControlPreference extends Preference {
             }
         }
         setSummary("");
+    }
+
+    /**
+     * Sets this preference's summary based on its permission usage.
+     *
+     * @param groupUsage the usage information
+     * @param accessTimeStr the string representing the last access time
+     */
+    public void setUsageSummary(@NonNull GroupUsage groupUsage, @NonNull String accessTimeStr) {
+        if (groupUsage.getBackgroundAccessCount() == 0) {
+            setSummary(mContext.getString(R.string.permission_usage_summary, accessTimeStr,
+                    groupUsage.getForegroundAccessCount()));
+        } else {
+            setSummary(
+                    mContext.getString(R.string.permission_usage_summary_background, accessTimeStr,
+                            groupUsage.getAccessCount(), groupUsage.getBackgroundAccessCount()));
+        }
     }
 
     /**

@@ -87,7 +87,7 @@ public class SpecialAppAccessFragment extends SettingsFragment
         super.onActivityCreated(savedInstanceState);
 
         Activity activity = requireActivity();
-        mRole = Roles.getRoles(activity).get(mRoleName);
+        mRole = Roles.get(activity).get(mRoleName);
         activity.setTitle(mRole.getLabelResource());
 
         mViewModel = ViewModelProviders.of(this, new SpecialAppAccessViewModel.Factory(mRole,
@@ -180,7 +180,7 @@ public class SpecialAppAccessFragment extends SettingsFragment
         String packageName = applicationInfo.packageName;
         UserHandle user = UserHandle.getUserHandleForUid(applicationInfo.uid);
         boolean add = !((AppIconSwitchPreference) preference).isChecked();
-        liveData.manageRoleHolderAsUser(mRoleName, packageName, user, add, requireContext());
+        liveData.setRoleHolderAsUser(mRoleName, packageName, add, user, requireContext());
         return true;
     }
 }

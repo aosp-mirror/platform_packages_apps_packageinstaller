@@ -40,6 +40,7 @@ import com.android.packageinstaller.permission.model.PermissionUsages;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 import com.android.settingslib.widget.AppEntitiesHeaderController;
+import com.android.settingslib.widget.AppEntityInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -215,8 +216,12 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
         int i = 0;
         for (; i < numAppsToShow; i++) {
             Pair<PermissionApp, GroupUsage> info = usages.get(i);
-            mAppUsageController.setAppEntity(i, info.first.getIcon(), info.first.getLabel(),
-                    info.second.getGroup().getLabel());
+            AppEntityInfo appEntityInfo = new AppEntityInfo.Builder()
+                    .setIcon(info.first.getIcon())
+                    .setTitle(info.first.getLabel())
+                    .setSummary(info.second.getGroup().getLabel())
+                    .build();
+            mAppUsageController.setAppEntity(i, appEntityInfo);
         }
         for (; i < MAXIMUM_APP_COUNT; i++) {
             mAppUsageController.removeAppEntity(i);

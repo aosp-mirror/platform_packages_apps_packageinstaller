@@ -51,15 +51,15 @@ public class ManageRoleHolderStateLiveData extends LiveData<Integer> {
      *
      * @param roleName the name of the role
      * @param packageName the package name of the application
-     * @param user the user to manage the role holder for
      * @param add whether to add or remove the application as a role holder
+     * @param user the user to manage the role holder for
      * @param context the {@code Context} to retrieve system services
      */
-    public void manageRoleHolderAsUser(@NonNull String roleName, @NonNull String packageName,
-            @NonNull UserHandle user, boolean add, @NonNull Context context) {
+    public void setRoleHolderAsUser(@NonNull String roleName, @NonNull String packageName,
+            boolean add, @NonNull UserHandle user, @NonNull Context context) {
         if (getValue() != STATE_IDLE) {
-            Log.e(LOG_TAG, "Already (tried) managing package as role holder, requested role: "
-                    + roleName + ", requested package: " + packageName);
+            Log.e(LOG_TAG, "Already (tried) managing role holders, requested role: " + roleName
+                    + ", requested package: " + packageName);
             return;
         }
         if (DEBUG) {
@@ -94,6 +94,46 @@ public class ManageRoleHolderStateLiveData extends LiveData<Integer> {
         } else {
             roleManager.removeRoleHolderAsUser(roleName, packageName, user, executor, callback);
         }
+    }
+
+    /**
+     * Clear the holders of a role, and update the state accordingly. Will be no-op if the current
+     * state is not {@link #STATE_IDLE}.
+     *
+     * @param roleName the name of the role
+     * @param user the user to manage the role holder for
+     * @param context the {@code Context} to retrieve system services
+     */
+    public void clearRoleHoldersAsUser(@NonNull String roleName, @NonNull UserHandle user,
+            @NonNull Context context) {
+        if (getValue() != STATE_IDLE) {
+            Log.e(LOG_TAG, "Already (tried) managing role holders, requested role: " + roleName);
+            return;
+        }
+        if (DEBUG) {
+            Log.i(LOG_TAG, "Clearing role holders, role: " + roleName);
+        }
+        setValue(STATE_WORKING);
+
+        RoleManager roleManager = context.getSystemService(RoleManager.class);
+        Executor executor = context.getMainExecutor();
+        RoleManagerCallback callback = new RoleManagerCallback() {
+            @Override
+            public void onSuccess() {
+                if (DEBUG) {
+                    Log.i(LOG_TAG, "Cleared role holders, role: " + roleName);
+                }
+                setValue(STATE_SUCCESS);
+            }
+            @Override
+            public void onFailure() {
+                if (DEBUG) {
+                    Log.i(LOG_TAG, "Failed to clear role holders, role: " + roleName);
+                }
+                setValue(STATE_FAILURE);
+            }
+        };
+        roleManager.clearRoleHoldersAsUser(roleName, user, executor, callback);
     }
 
     /**

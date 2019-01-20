@@ -89,7 +89,7 @@ public class RequestRoleFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         Context context = requireContext();
-        Role role = Roles.getRoles(context).get(mRoleName);
+        Role role = Roles.get(context).get(mRoleName);
         if (role == null) {
             Log.w(LOG_TAG, "Unknown role: " + mRoleName);
             finish();
@@ -208,8 +208,8 @@ public class RequestRoleFragment extends DialogFragment {
     }
 
     private void addRoleHolder() {
-        mViewModel.getLiveData().manageRoleHolderAsUser(mRoleName, mPackageName,
-                Process.myUserHandle(), true, requireContext());
+        mViewModel.getLiveData().setRoleHolderAsUser(mRoleName, mPackageName, true,
+                Process.myUserHandle(), requireContext());
     }
 
     private void setResultOkAndFinish() {

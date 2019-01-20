@@ -26,24 +26,29 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissionUsage;
 import com.android.packageinstaller.permission.model.AppPermissionUsage.GroupUsage;
 import com.android.packageinstaller.permission.model.PermissionUsages;
+import com.android.packageinstaller.permission.ui.handheld.FilterSpinner.FilterSpinnerAdapter;
+import com.android.packageinstaller.permission.ui.handheld.FilterSpinner.TimeFilterItem;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 
 import java.util.Comparator;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Show the usage of all permission groups by a single app.
@@ -51,14 +56,28 @@ import java.util.concurrent.TimeUnit;
  * <p>Shows a list of app usage of permission groups, each of which links to
  * AppPermissionsFragment.
  */
-public class AppPermissionUsageFragment extends SettingsWithButtonHeader {
+public class AppPermissionUsageFragment extends SettingsWithButtonHeader implements
+        OnItemSelectedListener {
 
     private static final String LOG_TAG = "AppPermissionUsageFragment";
 
+    private static final String KEY_SPINNER_TIME_INDEX = "_time_index";
+    private static final String SPINNER_TIME_INDEX_KEY = AppPermissionUsageFragment.class.getName()
+            + KEY_SPINNER_TIME_INDEX;
 
+    private @NonNull String mPackageName;
     private @NonNull ApplicationInfo mAppInfo;
 
     private @NonNull PermissionUsages mPermissionUsages;
+
+    private Spinner mFilterSpinner;
+    private FilterSpinnerAdapter<TimeFilterItem> mFilterAdapter;
+
+    /**
+     * Only used to restore spinner state after onCreate. Once the list of times is reported, this
+     * becomes invalid.
+     */
+    private int mSavedSpinnerIndex;
 
     /**
      * @return A new fragment
@@ -82,6 +101,11 @@ public class AppPermissionUsageFragment extends SettingsWithButtonHeader {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (savedInstanceState != null) {
+            mSavedSpinnerIndex = savedInstanceState.getInt(SPINNER_TIME_INDEX_KEY);
+        }
+
         setLoading(true, false);
         setHasOptionsMenu(true);
         ActionBar ab = getActivity().getActionBar();
@@ -89,29 +113,59 @@ public class AppPermissionUsageFragment extends SettingsWithButtonHeader {
             ab.setDisplayHomeAsUpEnabled(true);
         }
 
-        String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
+        mPackageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
         UserHandle userHandle = getArguments().getParcelable(Intent.EXTRA_USER);
         Activity activity = getActivity();
-        mAppInfo = getApplicationInfo(getActivity(), packageName, userHandle);
+        mAppInfo = getApplicationInfo(getActivity(), mPackageName, userHandle);
         if (mAppInfo == null) {
             Toast.makeText(activity, R.string.app_not_found_dlg_title, Toast.LENGTH_LONG).show();
             activity.finish();
             return;
         }
 
-        final long beginTimeMillis = System.currentTimeMillis() - TimeUnit.HOURS.toMillis(24);
         mPermissionUsages = new PermissionUsages(getContext());
-        mPermissionUsages.load(mAppInfo.uid, packageName, null, beginTimeMillis, Long.MAX_VALUE,
-                PermissionUsages.USAGE_FLAG_LAST | PermissionUsages.USAGE_FLAG_HISTORICAL,
-                getActivity().getLoaderManager(),
-                true, this::updateUi, false);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
+        Context context = getPreferenceManager().getContext();
+        ViewGroup root = (ViewGroup) super.onCreateView(inflater, container, savedInstanceState);
+
+        View spinnerView = inflater.inflate(R.layout.single_spinner, root, false);
+        getPreferencesContainer().addView(spinnerView, 1);
+
+        mFilterSpinner = spinnerView.requireViewById(R.id.filter_spinner);
+        mFilterAdapter = new FilterSpinnerAdapter<>(context);
+        mFilterSpinner.setAdapter(mFilterAdapter);
+        mFilterSpinner.setOnItemSelectedListener(this);
+
+        FilterSpinner.addTimeFilters(mFilterAdapter, context);
+        mFilterSpinner.setSelection(mSavedSpinnerIndex);
+
+        return root;
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Drawable icon = Utils.getBadgedIcon(getActivity(), mAppInfo);
-        setHeader(icon, Utils.getFullAppLabel(mAppInfo, getContext()));
+        setHeader(icon, Utils.getFullAppLabel(mAppInfo, getContext()), true);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        reloadData();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(SPINNER_TIME_INDEX_KEY, mFilterSpinner.getSelectedItemPosition());
     }
 
     @Override
@@ -163,6 +217,11 @@ public class AppPermissionUsageFragment extends SettingsWithButtonHeader {
             return;
         }
 
+        // Get the current values of the time filter.
+        TimeFilterItem timeFilterItem = getSelectedFilterItem();
+        long startTime = (timeFilterItem == null ? 0
+                : (System.currentTimeMillis() - timeFilterItem.getTime()));
+
         final AppPermissionUsage appPermissionUsage = permissionUsages.get(0);
         final List<AppPermissionUsage.GroupUsage> groupUsages = appPermissionUsage.getGroupUsages();
         groupUsages.sort(Comparator.comparing(GroupUsage::getAccessCount).reversed());
@@ -170,7 +229,7 @@ public class AppPermissionUsageFragment extends SettingsWithButtonHeader {
         final int permissionCount = groupUsages.size();
         for (int permissionIdx = 0; permissionIdx < permissionCount; permissionIdx++) {
             final GroupUsage groupUsage = groupUsages.get(permissionIdx);
-            if (groupUsage.getAccessCount() <= 0) {
+            if (groupUsage.getAccessCount() <= 0 || groupUsage.getLastAccessTime() < startTime) {
                 continue;
             }
             final AppPermissionGroup group = groupUsage.getGroup();
@@ -178,18 +237,9 @@ public class AppPermissionUsageFragment extends SettingsWithButtonHeader {
             if (group.getLabel().equals("Storage")) {
                 continue;
             }
-            Preference pref = new PermissionControlPreference(context, group);
+            PermissionControlPreference pref = new PermissionControlPreference(context, group);
             pref.setTitle(groupUsage.getGroup().getLabel());
-            if (groupUsage.getAccessDuration() == 0) {
-                pref.setSummary(context.getString(R.string.app_permission_usage_summary_no_duration,
-                        groupUsage.getAccessCount(), Utils.getLastUsageString(context,
-                                groupUsage)));
-            } else {
-                pref.setSummary(context.getString(R.string.app_permission_usage_summary,
-                        groupUsage.getAccessCount(),
-                        Utils.getUsageDurationString(context, groupUsage),
-                        Utils.getLastUsageString(context, groupUsage)));
-            }
+            pref.setUsageSummary(groupUsage, Utils.getAbsoluteLastUsageString(context, groupUsage));
             pref.setIcon(Utils.applyTint(context, group.getIconResId(),
                     android.R.attr.colorControlNormal));
             pref.setKey(group.getName());
@@ -197,5 +247,25 @@ public class AppPermissionUsageFragment extends SettingsWithButtonHeader {
         }
 
         setLoading(false, true);
+    }
+
+    private TimeFilterItem getSelectedFilterItem() {
+        int pos = mFilterSpinner.getSelectedItemPosition();
+        if (pos != AdapterView.INVALID_POSITION) {
+            return mFilterAdapter.getFilter(pos);
+        }
+        return null;
+    }
+
+    private void reloadData() {
+        TimeFilterItem timeFilterItem = getSelectedFilterItem();
+        if (timeFilterItem == null) {
+            return;
+        }
+        long beginTimeMillis = Math.max(System.currentTimeMillis() - timeFilterItem.getTime(), 0);
+        mPermissionUsages.load(mAppInfo.uid, mPackageName, null, beginTimeMillis, Long.MAX_VALUE,
+                PermissionUsages.USAGE_FLAG_LAST | PermissionUsages.USAGE_FLAG_HISTORICAL,
+                getActivity().getLoaderManager(),
+                true, this::updateUi, false);
     }
 }

@@ -66,7 +66,7 @@ public class DefaultAppActivity extends FragmentActivity {
             user = Process.myUserHandle();
         }
 
-        Role role = Roles.getRoles(this).get(roleName);
+        Role role = Roles.get(this).get(roleName);
         if (role == null) {
             Log.e(LOG_TAG, "Unknown role: " + roleName);
             finish();

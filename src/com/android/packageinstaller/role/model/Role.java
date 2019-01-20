@@ -85,6 +85,13 @@ public class Role {
     private final int mLabelResource;
 
     /**
+     * Whether the UI for this role will show the "None" item. Only valid if this role is
+     * {@link #mExclusive exclusive}, and {@link #getFallbackHolder(Context)} should also return
+     * empty to allow actually selecting "None".
+     */
+    private final boolean mShowNone;
+
+    /**
      * The required components for an application to qualify for this role.
      */
     @NonNull
@@ -109,13 +116,14 @@ public class Role {
     private final List<PreferredActivity> mPreferredActivities;
 
     public Role(@NonNull String name, @Nullable RoleBehavior behavior, boolean exclusive,
-            @StringRes int labelResource, @NonNull List<RequiredComponent> requiredComponents,
-            @NonNull List<String> permissions, @NonNull List<AppOp> appOps,
-            @NonNull List<PreferredActivity> preferredActivities) {
+            @StringRes int labelResource, boolean showNone,
+            @NonNull List<RequiredComponent> requiredComponents, @NonNull List<String> permissions,
+            @NonNull List<AppOp> appOps, @NonNull List<PreferredActivity> preferredActivities) {
         mName = name;
         mBehavior = behavior;
         mExclusive = exclusive;
         mLabelResource = labelResource;
+        mShowNone = showNone;
         mRequiredComponents = requiredComponents;
         mPermissions = permissions;
         mAppOps = appOps;
@@ -139,6 +147,13 @@ public class Role {
     @StringRes
     public int getLabelResource() {
         return mLabelResource;
+    }
+
+    /**
+     * @see #mShowNone
+     */
+    public boolean shouldShowNone() {
+        return mShowNone;
     }
 
     @NonNull
@@ -205,6 +220,8 @@ public class Role {
 
     /**
      * Get the fallback holder of this role, which will be added whenever there are no role holders.
+     * <p>
+     * Should return empty if this role {@link #mShowNone shows a "None" item}.
      *
      * @param context the {@code Context} to retrieve system services
      *
@@ -245,9 +262,15 @@ public class Role {
      * @return whether the package is qualified for a role
      */
     public boolean isPackageQualified(@NonNull String packageName, @NonNull Context context) {
-        if (!isPackageQualifiedWithoutCheckingRequiredComponentsAsUser(packageName,
-                Process.myUserHandle(), context)) {
+        if (!isPackageMinimallyQualifiedAsUser(packageName, Process.myUserHandle(), context)) {
             return false;
+        }
+
+        if (mBehavior != null) {
+            Boolean isPackageQualified = mBehavior.isPackageQualified(this, packageName, context);
+            if (isPackageQualified != null) {
+                return isPackageQualified;
+            }
         }
 
         int requiredComponentsSize = mRequiredComponents.size();
@@ -275,48 +298,66 @@ public class Role {
     @NonNull
     public List<String> getQualifyingPackagesAsUser(@NonNull UserHandle user,
             @NonNull Context context) {
-        ArrayMap<String, Integer> packageComponentCountMap = new ArrayMap<>();
-        int requiredComponentsSize = mRequiredComponents.size();
-        for (int requiredComponentsIndex = 0; requiredComponentsIndex < requiredComponentsSize;
-                requiredComponentsIndex++) {
-            RequiredComponent requiredComponent = mRequiredComponents.get(requiredComponentsIndex);
+        List<String> qualifyingPackages = null;
 
-            // This returns at most one component per package.
-            List<ComponentName> qualifyingComponents =
-                    requiredComponent.getQualifyingComponentsAsUser(user, context);
-            int qualifyingComponentsSize = qualifyingComponents.size();
-            for (int qualifyingComponentsIndex = 0;
-                    qualifyingComponentsIndex < qualifyingComponentsSize;
-                    ++qualifyingComponentsIndex) {
-                ComponentName componentName = qualifyingComponents.get(qualifyingComponentsIndex);
+        if (mBehavior != null) {
+            qualifyingPackages = mBehavior.getQualifyingPackagesAsUser(this, user, context);
+        }
 
-                String packageName = componentName.getPackageName();
-                Integer componentCount = packageComponentCountMap.get(packageName);
-                packageComponentCountMap.put(packageName, componentCount == null ? 1
-                        : componentCount + 1);
+        if (qualifyingPackages == null) {
+            ArrayMap<String, Integer> packageComponentCountMap = new ArrayMap<>();
+            int requiredComponentsSize = mRequiredComponents.size();
+            for (int requiredComponentsIndex = 0; requiredComponentsIndex < requiredComponentsSize;
+                    requiredComponentsIndex++) {
+                RequiredComponent requiredComponent = mRequiredComponents.get(
+                        requiredComponentsIndex);
+
+                // This returns at most one component per package.
+                List<ComponentName> qualifyingComponents =
+                        requiredComponent.getQualifyingComponentsAsUser(user, context);
+                int qualifyingComponentsSize = qualifyingComponents.size();
+                for (int qualifyingComponentsIndex = 0;
+                        qualifyingComponentsIndex < qualifyingComponentsSize;
+                        ++qualifyingComponentsIndex) {
+                    ComponentName componentName = qualifyingComponents.get(
+                            qualifyingComponentsIndex);
+
+                    String packageName = componentName.getPackageName();
+                    Integer componentCount = packageComponentCountMap.get(packageName);
+                    packageComponentCountMap.put(packageName, componentCount == null ? 1
+                            : componentCount + 1);
+                }
+            }
+
+            qualifyingPackages = new ArrayList<>();
+            int packageComponentCountMapSize = packageComponentCountMap.size();
+            for (int i = 0; i < packageComponentCountMapSize; i++) {
+                int componentCount = packageComponentCountMap.valueAt(i);
+
+                if (componentCount != requiredComponentsSize) {
+                    continue;
+                }
+                String packageName = packageComponentCountMap.keyAt(i);
+                qualifyingPackages.add(packageName);
             }
         }
 
-        List<String> qualifyingPackages = new ArrayList<>();
-        int packageComponentCountMapSize = packageComponentCountMap.size();
-        for (int i = 0; i < packageComponentCountMapSize; i++) {
-            int componentCount = packageComponentCountMap.valueAt(i);
+        int qualifyingPackagesSize = qualifyingPackages.size();
+        for (int i = 0; i < qualifyingPackagesSize; ) {
+            String packageName = qualifyingPackages.get(i);
 
-            if (componentCount != requiredComponentsSize) {
-                continue;
+            if (!isPackageMinimallyQualifiedAsUser(packageName, user, context)) {
+                qualifyingPackages.remove(i);
+                qualifyingPackagesSize--;
+            } else {
+                i++;
             }
-            String packageName = packageComponentCountMap.keyAt(i);
-            if (!isPackageQualifiedWithoutCheckingRequiredComponentsAsUser(packageName, user,
-                    context)) {
-                continue;
-            }
-            qualifyingPackages.add(packageName);
         }
 
         return qualifyingPackages;
     }
 
-    private boolean isPackageQualifiedWithoutCheckingRequiredComponentsAsUser(
+    private boolean isPackageMinimallyQualifiedAsUser(
             @NonNull String packageName, @NonNull UserHandle user, @NonNull Context context) {
         if (Objects.equals(packageName, PACKAGE_NAME_ANDROID_SYSTEM)) {
             return false;
@@ -397,7 +438,7 @@ public class Role {
         otherRoleNames.remove(mName);
 
         List<String> permissionsToRevoke = new ArrayList<>(mPermissions);
-        ArrayMap<String, Role> roles = Roles.getRoles(context);
+        ArrayMap<String, Role> roles = Roles.get(context);
         int otherRoleNamesSize = otherRoleNames.size();
         for (int i = 0; i < otherRoleNamesSize; i++) {
             String roleName = otherRoleNames.get(i);
