@@ -62,6 +62,7 @@ import com.android.packageinstaller.role.service.PermissionControllerServiceImpl
 import org.xmlpull.v1.XmlSerializer;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -432,10 +433,11 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
     }
 
     @Override
-    public void onGetRuntimePermissionsBackup(@NonNull UserHandle user, @NonNull OutputStream out) {
+    public void onGetRuntimePermissionsBackup(@NonNull UserHandle user,
+            @NonNull OutputStream backup) {
         try {
             XmlSerializer serializer = newSerializer();
-            serializer.setOutput(out, UTF_8.name());
+            serializer.setOutput(backup, UTF_8.name());
             serializer.startDocument(null, true);
 
             serializer.startTag(null, TAG_PERMISSION_BACKUP);
@@ -457,6 +459,19 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
         } catch (Exception e) {
             Log.e(LOG_TAG, "Unable to write default apps for backup", e);
         }
+    }
+
+    @Override
+    public void onRestoreRuntimePermissionsBackup(@NonNull UserHandle user,
+            @NonNull InputStream backup) {
+        // TODO: Implement
+    }
+
+    @Override
+    public boolean onRestoreDelayedRuntimePermissionsBackup(@NonNull String packageName,
+            @NonNull UserHandle user) {
+        // TODO: Implement
+        return true;
     }
 
     @Override
