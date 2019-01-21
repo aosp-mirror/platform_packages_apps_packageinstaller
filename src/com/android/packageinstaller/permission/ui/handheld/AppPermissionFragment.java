@@ -870,7 +870,8 @@ public class AppPermissionFragment extends SettingsWithButtonHeader {
                 }
             }
 
-            if ((requestToRevokeGrantedByDefault || !mGroup.doesSupportRuntimePermissions())
+            if ((requestToRevokeGrantedByDefault || !mGroup.doesSupportRuntimePermissions()
+                    || mGroup.hasInstallToRuntimeSplit())
                     && !mHasConfirmedRevoke) {
                 showDefaultDenyDialog(changeTarget);
                 updateButtons();
