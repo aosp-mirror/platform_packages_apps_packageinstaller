@@ -93,7 +93,9 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
                 .setHeaderTitleRes(R.string.permission_usage_header)
                 .setHeaderDetailsRes(R.string.permission_usage_view_details)
                 .setHeaderDetailsClickListener((View v) -> {
-                    context.startActivity(new Intent(Intent.ACTION_REVIEW_PERMISSION_USAGE));
+                    Intent intent = new Intent(Intent.ACTION_REVIEW_PERMISSION_USAGE);
+                    intent.putExtra(Intent.EXTRA_DURATION_MILLIS, DAYS.toMillis(1));
+                    context.startActivity(intent);
                 });
 
         mPermissionUsages.load(null, null, System.currentTimeMillis() - DAYS.toMillis(1),
