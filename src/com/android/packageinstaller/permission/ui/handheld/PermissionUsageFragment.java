@@ -87,6 +87,7 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
     static final int SORT_MOST_ACCESSES = 3;
 
     private static final int MENU_FILTER_BY_PERMISSIONS = MENU_HIDE_SYSTEM + 1;
+    private static final int MENU_REFRESH = MENU_HIDE_SYSTEM + 2;
 
     private static final String KEY_SHOW_SYSTEM_PREFS = "_show_system";
     private static final String SHOW_SYSTEM_KEY = PermissionUsageFragment.class.getName()
@@ -261,6 +262,10 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
         }
         HelpUtils.prepareHelpMenuItem(getActivity(), menu, R.string.help_permission_usage,
                 getClass().getName());
+        MenuItem refresh = menu.add(Menu.NONE, MENU_REFRESH, Menu.NONE,
+                R.string.permission_usage_refresh);
+        refresh.setIcon(R.drawable.ic_refresh);
+        refresh.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
     }
 
     @Override
@@ -278,6 +283,9 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
                 // We already loaded all data, so don't reload
                 updateUI();
                 updateMenu();
+                break;
+            case MENU_REFRESH:
+                reloadData();
                 break;
         }
         return super.onOptionsItemSelected(item);
