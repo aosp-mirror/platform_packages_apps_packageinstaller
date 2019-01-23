@@ -18,6 +18,7 @@ package com.android.packageinstaller.permission.model;
 
 import android.app.AppOpsManager;
 import android.app.AppOpsManager.HistoricalOps;
+import android.app.AppOpsManager.HistoricalOpsRequest;
 import android.app.AppOpsManager.HistoricalPackageOps;
 import android.app.AppOpsManager.HistoricalUidOps;
 import android.app.AppOpsManager.PackageOps;
@@ -289,9 +290,13 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
             if ((mUsageFlags & USAGE_FLAG_HISTORICAL) != 0) {
                 final AtomicReference<HistoricalOps> historicalOpsRef = new AtomicReference<>();
                 final CountDownLatch latch = new CountDownLatch(1);
-                appOpsManager.getHistoricalOps(mFilterUid,
-                        mFilterPackageName, opNamesArray, mFilterBeginTimeMillis,
-                        mFilterEndTimeMillis, Runnable::run,
+                final HistoricalOpsRequest request = new HistoricalOpsRequest.Builder(
+                        mFilterBeginTimeMillis, mFilterEndTimeMillis)
+                        .setUid(mFilterUid)
+                        .setPackageName(mFilterPackageName)
+                        .setOpNames(new ArrayList<>(opNames))
+                        .build();
+                appOpsManager.getHistoricalOps(request, Runnable::run,
                         (HistoricalOps ops) -> {
                             historicalOpsRef.set(ops);
                             latch.countDown();

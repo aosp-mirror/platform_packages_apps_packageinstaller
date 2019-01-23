@@ -33,7 +33,6 @@ import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 import static android.content.pm.PackageManager.GET_PERMISSIONS;
 import static android.graphics.Bitmap.Config.ARGB_8888;
 import static android.graphics.Bitmap.createBitmap;
-import static android.os.Process.INVALID_UID;
 import static android.os.UserHandle.getUserHandleForUid;
 import static android.os.UserHandle.myUserId;
 import static android.provider.Settings.Secure.LOCATION_ACCESS_CHECK_DELAY_MILLIS;
@@ -59,6 +58,7 @@ import static java.util.concurrent.TimeUnit.MINUTES;
 
 import android.app.AppOpsManager;
 import android.app.AppOpsManager.HistoricalOps;
+import android.app.AppOpsManager.HistoricalOpsRequest;
 import android.app.AppOpsManager.HistoricalPackageOps;
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -95,6 +95,7 @@ import androidx.core.util.Preconditions;
 
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.ui.AppPermissionActivity;
+import com.android.packageinstaller.permission.utils.CollectionUtils;
 import com.android.permissioncontroller.R;
 
 import java.io.BufferedReader;
@@ -103,6 +104,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -363,9 +365,12 @@ public class LocationAccessCheck {
                     return;
                 }
 
+                HistoricalOpsRequest request = new HistoricalOpsRequest.Builder(
+                        Instant.EPOCH.toEpochMilli(), Long.MAX_VALUE)
+                        .setOpNames(CollectionUtils.singletonOrEmpty(OPSTR_FINE_LOCATION))
+                        .build();
                 HistoricalOps[] ops = new HistoricalOps[1];
-                mAppOpsManager.getHistoricalOps(INVALID_UID, null,
-                        new String[]{OPSTR_FINE_LOCATION}, 0, Long.MAX_VALUE,
+                mAppOpsManager.getHistoricalOps(request,
                         mContext.getMainExecutor(), (h) -> {
                             synchronized (ops) {
                                 ops[0] = h;
