@@ -60,50 +60,35 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="bottom"
-                    android:divider="@*android:drawable/list_divider_material"
-                    android:showDividers="beginning|middle">
+                    style="@style/PermissionGrantButtonList">
+
+                    <Space
+                        style="@style/PermissionGrantButtonBarSpace"/>
 
                     <Button
                         android:id="@+id/permission_allow_button"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/grant_permissions_dialog_button_height"
                         android:text="@string/grant_dialog_button_allow"
-                        android:background="?android:attr/selectableItemBackground"
-                        style="?android:attr/buttonBarButtonStyle" />
+                        style="@style/PermissionGrantButtonAllow" />
 
                     <Button
                         android:id="@+id/permission_allow_always_button"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/grant_permissions_dialog_button_height"
                         android:text="@string/grant_dialog_button_allow_always"
-                        android:background="?android:attr/selectableItemBackground"
-                        style="?android:attr/buttonBarButtonStyle" />
+                        style="@style/PermissionGrantButtonAllowAlways" />
 
                     <Button
                         android:id="@+id/permission_allow_foreground_only_button"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/grant_permissions_dialog_button_height"
                         android:text="@string/grant_dialog_button_allow_foreground"
-                        android:background="?android:attr/selectableItemBackground"
-                        style="?android:attr/buttonBarButtonStyle" />
+                        style="@style/PermissionGrantButtonAllowForeground" />
 
                     <Button
                         android:id="@+id/permission_deny_button"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/grant_permissions_dialog_button_height"
                         android:text="@string/grant_dialog_button_deny"
-                        android:background="?android:attr/selectableItemBackground"
-                        style="?android:attr/buttonBarButtonStyle" />
+                        style="@style/PermissionGrantButtonDeny" />
 
                     <Button
                         android:id="@+id/permission_deny_and_dont_ask_again_button"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/grant_permissions_dialog_button_height"
                         android:text="@string/grant_dialog_button_deny_and_dont_ask_again"
-                        android:background="?android:attr/selectableItemBackground"
-                        style="?android:attr/buttonBarButtonStyle" />
+                        style="@style/PermissionGrantButtonDenyDontAskAgain" />
 
                 </LinearLayout>
 

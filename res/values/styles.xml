@@ -54,6 +54,14 @@
         <item name="android:elevation">?android:attr/windowElevation</item>
         <item name="android:layout_weight">@dimen/permissionGrantDialogWeight</item>
         <item name="android:layout_width">@dimen/permissionGrantDialogWidth</item>
+        <item name="android:divider">@*android:drawable/list_divider_material</item>
+        <item name="android:showDividers">middle</item>
+    </style>
+
+    <style name="PermissionGrantTitleIconAndDescription">
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingTop">18dp</item>
+        <item name="android:paddingBottom">24dp</item>
     </style>
 
     <style name="PermissionGrantTitleIcon">
@@ -73,6 +81,8 @@
     </style>
 
     <style name="PermissionGrantDescription">
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
         <item name="android:layout_marginStart">24dp</item>
         <item name="android:layout_marginEnd">24dp</item>
     </style>
@@ -92,6 +102,40 @@
         <item name="android:textColor">?android:attr/textColorPrimary</item>
         <item name="android:textSize">16sp</item>
     </style>
+
+    <style name="PermissionGrantButtonList">
+        <item name="android:orientation">vertical</item>
+        <item name="android:divider">@*android:drawable/list_divider_material</item>
+        <item name="android:showDividers">middle</item>
+        <item name="android:baselineAligned">false</item>
+    </style>
+
+    <style name="PermissionGrantButtonBarSpace">
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="PermissionGrantButton"
+           parent="@*android:style/Widget.DeviceDefault.Button.ButtonBar.AlertDialog">
+        <item name="android:layout_height">@dimen/grant_permissions_dialog_button_height</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+    </style>
+
+    <!-- for use in overlays -->
+    <style name="PermissionGrantButtonAllow"
+           parent="@style/PermissionGrantButton"></style>
+    <style name="PermissionGrantButtonAllowAlways"
+           parent="@style/PermissionGrantButton"></style>
+    <style name="PermissionGrantButtonAllowForeground"
+           parent="@style/PermissionGrantButton"></style>
+    <style name="PermissionGrantButtonDeny"
+           parent="@style/PermissionGrantButton"></style>
+    <style name="PermissionGrantButtonDenyDontAskAgain"
+           parent="@style/PermissionGrantButton"></style>
 
     <!-- styles for the permission review screen. -->
     <style name="PermissionReviewDescription">
