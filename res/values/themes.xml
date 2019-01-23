@@ -35,11 +35,8 @@
     </style>
 
     <style name="GrantPermissions"
-           parent="@android:style/Theme.DeviceDefault.Light.Panel">
-        <item name="android:windowIsFloating">false</item>
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:backgroundDimEnabled">true</item>
-        <item name="android:windowAnimationStyle">@*android:style/Animation.Material.Dialog</item>
+           parent="@android:style/Theme.DeviceDefault.Light.Dialog.Alert">
+        <item name="android:windowNoTitle">true</item>
         <!-- The following attributes change the behavior of the dialog, hence they should not be
              themed -->
         <item name="android:windowIsTranslucent">true</item>
@@ -54,9 +51,8 @@
         <!-- TODO: STOPSHIP: Make themeable? -->
     </style>
 
-    <style name="PermissionGrant"
+    <style name="Theme.PermissionGrantDialog"
            parent="@android:style/Theme.DeviceDefault.Light.Dialog">
-        <item name="titleTextStyle">@style/PermissionGrantTitleMessage</item>
     </style>
 
 </resources>

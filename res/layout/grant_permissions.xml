@@ -14,95 +14,73 @@
      limitations under the License.
 -->
 
-<!-- Position subsequent dialogs with the button bar at same height -->
-<com.android.packageinstaller.permission.ui.ManualLayoutFrame
+<!-- In (hopefully very rare) case dialog is too high: allow scrolling -->
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clipChildren="false">
+    style="@style/PermissionGrantScrollView">
 
-    <!-- In (hopefully very rare) case dialog is too high: allow scrolling -->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clipChildren="false">
-
+        <!-- The dialog -->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:clipChildren="false">
+            android:theme="@style/Theme.PermissionGrantDialog"
+            style="@style/PermissionGrantDialog">
 
-            <!-- allow some space around dialog, esp. in landscape -->
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="10"
-                android:visibility="invisible" />
-
-            <!-- The dialog -->
             <LinearLayout
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:theme="@style/PermissionGrant"
-                style="@style/PermissionGrantDialog">
+                android:id="@+id/content_container"
+                style="@style/PermissionGrantContent">
 
-                <FrameLayout
-                    android:id="@+id/content_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                        <include layout="@layout/grant_permissions_content" />
-
-                </FrameLayout>
-
-                <!-- Buttons on bottom of dialog -->
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/PermissionGrantButtonList">
+                    style="@style/PermissionGrantDescription">
 
-                    <Space
-                        style="@style/PermissionGrantButtonBarSpace"/>
+                    <ImageView
+                        android:id="@+id/permission_icon"
+                        style="@style/PermissionGrantTitleIcon" />
 
-                    <Button
-                        android:id="@+id/permission_allow_button"
-                        android:text="@string/grant_dialog_button_allow"
-                        style="@style/PermissionGrantButtonAllow" />
-
-                    <Button
-                        android:id="@+id/permission_allow_always_button"
-                        android:text="@string/grant_dialog_button_allow_always"
-                        style="@style/PermissionGrantButtonAllowAlways" />
-
-                    <Button
-                        android:id="@+id/permission_allow_foreground_only_button"
-                        android:text="@string/grant_dialog_button_allow_foreground"
-                        style="@style/PermissionGrantButtonAllowForeground" />
-
-                    <Button
-                        android:id="@+id/permission_deny_button"
-                        android:text="@string/grant_dialog_button_deny"
-                        style="@style/PermissionGrantButtonDeny" />
-
-                    <Button
-                        android:id="@+id/permission_deny_and_dont_ask_again_button"
-                        android:text="@string/grant_dialog_button_deny_and_dont_ask_again"
-                        style="@style/PermissionGrantButtonDenyDontAskAgain" />
+                    <TextView
+                        android:id="@+id/permission_message"
+                        style="@style/PermissionGrantTitleMessage" />
 
                 </LinearLayout>
 
-             </LinearLayout>
+                <TextView
+                    android:id="@+id/detail_message"
+                    style="@style/PermissionGrantDetailMessage" />
 
-            <!-- allow some space around dialog, esp. in landscape -->
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="10"
-                android:visibility="invisible" />
+            </LinearLayout>
+
+            <!-- Buttons on bottom of dialog -->
+            <LinearLayout
+                style="@style/PermissionGrantButtonList">
+
+                <Space
+                    style="@style/PermissionGrantButtonBarSpace"/>
+
+                <Button
+                    android:id="@+id/permission_allow_button"
+                    android:text="@string/grant_dialog_button_allow"
+                    style="@style/PermissionGrantButtonAllow" />
+
+                <Button
+                    android:id="@+id/permission_allow_always_button"
+                    android:text="@string/grant_dialog_button_allow_always"
+                    style="@style/PermissionGrantButtonAllowAlways" />
+
+                <Button
+                    android:id="@+id/permission_allow_foreground_only_button"
+                    android:text="@string/grant_dialog_button_allow_foreground"
+                    style="@style/PermissionGrantButtonAllowForeground" />
+
+                <Button
+                    android:id="@+id/permission_deny_button"
+                    android:text="@string/grant_dialog_button_deny"
+                    style="@style/PermissionGrantButtonDeny" />
+
+                <Button
+                    android:id="@+id/permission_deny_and_dont_ask_again_button"
+                    android:text="@string/grant_dialog_button_deny_and_dont_ask_again"
+                    style="@style/PermissionGrantButtonDenyDontAskAgain" />
+            </LinearLayout>
 
         </LinearLayout>
-
-    </ScrollView>
-
-</com.android.packageinstaller.permission.ui.ManualLayoutFrame>
+</ScrollView>
