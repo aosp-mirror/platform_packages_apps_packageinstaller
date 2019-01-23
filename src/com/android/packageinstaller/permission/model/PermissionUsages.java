@@ -170,7 +170,7 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
             mFilterPackageName = args.getString(KEY_FILTER_PACKAGE_NAME);
             mFilterPermissionGroup = args.getString(KEY_FILTER_PERMISSION_GROUP);
             mFilterBeginTimeMillis = args.getLong(KEY_FILTER_BEGIN_TIME_MILLIS);
-            mFilterEndTimeMillis = args.getLong(KEY_FILTER_END_TIME_MILLIS);;
+            mFilterEndTimeMillis = args.getLong(KEY_FILTER_END_TIME_MILLIS);
             mUsageFlags = args.getInt(KEY_USAGE_FLAGS);
             mGetUiInfo = args.getBoolean(KEY_GET_UI_INFO);
         }

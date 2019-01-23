@@ -47,6 +47,7 @@ import com.android.packageinstaller.permission.ui.handheld.FilterSpinner.TimeFil
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 
+import java.time.Instant;
 import java.util.Comparator;
 import java.util.List;
 
@@ -262,7 +263,8 @@ public class AppPermissionUsageFragment extends SettingsWithButtonHeader impleme
         if (timeFilterItem == null) {
             return;
         }
-        long beginTimeMillis = Math.max(System.currentTimeMillis() - timeFilterItem.getTime(), 0);
+        long beginTimeMillis = Math.max(System.currentTimeMillis() - timeFilterItem.getTime(),
+                Instant.EPOCH.toEpochMilli());
         mPermissionUsages.load(mAppInfo.uid, mPackageName, null, beginTimeMillis, Long.MAX_VALUE,
                 PermissionUsages.USAGE_FLAG_LAST | PermissionUsages.USAGE_FLAG_HISTORICAL,
                 getActivity().getLoaderManager(),

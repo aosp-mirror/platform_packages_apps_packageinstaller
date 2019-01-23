@@ -62,10 +62,12 @@ import com.android.settingslib.widget.BarViewInfo;
 
 import java.lang.annotation.Retention;
 import java.text.Collator;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Show the usage of all apps of all permission groups.
@@ -461,8 +463,8 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
             return;
         }
         final long filterTimeBeginMillis = Math.max(System.currentTimeMillis()
-                - timeFilterItem.getTime(), 0);
-        mPermissionUsages.load(null /*filterPackageName*/, null,
+                - timeFilterItem.getTime(), Instant.EPOCH.toEpochMilli());
+        mPermissionUsages.load(null /*filterPackageName*/, null /*filterPermissionGroup*/,
                 filterTimeBeginMillis, Long.MAX_VALUE, PermissionUsages.USAGE_FLAG_LAST
                         | PermissionUsages.USAGE_FLAG_HISTORICAL, getActivity().getLoaderManager(),
                 true /*getUiInfo*/, this /*callback*/, false /*sync*/);
