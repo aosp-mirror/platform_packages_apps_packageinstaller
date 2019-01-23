@@ -77,7 +77,7 @@ public abstract class PermissionsFrameFragment extends PreferenceFragmentCompat 
         mPreferencesContainer = (ViewGroup) super.onCreateView(
                 inflater, mPrefsView, savedInstanceState);
         setLoading(mIsLoading, false, true /* force */);
-        mPrefsView.addView(mPreferencesContainer);
+        mPrefsView.addView(mPreferencesContainer, 0);
         return rootView;
     }
 

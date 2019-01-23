@@ -22,9 +22,7 @@
     android:orientation="vertical"
     android:id="@+id/app_permission_root">
 
-    <include layout="@layout/button_header" />
-
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clipChildren="false">
@@ -33,6 +31,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <include layout="@layout/button_header" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -275,6 +275,6 @@
 
         </LinearLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>
