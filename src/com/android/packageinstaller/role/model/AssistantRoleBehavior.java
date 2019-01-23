@@ -45,7 +45,6 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -69,12 +68,19 @@ public class AssistantRoleBehavior implements RoleBehavior {
     @NonNull
     @Override
     public List<String> getDefaultHolders(@NonNull Role role, @NonNull Context context) {
+        return CollectionUtils.singletonOrEmpty(getFallbackHolder(role, context));
+    }
+
+    @Nullable
+    @Override
+    public String getFallbackHolder(@NonNull Role role, @NonNull Context context) {
         String defaultPackageName = CollectionUtils.firstOrNull(DefaultRoleHolders.get(context).get(
                 role.getName()));
         if (defaultPackageName == null || !isPackageQualified(role, defaultPackageName, context)) {
-            return Collections.emptyList();
+            return null;
         }
-        return Collections.singletonList(defaultPackageName);
+
+        return defaultPackageName;
     }
 
     @Nullable

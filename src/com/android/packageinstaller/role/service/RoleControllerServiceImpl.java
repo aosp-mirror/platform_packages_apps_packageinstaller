@@ -21,6 +21,7 @@ import android.app.role.RoleManagerCallback;
 import android.content.pm.ApplicationInfo;
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.os.Process;
 import android.os.UserHandle;
 import android.rolecontrollerservice.RoleControllerService;
 import android.text.TextUtils;
@@ -300,6 +301,8 @@ public class RoleControllerServiceImpl extends RoleControllerService {
             callback.onFailure();
             return;
         }
+
+        role.onHolderSelectedAsUser(this, Process.myUserHandle());
 
         callback.onSuccess();
     }

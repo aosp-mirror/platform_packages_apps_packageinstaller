@@ -17,6 +17,7 @@
 package com.android.packageinstaller.role.utils;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Process;
 import android.os.UserHandle;
 import android.os.UserManager;
@@ -61,4 +62,27 @@ public class UserUtils {
         }
         return null;
     }
+
+    /**
+     * Create a context for a user.
+     *
+     * @param context The context to clone
+     * @param user The user the new context should be for
+     *
+     * @return The context for the new user
+     */
+    @NonNull
+    public static Context getUserContext(@NonNull Context context, @NonNull UserHandle user) {
+        if (Process.myUserHandle().equals(user)) {
+            return context;
+        } else {
+            try {
+                return context.createPackageContextAsUser(context.getPackageName(), 0, user);
+            } catch (PackageManager.NameNotFoundException doesNotHappen) {
+                throw new IllegalStateException(doesNotHappen);
+            }
+        }
+    }
+
+
 }

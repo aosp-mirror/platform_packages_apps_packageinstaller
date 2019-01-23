@@ -31,7 +31,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 
+import com.android.packageinstaller.Constants;
 import com.android.packageinstaller.role.utils.PackageUtils;
+import com.android.packageinstaller.role.utils.UserUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -230,7 +232,7 @@ public class Role {
      */
     @Nullable
     public String getFallbackHolder(@NonNull Context context) {
-        if (mBehavior != null) {
+        if (mBehavior != null && !isNoneHolderSelected(context)) {
             return mBehavior.getFallbackHolder(this, context);
         }
         return null;
@@ -497,6 +499,43 @@ public class Role {
         }
         ActivityManager activityManager = context.getSystemService(ActivityManager.class);
         activityManager.killUid(applicationInfo.uid, "Permission or app op changed");
+    }
+
+    /**
+     * Did the user selected the "none" role holder.
+     *
+     * @param context A context to use
+     *
+     * @return {@code true} iff the user selected the "none" role holder
+     */
+    private boolean isNoneHolderSelected(@NonNull Context context) {
+        return context.getSharedPreferences(Constants.PREFERENCES_FILE, Context.MODE_PRIVATE)
+                .getBoolean(Constants.IS_NONE_ROLE_HOLDER_SELECTED_KEY + mName, false);
+    }
+
+    /**
+     * Indicate that the any other holder than "none" was selected.
+     *
+     * @param context A context to use
+     * @param user the user the role belongs to
+     */
+    public void onHolderSelectedAsUser(@NonNull Context context, @NonNull UserHandle user) {
+        UserUtils.getUserContext(context, user)
+                .getSharedPreferences(Constants.PREFERENCES_FILE, Context.MODE_PRIVATE)
+                .edit().remove(Constants.IS_NONE_ROLE_HOLDER_SELECTED_KEY + mName).apply();
+    }
+
+    /**
+     * Indicate that the "none" role holder was selected.
+     *
+     * @param context A context to use
+     * @param user the user the role belongs to
+     */
+    public void onNoneHolderSelectedAsUser(@NonNull Context context, @NonNull UserHandle user) {
+        UserUtils.getUserContext(context, user)
+                .getSharedPreferences(Constants.PREFERENCES_FILE, Context.MODE_PRIVATE)
+                .edit().putBoolean(Constants.IS_NONE_ROLE_HOLDER_SELECTED_KEY + mName, true)
+                .apply();
     }
 
     @Override
