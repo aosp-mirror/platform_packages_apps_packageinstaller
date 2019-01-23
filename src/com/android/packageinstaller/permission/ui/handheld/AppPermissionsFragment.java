@@ -272,6 +272,10 @@ public final class AppPermissionsFragment extends SettingsWithButtonHeader {
                 return true;
             });
             allowed.addPreference(details);
+
+            if (!Utils.isPermissionsHubEnabled()) {
+                allowed.removePreference(details);
+            }
         } else {
             Preference empty = new Preference(context);
             empty.setTitle(getString(R.string.no_permissions_allowed));

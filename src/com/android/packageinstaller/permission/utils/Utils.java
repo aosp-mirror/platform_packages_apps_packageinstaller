@@ -653,7 +653,6 @@ public final class Utils {
         }
     }
 
-
     /**
      * Whether the Location Access Check is enabled.
      *
@@ -662,5 +661,15 @@ public final class Utils {
     public static boolean isLocationAccessCheckEnabled() {
         return Boolean.parseBoolean(DeviceConfig.getProperty(DeviceConfig.Privacy.NAMESPACE,
                 DeviceConfig.Privacy.PROPERTY_LOCATION_ACCESS_CHECK_ENABLED));
+    }
+
+    /**
+     * Whether the Permissions Hub is enabled.
+     *
+     * @return whether the Permissions Hub is enabled.
+     */
+    public static boolean isPermissionsHubEnabled() {
+        return Boolean.parseBoolean(DeviceConfig.getProperty(DeviceConfig.Privacy.NAMESPACE,
+                DeviceConfig.Privacy.PROPERTY_PERMISSIONS_HUB_ENABLED));
     }
 }

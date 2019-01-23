@@ -135,6 +135,9 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
 
     public static @Nullable AppPermissionUsage.GroupUsage loadLastGroupUsage(
             @NonNull Context context, @NonNull AppPermissionGroup group) {
+        if (!Utils.isPermissionsHubEnabled()) {
+            return null;
+        }
         final ArraySet<String> opNames = new ArraySet<>();
         final List<Permission> permissions = group.getPermissions();
         final int permCount = permissions.size();
@@ -185,6 +188,10 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
             final List<PermissionGroup> groups = PermissionGroups.getPermissionGroups(
                     getContext(), this::isLoadInBackgroundCanceled, mGetUiInfo,
                     mFilterPermissionGroup, mFilterPackageName);
+            if (!Utils.isPermissionsHubEnabled()) {
+                return Collections.emptyList();
+            }
+
             if (groups.isEmpty()) {
                 return Collections.emptyList();
             }
