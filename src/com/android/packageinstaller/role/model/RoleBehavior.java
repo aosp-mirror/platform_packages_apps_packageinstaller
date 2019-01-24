@@ -80,4 +80,15 @@ public interface RoleBehavior {
             @NonNull Context context) {
         return null;
     }
+
+    /**
+     * @see Role#grant(String, boolean, boolean, boolean, Context)
+     */
+    default void grant(@NonNull Role role, @NonNull String packageName, @NonNull Context context) {}
+
+    /**
+     * @see Role#revoke(String, boolean, boolean, Context)
+     */
+    default void revoke(@NonNull Role role, @NonNull String packageName,
+            @NonNull Context context) {}
 }
