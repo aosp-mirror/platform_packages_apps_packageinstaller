@@ -436,6 +436,10 @@ public class Role {
             preferredActivity.configure(packageName, context);
         }
 
+        if (mBehavior != null) {
+            mBehavior.grant(this, packageName, context);
+        }
+
         if (mayKillApp && !Permissions.isRuntimePermissionsSupported(packageName, context)
                 && permissionOrAppOpChanged) {
             killApp(packageName, context);
@@ -480,6 +484,10 @@ public class Role {
         }
 
         // TODO: STOPSHIP: Revoke preferred activities?
+
+        if (mBehavior != null) {
+            mBehavior.revoke(this, packageName, context);
+        }
 
         if (mayKillApp && permissionOrAppOpChanged) {
             killApp(packageName, context);
