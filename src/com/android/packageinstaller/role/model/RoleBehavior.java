@@ -17,6 +17,7 @@
 package com.android.packageinstaller.role.model;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.UserHandle;
 
 import androidx.annotation.NonNull;
@@ -51,6 +52,15 @@ public interface RoleBehavior {
      */
     @Nullable
     default String getFallbackHolder(@NonNull Role role, @NonNull Context context) {
+        return null;
+    }
+
+    /**
+     * @see Role#getManageIntentAsUser(UserHandle, Context)
+     */
+    @Nullable
+    default Intent getManageIntentAsUser(@NonNull Role role, @NonNull UserHandle user,
+            @NonNull Context context) {
         return null;
     }
 

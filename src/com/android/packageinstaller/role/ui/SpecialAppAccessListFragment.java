@@ -19,6 +19,8 @@ package com.android.packageinstaller.role.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Process;
+import android.os.UserHandle;
 import android.util.ArrayMap;
 
 import androidx.annotation.NonNull;
@@ -30,6 +32,7 @@ import androidx.preference.PreferenceManager;
 import androidx.preference.PreferenceScreen;
 
 import com.android.packageinstaller.role.model.Role;
+import com.android.packageinstaller.role.model.Roles;
 import com.android.permissioncontroller.R;
 
 import java.util.List;
@@ -119,7 +122,13 @@ public class SpecialAppAccessListFragment extends SettingsFragment
     @Override
     public boolean onPreferenceClick(@NonNull Preference preference) {
         String roleName = preference.getKey();
-        Intent intent = SpecialAppAccessActivity.createIntent(roleName, requireContext());
+        Context context = requireContext();
+        Role role = Roles.get(context).get(roleName);
+        UserHandle user = Process.myUserHandle();
+        Intent intent = role.getManageIntentAsUser(user, context);
+        if (intent == null) {
+            intent = SpecialAppAccessActivity.createIntent(roleName, requireContext());
+        }
         startActivity(intent);
         return true;
     }
