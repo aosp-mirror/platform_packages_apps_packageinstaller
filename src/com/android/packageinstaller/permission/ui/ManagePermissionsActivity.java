@@ -70,6 +70,8 @@ public final class ManagePermissionsActivity extends FragmentActivity {
             case Intent.ACTION_REVIEW_PERMISSION_USAGE: {
                 permissionName = getIntent().getStringExtra(Intent.EXTRA_PERMISSION_NAME);
                 String groupName = getIntent().getStringExtra(Intent.EXTRA_PERMISSION_GROUP_NAME);
+                long numMillis = getIntent().getLongExtra(Intent.EXTRA_DURATION_MILLIS,
+                        Long.MAX_VALUE);
 
                 if (permissionName != null) {
                     String permGroupName = Utils.getGroupOfPlatformPermission(permissionName);
@@ -87,7 +89,7 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                     }
                 }
 
-                androidXFragment = PermissionUsageFragment.newInstance(groupName);
+                androidXFragment = PermissionUsageFragment.newInstance(groupName, numMillis);
             } break;
 
             case Intent.ACTION_MANAGE_APP_PERMISSIONS: {

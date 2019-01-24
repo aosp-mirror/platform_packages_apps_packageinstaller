@@ -67,7 +67,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Show the usage of all apps of all permission groups.
@@ -87,6 +86,7 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
     static final int SORT_MOST_ACCESSES = 3;
 
     private static final int MENU_FILTER_BY_PERMISSIONS = MENU_HIDE_SYSTEM + 1;
+    private static final int MENU_REFRESH = MENU_HIDE_SYSTEM + 2;
 
     private static final String KEY_SHOW_SYSTEM_PREFS = "_show_system";
     private static final String SHOW_SYSTEM_KEY = PermissionUsageFragment.class.getName()
@@ -144,12 +144,14 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
     /**
      * @return A new fragment
      */
-    public static @NonNull PermissionUsageFragment newInstance(@Nullable String groupName) {
+    public static @NonNull PermissionUsageFragment newInstance(@Nullable String groupName,
+            long numMillis) {
         PermissionUsageFragment fragment = new PermissionUsageFragment();
         Bundle arguments = new Bundle();
         if (groupName != null) {
             arguments.putString(Intent.EXTRA_PERMISSION_GROUP_NAME, groupName);
         }
+        arguments.putLong(Intent.EXTRA_DURATION_MILLIS, numMillis);
         fragment.setArguments(arguments);
         return fragment;
     }
@@ -213,6 +215,7 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
         // Add time spinner entries.
         FilterSpinner.addTimeFilters(mFilterAdapterTime, context);
         mFilterSpinnerTime.setSelection(mSavedTimeSpinnerIndex);
+        initializeTimeFilter();
 
         // Add sort spinner entries.
         mSortAdapter.addFilter(new SortItem(context.getString(R.string.sort_spinner_recent),
@@ -223,6 +226,26 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
         mSortSpinner.setSelection(mSavedSortSpinnerIndex);
 
         return root;
+    }
+
+    /**
+     * Initialize the time filter spinner to show the smallest entry greater than the time passed
+     * in as an argument.  If nothing is passed, this does nothing.
+     */
+    private void initializeTimeFilter() {
+        long numMillis = getArguments().getLong(Intent.EXTRA_DURATION_MILLIS);
+        long supremum = Long.MAX_VALUE;
+        int supremumIndex = -1;
+        for (int i = 0; i < mFilterAdapterTime.getCount(); i++) {
+            long curTime = mFilterAdapterTime.getFilter(i).getTime();
+            if (curTime >= numMillis && curTime <= supremum) {
+                supremum = curTime;
+                supremumIndex = i;
+            }
+        }
+        if (supremumIndex != -1) {
+            mFilterSpinnerTime.setSelection(supremumIndex);
+        }
     }
 
     @Override
@@ -261,6 +284,10 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
         }
         HelpUtils.prepareHelpMenuItem(getActivity(), menu, R.string.help_permission_usage,
                 getClass().getName());
+        MenuItem refresh = menu.add(Menu.NONE, MENU_REFRESH, Menu.NONE,
+                R.string.permission_usage_refresh);
+        refresh.setIcon(R.drawable.ic_refresh);
+        refresh.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
     }
 
     @Override
@@ -278,6 +305,9 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
                 // We already loaded all data, so don't reload
                 updateUI();
                 updateMenu();
+                break;
+            case MENU_REFRESH:
+                reloadData();
                 break;
         }
         return super.onOptionsItemSelected(item);

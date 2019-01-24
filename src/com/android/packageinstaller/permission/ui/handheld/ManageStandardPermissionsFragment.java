@@ -32,11 +32,13 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 
+import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissionUsage;
 import com.android.packageinstaller.permission.model.AppPermissionUsage.GroupUsage;
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
 import com.android.packageinstaller.permission.model.PermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionUsages;
+import com.android.packageinstaller.permission.ui.AppPermissionActivity;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 import com.android.settingslib.widget.AppEntitiesHeaderController;
@@ -93,7 +95,9 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
                 .setHeaderTitleRes(R.string.permission_usage_header)
                 .setHeaderDetailsRes(R.string.permission_usage_view_details)
                 .setHeaderDetailsClickListener((View v) -> {
-                    context.startActivity(new Intent(Intent.ACTION_REVIEW_PERMISSION_USAGE));
+                    Intent intent = new Intent(Intent.ACTION_REVIEW_PERMISSION_USAGE);
+                    intent.putExtra(Intent.EXTRA_DURATION_MILLIS, DAYS.toMillis(1));
+                    context.startActivity(intent);
                 });
 
         mPermissionUsages.load(null, null, System.currentTimeMillis() - DAYS.toMillis(1),
@@ -216,10 +220,18 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
         int i = 0;
         for (; i < numAppsToShow; i++) {
             Pair<PermissionApp, GroupUsage> info = usages.get(i);
+            AppPermissionGroup group = info.second.getGroup();
             AppEntityInfo appEntityInfo = new AppEntityInfo.Builder()
                     .setIcon(info.first.getIcon())
                     .setTitle(info.first.getLabel())
-                    .setSummary(info.second.getGroup().getLabel())
+                    .setSummary(group.getLabel())
+                    .setOnClickListener(v -> {
+                        Intent intent = new Intent(context, AppPermissionActivity.class);
+                        intent.putExtra(Intent.EXTRA_PACKAGE_NAME, group.getApp().packageName);
+                        intent.putExtra(Intent.EXTRA_PERMISSION_NAME, group.getName());
+                        intent.putExtra(Intent.EXTRA_USER, group.getUser());
+                        context.startActivity(intent);
+                    })
                     .build();
             mAppUsageController.setAppEntity(i, appEntityInfo);
         }
