@@ -497,20 +497,10 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
     @Override
     public void onRevokeRuntimePermission(@NonNull String packageName,
             @NonNull String permissionName) {
-        onRevokeRuntimePermission(this, packageName, permissionName);
-    }
-
-    /**
-     * Implementation of
-     * {@link PermissionControllerService#onRevokeRuntimePermission(String, String)}}. Called
-     * by this class and the legacy implementation.
-     */
-    static void onRevokeRuntimePermission(@NonNull Context context,
-            @NonNull String packageName, @NonNull String permissionName) {
         try {
-            final PackageInfo packageInfo = context.getPackageManager().getPackageInfo(packageName,
+            final PackageInfo packageInfo = getPackageManager().getPackageInfo(packageName,
                     GET_PERMISSIONS);
-            final AppPermissions appPermissions = new AppPermissions(context, packageInfo, false,
+            final AppPermissions appPermissions = new AppPermissions(this, packageInfo, false,
                     null);
 
             final AppPermissionGroup appPermissionGroup = appPermissions.getGroupForPermission(
