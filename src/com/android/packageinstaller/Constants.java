@@ -63,4 +63,10 @@ public class Constants {
      */
     public static final String KEY_LAST_LOCATION_ACCESS_NOTIFICATION_SHOWN =
             "last_location_access_notification_shown";
+
+    /**
+     * Key in the generic shared preferences that stores if the user manually selected the "none"
+     * role holder for a role.
+     */
+    public static final String IS_NONE_ROLE_HOLDER_SELECTED_KEY = "is_none_role_holder_selected:";
 }

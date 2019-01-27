@@ -47,11 +47,4 @@ public final class RuntimePermissionPresenterServiceLegacyImpl extends
 
         return legacyPermissions;
     }
-
-    @Override
-    public void onRevokeRuntimePermission(@NonNull String packageName,
-            @NonNull String permissionName) {
-        PermissionControllerServiceImpl.onRevokeRuntimePermission(this, packageName,
-                permissionName);
-    }
 }

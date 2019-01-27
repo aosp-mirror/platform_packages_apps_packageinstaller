@@ -568,6 +568,10 @@
     <string name="role_label_call_screening">Call screening app</string>
     <!-- Label for the call companion app role. [CHAR LIMIT=30] -->
     <string name="role_label_call_companion">Call companion app</string>
+    <!-- Label for the assist app role. [CHAR LIMIT=30] -->
+    <string name="role_label_assistant">Assist app</string>
+    <!-- Label for the temporary workaround to give any app SMS access. [CHAR LIMIT=unlimited] -->
+    <string name="role_label_temporary_sms_access" translatable="false">WON\'T BE RELEASED: SMS access app</string>
 
     <!-- Dialog body explaining that the app just selected by the user will not work after a reboot until the user enters their credentials, such as a PIN or password. [CHAR LIMIT=NONE] -->
     <string name="encryption_unaware_confirmation_message">Note: If you restart your device and have a screen lock set, this app can\u2019t start until you unlock your device.</string>

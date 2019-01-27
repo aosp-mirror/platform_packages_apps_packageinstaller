@@ -55,6 +55,7 @@ import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.model.PermissionUsages;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.packageinstaller.role.service.PermissionControllerServiceImplRoleMixin;
 
 import org.xmlpull.v1.XmlSerializer;
 
@@ -496,20 +497,10 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
     @Override
     public void onRevokeRuntimePermission(@NonNull String packageName,
             @NonNull String permissionName) {
-        onRevokeRuntimePermission(this, packageName, permissionName);
-    }
-
-    /**
-     * Implementation of
-     * {@link PermissionControllerService#onRevokeRuntimePermission(String, String)}}. Called
-     * by this class and the legacy implementation.
-     */
-    static void onRevokeRuntimePermission(@NonNull Context context,
-            @NonNull String packageName, @NonNull String permissionName) {
         try {
-            final PackageInfo packageInfo = context.getPackageManager().getPackageInfo(packageName,
+            final PackageInfo packageInfo = getPackageManager().getPackageInfo(packageName,
                     GET_PERMISSIONS);
-            final AppPermissions appPermissions = new AppPermissions(context, packageInfo, false,
+            final AppPermissions appPermissions = new AppPermissions(this, packageInfo, false,
                     null);
 
             final AppPermissionGroup appPermissionGroup = appPermissions.getGroupForPermission(
@@ -575,7 +566,7 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
         return numApps;
     }
 
-    @Override public @NonNull List<RuntimePermissionUsageInfo> onPermissionUsageResult(
+    @Override public @NonNull List<RuntimePermissionUsageInfo> onGetPermissionUsages(
             boolean countSystem, long numMillis) {
         ArraySet<String> launcherPkgs = getLauncherPackages(this);
 
@@ -629,5 +620,12 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
                     groupUsers.valueAt(groupNum)));
         }
         return users;
+    }
+
+    @Override
+    public boolean onIsApplicationQualifiedForRole(@NonNull String roleName,
+            @NonNull String packageName) {
+        return PermissionControllerServiceImplRoleMixin.onIsApplicationQualifiedForRole(roleName,
+                packageName, this);
     }
 }

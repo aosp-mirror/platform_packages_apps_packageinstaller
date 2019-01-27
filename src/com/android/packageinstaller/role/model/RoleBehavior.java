@@ -17,6 +17,7 @@
 package com.android.packageinstaller.role.model;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.UserHandle;
 
 import androidx.annotation.NonNull;
@@ -55,6 +56,15 @@ public interface RoleBehavior {
     }
 
     /**
+     * @see Role#getManageIntentAsUser(UserHandle, Context)
+     */
+    @Nullable
+    default Intent getManageIntentAsUser(@NonNull Role role, @NonNull UserHandle user,
+            @NonNull Context context) {
+        return null;
+    }
+
+    /**
      * @see Role#getConfirmationMessage(String, Context)
      */
     @Nullable
@@ -80,4 +90,15 @@ public interface RoleBehavior {
             @NonNull Context context) {
         return null;
     }
+
+    /**
+     * @see Role#grant(String, boolean, boolean, boolean, Context)
+     */
+    default void grant(@NonNull Role role, @NonNull String packageName, @NonNull Context context) {}
+
+    /**
+     * @see Role#revoke(String, boolean, boolean, Context)
+     */
+    default void revoke(@NonNull Role role, @NonNull String packageName,
+            @NonNull Context context) {}
 }

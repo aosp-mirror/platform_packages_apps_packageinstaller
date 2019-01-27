@@ -207,7 +207,7 @@ public class DefaultAppFragment extends SettingsFragment
     public boolean onPreferenceClick(@NonNull Preference preference) {
         String key = preference.getKey();
         if (Objects.equals(key, PREFERENCE_KEY_NONE)) {
-            clearDefaultApp();
+            setNoneDefaultApp();
         } else {
             String packageName = key;
             CharSequence confirmationMessage = mRole.getConfirmationMessage(packageName,
@@ -231,7 +231,9 @@ public class DefaultAppFragment extends SettingsFragment
         liveData.setRoleHolderAsUser(mRoleName, packageName, true, mUser, requireContext());
     }
 
-    private void clearDefaultApp() {
+    private void setNoneDefaultApp() {
+        mRole.onNoneHolderSelectedAsUser(requireContext(), mUser);
+
         ManageRoleHolderStateLiveData liveData = mViewModel.getManageRoleHolderStateLiveData();
         if (liveData.getValue() != ManageRoleHolderStateLiveData.STATE_IDLE) {
             Log.i(LOG_TAG, "Trying to set default app while another request is on-going");
