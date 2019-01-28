@@ -214,7 +214,7 @@ public final class AppPermissionsFragment extends SettingsWithButtonHeader {
                     group.getIconPkg(), group.getIconResId());
             preference.setIcon(Utils.applyTint(context, icon,
                     android.R.attr.colorControlNormal));
-            preference.setTitle(group.getLabel());
+            preference.setTitle(group.getFullLabel());
             String lastAccessStr = Utils.getAbsoluteLastUsageString(context,
                     PermissionUsages.loadLastGroupUsage(context, group));
             // STOPSHIP: Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.

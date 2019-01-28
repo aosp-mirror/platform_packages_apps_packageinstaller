@@ -41,6 +41,7 @@ import android.os.Build;
 import android.os.UserHandle;
 import android.os.storage.StorageManager;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.util.ArrayMap;
 
 import androidx.annotation.NonNull;
@@ -84,6 +85,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
     private final String mName;
     private final String mDeclaringPackage;
     private final CharSequence mLabel;
+    private final CharSequence mFullLabel;
     private final @StringRes int mRequest;
     private final @StringRes int mRequestDetail;
     private final @StringRes int mBackgroundRequest;
@@ -200,9 +202,12 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         for (int i = 0; i < numPermissionInfos; i++) {
             permissionNames[i] = permissionInfos.get(i).name;
         }
+        CharSequence fullGroupLabel = groupInfo.loadSafeLabel(context.getPackageManager(), 0,
+                TextUtils.SAFE_STRING_FLAG_TRIM | TextUtils.SAFE_STRING_FLAG_FIRST_LINE);
         AppPermissionGroup group = new AppPermissionGroup(context, packageInfo, groupInfo.name,
-                groupInfo.packageName, groupLabel, loadGroupDescription(context, groupInfo),
-                getRequest(groupInfo), getRequestDetail(groupInfo), getBackgroundRequest(groupInfo),
+                groupInfo.packageName, groupLabel, fullGroupLabel,
+                loadGroupDescription(context, groupInfo), getRequest(groupInfo),
+                getRequestDetail(groupInfo), getBackgroundRequest(groupInfo),
                 getBackgroundRequestDetail(groupInfo), groupInfo.packageName, groupInfo.icon,
                 userHandle, delayChanges);
 
@@ -305,10 +310,11 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                 if (group.getBackgroundPermissions() == null) {
                     group.mBackgroundPermissions = new AppPermissionGroup(group.mContext,
                             group.getApp(), group.getName(), group.getDeclaringPackage(),
-                            group.getLabel(), group.getDescription(), group.getRequest(),
-                            group.getRequestDetail(), group.getBackgroundRequest(),
-                            group.getBackgroundRequestDetail(), group.getIconPkg(),
-                            group.getIconResId(), group.getUser(), delayChanges);
+                            group.getLabel(), group.getFullLabel(), group.getDescription(),
+                            group.getRequest(), group.getRequestDetail(),
+                            group.getBackgroundRequest(), group.getBackgroundRequestDetail(),
+                            group.getIconPkg(), group.getIconResId(), group.getUser(),
+                            delayChanges);
                 }
 
                 group.getBackgroundPermissions().addPermission(permission);
@@ -361,8 +367,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
     }
 
     private AppPermissionGroup(Context context, PackageInfo packageInfo, String name,
-            String declaringPackage, CharSequence label, CharSequence description,
-            @StringRes int request, @StringRes int requestDetail,
+            String declaringPackage, CharSequence label, CharSequence fullLabel,
+            CharSequence description, @StringRes int request, @StringRes int requestDetail,
             @StringRes int backgroundRequest, @StringRes int backgroundRequestDetail,
             String iconPkg, int iconResId,
             UserHandle userHandle, boolean delayChanges) {
@@ -378,6 +384,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         mDeclaringPackage = declaringPackage;
         mName = name;
         mLabel = label;
+        mFullLabel = fullLabel;
         mDescription = description;
         mCollator = Collator.getInstance(
                 context.getResources().getConfiguration().getLocales().get(0));
@@ -465,6 +472,15 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
     public CharSequence getLabel() {
         return mLabel;
+    }
+
+    /**
+     * Get the full un-ellipsized label of the permission group.
+     *
+     * @return the full label of the group.
+     */
+    public CharSequence getFullLabel() {
+        return mFullLabel;
     }
 
     /**
