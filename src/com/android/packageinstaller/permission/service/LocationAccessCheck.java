@@ -18,7 +18,7 @@ package com.android.packageinstaller.permission.service;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import static android.app.AppOpsManager.OPSTR_FINE_LOCATION;
-import static android.app.NotificationManager.IMPORTANCE_LOW;
+import static android.app.NotificationManager.IMPORTANCE_HIGH;
 import static android.app.PendingIntent.FLAG_ONE_SHOT;
 import static android.app.PendingIntent.FLAG_UPDATE_CURRENT;
 import static android.app.PendingIntent.getBroadcast;
@@ -290,7 +290,7 @@ public class LocationAccessCheck {
 
         NotificationChannel permissionReminderChannel = new NotificationChannel(
                 PERMISSION_REMINDER_CHANNEL_ID, mContext.getString(R.string.permission_reminders),
-                IMPORTANCE_LOW);
+                IMPORTANCE_HIGH);
         notificationManager.createNotificationChannel(permissionReminderChannel);
     }
 
