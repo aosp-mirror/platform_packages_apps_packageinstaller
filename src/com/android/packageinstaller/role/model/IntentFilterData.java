@@ -40,8 +40,8 @@ public class IntentFilterData {
 
     /**
      * The categories of the {@code Intent} or {@code IntentFilter} specification. Should not
-     * contain {@link Intent#CATEGORY_DEFAULT} as it will be automatically added when creating
-     * {@code IntentFilter} instances (but not when creating {@code Intent} instances).
+     * contain {@link Intent#CATEGORY_DEFAULT} as it should be automatically added when used for
+     * activities.
      */
     @NonNull
     private final List<String> mCategories;
@@ -107,15 +107,13 @@ public class IntentFilterData {
     }
 
     /**
-     * Create an {@code IntentFilter} with this specification. {@link Intent#CATEGORY_DEFAULT} will
-     * be automatically added to the categories.
+     * Create an {@code IntentFilter} with this specification.
      *
      * @return the {@code IntentFilter} created
      */
     @NonNull
     public IntentFilter createIntentFilter() {
         IntentFilter intentFilter = new IntentFilter(mAction);
-        intentFilter.addCategory(Intent.CATEGORY_DEFAULT);
         int categoriesSize = mCategories.size();
         for (int i = 0; i < categoriesSize; i++) {
             String category = mCategories.get(i);

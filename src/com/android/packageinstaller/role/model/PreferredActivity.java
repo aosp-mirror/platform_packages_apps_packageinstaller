@@ -18,6 +18,7 @@ package com.android.packageinstaller.role.model;
 
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Process;
@@ -81,6 +82,7 @@ public class PreferredActivity {
             IntentFilterData intentFilterData = mIntentFilterDatas.get(i);
 
             IntentFilter intentFilter = intentFilterData.createIntentFilter();
+            intentFilter.addCategory(Intent.CATEGORY_DEFAULT);
             // PackageManager.replacePreferredActivity() expects filter to have no data authorities,
             // paths, or types; and at most one scheme.
             int match = intentFilterData.getDataScheme() != null
