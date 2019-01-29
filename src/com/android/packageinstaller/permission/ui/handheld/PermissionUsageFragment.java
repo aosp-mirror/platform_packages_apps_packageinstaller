@@ -102,6 +102,9 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
     private static final String KEY_SPINNER_SORT_INDEX = "_sort_index";
     private static final String SPINNER_SORT_INDEX_KEY = PermissionUsageFragment.class.getName()
             + KEY_SPINNER_SORT_INDEX;
+    private static final String KEY_FINISHED_INITIAL_LOAD = "_finished_initial_load";
+    private static final String FINISHED_INITIAL_LOAD_KEY = PermissionUsageFragment.class.getName()
+            + KEY_FINISHED_INITIAL_LOAD;
 
     /**
      * The maximum number of columns shown in the bar chart.
@@ -124,6 +127,8 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
     private FilterSpinnerAdapter<TimeFilterItem> mFilterAdapterTime;
     private Spinner mSortSpinner;
     private FilterSpinnerAdapter<SortItem> mSortAdapter;
+
+    private boolean mFinishedInitialLoad;
 
     /**
      * Only used to restore permission selection state or use the passed permission after onCreate.
@@ -162,6 +167,10 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
     public void onStart() {
         super.onStart();
         getActivity().setTitle(R.string.permission_usage_title);
+
+        if (mFinishedInitialLoad) {
+            setProgressBarVisible(true);
+        }
     }
 
     @Override
@@ -173,6 +182,7 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
             mSavedGroupName = savedInstanceState.getString(PERMS_INDEX_KEY);
             mSavedTimeSpinnerIndex = savedInstanceState.getInt(SPINNER_TIME_INDEX_KEY);
             mSavedSortSpinnerIndex = savedInstanceState.getInt(SPINNER_SORT_INDEX_KEY);
+            mFinishedInitialLoad = savedInstanceState.getBoolean(FINISHED_INITIAL_LOAD_KEY);
         }
 
         setLoading(true, false);
@@ -271,6 +281,7 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
         outState.putString(PERMS_INDEX_KEY, mFilterGroup);
         outState.putInt(SPINNER_TIME_INDEX_KEY, mFilterSpinnerTime.getSelectedItemPosition());
         outState.putInt(SPINNER_SORT_INDEX_KEY, mSortSpinner.getSelectedItemPosition());
+        outState.putBoolean(FINISHED_INITIAL_LOAD_KEY, mFinishedInitialLoad);
     }
 
     @Override
@@ -478,6 +489,8 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
             }
 
             setLoading(false, true);
+            mFinishedInitialLoad = true;
+            setProgressBarVisible(false);
         }).execute(permApps.toArray(new PermissionApps.PermissionApp[permApps.size()]));
     }
 
@@ -513,6 +526,9 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
                 filterTimeBeginMillis, Long.MAX_VALUE, PermissionUsages.USAGE_FLAG_LAST
                         | PermissionUsages.USAGE_FLAG_HISTORICAL, getActivity().getLoaderManager(),
                 false /*getUiInfo*/, this /*callback*/, false /*sync*/);
+        if (mFinishedInitialLoad) {
+            setProgressBarVisible(true);
+        }
     }
 
     /**

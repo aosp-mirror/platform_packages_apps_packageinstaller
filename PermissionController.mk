@@ -35,7 +35,8 @@ LOCAL_STATIC_ANDROID_LIBRARIES += \
     SettingsLibActionButtonsPreference \
     SettingsLibBarChartPreference \
     SettingsLibEntityHeaderWidgets \
-    SettingsLibActionBarShadow
+    SettingsLibActionBarShadow \
+    SettingsLibProgressBar
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
     androidx.annotation_annotation

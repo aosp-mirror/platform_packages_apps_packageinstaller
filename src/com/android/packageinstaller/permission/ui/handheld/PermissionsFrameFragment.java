@@ -47,6 +47,8 @@ public abstract class PermissionsFrameFragment extends PreferenceFragmentCompat 
 
     private TextView mEmptyView;
     private View mLoadingView;
+    private View mProgressHeader;
+    private View mProgressView;
     private ViewGroup mPrefsView;
     private NestedScrollView mNestedScrollView;
     private boolean mIsLoading;
@@ -83,6 +85,9 @@ public abstract class PermissionsFrameFragment extends PreferenceFragmentCompat 
         setLoading(mIsLoading, false, true /* force */);
         mPrefsView.addView(mPreferencesContainer, 0);
         mNestedScrollView = rootView.requireViewById(R.id.nested_scroll_view);
+        mProgressHeader = rootView.requireViewById(R.id.progress_bar_animation);
+        mProgressView = rootView.requireViewById(R.id.progress_bar_background);
+        setProgressBarVisible(false);
         return rootView;
     }
 
@@ -123,6 +128,11 @@ public abstract class PermissionsFrameFragment extends PreferenceFragmentCompat 
                 setViewShown(mLoadingView, loading, animate);
             }
         }
+    }
+
+    protected void setProgressBarVisible(boolean visible) {
+        mProgressHeader.setVisibility(visible ? View.VISIBLE : View.GONE);
+        mProgressView.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
     /**
