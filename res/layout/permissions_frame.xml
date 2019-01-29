@@ -27,10 +27,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <FrameLayout
+            <LinearLayout
                 android:id="@+id/prefs_container"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/no_permissions"
@@ -40,7 +41,7 @@
                     style="?android:attr/textAppearanceLarge">
                 </TextView>
 
-            </FrameLayout>
+            </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
 
