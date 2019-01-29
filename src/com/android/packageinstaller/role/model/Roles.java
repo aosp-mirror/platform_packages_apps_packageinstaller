@@ -75,6 +75,7 @@ public class Roles {
     private static final String ATTRIBUTE_EXCLUSIVE = "exclusive";
     private static final String ATTRIBUTE_LABEL = "label";
     private static final String ATTRIBUTE_SHOW_NONE = "showNone";
+    private static final String ATTRIBUTE_SYSTEM_ONLY = "systemOnly";
     private static final String ATTRIBUTE_PERMISSION = "permission";
     private static final String ATTRIBUTE_SCHEME = "scheme";
     private static final String ATTRIBUTE_MIME_TYPE = "mimeType";
@@ -324,6 +325,8 @@ public class Roles {
             return null;
         }
 
+        boolean systemOnly = getAttributeBooleanValue(parser, ATTRIBUTE_SYSTEM_ONLY, false);
+
         List<RequiredComponent> requiredComponents = null;
         List<String> permissions = null;
         List<AppOp> appOps = null;
@@ -390,8 +393,8 @@ public class Roles {
         if (preferredActivities == null) {
             preferredActivities = Collections.emptyList();
         }
-        return new Role(name, behavior, exclusive, labelResource, showNone, requiredComponents,
-                permissions, appOps, preferredActivities);
+        return new Role(name, behavior, exclusive, labelResource, showNone, systemOnly,
+                requiredComponents, permissions, appOps, preferredActivities);
     }
 
     @NonNull

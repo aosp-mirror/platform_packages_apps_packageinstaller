@@ -265,7 +265,11 @@
       ~ @see com.android.settings.applications.defaultapps.DefaultEmergencyPicker
       ~ @see com.android.phone.EmergencyAssistanceHelper
       -->
-    <role name="android.app.role.EMERGENCY" exclusive="true" label="@string/role_label_emergency">
+    <role
+        name="android.app.role.EMERGENCY"
+        exclusive="true"
+        label="@string/role_label_emergency"
+        systemOnly="true">
         <required-components>
             <activity>
                 <intent-filter>
