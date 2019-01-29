@@ -34,15 +34,18 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageItemInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
 import android.content.pm.UsesPermissionInfo;
 import android.os.Build;
 import android.os.UserHandle;
 import android.os.storage.StorageManager;
+import android.permission.PermissionManager;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.ArrayMap;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -70,6 +73,7 @@ import java.util.List;
  * #getBackgroundPermissions() background permissions group}.
  */
 public final class AppPermissionGroup implements Comparable<AppPermissionGroup> {
+    private static final String LOG_TAG = AppPermissionGroup.class.getSimpleName();
     private static final String PLATFORM_PACKAGE_NAME = "android";
 
     private static final String KILL_REASON_APP_OP_CHANGE = "Permission related app op changed";
@@ -1208,5 +1212,63 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             new LocationAccessCheck(mContext, null).checkLocationAccessSoon();
             mTriggerLocationAccessCheckOnPersist = false;
         }
+    }
+
+    /**
+     * Check if permission group contains a runtime permission that split from an installed
+     * permission and the split happened in an Android version higher than app's targetSdk.
+     *
+     * @return {@code true} if there is such permission, {@code false} otherwise
+     */
+    public boolean hasInstallToRuntimeSplit() {
+        PermissionManager permissionManager =
+                (PermissionManager) mContext.getSystemService(PermissionManager.class);
+
+        int numSplitPerms = permissionManager.getSplitPermissions().size();
+        for (int splitPermNum = 0; splitPermNum < numSplitPerms; splitPermNum++) {
+            PermissionManager.SplitPermissionInfo spi =
+                    permissionManager.getSplitPermissions().get(splitPermNum);
+            String splitPerm = spi.getSplitPermission();
+
+            PermissionInfo pi;
+            try {
+                pi = mPackageManager.getPermissionInfo(splitPerm, 0);
+            } catch (NameNotFoundException e) {
+                Log.w(LOG_TAG, "No such permission: " + splitPerm, e);
+                continue;
+            }
+
+            // Skip if split permission is not "install" permission.
+            if (pi.getProtection() != pi.PROTECTION_NORMAL) {
+                continue;
+            }
+
+            List<String> newPerms = spi.getNewPermissions();
+            int numNewPerms = newPerms.size();
+            for (int newPermNum = 0; newPermNum < numNewPerms; newPermNum++) {
+                String newPerm = newPerms.get(newPermNum);
+
+                if (!hasPermission(newPerm)) {
+                    continue;
+                }
+
+                try {
+                    pi = mPackageManager.getPermissionInfo(newPerm, 0);
+                } catch (NameNotFoundException e) {
+                    Log.w(LOG_TAG, "No such permission: " + newPerm, e);
+                    continue;
+                }
+
+                // Skip if new permission is not "runtime" permission.
+                if (pi.getProtection() != pi.PROTECTION_DANGEROUS) {
+                    continue;
+                }
+
+                if (mPackageInfo.applicationInfo.targetSdkVersion < spi.getTargetSdk()) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
