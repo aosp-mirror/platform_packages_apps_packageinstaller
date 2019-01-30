@@ -95,6 +95,11 @@ public class Role {
     private final boolean mShowNone;
 
     /**
+     * Whether this role only accepts system apps as its holders.
+     */
+    private final boolean mSystemOnly;
+
+    /**
      * The required components for an application to qualify for this role.
      */
     @NonNull
@@ -119,7 +124,7 @@ public class Role {
     private final List<PreferredActivity> mPreferredActivities;
 
     public Role(@NonNull String name, @Nullable RoleBehavior behavior, boolean exclusive,
-            @StringRes int labelResource, boolean showNone,
+            @StringRes int labelResource, boolean showNone, boolean systemOnly,
             @NonNull List<RequiredComponent> requiredComponents, @NonNull List<String> permissions,
             @NonNull List<AppOp> appOps, @NonNull List<PreferredActivity> preferredActivities) {
         mName = name;
@@ -127,6 +132,7 @@ public class Role {
         mExclusive = exclusive;
         mLabelResource = labelResource;
         mShowNone = showNone;
+        mSystemOnly = systemOnly;
         mRequiredComponents = requiredComponents;
         mPermissions = permissions;
         mAppOps = appOps;
@@ -390,6 +396,10 @@ public class Role {
             return false;
         }
 
+        if (mSystemOnly && (applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 0) {
+            return false;
+        }
+
         // TODO: STOPSHIP: Check for disabled packages?
 
         // TODO: STOPSHIP: Add and check PackageManager.getSharedLibraryInfo().
@@ -553,6 +563,8 @@ public class Role {
                 + ", mBehavior=" + mBehavior
                 + ", mExclusive=" + mExclusive
                 + ", mLabelResource=" + mLabelResource
+                + ", mShowNone=" + mShowNone
+                + ", mSystemOnly=" + mSystemOnly
                 + ", mRequiredComponents=" + mRequiredComponents
                 + ", mPermissions=" + mPermissions
                 + ", mAppOps=" + mAppOps
@@ -568,20 +580,22 @@ public class Role {
         if (object == null || getClass() != object.getClass()) {
             return false;
         }
-        Role role = (Role) object;
-        return mExclusive == role.mExclusive
-                && mLabelResource == role.mLabelResource
-                && Objects.equals(mName, role.mName)
-                && Objects.equals(mBehavior, role.mBehavior)
-                && Objects.equals(mRequiredComponents, role.mRequiredComponents)
-                && Objects.equals(mPermissions, role.mPermissions)
-                && Objects.equals(mAppOps, role.mAppOps)
-                && Objects.equals(mPreferredActivities, role.mPreferredActivities);
+        Role that = (Role) object;
+        return mExclusive == that.mExclusive
+                && mLabelResource == that.mLabelResource
+                && mShowNone == that.mShowNone
+                && mSystemOnly == that.mSystemOnly
+                && mName.equals(that.mName)
+                && Objects.equals(mBehavior, that.mBehavior)
+                && mRequiredComponents.equals(that.mRequiredComponents)
+                && mPermissions.equals(that.mPermissions)
+                && mAppOps.equals(that.mAppOps)
+                && mPreferredActivities.equals(that.mPreferredActivities);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(mName, mBehavior, mExclusive, mLabelResource,
+        return Objects.hash(mName, mBehavior, mExclusive, mLabelResource, mShowNone, mSystemOnly,
                 mRequiredComponents, mPermissions, mAppOps, mPreferredActivities);
     }
 }
