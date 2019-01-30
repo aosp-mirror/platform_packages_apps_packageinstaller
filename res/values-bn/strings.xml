@@ -50,6 +50,8 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"এই অ্যাপটি Android-এর একটি পুরনো ভার্সনের জন্য ডিজাইন করা হয়েছিল৷ অনুমতি না দিলে এটি ঠিকভাবে কাজ নাও করতে পারে।"</string>
     <string name="default_permission_description" msgid="692254823411049573">"কোনও অজানা অ্যাকশন নিন"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_1">%2$d</xliff:g>টি অ্যাপের মধ্যে <xliff:g id="COUNT_0">%1$d</xliff:g>টি অনুমোদিত"</string>
+    <string name="permission_usage_header" msgid="8802963718365732792">"সাম্প্রতিক ব্যবহার"</string>
+    <string name="permission_usage_view_details" msgid="1242976903858003439">"বিবরণ দেখুন"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"সিস্টেম অ্যাপ দেখুন"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"সিস্টেম অ্যাপ লুকান"</string>
     <string name="no_apps" msgid="2377153782338039463">"কোনও অ্যাপ নেই"</string>
@@ -89,33 +91,40 @@
     <string name="message_staging" msgid="641286607664721291">"অ্যাপ স্টেজ করা হচ্ছে…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"অজানা"</string>
     <string name="permission_usage_title" msgid="8266350477620264117">"অনুমতির ব্যবহার"</string>
-    <string name="permission_usage_summary_last_access" msgid="7173761056935772053">"<xliff:g id="PERM">%1$s</xliff:g> - থেকে শেষবার অ্যাক্সেস <xliff:g id="TIME">%2$s</xliff:g> আগে করা হয়েছে"</string>
-    <string name="permission_usage_summary_num_accesses" msgid="2854280891054741976">"<xliff:g id="PERM">%1$s</xliff:g> - <xliff:g id="NUM">%2$s</xliff:g>টি অ্যাক্সেস করে"</string>
-    <string name="permission_usage_summary_num_accesses_background" msgid="2003785497588289009">"<xliff:g id="PERM">%1$s</xliff:g> - <xliff:g id="NUM_0">%2$s</xliff:g>টি অ্যাক্সেস (ব্যাকগ্রাউন্ডে <xliff:g id="NUM_1">%3$s</xliff:g>টি)"</string>
+    <string name="permission_usage_summary" msgid="4139332442917981301">"শেষবার অ্যাক্সেস করা হয়েছে: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM">%2$s</xliff:g>টি অ্যাক্সেস"</string>
+    <string name="permission_usage_summary_background" msgid="2209669857909620833">"শেষবার অ্যাক্সেস করা হয়েছে: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM_0">%2$s</xliff:g>টি অ্যাক্সেস (ব্যাকগ্রাউন্ডে<xliff:g id="NUM_1">%3$s</xliff:g>টি)"</string>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"যেকোন অনুমতি"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"যেকোনও সময়"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"গত ৭ দিন"</string>
     <string name="permission_usage_last_day" msgid="4149912805759768249">"গত ২৪ ঘন্টায়"</string>
     <string name="permission_usage_last_hour" msgid="2907717357748648755">"শেষ ১ ঘণ্টা"</string>
     <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"গত ১৫ মিনিট"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"গত ১ মিনিটে"</string>
     <string name="no_permission_usages" msgid="698858628357371611">"কোন অনুমতির ব্যবহার হয়নি"</string>
     <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"যেকোনও সময়ে অ্যাক্সেস করুন"</string>
     <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"গত ৭ দিনের ব্যবহারের তালিকা"</string>
     <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"গত ২৪ ঘণ্টা আগে অ্যাক্সেস করা হয়েছে"</string>
     <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"কয়েক ঘণ্টা আগে অ্যাক্সেস করা হয়েছে"</string>
     <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"১৫ মিনিট আগে অ্যাক্সেস করা হয়েছে"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="8035799852985876841">"গত ১ মিনিটে অ্যাক্সেস করা হয়েছে"</string>
     <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"যেকোনও সময়ে সবচেয়ে বেশি অনুমতির ব্যবহার"</string>
     <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"গত ৭ দিনে সবচেয়ে বেশি অনুমতির ব্যবহার"</string>
     <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"২৪ ঘণ্টা আগে সবচেয়ে বেশি অনুমতির ব্যবহার"</string>
     <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"গত ১ ঘণ্টায় সবচেয়ে বেশি অনুমতির ব্যবহার"</string>
     <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"১৫ মিনিটে আগে সবচেয়ে বেশি অনুমতির ব্যবহার"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"গত ১ মিনিটে সবচেয়ে বেশি অনুমতির ব্যবহার"</string>
     <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"অ্যাপ"</string>
-    <string name="app_permission_usage_detail_label" msgid="675382489654882532">"সব ব্যবহার দেখুন"</string>
+    <!-- no translation found for app_permission_usage_filter_label (8700139296200468389) -->
+    <skip />
+    <!-- no translation found for app_permission_usage_remove_filter (2046234519591857627) -->
+    <skip />
     <string name="filter_by_title" msgid="5940302511365561845">"এই অনুযায়ী ফিল্টার করুন"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"অনুমতির মাধ্যমে ফিল্টার করুন"</string>
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"বেশি ব্যবহার করা অনুমতি"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"সবচেয়ে বেশি অ্যাক্সেস করা"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"সাম্প্রতিক"</string>
+    <!-- no translation found for permission_usage_refresh (2182775682810005148) -->
+    <skip />
     <string name="app_permission_usage_title" msgid="5641038589468666526">"অ্যাপের অনুমতির ব্যবহার"</string>
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"অ্যাক্সেস: <xliff:g id="NUM">%1$s</xliff:g> বার। মোট সময়সীমা: <xliff:g id="DURATION">%2$s</xliff:g>। <xliff:g id="TIME">%3$s</xliff:g>আগে শেষবার ব্যবহার করা হয়েছে।"</string>
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"অ্যাক্সেস: <xliff:g id="NUM">%1$s</xliff:g> বার। <xliff:g id="TIME">%2$s</xliff:g> আগে শেষবার ব্যবহার করা হয়েছে।"</string>
@@ -128,9 +137,13 @@
     <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"আপনার <xliff:g id="PERM">%2$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g> আগে <xliff:g id="APP">%1$s</xliff:g> অ্যাক্সেস করা হয়েছে।"</string>
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> আপনার <xliff:g id="PERM">%2$s</xliff:g> অ্যাক্সেস করতে পারেনি।"</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"বিস্তারিত অনুমতির ব্যবহার দেখুন"</string>
-    <string name="app_permission_most_recent_summary" msgid="6866863855248795166">"শেষবার <xliff:g id="TIME">%1$s</xliff:g> আগে অ্যাক্সেস করা হয়েছে"</string>
+    <!-- no translation found for app_permission_most_recent_summary (7435245857128891808) -->
+    <skip />
     <string name="allowed_header" msgid="6279244592227088158">"অনুমোদিত"</string>
+    <!-- no translation found for allowed_foreground_header (7553595563464819175) -->
+    <skip />
     <string name="denied_header" msgid="2277998574238617699">"প্রত্যাখ্যান করা হয়েছে"</string>
+    <string name="detailed_usage_link" msgid="3990452346369247944">"বিশদে ব্যবহারের তথ্য দেখুন"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> দিন</item>
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> দিন</item>
@@ -149,14 +162,12 @@
     </plurals>
     <string name="role_request_message_add" msgid="1977772335648650272">"আপনার <xliff:g id="ROLE_NAME">%2$s</xliff:g> হিসেবে &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ব্যবহার করতে চান?"</string>
     <string name="role_request_message_replace" msgid="6367571247558110210">"আপনার <xliff:g id="ROLE_NAME">%2$s</xliff:g> হিসেবে; &lt;b&gt;<xliff:g id="CURRENT_APP_NAME">%1$s</xliff:g>&lt;/b&gt;-এর পরিবর্তে &lt;b&gt;<xliff:g id="NEW_APP_NAME">%1$s</xliff:g>&lt;/b&gt; ব্যবহার করতে চান?"</string>
-    <!-- no translation found for permission_reminders (8040710767178843151) -->
-    <skip />
-    <!-- no translation found for background_location_access_reminder_notification_title (3986986240015907758) -->
-    <skip />
-    <!-- no translation found for background_location_access_reminder_notification_content (2715202570602748060) -->
-    <skip />
+    <string name="permission_reminders" msgid="8040710767178843151">"অনুমতির রিমাইন্ডার"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> আপনার লোকেশনের ডেটা ব্যবহার করছে"</string>
+    <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"এই অ্যাপটি যেকোনও সময় আপনার লোকেশনের ডেটা অ্যাক্সেস করতে পারে। পরিবর্তন করতে ট্যাপ করুন।"</string>
     <string name="permission_justification_header" msgid="8855642235625782751">"অ্যাপ ডেভেলপার বলেছেন আপনার ডেটা হয়ত:"</string>
     <string name="permission_justification_footer" msgid="4098097763461100468">"অ্যাপ ডেভেলপার যেভাবে আপনার ডেটা ব্যবহার করছে তা আপনার পছন্দ না হলে আপনি অনুমতি নাও দিতে পারেন।"</string>
+    <string name="permission_justification_info_intent" msgid="2896804844363380252">"আরও তথ্য পেতে <xliff:g id="APP_NAME">%s</xliff:g> অ্যাপে যান।"</string>
     <string name="permission_justification_data_sent_off_device" msgid="2503905652716735222">"ক্লাউডে আপলোড করা হয়েছে"</string>
     <string name="permission_justification_data_sent_off_device_user_triggered" msgid="4122793147247661083">"নির্দিষ্ট অনুমতি দেওয়ায় ক্লাউডে আপলোড করা হয়েছে"</string>
     <string name="permission_justification_data_shared_with_third_party" msgid="5249440580654050831">"বিজ্ঞাপনদাতা বা ব্যবসার সঙ্গে শেয়ার করা হয়েছে"</string>
@@ -183,21 +194,21 @@
     <string name="default_apps_for_work" msgid="8582151955372061208">"অফিসের জন্য ডিফল্ট"</string>
     <string name="default_app_none" msgid="7671097769303174666">"কোনওটিই নয়"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"কোনও অ্যাপ নেই"</string>
-    <!-- no translation found for special_app_access (2561673957499408877) -->
-    <skip />
-    <!-- no translation found for no_special_app_access (994977666694457811) -->
-    <skip />
-    <!-- no translation found for special_app_access_no_apps (3934763650592564818) -->
-    <skip />
+    <string name="special_app_access" msgid="2561673957499408877">"অ্যাপের বিশেষ অ্যাক্সেস"</string>
+    <string name="no_special_app_access" msgid="994977666694457811">"অ্যাপের বিশেষ অ্যাক্সেস নেই"</string>
+    <string name="special_app_access_no_apps" msgid="3934763650592564818">"কোনও অ্যাপ নেই"</string>
+    <string name="role_label_browser" msgid="6266502234308421457">"ব্রাউজার অ্যাপ"</string>
     <string name="role_label_dialer" msgid="3345895090725237533">"ফোন অ্যাপ"</string>
+    <string name="role_label_sms" msgid="2262769075496017522">"এসএমএস অ্যাপ"</string>
+    <string name="role_label_emergency" msgid="2226651888638211616">"জরুরি অ্যাপ"</string>
+    <string name="role_label_home" msgid="7672863812639457378">"হোম অ্যাপ"</string>
+    <string name="role_label_music" msgid="5900245414865932272">"মিউজিক অ্যাপ"</string>
+    <string name="role_label_gallery" msgid="6939560238495155209">"গ্যালারি অ্যাপ"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"গাড়ির মোডে ফোন অ্যাপ"</string>
+    <string name="role_label_proxy_calling" msgid="2432073053878466863">"প্রক্সি কলিং অ্যাপ"</string>
     <string name="role_label_call_screening" msgid="411212589764916370">"কল স্ক্রিনিং অ্যাপ"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"কল কম্প্যানিয়ন অ্যাপ"</string>
-    <string name="role_label_proxy_calling" msgid="2432073053878466863">"প্রক্সি কলিং অ্যাপ"</string>
-    <string name="role_label_sms" msgid="2262769075496017522">"এসএমএস অ্যাপ"</string>
-    <string name="role_label_browser" msgid="6266502234308421457">"ব্রাউজার অ্যাপ"</string>
-    <string name="role_label_gallery" msgid="6939560238495155209">"গ্যালারি অ্যাপ"</string>
-    <string name="role_label_music" msgid="5900245414865932272">"মিউজিক অ্যাপ"</string>
-    <!-- no translation found for encryption_unaware_confirmation_message (1366058948707595596) -->
+    <!-- no translation found for role_label_assistant (456685142560727172) -->
     <skip />
+    <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"দ্রষ্টব্য: আপনি যদি নিজের ডিভাইস রিস্টার্ট করেন এবং স্ক্রিন লক সেট করা থাকে, তাহলে আপনার ডিভাইস আনলক না করা পর্যন্ত আপনি এই অ্যাপটি চালু করতে পারবেন না।"</string>
 </resources>
