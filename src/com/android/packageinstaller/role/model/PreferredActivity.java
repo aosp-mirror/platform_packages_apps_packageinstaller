@@ -69,21 +69,27 @@ public class PreferredActivity {
      */
     public void configure(@NonNull String packageName, @NonNull Context context) {
         PackageManager packageManager = context.getPackageManager();
-        IntentFilterData intentFilterData = mActivity.getIntentFilterData();
-        IntentFilter intentFilter = intentFilterData.createIntentFilter();
-        // PackageManager.replacePreferredActivity() expects filter to have no data authorities,
-        // paths, or types; and at most one scheme.
-        int match = intentFilterData.getDataScheme() != null ? IntentFilter.MATCH_CATEGORY_SCHEME
-                : IntentFilter.MATCH_CATEGORY_EMPTY;
-        List<ComponentName> activities = mActivity.getQualifyingComponentsAsUser(
-                Process.myUserHandle(), context);
         ComponentName packageActivity = mActivity.getQualifyingComponentForPackage(
                 packageName, context);
         // TODO: STOPSHIP: Race condition, what if packageActivity became null? Just don't crash?
         if (packageActivity == null) {
             return;
         }
-        packageManager.replacePreferredActivity(intentFilter, match, activities, packageActivity);
+
+        int intentFilterDatasSize = mIntentFilterDatas.size();
+        for (int i = 0; i < intentFilterDatasSize; i++) {
+            IntentFilterData intentFilterData = mIntentFilterDatas.get(i);
+
+            IntentFilter intentFilter = intentFilterData.createIntentFilter();
+            // PackageManager.replacePreferredActivity() expects filter to have no data authorities,
+            // paths, or types; and at most one scheme.
+            int match = intentFilterData.getDataScheme() != null
+                    ? IntentFilter.MATCH_CATEGORY_SCHEME : IntentFilter.MATCH_CATEGORY_EMPTY;
+            List<ComponentName> activities = mActivity.getQualifyingComponentsAsUser(
+                    Process.myUserHandle(), context);
+            packageManager.replacePreferredActivity(intentFilter, match, activities,
+                    packageActivity);
+        }
     }
 
     @Override
