@@ -50,6 +50,8 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Questa app è stata sviluppata per una versione precedente di Android. Se l\'autorizzazione viene negata, l\'app potrebbe non funzionare più come previsto."</string>
     <string name="default_permission_description" msgid="692254823411049573">"esegue un\'azione sconosciuta"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"Sono consentite <xliff:g id="COUNT_0">%1$d</xliff:g> app su <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
+    <string name="permission_usage_header" msgid="8802963718365732792">"Utilizzo recente"</string>
+    <string name="permission_usage_view_details" msgid="1242976903858003439">"Vedi i dettagli"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Mostra sistema"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Nascondi sistema"</string>
     <string name="no_apps" msgid="2377153782338039463">"Nessuna app"</string>
@@ -89,33 +91,40 @@
     <string name="message_staging" msgid="641286607664721291">"App in preparazione…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Sconosciuto"</string>
     <string name="permission_usage_title" msgid="8266350477620264117">"Uso delle autorizzazioni"</string>
-    <string name="permission_usage_summary_last_access" msgid="7173761056935772053">"<xliff:g id="PERM">%1$s</xliff:g> - Ultimo accesso <xliff:g id="TIME">%2$s</xliff:g> fa"</string>
-    <string name="permission_usage_summary_num_accesses" msgid="2854280891054741976">"<xliff:g id="PERM">%1$s</xliff:g> - <xliff:g id="NUM">%2$s</xliff:g> accessi"</string>
-    <string name="permission_usage_summary_num_accesses_background" msgid="2003785497588289009">"<xliff:g id="PERM">%1$s</xliff:g> - <xliff:g id="NUM_0">%2$s</xliff:g> accessi (<xliff:g id="NUM_1">%3$s</xliff:g> in background)"</string>
+    <string name="permission_usage_summary" msgid="4139332442917981301">"Ultimo accesso: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM">%2$s</xliff:g> accessi"</string>
+    <string name="permission_usage_summary_background" msgid="2209669857909620833">"Ultimo accesso: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM_0">%2$s</xliff:g> accessi (<xliff:g id="NUM_1">%3$s</xliff:g> in background)"</string>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Qualsiasi autorizzazione"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"Qualsiasi data"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Ultimi 7 giorni"</string>
     <string name="permission_usage_last_day" msgid="4149912805759768249">"Ultime 24 ore"</string>
     <string name="permission_usage_last_hour" msgid="2907717357748648755">"Ultima ora"</string>
     <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Ultimi 15 minuti"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Ultimo minuto"</string>
     <string name="no_permission_usages" msgid="698858628357371611">"Autorizzazioni non usate"</string>
     <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"Accedi in qualsiasi momento"</string>
     <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"Accesso negli ultimi 7 giorni"</string>
     <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"Accesso nelle ultime 24 ore"</string>
     <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"Accesso nell\'ultima ora"</string>
     <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"Accesso negli ultimi 15 minuti"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="8035799852985876841">"Accesso nell\'ultimo minuto"</string>
     <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"Uso di autorizzazioni principali sempre"</string>
     <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"Uso autorizzazioni principali, ultimi 7 giorni"</string>
     <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"Uso autorizzazioni principali nelle ultime 24 ore"</string>
     <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"Uso di autorizzazioni principali nell\'ultima ora"</string>
     <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"Uso autorizzazioni principali, ultimi 15 minuti"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"Uso autorizzazioni principali nell\'ultimo minuto"</string>
     <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"App"</string>
-    <string name="app_permission_usage_detail_label" msgid="675382489654882532">"Mostra tutti gli utilizzi"</string>
+    <!-- no translation found for app_permission_usage_filter_label (8700139296200468389) -->
+    <skip />
+    <!-- no translation found for app_permission_usage_remove_filter (2046234519591857627) -->
+    <skip />
     <string name="filter_by_title" msgid="5940302511365561845">"Filtra per"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Filtra per autorizzazioni"</string>
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Maggior numero autorizzazioni"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Maggior numero di accessi"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"Recenti"</string>
+    <!-- no translation found for permission_usage_refresh (2182775682810005148) -->
+    <skip />
     <string name="app_permission_usage_title" msgid="5641038589468666526">"Uso delle autorizzazioni app"</string>
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"Accesso: <xliff:g id="NUM">%1$s</xliff:g> volte. Durata totale: <xliff:g id="DURATION">%2$s</xliff:g>. Ultimo utilizzo: <xliff:g id="TIME">%3$s</xliff:g> fa."</string>
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Accesso: <xliff:g id="NUM">%1$s</xliff:g> volte. Ultimo utilizzo: <xliff:g id="TIME">%2$s</xliff:g> fa."</string>
@@ -128,9 +137,13 @@
     <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"L\'app <xliff:g id="APP">%1$s</xliff:g> ha avuto accesso ai tuoi dati di <xliff:g id="PERM">%2$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g> fa."</string>
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> non ha accesso a <xliff:g id="PERM">%2$s</xliff:g>."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Consulta l\'uso dettagliato delle autorizzazioni"</string>
-    <string name="app_permission_most_recent_summary" msgid="6866863855248795166">"Ultimo accesso: <xliff:g id="TIME">%1$s</xliff:g> fa"</string>
+    <!-- no translation found for app_permission_most_recent_summary (7435245857128891808) -->
+    <skip />
     <string name="allowed_header" msgid="6279244592227088158">"Consentite"</string>
+    <!-- no translation found for allowed_foreground_header (7553595563464819175) -->
+    <skip />
     <string name="denied_header" msgid="2277998574238617699">"Rifiutate"</string>
+    <string name="detailed_usage_link" msgid="3990452346369247944">"Vedi dati dettagliati sull\'utilizzo"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> giorni</item>
       <item quantity="one">1 giorno</item>
@@ -149,14 +162,12 @@
     </plurals>
     <string name="role_request_message_add" msgid="1977772335648650272">"Utilizzare &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; come <xliff:g id="ROLE_NAME">%2$s</xliff:g>?"</string>
     <string name="role_request_message_replace" msgid="6367571247558110210">"Utilizzare &lt;b&gt;<xliff:g id="NEW_APP_NAME">%1$s</xliff:g>&lt;/b&gt; anziché &lt;b&gt;<xliff:g id="CURRENT_APP_NAME">%1$s</xliff:g>&lt;/b&gt; come <xliff:g id="ROLE_NAME">%2$s</xliff:g>?"</string>
-    <!-- no translation found for permission_reminders (8040710767178843151) -->
-    <skip />
-    <!-- no translation found for background_location_access_reminder_notification_title (3986986240015907758) -->
-    <skip />
-    <!-- no translation found for background_location_access_reminder_notification_content (2715202570602748060) -->
-    <skip />
+    <string name="permission_reminders" msgid="8040710767178843151">"Promemoria autorizzazione"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"L\'app <xliff:g id="APP_NAME">%s</xliff:g> sta usando la tua posizione"</string>
+    <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Questa app può accedere sempre alla tua posizione. Tocca per modificare."</string>
     <string name="permission_justification_header" msgid="8855642235625782751">"Lo sviluppatore dell\'app dichiara che i tuoi dati potrebbero essere:"</string>
     <string name="permission_justification_footer" msgid="4098097763461100468">"Se non gradisci il modo in cui lo sviluppatore dell\'app usa i tuoi dati, puoi negare l\'autorizzazione."</string>
+    <string name="permission_justification_info_intent" msgid="2896804844363380252">"Per ulteriori informazioni, apri l\'app <xliff:g id="APP_NAME">%s</xliff:g>."</string>
     <string name="permission_justification_data_sent_off_device" msgid="2503905652716735222">"Caricati sulla cloud"</string>
     <string name="permission_justification_data_sent_off_device_user_triggered" msgid="4122793147247661083">"Caricati sulla cloud con la tua autorizzazione esplicita"</string>
     <string name="permission_justification_data_shared_with_third_party" msgid="5249440580654050831">"Condivisi con inserzionisti o attività"</string>
@@ -186,15 +197,18 @@
     <string name="special_app_access" msgid="2561673957499408877">"Accesso speciale alle app"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Nessun accesso speciale ad app"</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"Nessuna app"</string>
+    <string name="role_label_browser" msgid="6266502234308421457">"App browser"</string>
     <string name="role_label_dialer" msgid="3345895090725237533">"App Telefono"</string>
+    <string name="role_label_sms" msgid="2262769075496017522">"App per SMS"</string>
+    <string name="role_label_emergency" msgid="2226651888638211616">"App di emergenza"</string>
+    <string name="role_label_home" msgid="7672863812639457378">"App Home"</string>
+    <string name="role_label_music" msgid="5900245414865932272">"App per la musica"</string>
+    <string name="role_label_gallery" msgid="6939560238495155209">"App Galleria"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"App telefono modalità auto"</string>
+    <string name="role_label_proxy_calling" msgid="2432073053878466863">"App per chiamate proxy"</string>
     <string name="role_label_call_screening" msgid="411212589764916370">"App per screening chiamate"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"App complementare chiamate"</string>
-    <string name="role_label_proxy_calling" msgid="2432073053878466863">"App per chiamate proxy"</string>
-    <string name="role_label_sms" msgid="2262769075496017522">"App per SMS"</string>
-    <string name="role_label_browser" msgid="6266502234308421457">"App browser"</string>
-    <string name="role_label_gallery" msgid="6939560238495155209">"App Galleria"</string>
-    <string name="role_label_music" msgid="5900245414865932272">"App per la musica"</string>
-    <!-- no translation found for encryption_unaware_confirmation_message (1366058948707595596) -->
+    <!-- no translation found for role_label_assistant (456685142560727172) -->
     <skip />
+    <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Nota: se riavvii il dispositivo ed è impostato un blocco schermo, sarà possibile avviare l\'app soltanto dopo aver sbloccato il dispositivo."</string>
 </resources>

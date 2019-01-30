@@ -52,6 +52,8 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Цей додаток створено для старішої версії ОС Android. Якщо скасувати дозвіл, він може працювати неналежним чином."</string>
     <string name="default_permission_description" msgid="692254823411049573">"виконувати невідому дію"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"Додатки з дозволом: <xliff:g id="COUNT_0">%1$d</xliff:g> з <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
+    <string name="permission_usage_header" msgid="8802963718365732792">"Нещодавно використано"</string>
+    <string name="permission_usage_view_details" msgid="1242976903858003439">"Докладніше"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Показати системні додатки"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Сховати системні додатки"</string>
     <string name="no_apps" msgid="2377153782338039463">"Немає додатків"</string>
@@ -91,33 +93,40 @@
     <string name="message_staging" msgid="641286607664721291">"Підготовка додатка…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Невідомо"</string>
     <string name="permission_usage_title" msgid="8266350477620264117">"Використання дозволів"</string>
-    <string name="permission_usage_summary_last_access" msgid="7173761056935772053">"<xliff:g id="PERM">%1$s</xliff:g>: останній сеанс доступу – <xliff:g id="TIME">%2$s</xliff:g> тому"</string>
-    <string name="permission_usage_summary_num_accesses" msgid="2854280891054741976">"<xliff:g id="PERM">%1$s</xliff:g>: сеансів доступу – <xliff:g id="NUM">%2$s</xliff:g>"</string>
-    <string name="permission_usage_summary_num_accesses_background" msgid="2003785497588289009">"<xliff:g id="PERM">%1$s</xliff:g>: сеансів доступу – <xliff:g id="NUM_0">%2$s</xliff:g> (<xliff:g id="NUM_1">%3$s</xliff:g> у фоновому режимі)"</string>
+    <string name="permission_usage_summary" msgid="4139332442917981301">"Останній сеанс доступу: <xliff:g id="TIME">%1$s</xliff:g>\nСеансів доступу: <xliff:g id="NUM">%2$s</xliff:g>"</string>
+    <string name="permission_usage_summary_background" msgid="2209669857909620833">"Останній сеанс доступу: <xliff:g id="TIME">%1$s</xliff:g>\nСеансів доступу: <xliff:g id="NUM_0">%2$s</xliff:g> (<xliff:g id="NUM_1">%3$s</xliff:g> у фоновому режимі)"</string>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Будь-який дозвіл"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"У будь-який час"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Останні 7 днів"</string>
     <string name="permission_usage_last_day" msgid="4149912805759768249">"Останні 24 години"</string>
     <string name="permission_usage_last_hour" msgid="2907717357748648755">"Остання година"</string>
     <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Останні 15 хвилин"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Остання хвилина"</string>
     <string name="no_permission_usages" msgid="698858628357371611">"Дозволи не використовувалися"</string>
     <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"Доступ за весь час"</string>
     <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"Доступ за останні 7 днів"</string>
     <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"Доступ за останні 24 години"</string>
     <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"Доступ за останню годину"</string>
     <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"Доступ за останні 15 хвилин"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="8035799852985876841">"Доступ за останню хвилину"</string>
     <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"Найбільш уживані дозволи за весь час"</string>
     <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"Найбільш уживані дозволи за останні 7 днів"</string>
     <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"Найбільш уживані дозволи за останні 24 години"</string>
     <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"Найбільш уживані дозволи за останню годину"</string>
     <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"Найбільш уживані дозволи за останні 15 хвилин"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"Найбільш уживані дозволи за останню хвилину"</string>
     <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"Додатки"</string>
-    <string name="app_permission_usage_detail_label" msgid="675382489654882532">"Використання всіх дозволів"</string>
+    <!-- no translation found for app_permission_usage_filter_label (8700139296200468389) -->
+    <skip />
+    <!-- no translation found for app_permission_usage_remove_filter (2046234519591857627) -->
+    <skip />
     <string name="filter_by_title" msgid="5940302511365561845">"Фільтр"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Фільтрувати за дозволами"</string>
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Найбільше дозволів"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Найбільше сеансів доступу"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"Нещодавні сеанси доступу"</string>
+    <!-- no translation found for permission_usage_refresh (2182775682810005148) -->
+    <skip />
     <string name="app_permission_usage_title" msgid="5641038589468666526">"Використання дозволів додатка"</string>
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"Доступ: <xliff:g id="NUM">%1$s</xliff:g> раз. Загальна тривалість: <xliff:g id="DURATION">%2$s</xliff:g>. Востаннє використано <xliff:g id="TIME">%3$s</xliff:g> тому."</string>
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Доступ: <xliff:g id="NUM">%1$s</xliff:g> раз. Востаннє використано <xliff:g id="TIME">%2$s</xliff:g> тому."</string>
@@ -130,9 +139,13 @@
     <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"Додаток <xliff:g id="APP">%1$s</xliff:g> отримав доступ <xliff:g id="TIME">%3$s</xliff:g> тому (<xliff:g id="PERM">%2$s</xliff:g>)."</string>
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> не приймає дозвіл \"<xliff:g id="PERM">%2$s</xliff:g>\"."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Переглянути детальну інформацію про використання дозволів"</string>
-    <string name="app_permission_most_recent_summary" msgid="6866863855248795166">"Востаннє отримано доступ <xliff:g id="TIME">%1$s</xliff:g> тому"</string>
+    <!-- no translation found for app_permission_most_recent_summary (7435245857128891808) -->
+    <skip />
     <string name="allowed_header" msgid="6279244592227088158">"Дозволено"</string>
+    <!-- no translation found for allowed_foreground_header (7553595563464819175) -->
+    <skip />
     <string name="denied_header" msgid="2277998574238617699">"Відхилено"</string>
+    <string name="detailed_usage_link" msgid="3990452346369247944">"Переглянути дані про використання"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> день</item>
       <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> дні</item>
@@ -159,14 +172,12 @@
     </plurals>
     <string name="role_request_message_add" msgid="1977772335648650272">"Чи має &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; працювати як <xliff:g id="ROLE_NAME">%2$s</xliff:g>?"</string>
     <string name="role_request_message_replace" msgid="6367571247558110210">"Чи має &lt;b&gt;<xliff:g id="NEW_APP_NAME">%1$s</xliff:g>&lt;/b&gt; працювати як <xliff:g id="ROLE_NAME">%2$s</xliff:g> замість додатка &lt;b&gt;<xliff:g id="CURRENT_APP_NAME">%1$s</xliff:g>&lt;/b&gt;?"</string>
-    <!-- no translation found for permission_reminders (8040710767178843151) -->
-    <skip />
-    <!-- no translation found for background_location_access_reminder_notification_title (3986986240015907758) -->
-    <skip />
-    <!-- no translation found for background_location_access_reminder_notification_content (2715202570602748060) -->
-    <skip />
+    <string name="permission_reminders" msgid="8040710767178843151">"Нагадування про дозволи"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> використовує геодані пристрою"</string>
+    <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Цей додаток завжди має доступ до геоданих пристрою. Торкніться, щоб змінити це."</string>
     <string name="permission_justification_header" msgid="8855642235625782751">"Розробник додатка вказує, що ваші дані можуть:"</string>
     <string name="permission_justification_footer" msgid="4098097763461100468">"Якщо вам не подобається, як розробник додатка використовує ваші дані, можна скасувати дозвіл."</string>
+    <string name="permission_justification_info_intent" msgid="2896804844363380252">"Щоб дізнатися більше, перейдіть у додаток \"<xliff:g id="APP_NAME">%s</xliff:g>\"."</string>
     <string name="permission_justification_data_sent_off_device" msgid="2503905652716735222">"завантажуватися в хмару"</string>
     <string name="permission_justification_data_sent_off_device_user_triggered" msgid="4122793147247661083">"завантажуватися в хмару, коли ви це чітко дозволяєте"</string>
     <string name="permission_justification_data_shared_with_third_party" msgid="5249440580654050831">"надаватися рекламодавцям або компаніям"</string>
@@ -195,21 +206,21 @@
     <string name="default_apps_for_work" msgid="8582151955372061208">"Для роботи за умовчанням"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Немає"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Немає додатків"</string>
-    <!-- no translation found for special_app_access (2561673957499408877) -->
-    <skip />
-    <!-- no translation found for no_special_app_access (994977666694457811) -->
-    <skip />
-    <!-- no translation found for special_app_access_no_apps (3934763650592564818) -->
-    <skip />
+    <string name="special_app_access" msgid="2561673957499408877">"Спеціальний доступ"</string>
+    <string name="no_special_app_access" msgid="994977666694457811">"Немає спеціального доступу"</string>
+    <string name="special_app_access_no_apps" msgid="3934763650592564818">"Немає додатків"</string>
+    <string name="role_label_browser" msgid="6266502234308421457">"Додаток для веб-перегляду"</string>
     <string name="role_label_dialer" msgid="3345895090725237533">"Додаток Телефон"</string>
+    <string name="role_label_sms" msgid="2262769075496017522">"Додаток для SMS"</string>
+    <string name="role_label_emergency" msgid="2226651888638211616">"Додаток для екстрених викликів"</string>
+    <string name="role_label_home" msgid="7672863812639457378">"Додаток Home"</string>
+    <string name="role_label_music" msgid="5900245414865932272">"Додаток Музика"</string>
+    <string name="role_label_gallery" msgid="6939560238495155209">"Додаток Галерея"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"Телефонний додаток для режиму авто"</string>
+    <string name="role_label_proxy_calling" msgid="2432073053878466863">"Додаток для проксі-викликів"</string>
     <string name="role_label_call_screening" msgid="411212589764916370">"Додаток для керування викликами"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"Супутній додаток для викликів"</string>
-    <string name="role_label_proxy_calling" msgid="2432073053878466863">"Додаток для проксі-викликів"</string>
-    <string name="role_label_sms" msgid="2262769075496017522">"Додаток для SMS"</string>
-    <string name="role_label_browser" msgid="6266502234308421457">"Додаток для веб-перегляду"</string>
-    <string name="role_label_gallery" msgid="6939560238495155209">"Додаток Галерея"</string>
-    <string name="role_label_music" msgid="5900245414865932272">"Додаток Музика"</string>
-    <!-- no translation found for encryption_unaware_confirmation_message (1366058948707595596) -->
+    <!-- no translation found for role_label_assistant (456685142560727172) -->
     <skip />
+    <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Примітка. Якщо після перезавантаження ввімкнеться екран блокування, цей додаток не запуститься, доки ви не розблокуєте пристрій."</string>
 </resources>
