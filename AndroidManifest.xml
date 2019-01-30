@@ -29,8 +29,9 @@
     <uses-permission android:name="android.permission.OBSERVE_ROLE_HOLDERS" />
     <uses-permission android:name="android.permission.SET_PREFERRED_APPLICATIONS" />
     <uses-permission android:name="com.android.permissioncontroller.permission.MANAGE_ROLES_FROM_CONTROLLER" />
-
     <uses-permission android:name="android.permission.ACCESS_INSTANT_APPS" />
+    <uses-permission android:name="android.permission.REQUEST_INCIDENT_REPORT_APPROVAL" />
+    <uses-permission android:name="android.permission.APPROVE_INCIDENT_REPORTS" />
 
     <uses-sdk android:minSdkVersion="28" android:targetSdkVersion="28" />
 
@@ -205,6 +206,24 @@
                 <action android:name="android.rolecontrollerservice.RoleControllerService"/>
             </intent-filter>
         </service>
+
+        <!-- Debug report authorization (bugreport and incident report) -->
+        <receiver android:name="com.android.packageinstaller.incident.ConfirmationReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.PENDING_INCIDENT_REPORTS_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name="com.android.packageinstaller.incident.ConfirmationActivity"
+                android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar"
+                android:exported="false"
+                android:excludeFromRecents="true"
+                android:noHistory="true" />
+
+        <receiver android:name="com.android.packageinstaller.incident.ApprovalReceiver"
+            android:exported="false" />
+
     </application>
 
 </manifest>

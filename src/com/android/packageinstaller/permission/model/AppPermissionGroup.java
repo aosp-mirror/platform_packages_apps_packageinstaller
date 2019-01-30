@@ -34,14 +34,18 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageItemInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
 import android.content.pm.UsesPermissionInfo;
 import android.os.Build;
 import android.os.UserHandle;
 import android.os.storage.StorageManager;
+import android.permission.PermissionManager;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.util.ArrayMap;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -69,6 +73,7 @@ import java.util.List;
  * #getBackgroundPermissions() background permissions group}.
  */
 public final class AppPermissionGroup implements Comparable<AppPermissionGroup> {
+    private static final String LOG_TAG = AppPermissionGroup.class.getSimpleName();
     private static final String PLATFORM_PACKAGE_NAME = "android";
 
     private static final String KILL_REASON_APP_OP_CHANGE = "Permission related app op changed";
@@ -84,6 +89,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
     private final String mName;
     private final String mDeclaringPackage;
     private final CharSequence mLabel;
+    private final CharSequence mFullLabel;
     private final @StringRes int mRequest;
     private final @StringRes int mRequestDetail;
     private final @StringRes int mBackgroundRequest;
@@ -200,9 +206,12 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         for (int i = 0; i < numPermissionInfos; i++) {
             permissionNames[i] = permissionInfos.get(i).name;
         }
+        CharSequence fullGroupLabel = groupInfo.loadSafeLabel(context.getPackageManager(), 0,
+                TextUtils.SAFE_STRING_FLAG_TRIM | TextUtils.SAFE_STRING_FLAG_FIRST_LINE);
         AppPermissionGroup group = new AppPermissionGroup(context, packageInfo, groupInfo.name,
-                groupInfo.packageName, groupLabel, loadGroupDescription(context, groupInfo),
-                getRequest(groupInfo), getRequestDetail(groupInfo), getBackgroundRequest(groupInfo),
+                groupInfo.packageName, groupLabel, fullGroupLabel,
+                loadGroupDescription(context, groupInfo), getRequest(groupInfo),
+                getRequestDetail(groupInfo), getBackgroundRequest(groupInfo),
                 getBackgroundRequestDetail(groupInfo), groupInfo.packageName, groupInfo.icon,
                 userHandle, delayChanges);
 
@@ -305,10 +314,11 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                 if (group.getBackgroundPermissions() == null) {
                     group.mBackgroundPermissions = new AppPermissionGroup(group.mContext,
                             group.getApp(), group.getName(), group.getDeclaringPackage(),
-                            group.getLabel(), group.getDescription(), group.getRequest(),
-                            group.getRequestDetail(), group.getBackgroundRequest(),
-                            group.getBackgroundRequestDetail(), group.getIconPkg(),
-                            group.getIconResId(), group.getUser(), delayChanges);
+                            group.getLabel(), group.getFullLabel(), group.getDescription(),
+                            group.getRequest(), group.getRequestDetail(),
+                            group.getBackgroundRequest(), group.getBackgroundRequestDetail(),
+                            group.getIconPkg(), group.getIconResId(), group.getUser(),
+                            delayChanges);
                 }
 
                 group.getBackgroundPermissions().addPermission(permission);
@@ -361,8 +371,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
     }
 
     private AppPermissionGroup(Context context, PackageInfo packageInfo, String name,
-            String declaringPackage, CharSequence label, CharSequence description,
-            @StringRes int request, @StringRes int requestDetail,
+            String declaringPackage, CharSequence label, CharSequence fullLabel,
+            CharSequence description, @StringRes int request, @StringRes int requestDetail,
             @StringRes int backgroundRequest, @StringRes int backgroundRequestDetail,
             String iconPkg, int iconResId,
             UserHandle userHandle, boolean delayChanges) {
@@ -378,6 +388,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         mDeclaringPackage = declaringPackage;
         mName = name;
         mLabel = label;
+        mFullLabel = fullLabel;
         mDescription = description;
         mCollator = Collator.getInstance(
                 context.getResources().getConfiguration().getLocales().get(0));
@@ -465,6 +476,15 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
     public CharSequence getLabel() {
         return mLabel;
+    }
+
+    /**
+     * Get the full un-ellipsized label of the permission group.
+     *
+     * @return the full label of the group.
+     */
+    public CharSequence getFullLabel() {
+        return mFullLabel;
     }
 
     /**
@@ -1192,5 +1212,63 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             new LocationAccessCheck(mContext, null).checkLocationAccessSoon();
             mTriggerLocationAccessCheckOnPersist = false;
         }
+    }
+
+    /**
+     * Check if permission group contains a runtime permission that split from an installed
+     * permission and the split happened in an Android version higher than app's targetSdk.
+     *
+     * @return {@code true} if there is such permission, {@code false} otherwise
+     */
+    public boolean hasInstallToRuntimeSplit() {
+        PermissionManager permissionManager =
+                (PermissionManager) mContext.getSystemService(PermissionManager.class);
+
+        int numSplitPerms = permissionManager.getSplitPermissions().size();
+        for (int splitPermNum = 0; splitPermNum < numSplitPerms; splitPermNum++) {
+            PermissionManager.SplitPermissionInfo spi =
+                    permissionManager.getSplitPermissions().get(splitPermNum);
+            String splitPerm = spi.getSplitPermission();
+
+            PermissionInfo pi;
+            try {
+                pi = mPackageManager.getPermissionInfo(splitPerm, 0);
+            } catch (NameNotFoundException e) {
+                Log.w(LOG_TAG, "No such permission: " + splitPerm, e);
+                continue;
+            }
+
+            // Skip if split permission is not "install" permission.
+            if (pi.getProtection() != pi.PROTECTION_NORMAL) {
+                continue;
+            }
+
+            List<String> newPerms = spi.getNewPermissions();
+            int numNewPerms = newPerms.size();
+            for (int newPermNum = 0; newPermNum < numNewPerms; newPermNum++) {
+                String newPerm = newPerms.get(newPermNum);
+
+                if (!hasPermission(newPerm)) {
+                    continue;
+                }
+
+                try {
+                    pi = mPackageManager.getPermissionInfo(newPerm, 0);
+                } catch (NameNotFoundException e) {
+                    Log.w(LOG_TAG, "No such permission: " + newPerm, e);
+                    continue;
+                }
+
+                // Skip if new permission is not "runtime" permission.
+                if (pi.getProtection() != pi.PROTECTION_DANGEROUS) {
+                    continue;
+                }
+
+                if (mPackageInfo.applicationInfo.targetSdkVersion < spi.getTargetSdk()) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

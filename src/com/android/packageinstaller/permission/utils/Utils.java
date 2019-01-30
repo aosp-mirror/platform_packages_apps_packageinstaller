@@ -47,6 +47,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Parcelable;
 import android.os.UserHandle;
+import android.provider.DeviceConfig;
 import android.provider.Settings;
 import android.text.Html;
 import android.text.TextUtils;
@@ -650,5 +651,16 @@ public final class Utils {
 
             return new BitmapDrawable(context.getResources(), iconBmp);
         }
+    }
+
+
+    /**
+     * Whether the Location Access Check is enabled.
+     *
+     * @return {@code true} iff the Location Access Check is enabled.
+     */
+    public static boolean isLocationAccessCheckEnabled() {
+        return DeviceConfig.getProperty(DeviceConfig.Privacy.NAMESPACE,
+                DeviceConfig.Privacy.PROPERTY_LOCATION_ACCESS_CHECK_ENABLED) != null;
     }
 }
