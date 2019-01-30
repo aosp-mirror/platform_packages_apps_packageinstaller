@@ -150,6 +150,9 @@ public class AppPermissionUsageFragment extends SettingsWithButtonHeader impleme
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        if (mAppInfo == null) {
+            return;
+        }
         Drawable icon = Utils.getBadgedIcon(getActivity(), mAppInfo);
         setHeader(icon, Utils.getFullAppLabel(mAppInfo, getContext()), true);
     }
