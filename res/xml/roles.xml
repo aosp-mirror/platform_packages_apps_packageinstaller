@@ -260,10 +260,8 @@
         </preferred-activities>
     </role>
 
-    <!-- TODO: STOPSHIP: Add availability and confirmation message in role behavior. -->
     <!-- TODO: STOPSHIP: Intent action sometimes changing dynamically in com.android.phone.EmergencyAssistanceHelper.getIntentAction -->
     <!-- TODO: STOPSHIP: Make this non-configurable at least by default. -->
-    <!-- TODO: STOPSHIP: Make sure we initialize an emergency app for user. -->
     <!---
       ~ @see com.android.settings.applications.defaultapps.DefaultEmergencyPreferenceController
       ~ @see com.android.settings.applications.defaultapps.DefaultEmergencyPicker
@@ -271,6 +269,7 @@
       -->
     <role
         name="android.app.role.EMERGENCY"
+        behavior="EmergencyRoleBehavior"
         exclusive="true"
         label="@string/role_label_emergency"
         systemOnly="true">
