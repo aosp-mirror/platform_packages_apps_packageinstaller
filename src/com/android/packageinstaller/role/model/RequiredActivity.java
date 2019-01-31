@@ -44,6 +44,7 @@ public class RequiredActivity extends RequiredComponent {
     protected List<ResolveInfo> queryIntentComponentsAsUser(@NonNull Intent intent, int flags,
             @NonNull UserHandle user, @NonNull Context context) {
         PackageManager packageManager = context.getPackageManager();
+        flags |= PackageManager.MATCH_DEFAULT_ONLY;
         return packageManager.queryIntentActivitiesAsUser(intent, flags, user);
     }
 
