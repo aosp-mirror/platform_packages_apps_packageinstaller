@@ -660,7 +660,7 @@ public final class Utils {
      * @return {@code true} iff the Location Access Check is enabled.
      */
     public static boolean isLocationAccessCheckEnabled() {
-        return DeviceConfig.getProperty(DeviceConfig.Privacy.NAMESPACE,
-                DeviceConfig.Privacy.PROPERTY_LOCATION_ACCESS_CHECK_ENABLED) != null;
+        return Boolean.parseBoolean(DeviceConfig.getProperty(DeviceConfig.Privacy.NAMESPACE,
+                DeviceConfig.Privacy.PROPERTY_LOCATION_ACCESS_CHECK_ENABLED));
     }
 }
