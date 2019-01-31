@@ -420,8 +420,8 @@ public class LocationAccessCheck {
 
                     LocationManager locationManager = getSystemServiceSafe(mContext,
                             LocationManager.class, pkg.user);
-                    if (locationManager.isLocationControllerExtraPackageEnabled() && pkg.pkg.equals(
-                            locationManager.getLocationControllerExtraPackage())) {
+                    if (locationManager.isExtraLocationControllerPackageEnabled() && pkg.pkg.equals(
+                            locationManager.getExtraLocationControllerPackage())) {
                         packageToNotifyFor = pkg;
                         break;
                     }
