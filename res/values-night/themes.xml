@@ -18,20 +18,16 @@
 <!-- themes for the permission grant dialog. -->
 <resources>
     <style name="GrantPermissions"
-           parent="@android:style/Theme.DeviceDefault.Panel">
-        <item name="android:windowIsFloating">false</item>
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:backgroundDimEnabled">true</item>
-        <item name="android:windowAnimationStyle">@*android:style/Animation.Material.Dialog</item>
+           parent="@android:style/Theme.DeviceDefault.Dialog.Alert">
+        <item name="android:windowNoTitle">true</item>
         <!-- The following attributes change the behavior of the dialog, hence they should not be
              themed -->
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowCloseOnTouchOutside">@*android:bool/config_closeDialogWhenTouchOutside</item>
     </style>
 
-    <style name="PermissionGrant"
+    <style name="Theme.PermissionGrantDialog"
            parent="@android:style/Theme.DeviceDefault.Dialog">
-        <item name="titleTextStyle">@style/PermissionGrantTitleMessage</item>
-        <item name="android:colorBackgroundFloating">@color/google_grey_800</item>
+        <item name="android:background">@color/google_grey_800</item>
     </style>
 </resources>
