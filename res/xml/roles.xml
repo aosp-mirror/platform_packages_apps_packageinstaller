@@ -84,7 +84,11 @@
       ~ @see com.android.server.pm.PackageManagerService.setDefaultBrowserPackageName(String, int)
       ~ @see com.android.server.pm.permission.DefaultPermissionGrantPolicy.grantDefaultPermissionsToDefaultBrowser(String, int)
       -->
-    <role name="android.app.role.BROWSER" exclusive="true" label="@string/role_label_browser">
+    <role
+        name="android.app.role.BROWSER"
+        behavior="BrowserRoleBehavior"
+        exclusive="true"
+        label="@string/role_label_browser">
         <!--
           ~ Required components matching is handled in BrowserRoleBehavior because it needs the
           ~ PackageManager.MATCH_ALL flag and other manual filtering, which cannot fit in our
