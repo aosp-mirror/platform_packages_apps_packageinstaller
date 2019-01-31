@@ -42,7 +42,6 @@ import android.permission.PermissionManager;
 import android.text.Html;
 import android.text.Spanned;
 import android.util.ArrayMap;
-import android.util.ArraySet;
 import android.util.Log;
 import android.util.Pair;
 import android.view.KeyEvent;
@@ -178,9 +177,6 @@ public class GrantPermissionsActivity extends Activity
         mCallingPackage = getCallingPackage();
 
         setFinishOnTouchOutside(false);
-
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 
         setTitle(R.string.permission_request_title);
 
