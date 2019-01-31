@@ -242,7 +242,7 @@ public final class Utils {
      * @return The infos for platform permissions belonging to the group or an empty list if the
      *         group is not does not have platform runtime permissions
      */
-    private static @NonNull List<PermissionInfo> getPlatformPermissionsOfGroup(
+    public static @NonNull List<PermissionInfo> getPlatformPermissionsOfGroup(
             @NonNull PackageManager pm, @NonNull String group) {
         ArrayList<PermissionInfo> permInfos = new ArrayList<>();
 
