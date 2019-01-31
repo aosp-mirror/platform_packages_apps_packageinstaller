@@ -265,7 +265,11 @@
       ~ @see com.android.settings.applications.defaultapps.DefaultEmergencyPicker
       ~ @see com.android.phone.EmergencyAssistanceHelper
       -->
-    <role name="android.app.role.EMERGENCY" exclusive="true" label="@string/role_label_emergency">
+    <role
+        name="android.app.role.EMERGENCY"
+        exclusive="true"
+        label="@string/role_label_emergency"
+        systemOnly="true">
         <required-components>
             <activity>
                 <intent-filter>
@@ -486,6 +490,25 @@
         label="@string/role_label_temporary_sms_access">
         <permissions>
             <permission-set name="sms" />
+        </permissions>
+    </role>
+
+    <role
+        name="android.app.role.CAR_PROJECTION"
+        exclusive="true"
+        label="@string/role_label_car_projection">
+        <required-components>
+            <activity>
+              <intent-filter>
+                  <action name="android.intent.action.MAIN" />
+                  <category name="android.intent.category.CAR_PROJECTION" />
+              </intent-filter>
+            </activity>
+        </required-components>
+        <permissions>
+            <permission name="android.permission.READ_CALL_LOG" />
+            <permission name="android.permission.SEND_SMS" />
+            <permission name="android.permission.RECEIVE_SMS" />
         </permissions>
     </role>
 </roles>

@@ -50,6 +50,8 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"이 앱은 Android 이전 버전에 맞게 설계되었습니다. 권한을 거부하면 정상적으로 작동하지 않을 수 있습니다."</string>
     <string name="default_permission_description" msgid="692254823411049573">"알 수 없는 작업 실행"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g>개 앱 허용됨"</string>
+    <string name="permission_usage_header" msgid="8802963718365732792">"최근 사용량"</string>
+    <string name="permission_usage_view_details" msgid="1242976903858003439">"세부정보 보기"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"시스템 표시"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"시스템 숨기기"</string>
     <string name="no_apps" msgid="2377153782338039463">"앱 없음"</string>
@@ -89,33 +91,40 @@
     <string name="message_staging" msgid="641286607664721291">"앱 준비 중…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"알 수 없음"</string>
     <string name="permission_usage_title" msgid="8266350477620264117">"사용 권한"</string>
-    <string name="permission_usage_summary_last_access" msgid="7173761056935772053">"<xliff:g id="PERM">%1$s</xliff:g> - 마지막 액세스: <xliff:g id="TIME">%2$s</xliff:g> 전"</string>
-    <string name="permission_usage_summary_num_accesses" msgid="2854280891054741976">"<xliff:g id="PERM">%1$s</xliff:g> - 액세스 <xliff:g id="NUM">%2$s</xliff:g>회"</string>
-    <string name="permission_usage_summary_num_accesses_background" msgid="2003785497588289009">"<xliff:g id="PERM">%1$s</xliff:g> - 액세스 <xliff:g id="NUM_0">%2$s</xliff:g>회(백그라운드에서 <xliff:g id="NUM_1">%3$s</xliff:g>회)"</string>
+    <string name="permission_usage_summary" msgid="4139332442917981301">"마지막 액세스 시간: <xliff:g id="TIME">%1$s</xliff:g>\n액세스 <xliff:g id="NUM">%2$s</xliff:g>회"</string>
+    <string name="permission_usage_summary_background" msgid="2209669857909620833">"마지막 액세스 시간: <xliff:g id="TIME">%1$s</xliff:g>\n액세스 <xliff:g id="NUM_0">%2$s</xliff:g>회(백그라운드에서 <xliff:g id="NUM_1">%3$s</xliff:g>회)"</string>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"모든 권한"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"전체 기간"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"지난 7일"</string>
     <string name="permission_usage_last_day" msgid="4149912805759768249">"최근 24시간"</string>
     <string name="permission_usage_last_hour" msgid="2907717357748648755">"최근 1시간"</string>
     <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"지난 15분"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"마지막 1분"</string>
     <string name="no_permission_usages" msgid="698858628357371611">"사용 권한 없음"</string>
     <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"전체 기간 동안의 액세스"</string>
     <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"지난 7일 동안의 액세스"</string>
     <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"지난 24시간 동안의 액세스"</string>
     <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"지난 1시간 동안의 액세스"</string>
     <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"지난 15분 동안의 액세스"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="8035799852985876841">"지난 1분 동안의 액세스"</string>
     <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"전체 기간 동안 가장 많이 사용된 권한"</string>
     <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"지난 7일 동안 가장 많이 사용된 권한"</string>
     <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"지난 24시간 동안 가장 많이 사용된 권한"</string>
     <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"지난 1시간 동안 가장 많이 사용된 권한"</string>
     <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"지난 15분 동안 가장 많이 사용된 권한"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"지난 1분 동안 가장 많이 사용된 권한"</string>
     <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"앱"</string>
-    <string name="app_permission_usage_detail_label" msgid="675382489654882532">"모든 권한 사용 보기"</string>
+    <!-- no translation found for app_permission_usage_filter_label (8700139296200468389) -->
+    <skip />
+    <!-- no translation found for app_permission_usage_remove_filter (2046234519591857627) -->
+    <skip />
     <string name="filter_by_title" msgid="5940302511365561845">"필터링 기준"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"권한별로 필터링"</string>
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"사용된 권한 수"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"액세스 횟수"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"최근"</string>
+    <!-- no translation found for permission_usage_refresh (2182775682810005148) -->
+    <skip />
     <string name="app_permission_usage_title" msgid="5641038589468666526">"앱 권한 사용"</string>
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"액세스: <xliff:g id="NUM">%1$s</xliff:g>회, 총 기간: <xliff:g id="DURATION">%2$s</xliff:g>, 마지막 사용: <xliff:g id="TIME">%3$s</xliff:g> 전"</string>
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"액세스: <xliff:g id="NUM">%1$s</xliff:g>회, 마지막 사용: <xliff:g id="TIME">%2$s</xliff:g> 전"</string>
@@ -128,9 +137,13 @@
     <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="TIME">%3$s</xliff:g> 전에 <xliff:g id="APP">%1$s</xliff:g> 앱이 <xliff:g id="PERM">%2$s</xliff:g>에 액세스했습니다."</string>
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> 앱이 <xliff:g id="PERM">%2$s</xliff:g>에 액세스하지 않았습니다."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"자세한 권한 사용 내역 보기"</string>
-    <string name="app_permission_most_recent_summary" msgid="6866863855248795166">"최근 액세스: <xliff:g id="TIME">%1$s</xliff:g> 전"</string>
+    <!-- no translation found for app_permission_most_recent_summary (7435245857128891808) -->
+    <skip />
     <string name="allowed_header" msgid="6279244592227088158">"허용됨"</string>
+    <!-- no translation found for allowed_foreground_header (7553595563464819175) -->
+    <skip />
     <string name="denied_header" msgid="2277998574238617699">"거부됨"</string>
+    <string name="detailed_usage_link" msgid="3990452346369247944">"자세한 사용량 보기"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g>일</item>
       <item quantity="one">1일</item>
@@ -149,14 +162,12 @@
     </plurals>
     <string name="role_request_message_add" msgid="1977772335648650272">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;을(를) <xliff:g id="ROLE_NAME">%2$s</xliff:g>(으)로 사용하시겠습니까?"</string>
     <string name="role_request_message_replace" msgid="6367571247558110210">"<b><xliff:g id="CURRENT_APP_NAME">%1$s</xliff:g></b> 대신 &lt;b&gt;<xliff:g id="NEW_APP_NAME">%1$s</xliff:g>&lt;/b&gt;을(를) <xliff:g id="ROLE_NAME">%2$s</xliff:g>(으)로 사용하시겠습니까?"</string>
-    <!-- no translation found for permission_reminders (8040710767178843151) -->
-    <skip />
-    <!-- no translation found for background_location_access_reminder_notification_title (3986986240015907758) -->
-    <skip />
-    <!-- no translation found for background_location_access_reminder_notification_content (2715202570602748060) -->
-    <skip />
+    <string name="permission_reminders" msgid="8040710767178843151">"권한 알림"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g>에서 내 위치를 사용함"</string>
+    <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"이 앱에서 내 위치에 항상 액세스할 수 있습니다. 변경하려면 탭하세요."</string>
     <string name="permission_justification_header" msgid="8855642235625782751">"앱 개발자에 따르면 데이터가 다음과 같이 사용될 수 있습니다"</string>
     <string name="permission_justification_footer" msgid="4098097763461100468">"앱 개발자의 데이터 사용 방식이 마음에 들지 않으면 권한 요청을 거부할 수 있습니다."</string>
+    <string name="permission_justification_info_intent" msgid="2896804844363380252">"자세한 내용은 <xliff:g id="APP_NAME">%s</xliff:g>을(를) 방문하세요."</string>
     <string name="permission_justification_data_sent_off_device" msgid="2503905652716735222">"클라우드에 업로드됨"</string>
     <string name="permission_justification_data_sent_off_device_user_triggered" msgid="4122793147247661083">"사용자가 명시적으로 허용할 경우 클라우드에 업로드됨"</string>
     <string name="permission_justification_data_shared_with_third_party" msgid="5249440580654050831">"광고주 또는 비즈니스와 공유됨"</string>
@@ -183,21 +194,21 @@
     <string name="default_apps_for_work" msgid="8582151955372061208">"직장용 기본 앱"</string>
     <string name="default_app_none" msgid="7671097769303174666">"없음"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"앱 없음"</string>
-    <!-- no translation found for special_app_access (2561673957499408877) -->
-    <skip />
-    <!-- no translation found for no_special_app_access (994977666694457811) -->
-    <skip />
-    <!-- no translation found for special_app_access_no_apps (3934763650592564818) -->
-    <skip />
+    <string name="special_app_access" msgid="2561673957499408877">"특수 앱 액세스 권한"</string>
+    <string name="no_special_app_access" msgid="994977666694457811">"특수 앱 액세스 권한 없음"</string>
+    <string name="special_app_access_no_apps" msgid="3934763650592564818">"앱 없음"</string>
+    <string name="role_label_browser" msgid="6266502234308421457">"브라우저 앱"</string>
     <string name="role_label_dialer" msgid="3345895090725237533">"전화 앱"</string>
+    <string name="role_label_sms" msgid="2262769075496017522">"SMS 앱"</string>
+    <string name="role_label_emergency" msgid="2226651888638211616">"긴급 앱"</string>
+    <string name="role_label_home" msgid="7672863812639457378">"홈 앱"</string>
+    <string name="role_label_music" msgid="5900245414865932272">"음악 앱"</string>
+    <string name="role_label_gallery" msgid="6939560238495155209">"갤러리 앱"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"자동차 모드 전화 앱"</string>
+    <string name="role_label_proxy_calling" msgid="2432073053878466863">"프록시 통화 앱"</string>
     <string name="role_label_call_screening" msgid="411212589764916370">"통화 선택 앱"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"통화 호환 앱"</string>
-    <string name="role_label_proxy_calling" msgid="2432073053878466863">"프록시 통화 앱"</string>
-    <string name="role_label_sms" msgid="2262769075496017522">"SMS 앱"</string>
-    <string name="role_label_browser" msgid="6266502234308421457">"브라우저 앱"</string>
-    <string name="role_label_gallery" msgid="6939560238495155209">"갤러리 앱"</string>
-    <string name="role_label_music" msgid="5900245414865932272">"음악 앱"</string>
-    <!-- no translation found for encryption_unaware_confirmation_message (1366058948707595596) -->
+    <!-- no translation found for role_label_assistant (456685142560727172) -->
     <skip />
+    <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"참고: 화면 잠금이 설정되어 있다면 기기를 다시 시작한 후 이 앱을 시작하려면 기기를 잠금 해제해야 합니다."</string>
 </resources>

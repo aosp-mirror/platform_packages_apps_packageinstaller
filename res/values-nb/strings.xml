@@ -50,6 +50,8 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Denne appen er laget for en eldre versjon av Android. Hvis du ikke gir tillatelse, kan det føre til at den ikke lenger fungerer som den skal."</string>
     <string name="default_permission_description" msgid="692254823411049573">"utføre en ukjent handling"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> av <xliff:g id="COUNT_1">%2$d</xliff:g> apper er tillatt"</string>
+    <string name="permission_usage_header" msgid="8802963718365732792">"Nylig bruk"</string>
+    <string name="permission_usage_view_details" msgid="1242976903858003439">"Se detaljer"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Vis systemapper"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Skjul systemapper"</string>
     <string name="no_apps" msgid="2377153782338039463">"Ingen apper"</string>
@@ -89,33 +91,40 @@
     <string name="message_staging" msgid="641286607664721291">"Klargjør appen …"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Ukjent"</string>
     <string name="permission_usage_title" msgid="8266350477620264117">"Bruk av tillatelser"</string>
-    <string name="permission_usage_summary_last_access" msgid="7173761056935772053">"<xliff:g id="PERM">%1$s</xliff:g> – Sist brukt for <xliff:g id="TIME">%2$s</xliff:g> siden"</string>
-    <string name="permission_usage_summary_num_accesses" msgid="2854280891054741976">"<xliff:g id="PERM">%1$s</xliff:g> – brukt <xliff:g id="NUM">%2$s</xliff:g> ganger"</string>
-    <string name="permission_usage_summary_num_accesses_background" msgid="2003785497588289009">"<xliff:g id="PERM">%1$s</xliff:g> – brukt <xliff:g id="NUM_0">%2$s</xliff:g> ganger (<xliff:g id="NUM_1">%3$s</xliff:g> i bakgrunnen)"</string>
+    <string name="permission_usage_summary" msgid="4139332442917981301">"Siste tilgang: <xliff:g id="TIME">%1$s</xliff:g>\nbrukt <xliff:g id="NUM">%2$s</xliff:g> ganger"</string>
+    <string name="permission_usage_summary_background" msgid="2209669857909620833">"Siste tilgang: <xliff:g id="TIME">%1$s</xliff:g>\nbrukt <xliff:g id="NUM_0">%2$s</xliff:g> ganger (<xliff:g id="NUM_1">%3$s</xliff:g> i bakgrunnen)"</string>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Hvilken som helst tillatelse"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"Når som helst"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"De siste 7 dagene"</string>
     <string name="permission_usage_last_day" msgid="4149912805759768249">"De siste 24 timene"</string>
     <string name="permission_usage_last_hour" msgid="2907717357748648755">"Den siste timen"</string>
     <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"De siste 15 minuttene"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Det siste minuttet"</string>
     <string name="no_permission_usages" msgid="698858628357371611">"Ingen bruk av tillatelsen"</string>
     <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"Bruk til enhver tid"</string>
     <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"Bruk i løpet av de siste syv dagene"</string>
     <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"Bruk i løpet av de siste 24 timene"</string>
     <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"Bruk i løpet av den siste timen"</string>
     <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"Brukt i løpet av de siste 15 minuttene"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="8035799852985876841">"Bruk i løpet av det siste minuttet"</string>
     <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"Hyppigste bruk av tillatelser til enhver tid"</string>
     <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"Hyppigste bruk av tillatelser de siste syv dagene"</string>
     <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"Hyppigste bruk av tillatelser de siste 24 timene"</string>
     <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"Hyppigste bruk av tillatelser den siste timen"</string>
     <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"Hyppigste bruk av tillatelse de siste 15 minuttene"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"Hyppigste bruk av tillatelser det siste minuttet"</string>
     <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"Apper"</string>
-    <string name="app_permission_usage_detail_label" msgid="675382489654882532">"Se all bruk"</string>
+    <!-- no translation found for app_permission_usage_filter_label (8700139296200468389) -->
+    <skip />
+    <!-- no translation found for app_permission_usage_remove_filter (2046234519591857627) -->
+    <skip />
     <string name="filter_by_title" msgid="5940302511365561845">"Filtrér etter"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Filtrér etter tillatelser"</string>
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Flest tillatelser"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Mest brukt"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"Nylig"</string>
+    <!-- no translation found for permission_usage_refresh (2182775682810005148) -->
+    <skip />
     <string name="app_permission_usage_title" msgid="5641038589468666526">"Bruk av apptillatelser"</string>
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"Tilgang: <xliff:g id="NUM">%1$s</xliff:g> ganger. Total varighet: <xliff:g id="DURATION">%2$s</xliff:g>. Sist brukt for <xliff:g id="TIME">%3$s</xliff:g> siden."</string>
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Tilgang: <xliff:g id="NUM">%1$s</xliff:g> ganger. Sist brukt for <xliff:g id="TIME">%2$s</xliff:g> siden."</string>
@@ -128,9 +137,13 @@
     <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="APP">%1$s</xliff:g> har brukt <xliff:g id="PERM">%2$s</xliff:g> for <xliff:g id="TIME">%3$s</xliff:g> siden."</string>
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> har ikke brukt <xliff:g id="PERM">%2$s</xliff:g>."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Vis detaljert bruk av tillatelser"</string>
-    <string name="app_permission_most_recent_summary" msgid="6866863855248795166">"Den nyeste tilgangen for <xliff:g id="TIME">%1$s</xliff:g> siden"</string>
+    <!-- no translation found for app_permission_most_recent_summary (7435245857128891808) -->
+    <skip />
     <string name="allowed_header" msgid="6279244592227088158">"Tillatt"</string>
+    <!-- no translation found for allowed_foreground_header (7553595563464819175) -->
+    <skip />
     <string name="denied_header" msgid="2277998574238617699">"Avvist"</string>
+    <string name="detailed_usage_link" msgid="3990452346369247944">"Se detaljert bruk"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> dager</item>
       <item quantity="one">1 dag</item>
@@ -149,14 +162,12 @@
     </plurals>
     <string name="role_request_message_add" msgid="1977772335648650272">"Vil du bruke &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; som <xliff:g id="ROLE_NAME">%2$s</xliff:g>?"</string>
     <string name="role_request_message_replace" msgid="6367571247558110210">"Vil du bruke &lt;b&gt;<xliff:g id="NEW_APP_NAME">%1$s</xliff:g>&lt;/b&gt; i stedet for &lt;b&gt;<xliff:g id="CURRENT_APP_NAME">%1$s</xliff:g>&lt;/b&gt; som <xliff:g id="ROLE_NAME">%2$s</xliff:g>?"</string>
-    <!-- no translation found for permission_reminders (8040710767178843151) -->
-    <skip />
-    <!-- no translation found for background_location_access_reminder_notification_title (3986986240015907758) -->
-    <skip />
-    <!-- no translation found for background_location_access_reminder_notification_content (2715202570602748060) -->
-    <skip />
+    <string name="permission_reminders" msgid="8040710767178843151">"Påminnelser om tillatelser"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> har brukt posisjonen din"</string>
+    <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Denne appen har alltid tilgang til posisjonen din. Trykk for å endre."</string>
     <string name="permission_justification_header" msgid="8855642235625782751">"Apputvikleren sier at dataene dine kan bli:"</string>
     <string name="permission_justification_footer" msgid="4098097763461100468">"Hvis du ikke liker hvordan denne apputvikleren bruker dataene dine, kan du avvise tillatelsen."</string>
+    <string name="permission_justification_info_intent" msgid="2896804844363380252">"Gå til <xliff:g id="APP_NAME">%s</xliff:g> for å få mer informasjon."</string>
     <string name="permission_justification_data_sent_off_device" msgid="2503905652716735222">"Lastet opp til nettskyen"</string>
     <string name="permission_justification_data_sent_off_device_user_triggered" msgid="4122793147247661083">"Lastet opp til nettskyen når du uttrykkelig tillater det"</string>
     <string name="permission_justification_data_shared_with_third_party" msgid="5249440580654050831">"Delt med annonsører eller bedrifter"</string>
@@ -183,21 +194,21 @@
     <string name="default_apps_for_work" msgid="8582151955372061208">"Jobbstandard"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Ingen"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Ingen apper"</string>
-    <!-- no translation found for special_app_access (2561673957499408877) -->
-    <skip />
-    <!-- no translation found for no_special_app_access (994977666694457811) -->
-    <skip />
-    <!-- no translation found for special_app_access_no_apps (3934763650592564818) -->
-    <skip />
+    <string name="special_app_access" msgid="2561673957499408877">"Spesiell apptilgang"</string>
+    <string name="no_special_app_access" msgid="994977666694457811">"Ingen spesiell apptilgang"</string>
+    <string name="special_app_access_no_apps" msgid="3934763650592564818">"Ingen apper"</string>
+    <string name="role_label_browser" msgid="6266502234308421457">"Nettleserapp"</string>
     <string name="role_label_dialer" msgid="3345895090725237533">"Telefon-app"</string>
+    <string name="role_label_sms" msgid="2262769075496017522">"SMS-app"</string>
+    <string name="role_label_emergency" msgid="2226651888638211616">"Nødapp"</string>
+    <string name="role_label_home" msgid="7672863812639457378">"Startsideapp"</string>
+    <string name="role_label_music" msgid="5900245414865932272">"Musikk-appen"</string>
+    <string name="role_label_gallery" msgid="6939560238495155209">"Galleri-appen"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"Telefonapp for bilmodus"</string>
+    <string name="role_label_proxy_calling" msgid="2432073053878466863">"Ringeapp for proxy-tjener"</string>
     <string name="role_label_call_screening" msgid="411212589764916370">"App for anropsutvelgelse"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"Følgeapp for ringing"</string>
-    <string name="role_label_proxy_calling" msgid="2432073053878466863">"Ringeapp for proxy-tjener"</string>
-    <string name="role_label_sms" msgid="2262769075496017522">"SMS-app"</string>
-    <string name="role_label_browser" msgid="6266502234308421457">"Nettleserapp"</string>
-    <string name="role_label_gallery" msgid="6939560238495155209">"Galleri-appen"</string>
-    <string name="role_label_music" msgid="5900245414865932272">"Musikk-appen"</string>
-    <!-- no translation found for encryption_unaware_confirmation_message (1366058948707595596) -->
+    <!-- no translation found for role_label_assistant (456685142560727172) -->
     <skip />
+    <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Merk: Hvis du starter enheten din på nytt og har en skjermlås angitt, kan ikke denne appen starte før du låser opp enheten."</string>
 </resources>
