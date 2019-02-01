@@ -46,7 +46,6 @@ import static com.android.packageinstaller.Constants.LOCATION_ACCESS_CHECK_NOTIF
 import static com.android.packageinstaller.Constants.PERIODIC_LOCATION_ACCESS_CHECK_JOB_ID;
 import static com.android.packageinstaller.Constants.PERMISSION_REMINDER_CHANNEL_ID;
 import static com.android.packageinstaller.Constants.PREFERENCES_FILE;
-import static com.android.packageinstaller.permission.utils.LocationUtils.isNetworkLocationProvider;
 import static com.android.packageinstaller.permission.utils.Utils.OS_PKG;
 import static com.android.packageinstaller.permission.utils.Utils.getGroupOfPlatformPermission;
 import static com.android.packageinstaller.permission.utils.Utils.getParcelableExtraSafe;
@@ -454,6 +453,8 @@ public class LocationAccessCheck {
         List<UserPackage> pkgsWithLocationAccess = new ArrayList<>();
         List<UserHandle> profiles = mUserManager.getUserProfiles();
 
+        LocationManager lm = mContext.getSystemService(LocationManager.class);
+
         int numUid = allOps.getUidCount();
         for (int uidNum = 0; uidNum < numUid; uidNum++) {
             AppOpsManager.HistoricalUidOps uidOps = allOps.getUidOpsAt(uidNum);
@@ -463,7 +464,7 @@ public class LocationAccessCheck {
                 HistoricalPackageOps ops = uidOps.getPackageOpsAt(pkgNum);
 
                 String pkg = ops.getPackageName();
-                if (pkg.equals(OS_PKG) || isNetworkLocationProvider(mContext, pkg)) {
+                if (pkg.equals(OS_PKG) || lm.isProviderPackage(pkg)) {
                     continue;
                 }
 
