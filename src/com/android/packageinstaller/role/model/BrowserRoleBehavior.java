@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class for behavior of the dialer role.
+ * Class for behavior of the browser role.
  *
  * @see com.android.settings.applications.DefaultAppSettings
  * @see com.android.settings.applications.defaultapps.DefaultBrowserPreferenceController
