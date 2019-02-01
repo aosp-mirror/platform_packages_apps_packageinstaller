@@ -16,6 +16,7 @@
 
 package com.android.packageinstaller.permission.ui.handheld;
 
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -27,11 +28,13 @@ import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
+import androidx.core.widget.NestedScrollView;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
+import com.android.settingslib.widget.ActionBarShadowController;
 
 public abstract class PermissionsFrameFragment extends PreferenceFragmentCompat {
     private static final String LOG_TAG = PermissionsFrameFragment.class.getSimpleName();
@@ -45,6 +48,7 @@ public abstract class PermissionsFrameFragment extends PreferenceFragmentCompat 
     private TextView mEmptyView;
     private View mLoadingView;
     private ViewGroup mPrefsView;
+    private NestedScrollView mNestedScrollView;
     private boolean mIsLoading;
 
     /**
@@ -78,7 +82,22 @@ public abstract class PermissionsFrameFragment extends PreferenceFragmentCompat 
                 inflater, mPrefsView, savedInstanceState);
         setLoading(mIsLoading, false, true /* force */);
         mPrefsView.addView(mPreferencesContainer, 0);
+        mNestedScrollView = rootView.requireViewById(R.id.nested_scroll_view);
         return rootView;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        if (mNestedScrollView != null) {
+            ActionBar ab = getActivity().getActionBar();
+            if (ab != null) {
+                ab.setElevation(0);
+            }
+            ActionBarShadowController.attachToView(getActivity(), getLifecycle(),
+                    mNestedScrollView);
+        }
     }
 
     @Override
