@@ -32,6 +32,7 @@
     <uses-permission android:name="android.permission.ACCESS_INSTANT_APPS" />
     <uses-permission android:name="android.permission.REQUEST_INCIDENT_REPORT_APPROVAL" />
     <uses-permission android:name="android.permission.APPROVE_INCIDENT_REPORTS" />
+    <uses-permission android:name="android.permission.READ_DEVICE_CONFIG" />
 
     <uses-sdk android:minSdkVersion="28" android:targetSdkVersion="28" />
 
