@@ -328,6 +328,7 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
         if (mSavedGroupName != null && mFilterGroup == null) {
             if (getGroup(mSavedGroupName) != null) {
                 mFilterGroup = mSavedGroupName;
+                mSavedGroupName = null;
             }
         }
 
