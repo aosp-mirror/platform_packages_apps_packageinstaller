@@ -11,7 +11,7 @@ LOCAL_SRC_FILES := \
 LOCAL_STATIC_ANDROID_LIBRARIES += \
     iconloader \
     androidx.car_car \
-    androidx.design_design \
+    com.google.android.material_material \
     androidx.transition_transition \
     androidx.core_core \
     androidx.media_media \
@@ -34,7 +34,8 @@ LOCAL_STATIC_ANDROID_LIBRARIES += \
     SettingsLibLayoutPreference \
     SettingsLibActionButtonsPreference \
     SettingsLibBarChartPreference \
-    SettingsLibEntityHeaderWidgets
+    SettingsLibEntityHeaderWidgets \
+    SettingsLibActionBarShadow
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
     androidx.annotation_annotation

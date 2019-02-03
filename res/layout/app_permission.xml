@@ -23,6 +23,7 @@
     android:id="@+id/app_permission_root">
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clipChildren="false">

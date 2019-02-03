@@ -23,6 +23,8 @@ import static android.content.pm.PackageManager.FLAG_PERMISSION_SYSTEM_FIXED;
 import static android.content.pm.PackageManager.FLAG_PERMISSION_USER_FIXED;
 import static android.content.pm.PackageManager.FLAG_PERMISSION_USER_SET;
 import static android.content.pm.PackageManager.GET_PERMISSIONS;
+import static android.permission.PermissionControllerManager.COUNT_ONLY_WHEN_GRANTED;
+import static android.permission.PermissionControllerManager.COUNT_WHEN_SYSTEM;
 import static android.permission.PermissionControllerManager.REASON_INSTALLER_POLICY_VIOLATION;
 import static android.permission.PermissionControllerManager.REASON_MALWARE;
 import static android.util.Xml.newSerializer;
@@ -515,26 +517,28 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
     }
 
     @Override
-    public int onCountPermissionApps(@NonNull List<String> permissionNames,
-            boolean countOnlyGranted, boolean countSystem) {
-        final List<PackageInfo> pkgs = getPackageManager().getInstalledPackages(GET_PERMISSIONS);
-        final ArraySet<String> launcherPkgs = getLauncherPackages(this);
+    public int onCountPermissionApps(@NonNull List<String> permissionNames, int flags) {
+        boolean countSystem = (flags & COUNT_WHEN_SYSTEM) != 0;
+        boolean countOnlyGranted = (flags & COUNT_ONLY_WHEN_GRANTED) != 0;
+
+        List<PackageInfo> pkgs = getPackageManager().getInstalledPackages(GET_PERMISSIONS);
+        ArraySet<String> launcherPkgs = getLauncherPackages(this);
 
         int numApps = 0;
 
-        final int numPkgs = pkgs.size();
+        int numPkgs = pkgs.size();
         for (int pkgNum = 0; pkgNum < numPkgs; pkgNum++) {
-            final PackageInfo pkg = pkgs.get(pkgNum);
+            PackageInfo pkg = pkgs.get(pkgNum);
 
             if (!countSystem && isSystem(pkg.applicationInfo, launcherPkgs)) {
                 continue;
             }
 
-            final int numPerms = permissionNames.size();
+            int numPerms = permissionNames.size();
             for (int permNum = 0; permNum < numPerms; permNum++) {
-                final String perm = permissionNames.get(permNum);
+                String perm = permissionNames.get(permNum);
 
-                final AppPermissionGroup group = AppPermissionGroup.create(this, pkg,
+                AppPermissionGroup group = AppPermissionGroup.create(this, pkg,
                         permissionNames.get(permNum), true);
                 if (group == null || !shouldShowPermission(this, group)) {
                     continue;

@@ -49,6 +49,7 @@ import android.widget.TextView;
 import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
@@ -62,6 +63,7 @@ import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 import com.android.settingslib.RestrictedLockUtils;
 import com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
+import com.android.settingslib.widget.ActionBarShadowController;
 
 import java.lang.annotation.Retention;
 import java.util.ArrayList;
@@ -91,6 +93,7 @@ public class AppPermissionFragment extends SettingsWithButtonHeader {
     private @NonNull View mDivider;
     private @NonNull ViewGroup mWidgetFrame;
     private @NonNull TextView mPermissionDetails;
+    private @NonNull NestedScrollView mNestedScrollView;
 
     private boolean mHasConfirmedRevoke;
 
@@ -217,6 +220,8 @@ public class AppPermissionFragment extends SettingsWithButtonHeader {
         mWidgetFrame = root.requireViewById(R.id.widget_frame);
         mPermissionDetails = root.requireViewById(R.id.permission_details);
 
+        mNestedScrollView = root.requireViewById(R.id.nested_scroll_view);
+
         updateButtons();
         updateJustification(context, root, appLabel);
 
@@ -267,6 +272,12 @@ public class AppPermissionFragment extends SettingsWithButtonHeader {
             activity.setResult(Activity.RESULT_CANCELED);
             activity.finish();
         }
+
+        ActionBar ab = getActivity().getActionBar();
+        if (ab != null) {
+            ab.setElevation(0);
+        }
+        ActionBarShadowController.attachToView(activity, getLifecycle(), mNestedScrollView);
     }
 
     @Override
