@@ -30,7 +30,6 @@ import android.content.pm.PackageItemInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
-import android.content.pm.UsesPermissionInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -224,11 +223,11 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
         // We will filter out permissions that no package requests.
         Set<String> requestedPermissions = new ArraySet<>();
         for (PackageInfo installedPackage : installedPackages) {
-            if (installedPackage.usesPermissions == null) {
+            if (installedPackage.requestedPermissions == null) {
                 continue;
             }
-            for (UsesPermissionInfo usedPermission : installedPackage.usesPermissions) {
-                requestedPermissions.add(usedPermission.name);
+            for (String permission : installedPackage.requestedPermissions) {
+                requestedPermissions.add(permission);
             }
         }
 
