@@ -91,7 +91,7 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
     private static final String KEY_SHOW_SYSTEM_PREFS = "_show_system";
     private static final String SHOW_SYSTEM_KEY = PermissionUsageFragment.class.getName()
             + KEY_SHOW_SYSTEM_PREFS;
-    private static final String KEY_PERMS_INDEX = "_time_index";
+    private static final String KEY_PERMS_INDEX = "_perms_index";
     private static final String PERMS_INDEX_KEY = PermissionUsageFragment.class.getName()
             + KEY_PERMS_INDEX;
     private static final String KEY_SPINNER_TIME_INDEX = "_time_index";
@@ -839,9 +839,12 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
                 context.getString(R.string.filter_by_title));
         args.putCharSequenceArray(PermissionsFilterDialog.ELEMS, groupLabels);
         args.putInt(PermissionsFilterDialog.SELECTION, selection);
-        PermissionsFilterDialog chooserDialog = new PermissionsFilterDialog(this, groupNames);
+        args.putStringArray(PermissionsFilterDialog.GROUPS, groupNames);
+        PermissionsFilterDialog chooserDialog = new PermissionsFilterDialog();
         chooserDialog.setArguments(args);
-        chooserDialog.show(getChildFragmentManager().beginTransaction(), "backgroundChooser");
+        chooserDialog.setTargetFragment(this, 0);
+        chooserDialog.show(getFragmentManager().beginTransaction(),
+                PermissionsFilterDialog.class.getName());
     }
 
     /**
@@ -866,25 +869,20 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
         private static final String ELEMS = PermissionsFilterDialog.class.getName() + ".arg.elems";
         private static final String SELECTION = PermissionsFilterDialog.class.getName()
                 + ".arg.selection";
-
-        private @NonNull PermissionUsageFragment mFragment;
-        private @NonNull String[] mGroups;
-
-        public PermissionsFilterDialog(@NonNull PermissionUsageFragment fragment,
-                @NonNull String[] groups) {
-            mFragment = fragment;
-            mGroups = groups;
-        }
+        private static final String GROUPS = PermissionsFilterDialog.class.getName()
+                + ".arg.groups";
 
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
+            PermissionUsageFragment fragment = (PermissionUsageFragment) getTargetFragment();
             CharSequence[] elems = getArguments().getCharSequenceArray(ELEMS);
+            String[] groups = getArguments().getStringArray(GROUPS);
             AlertDialog.Builder b = new AlertDialog.Builder(getActivity())
                     .setTitle(getArguments().getCharSequence(TITLE))
                     .setSingleChoiceItems(elems, getArguments().getInt(SELECTION),
                             (dialog, which) -> {
                                 dismissAllowingStateLoss();
-                                mFragment.onPermissionGroupSelected(mGroups[which]);
+                                fragment.onPermissionGroupSelected(groups[which]);
                             }
                     );
 
