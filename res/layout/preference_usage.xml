@@ -70,8 +70,7 @@
                 android:id="@+id/summary_widget_frame"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:gravity="start|center_vertical"
-                android:paddingEnd="16dp"
+                android:gravity="start|bottom"
                 android:orientation="horizontal"/>
 
             <TextView
