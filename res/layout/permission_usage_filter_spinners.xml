@@ -21,29 +21,23 @@
     android:layout_height="wrap_content"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:orientation="horizontal"
-    android:gravity="center" >
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="8dp"
+    android:orientation="horizontal" >
 
     <com.android.settingslib.widget.settingsspinner.SettingsSpinner
         android:id="@+id/filter_spinner_time"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="8dp"/>
+        android:layout_width="wrap_content"/>
 
     <View
         android:id="@+id/spacer"
-        android:layout_width="1dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"/>
+        android:layout_width="24dp"
+        android:layout_height="match_parent"/>
 
     <com.android.settingslib.widget.settingsspinner.SettingsSpinner
         android:id="@+id/sort_spinner"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="8dp"/>
+        android:layout_width="wrap_content"/>
 
 </com.android.packageinstaller.permission.ui.ButtonBarLayout>
