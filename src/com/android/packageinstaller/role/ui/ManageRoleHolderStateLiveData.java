@@ -52,11 +52,12 @@ public class ManageRoleHolderStateLiveData extends LiveData<Integer> {
      * @param roleName the name of the role
      * @param packageName the package name of the application
      * @param add whether to add or remove the application as a role holder
+     * @param flags optional behavior flags
      * @param user the user to manage the role holder for
      * @param context the {@code Context} to retrieve system services
      */
     public void setRoleHolderAsUser(@NonNull String roleName, @NonNull String packageName,
-            boolean add, @NonNull UserHandle user, @NonNull Context context) {
+            boolean add, int flags, @NonNull UserHandle user, @NonNull Context context) {
         if (getValue() != STATE_IDLE) {
             Log.e(LOG_TAG, "Already (tried) managing role holders, requested role: " + roleName
                     + ", requested package: " + packageName);
@@ -90,9 +91,10 @@ public class ManageRoleHolderStateLiveData extends LiveData<Integer> {
             }
         };
         if (add) {
-            roleManager.addRoleHolderAsUser(roleName, packageName, user, executor, callback);
+            roleManager.addRoleHolderAsUser(roleName, packageName, flags, user, executor, callback);
         } else {
-            roleManager.removeRoleHolderAsUser(roleName, packageName, user, executor, callback);
+            roleManager.removeRoleHolderAsUser(roleName, packageName, flags, user, executor,
+                    callback);
         }
     }
 
@@ -101,11 +103,12 @@ public class ManageRoleHolderStateLiveData extends LiveData<Integer> {
      * state is not {@link #STATE_IDLE}.
      *
      * @param roleName the name of the role
+     * @param flags optional behavior flags
      * @param user the user to manage the role holder for
      * @param context the {@code Context} to retrieve system services
      */
-    public void clearRoleHoldersAsUser(@NonNull String roleName, @NonNull UserHandle user,
-            @NonNull Context context) {
+    public void clearRoleHoldersAsUser(@NonNull String roleName, int flags,
+            @NonNull UserHandle user, @NonNull Context context) {
         if (getValue() != STATE_IDLE) {
             Log.e(LOG_TAG, "Already (tried) managing role holders, requested role: " + roleName);
             return;
@@ -133,7 +136,7 @@ public class ManageRoleHolderStateLiveData extends LiveData<Integer> {
                 setValue(STATE_FAILURE);
             }
         };
-        roleManager.clearRoleHoldersAsUser(roleName, user, executor, callback);
+        roleManager.clearRoleHoldersAsUser(roleName, flags, user, executor, callback);
     }
 
     /**

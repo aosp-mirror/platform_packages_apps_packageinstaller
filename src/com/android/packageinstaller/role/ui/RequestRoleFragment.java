@@ -209,7 +209,8 @@ public class RequestRoleFragment extends DialogFragment {
 
     private void addRoleHolder() {
         mViewModel.getLiveData().setRoleHolderAsUser(mRoleName, mPackageName, true,
-                Process.myUserHandle(), requireContext());
+                RoleManager.MANAGE_HOLDERS_FLAG_DONT_KILL_APP, Process.myUserHandle(),
+                requireContext());
     }
 
     private void setResultOkAndFinish() {
