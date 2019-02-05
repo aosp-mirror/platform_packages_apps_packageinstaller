@@ -68,6 +68,10 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                 verifyIntent(this, getIntent());
                 // fall through
             case Intent.ACTION_REVIEW_PERMISSION_USAGE: {
+                if (!Utils.isPermissionsHubEnabled()) {
+                    return;
+                }
+
                 permissionName = getIntent().getStringExtra(Intent.EXTRA_PERMISSION_NAME);
                 String groupName = getIntent().getStringExtra(Intent.EXTRA_PERMISSION_GROUP_NAME);
                 long numMillis = getIntent().getLongExtra(Intent.EXTRA_DURATION_MILLIS,
@@ -143,6 +147,10 @@ public final class ManagePermissionsActivity extends FragmentActivity {
             } break;
 
             case Intent.ACTION_REVIEW_APP_PERMISSION_USAGE: {
+                if (!Utils.isPermissionsHubEnabled()) {
+                    return;
+                }
+
                 String packageName = getIntent().getStringExtra(Intent.EXTRA_PACKAGE_NAME);
                 if (packageName == null) {
                     Log.i(LOG_TAG, "Missing mandatory argument EXTRA_PACKAGE_NAME");

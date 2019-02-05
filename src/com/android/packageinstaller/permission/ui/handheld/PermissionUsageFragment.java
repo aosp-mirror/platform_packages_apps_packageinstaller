@@ -320,6 +320,10 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
 
     @Override
     public void onPermissionUsagesChanged() {
+        if (!Utils.isPermissionsHubEnabled()) {
+            setLoading(false, true);
+            return;
+        }
         if (mPermissionUsages.getUsages().isEmpty()) {
             return;
         }

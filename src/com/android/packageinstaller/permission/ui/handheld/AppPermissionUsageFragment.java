@@ -198,6 +198,10 @@ public class AppPermissionUsageFragment extends SettingsWithButtonHeader impleme
     }
 
     private void updateUi() {
+        if (!Utils.isPermissionsHubEnabled()) {
+            setLoading(false, true);
+            return;
+        }
         Context context = getPreferenceManager().getContext();
         if (context == null) {
             return;

@@ -219,6 +219,10 @@ public class AppPermissionFragment extends SettingsWithButtonHeader {
 
         mNestedScrollView = root.requireViewById(R.id.nested_scroll_view);
 
+        if (!Utils.isPermissionsHubEnabled()) {
+            root.requireViewById(R.id.footer_all).setVisibility(View.GONE);
+        }
+
         updateButtons();
 
         return root;
