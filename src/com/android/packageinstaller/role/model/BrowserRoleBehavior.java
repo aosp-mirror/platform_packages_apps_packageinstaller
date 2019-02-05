@@ -28,6 +28,8 @@ import android.util.ArraySet;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.android.packageinstaller.permission.utils.CollectionUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,6 +47,28 @@ public class BrowserRoleBehavior implements RoleBehavior {
             .setAction(Intent.ACTION_VIEW)
             .addCategory(Intent.CATEGORY_BROWSABLE)
             .setData(Uri.fromParts("http", "", null));
+
+    @NonNull
+    @Override
+    public List<String> getDefaultHolders(@NonNull Role role, @NonNull Context context) {
+        return CollectionUtils.singletonOrEmpty(getFallbackHolder(role, context));
+    }
+
+    @Nullable
+    @Override
+    public String getFallbackHolder(@NonNull Role role, @NonNull Context context) {
+        String defaultPackageName = CollectionUtils.firstOrNull(DefaultRoleHolders.get(context).get(
+                role.getName()));
+        if (defaultPackageName != null && role.isPackageQualified(defaultPackageName, context)) {
+            return defaultPackageName;
+        }
+        List<String> packageNames = role.getQualifyingPackagesAsUser(Process.myUserHandle(),
+                context);
+        if (packageNames.size() == 1) {
+            return packageNames.get(0);
+        }
+        return null;
+    }
 
     // PackageManager.queryIntentActivities() will only return the default browser if one was set.
     // Code in the Settings app passes PackageManager.MATCH_ALL and perform its own filtering, so we

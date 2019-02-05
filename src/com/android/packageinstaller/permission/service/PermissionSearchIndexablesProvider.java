@@ -26,18 +26,18 @@ import static android.provider.SearchIndexablesContract.RawData.COLUMN_KEYWORDS;
 import static android.provider.SearchIndexablesContract.RawData.COLUMN_RANK;
 import static android.provider.SearchIndexablesContract.RawData.COLUMN_TITLE;
 
-import static com.android.packageinstaller.permission.model.PermissionGroups.getAllPermissionGroups;
-
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.provider.SearchIndexablesProvider;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.android.packageinstaller.permission.model.PermissionGroup;
+import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 
 import java.io.FileInputStream;
@@ -48,7 +48,8 @@ import java.util.List;
 import java.util.UUID;
 
 public class PermissionSearchIndexablesProvider extends SearchIndexablesProvider {
-    private static final String OS_PKG = "android";
+    private static final String LOG_TAG = PermissionSearchIndexablesProvider.class.getSimpleName();
+
     private static final String EXTRA_SETTINGS_SEARCH_KEY = ":settings:fragment_args_key";
 
     public static final String ACTION_MANAGE_PERMISSION_APPS =
@@ -73,24 +74,24 @@ public class PermissionSearchIndexablesProvider extends SearchIndexablesProvider
     public Cursor queryRawData(String[] projection) {
         String password = getPassword(getContext());
 
-        List<PermissionGroup> permissionGroups = getAllPermissionGroups(getContext(), null, false);
+        PackageManager pm = getContext().getPackageManager();
+
+        List<String> permissionGroupNames = Utils.getPlatformPermissionGroups();
         MatrixCursor cursor = new MatrixCursor(INDEXABLES_RAW_COLUMNS);
 
-        int numPermissionGroups = permissionGroups.size();
+        int numPermissionGroups = permissionGroupNames.size();
         for (int i = 0; i < numPermissionGroups; i++) {
-            PermissionGroup group = permissionGroups.get(i);
+            String groupName = permissionGroupNames.get(i);
 
-            if (OS_PKG.equals(group.getDeclaringPackage())) {
-                CharSequence label = group.getLabel();
+            CharSequence label = getPermissionGroupLabel(groupName, pm);
 
-                cursor.newRow().add(COLUMN_RANK, 0)
-                        .add(COLUMN_TITLE, label)
-                        .add(COLUMN_KEYWORDS, label + ", "
-                                + getContext().getString(R.string.permission_search_keyword))
-                        .add(COLUMN_KEY, password + getContext().getPackageName()
-                                + "," + group.getName())
-                        .add(COLUMN_INTENT_ACTION, ACTION_MANAGE_PERMISSION_APPS);
-            }
+            cursor.newRow().add(COLUMN_RANK, 0)
+                    .add(COLUMN_TITLE, label)
+                    .add(COLUMN_KEYWORDS, label + ", "
+                            + getContext().getString(R.string.permission_search_keyword))
+                    .add(COLUMN_KEY, password + getContext().getPackageName()
+                            + "," + groupName)
+                    .add(COLUMN_INTENT_ACTION, ACTION_MANAGE_PERMISSION_APPS);
         }
 
         cursor.newRow().add(COLUMN_RANK, 0)
@@ -101,6 +102,15 @@ public class PermissionSearchIndexablesProvider extends SearchIndexablesProvider
                 .add(COLUMN_INTENT_ACTION, ACTION_REVIEW_PERMISSION_USAGE);
 
         return cursor;
+    }
+
+    private CharSequence getPermissionGroupLabel(String groupName, PackageManager pm) {
+        try {
+            return pm.getPermissionGroupInfo(groupName, 0).loadLabel(pm);
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.w(LOG_TAG, "Cannot find group label for " + groupName, e);
+        }
+        return null;
     }
 
     @Override

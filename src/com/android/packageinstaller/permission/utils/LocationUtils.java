@@ -65,18 +65,17 @@ public class LocationUtils {
                         + "android.settings.LOCATION_CONTROLLER_EXTRA_PACKAGE_SETTINGS");
         }
     }
+
     public static boolean isLocationEnabled(Context context) {
-        return Settings.Secure.getInt(context.getContentResolver(), Settings.Secure.LOCATION_MODE,
-                Settings.Secure.LOCATION_MODE_OFF) != Settings.Secure.LOCATION_MODE_OFF;
+        return context.getSystemService(LocationManager.class).isLocationEnabled();
     }
 
     public static boolean isLocationGroupAndProvider(Context context, String groupName,
             String packageName) {
         return LOCATION_PERMISSION.equals(groupName)
-                && isNetworkLocationProvider(context, packageName);
+                && context.getSystemService(LocationManager.class).isProviderPackage(packageName);
     }
 
-    /** Returns whether the given package name is a location history provider. */
     public static boolean isLocationGroupAndControllerExtraPackage(@NonNull Context context,
             @NonNull String groupName, @NonNull String packageName) {
         return LOCATION_PERMISSION.equals(groupName)
@@ -84,24 +83,6 @@ public class LocationUtils {
                         .getLocationControllerExtraPackage());
     }
 
-    /**
-     * Check if a package is the location provider.
-     *
-     * @param context used to resolve managers
-     * @param packageName the potential location provider
-     *
-     * @return {@code true} iff the package is the location provider
-     */
-    public static boolean isNetworkLocationProvider(Context context, String packageName) {
-        try {
-            return packageName.equals(context.getSystemService(LocationManager.class)
-                    .getNetworkProviderPackage());
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    /** Returns whether the location controller extra package is enabled. */
     public static boolean isLocationControllerExtraPackageEnabled(Context context) {
         try {
             return context.getSystemService(LocationManager.class)
