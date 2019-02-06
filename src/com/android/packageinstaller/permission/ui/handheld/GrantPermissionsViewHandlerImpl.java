@@ -16,33 +16,22 @@
 
 package com.android.packageinstaller.permission.ui.handheld;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Icon;
 import android.os.Bundle;
-import android.transition.ChangeBounds;
-import android.transition.Transition;
-import android.transition.TransitionManager;
-import android.transition.TransitionSet;
-import android.transition.TransitionValues;
-import android.transition.Visibility;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.WindowManager.LayoutParams;
 import android.view.accessibility.AccessibilityNodeInfo;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.packageinstaller.permission.ui.GrantPermissionsViewHandler;
 import com.android.packageinstaller.permission.ui.ManagePermissionsActivity;
-import com.android.packageinstaller.permission.ui.ManualLayoutFrame;
 import com.android.permissioncontroller.R;
 
 public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHandler,
@@ -88,8 +77,7 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
     private Button mAllowForegroundButton;
     private Button mDenyButton;
     private Button mDenyAndDontAskAgainButton;
-    private ManualLayoutFrame mRootView;
-    private ViewGroup mContentContainer;
+    private ViewGroup mRootView;
 
     public GrantPermissionsViewHandlerImpl(Activity activity, String appPackageName) {
         mActivity = activity;
@@ -148,11 +136,7 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
 
         // If this is a second (or later) permission and the views exist, then animate.
         if (mIconView != null) {
-            if (isNewGroup) {
-                animateToPermission();
-            } else {
-                updateAll();
-            }
+            updateAll();
         }
     }
 
@@ -162,97 +146,14 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         updateDoNotAskAndForegroundOption();
     }
 
-    private void animateToPermission() {
-        final View newContent = bindNewContent();
-
-        updateDescription();
-        updateDetailDescription();
-        updateDoNotAskAndForegroundOption();
-        // Update group when the content changes (in onAppear below)
-
-        final View oldView = mContentContainer.getChildAt(0);
-
-        // Grow or shrink the content container to size of new content
-        ChangeBounds growShrinkToNewContentSize = new ChangeBounds();
-        growShrinkToNewContentSize.setDuration(ANIMATION_DURATION_MILLIS);
-        growShrinkToNewContentSize.setInterpolator(AnimationUtils.loadInterpolator(mActivity,
-                android.R.interpolator.fast_out_slow_in));
-
-        // With a delay hide the old content and show the new content
-        Visibility changeContent = new Visibility() {
-            @Override
-            public Animator onAppear(ViewGroup sceneRoot, View view, TransitionValues startValues,
-                    TransitionValues endValues) {
-                view.setVisibility(View.INVISIBLE);
-
-                ValueAnimator v = ValueAnimator.ofFloat(0, 1);
-
-                v.addListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        view.setVisibility(View.VISIBLE);
-                    }
-                });
-
-                return v;
-            }
-
-            @Override
-            public Animator onDisappear(ViewGroup sceneRoot, final View view,
-                    TransitionValues startValues, TransitionValues endValues) {
-                ValueAnimator v =  ValueAnimator.ofFloat(0, 1);
-
-                int[] location = new int[2];
-                // The removed view is put into the overlay that is relative to the window. Hence
-                // it does not get moved along with the changing parent view. This is done manually
-                // here.
-                v.addUpdateListener(animation -> {
-                    mContentContainer.getLocationInWindow(location);
-                    view.setTop(location[1]);
-                });
-
-                return v;
-            }
-        };
-        changeContent.setDuration(SWITCH_TIME_MILLIS);
-
-        TransitionSet combinedAnimation = new TransitionSet();
-        combinedAnimation.addTransition(growShrinkToNewContentSize);
-        combinedAnimation.addTransition(changeContent);
-        combinedAnimation.setOrdering(TransitionSet.ORDERING_TOGETHER);
-        combinedAnimation.setMatchOrder(Transition.MATCH_INSTANCE);
-
-        TransitionManager.beginDelayedTransition(mRootView, combinedAnimation);
-        mContentContainer.removeView(oldView);
-        mContentContainer.addView(newContent);
-    }
-
-    /**
-     * Update this objects fields to point to the a content view. A content view encapsulates the
-     * permission request message, the detail message, the always deny checkbox, and the foreground
-     * chooser.
-     *
-     * @return The new content view
-     */
-    private View bindNewContent() {
-        ViewGroup content = (ViewGroup) LayoutInflater.from(mActivity)
-                .inflate(R.layout.grant_permissions_content, mContentContainer, false);
-
-        mMessageView = content.requireViewById(R.id.permission_message);
-        mDetailMessageView = content.requireViewById(R.id.detail_message);
-        mIconView = content.requireViewById(R.id.permission_icon);
-
-        return content;
-    }
-
     @Override
     public View createView() {
-        mRootView = (ManualLayoutFrame) LayoutInflater.from(mActivity)
+        mRootView = (ViewGroup) LayoutInflater.from(mActivity)
                 .inflate(R.layout.grant_permissions, null);
-        mContentContainer = mRootView.requireViewById(R.id.content_container);
-        mContentContainer.removeAllViews();
-        mContentContainer.addView(bindNewContent());
 
+        mMessageView = (TextView) mRootView.findViewById(R.id.permission_message);
+        mDetailMessageView = (TextView) mRootView.findViewById(R.id.detail_message);
+        mIconView = (ImageView) mRootView.findViewById(R.id.permission_icon);
         mAllowButton = (Button) mRootView.findViewById(R.id.permission_allow_button);
         mAllowButton.setOnClickListener(this);
         mAllowAlwaysButton = (Button) mRootView.findViewById(R.id.permission_allow_always_button);

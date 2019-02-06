@@ -100,6 +100,10 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
                     context.startActivity(intent);
                 });
 
+        if (!Utils.isPermissionsHubEnabled()) {
+            header.setVisibility(View.GONE);
+        }
+
         mPermissionUsages.load(null, null, System.currentTimeMillis() - DAYS.toMillis(1),
                 Long.MAX_VALUE, PermissionUsages.USAGE_FLAG_LAST
                         | PermissionUsages.USAGE_FLAG_HISTORICAL,

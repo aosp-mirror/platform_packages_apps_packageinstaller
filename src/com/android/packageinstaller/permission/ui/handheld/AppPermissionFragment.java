@@ -31,11 +31,9 @@ import android.content.pm.PackageItemInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PermissionInfo;
-import android.content.pm.UsesPermissionInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.UserHandle;
-import android.util.ArraySet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -66,7 +64,6 @@ import com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 import com.android.settingslib.widget.ActionBarShadowController;
 
 import java.lang.annotation.Retention;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -222,8 +219,11 @@ public class AppPermissionFragment extends SettingsWithButtonHeader {
 
         mNestedScrollView = root.requireViewById(R.id.nested_scroll_view);
 
+        if (!Utils.isPermissionsHubEnabled()) {
+            root.requireViewById(R.id.footer_all).setVisibility(View.GONE);
+        }
+
         updateButtons();
-        updateJustification(context, root, appLabel);
 
         return root;
     }
@@ -410,171 +410,6 @@ public class AppPermissionFragment extends SettingsWithButtonHeader {
             } else {
                 // The default bi-state case is handled by default.
             }
-        }
-    }
-
-    private void updateJustification(Context context, ViewGroup root, @NonNull String appLabel) {
-        // Collect the names of the permissions of the group.
-        ArrayList<Permission> groupPerms = mGroup.getPermissions();
-        ArraySet<String> permissions = new ArraySet(groupPerms.size());
-        for (int i = 0; i < groupPerms.size(); i++) {
-            Permission permission = groupPerms.get(i);
-            if (permission.getPermissionInfo().usageInfoRequired) {
-                permissions.add(permission.getName());
-            }
-        }
-
-        // If no permissions require usage information, show nothing.
-        if (permissions.isEmpty()) {
-            root.requireViewById(R.id.justification_all).setVisibility(View.GONE);
-            return;
-        }
-
-        int sentOffDevice = UsesPermissionInfo.USAGE_NO;
-        int sharedWithThirdParty = UsesPermissionInfo.USAGE_NO;
-        int usedForMonetization = UsesPermissionInfo.USAGE_NO;
-        int retention = UsesPermissionInfo.RETENTION_NOT_RETAINED;
-        int retentionWeeks = -1;
-
-        // Compute the strongest justification by this app.
-        UsesPermissionInfo[] justifications = mGroup.getApp().usesPermissions;
-        for (int i = 0; i < justifications.length; i++) {
-            UsesPermissionInfo justification = justifications[i];
-
-            // Only consider permissions in this group.
-            if (!permissions.contains(justification.getPermission())) {
-                continue;
-            }
-
-            sentOffDevice = Math.min(sentOffDevice, justification.getDataSentOffDevice());
-            sharedWithThirdParty = Math.min(sharedWithThirdParty,
-                    justification.getDataSharedWithThirdParty());
-            usedForMonetization = Math.min(usedForMonetization,
-                    justification.getDataUsedForMonetization());
-            retention = compareRetentions(retention, justification.getDataRetention());
-            if (justification.getDataRetention() == UsesPermissionInfo.RETENTION_SPECIFIED) {
-                retentionWeeks = Math.max(retentionWeeks, justification.getDataRetentionWeeks());
-            }
-        }
-
-        if (isSystemFixed() || isPolicyFullyFixed()) {
-            root.requireViewById(R.id.justification_footer).setVisibility(View.GONE);
-        }
-
-        if (sentOffDevice == UsesPermissionInfo.USAGE_UNDEFINED
-                || sharedWithThirdParty == UsesPermissionInfo.USAGE_UNDEFINED
-                || usedForMonetization == UsesPermissionInfo.USAGE_UNDEFINED
-                || retention == UsesPermissionInfo.RETENTION_UNDEFINED) {
-            // If at least one permission is undefined, only show the generic undefined string.
-            root.requireViewById(R.id.justification_entries).setVisibility(View.GONE);
-            ((TextView) root.requireViewById(R.id.justification_header)).setText(
-                    context.getString(R.string.permission_justification_undefined));
-        } else {
-            // Show/hide or set the text of the various text views.
-            ((TextView) root.requireViewById(R.id.justification_header)).setText(
-                    context.getString(R.string.permission_justification_header));
-            setUsageText(root.requireViewById(R.id.justification_sent_off_device),
-                    root.requireViewById(R.id.justification_sent_off_device_text), sentOffDevice,
-                    R.string.permission_justification_data_sent_off_device,
-                    R.string.permission_justification_data_sent_off_device_user_triggered, context);
-            setUsageText(root.requireViewById(R.id.justification_shared_with_third_party),
-                    root.requireViewById(R.id.justification_shared_with_third_party_text),
-                    sharedWithThirdParty,
-                    R.string.permission_justification_data_shared_with_third_party,
-                    R.string.permission_justification_data_shared_with_third_party_user_triggered,
-                    context);
-            setUsageText(root.requireViewById(R.id.justification_used_for_monetization),
-                    root.requireViewById(R.id.justification_used_for_monetization_text),
-                    usedForMonetization,
-                    R.string.permission_justification_data_used_for_monetization,
-                    R.string.permission_justification_data_used_for_monetization_user_triggered,
-                    context);
-            if (retention == UsesPermissionInfo.RETENTION_NOT_RETAINED) {
-                root.requireViewById(R.id.justification_retention).setVisibility(View.GONE);
-            } else if (retention == UsesPermissionInfo.RETENTION_USER_SELECTED) {
-                ((TextView) root.requireViewById(R.id.justification_retention_text)).setText(
-                        context.getString(
-                                R.string.permission_justification_data_retention_user_selected));
-            } else if (retention == UsesPermissionInfo.RETENTION_SPECIFIED) {
-                ((TextView) root.requireViewById(R.id.justification_retention_text)).setText(
-                        context.getResources().getQuantityString(
-                                R.plurals.permission_justification_data_retention_specified,
-                                retentionWeeks,
-                                retentionWeeks));
-            } else {
-                ((TextView) root.requireViewById(R.id.justification_retention_text)).setText(
-                        context.getString(
-                                R.string.permission_justification_data_retention_unlimited));
-            }
-        }
-
-        TextView infoIntentView = root.requireViewById(R.id.justification_info_intent);
-        Intent infoIntent = new Intent(Intent.ACTION_PERMISSION_USAGE_DETAILS);
-        infoIntent.setPackage(mGroup.getApp().packageName);
-        if (infoIntent.resolveActivity(context.getPackageManager()) != null) {
-            infoIntentView.setText(context.getString(R.string.permission_justification_info_intent,
-                    appLabel));
-            infoIntentView.setOnClickListener((v) -> {
-                infoIntent.putExtra(Intent.EXTRA_PERMISSION_USAGE_PERMISSIONS,
-                        permissions.toArray(new String[permissions.size()]));
-                context.startActivity(infoIntent);
-            });
-        } else {
-            infoIntentView.setVisibility(View.GONE);
-        }
-    }
-
-    /**
-     * Compare two UsesPermissionInfo.Retention values and return the stronger.
-     *
-     * @param r1 a Retention value
-     * @param r2 another Retention value
-     * @return the stronger of the two values
-     */
-    private static int compareRetentions(int r1, int r2) {
-        if (r1 == UsesPermissionInfo.RETENTION_UNDEFINED
-                || r2 == UsesPermissionInfo.RETENTION_UNDEFINED) {
-            return UsesPermissionInfo.RETENTION_UNDEFINED;
-        }
-        if (r1 == UsesPermissionInfo.RETENTION_UNLIMITED
-                || r2 == UsesPermissionInfo.RETENTION_UNLIMITED) {
-            return UsesPermissionInfo.RETENTION_UNLIMITED;
-        }
-        if (r1 == UsesPermissionInfo.RETENTION_SPECIFIED
-                || r2 == UsesPermissionInfo.RETENTION_SPECIFIED) {
-            return UsesPermissionInfo.RETENTION_SPECIFIED;
-        }
-        if (r1 == UsesPermissionInfo.RETENTION_USER_SELECTED
-                || r2 == UsesPermissionInfo.RETENTION_USER_SELECTED) {
-            return UsesPermissionInfo.RETENTION_USER_SELECTED;
-        }
-        if (r1 == UsesPermissionInfo.RETENTION_NOT_RETAINED
-                || r2 == UsesPermissionInfo.RETENTION_NOT_RETAINED) {
-            return UsesPermissionInfo.RETENTION_NOT_RETAINED;
-        }
-        Log.w(LOG_TAG, "Invalid retention: " + r1 + ", " + r2);
-        return UsesPermissionInfo.RETENTION_UNDEFINED;
-    }
-
-    /**
-     * Set the text of the given view to one of the given values or hide it if necessary.
-     *
-     * @param container the view that contains the given text view.
-     * @param textView the TextView to change
-     * @param value the value that controls which text to use
-     * @param yesStrId the resId of the string to use if the usage is allowed
-     * @param userTriggeredStrId the resId of the string to use if the usage is allowed on user-
-     * triggered actions.
-     * @param context the context
-     */
-    private void setUsageText(View container, TextView textView, int value, int yesStrId,
-            int userTriggeredStrId, Context context) {
-        if (value == UsesPermissionInfo.USAGE_NO) {
-            container.setVisibility(View.GONE);
-        } else if (value == UsesPermissionInfo.USAGE_USER_TRIGGERED) {
-            textView.setText(context.getString(userTriggeredStrId));
-        } else {
-            textView.setText(context.getString(yesStrId));
         }
     }
 

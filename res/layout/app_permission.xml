@@ -119,15 +119,8 @@
 
             </LinearLayout>
 
-            <View
-                android:id="@+id/divider"
-                android:layout_width="match_parent"
-                android:layout_height=".75dp"
-                android:layout_marginTop="@dimen/app_permission_divider_margin_top"
-                android:layout_marginBottom="@dimen/app_permission_divider_margin_bottom"
-                android:background="?android:attr/dividerHorizontal"/>
-
             <LinearLayout
+                android:id="@+id/footer_all"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -136,132 +129,19 @@
                 android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
                 android:background="?android:attr/selectableItemBackground">
 
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height=".75dp"
+                    android:layout_marginTop="@dimen/app_permission_divider_margin_top"
+                    android:layout_marginBottom="@dimen/app_permission_divider_margin_bottom"
+                    android:background="?android:attr/dividerHorizontal"/>
+
                 <TextView
                     android:id="@+id/usage_summary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/FooterText"/>
-
-                <LinearLayout
-                    android:id="@+id/justification_all"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/justification_header"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        style="@style/FooterText"/>
-
-                    <LinearLayout
-                        android:id="@+id/justification_entries"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:id="@+id/justification_sent_off_device"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal"
-                            style="@style/FooterListEntry">
-
-                            <ImageView
-                                android:scaleType="fitCenter"
-                                android:gravity="start"
-                                style="@style/JustificationIcon"
-                                android:src="@drawable/ic_backup"/>
-
-                            <TextView
-                                android:id="@+id/justification_sent_off_device_text"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/justification_shared_with_third_party"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal"
-                            style="@style/FooterListEntry">
-
-                            <ImageView
-                                android:scaleType="fitCenter"
-                                android:gravity="start"
-                                style="@style/JustificationIcon"
-                                android:src="@drawable/ic_business_black"/>
-
-                            <TextView
-                                android:id="@+id/justification_shared_with_third_party_text"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/justification_used_for_monetization"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal"
-                            style="@style/FooterListEntry">
-
-                            <ImageView
-                                android:scaleType="fitCenter"
-                                android:gravity="start"
-                                style="@style/JustificationIcon"
-                                android:src="@drawable/ic_attach_money_black"/>
-
-                            <TextView
-                                android:id="@+id/justification_used_for_monetization_text"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/justification_retention"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal"
-                            style="@style/FooterListEntry">
-
-                            <ImageView
-                                android:scaleType="fitCenter"
-                                android:gravity="start"
-                                style="@style/JustificationIcon"
-                                android:src="@drawable/ic_timelapse_black"/>
-
-                            <TextView
-                                android:id="@+id/justification_retention_text"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/justification_footer"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/permission_justification_footer"
-                        style="@style/FooterText"/>
-
-                    <TextView
-                        android:id="@+id/justification_info_intent"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        style="@style/FooterText"
-                        android:textColor="?android:attr/colorAccent"
-                        android:clickable="true"/>
-
-                </LinearLayout>
 
                 <TextView
                     android:id="@+id/usage_link"

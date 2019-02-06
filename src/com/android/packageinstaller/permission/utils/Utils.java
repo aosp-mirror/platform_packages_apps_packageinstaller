@@ -242,7 +242,7 @@ public final class Utils {
      * @return The infos for platform permissions belonging to the group or an empty list if the
      *         group is not does not have platform runtime permissions
      */
-    private static @NonNull List<PermissionInfo> getPlatformPermissionsOfGroup(
+    public static @NonNull List<PermissionInfo> getPlatformPermissionsOfGroup(
             @NonNull PackageManager pm, @NonNull String group) {
         ArrayList<PermissionInfo> permInfos = new ArrayList<>();
 
@@ -662,7 +662,6 @@ public final class Utils {
         }
     }
 
-
     /**
      * Whether the Location Access Check is enabled.
      *
@@ -671,5 +670,15 @@ public final class Utils {
     public static boolean isLocationAccessCheckEnabled() {
         return Boolean.parseBoolean(DeviceConfig.getProperty(DeviceConfig.Privacy.NAMESPACE,
                 DeviceConfig.Privacy.PROPERTY_LOCATION_ACCESS_CHECK_ENABLED));
+    }
+
+    /**
+     * Whether the Permissions Hub is enabled.
+     *
+     * @return whether the Permissions Hub is enabled.
+     */
+    public static boolean isPermissionsHubEnabled() {
+        return Boolean.parseBoolean(DeviceConfig.getProperty(DeviceConfig.Privacy.NAMESPACE,
+                DeviceConfig.Privacy.PROPERTY_PERMISSIONS_HUB_ENABLED));
     }
 }
