@@ -19,10 +19,7 @@ package com.android.packageinstaller.permission.service;
 import static android.content.Context.MODE_PRIVATE;
 import static android.content.pm.PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT;
 import static android.content.pm.PackageManager.FLAG_PERMISSION_POLICY_FIXED;
-import static android.content.pm.PackageManager.FLAG_PERMISSION_REVOKE_ON_UPGRADE;
 import static android.content.pm.PackageManager.FLAG_PERMISSION_SYSTEM_FIXED;
-import static android.content.pm.PackageManager.FLAG_PERMISSION_USER_FIXED;
-import static android.content.pm.PackageManager.FLAG_PERMISSION_USER_SET;
 import static android.content.pm.PackageManager.GET_PERMISSIONS;
 import static android.util.Xml.newSerializer;
 
@@ -37,6 +34,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.UserHandle;
 import android.util.Log;
 import android.util.Xml;
@@ -77,17 +75,11 @@ public class BackupHelper {
     private static final String ATTR_IS_GRANTED = "g";
     private static final String ATTR_USER_SET = "set";
     private static final String ATTR_USER_FIXED = "fixed";
-    private static final String ATTR_REVOKE_ON_UPGRADE = "rou";
+    private static final String ATTR_WAS_REVIEWED = "was-reviewed";
 
     /** Flags of permissions to <u>not</u> back up */
     private static final int SYSTEM_RUNTIME_GRANT_MASK = FLAG_PERMISSION_POLICY_FIXED
-            | FLAG_PERMISSION_SYSTEM_FIXED
-            | FLAG_PERMISSION_GRANTED_BY_DEFAULT;
-
-    /** Flags that need to be backed up even if permission is revoked */
-    private static final int USER_RUNTIME_GRANT_MASK = FLAG_PERMISSION_USER_SET
-            | FLAG_PERMISSION_USER_FIXED
-            | FLAG_PERMISSION_REVOKE_ON_UPGRADE;
+            | FLAG_PERMISSION_SYSTEM_FIXED;
 
     /** Make sure only one user can change the delayed permissions at a time */
     private static final Object sLock = new Object();
@@ -364,13 +356,15 @@ public class BackupHelper {
         private final boolean mIsGranted;
         private final boolean mIsUserSet;
         private final boolean mIsUserFixed;
+        private final boolean mWasReviewed;
 
         private BackupPermissionState(@NonNull String permissionName, boolean isGranted,
-                boolean isUserSet, boolean isUserFixed) {
+                boolean isUserSet, boolean isUserFixed, boolean wasReviewed) {
             mPermissionName = permissionName;
             mIsGranted = isGranted;
             mIsUserSet = isUserSet;
             mIsUserFixed = isUserFixed;
+            mWasReviewed = wasReviewed;
         }
 
         /**
@@ -391,24 +385,37 @@ public class BackupHelper {
             return new BackupPermissionState(permName,
                     "true".equals(parser.getAttributeValue(null, ATTR_IS_GRANTED)),
                     "true".equals(parser.getAttributeValue(null, ATTR_USER_SET)),
-                    "true".equals(parser.getAttributeValue(null, ATTR_USER_FIXED)));
+                    "true".equals(parser.getAttributeValue(null, ATTR_USER_FIXED)),
+                    "true".equals(parser.getAttributeValue(null, ATTR_WAS_REVIEWED)));
         }
 
         /**
          * Get the state of a permission to back up.
          *
          * @param perm The permission to back up
+         * @param appSupportsRuntimePermissions If the app supports runtimePermissions
          *
          * @return The state to back up or {@code null} if the permission does not need to be
          * backed up.
          */
-        private static @Nullable BackupPermissionState fromPermission(@NonNull Permission perm) {
+        private static @Nullable BackupPermissionState fromPermission(@NonNull Permission perm,
+                boolean appSupportsRuntimePermissions) {
             int grantFlags = perm.getFlags();
 
-            if ((grantFlags & SYSTEM_RUNTIME_GRANT_MASK) == 0
-                    && (perm.isGranted() || (grantFlags & USER_RUNTIME_GRANT_MASK) != 0)) {
+            if ((grantFlags & SYSTEM_RUNTIME_GRANT_MASK) != 0) {
+                return null;
+            }
+
+            if (!perm.isUserSet() && perm.isGrantedByDefault()) {
+                return null;
+            }
+
+            boolean permissionWasReviewed =
+                    !appSupportsRuntimePermissions && !perm.isReviewRequired();
+
+            if (perm.isGranted() || perm.isUserSet() || perm.isUserFixed() || permissionWasReviewed) {
                 return new BackupPermissionState(perm.getName(), perm.isGranted(),
-                        perm.isUserSet(), perm.isUserFixed());
+                        perm.isUserSet(), perm.isUserFixed(), permissionWasReviewed);
             } else {
                 return null;
             }
@@ -427,9 +434,13 @@ public class BackupHelper {
             ArrayList<BackupPermissionState> permissionsToRestore = new ArrayList<>();
             List<Permission> perms = group.getPermissions();
 
+            boolean appSupportsRuntimePermissions =
+                    group.getApp().applicationInfo.targetSdkVersion >= Build.VERSION_CODES.M;
+
             int numPerms = perms.size();
             for (int i = 0; i < numPerms; i++) {
-                BackupPermissionState permState = fromPermission(perms.get(i));
+                BackupPermissionState permState = fromPermission(perms.get(i),
+                        appSupportsRuntimePermissions);
                 if (permState != null) {
                     permissionsToRestore.add(permState);
                 }
@@ -460,6 +471,10 @@ public class BackupHelper {
                 serializer.attribute(null, ATTR_USER_FIXED, "true");
             }
 
+            if (mWasReviewed) {
+                serializer.attribute(null, ATTR_WAS_REVIEWED, "true");
+            }
+
             serializer.endTag(null, TAG_PERMISSION);
         }
 
@@ -484,6 +499,10 @@ public class BackupHelper {
             Permission perm = group.getPermission(mPermissionName);
             perm.setUserSet(mIsUserSet);
             perm.setUserFixed(mIsUserFixed);
+
+            if (mWasReviewed) {
+                perm.unsetReviewRequired();
+            }
         }
     }
 

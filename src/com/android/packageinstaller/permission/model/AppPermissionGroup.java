@@ -429,12 +429,12 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         return false;
     }
 
-    public void resetReviewRequired() {
+    public void unsetReviewRequired() {
         final int permissionCount = mPermissions.size();
         for (int i = 0; i < permissionCount; i++) {
             Permission permission = mPermissions.valueAt(i);
             if (permission.isReviewRequired()) {
-                permission.resetReviewRequired();
+                permission.unsetReviewRequired();
             }
         }
 
@@ -781,7 +781,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                 // Granting a permission explicitly means the user already
                 // reviewed it so clear the review flag on every grant.
                 if (permission.isReviewRequired()) {
-                    permission.resetReviewRequired();
+                    permission.unsetReviewRequired();
                 }
             }
 

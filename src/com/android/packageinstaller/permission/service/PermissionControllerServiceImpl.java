@@ -185,7 +185,7 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
 
             // Mark the permissions as reviewed as we don't want to use to accidentally grant
             // the permission during review
-            group.resetReviewRequired();
+            group.unsetReviewRequired();
 
             int numPerms = perms.size();
             for (int permNum = 0; permNum < numPerms; permNum++) {
