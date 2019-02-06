@@ -36,6 +36,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.UserHandle;
+import android.permission.PermissionManager;
+import android.permission.PermissionManager.SplitPermissionInfo;
 import android.util.Log;
 import android.util.Xml;
 
@@ -65,6 +67,8 @@ public class BackupHelper {
     private static final String LOG_TAG = BackupHelper.class.getSimpleName();
 
     private static final String TAG_PERMISSION_BACKUP = "perm-grant-backup";
+    private static final String ATTR_PLATFORM_VERSION = "version";
+
     private static final String TAG_ALL_GRANTS = "rt-grants";
 
     private static final String TAG_GRANT = "grant";
@@ -157,6 +161,16 @@ public class BackupHelper {
         ArrayList<BackupPackageState> pkgStates = new ArrayList<>();
 
         skipToTag(parser, TAG_PERMISSION_BACKUP);
+
+        int backupPlatformVersion;
+        try {
+            backupPlatformVersion = Integer.parseInt(
+                    parser.getAttributeValue(null, ATTR_PLATFORM_VERSION));
+        } catch (NumberFormatException ignored) {
+            // Platforms P and before did not store the platform version
+            backupPlatformVersion = Build.VERSION_CODES.P;
+        }
+
         skipToTag(parser, TAG_ALL_GRANTS);
 
         if (parser.getEventType() != START_TAG && !parser.getName().equals(TAG_ALL_GRANTS)) {
@@ -174,7 +188,8 @@ public class BackupHelper {
                     switch (parser.getName()) {
                         case TAG_GRANT:
                             try {
-                                pkgStates.add(BackupPackageState.parseFromXml(parser));
+                                pkgStates.add(BackupPackageState.parseFromXml(parser, mContext,
+                                        backupPlatformVersion));
                             } catch (XmlPullParserException e) {
                                 Log.e(LOG_TAG, "Could not parse permissions ", e);
                                 skipToEndOfTag(parser);
@@ -239,6 +254,9 @@ public class BackupHelper {
         serializer.startDocument(null, true);
 
         serializer.startTag(null, TAG_PERMISSION_BACKUP);
+        serializer.attribute(null, ATTR_PLATFORM_VERSION,
+                Integer.valueOf(Build.VERSION.SDK_INT).toString());
+
         serializer.startTag(null, TAG_ALL_GRANTS);
 
         int numPkgs = pkgs.size();
@@ -371,10 +389,13 @@ public class BackupHelper {
          * Parse a package state from XML.
          *
          * @param parser The data to read
+         * @param context a context to use
+         * @param backupPlatformVersion The platform version the backup was created on
          *
          * @return The state
          */
-        static @NonNull BackupPermissionState parseFromXml(@NonNull XmlPullParser parser)
+        static @NonNull ArrayList<BackupPermissionState> parseFromXml(@NonNull XmlPullParser parser,
+                @NonNull Context context, int backupPlatformVersion)
                 throws XmlPullParserException {
             String permName = parser.getAttributeValue(null, ATTR_PERMISSION_NAME);
             if (permName == null) {
@@ -382,11 +403,37 @@ public class BackupHelper {
                         + ATTR_PERMISSION_NAME);
             }
 
-            return new BackupPermissionState(permName,
-                    "true".equals(parser.getAttributeValue(null, ATTR_IS_GRANTED)),
-                    "true".equals(parser.getAttributeValue(null, ATTR_USER_SET)),
-                    "true".equals(parser.getAttributeValue(null, ATTR_USER_FIXED)),
-                    "true".equals(parser.getAttributeValue(null, ATTR_WAS_REVIEWED)));
+            ArrayList<String> expandedPermissions = new ArrayList<>();
+            expandedPermissions.add(permName);
+
+            List<SplitPermissionInfo> splitPerms = context.getSystemService(
+                    PermissionManager.class).getSplitPermissions();
+
+            // Expand the properties to permissions that were split between the platform version the
+            // backup was taken and the current version.
+            int numSplitPerms = splitPerms.size();
+            for (int i = 0; i < numSplitPerms; i++) {
+                SplitPermissionInfo splitPerm = splitPerms.get(i);
+                if (backupPlatformVersion < splitPerm.getTargetSdk()
+                        && permName.equals(splitPerm.getSplitPermission())) {
+                    expandedPermissions.addAll(splitPerm.getNewPermissions());
+                }
+            }
+
+            ArrayList<BackupPermissionState> parsedPermissions = new ArrayList<>(
+                    expandedPermissions.size());
+            int numExpandedPerms = expandedPermissions.size();
+            for (int i = 0; i < numExpandedPerms; i++) {
+                parsedPermissions.add(new BackupPermissionState(expandedPermissions.get(i),
+                        "true".equals(parser.getAttributeValue(null, ATTR_IS_GRANTED)),
+                        "true".equals(parser.getAttributeValue(null, ATTR_USER_SET)),
+                        "true".equals(parser.getAttributeValue(null, ATTR_USER_FIXED)),
+                        "true".equals(parser.getAttributeValue(null, ATTR_WAS_REVIEWED))));
+            }
+
+            // TODO: Implement special behavior for location
+
+            return parsedPermissions;
         }
 
         /**
@@ -559,10 +606,13 @@ public class BackupHelper {
          * Parse a package state from XML.
          *
          * @param parser The data to read
+         * @param context a context to use
+         * @param backupPlatformVersion The platform version the backup was created on
          *
          * @return The state
          */
-        static @NonNull BackupPackageState parseFromXml(@NonNull XmlPullParser parser)
+        static @NonNull BackupPackageState parseFromXml(@NonNull XmlPullParser parser,
+                @NonNull Context context, int backupPlatformVersion)
                 throws IOException, XmlPullParserException {
             String packageName = parser.getAttributeValue(null, ATTR_PACKAGE_NAME);
             if (packageName == null) {
@@ -578,8 +628,9 @@ public class BackupHelper {
                         switch (parser.getName()) {
                             case TAG_PERMISSION:
                                 try {
-                                    permissionsToRestore.add(
-                                            BackupPermissionState.parseFromXml(parser));
+                                    permissionsToRestore.addAll(
+                                            BackupPermissionState.parseFromXml(parser, context,
+                                                    backupPlatformVersion));
                                 } catch (XmlPullParserException e) {
                                     Log.e(LOG_TAG, "Could not parse permission for "
                                             + packageName, e);
