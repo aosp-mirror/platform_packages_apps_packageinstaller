@@ -413,8 +413,9 @@ public class BackupHelper {
             boolean permissionWasReviewed =
                     !appSupportsRuntimePermissions && !perm.isReviewRequired();
 
-            if (perm.isGranted() || perm.isUserSet() || perm.isUserFixed() || permissionWasReviewed) {
-                return new BackupPermissionState(perm.getName(), perm.isGranted(),
+            if (perm.isGrantedIncludingAppOp() || perm.isUserSet() || perm.isUserFixed()
+                    || permissionWasReviewed) {
+                return new BackupPermissionState(perm.getName(), perm.isGrantedIncludingAppOp(),
                         perm.isUserSet(), perm.isUserFixed(), permissionWasReviewed);
             } else {
                 return null;
