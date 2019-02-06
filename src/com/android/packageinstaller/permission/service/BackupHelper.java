@@ -187,7 +187,7 @@ public class BackupHelper {
                             skipToEndOfTag(parser);
                     }
             }
-        } while (type != END_TAG);
+        } while (type != END_DOCUMENT);
 
         return pkgStates;
     }
@@ -390,6 +390,19 @@ public class BackupHelper {
         }
 
         /**
+         * Is the permission granted, also considering the app-op.
+         *
+         * <p>This does not consider the review-required state of the permission.
+         *
+         * @param perm The permission that might be granted
+         *
+         * @return {@code true} iff the permission and app-op is granted
+         */
+        private static boolean isPermGrantedIncludingAppOp(@NonNull Permission perm) {
+            return perm.isGranted() && (!perm.affectsAppOp() || perm.isAppOpAllowed());
+        }
+
+        /**
          * Get the state of a permission to back up.
          *
          * @param perm The permission to back up
@@ -410,12 +423,19 @@ public class BackupHelper {
                 return null;
             }
 
-            boolean permissionWasReviewed =
-                    !appSupportsRuntimePermissions && !perm.isReviewRequired();
+            boolean permissionWasReviewed;
+            boolean isNotInDefaultGrantState;
+            if (appSupportsRuntimePermissions) {
+                isNotInDefaultGrantState = isPermGrantedIncludingAppOp(perm);
+                permissionWasReviewed = false;
+            } else {
+                isNotInDefaultGrantState = !isPermGrantedIncludingAppOp(perm);
+                permissionWasReviewed = !perm.isReviewRequired();
+            }
 
-            if (perm.isGrantedIncludingAppOp() || perm.isUserSet() || perm.isUserFixed()
+            if (isNotInDefaultGrantState || perm.isUserSet() || perm.isUserFixed()
                     || permissionWasReviewed) {
-                return new BackupPermissionState(perm.getName(), perm.isGrantedIncludingAppOp(),
+                return new BackupPermissionState(perm.getName(), isPermGrantedIncludingAppOp(perm),
                         perm.isUserSet(), perm.isUserFixed(), permissionWasReviewed);
             } else {
                 return null;
@@ -483,8 +503,10 @@ public class BackupHelper {
          * Restore this permission state.
          *
          * @param appPerms The {@link AppPermissions} to restore the state to
+         * @param restoreBackgroundPerms if {@code true} only restore background permissions,
+         *                               if {@code false} do not restore background permissions
          */
-        void restore(@NonNull AppPermissions appPerms) {
+        void restore(@NonNull AppPermissions appPerms, boolean restoreBackgroundPerms) {
             AppPermissionGroup group = appPerms.getGroupForPermission(mPermissionName);
             if (group == null) {
                 Log.w(LOG_TAG, "Could not find group for " + mPermissionName + " in "
@@ -492,17 +514,30 @@ public class BackupHelper {
                 return;
             }
 
-            if (mIsGranted) {
-                group.grantRuntimePermissions(/* is overridden below */false,
-                        new String[]{mPermissionName});
+            if (restoreBackgroundPerms != group.isBackgroundGroup()) {
+                return;
             }
 
             Permission perm = group.getPermission(mPermissionName);
-            perm.setUserSet(mIsUserSet);
-            perm.setUserFixed(mIsUserFixed);
-
             if (mWasReviewed) {
                 perm.unsetReviewRequired();
+            }
+
+            // Don't grant or revoke fixed permission groups
+            if (group.isSystemFixed() || group.isPolicyFixed()) {
+                return;
+            }
+
+            if (!perm.isUserSet()) {
+                if (mIsGranted) {
+                    group.grantRuntimePermissions(mIsUserFixed,
+                            new String[]{mPermissionName});
+                } else {
+                    group.revokeRuntimePermissions(mIsUserFixed,
+                            new String[]{mPermissionName});
+                }
+
+                perm.setUserSet(mIsUserSet);
             }
         }
     }
@@ -548,8 +583,9 @@ public class BackupHelper {
                                 } catch (XmlPullParserException e) {
                                     Log.e(LOG_TAG, "Could not parse permission for "
                                             + packageName, e);
-                                    skipToEndOfTag(parser);
                                 }
+
+                                skipToEndOfTag(parser);
                                 break;
                             default:
                                 // ignore tag
@@ -635,9 +671,32 @@ public class BackupHelper {
         void restore(@NonNull Context context, @NonNull PackageInfo pkgInfo) {
             AppPermissions appPerms = new AppPermissions(context, pkgInfo, false, true, null);
 
+            // Restore background permissions after foreground permissions as for pre-M apps bg
+            // granted and fg revoked cannot be expressed.
             int numPerms = mPermissionsToRestore.size();
             for (int i = 0; i < numPerms; i++) {
-                mPermissionsToRestore.get(i).restore(appPerms);
+                mPermissionsToRestore.get(i).restore(appPerms, false);
+            }
+            for (int i = 0; i < numPerms; i++) {
+                mPermissionsToRestore.get(i).restore(appPerms, true);
+            }
+
+            int numGroups = appPerms.getPermissionGroups().size();
+            for (int i = 0; i < numGroups; i++) {
+                AppPermissionGroup group = appPerms.getPermissionGroups().get(i);
+
+                // Only denied groups can be user fixed
+                if (group.areRuntimePermissionsGranted()) {
+                    group.setUserFixed(false);
+                }
+
+                AppPermissionGroup bgGroup = group.getBackgroundPermissions();
+                if (bgGroup != null) {
+                    // Only denied groups can be user fixed
+                    if (bgGroup.areRuntimePermissionsGranted()) {
+                        bgGroup.setUserFixed(false);
+                    }
+                }
             }
 
             appPerms.persistChanges();

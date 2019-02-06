@@ -969,6 +969,23 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         }
     }
 
+    /**
+     * Set the user-fixed flag for all permissions in this group.
+     *
+     * @param isUsedFixed if the flag should be set or not
+     */
+    public void setUserFixed(boolean isUsedFixed) {
+        final int permissionCount = mPermissions.size();
+        for (int i = 0; i < permissionCount; i++) {
+            Permission permission = mPermissions.valueAt(i);
+            permission.setUserFixed(isUsedFixed);
+        }
+
+        if (!mDelayChanges) {
+            persistChanges(false);
+        }
+    }
+
     public ArrayList<Permission> getPermissions() {
         return new ArrayList<>(mPermissions.values());
     }
