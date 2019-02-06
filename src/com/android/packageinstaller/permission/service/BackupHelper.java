@@ -364,15 +364,13 @@ public class BackupHelper {
         private final boolean mIsGranted;
         private final boolean mIsUserSet;
         private final boolean mIsUserFixed;
-        private final boolean mShouldRevokeOnUpgrade;
 
         private BackupPermissionState(@NonNull String permissionName, boolean isGranted,
-                boolean isUserSet, boolean isUserFixed, boolean isRevokeOnUpgrade) {
+                boolean isUserSet, boolean isUserFixed) {
             mPermissionName = permissionName;
             mIsGranted = isGranted;
             mIsUserSet = isUserSet;
             mIsUserFixed = isUserFixed;
-            mShouldRevokeOnUpgrade = isRevokeOnUpgrade;
         }
 
         /**
@@ -393,8 +391,7 @@ public class BackupHelper {
             return new BackupPermissionState(permName,
                     "true".equals(parser.getAttributeValue(null, ATTR_IS_GRANTED)),
                     "true".equals(parser.getAttributeValue(null, ATTR_USER_SET)),
-                    "true".equals(parser.getAttributeValue(null, ATTR_USER_FIXED)),
-                    "true".equals(parser.getAttributeValue(null, ATTR_REVOKE_ON_UPGRADE)));
+                    "true".equals(parser.getAttributeValue(null, ATTR_USER_FIXED)));
         }
 
         /**
@@ -411,7 +408,7 @@ public class BackupHelper {
             if ((grantFlags & SYSTEM_RUNTIME_GRANT_MASK) == 0
                     && (perm.isGranted() || (grantFlags & USER_RUNTIME_GRANT_MASK) != 0)) {
                 return new BackupPermissionState(perm.getName(), perm.isGranted(),
-                        perm.isUserSet(), perm.isUserFixed(), perm.shouldRevokeOnUpgrade());
+                        perm.isUserSet(), perm.isUserFixed());
             } else {
                 return null;
             }
@@ -463,10 +460,6 @@ public class BackupHelper {
                 serializer.attribute(null, ATTR_USER_FIXED, "true");
             }
 
-            if (mShouldRevokeOnUpgrade) {
-                serializer.attribute(null, ATTR_REVOKE_ON_UPGRADE, "true");
-            }
-
             serializer.endTag(null, TAG_PERMISSION);
         }
 
@@ -491,7 +484,6 @@ public class BackupHelper {
             Permission perm = group.getPermission(mPermissionName);
             perm.setUserSet(mIsUserSet);
             perm.setUserFixed(mIsUserFixed);
-            perm.setRevokeOnUpgrade(mShouldRevokeOnUpgrade);
         }
     }
 
