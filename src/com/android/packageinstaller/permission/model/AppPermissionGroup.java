@@ -37,7 +37,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
-import android.content.pm.UsesPermissionInfo;
 import android.os.Build;
 import android.os.UserHandle;
 import android.os.storage.StorageManager;
@@ -1187,9 +1186,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             boolean imagesGranted = mPackageManager.checkPermission(READ_MEDIA_IMAGES,
                     mPackageInfo.packageName) == PERMISSION_GRANTED;
 
-            if (!ArrayUtils.isEmpty(mPackageInfo.usesPermissions)) {
-                for (UsesPermissionInfo upi : mPackageInfo.usesPermissions) {
-                    final String permission = upi.getPermission();
+            if (!ArrayUtils.isEmpty(mPackageInfo.requestedPermissions)) {
+                for (String permission : mPackageInfo.requestedPermissions) {
                     if (READ_EXTERNAL_STORAGE.equals(permission)
                             || WRITE_EXTERNAL_STORAGE.equals(permission)) {
                         if (audioGranted || videoGranted || imagesGranted) {
