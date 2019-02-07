@@ -16,83 +16,68 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical">
+    style="@style/PermissionReview">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:visibility="visible"
         style="@style/PermissionReviewDescription">
 
         <ImageView
             android:id="@+id/app_icon"
+            android:visibility="visible"
             style="@style/PermissionReviewTitleIcon" />
 
         <TextView
             android:id="@+id/permissions_message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="?android:attr/titleTextStyle" />
+            android:visibility="visible"
+            style="@style/PermissionReviewTitleMessage" />
 
     </LinearLayout>
 
     <FrameLayout
         android:id="@+id/preferences_frame"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_weight="1"
+        android:visibility="visible"
         style="@style/PermissionReviewSettings" />
 
     <LinearLayout
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         style="?android:attr/buttonBarStyle">
 
         <Button
             android:id="@+id/permission_more_info_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
             android:visibility="gone"
-            style="?android:attr/buttonBarButtonStyle"
+            style="@style/PermissionReviewButtonMoreInfo"
             android:text="@string/grant_dialog_button_more_info">
         </Button>
 
         <Space
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:visibility="invisible">
+            style="@style/PermissionReviewButtonBarSpace">
         </Space>
 
-        <com.android.packageinstaller.permission.ui.ButtonBarLayout
+        <LinearLayout
             android:id="@+id/button_group"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:orientation="horizontal"
-            android:gravity="bottom">
+            style="@style/PermissionReviewButtonBar">
 
             <Button
                 android:id="@+id/cancel_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="?android:attr/buttonBarButtonStyle"
+                style="@style/PermissionReviewButtonCancel"
                 android:text="@string/review_button_cancel">
             </Button>
 
             <Button
                 android:id="@+id/continue_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="?android:attr/buttonBarButtonStyle"
+                style="@style/PermissionReviewButtonContinue"
                 android:text="@string/review_button_continue">
             </Button>
 
-        </com.android.packageinstaller.permission.ui.ButtonBarLayout>
+        </LinearLayout>
 
     </LinearLayout>
 
