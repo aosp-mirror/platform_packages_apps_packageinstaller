@@ -39,8 +39,6 @@ import android.util.Xml;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.android.packageinstaller.permission.utils.CollectionUtils;
-
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
@@ -65,22 +63,10 @@ public class AssistantRoleBehavior implements RoleBehavior {
                 && !context.getSystemService(ActivityManager.class).isLowRamDevice();
     }
 
-    @NonNull
-    @Override
-    public List<String> getDefaultHolders(@NonNull Role role, @NonNull Context context) {
-        return CollectionUtils.singletonOrEmpty(getFallbackHolder(role, context));
-    }
-
     @Nullable
     @Override
     public String getFallbackHolder(@NonNull Role role, @NonNull Context context) {
-        String defaultPackageName = CollectionUtils.firstOrNull(DefaultRoleHolders.get(context).get(
-                role.getName()));
-        if (defaultPackageName == null || !isPackageQualified(role, defaultPackageName, context)) {
-            return null;
-        }
-
-        return defaultPackageName;
+        return ExclusiveDefaultHolderMixin.getDefaultHolder(role, context);
     }
 
     @Nullable
