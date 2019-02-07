@@ -228,7 +228,7 @@ public class DefaultAppFragment extends SettingsFragment
             Log.i(LOG_TAG, "Trying to set default app while another request is on-going");
             return;
         }
-        liveData.setRoleHolderAsUser(mRoleName, packageName, true, mUser, requireContext());
+        liveData.setRoleHolderAsUser(mRoleName, packageName, true, 0, mUser, requireContext());
     }
 
     private void setNoneDefaultApp() {
@@ -239,6 +239,6 @@ public class DefaultAppFragment extends SettingsFragment
             Log.i(LOG_TAG, "Trying to set default app while another request is on-going");
             return;
         }
-        liveData.clearRoleHoldersAsUser(mRoleName, mUser, requireContext());
+        liveData.clearRoleHoldersAsUser(mRoleName, 0, mUser, requireContext());
     }
 }

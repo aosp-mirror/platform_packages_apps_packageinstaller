@@ -416,7 +416,7 @@ public class Role {
      * Grant this role to an application.
      *
      * @param packageName the package name of the application to be granted this role to
-     * @param mayKillApp whether this application may be killed due to changes
+     * @param dontKillApp whether this application should not be killed despite changes
      * @param overrideDisabledSystemPackageAndUserSetAndFixedPermissions whether to ignore the
      *                                                                   permissions of a disabled
      *                                                                   system package (if this
@@ -428,7 +428,7 @@ public class Role {
      * @param setPermissionsSystemFixed whether the permissions will be granted as system-fixed
      * @param context the {@code Context} to retrieve system services
      */
-    public void grant(@NonNull String packageName, boolean mayKillApp,
+    public void grant(@NonNull String packageName, boolean dontKillApp,
             boolean overrideDisabledSystemPackageAndUserSetAndFixedPermissions,
             boolean setPermissionsSystemFixed, @NonNull Context context) {
         boolean permissionOrAppOpChanged = Permissions.grant(packageName, mPermissions,
@@ -451,8 +451,8 @@ public class Role {
             mBehavior.grant(this, packageName, context);
         }
 
-        if (mayKillApp && !Permissions.isRuntimePermissionsSupported(packageName, context)
-                && permissionOrAppOpChanged) {
+        if (!dontKillApp && permissionOrAppOpChanged && !Permissions.isRuntimePermissionsSupported(
+                packageName, context)) {
             killApp(packageName, context);
         }
     }
@@ -461,11 +461,11 @@ public class Role {
      * Revoke this role from an application.
      *
      * @param packageName the package name of the application to be granted this role to
-     * @param mayKillApp whether this application may be killed due to changes
+     * @param dontKillApp whether this application should not be killed despite changes
      * @param overrideSystemFixedPermissions whether system-fixed permissions can be revoked
      * @param context the {@code Context} to retrieve system services
      */
-    public void revoke(@NonNull String packageName, boolean mayKillApp,
+    public void revoke(@NonNull String packageName, boolean dontKillApp,
             boolean overrideSystemFixedPermissions, @NonNull Context context) {
         RoleManager roleManager = context.getSystemService(RoleManager.class);
         List<String> otherRoleNames = roleManager.getHeldRolesFromController(packageName);
@@ -500,7 +500,7 @@ public class Role {
             mBehavior.revoke(this, packageName, context);
         }
 
-        if (mayKillApp && permissionOrAppOpChanged) {
+        if (!dontKillApp && permissionOrAppOpChanged) {
             killApp(packageName, context);
         }
     }

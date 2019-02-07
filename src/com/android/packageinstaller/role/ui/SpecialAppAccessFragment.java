@@ -180,7 +180,7 @@ public class SpecialAppAccessFragment extends SettingsFragment
         String packageName = applicationInfo.packageName;
         UserHandle user = UserHandle.getUserHandleForUid(applicationInfo.uid);
         boolean add = !((AppIconSwitchPreference) preference).isChecked();
-        liveData.setRoleHolderAsUser(mRoleName, packageName, add, user, requireContext());
+        liveData.setRoleHolderAsUser(mRoleName, packageName, add, 0, user, requireContext());
         return true;
     }
 }

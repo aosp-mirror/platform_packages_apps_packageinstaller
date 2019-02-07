@@ -307,6 +307,9 @@ public class AppPermissionFragment extends SettingsWithButtonHeader {
 
     private void updateButtons() {
         Context context = getContext();
+        if (context == null) {
+            return;
+        }
 
         // Reset everything to the "default" state: tri-state buttons are shown with exactly one
         // selected and no special messages.
@@ -780,10 +783,11 @@ public class AppPermissionFragment extends SettingsWithButtonHeader {
                 : R.string.old_sdk_deny_warning);
         args.putInt(DefaultDenyDialog.CHANGE_TARGET, changeTarget);
 
-        DefaultDenyDialog defaultDenyDialog = new DefaultDenyDialog(this);
+        DefaultDenyDialog defaultDenyDialog = new DefaultDenyDialog();
         defaultDenyDialog.setArguments(args);
+        defaultDenyDialog.setTargetFragment(this, 0);
         defaultDenyDialog.show(getFragmentManager().beginTransaction(),
-                "denyDefault");
+                DefaultDenyDialog.class.getName());
     }
 
     /**
@@ -834,21 +838,16 @@ public class AppPermissionFragment extends SettingsWithButtonHeader {
                 + ".arg.changeTarget";
         private static final String KEY = DefaultDenyDialog.class.getName() + ".arg.key";
 
-        private @NonNull AppPermissionFragment mFragment;
-
-        public DefaultDenyDialog(@NonNull AppPermissionFragment fragment) {
-            mFragment = fragment;
-        }
-
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
+            AppPermissionFragment fragment = (AppPermissionFragment) getTargetFragment();
             AlertDialog.Builder b = new AlertDialog.Builder(getContext())
                     .setMessage(getArguments().getInt(MSG))
                     .setNegativeButton(R.string.cancel,
-                            (DialogInterface dialog, int which) -> mFragment.updateButtons())
+                            (DialogInterface dialog, int which) -> fragment.updateButtons())
                     .setPositiveButton(R.string.grant_dialog_button_deny_anyway,
                             (DialogInterface dialog, int which) ->
-                                    mFragment.onDenyAnyWay(getArguments().getInt(CHANGE_TARGET)));
+                                    fragment.onDenyAnyWay(getArguments().getInt(CHANGE_TARGET)));
 
             return b.create();
         }
