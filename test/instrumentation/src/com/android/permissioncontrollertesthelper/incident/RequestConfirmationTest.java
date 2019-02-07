@@ -19,9 +19,9 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.ConditionVariable;
 import android.os.IncidentManager;
-import android.support.test.InstrumentationRegistry;
 import android.util.Log;
 
+import androidx.test.InstrumentationRegistry;
 import androidx.test.uiautomator.By;
 import androidx.test.uiautomator.BySelector;
 import androidx.test.uiautomator.UiDevice;
