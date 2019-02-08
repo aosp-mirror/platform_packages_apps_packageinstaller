@@ -35,7 +35,6 @@ import java.util.List;
  * @see com.android.settings.applications.DefaultAppSettings
  * @see com.android.settings.applications.defaultapps.DefaultSmsPreferenceController
  * @see com.android.settings.applications.defaultapps.DefaultSmsPicker
- *
  */
 public class SmsRoleBehavior implements RoleBehavior {
 
