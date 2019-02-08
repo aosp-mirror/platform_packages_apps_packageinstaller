@@ -60,7 +60,8 @@ public class SmsRoleBehavior implements RoleBehavior {
     @Nullable
     @Override
     public String getFallbackHolder(@NonNull Role role, @NonNull Context context) {
-        String defaultPackageName = ExclusiveDefaultHolderMixin.getDefaultHolder(role, context);
+        String defaultPackageName = ExclusiveDefaultHolderMixin.getDefaultHolder(role,
+                "config_defaultSms", context);
         if (defaultPackageName != null) {
             return defaultPackageName;
         }

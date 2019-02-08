@@ -16,7 +16,6 @@
 
 package com.android.packageinstaller.role.model;
 
-
 import static org.xmlpull.v1.XmlPullParser.END_DOCUMENT;
 import static org.xmlpull.v1.XmlPullParser.START_TAG;
 
@@ -66,7 +65,8 @@ public class AssistantRoleBehavior implements RoleBehavior {
     @Nullable
     @Override
     public String getFallbackHolder(@NonNull Role role, @NonNull Context context) {
-        return ExclusiveDefaultHolderMixin.getDefaultHolder(role, context);
+        return ExclusiveDefaultHolderMixin.getDefaultHolder(role, "config_defaultAssistant",
+                context);
     }
 
     @Nullable

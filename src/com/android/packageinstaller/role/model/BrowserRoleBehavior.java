@@ -49,7 +49,8 @@ public class BrowserRoleBehavior implements RoleBehavior {
     @NonNull
     @Override
     public List<String> getDefaultHolders(@NonNull Role role, @NonNull Context context) {
-        return ExclusiveDefaultHolderMixin.getDefaultHolders(role, context);
+        return ExclusiveDefaultHolderMixin.getDefaultHolders(role, "config_defaultBrowser",
+                context);
     }
 
     @Nullable
