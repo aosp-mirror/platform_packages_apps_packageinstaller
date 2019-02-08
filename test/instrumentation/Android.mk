@@ -27,8 +27,6 @@ LOCAL_JAVA_LIBRARIES := android.test.runner.stubs
 LOCAL_PROGUARD_ENABLED := disabled
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
-    ctstestrunner \
-    compatibility-device-util \
 	androidx.annotation_annotation \
 	androidx.test.runner \
 	androidx.test.rules \
