@@ -28,17 +28,17 @@
     <string name="install_done" msgid="3682715442154357097">"Aplikacija je instalirana."</string>
     <string name="install_confirm_question" msgid="7295206719219043890">"Želite li instalirati ovu aplikaciju? Ona će dobiti pristup:"</string>
     <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Želite li instalirati ovu aplikaciju? Ona ne zahtijeva poseban pristup."</string>
-    <string name="install_confirm_question_update" msgid="4624159567361487964">"Želite li ažurirati ovu postojeću aplikaciju? Vaši postojeći podaci neće biti izgubljeni. Ažurirana aplikacija će dobiti pristup:"</string>
-    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Želite li ažurirati ovu ugrađenu aplikaciju? Vaši postojeći podaci neće biti izgubljeni. Ažurirana aplikacija će dobiti pristup:"</string>
-    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Želite li ažurirati ovu postojeću aplikaciju? Vaši postojeći podaci neće biti izgubljeni. Za ovo nije potreban poseban pristup."</string>
-    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Želite li ažurirati ovu ugrađenu aplikaciju? Vaš postojeći podaci neće biti izgubljeni. Nije potreban poseban pristup."</string>
+    <string name="install_confirm_question_update" msgid="4624159567361487964">"Želite li instalirati ažuriranje za ovu postojeću aplikaciju? Vaši postojeći podaci neće biti izgubljeni. Ažurirana aplikacija će dobiti pristup:"</string>
+    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Želite li instalirati ažuriranje za ovu ugrađenu aplikaciju? Vaši postojeći podaci neće biti izgubljeni. Ažurirana aplikacija će dobiti pristup:"</string>
+    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Želite li instalirati ažuriranje za ovu postojeću aplikaciju? Vaši postojeći podaci neće biti izgubljeni. Za ovo nije potreban poseban pristup."</string>
+    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Želite li instalirati ažuriranje za ovu ugrađenu aplikaciju? Vaš postojeći podaci neće biti izgubljeni. Nije potreban poseban pristup."</string>
     <string name="install_failed" msgid="6579998651498970899">"Aplikacija nije instalirana."</string>
     <string name="install_failed_blocked" msgid="1606870930588770025">"Instaliranje ovog paketa je blokirano."</string>
     <string name="install_failed_conflict" msgid="5336045235168070954">"Aplikacija nije instalirana jer paket nije usaglašen s postojećim paketom."</string>
     <string name="install_failed_incompatible" product="tablet" msgid="6682387386242708974">"Aplikacija nije instalirana jer nije kompatibilna s vašim tabletom."</string>
     <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Ova aplikacija nije kompatibilna s vašim TV-om."</string>
     <string name="install_failed_incompatible" product="default" msgid="7917996365659426872">"Aplikacija nije instalirana jer nije kompatibilna s vašim telefonom."</string>
-    <string name="install_failed_invalid_apk" msgid="269885385245534742">"Aplikacija nije instalirana jer izgleda da paket nije važeći."</string>
+    <string name="install_failed_invalid_apk" msgid="269885385245534742">"Aplikacija nije instalirana jer izgleda da je paket nevažeći."</string>
     <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> ne možete instalirati na svoj tablet."</string>
     <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Nije moguće instalirati aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> na vaš TV."</string>
     <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> ne možete instalirati na svoj telefon."</string>
@@ -53,7 +53,7 @@
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Aplikacija koju instalirate zamijenit će drugu aplikaciju.\n\nSvi vaši prethodni korisnički podaci bit će sačuvani."</string>
     <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Ovo je sistemska aplikacija.\n\nSvi vaši prethodni korisnički podaci bit će sačuvani."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Nedostatak prostora"</string>
-    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"Ne možete instalirati aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g>. Oslobodite prostora u pohrani i pokušajte ponovo."</string>
+    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"Ne možete instalirati aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g>. Oslobodite prostor u pohrani i pokušajte ponovo."</string>
     <string name="dlg_ok" msgid="6944357727705699232">"Uredu"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Aplikacija nije pronađena"</string>
     <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Aplikacija nije pronađena na spisku instaliranih aplikacija."</string>
@@ -116,7 +116,7 @@
     <string name="default_permission_description" msgid="4992892207044156668">"izvrši nepoznatu radnju"</string>
     <string name="app_permissions_group_summary" msgid="4787239772223699263">"Aplikacije sa odobrenjem: <xliff:g id="COUNT_0">%1$d</xliff:g> od <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
     <string name="menu_show_system" msgid="6773743421743728921">"Prikaži sistemske aplikacije"</string>
-    <string name="menu_hide_system" msgid="7595471742649432977">"Sakrij sistemske"</string>
+    <string name="menu_hide_system" msgid="7595471742649432977">"Sakrij sistemske aplikacije"</string>
     <string name="permission_title" msgid="6495415273398916381">"Odobrenja za: <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
     <string name="no_apps" msgid="1965493419005012569">"Nijedna aplikacija"</string>
     <string name="location_settings" msgid="1774875730854491297">"Postavke lokacije"</string>
@@ -149,5 +149,5 @@
     <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Vaši podaci na TV-u i vaši lični podaci izloženiji su napadima nepoznatih aplikacija. Instaliranjem ove aplikacije, saglasni ste da ste vi odgovorni za bilo kakvu štetu na TV-u ili gubitak podataka do kojih može doći korištenjem aplikacije."</string>
     <string name="anonymous_source_continue" msgid="2094381167954332292">"Nastavi"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"Postavke"</string>
-    <string name="wear_app_channel" msgid="6200840123672949356">"(De)instaliranje wear aplikacija"</string>
+    <string name="wear_app_channel" msgid="6200840123672949356">"Instaliranje/deinstaliranje Wear aplik."</string>
 </resources>
