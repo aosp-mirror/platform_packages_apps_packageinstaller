@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -114,17 +114,14 @@
     <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"過去 15 分鐘內常用權限的使用頻率"</string>
     <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"過去 1 分鐘內常用權限的使用頻率"</string>
     <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"應用程式"</string>
-    <!-- no translation found for app_permission_usage_filter_label (8700139296200468389) -->
-    <skip />
-    <!-- no translation found for app_permission_usage_remove_filter (2046234519591857627) -->
-    <skip />
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"篩選依據：<xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"移除篩選器"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"篩選依據"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"依權限篩選"</string>
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"使用的權限數量最多"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"存取次數最多"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"最近使用過的存取權"</string>
-    <!-- no translation found for permission_usage_refresh (2182775682810005148) -->
-    <skip />
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"重新整理"</string>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"應用程式權限使用情況"</string>
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"使用次數：<xliff:g id="NUM">%1$s</xliff:g> 次。總時間長度：<xliff:g id="DURATION">%2$s</xliff:g>。上次使用時間：<xliff:g id="TIME">%3$s</xliff:g>前。"</string>
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"使用次數：<xliff:g id="NUM">%1$s</xliff:g> 次。上次使用時間：<xliff:g id="TIME">%2$s</xliff:g>前。"</string>
@@ -137,11 +134,9 @@
     <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"「<xliff:g id="APP">%1$s</xliff:g>」在 <xliff:g id="TIME">%3$s</xliff:g>前存取了你的<xliff:g id="PERM">%2$s</xliff:g>。"</string>
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"「<xliff:g id="APP">%1$s</xliff:g>」尚未取得你的<xliff:g id="PERM">%2$s</xliff:g>存取權。"</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"查看詳細的權限使用情況"</string>
-    <!-- no translation found for app_permission_most_recent_summary (7435245857128891808) -->
-    <skip />
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"上次存取時間：<xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="allowed_header" msgid="6279244592227088158">"已允許"</string>
-    <!-- no translation found for allowed_foreground_header (7553595563464819175) -->
-    <skip />
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"僅在使用時允許"</string>
     <string name="denied_header" msgid="2277998574238617699">"已拒絕"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"查看詳細使用資料"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -165,22 +160,6 @@
     <string name="permission_reminders" msgid="8040710767178843151">"權限提醒"</string>
     <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"「<xliff:g id="APP_NAME">%s</xliff:g>」正在使用你的位置資訊"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"這個應用程式隨時都能存取你的位置資訊。輕觸即可變更設定。"</string>
-    <string name="permission_justification_header" msgid="8855642235625782751">"應用程式開發人員可能會將你的資料："</string>
-    <string name="permission_justification_footer" msgid="4098097763461100468">"如果你對應用程式開發人員使用資料的方式不滿意，可以拒絕授予權限。"</string>
-    <string name="permission_justification_info_intent" msgid="2896804844363380252">"前往「<xliff:g id="APP_NAME">%s</xliff:g>」瞭解詳情。"</string>
-    <string name="permission_justification_data_sent_off_device" msgid="2503905652716735222">"上傳到雲端"</string>
-    <string name="permission_justification_data_sent_off_device_user_triggered" msgid="4122793147247661083">"上傳到雲端 (當你明確允許時)"</string>
-    <string name="permission_justification_data_shared_with_third_party" msgid="5249440580654050831">"與廣告客戶或商家分享"</string>
-    <string name="permission_justification_data_shared_with_third_party_user_triggered" msgid="2920721327430861150">"與廣告客戶或商家分享 (當你明確允許時)"</string>
-    <string name="permission_justification_data_used_for_monetization" msgid="3098933808750278119">"用於營利"</string>
-    <string name="permission_justification_data_used_for_monetization_user_triggered" msgid="8264335769735917408">"用於營利 (當你明確允許時)"</string>
-    <string name="permission_justification_data_retention_unlimited" msgid="3921406322987911863">"儲存並用於分析 (永久)"</string>
-    <string name="permission_justification_data_retention_user_selected" msgid="7440816502916014127">"儲存並用於分析 (在你指定的時間內)"</string>
-    <plurals name="permission_justification_data_retention_specified" formatted="false" msgid="4132895033914113182">
-      <item quantity="other">儲存並用於分析 (<xliff:g id="NUM_WEEKS">%s</xliff:g> 週)</item>
-      <item quantity="one">儲存並用於分析 (1 週)</item>
-    </plurals>
-    <string name="permission_justification_undefined" msgid="5711347441966109267">"應用程式開發人員並未指定這個應用程式如何使用你的資料。"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"僅在應用程式使用期間"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"未授予任何權限"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"未拒絕授予任何權限"</string>
@@ -205,10 +184,18 @@
     <string name="role_label_music" msgid="5900245414865932272">"音樂應用程式"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"圖片庫應用程式"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"車用模式手機應用程式"</string>
-    <string name="role_label_proxy_calling" msgid="2432073053878466863">"Proxy 撥號應用程式"</string>
+    <!-- no translation found for role_label_call_redirection (8902197181113231577) -->
+    <skip />
     <string name="role_label_call_screening" msgid="411212589764916370">"來電過濾應用程式"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"通話隨附應用程式"</string>
-    <!-- no translation found for role_label_assistant (456685142560727172) -->
-    <skip />
+    <string name="role_label_assistant" msgid="456685142560727172">"小幫手應用程式"</string>
+    <string name="role_label_car_projection" msgid="3792929094325391213">"車輛投影應用程式"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"注意：如果你重新啟動裝置並設定了螢幕鎖定，你必須先將裝置解鎖，才能執行這個應用程式。"</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"分享除錯資料"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"要分享詳細的除錯資料嗎？"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"「<xliff:g id="APP_NAME">%1$s</xliff:g>」要求上傳除錯資訊。"</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"分享除錯資料"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"「<xliff:g id="APP_NAME_0">%1$s</xliff:g>」要求上傳這個裝置在 <xliff:g id="DATE">%2$s</xliff:g><xliff:g id="TIME">%3$s</xliff:g> 取得的錯誤報告。錯誤報告包含裝置的相關個人資訊或由應用程式記錄的個人資訊，例如：使用者名稱、位置資料、裝置 ID 和網路資訊。請務必只與你信任的使用者和應用程式分享這項資訊。要允許「<xliff:g id="APP_NAME_1">%4$s</xliff:g>」上傳錯誤報告嗎？"</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"允許"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"拒絕"</string>
 </resources>

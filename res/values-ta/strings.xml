@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -114,17 +114,14 @@
     <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"கடந்த 15 நிமிடத்தில் உபயோகித்த அதிகபட்ச அனுமதி"</string>
     <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"கடந்த 1 நிமிடத்தில் உபயோகித்த அதிகபட்ச அனுமதி"</string>
     <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"ஆப்ஸ்"</string>
-    <!-- no translation found for app_permission_usage_filter_label (8700139296200468389) -->
-    <skip />
-    <!-- no translation found for app_permission_usage_remove_filter (2046234519591857627) -->
-    <skip />
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"இதன்படி வடிகட்டப்பட்டது: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"வடிப்பானை அகற்று"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"இதன்படி வடிகட்டுதல்"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"அனுமதிகளின்படி வடிகட்டு"</string>
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"அதிகப்படியான அனுமதிகள்"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"அதிகப்படியான அணுகல்கள்"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"சமீபத்தியவை"</string>
-    <!-- no translation found for permission_usage_refresh (2182775682810005148) -->
-    <skip />
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"புதுப்பி"</string>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"ஆப்ஸ் அனுமதிகளை உபயோகித்தல்"</string>
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"அணுகல்: <xliff:g id="NUM">%1$s</xliff:g> முறை. மொத்தக் கால அளவு: <xliff:g id="DURATION">%2$s</xliff:g>. கடைசியாகப் பயன்படுத்தியது <xliff:g id="TIME">%3$s</xliff:g> முன்பு."</string>
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"அணுகல்: <xliff:g id="NUM">%1$s</xliff:g> முறை. கடைசியாகப் பயன்படுத்தியது <xliff:g id="TIME">%2$s</xliff:g> முன்பு."</string>
@@ -137,11 +134,9 @@
     <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="TIME">%3$s</xliff:g> நேரத்திற்கு முன்பு <xliff:g id="APP">%1$s</xliff:g> ஆப்ஸ் உங்கள் <xliff:g id="PERM">%2$s</xliff:g>ஐ அணுகியது."</string>
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> உங்கள் <xliff:g id="PERM">%2$s</xliff:g> அனுமதியைப் பயன்படுத்தவில்லை."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"அனுமதிகளின் உபயோகம் தொடர்பான விவரங்களைக் காட்டு"</string>
-    <!-- no translation found for app_permission_most_recent_summary (7435245857128891808) -->
-    <skip />
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"கடைசியாகப் பயன்படுத்தியது: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="allowed_header" msgid="6279244592227088158">"அனுமதிக்கப்பட்டவை"</string>
-    <!-- no translation found for allowed_foreground_header (7553595563464819175) -->
-    <skip />
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"உபயோகத்தில் மட்டுமே அனுமதிக்கப்படும்"</string>
     <string name="denied_header" msgid="2277998574238617699">"மறுக்கப்பட்டது"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"உபயோகத்தை விவரமாகக் காட்டு"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -165,22 +160,6 @@
     <string name="permission_reminders" msgid="8040710767178843151">"அனுமதிக்கான நினைவூட்டல்கள்"</string>
     <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> உங்கள் இருப்பிடத்தைப் பயன்படுத்துகிறது"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"எப்பொழுதும் உங்கள் இருப்பிடத்தை இந்த ஆப்ஸால் பயன்படுத்த இயலும். மாற்றத் தட்டவும்."</string>
-    <string name="permission_justification_header" msgid="8855642235625782751">"உங்கள் தரவிற்குப் பின்வருமாறு நேரலாம் என ஆப்ஸ் டெவெலப்பர் தெரிவிக்கிறார்:"</string>
-    <string name="permission_justification_footer" msgid="4098097763461100468">"தரவை ஆப்ஸ் டெவெலப்பர் பயன்படுத்தும் விதம் குறித்துத் தெரியவில்லை எனில் அனுமதியை நீங்கள் நிராகரிக்கலாம்."</string>
-    <string name="permission_justification_info_intent" msgid="2896804844363380252">"மேலும் தகவலுக்கு <xliff:g id="APP_NAME">%s</xliff:g> ஆப்ஸிற்குச் செல்லவும்."</string>
-    <string name="permission_justification_data_sent_off_device" msgid="2503905652716735222">"கிளவுடில் பதிவேற்றப்படும்"</string>
-    <string name="permission_justification_data_sent_off_device_user_triggered" msgid="4122793147247661083">"நீங்கள் வெளிப்படையாக அனுமதிக்கும்போது கிளவுடில் பதிவேற்றப்படும்"</string>
-    <string name="permission_justification_data_shared_with_third_party" msgid="5249440580654050831">"விளம்பரதாரர்களுடனோ வணிகங்களுடனோ பகிரப்படும்"</string>
-    <string name="permission_justification_data_shared_with_third_party_user_triggered" msgid="2920721327430861150">"நீங்கள் வெளிப்படையாக அனுமதிக்கும்போது விளம்பரதாரர்களுடனோ வணிகங்களுடனோ பகிரப்படும்"</string>
-    <string name="permission_justification_data_used_for_monetization" msgid="3098933808750278119">"லாபம் பெறுவதற்குப் பயன்படுத்தப்படும்"</string>
-    <string name="permission_justification_data_used_for_monetization_user_triggered" msgid="8264335769735917408">"நீங்கள் வெளிப்படையாக அனுமதிக்கும்போது லாபம் பெறுவதற்குப் பயன்படுத்தப்படும்"</string>
-    <string name="permission_justification_data_retention_unlimited" msgid="3921406322987911863">"தரவு சேமிக்கப்பட்டு எப்போதும் பகுப்பாய்வு செய்யப்படும்"</string>
-    <string name="permission_justification_data_retention_user_selected" msgid="7440816502916014127">"சேமிக்கப்பட்டு நீங்கள் குறிப்பிடும் காலத்திற்குப் பகுப்பாய்வு செய்யப்படும்"</string>
-    <plurals name="permission_justification_data_retention_specified" formatted="false" msgid="4132895033914113182">
-      <item quantity="other">சேமிக்கப்பட்டு <xliff:g id="NUM_WEEKS">%s</xliff:g> வாரங்களுக்குப் பகுப்பாய்வு செய்யப்படும்</item>
-      <item quantity="one">சேமிக்கப்பட்டு 1 வாரத்திற்குப் பகுப்பாய்வு செய்யப்படும்</item>
-    </plurals>
-    <string name="permission_justification_undefined" msgid="5711347441966109267">"ஆப்ஸ் உங்கள் தரவை எவ்வாறு பயன்படுத்துகிறது என ஆப்ஸ் டெவெலப்பர் குறிப்பிடவில்லை."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"ஆப்ஸ் உபயோகத்தில் இருக்கும்போது மட்டும்"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"எந்த அனுமதிகளும் வழங்கப்படவில்லை"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"எந்த அனுமதிகளும் மறுக்கப்படவில்லை"</string>
@@ -205,10 +184,18 @@
     <string name="role_label_music" msgid="5900245414865932272">"மியூசிக் ஆப்ஸ்"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"கேலரி ஆப்ஸ்"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"கார் மோடுக்கான மொபைல் ஆப்ஸ்"</string>
-    <string name="role_label_proxy_calling" msgid="2432073053878466863">"ப்ராக்ஸி அழைப்பு ஆப்ஸ்"</string>
+    <!-- no translation found for role_label_call_redirection (8902197181113231577) -->
+    <skip />
     <string name="role_label_call_screening" msgid="411212589764916370">"அழைப்புத் திரை ஆப்ஸ்"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"அழைப்புக்கான கம்பேனியன் ஆப்ஸ்"</string>
-    <!-- no translation found for role_label_assistant (456685142560727172) -->
-    <skip />
+    <string name="role_label_assistant" msgid="456685142560727172">"அசிஸ்ட் ஆப்ஸ்"</string>
+    <string name="role_label_car_projection" msgid="3792929094325391213">"கார் காட்சிப்படுத்தல் ஆப்ஸ்"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"கவனத்திற்கு: திரைப் பூட்டு அமைக்கப்பட்டிருக்கும் நிலையில் உங்கள் மொபைலை மீண்டும் தொடங்கினால் அன்லாக் செய்யப்படும்வரை இந்த ஆப்ஸ் இயங்காது."</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"பிழைதிருத்தத் தரவைப் பகிர்தல்"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"விரிவான பிழைதிருத்தத் தகவலைப் பகிரவா?"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"பிழைதிருத்தத் தகவலை <xliff:g id="APP_NAME">%1$s</xliff:g> பதிவேற்ற விரும்புகிறது."</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"பிழைதிருத்தத் தரவைப் பகிர்தல்"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"இந்தச் சாதனத்திலிருந்து <xliff:g id="DATE">%2$s</xliff:g> அன்று <xliff:g id="TIME">%3$s</xliff:g> மணிக்கு எடுக்கப்பட்ட பிழை அறிக்கையைப் பதிவேற்றுமாறு <xliff:g id="APP_NAME_0">%1$s</xliff:g> கோருகிறது. இதில் பயனர் பெயர்கள், இருப்பிடத் தரவு, சாதன அடையாளங்காட்டிகள் மற்றும் நெட்வொர்க் தகவல்கள் போன்ற உங்கள் சாதனம் அல்லது உள்நுழைந்துள்ள ஆப்ஸ் பற்றிய தனிப்பட்ட தகவல்களும் உள்ளடங்கும். இந்தத் தகவல்களுடனான பிழை அறிக்கைகளை நம்பகமானவர்களுடனும் ஆப்ஸுடனும் மட்டுமே பகிரவும். பிழை அறிக்கையைப் பதிவேற்ற <xliff:g id="APP_NAME_1">%4$s</xliff:g> ஆப்ஸை அனுமதிக்கவா?"</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"அனுமதி"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"நிராகரி"</string>
 </resources>

@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -114,17 +114,14 @@
     <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"പൊതുവായ അനുമതിയുടെ കഴിഞ്ഞ 15 മിനിറ്റിലെ ഉപയോഗം"</string>
     <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"പൊതുവായ അനുമതിയുടെ കഴിഞ്ഞ ഒരു മിനിറ്റിലെ ഉപയോഗം"</string>
     <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"ആപ്പുകൾ"</string>
-    <!-- no translation found for app_permission_usage_filter_label (8700139296200468389) -->
-    <skip />
-    <!-- no translation found for app_permission_usage_remove_filter (2046234519591857627) -->
-    <skip />
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"ഇതുപ്രകാരം ഫിൽട്ടർ ചെയ്‌‌തു: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"ഫിൽട്ടർ നീക്കം ചെയ്യുക"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"ഇതുപ്രകാരം ഫിൽട്ടർ ചെയ്യുക"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"അനുമതികൾ പ്രകാരം ഫിൽട്ടർ ചെയ്യുക"</string>
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"ഏറ്റവുമധികം ഉപയോഗിച്ച അനുമതികൾ"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"ഏറ്റവുമധികം ആക്‌സസ് ചെയ്‌തത്"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"ഏറ്റവും പുതിയവ"</string>
-    <!-- no translation found for permission_usage_refresh (2182775682810005148) -->
-    <skip />
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"പുതുക്കിയെടുക്കുക"</string>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"ആപ്പ് അനുമതികളുടെ ഉപയോഗം"</string>
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"ആക്‌സസ്: <xliff:g id="NUM">%1$s</xliff:g> തവണ. ആകെ ദൈർഘ്യം: <xliff:g id="DURATION">%2$s</xliff:g>. അവസാനം ഉപയോഗിച്ചത് <xliff:g id="TIME">%3$s</xliff:g> മുമ്പ്."</string>
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"ആക്‌സസ്: <xliff:g id="NUM">%1$s</xliff:g> തവണ. അവസാനം ഉപയോഗിച്ചത് <xliff:g id="TIME">%2$s</xliff:g> മുമ്പ്."</string>
@@ -137,11 +134,9 @@
     <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ <xliff:g id="PERM">%2$s</xliff:g>, <xliff:g id="TIME">%3$s</xliff:g> മുമ്പ് ആക്‌സസ് ചെയ്‌തു."</string>
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ <xliff:g id="PERM">%2$s</xliff:g>ആക്‌‌സസ് ചെയ്‌തിട്ടില്ല."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"അനുമതികളുടെ വിശദമായ ഉപയോഗം കാണുക"</string>
-    <!-- no translation found for app_permission_most_recent_summary (7435245857128891808) -->
-    <skip />
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"അവസാനം ആക്‌‌സസ് ചെയ്‌തത്: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="allowed_header" msgid="6279244592227088158">"അനുവദിച്ചവ"</string>
-    <!-- no translation found for allowed_foreground_header (7553595563464819175) -->
-    <skip />
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"ഉപയോഗിക്കുമ്പോൾ മാത്രം അനുവദനീയം"</string>
     <string name="denied_header" msgid="2277998574238617699">"നിരസിച്ചവ"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"വിശദമായ ഉപയോഗം കാണുക"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -165,22 +160,6 @@
     <string name="permission_reminders" msgid="8040710767178843151">"അനുമതിയ്ക്കുള്ള റിമൈൻഡറുകൾ"</string>
     <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g>എന്ന ആപ്പ് നിങ്ങളുടെ ലൊക്കേഷൻ ഉപയോഗിക്കുന്നു"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"ഈ ആപ്പിന് എപ്പോഴും നിങ്ങളുടെ ലൊക്കേഷൻ ആക്‌സസ് ചെയ്യാനാവും. മാറ്റാൻ ടാപ്പ് ചെയ്യുക."</string>
-    <string name="permission_justification_header" msgid="8855642235625782751">"നിങ്ങളുടെ ഡാറ്റ ഇനിപ്പറയുന്ന രീതിയിൽ ഉപയോഗിച്ചേക്കാം എന്ന് ആപ്പ് ഡെവലപ്പർ പറയുന്നു:"</string>
-    <string name="permission_justification_footer" msgid="4098097763461100468">"ഈ ആപ്പ് ഡെവലപ്പർ നിങ്ങളുടെ ഡാറ്റ ഉപയോഗിക്കുന്ന രീതി ഇഷ്‌ടമല്ലെങ്കിൽ, അനുമതി നിരസിക്കാം."</string>
-    <string name="permission_justification_info_intent" msgid="2896804844363380252">"കൂടുതൽ വിവരങ്ങൾക്ക്, <xliff:g id="APP_NAME">%s</xliff:g>-ലേക്ക് പോവുക"</string>
-    <string name="permission_justification_data_sent_off_device" msgid="2503905652716735222">"ക്ലൗഡിലേക്ക് അപ്‌ലോഡ് ചെയ്‌തേക്കാം"</string>
-    <string name="permission_justification_data_sent_off_device_user_triggered" msgid="4122793147247661083">"നിങ്ങൾ സ്‌പഷ്‌ടമായി അനുവദിക്കുമ്പോൾ ക്ലൗഡിലേക്ക് അപ്‌ലോഡ് ചെയ്‌തേക്കാം"</string>
-    <string name="permission_justification_data_shared_with_third_party" msgid="5249440580654050831">"പരസ്യദാതാക്കളുമായോ ബിസിനസുകളുമായോ പങ്കിട്ടേക്കാം"</string>
-    <string name="permission_justification_data_shared_with_third_party_user_triggered" msgid="2920721327430861150">"നിങ്ങൾ സ്‌പഷ്‌ടമായി അനുവദിക്കുമ്പോൾ പരസ്യദാതാക്കളുമായോ ബിസിനസുകളുമായോ പങ്കിട്ടേക്കാം"</string>
-    <string name="permission_justification_data_used_for_monetization" msgid="3098933808750278119">"ധനം സമ്പാദിക്കാൻ ഉപയോഗിച്ചേക്കാം"</string>
-    <string name="permission_justification_data_used_for_monetization_user_triggered" msgid="8264335769735917408">"നിങ്ങൾ സ്‌പഷ്‌ടമായി അനുവദിക്കുമ്പോൾ ധനം സമ്പാദിക്കാൻ ഉപയോഗിച്ചേക്കാം"</string>
-    <string name="permission_justification_data_retention_unlimited" msgid="3921406322987911863">"ശാശ്വതമായി സംരക്ഷിച്ച് വിശകലനം ചെയ്‌തേക്കാം"</string>
-    <string name="permission_justification_data_retention_user_selected" msgid="7440816502916014127">"നിങ്ങൾ വ്യക്തമാക്കുന്ന കാലയളവിൽ സംരക്ഷിച്ച് വിശകലനം ചെയ്‌തേക്കാം"</string>
-    <plurals name="permission_justification_data_retention_specified" formatted="false" msgid="4132895033914113182">
-      <item quantity="other"><xliff:g id="NUM_WEEKS">%s</xliff:g> ആഴ്‌ചത്തേയ്ക്ക് സംരക്ഷിച്ച് വിശകലനം ചെയ്‌തേക്കാം</item>
-      <item quantity="one">ഒരാഴ്‌ചത്തേയ്ക്ക് സംരക്ഷിച്ച് വിശകലനം ചെയ്‌തേക്കാം</item>
-    </plurals>
-    <string name="permission_justification_undefined" msgid="5711347441966109267">"ആപ്പ് നിങ്ങളുടെ ഡാറ്റ ഉപയോഗിക്കുന്ന രീതി, ആപ്പ് ഡെവലപ്പർ വ്യക്തമാക്കിയിട്ടില്ല."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"ആപ്പ് ഉപയോഗത്തിലുള്ളപ്പോൾ മാത്രം"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"അനുമതികളൊന്നും നൽകിയിട്ടില്ല"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"അനുമതികളൊന്നും നിഷേധിച്ചിട്ടില്ല"</string>
@@ -205,10 +184,18 @@
     <string name="role_label_music" msgid="5900245414865932272">"സംഗീത ആപ്പ്"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"ഗാലറി ആപ്പ്"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"കാർ മോഡ് ഫോൺ ആപ്പ്"</string>
-    <string name="role_label_proxy_calling" msgid="2432073053878466863">"പ്രോക്‌സി കോൾ ചെയ്യുന്ന ആപ്പ്"</string>
+    <!-- no translation found for role_label_call_redirection (8902197181113231577) -->
+    <skip />
     <string name="role_label_call_screening" msgid="411212589764916370">"കോൾ സ്‌ക്രീനിംഗ് ആപ്പ്"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"കോൾ സഹകാരി ആപ്പ്"</string>
-    <!-- no translation found for role_label_assistant (456685142560727172) -->
-    <skip />
+    <string name="role_label_assistant" msgid="456685142560727172">"സഹായ ആപ്പ്"</string>
+    <string name="role_label_car_projection" msgid="3792929094325391213">"കാർ പ്രൊജക്ഷൻ ആപ്പ്"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"ശ്രദ്ധിക്കുക: നിങ്ങളുടെ ഉപകരണം റീസ്‌റ്റാർട്ട് ചെയ്‌ത്, സ്‌ക്രീൻ ലോക്ക് സജ്ജീകരിച്ചിട്ടുണ്ടെങ്കിൽ, നിങ്ങളുടെ ഉപകരണം അൺലോക്ക് ചെയ്യുന്നത് വരെ ഈ ആപ്പ് ആരംഭിക്കാനാവില്ല."</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"ഡീബഗ്ഗ് ചെയ്യൽ ഡാറ്റ പങ്കിടുക"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"വിശദമായ ഡീബഗ്ഗ് ചെയ്യൽ വിവരങ്ങൾ പങ്കിടണോ?"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"ഡീബഗ്ഗ് ചെയ്യൽ വിവരങ്ങൾ അപ്‌ലോഡ് ചെയ്യാൻ <xliff:g id="APP_NAME">%1$s</xliff:g> താൽപ്പര്യപ്പെടുന്നു."</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"ഡീബഗ്ഗ് ചെയ്യൽ ഡാറ്റ പങ്കിടുക"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"ഈ ഉപകരണത്തിൽ നിന്ന് <xliff:g id="DATE">%2$s</xliff:g>-ന് <xliff:g id="TIME">%3$s</xliff:g>-മണിയ്ക്ക് എടുത്ത ഒരു ബഗ് റിപ്പോർട്ട് അപ്‌ലോഡ് ചെയ്യാൻ <xliff:g id="APP_NAME_0">%1$s</xliff:g> അഭ്യർത്ഥിക്കുന്നു. നിങ്ങളുടെ ഉപകരണത്തെക്കുറിച്ചുള്ള വ്യക്തിഗത വിവരമോ ആപ്പുകൾ ലോഗ് ചെയ്യുമ്പോൾ നൽകുന്ന വിവരമോ, ഉദാഹരണത്തിന് നെറ്റ്‌വർക്ക് വിവരങ്ങൾ, ഉപകരണ ഐഡന്റിഫയറുകൾ, ലൊക്കേഷൻ ഡാറ്റ, ഉപയോക്തൃനാമങ്ങൾ എന്നിവ ബഗ് റിപ്പോർട്ടുകളിൽ ഉൾപ്പെടുന്നു. ഈ വിവരം ഉപയോഗിച്ച് നിങ്ങൾ വിശ്വസിക്കുന്ന ആപ്പുകൾക്കും ആളുകൾക്കും മാത്രം ബഗ് റിപ്പോർട്ടുകൾ പങ്കിടുക. <xliff:g id="APP_NAME_1">%4$s</xliff:g> എന്നതിനെ ഒരു ബഗ് റിപ്പോർട്ട് അപ്‌ലോഡ് ചെയ്യാൻ അനുവദിക്കണോ?"</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"അനുവദിക്കുക"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"നിരസിക്കുക"</string>
 </resources>

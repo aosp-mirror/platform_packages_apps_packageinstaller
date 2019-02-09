@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -114,17 +114,14 @@
     <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"การใช้สิทธิ์สูงสุดในช่วง 15 นาทีที่ผ่านมา"</string>
     <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"การใช้สิทธิ์สูงสุดในช่วง 1 นาทีที่ผ่านมา"</string>
     <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"แอป"</string>
-    <!-- no translation found for app_permission_usage_filter_label (8700139296200468389) -->
-    <skip />
-    <!-- no translation found for app_permission_usage_remove_filter (2046234519591857627) -->
-    <skip />
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"กรองตาม: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"นำตัวกรองออก"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"กรองตาม"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"กรองตามสิทธิ์"</string>
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"สิทธิ์ที่ใช้มากที่สุด"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"การเข้าถึงมากที่สุด"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"ล่าสุด"</string>
-    <!-- no translation found for permission_usage_refresh (2182775682810005148) -->
-    <skip />
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"รีเฟรช"</string>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"การใช้สิทธิ์ของแอป"</string>
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"เข้าถึง: <xliff:g id="NUM">%1$s</xliff:g> ครั้ง ระยะเวลารวม: <xliff:g id="DURATION">%2$s</xliff:g> ใช้ล่าสุดเมื่อ <xliff:g id="TIME">%3$s</xliff:g>ที่ผ่านมา"</string>
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"เข้าถึง: <xliff:g id="NUM">%1$s</xliff:g> ครั้ง ใช้ล่าสุดเมื่อ <xliff:g id="TIME">%2$s</xliff:g>ที่ผ่านมา"</string>
@@ -137,11 +134,9 @@
     <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="APP">%1$s</xliff:g> เข้าถึง<xliff:g id="PERM">%2$s</xliff:g>ของคุณเมื่อ <xliff:g id="TIME">%3$s</xliff:g> ที่ผ่านมา"</string>
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> ไม่ได้เข้าถึง <xliff:g id="PERM">%2$s</xliff:g> ของคุณ"</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"ดูรายละเอียดการใช้สิทธิ์"</string>
-    <!-- no translation found for app_permission_most_recent_summary (7435245857128891808) -->
-    <skip />
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"เข้าถึงล่าสุด: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="allowed_header" msgid="6279244592227088158">"ได้รับอนุญาตแล้ว"</string>
-    <!-- no translation found for allowed_foreground_header (7553595563464819175) -->
-    <skip />
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"อนุญาตขณะใช้งานอยู่เท่านั้น"</string>
     <string name="denied_header" msgid="2277998574238617699">"ถูกปฏิเสธ"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"ดูการใช้งานโดยละเอียด"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -165,22 +160,6 @@
     <string name="permission_reminders" msgid="8040710767178843151">"การช่วยเตือนเกี่ยวกับสิทธิ์"</string>
     <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> ใช้ตำแหน่งของคุณ"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"แอปนี้เข้าถึงตำแหน่งของคุณได้ตลอดเวลา แตะเพื่อเปลี่ยน"</string>
-    <string name="permission_justification_header" msgid="8855642235625782751">"นักพัฒนาแอประบุว่าอาจมีการนำข้อมูลของคุณมาใช้ดังนี้"</string>
-    <string name="permission_justification_footer" msgid="4098097763461100468">"หากไม่ชอบวิธีที่นักพัฒนาแอปรายนี้ใช้ข้อมูลของคุณ คุณปฏิเสธสิทธิ์ได้"</string>
-    <string name="permission_justification_info_intent" msgid="2896804844363380252">"ดูข้อมูลเพิ่มเติมได้ใน <xliff:g id="APP_NAME">%s</xliff:g>"</string>
-    <string name="permission_justification_data_sent_off_device" msgid="2503905652716735222">"อัปโหลดไปยังระบบคลาวด์"</string>
-    <string name="permission_justification_data_sent_off_device_user_triggered" msgid="4122793147247661083">"อัปโหลดไปยังระบบคลาวด์ในกรณีที่คุณอนุญาตอย่างชัดเจน"</string>
-    <string name="permission_justification_data_shared_with_third_party" msgid="5249440580654050831">"แชร์กับผู้ลงโฆษณาหรือธุรกิจ"</string>
-    <string name="permission_justification_data_shared_with_third_party_user_triggered" msgid="2920721327430861150">"แชร์กับผู้ลงโฆษณาหรือธุรกิจในกรณีที่คุณอนุญาตอย่างชัดเจน"</string>
-    <string name="permission_justification_data_used_for_monetization" msgid="3098933808750278119">"ใช้สำหรับการสร้างรายได้"</string>
-    <string name="permission_justification_data_used_for_monetization_user_triggered" msgid="8264335769735917408">"ใช้สำหรับการสร้างรายได้ในกรณีที่คุณอนุญาตอย่างชัดเจน"</string>
-    <string name="permission_justification_data_retention_unlimited" msgid="3921406322987911863">"บันทึกไว้และใช้วิเคราะห์ถาวร"</string>
-    <string name="permission_justification_data_retention_user_selected" msgid="7440816502916014127">"บันทึกไว้และใช้วิเคราะห์ตามระยะเวลาที่คุณระบุ"</string>
-    <plurals name="permission_justification_data_retention_specified" formatted="false" msgid="4132895033914113182">
-      <item quantity="other">บันทึกไว้และใช้วิเคราะห์เป็นเวลา <xliff:g id="NUM_WEEKS">%s</xliff:g> สัปดาห์</item>
-      <item quantity="one">บันทึกไว้และใช้วิเคราะห์เป็นเวลา 1 สัปดาห์</item>
-    </plurals>
-    <string name="permission_justification_undefined" msgid="5711347441966109267">"นักพัฒนาแอปไม่ได้ระบุว่าแอปจะใช้ข้อมูลของคุณอย่างไร"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"เมื่อมีการใช้แอปเท่านั้น"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"ไม่ได้ให้สิทธิ์ใดเลย"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"ไม่ได้ปฏิเสธสิทธิ์ใดเลย"</string>
@@ -205,10 +184,18 @@
     <string name="role_label_music" msgid="5900245414865932272">"แอปเพลง"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"แอปแกลเลอรี"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"แอปโทรศัพท์ในโหมดรถยนต์"</string>
-    <string name="role_label_proxy_calling" msgid="2432073053878466863">"แอปการโทรพร็อกซี"</string>
+    <!-- no translation found for role_label_call_redirection (8902197181113231577) -->
+    <skip />
     <string name="role_label_call_screening" msgid="411212589764916370">"แอปสกรีนสายเรียกเข้า"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"แอปที่ใช้ร่วมกับการโทร"</string>
-    <!-- no translation found for role_label_assistant (456685142560727172) -->
-    <skip />
+    <string name="role_label_assistant" msgid="456685142560727172">"แอปผู้ช่วย"</string>
+    <string name="role_label_car_projection" msgid="3792929094325391213">"แอป Car Projection"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"หมายเหตุ: หากคุณรีสตาร์ทอุปกรณ์และตั้งการล็อกหน้าจอไว้ แอปนี้จะเริ่มทำงานไม่ได้จนกว่าคุณจะปลดล็อกอุปกรณ์"</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"แชร์ข้อมูลการแก้ไขข้อบกพร่อง"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"แชร์ร์ข้อมูลการแก้ไขข้อบกพร่องโดยละเอียดไหม"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> ต้องการอัปโหลดข้อมูลการแก้ไขข้อบกพร่อง"</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"แชร์ข้อมูลการแก้ไขข้อบกพร่อง"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> กำลังขออัปโหลดรายงานข้อบกพร่องจากอุปกรณ์นี้ซึ่งบันทึกไว้เมื่อวันที่ <xliff:g id="DATE">%2$s</xliff:g> เวลา <xliff:g id="TIME">%3$s</xliff:g> รายงานข้อบกพร่องมีข้อมูลส่วนบุคคลเกี่ยวกับอุปกรณ์ของคุณหรือที่แอปต่างๆ บันทึกไว้ เช่น ชื่อผู้ใช้ ข้อมูลตำแหน่ง ตัวระบุอุปกรณ์ และข้อมูลเครือข่าย โปรดแชร์รายงานข้อบกพร่องกับบุคคลและแอปที่คุณไว้วางใจให้เห็นข้อมูลนี้เท่านั้น อนุญาตให้ <xliff:g id="APP_NAME_1">%4$s</xliff:g> อัปโหลดรายงานข้อบกพร่องไหม"</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"อนุญาต"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"ปฏิเสธ"</string>
 </resources>
