@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -114,17 +114,14 @@
     <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"ಕಳೆದ 15 ನಿಮಿಷಗಳಲ್ಲಿ ಪ್ರಮುಖ ಅನುಮತಿಯ ಬಳಕೆ"</string>
     <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"ಕಳೆದ 1 ನಿಮಿಷದಲ್ಲಿ ಪ್ರಮುಖ ಅನುಮತಿಯ ಬಳಕೆ"</string>
     <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"ಆ್ಯಪ್‌ಗಳು"</string>
-    <!-- no translation found for app_permission_usage_filter_label (8700139296200468389) -->
-    <skip />
-    <!-- no translation found for app_permission_usage_remove_filter (2046234519591857627) -->
-    <skip />
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"ಈ ಆಧಾರದ ಮೇಲೆ ಫಿಲ್ಟರ್ ಮಾಡಲಾಗಿದೆ: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"ಫಿಲ್ಟರ್ ತೆಗೆದುಹಾಕಿ"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"ಈ ಪ್ರಕಾರ ಫಿಲ್ಟರ್"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"ಅನುಮತಿಗಳ ಮೂಲಕ ಫಿಲ್ಟರ್ ಮಾಡಿ"</string>
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"ಹೆಚ್ಚಿನ ಅನುಮತಿಗಳು"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"ಹೆಚ್ಚಿನ ಪ್ರವೇಶಗಳು"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"ಇತ್ತೀಚಿನವು"</string>
-    <!-- no translation found for permission_usage_refresh (2182775682810005148) -->
-    <skip />
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"ರಿಫ್ರೆಶ್ ಮಾಡಿ"</string>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"ಆ್ಯಪ್‌ ಅನುಮತಿಗಳ ಬಳಕೆ"</string>
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"ಪ್ರವೇಶ: <xliff:g id="NUM">%1$s</xliff:g> ಬಾರಿ. ಒಟ್ಟು ಅವಧಿ: <xliff:g id="DURATION">%2$s</xliff:g>. <xliff:g id="TIME">%3$s</xliff:g> ಸಮಯದ ಹಿಂದೆ ಕೊನೆಯದಾಗಿ ಬಳಸಲಾಗಿದೆ."</string>
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"ಪ್ರವೇಶ: <xliff:g id="NUM">%1$s</xliff:g> ಬಾರಿ. <xliff:g id="TIME">%2$s</xliff:g> ಸಮಯದ ಹಿಂದೆ ಕೊನೆಯದಾಗಿ ಬಳಸಲಾಗಿದೆ."</string>
@@ -137,11 +134,9 @@
     <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="APP">%1$s</xliff:g> ಆ್ಯಪ್ ನಿಮ್ಮ <xliff:g id="PERM">%2$s</xliff:g> ಅನ್ನು <xliff:g id="TIME">%3$s</xliff:g> ಹಿಂದೆ ಪ್ರವೇಶಿಸಿದೆ."</string>
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> ನಿಮ್ಮ <xliff:g id="PERM">%2$s</xliff:g> ಅನ್ನು ಪ್ರವೇಶಿಸಿಲ್ಲ."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"ವಿವರವಾದ ಅನುಮತಿಗಳ ಬಳಕೆಯನ್ನು ವೀಕ್ಷಿಸಿ"</string>
-    <!-- no translation found for app_permission_most_recent_summary (7435245857128891808) -->
-    <skip />
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"ಕೊನೆಯ ಪ್ರವೇಶ:<xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="allowed_header" msgid="6279244592227088158">"ಅನುಮತಿಸಲಾಗಿದೆ"</string>
-    <!-- no translation found for allowed_foreground_header (7553595563464819175) -->
-    <skip />
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"ಬಳಕೆಯಲ್ಲಿದ್ದಾಗ ಮಾತ್ರ ಅನುಮತಿಸಲಾಗಿದೆ"</string>
     <string name="denied_header" msgid="2277998574238617699">"ನಿರಾಕರಿಸಲಾಗಿದೆ"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"ವಿವರಿಸಲಾದ ಬಳಕೆಯನ್ನು ನೋಡಿ"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -165,22 +160,6 @@
     <string name="permission_reminders" msgid="8040710767178843151">"ಅನುಮತಿ ಜ್ಞಾಪನೆಗಳು"</string>
     <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> ನಿಮ್ಮ ಸ್ಥಳವನ್ನು ಬಳಸುತ್ತಿದೆ"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"ಈ ಆ್ಯಪ್‌ ಯಾವಾಗಲೂ ನಿಮ್ಮ ಸ್ಥಳವನ್ನು ಪ್ರವೇಶಿಸಬಹುದು. ಬದಲಾಯಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ."</string>
-    <string name="permission_justification_header" msgid="8855642235625782751">"ಆ್ಯಪ್ ಡೆವಲಪರ್ ಈ ರೀತಿಯಾಗಿ ಹೇಳುತ್ತಾರೆ ನಿಮ್ಮ ಡೇಟಾ ಈ ರೀತಿಯಾಗಿರಬಹುದು:"</string>
-    <string name="permission_justification_footer" msgid="4098097763461100468">"ಈ ಆ್ಯಪ್ ಡೆವಲಪರ್, ನಿಮ್ಮ ಡೇಟಾವನ್ನು ಬಳಸುವ ರೀತಿಯು ನಿಮಗೆ ಇಷ್ಟವಾಗದಿದ್ದಲ್ಲಿ, ನೀವು ಅನುಮತಿಯನ್ನು ನಿರಾಕರಿಸಬಹುದು."</string>
-    <string name="permission_justification_info_intent" msgid="2896804844363380252">"ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ <xliff:g id="APP_NAME">%s</xliff:g> ಗೆ ಹೋಗಿ."</string>
-    <string name="permission_justification_data_sent_off_device" msgid="2503905652716735222">"ಕ್ಲೌಡ್‌ಗೆ ಅಪ್‌ಲೋಡ್ ಮಾಡಲಾಗಿದೆ"</string>
-    <string name="permission_justification_data_sent_off_device_user_triggered" msgid="4122793147247661083">"ಡೇಟಾ ಅಪ್‌ಲೋಡ್ ಮಾಡುವುದನ್ನು ನೀವು ಸ್ಪಷ್ಟವಾಗಿ ಅನುಮತಿಸಿದಾಗ, ಇದನ್ನು ಕ್ಲೌಡ್‌ಗೆ ಅಪ್‌ಲೋಡ್ ಮಾಡಲಾಗಿದೆ"</string>
-    <string name="permission_justification_data_shared_with_third_party" msgid="5249440580654050831">"ಜಾಹೀರಾತುದಾರರು ಅಥವಾ ವ್ಯಾಪಾರಗಳ ಜೊತೆಗೆ ಹಂಚಿಕೊಳ್ಳಲಾಗಿದೆ"</string>
-    <string name="permission_justification_data_shared_with_third_party_user_triggered" msgid="2920721327430861150">"ಡೇಟಾ ಹಂಚಿಕೊಳ್ಳುವುದನ್ನು ನೀವು ಸ್ಪಷ್ಟವಾಗಿ ಅನುಮತಿಸಿದಾಗ, ಇದನ್ನು ಜಾಹೀರಾತುದಾರರು ಅಥವಾ ವ್ಯಾಪಾರಗಳ ಜೊತೆಗೆ ಹಂಚಿಕೊಳ್ಳಲಾಗಿದೆ"</string>
-    <string name="permission_justification_data_used_for_monetization" msgid="3098933808750278119">"ಹಣ ಗಳಿಕೆಗಾಗಿ ಬಳಸಲಾಗಿದೆ"</string>
-    <string name="permission_justification_data_used_for_monetization_user_triggered" msgid="8264335769735917408">"ಡೇಟಾ ಬಳಸುವುದನ್ನು ನೀವು ಸ್ಪಷ್ಟವಾಗಿ ಅನುಮತಿಸಿದಾಗ, ಇದನ್ನು ಹಣ ಗಳಿಕೆಗಾಗಿ ಬಳಸಲಾಗಿದೆ"</string>
-    <string name="permission_justification_data_retention_unlimited" msgid="3921406322987911863">"ಶಾಶ್ವತವಾಗಿ ಉಳಿಸಲಾಗಿದೆ ಮತ್ತು ವಿಶ್ಲೇಷಿಸಲಾಗಿದೆ"</string>
-    <string name="permission_justification_data_retention_user_selected" msgid="7440816502916014127">"ನೀವು ನಿರ್ದಿಷ್ಟಪಡಿಸಿದ ಅವಧಿಗಾಗಿ ಉಳಿಸಲಾಗಿದೆ ಮತ್ತು ವಿಶ್ಲೇಷಿಸಲಾಗಿದೆ"</string>
-    <plurals name="permission_justification_data_retention_specified" formatted="false" msgid="4132895033914113182">
-      <item quantity="one"><xliff:g id="NUM_WEEKS">%s</xliff:g> ವಾರಗಳವರೆಗೆ ಉಳಿಸಲಾಗಿದೆ ಮತ್ತು ವಿಶ್ಲೇಷಿಸಲಾಗಿದೆ</item>
-      <item quantity="other"><xliff:g id="NUM_WEEKS">%s</xliff:g> ವಾರಗಳವರೆಗೆ ಉಳಿಸಲಾಗಿದೆ ಮತ್ತು ವಿಶ್ಲೇಷಿಸಲಾಗಿದೆ</item>
-    </plurals>
-    <string name="permission_justification_undefined" msgid="5711347441966109267">"ಆ್ಯಪ್ ಹೇಗೆ ನಿಮ್ಮ ಡೇಟಾವನ್ನು ಬಳಸುತ್ತದೆ ಎಂಬುದನ್ನು ಆ್ಯಪ್ ಡೆವಲಪರ್ ನಿರ್ದಿಷ್ಟಪಡಿಸಿಲ್ಲ."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"ಆ್ಯಪ್ ಬಳಕೆಯಲ್ಲಿದ್ದಾಗ ಮಾತ್ರ"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"ಯಾವುದೇ ಅನುಮತಿಗಳನ್ನು ಅನುಮತಿಸಲಾಗಿಲ್ಲ"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"ಯಾವುದೇ ಅನುಮತಿಗಳನ್ನು ನಿರಾಕರಿಸಲಾಗಿಲ್ಲ"</string>
@@ -205,10 +184,18 @@
     <string name="role_label_music" msgid="5900245414865932272">"ಸಂಗೀತ ಆ್ಯಪ್‌"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"ಗ್ಯಾಲರಿ ಆ್ಯಪ್‌"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"ಕಾರ್‌ ಮೋಡ್‌ ಫೋನ್‌ ಆ್ಯಪ್"</string>
-    <string name="role_label_proxy_calling" msgid="2432073053878466863">"ಪ್ರಾಕ್ಸಿ ಕರೆ ಮಾಡುವಿಕೆ ಆ್ಯಪ್‌"</string>
+    <!-- no translation found for role_label_call_redirection (8902197181113231577) -->
+    <skip />
     <string name="role_label_call_screening" msgid="411212589764916370">"ಕರೆ ಸ್ಕ್ರೀನಿಂಗ್ ಆ್ಯಪ್"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"ಕರೆ ಕಂಪ್ಯಾನಿಯನ್ ಆ್ಯಪ್"</string>
-    <!-- no translation found for role_label_assistant (456685142560727172) -->
-    <skip />
+    <string name="role_label_assistant" msgid="456685142560727172">"ಅಸಿಸ್ಟೆಂಟ್ ಆ್ಯಪ್‌"</string>
+    <string name="role_label_car_projection" msgid="3792929094325391213">"ಕಾರ್ ಪ್ರೊಜೆಕ್ಷನ್ ಆ್ಯಪ್‌"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"ಗಮನಿಸಿ: ನೀವು ನಿಮ್ಮ ಸಾಧನವನ್ನು ಮರುಪ್ರಾರಂಭಿಸಿದಲ್ಲಿ ಮತ್ತು ಪರದೆಯ ಲಾಕ್‌ ಹೊಂದಿದ್ದರೆ, ನಿಮ್ಮ ಸಾಧನವನ್ನು ಅನ್‌ಲಾಕ್‌ ಮಾಡುವವರೆಗೂ ಈ ಆ್ಯಪ್‌ ಅನ್ನು ಪ್ರಾರಂಭಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ"</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"ಡೀಬಗ್ ಮಾಡುವಿಕೆ ಡೇಟಾವನ್ನು ಹಂಚಿಕೊಳ್ಳಿ"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"ವಿವರವಾದ ಡೀಬಗ್ ಮಾಡುವಿಕೆಯ ಡೇಟಾವನ್ನು ಹಂಚಿಕೊಳ್ಳಬೇಕೆ?"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> ಆ್ಯಪ್, ಡೀಬಗ್ ಮಾಡುವಿಕೆಯ ಮಾಹಿತಿಯನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಲು ಬಯಸುತ್ತದೆ."</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"ಡೀಬಗ್ ಮಾಡುವಿಕೆ ಡೇಟಾವನ್ನು ಹಂಚಿಕೊಳ್ಳಿ"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="DATE">%2$s</xliff:g> ದಿನಾಂಕದಂದು <xliff:g id="TIME">%3$s</xliff:g> ಸಮಯಕ್ಕೆ ತೆಗೆದುಕೊಂಡ ಬಗ್ ವರದಿಯನ್ನು ಈ ಸಾಧನದಿಂದ ಅಪ್‌ಲೋಡ್ ಮಾಡುವಂತೆ <xliff:g id="APP_NAME_0">%1$s</xliff:g> ಆ್ಯಪ್ ವಿನಂತಿಸುತ್ತಿದೆ. ಬಗ್ ವರದಿಗಳು, ನಿಮ್ಮ ಸಾಧನ ಅಥವಾ ಆ್ಯಪ್‌ಗಳ ಮೂಲಕ ಲಾಗ್ ಮಾಡಿದ ವೈಯಕ್ತಿಕ ಮಾಹಿತಿಯನ್ನು, ಉದಾಹರಣೆಗೆ ಬಳಕೆದಾರರ ಹೆಸರುಗಳು, ಸ್ಥಳದ ಡೇಟಾ, ಸಾಧನ ಗುರುತಿಸುವಿಕೆಗಳು ಮತ್ತು ನೆಟ್‌ವರ್ಕ್‌ ಮಾಹಿತಿಯನ್ನು ಒಳಗೊಂಡಿದೆ. ಈ ಮಾಹಿತಿ ಒಳಗೊಂಡಂತೆ, ನೀವು ನಂಬುವ ಜನರು ಮತ್ತು ಆ್ಯಪ್‌ಗಳ ಜೊತೆಗೆ ಮಾತ್ರ ಬಗ್ ವರದಿಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳಿ. ಬಗ್ ವರದಿಯನ್ನು ಅಪ್‌ಲೋಡ್‌ ಮಾಡಲು <xliff:g id="APP_NAME_1">%4$s</xliff:g> ಆ್ಯಪ್‌ಗೆ ಅನುಮತಿಸುವುದೇ?"</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"ಅನುಮತಿಸಿ"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"ನಿರಾಕರಿಸಿ"</string>
 </resources>

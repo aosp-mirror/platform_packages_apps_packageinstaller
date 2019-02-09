@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -115,17 +115,14 @@
     <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"Upotreba dopuštenja u posljednjih 15 minuta"</string>
     <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"Upotreba dopuštenja u posljednjoj minuti"</string>
     <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"Aplikacije"</string>
-    <!-- no translation found for app_permission_usage_filter_label (8700139296200468389) -->
-    <skip />
-    <!-- no translation found for app_permission_usage_remove_filter (2046234519591857627) -->
-    <skip />
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Filtrirano po: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"Ukloni filtar"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"Kriterij filtriranja"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Filtriraj prema dopuštenjima"</string>
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Najviše dopuštenja"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Najviše pristupa"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"Nedavno"</string>
-    <!-- no translation found for permission_usage_refresh (2182775682810005148) -->
-    <skip />
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"Osvježi"</string>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"Upotreba dopuštenja aplikacije"</string>
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"Pristup: <xliff:g id="NUM">%1$s</xliff:g> puta. Ukupno trajanje: <xliff:g id="DURATION">%2$s</xliff:g>. Posljednji put korišteno prije <xliff:g id="TIME">%3$s</xliff:g>."</string>
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Pristup: <xliff:g id="NUM">%1$s</xliff:g> puta. Posljednji put korišteno prije <xliff:g id="TIME">%2$s</xliff:g>."</string>
@@ -138,11 +135,9 @@
     <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> pristupila je dopuštenju <xliff:g id="PERM">%2$s</xliff:g> prije <xliff:g id="TIME">%3$s</xliff:g>."</string>
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila vašem dopuštenju <xliff:g id="PERM">%2$s</xliff:g>."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Pregledajte detaljnu upotrebu dopuštenja"</string>
-    <!-- no translation found for app_permission_most_recent_summary (7435245857128891808) -->
-    <skip />
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Zadnji pristup: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Dopušteno"</string>
-    <!-- no translation found for allowed_foreground_header (7553595563464819175) -->
-    <skip />
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"Dopušteno samo tijekom upotrebe"</string>
     <string name="denied_header" msgid="2277998574238617699">"Odbijeno"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"Pogledajte detaljnu upotrebu"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -170,23 +165,6 @@
     <string name="permission_reminders" msgid="8040710767178843151">"Podsjetnici za dopuštenja"</string>
     <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"Aplikacija <xliff:g id="APP_NAME">%s</xliff:g> koristi vašu lokaciju"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Ova aplikacija može uvijek pristupiti vašoj lokaciji. Dodirnite za promjenu."</string>
-    <string name="permission_justification_header" msgid="8855642235625782751">"Razvojni programer aplikacije kaže da se vaši podaci mogu:"</string>
-    <string name="permission_justification_footer" msgid="4098097763461100468">"Ako vam se ne sviđa način na koji razvojni programer aplikacije upotrebljava vaše podatke, možete odbiti dopuštenje."</string>
-    <string name="permission_justification_info_intent" msgid="2896804844363380252">"Više informacija možete pronaći u aplikaciji <xliff:g id="APP_NAME">%s</xliff:g>."</string>
-    <string name="permission_justification_data_sent_off_device" msgid="2503905652716735222">"prenositi u oblak"</string>
-    <string name="permission_justification_data_sent_off_device_user_triggered" msgid="4122793147247661083">"prenositi u oblak kad to izričito dopustite"</string>
-    <string name="permission_justification_data_shared_with_third_party" msgid="5249440580654050831">"dijeliti s oglašivačima ili tvrtkama"</string>
-    <string name="permission_justification_data_shared_with_third_party_user_triggered" msgid="2920721327430861150">"dijeliti s oglašivačima ili tvrtkama kad to izričito dopustite"</string>
-    <string name="permission_justification_data_used_for_monetization" msgid="3098933808750278119">"upotrebljavati za unovčavanje"</string>
-    <string name="permission_justification_data_used_for_monetization_user_triggered" msgid="8264335769735917408">"upotrebljavati za unovčavanje kad to izričito dopustite"</string>
-    <string name="permission_justification_data_retention_unlimited" msgid="3921406322987911863">"spremati i analizirati zauvijek"</string>
-    <string name="permission_justification_data_retention_user_selected" msgid="7440816502916014127">"spremati i analizirati tijekom razdoblja koje navedete"</string>
-    <plurals name="permission_justification_data_retention_specified" formatted="false" msgid="4132895033914113182">
-      <item quantity="one">spremati i analizirati​ <xliff:g id="NUM_WEEKS">%s</xliff:g> tjedan</item>
-      <item quantity="few">spremati i analizirati​ <xliff:g id="NUM_WEEKS">%s</xliff:g> tjedna</item>
-      <item quantity="other">spremati i analizirati​ <xliff:g id="NUM_WEEKS">%s</xliff:g> tjedana</item>
-    </plurals>
-    <string name="permission_justification_undefined" msgid="5711347441966109267">"Razvojni programer aplikacije nije naveo kako aplikacija upotrebljava vaše podatke."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Samo dok je aplikacija u upotrebi"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Nije odobreno nijedno dopuštenje"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Nije odbijeno nijedno dopuštenje"</string>
@@ -211,10 +189,18 @@
     <string name="role_label_music" msgid="5900245414865932272">"Aplikacija Glazba"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"Aplikacija Galerija"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"Ap. za način rada u automobilu"</string>
-    <string name="role_label_proxy_calling" msgid="2432073053878466863">"Aplikacija za proxy pozive"</string>
+    <!-- no translation found for role_label_call_redirection (8902197181113231577) -->
+    <skip />
     <string name="role_label_call_screening" msgid="411212589764916370">"Ap. za filtriranje poziva"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"Popratna aplikacija za pozive"</string>
-    <!-- no translation found for role_label_assistant (456685142560727172) -->
-    <skip />
+    <string name="role_label_assistant" msgid="456685142560727172">"Aplikacija pomoćnik"</string>
+    <string name="role_label_car_projection" msgid="3792929094325391213">"Apl. Projekcija u automobilu"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Napomena: ako ponovo pokrenete uređaj, a na njemu je postavljeno zaključavanje zaslona, ova se aplikacija ne može pokrenuti dok ne otključate uređaj."</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"Dijeli podatke o otklanjanju pogrešaka"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"Dijeliti detaljne podatke o otklanjanju pogrešaka?"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> želi prenijeti informacije o otklanjanju pogrešaka."</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Dijeli podatke o otklanjanju pogrešaka"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> zahtijeva prijenos izvješća o programskoj pogrešci s ovog uređaja od <xliff:g id="DATE">%2$s</xliff:g> u <xliff:g id="TIME">%3$s</xliff:g>. Izvješća o programskim pogreškama sadržavaju osobne podatke o uređaju ili one koje su zabilježile aplikacije, kao što su korisnička imena, podaci o lokaciji, alati za identifikaciju uređaja i podaci o mreži. Izvješća o programskim pogreškama dijelite samo s osobama i aplikacijama koje smatrate pouzdanima. Dopustiti aplikaciji <xliff:g id="APP_NAME_1">%4$s</xliff:g> prijenos izvješća o programskoj pogrešci?"</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Dopusti"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Odbij"</string>
 </resources>

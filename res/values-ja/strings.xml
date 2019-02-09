@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -114,17 +114,14 @@
     <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"使用頻度の高い権限（過去 15 分間）"</string>
     <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"使用頻度の高い権限（過去 1 分間）"</string>
     <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"アプリ"</string>
-    <!-- no translation found for app_permission_usage_filter_label (8700139296200468389) -->
-    <skip />
-    <!-- no translation found for app_permission_usage_remove_filter (2046234519591857627) -->
-    <skip />
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"フィルタ: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"フィルタを削除"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"フィルタ条件"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"権限で絞り込む"</string>
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"権限数の多い順"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"アクセス数の多い順"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"最近"</string>
-    <!-- no translation found for permission_usage_refresh (2182775682810005148) -->
-    <skip />
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"更新"</string>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"アプリの権限の使用"</string>
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"アクセス: <xliff:g id="NUM">%1$s</xliff:g> 回。合計時間: <xliff:g id="DURATION">%2$s</xliff:g>。前回の使用: <xliff:g id="TIME">%3$s</xliff:g>前。"</string>
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"アクセス: <xliff:g id="NUM">%1$s</xliff:g> 回。前回の使用: <xliff:g id="TIME">%2$s</xliff:g>前。"</string>
@@ -137,11 +134,9 @@
     <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="APP">%1$s</xliff:g>が <xliff:g id="TIME">%3$s</xliff:g>前に<xliff:g id="PERM">%2$s</xliff:g>にアクセスしました。"</string>
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> はユーザーの<xliff:g id="PERM">%2$s</xliff:g>にはアクセスしていません。"</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"権限の使用に関する詳細を表示"</string>
-    <!-- no translation found for app_permission_most_recent_summary (7435245857128891808) -->
-    <skip />
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"前回のアクセス: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="allowed_header" msgid="6279244592227088158">"許可"</string>
-    <!-- no translation found for allowed_foreground_header (7553595563464819175) -->
-    <skip />
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"使用中のみ許可"</string>
     <string name="denied_header" msgid="2277998574238617699">"拒否"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"詳細な使用状況を表示"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -165,22 +160,6 @@
     <string name="permission_reminders" msgid="8040710767178843151">"権限のリマインダー"</string>
     <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> は位置情報を使用しています"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"このアプリは常に位置情報にアクセスできます。設定を変更するにはタップしてください。"</string>
-    <string name="permission_justification_header" msgid="8855642235625782751">"アプリのデベロッパーは、以下の方法でユーザーデータを使用する可能性があります。"</string>
-    <string name="permission_justification_footer" msgid="4098097763461100468">"このアプリのデベロッパーにユーザーデータの使用を許可したくない場合は拒否してください。"</string>
-    <string name="permission_justification_info_intent" msgid="2896804844363380252">"詳細については、<xliff:g id="APP_NAME">%s</xliff:g> にアクセスしてください"</string>
-    <string name="permission_justification_data_sent_off_device" msgid="2503905652716735222">"クラウドにアップロードする"</string>
-    <string name="permission_justification_data_sent_off_device_user_triggered" msgid="4122793147247661083">"明示的に許可するとデータがクラウドにアップロードされます"</string>
-    <string name="permission_justification_data_shared_with_third_party" msgid="5249440580654050831">"広告主や企業に提供する"</string>
-    <string name="permission_justification_data_shared_with_third_party_user_triggered" msgid="2920721327430861150">"明示的に許可するとデータが広告主や企業に提供されます"</string>
-    <string name="permission_justification_data_used_for_monetization" msgid="3098933808750278119">"収益化に使用する"</string>
-    <string name="permission_justification_data_used_for_monetization_user_triggered" msgid="8264335769735917408">"明示的に許可するとデータが収益化に使用されます"</string>
-    <string name="permission_justification_data_retention_unlimited" msgid="3921406322987911863">"保存と分析を無期限で行う"</string>
-    <string name="permission_justification_data_retention_user_selected" msgid="7440816502916014127">"保存と分析を、ユーザーが指定した期間行う"</string>
-    <plurals name="permission_justification_data_retention_specified" formatted="false" msgid="4132895033914113182">
-      <item quantity="other">保存と分析を <xliff:g id="NUM_WEEKS">%s</xliff:g> 週間行う</item>
-      <item quantity="one">保存と分析を 1 週間行う</item>
-    </plurals>
-    <string name="permission_justification_undefined" msgid="5711347441966109267">"アプリのデベロッパーは、ユーザーデータをどのように使用するかを明確にしていません。"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"アプリが使用中の場合のみ"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"許可されている権限はありません"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"許可されていない権限はありません"</string>
@@ -205,10 +184,18 @@
     <string name="role_label_music" msgid="5900245414865932272">"音楽アプリ"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"ギャラリー アプリ"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"運転モード電話アプリ"</string>
-    <string name="role_label_proxy_calling" msgid="2432073053878466863">"プロキシ呼び出しアプリ"</string>
+    <!-- no translation found for role_label_call_redirection (8902197181113231577) -->
+    <skip />
     <string name="role_label_call_screening" msgid="411212589764916370">"通話スクリーニング アプリ"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"通話コンパニオン アプリ"</string>
-    <!-- no translation found for role_label_assistant (456685142560727172) -->
-    <skip />
+    <string name="role_label_assistant" msgid="456685142560727172">"アシストアプリ"</string>
+    <string name="role_label_car_projection" msgid="3792929094325391213">"車での投影アプリ"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"注: デバイスを再起動したときに画面ロックが設定されている場合は、デバイスのロックを解除するまでこのアプリを起動できません。"</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"デバッグデータの共有"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"詳細なデバッグデータを共有しますか？"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> がデバッグ情報のアップロードをリクエストしています。"</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"デバッグデータの共有"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> が、<xliff:g id="DATE">%2$s</xliff:g>、<xliff:g id="TIME">%3$s</xliff:g>にこのデバイスから取得したバグレポートのアップロードをリクエストしています。バグレポートには、ユーザー名、位置情報、デバイスの識別情報、ネットワーク情報など、デバイスに関する個人情報やアプリで記録された個人情報が含まれます。この情報を含むバグレポートは、信頼できる人やアプリとのみ共有してください。<xliff:g id="APP_NAME_1">%4$s</xliff:g> にバグレポートのアップロードを許可しますか？"</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"許可"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"許可しない"</string>
 </resources>

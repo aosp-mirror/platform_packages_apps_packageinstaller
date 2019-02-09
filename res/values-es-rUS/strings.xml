@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -114,17 +114,14 @@
     <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"Permisos más usados en los últimos 15 minutos"</string>
     <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"Permisos más usados en el último minuto"</string>
     <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"Apps"</string>
-    <!-- no translation found for app_permission_usage_filter_label (8700139296200468389) -->
-    <skip />
-    <!-- no translation found for app_permission_usage_remove_filter (2046234519591857627) -->
-    <skip />
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Filtrado por: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"Quitar filtro"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"Filtrar por"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Filtrar por permisos"</string>
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Mayor cantidad de permisos"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Mayor cantidad de accesos"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"Recientes"</string>
-    <!-- no translation found for permission_usage_refresh (2182775682810005148) -->
-    <skip />
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"Actualizar"</string>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"Uso de permisos de la app"</string>
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"Acceso: <xliff:g id="NUM">%1$s</xliff:g> veces Duración total: <xliff:g id="DURATION">%2$s</xliff:g>. Último uso: hace <xliff:g id="TIME">%3$s</xliff:g>"</string>
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Acceso: <xliff:g id="NUM">%1$s</xliff:g> veces Último uso: hace <xliff:g id="TIME">%2$s</xliff:g>"</string>
@@ -137,11 +134,9 @@
     <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="APP">%1$s</xliff:g> accedió a tu <xliff:g id="PERM">%2$s</xliff:g> hace <xliff:g id="TIME">%3$s</xliff:g>."</string>
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> no accedió a <xliff:g id="PERM">%2$s</xliff:g>."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Ver uso de permisos detallado"</string>
-    <!-- no translation found for app_permission_most_recent_summary (7435245857128891808) -->
-    <skip />
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Último acceso: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Permitidos"</string>
-    <!-- no translation found for allowed_foreground_header (7553595563464819175) -->
-    <skip />
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"Permitidos solo durante el uso"</string>
     <string name="denied_header" msgid="2277998574238617699">"Rechazados"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"Ver uso detallado"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -165,22 +160,6 @@
     <string name="permission_reminders" msgid="8040710767178843151">"Recordatorios de permisos"</string>
     <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> ha estado usando tu ubicación"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Esta app puede acceder a tu ubicación en todo momento. Presiona para cambiar el permiso."</string>
-    <string name="permission_justification_header" msgid="8855642235625782751">"El desarrollador de la app menciona las siguientes posibilidades para tus datos:"</string>
-    <string name="permission_justification_footer" msgid="4098097763461100468">"Si no te gusta la manera en que el desarrollador de esta app usa tus datos, puedes denegar el permiso."</string>
-    <string name="permission_justification_info_intent" msgid="2896804844363380252">"Para obtener más información, accede a <xliff:g id="APP_NAME">%s</xliff:g>."</string>
-    <string name="permission_justification_data_sent_off_device" msgid="2503905652716735222">"Se suben a la nube"</string>
-    <string name="permission_justification_data_sent_off_device_user_triggered" msgid="4122793147247661083">"Se suben a la nube cuando lo permites explícitamente"</string>
-    <string name="permission_justification_data_shared_with_third_party" msgid="5249440580654050831">"Se comparten con anunciantes o empresas"</string>
-    <string name="permission_justification_data_shared_with_third_party_user_triggered" msgid="2920721327430861150">"Se comparten con anunciantes o empresas cuando lo permites explícitamente"</string>
-    <string name="permission_justification_data_used_for_monetization" msgid="3098933808750278119">"Se usan para monetización"</string>
-    <string name="permission_justification_data_used_for_monetization_user_triggered" msgid="8264335769735917408">"Se usan para monetización cuando lo permites explícitamente"</string>
-    <string name="permission_justification_data_retention_unlimited" msgid="3921406322987911863">"Se guardan y se analizan por siempre"</string>
-    <string name="permission_justification_data_retention_user_selected" msgid="7440816502916014127">"Se guardan y se analizan durante el tiempo que especifiques"</string>
-    <plurals name="permission_justification_data_retention_specified" formatted="false" msgid="4132895033914113182">
-      <item quantity="other">Se guardan y se analizan durante <xliff:g id="NUM_WEEKS">%s</xliff:g> semanas</item>
-      <item quantity="one">Se guardan y se analizan durante 1 semana</item>
-    </plurals>
-    <string name="permission_justification_undefined" msgid="5711347441966109267">"El desarrollador de la app no especificó la manera en que la app usa tus datos."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Solo cuando la app está en uso"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"No se otorgó ningún permiso"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"No se rechazó ningún permiso"</string>
@@ -205,10 +184,18 @@
     <string name="role_label_music" msgid="5900245414865932272">"App de Música"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"App de Galería"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"App de teléfono en modo auto"</string>
-    <string name="role_label_proxy_calling" msgid="2432073053878466863">"App de llamadas a proxy"</string>
+    <!-- no translation found for role_label_call_redirection (8902197181113231577) -->
+    <skip />
     <string name="role_label_call_screening" msgid="411212589764916370">"App de filtro de llamadas"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"App de llamadas complementaria"</string>
-    <!-- no translation found for role_label_assistant (456685142560727172) -->
-    <skip />
+    <string name="role_label_assistant" msgid="456685142560727172">"Aplicación de asistencia"</string>
+    <string name="role_label_car_projection" msgid="3792929094325391213">"App de proyección del auto"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Nota: Si reinicias el dispositivo y tienes configurado un bloqueo de pantalla, no podrá iniciarse la app hasta que lo desbloquees."</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"Compartir datos de depuración"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"¿Compartir datos detallados de depuración?"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> quiere subir información de depuración."</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Compartir datos de depuración"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> solicita subir un informe de errores de este dispositivo generado el <xliff:g id="DATE">%2$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g>. Los informes de errores pueden incluir información personal sobre tu dispositivo o registrada por apps, como nombres de usuario, datos de ubicación, identificadores del dispositivo y datos de red. Solo debes compartir los informes de errores con personas y apps de confianza. ¿Permitir que <xliff:g id="APP_NAME_1">%4$s</xliff:g> suba un informe de errores?"</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Permitir"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Denegar"</string>
 </resources>

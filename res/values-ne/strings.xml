@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -114,17 +114,14 @@
     <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"पछिल्लो १५ मिनेटमा सबैभन्दा बढी प्रयोग गरिएको अनुमति"</string>
     <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"पछिल्लो १ मिनेटमा सबैभन्दा बढी प्रयोग गरिएको अनुमति"</string>
     <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"अनुप्रयोगहरू"</string>
-    <!-- no translation found for app_permission_usage_filter_label (8700139296200468389) -->
-    <skip />
-    <!-- no translation found for app_permission_usage_remove_filter (2046234519591857627) -->
-    <skip />
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"यसअनुसार फिल्टर गरिएको: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"फिल्टर हटाउनुहोस्"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"यसअनुसार फिल्टर गर्नुहोस्"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"अनुमतिअनुसार फिल्टर गर्नुहोस्"</string>
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"सबैभन्दा धेेरै प्रयोग गरिएको अनुमति"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"सबैभन्दा धेरै पटक पहुँच राखिएको"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"हालसालैका"</string>
-    <!-- no translation found for permission_usage_refresh (2182775682810005148) -->
-    <skip />
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"पुनः ताजा गर्नुहोस्"</string>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"अनुप्रयोगको अनुमतिको उपयोग"</string>
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"पहुँच: <xliff:g id="NUM">%1$s</xliff:g> पटक। कुल समय: <xliff:g id="DURATION">%2$s</xliff:g>। पछिल्लो पटक <xliff:g id="TIME">%3$s</xliff:g> अघि प्रयोग गरिएको।"</string>
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"पहुँच: <xliff:g id="NUM">%1$s</xliff:g> पटक। पछिल्लो पटक <xliff:g id="TIME">%2$s</xliff:g> अघि प्रयोग गरिएको।"</string>
@@ -137,11 +134,9 @@
     <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="APP">%1$s</xliff:g> ले <xliff:g id="TIME">%3$s</xliff:g> पहिले तपाईंको <xliff:g id="PERM">%2$s</xliff:g> माथि पहुँच राख्यो।"</string>
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g>तपाईंको <xliff:g id="PERM">%2$s</xliff:g>माथि पहुँच राखेको छैन।"</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"अनुमतिको विस्तृत उपयोग हेर्नुहोस्"</string>
-    <!-- no translation found for app_permission_most_recent_summary (7435245857128891808) -->
-    <skip />
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"पछिल्लो पटक पहुँच राखिएको समय: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="allowed_header" msgid="6279244592227088158">"अनुमति दिइएको"</string>
-    <!-- no translation found for allowed_foreground_header (7553595563464819175) -->
-    <skip />
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"प्रयोगमा भएका बेला मात्र अनुमति दिइन्छ"</string>
     <string name="denied_header" msgid="2277998574238617699">"अस्वीकार गरिएको"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"उयोगसम्बन्धी विस्तृत जानकारी हेर्नुहोस्"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -165,22 +160,6 @@
     <string name="permission_reminders" msgid="8040710767178843151">"अनुमतिसम्बन्धी रिमाइन्डरहरू"</string>
     <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> ले तपाईंको स्थान प्रयोग गरिरहेको छ"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"यो अनुप्रयोगले सधैँ तपाईंको स्थान प्रयोग गर्न सक्छ। बदल्न ट्याप गर्नुहोस्‌।"</string>
-    <string name="permission_justification_header" msgid="8855642235625782751">"अनुप्रयोगको विकासकर्ताले भनेअनुसार तपाईंको डेटा निम्न प्रयोजनका लागि प्रयोग गर्न सकिन्छ:"</string>
-    <string name="permission_justification_footer" msgid="4098097763461100468">"तपाईंलार्इ यो अनुप्रयोगका विकासकर्ताले तपाईंको डेटा प्रयोग गर्ने तरिका मन पर्दैन भने तपाईं अनुमति नदिन सक्नुहुन्छ।"</string>
-    <string name="permission_justification_info_intent" msgid="2896804844363380252">"थप जानकारीका लागि <xliff:g id="APP_NAME">%s</xliff:g> मा जानुहोस्।"</string>
-    <string name="permission_justification_data_sent_off_device" msgid="2503905652716735222">"क्लाउडमा अपलोड गरिएको"</string>
-    <string name="permission_justification_data_sent_off_device_user_triggered" msgid="4122793147247661083">"तपाईंले स्पष्ट रूपमा अनुमति दिँदा क्लाउडमा अनलोड गरिन्छ"</string>
-    <string name="permission_justification_data_shared_with_third_party" msgid="5249440580654050831">"विज्ञापनदाता र व्यवसायसँग आदान प्रदान गरिन्छ"</string>
-    <string name="permission_justification_data_shared_with_third_party_user_triggered" msgid="2920721327430861150">"तपाईंले स्पष्ट रूपमा अनुमति दिँदा विज्ञापनदाता र व्यवसायसँग आदान प्रदान गरिन्छ"</string>
-    <string name="permission_justification_data_used_for_monetization" msgid="3098933808750278119">"मुद्रीकरणका लागि प्रयोग गरिएको"</string>
-    <string name="permission_justification_data_used_for_monetization_user_triggered" msgid="8264335769735917408">"तपाईंले स्पष्ट रूपमा अनुमति दिँदा मुद्रीकरणका लागि प्रयोग गरिन्छ।"</string>
-    <string name="permission_justification_data_retention_unlimited" msgid="3921406322987911863">"सधैँका लागि सुरक्षित र विश्लेषण गरिन्छ"</string>
-    <string name="permission_justification_data_retention_user_selected" msgid="7440816502916014127">"तपाईंले तोक्नुभएको अवधिका लागि सुरक्षित र विश्लेषण गरिएको"</string>
-    <plurals name="permission_justification_data_retention_specified" formatted="false" msgid="4132895033914113182">
-      <item quantity="other"> <xliff:g id="NUM_WEEKS">%s</xliff:g> हप्ताका लागि सुरक्षित र विश्लेषण गरिएको</item>
-      <item quantity="one">१ हप्ताका लागि सुरक्षित र विश्लेषण गरिएको</item>
-    </plurals>
-    <string name="permission_justification_undefined" msgid="5711347441966109267">"उक्त अनुप्रयोगको विकासकर्ताले अनुप्रयोगले तपाईंको डेटा प्रयोग गर्ने तरिका तोकेका थिएनन्।"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"अनुप्रयोग प्रयोगमा भएको बेला मात्र"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"कुनै पनि अनुमति छैन"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"कुनै पनि अनुमति अस्वीकार गरिएको छैन"</string>
@@ -205,10 +184,18 @@
     <string name="role_label_music" msgid="5900245414865932272">"सङ्गीत अनुप्रयोग"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"ग्यालरी अनुप्रयोग"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"कार मोड नामक फोन अनुप्रयोग"</string>
-    <string name="role_label_proxy_calling" msgid="2432073053878466863">"प्रोक्सी कल गर्ने अनुप्रयोग"</string>
+    <!-- no translation found for role_label_call_redirection (8902197181113231577) -->
+    <skip />
     <string name="role_label_call_screening" msgid="411212589764916370">"कललाई स्क्रिनमा देखाउने अनुप्रयोग"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"सहयोगी अनुप्रयोगलाई कल गर्नु…"</string>
-    <!-- no translation found for role_label_assistant (456685142560727172) -->
-    <skip />
+    <string name="role_label_assistant" msgid="456685142560727172">"सहायक अनुप्रयोग"</string>
+    <string name="role_label_car_projection" msgid="3792929094325391213">"कारको प्रोजेक्सनको अनुप्रयोग"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"टिपोट: तपाईंले आफ्नो यन्त्र पुनः सुरु गर्नुभयो र त्यसमा स्क्रिन लक सेट गरिएको छ भने तपाईंले आफ्नो यन्त्र अनलक नगरेसम्म यो अनुप्रयोग सुरु हुन सक्दैन।"</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"डिबग प्रक्रियासम्बन्धी डेटा आदान प्रदान गर्नुहोस्"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"डिबग प्रक्रियाको विस्तृत डेटा आदान प्रदान गर्ने?"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> डिबग प्रक्रियासम्बन्धी जानकारी अपलोड गर्न चाहन्छ।"</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"डिबग प्रक्रियासम्बन्धी डेटा आदान प्रदान गर्नुहोस्"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> ले <xliff:g id="DATE">%2$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g> मा यो यन्त्रबाट लिएको बगको रिपोर्ट अपलोड गर्ने अनुरोध गर्दै छ। बग रिपोर्टमा प्रयोगकर्ताका नाम, स्ठानसम्बन्धी डेटा, यन्त्रका पहिचानकर्ता र नेटवर्कसम्बन्धी जानकारी जस्ता तपाईंको यन्त्रको व्यक्तिगत जानकारी वा अनुप्रयोगले लग गरेको जानकारी समावेश छ। तपाईंलाई यो जानकारी दिँदा फरक पर्दैन जस्तो लाग्ने विश्वसनीय मान्छे वा अनुप्रयोगसँग मात्र बग रिपोर्टहरू आदान प्रदान गर्नुहोस्। <xliff:g id="APP_NAME_1">%4$s</xliff:g> लाई बग रिपोर्ट अपलोड गर्न दिने हो?"</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"अनुमति दिनुहोस्"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"अनुमति नदिनुहोस्"</string>
 </resources>
