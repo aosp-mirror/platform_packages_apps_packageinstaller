@@ -379,7 +379,7 @@
 
     <!--- @see android.telecom.InCallService -->
     <role
-        name="android.app.role.CAR_MODE_DIALER_APP"
+        name="android.app.role.CAR_MODE_DIALER"
         exclusive="true"
         label="@string/role_label_car_mode_dialer">
         <required-components>
@@ -398,9 +398,9 @@
 
     <!--- @see android.telecom.CallRedirectionService -->
     <role
-        name="android.app.role.PROXY_CALLING_APP"
+        name="android.app.role.CALL_REDIRECTION"
         exclusive="true"
-        label="@string/role_label_proxy_calling">
+        label="@string/role_label_call_redirection">
         <required-components>
             <service permission="android.permission.BIND_CALL_REDIRECTION_SERVICE">
                 <intent-filter>
@@ -412,7 +412,7 @@
 
     <!--- @see android.telecom.CallScreeningService -->
     <role
-        name="android.app.role.CALL_SCREENING_APP"
+        name="android.app.role.CALL_SCREENING"
         exclusive="true"
         label="@string/role_label_call_screening">
         <required-components>
@@ -426,7 +426,7 @@
 
     <!--- @see android.telecom.InCallService -->
     <role
-        name="android.app.role.CALL_COMPANION_APP"
+        name="android.app.role.CALL_COMPANION"
         exclusive="false"
         label="@string/role_label_call_companion">
         <required-components>

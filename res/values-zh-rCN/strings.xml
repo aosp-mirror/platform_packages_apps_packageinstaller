@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -114,17 +114,14 @@
     <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"过去 15 分钟内常用权限的使用频率"</string>
     <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"过去 1 分钟内常用权限的使用频率"</string>
     <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"应用"</string>
-    <!-- no translation found for app_permission_usage_filter_label (8700139296200468389) -->
-    <skip />
-    <!-- no translation found for app_permission_usage_remove_filter (2046234519591857627) -->
-    <skip />
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"过滤条件：<xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"移除过滤条件"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"过滤条件"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"按权限过滤"</string>
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"使用的权限数量最多"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"访问次数最多"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"最近"</string>
-    <!-- no translation found for permission_usage_refresh (2182775682810005148) -->
-    <skip />
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"刷新"</string>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"应用权限使用情况"</string>
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"访问次数：<xliff:g id="NUM">%1$s</xliff:g> 次。总时长：<xliff:g id="DURATION">%2$s</xliff:g>。上次使用时间：<xliff:g id="TIME">%3$s</xliff:g>前。"</string>
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"访问次数：<xliff:g id="NUM">%1$s</xliff:g> 次。上次使用时间：<xliff:g id="TIME">%2$s</xliff:g>前。"</string>
@@ -137,11 +134,9 @@
     <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g>前访问过您的<xliff:g id="PERM">%2$s</xliff:g>。"</string>
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g>尚未取得您的<xliff:g id="PERM">%2$s</xliff:g>访问权限。"</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"查看权限使用情况详情"</string>
-    <!-- no translation found for app_permission_most_recent_summary (7435245857128891808) -->
-    <skip />
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"上次访问时间：<xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="allowed_header" msgid="6279244592227088158">"已允许"</string>
-    <!-- no translation found for allowed_foreground_header (7553595563464819175) -->
-    <skip />
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"仅在使用时允许"</string>
     <string name="denied_header" msgid="2277998574238617699">"已拒绝"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"查看详细的使用情况信息"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -165,22 +160,6 @@
     <string name="permission_reminders" msgid="8040710767178843151">"权限提醒"</string>
     <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g>一直在使用您的位置信息"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"此应用随时可以使用您的位置信息。点按即可更改。"</string>
-    <string name="permission_justification_header" msgid="8855642235625782751">"应用开发者表示可能会将您的数据："</string>
-    <string name="permission_justification_footer" msgid="4098097763461100468">"如果您对此应用开发者使用您数据的方式不满，可以拒绝授予权限。"</string>
-    <string name="permission_justification_info_intent" msgid="2896804844363380252">"转到<xliff:g id="APP_NAME">%s</xliff:g>查看更多信息。"</string>
-    <string name="permission_justification_data_sent_off_device" msgid="2503905652716735222">"上传到云端"</string>
-    <string name="permission_justification_data_sent_off_device_user_triggered" msgid="4122793147247661083">"在获得您明确授权后将数据上传到云端"</string>
-    <string name="permission_justification_data_shared_with_third_party" msgid="5249440580654050831">"与广告客户或商家分享您的数据"</string>
-    <string name="permission_justification_data_shared_with_third_party_user_triggered" msgid="2920721327430861150">"在获得您明确授权后与广告客户或商家分享您的数据"</string>
-    <string name="permission_justification_data_used_for_monetization" msgid="3098933808750278119">"用于盈利"</string>
-    <string name="permission_justification_data_used_for_monetization_user_triggered" msgid="8264335769735917408">"在获得您明确授权后将数据用于盈利"</string>
-    <string name="permission_justification_data_retention_unlimited" msgid="3921406322987911863">"无限期保存及分析数据"</string>
-    <string name="permission_justification_data_retention_user_selected" msgid="7440816502916014127">"保存及进行分析（在您指定的时间内）"</string>
-    <plurals name="permission_justification_data_retention_specified" formatted="false" msgid="4132895033914113182">
-      <item quantity="other">保存及进行分析（在 <xliff:g id="NUM_WEEKS">%s</xliff:g> 周内）</item>
-      <item quantity="one">保存及进行分析（在 1 周内）</item>
-    </plurals>
-    <string name="permission_justification_undefined" msgid="5711347441966109267">"应用开发者未指定这个应用使用您数据的方式。"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"仅在使用该应用期间允许"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"未允许任何权限"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"未拒绝任何权限"</string>
@@ -205,10 +184,18 @@
     <string name="role_label_music" msgid="5900245414865932272">"音乐应用"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"图库应用"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"车载模式手机应用"</string>
-    <string name="role_label_proxy_calling" msgid="2432073053878466863">"代理通话应用"</string>
+    <!-- no translation found for role_label_call_redirection (8902197181113231577) -->
+    <skip />
     <string name="role_label_call_screening" msgid="411212589764916370">"选接电话应用"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"通话配套应用"</string>
-    <!-- no translation found for role_label_assistant (456685142560727172) -->
-    <skip />
+    <string name="role_label_assistant" msgid="456685142560727172">"辅助应用"</string>
+    <string name="role_label_car_projection" msgid="3792929094325391213">"汽车投影应用"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"注意：如果您重启设备并设置了屏幕锁定，则必须将设备解锁才能运行此应用。"</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"分享调试数据"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"是否分享详细调试数据？"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g>请求上传调试信息。"</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"分享调试数据"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g>正在请求上传此设备在 <xliff:g id="DATE">%2$s</xliff:g><xliff:g id="TIME">%3$s</xliff:g> 获取的错误报告。错误报告包含与您设备有关或由应用记录的个人信息，例如：用户名、位置数据、设备标识符和网络信息。请务必只与您认为可以向其透露这些信息的人和应用分享错误报告。是否允许<xliff:g id="APP_NAME_1">%4$s</xliff:g>上传错误报告？"</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"允许"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"拒绝"</string>
 </resources>

@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -114,17 +114,14 @@
     <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"Користење најчести дозволи во последните 15 минути"</string>
     <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"Користење најчести дозволи во последната 1 минута"</string>
     <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"Апликации"</string>
-    <!-- no translation found for app_permission_usage_filter_label (8700139296200468389) -->
-    <skip />
-    <!-- no translation found for app_permission_usage_remove_filter (2046234519591857627) -->
-    <skip />
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Филтрирано според: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"Отстрани го филтерот"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"Филтрирајте според"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Филтрирај според дозволите"</string>
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Најмногу дозволи"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Најмногу пристапи"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"Неодамнешни"</string>
-    <!-- no translation found for permission_usage_refresh (2182775682810005148) -->
-    <skip />
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"Освежи"</string>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"Дозволи за апликација"</string>
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"Пристап: <xliff:g id="NUM">%1$s</xliff:g> пати. Вкупно времетраење: <xliff:g id="DURATION">%2$s</xliff:g>. Последно користење пред <xliff:g id="TIME">%3$s</xliff:g>."</string>
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Пристап: <xliff:g id="NUM">%1$s</xliff:g> пати. Последно користење пред <xliff:g id="TIME">%2$s</xliff:g>."</string>
@@ -137,11 +134,9 @@
     <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="APP">%1$s</xliff:g> пристапи до <xliff:g id="PERM">%2$s</xliff:g> пред <xliff:g id="TIME">%3$s</xliff:g>."</string>
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> не пристапила до вашата <xliff:g id="PERM">%2$s</xliff:g>."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Прегледајте го деталното користење на дозволите"</string>
-    <!-- no translation found for app_permission_most_recent_summary (7435245857128891808) -->
-    <skip />
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Последен пристап: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Дозволени"</string>
-    <!-- no translation found for allowed_foreground_header (7553595563464819175) -->
-    <skip />
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"Дозволени само кога се користат"</string>
     <string name="denied_header" msgid="2277998574238617699">"Одбиени"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"Прикажи го деталното користење"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -165,22 +160,6 @@
     <string name="permission_reminders" msgid="8040710767178843151">"Потсетници за дозволата"</string>
     <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> ја користи вашата локација"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Апликацијава секогаш може да пристапува до вашата локација. Допрете за да го промените тоа."</string>
-    <string name="permission_justification_header" msgid="8855642235625782751">"Програмерот на апликацијата вели дека вашите податоци може да:"</string>
-    <string name="permission_justification_footer" msgid="4098097763461100468">"Ако не ви се допаѓа како програмеров на аликацијата ги користи вашите податоци, може да ја одбиете дозволата."</string>
-    <string name="permission_justification_info_intent" msgid="2896804844363380252">"Одете на <xliff:g id="APP_NAME">%s</xliff:g> за повеќе информации."</string>
-    <string name="permission_justification_data_sent_off_device" msgid="2503905652716735222">"се прикачуваат во облак"</string>
-    <string name="permission_justification_data_sent_off_device_user_triggered" msgid="4122793147247661083">"се прикачуваат во облак кога експлицитно ќе го дозволите тоа"</string>
-    <string name="permission_justification_data_shared_with_third_party" msgid="5249440580654050831">"се споделуваат со огласувачи и бизниси"</string>
-    <string name="permission_justification_data_shared_with_third_party_user_triggered" msgid="2920721327430861150">"се споделуваат со огласувачи и бизниси кога експлицитно ќе го дозволите тоа"</string>
-    <string name="permission_justification_data_used_for_monetization" msgid="3098933808750278119">"се користат за монетаризација"</string>
-    <string name="permission_justification_data_used_for_monetization_user_triggered" msgid="8264335769735917408">"се користат за монетаризација кога експлицитно ќе го дозволите тоа"</string>
-    <string name="permission_justification_data_retention_unlimited" msgid="3921406322987911863">"се зачувуваат и анализираат засекогаш"</string>
-    <string name="permission_justification_data_retention_user_selected" msgid="7440816502916014127">"се зачувуваат и анализираат во времето што ќе го определите"</string>
-    <plurals name="permission_justification_data_retention_specified" formatted="false" msgid="4132895033914113182">
-      <item quantity="one">се зачувуваат и анализираат <xliff:g id="NUM_WEEKS">%s</xliff:g> седмица</item>
-      <item quantity="other">се зачувуваат и анализираат <xliff:g id="NUM_WEEKS">%s</xliff:g> седмици</item>
-    </plurals>
-    <string name="permission_justification_undefined" msgid="5711347441966109267">"Програмерот на апликацијата не назначил како апликацијата ги користи вашите податоци."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Само додека се користи апликацијата"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Нема овозможени дозволи"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Нема одбиени дозволи"</string>
@@ -205,10 +184,18 @@
     <string name="role_label_music" msgid="5900245414865932272">"Апликација за музика"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"Апликација за галерија"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"Телефонска апликација Car mode"</string>
-    <string name="role_label_proxy_calling" msgid="2432073053878466863">"Аплик. за повикување прокси"</string>
+    <!-- no translation found for role_label_call_redirection (8902197181113231577) -->
+    <skip />
     <string name="role_label_call_screening" msgid="411212589764916370">"Аплик. за проверка на повици"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"Повикај придружна апликација"</string>
-    <!-- no translation found for role_label_assistant (456685142560727172) -->
-    <skip />
+    <string name="role_label_assistant" msgid="456685142560727172">"Апликација за помош"</string>
+    <string name="role_label_car_projection" msgid="3792929094325391213">"Апликација Car Projection"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Забелешка: Ако го рестартирате уредот, а имате поставено заклучување на екранот, апликацијава нема да може да се стартува додека не го отклучите уредот."</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"Споделете податоци за отстранување грешки"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"Да се споделат податоци за отстранување грешки?"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> сака да прикачи информации за отстранување грешки."</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Споделете податоци за отстранување грешки"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> бара да прикачи извештај за грешка од уредов снимен на <xliff:g id="DATE">%2$s</xliff:g> во <xliff:g id="TIME">%3$s</xliff:g>. Извештаите за грешки вклучуваат лични информации за вашиот уред или пак информации евидентирани од апликациите, на пр., кориснички имиња, податоци за локацијата, идентификатори на уредот и информации за мрежата. Споделувајте извештаи за грешки само со луѓе и апликации во кои имате доверба кога станува збор за овие информации. Да ѝ се дозволи на <xliff:g id="APP_NAME_1">%4$s</xliff:g> да прикачи извештај за грешка?"</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Дозволи"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Одбиј"</string>
 </resources>

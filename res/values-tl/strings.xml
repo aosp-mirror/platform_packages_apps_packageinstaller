@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -114,17 +114,14 @@
     <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"Pinakamadalas gamiting pahintulot sa huling 15 min"</string>
     <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"Pinakamadalas gamiting pahintulot sa huling 1 oras"</string>
     <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"Mga App"</string>
-    <!-- no translation found for app_permission_usage_filter_label (8700139296200468389) -->
-    <skip />
-    <!-- no translation found for app_permission_usage_remove_filter (2046234519591857627) -->
-    <skip />
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Na-filter ng: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"Alisin ang filter"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"I-filter ayon sa"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"I-filter ayon sa mga pahintulot"</string>
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Pinakamaraming pahintulot"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Pinakamaraming pag-access"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"Kamakailan Lang"</string>
-    <!-- no translation found for permission_usage_refresh (2182775682810005148) -->
-    <skip />
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"I-refresh"</string>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"Paggamit ng pahintulot sa app"</string>
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"Na-access nang: <xliff:g id="NUM">%1$s</xliff:g> (na) beses. Kabuuang tagal: <xliff:g id="DURATION">%2$s</xliff:g>. Huling ginamit <xliff:g id="TIME">%3$s</xliff:g> ang nakalipas."</string>
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Na-access nang: <xliff:g id="NUM">%1$s</xliff:g> (na) beses. Huling ginamit <xliff:g id="TIME">%2$s</xliff:g> ang nakalipas."</string>
@@ -137,11 +134,9 @@
     <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"Na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong <xliff:g id="PERM">%2$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g> ang nakalipas."</string>
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"Hindi na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong <xliff:g id="PERM">%2$s</xliff:g>."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Tingnan ang detalyadong paggamit sa mga pahintulot"</string>
-    <!-- no translation found for app_permission_most_recent_summary (7435245857128891808) -->
-    <skip />
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Huling na-access: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Pinapayagan"</string>
-    <!-- no translation found for allowed_foreground_header (7553595563464819175) -->
-    <skip />
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"Pinapayagan lang habang ginagamit"</string>
     <string name="denied_header" msgid="2277998574238617699">"Tinanggihan"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"Tingnan ang detalyadong paggamit"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -165,22 +160,6 @@
     <string name="permission_reminders" msgid="8040710767178843151">"Mga paalala sa pahintulot"</string>
     <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"Ginagamit ng <xliff:g id="APP_NAME">%s</xliff:g> ang iyong lokasyon"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Maa-access ng app na ito ang iyong lokasyon anumang oras. I-tap para baguhin."</string>
-    <string name="permission_justification_header" msgid="8855642235625782751">"Ayon sa developer ng app, ang iyong data ay maaaring:"</string>
-    <string name="permission_justification_footer" msgid="4098097763461100468">"Kung hindi mo gusto kung paano ginagamit ng developer ng app na ito ang iyong data, maaari mong tanggihan ang pahintulot."</string>
-    <string name="permission_justification_info_intent" msgid="2896804844363380252">"Pumunta sa <xliff:g id="APP_NAME">%s</xliff:g> para sa higit pang impormasyon."</string>
-    <string name="permission_justification_data_sent_off_device" msgid="2503905652716735222">"I-upload sa cloud"</string>
-    <string name="permission_justification_data_sent_off_device_user_triggered" msgid="4122793147247661083">"I-upload sa cloud kapag tahasan mo itong pinayagan"</string>
-    <string name="permission_justification_data_shared_with_third_party" msgid="5249440580654050831">"Ibahagi sa mga advertiser o negosyo"</string>
-    <string name="permission_justification_data_shared_with_third_party_user_triggered" msgid="2920721327430861150">"Ibahagi sa mga advertiser o negosyo kapag tahasan mo itong pinayagan"</string>
-    <string name="permission_justification_data_used_for_monetization" msgid="3098933808750278119">"Gamitin para sa monetization"</string>
-    <string name="permission_justification_data_used_for_monetization_user_triggered" msgid="8264335769735917408">"Gamitin para sa monetization kapag tahasan mo itong pinayagan"</string>
-    <string name="permission_justification_data_retention_unlimited" msgid="3921406322987911863">"I-save at suriin habambuhay"</string>
-    <string name="permission_justification_data_retention_user_selected" msgid="7440816502916014127">"I-save at suriin sa loob ng tagal ng panahong tutukuyin mo"</string>
-    <plurals name="permission_justification_data_retention_specified" formatted="false" msgid="4132895033914113182">
-      <item quantity="one">I-save at suriin sa loob ng <xliff:g id="NUM_WEEKS">%s</xliff:g> (na) linggo</item>
-      <item quantity="other">I-save at suriin sa loob ng <xliff:g id="NUM_WEEKS">%s</xliff:g> (na) linggo</item>
-    </plurals>
-    <string name="permission_justification_undefined" msgid="5711347441966109267">"Hindi tinukoy ng developer ng app kung paano gagamitin ng app ang iyong data."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Habang ginagamit lang ang app"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Walang pinayagang pahintulot"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Walang tinanggihang pahintulot"</string>
@@ -205,10 +184,18 @@
     <string name="role_label_music" msgid="5900245414865932272">"Music app"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"Gallery app"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"App na telepono ng car mode"</string>
-    <string name="role_label_proxy_calling" msgid="2432073053878466863">"Proxy na app sa pagtawag"</string>
+    <!-- no translation found for role_label_call_redirection (8902197181113231577) -->
+    <skip />
     <string name="role_label_call_screening" msgid="411212589764916370">"App ng pag-screen ng tawag"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"Kasamang app sa pagtawag"</string>
-    <!-- no translation found for role_label_assistant (456685142560727172) -->
-    <skip />
+    <string name="role_label_assistant" msgid="456685142560727172">"Assist app"</string>
+    <string name="role_label_car_projection" msgid="3792929094325391213">"Car Projection app"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Tandaan: Kung ire-restart mo ang iyong device at may nakatakdang lock ng screen, hindi makakapagsimula ang app na ito hanggang sa i-unlock mo ang iyong device."</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"Ibahagi ang Data sa Pag-debug"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"Ibahagi ang nakadetalyeng data sa pag-debug?"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"Gustong mag-upload ng <xliff:g id="APP_NAME">%1$s</xliff:g> ng impormasyon sa pag-debug."</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Ibahagi ang Data sa Pag-debug"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"Hinihiling ng <xliff:g id="APP_NAME_0">%1$s</xliff:g> na mag-upload ng ulat ng bug mula sa device na ito na kinuha noong <xliff:g id="DATE">%2$s</xliff:g> sa ganap na <xliff:g id="TIME">%3$s</xliff:g>. Kabilang sa mga ulat ng bug ang personal na impormasyon tungkol sa iyong device o naka-log ayon sa mga app, halimbawa, mga user name, data ng lokasyon, pagkakakilanlan ng device, at impormasyon ng network. Magbahagi lang ng mga ulat ng bug sa mga tao at app na pinagkakatiwalaan mo ng impormasyong ito. Payagan ang <xliff:g id="APP_NAME_1">%4$s</xliff:g> na mag-upload ng ulat ng bug?"</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Payagan"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Tanggihan"</string>
 </resources>

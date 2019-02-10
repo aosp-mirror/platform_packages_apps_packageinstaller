@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -114,17 +114,14 @@
     <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"Util. d\'autor. les plus pop. dans les 15 dern. min."</string>
     <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"Util. d\'autor. les plus popul. dans la dern. minute"</string>
     <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"Applis"</string>
-    <!-- no translation found for app_permission_usage_filter_label (8700139296200468389) -->
-    <skip />
-    <!-- no translation found for app_permission_usage_remove_filter (2046234519591857627) -->
-    <skip />
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Filtré par : <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"Supprimer le filtre"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"Filtrer par"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Filtrer par autorisation"</string>
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Le plus d\'autorisations"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Le plus d\'accès"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"Récents"</string>
-    <!-- no translation found for permission_usage_refresh (2182775682810005148) -->
-    <skip />
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"Actualiser"</string>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"Util. des autoris. de l\'appli"</string>
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"Accès : <xliff:g id="NUM">%1$s</xliff:g> fois. Durée totale : <xliff:g id="DURATION">%2$s</xliff:g>. Dernière utilisation : il y a <xliff:g id="TIME">%3$s</xliff:g>."</string>
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Accès : <xliff:g id="NUM">%1$s</xliff:g> fois. Dernière utilisation : il y a <xliff:g id="TIME">%2$s</xliff:g>."</string>
@@ -137,11 +134,9 @@
     <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="APP">%1$s</xliff:g> a accédé à votre <xliff:g id="PERM">%2$s</xliff:g> il y a <xliff:g id="TIME">%3$s</xliff:g>."</string>
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> n\'a pas accédé à votre <xliff:g id="PERM">%2$s</xliff:g>."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Afficher les autorisations d\'utilisation détaillées"</string>
-    <!-- no translation found for app_permission_most_recent_summary (7435245857128891808) -->
-    <skip />
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Dernier accès : <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Autorisée"</string>
-    <!-- no translation found for allowed_foreground_header (7553595563464819175) -->
-    <skip />
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"Autorisée seulement durant l\'utilisation"</string>
     <string name="denied_header" msgid="2277998574238617699">"Refusé"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"Afficher les détails d\'utilisation"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -165,22 +160,6 @@
     <string name="permission_reminders" msgid="8040710767178843151">"Rappels d\'autorisation"</string>
     <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> utilise l\'accès à votre position"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Cette application peut toujours accéder à votre position. Touchez l\'écran pour modifier cela."</string>
-    <string name="permission_justification_header" msgid="8855642235625782751">"Le concepteur de l\'application a indiqué que vos données pourrait être :"</string>
-    <string name="permission_justification_footer" msgid="4098097763461100468">"Si vous n\'aimez pas la manière dont ce concepteur utilise vos données, vous pouvez refuser d\'accorder l\'autorisation."</string>
-    <string name="permission_justification_info_intent" msgid="2896804844363380252">"Accéder à <xliff:g id="APP_NAME">%s</xliff:g> pour en savoir plus."</string>
-    <string name="permission_justification_data_sent_off_device" msgid="2503905652716735222">"Téléversées vers le nuage"</string>
-    <string name="permission_justification_data_sent_off_device_user_triggered" msgid="4122793147247661083">"Téléversées vers le nuage lorsque vous l\'autorisez explicitement"</string>
-    <string name="permission_justification_data_shared_with_third_party" msgid="5249440580654050831">"Partagées avec les annonceurs ou les entreprises"</string>
-    <string name="permission_justification_data_shared_with_third_party_user_triggered" msgid="2920721327430861150">"Partagées avec les annonceurs ou les entreprises lorsque vous le définissez explicitement"</string>
-    <string name="permission_justification_data_used_for_monetization" msgid="3098933808750278119">"Utilisée pour la monétisation"</string>
-    <string name="permission_justification_data_used_for_monetization_user_triggered" msgid="8264335769735917408">"Utilisées pour la monétisation lorsque vous l\'autorisez explicitement"</string>
-    <string name="permission_justification_data_retention_unlimited" msgid="3921406322987911863">"Enregistrées et analysées pour toujours"</string>
-    <string name="permission_justification_data_retention_user_selected" msgid="7440816502916014127">"Enregistrées et analysées pour une durée que vous spécifiez"</string>
-    <plurals name="permission_justification_data_retention_specified" formatted="false" msgid="4132895033914113182">
-      <item quantity="one">Enregistrées et analysées pendant <xliff:g id="NUM_WEEKS">%s</xliff:g> semaine</item>
-      <item quantity="other">Enregistrées et analysées pendant <xliff:g id="NUM_WEEKS">%s</xliff:g> semai​nes</item>
-    </plurals>
-    <string name="permission_justification_undefined" msgid="5711347441966109267">"Le concepteur de l\'application n\'a pas indiqué comment celle-ci utilise vos données."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Uniquement lorsque l\'application est en cours d\'utilisation"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Aucune autorisation accordée"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Aucune autorisation refusée"</string>
@@ -205,10 +184,18 @@
     <string name="role_label_music" msgid="5900245414865932272">"Application de musique"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"Application de galerie"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"Appli tél. pour mode Voiture"</string>
-    <string name="role_label_proxy_calling" msgid="2432073053878466863">"Appli d\'appels mandataires"</string>
+    <!-- no translation found for role_label_call_redirection (8902197181113231577) -->
+    <skip />
     <string name="role_label_call_screening" msgid="411212589764916370">"Appli de filtrage des appels"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"Application compagnon d\'appel"</string>
-    <!-- no translation found for role_label_assistant (456685142560727172) -->
-    <skip />
+    <string name="role_label_assistant" msgid="456685142560727172">"Application d\'assistance"</string>
+    <string name="role_label_car_projection" msgid="3792929094325391213">"Appli de projection automobile"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Remarque : Si vous redémarrez votre appareil et que vous avez défini un verrouillage de l\'écran, cette application ne pourra pas démarrer tant que vous n\'avez pas déverrouillé votre appareil"</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"Partager les données de débogage"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"Partager des données de débogage détaillées?"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> souhaite téléverser des données de débogage."</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Partager les données de débogage"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"L\'application <xliff:g id="APP_NAME_0">%1$s</xliff:g> souhaite téléverser un rapport de bogue créé le <xliff:g id="DATE">%2$s</xliff:g> à <xliff:g id="TIME">%3$s</xliff:g> sur cet appareil. Les rapports de bogue contiennent des données personnelles relatives à votre appareil ou enregistrées par des applications, comme des noms d\'utilisateur, des données de localisation, des identifiants d\'appareils et des renseignements relatifs au réseau. Ne partagez les rapports de bogue qu\'avec des personnes et des applications que vous jugez fiables. Autoriser l\'application <xliff:g id="APP_NAME_1">%4$s</xliff:g> à téléverser un rapport de bogue?"</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Autoriser"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Refuser"</string>
 </resources>

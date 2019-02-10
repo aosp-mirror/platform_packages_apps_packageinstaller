@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -116,17 +116,14 @@
     <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"Najviac používané povolenia za posledných 15 minút"</string>
     <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"Najviac používané povolenia za poslednú minútu"</string>
     <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"Aplikácie"</string>
-    <!-- no translation found for app_permission_usage_filter_label (8700139296200468389) -->
-    <skip />
-    <!-- no translation found for app_permission_usage_remove_filter (2046234519591857627) -->
-    <skip />
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Filtrované podľa: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"Odstrániť filter"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"Filtrovať podľa"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Filtrovať podľa povolení"</string>
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Najviac povolení"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Najviac prístupov"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"Nedávne"</string>
-    <!-- no translation found for permission_usage_refresh (2182775682810005148) -->
-    <skip />
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"Obnoviť"</string>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"Využitie povolení aplikácie"</string>
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"Prístup: <xliff:g id="NUM">%1$s</xliff:g>‑krát. Celkové trvanie: <xliff:g id="DURATION">%2$s</xliff:g>. Naposledy použité pred <xliff:g id="TIME">%3$s</xliff:g>."</string>
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Prístup: <xliff:g id="NUM">%1$s</xliff:g>‑krát. Naposledy použité pred <xliff:g id="TIME">%2$s</xliff:g>."</string>
@@ -139,11 +136,9 @@
     <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"Aplikácia <xliff:g id="APP">%1$s</xliff:g> použila <xliff:g id="PERM">%2$s</xliff:g> pred <xliff:g id="TIME">%3$s</xliff:g>."</string>
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> nemôže používať povolenie <xliff:g id="PERM">%2$s</xliff:g>."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Zobraziť podrobné údaje o využití povolení"</string>
-    <!-- no translation found for app_permission_most_recent_summary (7435245857128891808) -->
-    <skip />
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Posledný prístup: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Povolené"</string>
-    <!-- no translation found for allowed_foreground_header (7553595563464819175) -->
-    <skip />
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"Povolené iba počas používania"</string>
     <string name="denied_header" msgid="2277998574238617699">"Zamietnuté"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"Zobraziť podrobné údaje o využití"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -175,24 +170,6 @@
     <string name="permission_reminders" msgid="8040710767178843151">"Pripomenutia povolení"</string>
     <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> používa vašu polohu"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Táto aplikácia má neobmedzený prístup k polohe. Klepnutím to zmeníte."</string>
-    <string name="permission_justification_header" msgid="8855642235625782751">"Vývojár aplikácie tvrdí, že vaše údaje môžu byť:"</string>
-    <string name="permission_justification_footer" msgid="4098097763461100468">"Ak sa vám nepáči, ako tento vývojár aplikácie používa vaše údaje, môžete toto povolenie zamietnuť."</string>
-    <string name="permission_justification_info_intent" msgid="2896804844363380252">"Ďalšie informácie nájdete v aplikácii <xliff:g id="APP_NAME">%s</xliff:g>."</string>
-    <string name="permission_justification_data_sent_off_device" msgid="2503905652716735222">"Nahrané do cloudu"</string>
-    <string name="permission_justification_data_sent_off_device_user_triggered" msgid="4122793147247661083">"Nahrané do cloudu, keď to výslovne povolíte"</string>
-    <string name="permission_justification_data_shared_with_third_party" msgid="5249440580654050831">"Zdieľané s inzerentmi alebo firmami"</string>
-    <string name="permission_justification_data_shared_with_third_party_user_triggered" msgid="2920721327430861150">"Zdieľané s inzerentmi alebo firmami, keď to výslovne povolíte"</string>
-    <string name="permission_justification_data_used_for_monetization" msgid="3098933808750278119">"Používané na speňaženie"</string>
-    <string name="permission_justification_data_used_for_monetization_user_triggered" msgid="8264335769735917408">"Použijú sa na speňaženie, keď to výslovne povolíte"</string>
-    <string name="permission_justification_data_retention_unlimited" msgid="3921406322987911863">"Uložené a analyzované navždy"</string>
-    <string name="permission_justification_data_retention_user_selected" msgid="7440816502916014127">"Uložené a analyzované na obdobie, ktoré špecifikujete"</string>
-    <plurals name="permission_justification_data_retention_specified" formatted="false" msgid="4132895033914113182">
-      <item quantity="few">Uložené a analyzované na <xliff:g id="NUM_WEEKS">%s</xliff:g> týždne</item>
-      <item quantity="many">Uložené a analyzované na <xliff:g id="NUM_WEEKS">%s</xliff:g> týždňa</item>
-      <item quantity="other">Uložené a analyzované na <xliff:g id="NUM_WEEKS">%s</xliff:g> týždňov</item>
-      <item quantity="one">Uložené a analyzované na 1 týždeň</item>
-    </plurals>
-    <string name="permission_justification_undefined" msgid="5711347441966109267">"Vývojár nešpecifikoval, ako jeho aplikácia používa údaje."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Iba počas používania aplikácie"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Žiadne udelené povolenia"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Žiadne odmietnuté povolenia"</string>
@@ -217,10 +194,18 @@
     <string name="role_label_music" msgid="5900245414865932272">"Aplikácia Hudba"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"Aplikácia Galéria"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"Aplikácia režimu v aute pre telefóny"</string>
-    <string name="role_label_proxy_calling" msgid="2432073053878466863">"Aplikácia na volanie proxy servera"</string>
+    <!-- no translation found for role_label_call_redirection (8902197181113231577) -->
+    <skip />
     <string name="role_label_call_screening" msgid="411212589764916370">"Aplikácia na filtrovanie hovorov"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"Sprievodná aplikácia na hovory"</string>
-    <!-- no translation found for role_label_assistant (456685142560727172) -->
-    <skip />
+    <string name="role_label_assistant" msgid="456685142560727172">"Asistenčná aplikácia"</string>
+    <string name="role_label_car_projection" msgid="3792929094325391213">"Aplikácia na projekciu v aute"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Poznámka: Ak reštartujete zariadenie a máte nastavenú zámku obrazovky, táto aplikácia sa spustí až po odomknutí zariadenia."</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"Zdieľanie údajov o ladení"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"Chcete zdieľať podrobné údaje o ladení?"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> chce nahrať informácie o ladení."</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Zdieľanie údajov o ladení"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> žiada o nahranie hlásenia chyby z tohto zariadenia vytvoreného <xliff:g id="DATE">%2$s</xliff:g> o <xliff:g id="TIME">%3$s</xliff:g>. Hlásenia chýb zahŕňajú osobné údaje o zariadení alebo osobné údaje zapísané aplikáciami, napríklad používateľské mená, údaje o polohe, identifikátory zariadenia a informácie o sieti. Hlásenia chýb zdieľajte iba s dôveryhodnými osobami a aplikáciami. Chcete povoliť aplikácii <xliff:g id="APP_NAME_1">%4$s</xliff:g> nahrať hlásenie chyby?"</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Povoliť"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Odmietnuť"</string>
 </resources>

@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -115,17 +115,14 @@
     <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"Biežāk izmantoto atļauju lietojums pēdējās 15 min"</string>
     <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"Biežāk izmantoto atļauju lietojums pēdējā minūtē"</string>
     <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"Lietotnes"</string>
-    <!-- no translation found for app_permission_usage_filter_label (8700139296200468389) -->
-    <skip />
-    <!-- no translation found for app_permission_usage_remove_filter (2046234519591857627) -->
-    <skip />
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Filtrēts pēc: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"Noņemt filtru"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"Filtrēt pēc"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Filtrēt pēc atļaujām"</string>
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Lielākā daļa atļauju"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Lielākais piekļuvju skaits"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"Jaunākās"</string>
-    <!-- no translation found for permission_usage_refresh (2182775682810005148) -->
-    <skip />
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"Atsvaidzināt"</string>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"Lietotņu atļauju lietojums"</string>
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"Piekļuve: <xliff:g id="NUM">%1$s</xliff:g> reizes. Kopējais ilgums: <xliff:g id="DURATION">%2$s</xliff:g>. Pēdējā lietošanas reize pirms šāda laika: <xliff:g id="TIME">%3$s</xliff:g>."</string>
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Piekļuve: <xliff:g id="NUM">%1$s</xliff:g> reizes. Pēdējā lietošanas reize pirms šāda laika: <xliff:g id="TIME">%2$s</xliff:g>."</string>
@@ -138,11 +135,9 @@
     <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="APP">%1$s</xliff:g> piekļuva jūsu atļaujai <xliff:g id="PERM">%2$s</xliff:g> pirms: <xliff:g id="TIME">%3$s</xliff:g>."</string>
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"Lietotnei <xliff:g id="APP">%1$s</xliff:g> nav piekļuves <xliff:g id="PERM">%2$s</xliff:g>."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Skatīt detalizētu informāciju par atļauju lietojumu"</string>
-    <!-- no translation found for app_permission_most_recent_summary (7435245857128891808) -->
-    <skip />
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Pēdējā piekļuve: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Atļauts"</string>
-    <!-- no translation found for allowed_foreground_header (7553595563464819175) -->
-    <skip />
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"Atļauts tikai izmantošanas laikā"</string>
     <string name="denied_header" msgid="2277998574238617699">"Noraidīts"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"Skatīt detalizētu lietojuma informāciju"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -170,23 +165,6 @@
     <string name="permission_reminders" msgid="8040710767178843151">"Atgādinājumi par atļauju"</string>
     <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"Lietotne <xliff:g id="APP_NAME">%s</xliff:g> jau kādu laiku izmanto jūsu atrašanās vietu"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Šī lietotne jebkurā laikā var piekļūt jūsu atrašanās vietai. Pieskarieties, lai mainītu šo iestatījumu."</string>
-    <string name="permission_justification_header" msgid="8855642235625782751">"Lietotnes izstrādātājs saka, ka jūsu dati, iespējams, ir:"</string>
-    <string name="permission_justification_footer" msgid="4098097763461100468">"Ja neesat apmierināts ar to, kā šis lietotnes izstrādātājs izmanto jūsu datus, varat noraidīt atļauju."</string>
-    <string name="permission_justification_info_intent" msgid="2896804844363380252">"Lai iegūtu plašāku informāciju, pārejiet uz lietotni <xliff:g id="APP_NAME">%s</xliff:g>."</string>
-    <string name="permission_justification_data_sent_off_device" msgid="2503905652716735222">"Augšupielādēts mākonī"</string>
-    <string name="permission_justification_data_sent_off_device_user_triggered" msgid="4122793147247661083">"Augšupielādēts mākonī, ja jūs to skaidri atļaujat"</string>
-    <string name="permission_justification_data_shared_with_third_party" msgid="5249440580654050831">"Kopīgots ar reklāmdevējiem vai uzņēmumiem"</string>
-    <string name="permission_justification_data_shared_with_third_party_user_triggered" msgid="2920721327430861150">"Kopīgots ar reklāmdevējiem vai uzņēmumiem, ja jūs to skaidri atļaujat"</string>
-    <string name="permission_justification_data_used_for_monetization" msgid="3098933808750278119">"Izmantots monetizācijai"</string>
-    <string name="permission_justification_data_used_for_monetization_user_triggered" msgid="8264335769735917408">"Izmantots monetizācijai, ja jūs to skaidri atļaujat"</string>
-    <string name="permission_justification_data_retention_unlimited" msgid="3921406322987911863">"Saglabāts un analizēts bezgalīgi"</string>
-    <string name="permission_justification_data_retention_user_selected" msgid="7440816502916014127">"Saglabāts un analizēts tik ilgi, cik esat norādījis"</string>
-    <plurals name="permission_justification_data_retention_specified" formatted="false" msgid="4132895033914113182">
-      <item quantity="zero">Saglabāts un analizēts <xliff:g id="NUM_WEEKS">%s</xliff:g> nedēļas</item>
-      <item quantity="one">Saglabāts un analizēts <xliff:g id="NUM_WEEKS">%s</xliff:g> nedēļu</item>
-      <item quantity="other">Saglabāts un analizēts <xliff:g id="NUM_WEEKS">%s</xliff:g> nedēļas</item>
-    </plurals>
-    <string name="permission_justification_undefined" msgid="5711347441966109267">"Lietotnes izstrādātājs nenorādīja, kā lietotne izmantos jūsu datus."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Tikai lietotnes izmantošanas laikā"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Nav piešķirta neviena atļauja"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Nav noraidīta neviena atļauja"</string>
@@ -211,10 +189,18 @@
     <string name="role_label_music" msgid="5900245414865932272">"Mūzikas lietotne"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"Galerijas lietotne"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"Auto režīma tālruņu lietotne"</string>
-    <string name="role_label_proxy_calling" msgid="2432073053878466863">"Starpniekservera zvanu lietotne"</string>
+    <!-- no translation found for role_label_call_redirection (8902197181113231577) -->
+    <skip />
     <string name="role_label_call_screening" msgid="411212589764916370">"Zvanu pārvaldības lietotne"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"Zvanu palīglietotne"</string>
-    <!-- no translation found for role_label_assistant (456685142560727172) -->
-    <skip />
+    <string name="role_label_assistant" msgid="456685142560727172">"Palīga lietotne"</string>
+    <string name="role_label_car_projection" msgid="3792929094325391213">"Projicēš. automašīnā lietotne"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Piezīme. Ja esat iestatījis ekrāna bloķēšanu un restartēsiet ierīci, šo lietotni varēs startēt tikai pēc ierīces atbloķēšanas."</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"Atkļūdošanas datu kopīgošana"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"Vai kopīgot detalizētus atkļūdošanas datus?"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> vēlas augšupielādēt atkļūdošanas informāciju."</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Atkļūdošanas datu kopīgošana"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> pieprasa augšupielādēt kļūdas pārskatu no šīs ierīces, kas veikts: <xliff:g id="DATE">%2$s</xliff:g> plkst. <xliff:g id="TIME">%3$s</xliff:g>. Kļūdu pārskatos ir ietverta personas informācija par jūsu ierīci vai lietotnēs reģistrēta informācija, piemēram, lietotājvārdi, atrašanās vietas dati, ierīču identifikatori un tīkla informācija. Kopīgojiet kļūdu pārskatus tikai ar lietotājiem un lietotnēm, kuriem uzticat šo informāciju. Vai atļaut lietotnei <xliff:g id="APP_NAME_1">%4$s</xliff:g> augšupielādēt kļūdas pārskatu?"</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Atļaut"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Neatļaut"</string>
 </resources>
