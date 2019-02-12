@@ -77,6 +77,45 @@
         <permission name="android.permission.READ_MEDIA_IMAGES" />
     </permission-set>
 
+    <role
+        name="android.app.role.ASSISTANT"
+        behavior="AssistantRoleBehavior"
+        exclusive="true"
+        showNone="true"
+        label="@string/role_label_assistant">
+        <required-components>
+            <!-- Qualified components are determined int AssistantRoleBehavior. This comment here is
+                 ignored and represents just a rough description
+
+            <any-of>
+                <service permission="android.permission.BIND_VOICE_INTERACTION"
+                         supportsAssist="true">
+                    <intent-filter>
+                        <action name="android.service.voice.VoiceInteractionService" />
+                    </intent-filter>
+                    <meta-data name="android.voice_interaction"
+                               optional="false">
+                        required tag in metadata xml: sessionService
+                        required tag in metadata xml: recognitionService
+                        required tag in metadata xml: supportsAssist = true
+                    </meta-data>
+                </service>
+                <activity>
+                    <intent-filter>
+                        <action name="android.intent.action.ASSIST" />
+                    </intent-filter>
+                </activity>
+            </ any-of>
+
+            -->
+        </required-components>
+        <permissions>
+            <!-- STOPSHIP: Allow to only enable permissions, but not grant them -->
+            <permission-set name="sms" />
+            <permission name="android.permission.READ_CALL_LOG" />
+        </permissions>
+    </role>
+
     <!---
       ~ @see com.android.settings.applications.defaultapps.DefaultBrowserPreferenceController
       ~ @see com.android.settings.applications.defaultapps.DefaultBrowserPicker
@@ -135,16 +174,6 @@
                     <data scheme="tel" />
                 </intent-filter>
             </activity>
-            <service permission="android.permission.BIND_INCALL_SERVICE">
-                <meta-data name="android.telecom.IN_CALL_SERVICE_UI" value="true" />
-                <meta-data
-                    name="android.telecom.IN_CALL_SERVICE_CAR_MODE_UI"
-                    value="false"
-                    optional="true" />
-                <intent-filter>
-                    <action name="android.telecom.InCallService" />
-                </intent-filter>
-            </service>
         </required-components>
         <permissions>
             <permission-set name="phone" />
@@ -314,7 +343,11 @@
         </preferred-activities>
     </role>
 
-    <role name="android.app.role.MUSIC" exclusive="true" label="@string/role_label_music">
+    <role
+        name="android.app.role.MUSIC"
+        behavior="MusicRoleBehavior"
+        exclusive="true"
+        label="@string/role_label_music">
         <required-components>
             <activity>
                 <intent-filter>
@@ -345,7 +378,11 @@
         </preferred-activities>
     </role>
 
-    <role name="android.app.role.GALLERY" exclusive="true" label="@string/role_label_gallery">
+    <role
+        name="android.app.role.GALLERY"
+        behavior="GalleryRoleBehavior"
+        exclusive="true"
+        label="@string/role_label_gallery">
         <required-components>
             <activity>
                 <intent-filter>
@@ -444,45 +481,6 @@
                 </intent-filter>
             </service>
         </required-components>
-    </role>
-
-    <role
-        name="android.app.role.ASSISTANT"
-        behavior="AssistantRoleBehavior"
-        exclusive="true"
-        showNone="true"
-        label="@string/role_label_assistant">
-        <required-components>
-            <!-- Qualified components are determined int AssistantRoleBehavior. This comment here is
-                 ignored and represents just a rough description
-
-            <any-of>
-                <service permission="android.permission.BIND_VOICE_INTERACTION"
-                         supportsAssist="true">
-                    <intent-filter>
-                        <action name="android.service.voice.VoiceInteractionService" />
-                    </intent-filter>
-                    <meta-data name="android.voice_interaction"
-                               optional="false">
-                        required tag in metadata xml: sessionService
-                        required tag in metadata xml: recognitionService
-                        required tag in metadata xml: supportsAssist = true
-                    </meta-data>
-                </service>
-                <activity>
-                    <intent-filter>
-                        <action name="android.intent.action.ASSIST" />
-                    </intent-filter>
-                </activity>
-            </ any-of>
-
-            -->
-        </required-components>
-        <permissions>
-            <!-- STOPSHIP: Allow to only enable permissions, but not grant them -->
-            <permission-set name="sms" />
-            <permission name="android.permission.READ_CALL_LOG" />
-        </permissions>
     </role>
 
     <!-- STOPSHIP: Allow any app to access SMS -->

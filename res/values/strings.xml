@@ -504,6 +504,8 @@
 
     <!-- TODO: STOPSHIP: Migrate all default app titles from packages/apps/Settings/res/values/strings.xml . -->
 
+    <!-- Label for the assistant role. [CHAR LIMIT=30] -->
+    <string name="role_label_assistant">Assist app</string>
     <!-- Label for the browser role. [CHAR LIMIT=30] -->
     <string name="role_label_browser">Browser app</string>
     <!-- Label for the dialer role. [CHAR LIMIT=30] -->
@@ -526,8 +528,6 @@
     <string name="role_label_call_screening">Call screening app</string>
     <!-- Label for the call companion role. [CHAR LIMIT=30] -->
     <string name="role_label_call_companion">Call companion app</string>
-    <!-- Label for the assist app role. [CHAR LIMIT=30] -->
-    <string name="role_label_assistant">Assist app</string>
     <!-- Label for the temporary workaround to give any app SMS access. [CHAR LIMIT=unlimited] -->
     <string name="role_label_temporary_sms_access" translatable="false">WON\'T BE RELEASED: SMS access app</string>
     <!-- Label for the car projection role. [CHAR LIMIT=30] -->

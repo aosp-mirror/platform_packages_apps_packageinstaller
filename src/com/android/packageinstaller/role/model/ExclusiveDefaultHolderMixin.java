@@ -17,6 +17,7 @@
 package com.android.packageinstaller.role.model;
 
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
 import android.content.res.Resources;
 import android.text.TextUtils;
 import android.util.Log;
@@ -25,6 +26,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.android.packageinstaller.permission.utils.CollectionUtils;
+import com.android.packageinstaller.role.utils.PackageUtils;
 
 import java.util.List;
 
@@ -63,6 +65,19 @@ public class ExclusiveDefaultHolderMixin {
         if (TextUtils.isEmpty(packageName)) {
             return null;
         }
+
+        ApplicationInfo applicationInfo = PackageUtils.getApplicationInfo(packageName, context);
+        if (applicationInfo == null) {
+            Log.w(LOG_TAG, "Cannot get ApplicationInfo for default holder, config: " + resourceName
+                    + ", package: " + packageName);
+            return null;
+        }
+        if ((applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 0) {
+            Log.w(LOG_TAG, "Default holder is not a system app, config: " + resourceName
+                    + ", package: " + packageName);
+            return null;
+        }
+
         if (!role.isPackageQualified(packageName, context)) {
             return null;
         }
