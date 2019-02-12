@@ -35,6 +35,7 @@ import androidx.preference.PreferenceScreen;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissionUsage;
 import com.android.packageinstaller.permission.model.AppPermissionUsage.GroupUsage;
+import com.android.packageinstaller.permission.model.PermissionApps;
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
 import com.android.packageinstaller.permission.model.PermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionUsages;
@@ -108,7 +109,7 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
                 Long.MAX_VALUE, PermissionUsages.USAGE_FLAG_LAST
                         | PermissionUsages.USAGE_FLAG_HISTORICAL,
                 getActivity().getLoaderManager(),
-                true, this::updateRecentlyUsedWidget, false);
+                false, this::updateRecentlyUsedWidget, false);
 
         return root;
     }
@@ -219,30 +220,38 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
             return;
         }
 
-        // Show the most recent three usages.
         int numAppsToShow = Math.min(usages.size(), MAXIMUM_APP_COUNT);
-        int i = 0;
-        for (; i < numAppsToShow; i++) {
-            Pair<PermissionApp, GroupUsage> info = usages.get(i);
-            AppPermissionGroup group = info.second.getGroup();
-            AppEntityInfo appEntityInfo = new AppEntityInfo.Builder()
-                    .setIcon(info.first.getIcon())
-                    .setTitle(info.first.getLabel())
-                    .setSummary(group.getLabel())
-                    .setOnClickListener(v -> {
-                        Intent intent = new Intent(context, AppPermissionActivity.class);
-                        intent.putExtra(Intent.EXTRA_PACKAGE_NAME, group.getApp().packageName);
-                        intent.putExtra(Intent.EXTRA_PERMISSION_NAME, group.getName());
-                        intent.putExtra(Intent.EXTRA_USER, group.getUser());
-                        context.startActivity(intent);
-                    })
-                    .build();
-            mAppUsageController.setAppEntity(i, appEntityInfo);
+
+        PermissionApps.PermissionApp[] permApps = new PermissionApps.PermissionApp[numAppsToShow];
+        for (int i = 0; i < numAppsToShow; i++) {
+            permApps[i] = usages.get(i).first;
         }
-        for (; i < MAXIMUM_APP_COUNT; i++) {
-            mAppUsageController.removeAppEntity(i);
-        }
-        mAppUsageController.apply();
+
+        new PermissionApps.AppDataLoader(context, () -> {
+            // Show the most recent three usages.
+            int i = 0;
+            for (; i < numAppsToShow; i++) {
+                Pair<PermissionApp, GroupUsage> info = usages.get(i);
+                AppPermissionGroup group = info.second.getGroup();
+                AppEntityInfo appEntityInfo = new AppEntityInfo.Builder()
+                        .setIcon(info.first.getIcon())
+                        .setTitle(info.first.getLabel())
+                        .setSummary(group.getLabel())
+                        .setOnClickListener(v -> {
+                            Intent intent = new Intent(context, AppPermissionActivity.class);
+                            intent.putExtra(Intent.EXTRA_PACKAGE_NAME, group.getApp().packageName);
+                            intent.putExtra(Intent.EXTRA_PERMISSION_NAME, group.getName());
+                            intent.putExtra(Intent.EXTRA_USER, group.getUser());
+                            context.startActivity(intent);
+                        })
+                        .build();
+                mAppUsageController.setAppEntity(i, appEntityInfo);
+            }
+            for (; i < MAXIMUM_APP_COUNT; i++) {
+                mAppUsageController.removeAppEntity(i);
+            }
+            mAppUsageController.apply();
+        }).execute(permApps);
     }
 
     private static int compareAccessTime(@NonNull GroupUsage x, @NonNull GroupUsage y) {

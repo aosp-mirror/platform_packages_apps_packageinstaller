@@ -253,7 +253,8 @@ public class PermissionApps {
 
                     Pair<String, Drawable> appData = null;
                     if (mAppDataCache != null && !mSkipUi) {
-                        appData = mAppDataCache.getAppData(user.getIdentifier(), app);
+                        appData = mAppDataCache.getAppData(user.getIdentifier(),
+                                app.applicationInfo);
                     }
 
                     String label;
@@ -326,8 +327,8 @@ public class PermissionApps {
     public static class PermissionApp implements Comparable<PermissionApp> {
         private final String mPackageName;
         private final AppPermissionGroup mAppPermissionGroup;
-        private final String mLabel;
-        private final Drawable mIcon;
+        private String mLabel;
+        private Drawable mIcon;
         private final ApplicationInfo mInfo;
 
         public PermissionApp(String packageName, AppPermissionGroup appPermissionGroup,
@@ -393,6 +394,19 @@ public class PermissionApps {
 
         public AppPermissionGroup getPermissionGroup() {
             return mAppPermissionGroup;
+        }
+
+        /**
+         * Load this app's label and icon if they were not previously loaded.
+         *
+         * @param appDataCache the cache of already-loaded labels and icons.
+         */
+        public void loadLabelAndIcon(@NonNull AppDataCache appDataCache) {
+            if (mInfo.packageName.equals(mLabel) || mIcon == null) {
+                Pair<String, Drawable> appData = appDataCache.getAppData(getUid(), mInfo);
+                mLabel = appData.first;
+                mIcon = appData.second;
+            }
         }
 
         @Override
@@ -475,17 +489,17 @@ public class PermissionApps {
          * @return a pair of the label and icon.
          */
         public @NonNull Pair<String, Drawable> getAppData(int userId,
-                @NonNull PackageInfo app) {
+                @NonNull ApplicationInfo app) {
             ArrayMap<String, Pair<String, Drawable>> dataForUser = mCache.get(userId);
             if (dataForUser == null) {
                 dataForUser = new ArrayMap<>();
                 mCache.put(userId, dataForUser);
             }
-            Pair<String, Drawable> data = dataForUser.get(app.applicationInfo.packageName);
+            Pair<String, Drawable> data = dataForUser.get(app.packageName);
             if (data == null) {
-                data = Pair.create(app.applicationInfo.loadLabel(mPm).toString(),
-                        Utils.getBadgedIcon(mContext, app.applicationInfo));
-                dataForUser.put(app.applicationInfo.packageName, data);
+                data = Pair.create(app.loadLabel(mPm).toString(),
+                        Utils.getBadgedIcon(mContext, app));
+                dataForUser.put(app.packageName, data);
             }
             return data;
         }
@@ -493,5 +507,34 @@ public class PermissionApps {
 
     public interface Callback {
         void onPermissionsLoaded(PermissionApps permissionApps);
+    }
+
+    /**
+     * Class used to asyncronously load apps' labels and icons.
+     */
+    public static class AppDataLoader extends AsyncTask<PermissionApp, Void, Void> {
+
+        private final Context mContext;
+        private final Runnable mCallback;
+
+        public AppDataLoader(Context context, Runnable callback) {
+            mContext = context;
+            mCallback = callback;
+        }
+
+        @Override
+        protected Void doInBackground(PermissionApp... args) {
+            AppDataCache appDataCache = new AppDataCache(mContext.getPackageManager(), mContext);
+            int numArgs = args.length;
+            for (int i = 0; i < numArgs; i++) {
+                args[i].loadLabelAndIcon(appDataCache);
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            mCallback.run();
+        }
     }
 }
