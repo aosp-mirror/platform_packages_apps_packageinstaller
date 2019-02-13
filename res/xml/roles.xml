@@ -323,6 +323,7 @@
         behavior="HomeRoleBehavior"
         exclusive="true"
         label="@string/role_label_home">
+        <!-- Also used by HomeRoleBehavior.getFallbackHolder(). -->
         <required-components>
             <activity>
                 <intent-filter>
