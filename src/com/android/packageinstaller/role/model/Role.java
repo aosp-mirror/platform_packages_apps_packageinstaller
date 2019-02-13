@@ -31,6 +31,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
+import androidx.preference.Preference;
 
 import com.android.packageinstaller.Constants;
 import com.android.packageinstaller.role.utils.PackageUtils;
@@ -259,6 +260,23 @@ public class Role {
             return mBehavior.getManageIntentAsUser(this, user, context);
         }
         return null;
+    }
+
+    /**
+     * Prepare a {@link Preference} for an application.
+     *
+     * @param preference the {@link Preference} for the application
+     * @param applicationInfo the {@link ApplicationInfo} for the application
+     * @param user the user for the application
+     * @param context the {@code Context} to retrieve system services
+     */
+    public void prepareApplicationPreferenceAsUser(@NonNull Preference preference,
+            @NonNull ApplicationInfo applicationInfo, @NonNull UserHandle user,
+            @NonNull Context context) {
+        if (mBehavior != null) {
+            mBehavior.prepareApplicationPreferenceAsUser(this, preference, applicationInfo, user,
+                    context);
+        }
     }
 
     /**

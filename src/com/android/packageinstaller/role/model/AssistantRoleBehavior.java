@@ -28,7 +28,6 @@ import android.content.pm.ServiceInfo;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.os.UserHandle;
-import android.os.UserManager;
 import android.provider.Settings;
 import android.service.voice.VoiceInteractionService;
 import android.util.ArraySet;
@@ -37,6 +36,8 @@ import android.util.Xml;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.android.packageinstaller.role.utils.UserUtils;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -56,9 +57,7 @@ public class AssistantRoleBehavior implements RoleBehavior {
     @Override
     public boolean isAvailableAsUser(@NonNull Role role, @NonNull UserHandle user,
             @NonNull Context context) {
-        UserManager userManager = context.getSystemService(UserManager.class);
-
-        return !userManager.isManagedProfile(user.getIdentifier())
+        return !UserUtils.isWorkProfile(user, context)
                 && !context.getSystemService(ActivityManager.class).isLowRamDevice();
     }
 
