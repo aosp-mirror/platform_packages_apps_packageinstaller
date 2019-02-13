@@ -19,13 +19,13 @@ package com.android.packageinstaller.role.model;
 import android.content.Context;
 import android.os.Process;
 import android.os.UserHandle;
-import android.os.UserManager;
 import android.telephony.TelephonyManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.android.packageinstaller.permission.utils.CollectionUtils;
+import com.android.packageinstaller.role.utils.UserUtils;
 
 import java.util.List;
 
@@ -41,8 +41,7 @@ public class SmsRoleBehavior implements RoleBehavior {
     @Override
     public boolean isAvailableAsUser(@NonNull Role role, @NonNull UserHandle user,
             @NonNull Context context) {
-        UserManager userManager = context.getSystemService(UserManager.class);
-        if (userManager.isManagedProfile(user.getIdentifier())) {
+        if (UserUtils.isWorkProfile(user, context)) {
             return false;
         }
         // FIXME: STOPSHIP: Add an appropriate @SystemApi for this.

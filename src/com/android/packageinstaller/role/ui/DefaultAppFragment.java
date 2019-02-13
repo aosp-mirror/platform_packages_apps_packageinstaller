@@ -136,8 +136,8 @@ public class DefaultAppFragment extends SettingsFragment
             Drawable icon = AppCompatResources.getDrawable(context, R.drawable.ic_remove_circle);
             String title = context.getString(R.string.default_app_none);
             boolean noHolderApplication = !hasHolderApplication(qualifyingApplications);
-            addPreference(PREFERENCE_KEY_NONE, icon, title, noHolderApplication, oldPreferences,
-                    preferenceScreen, context);
+            addPreference(PREFERENCE_KEY_NONE, icon, title, noHolderApplication, null,
+                    oldPreferences, preferenceScreen, context);
         }
 
         int qualifyingApplicationsSize = qualifyingApplications.size();
@@ -149,8 +149,8 @@ public class DefaultAppFragment extends SettingsFragment
             String key = qualifyingApplicationInfo.packageName;
             Drawable icon = Utils.getBadgedIcon(context, qualifyingApplicationInfo);
             String title = Utils.getAppLabel(qualifyingApplicationInfo, context);
-            addPreference(key, icon, title, isHolderApplication, oldPreferences, preferenceScreen,
-                    context);
+            addPreference(key, icon, title, isHolderApplication, qualifyingApplicationInfo,
+                    oldPreferences, preferenceScreen, context);
         }
 
         updateState();
@@ -171,7 +171,7 @@ public class DefaultAppFragment extends SettingsFragment
     }
 
     private void addPreference(@NonNull String key, @NonNull Drawable icon,
-            @NonNull CharSequence title, boolean checked,
+            @NonNull CharSequence title, boolean checked, @Nullable ApplicationInfo applicationInfo,
             @NonNull ArrayMap<String, Preference> oldPreferences,
             @NonNull PreferenceScreen preferenceScreen, @NonNull Context context) {
         AppIconRadioButtonPreference preference = (AppIconRadioButtonPreference) oldPreferences.get(
@@ -186,6 +186,9 @@ public class DefaultAppFragment extends SettingsFragment
             preference.setOnPreferenceClickListener(this);
         }
         preference.setChecked(checked);
+        if (applicationInfo != null) {
+            mRole.prepareApplicationPreferenceAsUser(preference, applicationInfo, mUser, context);
+        }
         // TODO: Ordering?
         preferenceScreen.addPreference(preference);
     }
