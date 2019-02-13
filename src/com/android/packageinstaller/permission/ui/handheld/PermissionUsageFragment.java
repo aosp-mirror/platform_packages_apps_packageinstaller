@@ -49,6 +49,8 @@ import androidx.preference.PreferenceScreen;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissionUsage;
 import com.android.packageinstaller.permission.model.AppPermissionUsage.GroupUsage;
+import com.android.packageinstaller.permission.model.PermissionApps;
+import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
 import com.android.packageinstaller.permission.model.PermissionUsages;
 import com.android.packageinstaller.permission.ui.handheld.FilterSpinner.FilterSpinnerAdapter;
 import com.android.packageinstaller.permission.ui.handheld.FilterSpinner.SpinnerItem;
@@ -337,7 +339,6 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
         }
 
         updateUI();
-        setLoading(false, true);
     }
 
     @Override
@@ -367,9 +368,11 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
         long startTime = (timeFilterItem == null ? 0 : (curTime - timeFilterItem.getTime()));
 
         List<Pair<AppPermissionUsage, GroupUsage>> usages = new ArrayList<>();
+        ArrayList<PermissionApp> permApps = new ArrayList<>();
         int numApps = appPermissionUsages.size();
         for (int appNum = 0; appNum < numApps; appNum++) {
             AppPermissionUsage appUsage = appPermissionUsages.get(appNum);
+            boolean used = false;
             List<GroupUsage> appGroups = appUsage.getGroupUsages();
             int numGroups = appGroups.size();
             for (int groupNum = 0; groupNum < numGroups; groupNum++) {
@@ -395,6 +398,10 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
                 }
 
                 usages.add(Pair.create(appUsage, appGroups.get(groupNum)));
+                used = true;
+            }
+            if (used) {
+                permApps.add(appUsage.getApp());
             }
         }
 
@@ -437,38 +444,41 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
             Log.w(LOG_TAG, "Unexpected sort option: " + sortOption);
         }
 
-        ExpandablePreferenceGroup parent = null;
-        AppPermissionUsage lastAppPermissionUsage = null;
-
-        final int numUsages = usages.size();
-        for (int usageNum = 0; usageNum < numUsages; usageNum++) {
-            final Pair<AppPermissionUsage, GroupUsage> usage = usages.get(usageNum);
-            AppPermissionUsage appPermissionUsage = usage.first;
-            GroupUsage groupUsage = usage.second;
-
-            if (mFilterGroup != null && !mFilterGroup.equals(groupUsage.getGroup().getName())) {
-                continue;
-            }
-
-            String accessTimeString = Utils.getAbsoluteLastUsageString(context, groupUsage);
-
-            if (lastAppPermissionUsage != appPermissionUsage) {
-                // Add a "parent" entry for the app that will expand to the individual entries.
-                parent = createExpandablePreferenceGroup(context, appPermissionUsage,
-                        sortOption == SORT_RECENT ? accessTimeString : null);
-                category.addPreference(parent);
-                lastAppPermissionUsage = appPermissionUsage;
-            }
-
-            parent.addPreference(createPermissionUsagePreference(context, appPermissionUsage,
-                    groupUsage, accessTimeString));
-            parent.addSummaryIcon(groupUsage.getGroup().getIconResId());
-        }
+        usages.removeIf((Pair<AppPermissionUsage, GroupUsage> usage) -> mFilterGroup != null
+                && !mFilterGroup.equals(usage.second.getGroup().getName()));
 
         // If there are no entries, don't show anything.
-        if (parent == null) {
+        if (permApps.isEmpty()) {
             screen.removeAll();
         }
+
+        new PermissionApps.AppDataLoader(context, () -> {
+            ExpandablePreferenceGroup parent = null;
+            AppPermissionUsage lastAppPermissionUsage = null;
+
+            final int numUsages = usages.size();
+            for (int usageNum = 0; usageNum < numUsages; usageNum++) {
+                final Pair<AppPermissionUsage, GroupUsage> usage = usages.get(usageNum);
+                AppPermissionUsage appPermissionUsage = usage.first;
+                GroupUsage groupUsage = usage.second;
+
+                String accessTimeString = Utils.getAbsoluteLastUsageString(context, groupUsage);
+
+                if (lastAppPermissionUsage != appPermissionUsage) {
+                    // Add a "parent" entry for the app that will expand to the individual entries.
+                    parent = createExpandablePreferenceGroup(context, appPermissionUsage,
+                            sortOption == SORT_RECENT ? accessTimeString : null);
+                    category.addPreference(parent);
+                    lastAppPermissionUsage = appPermissionUsage;
+                }
+
+                parent.addPreference(createPermissionUsagePreference(context, appPermissionUsage,
+                        groupUsage, accessTimeString));
+                parent.addSummaryIcon(groupUsage.getGroup().getIconResId());
+            }
+
+            setLoading(false, true);
+        }).execute(permApps.toArray(new PermissionApps.PermissionApp[permApps.size()]));
     }
 
     private TimeFilterItem getSelectedFilterItem() {
@@ -502,7 +512,7 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
         mPermissionUsages.load(null /*filterPackageName*/, null /*filterPermissionGroup*/,
                 filterTimeBeginMillis, Long.MAX_VALUE, PermissionUsages.USAGE_FLAG_LAST
                         | PermissionUsages.USAGE_FLAG_HISTORICAL, getActivity().getLoaderManager(),
-                true /*getUiInfo*/, this /*callback*/, false /*sync*/);
+                false /*getUiInfo*/, this /*callback*/, false /*sync*/);
     }
 
     /**
