@@ -536,8 +536,11 @@
     <!-- Summary indicating that a home app is missing work profile support [CHAR LIMIT=60] -->
     <string name="home_missing_work_profile_support">Doesn\u2019t support work profile</string>
 
-    <!-- Dialog body explaining that the app just selected by the user will not work after a reboot until the user enters their credentials, such as a PIN or password. [CHAR LIMIT=NONE] -->
+    <!-- Dialog message explaining that the app just selected by the user will not work after a reboot until the user enters their credentials, such as a PIN or password. [CHAR LIMIT=NONE] -->
     <string name="encryption_unaware_confirmation_message">Note: If you restart your device and have a screen lock set, this app can\u2019t start until you unlock your device.</string>
+
+    <!-- Dialog message warning about security implications of setting an assistant, displayed when the user selects an assistant. [CHAR_LIMIT=NONE] -->
+    <string name="assistant_confirmation_message">The assistant will be able to read information about apps in use on your system, including information visible on your screen or accessible within the apps.</string>
 
     <!-- Name for the notification channel for incident / bug report confirmation
     [CHAR LIMIT=50] -->
