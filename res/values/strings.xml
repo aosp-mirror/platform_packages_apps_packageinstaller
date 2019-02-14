@@ -470,6 +470,21 @@
     <!-- Label for button that allows user to force stop the app [CHAR LIMIT=25] -->
     <string name="force_stop_app">Force stop</string>
 
+    <!-- Label for button that opens up the Settings [CHAR LIMIT=20] -->
+    <string name="settings">Settings</string>
+
+    <!-- Title for the dialog listing the enabled accessibility services when there is only one [CHAR LIMIT=none] -->
+    <string name="accessibility_service_dialog_title_single"><xliff:g id="service_name" example="Gmail">%s</xliff:g> has full access to your device</string>
+
+    <!-- Title for the dialog listing the enabled accessibility services when there are more than one [CHAR LIMIT=none] -->
+    <string name="accessibility_service_dialog_title_multiple"><xliff:g id="num_services" example="2">%s</xliff:g> accessibility services have full access to your device</string>
+
+    <!-- Text for the dialog listing the enabled accessibility services when there is only one [CHAR LIMIT=none] -->
+    <string name="accessibility_service_dialog_bottom_text_single"><xliff:g id="service_name" example="Gmail">%s</xliff:g> can view your screen, actions, and inputs, perform actions, and control the display.</string>
+
+    <!-- Text for the dialog listing the enabled accessibility services when there are more than one [CHAR LIMIT=none] -->
+    <string name="accessibility_service_dialog_bottom_text_multiple">These services can view your screen, actions, and inputs, perform actions, and control the display.</string>
+
     <!-- Title for page of managing default apps. [CHAR LIMIT=30] -->
     <string name="default_apps">Default apps</string>
 

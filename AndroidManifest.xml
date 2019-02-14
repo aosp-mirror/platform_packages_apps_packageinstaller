@@ -133,6 +133,15 @@
                 android:excludeFromRecents="true"
                 android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar" />
 
+        <activity android:name="com.android.packageinstaller.permission.ui.ReviewAccessibilityServicesActivity"
+                  android:excludeFromRecents="true"
+                  android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar" >
+            <intent-filter android:priority="1">
+                <action android:name="android.intent.action.REVIEW_ACCESSIBILITY_SERVICES" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <activity android:name="com.android.packageinstaller.role.ui.RequestRoleActivity"
                   android:excludeFromRecents="true"
                   android:theme="@style/RequestRole">
