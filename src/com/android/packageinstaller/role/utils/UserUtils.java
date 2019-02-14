@@ -36,6 +36,19 @@ public class UserUtils {
     private UserUtils() {}
 
     /**
+     * Check whether a user is a work profile.
+     *
+     * @param user the user to check
+     * @param context the {@code Context} to retrieve system services
+     *
+     * @return whether the user is a work profile
+     */
+    public static boolean isWorkProfile(@NonNull UserHandle user, @NonNull Context context) {
+        UserManager userManager = context.getSystemService(UserManager.class);
+        return userManager.isManagedProfile(user.getIdentifier());
+    }
+
+    /**
      * Get the work profile of current user, if any.
      *
      * @param context the {@code Context} to retrieve system services
