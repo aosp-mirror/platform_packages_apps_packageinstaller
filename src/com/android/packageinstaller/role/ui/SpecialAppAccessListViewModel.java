@@ -23,6 +23,7 @@ import android.os.UserHandle;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Transformations;
 import androidx.lifecycle.ViewModel;
 
 import com.android.packageinstaller.role.utils.UserUtils;
@@ -43,11 +44,13 @@ public class SpecialAppAccessListViewModel extends AndroidViewModel {
         UserHandle user = Process.myUserHandle();
         RoleListLiveData liveData = new RoleListLiveData(false, user, application);
         UserHandle workProfile = UserUtils.getWorkProfile(application);
+        RoleListSortFunction sortFunction = new RoleListSortFunction(application);
         if (workProfile == null) {
-            mLiveData = liveData;
+            mLiveData = Transformations.map(liveData, sortFunction);
         } else {
             RoleListLiveData workLiveData = new RoleListLiveData(false, workProfile, application);
-            mLiveData = new MergeRoleListLiveData(liveData, workLiveData);
+            mLiveData = Transformations.map(new MergeRoleListLiveData(liveData, workLiveData),
+                    sortFunction);
         }
     }
 

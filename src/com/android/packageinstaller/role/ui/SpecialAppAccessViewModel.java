@@ -27,6 +27,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Transformations;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -55,11 +56,13 @@ public class SpecialAppAccessViewModel extends AndroidViewModel {
         UserHandle user = Process.myUserHandle();
         RoleLiveData roleLiveData = new RoleLiveData(role, user, application);
         UserHandle workProfile = UserUtils.getWorkProfile(application);
+        RoleSortFunction sortFunction = new RoleSortFunction(application);
         if (workProfile == null) {
-            mRoleLiveData = roleLiveData;
+            mRoleLiveData = Transformations.map(roleLiveData, sortFunction);
         } else {
             RoleLiveData workRoleLiveData = new RoleLiveData(role, workProfile, application);
-            mRoleLiveData = new MergeRoleLiveData(roleLiveData, workRoleLiveData);
+            mRoleLiveData = Transformations.map(new MergeRoleLiveData(roleLiveData,
+                    workRoleLiveData), sortFunction);
         }
     }
 
