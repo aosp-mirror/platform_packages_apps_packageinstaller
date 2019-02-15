@@ -50,6 +50,10 @@ public final class ReviewAccessibilityServicesActivity extends FragmentActivity 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        if (!Utils.isPermissionsHubEnabled()) {
+            return;
+        }
+
         new AlertDialog.Builder(this)
                 .setView(createDialogView())
                 .setPositiveButton(R.string.ok, null)
