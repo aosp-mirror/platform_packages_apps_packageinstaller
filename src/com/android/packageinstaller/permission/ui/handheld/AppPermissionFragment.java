@@ -705,23 +705,25 @@ public class AppPermissionFragment extends SettingsWithButtonHeader {
                 }
             }
         } else {
-            boolean requestToRevokeGrantedByDefault = false;
+            boolean showDefaultDenyDialog = false;
 
             if ((changeTarget & CHANGE_FOREGROUND) != 0
                     && mGroup.areRuntimePermissionsGranted()) {
-                requestToRevokeGrantedByDefault = mGroup.hasGrantedByDefaultPermission();
+                showDefaultDenyDialog = mGroup.hasGrantedByDefaultPermission()
+                        || !mGroup.doesSupportRuntimePermissions()
+                        || mGroup.hasInstallToRuntimeSplit();
             }
             if ((changeTarget & CHANGE_BACKGROUND) != 0) {
                 if (mGroup.getBackgroundPermissions() != null
                         && mGroup.getBackgroundPermissions().areRuntimePermissionsGranted()) {
-                    requestToRevokeGrantedByDefault |=
-                            mGroup.getBackgroundPermissions().hasGrantedByDefaultPermission();
+                    AppPermissionGroup bgPerm = mGroup.getBackgroundPermissions();
+                    showDefaultDenyDialog |= bgPerm.hasGrantedByDefaultPermission()
+                            || !bgPerm.doesSupportRuntimePermissions()
+                            || bgPerm.hasInstallToRuntimeSplit();
                 }
             }
 
-            if ((requestToRevokeGrantedByDefault || !mGroup.doesSupportRuntimePermissions()
-                    || mGroup.hasInstallToRuntimeSplit())
-                    && !mHasConfirmedRevoke) {
+            if (showDefaultDenyDialog && !mHasConfirmedRevoke) {
                 showDefaultDenyDialog(changeTarget);
                 updateButtons();
                 return false;
