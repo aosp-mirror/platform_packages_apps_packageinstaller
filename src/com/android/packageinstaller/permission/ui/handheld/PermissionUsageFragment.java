@@ -237,6 +237,10 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
                         SORT_MOST_PERMISSIONS));
         mSortSpinner.setSelection(mSavedSortSpinnerIndex);
 
+        // STOPSHIP: Re-enable spinners afetr user study completes.
+        header.requireViewById(R.id.filter_spinner_bar).setVisibility(View.GONE);
+        reloadData();
+
         return root;
     }
 
