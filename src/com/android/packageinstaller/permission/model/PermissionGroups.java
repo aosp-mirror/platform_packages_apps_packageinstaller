@@ -55,16 +55,19 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
     private final Context mContext;
     private final PermissionsGroupsChangeCallback mCallback;
     private final boolean mGetAppUiInfo;
+    private final boolean mGetNonPlatformPermissions;
 
     public interface PermissionsGroupsChangeCallback {
         public void onPermissionGroupsChanged();
     }
 
     public PermissionGroups(Context context, LoaderManager loaderManager,
-            PermissionsGroupsChangeCallback callback, boolean getAppUiInfo) {
+            PermissionsGroupsChangeCallback callback, boolean getAppUiInfo,
+            boolean getNonPlatformPermissions) {
         mContext = context;
         mCallback = callback;
         mGetAppUiInfo = getAppUiInfo;
+        mGetNonPlatformPermissions = getNonPlatformPermissions;
 
         // Don't update immediately as otherwise we can get a callback before this object is
         // initialized.
@@ -73,7 +76,7 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
 
     @Override
     public Loader<List<PermissionGroup>> onCreateLoader(int id, Bundle args) {
-        return new PermissionsLoader(mContext, mGetAppUiInfo);
+        return new PermissionsLoader(mContext, mGetAppUiInfo, mGetNonPlatformPermissions);
     }
 
     @Override
@@ -135,12 +138,15 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
      * @param context Context to use
      * @param isCanceled callback checked if the group resolution should be aborted
      * @param getAppUiInfo If the UI info for apps should be updated
+     * @param getNonPlatformPermissions If we should get non-platform permission groups
      *
      * @return the list of all groups int the system
      */
     public static @NonNull List<PermissionGroup> getAllPermissionGroups(@NonNull Context context,
-            @Nullable Supplier<Boolean> isCanceled, boolean getAppUiInfo) {
-        return getPermissionGroups(context, isCanceled, getAppUiInfo, null, null);
+            @Nullable Supplier<Boolean> isCanceled, boolean getAppUiInfo,
+            boolean getNonPlatformPermissions) {
+        return getPermissionGroups(context, isCanceled, getAppUiInfo, getNonPlatformPermissions,
+                null, null);
     }
 
     /**
@@ -149,6 +155,7 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
      * @param context Context to use
      * @param isCanceled callback checked if the group resolution should be aborted
      * @param getAppUiInfo If the UI info for apps should be updated
+     * @param getNonPlatformPermissions If we should get non-platform permission groups
      * @param groupName Optional group to filter for.
      * @param packageName Optional package to filter for.
      *
@@ -156,7 +163,8 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
      */
     public static @NonNull List<PermissionGroup> getPermissionGroups(@NonNull Context context,
             @Nullable Supplier<Boolean> isCanceled, boolean getAppUiInfo,
-            @Nullable String groupName, @Nullable String packageName) {
+            boolean getNonPlatformPermissions, @Nullable String groupName,
+            @Nullable String packageName) {
         ArraySet<String> launcherPkgs = Utils.getLauncherPackages(context);
         PermissionApps.PmCache pmCache = new PermissionApps.PmCache(
                 context.getPackageManager());
@@ -173,6 +181,11 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
             // Mare sure we respond to cancellation.
             if (isCanceled != null && isCanceled.get()) {
                 return Collections.emptyList();
+            }
+
+            // Ignore non-platform permissions and the UNDEFINED group.
+            if (!getNonPlatformPermissions && !Utils.isModernPermissionGroup(groupInfo.name)) {
+                continue;
             }
 
             // Get the permissions in this group.
@@ -248,6 +261,12 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
                     continue;
                 }
 
+                // Ignore non-platform permissions and the UNDEFINED group.
+                if (!getNonPlatformPermissions && !Utils.isModernPermissionGroup(
+                        permissionInfo.name)) {
+                    continue;
+                }
+
                 // If no app uses this permission,
                 if (!requestedPermissions.contains(permissionInfo.name)) {
                     continue;
@@ -303,10 +322,13 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
     private static final class PermissionsLoader extends AsyncTaskLoader<List<PermissionGroup>>
             implements PackageManager.OnPermissionsChangedListener {
         private final boolean mGetAppUiInfo;
+        private final boolean mGetNonPlatformPermissions;
 
-        PermissionsLoader(Context context, boolean getAppUiInfo) {
+        PermissionsLoader(Context context, boolean getAppUiInfo,
+                boolean getNonPlatformPermissions) {
             super(context);
             mGetAppUiInfo = getAppUiInfo;
+            mGetNonPlatformPermissions = getNonPlatformPermissions;
         }
 
         @Override
@@ -323,7 +345,7 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
         @Override
         public List<PermissionGroup> loadInBackground() {
             return getAllPermissionGroups(getContext(), this::isLoadInBackgroundCanceled,
-                    mGetAppUiInfo);
+                    mGetAppUiInfo, mGetNonPlatformPermissions);
         }
 
         @Override
