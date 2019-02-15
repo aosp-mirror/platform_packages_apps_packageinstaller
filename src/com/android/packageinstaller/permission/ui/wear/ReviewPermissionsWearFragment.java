@@ -253,7 +253,7 @@ public class ReviewPermissionsWearFragment extends PreferenceFragmentCompat
                 } else {
                     group.revokeRuntimePermissions(false);
                 }
-                group.resetReviewRequired();
+                group.unsetReviewRequired();
             }
         }
     }

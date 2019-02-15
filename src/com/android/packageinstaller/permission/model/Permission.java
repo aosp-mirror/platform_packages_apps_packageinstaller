@@ -134,7 +134,7 @@ public final class Permission {
         return (mFlags & PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED) != 0;
     }
 
-    public void resetReviewRequired() {
+    public void unsetReviewRequired() {
         mFlags &= ~PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED;
     }
 
