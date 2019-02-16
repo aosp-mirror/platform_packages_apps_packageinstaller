@@ -29,6 +29,7 @@ import android.provider.Settings;
 import android.service.voice.VoiceInteractionService;
 import android.util.ArraySet;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.Xml;
 
 import androidx.annotation.NonNull;
@@ -48,6 +49,8 @@ import java.util.Set;
  * Class for behavior of the assistant role.
  */
 public class AssistantRoleBehavior implements RoleBehavior {
+
+    private static final String LOG_TAG = AssistantRoleBehavior.class.getSimpleName();
 
     private static final Intent ASSIST_SERVICE_PROBE =
             new Intent(VoiceInteractionService.SERVICE_INTERFACE);
@@ -131,8 +134,16 @@ public class AssistantRoleBehavior implements RoleBehavior {
         }
 
         Intent pkgActivityProbe = new Intent(ASSIST_ACTIVITY_PROBE).setPackage(packageName);
-        return !pm.queryIntentActivities(pkgActivityProbe,
+        boolean hasAssistantActivity = !pm.queryIntentActivities(pkgActivityProbe,
                 PackageManager.MATCH_DEFAULT_ONLY).isEmpty();
+
+        if (!hasAssistantActivity) {
+            Log.w(LOG_TAG, "Package " + packageName + " not qualified for " + role.getName()
+                    + " due to " + (services.isEmpty() ? "missing service"
+                    : "service without qualifying metadata") + " and missing activity");
+        }
+
+        return hasAssistantActivity;
     }
 
     private boolean isAssistantVoiceInteractionService(@NonNull PackageManager pm,
