@@ -532,7 +532,8 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
         mPermissionUsages.load(null /*filterPackageName*/, null /*filterPermissionGroup*/,
                 filterTimeBeginMillis, Long.MAX_VALUE, PermissionUsages.USAGE_FLAG_LAST
                         | PermissionUsages.USAGE_FLAG_HISTORICAL, getActivity().getLoaderManager(),
-                false /*getUiInfo*/, this /*callback*/, false /*sync*/);
+                false /*getUiInfo*/, false /*getNonPlatformPermissions*/, this /*callback*/,
+                false /*sync*/);
         if (mFinishedInitialLoad) {
             setProgressBarVisible(true);
         }

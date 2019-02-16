@@ -275,6 +275,6 @@ public class AppPermissionUsageFragment extends SettingsWithButtonHeader impleme
         mPermissionUsages.load(mAppInfo.uid, mPackageName, null, beginTimeMillis, Long.MAX_VALUE,
                 PermissionUsages.USAGE_FLAG_LAST | PermissionUsages.USAGE_FLAG_HISTORICAL,
                 getActivity().getLoaderManager(),
-                true, this::updateUi, false);
+                true, false, this::updateUi, false);
     }
 }
