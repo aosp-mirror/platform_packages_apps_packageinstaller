@@ -546,14 +546,27 @@ public final class Utils {
         if (groupUsage == null) {
             return null;
         }
-        long lastAccessTime = groupUsage.getLastAccessTime();
+        return getAbsoluteTimeString(context, groupUsage.getLastAccessTime());
+    }
+
+    /**
+     * Build a string representing the given time if it happened on the current day and the date
+     * otherwise.
+     *
+     * @param context the context.
+     * @param lastAccessTime the time in milliseconds.
+     *
+     * @return a string representing the time or date of the given time or null if the time is 0.
+     */
+    public static @Nullable String getAbsoluteTimeString(@NonNull Context context,
+            long lastAccessTime) {
         if (lastAccessTime == 0) {
             return null;
         }
         if (isToday(lastAccessTime)) {
-            return DateFormat.getTimeFormat(context).format(groupUsage.getLastAccessTime());
+            return DateFormat.getTimeFormat(context).format(lastAccessTime);
         } else {
-            return DateFormat.getMediumDateFormat(context).format(groupUsage.getLastAccessTime());
+            return DateFormat.getMediumDateFormat(context).format(lastAccessTime);
         }
     }
 

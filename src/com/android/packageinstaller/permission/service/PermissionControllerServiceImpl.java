@@ -40,6 +40,7 @@ import android.permission.RuntimePermissionUsageInfo;
 import android.util.ArrayMap;
 import android.util.ArraySet;
 import android.util.Log;
+import android.util.Xml;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -53,10 +54,12 @@ import com.android.packageinstaller.permission.model.PermissionUsages;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.packageinstaller.role.service.PermissionControllerServiceImplRoleMixin;
 
+import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlSerializer;
 
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -182,7 +185,7 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
 
             // Mark the permissions as reviewed as we don't want to use to accidentally grant
             // the permission during review
-            group.resetReviewRequired();
+            group.unsetReviewRequired();
 
             int numPerms = perms.size();
             for (int permNum = 0; permNum < numPerms; permNum++) {
@@ -306,14 +309,25 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
     @Override
     public void onRestoreRuntimePermissionsBackup(@NonNull UserHandle user,
             @NonNull InputStream backup) {
-        // TODO: Implement
+        try {
+            XmlPullParser parser = Xml.newPullParser();
+            parser.setInput(backup, StandardCharsets.UTF_8.name());
+
+            new BackupHelper(this, user).restoreState(parser);
+        } catch (Exception e) {
+            Log.e(LOG_TAG, "Exception restoring permissions: " + e.getMessage());
+        }
     }
 
     @Override
     public boolean onRestoreDelayedRuntimePermissionsBackup(@NonNull String packageName,
             @NonNull UserHandle user) {
-        // TODO: Implement
-        return true;
+        try {
+            return new BackupHelper(this, user).restoreDelayedState(packageName);
+        } catch (Exception e) {
+            Log.e(LOG_TAG, "Exception restoring delayed permissions: " + e.getMessage());
+            return false;
+        }
     }
 
     @Override
@@ -438,7 +452,7 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
         long filterTimeBeginMillis = Math.max(System.currentTimeMillis() - numMillis, 0);
         usages.load(null, null, filterTimeBeginMillis, Long.MAX_VALUE,
                 PermissionUsages.USAGE_FLAG_LAST | PermissionUsages.USAGE_FLAG_HISTORICAL, null,
-                false, null, true);
+                false, false, null, true);
 
         List<AppPermissionUsage> appPermissionUsages = usages.getUsages();
         int numApps = appPermissionUsages.size();

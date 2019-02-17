@@ -197,7 +197,7 @@ public final class ReviewPermissionsFragment extends PreferenceFragmentCompat
                     if (group.isReviewRequired() && !permPreference.wasChanged()) {
                         grantReviewedPermission(group);
                     }
-                    group.resetReviewRequired();
+                    group.unsetReviewRequired();
 
                     AppPermissionGroup backgroundGroup = group.getBackgroundPermissions();
                     if (backgroundGroup != null) {
@@ -205,7 +205,7 @@ public final class ReviewPermissionsFragment extends PreferenceFragmentCompat
                         if (backgroundGroup.isReviewRequired() && !permPreference.wasChanged()) {
                             grantReviewedPermission(backgroundGroup);
                         }
-                        backgroundGroup.resetReviewRequired();
+                        backgroundGroup.unsetReviewRequired();
                     }
                 }
             }

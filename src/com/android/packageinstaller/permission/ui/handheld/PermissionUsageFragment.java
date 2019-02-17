@@ -237,6 +237,10 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
                         SORT_MOST_PERMISSIONS));
         mSortSpinner.setSelection(mSavedSortSpinnerIndex);
 
+        // STOPSHIP: Re-enable spinners afetr user study completes.
+        header.requireViewById(R.id.filter_spinner_bar).setVisibility(View.GONE);
+        reloadData();
+
         return root;
     }
 
@@ -362,6 +366,9 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
                 new ArrayList<>(mPermissionUsages.getUsages());
         if (appPermissionUsages.isEmpty() || getActivity() == null) {
             return;
+        }
+        if (mFinishedInitialLoad) {
+            setProgressBarVisible(true);
         }
         Context context = getActivity();
 
@@ -525,7 +532,8 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
         mPermissionUsages.load(null /*filterPackageName*/, null /*filterPermissionGroup*/,
                 filterTimeBeginMillis, Long.MAX_VALUE, PermissionUsages.USAGE_FLAG_LAST
                         | PermissionUsages.USAGE_FLAG_HISTORICAL, getActivity().getLoaderManager(),
-                false /*getUiInfo*/, this /*callback*/, false /*sync*/);
+                false /*getUiInfo*/, false /*getNonPlatformPermissions*/, this /*callback*/,
+                false /*sync*/);
         if (mFinishedInitialLoad) {
             setProgressBarVisible(true);
         }

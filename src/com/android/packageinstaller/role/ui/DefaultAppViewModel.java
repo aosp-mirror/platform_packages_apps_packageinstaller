@@ -17,14 +17,20 @@
 package com.android.packageinstaller.role.ui;
 
 import android.app.Application;
+import android.content.pm.ApplicationInfo;
 import android.os.UserHandle;
+import android.util.Pair;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Transformations;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.android.packageinstaller.role.model.Role;
+
+import java.util.List;
 
 /**
  * {@link ViewModel} for a default app.
@@ -32,7 +38,7 @@ import com.android.packageinstaller.role.model.Role;
 public class DefaultAppViewModel extends AndroidViewModel {
 
     @NonNull
-    private final RoleLiveData mRoleLiveData;
+    private final LiveData<List<Pair<ApplicationInfo, Boolean>>> mRoleLiveData;
 
     @NonNull
     private final ManageRoleHolderStateLiveData mManageRoleHolderStateLiveData =
@@ -42,11 +48,12 @@ public class DefaultAppViewModel extends AndroidViewModel {
             @NonNull Application application) {
         super(application);
 
-        mRoleLiveData = new RoleLiveData(role, user, application);
+        mRoleLiveData = Transformations.map(new RoleLiveData(role, user, application),
+                new RoleSortFunction(application));
     }
 
     @NonNull
-    public RoleLiveData getRoleLiveData() {
+    public LiveData<List<Pair<ApplicationInfo, Boolean>>> getRoleLiveData() {
         return mRoleLiveData;
     }
 

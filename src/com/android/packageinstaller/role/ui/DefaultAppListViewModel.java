@@ -23,9 +23,13 @@ import android.os.UserHandle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Transformations;
 import androidx.lifecycle.ViewModel;
 
 import com.android.packageinstaller.role.utils.UserUtils;
+
+import java.util.List;
 
 /**
  * {@link ViewModel} for the list of default apps.
@@ -35,20 +39,22 @@ public class DefaultAppListViewModel extends AndroidViewModel {
     @NonNull
     private final UserHandle mUser;
     @NonNull
-    private final RoleListLiveData mLiveData;
+    private final LiveData<List<RoleItem>> mLiveData;
     @Nullable
     private final UserHandle mWorkProfile;
     @Nullable
-    private final RoleListLiveData mWorkLiveData;
+    private final LiveData<List<RoleItem>> mWorkLiveData;
 
     public DefaultAppListViewModel(@NonNull Application application) {
         super(application);
 
         mUser = Process.myUserHandle();
-        mLiveData = new RoleListLiveData(true, mUser, application);
+        RoleListSortFunction sortFunction = new RoleListSortFunction(application);
+        mLiveData = Transformations.map(new RoleListLiveData(true, mUser, application),
+                sortFunction);
         mWorkProfile = UserUtils.getWorkProfile(application);
-        mWorkLiveData = mWorkProfile != null ? new RoleListLiveData(true, mWorkProfile, application)
-                : null;
+        mWorkLiveData = mWorkProfile != null ? Transformations.map(new RoleListLiveData(true,
+                mWorkProfile, application), sortFunction) : null;
     }
 
     @NonNull
@@ -57,7 +63,7 @@ public class DefaultAppListViewModel extends AndroidViewModel {
     }
 
     @NonNull
-    public RoleListLiveData getLiveData() {
+    public LiveData<List<RoleItem>> getLiveData() {
         return mLiveData;
     }
 
@@ -76,7 +82,7 @@ public class DefaultAppListViewModel extends AndroidViewModel {
     }
 
     @Nullable
-    public RoleListLiveData getWorkLiveData() {
+    public LiveData<List<RoleItem>> getWorkLiveData() {
         return mWorkLiveData;
     }
 }

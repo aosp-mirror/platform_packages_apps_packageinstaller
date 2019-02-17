@@ -26,11 +26,13 @@ import android.os.UserHandle;
 import android.provider.Settings;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.preference.Preference;
 
 import com.android.packageinstaller.role.utils.UserUtils;
 import com.android.permissioncontroller.R;
 
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -46,6 +48,40 @@ public class HomeRoleBehavior implements RoleBehavior {
     public boolean isAvailableAsUser(@NonNull Role role, @NonNull UserHandle user,
             @NonNull Context context) {
         return !UserUtils.isWorkProfile(user, context);
+    }
+
+    /**
+     * @see com.android.server.pm.PackageManagerService#getDefaultHomeActivity(int)
+     */
+    @Nullable
+    @Override
+    public String getFallbackHolder(@NonNull Role role, @NonNull Context context) {
+        PackageManager packageManager = context.getPackageManager();
+        Intent intent = role.getRequiredComponents().get(0).getIntentFilterData().createIntent();
+        List<ResolveInfo> resolveInfos = packageManager.queryIntentActivities(intent,
+                PackageManager.MATCH_DEFAULT_ONLY | PackageManager.MATCH_DIRECT_BOOT_AWARE
+                | PackageManager.MATCH_DIRECT_BOOT_UNAWARE);
+
+        String packageName = null;
+        int priority = Integer.MIN_VALUE;
+        int resolveInfosSize = resolveInfos.size();
+        for (int i = 0; i < resolveInfosSize; i++) {
+            ResolveInfo resolveInfo = resolveInfos.get(i);
+
+            // Leave the fallback to PackageManagerService if there is only the fallback home in
+            // Settings, because if we fallback to it here, we cannot fallback to a normal home
+            // later, and user cannot see the fallback home in the UI anyway.
+            if (isSettingsApplication(resolveInfo.activityInfo.applicationInfo, context)) {
+                continue;
+            }
+            if (resolveInfo.priority > priority) {
+                packageName = resolveInfo.activityInfo.packageName;
+                priority = resolveInfo.priority;
+            } else if (resolveInfo.priority == priority) {
+                packageName = null;
+            }
+        }
+        return packageName;
     }
 
     @Override

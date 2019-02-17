@@ -16,9 +16,6 @@
 
 package com.android.packageinstaller.role.model;
 
-import static org.xmlpull.v1.XmlPullParser.END_DOCUMENT;
-import static org.xmlpull.v1.XmlPullParser.START_TAG;
-
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
@@ -38,6 +35,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.android.packageinstaller.role.utils.UserUtils;
+import com.android.permissioncontroller.R;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -50,6 +48,7 @@ import java.util.Set;
  * Class for behavior of the assistant role.
  */
 public class AssistantRoleBehavior implements RoleBehavior {
+
     private static final Intent ASSIST_SERVICE_PROBE =
             new Intent(VoiceInteractionService.SERVICE_INTERFACE);
     private static final Intent ASSIST_ACTIVITY_PROBE = new Intent(Intent.ACTION_ASSIST);
@@ -73,6 +72,13 @@ public class AssistantRoleBehavior implements RoleBehavior {
     public Intent getManageIntentAsUser(@NonNull Role role, @NonNull UserHandle user,
             @NonNull Context context) {
         return new Intent(Settings.ACTION_VOICE_INPUT_SETTINGS);
+    }
+
+    @Nullable
+    @Override
+    public CharSequence getConfirmationMessage(@NonNull Role role, @NonNull String packageName,
+            @NonNull Context context) {
+        return context.getString(R.string.assistant_confirmation_message);
     }
 
     @Nullable
@@ -113,7 +119,7 @@ public class AssistantRoleBehavior implements RoleBehavior {
 
         Intent pkgServiceProbe = new Intent(ASSIST_SERVICE_PROBE).setPackage(packageName);
         List<ResolveInfo> services = pm.queryIntentServices(pkgServiceProbe,
-                PackageManager.MATCH_DEFAULT_ONLY);
+                PackageManager.GET_META_DATA);
 
         int numServices = services.size();
         for (int i = 0; i < numServices; i++) {
@@ -144,7 +150,7 @@ public class AssistantRoleBehavior implements RoleBehavior {
             int type;
             do {
                 type = parser.next();
-            } while (type != END_DOCUMENT && type != START_TAG);
+            } while (type != XmlResourceParser.END_DOCUMENT && type != XmlResourceParser.START_TAG);
 
             String sessionService = null;
             String recognitionService = null;
