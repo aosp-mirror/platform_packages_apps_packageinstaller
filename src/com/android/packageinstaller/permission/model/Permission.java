@@ -174,6 +174,14 @@ public final class Permission {
         return (mFlags & PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT) != 0;
     }
 
+    public boolean isUserSensitiveWhenGranted() {
+        return (mFlags & PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED) != 0;
+    }
+
+    public boolean isUserSensitiveWhenDenied() {
+        return (mFlags & PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED) != 0;
+    }
+
     /**
      * If this permission is split into a foreground and background permission, this is the name
      * of the background permission.

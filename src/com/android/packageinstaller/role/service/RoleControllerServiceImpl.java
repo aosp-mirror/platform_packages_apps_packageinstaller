@@ -27,6 +27,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Process;
+import android.os.SystemClock;
 import android.os.UserHandle;
 import android.rolecontrollerservice.RoleControllerService;
 import android.text.TextUtils;
@@ -335,6 +336,61 @@ public class RoleControllerServiceImpl extends RoleControllerService {
 
         if (callback != null) {
             callback.onSuccess();
+        }
+
+        // Populate PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED
+        PackageManager pm = getPackageManager();
+        UserHandle user = Process.myUserHandle();
+        List<PackageInfo> pkgs = pm.getInstalledPackages(0);
+        List<String> platformPerms = Utils.getPlatformPermissions();
+        ArraySet<String> pkgsWithLauncherIcon = Utils.getLauncherPackages(this);
+        List<Long> iterationTimesNs = new ArrayList<>();
+
+        long startMs = SystemClock.uptimeMillis();
+        for (int i = 0, size = pkgs.size(); i < size; i++) {
+            PackageInfo pkg = pkgs.get(i);
+            boolean pkgHasLauncherIcon = pkgsWithLauncherIcon.contains(pkg.packageName);
+            boolean pkgIsSystemApp = (pkg.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0;
+
+            for (int j = 0, permSize = platformPerms.size(); j < permSize; j++) {
+                String perm = platformPerms.get(j);
+
+                long iterationStart = DEBUG ? SystemClock.elapsedRealtimeNanos() : 0L;
+
+                int flags;
+                if (pkgIsSystemApp && !pkgHasLauncherIcon) {
+                    boolean permGranted = pm.checkPermission(perm, pkg.packageName)
+                            == PackageManager.PERMISSION_GRANTED;
+                    boolean permGrantedByDefault = permGranted
+                            && (pm.getPermissionFlags(perm, pkg.packageName, user)
+                            & PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT) != 0;
+                    if (permGrantedByDefault) {
+                        flags = 0;
+                    } else {
+                        flags = PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED;
+                    }
+                } else {
+                    flags = PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED
+                            | PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED;
+                }
+                //TODO(b/124317989): flags |= userOverrideInUi
+                pm.updatePermissionFlags(perm, pkg.packageName,
+                        PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED
+                                | PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED, flags,
+                        user);
+
+                if (DEBUG) {
+                    iterationTimesNs.add(SystemClock.elapsedRealtimeNanos() - iterationStart);
+                }
+            }
+        }
+        if (DEBUG) {
+            long avgIter = iterationTimesNs.stream().reduce(0L, (a, b) -> a + b)
+                    / iterationTimesNs.size();
+            Log.i(LOG_TAG, "Populating FLAG_PERMISSION_USER_SENSITIVE_* for "
+                    + pkgs.size() + "pkgs & "
+                    + platformPerms.size() + "perms took " + (SystemClock.uptimeMillis() - startMs)
+                    + "ms, avg iteration took " + avgIter + "ns");
         }
     }
 

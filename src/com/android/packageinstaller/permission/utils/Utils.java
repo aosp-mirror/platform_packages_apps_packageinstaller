@@ -406,6 +406,15 @@ public final class Utils {
     }
 
     /**
+     * Get the names of the platform permissions.
+     *
+     * @return the names of the platform permissions.
+     */
+    public static List<String> getPlatformPermissions() {
+        return new ArrayList<>(PLATFORM_PERMISSIONS.keySet());
+    }
+
+    /**
      * Should UI show this permission.
      *
      * <p>If the user cannot change the group, it should not be shown.
