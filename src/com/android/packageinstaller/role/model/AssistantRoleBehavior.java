@@ -70,6 +70,12 @@ public class AssistantRoleBehavior implements RoleBehavior {
                 context);
     }
 
+    @Override
+    public boolean isVisibleAsUser(@NonNull Role role, @NonNull UserHandle user,
+            @NonNull Context context) {
+        return VisibilityMixin.isVisible("config_showDefaultAssistant", context);
+    }
+
     @Nullable
     @Override
     public Intent getManageIntentAsUser(@NonNull Role role, @NonNull UserHandle user,
