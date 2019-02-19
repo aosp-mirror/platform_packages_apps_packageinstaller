@@ -292,6 +292,7 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
                         .setUid(mFilterUid)
                         .setPackageName(mFilterPackageName)
                         .setOpNames(new ArrayList<>(opNames))
+                        .setFlags(AppOpsManager.OP_FLAGS_ALL_TRUSTED)
                         .build();
                 appOpsManager.getHistoricalOps(request, Runnable::run,
                         (HistoricalOps ops) -> {

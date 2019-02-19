@@ -148,7 +148,8 @@ public final class ReviewAccessibilityServicesActivity extends FragmentActivity 
             int numOps = pkgOp.getOps().size();
             for (int opNum = 0; opNum < numOps; opNum++) {
                 AppOpsManager.OpEntry op = pkgOp.getOps().get(opNum);
-                lastAccessTime = Math.max(lastAccessTime, op.getLastAccessTime());
+                lastAccessTime = Math.max(lastAccessTime,
+                        op.getLastAccessTime(AppOpsManager.OP_FLAGS_ALL_TRUSTED));
             }
         }
         return lastAccessTime;
