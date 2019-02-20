@@ -247,6 +247,21 @@ public class Role {
     }
 
     /**
+     * Check whether this role should be visible to user.
+     *
+     * @param user the user to check for
+     * @param context the {@code Context} to retrieve system services
+     *
+     * @return whether this role should be visible to user
+     */
+    public boolean isVisibleAsUser(@NonNull UserHandle user, @NonNull Context context) {
+        if (mBehavior != null) {
+            return mBehavior.isVisibleAsUser(this, user, context);
+        }
+        return true;
+    }
+
+    /**
      * Get the {@link Intent} to manage this role, or {@code null} to use the default UI.
      *
      * @param user the user to manage this role for
