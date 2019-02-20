@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2019 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <overlayable name="PermissionControllerStyles">
+
+        <policy type="product|system|vendor">
+
+            <!-- START PERMISSION GRANT DIALOG -->
+            <item type="style" name="PermissionGrantScrollView" />
+            <item type="style" name="PermissionGrantDialog" />
+
+            <item type="style" name="PermissionGrantContent" />
+            <item type="style" name="PermissionGrantDescription" />
+            <item type="style" name="PermissionGrantTitleIcon" />
+            <item type="style" name="PermissionGrantTitleMessage" />
+            <item type="style" name="PermissionGrantDetailMessage" />
+
+            <item type="style" name="PermissionGrantButtonList" />
+            <item type="style" name="PermissionGrantButtonBarSpace" />
+            <item type="style" name="PermissionGrantButton" />
+            <item type="style" name="PermissionGrantButtonAllow" />
+            <item type="style" name="PermissionGrantButtonAllowAlways" />
+            <item type="style" name="PermissionGrantButtonAllowForeground" />
+            <item type="style" name="PermissionGrantButtonDeny" />
+            <item type="style" name="PermissionGrantButtonDenyDontAskAgain" />
+            <!-- END PERMISSION GRANT DIALOG -->
+
+
+            <!-- START PERMISSION REVIEW SCREEN -->
+            <item type="style" name="PermissionReview" />
+
+            <item type="style" name="PermissionReviewDescription" />
+            <item type="style" name="PermissionReviewTitleIcon" />
+            <item type="style" name="PermissionReviewTitleMessage" />
+
+            <item type="style" name="PermissionReviewSettings" />
+
+            <item type="style" name="PermissionReviewButtonBar" />
+            <item type="style" name="PermissionReviewButtonBarSpace" />
+            <item type="style" name="PermissionReviewButton" />
+            <item type="style" name="PermissionReviewButtonMoreInfo" />
+            <item type="style" name="PermissionReviewButtonCancel" />
+            <item type="style" name="PermissionReviewButtonContinue" />
+            <!-- END PERMISSION REVIEW SCREEN -->
+
+        </policy>
+
+    </overlayable>
+
+</resources>
