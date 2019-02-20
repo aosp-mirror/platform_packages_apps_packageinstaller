@@ -79,6 +79,8 @@ public class ExclusiveDefaultHolderMixin {
         }
 
         if (!role.isPackageQualified(packageName, context)) {
+            Log.w(LOG_TAG, "Default holder does not qualify for the role, config: " + resourceName
+                    + ", package: " + packageName);
             return null;
         }
         return packageName;
