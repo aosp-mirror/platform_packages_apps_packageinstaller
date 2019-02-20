@@ -224,6 +224,10 @@ public final class AppPermissionsFragment extends SettingsWithButtonHeader {
                                 lastAccessStr));
             } else {
                 preference.setGroupSummary(group);
+                if (preference.getSummary().length() == 0) {
+                    preference.setSummary(
+                            context.getString(R.string.app_permission_never_accessed_summary));
+                }
             }
 
             if (isPlatform) {

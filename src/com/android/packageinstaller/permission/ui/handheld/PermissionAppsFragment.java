@@ -369,6 +369,8 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
         if (lastAccessStr != null && !group.getLabel().equals("Storage")) {
             pref.setSummary(context.getString(R.string.app_permission_most_recent_summary,
                     lastAccessStr));
+        } else {
+            pref.setSummary(context.getString(R.string.app_permission_never_accessed_summary));
         }
     }
 
