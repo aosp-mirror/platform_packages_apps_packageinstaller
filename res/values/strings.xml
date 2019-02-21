@@ -98,6 +98,10 @@
 
     <!-- Title for page of managing application permissions [CHAR LIMIT=30] -->
     <string name="app_permissions">App permissions</string>
+
+    <!-- Title for page of managing application permissions [CHAR LIMIT=30] -->
+    <string name="app_permission_manager">Permission manager</string>
+
     <!-- Checkbox that allows user to not be questioned about this permission
          request again [CHAR LIMIT=30] -->
     <string name="never_ask_again">Don\'t ask again</string>
@@ -130,7 +134,7 @@
     <string name="permission_usage_header">Recent usage</string>
 
     <!-- The button to bring the user to view the details of recent permission accesses [CHAR LIMIT=30] -->
-    <string name="permission_usage_view_details">View details</string>
+    <string name="permission_usage_view_details">View Permissions Dashboard</string>
 
    <!-- [CHAR LIMIT=NONE] Menu for manage permissions to control whether system apps are shown -->
    <string name="menu_show_system">Show system</string>
@@ -253,7 +257,7 @@
     <string name="help_app_permissions" translatable="false"></string>
 
     <!-- Title for permission usage [CHAR LIMIT=30] -->
-    <string name="permission_usage_title">Permissions usage</string>
+    <string name="permission_usage_title">Dashboard</string>
 
     <!-- Summary for showing a single permission access and the number of accesses [CHAR LIMIT=80] -->
     <plurals name="permission_usage_summary">

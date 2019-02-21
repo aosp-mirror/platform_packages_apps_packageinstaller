@@ -79,7 +79,7 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
     public void onStart() {
         super.onStart();
 
-        getActivity().setTitle(com.android.permissioncontroller.R.string.app_permissions);
+        getActivity().setTitle(com.android.permissioncontroller.R.string.app_permission_manager);
     }
 
     @Override
