@@ -69,6 +69,12 @@ public class EmergencyRoleBehavior implements RoleBehavior {
         return fallbackPackageInfo != null ? fallbackPackageInfo.packageName : null;
     }
 
+    @Override
+    public boolean isVisibleAsUser(@NonNull Role role, @NonNull UserHandle user,
+            @NonNull Context context) {
+        return VisibilityMixin.isVisible("config_showDefaultEmergency", context);
+    }
+
     @Nullable
     @Override
     public CharSequence getConfirmationMessage(@NonNull Role role, @NonNull String packageName,

@@ -61,7 +61,13 @@ public class ExclusiveDefaultHolderMixin {
             Log.w(LOG_TAG, "Cannot find resource for default holder: " + resourceName);
             return null;
         }
-        String packageName = resources.getString(resourceId);
+        String packageName;
+        try {
+            packageName = resources.getString(resourceId);
+        } catch (Resources.NotFoundException e) {
+            Log.w(LOG_TAG, "Cannot get resource for default holder: " + resourceName, e);
+            return null;
+        }
         if (TextUtils.isEmpty(packageName)) {
             return null;
         }

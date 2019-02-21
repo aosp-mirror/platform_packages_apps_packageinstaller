@@ -573,16 +573,15 @@ public final class Utils {
     /**
      * Build a string representing the duration of a permission usage.
      *
-     * @return a string representing the amount of time since this app's most recent permission
-     * usage or null if there are no usages.
+     * @return a string representing the duration of this app's usage or null if there are no
+     * usages.
      */
     public static @Nullable String getUsageDurationString(@NonNull Context context,
             @Nullable AppPermissionUsage.GroupUsage groupUsage) {
         if (groupUsage == null) {
             return null;
         }
-        return getTimeDiffStr(context, System.currentTimeMillis()
-                - groupUsage.getAccessDuration());
+        return getTimeDiffStr(context, groupUsage.getAccessDuration());
     }
 
     /**

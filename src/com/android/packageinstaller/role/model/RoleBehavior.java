@@ -58,6 +58,14 @@ public interface RoleBehavior {
     }
 
     /**
+     * @see Role#isVisibleAsUser(UserHandle, Context)
+     */
+    default boolean isVisibleAsUser(@NonNull Role role, @NonNull UserHandle user,
+            @NonNull Context context) {
+        return true;
+    }
+
+    /**
      * @see Role#getManageIntentAsUser(UserHandle, Context)
      */
     @Nullable
