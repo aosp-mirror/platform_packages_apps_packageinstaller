@@ -168,6 +168,11 @@
     <string name="launch_app" msgid="5641437562665039291">"Abrir"</string>
     <string name="uninstall_app" msgid="8756507666995809214">"Desinstalar"</string>
     <string name="force_stop_app" msgid="4253426323145479826">"Forzar detención"</string>
+    <string name="settings" msgid="2884124136779508907">"Ajustes"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> tiene acceso completo a tu dispositivo"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> servicios de accesibilidad tienen acceso completo a tu dispositivo"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> puede ver tu pantalla, lo que haces y lo que introduces; realizar acciones; y controlar la pantalla."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"Estos servicios pueden ver tu pantalla, lo que haces y lo que introduces; realizar acciones; y controlar la pantalla."</string>
     <string name="default_apps" msgid="8554530939151957828">"Aplicaciones predeterminadas"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Ninguna app predeterminada"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Predeterminadas para trabajo"</string>
@@ -176,6 +181,7 @@
     <string name="special_app_access" msgid="2561673957499408877">"Acceso especial de apps"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Sin acceso especial de apps"</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"No hay aplicaciones"</string>
+    <string name="role_label_assistant" msgid="456685142560727172">"Aplicación de asistencia"</string>
     <string name="role_label_browser" msgid="6266502234308421457">"Aplicación de navegador"</string>
     <string name="role_label_dialer" msgid="3345895090725237533">"Aplicación de teléfono"</string>
     <string name="role_label_sms" msgid="2262769075496017522">"Aplicación de SMS"</string>
@@ -184,13 +190,13 @@
     <string name="role_label_music" msgid="5900245414865932272">"Aplicación de música"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"Aplicación de galería"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"App de llamadas en modo coche"</string>
-    <!-- no translation found for role_label_call_redirection (8902197181113231577) -->
-    <skip />
+    <string name="role_label_call_redirection" msgid="8902197181113231577">"App de redirección de llamadas"</string>
     <string name="role_label_call_screening" msgid="411212589764916370">"App de filtro de llamadas"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"App complementaria de llamadas"</string>
-    <string name="role_label_assistant" msgid="456685142560727172">"Aplicación de asistencia"</string>
     <string name="role_label_car_projection" msgid="3792929094325391213">"App de proyección del coche"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"No admite perfiles de trabajo"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Nota: Si reinicias el dispositivo y y has definido un bloqueo de pantalla, esta aplicación no se podrá iniciar hasta que desbloquees el dispositivo."</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"El asistente podrá consultar información sobre las aplicaciones en uso del sistema, como la que aparezca en pantalla o a la que se pueda acceder a través de las aplicaciones."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Compartir datos de depuración"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"¿Quieres compartir datos de depuración detallados?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> quiere subir información de depuración."</string>

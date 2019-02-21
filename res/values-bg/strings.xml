@@ -168,6 +168,11 @@
     <string name="launch_app" msgid="5641437562665039291">"Отваряне"</string>
     <string name="uninstall_app" msgid="8756507666995809214">"Деинсталиране"</string>
     <string name="force_stop_app" msgid="4253426323145479826">"Принудително спиране"</string>
+    <string name="settings" msgid="2884124136779508907">"Настройки"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> има пълен достъп до устройството ви"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> услуги за достъпност имат пълен достъп до устройството ви"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> може да вижда екрана, действията ви и данните, които въвеждате, както и да извършва действия и да контролира дисплея."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"Тези услуги могат да виждат екрана, действията ви и данните, които въвеждате, както и да извършват действия и да контролират дисплея."</string>
     <string name="default_apps" msgid="8554530939151957828">"Приложения по подразбиране"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Няма стандартни приложия"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"По подразбиране за работа"</string>
@@ -176,6 +181,7 @@
     <string name="special_app_access" msgid="2561673957499408877">"Специален достъп за прилож."</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Няма спец. достъп за прилож."</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"Няма приложения"</string>
+    <string name="role_label_assistant" msgid="456685142560727172">"Помощно приложение"</string>
     <string name="role_label_browser" msgid="6266502234308421457">"Приложение за браузър"</string>
     <string name="role_label_dialer" msgid="3345895090725237533">"Приложение за телефон"</string>
     <string name="role_label_sms" msgid="2262769075496017522">"Приложение за SMS"</string>
@@ -184,13 +190,13 @@
     <string name="role_label_music" msgid="5900245414865932272">"Приложение за музика"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"Приложение за галерия"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"Прил. за телефон в моторежим"</string>
-    <!-- no translation found for role_label_call_redirection (8902197181113231577) -->
-    <skip />
+    <string name="role_label_call_redirection" msgid="8902197181113231577">"Прил. за пренас. на обаждания"</string>
     <string name="role_label_call_screening" msgid="411212589764916370">"Прил. за отсяване на обажд."</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"Придружаващо прил. за обажд."</string>
-    <string name="role_label_assistant" msgid="456685142560727172">"Помощно приложение"</string>
     <string name="role_label_car_projection" msgid="3792929094325391213">"Прожектиране в автомобила"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"Не се поддържат служебни потребителски профили"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Забележка: Ако рестартирате устройството си и сте задали опция за заключване на екрана, това приложение не може да стартира, докато не отключите устройството си."</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"Асистентът ще може да чете информацията за използваните в системата приложения, включително данните, видими на екрана или достъпни в тях."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Споделяне на данните за отстраняване на грешки"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"Споделяне на подробни данни за отстран. на грешки?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> иска да качи информация за отстраняване на грешки."</string>

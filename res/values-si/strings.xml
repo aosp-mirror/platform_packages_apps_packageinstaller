@@ -168,6 +168,11 @@
     <string name="launch_app" msgid="5641437562665039291">"විවෘත කරන්න"</string>
     <string name="uninstall_app" msgid="8756507666995809214">"අස්ථාපනය"</string>
     <string name="force_stop_app" msgid="4253426323145479826">"බලෙන් නවතන්න"</string>
+    <string name="settings" msgid="2884124136779508907">"සැකසීම්"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> හට ඔබේ උපාංගය වෙත පූර්ණ ප්‍රවේශය තිබේ"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> ප්‍රවේශ්‍යතා සේවාවලට ඔබේ උපාංගය වෙත පූර්ණ ප්‍රවේශය තිබේ"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> හට ඔබේ තිරය, ක්‍රියා, සහ ආදාන බැලීමට, කාර්ය ඉටු කිරීමට, සහ සංදර්ශකය පාලන කිරීමට හැකි ය."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"මෙම සේවාවලට ඔබේ තිරය, ක්‍රියා, සහ ආදාන බැලීමට, කාර්ය ඉටු කිරීමට, සහ සංදර්ශකය පාලන කිරීමට හැකි ය."</string>
     <string name="default_apps" msgid="8554530939151957828">"පෙරනිමි යෙදුම්"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"පෙරනිමි යෙදුම් නැත"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"වැඩ සඳහා පෙරනිමි"</string>
@@ -176,6 +181,7 @@
     <string name="special_app_access" msgid="2561673957499408877">"විශේෂ යෙදුම් ප්‍රවේශය"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"විශේෂිත යෙදුම් ප්‍රවේශයක් නැත"</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"යෙදුම් නැත"</string>
+    <string name="role_label_assistant" msgid="456685142560727172">"සහය යෙදුම"</string>
     <string name="role_label_browser" msgid="6266502234308421457">"බ්‍රවුසර යෙදුම"</string>
     <string name="role_label_dialer" msgid="3345895090725237533">"දුරකථන යෙදුම"</string>
     <string name="role_label_sms" msgid="2262769075496017522">"කෙටි පණිවුඩ යෙදුම"</string>
@@ -184,13 +190,13 @@
     <string name="role_label_music" msgid="5900245414865932272">"සංගීත යෙදුම"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"Gallery යෙදුම"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"රිය ප්‍රකාර දුරකථන යෙදුම"</string>
-    <!-- no translation found for role_label_call_redirection (8902197181113231577) -->
-    <skip />
+    <string name="role_label_call_redirection" msgid="8902197181113231577">"ඇමතුම් ප්‍රතියොමු කරන යෙදුම"</string>
     <string name="role_label_call_screening" msgid="411212589764916370">"ඇමතුම් පරීක්ෂා කිරීමේ යෙදුම"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"ඇමතුම් සහායක යෙදුම"</string>
-    <string name="role_label_assistant" msgid="456685142560727172">"සහය යෙදුම"</string>
     <string name="role_label_car_projection" msgid="3792929094325391213">"මෝටර් රථ ප්‍රක්ෂේපන යෙදුම"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"වැඩ පැතිකඩට සහය නොදක්වයි"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"සටහන: ඔබ ඔබේ උපාංගය යළි අරඹන්නේ නම් සහ තිර අඟුලක් සකසා තිබේ නම්, ඔබ ඔබේ උපාංගය අඟුලු අරින තෙක් මෙම යෙදුම ආරම්භ විය නොහැක."</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"සහකරුට ඔබේ තිරය මත දෘශ්‍යමාන වන හෝ යෙදුම් තුළ ප්‍රවේශ විය හැකි තොරතුරු ඇතුළුව, ඔබේ පද්ධතිය මත භාවිතයේ ඇති යෙදුම් ගැන කියවීමට හැකි වෙයි."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"නිදොසීම් දත්ත බෙදා ගන්න"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"විස්තරාත්මක නිදොසීම් දත්ත බෙදා ගන්න ද?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> නිදොසීම් තොරතුරු උඩුගත කිරීමට කැමතිය."</string>

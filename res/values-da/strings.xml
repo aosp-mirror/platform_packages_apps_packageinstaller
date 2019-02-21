@@ -168,6 +168,11 @@
     <string name="launch_app" msgid="5641437562665039291">"Åbn"</string>
     <string name="uninstall_app" msgid="8756507666995809214">"Afinstaller"</string>
     <string name="force_stop_app" msgid="4253426323145479826">"Tving til at standse"</string>
+    <string name="settings" msgid="2884124136779508907">"Indstillinger"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> har fuld adgang til din enhed"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> hjælpefunktioner har fuld adgang til din enhed"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> kan se din skærm, dine handlinger og dine input samt udføre handlinger og styre skærmen"</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"Disse hjælpefunktioner kan se din skærm, dine handlinger og dine input samt udføre handlinger og styre skærmen."</string>
     <string name="default_apps" msgid="8554530939151957828">"Standardapps"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Ingen standardapps."</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Standard til arbejde"</string>
@@ -176,6 +181,7 @@
     <string name="special_app_access" msgid="2561673957499408877">"Særlig appadgang"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Ingen særlig appadgang"</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"Ingen apps"</string>
+    <string name="role_label_assistant" msgid="456685142560727172">"Assistanceapp"</string>
     <string name="role_label_browser" msgid="6266502234308421457">"Browserapp"</string>
     <string name="role_label_dialer" msgid="3345895090725237533">"Appen Opkald"</string>
     <string name="role_label_sms" msgid="2262769075496017522">"Sms-app"</string>
@@ -184,13 +190,13 @@
     <string name="role_label_music" msgid="5900245414865932272">"Musikapp"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"Galleriapp"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"Telefonapp til biltilstand"</string>
-    <!-- no translation found for role_label_call_redirection (8902197181113231577) -->
-    <skip />
+    <string name="role_label_call_redirection" msgid="8902197181113231577">"App til opkaldsviderestilling"</string>
     <string name="role_label_call_screening" msgid="411212589764916370">"App til opkaldsvalg"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"Medfølgende opkaldsapp"</string>
-    <string name="role_label_assistant" msgid="456685142560727172">"Assistanceapp"</string>
     <string name="role_label_car_projection" msgid="3792929094325391213">"Appen Bilprojicering"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"Arbejdsprofilen understøttes ikke"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Bemærk! Hvis du genstarter din enhed og har indstillet en skærmlås, kan denne app ikke starte, før du låser enheden op."</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"Assistenten kan læse oplysninger om, hvilke apps der bruges i dit system, bl.a. oplysninger, der er synlige på din skærm eller tilgængelige i dine apps."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Del fejlretningsdata"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"Vil du dele detaljerede fejlretningsdata?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> vil gerne uploade fejretningsoplysninger."</string>
