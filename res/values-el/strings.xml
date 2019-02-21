@@ -168,6 +168,11 @@
     <string name="launch_app" msgid="5641437562665039291">"Άνοιγμα"</string>
     <string name="uninstall_app" msgid="8756507666995809214">"Απεγκατάσταση"</string>
     <string name="force_stop_app" msgid="4253426323145479826">"Αναγκαστική διακοπή"</string>
+    <string name="settings" msgid="2884124136779508907">"Ρυθμίσεις"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"Η υπηρεσία <xliff:g id="SERVICE_NAME">%s</xliff:g> έχει πλήρη πρόσβαση στη συσκευή σας"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> υπηρεσίες προσβασιμότητας έχουν πλήρη πρόσβαση στη συσκευή σας"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"Η υπηρεσία <xliff:g id="SERVICE_NAME">%s</xliff:g> μπορεί να δει την οθόνη σας, τις ενέργειες και τις καταχωρίσεις, να εκτελέσει ενέργειες και να ελέγξει την οθόνη."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"Αυτές οι υπηρεσίες μπορούν να δουν την οθόνη σας, τις ενέργειες και τις καταχωρίσεις, να εκτελέσουν ενέργειες και να ελέγξουν την οθόνη."</string>
     <string name="default_apps" msgid="8554530939151957828">"Προεπιλεγμένες εφαρμογές"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Καμία προεπιλεγμένη εφαρμογή"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Προεπιλογή για εργασία"</string>
@@ -176,6 +181,7 @@
     <string name="special_app_access" msgid="2561673957499408877">"Ειδική άδεια εφαρμογής"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Χωρίς ειδική άδεια εφαρμογής"</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"Καμία εφαρμογή"</string>
+    <string name="role_label_assistant" msgid="456685142560727172">"Εφαρμογή υποβοήθειας"</string>
     <string name="role_label_browser" msgid="6266502234308421457">"Εφαρμ. προγράμματος περιήγησης"</string>
     <string name="role_label_dialer" msgid="3345895090725237533">"Εφαρμογή \"Τηλέφωνο\""</string>
     <string name="role_label_sms" msgid="2262769075496017522">"Εφαρμογή SMS"</string>
@@ -184,13 +190,13 @@
     <string name="role_label_music" msgid="5900245414865932272">"Εφαρμογή μουσικής"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"Εφαρμογή Gallery"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"Εφαρ. \"τηλέφωνο\" σε λειτ. αυτ."</string>
-    <!-- no translation found for role_label_call_redirection (8902197181113231577) -->
-    <skip />
+    <string name="role_label_call_redirection" msgid="8902197181113231577">"Εφαρμογή ανακατεύθ. κλήσεων"</string>
     <string name="role_label_call_screening" msgid="411212589764916370">"Εφαρμογή διαλογής κλήσεων"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"Συνοδευτική εφαρμογή κλήσης"</string>
-    <string name="role_label_assistant" msgid="456685142560727172">"Εφαρμογή υποβοήθειας"</string>
     <string name="role_label_car_projection" msgid="3792929094325391213">"Εφαρμ. προβολής στο αυτοκίνητο"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"Δεν υποστηρίζει προφίλ εργασίας"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Σημείωση: Εάν έχετε ορίσει ένα κλείδωμα οθόνης και επανεκκινήσετε τη συσκευή, η εκκίνηση αυτής της εφαρμογής δεν θα είναι δυνατή έως ότου ξεκλειδώσετε τη συσκευή σας."</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"Ο Βοηθός θα μπορεί να διαβάσει πληροφορίες σχετικά με τις εφαρμογές που χρησιμοποιούνται στο σύστημά σας, συμπεριλαμβανομένων πληροφοριών που είναι ορατές στην οθόνη σας ή προσβάσιμες εντός των εφαρμογών."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Κοινοποίηση δεδομένων εντοπισμού σφαλμάτων"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"Κοινοποίηση λεπτομερ. δεδομ. εντοπισμού σφαλμάτων;"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"Η εφαρμογή <xliff:g id="APP_NAME">%1$s</xliff:g> θέλει να ανεβάσει πληροφορίες εντοπισμού σφαλμάτων."</string>

@@ -168,6 +168,11 @@
     <string name="launch_app" msgid="5641437562665039291">"باز"</string>
     <string name="uninstall_app" msgid="8756507666995809214">"حذف نصب"</string>
     <string name="force_stop_app" msgid="4253426323145479826">"توقف اجباری"</string>
+    <string name="settings" msgid="2884124136779508907">"تنظیمات"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> سرویس به دستگاه شما دسترسی کامل دارند"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> سرویس دسترس‌پذیری به دستگاه شما دسترسی کامل دارند"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> می‌تواند صفحه، کنش‌ها و ورودی‌های شما را ببیند، کنش‌هایی را انجام دهد و نمایشگر را کنترل کند."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"این سرویس‌ها می‌توانند صفحه، کنش‌ها و ورودی‌های شما را ببینند، کنش‌هایی را انجام دهند و نمایشگر را کنترل کنند."</string>
     <string name="default_apps" msgid="8554530939151957828">"برنامه‌های پیش‌فرض"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"هیچ برنامه پیش‌فرضی وجود ندارد."</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"پیش‌فرض برای کار"</string>
@@ -176,6 +181,7 @@
     <string name="special_app_access" msgid="2561673957499408877">"دسترسی ویژه به برنامه"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"عدم دسترسی ویژه به برنامه"</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"برنامه‌ای موجود نیست"</string>
+    <string name="role_label_assistant" msgid="456685142560727172">"برنامه همیار"</string>
     <string name="role_label_browser" msgid="6266502234308421457">"برنامه مرورگر"</string>
     <string name="role_label_dialer" msgid="3345895090725237533">"برنامه تلفن"</string>
     <string name="role_label_sms" msgid="2262769075496017522">"برنامه پیامک"</string>
@@ -184,13 +190,13 @@
     <string name="role_label_music" msgid="5900245414865932272">"برنامه موسیقی"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"برنامه گالری"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"برنامه تلفن حالت خودرو"</string>
-    <!-- no translation found for role_label_call_redirection (8902197181113231577) -->
-    <skip />
+    <string name="role_label_call_redirection" msgid="8902197181113231577">"فراخوانی برنامه هدایت"</string>
     <string name="role_label_call_screening" msgid="411212589764916370">"برنامه غربالگری تماس"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"برنامه همراه تماس"</string>
-    <string name="role_label_assistant" msgid="456685142560727172">"برنامه همیار"</string>
     <string name="role_label_car_projection" msgid="3792929094325391213">"برنامه طرح سه‌بعدی خودرو"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"از نمایه کاری پشتیبانی نمی‌کند"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"توجه: اگر دستگاهتان را بازراه‌اندازی کنید و قفل صفحه تنظیم کرده باشید، تا قفل تلفن را باز نکنید، این برنامه نمی‌تواند شروع به کار کند."</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"«دستیار» می‌تواند اطلاعات مربوط به برنامه‌های درحال استفاده در سیستم شما را بخواند، ازجمله اطلاعاتی که در صفحه‌نمایش شما قابل‌مشاهده است یا در برنامه‌ها قابل‌دسترسی است."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"هم‌رسانی داده‌های اشکال‌زدایی"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"جزئیات داده‌های اشکال‌زدایی هم‌رسانی شود؟"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> می‌خواهد اطلاعات اشکال‌زدایی را بارگذاری کند."</string>

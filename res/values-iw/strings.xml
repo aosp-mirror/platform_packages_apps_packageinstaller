@@ -178,6 +178,11 @@
     <string name="launch_app" msgid="5641437562665039291">"פתיחה"</string>
     <string name="uninstall_app" msgid="8756507666995809214">"הסרת התקנה"</string>
     <string name="force_stop_app" msgid="4253426323145479826">"סגירה ידנית"</string>
+    <string name="settings" msgid="2884124136779508907">"הגדרות"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"לשירות <xliff:g id="SERVICE_NAME">%s</xliff:g> יש גישה מלאה למכשיר שלך"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"ל-<xliff:g id="NUM_SERVICES">%s</xliff:g> שירותי נגישות יש גישה מלאה למכשיר שלך"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"השירות <xliff:g id="SERVICE_NAME">%s</xliff:g> יכול להציג את המסך, הפעולות ופריטי הפלט שלך, וכן לבצע פעולות ולשלוט בתצוגה."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"השירותים האלה יכולים להציג את המסך, הפעולות ופריטי הפלט שלך, וכן לבצע פעולות ולשלוט בתצוגה."</string>
     <string name="default_apps" msgid="8554530939151957828">"אפליקציות ברירת מחדל"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"אין אפליקציות ברירת מחדל"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"ברירת מחדל לעבודה"</string>
@@ -186,6 +191,7 @@
     <string name="special_app_access" msgid="2561673957499408877">"גישה מיוחדת לאפליקציה"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"אין גישה מיוחדת לאפליקציה"</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"אין אפליקציות"</string>
+    <string name="role_label_assistant" msgid="456685142560727172">"אפליקציית עזרה"</string>
     <string name="role_label_browser" msgid="6266502234308421457">"אפליקציית דפדפן"</string>
     <string name="role_label_dialer" msgid="3345895090725237533">"אפליקציית \'טלפון\'"</string>
     <string name="role_label_sms" msgid="2262769075496017522">"‏אפליקציית SMS"</string>
@@ -194,13 +200,13 @@
     <string name="role_label_music" msgid="5900245414865932272">"אפליקציית מוזיקה"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"גלריית האפליקציות"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"אפליקציית \'טלפון\' במצב נהיגה"</string>
-    <!-- no translation found for role_label_call_redirection (8902197181113231577) -->
-    <skip />
+    <string name="role_label_call_redirection" msgid="8902197181113231577">"אפליקציה להפניית שיחות"</string>
     <string name="role_label_call_screening" msgid="411212589764916370">"אפליקציה לסינון שיחות"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"אפליקציה נלווית לשיחות"</string>
-    <string name="role_label_assistant" msgid="456685142560727172">"אפליקציית עזרה"</string>
     <string name="role_label_car_projection" msgid="3792929094325391213">"אפליקציית ההקרנה של הרכב"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"לא תומכת בפרופיל עבודה"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"הערה: אם ביצעת הפעלה מחדש למכשיר ונעילת המסך מוגדרת, ניתן יהיה להפעיל את האפליקציה הזו רק לאחר ביטול נעילת המכשיר."</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"‏ה-Assistant יוכל לקרוא מידע על אפליקציות שבהן נעשה שימוש במערכת שלך, כולל מידע המופיע במסך או שניתן לגשת אליו באפליקציות."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"שיתוף נתונים של ניפוי באגים"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"לשתף נתונים מפורטים של ניפוי באגים?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"האפליקציה <xliff:g id="APP_NAME">%1$s</xliff:g> מבקשת להעלות נתונים של ניפוי באגים."</string>

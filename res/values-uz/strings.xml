@@ -168,6 +168,11 @@
     <string name="launch_app" msgid="5641437562665039291">"Ochiq"</string>
     <string name="uninstall_app" msgid="8756507666995809214">"Olib tashlash"</string>
     <string name="force_stop_app" msgid="4253426323145479826">"Majburan toʻxtatish"</string>
+    <string name="settings" msgid="2884124136779508907">"Sozlamalar"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> xizmati qurilmangizdan butunlay foydalana oladi"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> ta maxsus xizmat qurilmangizdan butunlay foydalana oladi"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> ekraningiz, bajargan amallaringiz va yozuvlaringizni koʻra oladi hamda ekraningizni boshqa oladi"</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"Bu xizmatlar ekraningiz, bajargan amallaringiz va yozuvlaringizni koʻra oladi hamda ekraningizni boshqara oladi"</string>
     <string name="default_apps" msgid="8554530939151957828">"Birlamchi ilovalar"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Birlamchi ilovalar mavjud emas"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Ish uchun birlamchi"</string>
@@ -176,6 +181,7 @@
     <string name="special_app_access" msgid="2561673957499408877">"Maxsus ruxsatlar"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Maxsus ilova ruxsatlari yoʻq"</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"Hech qanday ilova topilmadi"</string>
+    <string name="role_label_assistant" msgid="456685142560727172">"Yordamchi ilova"</string>
     <string name="role_label_browser" msgid="6266502234308421457">"Brauzer ilovasi"</string>
     <string name="role_label_dialer" msgid="3345895090725237533">"Telefon ilovasi"</string>
     <string name="role_label_sms" msgid="2262769075496017522">"SMS ilovasi"</string>
@@ -184,13 +190,13 @@
     <string name="role_label_music" msgid="5900245414865932272">"Musiqa ilovasi"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"Galereya ilovasi"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"Mashina uchun telefon ilovasi"</string>
-    <!-- no translation found for role_label_call_redirection (8902197181113231577) -->
-    <skip />
+    <string name="role_label_call_redirection" msgid="8902197181113231577">"Chaqiruvlarni uzatish ilovasi"</string>
     <string name="role_label_call_screening" msgid="411212589764916370">"Kiruvchi chaqiruvlar ilovasi"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"Chaqiruvlar ilovasiga sherik"</string>
-    <string name="role_label_assistant" msgid="456685142560727172">"Yordamchi ilova"</string>
     <string name="role_label_car_projection" msgid="3792929094325391213">"Car Projection ilovasi"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"Ishchi profildan foydalanish imkonsiz"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Eslatma: Agar qurilmani qayta ishga tushirsangiz va ekran qulfi sozlangan boʻlsa, bu ilova to qurilmangiz qulfdan chiqarilmaguncha ishga tushmaydi."</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"Assistent tizimda ishlatilayotgan ilovalar haqidagi axborotni, masalan, ekranga chiqib turgan yoki ilovalar orqali kiriladigan axborotlarni oʻqiy oladi."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Nosozliklarni aniqlash axborotini ulashish"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"Nosozliklarni aniqlashga oid axborot ulashilsinmi?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> ilovasi nosozliklarni aniqlash axborotini yuklamoqchi."</string>
