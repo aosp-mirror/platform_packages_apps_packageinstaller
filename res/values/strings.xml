@@ -400,6 +400,45 @@
     <!-- Text for linking to the page that shows the apps with a given permission [CHAR LIMIT=none] -->
     <string name="app_permission_footer_permission_apps_link">See all apps with the <xliff:g id="perm" example="Location">%1$s</xliff:g> permission</string>
 
+    <!-- Label for showing a permission group's description in the header of the list of apps that have that permission [CHAR LIMIT=none] -->
+    <string name="permission_description_summary_generic">Apps with this permission can <xliff:g id="description" example="record audio">%1$s</xliff:g></string>
+
+    <!-- Label for showing a permission group's description in the header of the list of apps that have the activity recognition permission [CHAR LIMIT=none] -->
+    <string name="permission_description_summary_activity_recognition">Apps with this permission can recognize activity</string>
+
+    <!-- Label for showing a permission group's description in the header of the list of apps that have the calendar permission [CHAR LIMIT=none] -->
+    <string name="permission_description_summary_calendar">Apps with this permission can access your calendar</string>
+
+    <!-- Label for showing a permission group's description in the header of the list of apps that have the call log permission [CHAR LIMIT=none] -->
+    <string name="permission_description_summary_call_log">Apps with this permission can read and write phone call log</string>
+
+    <!-- Label for showing a permission group's description in the header of the list of apps that have the camera permission [CHAR LIMIT=none] -->
+    <string name="permission_description_summary_camera">Apps with this permission can take pictures and record video</string>
+
+    <!-- Label for showing a permission group's description in the header of the list of apps that have the contacts permission [CHAR LIMIT=none] -->
+    <string name="permission_description_summary_contacts">Apps with this permission can access your contacts</string>
+
+    <!-- Label for showing a permission group's description in the header of the list of apps that have the location permission [CHAR LIMIT=none] -->
+    <string name="permission_description_summary_location">Apps with this permission can access this device\'s location</string>
+
+    <!-- Label for showing a permission group's description in the header of the list of apps that have the media_aural permission [CHAR LIMIT=none] -->
+    <string name="permission_description_summary_media_aural">Apps with this permission can access your music</string>
+
+    <!-- Label for showing a permission group's description in the header of the list of apps that have the media_visual permission [CHAR LIMIT=none] -->
+    <string name="permission_description_summary_media_visual">Apps with this permission can access your photos &amp; videos</string>
+
+    <!-- Label for showing a permission group's description in the header of the list of apps that have the microphone permission [CHAR LIMIT=none] -->
+    <string name="permission_description_summary_microphone">Apps with this permission can record audio</string>
+
+    <!-- Label for showing a permission group's description in the header of the list of apps that have the phone permission [CHAR LIMIT=none] -->
+    <string name="permission_description_summary_phone">Apps with this permission can make and manage phone calls</string>
+
+    <!-- Label for showing a permission group's description in the header of the list of apps that have the sensors permission [CHAR LIMIT=none] -->
+    <string name="permission_description_summary_sensors">Apps with this permission can access sensor data about your vital signs</string>
+
+    <!-- Label for showing a permission group's description in the header of the list of apps that have the SMS permission [CHAR LIMIT=none] -->
+    <string name="permission_description_summary_sms">Apps with this permission can send and view SMS messages</string>
+
     <!-- Summary for showing the time and/or date of the most recent access of a permission by an app [CHAR LIMIT=60] -->
     <string name="app_permission_most_recent_summary">Last access: <xliff:g id="time_date" example="12:42 PM">%1$s</xliff:g></string>
 
