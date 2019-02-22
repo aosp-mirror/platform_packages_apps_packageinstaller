@@ -134,6 +134,10 @@
                 android:excludeFromRecents="true"
                 android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar" />
 
+        <activity android:name="com.android.packageinstaller.permission.ui.LocationProviderInterceptDialog"
+                  android:excludeFromRecents="true"
+                  android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar" />
+
         <activity android:name="com.android.packageinstaller.permission.ui.ReviewAccessibilityServicesActivity"
                   android:excludeFromRecents="true"
                   android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar" >
