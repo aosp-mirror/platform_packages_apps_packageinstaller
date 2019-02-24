@@ -173,6 +173,11 @@
     <string name="launch_app" msgid="5641437562665039291">"Otvori"</string>
     <string name="uninstall_app" msgid="8756507666995809214">"Deinstaliraj"</string>
     <string name="force_stop_app" msgid="4253426323145479826">"Prisilno zaustavi"</string>
+    <string name="settings" msgid="2884124136779508907">"Postavke"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> ima potpuni pristup uređaju"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"Usluge pristupačnosti s potpunim pristupom uređaju (<xliff:g id="NUM_SERVICES">%s</xliff:g>)"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> može vidjeti vaš zaslon, radnje i unose, izvršavati radnje i upravljati zaslonom."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"Te usluge mogu vidjeti vaš zaslon, radnje i unose, izvršavati radnje i upravljati zaslonom."</string>
     <string name="default_apps" msgid="8554530939151957828">"Zadane aplikacije"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Nema zadanih aplikacija"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Zadano za posao"</string>
@@ -181,6 +186,7 @@
     <string name="special_app_access" msgid="2561673957499408877">"Poseban pristup aplikaciji"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Bez poseb. pristupa aplikaciji"</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"Nema aplikacija"</string>
+    <string name="role_label_assistant" msgid="456685142560727172">"Aplikacija pomoćnik"</string>
     <string name="role_label_browser" msgid="6266502234308421457">"Aplikacija preglednika"</string>
     <string name="role_label_dialer" msgid="3345895090725237533">"Aplikacija Telefon"</string>
     <string name="role_label_sms" msgid="2262769075496017522">"Aplikacija za SMS"</string>
@@ -189,13 +195,13 @@
     <string name="role_label_music" msgid="5900245414865932272">"Aplikacija Glazba"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"Aplikacija Galerija"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"Ap. za način rada u automobilu"</string>
-    <!-- no translation found for role_label_call_redirection (8902197181113231577) -->
-    <skip />
+    <string name="role_label_call_redirection" msgid="8902197181113231577">"Apl. za preusmjeravanje poziva"</string>
     <string name="role_label_call_screening" msgid="411212589764916370">"Ap. za filtriranje poziva"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"Popratna aplikacija za pozive"</string>
-    <string name="role_label_assistant" msgid="456685142560727172">"Aplikacija pomoćnik"</string>
     <string name="role_label_car_projection" msgid="3792929094325391213">"Apl. Projekcija u automobilu"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"Ne podržava radni profil"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Napomena: ako ponovo pokrenete uređaj, a na njemu je postavljeno zaključavanje zaslona, ova se aplikacija ne može pokrenuti dok ne otključate uređaj."</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"Pomoćnik će moći čitati podatke o aplikacijama koje se upotrebljavaju na vašem sustavu, uključujući podatke vidljive na zaslonu ili podatke kojima se može pristupiti u aplikacijama."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Dijeli podatke o otklanjanju pogrešaka"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"Dijeliti detaljne podatke o otklanjanju pogrešaka?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> želi prenijeti informacije o otklanjanju pogrešaka."</string>

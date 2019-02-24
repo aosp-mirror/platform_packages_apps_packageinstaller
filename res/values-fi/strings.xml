@@ -168,6 +168,11 @@
     <string name="launch_app" msgid="5641437562665039291">"Avaa"</string>
     <string name="uninstall_app" msgid="8756507666995809214">"Poista"</string>
     <string name="force_stop_app" msgid="4253426323145479826">"Pakota sulkeutumaan"</string>
+    <string name="settings" msgid="2884124136779508907">"Asetukset"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> on saanut laitteen täydet käyttöoikeudet"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> esteettömyyspalvelulla on laitteen täydet käyttöoikeudet"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> voi nähdä näyttösi, toimintasi ja syöttämäsi tiedot, suorittaa toimintoja ja muuttaa näytön asetuksia."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"Nämä palvelut voivat nähdä näyttösi, toimintasi ja syöttämäsi tiedot, suorittaa toimintoja ja muuttaa näytön asetuksia."</string>
     <string name="default_apps" msgid="8554530939151957828">"Oletussovellukset"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Ei oletussovelluksia"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Työkäytön oletus"</string>
@@ -176,6 +181,7 @@
     <string name="special_app_access" msgid="2561673957499408877">"Sovellusten erikoiskäyttö"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Ei sovellusten erikoiskäyttöä"</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"Ei sovelluksia"</string>
+    <string name="role_label_assistant" msgid="456685142560727172">"Avustajasovellus"</string>
     <string name="role_label_browser" msgid="6266502234308421457">"Selainsovellus"</string>
     <string name="role_label_dialer" msgid="3345895090725237533">"Puhelin-sovellus"</string>
     <string name="role_label_sms" msgid="2262769075496017522">"Tekstiviestisovellus"</string>
@@ -184,13 +190,13 @@
     <string name="role_label_music" msgid="5900245414865932272">"Musiikkisovellus"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"Galleriasovellus"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"Autotilan puhelinsovellus"</string>
-    <!-- no translation found for role_label_call_redirection (8902197181113231577) -->
-    <skip />
+    <string name="role_label_call_redirection" msgid="8902197181113231577">"Soitonsiirtosovellus"</string>
     <string name="role_label_call_screening" msgid="411212589764916370">"Puhelujen suodatussovellus"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"Puhelujen kumppanisovellus"</string>
-    <string name="role_label_assistant" msgid="456685142560727172">"Avustajasovellus"</string>
     <string name="role_label_car_projection" msgid="3792929094325391213">"Auton heijastussovellus"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"Ei tue työprofiilia"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Huomaa: Jos käynnistät laitteen uudelleen ja näytön lukitus on käytössä, sovellus voi käynnistyä vasta avattuasi lukituksen."</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"Avustaja voi lukea tietoja järjestelmäsi käyttämistä sovelluksista, mukaan lukien tietoja, jotka näkyvät näytöllä tai jotka ovat käytettävissä sovelluksissa."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Jaa virheenkorjaustietoja"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"Jaetaanko yksityiskohtaisia virheenkorjaustietoja?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> haluaa ladata virheenkorjaustietoja palvelimelle."</string>

@@ -168,6 +168,11 @@
     <string name="launch_app" msgid="5641437562665039291">"Aç"</string>
     <string name="uninstall_app" msgid="8756507666995809214">"Yüklemeyi Kaldır"</string>
     <string name="force_stop_app" msgid="4253426323145479826">"Zorla durdur"</string>
+    <string name="settings" msgid="2884124136779508907">"Ayarlar"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> hizmetinin cihazınıza tam erişimi var"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> erişilebilirlik hizmetinin, cihazınıza tam erişimi var"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> ekranınızı, işlemlerinizi ve girişlerinizi görebilir, işlemler gerçekleştirebilir ve ekranı kontrol edebilir."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"Bu hizmetler ekranınızı, işlemlerinizi ve girişlerinizi görebilir, işlemler gerçekleştirebilir ve ekranı kontrol edebilir."</string>
     <string name="default_apps" msgid="8554530939151957828">"Varsayılan uygulamalar"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Varsayılan uygulama yok"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"İş için varsayılan"</string>
@@ -176,6 +181,7 @@
     <string name="special_app_access" msgid="2561673957499408877">"Özel uygulama erişimi"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Özel uygulama erişimi yok"</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"Uygulama yok"</string>
+    <string name="role_label_assistant" msgid="456685142560727172">"Yardım uygulaması"</string>
     <string name="role_label_browser" msgid="6266502234308421457">"Tarayıcı uygulaması"</string>
     <string name="role_label_dialer" msgid="3345895090725237533">"Telefon uygulaması"</string>
     <string name="role_label_sms" msgid="2262769075496017522">"SMS uygulaması"</string>
@@ -184,13 +190,13 @@
     <string name="role_label_music" msgid="5900245414865932272">"Müzik uygulaması"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"Galeri uygulaması"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"Araba modu telefon uygulaması"</string>
-    <!-- no translation found for role_label_call_redirection (8902197181113231577) -->
-    <skip />
+    <string name="role_label_call_redirection" msgid="8902197181113231577">"Arama yönlendirme uygulaması"</string>
     <string name="role_label_call_screening" msgid="411212589764916370">"Arama süzme uygulaması"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"Arama tamamlayıcı uygulaması"</string>
-    <string name="role_label_assistant" msgid="456685142560727172">"Yardım uygulaması"</string>
     <string name="role_label_car_projection" msgid="3792929094325391213">"Car Projection uygulaması"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"İş profili desteklenmiyor"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Not: Cihazınızı yeniden başlatırsanız ve ekran kilidi kullanıyorsanız, cihazınızın kilidini açmadan bu uygulama başlayamaz."</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"Asistan, ekranınızda görünür olan veya uygulamaların içinden erişilebilen bilgiler dahil olmak üzere sisteminizde kullanılan uygulamalar hakkındaki bilgileri okuyabilecektir."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Hata Ayıklama Verilerini Paylaş"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"Ayrıntılı hata ayıklama verileri paylaşılsın mı?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g>, hata ayıklama bilgilerini yüklemek istiyor."</string>

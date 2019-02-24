@@ -64,6 +64,15 @@ public final class AppPermissionActivity extends FragmentActivity {
             return;
         }
 
+        if (LocationUtils.isLocationGroupAndProvider(this, permissionName,
+                packageName)) {
+            Intent intent = new Intent(this, LocationProviderInterceptDialog.class);
+            intent.putExtra(Intent.EXTRA_PACKAGE_NAME, packageName);
+            startActivity(intent);
+            finish();
+            return;
+        }
+
         if (LocationUtils.isLocationGroupAndControllerExtraPackage(
                 this, permissionName, packageName)) {
             // Redirect to location controller extra package settings.

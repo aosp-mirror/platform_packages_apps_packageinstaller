@@ -168,6 +168,11 @@
     <string name="launch_app" msgid="5641437562665039291">"Отвори"</string>
     <string name="uninstall_app" msgid="8756507666995809214">"Деинсталирај"</string>
     <string name="force_stop_app" msgid="4253426323145479826">"Исклучи присилно"</string>
+    <string name="settings" msgid="2884124136779508907">"Поставки"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> има целосен пристап до уредот"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> услуги за пристапност имаат целосен пристап до уредот"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> може да го гледа вашиот екран, дејствата и записите, да извршува дејства и да го контролира приказот."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"Овие услуги може да го гледаат вашиот екран, дејствата и записите, да извршуваат дејства и да го контролираат приказот."</string>
     <string name="default_apps" msgid="8554530939151957828">"Стандардни апликации"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Нема стандардни апликации"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Стандардно за работа"</string>
@@ -176,6 +181,7 @@
     <string name="special_app_access" msgid="2561673957499408877">"Посебен пристап за апликации"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Нема посебен пристап за аплик."</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"Нема апликации"</string>
+    <string name="role_label_assistant" msgid="456685142560727172">"Апликација за помош"</string>
     <string name="role_label_browser" msgid="6266502234308421457">"Прелистувач"</string>
     <string name="role_label_dialer" msgid="3345895090725237533">"Апликација Телефон"</string>
     <string name="role_label_sms" msgid="2262769075496017522">"Апликација за SMS"</string>
@@ -184,13 +190,13 @@
     <string name="role_label_music" msgid="5900245414865932272">"Апликација за музика"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"Апликација за галерија"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"Телефонска апликација Car mode"</string>
-    <!-- no translation found for role_label_call_redirection (8902197181113231577) -->
-    <skip />
+    <string name="role_label_call_redirection" msgid="8902197181113231577">"Аплик. за пренасочување повици"</string>
     <string name="role_label_call_screening" msgid="411212589764916370">"Аплик. за проверка на повици"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"Повикај придружна апликација"</string>
-    <string name="role_label_assistant" msgid="456685142560727172">"Апликација за помош"</string>
     <string name="role_label_car_projection" msgid="3792929094325391213">"Апликација Car Projection"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"Не поддржува работен профил"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Забелешка: Ако го рестартирате уредот, а имате поставено заклучување на екранот, апликацијава нема да може да се стартува додека не го отклучите уредот."</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"Помошникот ќе може да чита информации за апликациите што се користат во системот, вклучувајќи ги информациите што се видливи на екранот или до коишто може се пристапи во апликациите."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Споделете податоци за отстранување грешки"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"Да се споделат податоци за отстранување грешки?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> сака да прикачи информации за отстранување грешки."</string>

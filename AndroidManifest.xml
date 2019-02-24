@@ -14,6 +14,7 @@
     <uses-permission android:name="android.permission.MANAGE_USERS" />
     <uses-permission android:name="android.permission.GRANT_RUNTIME_PERMISSIONS" />
     <uses-permission android:name="android.permission.REVOKE_RUNTIME_PERMISSIONS" />
+    <uses-permission android:name="android.permission.ADJUST_RUNTIME_PERMISSIONS_POLICY" />
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
     <uses-permission android:name="android.permission.OBSERVE_GRANT_REVOKE_PERMISSIONS" />
     <uses-permission android:name="android.permission.UPDATE_APP_OPS_STATS" />
@@ -132,6 +133,10 @@
         <activity android:name="com.android.packageinstaller.permission.ui.OverlayWarningDialog"
                 android:excludeFromRecents="true"
                 android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar" />
+
+        <activity android:name="com.android.packageinstaller.permission.ui.LocationProviderInterceptDialog"
+                  android:excludeFromRecents="true"
+                  android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar" />
 
         <activity android:name="com.android.packageinstaller.permission.ui.ReviewAccessibilityServicesActivity"
                   android:excludeFromRecents="true"

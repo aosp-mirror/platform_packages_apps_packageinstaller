@@ -168,6 +168,11 @@
     <string name="launch_app" msgid="5641437562665039291">"کھولیں"</string>
     <string name="uninstall_app" msgid="8756507666995809214">"اَن انسٹال کریں"</string>
     <string name="force_stop_app" msgid="4253426323145479826">"زبردستی روکیں"</string>
+    <string name="settings" msgid="2884124136779508907">"ترتیبات"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> کو آپ کے آلہ تک مکمل رسائی حاصل ہے"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> ایکسیسبیلٹی سروسز کو آپ کے آلہ تک مکمل رسائی حاصل ہے"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> آپ کی اسکرین، کارروائیوں اور ان پٹس کو دیکھ، کارروائیاں کر اور ڈسپلے کو کنٹرول کر سکتی ہے۔"</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"یہ سروسز آپ کی اسکرین، کارروائیوں اور ان پٹس کو دیکھ، کارروائیاں کر اور ڈسپلے کو کنٹرول کر سکتی ہیں۔"</string>
     <string name="default_apps" msgid="8554530939151957828">"ڈیفالٹ ایپس"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"کوئی ڈیفالٹ ایپ نہیں ہے"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"کام کیلئے ڈیفالٹ"</string>
@@ -176,6 +181,7 @@
     <string name="special_app_access" msgid="2561673957499408877">"خاص ایپ تک رسائی"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"خاص ایپ تک کوئی رسائی نہیں ہے"</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"کوئی ایپ نہیں ہے"</string>
+    <string name="role_label_assistant" msgid="456685142560727172">"معاون ایپ"</string>
     <string name="role_label_browser" msgid="6266502234308421457">"براؤزر ایپ"</string>
     <string name="role_label_dialer" msgid="3345895090725237533">"فون ایپ"</string>
     <string name="role_label_sms" msgid="2262769075496017522">"‏SMS ایپ"</string>
@@ -184,13 +190,13 @@
     <string name="role_label_music" msgid="5900245414865932272">"موسیقی ایپ"</string>
     <string name="role_label_gallery" msgid="6939560238495155209">"گیلری ایپ"</string>
     <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"کار موڈ والی فون ایپ"</string>
-    <!-- no translation found for role_label_call_redirection (8902197181113231577) -->
-    <skip />
+    <string name="role_label_call_redirection" msgid="8902197181113231577">"کال ری ڈائریکٹنگ اپپ"</string>
     <string name="role_label_call_screening" msgid="411212589764916370">"کال اسکریننگ اپپ"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"ساتھی اپپ برائے کال"</string>
-    <string name="role_label_assistant" msgid="456685142560727172">"معاون ایپ"</string>
     <string name="role_label_car_projection" msgid="3792929094325391213">"‏Car Projection ایپ"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"دفتری پروفائل کا تعاون نہیں کرتا ہے"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"نوٹ: اگر آپ اپنے آلہ کو دوبارہ شروع کرتے ہیں اور آپ کے پاس اسکرین لاک کا سیٹ ہے تو یہ ایپ تب تک شروع نہیں ہو سکتی جب تک آپ اپنا آلہ غیر مقفل نہ کر لیں۔"</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"اسسٹنٹ آپ کے سسٹم پر زیر استعمال ایپس کے بارے میں معلومات، بشمول آپ کی اسکرین پر نظر آنے والی یا ایپس کے اندر قابل رسائی معلومات پڑھ سکے گی۔"</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"ڈیبگنگ ڈیٹا کا اشتراک کریں"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"ڈیبگنگ کے تفصیلی ڈیٹا کا اشتراک کریں؟"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> ڈیبگنگ کی معلومات اپ لوڈ کرنا چاہتی ہے۔"</string>

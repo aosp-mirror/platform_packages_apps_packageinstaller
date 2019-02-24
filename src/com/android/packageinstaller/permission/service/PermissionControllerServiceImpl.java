@@ -16,6 +16,9 @@
 
 package com.android.packageinstaller.permission.service;
 
+import static android.app.admin.DevicePolicyManager.PERMISSION_GRANT_STATE_DEFAULT;
+import static android.app.admin.DevicePolicyManager.PERMISSION_GRANT_STATE_DENIED;
+import static android.app.admin.DevicePolicyManager.PERMISSION_GRANT_STATE_GRANTED;
 import static android.content.pm.PackageManager.GET_PERMISSIONS;
 import static android.permission.PermissionControllerManager.COUNT_ONLY_WHEN_GRANTED;
 import static android.permission.PermissionControllerManager.COUNT_WHEN_SYSTEM;
@@ -502,5 +505,56 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
             @NonNull String packageName) {
         return PermissionControllerServiceImplRoleMixin.onIsApplicationQualifiedForRole(roleName,
                 packageName, this);
+    }
+
+    @Override
+    public boolean onSetRuntimePermissionGrantStateByDeviceAdmin(@NonNull String callerPackageName,
+            @NonNull String packageName, @NonNull String unexpandedPermission, int grantState) {
+        PackageInfo callerPkgInfo = getPkgInfo(callerPackageName);
+        if (callerPkgInfo == null) {
+            Log.w(LOG_TAG, "Cannot fix " + unexpandedPermission + " as admin "
+                    + callerPackageName + " cannot be found");
+            return false;
+        }
+
+        PackageInfo pkgInfo = getPkgInfo(packageName);
+        if (pkgInfo == null) {
+            Log.w(LOG_TAG, "Cannot fix " + unexpandedPermission + " as " + packageName
+                    + " cannot be found");
+            return false;
+        }
+
+        ArrayList<String> expandedPermissions = addSplitPermissions(
+                Collections.singletonList(unexpandedPermission),
+                callerPkgInfo.applicationInfo.targetSdkVersion);
+
+        int numPerms = expandedPermissions.size();
+        for (int i = 0; i < numPerms; i++) {
+            String perm = expandedPermissions.get(i);
+            AppPermissionGroup group = AppPermissionGroup.create(this, pkgInfo, perm, true);
+            if (group == null || group.isSystemFixed()) {
+                continue;
+            }
+
+            switch (grantState) {
+                case PERMISSION_GRANT_STATE_GRANTED:
+                    group.getPermission(perm).setPolicyFixed(true);
+                    group.grantRuntimePermissions(false, new String[]{perm});
+                    break;
+                case PERMISSION_GRANT_STATE_DENIED:
+                    group.getPermission(perm).setPolicyFixed(true);
+                    group.revokeRuntimePermissions(false, new String[]{perm});
+                    break;
+                case PERMISSION_GRANT_STATE_DEFAULT:
+                    group.getPermission(perm).setPolicyFixed(false);
+                    break;
+                default:
+                    return false;
+            }
+
+            group.persistChanges(true);
+        }
+
+        return true;
     }
 }
