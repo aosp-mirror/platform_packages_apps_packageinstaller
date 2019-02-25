@@ -17,7 +17,6 @@
 package com.android.packageinstaller.permission.service;
 
 import static android.content.Context.MODE_PRIVATE;
-import static android.content.pm.PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT;
 import static android.content.pm.PackageManager.FLAG_PERMISSION_POLICY_FIXED;
 import static android.content.pm.PackageManager.FLAG_PERMISSION_SYSTEM_FIXED;
 import static android.content.pm.PackageManager.GET_PERMISSIONS;
@@ -53,7 +52,6 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlSerializer;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -750,7 +748,7 @@ public class BackupHelper {
                 }
             }
 
-            appPerms.persistChanges();
+            appPerms.persistChanges(true);
         }
     }
 }
