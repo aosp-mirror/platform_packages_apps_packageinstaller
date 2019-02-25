@@ -286,7 +286,7 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
         if (!doDryRun) {
             int numChangedApps = appsWithRevokedPerms.size();
             for (int i = 0; i < numChangedApps; i++) {
-                appsWithRevokedPerms.get(i).persistChanges();
+                appsWithRevokedPerms.get(i).persistChanges(true);
             }
         }
 
@@ -528,32 +528,40 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
                 Collections.singletonList(unexpandedPermission),
                 callerPkgInfo.applicationInfo.targetSdkVersion);
 
+        AppPermissions app = new AppPermissions(this, pkgInfo, false, null);
+
         int numPerms = expandedPermissions.size();
         for (int i = 0; i < numPerms; i++) {
-            String perm = expandedPermissions.get(i);
-            AppPermissionGroup group = AppPermissionGroup.create(this, pkgInfo, perm, true);
+            String permName = expandedPermissions.get(i);
+            AppPermissionGroup group = app.getGroupForPermission(permName);
             if (group == null || group.isSystemFixed()) {
+                continue;
+            }
+
+            Permission perm = group.getPermission(permName);
+            if (perm == null) {
                 continue;
             }
 
             switch (grantState) {
                 case PERMISSION_GRANT_STATE_GRANTED:
-                    group.getPermission(perm).setPolicyFixed(true);
-                    group.grantRuntimePermissions(false, new String[]{perm});
+                    perm.setPolicyFixed(true);
+                    group.grantRuntimePermissions(false, new String[]{permName});
                     break;
                 case PERMISSION_GRANT_STATE_DENIED:
-                    group.getPermission(perm).setPolicyFixed(true);
-                    group.revokeRuntimePermissions(false, new String[]{perm});
+                    perm.setPolicyFixed(true);
+                    group.revokeRuntimePermissions(false, new String[]{permName});
                     break;
                 case PERMISSION_GRANT_STATE_DEFAULT:
-                    group.getPermission(perm).setPolicyFixed(false);
+                    perm.setPolicyFixed(false);
                     break;
                 default:
                     return false;
             }
-
-            group.persistChanges(!callerPackageName.equals(packageName));
         }
+
+        app.persistChanges(grantState == PERMISSION_GRANT_STATE_DENIED
+                || !callerPackageName.equals(packageName));
 
         return true;
     }

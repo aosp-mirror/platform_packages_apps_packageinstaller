@@ -211,7 +211,7 @@ public final class ReviewPermissionsFragment extends PreferenceFragmentCompat
             }
         }
 
-        mAppPermissions.persistChanges();
+        mAppPermissions.persistChanges(true);
     }
 
     private void bindUi() {
