@@ -552,7 +552,7 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
                     return false;
             }
 
-            group.persistChanges(true);
+            group.persistChanges(!callerPackageName.equals(packageName));
         }
 
         return true;
