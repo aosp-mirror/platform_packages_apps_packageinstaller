@@ -179,18 +179,22 @@ public final class AppPermissions {
 
     /**
      * If the changes to the permission groups were delayed, persist them now.
+     *
+     * @param mayKillBecauseOfAppOpsChange If the app may be killed if app ops change. If this is
+     *                                     set to {@code false} the caller has to make sure to kill
+     *                                     the app if needed.
      */
-    public void persistChanges() {
+    public void persistChanges(boolean mayKillBecauseOfAppOpsChange) {
         if (mDelayChanges) {
             int numGroups = mGroups.size();
 
             for (int i = 0; i < numGroups; i++) {
                 AppPermissionGroup group = mGroups.get(i);
-                group.persistChanges(true);
+                group.persistChanges(mayKillBecauseOfAppOpsChange);
 
                 AppPermissionGroup backgroundGroup = group.getBackgroundPermissions();
                 if (backgroundGroup != null) {
-                    backgroundGroup.persistChanges(true);
+                    backgroundGroup.persistChanges(mayKillBecauseOfAppOpsChange);
                 }
             }
         }
