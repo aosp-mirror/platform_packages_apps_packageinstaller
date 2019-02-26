@@ -91,8 +91,8 @@
                         android:id="@+id/permission_details"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/app_permission_detail_margin_start"
-                        android:layout_marginTop="@dimen/app_permission_detail_margin_top" />
+                        android:gravity="center"
+                        android:layout_marginStart="@dimen/app_permission_detail_margin_start" />
 
                     <LinearLayout
                         android:id="@+id/two_target_divider"
