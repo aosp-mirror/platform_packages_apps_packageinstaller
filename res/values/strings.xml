@@ -352,6 +352,12 @@
     <!-- Label for refreshing the list of permission usages. [CHAR LIMIT=30] -->
     <string name="permission_usage_refresh">Refresh</string>
 
+    <!-- Subtitle for showing how many apps have accessed a given permission [CHAR LIMIT=20] -->
+    <plurals name="permission_usage_permission_filter_subtitle">
+        <item quantity="one">1 app</item>
+        <item quantity="other"><xliff:g id="number" example="7">%s</xliff:g> apps</item>
+    </plurals>
+
     <!-- Help URL, permission usage [DO NOT TRANSLATE] -->
     <string name="help_permission_usage" translatable="false"></string>
 

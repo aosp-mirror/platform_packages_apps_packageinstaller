@@ -37,7 +37,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
@@ -125,6 +127,8 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
     private FilterSpinnerAdapter<TimeFilterItem> mFilterAdapterTime;
     private Spinner mSortSpinner;
     private FilterSpinnerAdapter<SortItem> mSortAdapter;
+
+    private ArrayMap<String, Integer> mGroupAppCounts;
 
     private boolean mFinishedInitialLoad;
 
@@ -380,6 +384,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         long startTime = (timeFilterItem == null ? 0 : (curTime - timeFilterItem.getTime()));
 
         List<Pair<AppPermissionUsage, GroupUsage>> usages = new ArrayList<>();
+        mGroupAppCounts = new ArrayMap<>();
         ArrayList<PermissionApp> permApps = new ArrayList<>();
         int numApps = appPermissionUsages.size();
         for (int appNum = 0; appNum < numApps; appNum++) {
@@ -412,9 +417,12 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
 
                 usages.add(Pair.create(appUsage, appGroups.get(groupNum)));
                 used = true;
+
+                addGroupUser(groupUsage.getGroup().getName());
             }
             if (used) {
                 permApps.add(appUsage.getApp());
+                addGroupUser(null);
             }
         }
 
@@ -511,6 +519,15 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
             return SORT_MOST_PERMISSIONS;
         }
         return mSortAdapter.getFilter(pos).getSortOption();
+    }
+
+    private void addGroupUser(String app) {
+        Integer count = mGroupAppCounts.get(app);
+        if (count == null) {
+            mGroupAppCounts.put(app, 1);
+        } else {
+            mGroupAppCounts.put(app, count + 1);
+        }
     }
 
     /**
@@ -829,14 +846,24 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         // Create the spinner entries.
         String[] groupNames = new String[groups.size() + 1];
         CharSequence[] groupLabels = new CharSequence[groupNames.length];
+        int[] groupIcons = new int[groupNames.length];
+        int[] groupAccessCounts = new int[groupNames.length];
         groupNames[0] = null;
         groupLabels[0] = context.getString(R.string.permission_usage_any_permission);
+        groupIcons[0] = 0;
+        groupAccessCounts[0] = mGroupAppCounts.get(null);
         int selection = 0;
         int numGroups = groups.size();
         for (int i = 0; i < numGroups; i++) {
             AppPermissionGroup group = groups.get(i);
             groupNames[i + 1] = group.getName();
             groupLabels[i + 1] = group.getLabel();
+            groupIcons[i + 1] = group.getIconResId();
+            Integer appCount = mGroupAppCounts.get(group.getName());
+            if (appCount == null) {
+                appCount = 0;
+            }
+            groupAccessCounts[i + 1] = appCount;
             if (group.getName().equals(mFilterGroup)) {
                 selection = i + 1;
             }
@@ -849,6 +876,8 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         args.putCharSequenceArray(PermissionsFilterDialog.ELEMS, groupLabels);
         args.putInt(PermissionsFilterDialog.SELECTION, selection);
         args.putStringArray(PermissionsFilterDialog.GROUPS, groupNames);
+        args.putIntArray(PermissionsFilterDialog.ICONS, groupIcons);
+        args.putIntArray(PermissionsFilterDialog.ACCESS_COUNTS, groupAccessCounts);
         PermissionsFilterDialog chooserDialog = new PermissionsFilterDialog();
         chooserDialog.setArguments(args);
         chooserDialog.setTargetFragment(this, 0);
@@ -880,22 +909,54 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
                 + ".arg.selection";
         private static final String GROUPS = PermissionsFilterDialog.class.getName()
                 + ".arg.groups";
+        private static final String ICONS = PermissionsFilterDialog.class.getName()
+                + ".arg.icons";
+        private static final String ACCESS_COUNTS = PermissionsFilterDialog.class.getName()
+                + ".arg.access_counts";
 
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
+            AlertDialog.Builder b = new AlertDialog.Builder(getActivity())
+                    .setView(createDialogView());
+
+            return b.create();
+        }
+
+        private @NonNull View createDialogView() {
             PermissionUsageFragment fragment = (PermissionUsageFragment) getTargetFragment();
             CharSequence[] elems = getArguments().getCharSequenceArray(ELEMS);
             String[] groups = getArguments().getStringArray(GROUPS);
-            AlertDialog.Builder b = new AlertDialog.Builder(getActivity())
-                    .setTitle(getArguments().getCharSequence(TITLE))
-                    .setSingleChoiceItems(elems, getArguments().getInt(SELECTION),
-                            (dialog, which) -> {
-                                dismissAllowingStateLoss();
-                                fragment.onPermissionGroupSelected(groups[which]);
-                            }
-                    );
+            int[] icons = getArguments().getIntArray(ICONS);
+            int[] accessCounts = getArguments().getIntArray(ACCESS_COUNTS);
 
-            return b.create();
+            LayoutInflater layoutInflater = LayoutInflater.from(fragment.getActivity());
+            View view = layoutInflater.inflate(R.layout.permission_filter_dialog, null);
+            ViewGroup itemsListView = view.requireViewById(R.id.items_container);
+
+            ((TextView) view.requireViewById(R.id.title)).setText(
+                    getArguments().getCharSequence(TITLE));
+
+            for (int i = 0; i < elems.length; i++) {
+                String groupName = groups[i];
+                View itemView = layoutInflater.inflate(R.layout.permission_filter_dialog_item,
+                        itemsListView, false);
+
+                ((ImageView) itemView.requireViewById(R.id.icon)).setImageResource(icons[i]);
+                ((TextView) itemView.requireViewById(R.id.title)).setText(elems[i]);
+                ((TextView) itemView.requireViewById(R.id.summary)).setText(
+                        getActivity().getResources().getQuantityString(
+                                R.plurals.permission_usage_permission_filter_subtitle,
+                                accessCounts[i], accessCounts[i]));
+
+                itemView.setOnClickListener((v) -> {
+                    dismissAllowingStateLoss();
+                    fragment.onPermissionGroupSelected(groupName);
+                });
+
+                itemsListView.addView(itemView);
+            }
+
+            return view;
         }
     }
 
