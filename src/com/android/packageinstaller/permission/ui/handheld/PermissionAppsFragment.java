@@ -363,6 +363,9 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
 
     private void setPreferenceSummary(AppPermissionGroup group, PermissionControlPreference pref,
             Context context) {
+        if (!Utils.isModernPermissionGroup(group.getName())) {
+            return;
+        }
         String lastAccessStr = Utils.getAbsoluteLastUsageString(context,
                 PermissionUsages.loadLastGroupUsage(context, group));
         // STOPSHIP: Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.

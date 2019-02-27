@@ -215,19 +215,23 @@ public final class AppPermissionsFragment extends SettingsWithButtonHeader {
             preference.setIcon(Utils.applyTint(context, icon,
                     android.R.attr.colorControlNormal));
             preference.setTitle(group.getFullLabel());
-            String lastAccessStr = Utils.getAbsoluteLastUsageString(context,
-                    PermissionUsages.loadLastGroupUsage(context, group));
-            // STOPSHIP: Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
-            if (lastAccessStr != null && !group.getLabel().equals("Storage")) {
-                preference.setSummary(
-                        context.getString(R.string.app_permission_most_recent_summary,
-                                lastAccessStr));
+            if (Utils.isModernPermissionGroup(group.getName())) {
+                String lastAccessStr = Utils.getAbsoluteLastUsageString(context,
+                        PermissionUsages.loadLastGroupUsage(context, group));
+                // STOPSHIP: Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
+                if (lastAccessStr != null && !group.getLabel().equals("Storage")) {
+                    preference.setSummary(
+                            context.getString(R.string.app_permission_most_recent_summary,
+                                    lastAccessStr));
+                } else {
+                    preference.setGroupSummary(group);
+                    if (preference.getSummary().length() == 0) {
+                        preference.setSummary(
+                                context.getString(R.string.app_permission_never_accessed_summary));
+                    }
+                }
             } else {
                 preference.setGroupSummary(group);
-                if (preference.getSummary().length() == 0) {
-                    preference.setSummary(
-                            context.getString(R.string.app_permission_never_accessed_summary));
-                }
             }
 
             if (isPlatform) {
