@@ -18,7 +18,9 @@
                     "include-filter": "android.backup.cts.PermissionTest"
                 }
             ]
-        },
+        }
+    ],
+    "postsubmit": [
         {
             "name": "CtsDevicePolicyManagerTestCases",
             "options": [
