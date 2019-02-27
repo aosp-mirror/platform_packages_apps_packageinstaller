@@ -119,9 +119,6 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
     @Override
     public void onLoadFinished(@NonNull Loader<List<AppPermissionUsage>> loader,
             List<AppPermissionUsage> usages) {
-        if (mUsages.equals(usages)) {
-            return;
-        }
         mUsages.clear();
         mUsages.addAll(usages);
         if (mCallback != null) {

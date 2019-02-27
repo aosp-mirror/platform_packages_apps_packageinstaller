@@ -217,6 +217,7 @@ public class AppPermissionUsageFragment extends SettingsWithButtonHeader impleme
         // Add the permission usages.
         final List<AppPermissionUsage> permissionUsages = mPermissionUsages.getUsages();
         if (permissionUsages.isEmpty()) {
+            setLoading(false, true);
             return;
         }
         if (permissionUsages.size() > 1) {
