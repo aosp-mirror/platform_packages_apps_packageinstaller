@@ -33,6 +33,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
@@ -64,13 +65,19 @@ public final class AppPermissionsFragment extends SettingsWithButtonHeader {
 
     private Collator mCollator;
 
-    public static AppPermissionsFragment newInstance(String packageName) {
-        return setPackageName(new AppPermissionsFragment(), packageName);
+    /**
+     * @return A new fragment
+     */
+    public static AppPermissionsFragment newInstance(@NonNull String packageName,
+            @NonNull UserHandle userHandle) {
+        return setPackageNameAndUserHandle(new AppPermissionsFragment(), packageName, userHandle);
     }
 
-    private static <T extends Fragment> T setPackageName(T fragment, String packageName) {
+    private static <T extends Fragment> T setPackageNameAndUserHandle(@NonNull T fragment,
+            @NonNull String packageName, @NonNull UserHandle userHandle) {
         Bundle arguments = new Bundle();
         arguments.putString(Intent.EXTRA_PACKAGE_NAME, packageName);
+        arguments.putParcelable(Intent.EXTRA_USER, userHandle);
         fragment.setArguments(arguments);
         return fragment;
     }
@@ -86,8 +93,9 @@ public final class AppPermissionsFragment extends SettingsWithButtonHeader {
         }
 
         String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
+        UserHandle userHandle = getArguments().getParcelable(Intent.EXTRA_USER);
         Activity activity = getActivity();
-        PackageInfo packageInfo = getPackageInfo(activity, packageName);
+        PackageInfo packageInfo = getPackageInfo(activity, packageName, userHandle);
         if (packageInfo == null) {
             Toast.makeText(activity, R.string.app_not_found_dlg_title, Toast.LENGTH_LONG).show();
             activity.finish();
@@ -252,7 +260,9 @@ public final class AppPermissionsFragment extends SettingsWithButtonHeader {
         if (mExtraScreen != null) {
             extraPerms.setOnPreferenceClickListener(preference -> {
                 AdditionalPermissionsFragment frag = new AdditionalPermissionsFragment();
-                setPackageName(frag, getArguments().getString(Intent.EXTRA_PACKAGE_NAME));
+                setPackageNameAndUserHandle(frag,
+                        getArguments().getString(Intent.EXTRA_PACKAGE_NAME),
+                        getArguments().getParcelable(Intent.EXTRA_USER));
                 frag.setTargetFragment(AppPermissionsFragment.this, 0);
                 getFragmentManager().beginTransaction()
                         .replace(android.R.id.content, frag)
@@ -298,10 +308,12 @@ public final class AppPermissionsFragment extends SettingsWithButtonHeader {
         setLoading(false /* loading */, true /* animate */);
     }
 
-    private static PackageInfo getPackageInfo(Activity activity, String packageName) {
+    private static PackageInfo getPackageInfo(Activity activity, @NonNull String packageName,
+            @NonNull UserHandle userHandle) {
         try {
-            return activity.getPackageManager().getPackageInfo(
-                    packageName, PackageManager.GET_PERMISSIONS);
+            return activity.createPackageContextAsUser(packageName, 0,
+                    userHandle).getPackageManager().getPackageInfo(packageName,
+                    PackageManager.GET_PERMISSIONS);
         } catch (PackageManager.NameNotFoundException e) {
             Log.i(LOG_TAG, "No package:" + activity.getCallingPackage(), e);
             return null;
@@ -327,7 +339,8 @@ public final class AppPermissionsFragment extends SettingsWithButtonHeader {
         public void onViewCreated(View view, Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
             String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
-            bindUi(this, getPackageInfo(getActivity(), packageName));
+            UserHandle userHandle = getArguments().getParcelable(Intent.EXTRA_USER);
+            bindUi(this, getPackageInfo(getActivity(), packageName, userHandle));
         }
 
         @Override
