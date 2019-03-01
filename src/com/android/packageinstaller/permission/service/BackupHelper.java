@@ -20,6 +20,7 @@ import static android.content.Context.MODE_PRIVATE;
 import static android.content.pm.PackageManager.FLAG_PERMISSION_POLICY_FIXED;
 import static android.content.pm.PackageManager.FLAG_PERMISSION_SYSTEM_FIXED;
 import static android.content.pm.PackageManager.GET_PERMISSIONS;
+import static android.provider.Settings.Secure.LOCATION_PERMISSIONS_UPGRADE_TO_Q_MODE;
 import static android.util.Xml.newSerializer;
 
 import static com.android.packageinstaller.Constants.DELAYED_RESTORE_PERMISSIONS_FILE;
@@ -39,6 +40,7 @@ import android.os.Build;
 import android.os.UserHandle;
 import android.permission.PermissionManager;
 import android.permission.PermissionManager.SplitPermissionInfo;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Xml;
@@ -416,7 +418,9 @@ public class BackupHelper {
             // Clear location permission on upgrade to Q or later
             String group = getGroupOfPlatformPermission(permName);
             if (backupPlatformVersion < Build.VERSION_CODES.Q && TextUtils.equals(group,
-                    Manifest.permission_group.LOCATION)) {
+                    Manifest.permission_group.LOCATION)
+                    && Settings.Secure.getInt(context.getContentResolver(),
+                    LOCATION_PERMISSIONS_UPGRADE_TO_Q_MODE, 0) == 0) {
                 return Collections.emptyList();
             }
 
