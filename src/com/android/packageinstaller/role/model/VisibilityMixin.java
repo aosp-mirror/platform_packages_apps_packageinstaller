@@ -38,7 +38,7 @@ public class VisibilityMixin {
      */
     public static boolean isVisible(@NonNull String resourceName, @NonNull Context context) {
         Resources resources = context.getResources();
-        int resourceId = resources.getIdentifier(resourceName, "boolean", "android");
+        int resourceId = resources.getIdentifier(resourceName, "bool", "android");
         if (resourceId == 0) {
             Log.w(LOG_TAG, "Cannot find resource for visibility: " + resourceName);
             return true;
