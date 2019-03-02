@@ -39,6 +39,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Թույլատրել, միայն երբ հավելվածն օգտագործվում է"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Հավելվածներ"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Հավելվածների թույլտվություններ"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"Թույլտվությունների կառավարիչ"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Այլևս չհարցնել"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Թույլտվություններ չկան"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"Լրացուցիչ թույլտվություններ"</string>
@@ -51,7 +52,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"կատարել անհայտ գործողություն"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"Թույլատրված է <xliff:g id="COUNT_0">%1$d</xliff:g> հավելված՝ <xliff:g id="COUNT_1">%2$d</xliff:g>-ից"</string>
     <string name="permission_usage_header" msgid="8802963718365732792">"Վերջին օգտագործումը"</string>
-    <string name="permission_usage_view_details" msgid="1242976903858003439">"Մանրամասն"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"Թույլտվությունների վահանակ"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Ցույց տալ համակարգի հավելվածները"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Թաքցնել համակարգի հավելվածները"</string>
     <string name="no_apps" msgid="2377153782338039463">"Հավելվածներ չկան"</string>
@@ -90,9 +91,23 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Ընթացիկ թույլտվություններ"</string>
     <string name="message_staging" msgid="641286607664721291">"Սպասեք…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Անհայտ"</string>
-    <string name="permission_usage_title" msgid="8266350477620264117">"Թույլտվությունների օգտագործում"</string>
-    <string name="permission_usage_summary" msgid="4139332442917981301">"Վերջին օգտագործումը՝ Օգտագործվել է <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM">%2$s</xliff:g> անգամ"</string>
-    <string name="permission_usage_summary_background" msgid="2209669857909620833">"Վերջին օգտագործումը՝ Օգտագործվել է <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM_0">%2$s</xliff:g> անգամ (<xliff:g id="NUM_1">%3$s</xliff:g> անգամ ֆոնային ռեժիմում)"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Կառավարման վահանակ"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="one">Վերջին օգտագործումը՝ <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> անգամ</item>
+      <item quantity="other">Վերջին օգտագործումը՝ <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> անգամ</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="one">Վերջին օգտագործումը՝ <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> անգամ (<xliff:g id="NUM_5">%3$s</xliff:g> անգամ ֆոնային ռեժիմում)</item>
+      <item quantity="other">Վերջին օգտագործումը՝ <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> անգամ (<xliff:g id="NUM_5">%3$s</xliff:g> անգամ ֆոնային ռեժիմում)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="one">Վերջին օգտագործումը՝ <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> անգամ\nՏևողությունը՝ <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="other">Վերջին օգտագործումը՝ <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> անգամ\nՏևողությունը՝ <xliff:g id="TIME_5">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="one">Վերջին օգտագործումը՝ <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> անգամ (<xliff:g id="NUM_6">%3$s</xliff:g> անգամ ֆոնային ռեժիմում)\nՏևողությունը՝ <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="other">Վերջին օգտագործումը՝ <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> անգամ (<xliff:g id="NUM_6">%3$s</xliff:g> անգամ ֆոնային ռեժիմում)\nՏևողությունը՝ <xliff:g id="TIME_7">%3$s</xliff:g></item>
+    </plurals>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Բոլոր թույլտվությունները"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"Ցանկացած ժամանակ"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Վերջին 7 օրում"</string>
@@ -135,6 +150,7 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> հավելվածին հասանելի չէ ձեր <xliff:g id="PERM">%2$s</xliff:g>ը:"</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Դիտել թույլտվությունների օգտագործման մանրամասները"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Վերջին օգտագործումը՝ <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Երբեք չի օգտագործվել"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Թույլատրված"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Միայն հավելվածն օգտագործելիս"</string>
     <string name="denied_header" msgid="2277998574238617699">"Մերժված"</string>

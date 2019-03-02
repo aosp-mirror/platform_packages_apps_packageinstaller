@@ -39,6 +39,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"फक्त अ‍ॅप वापरत असताना अनुमती द्या"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"अॅप्स"</string>
     <string name="app_permissions" msgid="2778362347879465223">"अ‍ॅप परवानग्या"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"परवानगी व्यवस्थापक"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"पुन्हा विचारू नका"</string>
     <string name="no_permissions" msgid="2193893107241172888">"परवानग्या नाहीत"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"अतिरिक्त परवानग्या"</string>
@@ -51,7 +52,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"अज्ञात क्रिया करा"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> पैकी <xliff:g id="COUNT_1">%2$d</xliff:g> अ‍ॅप्सना परवानगी दिली"</string>
     <string name="permission_usage_header" msgid="8802963718365732792">"अलीकडील वापर"</string>
-    <string name="permission_usage_view_details" msgid="1242976903858003439">"तपशील पाहा"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"परवानग्या डॅशबोर्ड पाहा"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"सिस्टम दर्शवा"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"सिस्टम लपवा"</string>
     <string name="no_apps" msgid="2377153782338039463">"कोणतेही अॅप्स नाहीत"</string>
@@ -90,9 +91,23 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"वर्तमान परवानग्या"</string>
     <string name="message_staging" msgid="641286607664721291">"अ‍ॅप सुरुवातीच्या स्थितीत आहे…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"अज्ञात"</string>
-    <string name="permission_usage_title" msgid="8266350477620264117">"परवानगी वापर"</string>
-    <string name="permission_usage_summary" msgid="4139332442917981301">"शेवटचा अ‍ॅक्सेस: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM">%2$s</xliff:g> अ‍ॅक्सेस"</string>
-    <string name="permission_usage_summary_background" msgid="2209669857909620833">"शेवटचा अ‍ॅक्सेस: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM_0">%2$s</xliff:g> अ‍ॅक्सेस (बॅकग्राउंडमध्ये <xliff:g id="NUM_1">%3$s</xliff:g>)"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"डॅशबोर्ड"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="one">शेवटचा अ‍ॅक्सेस: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> अ‍ॅक्सेस</item>
+      <item quantity="other">शेवटचा अ‍ॅक्सेस: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> अ‍ॅक्सेस</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="one">शेवटचा अ‍ॅक्सेस: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> अ‍ॅक्सेस (बॅकग्राउंडमध्ये <xliff:g id="NUM_5">%3$s</xliff:g>)</item>
+      <item quantity="other">शेवटचा अ‍ॅक्सेस: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> अ‍ॅक्सेस (बॅकग्राउंडमध्ये <xliff:g id="NUM_5">%3$s</xliff:g>)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="one">शेवटचा अ‍ॅक्सेस: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> अ‍ॅक्सेस\nकालावधी: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="other">शेवटचा अ‍ॅक्सेस: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> अ‍ॅक्सेस\nकालावधी: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="one">शेवटचा अ‍ॅक्सेस: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> अ‍ॅक्सेस (बॅकग्राउंडमध्ये <xliff:g id="NUM_6">%3$s</xliff:g>)\n कालावधी: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="other">शेवटचा अ‍ॅक्सेस: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> अ‍ॅक्सेस (बॅकग्राउंडमध्ये <xliff:g id="NUM_6">%3$s</xliff:g>)\n कालावधी: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+    </plurals>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"कोणतीही परवानगी"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"कधीही"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"शेवटचे सात दिवस"</string>
@@ -135,6 +150,7 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> ला तुमच्या <xliff:g id="PERM">%2$s</xliff:g>चा अॅक्सेस दिलेला नाही."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"परवानग्यांचा वापर तपशीलवार पाहा"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"शेवटचा अ‍ॅक्सेस: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"कधीही अ‍ॅक्सेस केलेले नाही"</string>
     <string name="allowed_header" msgid="6279244592227088158">"अनुमती असलेले"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"फक्त वापरत असताना अनुमती आहे"</string>
     <string name="denied_header" msgid="2277998574238617699">"नाकारलेली"</string>
@@ -168,16 +184,11 @@
     <string name="launch_app" msgid="5641437562665039291">"उघडा"</string>
     <string name="uninstall_app" msgid="8756507666995809214">"अनइंस्टॉल करा"</string>
     <string name="force_stop_app" msgid="4253426323145479826">"सक्तीने थांबवा"</string>
-    <!-- no translation found for settings (2884124136779508907) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_title_single (1613456964930225277) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_title_multiple (1262608280562255761) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_bottom_text_single (6932810943462703517) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_bottom_text_multiple (817809209968536329) -->
-    <skip />
+    <string name="settings" msgid="2884124136779508907">"सेटिंग्ज"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> ला तुमच्या डिव्हाइसचा पुर्ण अ‍ॅक्सेस आहे"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> अ‍ॅक्सेसिबिलिटी सेवांना तुमच्या डिव्हाइसचा पुर्ण अ‍ॅक्सेस आहे"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> तुमची स्क्रीन, क्रिया आणि इनपुट, करत असलेल्या क्रिया पाहू शकेल आणि डिस्प्ले नियंत्रित करू शकेल."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"या सेवा तुमची स्क्रीन, क्रिया आणि इनपुट पाहू शकतात, क्रिया करू शकतात आणि डिस्प्ले नियंत्रित करू शकतात."</string>
     <string name="default_apps" msgid="8554530939151957828">"डीफॉल्ट अ‍ॅप्स"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"कोणतीही डीफॉल्‍ट अ‍ॅप्स नाहीत"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"कार्यासाठी डीफॉल्ट"</string>
@@ -199,11 +210,9 @@
     <string name="role_label_call_screening" msgid="411212589764916370">"स्क्रीनिंग अ‍ॅपला कॉल करा"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"सहयोगी अ‍ॅपला कॉल करा"</string>
     <string name="role_label_car_projection" msgid="3792929094325391213">"कार प्रोजेक्शन अ‍ॅप"</string>
-    <!-- no translation found for home_missing_work_profile_support (1439466272746259937) -->
-    <skip />
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"कार्य प्रोफाइलला सपोर्ट नाही"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"टीप: तुम्ही तुमचे डिव्हाइस रीस्टार्ट केल्यास आणि स्क्रीन लॉक सेट केले असल्यास, तुम्ही तुमचे डिव्हाइस अनलॉक करेपर्यंत हे अ‍ॅप सुरू होऊ शकत नाही."</string>
-    <!-- no translation found for assistant_confirmation_message (4529925223796676824) -->
-    <skip />
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"तुमच्या स्क्रीनवर दृश्‍यमान असलेल्या माहितीच्या किंवा अ‍ॅप्समध्ये अ‍ॅक्सेस करता येणाऱ्या माहितीच्या समावेशासह असिस्टंट तुमच्या सिस्टिममध्ये वापरल्या जाणाऱ्या अ‍ॅप्सबद्दलची माहिती वाचू शकेल."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"डीबगिंग डेटा शेअर करा"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"तपशीलवार डीबगिंग डेटा शेअर करायचा?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> ला डीबगिंग माहिती अपलोड करायला आवडेल."</string>

@@ -39,6 +39,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Povoliť iba počas používania aplikácie"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Aplikácie"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Povolenia aplikácií"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"Správca povolení"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Nabudúce sa nepýtať"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Žiadne povolenia"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"Ďalšie povolenia"</string>
@@ -53,7 +54,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"umožňuje vykonať neznámu akciu"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"Povolené: <xliff:g id="COUNT_0">%1$d</xliff:g> z <xliff:g id="COUNT_1">%2$d</xliff:g> aplikácií"</string>
     <string name="permission_usage_header" msgid="8802963718365732792">"Nedávne využitie"</string>
-    <string name="permission_usage_view_details" msgid="1242976903858003439">"Zobraziť podrobnosti"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"Zobraziť hlavný panel povolení"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Zobraziť systémové"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Skryť systémové"</string>
     <string name="no_apps" msgid="2377153782338039463">"Žiadne aplikácie"</string>
@@ -92,9 +93,31 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Aktuálne povolenia"</string>
     <string name="message_staging" msgid="641286607664721291">"Aplikácia je zavádzaná po etapách…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Neznáme"</string>
-    <string name="permission_usage_title" msgid="8266350477620264117">"Využitie povolení"</string>
-    <string name="permission_usage_summary" msgid="4139332442917981301">"Posledný prístup: <xliff:g id="TIME">%1$s</xliff:g>\npočet prístupov: <xliff:g id="NUM">%2$s</xliff:g>"</string>
-    <string name="permission_usage_summary_background" msgid="2209669857909620833">"Posledný prístup: <xliff:g id="TIME">%1$s</xliff:g>\npočet prístupov: <xliff:g id="NUM_0">%2$s</xliff:g> (<xliff:g id="NUM_1">%3$s</xliff:g> na pozadí)"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Hlavný panel"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="few">Posledný prístup: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> prístupy</item>
+      <item quantity="many">Posledný prístup: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> accesses</item>
+      <item quantity="other">Posledný prístup: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> prístupov</item>
+      <item quantity="one">Posledný prístup: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> prístup</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="few">Posledný prístup: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> prístupy (<xliff:g id="NUM_5">%3$s</xliff:g> na pozadí)</item>
+      <item quantity="many">Posledný prístup: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> accesses (<xliff:g id="NUM_5">%3$s</xliff:g> in background)</item>
+      <item quantity="other">Posledný prístup: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> prístupov (<xliff:g id="NUM_5">%3$s</xliff:g> na pozadí)</item>
+      <item quantity="one">Posledný prístup: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> prístup (<xliff:g id="NUM_2">%3$s</xliff:g> na pozadí)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="few">Posledný prístup: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> prístupy\nTrvanie: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="many">Posledný prístup: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> accesses\nDuration: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="other">Posledný prístup: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> prístupov\nTrvanie: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">Posledný prístup: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> prístup\nTrvanie: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="few">Posledný prístup: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> prístupy (<xliff:g id="NUM_6">%3$s</xliff:g> na pozadí)\nTrvanie: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="many">Posledný prístup: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> accesses (<xliff:g id="NUM_6">%3$s</xliff:g> in background)\nDuration: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="other">Posledný prístup: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> prístupov (<xliff:g id="NUM_6">%3$s</xliff:g> na pozadí)\nTrvanie: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">Posledný prístup: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> prístup (<xliff:g id="NUM_2">%3$s</xliff:g> na pozadí)\nTrvanie: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Všetky povolenia"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"Kedykoľvek"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Posledných 7 dní"</string>
@@ -137,6 +160,7 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> nemôže používať povolenie <xliff:g id="PERM">%2$s</xliff:g>."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Zobraziť podrobné údaje o využití povolení"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Posledný prístup: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Prístup sa nikdy neuskutočnil"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Povolené"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Povolené iba počas používania"</string>
     <string name="denied_header" msgid="2277998574238617699">"Zamietnuté"</string>
@@ -181,8 +205,8 @@
     <string name="settings" msgid="2884124136779508907">"Nastavenia"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> má úplný prístup do vášho zariadenia"</string>
     <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"Služby dostupnosti s úplným prístupom do vášho zariadenia: <xliff:g id="NUM_SERVICES">%s</xliff:g>"</string>
-    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> si môže zobraziť vašu obrazovku, akcie a vstupy, vykonávať akcie a ovládať zobrazenie."</string>
-    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"Tieto služby si môžu zobraziť vašu obrazovku, akcie a vstupy, vykonávať akcie a ovládať zobrazenie."</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> si môže zobraziť vašu obrazovku, akcie a vstupy, vykonávať akcie a ovládať obrazovku."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"Tieto služby si môžu zobraziť vašu obrazovku, akcie a vstupy, vykonávať akcie a ovládať obrazovku."</string>
     <string name="default_apps" msgid="8554530939151957828">"Predvolené aplikácie"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Žiadne predvolené aplikácie"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Predvolené na prácu"</string>

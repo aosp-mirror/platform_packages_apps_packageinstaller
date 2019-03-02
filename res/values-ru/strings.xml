@@ -39,6 +39,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Разрешить только в активном режиме"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Приложения"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Разрешения приложений"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"Управление разрешениями"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Больше не спрашивать"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Нет разрешений"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"Ещё разрешения"</string>
@@ -53,7 +54,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"выполнять неизвестное действие"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"Приложений с разрешением: <xliff:g id="COUNT_0">%1$d</xliff:g> из <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
     <string name="permission_usage_header" msgid="8802963718365732792">"Недавнее использование"</string>
-    <string name="permission_usage_view_details" msgid="1242976903858003439">"Подробнее"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"Открыть панель управления разрешениями"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Показать системные процессы"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Скрыть системные процессы"</string>
     <string name="no_apps" msgid="2377153782338039463">"Нет приложений"</string>
@@ -92,9 +93,31 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Имеющиеся разрешения"</string>
     <string name="message_staging" msgid="641286607664721291">"Подождите…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Неизвестное приложение"</string>
-    <string name="permission_usage_title" msgid="8266350477620264117">"Использование разрешений"</string>
-    <string name="permission_usage_summary" msgid="4139332442917981301">"Последний раз использовано: <xliff:g id="TIME">%1$s</xliff:g>.\nСколько раз использовано: <xliff:g id="NUM">%2$s</xliff:g>."</string>
-    <string name="permission_usage_summary_background" msgid="2209669857909620833">"Последний раз использовано: <xliff:g id="TIME">%1$s</xliff:g>.\nСколько раз использовано: <xliff:g id="NUM_0">%2$s</xliff:g> (<xliff:g id="NUM_1">%3$s</xliff:g> в фоновом режиме)."</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Панель управления"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="one">Последнее использование: <xliff:g id="TIME_2">%1$s</xliff:g>.\nРазрешение использовано <xliff:g id="NUM_3">%2$s</xliff:g> раз.</item>
+      <item quantity="few">Последнее использование: <xliff:g id="TIME_2">%1$s</xliff:g>.\nРазрешение использовано <xliff:g id="NUM_3">%2$s</xliff:g> раза.</item>
+      <item quantity="many">Последнее использование: <xliff:g id="TIME_2">%1$s</xliff:g>.\nРазрешение использовано <xliff:g id="NUM_3">%2$s</xliff:g> раз.</item>
+      <item quantity="other">Последнее использование: <xliff:g id="TIME_2">%1$s</xliff:g>.\nРазрешение использовано <xliff:g id="NUM_3">%2$s</xliff:g> раза.</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="one">Последнее использование: <xliff:g id="TIME_3">%1$s</xliff:g>.\nРазрешение использовано <xliff:g id="NUM_4">%2$s</xliff:g> раз (<xliff:g id="NUM_5">%3$s</xliff:g> в фоновом режиме).</item>
+      <item quantity="few">Последнее использование: <xliff:g id="TIME_3">%1$s</xliff:g>.\nРазрешение использовано <xliff:g id="NUM_4">%2$s</xliff:g> раза (<xliff:g id="NUM_5">%3$s</xliff:g> в фоновом режиме).</item>
+      <item quantity="many">Последнее использование: <xliff:g id="TIME_3">%1$s</xliff:g>.\nРазрешение использовано <xliff:g id="NUM_4">%2$s</xliff:g> раз (<xliff:g id="NUM_5">%3$s</xliff:g> в фоновом режиме).</item>
+      <item quantity="other">Последнее использование: <xliff:g id="TIME_3">%1$s</xliff:g>.\nРазрешение использовано <xliff:g id="NUM_4">%2$s</xliff:g> раза (<xliff:g id="NUM_5">%3$s</xliff:g> в фоновом режиме).</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="one">Последнее использование: <xliff:g id="TIME_3">%1$s</xliff:g>.\nРазрешение использовано <xliff:g id="NUM_4">%2$s</xliff:g> раз.\nПродолжительность: <xliff:g id="TIME_5">%3$s</xliff:g>.</item>
+      <item quantity="few">Последнее использование: <xliff:g id="TIME_3">%1$s</xliff:g>.\nРазрешение использовано <xliff:g id="NUM_4">%2$s</xliff:g> раза.\nПродолжительность: <xliff:g id="TIME_5">%3$s</xliff:g>.</item>
+      <item quantity="many">Последнее использование: <xliff:g id="TIME_3">%1$s</xliff:g>.\nРазрешение использовано <xliff:g id="NUM_4">%2$s</xliff:g> раз.\nПродолжительность: <xliff:g id="TIME_5">%3$s</xliff:g>.</item>
+      <item quantity="other">Последнее использование: <xliff:g id="TIME_3">%1$s</xliff:g>.\nРазрешение использовано <xliff:g id="NUM_4">%2$s</xliff:g> раза.\nПродолжительность: <xliff:g id="TIME_5">%3$s</xliff:g>.</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="one">Последнее использование: <xliff:g id="TIME_4">%1$s</xliff:g>.\nРазрешение использовано <xliff:g id="NUM_5">%2$s</xliff:g> раз (<xliff:g id="NUM_6">%3$s</xliff:g> в фоновом режиме).\nПродолжительность: <xliff:g id="TIME_7">%3$s</xliff:g>.</item>
+      <item quantity="few">Последнее использование: <xliff:g id="TIME_4">%1$s</xliff:g>.\nРазрешение использовано <xliff:g id="NUM_5">%2$s</xliff:g> раза (<xliff:g id="NUM_6">%3$s</xliff:g> в фоновом режиме).\nПродолжительность: <xliff:g id="TIME_7">%3$s</xliff:g>.</item>
+      <item quantity="many">Последнее использование: <xliff:g id="TIME_4">%1$s</xliff:g>.\nРазрешение использовано <xliff:g id="NUM_5">%2$s</xliff:g> раз (<xliff:g id="NUM_6">%3$s</xliff:g> в фоновом режиме).\nПродолжительность: <xliff:g id="TIME_7">%3$s</xliff:g>.</item>
+      <item quantity="other">Последнее использование: <xliff:g id="TIME_4">%1$s</xliff:g>.\nРазрешение использовано <xliff:g id="NUM_5">%2$s</xliff:g> раза (<xliff:g id="NUM_6">%3$s</xliff:g> в фоновом режиме).\nПродолжительность: <xliff:g id="TIME_7">%3$s</xliff:g>.</item>
+    </plurals>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Все разрешения"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"Все время"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Последние 7 дней"</string>
@@ -137,6 +160,7 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" не обратилось к следующему разрешению: <xliff:g id="PERM">%2$s</xliff:g>."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Показать подробную информацию об использовании разрешений"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Последний раз использовано: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Не использовалось."</string>
     <string name="allowed_header" msgid="6279244592227088158">"Предоставленные разрешения"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Только когда приложение открыто"</string>
     <string name="denied_header" msgid="2277998574238617699">"Отсутствующие разрешения"</string>

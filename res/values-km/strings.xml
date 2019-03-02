@@ -39,6 +39,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"អនុញ្ញាត​ពេល​កំពុង​ប្រើប្រាស់​កម្មវិធីតែ​ប៉ុណ្ណោះ"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"កម្មវិធី"</string>
     <string name="app_permissions" msgid="2778362347879465223">"ការអនុញ្ញាតកម្មវិធី"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"កម្មវិធីគ្រប់គ្រង​ការអនុញ្ញាត"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"កុំសួរ​ម្ដងទៀត"</string>
     <string name="no_permissions" msgid="2193893107241172888">"គ្មានការអនុញ្ញាតទេ"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"ការអនុញ្ញាតបន្ថែម"</string>
@@ -51,7 +52,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"ប្រតិបត្តិការសកម្មភាពមិនស្គាល់"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"បានអនុញ្ញាត​កម្មវិធី <xliff:g id="COUNT_0">%1$d</xliff:g> ក្នុងចំណោម​ <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
     <string name="permission_usage_header" msgid="8802963718365732792">"ការប្រើប្រាស់ថ្មីៗ"</string>
-    <string name="permission_usage_view_details" msgid="1242976903858003439">"មើល​ព័ត៌មាន​លម្អិត"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"មើល​ផ្ទាំងគ្រប់គ្រង​ការអនុញ្ញាត"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"បង្ហាញ​ប្រព័ន្ធ"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"លាក់ប្រព័ន្ធ"</string>
     <string name="no_apps" msgid="2377153782338039463">"គ្មានកម្មវិធី"</string>
@@ -90,9 +91,23 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"ការអនុញ្ញាត​បច្ចុប្បន្ន"</string>
     <string name="message_staging" msgid="641286607664721291">"កំពុងសាកល្បងកម្មវិធី…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"មិនស្គាល់"</string>
-    <string name="permission_usage_title" msgid="8266350477620264117">"ការប្រើប្រាស់​ការអនុញ្ញាត"</string>
-    <string name="permission_usage_summary" msgid="4139332442917981301">"ការចូលប្រើ​ចុងក្រោយ៖ <xliff:g id="TIME">%1$s</xliff:g>\nការចូលប្រើ <xliff:g id="NUM">%2$s</xliff:g> ដង"</string>
-    <string name="permission_usage_summary_background" msgid="2209669857909620833">"ការចូលប្រើ​ចុងក្រោយ៖ <xliff:g id="TIME">%1$s</xliff:g>\nការចូលប្រើ <xliff:g id="NUM_0">%2$s</xliff:g> ដង (<xliff:g id="NUM_1">%3$s</xliff:g> នៅផ្ទៃ​ខាងក្រោយ)"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"ផ្ទាំង​គ្រប់គ្រង"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">ការចូលប្រើ​ចុងក្រោយ៖ <xliff:g id="TIME_2">%1$s</xliff:g>\nការចូលប្រើ <xliff:g id="NUM_3">%2$s</xliff:g> ដង</item>
+      <item quantity="one">ការចូលប្រើ​ចុងក្រោយ៖ <xliff:g id="TIME_0">%1$s</xliff:g>\nការចូលប្រើ <xliff:g id="NUM_1">%2$s</xliff:g> ដង</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">ការចូលប្រើ​ចុងក្រោយ៖ <xliff:g id="TIME_3">%1$s</xliff:g>\nការចូលប្រើ <xliff:g id="NUM_4">%2$s</xliff:g> ដង (<xliff:g id="NUM_5">%3$s</xliff:g> ដងនៅផ្ទៃខាងក្រោយ)</item>
+      <item quantity="one">ការចូលប្រើ​ចុងក្រោយ៖ <xliff:g id="TIME_0">%1$s</xliff:g>\nការចូលប្រើ <xliff:g id="NUM_1">%2$s</xliff:g> ដង (<xliff:g id="NUM_2">%3$s</xliff:g> ដងនៅផ្ទៃខាងក្រោយ)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">ការចូលប្រើចុងក្រោយ៖ <xliff:g id="TIME_3">%1$s</xliff:g>\nការចូលប្រើ <xliff:g id="NUM_4">%2$s</xliff:g> ដង\nរយៈពេល៖ <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">ការចូលប្រើ​ចុងក្រោយ៖ <xliff:g id="TIME_0">%1$s</xliff:g>\nការចូលប្រើ <xliff:g id="NUM_1">%2$s</xliff:g> ដង\nរយៈពេល៖ <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">ការចូលប្រើ​ចុងក្រោយ៖ <xliff:g id="TIME_4">%1$s</xliff:g>\nការចូលប្រើ <xliff:g id="NUM_5">%2$s</xliff:g> ដង (<xliff:g id="NUM_6">%3$s</xliff:g> ដងនៅផ្ទៃខាងក្រោយ)\nរយៈពេល៖ <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">ការចូលប្រើ​ចុងក្រោយ៖ <xliff:g id="TIME_0">%1$s</xliff:g>\nការចូលប្រើ <xliff:g id="NUM_1">%2$s</xliff:g> ដង (<xliff:g id="NUM_2">%3$s</xliff:g> ដងនៅផ្ទៃខាងក្រោយ)\nរយៈពេល៖ <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"ការអនុញ្ញាត​ណាមួយ"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"ពេល​ណា​ក៏​បាន"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"7 ថ្ងៃ​ចុងក្រោយ"</string>
@@ -135,6 +150,7 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> មិន​បាន​ចូលប្រើ <xliff:g id="PERM">%2$s</xliff:g> របស់អ្នក​ទេ។"</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"មើល​ការ​ប្រើប្រាស់​ការអនុញ្ញាត​លម្អិត"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"ការចូលប្រើ​ចុងក្រោយ៖ <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"មិនធ្លាប់​ចូលប្រើ"</string>
     <string name="allowed_header" msgid="6279244592227088158">"បាន​អនុញ្ញាត"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"អនុញ្ញាត​ខណៈពេល​ប្រើប្រាស់តែ​ប៉ុណ្ណោះ"</string>
     <string name="denied_header" msgid="2277998574238617699">"បានបដិសេធ"</string>
@@ -168,16 +184,11 @@
     <string name="launch_app" msgid="5641437562665039291">"បើក"</string>
     <string name="uninstall_app" msgid="8756507666995809214">"លុប"</string>
     <string name="force_stop_app" msgid="4253426323145479826">"បង្ខំ​ឱ្យ​បញ្ឈប់"</string>
-    <!-- no translation found for settings (2884124136779508907) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_title_single (1613456964930225277) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_title_multiple (1262608280562255761) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_bottom_text_single (6932810943462703517) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_bottom_text_multiple (817809209968536329) -->
-    <skip />
+    <string name="settings" msgid="2884124136779508907">"ការកំណត់"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> មានសិទ្ធិ​ពេញលេញ​ក្នុងការ​ចូលប្រើ​ឧបករណ៍​របស់អ្នក"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"សេវាកម្ម​ភាពងាយស្រួល <xliff:g id="NUM_SERVICES">%s</xliff:g> មានសិទ្ធិ​ពេញលេញ​ក្នុងការ​ចូលប្រើ​ឧបករណ៍​របស់អ្នក"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> អាចមើល​អេក្រង់ សកម្មភាព និង​ការវាយបញ្ចូល​របស់អ្នក ធ្វើ​សកម្មភាព និង​គ្រប់គ្រង​ផ្ទាំងអេក្រង់​បាន។"</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"សេវាកម្ម​ទាំងនេះ​អាចមើល​អេក្រង់ សកម្មភាព និង​ការវាយបញ្ចូល​របស់អ្នក ធ្វើ​សកម្មភាព និង​គ្រប់គ្រង​ផ្ទាំងអេក្រង់​បាន។"</string>
     <string name="default_apps" msgid="8554530939151957828">"កម្មវិធី​លំនាំដើម"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"គ្មានកម្មវិធីលំនាំដើមទេ"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"លំនាំដើម​សម្រាប់ការងារ"</string>
@@ -199,11 +210,9 @@
     <string name="role_label_call_screening" msgid="411212589764916370">"កម្មវិធីត្រួតពិនិត្យការហៅទូរសព្ទ"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"កម្មវិធី​ដៃគូ​សម្រាប់​ហៅទូរសព្ទ"</string>
     <string name="role_label_car_projection" msgid="3792929094325391213">"កម្មវិធី​បញ្ចាំង​របស់​រថយន្ត"</string>
-    <!-- no translation found for home_missing_work_profile_support (1439466272746259937) -->
-    <skip />
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"មិនស្គាល់​កម្រងព័ត៌មាន​ការងារ​ទេ"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"ចំណាំ៖ ប្រសិនបើ​អ្នកចាប់ផ្ដើម​ឧបករណ៍​​របស់អ្នក​ឡើងវិញ និងបានកំណត់​ការចាក់សោ​អេក្រង់ កម្មវិធីនេះ​មិនអាច​ចាប់ផ្តើម​បានទេ រហូតទាល់តែ​អ្នកដោះសោ​ឧបករណ៍របស់អ្នក។"</string>
-    <!-- no translation found for assistant_confirmation_message (4529925223796676824) -->
-    <skip />
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"ជំនួយការនឹងអាចអានព័ត៌មានអំពីកម្មវិធីដែលកំពុងប្រើនៅក្នុងប្រព័ន្ធរបស់អ្នក រួម​ទាំងព័ត៌មានដែលអាចមើលឃើញនៅលើអេក្រង់របស់អ្នក ឬព័ត៌មានដែលអាចចូលប្រើនៅក្នុងកម្មវិធី​នោះផងដែរ​។"</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"ចែករំលែក​ទិន្នន័យ​នៃការ​ជួសជុល"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"ចែករំលែក​ទិន្នន័យ​លម្អិត​នៃការជួសជុល?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> ចង់​បង្ហោះ​ព័ត៌មាននៃ​ការជួសជុល។"</string>

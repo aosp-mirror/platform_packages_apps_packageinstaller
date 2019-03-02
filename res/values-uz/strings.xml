@@ -39,6 +39,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Faqat ilova faolligida ruxsat berish"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Ilovalar"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Ilovalar uchun ruxsatlar"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"Ruxsatlar menejeri"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Boshqa so‘ralmasin"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Ruxsat talab qilinmaydi"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"Qo‘shimcha ruxsatlar"</string>
@@ -51,7 +52,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"noma’lum amalni bajarish"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"Ruxsat berilgan ilovalar: <xliff:g id="COUNT_0">%1$d</xliff:g> / <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
     <string name="permission_usage_header" msgid="8802963718365732792">"Oxirgi statistika"</string>
-    <string name="permission_usage_view_details" msgid="1242976903858003439">"Tafsilotlar"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"Ruxsatlar panelini ochish"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Tizimga oid jarayonlar"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Tizimga oid jarayonlarni berkitish"</string>
     <string name="no_apps" msgid="2377153782338039463">"Hech qanday ilova topilmadi"</string>
@@ -90,9 +91,23 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Joriy ruxsatlar"</string>
     <string name="message_staging" msgid="641286607664721291">"Kutib turing…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Noaniq"</string>
-    <string name="permission_usage_title" msgid="8266350477620264117">"Ruxsatlar foydalanish"</string>
-    <string name="permission_usage_summary" msgid="4139332442917981301">"Oxirgi marta ishlatilgan: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM">%2$s</xliff:g> marta"</string>
-    <string name="permission_usage_summary_background" msgid="2209669857909620833">"Oxirgi marta ishlatilgan: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM_0">%2$s</xliff:g> marta (fonda <xliff:g id="NUM_1">%3$s</xliff:g> marta)"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Shaxsiy kabinet"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">Oxirgi ishlatish: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> marta</item>
+      <item quantity="one">Oxirgi ishlatish: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> marta</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">Oxirgi ishlatish: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> marta (fonda <xliff:g id="NUM_5">%3$s</xliff:g> marta)</item>
+      <item quantity="one">Oxirgi ishlatish: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> marta (fonda: <xliff:g id="NUM_2">%3$s</xliff:g> marta)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">Oxirgi ishlatish: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> marta \nDavomiyligi: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">Oxirgi ishlatish: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> marta \nDavomiyligi: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">Oxirgi ishlatish: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> marta (fonda: <xliff:g id="NUM_6">%3$s</xliff:g> ta)\nDavomiyligi:<xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">Oxirgi ishlatish: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> marta (fonda: <xliff:g id="NUM_2">%3$s</xliff:g> ta)\nDavomiyligi: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Har qanday ruxsat"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"Har qanday vaqt"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Oxirgi 7 kun"</string>
@@ -135,6 +150,7 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> ilovasi uchun <xliff:g id="PERM">%2$s</xliff:g> ruxsati berilmagan."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Ruxsatlardan foydalanish haqida batafsil axborotni ochish"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Oxirgi marta ishlatilgan: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Hech qachon ishlatilmagan"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Taqdim etilgan ruxsat"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Foydalanilayotganda ruxsat beriladi"</string>
     <string name="denied_header" msgid="2277998574238617699">"Taqdim etilmagan ruxsatlar"</string>
@@ -171,8 +187,8 @@
     <string name="settings" msgid="2884124136779508907">"Sozlamalar"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> xizmati qurilmangizdan butunlay foydalana oladi"</string>
     <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> ta maxsus xizmat qurilmangizdan butunlay foydalana oladi"</string>
-    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> ekraningiz, bajargan amallaringiz va yozuvlaringizni koʻra oladi hamda ekraningizni boshqa oladi"</string>
-    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"Bu xizmatlar ekraningiz, bajargan amallaringiz va yozuvlaringizni koʻra oladi hamda ekraningizni boshqara oladi"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> ekran, bajargan amallaringiz va kiritgan matnlaringizni koʻra oladi hamda ekraningizni boshqa oladi."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"Bu xizmatlar ekran, bajargan amallaringiz va kiritgan matnlaringizni koʻra oladi hamda ekraningizni boshqara oladi"</string>
     <string name="default_apps" msgid="8554530939151957828">"Birlamchi ilovalar"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Birlamchi ilovalar mavjud emas"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Ish uchun birlamchi"</string>

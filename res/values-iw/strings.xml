@@ -39,6 +39,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"לאישור רק בזמן שהאפליקציה בשימוש"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"אפליקציות"</string>
     <string name="app_permissions" msgid="2778362347879465223">"הרשאות לאפליקציה"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"מנהל הרשאות"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"אל תשאל שוב"</string>
     <string name="no_permissions" msgid="2193893107241172888">"אין הרשאות"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"הרשאות נוספות"</string>
@@ -53,7 +54,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"ביצוע פעולה לא ידועה"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> מתוך <xliff:g id="COUNT_1">%2$d</xliff:g> אפליקציות קיבלו הרשאה"</string>
     <string name="permission_usage_header" msgid="8802963718365732792">"נתוני שימוש אחרונים בהרשאות"</string>
-    <string name="permission_usage_view_details" msgid="1242976903858003439">"הצגת פרטים"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"למרכז השליטה של ההרשאות"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"הצגת המערכת"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"הסתרת המערכת"</string>
     <string name="no_apps" msgid="2377153782338039463">"אין אפליקציות"</string>
@@ -92,9 +93,31 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"הרשאות קיימות"</string>
     <string name="message_staging" msgid="641286607664721291">"מכין אפליקציה להתקנה…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"לא ידוע"</string>
-    <string name="permission_usage_title" msgid="8266350477620264117">"שימוש בהרשאות"</string>
-    <string name="permission_usage_summary" msgid="4139332442917981301">"גישה אחרונה: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM">%2$s</xliff:g> קבלות גישה"</string>
-    <string name="permission_usage_summary_background" msgid="2209669857909620833">"גישה אחרונה: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM_0">%2$s</xliff:g> קבלות גישה (<xliff:g id="NUM_1">%3$s</xliff:g> ברקע)"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"מרכז שליטה"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="two">גישה אחרונה: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> קבלות גישה</item>
+      <item quantity="many">גישה אחרונה: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> קבלות גישה</item>
+      <item quantity="other">גישה אחרונה: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> קבלות גישה</item>
+      <item quantity="one">גישה אחרונה: <xliff:g id="TIME_0">%1$s</xliff:g>\nגישה אחת (<xliff:g id="NUM_1">%2$s</xliff:g>)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="two">גישה אחרונה: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> קבלות גישה (<xliff:g id="NUM_5">%3$s</xliff:g> ברקע)</item>
+      <item quantity="many">גישה אחרונה: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> קבלות גישה (<xliff:g id="NUM_5">%3$s</xliff:g> ברקע)</item>
+      <item quantity="other">גישה אחרונה: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> קבלות גישה (<xliff:g id="NUM_5">%3$s</xliff:g> ברקע)</item>
+      <item quantity="one">גישה אחרונה: <xliff:g id="TIME_0">%1$s</xliff:g>\nגישה אחת (<xliff:g id="NUM_1">%2$s</xliff:g>, <xliff:g id="NUM_2">%3$s</xliff:g> ברקע)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="two">גישה אחרונה: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> קבלות גישה\nמשך הזמן: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="many">גישה אחרונה: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> קבלות גישה\nמשך הזמן: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="other">גישה אחרונה: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> קבלות גישה\nמשך הזמן: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">גישה אחרונה: <xliff:g id="TIME_0">%1$s</xliff:g>\nגישה אחת (<xliff:g id="NUM_1">%2$s</xliff:g>)\nמשך הזמן: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="two">גישה אחרונה: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> קבלות גישה (<xliff:g id="NUM_6">%3$s</xliff:g> ברקע)\nמשך הזמן: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="many">גישה אחרונה: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> קבלות גישה (<xliff:g id="NUM_6">%3$s</xliff:g> ברקע)\nמשך הזמן: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="other">גישה אחרונה: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> קבלות גישה (<xliff:g id="NUM_6">%3$s</xliff:g> ברקע)\nמשך הזמן: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">גישה אחרונה: <xliff:g id="TIME_0">%1$s</xliff:g>\nגישה אחת (<xliff:g id="NUM_1">%2$s</xliff:g>, <xliff:g id="NUM_2">%3$s</xliff:g> ברקע)\nמשך הזמן: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"כל הרשאה שהיא"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"בכל עת"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"7 הימים האחרונים"</string>
@@ -137,6 +160,7 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"לאפליקציה <xliff:g id="APP">%1$s</xliff:g> לא הייתה גישה אל <xliff:g id="PERM">%2$s</xliff:g>."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"הצגת שימוש מפורט בהרשאות"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"גישה אחרונה: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"אף פעם לא בוצעה גישה"</string>
     <string name="allowed_header" msgid="6279244592227088158">"יש הרשאה"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"מורשית רק בזמן שימוש"</string>
     <string name="denied_header" msgid="2277998574238617699">"אין הרשאה"</string>

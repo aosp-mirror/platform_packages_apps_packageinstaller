@@ -39,6 +39,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Permet només mentre s\'utilitza l\'aplicació"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Aplicacions"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Permisos d\'aplicacions"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"Gestor de permisos"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"No m\'ho tornis a preguntar"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Sense permisos"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"Permisos addicionals"</string>
@@ -51,7 +52,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"dur a terme una acció desconeguda"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> de <xliff:g id="COUNT_1">%2$d</xliff:g> aplicacions permeses"</string>
     <string name="permission_usage_header" msgid="8802963718365732792">"Ús recent"</string>
-    <string name="permission_usage_view_details" msgid="1242976903858003439">"Mostra els detalls"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"Consulta el tauler de permisos"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Mostra les aplicacions del sistema"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Amaga les aplicacions del sistema"</string>
     <string name="no_apps" msgid="2377153782338039463">"Cap aplicació"</string>
@@ -90,9 +91,23 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Permisos actuals"</string>
     <string name="message_staging" msgid="641286607664721291">"S\'està preparant la instal·lació de l\'aplicació…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Desconegut"</string>
-    <string name="permission_usage_title" msgid="8266350477620264117">"Ús de permisos"</string>
-    <string name="permission_usage_summary" msgid="4139332442917981301">"Últim accés: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM">%2$s</xliff:g> accessos"</string>
-    <string name="permission_usage_summary_background" msgid="2209669857909620833">"Últim accés: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM_0">%2$s</xliff:g> accessos (<xliff:g id="NUM_1">%3$s</xliff:g> en segon pla)"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Tauler"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">Últim accés: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> accessos</item>
+      <item quantity="one">Últim accés: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> accés</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">Últim accés: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> accessos (<xliff:g id="NUM_5">%3$s</xliff:g> en segon pla)</item>
+      <item quantity="one">Últim accés: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> accés (<xliff:g id="NUM_2">%3$s</xliff:g> en segon pla)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">Últim accés: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> accessos\nDurada: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">Últim accés: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> accés\nDurada: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">Últim accés: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> accessos (<xliff:g id="NUM_6">%3$s</xliff:g> en segon pla)\nDurada: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">Últim accés: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> accés (<xliff:g id="NUM_2">%3$s</xliff:g> en segon pla)\nDurada: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Qualsevol permís"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"En qualsevol moment"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"7 últims dies"</string>
@@ -135,6 +150,7 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> no ha accedit al permís <xliff:g id="PERM">%2$s</xliff:g>."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Mostra dades detallades sobre l\'ús de permisos"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Últim accés: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"No hi ha accedit mai"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Acceptats"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Només es permeten mentre s\'utilitzen"</string>
     <string name="denied_header" msgid="2277998574238617699">"Denegats"</string>
@@ -194,7 +210,7 @@
     <string name="role_label_call_screening" msgid="411212589764916370">"Aplicació per filtrar trucades"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"Aplicació complementària de trucades"</string>
     <string name="role_label_car_projection" msgid="3792929094325391213">"Aplicació projecció del cotxe"</string>
-    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"No admet els perfils professionals"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"No admet perfils professionals"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Nota: si reinicies el dispositiu i has definit un bloqueig de pantalla, l\'aplicació no s\'iniciarà fins que no desbloquegis el dispositiu."</string>
     <string name="assistant_confirmation_message" msgid="4529925223796676824">"L\'assistent podrà llegir informació sobre les aplicacions que s\'utilitzen al teu sistema; també podrà accedir a la informació que es veu en pantalla o a què accedeixes des de les aplicacions."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Comparteix les dades de depuració"</string>

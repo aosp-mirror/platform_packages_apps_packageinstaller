@@ -39,6 +39,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Колдонмо пайдаланылып жаткан учурда гана уруксат берүү"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Колдонмолор"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Колдонмонун уруксаттары"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"Уруксаттарды башкаргыч"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Экинчи суралбасын"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Уруксаттар жок"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"Кошумча уруксаттар"</string>
@@ -51,7 +52,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"белгисиз аракеттерди жасайт"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_1">%2$d</xliff:g> колдонмонун ичинен <xliff:g id="COUNT_0">%1$d</xliff:g> уруксат берилген"</string>
     <string name="permission_usage_header" msgid="8802963718365732792">"Акыркы уруксаттардын колдонулушун көрүү"</string>
-    <string name="permission_usage_view_details" msgid="1242976903858003439">"Кеңири маалымат"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"Уруксаттардын тактасын көрүү"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Тутумдагы процесстерди көрсөтүү"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Тутумдагы процесстерди жашыруу"</string>
     <string name="no_apps" msgid="2377153782338039463">"Бир да колдонмо жок"</string>
@@ -90,9 +91,23 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Учурдагы уруксаттар"</string>
     <string name="message_staging" msgid="641286607664721291">"Күтө туруңуз…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Белгисиз"</string>
-    <string name="permission_usage_title" msgid="8266350477620264117">"Уруксаттардын колдонулушу"</string>
-    <string name="permission_usage_summary" msgid="4139332442917981301">"Акыркы жолу колдонулушу: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM">%2$s</xliff:g> жолу колдонулду"</string>
-    <string name="permission_usage_summary_background" msgid="2209669857909620833">"Акыркы жолу колдонулушу: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM_0">%2$s</xliff:g> жолу колдонулду (<xliff:g id="NUM_1">%3$s</xliff:g> фондук режимде"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Куралдар тактасы"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">Акыркы жолу колдонулушу: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> жолу колдонулду</item>
+      <item quantity="one">Акыркы жолу колдонулушу: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> жолу колдонулду</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">Акыркы жолу колдонулушу: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> жолу колдонулду (<xliff:g id="NUM_5">%3$s</xliff:g> фондук режимде)</item>
+      <item quantity="one">Акыркы жолу колдонулушу: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> жолу колдонулду (<xliff:g id="NUM_2">%3$s</xliff:g> фондук режимде)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">Акыркы жолу колдонулушу: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> жолу колдонулду\nУзактыгы: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">Акыркы жолу колдонулушу: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> жолу колдонулду\nУзактыгы: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">Акыркы жолу колдонулушу: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> жолу колдонулду (<xliff:g id="NUM_6">%3$s</xliff:g> фондук режимде)\nУзактыгы: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">Акыркы жолу колдонулушу: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> жолу колдонулду (<xliff:g id="NUM_2">%3$s</xliff:g> фондук режимде)\nУзактыгы: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Бардык уруксаттар"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"Каалаган убакта"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Акыркы 7 күндө"</string>
@@ -135,6 +150,7 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="PERM">%2$s</xliff:g> уруксаттарыңызга кирген жок."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Уруксаттардын колдонулушун чоо-жайы менен көрүү"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Акыркы жолу колдонулушу: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Эч качан колдонулган эмес"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Уруксат берилген"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Колдонулган кезде гана уруксат"</string>
     <string name="denied_header" msgid="2277998574238617699">"Четке кагылды"</string>
@@ -168,16 +184,11 @@
     <string name="launch_app" msgid="5641437562665039291">"Ачуу"</string>
     <string name="uninstall_app" msgid="8756507666995809214">"Чыгарып салуу"</string>
     <string name="force_stop_app" msgid="4253426323145479826">"Мажбурлап токтотуу"</string>
-    <!-- no translation found for settings (2884124136779508907) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_title_single (1613456964930225277) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_title_multiple (1262608280562255761) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_bottom_text_single (6932810943462703517) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_bottom_text_multiple (817809209968536329) -->
-    <skip />
+    <string name="settings" msgid="2884124136779508907">"Жөндөөлөр"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> кызматынын түзмөгүңүзгө кирүүгө толук мүмкүнчүлүгү бар"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> атайын мүмкүнчүлүктөр кызматынын түзмөгүңүзгө кирүүгө толук мүмкүнчүлүгү бар"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> экраныңыздагы маалыматты, аракеттерди жана киргизүүлөрдү көрүп, аракеттерди аткарып, дисплейди көзөмөлдөйт."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"Бул кызматтар экраныңыздагы маалыматты, аракеттерди жана киргизүүлөрдү көрүп, аракеттерди аткарып, дисплейди көзөмөлдөйт."</string>
     <string name="default_apps" msgid="8554530939151957828">"Демейки колдонмолор"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Демейки колдонмолор жок"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Жумуш үчүн демейки жөндөөлөр"</string>
@@ -199,11 +210,9 @@
     <string name="role_label_call_screening" msgid="411212589764916370">"Чалууларды башкаруу колдонмосу"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"Чалууга коштомо колдонмо"</string>
     <string name="role_label_car_projection" msgid="3792929094325391213">"Унааны долбоорлоо колдонмосу"</string>
-    <!-- no translation found for home_missing_work_profile_support (1439466272746259937) -->
-    <skip />
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"Жумуш профили колдоого алынбайт"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Эскертүү: Эгер түзмөгүңүздү өчүрүп күйгүзгөндө экранды бөгөттөө жөндөлгөн болсо, түзмөктү бөгөттөн чыгармайынча бул колдонмо ачылбайт."</string>
-    <!-- no translation found for assistant_confirmation_message (4529925223796676824) -->
-    <skip />
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"Жардамчы тутумуңузда иштеп жаткан колдонмолор тууралуу маалыматтарды, анын ичинде экраныңызда көрүнүп турган же колдонмолордо жеткиликтүү болгон маалыматты окуй алат."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Мүчүлүштүктөрдү оңдоо дайындарын бөлүшүү"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"Мүчүлүштүктөрдү оңдоо дайындары бөлүшүлсүнбү?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> мүчүлүштүктөрдү оңдоо маалыматын жүктөп бергиси келет."</string>
