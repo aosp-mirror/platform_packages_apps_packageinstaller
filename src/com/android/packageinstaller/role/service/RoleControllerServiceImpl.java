@@ -27,7 +27,6 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Process;
-import android.os.SystemClock;
 import android.os.UserHandle;
 import android.rolecontrollerservice.RoleControllerService;
 import android.text.TextUtils;
@@ -39,6 +38,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 
+import com.android.packageinstaller.permission.utils.ArrayUtils;
 import com.android.packageinstaller.permission.utils.CollectionUtils;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.packageinstaller.role.model.Role;
@@ -48,6 +48,7 @@ import com.android.packageinstaller.role.utils.PackageUtils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * Implementation of {@link RoleControllerService}.
@@ -334,36 +335,41 @@ public class RoleControllerServiceImpl extends RoleControllerService {
             }
         }
 
+        updateUserSensitive();
+
         if (callback != null) {
             callback.onSuccess();
         }
+    }
 
-        // Populate PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED
+    /**
+     * Update the {@link PackageManager#FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED} and
+     * {@link PackageManager#FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED} for all apps of this user.
+     */
+    private void updateUserSensitive() {
         PackageManager pm = getPackageManager();
         UserHandle user = Process.myUserHandle();
-        List<PackageInfo> pkgs = pm.getInstalledPackages(0);
-        List<String> platformPerms = Utils.getPlatformPermissions();
+        List<PackageInfo> pkgs = pm.getInstalledPackages(PackageManager.GET_PERMISSIONS);
+        Set<String> platformPerms = Utils.getPlatformPermissions();
         ArraySet<String> pkgsWithLauncherIcon = Utils.getLauncherPackages(this);
-        List<Long> iterationTimesNs = new ArrayList<>();
 
-        long startMs = SystemClock.uptimeMillis();
-        for (int i = 0, size = pkgs.size(); i < size; i++) {
-            PackageInfo pkg = pkgs.get(i);
+        int numPkgs = pkgs.size();
+        for (int pkgNum = 0; pkgNum < numPkgs; pkgNum++) {
+            PackageInfo pkg = pkgs.get(pkgNum);
             boolean pkgHasLauncherIcon = pkgsWithLauncherIcon.contains(pkg.packageName);
             boolean pkgIsSystemApp = (pkg.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0;
 
-            for (int j = 0, permSize = platformPerms.size(); j < permSize; j++) {
-                String perm = platformPerms.get(j);
-
-                long iterationStart = DEBUG ? SystemClock.elapsedRealtimeNanos() : 0L;
+            for (String perm : platformPerms) {
+                if (pkg.requestedPermissions == null || !ArrayUtils.contains(
+                        pkg.requestedPermissions, perm)) {
+                    continue;
+                }
 
                 int flags;
                 if (pkgIsSystemApp && !pkgHasLauncherIcon) {
-                    boolean permGranted = pm.checkPermission(perm, pkg.packageName)
-                            == PackageManager.PERMISSION_GRANTED;
-                    boolean permGrantedByDefault = permGranted
-                            && (pm.getPermissionFlags(perm, pkg.packageName, user)
-                            & PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT) != 0;
+                    boolean permGrantedByDefault = (pm.getPermissionFlags(perm, pkg.packageName,
+                            user) & PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT) != 0;
+
                     if (permGrantedByDefault) {
                         flags = 0;
                     } else {
@@ -373,24 +379,12 @@ public class RoleControllerServiceImpl extends RoleControllerService {
                     flags = PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED
                             | PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED;
                 }
-                //TODO(b/124317989): flags |= userOverrideInUi
+
                 pm.updatePermissionFlags(perm, pkg.packageName,
                         PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED
                                 | PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED, flags,
                         user);
-
-                if (DEBUG) {
-                    iterationTimesNs.add(SystemClock.elapsedRealtimeNanos() - iterationStart);
-                }
             }
-        }
-        if (DEBUG) {
-            long avgIter = iterationTimesNs.stream().reduce(0L, (a, b) -> a + b)
-                    / iterationTimesNs.size();
-            Log.i(LOG_TAG, "Populating FLAG_PERMISSION_USER_SENSITIVE_* for "
-                    + pkgs.size() + "pkgs & "
-                    + platformPerms.size() + "perms took " + (SystemClock.uptimeMillis() - startMs)
-                    + "ms, avg iteration took " + avgIter + "ns");
         }
     }
 

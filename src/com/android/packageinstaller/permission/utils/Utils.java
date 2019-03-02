@@ -78,6 +78,7 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 
 public final class Utils {
 
@@ -410,8 +411,8 @@ public final class Utils {
      *
      * @return the names of the platform permissions.
      */
-    public static List<String> getPlatformPermissions() {
-        return new ArrayList<>(PLATFORM_PERMISSIONS.keySet());
+    public static Set<String> getPlatformPermissions() {
+        return PLATFORM_PERMISSIONS.keySet();
     }
 
     /**
