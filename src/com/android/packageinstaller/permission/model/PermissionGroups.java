@@ -165,7 +165,6 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
             @Nullable Supplier<Boolean> isCanceled, boolean getAppUiInfo,
             boolean getNonPlatformPermissions, @Nullable String groupName,
             @Nullable String packageName) {
-        ArraySet<String> launcherPkgs = Utils.getLauncherPackages(context);
         PermissionApps.PmCache pmCache = new PermissionApps.PmCache(
                 context.getPackageManager());
         PermissionApps.AppDataCache appDataCache = new PermissionApps.AppDataCache(
@@ -222,8 +221,8 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
 
             // Create the group and add to the list.
             PermissionGroup group = new PermissionGroup(groupInfo.name,
-                    groupInfo.packageName, label, icon, permApps.getTotalCount(launcherPkgs),
-                    permApps.getGrantedCount(launcherPkgs), permApps);
+                    groupInfo.packageName, label, icon, permApps.getTotalCount(),
+                    permApps.getGrantedCount(), permApps);
             groups.add(group);
         }
 
@@ -282,8 +281,8 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
                 // Create the group and add to the list.
                 PermissionGroup group = new PermissionGroup(permissionInfo.name,
                         permissionInfo.packageName, label, icon,
-                        permApps.getTotalCount(launcherPkgs),
-                        permApps.getGrantedCount(launcherPkgs), permApps);
+                        permApps.getTotalCount(),
+                        permApps.getGrantedCount(), permApps);
                 groups.add(group);
             }
         }

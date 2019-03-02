@@ -27,7 +27,6 @@ import android.os.AsyncTask;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.util.ArrayMap;
-import android.util.ArraySet;
 import android.util.Log;
 import android.util.Pair;
 import android.util.SparseArray;
@@ -114,13 +113,13 @@ public class PermissionApps {
         createMap(loadPermissionApps());
     }
 
-    public int getGrantedCount(ArraySet<String> launcherPkgs) {
+    public int getGrantedCount() {
         int count = 0;
         for (PermissionApp app : mPermApps) {
             if (!Utils.shouldShowPermission(mContext, app.getPermissionGroup())) {
                 continue;
             }
-            if (Utils.isSystem(app, launcherPkgs)) {
+            if (!Utils.isGroupOrBgGroupUserSensitive(app.mAppPermissionGroup)) {
                 // We default to not showing system apps, so hide them from count.
                 continue;
             }
@@ -131,13 +130,13 @@ public class PermissionApps {
         return count;
     }
 
-    public int getTotalCount(ArraySet<String> launcherPkgs) {
+    public int getTotalCount() {
         int count = 0;
         for (PermissionApp app : mPermApps) {
             if (!Utils.shouldShowPermission(mContext, app.getPermissionGroup())) {
                 continue;
             }
-            if (Utils.isSystem(app, launcherPkgs)) {
+            if (!Utils.isGroupOrBgGroupUserSensitive(app.mAppPermissionGroup)) {
                 // We default to not showing system apps, so hide them from count.
                 continue;
             }

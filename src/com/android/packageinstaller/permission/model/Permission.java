@@ -174,12 +174,20 @@ public final class Permission {
         return (mFlags & PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT) != 0;
     }
 
-    public boolean isUserSensitiveWhenGranted() {
-        return (mFlags & PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED) != 0;
-    }
-
-    public boolean isUserSensitiveWhenDenied() {
-        return (mFlags & PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED) != 0;
+    /**
+     * Is the permission user sensitive, i.e. should it always be shown to the user.
+     *
+     * <p>Non-sensitive permission are usually hidden behind a setting in an overflow menu or
+     * some other kind of flag.
+     *
+     * @return {@code true} if the permission is user sensitive.
+     */
+    public boolean isUserSensitive() {
+        if (isGrantedIncludingAppOp()) {
+            return (mFlags & PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED) != 0;
+        } else {
+            return (mFlags & PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED) != 0;
+        }
     }
 
     /**
