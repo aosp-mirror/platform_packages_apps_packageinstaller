@@ -39,6 +39,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"యాప్ వినియోగంలో ఉన్నప్పుడు మాత్రమే అనుమతించు"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"యాప్‌లు"</string>
     <string name="app_permissions" msgid="2778362347879465223">"యాప్ అనుమతులు"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"అనుమతి మేనేజర్"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"మళ్లీ అడగవద్దు"</string>
     <string name="no_permissions" msgid="2193893107241172888">"అనుమతులు లేవు"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"అదనపు అనుమతులు"</string>
@@ -51,7 +52,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"తెలియని చర్యను చేస్తుంది"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_1">%2$d</xliff:g>లో <xliff:g id="COUNT_0">%1$d</xliff:g> యాప్‌లు అనుమతించబడ్డాయి"</string>
     <string name="permission_usage_header" msgid="8802963718365732792">"ఇటీవలి వినియోగం"</string>
-    <string name="permission_usage_view_details" msgid="1242976903858003439">"వివరాలను చూడండి"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"అనుమతుల డాష్‌బోర్డ్‌ను చూడండి"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"సిస్టమ్‌ను చూపు"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"సిస్టమ్ దాచు"</string>
     <string name="no_apps" msgid="2377153782338039463">"యాప్‌లు లేవు"</string>
@@ -90,9 +91,23 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"ప్రస్తుత అనుమతులు"</string>
     <string name="message_staging" msgid="641286607664721291">"యాప్‌ను అందిస్తోంది…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"తెలియదు"</string>
-    <string name="permission_usage_title" msgid="8266350477620264117">"అనుమతుల వినియోగం"</string>
-    <string name="permission_usage_summary" msgid="4139332442917981301">"చివరి యాక్సెస్: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM">%2$s</xliff:g> యాక్సెస్‌లు"</string>
-    <string name="permission_usage_summary_background" msgid="2209669857909620833">"చివరి యాక్సెస్: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM_0">%2$s</xliff:g> (<xliff:g id="NUM_1">%3$s</xliff:g> in నేపథ్యంలో)ని యాక్సెస్ చేస్తుంది"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"డాష్‌బోర్డ్"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">చివరి యాక్సెస్: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> యాక్సెస్‌లు</item>
+      <item quantity="one">చివరి యాక్సెస్: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> యాక్సెస్</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">చివరి యాక్సెస్: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> యాక్సెస్‌లు (నేపథ్యంలో <xliff:g id="NUM_5">%3$s</xliff:g>)</item>
+      <item quantity="one">చివరి యాక్సెస్: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> యాక్సెస్ (నేపథ్యంలో <xliff:g id="NUM_2">%3$s</xliff:g>)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">చివరి యాక్సెస్: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> యాక్సెస్‌లు\nవ్యవధి: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">చివరి యాక్సెస్: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> యాక్సెస్\nవ్యవధి: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">చివరి యాక్సెస్: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> యాక్సెస్‌లు (నేపథ్యంలో <xliff:g id="NUM_6">%3$s</xliff:g>)\nవ్యవధి: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">చివరి యాక్సెస్: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> యాక్సెస్ (నేపథ్యంలో <xliff:g id="NUM_2">%3$s</xliff:g>)\nవ్యవధి: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"ఏ అనుమతి అయినా"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"ఎప్పుడైనా"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"గత 7 రోజులు"</string>
@@ -135,6 +150,7 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> మీ <xliff:g id="PERM">%2$s</xliff:g>ని ఉపయోగించలేదు."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"వివరణాత్మక అనుమతుల వినియోగాన్ని చూడండి"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"చివరిసారి యాక్సెస్ చేసింది: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"ఎప్పుడూ యాక్సెస్ చేయలేదు"</string>
     <string name="allowed_header" msgid="6279244592227088158">"అనుమతించినవి"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"ఉపయోగించేటప్పుడు మాత్రమే అనుమతివ్వబడును"</string>
     <string name="denied_header" msgid="2277998574238617699">"తిరస్కరించినవి"</string>
@@ -168,16 +184,11 @@
     <string name="launch_app" msgid="5641437562665039291">"తెరవండి"</string>
     <string name="uninstall_app" msgid="8756507666995809214">"అన్ఇన్‌స్టాల్ చేయి"</string>
     <string name="force_stop_app" msgid="4253426323145479826">"ఫోర్స్ స్టాప్"</string>
-    <!-- no translation found for settings (2884124136779508907) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_title_single (1613456964930225277) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_title_multiple (1262608280562255761) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_bottom_text_single (6932810943462703517) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_bottom_text_multiple (817809209968536329) -->
-    <skip />
+    <string name="settings" msgid="2884124136779508907">"సెట్టింగ్‌లు"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> మీ పరికరానికి పూర్తి యాక్సెస్ కలిగి ఉంది"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> యాక్సెసబిలిటీ సేవలు మీ పరికరానికి పూర్తి యాక్సెస్ కలిగి ఉన్నాయి"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> మీ స్క్రీన్, చర్యలు మరియు ఇన్‌పుట్‌లను చూడగలదు, చర్యలను అమలు చేయగలదు, అలాగే ప్రదర్శనను నియంత్రించగలదు."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"ఈ సేవలు మీ స్క్రీన్, చర్యలు మరియు ఇన్‌పుట్‌లను చూడగలవు, చర్యలను అమలు చేయగలవు మరియు ప్రదర్శనను నియంత్రించగలవు."</string>
     <string name="default_apps" msgid="8554530939151957828">"డిఫాల్ట్ యాప్‌లు"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"డిఫాల్ట్ యాప్‌లు ఏవీ లేవు"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"కార్యాలయం కోసం డిఫాల్ట్"</string>
@@ -199,11 +210,9 @@
     <string name="role_label_call_screening" msgid="411212589764916370">"కాల్ స్క్రీనింగ్ యాప్"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"కాల్ సహచర యాప్"</string>
     <string name="role_label_car_projection" msgid="3792929094325391213">"కార్ ప్రొజెక్షన్ యాప్"</string>
-    <!-- no translation found for home_missing_work_profile_support (1439466272746259937) -->
-    <skip />
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"కార్యాలయ ప్రొఫైల్‌కు మద్దతు ఇవ్వదు"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"చిన్న గమనిక: మీరు భద్రత కోసం స్క్రీన్ లాక్‌ని సెటప్‌ చేసి పెట్టుకున్నారు పైగా మీ పరికరాన్ని పునఃప్రారంభించినట్టున్నారు కనుక స్క్రీన్ లాక్ అయ్యిపోయింది. మీరు పాస్‌వర్డ్‌ని నమోదు చేసేవరకూ ఈ యాప్ ప్రారంభం కాదు."</string>
-    <!-- no translation found for assistant_confirmation_message (4529925223796676824) -->
-    <skip />
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"మీ స్క్రీన్‌పై కనిపించే లేదా యాప్‌లలో యాక్సెస్ చేసే సమాచారంతో పాటు అసిస్టెంట్ మీ సిస్టమ్‌లో వినియోగంలో ఉన్న యాప్‌ల గురించిన సమాచారాన్ని చదవగలుగుతుంది."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"డీబగ్గింగ్ డేటాను షేర్ చేయండి"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"వివరణాత్మక డీబగ్గింగ్ డేటాను షేర్ చేయాలా?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g>డీబగ్గింగ్ సమాచారాన్ని అప్‌లో డ్ చేయదలుచుకుంటున్నారు."</string>

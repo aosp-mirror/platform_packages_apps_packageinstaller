@@ -39,6 +39,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Yalnız tətbiqin istifadəsi zamanı icazə verin"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Tətbiq"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Tətbiq icazələri"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"İcazə meneceri"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Bir daha soruşmayın"</string>
     <string name="no_permissions" msgid="2193893107241172888">"İcazə yoxdur"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"Əlavə icazələr"</string>
@@ -51,7 +52,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"naməlum əməliyyat etmək"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_1">%2$d</xliff:g> tətbiqdən <xliff:g id="COUNT_0">%1$d</xliff:g> ədədi icazəlidir"</string>
     <string name="permission_usage_header" msgid="8802963718365732792">"Ən son istifadə"</string>
-    <string name="permission_usage_view_details" msgid="1242976903858003439">"Ətraflı məlumat"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"İcazələrin İdarə Panelinə Baxın"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Sistemi göstərin"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Sistemi gizlədin"</string>
     <string name="no_apps" msgid="2377153782338039463">"Tətbiq yoxdur"</string>
@@ -90,9 +91,23 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Cari icazələr"</string>
     <string name="message_staging" msgid="641286607664721291">"Tətbiq hazırlanır..."</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Naməlum"</string>
-    <string name="permission_usage_title" msgid="8266350477620264117">"İcazədən istifadə"</string>
-    <string name="permission_usage_summary" msgid="4139332442917981301">"Son giriş: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM">%2$s</xliff:g> giriş"</string>
-    <string name="permission_usage_summary_background" msgid="2209669857909620833">"Son giriş: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM_0">%2$s</xliff:g> giriş (arxa fonda <xliff:g id="NUM_1">%3$s</xliff:g> giriş)"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"İdarə paneli"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">Son giriş: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> giriş</item>
+      <item quantity="one">Son giriş: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> giriş</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">Son giriş: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> giriş (arxa fonda <xliff:g id="NUM_5">%3$s</xliff:g>)</item>
+      <item quantity="one">Son giriş: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> giriş (arxa fonda <xliff:g id="NUM_2">%3$s</xliff:g>)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">Son giriş: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> giriş\nMüddət: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">Son giriş: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> giriş\nMüddət: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">Son giriş: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> giriş (arxa fonda <xliff:g id="NUM_6">%3$s</xliff:g>)\nMüddət: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">Son giriş: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> giriş (arxa fonda<xliff:g id="NUM_2">%3$s</xliff:g>)\nMüddət: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Hər hansı icazə"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"İstənilən vaxt"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Son 7 gün"</string>
@@ -135,6 +150,7 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> üçün <xliff:g id="PERM">%2$s</xliff:g> icazəsi əlçatan deyil."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"İcazələrin istifadəsi ilə bağlı ətraflı məlumata baxın"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Son giriş: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Heç vaxt giriş edilməyib"</string>
     <string name="allowed_header" msgid="6279244592227088158">"İcazə verilib"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Yalnız istifadədə olarkən icazə verildi"</string>
     <string name="denied_header" msgid="2277998574238617699">"Ləğv edildi"</string>

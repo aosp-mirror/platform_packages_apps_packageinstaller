@@ -39,6 +39,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Разрешаване само докато приложението се използва"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Приложения"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Разрешения за приложенията"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"Мениджър на разрешенията"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Без повторно запитване"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Няма разрешения"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"Допълнителни разрешения"</string>
@@ -51,7 +52,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"извършване на неизвестно действие"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> от <xliff:g id="COUNT_1">%2$d</xliff:g> приложения имат разрешение"</string>
     <string name="permission_usage_header" msgid="8802963718365732792">"Скорошна употреба"</string>
-    <string name="permission_usage_view_details" msgid="1242976903858003439">"Преглед на подробностите"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"Табло за управл. на разреш.: Преглед"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Показване на системните приложения"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Скриване на системните приложения"</string>
     <string name="no_apps" msgid="2377153782338039463">"Няма приложения"</string>
@@ -90,9 +91,23 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Текущи разрешения"</string>
     <string name="message_staging" msgid="641286607664721291">"Приложението се подготвя…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Неизвестно"</string>
-    <string name="permission_usage_title" msgid="8266350477620264117">"Използване на разрешенията"</string>
-    <string name="permission_usage_summary" msgid="4139332442917981301">"Последен достъп: <xliff:g id="TIME">%1$s</xliff:g> \n <xliff:g id="NUM">%2$s</xliff:g> осъществявания на достъп"</string>
-    <string name="permission_usage_summary_background" msgid="2209669857909620833">"Последен достъп: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM_0">%2$s</xliff:g> осъществявания на достъп (<xliff:g id="NUM_1">%3$s</xliff:g> на заден план)"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Табло за управление"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">Последен достъп: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> осъществявания на достъп</item>
+      <item quantity="one">Последен достъп: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> осъществяване на достъп</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">Последен достъп: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> осъществявания на достъп (<xliff:g id="NUM_5">%3$s</xliff:g> на заден план)</item>
+      <item quantity="one">Последен достъп: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> осъществяване на достъп (<xliff:g id="NUM_2">%3$s</xliff:g> на заден план)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">Последен достъп: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> осъществявания на достъп\nПродължителност: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">Последен достъп: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> осъществяване на достъп\nПродължителност: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">Последен достъп: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> осъществявания на достъп (<xliff:g id="NUM_6">%3$s</xliff:g> на заден план)\nПродължителност: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">Последен достъп: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> осъществяване на достъп (<xliff:g id="NUM_2">%3$s</xliff:g> на заден план)\nПродължителност: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Всички разрешения"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"По всяко време"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Последните 7 дни"</string>
@@ -135,6 +150,7 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"Приложението <xliff:g id="APP">%1$s</xliff:g> не е осъществило достъп до <xliff:g id="PERM">%2$s</xliff:g>."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Преглед на подробности за използването на разрешенията"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Последен достъп: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Никога не е осъществяван достъп"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Разрешено"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Разрешено само при използване"</string>
     <string name="denied_header" msgid="2277998574238617699">"Отказано"</string>

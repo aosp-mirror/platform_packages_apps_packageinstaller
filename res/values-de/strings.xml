@@ -39,6 +39,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Nur zulassen, wenn die App verwendet wird"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Apps"</string>
     <string name="app_permissions" msgid="2778362347879465223">"App-Berechtigungen"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"Berechtigungsmanager"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Nicht mehr fragen"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Keine Berechtigungen"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"Zusätzliche Berechtigungen"</string>
@@ -51,7 +52,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"Unbekannte Aktion durchführen"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> von <xliff:g id="COUNT_1">%2$d</xliff:g> Apps mit Berechtigung"</string>
     <string name="permission_usage_header" msgid="8802963718365732792">"Letzte Nutzungen"</string>
-    <string name="permission_usage_view_details" msgid="1242976903858003439">"Details anzeigen"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"Berechtigungs-Dashboard anzeigen"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"System-Apps einblenden"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"System-Apps ausblenden"</string>
     <string name="no_apps" msgid="2377153782338039463">"Keine Apps"</string>
@@ -90,9 +91,23 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Aktuelle Berechtigungen"</string>
     <string name="message_staging" msgid="641286607664721291">"App wird vorbereitet…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Unbekannt"</string>
-    <string name="permission_usage_title" msgid="8266350477620264117">"Berechtigungsnutzung"</string>
-    <string name="permission_usage_summary" msgid="4139332442917981301">"Letzter Zugriff: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM">%2$s</xliff:g> Zugriffe"</string>
-    <string name="permission_usage_summary_background" msgid="2209669857909620833">"Letzter Zugriff: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM_0">%2$s</xliff:g> Zugriffe (<xliff:g id="NUM_1">%3$s</xliff:g> im Hintergrund)"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Dashboard"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">Letzter Zugriff: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> Zugriffe</item>
+      <item quantity="one">Letzter Zugriff: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> Zugriff</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">Letzter Zugriff: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> Zugriffe (<xliff:g id="NUM_5">%3$s</xliff:g> im Hintergrund)</item>
+      <item quantity="one">Letzter Zugriff: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> Zugriff (<xliff:g id="NUM_2">%3$s</xliff:g> im Hintergrund)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">Letzter Zugriff: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> Zugriffe\nDauer: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">Letzter Zugriff: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> Zugriff\nDauer: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">Letzter Zugriff: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> Zugriffe (<xliff:g id="NUM_6">%3$s</xliff:g> im Hintergrund)\nDauer: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">Letzter Zugriff: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> Zugriff (<xliff:g id="NUM_2">%3$s</xliff:g> im Hintergrund)\nDauer: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Beliebige Berechtigung"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"Beliebiger Zeitraum"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Letzte 7 Tage"</string>
@@ -135,6 +150,7 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> hat nicht auf <xliff:g id="PERM">%2$s</xliff:g> zugegriffen."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Details zur Berechtigungsnutzung ansehen"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Letzter Zugriff: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Nie auf Berechtigung zugegriffen"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Zulässig"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Nur während der Verwendung erlaubt"</string>
     <string name="denied_header" msgid="2277998574238617699">"Abgelehnt"</string>
@@ -170,9 +186,9 @@
     <string name="force_stop_app" msgid="4253426323145479826">"Beenden erzwingen"</string>
     <string name="settings" msgid="2884124136779508907">"Einstellungen"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> hat uneingeschränkten Zugriff auf dein Gerät"</string>
-    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> Bedienungshilfen haben uneingeschränkten Zugriff auf dein Gerät"</string>
-    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> kann deinen Bildschirm, deine Aktionen und Eingaben sehen, Aktionen ausführen und den Bildschirm steuern."</string>
-    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"Diese Dienste können deinen Bildschirm, deine Aktionen und Eingaben sehen, Aktionen ausführen und den Bildschirm steuern."</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> Bedienungshilfen-Dienste haben uneingeschränkten Zugriff auf dein Gerät"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> kann deinen Bildschirm, deine Aktionen und deine Eingaben sehen, Aktionen ausführen und den Bildschirm steuern."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"Diese Dienste können deinen Bildschirm, deine Aktionen und deine Eingaben sehen, Aktionen ausführen und den Bildschirm steuern."</string>
     <string name="default_apps" msgid="8554530939151957828">"Standard-Apps"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Keine Standard-Apps"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Standardeinstellung für Arbeit"</string>

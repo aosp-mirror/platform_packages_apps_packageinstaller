@@ -39,6 +39,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"อนุญาตเมื่อมีการใช้แอปเท่านั้น"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"แอป"</string>
     <string name="app_permissions" msgid="2778362347879465223">"สิทธิ์ของแอป"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"เครื่องมือจัดการสิทธิ์"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"ไม่ต้องถามอีก"</string>
     <string name="no_permissions" msgid="2193893107241172888">"ไม่มีสิทธิ์"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"สิทธิ์เพิ่มเติม"</string>
@@ -51,7 +52,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"ดำเนินการทำงานที่ไม่รู้จัก"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"อนุญาตแล้ว <xliff:g id="COUNT_0">%1$d</xliff:g> จาก <xliff:g id="COUNT_1">%2$d</xliff:g> แอป"</string>
     <string name="permission_usage_header" msgid="8802963718365732792">"การใช้งานล่าสุด"</string>
-    <string name="permission_usage_view_details" msgid="1242976903858003439">"ดูรายละเอียด"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"ดูหน้าแดชบอร์ดของสิทธิ์"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"แสดงระบบ"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"ซ่อนระบบ"</string>
     <string name="no_apps" msgid="2377153782338039463">"ไม่มีแอป"</string>
@@ -90,9 +91,23 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"สิทธิ์ปัจจุบัน"</string>
     <string name="message_staging" msgid="641286607664721291">"กำลังปรับสภาพแวดล้อมของแอป…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"ไม่ทราบ"</string>
-    <string name="permission_usage_title" msgid="8266350477620264117">"การใช้สิทธิ์"</string>
-    <string name="permission_usage_summary" msgid="4139332442917981301">"เข้าถึงล่าสุด: การเข้าถึง <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM">%2$s</xliff:g> รายการ"</string>
-    <string name="permission_usage_summary_background" msgid="2209669857909620833">"เข้าถึงล่าสุด: การเข้าถึง <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM_0">%2$s</xliff:g> รายการ (<xliff:g id="NUM_1">%3$s</xliff:g> รายการในพื้นหลัง)"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"หน้าแดชบอร์ด"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">เข้าถึงล่าสุด: การเข้าถึง <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> รายการ</item>
+      <item quantity="one">เข้าถึงล่าสุด: การเข้าถึง <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> รายการ</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">เข้าถึงล่าสุด: การเข้าถึง <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> รายการ (<xliff:g id="NUM_5">%3$s</xliff:g> รายการในพื้นหลัง)</item>
+      <item quantity="one">เข้าถึงล่าสุด: การเข้าถึง <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> รายการ (<xliff:g id="NUM_2">%3$s</xliff:g> รายการในพื้นหลัง)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">เข้าถึงล่าสุด: การเข้าถึง <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> รายการ\nระยะเวลา: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">เข้าถึงล่าสุด: การเข้าถึง <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> รายการ\nระยะเวลา: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">เข้าถึงล่าสุด: การเข้าถึง <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> รายการ (<xliff:g id="NUM_6">%3$s</xliff:g> รายการในพื้นหลัง)\nระยะเวลา: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">เข้าถึงล่าสุด: การเข้าถึง <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> รายการ (<xliff:g id="NUM_2">%3$s</xliff:g> รายการในพื้นหลัง)\nระยะเวลา: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"สิทธิ์ใดก็ได้"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"ทุกเวลา"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"7 วันที่ผ่านมา"</string>
@@ -135,6 +150,7 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> ไม่ได้เข้าถึง <xliff:g id="PERM">%2$s</xliff:g> ของคุณ"</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"ดูรายละเอียดการใช้สิทธิ์"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"เข้าถึงล่าสุด: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"ไม่เคยเข้าถึง"</string>
     <string name="allowed_header" msgid="6279244592227088158">"ได้รับอนุญาตแล้ว"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"อนุญาตขณะใช้งานอยู่เท่านั้น"</string>
     <string name="denied_header" msgid="2277998574238617699">"ถูกปฏิเสธ"</string>
@@ -168,16 +184,11 @@
     <string name="launch_app" msgid="5641437562665039291">"เปิด"</string>
     <string name="uninstall_app" msgid="8756507666995809214">"ถอนการติดตั้ง"</string>
     <string name="force_stop_app" msgid="4253426323145479826">"บังคับให้หยุด"</string>
-    <!-- no translation found for settings (2884124136779508907) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_title_single (1613456964930225277) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_title_multiple (1262608280562255761) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_bottom_text_single (6932810943462703517) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_bottom_text_multiple (817809209968536329) -->
-    <skip />
+    <string name="settings" msgid="2884124136779508907">"การตั้งค่า"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> มีสิทธิ์เข้าถึงอุปกรณ์ได้โดยสมบูรณ์"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"บริการช่วยเหลือพิเศษ <xliff:g id="NUM_SERVICES">%s</xliff:g> รายการมีสิทธิ์เข้าถึงอุปกรณ์ได้โดยสมบูรณ์"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> จะดูหน้าจอ การทำงาน และอินพุตของคุณได้ รวมถึงดำเนินการต่างๆ และควบคุมหน้าจอ"</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"บริการเหล่านี้จะดูหน้าจอ การทำงาน และอินพุตของคุณได้ รวมถึงดำเนินการต่างๆ และควบคุมหน้าจอ"</string>
     <string name="default_apps" msgid="8554530939151957828">"แอปเริ่มต้น"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"ไม่มีแอปเริ่มต้น"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"ค่าเริ่มต้นสำหรับงาน"</string>
@@ -199,11 +210,9 @@
     <string name="role_label_call_screening" msgid="411212589764916370">"แอปสกรีนสายเรียกเข้า"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"แอปที่ใช้ร่วมกับการโทร"</string>
     <string name="role_label_car_projection" msgid="3792929094325391213">"แอป Car Projection"</string>
-    <!-- no translation found for home_missing_work_profile_support (1439466272746259937) -->
-    <skip />
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"ไม่รองรับโปรไฟล์งาน"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"หมายเหตุ: หากคุณรีสตาร์ทอุปกรณ์และตั้งการล็อกหน้าจอไว้ แอปนี้จะเริ่มทำงานไม่ได้จนกว่าคุณจะปลดล็อกอุปกรณ์"</string>
-    <!-- no translation found for assistant_confirmation_message (4529925223796676824) -->
-    <skip />
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"Assistant จะอ่านข้อมูลเกี่ยวกับแอปที่ใช้งานอยู่ในระบบของคุณได้ รวมถึงข้อมูลที่ปรากฏบนหน้าจอหรือที่เข้าถึงได้ภายในแอป"</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"แชร์ข้อมูลการแก้ไขข้อบกพร่อง"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"แชร์ร์ข้อมูลการแก้ไขข้อบกพร่องโดยละเอียดไหม"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> ต้องการอัปโหลดข้อมูลการแก้ไขข้อบกพร่อง"</string>

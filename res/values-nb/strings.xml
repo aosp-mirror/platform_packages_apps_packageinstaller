@@ -39,6 +39,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Bare tillat mens appen er i bruk"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Apper"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Apptillatelser"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"Tillatelsesadministrator"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Ikke spør igjen"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Ingen tillatelser"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"Flere tillatelser"</string>
@@ -51,7 +52,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"utføre en ukjent handling"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> av <xliff:g id="COUNT_1">%2$d</xliff:g> apper er tillatt"</string>
     <string name="permission_usage_header" msgid="8802963718365732792">"Nylig bruk"</string>
-    <string name="permission_usage_view_details" msgid="1242976903858003439">"Se detaljer"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"Se tillatelsesoversikten"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Vis systemapper"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Skjul systemapper"</string>
     <string name="no_apps" msgid="2377153782338039463">"Ingen apper"</string>
@@ -90,9 +91,23 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Gjeldende tillatelser"</string>
     <string name="message_staging" msgid="641286607664721291">"Klargjør appen …"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Ukjent"</string>
-    <string name="permission_usage_title" msgid="8266350477620264117">"Bruk av tillatelser"</string>
-    <string name="permission_usage_summary" msgid="4139332442917981301">"Siste tilgang: <xliff:g id="TIME">%1$s</xliff:g>\nbrukt <xliff:g id="NUM">%2$s</xliff:g> ganger"</string>
-    <string name="permission_usage_summary_background" msgid="2209669857909620833">"Siste tilgang: <xliff:g id="TIME">%1$s</xliff:g>\nbrukt <xliff:g id="NUM_0">%2$s</xliff:g> ganger (<xliff:g id="NUM_1">%3$s</xliff:g> i bakgrunnen)"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Oversikt"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">Sist brukt: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> ganger</item>
+      <item quantity="one">Sist brukt: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> gang</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">Sist brukt: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> ganger (<xliff:g id="NUM_5">%3$s</xliff:g> i bakgrunnen)</item>
+      <item quantity="one">Sist brukt: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> gang (<xliff:g id="NUM_2">%3$s</xliff:g> i bakgrunnen)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">Sist brukt: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> ganger\nVarighet: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">Sist brukt: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> gang\nVarighet: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">Sist brukt: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> ganger (<xliff:g id="NUM_6">%3$s</xliff:g> i bakgrunnen)\nVarighet: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">Sist brukt: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> gang (<xliff:g id="NUM_2">%3$s</xliff:g> i bakgrunnen)\nVarighet: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Hvilken som helst tillatelse"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"Når som helst"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"De siste 7 dagene"</string>
@@ -135,6 +150,7 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> har ikke brukt <xliff:g id="PERM">%2$s</xliff:g>."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Vis detaljert bruk av tillatelser"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Siste tilgang: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Aldri brukt"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Tillatt"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Tillates bare når appen brukes"</string>
     <string name="denied_header" msgid="2277998574238617699">"Avvist"</string>

@@ -39,6 +39,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"仅在使用该应用期间允许"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"应用"</string>
     <string name="app_permissions" msgid="2778362347879465223">"应用权限"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"权限管理器"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"不再询问"</string>
     <string name="no_permissions" msgid="2193893107241172888">"没有权限"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"其他权限"</string>
@@ -51,7 +52,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"执行未知操作"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"已授权 <xliff:g id="COUNT_0">%1$d</xliff:g> 个应用（共 <xliff:g id="COUNT_1">%2$d</xliff:g> 个）"</string>
     <string name="permission_usage_header" msgid="8802963718365732792">"最近的使用情况"</string>
-    <string name="permission_usage_view_details" msgid="1242976903858003439">"查看详情"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"查看权限信息中心"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"显示系统应用"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"隐藏系统应用"</string>
     <string name="no_apps" msgid="2377153782338039463">"没有应用"</string>
@@ -90,9 +91,23 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"当前权限"</string>
     <string name="message_staging" msgid="641286607664721291">"正在准备安装应用…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"未知"</string>
-    <string name="permission_usage_title" msgid="8266350477620264117">"权限使用情况"</string>
-    <string name="permission_usage_summary" msgid="4139332442917981301">"上次访问时间：<xliff:g id="TIME">%1$s</xliff:g>\n访问了 <xliff:g id="NUM">%2$s</xliff:g> 次"</string>
-    <string name="permission_usage_summary_background" msgid="2209669857909620833">"上次访问时间：<xliff:g id="TIME">%1$s</xliff:g>\n访问了 <xliff:g id="NUM_0">%2$s</xliff:g> 次（其中有 <xliff:g id="NUM_1">%3$s</xliff:g> 次为后台访问）"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"信息中心"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">上次访问时间：<xliff:g id="TIME_2">%1$s</xliff:g>\n访问次数：<xliff:g id="NUM_3">%2$s</xliff:g> 次</item>
+      <item quantity="one">上次访问时间：<xliff:g id="TIME_0">%1$s</xliff:g>\n访问次数：<xliff:g id="NUM_1">%2$s</xliff:g> 次</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">上次访问时间：<xliff:g id="TIME_3">%1$s</xliff:g>\n访问次数：<xliff:g id="NUM_4">%2$s</xliff:g> 次（其中有 <xliff:g id="NUM_5">%3$s</xliff:g> 次是后台访问）</item>
+      <item quantity="one">上次访问时间：<xliff:g id="TIME_0">%1$s</xliff:g>\n访问次数：<xliff:g id="NUM_1">%2$s</xliff:g> 次（其中有 <xliff:g id="NUM_2">%3$s</xliff:g> 次是后台访问）</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">上次访问时间：<xliff:g id="TIME_3">%1$s</xliff:g>\n访问次数：<xliff:g id="NUM_4">%2$s</xliff:g> 次，\n时长：<xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">上次访问时间：<xliff:g id="TIME_0">%1$s</xliff:g>\n访问次数：<xliff:g id="NUM_1">%2$s</xliff:g> 次，\n时长：<xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">上次访问时间：<xliff:g id="TIME_4">%1$s</xliff:g>\n访问次数：<xliff:g id="NUM_5">%2$s</xliff:g> 次（其中有 <xliff:g id="NUM_6">%3$s</xliff:g> 次是后台访问）\n时长：<xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">上次访问时间：<xliff:g id="TIME_0">%1$s</xliff:g>\n访问次数：<xliff:g id="NUM_1">%2$s</xliff:g> 次（其中有 <xliff:g id="NUM_2">%3$s</xliff:g> 次是后台访问）\n时长：<xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"不限权限"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"不限时间"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"过去 7 天"</string>
@@ -135,6 +150,7 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g>尚未取得您的<xliff:g id="PERM">%2$s</xliff:g>访问权限。"</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"查看权限使用情况详情"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"上次访问时间：<xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"从未访问"</string>
     <string name="allowed_header" msgid="6279244592227088158">"已允许"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"仅在使用时允许"</string>
     <string name="denied_header" msgid="2277998574238617699">"已拒绝"</string>
@@ -168,16 +184,11 @@
     <string name="launch_app" msgid="5641437562665039291">"打开"</string>
     <string name="uninstall_app" msgid="8756507666995809214">"卸载"</string>
     <string name="force_stop_app" msgid="4253426323145479826">"强行停止"</string>
-    <!-- no translation found for settings (2884124136779508907) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_title_single (1613456964930225277) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_title_multiple (1262608280562255761) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_bottom_text_single (6932810943462703517) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_bottom_text_multiple (817809209968536329) -->
-    <skip />
+    <string name="settings" msgid="2884124136779508907">"设置"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g>对您的设备拥有完整访问权限"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"有 <xliff:g id="NUM_SERVICES">%s</xliff:g> 项无障碍服务对您的设备拥有完整访问权限"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g>不但可以查看您的屏幕、操作和输入内容，而且还能执行操作和控制显示内容。"</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"这些服务不但可以查看您的屏幕、操作和输入内容，而且还能执行操作和控制显示内容。"</string>
     <string name="default_apps" msgid="8554530939151957828">"默认应用"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"没有任何默认应用"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"默认工作应用"</string>
@@ -199,11 +210,9 @@
     <string name="role_label_call_screening" msgid="411212589764916370">"选接电话应用"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"通话配套应用"</string>
     <string name="role_label_car_projection" msgid="3792929094325391213">"汽车投影应用"</string>
-    <!-- no translation found for home_missing_work_profile_support (1439466272746259937) -->
-    <skip />
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"不支持工作资料"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"注意：如果您重启设备并设置了屏幕锁定，则必须将设备解锁才能运行此应用。"</string>
-    <!-- no translation found for assistant_confirmation_message (4529925223796676824) -->
-    <skip />
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"Google 助理将可读取您系统中使用的应用的相关信息，其中包括您屏幕上显示的信息或应用中可使用的信息。"</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"分享调试数据"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"是否分享详细调试数据？"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g>请求上传调试信息。"</string>

@@ -39,6 +39,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Consenti solo mentre l\'app è in uso"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"App"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Autorizzazioni app"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"Gestione autorizzazioni"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Non chiedermelo più"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Nessuna autorizzazione"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"Altre autorizzazioni"</string>
@@ -51,7 +52,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"esegue un\'azione sconosciuta"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"Sono consentite <xliff:g id="COUNT_0">%1$d</xliff:g> app su <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
     <string name="permission_usage_header" msgid="8802963718365732792">"Utilizzo recente"</string>
-    <string name="permission_usage_view_details" msgid="1242976903858003439">"Vedi i dettagli"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"Dashboard autorizzazioni"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Mostra sistema"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Nascondi sistema"</string>
     <string name="no_apps" msgid="2377153782338039463">"Nessuna app"</string>
@@ -90,9 +91,23 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Autorizzazioni correnti"</string>
     <string name="message_staging" msgid="641286607664721291">"App in preparazione…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Sconosciuto"</string>
-    <string name="permission_usage_title" msgid="8266350477620264117">"Uso delle autorizzazioni"</string>
-    <string name="permission_usage_summary" msgid="4139332442917981301">"Ultimo accesso: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM">%2$s</xliff:g> accessi"</string>
-    <string name="permission_usage_summary_background" msgid="2209669857909620833">"Ultimo accesso: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM_0">%2$s</xliff:g> accessi (<xliff:g id="NUM_1">%3$s</xliff:g> in background)"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Dashboard"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">Ultimo accesso: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> accessi</item>
+      <item quantity="one">Ultimo accesso: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> accesso</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">Ultimo accesso: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> accessi (<xliff:g id="NUM_5">%3$s</xliff:g> in background)</item>
+      <item quantity="one">Ultimo accesso: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> accesso (<xliff:g id="NUM_2">%3$s</xliff:g> in background)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">Ultimo accesso: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> accessi\nDurata: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">Ultimo accesso: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> accesso\nDurata: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">Ultimo accesso: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> accessi (<xliff:g id="NUM_6">%3$s</xliff:g> in background)\nDurata: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">Ultimo accesso: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> accesso (<xliff:g id="NUM_2">%3$s</xliff:g> in background)\nDurata: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Qualsiasi autorizzazione"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"Qualsiasi data"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Ultimi 7 giorni"</string>
@@ -135,6 +150,7 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> non ha accesso a <xliff:g id="PERM">%2$s</xliff:g>."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Consulta l\'uso dettagliato delle autorizzazioni"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Ultimo accesso: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Accesso mai eseguito"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Consentite"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Consentite solo durante l\'uso"</string>
     <string name="denied_header" msgid="2277998574238617699">"Rifiutate"</string>

@@ -39,6 +39,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"अनुप्रयोग प्रयोगमा भएको बेलामा मात्र अनुमति दिनुहोस्‌"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"अनुप्रयोगहरू"</string>
     <string name="app_permissions" msgid="2778362347879465223">"अनुप्रयोगसम्बन्धी अनुमति"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"अनुमतिका प्रबन्धक"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"फेरि नसोध्नुहोला"</string>
     <string name="no_permissions" msgid="2193893107241172888">"अनुमति दिन भनी कुनै अनुरोध छैन"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"अतिरिक्त अनुमति"</string>
@@ -51,7 +52,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"कुनै अज्ञात कारबाही गर्नुहोस्"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_1">%2$d</xliff:g> मध्ये <xliff:g id="COUNT_0">%1$d</xliff:g> अनुप्रयोगहरूलाई अनुमति दिइएको छ"</string>
     <string name="permission_usage_header" msgid="8802963718365732792">"हालसालैको उपयोग"</string>
-    <string name="permission_usage_view_details" msgid="1242976903858003439">"विवरणहरू हेर्नुहोस्"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"अनुमतिसम्बन्धी ड्यासबोर्ड हेर्नुहोस्"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"प्रणाली देखाउनुहोस्"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"प्रणाली लुकाउनुहोस्"</string>
     <string name="no_apps" msgid="2377153782338039463">"कुनै पनि अनुप्रयोग छैन"</string>
@@ -90,9 +91,23 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"एपले हाल प्रयोग गर्ने अनुमति"</string>
     <string name="message_staging" msgid="641286607664721291">"अनुप्रयोग स्थापना गर्न तयारी गर्दै…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"अज्ञात"</string>
-    <string name="permission_usage_title" msgid="8266350477620264117">"अनुमतिको उपयोग"</string>
-    <string name="permission_usage_summary" msgid="4139332442917981301">"पछिल्लो पटक यति चोटि पहुँच राखियो: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM">%2$s</xliff:g> पहुँचहरू"</string>
-    <string name="permission_usage_summary_background" msgid="2209669857909620833">"पछिल्लो पटक यति चोटि पहुँच राखियो: <xliff:g id="TIME">%1$s</xliff:g> <xliff:g id="NUM_0">%2$s</xliff:g> \n पहुँचहरू (<xliff:g id="NUM_1">%3$s</xliff:g>पृष्ठभूमिमा)"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"ड्यासबोर्ड"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> पहुँच</item>
+      <item quantity="one">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> पहुँच</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_3">%1$s</xliff:g> <xliff:g id="NUM_4">%2$s</xliff:g> \n पहुँचहरू (<xliff:g id="NUM_5">%3$s</xliff:g>पृष्ठभूमिमा)</item>
+      <item quantity="one">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> पहुँच (<xliff:g id="NUM_2">%3$s</xliff:g> पृष्ठभूमिमा)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> पहुँच\nअवधि: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> पहुँच\nअवधि: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> पहुँचहरू (<xliff:g id="NUM_6">%3$s</xliff:g> पृष्ठभूमिमा)\nअवधि: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">पछिल्लो पटकको पहुँच: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> पहुँच (<xliff:g id="NUM_2">%3$s</xliff:g> पृष्ठभूमिमा)\nअवधि: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"कुनै पनि अनुमति"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"कुनै पनि समय"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"पछिल्ला ७ दिन"</string>
@@ -135,6 +150,7 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g>तपाईंको <xliff:g id="PERM">%2$s</xliff:g>माथि पहुँच राखेको छैन।"</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"अनुमतिको विस्तृत उपयोग हेर्नुहोस्"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"पछिल्लो पटक पहुँच राखिएको समय: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"कहिल्यै पहुँच गरिएन"</string>
     <string name="allowed_header" msgid="6279244592227088158">"अनुमति दिइएको"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"प्रयोगमा भएका बेला मात्र अनुमति दिइन्छ"</string>
     <string name="denied_header" msgid="2277998574238617699">"अस्वीकार गरिएको"</string>
