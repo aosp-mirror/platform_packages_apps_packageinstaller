@@ -39,6 +39,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Tillåt bara när appen används"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Appar"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Appbehörigheter"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"Behörighetshantering"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Fråga inte igen"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Inga behörigheter"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"Ytterligare behörigheter"</string>
@@ -51,7 +52,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"utför en okänd åtgärd"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> av <xliff:g id="COUNT_1">%2$d</xliff:g> appar tillåts"</string>
     <string name="permission_usage_header" msgid="8802963718365732792">"Senaste användningen"</string>
-    <string name="permission_usage_view_details" msgid="1242976903858003439">"Visa information"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"Visa behörighetsöversikt"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Visa systemet"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Dölj systemet"</string>
     <string name="no_apps" msgid="2377153782338039463">"Inga appar"</string>
@@ -90,9 +91,23 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Nuvarande behörighet"</string>
     <string name="message_staging" msgid="641286607664721291">"Provkör appen …"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Okänd"</string>
-    <string name="permission_usage_title" msgid="8266350477620264117">"Behörighetsanvändning"</string>
-    <string name="permission_usage_summary" msgid="4139332442917981301">"Användes senast: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM">%2$s</xliff:g> åtkomster"</string>
-    <string name="permission_usage_summary_background" msgid="2209669857909620833">"Användes senast: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM_0">%2$s</xliff:g> åtkomster (<xliff:g id="NUM_1">%3$s</xliff:g> i bakgrunden)"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Översikt"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">Senaste åtkomst: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> åtkomster</item>
+      <item quantity="one">Senaste åtkomst: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> åtkomst</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">Senaste åtkomst: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> åtkomster (<xliff:g id="NUM_5">%3$s</xliff:g> i bakgrunden)</item>
+      <item quantity="one">Senaste åtkomst: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> åtkomst (<xliff:g id="NUM_2">%3$s</xliff:g> i bakgrunden)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">Senaste åtkomst: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> åtkomster\nVaraktighet: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">Senaste åtkomst: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> åtkomst\nVaraktighet: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">Senaste åtkomst: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> åtkomster (<xliff:g id="NUM_6">%3$s</xliff:g> i bakgrunden)\nVaraktighet: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">Senaste åtkomst: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> åtkomst (<xliff:g id="NUM_2">%3$s</xliff:g> i bakgrunden)\nVaraktighet: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Alla behörigheter"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"När som helst"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Senaste 7 dagarna"</string>
@@ -135,6 +150,7 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> har inte fått åtkomst till <xliff:g id="PERM">%2$s</xliff:g>."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Visa utförlig information om behörighetsanvändning"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Användes senast: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Aldrig använd"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Tillåts"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Tillåt bara vid användning"</string>
     <string name="denied_header" msgid="2277998574238617699">"Nekas"</string>

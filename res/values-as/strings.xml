@@ -39,6 +39,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"কেৱল এপটো ব্যৱহাৰ হৈ থকা সময়ত অনুমতি দিয়ক"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"এপ্"</string>
     <string name="app_permissions" msgid="2778362347879465223">"এপ্‌ৰ অনুমতি"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"অনুমতি পৰিচালক"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"পুনৰাই নুসুধিব"</string>
     <string name="no_permissions" msgid="2193893107241172888">"কোনো অনুমতি নাই"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"অতিৰিক্ত অনুমতি"</string>
@@ -51,7 +52,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"অজ্ঞাত কাৰ্য কৰিব পাৰে"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_1">%2$d</xliff:g>ৰ ভিতৰত <xliff:g id="COUNT_0">%1$d</xliff:g>টা এপক অনুমতি দিয়া হৈছে"</string>
     <string name="permission_usage_header" msgid="8802963718365732792">"শেহতীয়া ব্যৱহাৰৰ তথ্য"</string>
-    <string name="permission_usage_view_details" msgid="1242976903858003439">"সবিশেষ চাওক"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"অনুমতিৰ ডেশ্বব’ৰ্ড চাওক"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"ছিষ্টেম দেখুৱাওক"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"ছিষ্টেম লুকুৱাওক"</string>
     <string name="no_apps" msgid="2377153782338039463">"কোনো এপে এই অনুমতি বিচৰা নাই"</string>
@@ -90,9 +91,23 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"সাম্প্ৰতিক অনুমতি"</string>
     <string name="message_staging" msgid="641286607664721291">"এপৰ অন্তিম পর্যায়ৰ পৰীক্ষণ চলি আছে…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"অজ্ঞাত"</string>
-    <string name="permission_usage_title" msgid="8266350477620264117">"অনুমতিৰ ব্যৱহাৰ"</string>
-    <string name="permission_usage_summary" msgid="4139332442917981301">"শেহতীয়া এক্সেছৰ সংখ্যা: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM">%2$s</xliff:g>টা এক্সেছ"</string>
-    <string name="permission_usage_summary_background" msgid="2209669857909620833">"শেহতীয়া এক্সেছৰ সংখ্যা: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM_0">%2$s</xliff:g>টা এক্সেছ (<xliff:g id="NUM_1">%3$s</xliff:g>টা নেপথ্যত)"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"ডেশ্বব’ৰ্ড"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="one">শেহতীয়া এক্সেছৰ সংখ্যা: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g>টা এক্সেছ</item>
+      <item quantity="other">শেহতীয়া এক্সেছৰ সংখ্যা: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g>টা এক্সেছ</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="one">শেহতীয়া এক্সেছৰ সংখ্যা: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g>টা এক্সেছ (নেপথ্যত <xliff:g id="NUM_5">%3$s</xliff:g>টা)</item>
+      <item quantity="other">শেহতীয়া এক্সেছৰ সংখ্যা: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g>টা এক্সেছ (নেপথ্যত <xliff:g id="NUM_5">%3$s</xliff:g>টা)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="one">শেহতীয়া এক্সেছৰ সংখ্যা: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g>টা এক্সেছ\nদৈৰ্ঘ্য: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="other">শেহতীয়া এক্সেছৰ সংখ্যা: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g>টা এক্সেছ\nদৈৰ্ঘ্য: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="one">শেহতীয়া এক্সেছৰ সংখ্যা: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g>টা এক্সেছ (নেপথ্যত <xliff:g id="NUM_6">%3$s</xliff:g>টা)\nদৈৰ্ঘ্য: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="other">শেহতীয়া এক্সেছৰ সংখ্যা: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g>টা এক্সেছ (নেপথ্যত <xliff:g id="NUM_6">%3$s</xliff:g>টা)\nদৈৰ্ঘ্য: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+    </plurals>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"যিকোনো অনুমতি"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"যিকোনো সময়ত"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"যোৱা ৭ দিনত"</string>
@@ -135,6 +150,7 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g>এ আপোনাৰ <xliff:g id="PERM">%2$s</xliff:g> এক্সেছ কৰা নাই।"</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"অনুমতিৰ ব্যৱহাৰৰ সবিশেষ চাওক"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"অন্তিমবাৰ এক্সেছ কৰা হৈছিল: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"কেতিয়াও এক্সেছ কৰা নাই"</string>
     <string name="allowed_header" msgid="6279244592227088158">"অনুমতি দিয়া হৈছে"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"কেৱল ব্যৱহাৰ হৈ থকা সময়ত অনুমতি দিয়া হয়"</string>
     <string name="denied_header" msgid="2277998574238617699">"অস্বীকাৰ কৰা হৈছে"</string>
@@ -168,16 +184,11 @@
     <string name="launch_app" msgid="5641437562665039291">"খোলক"</string>
     <string name="uninstall_app" msgid="8756507666995809214">"আনইনষ্টল কৰক"</string>
     <string name="force_stop_app" msgid="4253426323145479826">"বলেৰে বন্ধ কৰক"</string>
-    <!-- no translation found for settings (2884124136779508907) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_title_single (1613456964930225277) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_title_multiple (1262608280562255761) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_bottom_text_single (6932810943462703517) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_bottom_text_multiple (817809209968536329) -->
-    <skip />
+    <string name="settings" msgid="2884124136779508907">"ছেটিংসমূহ"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g>এ আপোনাৰ ডিভাইচটো সম্পূৰ্ণভাৱে এক্সেছ কৰিব পাৰে"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> সাধ্য সুবিধাসমূহে আপোনাৰ ডিভাইচটো সম্পূৰ্ণভাৱে এক্সেছ কৰিব পাৰে"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g>এ আপোনাৰ স্ক্ৰীণ, কাৰ্য আৰু ইনপুট চাব পাৰে, কাৰ্য সম্পন্ন কৰিব পাৰে আৰু ডিছপ্লে’ নিয়ন্ত্ৰণ কৰিব পাৰে।"</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"এই সেৱাবোৰে আপোনাৰ স্ক্ৰীণ, কাৰ্য আৰু ইনপুট চাব পাৰে, কাৰ্য সম্পন্ন কৰিব পাৰে আৰু ডিছপ্লে’ নিয়ন্ত্ৰণ কৰিব পাৰে।"</string>
     <string name="default_apps" msgid="8554530939151957828">"ডিফ’ল্ট এপ্"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"কোনো ডিফ’ল্ট এপ্ নাই"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"কৰ্মস্থানৰ বাবে ডিফ’ল্ট"</string>
@@ -199,11 +210,9 @@
     <string name="role_label_call_screening" msgid="411212589764916370">"কল স্ক্ৰীণ কৰা এপ্"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"কল সহযোগী এপ্"</string>
     <string name="role_label_car_projection" msgid="3792929094325391213">"গাড়ীৰ প্ৰজেকশ্বন এপ্‌"</string>
-    <!-- no translation found for home_missing_work_profile_support (1439466272746259937) -->
-    <skip />
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"কৰ্মস্থানৰ প্ৰ’ফাইল সমৰ্থন নকৰে"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"টোকা: যদি আপুনি আপোনাৰ ডিভাইচটো ৰিষ্টাৰ্ট কৰে আৰু আপোনাৰ এটা স্ক্ৰীণ লক ছেট কৰি থোৱা আছে, তেন্তে এই এপটো আপুনি ডিভাইচটো আনলক নকৰালৈকে আৰম্ভ নহ’ব।"</string>
-    <!-- no translation found for assistant_confirmation_message (4529925223796676824) -->
-    <skip />
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"এই সহায়কটোৱে আপোনাৰ ছিষ্টেমত ব্যৱহৃত হৈ থকা এপ্‌সমূহৰ বিষয়ে তথ্য পঢ়িব পাৰিব। সেই তথ্যসমূহৰ ভিতৰত আপোনাৰ স্ক্ৰীণত দেখা পোৱা বা এপে চাব পৰা তথ্যসমূহ অন্তৰ্ভুক্ত।"</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"ডিবাগ ডেটা শ্বেয়াৰ কৰক"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"ডিবাগৰ সবিশেষ ডেটা শ্বেয়াৰ কৰিবনে?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g>এ ডিবাগ তথ্য আপল’ড কৰিব বিচাৰিছে।"</string>

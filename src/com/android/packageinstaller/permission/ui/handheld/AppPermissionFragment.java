@@ -184,21 +184,25 @@ public class AppPermissionFragment extends SettingsWithButtonHeader {
         ((TextView) root.requireViewById(R.id.permission_message)).setText(
                 context.getString(R.string.app_permission_header, mGroup.getLabel(), appLabel));
 
-        String timeDiffStr = Utils.getRelativeLastUsageString(context,
-                PermissionUsages.loadLastGroupUsage(context, mGroup));
-        if (timeDiffStr == null) {
-            ((TextView) root.requireViewById(R.id.usage_summary)).setText(
-                    context.getString(
-                            R.string.app_permission_footer_no_usages,
-                            appLabel,
-                            mGroup.getLabel().toString().toLowerCase()));
+        if (Utils.isModernPermissionGroup(mGroup.getName())) {
+            String timeDiffStr = Utils.getRelativeLastUsageString(context,
+                    PermissionUsages.loadLastGroupUsage(context, mGroup));
+            if (timeDiffStr == null) {
+                ((TextView) root.requireViewById(R.id.usage_summary)).setText(
+                        context.getString(
+                                R.string.app_permission_footer_no_usages,
+                                appLabel,
+                                mGroup.getLabel().toString().toLowerCase()));
+            } else {
+                ((TextView) root.requireViewById(R.id.usage_summary)).setText(
+                        context.getString(
+                                R.string.app_permission_footer_usage_summary,
+                                appLabel,
+                                mGroup.getLabel().toString().toLowerCase(),
+                                timeDiffStr));
+            }
         } else {
-            ((TextView) root.requireViewById(R.id.usage_summary)).setText(
-                    context.getString(
-                            R.string.app_permission_footer_usage_summary,
-                            appLabel,
-                            mGroup.getLabel().toString().toLowerCase(),
-                            timeDiffStr));
+            root.requireViewById(R.id.usage_summary).setVisibility(View.GONE);
         }
 
         root.requireViewById(R.id.usage_link).setOnClickListener((v) -> {

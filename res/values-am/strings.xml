@@ -39,6 +39,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"መተግበሪያው ጥቅም ላይ እያለ ብቻ ፍቀድ"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"መተግበሪያዎች"</string>
     <string name="app_permissions" msgid="2778362347879465223">"የመተግበሪያ ፈቃዶች"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"የፈቃድ አቀናባሪ"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"ዳግም አትጠይቅ"</string>
     <string name="no_permissions" msgid="2193893107241172888">"ምንም ፈቃዶች የሉም"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"ተጨማሪ ፈቃዶች"</string>
@@ -51,7 +52,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"ያልታወቀ እርምጃ ያከናውናል"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> ከ<xliff:g id="COUNT_1">%2$d</xliff:g> መተግበሪያዎች ተፈቅዶላቸዋል"</string>
     <string name="permission_usage_header" msgid="8802963718365732792">"የቅርብ ጊዜ አጠቃቀም"</string>
-    <string name="permission_usage_view_details" msgid="1242976903858003439">"ዝርዝሮችን አሳይ"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"የፈቃዶች ዳሽቦርድን ይመልከቱ"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"ሥርዓት አሳይ"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"ሥርዓትን ደብቅ"</string>
     <string name="no_apps" msgid="2377153782338039463">"ምንም መተግበሪያዎች የሉም"</string>
@@ -90,9 +91,23 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"የአሁኖቹ ፍቃዶች"</string>
     <string name="message_staging" msgid="641286607664721291">"መተግበሪያን በማዘጋጀት ላይ…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"ያልታወቀ"</string>
-    <string name="permission_usage_title" msgid="8266350477620264117">"የፈቃዶች አጠቃቀም"</string>
-    <string name="permission_usage_summary" msgid="4139332442917981301">"ለመጨረሻ ጊዜ የተደረሰው፦ <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM">%2$s</xliff:g> መዳረሻዎች"</string>
-    <string name="permission_usage_summary_background" msgid="2209669857909620833">"ለመጨረሻ ጊዜ የተደረሰው፦ <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM_0">%2$s</xliff:g> መዳረሻዎች (<xliff:g id="NUM_1">%3$s</xliff:g> በበስተጀርባ)"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"ዳሽቦርድ"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="one">የመጨረሻ መዳረሻ፦ <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> መዳረሻዎች</item>
+      <item quantity="other">የመጨረሻ መዳረሻ፦ <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> መዳረሻዎች</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="one">የመጨረሻ መዳረሻ፦ <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> መዳረሻዎች (በበስተጀርባ ውስጥ <xliff:g id="NUM_5">%3$s</xliff:g>)</item>
+      <item quantity="other">የመጨረሻ መዳረሻ፦ <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> መዳረሻዎች (በበስተጀርባ ውስጥ <xliff:g id="NUM_5">%3$s</xliff:g>)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="one">የመጨረሻ መዳረሻ፦ <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> መዳረሻዎች\nየጊዜ ቆይታ፦ <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="other">የመጨረሻ መዳረሻ፦ <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> መዳረሻዎች\nየጊዜ ቆይታ፦ <xliff:g id="TIME_5">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="one">የመጨረሻ መዳረሻ፦ <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> መዳረሻዎች (በበስተጀርባ ላይ <xliff:g id="NUM_6">%3$s</xliff:g>)\nየጊዜ ቆይታ፦ <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="other">የመጨረሻ መዳረሻ፦ <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> መዳረሻዎች (በበስተጀርባ ላይ <xliff:g id="NUM_6">%3$s</xliff:g>)\nየጊዜ ቆይታ፦ <xliff:g id="TIME_7">%3$s</xliff:g></item>
+    </plurals>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"ማናቸውም ፈቃድ"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"በማንኛውም ጊዜ"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"ባለፉት 7 ቀኖች"</string>
@@ -135,6 +150,7 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> የእርስዎን <xliff:g id="PERM">%2$s</xliff:g> አልደረሰበትም።"</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"ዝርዝር የፈቃዶች አጠቃቀምን ይመልከቱ"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"የመጨረሻ መዳረሻ፦ <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"ተደርሶ አያውቅም"</string>
     <string name="allowed_header" msgid="6279244592227088158">"ይፈቀዳል"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"ስራ ላይ ሲውል ብቻ የሚፈቀድ"</string>
     <string name="denied_header" msgid="2277998574238617699">"ውድቅ ተደርጓል"</string>

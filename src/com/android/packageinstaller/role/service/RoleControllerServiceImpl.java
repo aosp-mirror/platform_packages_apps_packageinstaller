@@ -182,36 +182,44 @@ public class RoleControllerServiceImpl extends RoleControllerService {
     void onSmsKillSwitchToggled(boolean smsRestrictionEnabled, PackageInfo pkg,
             List<PermissionInfo> permissions) {
         PackageManager pm = getPackageManager();
-        int uid = pkg.applicationInfo.uid; //TODO multiuser support?
+        int uid = pkg.applicationInfo.uid;
 
         for (int i = 0, permissionsSize = permissions.size(); i < permissionsSize; i++) {
             PermissionInfo permission = permissions.get(i);
-            int permFlags =
-                    pm.getPermissionFlags(permission.name, pkg.packageName, Process.myUserHandle());
+            try {
+                int permFlags =
+                        pm.getPermissionFlags(permission.name, pkg.packageName,
+                                Process.myUserHandle());
 
-            if ((permFlags
-                    & (PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT
-                            | PackageManager.FLAG_PERMISSION_SYSTEM_FIXED)) != 0) {
+                if ((permFlags
+                        & (PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT
+                        | PackageManager.FLAG_PERMISSION_SYSTEM_FIXED)) != 0) {
+                    continue;
+                }
+
+                if ((permFlags & PackageManager.FLAG_PERMISSION_POLICY_FIXED) != 0) {
+                    pm.updatePermissionFlags(permission.name, pkg.packageName,
+                            PackageManager.FLAG_PERMISSION_POLICY_FIXED, 0, Process.myUserHandle());
+                }
+
+                String appOp = AppOpsManager.permissionToOp(permission.name);
+                if (appOp != null) {
+                    mAppOpsManager.setUidMode(appOp, uid,
+                            smsRestrictionEnabled
+                                    ? AppOpsManager.MODE_DEFAULT
+                                    : AppOpsManager.MODE_ALLOWED);
+                }
+
+                if (!smsRestrictionEnabled
+                        && pkg.applicationInfo.targetSdkVersion
+                        > Build.VERSION_CODES.LOLLIPOP_MR1) {
+                    pm.revokeRuntimePermission(
+                            pkg.packageName, permission.name, Process.myUserHandle());
+                }
+            } catch (Exception e) {
+                Log.e(LOG_TAG, "Unexpected exception while cleaning up state for package "
+                        + pkg.packageName + " & " + permission.name, e);
                 continue;
-            }
-
-            if ((permFlags & PackageManager.FLAG_PERMISSION_POLICY_FIXED) != 0) {
-                pm.updatePermissionFlags(permission.name, pkg.packageName,
-                        PackageManager.FLAG_PERMISSION_POLICY_FIXED, 0, Process.myUserHandle());
-            }
-
-            String appOp = AppOpsManager.permissionToOp(permission.name);
-            if (appOp != null) {
-                mAppOpsManager.setUidMode(appOp, uid,
-                        smsRestrictionEnabled
-                                ? AppOpsManager.MODE_DEFAULT
-                                : AppOpsManager.MODE_ALLOWED);
-            }
-
-            if (!smsRestrictionEnabled
-                    && pkg.applicationInfo.targetSdkVersion > Build.VERSION_CODES.LOLLIPOP_MR1) {
-                pm.revokeRuntimePermission(
-                        pkg.packageName, permission.name, Process.myUserHandle());
             }
         }
     }

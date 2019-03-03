@@ -15,10 +15,13 @@
   ~ limitations under the License.
   -->
 
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingTop="14dp"
+    android:paddingBottom="14dp"
     android:minHeight="?android:attr/listPreferredItemHeightSmall"
     android:gravity="center_vertical"
     android:paddingLeft="?android:attr/listPreferredItemPaddingLeft"
@@ -28,64 +31,51 @@
     android:focusable="true"
     android:baselineAligned="false">
 
-    <include layout="@layout/image_frame"/>
+    <include layout="@layout/image_frame"
+             android:id="@+id/image_frame_include"
+             android:gravity="center"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:layout_constraintBottom_toBottomOf="parent"/>
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:id="@+id/title_widget_frame"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
-        android:orientation="vertical">
+        android:gravity="start|center_vertical"
+        android:paddingEnd="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toEndOf="@+id/image_frame_include"
+        app:layout_constraintBottom_toBottomOf="@android:id/title"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+    <TextView
+        android:id="@android:id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:textAppearance="?android:attr/textAppearanceListItem"
+        android:ellipsize="marquee"
+        app:layout_constraintStart_toEndOf="@+id/title_widget_frame"
+        app:layout_constraintTop_toTopOf="@+id/image_frame_include"/>
 
-            <LinearLayout
-                android:id="@+id/title_widget_frame"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="start|center_vertical"
-                android:paddingEnd="16dp"
-                android:orientation="horizontal"/>
+    <LinearLayout
+        android:id="@+id/summary_widget_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start|bottom"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toEndOf="@+id/image_frame_include"
+        app:layout_constraintBottom_toBottomOf="@android:id/summary"/>
 
-            <TextView
-                android:id="@android:id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:textAppearance="?android:attr/textAppearanceListItem"
-                android:ellipsize="marquee"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:id="@+id/summary_widget_frame"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="start|bottom"
-                android:orientation="horizontal"/>
-
-            <TextView
-                android:id="@android:id/summary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@android:id/title"
-                android:layout_alignLeft="@android:id/title"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="?android:attr/textColorSecondary"
-                android:maxLines="10"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
+    <TextView
+        android:id="@android:id/summary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="?android:attr/textColorSecondary"
+        android:maxLines="10"
+        app:layout_constraintStart_toEndOf="@+id/summary_widget_frame"
+        app:layout_constraintTop_toBottomOf="@android:id/title"/>
 
     <!-- Preference should place its actual preference widget here. -->
     <LinearLayout
@@ -94,6 +84,9 @@
         android:layout_height="match_parent"
         android:gravity="end|center_vertical"
         android:paddingLeft="16dp"
-        android:orientation="vertical"/>
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/image_frame_include"
+        app:layout_constraintBottom_toBottomOf="@+id/image_frame_include"/>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

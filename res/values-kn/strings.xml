@@ -39,6 +39,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"ಆ್ಯಪ್ ಬಳಕೆಯಲ್ಲಿದ್ದಾಗ ಮಾತ್ರ ಅನುಮತಿಸಿ"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"ಆ್ಯಪ್‌ಗಳು"</string>
     <string name="app_permissions" msgid="2778362347879465223">"ಆ್ಯಪ್ ಅನುಮತಿಗಳು"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"ಅನುಮತಿ ನಿರ್ವಾಹಕರು"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"ಮತ್ತೆ ಕೇಳಬೇಡಿ"</string>
     <string name="no_permissions" msgid="2193893107241172888">"ಯಾವುದೇ ಅನುಮತಿಗಳಿಲ್ಲ"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"ಹೆಚ್ಚುವರಿ ಅನುಮತಿಗಳು"</string>
@@ -51,7 +52,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"ಅಪರಿಚಿತ ಕ್ರಿಯೆಯನ್ನು ಮಾಡಿ"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_1">%2$d</xliff:g> ರಲ್ಲಿ <xliff:g id="COUNT_0">%1$d</xliff:g> ಆ್ಯಪ್‌ಗಳನ್ನು ಅನುಮತಿಸಲಾಗಿದೆ"</string>
     <string name="permission_usage_header" msgid="8802963718365732792">"ಇತ್ತೀ ಚಿನ ಬಳಕೆ"</string>
-    <string name="permission_usage_view_details" msgid="1242976903858003439">"ವಿವರಗಳನ್ನು ನೋಡಿ"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"ಅನುಮತಿಗಳ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ವೀಕ್ಷಿಸಿ"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"ಸಿಸ್ಟಂ ತೋರಿಸಿ"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"ಸಿಸ್ಟಂ ಮರೆಮಾಡಿ"</string>
     <string name="no_apps" msgid="2377153782338039463">"ಯಾವುದೇ ಆ್ಯಪ್‌ಗಳು ಇಲ್ಲ"</string>
@@ -90,9 +91,23 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"ಪ್ರಸ್ತುತ ಅನುಮತಿಗಳು"</string>
     <string name="message_staging" msgid="641286607664721291">"ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಲು ಸಿದ್ಧವಿರುವ ಆ್ಯಪ್…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"ಅಪರಿಚಿತ"</string>
-    <string name="permission_usage_title" msgid="8266350477620264117">"ಅನುಮತಿಗಳ ಬಳಕೆ"</string>
-    <string name="permission_usage_summary" msgid="4139332442917981301">"ಕೊನೆಯ ಪ್ರವೇಶ: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM">%2$s</xliff:g> ಪ್ರವೇಶಗಳು"</string>
-    <string name="permission_usage_summary_background" msgid="2209669857909620833">"ಕೊನೆಯ ಪ್ರವೇಶ: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM_0">%2$s</xliff:g> ಪ್ರವೇಶಗಳು (ಹಿನ್ನೆಲೆಯಲ್ಲಿ <xliff:g id="NUM_1">%3$s</xliff:g>)"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"ಡ್ಯಾಶ್‌ಬೋರ್ಡ್"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="one">ಕೊನೆಯ ಪ್ರವೇಶ: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> ಪ್ರವೇಶ</item>
+      <item quantity="other">ಕೊನೆಯ ಪ್ರವೇಶ: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> ಪ್ರವೇಶ</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="one">ಕೊನೆಯ ಪ್ರವೇಶ: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> ಪ್ರವೇಶ (<xliff:g id="NUM_5">%3$s</xliff:g>ಹಿನ್ನೆಲೆಯಲ್ಲಿ)</item>
+      <item quantity="other">ಕೊನೆಯ ಪ್ರವೇಶ: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> ಪ್ರವೇಶ (<xliff:g id="NUM_5">%3$s</xliff:g>ಹಿನ್ನೆಲೆಯಲ್ಲಿ)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="one">ಕೊನೆಯ ಪ್ರವೇಶ: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> ಪ್ರವೇಶ\nಸಮಯ: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="other">ಕೊನೆಯ ಪ್ರವೇಶ: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> ಪ್ರವೇಶ\nಸಮಯ: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="one">ಕೊನೆಯ ಪ್ರವೇಶ: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> ಪ್ರವೇಶ (<xliff:g id="NUM_6">%3$s</xliff:g>ಹಿನ್ನೆಲೆಯಲ್ಲಿ)\nಸಮಯದಲ್ಲಿ: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="other">ಕೊನೆಯ ಪ್ರವೇಶ: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> ಪ್ರವೇಶ (<xliff:g id="NUM_6">%3$s</xliff:g>ಹಿನ್ನೆಲೆಯಲ್ಲಿ)\nಸಮಯದಲ್ಲಿ: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+    </plurals>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"ಯಾವುದೇ ಅನುಮತಿ"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"ಯಾವುದಾದರೂ ಸಮಯದಲ್ಲಿ"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"ಕಳೆದ 7 ದಿನಗಳು"</string>
@@ -135,6 +150,7 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> ನಿಮ್ಮ <xliff:g id="PERM">%2$s</xliff:g> ಅನ್ನು ಪ್ರವೇಶಿಸಿಲ್ಲ."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"ವಿವರವಾದ ಅನುಮತಿಗಳ ಬಳಕೆಯನ್ನು ವೀಕ್ಷಿಸಿ"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"ಕೊನೆಯ ಪ್ರವೇಶ:<xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"ಎಂದಿಗೂ ಪ್ರವೇಶಿಸಿಲ್ಲ"</string>
     <string name="allowed_header" msgid="6279244592227088158">"ಅನುಮತಿಸಲಾಗಿದೆ"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"ಬಳಕೆಯಲ್ಲಿದ್ದಾಗ ಮಾತ್ರ ಅನುಮತಿಸಲಾಗಿದೆ"</string>
     <string name="denied_header" msgid="2277998574238617699">"ನಿರಾಕರಿಸಲಾಗಿದೆ"</string>

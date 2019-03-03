@@ -39,6 +39,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"শুধুমাত্র অ্যাপ ব্যবহারের সময়ই অনুমতি দিন"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"অ্যাপ"</string>
     <string name="app_permissions" msgid="2778362347879465223">"অ্যাপের অনুমতি"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"অনুমতি ম্যানেজার"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"আর জিজ্ঞেস না করার জন্য বলুন"</string>
     <string name="no_permissions" msgid="2193893107241172888">"কোনও অনুমতি নেই"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"অতিরিক্ত অনুমতি"</string>
@@ -51,7 +52,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"কোনও অজানা অ্যাকশন নিন"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_1">%2$d</xliff:g>টি অ্যাপের মধ্যে <xliff:g id="COUNT_0">%1$d</xliff:g>টি অনুমোদিত"</string>
     <string name="permission_usage_header" msgid="8802963718365732792">"সাম্প্রতিক ব্যবহার"</string>
-    <string name="permission_usage_view_details" msgid="1242976903858003439">"বিবরণ দেখুন"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"অনুমতির ড্যাশবোর্ড দেখুন"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"সিস্টেম অ্যাপ দেখুন"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"সিস্টেম অ্যাপ লুকান"</string>
     <string name="no_apps" msgid="2377153782338039463">"কোনও অ্যাপ নেই"</string>
@@ -90,9 +91,23 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"বর্তমান অনুমতি"</string>
     <string name="message_staging" msgid="641286607664721291">"অ্যাপ স্টেজ করা হচ্ছে…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"অজানা"</string>
-    <string name="permission_usage_title" msgid="8266350477620264117">"অনুমতির ব্যবহার"</string>
-    <string name="permission_usage_summary" msgid="4139332442917981301">"শেষবার অ্যাক্সেস করা হয়েছে: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM">%2$s</xliff:g>টি অ্যাক্সেস"</string>
-    <string name="permission_usage_summary_background" msgid="2209669857909620833">"শেষবার অ্যাক্সেস করা হয়েছে: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM_0">%2$s</xliff:g>টি অ্যাক্সেস (ব্যাকগ্রাউন্ডে<xliff:g id="NUM_1">%3$s</xliff:g>টি)"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"ড্যাশবোর্ড"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="one">শেষবার অ্যাক্সেস করা হয়েছে: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g>বার অ্যাক্সেস করা হয়েছে</item>
+      <item quantity="other">শেষবার অ্যাক্সেস করা হয়েছে: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g>বার অ্যাক্সেস করা হয়েছে</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="one">শেষবার অ্যাক্সেস করা হয়েছে: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g>বার অ্যাক্সেস করা হয়েছে (ব্যাকগ্রাউন্ডে <xliff:g id="NUM_5">%3$s</xliff:g>বার)</item>
+      <item quantity="other">শেষবার অ্যাক্সেস করা হয়েছে: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g>বার অ্যাক্সেস করা হয়েছে (ব্যাকগ্রাউন্ডে <xliff:g id="NUM_5">%3$s</xliff:g>বার)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="one">শেষবার অ্যাক্সেস করা হয়েছে: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g>বার অ্যাক্সেস করা হয়েছে\nসময়সীমা: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="other">শেষবার অ্যাক্সেস করা হয়েছে: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g>বার অ্যাক্সেস করা হয়েছে\nসময়সীমা: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="one">শেষবার অ্যাক্সেস করা হয়েছে: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g>বার অ্যাক্সেস (ব্যাকগ্রাউন্ডে <xliff:g id="NUM_6">%3$s</xliff:g>বার)\nসময়সীমা: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="other">শেষবার অ্যাক্সেস করা হয়েছে: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g>বার অ্যাক্সেস (ব্যাকগ্রাউন্ডে <xliff:g id="NUM_6">%3$s</xliff:g>বার)\nসময়সীমা: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+    </plurals>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"যেকোন অনুমতি"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"যেকোনও সময়"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"গত ৭ দিন"</string>
@@ -135,6 +150,7 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> আপনার <xliff:g id="PERM">%2$s</xliff:g> অ্যাক্সেস করতে পারেনি।"</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"বিস্তারিত অনুমতির ব্যবহার দেখুন"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"শেষবার অ্যাক্সেস করা হয়েছে: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"কখনও অ্যাক্সেস করা হয়নি"</string>
     <string name="allowed_header" msgid="6279244592227088158">"অনুমোদিত"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"শুধুমাত্র ব্যবহার করার সময় অনুমোদিত"</string>
     <string name="denied_header" msgid="2277998574238617699">"প্রত্যাখ্যান করা হয়েছে"</string>

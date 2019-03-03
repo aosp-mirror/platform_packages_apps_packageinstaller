@@ -39,6 +39,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Дазволіць толькі ў актыўным рэжыме праграмы"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Праграмы"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Дазволы праграмы"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"Менеджар дазволаў"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Больш не пытацца"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Няма дазволаў"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"Дадатковыя дазволы"</string>
@@ -53,7 +54,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"выканаць невядомае дзеянне"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> з <xliff:g id="COUNT_1">%2$d</xliff:g> праграм з дазволам"</string>
     <string name="permission_usage_header" msgid="8802963718365732792">"Нядаўняе выкарыстанне"</string>
-    <string name="permission_usage_view_details" msgid="1242976903858003439">"Паказаць падрабязныя звесткі"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"Паказаць панэль кіравання"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Паказаць сістэмныя"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Схаваць сістэмныя"</string>
     <string name="no_apps" msgid="2377153782338039463">"Няма праграм"</string>
@@ -92,9 +93,31 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Бягучыя дазволы"</string>
     <string name="message_staging" msgid="641286607664721291">"Падрыхтоўка праграмы…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Невядома"</string>
-    <string name="permission_usage_title" msgid="8266350477620264117">"Выкарыстанне дазволаў"</string>
-    <string name="permission_usage_summary" msgid="4139332442917981301">"Апошні доступ: <xliff:g id="TIME">%1$s</xliff:g>\nКолькасць доступаў – <xliff:g id="NUM">%2$s</xliff:g>"</string>
-    <string name="permission_usage_summary_background" msgid="2209669857909620833">"Апошні доступ: <xliff:g id="TIME">%1$s</xliff:g>\nКолькасць доступаў – <xliff:g id="NUM_0">%2$s</xliff:g> (у фонавым рэжыме – <xliff:g id="NUM_1">%3$s</xliff:g>)"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Панэль кіравання"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="one">Апошні доступ: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> доступ</item>
+      <item quantity="few">Апошні доступ: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> доступы</item>
+      <item quantity="many">Апошні доступ: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> доступаў</item>
+      <item quantity="other">Апошні доступ: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> доступу</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="one">Апошні доступ: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> доступ (у фонавым рэжыме: <xliff:g id="NUM_5">%3$s</xliff:g>)</item>
+      <item quantity="few">Апошні доступ: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> доступы (у фонавым рэжыме: <xliff:g id="NUM_5">%3$s</xliff:g>)</item>
+      <item quantity="many">Апошні доступ: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> доступаў (у фонавым рэжыме: <xliff:g id="NUM_5">%3$s</xliff:g>)</item>
+      <item quantity="other">Апошні доступ: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> доступу (у фонавым рэжыме: <xliff:g id="NUM_5">%3$s</xliff:g>)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="one">Апошні доступ: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> доступ\nПрацягласць: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="few">Апошні доступ: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> доступы\nПрацягласць: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="many">Апошні доступ: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> доступаў\nПрацягласць: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="other">Апошні доступ: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> доступу\nПрацягласць: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="one">Апошні доступ: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> доступ (у фонавым рэжыме: <xliff:g id="NUM_6">%3$s</xliff:g>)\nПрацягласць: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="few">Апошні доступ: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> доступы (у фонавым рэжыме: <xliff:g id="NUM_6">%3$s</xliff:g>)\nПрацягласць: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="many">Апошні доступ: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> доступаў (у фонавым рэжыме: <xliff:g id="NUM_6">%3$s</xliff:g>)\nПрацягласць: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="other">Апошні доступ: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> доступу (у фонавым рэжыме: <xliff:g id="NUM_6">%3$s</xliff:g>)\nПрацягласць: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+    </plurals>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Любы дазвол"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"За любы час"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"За апошнія 7 дзён"</string>
@@ -137,6 +160,7 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" не атрымала доступу да функцыі \"<xliff:g id="PERM">%2$s</xliff:g>\"."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Прагледзець звесткі пра выкарыстанне дазволаў"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Апошні доступ: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Без доступаў"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Дазволеныя"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Дазволена толькі падчас карыстання"</string>
     <string name="denied_header" msgid="2277998574238617699">"Адмоўленыя"</string>

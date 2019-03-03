@@ -118,8 +118,12 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                         androidXFragment = com.android.packageinstaller.permission.ui.handheld
                                 .AllAppPermissionsFragment.newInstance(packageName);
                     } else {
+                        UserHandle userHandle = getIntent().getParcelableExtra(Intent.EXTRA_USER);
+                        if (userHandle == null) {
+                            userHandle = UserHandle.of(UserHandle.myUserId());
+                        }
                         androidXFragment = com.android.packageinstaller.permission.ui.handheld
-                                .AppPermissionsFragment.newInstance(packageName);
+                                .AppPermissionsFragment.newInstance(packageName, userHandle);
                     }
                 }
             } break;

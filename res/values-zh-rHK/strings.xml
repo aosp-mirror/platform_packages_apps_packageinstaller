@@ -39,6 +39,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"只在使用應用程式時允許"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"應用程式"</string>
     <string name="app_permissions" msgid="2778362347879465223">"應用程式權限"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"權限管理員"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"不要再詢問"</string>
     <string name="no_permissions" msgid="2193893107241172888">"沒有權限"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"其他權限"</string>
@@ -51,7 +52,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"執行不明的操作"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"已允許 <xliff:g id="COUNT_0">%1$d</xliff:g> 個應用程式 (共 <xliff:g id="COUNT_1">%2$d</xliff:g> 個)"</string>
     <string name="permission_usage_header" msgid="8802963718365732792">"近期使用情況"</string>
-    <string name="permission_usage_view_details" msgid="1242976903858003439">"查看詳情"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"查看權限資訊主頁"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"顯示系統"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"隱藏系統"</string>
     <string name="no_apps" msgid="2377153782338039463">"沒有應用程式"</string>
@@ -90,9 +91,23 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"目前權限"</string>
     <string name="message_staging" msgid="641286607664721291">"正在準備安裝應用程式…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"不明"</string>
-    <string name="permission_usage_title" msgid="8266350477620264117">"權限使用情況"</string>
-    <string name="permission_usage_summary" msgid="4139332442917981301">"上次存取時間：<xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM">%2$s</xliff:g> 次存取"</string>
-    <string name="permission_usage_summary_background" msgid="2209669857909620833">"上次存取時間：<xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM_0">%2$s</xliff:g> 次存取 (<xliff:g id="NUM_1">%3$s</xliff:g> 次在背景存取)"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"資訊主頁"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">上次存取時間：<xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> 次存取</item>
+      <item quantity="one">上次存取時間：<xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> 次存取</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">上次存取時間：<xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> 次存取 (<xliff:g id="NUM_5">%3$s</xliff:g> 次在背景存取)</item>
+      <item quantity="one">上次存取時間：<xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> 次存取 (<xliff:g id="NUM_2">%3$s</xliff:g> 次在背景存取)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">上次存取時間：<xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> 次存取\n時長：<xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">上次存取時間：<xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> 次存取\n時長：<xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">上次存取時間：<xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> 次存取 (<xliff:g id="NUM_6">%3$s</xliff:g> 次在背景存取)\n時長：<xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">上次存取時間：<xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> 次存取 (<xliff:g id="NUM_2">%3$s</xliff:g> 次在背景存取)\n時長：<xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"任何權限"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"不限時間"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"過去 7 天"</string>
@@ -135,6 +150,7 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"「<xliff:g id="APP">%1$s</xliff:g>」沒有存取<xliff:g id="PERM">%2$s</xliff:g>。"</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"查看詳細的權限使用情況"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"上次存取時間：<xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"從未存取過"</string>
     <string name="allowed_header" msgid="6279244592227088158">"已允許"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"只在使用時允許"</string>
     <string name="denied_header" msgid="2277998574238617699">"已拒絕"</string>
@@ -168,16 +184,11 @@
     <string name="launch_app" msgid="5641437562665039291">"開啟"</string>
     <string name="uninstall_app" msgid="8756507666995809214">"解除安裝"</string>
     <string name="force_stop_app" msgid="4253426323145479826">"強制停止"</string>
-    <!-- no translation found for settings (2884124136779508907) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_title_single (1613456964930225277) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_title_multiple (1262608280562255761) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_bottom_text_single (6932810943462703517) -->
-    <skip />
-    <!-- no translation found for accessibility_service_dialog_bottom_text_multiple (817809209968536329) -->
-    <skip />
+    <string name="settings" msgid="2884124136779508907">"設定"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g>可以取得您裝置的完整存取權"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> 個無障礙服務可以取得您裝置的完整存取權"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"「<xliff:g id="SERVICE_NAME">%s</xliff:g>」可以查看您的螢幕、操作和輸入內容、執行操作以及控制顯示屏。"</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"這些服務可以查看您的螢幕、操作和輸入內容、執行操作以及控制顯示屏。"</string>
     <string name="default_apps" msgid="8554530939151957828">"預設應用程式"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"沒有預設應用程式"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"預設用於工作"</string>
@@ -199,11 +210,9 @@
     <string name="role_label_call_screening" msgid="411212589764916370">"來電篩選應用程式"</string>
     <string name="role_label_call_companion" msgid="7369723859682076467">"通話隨附應用程式"</string>
     <string name="role_label_car_projection" msgid="3792929094325391213">"「汽車投影」應用程式"</string>
-    <!-- no translation found for home_missing_work_profile_support (1439466272746259937) -->
-    <skip />
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"不支援工作設定檔"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"請注意：如果您重新啟動裝置並設定了螢幕鎖定，就必須先將裝置解鎖，才可執行這個應用程式。"</string>
-    <!-- no translation found for assistant_confirmation_message (4529925223796676824) -->
-    <skip />
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"這個小幫手將能讀取系統目前使用的應用程式資料，包括螢幕顯示的資料或可在應用程式中存取的資料。"</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"分享偵錯資料"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"要分享詳細的偵錯資料嗎？"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"「<xliff:g id="APP_NAME">%1$s</xliff:g>」要求上載偵錯資料。"</string>

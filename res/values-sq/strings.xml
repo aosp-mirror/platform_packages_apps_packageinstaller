@@ -39,6 +39,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Lejo vetëm kur aplikacioni është në përdorim"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Aplikacionet"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Lejet e aplikacionit"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"Menaxheri i lejeve"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Mos pyet më"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Nuk ka leje"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"Lejet shtesë"</string>
@@ -51,7 +52,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"kryej një veprim të panjohur"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> nga <xliff:g id="COUNT_1">%2$d</xliff:g> aplikacione u lejuan"</string>
     <string name="permission_usage_header" msgid="8802963718365732792">"Përdorimi së fundi"</string>
-    <string name="permission_usage_view_details" msgid="1242976903858003439">"Shiko detajet"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"Shiko panelin e lejeve"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Shfaq sistemin"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Fshih sistemin"</string>
     <string name="no_apps" msgid="2377153782338039463">"Asnjë aplikacion"</string>
@@ -90,9 +91,23 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Lejet aktuale"</string>
     <string name="message_staging" msgid="641286607664721291">"Po vihet në përdorim aplikacioni..."</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"I panjohur"</string>
-    <string name="permission_usage_title" msgid="8266350477620264117">"Përdorimi i lejeve"</string>
-    <string name="permission_usage_summary" msgid="4139332442917981301">"Qasja e fundit: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM">%2$s</xliff:g> qasje"</string>
-    <string name="permission_usage_summary_background" msgid="2209669857909620833">"Qasja e fundit: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM_0">%2$s</xliff:g> qasje (<xliff:g id="NUM_1">%3$s</xliff:g> në sfond)"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Paneli analitik"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">Qasja e fundit: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> qasje</item>
+      <item quantity="one">Qasja e fundit: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> qasje</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">Qasja e fundit: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> qasje (<xliff:g id="NUM_5">%3$s</xliff:g> në sfond)</item>
+      <item quantity="one">Qasja e fundit: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> qasje (<xliff:g id="NUM_2">%3$s</xliff:g> në sfond)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">Qasja e fundit: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> qasje\nKohëzgjatja: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">Qasja e fundit: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> qasje\nKohëzgjatja: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">Qasja e fundit: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> qasje (<xliff:g id="NUM_6">%3$s</xliff:g> në sfond)\nKohëzgjatja: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">Qasja e fundit: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> qasje (<xliff:g id="NUM_2">%3$s</xliff:g> në sfond)\nKohëzgjatja: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Çdo autorizim"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"Në çdo kohë"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"7 ditët e fundit"</string>
@@ -135,6 +150,7 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> nuk ka pasur qasje te <xliff:g id="PERM">%2$s</xliff:g>."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Shiko përdorimin e detajuar të autorizimeve"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Qasja e fundit: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Nuk ka asnjë qasje"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Të lejuara"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Lejohet vetëm kur është në përdorim"</string>
     <string name="denied_header" msgid="2277998574238617699">"Të refuzuara"</string>

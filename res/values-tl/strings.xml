@@ -39,6 +39,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Payagan lang habang ginagamit ang app"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Mga App"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Mga pahintulot sa app"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"Manager ng pahintulot"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Huwag nang itanong muli"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Walang pahintulot"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"Mga karagdagang pahintulot"</string>
@@ -51,7 +52,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"magsagawa ng hindi kilalang pagkilos"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"Pinapayagan ang <xliff:g id="COUNT_0">%1$d</xliff:g> sa <xliff:g id="COUNT_1">%2$d</xliff:g> (na) app"</string>
     <string name="permission_usage_header" msgid="8802963718365732792">"Kamakailang paggamit"</string>
-    <string name="permission_usage_view_details" msgid="1242976903858003439">"Tingnan ang mga detalye"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"Tingnan ang Dashboard ng Mga Pahintulot"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Ipakita ang system"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Itago ang system"</string>
     <string name="no_apps" msgid="2377153782338039463">"Walang app"</string>
@@ -90,9 +91,23 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"Mga kasalukuyang pahintulot"</string>
     <string name="message_staging" msgid="641286607664721291">"Inihahanda ang app…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Hindi alam"</string>
-    <string name="permission_usage_title" msgid="8266350477620264117">"Paggamit ng mga pahintulot"</string>
-    <string name="permission_usage_summary" msgid="4139332442917981301">"Huling pag-access: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM">%2$s</xliff:g> (na) pag-access"</string>
-    <string name="permission_usage_summary_background" msgid="2209669857909620833">"Huling pag-access: <xliff:g id="TIME">%1$s</xliff:g>\n<xliff:g id="NUM_0">%2$s</xliff:g> (na) pag-access (<xliff:g id="NUM_1">%3$s</xliff:g> sa background)"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Dashboard"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="one">Huling pag-access: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> pag-access</item>
+      <item quantity="other">Huling pag-access: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> na pag-access</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="one">Huling pag-access: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> pag-access (<xliff:g id="NUM_5">%3$s</xliff:g> sa background)</item>
+      <item quantity="other">Huling pag-access: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> na pag-access (<xliff:g id="NUM_5">%3$s</xliff:g> sa background)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="one">Huling pag-access: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> pag-access\nTagal: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="other">Huling pag-access: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> na pag-access\nTagal: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="one">Huling pag-access: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> pag-access (<xliff:g id="NUM_6">%3$s</xliff:g> sa background)\nTagal: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="other">Huling pag-access: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> na pag-access (<xliff:g id="NUM_6">%3$s</xliff:g> sa background)\nTagal: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+    </plurals>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Anumang pahintulot"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"Anumang oras"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Nakalipas na 7 araw"</string>
@@ -135,6 +150,7 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"Hindi na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong <xliff:g id="PERM">%2$s</xliff:g>."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Tingnan ang detalyadong paggamit sa mga pahintulot"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Huling na-access: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Hindi na-access kahit kailan"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Pinapayagan"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Pinapayagan lang habang ginagamit"</string>
     <string name="denied_header" msgid="2277998574238617699">"Tinanggihan"</string>
