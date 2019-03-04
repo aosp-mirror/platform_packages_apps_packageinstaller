@@ -508,6 +508,11 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
     }
 
     @Override
+    public boolean onIsRoleVisible(@NonNull String roleName) {
+        return PermissionControllerServiceImplRoleMixin.onIsRoleVisible(roleName, this);
+    }
+
+    @Override
     public boolean onSetRuntimePermissionGrantStateByDeviceAdmin(@NonNull String callerPackageName,
             @NonNull String packageName, @NonNull String unexpandedPermission, int grantState) {
         PackageInfo callerPkgInfo = getPkgInfo(callerPackageName);
