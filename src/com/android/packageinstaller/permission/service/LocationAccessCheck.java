@@ -96,6 +96,7 @@ import androidx.core.util.Preconditions;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.ui.AppPermissionActivity;
 import com.android.packageinstaller.permission.utils.CollectionUtils;
+import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 
 import java.io.BufferedReader;
@@ -509,7 +510,7 @@ public class LocationAccessCheck {
                 for (int opNum = 0; opNum < numOps; opNum++) {
                     AppOpsManager.HistoricalOp op = ops.getOpAt(opNum);
 
-                    if (op.getBackgroundAccessCount() > 0) {
+                    if (op.getBackgroundAccessCount(AppOpsManager.OP_FLAGS_ALL_TRUSTED) > 0) {
                         pkgsWithLocationAccess.add(userPkg);
 
                         break;
