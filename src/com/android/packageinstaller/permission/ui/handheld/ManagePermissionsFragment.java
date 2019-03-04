@@ -171,10 +171,14 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
         public void onBindViewHolder(PreferenceViewHolder holder) {
             super.onBindViewHolder(holder);
             ImageView icon = ((ImageView) holder.findViewById(android.R.id.icon));
-            icon.setMaxWidth(getContext().getResources().getDimensionPixelSize(
-                    R.dimen.secondary_app_icon_size));
-            icon.setMaxHeight(getContext().getResources().getDimensionPixelSize(
-                    R.dimen.secondary_app_icon_size));
+            icon.setAdjustViewBounds(true);
+            int size = getContext().getResources().getDimensionPixelSize(
+                    R.dimen.secondary_app_icon_size);
+            icon.setMaxWidth(size);
+            icon.setMaxHeight(size);
+            icon.getLayoutParams().width = size;
+            icon.getLayoutParams().height = size;
+            icon.setScaleType(ImageView.ScaleType.FIT_CENTER);
         }
     }
 }
