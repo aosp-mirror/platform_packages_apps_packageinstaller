@@ -16,6 +16,7 @@
 
 package com.android.packageinstaller.permission.model;
 
+import android.app.AppOpsManager;
 import android.app.AppOpsManager.HistoricalOp;
 import android.app.AppOpsManager.HistoricalPackageOps;
 import android.app.AppOpsManager.OpEntry;
@@ -25,6 +26,8 @@ import android.app.AppOpsManager.PackageOps;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
+import com.android.packageinstaller.permission.utils.Utils;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
@@ -115,7 +118,8 @@ public final class AppPermissionUsage {
                 for (int j = 0; j < opCount; j++) {
                     final OpEntry op = ops.get(j);
                     if (op.getOpStr().equals(opName)) {
-                        lastAccessTime = Math.max(lastAccessTime, op.getLastAccessTime());
+                        lastAccessTime = Math.max(lastAccessTime,
+                                op.getLastAccessTime(AppOpsManager.OP_FLAGS_ALL_TRUSTED));
                     }
                 }
             }
@@ -127,14 +131,16 @@ public final class AppPermissionUsage {
             if (mHistoricalUsage == null) {
                 return 0;
             }
-            return extractAggregate(HistoricalOp::getForegroundAccessCount);
+            return extractAggregate((HistoricalOp op)
+                    -> op.getForegroundAccessCount(AppOpsManager.OP_FLAGS_ALL_TRUSTED));
         }
 
         public long getBackgroundAccessCount() {
             if (mHistoricalUsage == null) {
                 return 0;
             }
-            return extractAggregate(HistoricalOp::getBackgroundAccessCount);
+            return extractAggregate((HistoricalOp op)
+                    -> op.getBackgroundAccessCount(AppOpsManager.OP_FLAGS_ALL_TRUSTED));
         }
 
         public long getAccessCount() {
@@ -142,7 +148,8 @@ public final class AppPermissionUsage {
                 return 0;
             }
             return extractAggregate((HistoricalOp op) ->
-                op.getForegroundAccessCount() + op.getBackgroundAccessCount()
+                op.getForegroundAccessCount(AppOpsManager.OP_FLAGS_ALL_TRUSTED)
+                        + op.getBackgroundAccessCount(AppOpsManager.OP_FLAGS_ALL_TRUSTED)
             );
         }
 
@@ -151,7 +158,8 @@ public final class AppPermissionUsage {
                 return 0;
             }
             return extractAggregate((HistoricalOp op) ->
-                    op.getForegroundAccessDuration() + op.getBackgroundAccessDuration()
+                    op.getForegroundAccessDuration(AppOpsManager.OP_FLAGS_ALL_TRUSTED)
+                            + op.getBackgroundAccessDuration(AppOpsManager.OP_FLAGS_ALL_TRUSTED)
             );
         }
 
@@ -200,8 +208,7 @@ public final class AppPermissionUsage {
             return this;
         }
 
-        public @NonNull
-        AppPermissionUsage build() {
+        public @NonNull AppPermissionUsage build() {
             if (mGroups.isEmpty()) {
                 throw new IllegalStateException("mGroups cannot be empty.");
             }

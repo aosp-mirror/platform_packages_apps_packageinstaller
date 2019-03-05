@@ -17,6 +17,7 @@
 package com.android.packageinstaller.role.service;
 
 import android.content.Context;
+import android.os.Process;
 
 import androidx.annotation.NonNull;
 
@@ -45,5 +46,19 @@ public class PermissionControllerServiceImplRoleMixin {
             return false;
         }
         return role.isPackageQualified(packageName, context);
+    }
+
+    /**
+     * @see android.permission.PermissionControllerService#onIsRoleVisible(String)
+     */
+    public static boolean onIsRoleVisible(@NonNull String roleName, @NonNull Context context) {
+        Role role = Roles.get(context).get(roleName);
+        if (role == null) {
+            return false;
+        }
+        if (!role.isAvailable(context)) {
+            return false;
+        }
+        return role.isVisibleAsUser(Process.myUserHandle(), context);
     }
 }
