@@ -223,10 +223,9 @@
             </intent-filter>
         </service>
 
-        <service android:name="com.android.packageinstaller.role.service.RoleControllerServiceImpl"
-                 android:permission="android.permission.BIND_ROLE_CONTROLLER_SERVICE">
+        <service android:name="com.android.packageinstaller.role.service.RoleControllerServiceImpl">
             <intent-filter android:priority="1">
-                <action android:name="android.rolecontrollerservice.RoleControllerService"/>
+                <action android:name="android.app.role.RoleControllerService"/>
             </intent-filter>
         </service>
 
