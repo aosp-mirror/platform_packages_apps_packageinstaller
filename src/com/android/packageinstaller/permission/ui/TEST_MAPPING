@@ -1,0 +1,12 @@
+{
+    "postsubmit": [
+        {
+            "name": "CtsAppSecurityHostTestCases",
+            "options": [
+                {
+                    "include-filter": "android.appsecurity.cts.PermissionsHostTest"
+                }
+            ]
+        }
+    ]
+}

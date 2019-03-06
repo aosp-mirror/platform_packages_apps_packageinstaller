@@ -34,6 +34,7 @@
     <uses-permission android:name="android.permission.REQUEST_INCIDENT_REPORT_APPROVAL" />
     <uses-permission android:name="android.permission.APPROVE_INCIDENT_REPORTS" />
     <uses-permission android:name="android.permission.READ_DEVICE_CONFIG" />
+    <uses-permission android:name="android.permission.OPEN_ACCESSIBILITY_DETAILS_SETTINGS" />
 
     <uses-sdk android:minSdkVersion="28" android:targetSdkVersion="28" />
 
@@ -140,7 +141,8 @@
 
         <activity android:name="com.android.packageinstaller.permission.ui.ReviewAccessibilityServicesActivity"
                   android:excludeFromRecents="true"
-                  android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar" >
+                  android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar"
+                  android:permission="android.permission.REVIEW_ACCESSIBILITY_SERVICES" >
             <intent-filter android:priority="1">
                 <action android:name="android.intent.action.REVIEW_ACCESSIBILITY_SERVICES" />
                 <category android:name="android.intent.category.DEFAULT" />

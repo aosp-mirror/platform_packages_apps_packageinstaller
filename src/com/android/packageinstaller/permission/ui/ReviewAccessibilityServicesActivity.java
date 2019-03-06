@@ -19,9 +19,11 @@ package com.android.packageinstaller.permission.ui;
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.app.AlertDialog;
 import android.app.AppOpsManager;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.ResolveInfo;
+import android.content.pm.ServiceInfo;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.text.TextUtils;
@@ -54,20 +56,26 @@ public final class ReviewAccessibilityServicesActivity extends FragmentActivity 
             return;
         }
 
-        new AlertDialog.Builder(this)
-                .setView(createDialogView())
-                .setPositiveButton(R.string.ok, null)
-                .setNeutralButton(R.string.settings, (dialog, which) ->
-                        startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)))
-                .setOnDismissListener((dialog) -> finish())
-                .show();
-    }
-
-    private @NonNull View createDialogView() {
         AccessibilityManager accessibilityManager = getSystemService(
                 AccessibilityManager.class);
         List<AccessibilityServiceInfo> services = accessibilityManager
                 .getEnabledAccessibilityServiceList(AccessibilityServiceInfo.FEEDBACK_ALL_MASK);
+
+        new AlertDialog.Builder(this)
+                .setView(createDialogView(services))
+                .setPositiveButton(R.string.ok, null)
+                .setNeutralButton(R.string.settings, (dialog, which) -> {
+                    if (services.size() == 1) {
+                        startAccessibilityScreen(services.get(0).getResolveInfo().serviceInfo);
+                    } else {
+                        startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS));
+                    }
+                })
+                .setOnDismissListener((dialog) -> finish())
+                .show();
+    }
+
+    private @NonNull View createDialogView(List<AccessibilityServiceInfo> services) {
         AppOpsManager appOpsManager = getSystemService(AppOpsManager.class);
 
         LayoutInflater layoutInflater = LayoutInflater.from(this);
@@ -76,7 +84,8 @@ public final class ReviewAccessibilityServicesActivity extends FragmentActivity 
         int numServices = services.size();
         for (int i = 0; i < numServices; i++) {
             ResolveInfo resolveInfo = services.get(i).getResolveInfo();
-            ApplicationInfo appInfo = resolveInfo.serviceInfo.applicationInfo;
+            ServiceInfo serviceInfo = resolveInfo.serviceInfo;
+            ApplicationInfo appInfo = serviceInfo.applicationInfo;
             CharSequence label = getLabel(resolveInfo);
             long lastAccessTime = getLastAccessTime(appInfo, appOpsManager);
 
@@ -123,11 +132,20 @@ public final class ReviewAccessibilityServicesActivity extends FragmentActivity 
                                     Utils.getAbsoluteTimeString(this, lastAccessTime)));
                 }
 
+                itemView.setOnClickListener((v) -> startAccessibilityScreen(serviceInfo));
+
                 servicesListView.addView(itemView);
             }
         }
 
         return view;
+    }
+
+    private void startAccessibilityScreen(ServiceInfo serviceInfo) {
+        Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_DETAILS_SETTINGS);
+        intent.putExtra(Intent.EXTRA_COMPONENT_NAME,
+                new ComponentName(serviceInfo.packageName, serviceInfo.name).flattenToString());
+        startActivity(intent);
     }
 
     private @NonNull CharSequence getLabel(@NonNull ResolveInfo resolveInfo) {
