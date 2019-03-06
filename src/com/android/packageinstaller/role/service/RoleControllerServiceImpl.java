@@ -182,6 +182,31 @@ public class RoleControllerServiceImpl extends RoleControllerService {
         });
     }
 
+    @Override
+    public boolean onIsApplicationQualifiedForRole(@NonNull String roleName,
+            @NonNull String packageName) {
+        Role role = Roles.get(this).get(roleName);
+        if (role == null) {
+            return false;
+        }
+        if (!role.isAvailable(this)) {
+            return false;
+        }
+        return role.isPackageQualified(packageName, this);
+    }
+
+    @Override
+    public boolean onIsRoleVisible(@NonNull String roleName) {
+        Role role = Roles.get(this).get(roleName);
+        if (role == null) {
+            return false;
+        }
+        if (!role.isAvailable(this)) {
+            return false;
+        }
+        return role.isVisibleAsUser(Process.myUserHandle(), this);
+    }
+
     private void enforceCallerSystemUid(@NonNull String methodName) {
         if (Binder.getCallingUid() != Process.SYSTEM_UID) {
             throw new SecurityException("Only the system process call " + methodName + "()");
