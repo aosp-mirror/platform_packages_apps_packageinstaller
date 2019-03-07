@@ -39,8 +39,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"तभी मंज़ूरी दें जब ऐप्लिकेशन का इस्तेमाल हो रहा हो"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"ऐप्लिकेशन"</string>
     <string name="app_permissions" msgid="2778362347879465223">"ऐप्लिकेशन की अनुमतियां"</string>
-    <!-- no translation found for app_permission_manager (3802609813311662642) -->
-    <skip />
+    <string name="app_permission_manager" msgid="3802609813311662642">"अनुमतियों का प्रबंधन"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"दोबारा न पूछें"</string>
     <string name="no_permissions" msgid="2193893107241172888">"किसी अनुमति की ज़रूरत नहीं है"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"दूसरी अनुमतियां"</string>
@@ -53,8 +52,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"ऐसी कार्रवाई करें जिसकी जानकारी नहीं है"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_1">%2$d</xliff:g> में से <xliff:g id="COUNT_0">%1$d</xliff:g> ऐप्लिकेशन को अनुमति मिली है"</string>
     <string name="permission_usage_header" msgid="8802963718365732792">"हाल ही में इस्तेमाल हुईं अनुमतियां"</string>
-    <!-- no translation found for permission_usage_view_details (7398825662321010957) -->
-    <skip />
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"अनुमतियों का डैशबोर्ड देखें"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"सिस्टम के ऐप्लिकेशन दिखाएं"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"सिस्टम के ऐप्लिकेशन छिपाएं"</string>
     <string name="no_apps" msgid="2377153782338039463">"किसी ऐप्लिकेशन को इस अनुमति की ज़रूरत नहीं है"</string>
@@ -93,12 +91,23 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"मौजूदा अनुमतियां"</string>
     <string name="message_staging" msgid="641286607664721291">"ऐप्लिकेशन तैयार किया जा रहा है…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"ऐप्लिकेशन के बारे में कोई जानकारी नहीं है"</string>
-    <!-- no translation found for permission_usage_title (6808284837306026819) -->
-    <skip />
-    <!-- no translation found for permission_usage_summary (5323807746329287417) -->
-    <!-- no translation found for permission_usage_summary_background (7596001658859120646) -->
-    <!-- no translation found for permission_usage_summary_duration (896006189476160370) -->
-    <!-- no translation found for permission_usage_summary_background_duration (6112860268441134618) -->
+    <string name="permission_usage_title" msgid="6808284837306026819">"डैशबोर्ड"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="one">पिछले एक्सेस की जानकारी: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> बार एक्सेस किया गया</item>
+      <item quantity="other">पिछले एक्सेस की जानकारी: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> बार एक्सेस किया गया</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="one">पिछले एक्सेस की जानकारी: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> बार एक्सेस किया गया (बैकग्राउंड में <xliff:g id="NUM_5">%3$s</xliff:g> बार)</item>
+      <item quantity="other">पिछले एक्सेस की जानकारी: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> बार एक्सेस किया गया (बैकग्राउंड में <xliff:g id="NUM_5">%3$s</xliff:g> बार)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="one">पिछले एक्सेस की जानकारी: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> बार एक्सेस किया गया\nअवधि: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="other">पिछले एक्सेस की जानकारी: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> बार एक्सेस किया गया\nअवधि: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="one">पिछले एक्सेस की जानकारी: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> बार एक्सेस किया गया (बैकग्राउंड में <xliff:g id="NUM_6">%3$s</xliff:g> बार)\nअवधि:<xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="other">पिछले एक्सेस की जानकारी: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> बार एक्सेस किया गया (बैकग्राउंड में <xliff:g id="NUM_6">%3$s</xliff:g> बार)\nअवधि:<xliff:g id="TIME_7">%3$s</xliff:g></item>
+    </plurals>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"कोई भी अनुमति"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"किसी भी समय"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"पिछले सात दिनों में"</string>
@@ -141,8 +150,7 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> ने आपसे <xliff:g id="PERM">%2$s</xliff:g> नहीं ली है."</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"अनुमतियों के इस्तेमाल से जुड़ी ज़्यादा जानकारी देखें"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"पिछली बार एक्सेस किया गया: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
-    <!-- no translation found for app_permission_never_accessed_summary (594285912530635023) -->
-    <skip />
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"कभी एक्सेस नहीं किया गया"</string>
     <string name="allowed_header" msgid="6279244592227088158">"अनुमति है"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"सिर्फ़ इस्तेमाल में होने पर अनुमति है"</string>
     <string name="denied_header" msgid="2277998574238617699">"मंज़ूरी नहीं मिली"</string>
