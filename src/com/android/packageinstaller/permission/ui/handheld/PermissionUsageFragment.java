@@ -492,7 +492,8 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
 
                 parent.addPreference(createPermissionUsagePreference(context, appPermissionUsage,
                         groupUsage, accessTimeString));
-                parent.addSummaryIcon(groupUsage.getGroup().getIconResId());
+                parent.addSummaryIcon(groupUsage.getGroup().getIconResId(),
+                        groupUsage.getGroup().getLabel());
             }
 
             setLoading(false, true);
@@ -591,7 +592,7 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
                     Utils.applyTint(context, icon, android.R.attr.colorControlNormal),
                     // The cast should not be a prob in practice
                     groupToAppCount.get(group.getName()),
-                    R.string.app_permission_usage_bar_label);
+                    R.string.app_permission_usage_bar_label, group.getLabel());
 
             barViewInfo.setClickListener(v -> {
                 mFilterGroup = group.getName();

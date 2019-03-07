@@ -17,6 +17,7 @@
 package com.android.packageinstaller.permission.ui.handheld;
 
 import android.content.Context;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,7 @@ import android.widget.ImageView;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceViewHolder;
@@ -39,7 +41,7 @@ import java.util.List;
 public class ExpandablePreferenceGroup extends PreferenceGroup {
     private @NonNull Context mContext;
     private @NonNull List<Preference> mPreferences;
-    private @NonNull List<Integer> mSummaryIcons;
+    private @NonNull List<Pair<Integer, CharSequence>> mSummaryIcons;
     private boolean mExpanded;
 
     public ExpandablePreferenceGroup(@NonNull Context context) {
@@ -100,7 +102,11 @@ public class ExpandablePreferenceGroup extends PreferenceGroup {
                 ViewGroup group = (ViewGroup) inflater.inflate(R.layout.title_summary_image_view,
                         null);
                 ImageView imageView = group.requireViewById(R.id.icon);
-                imageView.setImageResource(mSummaryIcons.get(i));
+                Pair<Integer, CharSequence> summaryIcons = mSummaryIcons.get(i);
+                imageView.setImageResource(summaryIcons.first);
+                if (summaryIcons.second != null) {
+                    imageView.setContentDescription(summaryIcons.second);
+                }
                 summaryFrame.addView(group);
             }
         }
@@ -117,7 +123,7 @@ public class ExpandablePreferenceGroup extends PreferenceGroup {
      *
      * @param resId the resourceId of the drawable to use as the icon.
      */
-    public void addSummaryIcon(@DrawableRes int resId) {
-        mSummaryIcons.add(resId);
+    public void addSummaryIcon(@DrawableRes int resId, @Nullable CharSequence contentDescription) {
+        mSummaryIcons.add(Pair.create(resId, contentDescription));
     }
 }
