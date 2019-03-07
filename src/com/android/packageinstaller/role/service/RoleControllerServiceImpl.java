@@ -448,7 +448,7 @@ public class RoleControllerServiceImpl extends RoleControllerService {
     }
 
     @WorkerThread
-    @Override
+    //@Override
     public void onSmsKillSwitchToggled(boolean enabled) {
         PackageManager packageManager = getPackageManager();
         List<PackageInfo> installedPackages = getPackageManager().getInstalledPackages(0);
