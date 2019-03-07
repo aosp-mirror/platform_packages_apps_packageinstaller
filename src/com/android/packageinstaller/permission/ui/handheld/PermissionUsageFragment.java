@@ -367,9 +367,6 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
         if (appPermissionUsages.isEmpty() || getActivity() == null) {
             return;
         }
-        if (mFinishedInitialLoad) {
-            setProgressBarVisible(true);
-        }
         Context context = getActivity();
 
         PreferenceScreen screen = getPreferenceScreen();
