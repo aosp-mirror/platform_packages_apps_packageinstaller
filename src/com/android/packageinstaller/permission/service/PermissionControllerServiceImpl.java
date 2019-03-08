@@ -52,7 +52,6 @@ import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.model.PermissionUsages;
 import com.android.packageinstaller.permission.utils.Utils;
-import com.android.packageinstaller.role.service.PermissionControllerServiceImplRoleMixin;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlSerializer;
@@ -492,18 +491,6 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
                     groupUsers.valueAt(groupNum)));
         }
         return users;
-    }
-
-    @Override
-    public boolean onIsApplicationQualifiedForRole(@NonNull String roleName,
-            @NonNull String packageName) {
-        return PermissionControllerServiceImplRoleMixin.onIsApplicationQualifiedForRole(roleName,
-                packageName, this);
-    }
-
-    @Override
-    public boolean onIsRoleVisible(@NonNull String roleName) {
-        return PermissionControllerServiceImplRoleMixin.onIsRoleVisible(roleName, this);
     }
 
     @Override
