@@ -233,7 +233,7 @@ public class AppPermissionUsageFragment extends SettingsWithButtonHeader impleme
 
         final AppPermissionUsage appPermissionUsage = permissionUsages.get(0);
         final List<AppPermissionUsage.GroupUsage> groupUsages = appPermissionUsage.getGroupUsages();
-        groupUsages.sort(Comparator.comparing(GroupUsage::getAccessCount).reversed());
+        groupUsages.sort(Comparator.comparing(GroupUsage::getLastAccessTime).reversed());
 
         final int permissionCount = groupUsages.size();
         for (int permissionIdx = 0; permissionIdx < permissionCount; permissionIdx++) {
