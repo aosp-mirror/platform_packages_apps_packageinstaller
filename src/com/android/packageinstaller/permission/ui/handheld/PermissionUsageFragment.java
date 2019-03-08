@@ -114,7 +114,6 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
     private @NonNull PermissionUsages mPermissionUsages;
 
     private Collator mCollator;
-    private ArraySet<String> mLauncherPkgs;
 
     private String mFilterGroup;
 
@@ -200,7 +199,6 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
         mFilterGroup = null;
         mCollator = Collator.getInstance(
                 context.getResources().getConfiguration().getLocales().get(0));
-        mLauncherPkgs = Utils.getLauncherPackages(context);
         mPermissionUsages = new PermissionUsages(context);
     }
 
@@ -397,7 +395,8 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
                         || groupUsage.getLastAccessTime() < startTime) {
                     continue;
                 }
-                final boolean isSystemApp = Utils.isSystem(appUsage.getApp(), mLauncherPkgs);
+                final boolean isSystemApp = !Utils.isGroupOrBgGroupUserSensitive(
+                        groupUsage.getGroup());
                 if (!mHasSystemApps) {
                     if (isSystemApp) {
                         mHasSystemApps = true;

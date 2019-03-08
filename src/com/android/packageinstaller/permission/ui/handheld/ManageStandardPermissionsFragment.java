@@ -20,7 +20,6 @@ import static java.util.concurrent.TimeUnit.DAYS;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.ArraySet;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -57,7 +56,6 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
 
     private @NonNull PermissionUsages mPermissionUsages;
     private @NonNull AppEntitiesHeaderController mAppUsageController;
-    private @NonNull ArraySet<String> mLauncherPkgs;
 
     /**
      * @return A new fragment
@@ -72,7 +70,6 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
         super.onCreate(icicle);
 
         mPermissionUsages = new PermissionUsages(getContext());
-        mLauncherPkgs = Utils.getLauncherPackages(getContext());
     }
 
     @Override
@@ -185,9 +182,6 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
             if (appPermissionUsage.getAccessCount() <= 0) {
                 continue;
             }
-            if (Utils.isSystem(appPermissionUsage.getApp(), mLauncherPkgs)) {
-                continue;
-            }
 
             // Get the msot recent usage by this app.
             GroupUsage mostRecentUsage = null;
@@ -201,6 +195,9 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
                 }
                 // STOPSHIP: Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
                 if (groupUsage.getGroup().getLabel().equals("Storage")) {
+                    continue;
+                }
+                if (!Utils.isGroupOrBgGroupUserSensitive(groupUsage.getGroup())) {
                     continue;
                 }
 

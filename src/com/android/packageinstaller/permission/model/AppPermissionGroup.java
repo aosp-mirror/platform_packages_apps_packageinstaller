@@ -428,6 +428,22 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         return false;
     }
 
+    /**
+     * Are any of the permissions in this group user sensitive.
+     *
+     * @return {@code true} if any of the permissions in the group is user sensitive.
+     */
+    public boolean isUserSensitive() {
+        final int permissionCount = mPermissions.size();
+        for (int i = 0; i < permissionCount; i++) {
+            Permission permission = mPermissions.valueAt(i);
+            if (permission.isUserSensitive()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void unsetReviewRequired() {
         final int permissionCount = mPermissions.size();
         for (int i = 0; i < permissionCount; i++) {

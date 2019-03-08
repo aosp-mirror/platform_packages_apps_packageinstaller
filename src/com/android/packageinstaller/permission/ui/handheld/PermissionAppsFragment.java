@@ -21,7 +21,6 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.ArrayMap;
-import android.util.ArraySet;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -74,8 +73,6 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
 
     private PreferenceScreen mExtraScreen;
 
-    private ArraySet<String> mLauncherPkgs;
-
     private boolean mShowSystem;
     private boolean mHasSystemApps;
     private MenuItem mShowSystemMenu;
@@ -99,7 +96,6 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
         if (ab != null) {
             ab.setDisplayHomeAsUpEnabled(true);
         }
-        mLauncherPkgs = Utils.getLauncherPackages(getContext());
 
         String groupName = getArguments().getString(Intent.EXTRA_PERMISSION_NAME);
         mPermissionApps = new PermissionApps(getActivity(), groupName, this);
@@ -252,7 +248,7 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
                 existingPref.setOrder(Preference.DEFAULT_ORDER);
             }
 
-            boolean isSystemApp = Utils.isSystem(app, mLauncherPkgs);
+            boolean isSystemApp = !Utils.isGroupOrBgGroupUserSensitive(group);
 
             if (isSystemApp && !menuOptionsInvalided) {
                 mHasSystemApps = true;
