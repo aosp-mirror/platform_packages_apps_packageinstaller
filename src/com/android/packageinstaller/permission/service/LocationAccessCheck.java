@@ -96,7 +96,6 @@ import androidx.core.util.Preconditions;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.ui.AppPermissionActivity;
 import com.android.packageinstaller.permission.utils.CollectionUtils;
-import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 
 import java.io.BufferedReader;
@@ -501,8 +500,8 @@ public class LocationAccessCheck {
                     continue;
                 }
 
-                // Do not show notification for apps that have the background permission by default
-                if (bgLocationGroup.hasGrantedByDefaultPermission()) {
+                // Do not show notification for permissions that are not user sensitive
+                if (!bgLocationGroup.isUserSensitive()) {
                     continue;
                 }
 
