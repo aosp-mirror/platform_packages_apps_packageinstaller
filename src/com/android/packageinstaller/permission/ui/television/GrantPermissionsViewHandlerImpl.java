@@ -1,5 +1,7 @@
 package com.android.packageinstaller.permission.ui.television;
 
+import static com.android.packageinstaller.permission.ui.GrantPermissionsActivity.LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON;
+
 import android.content.Context;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.Icon;
@@ -14,8 +16,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.android.permissioncontroller.R;
 import com.android.packageinstaller.permission.ui.GrantPermissionsViewHandler;
+import com.android.permissioncontroller.R;
 
 /**
  * TV-specific view handler for the grant permissions activity.
@@ -80,10 +82,8 @@ public final class GrantPermissionsViewHandlerImpl implements GrantPermissionsVi
 
     @Override
     public void updateUi(String groupName, int groupCount, int groupIndex, Icon icon,
-            CharSequence message, CharSequence detailMessage, boolean showForegroundChooser,
-            boolean showDoNotAsk) {
+            CharSequence message, CharSequence detailMessage, CharSequence[] buttonLabels) {
         // TODO: Handle detailMessage
-        // TODO: Handle showForegroundChooser
 
         mGroupName = groupName;
 
@@ -93,7 +93,9 @@ public final class GrantPermissionsViewHandlerImpl implements GrantPermissionsVi
             mIconView.setImageIcon(icon);
         }
 
-        mHardDenyButton.setVisibility(showDoNotAsk ? View.VISIBLE : View.GONE);
+        mHardDenyButton.setVisibility(
+                buttonLabels[LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON] != null ? View.VISIBLE
+                        : View.GONE);
         if (groupCount > 1) {
             mCurrentGroupView.setVisibility(View.VISIBLE);
             mCurrentGroupView.setText(mContext.getString(R.string.current_permission_template,

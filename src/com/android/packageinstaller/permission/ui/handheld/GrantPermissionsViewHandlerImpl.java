@@ -16,6 +16,12 @@
 
 package com.android.packageinstaller.permission.ui.handheld;
 
+import static com.android.packageinstaller.permission.ui.GrantPermissionsActivity.LABEL_ALLOW_ALWAYS_BUTTON;
+import static com.android.packageinstaller.permission.ui.GrantPermissionsActivity.LABEL_ALLOW_BUTTON;
+import static com.android.packageinstaller.permission.ui.GrantPermissionsActivity.LABEL_ALLOW_FOREGROUND_BUTTON;
+import static com.android.packageinstaller.permission.ui.GrantPermissionsActivity.LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON;
+import static com.android.packageinstaller.permission.ui.GrantPermissionsActivity.LABEL_DENY_BUTTON;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Icon;
@@ -43,10 +49,7 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
     public static final String ARG_GROUP_ICON = "ARG_GROUP_ICON";
     public static final String ARG_GROUP_MESSAGE = "ARG_GROUP_MESSAGE";
     private static final String ARG_GROUP_DETAIL_MESSAGE = "ARG_GROUP_DETAIL_MESSAGE";
-
-    public static final String ARG_GROUP_SHOW_DO_NOT_ASK = "ARG_GROUP_SHOW_DO_NOT_ASK";
-    private static final String ARG_GROUP_SHOW_FOREGOUND_CHOOSER =
-            "ARG_GROUP_SHOW_FOREGOUND_CHOOSER";
+    private static final String ARG_DIALOG_BUTTON_LABELS = "ARG_DIALOG_BUTTON_LABELS";
 
     // Animation parameters.
     private static final long SWITCH_TIME_MILLIS = 75;
@@ -64,9 +67,7 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
     private Icon mGroupIcon;
     private CharSequence mGroupMessage;
     private CharSequence mDetailMessage;
-
-    private boolean mShowDonNotAsk;
-    private boolean mShowForegroundChooser;
+    private CharSequence[] mButtonLabels;
 
     // Views
     private ImageView mIconView;
@@ -98,9 +99,7 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         arguments.putParcelable(ARG_GROUP_ICON, mGroupIcon);
         arguments.putCharSequence(ARG_GROUP_MESSAGE, mGroupMessage);
         arguments.putCharSequence(ARG_GROUP_DETAIL_MESSAGE, mDetailMessage);
-
-        arguments.putBoolean(ARG_GROUP_SHOW_DO_NOT_ASK, mShowDonNotAsk);
-        arguments.putBoolean(ARG_GROUP_SHOW_FOREGOUND_CHOOSER, mShowForegroundChooser);
+        arguments.putCharSequenceArray(ARG_DIALOG_BUTTON_LABELS, mButtonLabels);
 
     }
 
@@ -112,17 +111,14 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         mGroupCount = savedInstanceState.getInt(ARG_GROUP_COUNT);
         mGroupIndex = savedInstanceState.getInt(ARG_GROUP_INDEX);
         mDetailMessage = savedInstanceState.getCharSequence(ARG_GROUP_DETAIL_MESSAGE);
-
-        mShowDonNotAsk = savedInstanceState.getBoolean(ARG_GROUP_SHOW_DO_NOT_ASK);
-        mShowForegroundChooser = savedInstanceState.getBoolean(ARG_GROUP_SHOW_FOREGOUND_CHOOSER);
+        mButtonLabels = savedInstanceState.getCharSequenceArray(ARG_DIALOG_BUTTON_LABELS);
 
         updateAll();
     }
 
     @Override
     public void updateUi(String groupName, int groupCount, int groupIndex, Icon icon,
-            CharSequence message, CharSequence detailMessage, boolean showForegroundChooser,
-            boolean showDonNotAsk) {
+            CharSequence message, CharSequence detailMessage, CharSequence[] buttonLabels) {
         boolean isNewGroup = mGroupIndex != groupIndex;
 
         mGroupName = groupName;
@@ -130,9 +126,8 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         mGroupIndex = groupIndex;
         mGroupIcon = icon;
         mGroupMessage = message;
-        mShowDonNotAsk = showDonNotAsk;
         mDetailMessage = detailMessage;
-        mShowForegroundChooser = showForegroundChooser;
+        mButtonLabels = buttonLabels;
 
         // If this is a second (or later) permission and the views exist, then animate.
         if (mIconView != null) {
@@ -143,7 +138,7 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
     private void updateAll() {
         updateDescription();
         updateDetailDescription();
-        updateDoNotAskAndForegroundOption();
+        updateButtons();
     }
 
     @Override
@@ -197,20 +192,40 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         }
     }
 
-    private void updateDoNotAskAndForegroundOption() {
-        if (mShowForegroundChooser) {
+    private void updateButtons() {
+        if (mButtonLabels[LABEL_ALLOW_BUTTON] == null) {
             mAllowButton.setVisibility(View.GONE);
-            mAllowAlwaysButton.setVisibility(View.VISIBLE);
-            mAllowForegroundButton.setVisibility(View.VISIBLE);
         } else {
             mAllowButton.setVisibility(View.VISIBLE);
-            mAllowAlwaysButton.setVisibility(View.GONE);
-            mAllowForegroundButton.setVisibility(View.GONE);
+            mAllowButton.setText(mButtonLabels[LABEL_ALLOW_BUTTON]);
         }
-        if (mShowDonNotAsk) {
-            mDenyAndDontAskAgainButton.setVisibility(View.VISIBLE);
+
+        if (mButtonLabels[LABEL_ALLOW_ALWAYS_BUTTON] == null) {
+            mAllowAlwaysButton.setVisibility(View.GONE);
         } else {
+            mAllowAlwaysButton.setVisibility(View.VISIBLE);
+            mAllowAlwaysButton.setText(mButtonLabels[LABEL_ALLOW_ALWAYS_BUTTON]);
+        }
+
+        if (mButtonLabels[LABEL_ALLOW_FOREGROUND_BUTTON] == null) {
+            mAllowForegroundButton.setVisibility(View.GONE);
+        } else {
+            mAllowForegroundButton.setVisibility(View.VISIBLE);
+            mAllowForegroundButton.setText(mButtonLabels[LABEL_ALLOW_FOREGROUND_BUTTON]);
+        }
+
+        if (mButtonLabels[LABEL_DENY_BUTTON] == null) {
+            mDenyButton.setVisibility(View.GONE);
+        } else {
+            mDenyButton.setVisibility(View.VISIBLE);
+            mDenyButton.setText(mButtonLabels[LABEL_DENY_BUTTON]);
+        }
+
+        if (mButtonLabels[LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON] == null) {
             mDenyAndDontAskAgainButton.setVisibility(View.GONE);
+        } else {
+            mDenyAndDontAskAgainButton.setVisibility(View.VISIBLE);
+            mDenyAndDontAskAgainButton.setText(mButtonLabels[LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON]);
         }
 
     }
