@@ -382,4 +382,32 @@
 
     <!-- END PERMISSION FILTER SCREEN -->
 
+    <!-- START GRANDFATHERED MODERN STORAGE GROUP WARNING DIALOG -->
+
+    <style name="GrandfatheredModernStorageGroupWarningDialogHeader">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+    </style>
+
+    <style name="GrandfatheredModernStorageGroupWarningDialogTitleIcon">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <style name="GrandfatheredModernStorageGroupWarningDialogTitleMessage"
+           parent="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- END GRANDFATHERED MODERN STORAGE GROUP WARNING DIALOG -->
+
 </resources>

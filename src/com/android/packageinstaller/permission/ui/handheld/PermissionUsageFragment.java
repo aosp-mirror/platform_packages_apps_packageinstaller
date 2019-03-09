@@ -422,10 +422,6 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
                 if (isSystemApp && !mShowSystem) {
                     continue;
                 }
-                // STOPSHIP: Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
-                if (groupUsage.getGroup().getLabel().equals("Storage")) {
-                    continue;
-                }
 
                 usages.add(Pair.create(appUsage, appGroups.get(groupNum)));
                 used = true;

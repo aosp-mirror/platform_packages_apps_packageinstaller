@@ -372,8 +372,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
         }
         String lastAccessStr = Utils.getAbsoluteLastUsageString(context,
                 PermissionUsages.loadLastGroupUsage(context, group));
-        // STOPSHIP: Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
-        if (lastAccessStr != null && !group.getLabel().equals("Storage")) {
+        if (lastAccessStr != null) {
             pref.setSummary(context.getString(R.string.app_permission_most_recent_summary,
                     lastAccessStr));
         } else if (Utils.isPermissionsHubEnabled()) {

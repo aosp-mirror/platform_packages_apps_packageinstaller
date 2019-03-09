@@ -626,4 +626,14 @@ Allow <xliff:g id="app_name" example="Gmail">%4$s</xliff:g> to upload a bug repo
 
     <!-- Label for the button to NOT allow sharing of the report. [CHAR LIMIT=20] -->
     <string name="incident_report_dialog_deny_label">Deny</string>
+
+    <!-- Title for the warning dialog shown when user tried to revoke a grandfathered modern storage permission.
+    [CHAR LIMIT=100] -->
+    <string name="grandfathered_modern_storage_permission_deny_warning_title">Uninstall the app as permission can\u2019t be denied</string>
+
+    <!-- Content for the warning dialog shown when user tried to revoke a grandfathered modern storage permission [CHAR LIMIT=none] -->
+    <string name="grandfathered_modern_storage_permission_deny_warning_content"><xliff:g id="app_name" example="Gmail">%1$s</xliff:g> has legacy storage permission to keep your previous data accessible.\n\nYou need to uninstall this app and reinstall it, as the app can stop working if this permission is denied.</string>
+
+    <!-- Dismiss with acknowledgment [CHAR LIMIT=30] -->
+    <string name="dismiss_with_acknowledgment">Got it</string>
 </resources>

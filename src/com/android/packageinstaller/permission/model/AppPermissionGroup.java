@@ -18,14 +18,11 @@ package com.android.packageinstaller.permission.model;
 
 import static android.Manifest.permission.ACCESS_BACKGROUND_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
-import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
-import static android.Manifest.permission.READ_MEDIA_AUDIO;
-import static android.Manifest.permission.READ_MEDIA_IMAGES;
-import static android.Manifest.permission.READ_MEDIA_VIDEO;
-import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static android.app.AppOpsManager.MODE_ALLOWED;
 import static android.app.AppOpsManager.MODE_FOREGROUND;
 import static android.app.AppOpsManager.MODE_IGNORED;
+import static android.app.AppOpsManager.OPSTR_LEGACY_STORAGE;
+import static android.content.pm.PackageManager.FLAG_PERMISSION_HIDDEN;
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 
 import android.app.ActivityManager;
@@ -39,7 +36,6 @@ import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
 import android.os.Build;
 import android.os.UserHandle;
-import android.os.storage.StorageManager;
 import android.permission.PermissionManager;
 import android.provider.Settings;
 import android.text.TextUtils;
@@ -110,6 +106,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
     private final boolean mAppSupportsRuntimePermissions;
     private final boolean mIsEphemeralApp;
+    private final boolean mIsGrandfatheredModernStorageGroup;
     private boolean mContainsEphemeralPermission;
     private boolean mContainsPreRuntimePermission;
 
@@ -309,6 +306,10 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         for (int i = 0; i < numPermissions; i++) {
             Permission permission = allPermissions.valueAt(i);
 
+            if ((permission.getFlags() & FLAG_PERMISSION_HIDDEN) != 0) {
+                continue;
+            }
+
             if (permission.isBackgroundPermission()) {
                 if (group.getBackgroundPermissions() == null) {
                     group.mBackgroundPermissions = new AppPermissionGroup(group.mContext,
@@ -337,6 +338,10 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                     }
                 }
             }
+        }
+
+        if (group.getPermissions().isEmpty()) {
+            return null;
         }
 
         return group;
@@ -375,12 +380,13 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             @StringRes int backgroundRequest, @StringRes int backgroundRequestDetail,
             String iconPkg, int iconResId,
             UserHandle userHandle, boolean delayChanges) {
+        int targetSDK = packageInfo.applicationInfo.targetSdkVersion;
+
         mContext = context;
         mUserHandle = userHandle;
         mPackageManager = mContext.getPackageManager();
         mPackageInfo = packageInfo;
-        mAppSupportsRuntimePermissions = packageInfo.applicationInfo
-                .targetSdkVersion > Build.VERSION_CODES.LOLLIPOP_MR1;
+        mAppSupportsRuntimePermissions = targetSDK > Build.VERSION_CODES.LOLLIPOP_MR1;
         mIsEphemeralApp = packageInfo.applicationInfo.isInstantApp();
         mAppOps = context.getSystemService(AppOpsManager.class);
         mActivityManager = context.getSystemService(ActivityManager.class);
@@ -403,6 +409,10 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             mIconPkg = context.getPackageName();
             mIconResId = R.drawable.ic_perm_device_info;
         }
+
+        mIsGrandfatheredModernStorageGroup = targetSDK >= Build.VERSION_CODES.Q
+                        && mAppOps.unsafeCheckOpNoThrow(OPSTR_LEGACY_STORAGE,
+                        packageInfo.applicationInfo.uid, packageInfo.packageName) == MODE_ALLOWED;
     }
 
     public boolean doesSupportRuntimePermissions() {
@@ -1055,6 +1065,18 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
     }
 
     /**
+     * Is the group a grandfathered modern storage permission group.
+     *
+     * <p>Such permissions cannot be revoked. The user needs to uninstall and reinstall the app to
+     * reset the permission
+     *
+     * @return {@code true} iff this is a grandfathered modern storage permission group.
+     */
+    public boolean isGrandfatheredModernStorageGroup() {
+        return mIsGrandfatheredModernStorageGroup;
+    }
+
+    /**
      * Whether this is group that contains all the background permission for regular permission
      * group.
      *
@@ -1186,7 +1208,6 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
         int numPermissions = mPermissions.size();
         boolean shouldKillApp = false;
-        boolean shouldUpdateStorage = false;
 
         for (int i = 0; i < numPermissions; i++) {
             Permission permission = mPermissions.valueAt(i);
@@ -1232,50 +1253,6 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                         shouldKillApp |= allowAppOp(permission, uid);
                     } else {
                         shouldKillApp |= disallowAppOp(permission, uid);
-                    }
-                }
-            }
-
-            switch (permission.getName()) {
-                case READ_MEDIA_AUDIO:
-                case READ_MEDIA_VIDEO:
-                case READ_MEDIA_IMAGES:
-                    shouldUpdateStorage = true;
-                    break;
-            }
-        }
-
-        // Starting in Q, the legacy "Storage" permission has been split into
-        // new strongly-typed runtime permissions. When older apps request
-        // the "Storage" permission, we already translate that into requests for
-        // the new split permissions, but those older apps may be confused if
-        // the legacy permission isn't actually granted. Thus, as a special
-        // case, whenever any of the new split permissions are granted to an
-        // app, we also grant them the legacy "Storage" permission.
-        if (StorageManager.hasIsolatedStorage() && shouldUpdateStorage) {
-            boolean audioGranted = mContext.checkPermission(READ_MEDIA_AUDIO,
-                    -1, uid) == PERMISSION_GRANTED;
-            boolean videoGranted = mContext.checkPermission(READ_MEDIA_VIDEO,
-                    -1, uid) == PERMISSION_GRANTED;
-            boolean imagesGranted = mContext.checkPermission(READ_MEDIA_IMAGES,
-                    -1, uid) == PERMISSION_GRANTED;
-
-            if (!ArrayUtils.isEmpty(mPackageInfo.requestedPermissions)) {
-                for (String permission : mPackageInfo.requestedPermissions) {
-                    if (READ_EXTERNAL_STORAGE.equals(permission)
-                            || WRITE_EXTERNAL_STORAGE.equals(permission)) {
-                        if (audioGranted || videoGranted || imagesGranted) {
-                            mPackageManager.grantRuntimePermission(mPackageInfo.packageName,
-                                    permission, mUserHandle);
-                        } else {
-                            boolean isCurrentlyGranted = mContext.checkPermission(permission, -1,
-                                    uid) == PERMISSION_GRANTED;
-
-                            if (isCurrentlyGranted) {
-                                mPackageManager.revokeRuntimePermission(mPackageInfo.packageName,
-                                        permission, mUserHandle);
-                            }
-                        }
                     }
                 }
             }
