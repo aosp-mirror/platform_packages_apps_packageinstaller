@@ -74,12 +74,10 @@ public interface GrantPermissionsViewHandler {
      * @param message the message to display the user
      * @param detailMessage another message to display to the user. This clarifies "message" in more
      *                      detail
-     * @param showForegroundChooser whether to show the "only in foreground / always" option
-     * @param showDoNotAsk whether to show the "do not ask again" option
+     * @param buttonLabels labels for each button. Use null to make the button gone
      */
     void updateUi(String groupName, int groupCount, int groupIndex, Icon icon,
-            CharSequence message, CharSequence detailMessage, boolean showForegroundChooser,
-            boolean showDoNotAsk);
+            CharSequence message, CharSequence detailMessage, CharSequence[] buttonLabels);
 
     /**
      * Sets the result listener that will be notified when the user responds

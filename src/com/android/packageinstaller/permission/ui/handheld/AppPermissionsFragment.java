@@ -233,7 +233,7 @@ public final class AppPermissionsFragment extends SettingsWithButtonHeader {
                                     lastAccessStr));
                 } else {
                     preference.setGroupSummary(group);
-                    if (preference.getSummary().length() == 0) {
+                    if (preference.getSummary().length() == 0 && Utils.isPermissionsHubEnabled()) {
                         preference.setSummary(
                                 context.getString(R.string.app_permission_never_accessed_summary));
                     }

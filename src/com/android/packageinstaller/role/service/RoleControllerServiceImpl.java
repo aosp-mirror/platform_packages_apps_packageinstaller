@@ -17,18 +17,19 @@
 package com.android.packageinstaller.role.service;
 
 import android.app.AppOpsManager;
+import android.app.role.RoleControllerService;
 import android.app.role.RoleManager;
 import android.app.role.RoleManagerCallback;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PermissionInfo;
+import android.os.Binder;
 import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Process;
 import android.os.UserHandle;
-import android.rolecontrollerservice.RoleControllerService;
 import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.ArraySet;
@@ -38,6 +39,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 
+import com.android.packageinstaller.permission.utils.ArrayUtils;
 import com.android.packageinstaller.permission.utils.CollectionUtils;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.packageinstaller.role.model.Role;
@@ -47,6 +49,7 @@ import com.android.packageinstaller.role.utils.PackageUtils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * Implementation of {@link RoleControllerService}.
@@ -85,6 +88,7 @@ public class RoleControllerServiceImpl extends RoleControllerService {
 
     @Override
     public void onGrantDefaultRoles(@NonNull RoleManagerCallback callback) {
+        enforceCallerSystemUid("onGrantDefaultRoles");
         if (callback == null) {
             Log.e(LOG_TAG, "callback cannot be null");
             return;
@@ -95,6 +99,7 @@ public class RoleControllerServiceImpl extends RoleControllerService {
     @Override
     public void onAddRoleHolder(@NonNull String roleName, @NonNull String packageName, int flags,
             @NonNull RoleManagerCallback callback) {
+        enforceCallerSystemUid("onAddRoleHolder");
         if (callback == null) {
             Log.e(LOG_TAG, "callback cannot be null");
             return;
@@ -119,6 +124,7 @@ public class RoleControllerServiceImpl extends RoleControllerService {
     @Override
     public void onRemoveRoleHolder(@NonNull String roleName, @NonNull String packageName, int flags,
             @NonNull RoleManagerCallback callback) {
+        enforceCallerSystemUid("onRemoveRoleHolder");
         if (callback == null) {
             Log.e(LOG_TAG, "callback cannot be null");
             return;
@@ -143,6 +149,7 @@ public class RoleControllerServiceImpl extends RoleControllerService {
     @Override
     public void onClearRoleHolders(@NonNull String roleName, int flags,
             @NonNull RoleManagerCallback callback) {
+        enforceCallerSystemUid("onClearRoleHolders");
         if (callback == null) {
             Log.e(LOG_TAG, "callback cannot be null");
             return;
@@ -160,23 +167,52 @@ public class RoleControllerServiceImpl extends RoleControllerService {
     }
 
     @Override
-    public void onSmsKillSwitchToggled(boolean smsRestrictionEnabled) {
+    public void onSmsKillSwitchToggled(boolean enabled) {
+        enforceCallerSystemUid("onSmsKillSwitchToggled");
         mWorkerHandler.post(() -> {
-            PackageManager pm = getPackageManager();
-            ArrayMap<String, Role> roles = Roles.get(this);
+            PackageManager packageManager = getPackageManager();
             List<PackageInfo> installedPackages = getPackageManager().getInstalledPackages(0);
             for (int i = 0, size = installedPackages.size(); i < size; i++) {
                 PackageInfo pkg = installedPackages.get(i);
-                onSmsKillSwitchToggled(smsRestrictionEnabled, pkg,
-                        Utils.getPlatformPermissionsOfGroup(
-                                pm, android.Manifest.permission_group.SMS));
-                onSmsKillSwitchToggled(smsRestrictionEnabled, pkg,
-                        Utils.getPlatformPermissionsOfGroup(
-                                pm, android.Manifest.permission_group.CALL_LOG));
+                onSmsKillSwitchToggled(enabled, pkg, Utils.getPlatformPermissionsOfGroup(
+                        packageManager, android.Manifest.permission_group.SMS));
+                onSmsKillSwitchToggled(enabled, pkg, Utils.getPlatformPermissionsOfGroup(
+                        packageManager, android.Manifest.permission_group.CALL_LOG));
             }
 
-            grantDefaultRoles(null /* callback */);
+            grantDefaultRoles(null);
         });
+    }
+
+    @Override
+    public boolean onIsApplicationQualifiedForRole(@NonNull String roleName,
+            @NonNull String packageName) {
+        Role role = Roles.get(this).get(roleName);
+        if (role == null) {
+            return false;
+        }
+        if (!role.isAvailable(this)) {
+            return false;
+        }
+        return role.isPackageQualified(packageName, this);
+    }
+
+    @Override
+    public boolean onIsRoleVisible(@NonNull String roleName) {
+        Role role = Roles.get(this).get(roleName);
+        if (role == null) {
+            return false;
+        }
+        if (!role.isAvailable(this)) {
+            return false;
+        }
+        return role.isVisibleAsUser(Process.myUserHandle(), this);
+    }
+
+    private void enforceCallerSystemUid(@NonNull String methodName) {
+        if (Binder.getCallingUid() != Process.SYSTEM_UID) {
+            throw new SecurityException("Only the system process call " + methodName + "()");
+        }
     }
 
     void onSmsKillSwitchToggled(boolean smsRestrictionEnabled, PackageInfo pkg,
@@ -333,8 +369,56 @@ public class RoleControllerServiceImpl extends RoleControllerService {
             }
         }
 
+        updateUserSensitive();
+
         if (callback != null) {
             callback.onSuccess();
+        }
+    }
+
+    /**
+     * Update the {@link PackageManager#FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED} and
+     * {@link PackageManager#FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED} for all apps of this user.
+     */
+    private void updateUserSensitive() {
+        PackageManager pm = getPackageManager();
+        UserHandle user = Process.myUserHandle();
+        List<PackageInfo> pkgs = pm.getInstalledPackages(PackageManager.GET_PERMISSIONS);
+        Set<String> platformPerms = Utils.getPlatformPermissions();
+        ArraySet<String> pkgsWithLauncherIcon = Utils.getLauncherPackages(this);
+
+        int numPkgs = pkgs.size();
+        for (int pkgNum = 0; pkgNum < numPkgs; pkgNum++) {
+            PackageInfo pkg = pkgs.get(pkgNum);
+            boolean pkgHasLauncherIcon = pkgsWithLauncherIcon.contains(pkg.packageName);
+            boolean pkgIsSystemApp = (pkg.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0;
+
+            for (String perm : platformPerms) {
+                if (pkg.requestedPermissions == null || !ArrayUtils.contains(
+                        pkg.requestedPermissions, perm)) {
+                    continue;
+                }
+
+                int flags;
+                if (pkgIsSystemApp && !pkgHasLauncherIcon) {
+                    boolean permGrantedByDefault = (pm.getPermissionFlags(perm, pkg.packageName,
+                            user) & PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT) != 0;
+
+                    if (permGrantedByDefault) {
+                        flags = 0;
+                    } else {
+                        flags = PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED;
+                    }
+                } else {
+                    flags = PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED
+                            | PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED;
+                }
+
+                pm.updatePermissionFlags(perm, pkg.packageName,
+                        PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED
+                                | PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED, flags,
+                        user);
+            }
         }
     }
 

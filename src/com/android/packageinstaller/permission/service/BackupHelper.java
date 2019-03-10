@@ -20,9 +20,11 @@ import static android.content.Context.MODE_PRIVATE;
 import static android.content.pm.PackageManager.FLAG_PERMISSION_POLICY_FIXED;
 import static android.content.pm.PackageManager.FLAG_PERMISSION_SYSTEM_FIXED;
 import static android.content.pm.PackageManager.GET_PERMISSIONS;
+import static android.provider.Settings.Secure.LOCATION_PERMISSIONS_UPGRADE_TO_Q_MODE;
 import static android.util.Xml.newSerializer;
 
 import static com.android.packageinstaller.Constants.DELAYED_RESTORE_PERMISSIONS_FILE;
+import static com.android.packageinstaller.permission.utils.Utils.getGroupOfPlatformPermission;
 
 import static org.xmlpull.v1.XmlPullParser.END_DOCUMENT;
 import static org.xmlpull.v1.XmlPullParser.END_TAG;
@@ -30,6 +32,7 @@ import static org.xmlpull.v1.XmlPullParser.START_TAG;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -37,11 +40,14 @@ import android.os.Build;
 import android.os.UserHandle;
 import android.permission.PermissionManager;
 import android.permission.PermissionManager.SplitPermissionInfo;
+import android.provider.Settings;
+import android.text.TextUtils;
 import android.util.Log;
 import android.util.Xml;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.os.BuildCompat;
 
 import com.android.packageinstaller.Constants;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
@@ -56,6 +62,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -252,8 +259,15 @@ public class BackupHelper {
         serializer.startDocument(null, true);
 
         serializer.startTag(null, TAG_PERMISSION_BACKUP);
-        serializer.attribute(null, ATTR_PLATFORM_VERSION,
-                Integer.valueOf(Build.VERSION.SDK_INT).toString());
+
+        if (BuildCompat.isAtLeastQ()) {
+            // STOPSHIP: Remove compatibility code once Q SDK level is declared
+            serializer.attribute(null, ATTR_PLATFORM_VERSION,
+                    Integer.valueOf(Build.VERSION_CODES.Q).toString());
+        } else {
+            serializer.attribute(null, ATTR_PLATFORM_VERSION,
+                    Integer.valueOf(Build.VERSION.SDK_INT).toString());
+        }
 
         serializer.startTag(null, TAG_ALL_GRANTS);
 
@@ -392,13 +406,22 @@ public class BackupHelper {
          *
          * @return The state
          */
-        static @NonNull ArrayList<BackupPermissionState> parseFromXml(@NonNull XmlPullParser parser,
+        static @NonNull List<BackupPermissionState> parseFromXml(@NonNull XmlPullParser parser,
                 @NonNull Context context, int backupPlatformVersion)
                 throws XmlPullParserException {
             String permName = parser.getAttributeValue(null, ATTR_PERMISSION_NAME);
             if (permName == null) {
                 throw new XmlPullParserException("Found " + TAG_PERMISSION + " without "
                         + ATTR_PERMISSION_NAME);
+            }
+
+            // Clear location permission on upgrade to Q or later
+            String group = getGroupOfPlatformPermission(permName);
+            if (backupPlatformVersion < Build.VERSION_CODES.Q && TextUtils.equals(group,
+                    Manifest.permission_group.LOCATION)
+                    && Settings.Secure.getInt(context.getContentResolver(),
+                    LOCATION_PERMISSIONS_UPGRADE_TO_Q_MODE, 0) == 0) {
+                return Collections.emptyList();
             }
 
             ArrayList<String> expandedPermissions = new ArrayList<>();
@@ -428,8 +451,6 @@ public class BackupHelper {
                         "true".equals(parser.getAttributeValue(null, ATTR_USER_FIXED)),
                         "true".equals(parser.getAttributeValue(null, ATTR_WAS_REVIEWED))));
             }
-
-            // TODO: Implement special behavior for location
 
             return parsedPermissions;
         }

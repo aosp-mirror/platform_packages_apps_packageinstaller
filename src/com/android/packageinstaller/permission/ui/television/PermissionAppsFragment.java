@@ -71,7 +71,6 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
     private PreferenceScreen mExtraScreen;
 
     private ArraySet<AppPermissionGroup> mToggledGroups;
-    private ArraySet<String> mLauncherPkgs;
     private boolean mHasConfirmedRevoke;
 
     private boolean mShowSystem;
@@ -85,7 +84,6 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setLoading(true /* loading */, false /* animate */);
-        mLauncherPkgs = Utils.getLauncherPackages(getContext());
         String groupName = getArguments().getString(Intent.EXTRA_PERMISSION_NAME);
         mPermissionApps = new PermissionApps(getActivity(), groupName, this);
     }
@@ -196,7 +194,7 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
                 existingPref = mExtraScreen.findPreference(key);
             }
 
-            boolean isSystemApp = Utils.isSystem(app, mLauncherPkgs);
+            boolean isSystemApp = !Utils.isGroupOrBgGroupUserSensitive(app.getPermissionGroup());
 
             if (isSystemApp && !menuOptionsInvalided) {
                 mHasSystemApps = true;

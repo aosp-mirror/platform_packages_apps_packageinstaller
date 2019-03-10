@@ -26,8 +26,6 @@ import static android.permission.PermissionControllerManager.REASON_INSTALLER_PO
 import static android.permission.PermissionControllerManager.REASON_MALWARE;
 import static android.util.Xml.newSerializer;
 
-import static com.android.packageinstaller.permission.utils.Utils.getLauncherPackages;
-import static com.android.packageinstaller.permission.utils.Utils.isSystem;
 import static com.android.packageinstaller.permission.utils.Utils.shouldShowPermission;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
@@ -41,7 +39,6 @@ import android.permission.PermissionManager;
 import android.permission.RuntimePermissionPresentationInfo;
 import android.permission.RuntimePermissionUsageInfo;
 import android.util.ArrayMap;
-import android.util.ArraySet;
 import android.util.Log;
 import android.util.Xml;
 
@@ -55,7 +52,6 @@ import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.model.PermissionUsages;
 import com.android.packageinstaller.permission.utils.Utils;
-import com.android.packageinstaller.role.service.PermissionControllerServiceImplRoleMixin;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlSerializer;
@@ -396,17 +392,12 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
         boolean countOnlyGranted = (flags & COUNT_ONLY_WHEN_GRANTED) != 0;
 
         List<PackageInfo> pkgs = getPackageManager().getInstalledPackages(GET_PERMISSIONS);
-        ArraySet<String> launcherPkgs = getLauncherPackages(this);
 
         int numApps = 0;
 
         int numPkgs = pkgs.size();
         for (int pkgNum = 0; pkgNum < numPkgs; pkgNum++) {
             PackageInfo pkg = pkgs.get(pkgNum);
-
-            if (!countSystem && isSystem(pkg.applicationInfo, launcherPkgs)) {
-                continue;
-            }
 
             int numPerms = permissionNames.size();
             for (int permNum = 0; permNum < numPerms; permNum++) {
@@ -424,11 +415,15 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
                 } else {
                     AppPermissionGroup bgGroup = group.getBackgroundPermissions();
                     if (bgGroup != null && bgGroup.hasPermission(perm)) {
-                        subGroup = group;
+                        subGroup = bgGroup;
                     }
                 }
 
                 if (subGroup != null) {
+                    if (!countSystem && !subGroup.isUserSensitive()) {
+                        continue;
+                    }
+
                     if (!countOnlyGranted || subGroup.areRuntimePermissionsGranted()) {
                         // The permission might not be granted, but some permissions of the group
                         // are granted. In this case the permission is granted silently when the app
@@ -446,8 +441,6 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
 
     @Override public @NonNull List<RuntimePermissionUsageInfo> onGetPermissionUsages(
             boolean countSystem, long numMillis) {
-        ArraySet<String> launcherPkgs = getLauncherPackages(this);
-
         ArrayMap<CharSequence, Integer> groupUsers = new ArrayMap<>();
 
         long curTime = System.currentTimeMillis();
@@ -465,9 +458,6 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
             if (appPermissionUsage.getAccessCount() <= 0) {
                 continue;
             }
-            if (!countSystem && isSystem(appPermissionUsage.getApp(), launcherPkgs)) {
-                continue;
-            }
 
             List<GroupUsage> appGroups = appPermissionUsage.getGroupUsages();
             int numGroups = appGroups.size();
@@ -478,6 +468,9 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
                     continue;
                 }
                 if (!shouldShowPermission(this, groupUsage.getGroup())) {
+                    continue;
+                }
+                if (!countSystem && !Utils.isGroupOrBgGroupUserSensitive(groupUsage.getGroup())) {
                     continue;
                 }
 
@@ -498,18 +491,6 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
                     groupUsers.valueAt(groupNum)));
         }
         return users;
-    }
-
-    @Override
-    public boolean onIsApplicationQualifiedForRole(@NonNull String roleName,
-            @NonNull String packageName) {
-        return PermissionControllerServiceImplRoleMixin.onIsApplicationQualifiedForRole(roleName,
-                packageName, this);
-    }
-
-    @Override
-    public boolean onIsRoleVisible(@NonNull String roleName) {
-        return PermissionControllerServiceImplRoleMixin.onIsRoleVisible(roleName, this);
     }
 
     @Override

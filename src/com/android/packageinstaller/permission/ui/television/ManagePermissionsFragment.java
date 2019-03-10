@@ -21,20 +21,20 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.preference.Preference;
-import androidx.preference.Preference.OnPreferenceClickListener;
-import androidx.preference.PreferenceScreen;
-import android.util.ArraySet;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.android.permissioncontroller.R;
+import androidx.annotation.Nullable;
+import androidx.preference.Preference;
+import androidx.preference.Preference.OnPreferenceClickListener;
+import androidx.preference.PreferenceScreen;
+
 import com.android.packageinstaller.permission.model.PermissionApps.PmCache;
 import com.android.packageinstaller.permission.model.PermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionGroups;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.permissioncontroller.R;
 
 import java.util.List;
 
@@ -45,8 +45,6 @@ public final class ManagePermissionsFragment extends SettingsWithHeader
     private static final String OS_PKG = "android";
 
     private static final String EXTRA_PREFS_KEY = "extra_prefs_key";
-
-    private ArraySet<String> mLauncherPkgs;
 
     private PermissionGroups mPermissions;
 
@@ -65,7 +63,6 @@ public final class ManagePermissionsFragment extends SettingsWithHeader
         if (ab != null) {
             ab.setDisplayHomeAsUpEnabled(true);
         }
-        mLauncherPkgs = Utils.getLauncherPackages(getContext());
         mPermissions = new PermissionGroups(getContext(), getLoaderManager(), this, false, true);
     }
 

@@ -36,6 +36,12 @@
     <!-- Title for the dialog button to always deny a permission grant from now on. [CHAR LIMIT=60] -->
     <string name="grant_dialog_button_deny_and_dont_ask_again">Deny \u0026 don\u2019t ask again</string>
 
+    <!-- Title for the dialog button to deny a change from foreground to background permission grant. [CHAR LIMIT=60] -->
+    <string name="grant_dialog_button_deny_background">Keep while-in-use access</string>
+
+    <!-- Title for the dialog button to always deny a change from foreground to background permission grant from now on. [CHAR LIMIT=60] -->
+    <string name="grant_dialog_button_deny_background_and_dont_ask_again">Keep and don\u2019t ask again</string>
+
     <!-- Title for the dialog button to get more info about a permission. [CHAR LIMIT=15] -->
     <string name="grant_dialog_button_more_info">More info</string>
 
@@ -92,6 +98,9 @@
 
     <!-- Title for the dialog button to allow a permission grant only when the app is in the foreground. [CHAR LIMIT=60] -->
     <string name="grant_dialog_button_allow_foreground">Allow only while the app is in use</string>
+
+    <!-- Title for the dialog button to allow a change from foreground to background permission grant. [CHAR LIMIT=60]  -->
+    <string name="grant_dialog_button_allow_background">Allow all the time</string>
 
     <!-- Breadcrumb for page of managing application permissions [CHAR LIMIT=50] -->
     <string name="app_permissions_breadcrumb">Apps</string>

@@ -69,8 +69,6 @@ import androidx.core.util.Preconditions;
 import com.android.launcher3.icons.IconFactory;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissionUsage;
-import com.android.packageinstaller.permission.model.AppPermissions;
-import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
 import com.android.permissioncontroller.R;
 
 import java.util.ArrayList;
@@ -78,6 +76,7 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 
 public final class Utils {
 
@@ -406,6 +405,15 @@ public final class Utils {
     }
 
     /**
+     * Get the names of the platform permissions.
+     *
+     * @return the names of the platform permissions.
+     */
+    public static Set<String> getPlatformPermissions() {
+        return PLATFORM_PERMISSIONS.keySet();
+    }
+
+    /**
      * Should UI show this permission.
      *
      * <p>If the user cannot change the group, it should not be shown.
@@ -455,18 +463,16 @@ public final class Utils {
         return context.getPackageManager().getInstalledApplications(0);
     }
 
-    public static boolean isSystem(PermissionApp app, ArraySet<String> launcherPkgs) {
-        return isSystem(app.getAppInfo(), launcherPkgs);
-    }
-
-    public static boolean isSystem(AppPermissions app, ArraySet<String> launcherPkgs) {
-        return isSystem(app.getPackageInfo().applicationInfo, launcherPkgs);
-    }
-
-    public static boolean isSystem(ApplicationInfo info, ArraySet<String> launcherPkgs) {
-        return ((info.flags & ApplicationInfo.FLAG_SYSTEM) != 0)
-                && (info.flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) == 0
-                && !launcherPkgs.contains(info.packageName);
+    /**
+     * Is the group or background group user sensitive?
+     *
+     * @param group The group that might be user sensitive
+     *
+     * @return {@code true} if the group (or it's subgroup) is user sensitive.
+     */
+    public static boolean isGroupOrBgGroupUserSensitive(AppPermissionGroup group) {
+        return group.isUserSensitive() || (group.getBackgroundPermissions() != null
+                && group.getBackgroundPermissions().isUserSensitive());
     }
 
     public static boolean areGroupPermissionsIndividuallyControlled(Context context, String group) {

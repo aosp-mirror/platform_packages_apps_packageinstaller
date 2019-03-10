@@ -39,8 +39,7 @@
     <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"ଆପ୍‍ ବ୍ୟବହାରରେ ରହିଥିବା ବେଳେ କେବଳ ଅନୁମତି ଦିଅନ୍ତୁ"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"ଆପ୍ସ"</string>
     <string name="app_permissions" msgid="2778362347879465223">"ଆପ୍‌ ଅନୁମତିଗୁଡ଼ିକ"</string>
-    <!-- no translation found for app_permission_manager (3802609813311662642) -->
-    <skip />
+    <string name="app_permission_manager" msgid="3802609813311662642">"ଅନୁମତି ପରିଚାଳକ"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"ପୁଣି ପଚାରନ୍ତୁ ନାହିଁ"</string>
     <string name="no_permissions" msgid="2193893107241172888">"କୌଣସି ଅନୁମତିଗୁଡ଼ିକ ନାହିଁ"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"ଅତିରିକ୍ତ ଅନୁମତିଗୁଡ଼ିକ"</string>
@@ -53,8 +52,7 @@
     <string name="default_permission_description" msgid="692254823411049573">"ଏହା ଏକ ଅଜଣା କାର୍ଯ୍ୟ ସମ୍ପାଦନ କରିଥାଏ"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_1">%2$d</xliff:g>ଆପ୍ସରୁ <xliff:g id="COUNT_0">%1$d</xliff:g>କୁ ଅନୁମତି ଦିଆଯାଇଛି"</string>
     <string name="permission_usage_header" msgid="8802963718365732792">"ନିକଟରେ ହୋଇଥିବା ବ୍ୟବହାର"</string>
-    <!-- no translation found for permission_usage_view_details (7398825662321010957) -->
-    <skip />
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"ଅନୁମତି ଡ୍ୟାସ୍‍‍ବୋର୍ଡ ଦେଖନ୍ତୁ"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"ସିଷ୍ଟମ୍‌ ଦେଖାନ୍ତୁ"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"ସିଷ୍ଟମ୍‌କୁ ଲୁଚାନ୍ତୁ"</string>
     <string name="no_apps" msgid="2377153782338039463">"କୌଣସି ଆପ୍‌ ନାହିଁ"</string>
@@ -93,12 +91,23 @@
     <string name="current_permissions_category" msgid="3835461245150972589">"ବର୍ତ୍ତମାନର ଅନୁମତିଗୁଡ଼ିକ"</string>
     <string name="message_staging" msgid="641286607664721291">"ଆପ୍‍ ପର୍ଯ୍ୟାୟଭୁକ୍ତ କରାଯାଉଛି…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"ଅଜଣା"</string>
-    <!-- no translation found for permission_usage_title (6808284837306026819) -->
-    <skip />
-    <!-- no translation found for permission_usage_summary (5323807746329287417) -->
-    <!-- no translation found for permission_usage_summary_background (7596001658859120646) -->
-    <!-- no translation found for permission_usage_summary_duration (896006189476160370) -->
-    <!-- no translation found for permission_usage_summary_background_duration (6112860268441134618) -->
+    <string name="permission_usage_title" msgid="6808284837306026819">"ଡ୍ୟାସ୍‍‍ବୋର୍ଡ"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">ଶେଷ ଆକ୍ସେସ୍: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g>ଟି ଆକ୍ସେସ୍</item>
+      <item quantity="one">ଶେଷ ଆକ୍ସେସ୍: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> ଆକ୍ସେସ୍</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">ଶେଷ ଆକ୍ସେସ୍: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> ଆକ୍ସେସ୍ (ପୃଷ୍ଠଭୂମିରେ <xliff:g id="NUM_5">%3$s</xliff:g>)</item>
+      <item quantity="one">ଶେଷ ଆକ୍ସେସ୍: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> ଆକ୍ସେସ୍ (ପୃଷ୍ଠଭୂମିରେ <xliff:g id="NUM_2">%3$s</xliff:g>)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">ଶେଷ ଆକ୍ସେସ୍: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> ଆକ୍ସେସ୍\nଅବଧି: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">ଶେଷ ଆକ୍ସେସ୍: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> ଆକ୍ସେସ୍\nଅବଧି: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">ଶେଷ ଆକ୍ସେସ୍: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> ଆକ୍ସେସ୍ (ପୃଷ୍ଠଭୂମିରେ <xliff:g id="NUM_6">%3$s</xliff:g>)\nଅବଧି: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">ଶେଷ ଆକ୍ସେସ୍: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> ଆକ୍ସେସ୍ (ପୃଷ୍ଠଭୂମିରେ <xliff:g id="NUM_2">%3$s</xliff:g>)\nଅବଧି: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"ଯେକୌଣସି ଅନୁମତି"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"ଯେକୌଣସି ସମୟରେ"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"ଗତ 7 ଦିନ"</string>
@@ -141,8 +150,7 @@
     <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> ଆପଣଙ୍କ <xliff:g id="PERM">%2$s</xliff:g> ଆକ୍ସେସ୍‍ ନାହିଁ।"</string>
     <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"ବିସ୍ତୃତ ଅନୁମତି ବ୍ୟବହାର ଦେଖନ୍ତୁ"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"ଶେଷ ଥର ପାଇଁ ଆକ୍ସେସ୍ କରାଯାଇଛି: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
-    <!-- no translation found for app_permission_never_accessed_summary (594285912530635023) -->
-    <skip />
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"କେବେବି ଆକ୍ସେସ୍ ହୋଇନାହିଁ"</string>
     <string name="allowed_header" msgid="6279244592227088158">"ଅନୁମୋଦିତ"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"କେବଳ ବ୍ୟବହାର ପାଇଁ ଅନୁମତି ଦିଆଯାଇଛି"</string>
     <string name="denied_header" msgid="2277998574238617699">"ପ୍ରତ୍ୟାଖ୍ୟାନ କରାଗଲା"</string>
