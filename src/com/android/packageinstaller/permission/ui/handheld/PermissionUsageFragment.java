@@ -81,11 +81,10 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
     private static final String LOG_TAG = "PermissionUsageFragment";
 
     @Retention(SOURCE)
-    @IntDef(value = {SORT_RECENT, SORT_MOST_PERMISSIONS, SORT_MOST_ACCESSES})
+    @IntDef(value = {SORT_RECENT, SORT_MOST_PERMISSIONS})
     @interface SortOption {}
     static final int SORT_RECENT = 1;
     static final int SORT_MOST_PERMISSIONS = 2;
-    static final int SORT_MOST_ACCESSES = 3;
 
     private static final int MENU_FILTER_BY_PERMISSIONS = MENU_HIDE_SYSTEM + 1;
     private static final int MENU_REFRESH = MENU_HIDE_SYSTEM + 2;
@@ -452,8 +451,6 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
             usages.sort(PermissionUsageFragment::compareAccessRecency);
         } else if (sortOption == SORT_MOST_PERMISSIONS) {
             usages.sort(PermissionUsageFragment::compareAccessUsage);
-        } else if (sortOption == SORT_MOST_ACCESSES) {
-            usages.sort(PermissionUsageFragment::compareAccessCount);
         } else {
             Log.w(LOG_TAG, "Unexpected sort option: " + sortOption);
         }
@@ -728,25 +725,6 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
         }
         // Make sure we lose no data if same
         return x.hashCode() - y.hashCode();
-    }
-
-    /**
-     * Compare two usages by their access count.
-     *
-     * Can be used as a {@link java.util.Comparator}.
-     *
-     * @param x a usage.
-     * @param y a usage.
-     *
-     * @return see {@link java.util.Comparator#compare(Object, Object)}.
-     */
-    private static int compareAccessCount(@NonNull Pair<AppPermissionUsage, GroupUsage> x,
-            @NonNull Pair<AppPermissionUsage, GroupUsage> y) {
-        final int accessDiff = compareLong(x.second.getAccessCount(), y.second.getAccessCount());
-        if (accessDiff != 0) {
-            return accessDiff;
-        }
-        return compareAccessTime(x, y);
     }
 
     /**

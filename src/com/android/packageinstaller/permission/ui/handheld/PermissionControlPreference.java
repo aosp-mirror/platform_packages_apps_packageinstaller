@@ -16,9 +16,6 @@
 
 package com.android.packageinstaller.permission.ui.handheld;
 
-import static android.Manifest.permission_group.CAMERA;
-import static android.Manifest.permission_group.MICROPHONE;
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -37,7 +34,6 @@ import androidx.preference.PreferenceViewHolder;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissionUsage.GroupUsage;
 import com.android.packageinstaller.permission.ui.AppPermissionActivity;
-import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 
 import java.util.List;
@@ -125,37 +121,7 @@ public class PermissionControlPreference extends Preference {
      * @param accessTimeStr the string representing the last access time
      */
     public void setUsageSummary(@NonNull GroupUsage groupUsage, @NonNull String accessTimeStr) {
-        long backgroundAccessCount = groupUsage.getBackgroundAccessCount();
-        long duration = 0;
-        String groupName = groupUsage.getGroup().getName();
-        if (groupName.equals(CAMERA) || groupName.equals(MICROPHONE)) {
-            duration = groupUsage.getAccessDuration();
-        }
-        if (backgroundAccessCount == 0) {
-            long numForegroundAccesses = groupUsage.getForegroundAccessCount();
-            if (duration == 0) {
-                setSummary(mContext.getResources().getQuantityString(
-                        R.plurals.permission_usage_summary, (int) numForegroundAccesses,
-                        accessTimeStr, numForegroundAccesses));
-            } else {
-                setSummary(mContext.getResources().getQuantityString(
-                        R.plurals.permission_usage_summary_duration, (int) numForegroundAccesses,
-                        accessTimeStr, numForegroundAccesses,
-                        Utils.getUsageDurationString(mContext, groupUsage)));
-            }
-        } else {
-            long numAccesses = groupUsage.getAccessCount();
-            if (duration == 0) {
-                setSummary(mContext.getResources().getQuantityString(
-                        R.plurals.permission_usage_summary_background, (int) numAccesses,
-                        accessTimeStr, numAccesses, backgroundAccessCount));
-            } else {
-                setSummary(mContext.getResources().getQuantityString(
-                        R.plurals.permission_usage_summary_background_duration, (int) numAccesses,
-                        accessTimeStr, numAccesses, backgroundAccessCount,
-                        Utils.getUsageDurationString(mContext, groupUsage)));
-            }
-        }
+        setSummary(mContext.getString(R.string.permission_usage_summary, accessTimeStr));
     }
 
     /**

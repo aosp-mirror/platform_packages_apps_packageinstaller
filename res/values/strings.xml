@@ -262,29 +262,8 @@
     <!-- Title for permission usage [CHAR LIMIT=30] -->
     <string name="permission_usage_title">Dashboard</string>
 
-    <!-- Summary for showing a single permission access and the number of accesses [CHAR LIMIT=80] -->
-    <plurals name="permission_usage_summary">
-        <item quantity="one">Last access: <xliff:g id="time" example="12:10 PM">%1$s</xliff:g>\n<xliff:g id="num" example="42">%2$s</xliff:g> access</item>
-        <item quantity="other">Last access: <xliff:g id="time" example="12:10 PM">%1$s</xliff:g>\n<xliff:g id="num" example="42">%2$s</xliff:g> accesses</item>
-    </plurals>
-
-    <!-- Summary for showing a single permission access and the number of accesses, including those in the background [CHAR LIMIT=80] -->
-    <plurals name="permission_usage_summary_background">
-        <item quantity="one">Last access: <xliff:g id="time" example="12:10 PM">%1$s</xliff:g>\n<xliff:g id="num" example="42">%2$s</xliff:g> access (<xliff:g id="num" example="7">%3$s</xliff:g> in background)</item>
-        <item quantity="other">Last access: <xliff:g id="time" example="12:10 PM">%1$s</xliff:g>\n<xliff:g id="num" example="42">%2$s</xliff:g> accesses (<xliff:g id="num" example="7">%3$s</xliff:g> in background)</item>
-    </plurals>
-
-    <!-- Summary for showing a single permission access and the number of accesses [CHAR LIMIT=120] -->
-    <plurals name="permission_usage_summary_duration">
-        <item quantity="one">Last access: <xliff:g id="time" example="12:10 PM">%1$s</xliff:g>\n<xliff:g id="num" example="42">%2$s</xliff:g> access\nDuration: <xliff:g id="time" example="2 hours">%3$s</xliff:g></item>
-        <item quantity="other">Last access: <xliff:g id="time" example="12:10 PM">%1$s</xliff:g>\n<xliff:g id="num" example="42">%2$s</xliff:g> accesses\nDuration: <xliff:g id="time" example="2 hours">%3$s</xliff:g></item>
-    </plurals>
-
-    <!-- Summary for showing a single permission access and the number of accesses, including those in the background [CHAR LIMIT=120] -->
-    <plurals name="permission_usage_summary_background_duration">
-        <item quantity="one">Last access: <xliff:g id="time" example="12:10 PM">%1$s</xliff:g>\n<xliff:g id="num" example="42">%2$s</xliff:g> access (<xliff:g id="num" example="7">%3$s</xliff:g> in background)\nDuration: <xliff:g id="time" example="2 hours">%3$s</xliff:g></item>
-        <item quantity="other">Last access: <xliff:g id="time" example="12:10 PM">%1$s</xliff:g>\n<xliff:g id="num" example="42">%2$s</xliff:g> accesses (<xliff:g id="num" example="7">%3$s</xliff:g> in background)\nDuration: <xliff:g id="time" example="2 hours">%3$s</xliff:g></item>
-    </plurals>
+    <!-- Summary for showing a single permission access and the time of the last access [CHAR LIMIT=80] -->
+    <string name="permission_usage_summary">Last access: <xliff:g id="time" example="12:10 PM">%1$s</xliff:g></string>
 
     <!-- Description for showing permission accesses with any permission [CHAR LIMIT=30] -->
     <string name="permission_usage_any_permission">Any permission</string>
