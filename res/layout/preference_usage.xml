@@ -32,11 +32,13 @@
     android:baselineAligned="false">
 
     <include layout="@layout/image_frame"
-             android:id="@+id/image_frame_include"
-             android:gravity="center"
-             app:layout_constraintStart_toStartOf="parent"
-             app:layout_constraintTop_toTopOf="parent"
-             app:layout_constraintBottom_toBottomOf="parent"/>
+        android:id="@+id/image_frame_include"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <LinearLayout
         android:id="@+id/title_widget_frame"
@@ -83,7 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:gravity="end|center_vertical"
-        android:paddingLeft="16dp"
+        android:paddingStart="16dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/image_frame_include"
