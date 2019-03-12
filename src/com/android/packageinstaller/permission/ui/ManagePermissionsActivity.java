@@ -18,7 +18,8 @@ package com.android.packageinstaller.permission.ui;
 
 import static android.view.WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS;
 
-import static com.android.packageinstaller.permission.service.PermissionSearchIndexablesProvider.verifyIntent;
+import static com.android.packageinstaller.permission.service.PermissionSearchIndexablesProvider.getOriginalKey;
+import static com.android.packageinstaller.permission.service.PermissionSearchIndexablesProvider.isIntentValid;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -65,10 +66,14 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                 break;
 
             case PermissionSearchIndexablesProvider.ACTION_REVIEW_PERMISSION_USAGE:
-                verifyIntent(this, getIntent());
+                if (!isIntentValid(getIntent(), this)) {
+                    finish();
+                    return;
+                }
                 // fall through
             case Intent.ACTION_REVIEW_PERMISSION_USAGE: {
                 if (!Utils.isPermissionsHubEnabled()) {
+                    finish();
                     return;
                 }
 
@@ -129,7 +134,11 @@ public final class ManagePermissionsActivity extends FragmentActivity {
             } break;
 
             case PermissionSearchIndexablesProvider.ACTION_MANAGE_PERMISSION_APPS:
-                permissionName = verifyIntent(this, getIntent());
+                if (!isIntentValid(getIntent(), this)) {
+                    finish();
+                    return;
+                }
+                permissionName = getOriginalKey(getIntent());
                 // fall through
             case Intent.ACTION_MANAGE_PERMISSION_APPS: {
                 if (permissionName == null) {
