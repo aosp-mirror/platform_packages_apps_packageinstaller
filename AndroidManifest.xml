@@ -201,12 +201,33 @@
         <activity android:name="com.android.packageinstaller.role.ui.SpecialAppAccessActivity"
                   android:theme="@style/Settings" />
 
+        <activity android:name="com.android.packageinstaller.role.ui.RoleSearchTrampolineActivity"
+                  android:excludeFromRecents="true"
+                  android:noHistory="true"
+                  android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter android:priority="1">
+                <action android:name="com.android.permissioncontroller.settingssearch.action.MANAGE_DEFAULT_APP" />
+                <action android:name="com.android.permissioncontroller.settingssearch.action.MANAGE_SPECIAL_APP_ACCESS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <provider android:name="com.android.packageinstaller.permission.service.PermissionSearchIndexablesProvider"
             android:authorities="com.android.permissioncontroller"
             android:multiprocess="false"
             android:grantUriPermissions="true"
             android:permission="android.permission.READ_SEARCH_INDEXABLES"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.content.action.SEARCH_INDEXABLES_PROVIDER" />
+            </intent-filter>
+        </provider>
+
+        <provider android:name="com.android.packageinstaller.role.service.RoleSearchIndexablesProvider"
+                  android:authorities="com.android.permissioncontroller.role"
+                  android:exported="true"
+                  android:grantUriPermissions="true"
+                  android:permission="android.permission.READ_SEARCH_INDEXABLES">
             <intent-filter>
                 <action android:name="android.content.action.SEARCH_INDEXABLES_PROVIDER" />
             </intent-filter>
