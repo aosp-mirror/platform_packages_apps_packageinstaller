@@ -57,7 +57,7 @@ import java.util.List;
  * <p>Shows a list of app usage of permission groups, each of which links to
  * AppPermissionsFragment.
  */
-public class AppPermissionUsageFragment extends SettingsWithButtonHeader implements
+public class AppPermissionUsageFragment extends SettingsWithLargeHeader implements
         OnItemSelectedListener {
 
     private static final String LOG_TAG = "AppPermissionUsageFragment";
@@ -154,7 +154,7 @@ public class AppPermissionUsageFragment extends SettingsWithButtonHeader impleme
             return;
         }
         Drawable icon = Utils.getBadgedIcon(getActivity(), mAppInfo);
-        setHeader(icon, Utils.getFullAppLabel(mAppInfo, getContext()), true);
+        setHeader(icon, Utils.getFullAppLabel(mAppInfo, getContext()), null);
     }
 
     @Override
