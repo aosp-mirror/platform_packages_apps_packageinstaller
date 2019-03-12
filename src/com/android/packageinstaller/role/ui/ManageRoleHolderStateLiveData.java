@@ -17,7 +17,6 @@
 package com.android.packageinstaller.role.ui;
 
 import android.app.role.RoleManager;
-import android.app.role.RoleManagerCallback;
 import android.content.Context;
 import android.os.UserHandle;
 import android.util.Log;
@@ -26,6 +25,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 
 import java.util.concurrent.Executor;
+import java.util.function.Consumer;
 
 /**
  * {@link LiveData} for the state of managing a role holder.
@@ -71,17 +71,14 @@ public class ManageRoleHolderStateLiveData extends LiveData<Integer> {
 
         RoleManager roleManager = context.getSystemService(RoleManager.class);
         Executor executor = context.getMainExecutor();
-        RoleManagerCallback callback = new RoleManagerCallback() {
-            @Override
-            public void onSuccess() {
+        Consumer<Boolean> callback = successful -> {
+            if (successful) {
                 if (DEBUG) {
                     Log.i(LOG_TAG, "Package " + (add ? "added" : "removed")
                             + " as role holder, role: " + roleName + ", package: " + packageName);
                 }
                 setValue(STATE_SUCCESS);
-            }
-            @Override
-            public void onFailure() {
+            } else {
                 if (DEBUG) {
                     Log.i(LOG_TAG, "Failed to " + (add ? "add" : "remove")
                             + " package as role holder, role: " + roleName + ", package: "
@@ -120,16 +117,13 @@ public class ManageRoleHolderStateLiveData extends LiveData<Integer> {
 
         RoleManager roleManager = context.getSystemService(RoleManager.class);
         Executor executor = context.getMainExecutor();
-        RoleManagerCallback callback = new RoleManagerCallback() {
-            @Override
-            public void onSuccess() {
+        Consumer<Boolean> callback = successful -> {
+            if (successful) {
                 if (DEBUG) {
                     Log.i(LOG_TAG, "Cleared role holders, role: " + roleName);
                 }
                 setValue(STATE_SUCCESS);
-            }
-            @Override
-            public void onFailure() {
+            } else {
                 if (DEBUG) {
                     Log.i(LOG_TAG, "Failed to clear role holders, role: " + roleName);
                 }

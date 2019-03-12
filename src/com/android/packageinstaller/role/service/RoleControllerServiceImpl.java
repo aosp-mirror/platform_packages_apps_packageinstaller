@@ -16,27 +16,23 @@
 
 package com.android.packageinstaller.role.service;
 
+import android.Manifest;
 import android.app.AppOpsManager;
 import android.app.role.RoleControllerService;
 import android.app.role.RoleManager;
-import android.app.role.RoleManagerCallback;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PermissionInfo;
-import android.os.Binder;
 import android.os.Build;
-import android.os.Handler;
-import android.os.HandlerThread;
 import android.os.Process;
 import android.os.UserHandle;
-import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.ArraySet;
 import android.util.Log;
+import android.util.SparseArray;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 
 import com.android.packageinstaller.permission.utils.ArrayUtils;
@@ -64,204 +60,17 @@ public class RoleControllerServiceImpl extends RoleControllerService {
     private RoleManager mRoleManager;
     private AppOpsManager mAppOpsManager;
 
-    private HandlerThread mWorkerThread;
-    private Handler mWorkerHandler;
-
     @Override
     public void onCreate() {
         super.onCreate();
 
         mRoleManager = getSystemService(RoleManager.class);
         mAppOpsManager = getSystemService(AppOpsManager.class);
-
-        mWorkerThread = new HandlerThread(RoleControllerServiceImpl.class.getSimpleName());
-        mWorkerThread.start();
-        mWorkerHandler = new Handler(mWorkerThread.getLooper());
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-
-        mWorkerThread.quitSafely();
-    }
-
-    @Override
-    public void onGrantDefaultRoles(@NonNull RoleManagerCallback callback) {
-        enforceCallerSystemUid("onGrantDefaultRoles");
-        if (callback == null) {
-            Log.e(LOG_TAG, "callback cannot be null");
-            return;
-        }
-        mWorkerHandler.post(() -> grantDefaultRoles(callback));
-    }
-
-    @Override
-    public void onAddRoleHolder(@NonNull String roleName, @NonNull String packageName, int flags,
-            @NonNull RoleManagerCallback callback) {
-        enforceCallerSystemUid("onAddRoleHolder");
-        if (callback == null) {
-            Log.e(LOG_TAG, "callback cannot be null");
-            return;
-        }
-        if (TextUtils.isEmpty(roleName)) {
-            Log.e(LOG_TAG, "roleName cannot be null or empty: " + roleName);
-            callback.onFailure();
-            return;
-        }
-        if (TextUtils.isEmpty(packageName)) {
-            Log.e(LOG_TAG, "packageName cannot be null or empty: " + roleName);
-            callback.onFailure();
-            return;
-        }
-        if (!checkFlags(flags, RoleManager.MANAGE_HOLDERS_FLAG_DONT_KILL_APP)) {
-            callback.onFailure();
-            return;
-        }
-        mWorkerHandler.post(() -> addRoleHolder(roleName, packageName, flags, callback));
-    }
-
-    @Override
-    public void onRemoveRoleHolder(@NonNull String roleName, @NonNull String packageName, int flags,
-            @NonNull RoleManagerCallback callback) {
-        enforceCallerSystemUid("onRemoveRoleHolder");
-        if (callback == null) {
-            Log.e(LOG_TAG, "callback cannot be null");
-            return;
-        }
-        if (TextUtils.isEmpty(roleName)) {
-            Log.e(LOG_TAG, "roleName cannot be null or empty: " + roleName);
-            callback.onFailure();
-            return;
-        }
-        if (TextUtils.isEmpty(packageName)) {
-            Log.e(LOG_TAG, "packageName cannot be null or empty: " + roleName);
-            callback.onFailure();
-            return;
-        }
-        if (!checkFlags(flags, RoleManager.MANAGE_HOLDERS_FLAG_DONT_KILL_APP)) {
-            callback.onFailure();
-            return;
-        }
-        mWorkerHandler.post(() -> removeRoleHolder(roleName, packageName, flags, callback));
-    }
-
-    @Override
-    public void onClearRoleHolders(@NonNull String roleName, int flags,
-            @NonNull RoleManagerCallback callback) {
-        enforceCallerSystemUid("onClearRoleHolders");
-        if (callback == null) {
-            Log.e(LOG_TAG, "callback cannot be null");
-            return;
-        }
-        if (TextUtils.isEmpty(roleName)) {
-            Log.e(LOG_TAG, "roleName cannot be null or empty: " + roleName);
-            callback.onFailure();
-            return;
-        }
-        if (!checkFlags(flags, RoleManager.MANAGE_HOLDERS_FLAG_DONT_KILL_APP)) {
-            callback.onFailure();
-            return;
-        }
-        mWorkerHandler.post(() -> clearRoleHolders(roleName, flags, callback));
-    }
-
-    @Override
-    public void onSmsKillSwitchToggled(boolean enabled) {
-        enforceCallerSystemUid("onSmsKillSwitchToggled");
-        mWorkerHandler.post(() -> {
-            PackageManager packageManager = getPackageManager();
-            List<PackageInfo> installedPackages = getPackageManager().getInstalledPackages(0);
-            for (int i = 0, size = installedPackages.size(); i < size; i++) {
-                PackageInfo pkg = installedPackages.get(i);
-                onSmsKillSwitchToggled(enabled, pkg, Utils.getPlatformPermissionsOfGroup(
-                        packageManager, android.Manifest.permission_group.SMS));
-                onSmsKillSwitchToggled(enabled, pkg, Utils.getPlatformPermissionsOfGroup(
-                        packageManager, android.Manifest.permission_group.CALL_LOG));
-            }
-
-            grantDefaultRoles(null);
-        });
-    }
-
-    @Override
-    public boolean onIsApplicationQualifiedForRole(@NonNull String roleName,
-            @NonNull String packageName) {
-        Role role = Roles.get(this).get(roleName);
-        if (role == null) {
-            return false;
-        }
-        if (!role.isAvailable(this)) {
-            return false;
-        }
-        return role.isPackageQualified(packageName, this);
-    }
-
-    @Override
-    public boolean onIsRoleVisible(@NonNull String roleName) {
-        Role role = Roles.get(this).get(roleName);
-        if (role == null) {
-            return false;
-        }
-        if (!role.isAvailable(this)) {
-            return false;
-        }
-        return role.isVisibleAsUser(Process.myUserHandle(), this);
-    }
-
-    private void enforceCallerSystemUid(@NonNull String methodName) {
-        if (Binder.getCallingUid() != Process.SYSTEM_UID) {
-            throw new SecurityException("Only the system process call " + methodName + "()");
-        }
-    }
-
-    void onSmsKillSwitchToggled(boolean smsRestrictionEnabled, PackageInfo pkg,
-            List<PermissionInfo> permissions) {
-        PackageManager pm = getPackageManager();
-        int uid = pkg.applicationInfo.uid;
-
-        for (int i = 0, permissionsSize = permissions.size(); i < permissionsSize; i++) {
-            PermissionInfo permission = permissions.get(i);
-            try {
-                int permFlags =
-                        pm.getPermissionFlags(permission.name, pkg.packageName,
-                                Process.myUserHandle());
-
-                if ((permFlags
-                        & (PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT
-                        | PackageManager.FLAG_PERMISSION_SYSTEM_FIXED)) != 0) {
-                    continue;
-                }
-
-                if ((permFlags & PackageManager.FLAG_PERMISSION_POLICY_FIXED) != 0) {
-                    pm.updatePermissionFlags(permission.name, pkg.packageName,
-                            PackageManager.FLAG_PERMISSION_POLICY_FIXED, 0, Process.myUserHandle());
-                }
-
-                String appOp = AppOpsManager.permissionToOp(permission.name);
-                if (appOp != null) {
-                    mAppOpsManager.setUidMode(appOp, uid,
-                            smsRestrictionEnabled
-                                    ? AppOpsManager.MODE_DEFAULT
-                                    : AppOpsManager.MODE_ALLOWED);
-                }
-
-                if (!smsRestrictionEnabled
-                        && pkg.applicationInfo.targetSdkVersion
-                        > Build.VERSION_CODES.LOLLIPOP_MR1) {
-                    pm.revokeRuntimePermission(
-                            pkg.packageName, permission.name, Process.myUserHandle());
-                }
-            } catch (Exception e) {
-                Log.e(LOG_TAG, "Unexpected exception while cleaning up state for package "
-                        + pkg.packageName + " & " + permission.name, e);
-                continue;
-            }
-        }
-    }
-
     @WorkerThread
-    private void grantDefaultRoles(@Nullable RoleManagerCallback callback) {
+    public boolean onGrantDefaultRoles() {
         if (DEBUG) {
             Log.i(LOG_TAG, "Granting default roles, user: " + UserHandle.myUserId());
         }
@@ -371,14 +180,24 @@ public class RoleControllerServiceImpl extends RoleControllerService {
 
         updateUserSensitive();
 
-        if (callback != null) {
-            callback.onSuccess();
-        }
+        return true;
     }
 
     /**
      * Update the {@link PackageManager#FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED} and
      * {@link PackageManager#FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED} for all apps of this user.
+     *
+     * <p>For shared uids:
+     * <dl>
+     *     <dt>For system UIDs</dt>
+     *     <dd>If there is any package for which the permission is not sensitive, the permission
+     *     is not sensitive for all packages with the same the UID</dd>
+     * </dl>
+     * <dl>
+     *     <dt>For app (not system) UIDs</dt>
+     *     <dd>If there is any package for which the permission is sensitive, the permission is
+     *     sensitive for all packages with the same the UID</dd>
+     * </dl>
      */
     private void updateUserSensitive() {
         PackageManager pm = getPackageManager();
@@ -387,16 +206,38 @@ public class RoleControllerServiceImpl extends RoleControllerService {
         Set<String> platformPerms = Utils.getPlatformPermissions();
         ArraySet<String> pkgsWithLauncherIcon = Utils.getLauncherPackages(this);
 
+        // uid -> permission -> flags
+        SparseArray<ArrayMap<String, Integer>> uidsPermissions = new SparseArray<>();
+
+        // Collect the flags and store it in 'uidsPermissions'
         int numPkgs = pkgs.size();
         for (int pkgNum = 0; pkgNum < numPkgs; pkgNum++) {
             PackageInfo pkg = pkgs.get(pkgNum);
             boolean pkgHasLauncherIcon = pkgsWithLauncherIcon.contains(pkg.packageName);
             boolean pkgIsSystemApp = (pkg.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0;
 
+            // permission -> flags
+            ArrayMap<String, Integer> uidPermissions = uidsPermissions.get(pkg.applicationInfo.uid);
+            if (uidPermissions == null) {
+                uidPermissions = new ArrayMap<>();
+                uidsPermissions.put(pkg.applicationInfo.uid, uidPermissions);
+            }
+
             for (String perm : platformPerms) {
                 if (pkg.requestedPermissions == null || !ArrayUtils.contains(
                         pkg.requestedPermissions, perm)) {
                     continue;
+                }
+
+                Integer previousFlagsInt = uidPermissions.get(perm);
+                int previousFlags;
+                if (pkg.applicationInfo.uid < Process.FIRST_APPLICATION_UID) {
+                    previousFlags = previousFlagsInt == null
+                            ? PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED
+                            | PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED
+                            : previousFlagsInt;
+                } else {
+                    previousFlags = previousFlagsInt == null ? 0 : previousFlagsInt;
                 }
 
                 int flags;
@@ -414,34 +255,58 @@ public class RoleControllerServiceImpl extends RoleControllerService {
                             | PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED;
                 }
 
-                pm.updatePermissionFlags(perm, pkg.packageName,
+                if (pkg.applicationInfo.uid < Process.FIRST_APPLICATION_UID) {
+                    flags &= previousFlags;
+                } else {
+                    flags |= previousFlags;
+                }
+
+                uidPermissions.put(perm, flags);
+            }
+        }
+
+        // Apply the update
+        int numUids = uidsPermissions.size();
+        for (int uidNum = 0; uidNum < numUids; uidNum++) {
+            String[] uidPkgs = pm.getPackagesForUid(uidsPermissions.keyAt(uidNum));
+            if (uidPkgs == null) {
+                continue;
+            }
+
+            ArrayMap<String, Integer> uidPermissions = uidsPermissions.valueAt(uidNum);
+
+            int numPerms = uidPermissions.size();
+            for (int permNum = 0; permNum < numPerms; permNum++) {
+                pm.updatePermissionFlags(uidPermissions.keyAt(permNum), uidPkgs[0],
                         PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED
-                                | PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED, flags,
-                        user);
+                                | PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED,
+                        uidPermissions.valueAt(permNum), user);
             }
         }
     }
 
+    @Override
     @WorkerThread
-    private void addRoleHolder(@NonNull String roleName, @NonNull String packageName, int flags,
-            @NonNull RoleManagerCallback callback) {
+    public boolean onAddRoleHolder(@NonNull String roleName, @NonNull String packageName,
+            int flags) {
+        if (!checkFlags(flags, RoleManager.MANAGE_HOLDERS_FLAG_DONT_KILL_APP)) {
+            return false;
+        }
+
         Role role = Roles.get(this).get(roleName);
         if (role == null) {
             Log.e(LOG_TAG, "Unknown role: " + roleName);
-            callback.onFailure();
-            return;
+            return false;
         }
         if (!role.isAvailable(this)) {
             Log.e(LOG_TAG, "Role is unavailable: " + roleName);
-            callback.onFailure();
-            return;
+            return false;
         }
 
         if (!role.isPackageQualified(packageName, this)) {
             Log.e(LOG_TAG, "Package does not qualify for the role, package: " + packageName
                     + ", role: " + roleName);
-            callback.onFailure();
-            return;
+            return false;
         }
 
         boolean added = false;
@@ -461,8 +326,7 @@ public class RoleControllerServiceImpl extends RoleControllerService {
                 boolean removed = removeRoleHolderInternal(role, currentPackageName, false);
                 if (!removed) {
                     // TODO: Clean up?
-                    callback.onFailure();
-                    return;
+                    return false;
                 }
             }
         }
@@ -470,76 +334,77 @@ public class RoleControllerServiceImpl extends RoleControllerService {
         boolean dontKillApp = hasFlag(flags, RoleManager.MANAGE_HOLDERS_FLAG_DONT_KILL_APP);
         added = addRoleHolderInternal(role, packageName, dontKillApp, true, added);
         if (!added) {
-            callback.onFailure();
-            return;
+            return false;
         }
 
         role.onHolderSelectedAsUser(this, Process.myUserHandle());
 
-        callback.onSuccess();
+        return true;
     }
 
+    @Override
     @WorkerThread
-    private void removeRoleHolder(@NonNull String roleName, @NonNull String packageName, int flags,
-            @NonNull RoleManagerCallback callback) {
+    public boolean onRemoveRoleHolder(@NonNull String roleName, @NonNull String packageName,
+            int flags) {
+        if (!checkFlags(flags, RoleManager.MANAGE_HOLDERS_FLAG_DONT_KILL_APP)) {
+            return false;
+        }
+
         Role role = Roles.get(this).get(roleName);
         if (role == null) {
             Log.e(LOG_TAG, "Unknown role: " + roleName);
-            callback.onFailure();
-            return;
+            return false;
         }
         if (!role.isAvailable(this)) {
             Log.e(LOG_TAG, "Role is unavailable: " + roleName);
-            callback.onFailure();
-            return;
+            return false;
         }
 
         boolean dontKillApp = hasFlag(flags, RoleManager.MANAGE_HOLDERS_FLAG_DONT_KILL_APP);
         boolean removed = removeRoleHolderInternal(role, packageName, dontKillApp);
         if (!removed) {
-            callback.onFailure();
-            return;
+            return false;
         }
 
         // TODO: Should we consider this successful regardless?
         boolean fallbackSuccessful = addFallbackRoleHolderMaybe(role);
         if (!fallbackSuccessful) {
-            callback.onFailure();
-            return;
+            return false;
         }
 
-        callback.onSuccess();
+        return true;
     }
 
+    @Override
     @WorkerThread
-    private void clearRoleHolders(@NonNull String roleName, int flags,
-            @NonNull RoleManagerCallback callback) {
+    public boolean onClearRoleHolders(@NonNull String roleName, int flags) {
+        if (!checkFlags(flags, RoleManager.MANAGE_HOLDERS_FLAG_DONT_KILL_APP)) {
+            return false;
+        }
+
         Role role = Roles.get(this).get(roleName);
         if (role == null) {
             Log.e(LOG_TAG, "Unknown role: " + roleName);
-            callback.onFailure();
-            return;
+            return false;
         }
         if (!role.isAvailable(this)) {
             Log.e(LOG_TAG, "Role is unavailable: " + roleName);
-            callback.onFailure();
-            return;
+            return false;
         }
 
         boolean dontKillApp = hasFlag(flags, RoleManager.MANAGE_HOLDERS_FLAG_DONT_KILL_APP);
         boolean cleared = clearRoleHoldersInternal(role, dontKillApp);
         if (!cleared) {
-            callback.onFailure();
+            return false;
         }
 
         // TODO: Should we consider this successful regardless?
         boolean fallbackSuccessful = addFallbackRoleHolderMaybe(role);
         if (!fallbackSuccessful) {
-            callback.onFailure();
-            return;
+            return false;
         }
 
-        callback.onSuccess();
+        return true;
     }
 
     @WorkerThread
@@ -637,6 +502,86 @@ public class RoleControllerServiceImpl extends RoleControllerService {
         // choice about permission without explicit user action is bad, so maybe we
         // should at least show a notification?
         return addRoleHolderInternal(role, fallbackPackageName, true);
+    }
+
+    @WorkerThread
+    //@Override
+    public void onSmsKillSwitchToggled(boolean enabled) {
+        PackageManager packageManager = getPackageManager();
+        List<PackageInfo> installedPackages = getPackageManager().getInstalledPackages(0);
+        for (int i = 0, size = installedPackages.size(); i < size; i++) {
+            PackageInfo packageInfo = installedPackages.get(i);
+
+            onSmsKillSwitchToggled(enabled, packageInfo, Utils.getPlatformPermissionsOfGroup(
+                    packageManager, Manifest.permission_group.SMS));
+            onSmsKillSwitchToggled(enabled, packageInfo, Utils.getPlatformPermissionsOfGroup(
+                    packageManager, Manifest.permission_group.CALL_LOG));
+        }
+
+        onGrantDefaultRoles();
+    }
+
+    @WorkerThread
+    private void onSmsKillSwitchToggled(boolean enabled, @NonNull PackageInfo packageInfo,
+            @NonNull List<PermissionInfo> permissions) {
+        PackageManager packageManager = getPackageManager();
+        int uid = packageInfo.applicationInfo.uid;
+        for (int i = 0, permissionsSize = permissions.size(); i < permissionsSize; i++) {
+            PermissionInfo permission = permissions.get(i);
+
+            try {
+                int permissionFlags = packageManager.getPermissionFlags(permission.name,
+                        packageInfo.packageName, Process.myUserHandle());
+                if ((permissionFlags & (PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT
+                        | PackageManager.FLAG_PERMISSION_SYSTEM_FIXED)) != 0) {
+                    continue;
+                }
+                if ((permissionFlags & PackageManager.FLAG_PERMISSION_POLICY_FIXED) != 0) {
+                    packageManager.updatePermissionFlags(permission.name, packageInfo.packageName,
+                            PackageManager.FLAG_PERMISSION_POLICY_FIXED, 0, Process.myUserHandle());
+                }
+
+                String appOp = AppOpsManager.permissionToOp(permission.name);
+                if (appOp != null) {
+                    mAppOpsManager.setUidMode(appOp, uid, enabled ? AppOpsManager.MODE_DEFAULT
+                            : AppOpsManager.MODE_ALLOWED);
+                }
+
+                if (!enabled && packageInfo.applicationInfo.targetSdkVersion
+                        >= Build.VERSION_CODES.M) {
+                    packageManager.revokeRuntimePermission(packageInfo.packageName, permission.name,
+                            Process.myUserHandle());
+                }
+            } catch (Exception e) {
+                Log.e(LOG_TAG, "Unexpected exception while cleaning up state for package "
+                        + packageInfo.packageName + " & " + permission.name, e);
+            }
+        }
+    }
+
+    @Override
+    public boolean onIsApplicationQualifiedForRole(@NonNull String roleName,
+            @NonNull String packageName) {
+        Role role = Roles.get(this).get(roleName);
+        if (role == null) {
+            return false;
+        }
+        if (!role.isAvailable(this)) {
+            return false;
+        }
+        return role.isPackageQualified(packageName, this);
+    }
+
+    @Override
+    public boolean onIsRoleVisible(@NonNull String roleName) {
+        Role role = Roles.get(this).get(roleName);
+        if (role == null) {
+            return false;
+        }
+        if (!role.isAvailable(this)) {
+            return false;
+        }
+        return role.isVisibleAsUser(Process.myUserHandle(), this);
     }
 
     private static boolean checkFlags(int flags, int allowedFlags) {
