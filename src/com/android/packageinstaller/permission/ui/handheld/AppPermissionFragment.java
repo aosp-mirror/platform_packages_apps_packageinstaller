@@ -205,8 +205,11 @@ public class AppPermissionFragment extends SettingsWithButtonHeader {
             root.requireViewById(R.id.usage_summary).setVisibility(View.GONE);
         }
 
-        root.requireViewById(R.id.usage_link).setOnClickListener((v) -> {
-            Intent intent = new Intent(Intent.ACTION_REVIEW_APP_PERMISSION_USAGE);
+        TextView footerLink = root.requireViewById(R.id.footer_link);
+        footerLink.setText(context.getString(R.string.app_permission_footer_permission_link,
+                appLabel));
+        footerLink.setOnClickListener((v) -> {
+            Intent intent = new Intent(Intent.ACTION_MANAGE_APP_PERMISSIONS);
             intent.putExtra(Intent.EXTRA_PACKAGE_NAME, mGroup.getApp().packageName);
             intent.putExtra(Intent.EXTRA_USER,
                     UserHandle.getUserHandleForUid(mGroup.getApp().applicationInfo.uid));

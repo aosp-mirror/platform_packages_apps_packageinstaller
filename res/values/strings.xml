@@ -388,8 +388,8 @@
     <!-- Summary for showing a single permission access that has not accessed the permission [CHAR LIMIT=60] -->
     <string name="app_permission_footer_no_usages"><xliff:g id="app" example="Maps">%1$s</xliff:g> has not accessed your <xliff:g id="perm" example="location">%2$s</xliff:g>.</string>
 
-    <!-- Summary for linking to the page that shows an app's use of permissions [CHAR LIMIT=none] -->
-    <string name="app_permission_footer_usage_link">View detailed permissions usage</string>
+    <!-- Text for linking to the page that shows an app's permissions [CHAR LIMIT=none] -->
+    <string name="app_permission_footer_permission_link">See all <xliff:g id="app" example="Maps">%1$s</xliff:g> permissions</string>
 
     <!-- Summary for showing the time and/or date of the most recent access of a permission by an app [CHAR LIMIT=60] -->
     <string name="app_permission_most_recent_summary">Last access: <xliff:g id="time_date" example="12:42 PM">%1$s</xliff:g></string>
