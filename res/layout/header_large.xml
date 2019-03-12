@@ -15,25 +15,17 @@
 -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/button_header"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:gravity="center" >
+    android:id="@+id/large_header"
+    style="@style/LargeHeader">
 
     <include layout="@layout/settings_entity_header" />
 
     <TextView
         android:id="@+id/header_link"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:textColor="?android:attr/colorAccent"
-        android:clickable="true"/>
+        android:clickable="true"
+        style="@style/HeaderLink"/>
 
     <View
-        android:layout_width="match_parent"
-        android:layout_height=".75dp"
-        android:background="?android:attr/dividerHorizontal"/>
+        style="@style/LargeHeaderDivider"/>
 
 </LinearLayout>
