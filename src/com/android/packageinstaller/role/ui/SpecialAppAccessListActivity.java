@@ -17,6 +17,7 @@
 package com.android.packageinstaller.role.ui;
 
 import android.os.Bundle;
+import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
@@ -29,6 +30,9 @@ public class SpecialAppAccessListActivity extends FragmentActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getWindow().addSystemFlags(
+                WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
 
         if (savedInstanceState == null) {
             SpecialAppAccessListFragment fragment = SpecialAppAccessListFragment.newInstance();
