@@ -76,7 +76,7 @@ import java.util.Set;
  * <p>Shows a filterable list of app usage of permission groups, each of which links to
  * AppPermissionsFragment.
  */
-public class PermissionUsageFragment extends SettingsWithButtonHeader implements
+public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         PermissionUsages.PermissionsUsagesChangeCallback, OnItemSelectedListener {
     private static final String LOG_TAG = "PermissionUsageFragment";
 
@@ -429,7 +429,7 @@ public class PermissionUsageFragment extends SettingsWithButtonHeader implements
                 setHeader(Utils.applyTint(context, context.getDrawable(group.getIconResId()),
                         android.R.attr.colorControlNormal),
                         context.getString(R.string.app_permission_usage_filter_label,
-                                group.getLabel()), false);
+                                group.getLabel()), null);
                 setSummary(context.getString(R.string.app_permission_usage_remove_filter), v -> {
                     mFilterGroup = null;
                     // We already loaded all data, so don't reload

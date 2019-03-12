@@ -71,7 +71,7 @@ import java.util.List;
  *
  * <p>Allows the user to control whether the app is granted the permission.
  */
-public class AppPermissionFragment extends SettingsWithButtonHeader {
+public class AppPermissionFragment extends SettingsWithLargeHeader {
     private static final String LOG_TAG = "AppPermissionFragment";
 
     @Retention(SOURCE)
@@ -178,8 +178,8 @@ public class AppPermissionFragment extends SettingsWithButtonHeader {
         }
 
         String appLabel = Utils.getFullAppLabel(mGroup.getApp().applicationInfo, context);
-        setHeader(getAppIcon(), appLabel, true);
-        updateHeader(root.requireViewById(R.id.button_header), true);
+        setHeader(getAppIcon(), appLabel, null);
+        updateHeader(root.requireViewById(R.id.button_header));
 
         ((TextView) root.requireViewById(R.id.permission_message)).setText(
                 context.getString(R.string.app_permission_header, mGroup.getLabel(), appLabel));

@@ -24,8 +24,10 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.UserHandle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -54,7 +56,7 @@ import java.util.ArrayList;
  *
  * <p>Shows the list of permission groups the app has requested at one permission for.
  */
-public final class AppPermissionsFragment extends SettingsWithButtonHeader {
+public final class AppPermissionsFragment extends SettingsWithLargeHeader {
 
     private static final String LOG_TAG = "ManagePermsFragment";
 
@@ -165,12 +167,17 @@ public final class AppPermissionsFragment extends SettingsWithButtonHeader {
                 .commit();
     }
 
-    private static void bindUi(SettingsWithButtonHeader fragment, PackageInfo packageInfo) {
+    private static void bindUi(SettingsWithLargeHeader fragment, PackageInfo packageInfo) {
         Activity activity = fragment.getActivity();
         ApplicationInfo appInfo = packageInfo.applicationInfo;
+        Intent infoIntent = null;
+        if (!activity.getIntent().getBooleanExtra(EXTRA_HIDE_INFO_BUTTON, false)) {
+            infoIntent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                    .setData(Uri.fromParts("package", packageInfo.packageName, null));
+        }
 
         Drawable icon = Utils.getBadgedIcon(activity, appInfo);
-        fragment.setHeader(icon, Utils.getFullAppLabel(appInfo, activity), true);
+        fragment.setHeader(icon, Utils.getFullAppLabel(appInfo, activity), infoIntent);
 
         ActionBar ab = activity.getActionBar();
         if (ab != null) {
@@ -323,14 +330,14 @@ public final class AppPermissionsFragment extends SettingsWithButtonHeader {
     /**
      * Class that shows additional permissions.
      */
-    public static class AdditionalPermissionsFragment extends SettingsWithButtonHeader {
+    public static class AdditionalPermissionsFragment extends SettingsWithLargeHeader {
         AppPermissionsFragment mOuterFragment;
 
         @Override
         public void onCreate(Bundle savedInstanceState) {
             mOuterFragment = (AppPermissionsFragment) getTargetFragment();
             super.onCreate(savedInstanceState);
-            setHeader(mOuterFragment.mIcon, mOuterFragment.mLabel, true);
+            setHeader(mOuterFragment.mIcon, mOuterFragment.mLabel, null);
             setHasOptionsMenu(true);
             setPreferenceScreen(mOuterFragment.mExtraScreen);
         }
