@@ -21,7 +21,6 @@ import android.app.role.RoleManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.os.Process;
 import android.os.UserHandle;
@@ -34,6 +33,7 @@ import androidx.annotation.StringRes;
 import androidx.preference.Preference;
 
 import com.android.packageinstaller.Constants;
+import com.android.packageinstaller.permission.utils.Utils;
 import com.android.packageinstaller.role.utils.PackageUtils;
 import com.android.packageinstaller.role.utils.UserUtils;
 
@@ -561,7 +561,7 @@ public class Role {
      * @return {@code true} iff the user selected the "none" role holder
      */
     private boolean isNoneHolderSelected(@NonNull Context context) {
-        return getDeviceProtectedSharedPreferences(context).getBoolean(
+        return Utils.getDeviceProtectedSharedPreferences(context).getBoolean(
                 Constants.IS_NONE_ROLE_HOLDER_SELECTED_KEY + mName, false);
     }
 
@@ -572,7 +572,7 @@ public class Role {
      * @param user the user the role belongs to
      */
     public void onHolderSelectedAsUser(@NonNull Context context, @NonNull UserHandle user) {
-        getDeviceProtectedSharedPreferences(UserUtils.getUserContext(context, user)).edit()
+        Utils.getDeviceProtectedSharedPreferences(UserUtils.getUserContext(context, user)).edit()
                 .remove(Constants.IS_NONE_ROLE_HOLDER_SELECTED_KEY + mName)
                 .apply();
     }
@@ -584,17 +584,9 @@ public class Role {
      * @param user the user the role belongs to
      */
     public void onNoneHolderSelectedAsUser(@NonNull Context context, @NonNull UserHandle user) {
-        getDeviceProtectedSharedPreferences(UserUtils.getUserContext(context, user)).edit()
+        Utils.getDeviceProtectedSharedPreferences(UserUtils.getUserContext(context, user)).edit()
                 .putBoolean(Constants.IS_NONE_ROLE_HOLDER_SELECTED_KEY + mName, true)
                 .apply();
-    }
-
-    @NonNull
-    private SharedPreferences getDeviceProtectedSharedPreferences(@NonNull Context context) {
-        if (!context.isDeviceProtectedStorage()) {
-            context = context.createDeviceProtectedStorageContext();
-        }
-        return context.getSharedPreferences(Constants.PREFERENCES_FILE, Context.MODE_PRIVATE);
     }
 
     @Override

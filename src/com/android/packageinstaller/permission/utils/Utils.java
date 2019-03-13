@@ -31,10 +31,10 @@ import static android.Manifest.permission_group.SMS;
 import static android.Manifest.permission_group.STORAGE;
 
 import android.Manifest;
-import android.app.AppOpsManager;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageItemInfo;
 import android.content.pm.PackageManager;
@@ -67,6 +67,7 @@ import androidx.core.text.BidiFormatter;
 import androidx.core.util.Preconditions;
 
 import com.android.launcher3.icons.IconFactory;
+import com.android.packageinstaller.Constants;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissionUsage;
 import com.android.permissioncontroller.R;
@@ -699,5 +700,19 @@ public final class Utils {
     public static boolean isPermissionsHubEnabled() {
         return Boolean.parseBoolean(DeviceConfig.getProperty(DeviceConfig.Privacy.NAMESPACE,
                 DeviceConfig.Privacy.PROPERTY_PERMISSIONS_HUB_ENABLED));
+    }
+
+    /**
+     * Get a device protected storage based shared preferences. Avoid storing sensitive data in it.
+     *
+     * @param context the context to get the shared preferences
+     * @return a device protected storage based shared preferences
+     */
+    @NonNull
+    public static SharedPreferences getDeviceProtectedSharedPreferences(@NonNull Context context) {
+        if (!context.isDeviceProtectedStorage()) {
+            context = context.createDeviceProtectedStorageContext();
+        }
+        return context.getSharedPreferences(Constants.PREFERENCES_FILE, Context.MODE_PRIVATE);
     }
 }
