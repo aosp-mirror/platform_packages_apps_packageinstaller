@@ -486,6 +486,9 @@
     <!-- Text for the dialog listing the enabled accessibility services when there are more than one [CHAR LIMIT=none] -->
     <string name="accessibility_service_dialog_bottom_text_multiple">These apps can view your screen, actions, and inputs, perform actions, and control the display.</string>
 
+    <!-- Keyword in the Settings app's search functionality that can be used to find links to the default app management screens [CHAR LIMIT=none] -->
+    <string name="default_app_search_keyword">default apps</string>
+
     <!-- Title for page of managing default apps. [CHAR LIMIT=30] -->
     <string name="default_apps">Default apps</string>
 
@@ -504,6 +507,9 @@
 
     <!-- Label when there are no apps available for a default app [CHAR LIMIT=30] -->
     <string name="default_app_no_apps">No apps</string>
+
+    <!-- Keyword in the Settings app's search functionality that can be used to find links to the special app access management screens [CHAR LIMIT=none] -->
+    <string name="special_app_access_search_keyword">special app access</string>
 
     <!-- Title for page of managing special app access. [CHAR LIMIT=30] -->
     <string name="special_app_access">Special app access</string>
