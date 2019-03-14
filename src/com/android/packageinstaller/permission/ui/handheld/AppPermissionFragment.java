@@ -179,7 +179,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
 
         String appLabel = Utils.getFullAppLabel(mGroup.getApp().applicationInfo, context);
         setHeader(getAppIcon(), appLabel, null);
-        updateHeader(root.requireViewById(R.id.button_header));
+        updateHeader(root.requireViewById(R.id.large_header));
 
         ((TextView) root.requireViewById(R.id.permission_message)).setText(
                 context.getString(R.string.app_permission_header, mGroup.getLabel(), appLabel));

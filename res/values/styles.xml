@@ -17,23 +17,6 @@
 
 <resources>
 
-    <style name="PermissionGrantRadioButton"
-           parent="@android:style/Widget.DeviceDefault.CompoundButton.RadioButton">
-        <item name="android:layout_marginTop">16dp</item>
-        <item name="android:paddingStart">?android:attr/listPreferredItemPaddingStart</item>
-        <item name="android:paddingTop">8dp</item>
-        <item name="android:paddingBottom">8dp</item>
-        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
-    </style>
-
-    <style name="FooterText">
-        <item name="android:paddingTop">16dp</item>
-        <item name="android:paddingBottom">16dp</item>
-        <item name="android:layout_marginStart">48dp</item>
-        <item name="android:layout_marginEnd">48dp</item>
-        <item name="android:textColor">?android:attr/textColorSecondary</item>
-    </style>
-
     <!-- PERMISSION GRANT DIALOG -->
 
     <style name="PermissionGrantScrollView">
@@ -194,5 +177,115 @@
            parent="@style/PermissionReviewButton"></style>
 
     <!-- END PERMISSION REVIEW SCREEN -->
+
+    <!-- START APP PERMISSION SCREEN -->
+
+    <style name="AppPermission">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="LargeHeader">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="HeaderLink">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:textColor">?android:attr/colorAccent</item>
+    </style>
+
+    <style name="LargeHeaderDivider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">.75dp</item>
+        <item name="android:background">?android:attr/dividerHorizontal</item>
+    </style>
+
+    <style name="AppPermissionSelection">
+        <item name="android:orientation">vertical</item>
+        <item name="android:minHeight">?android:attr/listPreferredItemHeight</item>
+        <item name="android:paddingStart">?android:attr/listPreferredItemPaddingStart</item>
+        <item name="android:paddingEnd">?android:attr/listPreferredItemPaddingEnd</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+    </style>
+
+    <style name="AppPermissionMessage">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginStart">48dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+    </style>
+
+    <style name="AppPermissionRadioButton"
+           parent="@android:style/Widget.DeviceDefault.CompoundButton.RadioButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:paddingStart">?android:attr/listPreferredItemPaddingStart</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
+
+    <style name="AppPermissionDetails">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginStart">48dp</item>
+    </style>
+
+    <style name="AppPermissionTwoTargetDivider">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+    </style>
+
+    <style name="AppPermissionWidgetFrame">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minWidth">64dp</item>
+    </style>
+
+    <style name="AppPermissionFooter">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:minHeight">?android:attr/listPreferredItemHeight</item>
+        <item name="android:paddingStart">?android:attr/listPreferredItemPaddingStart</item>
+        <item name="android:paddingEnd">?android:attr/listPreferredItemPaddingEnd</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+    </style>
+
+    <style name="AppPermissionFooterDivider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">.75dp</item>
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:background">?android:attr/dividerHorizontal</item>
+    </style>
+
+    <style name="AppPermissionFooterText">
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:layout_marginStart">48dp</item>
+        <item name="android:layout_marginEnd">48dp</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
+    <style name="AppPermissionFooterLink"
+           parent="@style/AppPermissionFooterText">
+        <item name="android:textColor">?android:attr/colorAccent</item>
+    </style>
+
+    <!-- END APP PERMISSION SCREEN -->
 
 </resources>
