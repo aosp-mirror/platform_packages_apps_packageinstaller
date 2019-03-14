@@ -277,10 +277,19 @@ public class RoleControllerServiceImpl extends RoleControllerService {
 
             int numPerms = uidPermissions.size();
             for (int permNum = 0; permNum < numPerms; permNum++) {
-                pm.updatePermissionFlags(uidPermissions.keyAt(permNum), uidPkgs[0],
-                        PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED
-                                | PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED,
-                        uidPermissions.valueAt(permNum), user);
+                for (String uidPkg : uidPkgs) {
+                    String perm = uidPermissions.keyAt(permNum);
+                    try {
+                        pm.updatePermissionFlags(perm, uidPkg,
+                                PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED
+                                        | PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED,
+                                uidPermissions.valueAt(permNum), user);
+                        break;
+                    } catch (IllegalArgumentException e) {
+                        Log.e(LOG_TAG, "Unexpected exception while updating flags for "
+                                + uidPkg + " permission " + perm, e);
+                    }
+                }
             }
         }
     }

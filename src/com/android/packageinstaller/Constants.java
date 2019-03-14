@@ -86,6 +86,13 @@ public class Constants {
     public static final String IS_NONE_ROLE_HOLDER_SELECTED_KEY = "is_none_role_holder_selected:";
 
     /**
+     * Key in the generic shared preferences that stores if the user manually selected the "none"
+     * role holder for a role.
+     */
+    public static final String SEARCH_INDEXABLE_PROVIDER_PASSWORD_KEY =
+            "search_indexable_provider_password";
+
+    /**
      * Name of file containing the permissions that should be restored, but have not been restored
      * yet.
      */

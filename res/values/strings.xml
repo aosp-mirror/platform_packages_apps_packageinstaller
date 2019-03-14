@@ -388,8 +388,11 @@
     <!-- Summary for showing a single permission access that has not accessed the permission [CHAR LIMIT=60] -->
     <string name="app_permission_footer_no_usages"><xliff:g id="app" example="Maps">%1$s</xliff:g> has not accessed your <xliff:g id="perm" example="location">%2$s</xliff:g>.</string>
 
-    <!-- Summary for linking to the page that shows an app's use of permissions [CHAR LIMIT=none] -->
-    <string name="app_permission_footer_usage_link">View detailed permissions usage</string>
+    <!-- Text for linking to the page that shows an app's permissions [CHAR LIMIT=none] -->
+    <string name="app_permission_footer_app_permissions_link">See all <xliff:g id="app" example="Maps">%1$s</xliff:g> permissions</string>
+
+    <!-- Text for linking to the page that shows the apps with a given permission [CHAR LIMIT=none] -->
+    <string name="app_permission_footer_permission_apps_link">See all apps with the <xliff:g id="perm" example="Location">%1$s</xliff:g> permission</string>
 
     <!-- Summary for showing the time and/or date of the most recent access of a permission by an app [CHAR LIMIT=60] -->
     <string name="app_permission_most_recent_summary">Last access: <xliff:g id="time_date" example="12:42 PM">%1$s</xliff:g></string>
@@ -475,13 +478,16 @@
     <string name="accessibility_service_dialog_title_single"><xliff:g id="service_name" example="Gmail">%s</xliff:g> has full access to your device</string>
 
     <!-- Title for the dialog listing the enabled accessibility services when there are more than one [CHAR LIMIT=none] -->
-    <string name="accessibility_service_dialog_title_multiple"><xliff:g id="num_services" example="2">%s</xliff:g> accessibility services have full access to your device</string>
+    <string name="accessibility_service_dialog_title_multiple"><xliff:g id="num_services" example="2">%s</xliff:g> accessibility apps have full access to your device</string>
 
     <!-- Text for the dialog listing the enabled accessibility services when there is only one [CHAR LIMIT=none] -->
     <string name="accessibility_service_dialog_bottom_text_single"><xliff:g id="service_name" example="Gmail">%s</xliff:g> can view your screen, actions, and inputs, perform actions, and control the display.</string>
 
     <!-- Text for the dialog listing the enabled accessibility services when there are more than one [CHAR LIMIT=none] -->
-    <string name="accessibility_service_dialog_bottom_text_multiple">These services can view your screen, actions, and inputs, perform actions, and control the display.</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple">These apps can view your screen, actions, and inputs, perform actions, and control the display.</string>
+
+    <!-- Keyword in the Settings app's search functionality that can be used to find links to the default app management screens [CHAR LIMIT=none] -->
+    <string name="default_app_search_keyword">default apps</string>
 
     <!-- Title for page of managing default apps. [CHAR LIMIT=30] -->
     <string name="default_apps">Default apps</string>
@@ -501,6 +507,9 @@
 
     <!-- Label when there are no apps available for a default app [CHAR LIMIT=30] -->
     <string name="default_app_no_apps">No apps</string>
+
+    <!-- Keyword in the Settings app's search functionality that can be used to find links to the special app access management screens [CHAR LIMIT=none] -->
+    <string name="special_app_access_search_keyword">special app access</string>
 
     <!-- Title for page of managing special app access. [CHAR LIMIT=30] -->
     <string name="special_app_access">Special app access</string>
