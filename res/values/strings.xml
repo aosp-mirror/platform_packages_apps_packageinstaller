@@ -526,6 +526,21 @@
     <!-- Keyword in the Settings app's search functionality that can be used to find links to the default app management screens [CHAR LIMIT=none] -->
     <string name="default_app_search_keyword">default apps</string>
 
+    <!-- Action for accepting the Ongoing usage dialog [CHAR LIMIT=10]-->
+    <string name="ongoing_usage_dialog_ok">Got it</string>
+
+    <!-- Action on Ongoing usage dialog to open the Privacy settings. [CHAR LIMIT=23]-->
+    <string name="ongoing_usage_dialog_open_settings">Privacy settings</string>
+
+    <!-- Title for Ongoing usage dialog title when multiple apps are using app ops [CHAR LIMIT=NONE] -->
+    <string name="ongoing_usage_dialog_title">Apps using your <xliff:g id="types_list" example="camera( and location)">%s</xliff:g></string>
+
+    <!-- Separator for permissions. Include spaces before and after if needed [CHAR LIMIT=10] -->
+    <string name="ongoing_usage_dialog_separator">,\u0020</string>
+
+    <!-- Separator for permissions, before last type. Include spaces before and after if needed [CHAR LIMIT=10] -->
+    <string name="ongoing_usage_dialog_last_separator">\u0020and\u0020</string>
+
     <!-- Title for page of managing default apps. [CHAR LIMIT=30] -->
     <string name="default_apps">Default apps</string>
 
