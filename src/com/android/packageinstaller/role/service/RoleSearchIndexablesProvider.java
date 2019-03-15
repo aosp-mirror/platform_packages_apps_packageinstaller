@@ -50,6 +50,10 @@ public class RoleSearchIndexablesProvider extends BaseSearchIndexablesProvider {
         for (int i = 0; i < rolesSize; i++) {
             Role role = roles.valueAt(i);
 
+            if (!role.isAvailable(context) || !role.isVisible(context)) {
+                continue;
+            }
+
             String label = context.getString(role.getLabelResource());
             boolean isExclusive = role.isExclusive();
             cursor.newRow()
