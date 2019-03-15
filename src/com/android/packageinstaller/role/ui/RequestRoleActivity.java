@@ -83,6 +83,12 @@ public class RequestRoleActivity extends FragmentActivity {
             return;
         }
 
+        if (!role.isVisible(this)) {
+            Log.e(LOG_TAG, "Role is invisible: " + mRoleName);
+            finish();
+            return;
+        }
+
         if (PackageUtils.getApplicationInfo(mPackageName, this) == null) {
             Log.w(LOG_TAG, "Unknown application: " + mPackageName);
             finish();

@@ -262,6 +262,17 @@ public class Role {
     }
 
     /**
+     * Check whether this role should be visible to user, for current user.
+     *
+     * @param context the {@code Context} to retrieve system services
+     *
+     * @return whether this role should be visible to user.
+     */
+    public boolean isVisible(@NonNull Context context) {
+        return isVisibleAsUser(Process.myUserHandle(), context);
+    }
+
+    /**
      * Get the {@link Intent} to manage this role, or {@code null} to use the default UI.
      *
      * @param user the user to manage this role for
