@@ -154,7 +154,7 @@ public class GrantPermissionsActivity extends Activity
             reportRequestResult(permission,
                     PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__IGNORED_USER_FIXED);
             return;
-        } else if (group.isPolicyFixed()) {
+        } else if (group.isPolicyFixed() && !group.areRuntimePermissionsGranted()) {
             reportRequestResult(permission,
                     PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__IGNORED_POLICY_FIXED);
             return;
@@ -174,9 +174,7 @@ public class GrantPermissionsActivity extends Activity
         boolean skipGroup = false;
         switch (getPermissionPolicy()) {
             case DevicePolicyManager.PERMISSION_POLICY_AUTO_GRANT: {
-                if (!group.areRuntimePermissionsGranted()) {
-                    group.grantRuntimePermissions(false, new String[]{permission});
-                }
+                group.grantRuntimePermissions(false, new String[]{permission});
                 state.mState = GroupState.STATE_ALLOWED;
                 group.setPolicyFixed();
                 skipGroup = true;
