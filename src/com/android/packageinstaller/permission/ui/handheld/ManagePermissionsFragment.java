@@ -173,7 +173,7 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
             ImageView icon = ((ImageView) holder.findViewById(android.R.id.icon));
             icon.setAdjustViewBounds(true);
             int size = getContext().getResources().getDimensionPixelSize(
-                    R.dimen.secondary_app_icon_size);
+                    R.dimen.permission_icon_size);
             icon.setMaxWidth(size);
             icon.setMaxHeight(size);
             icon.getLayoutParams().width = size;
