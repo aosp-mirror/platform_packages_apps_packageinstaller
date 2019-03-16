@@ -205,6 +205,8 @@
     </style>
 
     <style name="AppPermissionSelection">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">vertical</item>
         <item name="android:minHeight">?android:attr/listPreferredItemHeight</item>
         <item name="android:paddingStart">?android:attr/listPreferredItemPaddingStart</item>
