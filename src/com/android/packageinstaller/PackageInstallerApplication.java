@@ -38,23 +38,24 @@ public class PackageInstallerApplication extends Application {
 
     private void updateSpecialAppAccessListActivityEnabledState() {
         ArrayMap<String, Role> roles = Roles.get(this);
-        boolean hasSpecialAppAccess = false;
+        boolean hasVisibleSpecialAppAccess = false;
         int rolesSize = roles.size();
         for (int i = 0; i < rolesSize; i++) {
             Role role = roles.valueAt(i);
 
-            if (!role.isAvailable(this)) {
+            if (!role.isAvailable(this) || !role.isVisible(this)) {
                 continue;
             }
             if (!role.isExclusive()) {
-                hasSpecialAppAccess = true;
+                hasVisibleSpecialAppAccess = true;
                 break;
             }
         }
 
         PackageManager packageManager = getPackageManager();
         ComponentName componentName = new ComponentName(this, SpecialAppAccessListActivity.class);
-        int enabledState = hasSpecialAppAccess ? PackageManager.COMPONENT_ENABLED_STATE_DEFAULT
+        int enabledState = hasVisibleSpecialAppAccess
+                ? PackageManager.COMPONENT_ENABLED_STATE_DEFAULT
                 : PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
         packageManager.setComponentEnabledSetting(componentName, enabledState,
                 PackageManager.DONT_KILL_APP);
