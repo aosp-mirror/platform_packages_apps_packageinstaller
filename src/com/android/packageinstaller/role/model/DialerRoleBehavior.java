@@ -23,8 +23,6 @@ import android.telephony.TelephonyManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import java.util.List;
-
 /**
  * Class for behavior of the dialer role.
  *
@@ -49,9 +47,9 @@ public class DialerRoleBehavior implements RoleBehavior {
                 context);
     }
 
-    @NonNull
+    @Nullable
     @Override
-    public List<String> getDefaultHolders(@NonNull Role role, @NonNull Context context) {
-        return ExclusiveDefaultHolderMixin.getDefaultHolders(role, "config_defaultDialer", context);
+    public String getFallbackHolder(@NonNull Role role, @NonNull Context context) {
+        return ExclusiveDefaultHolderMixin.getDefaultHolder(role, "config_defaultDialer", context);
     }
 }

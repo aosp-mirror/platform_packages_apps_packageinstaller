@@ -232,7 +232,7 @@ public class Role {
     /**
      * Get the fallback holder of this role, which will be added whenever there are no role holders.
      * <p>
-     * Should return empty if this role {@link #mShowNone shows a "None" item}.
+     * Should return {@code null} if this role {@link #mShowNone shows a "None" item}.
      *
      * @param context the {@code Context} to retrieve system services
      *
