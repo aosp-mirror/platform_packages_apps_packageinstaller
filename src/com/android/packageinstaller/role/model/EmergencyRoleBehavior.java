@@ -41,10 +41,8 @@ public class EmergencyRoleBehavior implements RoleBehavior {
     @Override
     public boolean isAvailableAsUser(@NonNull Role role, @NonNull UserHandle user,
             @NonNull Context context) {
-        // TODO: STOPSHIP: Also TelephonyManager.EMERGENCY_ASSISTANCE_ENABLED, and a boolean
-        //  constant to disable UI by default.
         TelephonyManager telephonyManager = context.getSystemService(TelephonyManager.class);
-        return telephonyManager.isVoiceCapable();
+        return telephonyManager.isEmergencyAssistanceEnabled() && telephonyManager.isVoiceCapable();
     }
 
     @Nullable
