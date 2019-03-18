@@ -20,13 +20,12 @@ import android.app.AppOpsManager;
 import android.app.AppOpsManager.HistoricalOp;
 import android.app.AppOpsManager.HistoricalPackageOps;
 import android.app.AppOpsManager.OpEntry;
-
 import android.app.AppOpsManager.PackageOps;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
-import com.android.packageinstaller.permission.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -107,25 +106,25 @@ public final class AppPermissionUsage {
             if (mLastUsage == null) {
                 return 0;
             }
-            long lastAccessTime = 0;
-            final ArrayList<Permission> permissions = mGroup.getPermissions();
-            final int permissionCount = permissions.size();
-            for (int i = 0; i < permissionCount; i++) {
-                final Permission permission = permissions.get(i);
-                final String opName = permission.getAppOp();
-                final List<OpEntry> ops = mLastUsage.getOps();
-                final int opCount = ops.size();
-                for (int j = 0; j < opCount; j++) {
-                    final OpEntry op = ops.get(j);
-                    if (op.getOpStr().equals(opName)) {
-                        lastAccessTime = Math.max(lastAccessTime,
-                                op.getLastAccessTime(AppOpsManager.OP_FLAGS_ALL_TRUSTED));
-                    }
-                }
-            }
-            return lastAccessTime;
+            return lastAccessAggregate(
+                    (op) -> op.getLastAccessTime(AppOpsManager.OP_FLAGS_ALL_TRUSTED));
         }
 
+        public long getLastAccessForegroundTime() {
+            if (mLastUsage == null) {
+                return 0;
+            }
+            return lastAccessAggregate(
+                    (op) -> op.getLastAccessForegroundTime(AppOpsManager.OP_FLAGS_ALL_TRUSTED));
+        }
+
+        public long getLastAccessBackgroundTime() {
+            if (mLastUsage == null) {
+                return 0;
+            }
+            return lastAccessAggregate(
+                    (op) -> op.getLastAccessBackgroundTime(AppOpsManager.OP_FLAGS_ALL_TRUSTED));
+        }
 
         public long getForegroundAccessCount() {
             if (mHistoricalUsage == null) {
@@ -173,6 +172,25 @@ public final class AppPermissionUsage {
                 final HistoricalOp historicalOp = mHistoricalUsage.getOp(opName);
                 if (historicalOp != null) {
                     aggregate += extractor.apply(historicalOp);
+                }
+            }
+            return aggregate;
+        }
+
+        private long lastAccessAggregate(@NonNull Function<OpEntry, Long> extractor) {
+            long aggregate = 0;
+            final ArrayList<Permission> permissions = mGroup.getPermissions();
+            final int permissionCount = permissions.size();
+            for (int permissionNum = 0; permissionNum < permissionCount; permissionNum++) {
+                final Permission permission = permissions.get(permissionNum);
+                final String opName = permission.getAppOp();
+                final List<OpEntry> ops = mLastUsage.getOps();
+                final int opCount = ops.size();
+                for (int opNum = 0; opNum < opCount; opNum++) {
+                    final OpEntry op = ops.get(opNum);
+                    if (op.getOpStr().equals(opName)) {
+                        aggregate = Math.max(aggregate, extractor.apply(op));
+                    }
                 }
             }
             return aggregate;
