@@ -21,6 +21,7 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.os.Bundle;
 import android.os.UserHandle;
+import android.provider.Settings;
 import android.util.ArrayMap;
 
 import androidx.annotation.NonNull;
@@ -48,7 +49,11 @@ public class DefaultAppListFragment extends SettingsFragment
 
     private static final String LOG_TAG = DefaultAppListFragment.class.getSimpleName();
 
-    private static final String PREFERENCE_KEY_WORK_CATEGORY = "work_category";
+    private static final String PREFERENCE_KEY_MANAGE_DOMAIN_URLS =
+            DefaultAppListFragment.class.getName() + ".preference.MANAGE_DOMAIN_URLS";
+
+    private static final String PREFERENCE_KEY_WORK_CATEGORY =
+            DefaultAppListFragment.class.getName() + ".preference.WORK_CATEGORY";
 
     private DefaultAppListViewModel mViewModel;
 
@@ -119,6 +124,7 @@ public class DefaultAppListFragment extends SettingsFragment
 
         addPreferences(preferenceScreen, roleItems, oldPreferences, this, mViewModel.getUser(),
                 context);
+        addManageDomainUrlsPreference(preferenceScreen, oldPreferences, context);
         if (hasWorkProfile && !workRoleItems.isEmpty()) {
             PreferenceCategory workPreferenceCategory = oldWorkPreferenceCategory;
             if (workPreferenceCategory == null) {
@@ -173,7 +179,6 @@ public class DefaultAppListFragment extends SettingsFragment
                 preference.setSummary(Utils.getAppLabel(holderApplicationInfo, context));
             }
 
-            // TODO: Ordering?
             preferenceGroup.addPreference(preference);
         }
     }
@@ -190,5 +195,23 @@ public class DefaultAppListFragment extends SettingsFragment
         }
         startActivity(intent);
         return true;
+    }
+
+    private static void addManageDomainUrlsPreference(@NonNull PreferenceGroup preferenceGroup,
+            @NonNull ArrayMap<String, Preference> oldPreferences, @NonNull Context context) {
+        Preference preference = oldPreferences.get(PREFERENCE_KEY_MANAGE_DOMAIN_URLS);
+        if (preference == null) {
+            preference = new Preference(context);
+            preference.setKey(PREFERENCE_KEY_MANAGE_DOMAIN_URLS);
+            preference.setIconSpaceReserved(true);
+            preference.setTitle(context.getString(R.string.default_apps_manage_domain_urls));
+            preference.setPersistent(false);
+            preference.setOnPreferenceClickListener(preference2 -> {
+                context.startActivity(new Intent(Settings.ACTION_MANAGE_DOMAIN_URLS));
+                return true;
+            });
+        }
+
+        preferenceGroup.addPreference(preference);
     }
 }

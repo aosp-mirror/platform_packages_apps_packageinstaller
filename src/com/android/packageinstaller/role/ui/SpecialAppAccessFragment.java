@@ -145,7 +145,6 @@ public class SpecialAppAccessFragment extends SettingsFragment
 
             preference.setChecked(isHolderPackage);
 
-            // TODO: Ordering?
             preferenceScreen.addPreference(preference);
         }
 
