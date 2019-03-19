@@ -182,7 +182,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         updateHeader(root.requireViewById(R.id.large_header));
 
         ((TextView) root.requireViewById(R.id.permission_message)).setText(
-                context.getString(R.string.app_permission_header, mGroup.getLabel(), appLabel));
+                context.getString(R.string.app_permission_header, mGroup.getLabel()));
 
         if (Utils.isModernPermissionGroup(mGroup.getName())) {
             String timeDiffStr = Utils.getRelativeLastUsageString(context,

@@ -264,8 +264,6 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">vertical</item>
         <item name="android:minHeight">?android:attr/listPreferredItemHeight</item>
-        <item name="android:paddingStart">?android:attr/listPreferredItemPaddingStart</item>
-        <item name="android:paddingEnd">?android:attr/listPreferredItemPaddingEnd</item>
         <item name="android:background">?android:attr/selectableItemBackground</item>
     </style>
 
@@ -282,6 +280,8 @@
         <item name="android:paddingBottom">16dp</item>
         <item name="android:layout_marginStart">48dp</item>
         <item name="android:layout_marginEnd">48dp</item>
+        <item name="android:paddingStart">?android:attr/listPreferredItemPaddingStart</item>
+        <item name="android:paddingEnd">?android:attr/listPreferredItemPaddingEnd</item>
         <item name="android:textColor">?android:attr/textColorSecondary</item>
     </style>
 
