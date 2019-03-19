@@ -134,7 +134,7 @@ public class DefaultAppFragment extends SettingsFragment
 
         if (mRole.shouldShowNone()) {
             Drawable icon = AppCompatResources.getDrawable(context, R.drawable.ic_remove_circle);
-            String title = context.getString(R.string.default_app_none);
+            String title = getString(R.string.default_app_none);
             boolean noHolderApplication = !hasHolderApplication(qualifyingApplications);
             addPreference(PREFERENCE_KEY_NONE, icon, title, noHolderApplication, null,
                     oldPreferences, preferenceScreen, context);
