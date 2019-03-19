@@ -544,11 +544,146 @@
     <!-- Text for the dialog listing the enabled accessibility services when there are more than one [CHAR LIMIT=none] -->
     <string name="accessibility_service_dialog_bottom_text_multiple">These apps can view your screen, actions, and inputs, perform actions, and control the display.</string>
 
+    <!-- Label for the assistant role. [CHAR LIMIT=30] -->
+    <string name="role_assistant_label">Default assist app</string>
+    <!-- Short label for the assistant role. [CHAR LIMIT=30] -->
+    <string name="role_assistant_short_label">Assist app</string>
+    <!-- Description for the assistant role. [CHAR LIMIT=NONE] -->
+    <string name="role_assistant_description">Assist apps can help you based on information from the screen you\u2019re viewing. Some apps support both launcher and voice input services to give you integrated assistance.</string>
+    <!-- Short description for the assistant role. [CHAR LIMIT=60] -->
+    <string name="role_assistant_short_description">Gets access to SMS, call log</string>
+    <!-- Template for the title when an app requests to become the default assistant app. [CHAR LIMIT=100] -->
+    <string name="role_assistant_request_title">Set <xliff:g id="app_name" example="Super Assistant">%1$s</xliff:g> as your default assist app?</string>
+
+    <!-- Label for the browser role. [CHAR LIMIT=30] -->
+    <string name="role_browser_label">Default browser app</string>
+    <!-- Short label for the browser role. [CHAR LIMIT=30] -->
+    <string name="role_browser_short_label">Browser app</string>
+    <!-- Description for the browser role. [CHAR LIMIT=NONE] -->
+    <string name="role_browser_description">Apps that give you access to the internet and display links that you tap</string>
+    <!-- Short description for the browser role. [CHAR LIMIT=60] -->
+    <string name="role_browser_short_description">No permissions needed</string>
+    <!-- Template for the title when an app requests to become the default browser app. [CHAR LIMIT=100] -->
+    <string name="role_browser_request_title">Set <xliff:g id="app_name" example="Super Browser">%1$s</xliff:g> as your default browser app?</string>
+
+    <!-- Label for the dialer role. [CHAR LIMIT=30] -->
+    <string name="role_dialer_label">Default phone app</string>
+    <!-- Short label for the dialer role. [CHAR LIMIT=30] -->
+    <string name="role_dialer_short_label">Phone app</string>
+    <!-- Description for the dialer role. [CHAR LIMIT=NONE] -->
+    <string name="role_dialer_description">Apps that allow you to make and receive telephone calls on your device</string>
+    <!-- Short description for the dialer role. [CHAR LIMIT=60] -->
+    <string name="role_dialer_short_description">Gets access to call log, send SMS</string>
+    <!-- Template for the title when an app requests to become the default dialer app. [CHAR LIMIT=100] -->
+    <string name="role_dialer_request_title">Set <xliff:g id="app_name" example="Super Phone">%1$s</xliff:g> as your default phone app?</string>
+
+    <!-- Label for the SMS role. [CHAR LIMIT=30] -->
+    <string name="role_sms_label">Default SMS app</string>
+    <!-- Short label for the SMS role. [CHAR LIMIT=30] -->
+    <string name="role_sms_short_label">SMS app</string>
+    <!-- Description for the SMS role. [CHAR LIMIT=NONE] -->
+    <string name="role_sms_description">Apps that allow you to use your phone number to send and receive short text messages, photos, videos, and more</string>
+    <!-- Short description for the SMS role. [CHAR LIMIT=60] -->
+    <string name="role_sms_short_description">Gets access to contacts, SMS, phone</string>
+    <!-- Template for the title when an app requests to become the default SMS app. [CHAR LIMIT=100] -->
+    <string name="role_sms_request_title">Set <xliff:g id="app_name" example="Super SMS">%1$s</xliff:g> as your default SMS app?</string>
+
+    <!-- Label for the emergency role. [CHAR LIMIT=30] -->
+    <string name="role_emergency_label">Default emergency app</string>
+    <!-- Short label for the emergency role. [CHAR LIMIT=30] -->
+    <string name="role_emergency_short_label">Emergency app</string>
+    <!-- Description for the emergency role. [CHAR LIMIT=NONE] -->
+    <string name="role_emergency_description">Apps that allow you to record your medical info and make it accessible to emergency responders; to get alerts about severe weather events and disasters; to notify others when you need help</string>
+    <!-- Short description for the emergency role. [CHAR LIMIT=60] -->
+    <string name="role_emergency_short_description">No permissions needed</string>
+    <!-- Template for the title when an app requests to become the default emergency app. [CHAR LIMIT=100] -->
+    <string name="role_emergency_request_title">Set <xliff:g id="app_name" example="Super Emergency">%1$s</xliff:g> as your default emergency app?</string>
+
+    <!-- Label for the home role. [CHAR LIMIT=30] -->
+    <string name="role_home_label">Default home app</string>
+    <!-- Short label for the home role. [CHAR LIMIT=30] -->
+    <string name="role_home_short_label">Home app</string>
+    <!-- Description for the home role. [CHAR LIMIT=NONE] -->
+    <string name="role_home_description">Apps, often called launchers, that replace the Home screens on your Android device and give you access to the contents and features of your device</string>
+    <!-- Short description for the home role. [CHAR LIMIT=60] -->
+    <string name="role_home_short_description">No permissions needed</string>
+    <!-- Template for the title when an app requests to become the default home app. [CHAR LIMIT=100] -->
+    <string name="role_home_request_title">Set <xliff:g id="app_name" example="Super Home">%1$s</xliff:g> as your default home app?</string>
+
+    <!-- Label for the music player role. [CHAR LIMIT=30] -->
+    <string name="role_music_label">Default music app</string>
+    <!-- Short label for the music player role. [CHAR LIMIT=30] -->
+    <string name="role_music_short_label">Music app</string>
+    <!-- Description for the music role. [CHAR LIMIT=NONE] -->
+    <string name="role_music_description">Apps that allow you to play songs, podcasts, and other audio</string>
+    <!-- Short description for the music role. [CHAR LIMIT=60] -->
+    <string name="role_music_short_description">Gets access to audio</string>
+    <!-- Template for the title when an app requests to become the default music app. [CHAR LIMIT=100] -->
+    <string name="role_music_request_title">Set <xliff:g id="app_name" example="Super Music">%1$s</xliff:g> as your default music app?</string>
+
+    <!-- Label for the gallery role. [CHAR LIMIT=30] -->
+    <string name="role_gallery_label">Default gallery app</string>
+    <!-- Short label for the gallery role. [CHAR LIMIT=30] -->
+    <string name="role_gallery_short_label">Gallery app</string>
+    <!-- Description for the gallery role. [CHAR LIMIT=NONE] -->
+    <string name="role_gallery_description">Apps that allow you to view, organize, protect, and share your photos and videos</string>
+    <!-- Short description for the gallery role. [CHAR LIMIT=60] -->
+    <string name="role_gallery_short_description">Gets access to photos and videos</string>
+    <!-- Template for the title when an app requests to become the default gallery app. [CHAR LIMIT=100] -->
+    <string name="role_gallery_request_title">Set <xliff:g id="app_name" example="Super Gallery">%1$s</xliff:g> as your default gallery app?</string>
+
+    <!-- Label for the automotive dialer role. [CHAR LIMIT=30] -->
+    <string name="role_car_mode_dialer_label">Default car mode phone app</string>
+    <!-- Short label for the automotive dialer role. [CHAR LIMIT=30] -->
+    <string name="role_car_mode_dialer_short_label">Car mode phone app</string>
+    <!-- Description for the automotive dialer role. [CHAR LIMIT=NONE] -->
+    <string name="role_car_mode_dialer_description"></string>
+    <!-- Short description for the automotive dialer role. [CHAR LIMIT=60] -->
+    <string name="role_car_mode_dialer_short_description"></string>
+    <!-- Template for the title when an app requests to become the default automotive dialer app. [CHAR LIMIT=100] -->
+    <string name="role_car_mode_dialer_request_title">Set <xliff:g id="app_name" example="Super Car Mode Phone">%1$s</xliff:g> as your default car mode phone app?</string>
+
+    <!-- Label for the call redirection role. [CHAR LIMIT=30] -->
+    <string name="role_call_redirection_label">Default call redirecting app</string>
+    <!-- Short label for the call redirection role. [CHAR LIMIT=30] -->
+    <string name="role_call_redirection_short_label">Call redirecting app</string>
+    <!-- Description for the call redirection role. [CHAR LIMIT=NONE] -->
+    <string name="role_call_redirection_description">Apps that allow you to forward calls to another phone number</string>
+    <!-- Short description for the call redirection role. [CHAR LIMIT=60] -->
+    <string name="role_call_redirection_short_description">No permissions needed</string>
+    <!-- Template for the title when an app requests to become the default call redirection app. [CHAR LIMIT=100] -->
+    <string name="role_call_redirection_request_title">Set <xliff:g id="app_name" example="Super Call Redirection">%1$s</xliff:g> as your default call redirection app?</string>
+
+    <!-- Label for the call screening role. [CHAR LIMIT=45] -->
+    <string name="role_call_screening_label">Default caller ID &amp; spam app</string>
+    <!-- Short label for the call screening role. [CHAR LIMIT=30] -->
+    <string name="role_call_screening_short_label">Caller ID &amp; spam app</string>
+    <!-- Description for the call screening role. [CHAR LIMIT=NONE] -->
+    <string name="role_call_screening_description">Apps that allow you to identify incoming calls, block spam and robocalls, blacklist unwanted numbers, and so on</string>
+    <!-- Short description for the call screening role. [CHAR LIMIT=60] -->
+    <string name="role_call_screening_short_description">No permissions needed</string>
+    <!-- Template for the title when an app requests to become the default call screening app. [CHAR LIMIT=100] -->
+    <string name="role_call_screening_request_title">Set <xliff:g id="app_name" example="Super Call Screening">%1$s</xliff:g> as your default caller ID &amp; spam app?</string>
+
+    <!-- Label for the call companion role. [CHAR LIMIT=30] -->
+    <string name="role_call_companion_label">Default call companion app</string>
+    <!-- Short label for the call companion role. [CHAR LIMIT=30] -->
+    <string name="role_call_companion_short_label">Call companion app</string>
+    <!-- Description for the call companion role. [CHAR LIMIT=NONE] -->
+    <string name="role_call_companion_description"></string>
+    <!-- Short description for the call companion role. [CHAR LIMIT=60] -->
+    <string name="role_call_companion_short_description"></string>
+    <!-- Template for the title when an app requests to become the default call companion app. [CHAR LIMIT=100] -->
+    <string name="role_call_companion_request_title">Set <xliff:g id="app_name" example="Super Call Companion">%1$s</xliff:g> as your default call companion app?</string>
+
     <!-- Template for the title when an app requests to become a default application. [CHAR LIMIT=100] -->
     <string name="request_role_title">Set <xliff:g id="app_name" example="Super Duper SMS">%1$s</xliff:g> as your default <xliff:g id="role_name" example="SMS app">%2$s</xliff:g>?</string>
 
     <!-- Subtitle for the application that is the current default application [CHAR LIMIT=30] -->
     <string name="request_role_current_default">Current default</string>
+
+    <!-- Label for the checkbox to always deny a role request from an application from now on [CHAR LIMIT=30] -->
+    <string name="request_role_dont_ask_again">Don\u2019t ask again</string>
 
     <!-- Label for the button to set an application as the default application [CHAR LIMIT=20] -->
     <string name="request_role_set_as_default">Set as default</string>
@@ -609,40 +744,13 @@
     <!-- Label when there are no apps available for a special app access [CHAR LIMIT=30] -->
     <string name="special_app_access_no_apps">No apps</string>
 
-    <!-- TODO: STOPSHIP: Migrate all default app titles from packages/apps/Settings/res/values/strings.xml . -->
-
-    <!-- Label for the assistant role. [CHAR LIMIT=30] -->
-    <string name="role_label_assistant">Assist app</string>
-    <!-- Label for the browser role. [CHAR LIMIT=30] -->
-    <string name="role_label_browser">Browser app</string>
-    <!-- Label for the dialer role. [CHAR LIMIT=30] -->
-    <string name="role_label_dialer">Phone app</string>
-    <!-- Label for the SMS role. [CHAR LIMIT=30] -->
-    <string name="role_label_sms">SMS app</string>
-    <!-- Label for the emergency role. [CHAR LIMIT=30] -->
-    <string name="role_label_emergency">Emergency app</string>
-    <!-- Label for the home role. [CHAR LIMIT=30] -->
-    <string name="role_label_home">Home app</string>
-    <!-- Label for the music player role. [CHAR LIMIT=30] -->
-    <string name="role_label_music">Music app</string>
-    <!-- Label for the gallery role. [CHAR LIMIT=30] -->
-    <string name="role_label_gallery">Gallery app</string>
-    <!-- Label for the automotive dialer role. [CHAR LIMIT=30] -->
-    <string name="role_label_car_mode_dialer">Car mode phone app</string>
-    <!-- Label for the call redirection role. [CHAR LIMIT=30] -->
-    <string name="role_label_call_redirection">Call redirecting app</string>
-    <!-- Label for the call screening role. [CHAR LIMIT=30] -->
-    <string name="role_label_call_screening">Caller ID and spam app</string>
-    <!-- Label for the call companion role. [CHAR LIMIT=30] -->
-    <string name="role_label_call_companion">Call companion app</string>
-
     <!-- Summary indicating that a home app is missing work profile support [CHAR LIMIT=60] -->
     <string name="home_missing_work_profile_support">Doesn\u2019t support work profile</string>
 
     <!-- Dialog message explaining that the app just selected by the user will not work after a reboot until the user enters their credentials, such as a PIN or password. [CHAR LIMIT=NONE] -->
     <string name="encryption_unaware_confirmation_message">Note: If you restart your device and have a screen lock set, this app can\u2019t start until you unlock your device.</string>
 
-    <!-- Dialog message warning about security implications of setting an assistant, displayed when the user selects an assistant. [CHAR_LIMIT=NONE] -->
+    <!-- Dialog message warning about security implications of setting an assistant, displayed when the user selects an assistant. [CHAR LIMIT=NONE] -->
     <string name="assistant_confirmation_message">The assistant will be able to read information about apps in use on your system, including information visible on your screen or accessible within the apps.</string>
 
     <!-- Name for the notification channel for incident / bug report confirmation

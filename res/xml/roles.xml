@@ -82,7 +82,7 @@
         behavior="AssistantRoleBehavior"
         exclusive="true"
         showNone="true"
-        label="@string/role_label_assistant">
+        label="@string/role_assistant_short_label">
         <required-components>
             <!-- Qualified components are determined int AssistantRoleBehavior. This comment here is
                  ignored and represents just a rough description
@@ -127,7 +127,7 @@
         name="android.app.role.BROWSER"
         behavior="BrowserRoleBehavior"
         exclusive="true"
-        label="@string/role_label_browser">
+        label="@string/role_browser_short_label">
         <!--
           ~ Required components matching is handled in BrowserRoleBehavior because it needs the
           ~ PackageManager.MATCH_ALL flag and other manual filtering, which cannot fit in our
@@ -161,7 +161,7 @@
         name="android.app.role.DIALER"
         behavior="DialerRoleBehavior"
         exclusive="true"
-        label="@string/role_label_dialer">
+        label="@string/role_dialer_short_label">
         <required-components>
             <activity>
                 <intent-filter>
@@ -217,7 +217,7 @@
         name="android.app.role.SMS"
         behavior="SmsRoleBehavior"
         exclusive="true"
-        label="@string/role_label_sms">
+        label="@string/role_sms_short_label">
         <required-components>
             <receiver permission="android.permission.BROADCAST_SMS">
                 <intent-filter>
@@ -299,7 +299,7 @@
         name="android.app.role.EMERGENCY"
         behavior="EmergencyRoleBehavior"
         exclusive="true"
-        label="@string/role_label_emergency"
+        label="@string/role_emergency_short_label"
         systemOnly="true">
         <required-components>
             <activity>
@@ -319,7 +319,7 @@
         name="android.app.role.HOME"
         behavior="HomeRoleBehavior"
         exclusive="true"
-        label="@string/role_label_home">
+        label="@string/role_home_short_label">
         <!-- Also used by HomeRoleBehavior.getFallbackHolder(). -->
         <required-components>
             <activity>
@@ -349,7 +349,7 @@
         name="android.app.role.MUSIC"
         behavior="MusicRoleBehavior"
         exclusive="true"
-        label="@string/role_label_music">
+        label="@string/role_music_short_label">
         <required-components>
             <activity>
                 <intent-filter>
@@ -384,7 +384,7 @@
         name="android.app.role.GALLERY"
         behavior="GalleryRoleBehavior"
         exclusive="true"
-        label="@string/role_label_gallery">
+        label="@string/role_gallery_short_label">
         <required-components>
             <activity>
                 <intent-filter>
@@ -420,7 +420,7 @@
     <role
         name="android.app.role.CAR_MODE_DIALER"
         exclusive="true"
-        label="@string/role_label_car_mode_dialer">
+        label="@string/role_car_mode_dialer_short_label">
         <required-components>
             <service permission="android.permission.BIND_INCALL_SERVICE">
                 <meta-data
@@ -439,7 +439,7 @@
     <role
         name="android.app.role.CALL_REDIRECTION"
         exclusive="true"
-        label="@string/role_label_call_redirection">
+        label="@string/role_call_redirection_short_label">
         <required-components>
             <service permission="android.permission.BIND_CALL_REDIRECTION_SERVICE">
                 <intent-filter>
@@ -453,7 +453,7 @@
     <role
         name="android.app.role.CALL_SCREENING"
         exclusive="true"
-        label="@string/role_label_call_screening">
+        label="@string/role_call_screening_short_label">
         <required-components>
             <service permission="android.permission.BIND_SCREENING_SERVICE">
                 <intent-filter>
@@ -467,7 +467,7 @@
     <role
         name="android.app.role.CALL_COMPANION"
         exclusive="false"
-        label="@string/role_label_call_companion">
+        label="@string/role_call_companion_short_label">
         <required-components>
             <service permission="android.permission.BIND_INCALL_SERVICE">
                 <meta-data
