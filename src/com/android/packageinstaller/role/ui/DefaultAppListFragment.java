@@ -119,7 +119,7 @@ public class DefaultAppListFragment extends SettingsFragment
 
         addPreferences(preferenceScreen, roleItems, oldPreferences, this, mViewModel.getUser(),
                 context);
-        if (hasWorkProfile) {
+        if (hasWorkProfile && !workRoleItems.isEmpty()) {
             PreferenceCategory workPreferenceCategory = oldWorkPreferenceCategory;
             if (workPreferenceCategory == null) {
                 workPreferenceCategory = new PreferenceCategory(context);
