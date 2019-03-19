@@ -104,6 +104,13 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="com.android.packageinstaller.permission.ui.AdjustUserSensitiveActivity"
+                  android:configChanges="orientation|keyboardHidden|screenSize"
+                  android:label="@string/adjust_user_sensitive_title"
+                  android:theme="@style/Settings"
+                  android:exported="false"
+                  android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS" />
+
         <activity android:name="com.android.packageinstaller.permission.ui.ManagePermissionsActivityTrampoline"
                   android:excludeFromRecents="true"
                   android:noHistory="true"

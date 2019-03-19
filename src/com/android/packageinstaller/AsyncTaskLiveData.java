@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.packageinstaller.role.ui;
+package com.android.packageinstaller;
 
 import android.os.AsyncTask;
 

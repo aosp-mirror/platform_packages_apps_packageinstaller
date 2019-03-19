@@ -93,6 +93,19 @@ public class Constants {
             "search_indexable_provider_password";
 
     /**
+     * Key in the generic shared preferences that stores the name of the packages that are currently
+     * have an overridden user sensitivity.
+     */
+    public static final String FORCED_USER_SENSITIVE_UIDS_KEY = "forced_user_sensitive_uids_key";
+
+    /**
+     * Key in the generic shared preferences that stores if all packages should be considered user
+     * sensitive
+     */
+    public static final String ALLOW_OVERRIDE_USER_SENSITIVE_KEY =
+            "allow_override_user_sensitive_key";
+
+    /**
      * Name of file containing the permissions that should be restored, but have not been restored
      * yet.
      */
