@@ -19,6 +19,7 @@ package com.android.packageinstaller.role.model;
 import android.content.Context;
 import android.os.Process;
 import android.os.UserHandle;
+import android.os.UserManager;
 import android.telephony.TelephonyManager;
 
 import androidx.annotation.NonNull;
@@ -44,10 +45,10 @@ public class SmsRoleBehavior implements RoleBehavior {
         if (UserUtils.isWorkProfile(user, context)) {
             return false;
         }
-        // FIXME: STOPSHIP: Add an appropriate @SystemApi for this.
-        //if (userManager.getUserInfo(user.getIdentifier()).isRestricted()) {
-        //    return false;
-        //}
+        UserManager userManager = context.getSystemService(UserManager.class);
+        if (userManager.isRestrictedProfile(user)) {
+            return false;
+        }
         TelephonyManager telephonyManager = context.getSystemService(TelephonyManager.class);
         if (!telephonyManager.isSmsCapable()) {
             return false;
