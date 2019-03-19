@@ -53,8 +53,8 @@ public class DefaultAppFragment extends SettingsFragment
 
     private static final String LOG_TAG = DefaultAppFragment.class.getSimpleName();
 
-    private static final String PREFERENCE_KEY_NONE =
-            DefaultAppFragment.class.getPackage().getName() + ".preference.NONE";
+    private static final String PREFERENCE_KEY_NONE = DefaultAppFragment.class.getName()
+            + ".preference.NONE";
 
     private String mRoleName;
 
@@ -185,11 +185,12 @@ public class DefaultAppFragment extends SettingsFragment
             preference.setOnPreferenceChangeListener((preference2, newValue) -> false);
             preference.setOnPreferenceClickListener(this);
         }
+
         preference.setChecked(checked);
         if (applicationInfo != null) {
             mRole.prepareApplicationPreferenceAsUser(preference, applicationInfo, mUser, context);
         }
-        // TODO: Ordering?
+
         preferenceScreen.addPreference(preference);
     }
 

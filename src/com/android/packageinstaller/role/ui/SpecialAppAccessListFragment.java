@@ -112,7 +112,6 @@ public class SpecialAppAccessListFragment extends SettingsFragment
                 preference.setOnPreferenceClickListener(this);
             }
 
-            // TODO: Ordering?
             preferenceScreen.addPreference(preference);
         }
 
