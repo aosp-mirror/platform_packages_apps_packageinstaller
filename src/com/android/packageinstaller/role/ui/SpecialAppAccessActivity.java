@@ -65,6 +65,16 @@ public class SpecialAppAccessActivity extends FragmentActivity {
             finish();
             return;
         }
+        if (!role.isAvailable(this)) {
+            Log.e(LOG_TAG, "Role is unavailable: " + roleName);
+            finish();
+            return;
+        }
+        if (!role.isVisible(this)) {
+            Log.e(LOG_TAG, "Role is invisible: " + roleName);
+            finish();
+            return;
+        }
 
         if (savedInstanceState == null) {
             SpecialAppAccessFragment fragment = SpecialAppAccessFragment.newInstance(roleName);
