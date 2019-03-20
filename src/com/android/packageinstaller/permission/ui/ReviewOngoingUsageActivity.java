@@ -75,8 +75,8 @@ public final class ReviewOngoingUsageActivity extends FragmentActivity {
 
         mPermissionUsages = new PermissionUsages(this);
         mStartTime = Math.max(System.currentTimeMillis() - numMillis, Instant.EPOCH.toEpochMilli());
-        mPermissionUsages.load(null, null, mStartTime, Long.MAX_VALUE,
-                PermissionUsages.USAGE_FLAG_LAST, getLoaderManager(), false, false,
+        mPermissionUsages.load(null, new String[] { CAMERA, LOCATION, MICROPHONE }, mStartTime,
+                Long.MAX_VALUE, PermissionUsages.USAGE_FLAG_LAST, getLoaderManager(), false, false,
                 this::onPermissionUsagesLoaded, false);
     }
 
@@ -97,10 +97,6 @@ public final class ReviewOngoingUsageActivity extends FragmentActivity {
                 String groupName = groupUsage.getGroup().getName();
 
                 if (groupUsage.getLastAccessTime() < mStartTime && !groupUsage.isRunning()) {
-                    continue;
-                }
-                if (!groupName.equals(CAMERA) && !groupName.equals(LOCATION) && !groupName.equals(
-                        MICROPHONE)) {
                     continue;
                 }
                 if (!Utils.isGroupOrBgGroupUserSensitive(groupUsage.getGroup())) {

@@ -569,7 +569,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         }
         final long filterTimeBeginMillis = Math.max(System.currentTimeMillis()
                 - timeFilterItem.getTime(), Instant.EPOCH.toEpochMilli());
-        mPermissionUsages.load(null /*filterPackageName*/, null /*filterPermissionGroup*/,
+        mPermissionUsages.load(null /*filterPackageName*/, null /*filterPermissionGroups*/,
                 filterTimeBeginMillis, Long.MAX_VALUE, PermissionUsages.USAGE_FLAG_LAST
                         | PermissionUsages.USAGE_FLAG_HISTORICAL, getActivity().getLoaderManager(),
                 false /*getUiInfo*/, false /*getNonPlatformPermissions*/, this /*callback*/,

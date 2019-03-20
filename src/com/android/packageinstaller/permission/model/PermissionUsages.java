@@ -77,18 +77,18 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
         mContext = context;
     }
 
-    public void load(@Nullable String filterPackageName, @Nullable String filterPermissionGroup,
-            long filterBeginTimeMillis, long filterEndTimeMillis, int usageFlags,
-            @NonNull LoaderManager loaderManager, boolean getUiInfo,
-            boolean getNonPlatformPermissions, @NonNull PermissionsUsagesChangeCallback callback,
-            boolean sync) {
-        load(Process.INVALID_UID, filterPackageName, filterPermissionGroup, filterBeginTimeMillis,
+    public void load(@Nullable String filterPackageName,
+            @Nullable String[] filterPermissionGroups, long filterBeginTimeMillis,
+            long filterEndTimeMillis, int usageFlags, @NonNull LoaderManager loaderManager,
+            boolean getUiInfo, boolean getNonPlatformPermissions,
+            @NonNull PermissionsUsagesChangeCallback callback, boolean sync) {
+        load(Process.INVALID_UID, filterPackageName, filterPermissionGroups, filterBeginTimeMillis,
                 filterEndTimeMillis, usageFlags, loaderManager, getUiInfo,
                 getNonPlatformPermissions, callback, sync);
     }
 
     public void load(int filterUid, @Nullable String filterPackageName,
-            @Nullable String filterPermissionGroup, long filterBeginTimeMillis,
+            @Nullable String[] filterPermissionGroups, long filterBeginTimeMillis,
             long filterEndTimeMillis, int usageFlags, @NonNull LoaderManager loaderManager,
             boolean getUiInfo, boolean getNonPlatformPermissions,
             @NonNull PermissionsUsagesChangeCallback callback, boolean sync) {
@@ -96,7 +96,7 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
         final Bundle args = new Bundle();
         args.putInt(KEY_FILTER_UID, filterUid);
         args.putString(KEY_FILTER_PACKAGE_NAME, filterPackageName);
-        args.putString(KEY_FILTER_PERMISSION_GROUP, filterPermissionGroup);
+        args.putStringArray(KEY_FILTER_PERMISSION_GROUP, filterPermissionGroups);
         args.putLong(KEY_FILTER_BEGIN_TIME_MILLIS, filterBeginTimeMillis);
         args.putLong(KEY_FILTER_END_TIME_MILLIS, filterEndTimeMillis);
         args.putInt(KEY_USAGE_FLAGS, usageFlags);
@@ -164,7 +164,7 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
     private static final class UsageLoader extends AsyncTaskLoader<List<AppPermissionUsage>> {
         private final int mFilterUid;
         private @Nullable String mFilterPackageName;
-        private @Nullable String mFilterPermissionGroup;
+        private @Nullable String[] mFilterPermissionGroups;
         private final long mFilterBeginTimeMillis;
         private final long mFilterEndTimeMillis;
         private final int mUsageFlags;
@@ -175,7 +175,7 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
             super(context);
             mFilterUid = args.getInt(KEY_FILTER_UID);
             mFilterPackageName = args.getString(KEY_FILTER_PACKAGE_NAME);
-            mFilterPermissionGroup = args.getString(KEY_FILTER_PERMISSION_GROUP);
+            mFilterPermissionGroups = args.getStringArray(KEY_FILTER_PERMISSION_GROUP);
             mFilterBeginTimeMillis = args.getLong(KEY_FILTER_BEGIN_TIME_MILLIS);
             mFilterEndTimeMillis = args.getLong(KEY_FILTER_END_TIME_MILLIS);
             mUsageFlags = args.getInt(KEY_USAGE_FLAGS);
@@ -192,7 +192,7 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
         public @NonNull List<AppPermissionUsage> loadInBackground() {
             final List<PermissionGroup> groups = PermissionGroups.getPermissionGroups(
                     getContext(), this::isLoadInBackgroundCanceled, mGetUiInfo,
-                    mGetNonPlatformPermissions, mFilterPermissionGroup, mFilterPackageName);
+                    mGetNonPlatformPermissions, mFilterPermissionGroups, mFilterPackageName);
             if (!Utils.isPermissionsHubEnabled()) {
                 return Collections.emptyList();
             }
