@@ -17,11 +17,13 @@
 package com.android.packageinstaller.permission.ui.handheld;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
@@ -77,6 +79,10 @@ public class ExpandablePreferenceGroup extends PreferenceGroup {
         icon.setMaxHeight(rightIconSize);
 
         super.onBindViewHolder(holder);
+
+        TextView summary = (TextView) holder.findViewById(android.R.id.summary);
+        summary.setMaxLines(1);
+        summary.setEllipsize(TextUtils.TruncateAt.END);
 
         ImageView rightImageView = holder.findViewById(
                 android.R.id.widget_frame).findViewById(R.id.icon);
