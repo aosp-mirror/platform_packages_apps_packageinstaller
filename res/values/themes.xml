@@ -46,8 +46,18 @@
             parent="@android:style/Theme.DeviceDefault.Settings">
     </style>
 
-    <style name="RequestRole" parent="android:Theme.DeviceDefault.Light.NoActionBar.TranslucentDecor">
-        <!-- TODO: STOPSHIP: Make themeable? -->
+    <!-- TODO: STOPSHIP: Make themeable? -->
+    <style name="RequestRole" parent="android:Theme.DeviceDefault.Settings">
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
 
     <style name="Theme.PermissionGrantDialog"

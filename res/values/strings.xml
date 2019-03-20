@@ -352,6 +352,12 @@
     <!-- Label for refreshing the list of permission usages. [CHAR LIMIT=30] -->
     <string name="permission_usage_refresh">Refresh</string>
 
+    <!-- Subtitle for showing how many apps have accessed a given permission [CHAR LIMIT=20] -->
+    <plurals name="permission_usage_permission_filter_subtitle">
+        <item quantity="one">1 app</item>
+        <item quantity="other"><xliff:g id="number" example="7">%s</xliff:g> apps</item>
+    </plurals>
+
     <!-- Help URL, permission usage [DO NOT TRANSLATE] -->
     <string name="help_permission_usage" translatable="false"></string>
 
@@ -393,6 +399,45 @@
 
     <!-- Text for linking to the page that shows the apps with a given permission [CHAR LIMIT=none] -->
     <string name="app_permission_footer_permission_apps_link">See all apps with the <xliff:g id="perm" example="Location">%1$s</xliff:g> permission</string>
+
+    <!-- Label for showing a permission group's description in the header of the list of apps that have that permission [CHAR LIMIT=none] -->
+    <string name="permission_description_summary_generic">Apps with this permission can <xliff:g id="description" example="record audio">%1$s</xliff:g></string>
+
+    <!-- Label for showing a permission group's description in the header of the list of apps that have the activity recognition permission [CHAR LIMIT=none] -->
+    <string name="permission_description_summary_activity_recognition">Apps with this permission can recognize activity</string>
+
+    <!-- Label for showing a permission group's description in the header of the list of apps that have the calendar permission [CHAR LIMIT=none] -->
+    <string name="permission_description_summary_calendar">Apps with this permission can access your calendar</string>
+
+    <!-- Label for showing a permission group's description in the header of the list of apps that have the call log permission [CHAR LIMIT=none] -->
+    <string name="permission_description_summary_call_log">Apps with this permission can read and write phone call log</string>
+
+    <!-- Label for showing a permission group's description in the header of the list of apps that have the camera permission [CHAR LIMIT=none] -->
+    <string name="permission_description_summary_camera">Apps with this permission can take pictures and record video</string>
+
+    <!-- Label for showing a permission group's description in the header of the list of apps that have the contacts permission [CHAR LIMIT=none] -->
+    <string name="permission_description_summary_contacts">Apps with this permission can access your contacts</string>
+
+    <!-- Label for showing a permission group's description in the header of the list of apps that have the location permission [CHAR LIMIT=none] -->
+    <string name="permission_description_summary_location">Apps with this permission can access this device\'s location</string>
+
+    <!-- Label for showing a permission group's description in the header of the list of apps that have the media_aural permission [CHAR LIMIT=none] -->
+    <string name="permission_description_summary_media_aural">Apps with this permission can access your music</string>
+
+    <!-- Label for showing a permission group's description in the header of the list of apps that have the media_visual permission [CHAR LIMIT=none] -->
+    <string name="permission_description_summary_media_visual">Apps with this permission can access your photos &amp; videos</string>
+
+    <!-- Label for showing a permission group's description in the header of the list of apps that have the microphone permission [CHAR LIMIT=none] -->
+    <string name="permission_description_summary_microphone">Apps with this permission can record audio</string>
+
+    <!-- Label for showing a permission group's description in the header of the list of apps that have the phone permission [CHAR LIMIT=none] -->
+    <string name="permission_description_summary_phone">Apps with this permission can make and manage phone calls</string>
+
+    <!-- Label for showing a permission group's description in the header of the list of apps that have the sensors permission [CHAR LIMIT=none] -->
+    <string name="permission_description_summary_sensors">Apps with this permission can access sensor data about your vital signs</string>
+
+    <!-- Label for showing a permission group's description in the header of the list of apps that have the SMS permission [CHAR LIMIT=none] -->
+    <string name="permission_description_summary_sms">Apps with this permission can send and view SMS messages</string>
 
     <!-- Summary for showing the time and/or date of the most recent access of a permission by an app [CHAR LIMIT=60] -->
     <string name="app_permission_most_recent_summary">Last access: <xliff:g id="time_date" example="12:42 PM">%1$s</xliff:g></string>
@@ -436,17 +481,6 @@
         <item quantity="other"><xliff:g id="number" example="7">%s</xliff:g> seconds</item>
     </plurals>
 
-    <!-- Template for the message when an app requests a role and will be added to the role holding apps. [CHAR LIMIT=100] -->
-    <string name="role_request_message_add">Use
-        &lt;b><xliff:g id="app_name" example="Super Duper SMS">%1$s</xliff:g>&lt;/b> as your
-        <xliff:g id="role_name" example="SMS app">%2$s</xliff:g>?</string>
-
-    <!-- Template for the message when an app requests a role and will be replacing the current role holding app. [CHAR LIMIT=100] -->
-    <string name="role_request_message_replace">Use
-        &lt;b><xliff:g id="new_app_name" example="Super Duper SMS">%1$s</xliff:g>&lt;/b> instead of
-        &lt;b><xliff:g id="current_app_name" example="Messages">%1$s</xliff:g>&lt;/b> as your
-        <xliff:g id="role_name" example="SMS app">%2$s</xliff:g>?</string>
-
     <!-- The name of the notification channel containing reminders about permission [CHAR LIMIT=60]-->
     <string name="permission_reminders">Permission reminders</string>
 
@@ -486,6 +520,15 @@
     <!-- Text for the dialog listing the enabled accessibility services when there are more than one [CHAR LIMIT=none] -->
     <string name="accessibility_service_dialog_bottom_text_multiple">These apps can view your screen, actions, and inputs, perform actions, and control the display.</string>
 
+    <!-- Template for the title when an app requests to become a default application. [CHAR LIMIT=100] -->
+    <string name="request_role_title">Set <xliff:g id="app_name" example="Super Duper SMS">%1$s</xliff:g> as your default <xliff:g id="role_name" example="SMS app">%2$s</xliff:g>?</string>
+
+    <!-- Subtitle for the application that is the current default application [CHAR LIMIT=30] -->
+    <string name="request_role_current_default">Current default</string>
+
+    <!-- Label for the button to set an application as the default application [CHAR LIMIT=20] -->
+    <string name="request_role_set_as_default">Set as default</string>
+
     <!-- Keyword in the Settings app's search functionality that can be used to find links to the default app management screens [CHAR LIMIT=none] -->
     <string name="default_app_search_keyword">default apps</string>
 
@@ -498,6 +541,9 @@
 
     <!-- Label when there is no default apps [CHAR LIMIT=30] -->
     <string name="no_default_apps">No default apps</string>
+
+    <!-- Title for preference item that will show the user's preferences for this app's priority for opening links to websites that it claims to support [CHAR LIMIT=30] -->
+    <string name="default_apps_manage_domain_urls">Opening links</string>
 
     <!-- Title for category of default apps for work [CHAR LIMIT=30] -->
     <string name="default_apps_for_work">Default for work</string>

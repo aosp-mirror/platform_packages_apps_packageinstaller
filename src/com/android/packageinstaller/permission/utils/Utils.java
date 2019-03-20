@@ -683,6 +683,49 @@ public final class Utils {
     }
 
     /**
+     * Get a string saying what apps with the given permission group can do.
+     *
+     * @param context The context to use
+     * @param groupName The name of the permission group
+     * @param description The description of the permission group
+     *
+     * @return a string saying what apps with the given permission group can do.
+     */
+    public static @NonNull String getPermissionGroupDescriptionString(@NonNull Context context,
+            @NonNull String groupName, @NonNull CharSequence description) {
+        switch (groupName) {
+            case ACTIVITY_RECOGNITION:
+                return context.getString(
+                        R.string.permission_description_summary_activity_recognition);
+            case CALENDAR:
+                return context.getString(R.string.permission_description_summary_calendar);
+            case CALL_LOG:
+                return context.getString(R.string.permission_description_summary_call_log);
+            case CAMERA:
+                return context.getString(R.string.permission_description_summary_camera);
+            case CONTACTS:
+                return context.getString(R.string.permission_description_summary_contacts);
+            case LOCATION:
+                return context.getString(R.string.permission_description_summary_location);
+            case MEDIA_AURAL:
+                return context.getString(R.string.permission_description_summary_media_aural);
+            case MEDIA_VISUAL:
+                return context.getString(R.string.permission_description_summary_media_visual);
+            case MICROPHONE:
+                return context.getString(R.string.permission_description_summary_microphone);
+            case PHONE:
+                return context.getString(R.string.permission_description_summary_phone);
+            case SENSORS:
+                return context.getString(R.string.permission_description_summary_sensors);
+            case SMS:
+                return context.getString(R.string.permission_description_summary_sms);
+            default:
+                return context.getString(R.string.permission_description_summary_generic,
+                        description);
+        }
+    }
+
+    /**
      * Whether the Location Access Check is enabled.
      *
      * @return {@code true} iff the Location Access Check is enabled.

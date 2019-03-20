@@ -21,6 +21,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageItemInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
@@ -55,6 +56,7 @@ public class PermissionApps {
 
     private CharSequence mLabel;
     private Drawable mIcon;
+    private @Nullable CharSequence mDescription;
     private List<PermissionApp> mPermApps;
     // Map (pkg|uid) -> AppPermission
     private ArrayMap<String, PermissionApp> mAppLookup;
@@ -159,6 +161,10 @@ public class PermissionApps {
 
     public Drawable getIcon() {
         return mIcon;
+    }
+
+    public CharSequence getDescription() {
+        return mDescription;
     }
 
     private @NonNull List<PackageInfo> getPackageInfos(@NonNull UserHandle user) {
@@ -321,6 +327,11 @@ public class PermissionApps {
             mIcon = mContext.getDrawable(R.drawable.ic_perm_device_info);
         }
         mIcon = Utils.applyTint(mContext, mIcon, android.R.attr.colorControlNormal);
+        if (info instanceof PermissionGroupInfo) {
+            mDescription = ((PermissionGroupInfo) info).loadDescription(mPm);
+        } else if (info instanceof PermissionInfo) {
+            mDescription = ((PermissionInfo) info).loadDescription(mPm);
+        }
     }
 
     public static class PermissionApp implements Comparable<PermissionApp> {

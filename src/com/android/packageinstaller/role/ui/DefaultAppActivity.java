@@ -81,6 +81,11 @@ public class DefaultAppActivity extends FragmentActivity {
             finish();
             return;
         }
+        if (!role.isVisibleAsUser(user, this)) {
+            Log.e(LOG_TAG, "Role is invisible: " + roleName);
+            finish();
+            return;
+        }
 
         if (savedInstanceState == null) {
             DefaultAppFragment fragment = DefaultAppFragment.newInstance(roleName, user);

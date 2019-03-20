@@ -16,19 +16,45 @@
 
 package com.android.packageinstaller.role.ui;
 
+import android.app.Application;
+import android.os.Process;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+
+import com.android.packageinstaller.role.model.Role;
 
 /**
  * {@link ViewModel} for a role request.
  */
-public class RequestRoleViewModel extends ViewModel {
+public class RequestRoleViewModel extends DefaultAppViewModel {
 
-    @NonNull
-    private ManageRoleHolderStateLiveData mLiveData = new ManageRoleHolderStateLiveData();
+    public RequestRoleViewModel(@NonNull Role role, @NonNull Application application) {
+        super(role, Process.myUserHandle(), application);
+    }
 
-    @NonNull
-    public ManageRoleHolderStateLiveData getLiveData() {
-        return mLiveData;
+    /**
+     * {@link ViewModelProvider.Factory} for {@link RequestRoleViewModel}.
+     */
+    public static class Factory implements ViewModelProvider.Factory {
+
+        @NonNull
+        private Role mRole;
+
+        @NonNull
+        private Application mApplication;
+
+        public Factory(@NonNull Role role, @NonNull Application application) {
+            mRole = role;
+            mApplication = application;
+        }
+
+        @NonNull
+        @Override
+        public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
+            //noinspection unchecked
+            return (T) new RequestRoleViewModel(mRole, mApplication);
+        }
     }
 }

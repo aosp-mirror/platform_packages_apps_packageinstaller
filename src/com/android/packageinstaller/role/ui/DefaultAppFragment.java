@@ -53,8 +53,8 @@ public class DefaultAppFragment extends SettingsFragment
 
     private static final String LOG_TAG = DefaultAppFragment.class.getSimpleName();
 
-    private static final String PREFERENCE_KEY_NONE =
-            DefaultAppFragment.class.getPackage().getName() + ".preference.NONE";
+    private static final String PREFERENCE_KEY_NONE = DefaultAppFragment.class.getName()
+            + ".preference.NONE";
 
     private String mRoleName;
 
@@ -134,7 +134,7 @@ public class DefaultAppFragment extends SettingsFragment
 
         if (mRole.shouldShowNone()) {
             Drawable icon = AppCompatResources.getDrawable(context, R.drawable.ic_remove_circle);
-            String title = context.getString(R.string.default_app_none);
+            String title = getString(R.string.default_app_none);
             boolean noHolderApplication = !hasHolderApplication(qualifyingApplications);
             addPreference(PREFERENCE_KEY_NONE, icon, title, noHolderApplication, null,
                     oldPreferences, preferenceScreen, context);
@@ -185,11 +185,12 @@ public class DefaultAppFragment extends SettingsFragment
             preference.setOnPreferenceChangeListener((preference2, newValue) -> false);
             preference.setOnPreferenceClickListener(this);
         }
+
         preference.setChecked(checked);
         if (applicationInfo != null) {
             mRole.prepareApplicationPreferenceAsUser(preference, applicationInfo, mUser, context);
         }
-        // TODO: Ordering?
+
         preferenceScreen.addPreference(preference);
     }
 
