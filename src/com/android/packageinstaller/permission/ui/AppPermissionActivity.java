@@ -30,6 +30,7 @@ import androidx.fragment.app.FragmentActivity;
 import com.android.packageinstaller.DeviceUtils;
 import com.android.packageinstaller.permission.ui.handheld.AppPermissionFragment;
 import com.android.packageinstaller.permission.utils.LocationUtils;
+import com.android.packageinstaller.permission.utils.Utils;
 
 /**
  * Manage a single permission of a single app
@@ -56,6 +57,7 @@ public final class AppPermissionActivity extends FragmentActivity {
             finish();
             return;
         }
+        String groupName = Utils.getGroupOfPlatformPermission(permissionName);
 
         UserHandle userHandle = getIntent().getParcelableExtra(Intent.EXTRA_USER);
         if (userHandle == null) {
@@ -64,7 +66,7 @@ public final class AppPermissionActivity extends FragmentActivity {
             return;
         }
 
-        if (LocationUtils.isLocationGroupAndProvider(this, permissionName,
+        if (LocationUtils.isLocationGroupAndProvider(this, groupName,
                 packageName)) {
             Intent intent = new Intent(this, LocationProviderInterceptDialog.class);
             intent.putExtra(Intent.EXTRA_PACKAGE_NAME, packageName);
@@ -74,14 +76,14 @@ public final class AppPermissionActivity extends FragmentActivity {
         }
 
         if (LocationUtils.isLocationGroupAndControllerExtraPackage(
-                this, permissionName, packageName)) {
+                this, groupName, packageName)) {
             // Redirect to location controller extra package settings.
             LocationUtils.startLocationControllerExtraPackageSettings(this);
             finish();
             return;
         }
 
-        Fragment androidXFragment = AppPermissionFragment.newInstance(packageName, permissionName,
+        Fragment androidXFragment = AppPermissionFragment.newInstance(packageName, groupName,
                 userHandle);
 
         getSupportFragmentManager().beginTransaction().replace(android.R.id.content,
