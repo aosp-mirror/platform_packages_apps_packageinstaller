@@ -61,7 +61,7 @@ public class PermissionControlPreference extends Preference {
         setOnPreferenceClickListener(preference -> {
             Intent intent = new Intent(context, AppPermissionActivity.class);
             intent.putExtra(Intent.EXTRA_PACKAGE_NAME, group.getApp().packageName);
-            intent.putExtra(Intent.EXTRA_PERMISSION_NAME, group.getName());
+            intent.putExtra(Intent.EXTRA_PERMISSION_NAME, group.getPermissions().get(0).getName());
             intent.putExtra(Intent.EXTRA_USER, group.getUser());
             context.startActivity(intent);
             return true;
