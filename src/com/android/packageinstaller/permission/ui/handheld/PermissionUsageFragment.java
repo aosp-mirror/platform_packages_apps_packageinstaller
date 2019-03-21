@@ -23,7 +23,6 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.ArrayMap;
 import android.util.ArraySet;
@@ -60,9 +59,6 @@ import com.android.packageinstaller.permission.ui.handheld.FilterSpinner.TimeFil
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 import com.android.settingslib.HelpUtils;
-import com.android.settingslib.widget.BarChartInfo;
-import com.android.settingslib.widget.BarChartPreference;
-import com.android.settingslib.widget.BarViewInfo;
 
 import java.lang.annotation.Retention;
 import java.text.Collator;
@@ -83,13 +79,15 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
     private static final String LOG_TAG = "PermissionUsageFragment";
 
     @Retention(SOURCE)
-    @IntDef(value = {SORT_RECENT, SORT_MOST_PERMISSIONS})
+    @IntDef(value = {SORT_RECENT, SORT_RECENT_APPS})
     @interface SortOption {}
     static final int SORT_RECENT = 1;
-    static final int SORT_MOST_PERMISSIONS = 2;
+    static final int SORT_RECENT_APPS = 2;
 
-    private static final int MENU_FILTER_BY_PERMISSIONS = MENU_HIDE_SYSTEM + 1;
-    private static final int MENU_REFRESH = MENU_HIDE_SYSTEM + 2;
+    private static final int MENU_SORT_BY_APP = MENU_HIDE_SYSTEM + 1;
+    private static final int MENU_SORT_BY_TIME = MENU_HIDE_SYSTEM + 2;
+    private static final int MENU_FILTER_BY_PERMISSIONS = MENU_HIDE_SYSTEM + 3;
+    private static final int MENU_REFRESH = MENU_HIDE_SYSTEM + 4;
 
     private static final String KEY_SHOW_SYSTEM_PREFS = "_show_system";
     private static final String SHOW_SYSTEM_KEY = PermissionUsageFragment.class.getName()
@@ -107,11 +105,6 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
     private static final String FINISHED_INITIAL_LOAD_KEY = PermissionUsageFragment.class.getName()
             + KEY_FINISHED_INITIAL_LOAD;
 
-    /**
-     * The maximum number of columns shown in the bar chart.
-     */
-    private static final int MAXIMUM_NUM_BARS = 4;
-
     private @NonNull PermissionUsages mPermissionUsages;
 
     private Collator mCollator;
@@ -122,6 +115,8 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
     private boolean mHasSystemApps;
     private MenuItem mShowSystemMenu;
     private MenuItem mHideSystemMenu;
+    private MenuItem mSortByApp;
+    private MenuItem mSortByTime;
 
     private Spinner mFilterSpinnerTime;
     private FilterSpinnerAdapter<TimeFilterItem> mFilterAdapterTime;
@@ -179,6 +174,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        mSavedSortSpinnerIndex = 1;
         if (savedInstanceState != null) {
             mShowSystem = savedInstanceState.getBoolean(SHOW_SYSTEM_KEY);
             mSavedGroupName = savedInstanceState.getString(PERMS_INDEX_KEY);
@@ -235,7 +231,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
                 SORT_RECENT));
         mSortAdapter.addFilter(
                 new SortItem(context.getString(R.string.sort_spinner_most_permissions),
-                        SORT_MOST_PERMISSIONS));
+                        SORT_RECENT_APPS));
         mSortSpinner.setSelection(mSavedSortSpinnerIndex);
 
         // STOPSHIP: Re-enable spinners afetr user study completes.
@@ -292,13 +288,14 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
+        mSortByApp = menu.add(Menu.NONE, MENU_SORT_BY_APP, Menu.NONE, R.string.sort_by_app);
+        mSortByTime = menu.add(Menu.NONE, MENU_SORT_BY_TIME, Menu.NONE, R.string.sort_by_time);
         menu.add(Menu.NONE, MENU_FILTER_BY_PERMISSIONS, Menu.NONE, R.string.filter_by_permissions);
         if (mHasSystemApps) {
             mShowSystemMenu = menu.add(Menu.NONE, MENU_SHOW_SYSTEM, Menu.NONE,
                     R.string.menu_show_system);
             mHideSystemMenu = menu.add(Menu.NONE, MENU_HIDE_SYSTEM, Menu.NONE,
                     R.string.menu_hide_system);
-            updateMenu();
         }
         HelpUtils.prepareHelpMenuItem(getActivity(), menu, R.string.help_permission_usage,
                 getClass().getName());
@@ -306,6 +303,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
                 R.string.permission_usage_refresh);
         refresh.setIcon(R.drawable.ic_refresh);
         refresh.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        updateMenu();
     }
 
     @Override
@@ -314,6 +312,16 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
             case android.R.id.home:
                 getActivity().finish();
                 return true;
+            case MENU_SORT_BY_APP:
+                mSortSpinner.setSelection(1);
+                updateUI();
+                updateMenu();
+                break;
+            case MENU_SORT_BY_TIME:
+                mSortSpinner.setSelection(0);
+                updateUI();
+                updateMenu();
+                break;
             case MENU_FILTER_BY_PERMISSIONS:
                 showPermissionFilterDialog();
                 break;
@@ -332,8 +340,12 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
     }
 
     private void updateMenu() {
-        mShowSystemMenu.setVisible(!mShowSystem);
-        mHideSystemMenu.setVisible(mShowSystem);
+        if (mHasSystemApps) {
+            mShowSystemMenu.setVisible(!mShowSystem);
+            mHideSystemMenu.setVisible(mShowSystem);
+        }
+        mSortByApp.setVisible(mSortSpinner.getSelectedItemPosition() == 0);
+        mSortByTime.setVisible(mSortSpinner.getSelectedItemPosition() == 1);
     }
 
     @Override
@@ -410,10 +422,6 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
                 if (isSystemApp && !mShowSystem) {
                     continue;
                 }
-                // STOPSHIP: Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
-                if (groupUsage.getGroup().getLabel().equals("Storage")) {
-                    continue;
-                }
 
                 usages.add(Pair.create(appUsage, appGroups.get(groupNum)));
                 used = true;
@@ -428,8 +436,6 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
 
         // Update header.
         if (mFilterGroup == null) {
-            final BarChartPreference barChart = createBarChart(usages, timeFilterItem, context);
-            screen.addPreference(barChart);
             hideHeader();
         } else {
             AppPermissionGroup group = getGroup(mFilterGroup);
@@ -457,8 +463,8 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         final int sortOption = getSelectedSortOption();
         if (sortOption == SORT_RECENT) {
             usages.sort(PermissionUsageFragment::compareAccessRecency);
-        } else if (sortOption == SORT_MOST_PERMISSIONS) {
-            usages.sort(PermissionUsageFragment::compareAccessUsage);
+        } else if (sortOption == SORT_RECENT_APPS) {
+            usages.sort(PermissionUsageFragment::compareAccessAppRecency);
         } else {
             Log.w(LOG_TAG, "Unexpected sort option: " + sortOption);
         }
@@ -474,6 +480,8 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         new PermissionApps.AppDataLoader(context, () -> {
             ExpandablePreferenceGroup parent = null;
             AppPermissionUsage lastAppPermissionUsage = null;
+            String lastAccessTimeString = null;
+            List<CharSequence> groups = new ArrayList<>();
 
             final int numUsages = usages.size();
             for (int usageNum = 0; usageNum < numUsages; usageNum++) {
@@ -483,19 +491,24 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
 
                 String accessTimeString = Utils.getAbsoluteLastUsageString(context, groupUsage);
 
-                if (lastAppPermissionUsage != appPermissionUsage) {
+                if (lastAppPermissionUsage != appPermissionUsage || (sortOption == SORT_RECENT
+                        && !accessTimeString.equals(lastAccessTimeString))) {
+                    setPermissionSummary(parent, groups);
                     // Add a "parent" entry for the app that will expand to the individual entries.
                     parent = createExpandablePreferenceGroup(context, appPermissionUsage,
                             sortOption == SORT_RECENT ? accessTimeString : null);
                     category.addPreference(parent);
                     lastAppPermissionUsage = appPermissionUsage;
+                    groups = new ArrayList<>();
                 }
 
                 parent.addPreference(createPermissionUsagePreference(context, appPermissionUsage,
                         groupUsage, accessTimeString));
-                parent.addSummaryIcon(groupUsage.getGroup().getIconResId(),
-                        groupUsage.getGroup().getLabel());
+                groups.add(groupUsage.getGroup().getLabel());
+                lastAccessTimeString = accessTimeString;
             }
+
+            setPermissionSummary(parent, groups);
 
             setLoading(false, true);
             mFinishedInitialLoad = true;
@@ -516,7 +529,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
     private int getSelectedSortOption() {
         final int pos = mSortSpinner.getSelectedItemPosition();
         if (pos == AdapterView.INVALID_POSITION) {
-            return SORT_MOST_PERMISSIONS;
+            return SORT_RECENT_APPS;
         }
         return mSortAdapter.getFilter(pos).getSortOption();
     }
@@ -528,6 +541,22 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         } else {
             mGroupAppCounts.put(app, count + 1);
         }
+    }
+
+    private void setPermissionSummary(@NonNull ExpandablePreferenceGroup pref,
+            @NonNull List<CharSequence> groups) {
+        if (pref == null) {
+            return;
+        }
+        StringBuilder sb = new StringBuilder();
+        int numGroups = groups.size();
+        for (int i = 0; i < numGroups; i++) {
+            sb.append(groups.get(i));
+            if (i < numGroups - 1) {
+                sb.append(getString(R.string.item_separator));
+            }
+        }
+        pref.setSummary(sb.toString());
     }
 
     /**
@@ -548,71 +577,6 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         if (mFinishedInitialLoad) {
             setProgressBarVisible(true);
         }
-    }
-
-    /**
-     * Create a bar chart showing the permissions that are used by the most apps.
-     *
-     * @param usages the usages
-     * @param timeFilterItem the time filter, or null if no filter is set
-     * @param context the context
-     *
-     * @return the Preference representing the bar chart
-     */
-    private BarChartPreference createBarChart(
-            @NonNull List<Pair<AppPermissionUsage, GroupUsage>> usages,
-            @Nullable TimeFilterItem timeFilterItem, @NonNull Context context) {
-        BarChartInfo.Builder builder = new BarChartInfo.Builder();
-        BarChartPreference barChart = new BarChartPreference(context, null);
-        if (timeFilterItem != null) {
-            builder.setTitle(timeFilterItem.getGraphTitleRes());
-        }
-
-        final ArrayList<AppPermissionGroup> groups = new ArrayList<>();
-        final ArrayMap<String, Integer> groupToAppCount = new ArrayMap<>();
-        final int usageCount = usages.size();
-        for (int i = 0; i < usageCount; i++) {
-            final Pair<AppPermissionUsage, GroupUsage> usage = usages.get(i);
-            GroupUsage groupUsage = usage.second;
-            final Integer count = groupToAppCount.get(groupUsage.getGroup().getName());
-            if (count == null) {
-                groups.add(groupUsage.getGroup());
-                groupToAppCount.put(groupUsage.getGroup().getName(), 1);
-            } else {
-                groupToAppCount.put(groupUsage.getGroup().getName(), count + 1);
-            }
-        }
-
-        groups.sort((x, y) -> {
-            final int usageDiff = compareLong(groupToAppCount.get(x.getName()),
-                    groupToAppCount.get(y.getName()));
-            if (usageDiff != 0) {
-                return usageDiff;
-            }
-            // Make sure we lose no data if same
-            return y.hashCode() - x.hashCode();
-        });
-
-        int numBarsToShow = Math.min(groups.size(), MAXIMUM_NUM_BARS);
-        for (int i = 0; i < numBarsToShow; i++) {
-            final AppPermissionGroup group = groups.get(i);
-            final Drawable icon = Utils.loadDrawable(context.getPackageManager(),
-                    group.getIconPkg(), group.getIconResId());
-            BarViewInfo barViewInfo = new BarViewInfo(
-                    Utils.applyTint(context, icon, android.R.attr.colorControlNormal),
-                    // The cast should not be a prob in practice
-                    groupToAppCount.get(group.getName()),
-                    R.string.app_permission_usage_bar_label, group.getLabel());
-
-            barViewInfo.setClickListener(v -> {
-                mFilterGroup = group.getName();
-                // We already loaded all data, so don't reload
-                updateUI();
-            });
-            builder.addBarViewInfo(barViewInfo);
-        }
-        barChart.initializeBarChart(builder.build());
-        return barChart;
     }
 
     /**
@@ -656,51 +620,27 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         pref.setTitleIcons(Collections.singletonList(group.getIconResId()));
         pref.setKey(group.getApp().packageName + "," + group.getName());
         pref.useSmallerIcon();
+        pref.setRightIcon(context.getDrawable(R.drawable.ic_settings));
         return pref;
     }
 
     /**
-     * Compare two usages by the number of apps that accessed each group.
+     * Compare two usages by whichever app was used most recently.  If the two represent the same
+     * app, sort by which group was used most recently.
      *
      * Can be used as a {@link java.util.Comparator}.
-     *
-     * We ignore the GroupUsage here to ensure that we keep all usages by the same app together.
      *
      * @param x a usage.
      * @param y a usage.
      *
      * @return see {@link java.util.Comparator#compare(Object, Object)}.
      */
-    private static int compareAccessUsage(@NonNull Pair<AppPermissionUsage, GroupUsage> x,
+    private static int compareAccessAppRecency(@NonNull Pair<AppPermissionUsage, GroupUsage> x,
             @NonNull Pair<AppPermissionUsage, GroupUsage> y) {
-        final int groupDiff = getAccessedGroupCount(y.first) - getAccessedGroupCount(x.first);
-        if (groupDiff != 0) {
-            return groupDiff;
+        if (x.first.getApp().getKey().equals(y.first.getApp().getKey())) {
+            return compareAccessTime(x.second, y.second);
         }
         return compareAccessTime(x.first, y.first);
-    }
-
-    /**
-     * Gets the number of permission groups that have been accessed by the given app.
-     *
-     * @param appPermissionUsage The app permission usage.
-     * @return The access count.
-     */
-    private static int getAccessedGroupCount(@NonNull AppPermissionUsage appPermissionUsage) {
-        int accessedCount = 0;
-        final List<GroupUsage> groupUsages = appPermissionUsage.getGroupUsages();
-        final int groupCount = groupUsages.size();
-        for (int i = 0; i < groupCount; i++) {
-            final GroupUsage groupUsage = groupUsages.get(i);
-            // STOPSHIP: Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
-            if (groupUsage.getGroup().getLabel().equals("Storage")) {
-                continue;
-            }
-            if (groupUsage.getAccessCount() > 0) {
-                accessedCount++;
-            }
-        }
-        return accessedCount;
     }
 
     /**
@@ -715,8 +655,21 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
      */
     private static int compareAccessTime(@NonNull Pair<AppPermissionUsage, GroupUsage> x,
             @NonNull Pair<AppPermissionUsage, GroupUsage> y) {
-        final int timeDiff = compareLong(x.second.getLastAccessTime(),
-                y.second.getLastAccessTime());
+        return compareAccessTime(x.second, y.second);
+    }
+
+    /**
+     * Compare two usages by their access time.
+     *
+     * Can be used as a {@link java.util.Comparator}.
+     *
+     * @param x a usage.
+     * @param y a usage.
+     *
+     * @return see {@link java.util.Comparator#compare(Object, Object)}.
+     */
+    private static int compareAccessTime(@NonNull GroupUsage x, @NonNull GroupUsage y) {
+        final int timeDiff = compareLong(x.getLastAccessTime(), y.getLastAccessTime());
         if (timeDiff != 0) {
             return timeDiff;
         }
@@ -778,10 +731,6 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         final int timeDiff = compareAccessTime(x, y);
         if (timeDiff != 0) {
             return timeDiff;
-        }
-        final int countDiff = compareAccessUsage(x, y);
-        if (countDiff != 0) {
-            return countDiff;
         }
         // Make sure we lose no data if same
         return x.hashCode() - y.hashCode();

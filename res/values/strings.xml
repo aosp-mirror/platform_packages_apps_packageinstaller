@@ -262,8 +262,11 @@
     <!-- Title for permission usage [CHAR LIMIT=30] -->
     <string name="permission_usage_title">Dashboard</string>
 
-    <!-- Summary for showing a single permission access and the time of the last access [CHAR LIMIT=80] -->
-    <string name="permission_usage_summary">Last access: <xliff:g id="time" example="12:10 PM">%1$s</xliff:g></string>
+    <!-- Summary for showing a single permission access and the time of the last access when it was in the foreground [CHAR LIMIT=80] -->
+    <string name="permission_usage_summary_foreground">Last access: <xliff:g id="time" example="12:10 PM">%1$s</xliff:g> &lt;font color="#0f9d58"&gt;(while the app was in use)&lt;/font&gt;</string>
+
+    <!-- Summary for showing a single permission access and the time of the last access when it was in the background [CHAR LIMIT=80] -->
+    <string name="permission_usage_summary_background">Last access: <xliff:g id="time" example="12:10 PM">%1$s</xliff:g> (in the background)</string>
 
     <!-- Description for showing permission accesses with any permission [CHAR LIMIT=30] -->
     <string name="permission_usage_any_permission">Any permission</string>
@@ -290,40 +293,22 @@
     <string name="no_permission_usages">No permission usages</string>
 
     <!-- Label for the title of the list of permission usages that shows which apps used which permissions[CHAR LIMIT=50] -->
-    <string name="permission_usage_list_title_any_time">Access at any time</string>
+    <string name="permission_usage_list_title_any_time">Most recent access at any time</string>
 
     <!-- Label for the title of the list of permission usages that shows which apps used which permissions[CHAR LIMIT=50] -->
-    <string name="permission_usage_list_title_last_7_days">Access in last 7 days</string>
+    <string name="permission_usage_list_title_last_7_days">Most recent access in last 7 days</string>
 
     <!-- Label for the title of the list of permission usages that shows which apps used which permissions[CHAR LIMIT=50] -->
-    <string name="permission_usage_list_title_last_day">Access in last 24 hours</string>
+    <string name="permission_usage_list_title_last_day">Most recent access in last 24 hours</string>
 
     <!-- Label for the title of the list of permission usages that shows which apps used which permissions[CHAR LIMIT=50] -->
-    <string name="permission_usage_list_title_last_hour">Access in the last hour</string>
+    <string name="permission_usage_list_title_last_hour">Most recent access in the last hour</string>
 
     <!-- Label for the title of the list of permission usages that shows which apps used which permissions[CHAR LIMIT=50] -->
-    <string name="permission_usage_list_title_last_15_minutes">Access in last 15 minutes</string>
+    <string name="permission_usage_list_title_last_15_minutes">A=Most recent access in last 15 minutes</string>
 
     <!-- Label for the title of the list of permission usages that shows which apps used which permissions[CHAR LIMIT=50] -->
-    <string name="permission_usage_list_title_last_minute">Access in last 1 minute</string>
-
-    <!-- Label for the title of the permission bar chart showing how often the most common permissions are used [CHAR LIMIT=50] -->
-    <string name="permission_usage_bar_chart_title_any_time">Top permission usage at any time</string>
-
-    <!-- Label for the title of the permission bar chart showing how often the most common permissions are used [CHAR LIMIT=50] -->
-    <string name="permission_usage_bar_chart_title_last_7_days">Top permission usage in last 7 days</string>
-
-    <!-- Label for the title of the permission bar chart showing how often the most common permissions are used [CHAR LIMIT=50] -->
-    <string name="permission_usage_bar_chart_title_last_day">Top permission usage in last 24 hours</string>
-
-    <!-- Label for the title of the permission bar chart showing how often the most common permissions are used [CHAR LIMIT=50] -->
-    <string name="permission_usage_bar_chart_title_last_hour">Top permission usage in last 1 hour</string>
-
-    <!-- Label for the title of the permission bar chart showing how often the most common permissions are used [CHAR LIMIT=50] -->
-    <string name="permission_usage_bar_chart_title_last_15_minutes">Top permission usage in last 15 minutes</string>
-
-    <!-- Label for the title of the permission bar chart showing how often the most common permissions are used [CHAR LIMIT=50] -->
-    <string name="permission_usage_bar_chart_title_last_minute">Top permission usage in last 1 minute</string>
+    <string name="permission_usage_list_title_last_minute">Most recent access in last 1 minute</string>
 
     <!-- Label for the bars on the chart that shows how many apps have used various permissions [CHAR LIMIT=10] -->
     <string name="app_permission_usage_bar_label">Apps</string>
@@ -348,6 +333,15 @@
 
     <!-- Label for sorting usages by the most recent accesses [CHAR LIMIT=30] -->
     <string name="sort_spinner_recent">Recent</string>
+
+    <!-- Label for sorting usages by which app used a permission most recently [CHAR LIMIT=30] -->
+    <string name="sort_by_app">Sort by app usage</string>
+
+    <!-- Label for sorting usages by access time [CHAR LIMIT=30] -->
+    <string name="sort_by_time">Sort by time</string>
+
+    <!-- Separator for a list of items. Include spaces before and after if needed [CHAR LIMIT=10] -->
+    <string name="item_separator">,\u0020</string>
 
     <!-- Label for refreshing the list of permission usages. [CHAR LIMIT=30] -->
     <string name="permission_usage_refresh">Refresh</string>
@@ -386,7 +380,7 @@
     <string name="app_permission_title"><xliff:g id="perm" example="location">%1$s</xliff:g> permission</string>
 
     <!-- Description for showing an app's permission [CHAR LIMIT=60] -->
-    <string name="app_permission_header"><xliff:g id="perm" example="location">%1$s</xliff:g> access for <xliff:g id="app" example="Maps">%2$s</xliff:g></string>
+    <string name="app_permission_header"><xliff:g id="perm" example="location">%1$s</xliff:g> access for this app</string>
 
     <!-- Summary for showing a single permission access [CHAR LIMIT=60] -->
     <string name="app_permission_footer_usage_summary"><xliff:g id="app" example="Maps">%1$s</xliff:g> accessed your <xliff:g id="perm" example="location">%2$s</xliff:g> <xliff:g id="time" example="2 hours">%3$s</xliff:g> ago.</string>
@@ -632,4 +626,14 @@ Allow <xliff:g id="app_name" example="Gmail">%4$s</xliff:g> to upload a bug repo
 
     <!-- Label for the button to NOT allow sharing of the report. [CHAR LIMIT=20] -->
     <string name="incident_report_dialog_deny_label">Deny</string>
+
+    <!-- Title for the warning dialog shown when user tried to revoke a grandfathered modern storage permission.
+    [CHAR LIMIT=100] -->
+    <string name="grandfathered_modern_storage_permission_deny_warning_title">Uninstall the app as permission can\u2019t be denied</string>
+
+    <!-- Content for the warning dialog shown when user tried to revoke a grandfathered modern storage permission [CHAR LIMIT=none] -->
+    <string name="grandfathered_modern_storage_permission_deny_warning_content"><xliff:g id="app_name" example="Gmail">%1$s</xliff:g> has legacy storage permission to keep your previous data accessible.\n\nYou need to uninstall this app and reinstall it, as the app can stop working if this permission is denied.</string>
+
+    <!-- Dismiss with acknowledgment [CHAR LIMIT=30] -->
+    <string name="dismiss_with_acknowledgment">Got it</string>
 </resources>

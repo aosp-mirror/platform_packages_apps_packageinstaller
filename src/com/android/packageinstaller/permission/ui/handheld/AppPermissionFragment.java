@@ -110,11 +110,11 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
      * @return A new fragment
      */
     public static @NonNull AppPermissionFragment newInstance(@NonNull String packageName,
-            @NonNull String permissionName, @NonNull UserHandle userHandle) {
+            @NonNull String groupName, @NonNull UserHandle userHandle) {
         AppPermissionFragment fragment = new AppPermissionFragment();
         Bundle arguments = new Bundle();
         arguments.putString(Intent.EXTRA_PACKAGE_NAME, packageName);
-        arguments.putString(Intent.EXTRA_PERMISSION_NAME, permissionName);
+        arguments.putString(Intent.EXTRA_PERMISSION_GROUP_NAME, groupName);
         arguments.putParcelable(Intent.EXTRA_USER, userHandle);
         fragment.setArguments(arguments);
         return fragment;
@@ -145,7 +145,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         Context context = getPreferenceManager().getContext();
 
         String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
-        String groupName = getArguments().getString(Intent.EXTRA_PERMISSION_NAME);
+        String groupName = getArguments().getString(Intent.EXTRA_PERMISSION_GROUP_NAME);
         PackageItemInfo groupInfo = Utils.getGroupInfo(groupName, context);
         List<PermissionInfo> groupPermInfos = Utils.getGroupPermissionInfos(groupName, context);
         if (groupInfo == null || groupPermInfos == null) {
@@ -182,7 +182,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         updateHeader(root.requireViewById(R.id.large_header));
 
         ((TextView) root.requireViewById(R.id.permission_message)).setText(
-                context.getString(R.string.app_permission_header, mGroup.getLabel(), appLabel));
+                context.getString(R.string.app_permission_header, mGroup.getLabel()));
 
         if (Utils.isModernPermissionGroup(mGroup.getName())) {
             String timeDiffStr = Utils.getRelativeLastUsageString(context,
@@ -367,7 +367,13 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         }
 
         // Handle the UI for various special cases.
-        if (isSystemFixed() || isPolicyFullyFixed() || isForegroundDisabledByPolicy()) {
+        if (mGroup.isGrandfatheredModernStorageGroup()) {
+            mAlwaysButton.setClickable(false);
+            mDenyButton.setClickable(false);
+
+            mRadioGroup.setClickable(true);
+            mRadioGroup.setOnClickListener(v -> showGrandfatheredModernStorageGroupWarningDialog());
+        } else if (isSystemFixed() || isPolicyFullyFixed() || isForegroundDisabledByPolicy()) {
             // Disable changing permissions and potentially show administrator message.
             mAlwaysButton.setEnabled(false);
             mForegroundOnlyButton.setEnabled(false);
@@ -808,6 +814,19 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
                 DefaultDenyDialog.class.getName());
     }
 
+    private void showGrandfatheredModernStorageGroupWarningDialog() {
+        Bundle args = new Bundle();
+        args.putParcelable(GrandfatheredModernStorageGroupWarningDialog.APP_INFO,
+                mGroup.getApp().applicationInfo);
+
+        GrandfatheredModernStorageGroupWarningDialog warningDialog =
+                new GrandfatheredModernStorageGroupWarningDialog();
+        warningDialog.setArguments(args);
+        warningDialog.setTargetFragment(this, 0);
+        warningDialog.show(getFragmentManager().beginTransaction(),
+                GrandfatheredModernStorageGroupWarningDialog.class.getName());
+    }
+
     /**
      * Once we user has confirmed that he/she wants to revoke a permission that was granted by
      * default, actually revoke the permissions.
@@ -842,6 +861,39 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
             mHasConfirmedRevoke = true;
         }
         updateButtons();
+    }
+
+    /**
+     * A dialog warning the user that she/he is about to deny a permission that was granted by
+     * default.
+     *
+     * @see #showGrandfatheredModernStorageGroupWarningDialog()
+     */
+    public static class GrandfatheredModernStorageGroupWarningDialog extends DialogFragment {
+        private static final String APP_INFO =
+                GrandfatheredModernStorageGroupWarningDialog.class.getName() + ".arg.appInfo";
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            Context context = getContext();
+
+            ApplicationInfo appInfo = getArguments().getParcelable(APP_INFO);
+
+            View header = LayoutInflater.from(context).inflate(R.layout.dialog_header, null);
+            ((ImageView) header.requireViewById(R.id.icon)).setImageDrawable(
+                    context.getDrawable(R.drawable.ic_warning));
+            ((TextView) header.requireViewById(R.id.title)).setText(
+                    R.string.grandfathered_modern_storage_permission_deny_warning_title);
+
+            AlertDialog.Builder b = new AlertDialog.Builder(context)
+                    .setCustomTitle(header)
+                    .setMessage(context.getString(
+                            R.string.grandfathered_modern_storage_permission_deny_warning_content,
+                            Utils.getFullAppLabel(appInfo, context)))
+                    .setPositiveButton(R.string.dismiss_with_acknowledgment, null);
+
+            return b.create();
+        }
     }
 
     /**

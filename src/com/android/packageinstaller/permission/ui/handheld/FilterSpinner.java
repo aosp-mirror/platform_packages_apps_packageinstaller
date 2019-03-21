@@ -109,14 +109,11 @@ public class FilterSpinner {
     public static class TimeFilterItem implements SpinnerItem {
         private final long mTime;
         private final @NonNull String mLabel;
-        private final @StringRes int mGraphTitleRes;
         private final @StringRes int mListTitleRes;
 
-        TimeFilterItem(long time, @NonNull String label, @StringRes int graphTitleRes,
-                @StringRes int listTitleRes) {
+        TimeFilterItem(long time, @NonNull String label, @StringRes int listTitleRes) {
             mTime = time;
             mLabel = label;
-            mGraphTitleRes = graphTitleRes;
             mListTitleRes = listTitleRes;
         }
 
@@ -131,10 +128,6 @@ public class FilterSpinner {
 
         public @NonNull String getLabel() {
             return mLabel;
-        }
-
-        public @StringRes int getGraphTitleRes() {
-            return mGraphTitleRes;
         }
 
         public @StringRes int getListTitleRes() {
@@ -152,27 +145,21 @@ public class FilterSpinner {
             @NonNull Context context) {
         adapter.addFilter(new TimeFilterItem(Long.MAX_VALUE,
                 context.getString(R.string.permission_usage_any_time),
-                R.string.permission_usage_bar_chart_title_any_time,
                 R.string.permission_usage_list_title_any_time));
         adapter.addFilter(new TimeFilterItem(DAYS.toMillis(7),
                 context.getString(R.string.permission_usage_last_7_days),
-                R.string.permission_usage_bar_chart_title_last_7_days,
                 R.string.permission_usage_list_title_last_7_days));
         adapter.addFilter(new TimeFilterItem(DAYS.toMillis(1),
                 context.getString(R.string.permission_usage_last_day),
-                R.string.permission_usage_bar_chart_title_last_day,
                 R.string.permission_usage_list_title_last_day));
         adapter.addFilter(new TimeFilterItem(HOURS.toMillis(1),
                 context.getString(R.string.permission_usage_last_hour),
-                R.string.permission_usage_bar_chart_title_last_hour,
                 R.string.permission_usage_list_title_last_hour));
         adapter.addFilter(new TimeFilterItem(MINUTES.toMillis(15),
                 context.getString(R.string.permission_usage_last_15_minutes),
-                R.string.permission_usage_bar_chart_title_last_15_minutes,
                 R.string.permission_usage_list_title_last_15_minutes));
         adapter.addFilter(new TimeFilterItem(MINUTES.toMillis(1),
                 context.getString(R.string.permission_usage_last_minute),
-                R.string.permission_usage_bar_chart_title_last_minute,
                 R.string.permission_usage_list_title_last_minute));
     }
 }

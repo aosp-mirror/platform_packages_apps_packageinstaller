@@ -242,10 +242,6 @@ public class AppPermissionUsageFragment extends SettingsWithLargeHeader implemen
                 continue;
             }
             final AppPermissionGroup group = groupUsage.getGroup();
-            // STOPSHIP: Ignore {READ,WRITE}_EXTERNAL_STORAGE since they're going away.
-            if (group.getLabel().equals("Storage")) {
-                continue;
-            }
             PermissionControlPreference pref = new PermissionControlPreference(context, group);
             pref.setTitle(groupUsage.getGroup().getLabel());
             pref.setUsageSummary(groupUsage, Utils.getAbsoluteLastUsageString(context, groupUsage));
