@@ -890,7 +890,10 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
                 View itemView = layoutInflater.inflate(R.layout.permission_filter_dialog_item,
                         itemsListView, false);
 
-                ((ImageView) itemView.requireViewById(R.id.icon)).setImageResource(icons[i]);
+                ((ImageView) itemView.requireViewById(R.id.icon)).setImageDrawable(
+                        icons[i] == 0 ? null : Utils.applyTint(getActivity(),
+                                getActivity().getDrawable(icons[i]),
+                                android.R.attr.colorControlNormal));
                 ((TextView) itemView.requireViewById(R.id.title)).setText(elems[i]);
                 ((TextView) itemView.requireViewById(R.id.summary)).setText(
                         getActivity().getResources().getQuantityString(
