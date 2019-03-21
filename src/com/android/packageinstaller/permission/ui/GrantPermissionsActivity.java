@@ -184,9 +184,6 @@ public class GrantPermissionsActivity extends Activity
             } break;
 
             case DevicePolicyManager.PERMISSION_POLICY_AUTO_DENY: {
-                if (group.areRuntimePermissionsGranted()) {
-                    group.revokeRuntimePermissions(false, new String[]{permission});
-                }
                 state.mState = GroupState.STATE_DENIED;
                 group.setPolicyFixed();
                 skipGroup = true;
