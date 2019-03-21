@@ -514,7 +514,7 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
                 Collections.singletonList(unexpandedPermission),
                 callerPkgInfo.applicationInfo.targetSdkVersion);
 
-        AppPermissions app = new AppPermissions(this, pkgInfo, false, null);
+        AppPermissions app = new AppPermissions(this, pkgInfo, false, true, null);
 
         int numPerms = expandedPermissions.size();
         for (int i = 0; i < numPerms; i++) {
