@@ -35,6 +35,7 @@
     <uses-permission android:name="android.permission.APPROVE_INCIDENT_REPORTS" />
     <uses-permission android:name="android.permission.READ_DEVICE_CONFIG" />
     <uses-permission android:name="android.permission.OPEN_ACCESSIBILITY_DETAILS_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
 
     <uses-sdk android:minSdkVersion="28" android:targetSdkVersion="28" />
 
