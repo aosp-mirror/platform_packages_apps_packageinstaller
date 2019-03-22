@@ -644,10 +644,10 @@ Allow <xliff:g id="app_name" example="Gmail">%4$s</xliff:g> to upload a bug repo
 
     <!-- Title for the warning dialog shown when user tried to revoke a grandfathered modern storage permission.
     [CHAR LIMIT=100] -->
-    <string name="grandfathered_modern_storage_permission_deny_warning_title">Uninstall the app as permission can\u2019t be denied</string>
+    <string name="grandfathered_modern_storage_permission_deny_warning_title">Permission can\u2019t be denied. Uninstall <xliff:g id="app_name" example="Gmail">%1$s</xliff:g>.</string>
 
     <!-- Content for the warning dialog shown when user tried to revoke a grandfathered modern storage permission [CHAR LIMIT=none] -->
-    <string name="grandfathered_modern_storage_permission_deny_warning_content"><xliff:g id="app_name" example="Gmail">%1$s</xliff:g> has legacy storage permission to keep your previous data accessible.\n\nYou need to uninstall this app and reinstall it, as the app can stop working if this permission is denied.</string>
+    <string name="grandfathered_modern_storage_permission_deny_warning_content"><xliff:g id="app_name" example="Gmail">%1$s</xliff:g> has legacy storage permission to keep your previous data accessible, and the app can stop working when this permission is denied.\n\nTo continue using the app, uninstall it and then reinstall it. Your data in this app may be lost.</string>
 
     <!-- Dismiss with acknowledgment [CHAR LIMIT=30] -->
     <string name="dismiss_with_acknowledgment">Got it</string>
