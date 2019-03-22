@@ -126,4 +126,15 @@ public class HomeRoleBehavior implements RoleBehavior {
         }
         return Objects.equals(applicationInfo.packageName, resolveInfo.activityInfo.packageName);
     }
+
+    @Override
+    public void onHolderSelectedAsUser(@NonNull Role role, @NonNull String packageName,
+            @NonNull UserHandle user, @NonNull Context context) {
+        // Launch the new home app so the change is immediately visible even if the home button is
+        // not pressed.
+        Intent intent = new Intent(Intent.ACTION_MAIN)
+                .addCategory(Intent.CATEGORY_HOME)
+                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
+    }
 }

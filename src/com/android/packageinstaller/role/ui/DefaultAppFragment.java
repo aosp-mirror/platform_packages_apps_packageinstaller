@@ -198,6 +198,11 @@ public class DefaultAppFragment extends SettingsFragment
         ManageRoleHolderStateLiveData liveData = mViewModel.getManageRoleHolderStateLiveData();
         switch (state) {
             case ManageRoleHolderStateLiveData.STATE_SUCCESS:
+                String packageName = liveData.getLastPackageName();
+                if (packageName != null) {
+                    mRole.onHolderSelectedAsUser(packageName, liveData.getLastUser(),
+                            requireContext());
+                }
                 liveData.resetState();
                 break;
             case ManageRoleHolderStateLiveData.STATE_FAILURE:
@@ -236,7 +241,7 @@ public class DefaultAppFragment extends SettingsFragment
     }
 
     private void setNoneDefaultApp() {
-        mRole.onNoneHolderSelectedAsUser(requireContext(), mUser);
+        mRole.onNoneHolderSelectedAsUser(mUser, requireContext());
 
         ManageRoleHolderStateLiveData liveData = mViewModel.getManageRoleHolderStateLiveData();
         if (liveData.getValue() != ManageRoleHolderStateLiveData.STATE_IDLE) {

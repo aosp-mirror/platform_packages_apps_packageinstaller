@@ -232,7 +232,7 @@ public class RequestRoleFragment extends DialogFragment {
         Context context = requireContext();
         UserHandle user = Process.myUserHandle();
         if (packageName == null) {
-            mRole.onNoneHolderSelectedAsUser(context, user);
+            mRole.onNoneHolderSelectedAsUser(user, context);
             mViewModel.getManageRoleHolderStateLiveData().clearRoleHoldersAsUser(mRoleName, 0, user,
                     context);
         } else {
@@ -249,13 +249,21 @@ public class RequestRoleFragment extends DialogFragment {
             case ManageRoleHolderStateLiveData.STATE_WORKING:
                 updateUiEnabled();
                 break;
-            case ManageRoleHolderStateLiveData.STATE_SUCCESS:
-                if (Objects.equals(mAdapter.getCheckedPackageName(), mPackageName)) {
+            case ManageRoleHolderStateLiveData.STATE_SUCCESS: {
+                ManageRoleHolderStateLiveData liveData =
+                        mViewModel.getManageRoleHolderStateLiveData();
+                String packageName = liveData.getLastPackageName();
+                if (packageName != null) {
+                    mRole.onHolderSelectedAsUser(packageName, liveData.getLastUser(),
+                            requireContext());
+                }
+                if (Objects.equals(packageName, mPackageName)) {
                     setResultOkAndFinish();
                 } else {
                     finish();
                 }
                 break;
+            }
             case ManageRoleHolderStateLiveData.STATE_FAILURE:
                 finish();
                 break;
