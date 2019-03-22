@@ -97,7 +97,7 @@
     <string name="grant_dialog_button_allow_always">Allow all the time</string>
 
     <!-- Title for the dialog button to allow a permission grant only when the app is in the foreground. [CHAR LIMIT=60] -->
-    <string name="grant_dialog_button_allow_foreground">Allow only while the app is in use</string>
+    <string name="grant_dialog_button_allow_foreground">Allow only while using the app</string>
 
     <!-- Title for the dialog button to allow a change from foreground to background permission grant. [CHAR LIMIT=60]  -->
     <string name="grant_dialog_button_allow_background">Allow all the time</string>
@@ -190,13 +190,13 @@
    </string-array>
 
    <!-- [CHAR LIMIT=30] App can always (when app is in foreground or background) access the resource protected by the permission -->
-   <string name="permission_access_always">Always</string>
+   <string name="permission_access_always">Allow all the time</string>
 
    <!-- [CHAR LIMIT=30] App can only access the resource protected by the permission while app is in foreground -->
-   <string name="permission_access_only_foreground">Only while using app</string>
+   <string name="permission_access_only_foreground">Allow only while using the app</string>
 
    <!-- [CHAR LIMIT=30] App can never access the resource protected by the permission (Not while app is in foregound and not while app is in background) -->
-   <string name="permission_access_never">Never</string>
+   <string name="permission_access_never">Deny</string>
 
     <!-- Text displayed until loading is done [CHAR LIMIT=50] -->
    <string name="loading">Loading\u2026</string>
@@ -401,7 +401,7 @@
     <string name="app_permission_button_allow_always">Allow all the time</string>
 
     <!-- Title for the dialog button to allow a permission grant only when the app is in the foreground. [CHAR LIMIT=60] -->
-    <string name="app_permission_button_allow_foreground">Allow only while the app is in use</string>
+    <string name="app_permission_button_allow_foreground">Allow only while using the app</string>
 
     <!-- Title for the dialog button to deny a permission grant. [CHAR LIMIT=60] -->
     <string name="app_permission_button_deny">Deny</string>
