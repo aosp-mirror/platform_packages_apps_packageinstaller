@@ -22,6 +22,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.os.Process;
 import android.os.UserHandle;
 import android.util.ArrayMap;
@@ -447,9 +448,13 @@ public class Role {
 
         // TODO: STOPSHIP: Check for disabled packages?
 
-        // TODO: STOPSHIP: Add and check PackageManager.getSharedLibraryInfo().
-
         if (applicationInfo.isInstantApp()) {
+            return false;
+        }
+
+        PackageManager userPackageManager = UserUtils.getUserContext(context, user)
+                .getPackageManager();
+        if (!userPackageManager.getDeclaredSharedLibraries(packageName, 0).isEmpty()) {
             return false;
         }
 
