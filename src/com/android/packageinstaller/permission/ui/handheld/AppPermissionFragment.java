@@ -879,17 +879,20 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
 
             ApplicationInfo appInfo = getArguments().getParcelable(APP_INFO);
 
+            String appLabel = Utils.getFullAppLabel(appInfo, context);
             View header = LayoutInflater.from(context).inflate(R.layout.dialog_header, null);
             ((ImageView) header.requireViewById(R.id.icon)).setImageDrawable(
                     context.getDrawable(R.drawable.ic_warning));
             ((TextView) header.requireViewById(R.id.title)).setText(
-                    R.string.grandfathered_modern_storage_permission_deny_warning_title);
+                    context.getString(
+                            R.string.grandfathered_modern_storage_permission_deny_warning_title,
+                            appLabel));
 
             AlertDialog.Builder b = new AlertDialog.Builder(context)
                     .setCustomTitle(header)
                     .setMessage(context.getString(
                             R.string.grandfathered_modern_storage_permission_deny_warning_content,
-                            Utils.getFullAppLabel(appInfo, context)))
+                            appLabel))
                     .setPositiveButton(R.string.dismiss_with_acknowledgment, null);
 
             return b.create();
