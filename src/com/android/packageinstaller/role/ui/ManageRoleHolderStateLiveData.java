@@ -22,6 +22,7 @@ import android.os.UserHandle;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.lifecycle.LiveData;
 
 import java.util.concurrent.Executor;
@@ -40,6 +41,12 @@ public class ManageRoleHolderStateLiveData extends LiveData<Integer> {
     public static final int STATE_WORKING = 1;
     public static final int STATE_SUCCESS = 2;
     public static final int STATE_FAILURE = 3;
+
+    @Nullable
+    private String mLastPackageName;
+    private boolean mLastAdd;
+    private int mLastFlags;
+    private UserHandle mLastUser;
 
     public ManageRoleHolderStateLiveData() {
         setValue(STATE_IDLE);
@@ -67,6 +74,10 @@ public class ManageRoleHolderStateLiveData extends LiveData<Integer> {
             Log.i(LOG_TAG, (add ? "Adding" : "Removing") + " package as role holder, role: "
                     + roleName + ", package: " + packageName);
         }
+        mLastPackageName = packageName;
+        mLastAdd = add;
+        mLastFlags = flags;
+        mLastUser = user;
         setValue(STATE_WORKING);
 
         RoleManager roleManager = context.getSystemService(RoleManager.class);
@@ -113,6 +124,10 @@ public class ManageRoleHolderStateLiveData extends LiveData<Integer> {
         if (DEBUG) {
             Log.i(LOG_TAG, "Clearing role holders, role: " + roleName);
         }
+        mLastPackageName = null;
+        mLastAdd = false;
+        mLastFlags = flags;
+        mLastUser = user;
         setValue(STATE_WORKING);
 
         RoleManager roleManager = context.getSystemService(RoleManager.class);
@@ -133,6 +148,23 @@ public class ManageRoleHolderStateLiveData extends LiveData<Integer> {
         roleManager.clearRoleHoldersAsUser(roleName, flags, user, executor, callback);
     }
 
+    @Nullable
+    public String getLastPackageName() {
+        return mLastPackageName;
+    }
+
+    public boolean isLastAdd() {
+        return mLastAdd;
+    }
+
+    public int getLastFlags() {
+        return mLastFlags;
+    }
+
+    public UserHandle getLastUser() {
+        return mLastUser;
+    }
+
     /**
      * Reset the state of this live data to {@link #STATE_IDLE}. Will be no-op if the current state
      * is not {@link #STATE_SUCCESS} or {@link #STATE_FAILURE}.
@@ -144,6 +176,10 @@ public class ManageRoleHolderStateLiveData extends LiveData<Integer> {
                     + " STATE_FAILURE");
             return;
         }
+        mLastPackageName = null;
+        mLastAdd = false;
+        mLastFlags = 0;
+        mLastUser = null;
         setValue(STATE_IDLE);
     }
 }

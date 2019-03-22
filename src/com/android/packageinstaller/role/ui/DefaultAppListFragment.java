@@ -207,7 +207,8 @@ public class DefaultAppListFragment extends SettingsFragment
             preference.setTitle(context.getString(R.string.default_apps_manage_domain_urls));
             preference.setPersistent(false);
             preference.setOnPreferenceClickListener(preference2 -> {
-                context.startActivity(new Intent(Settings.ACTION_MANAGE_DOMAIN_URLS));
+                Intent intent = new Intent(Settings.ACTION_MANAGE_DOMAIN_URLS);
+                context.startActivity(intent);
                 return true;
             });
         }

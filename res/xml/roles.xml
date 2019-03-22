@@ -290,7 +290,6 @@
     </role>
 
     <!-- TODO: STOPSHIP: Intent action sometimes changing dynamically in com.android.phone.EmergencyAssistanceHelper.getIntentAction -->
-    <!-- TODO: STOPSHIP: Make this non-configurable at least by default. -->
     <!---
       ~ @see com.android.settings.applications.defaultapps.DefaultEmergencyPreferenceController
       ~ @see com.android.settings.applications.defaultapps.DefaultEmergencyPicker
@@ -311,8 +310,6 @@
         </required-components>
     </role>
 
-    <!-- TODO: STOPSHIP: Add availability in role behavior. -->
-    <!-- TODO: STOPSHIP: Filter qualifiying apps according to work profile support as in com.android.settings.applications.defaultapps.DefaultHomePicker.getCandidates() -->
     <!---
       ~ @see com.android.settings.applications.defaultapps.DefaultHomePreferenceController
       ~ @see com.android.settings.applications.defaultapps.DefaultHomePicker
