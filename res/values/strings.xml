@@ -302,7 +302,7 @@
     <string name="permission_usage_list_title_last_day">Most recent access in last 24 hours</string>
 
     <!-- Label for the title of the list of permission usages that shows which apps used which permissions[CHAR LIMIT=50] -->
-    <string name="permission_usage_list_title_last_hour">Most recent access in the last hour</string>
+    <string name="permission_usage_list_title_last_hour">Most recent access in last 1 hour</string>
 
     <!-- Label for the title of the list of permission usages that shows which apps used which permissions[CHAR LIMIT=50] -->
     <string name="permission_usage_list_title_last_15_minutes">Most recent access in last 15 minutes</string>
@@ -351,6 +351,9 @@
 
     <!-- Label for the menu item allowing filtering by permissions [CHAR LIMIT=none] -->
     <string name="filter_by_permissions">Filter by permissions</string>
+
+    <!-- Label for the menu item allowing filtering by time [CHAR LIMIT=none] -->
+    <string name="filter_by_time">Filter by time</string>
 
     <!-- Label for sorting usages by the number of permissions used [CHAR LIMIT=30] -->
     <string name="sort_spinner_most_permissions">Most permissions</string>

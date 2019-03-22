@@ -87,7 +87,8 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
     private static final int MENU_SORT_BY_APP = MENU_HIDE_SYSTEM + 1;
     private static final int MENU_SORT_BY_TIME = MENU_HIDE_SYSTEM + 2;
     private static final int MENU_FILTER_BY_PERMISSIONS = MENU_HIDE_SYSTEM + 3;
-    private static final int MENU_REFRESH = MENU_HIDE_SYSTEM + 4;
+    private static final int MENU_FILTER_BY_TIME = MENU_HIDE_SYSTEM + 4;
+    private static final int MENU_REFRESH = MENU_HIDE_SYSTEM + 5;
 
     private static final String KEY_SHOW_SYSTEM_PREFS = "_show_system";
     private static final String SHOW_SYSTEM_KEY = PermissionUsageFragment.class.getName()
@@ -291,6 +292,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         mSortByApp = menu.add(Menu.NONE, MENU_SORT_BY_APP, Menu.NONE, R.string.sort_by_app);
         mSortByTime = menu.add(Menu.NONE, MENU_SORT_BY_TIME, Menu.NONE, R.string.sort_by_time);
         menu.add(Menu.NONE, MENU_FILTER_BY_PERMISSIONS, Menu.NONE, R.string.filter_by_permissions);
+        menu.add(Menu.NONE, MENU_FILTER_BY_TIME, Menu.NONE, R.string.filter_by_time);
         if (mHasSystemApps) {
             mShowSystemMenu = menu.add(Menu.NONE, MENU_SHOW_SYSTEM, Menu.NONE,
                     R.string.menu_show_system);
@@ -324,6 +326,9 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
                 break;
             case MENU_FILTER_BY_PERMISSIONS:
                 showPermissionFilterDialog();
+                break;
+            case MENU_FILTER_BY_TIME:
+                showTimeFilterDialog();
                 break;
             case MENU_SHOW_SYSTEM:
             case MENU_HIDE_SYSTEM:
@@ -909,6 +914,65 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
             }
 
             return view;
+        }
+    }
+
+    private void showTimeFilterDialog() {
+        Context context = getPreferenceManager().getContext();
+
+        CharSequence[] labels = new CharSequence[mFilterAdapterTime.getCount()];
+        for (int i = 0; i < labels.length; i++) {
+            labels[i] = mFilterAdapterTime.getFilter(i).getLabel();
+        }
+        int selection = mFilterSpinnerTime.getSelectedItemPosition();
+
+        // Create the dialog
+        Bundle args = new Bundle();
+        args.putCharSequence(TimeFilterDialog.TITLE,
+                context.getString(R.string.filter_by_title));
+        args.putCharSequenceArray(TimeFilterDialog.ELEMS, labels);
+        args.putInt(TimeFilterDialog.SELECTION, selection);
+        TimeFilterDialog chooserDialog = new TimeFilterDialog();
+        chooserDialog.setArguments(args);
+        chooserDialog.setTargetFragment(this, 0);
+        chooserDialog.show(getFragmentManager().beginTransaction(),
+                TimeFilterDialog.class.getName());
+    }
+
+    /**
+     * Callback when the user selects a time by which to filter.
+     *
+     * @param selectedIndex The index of the dialog option selected by the user.
+     */
+    private void onTimeSelected(int selectedIndex) {
+        mFilterSpinnerTime.setSelection(selectedIndex);
+        reloadData();
+    }
+
+    /**
+     * A dialog that allows the user to select a time by which to filter entries.
+     *
+     * @see #showTimeFilterDialog()
+     */
+    public static class TimeFilterDialog extends DialogFragment {
+        private static final String TITLE = TimeFilterDialog.class.getName() + ".arg.title";
+        private static final String ELEMS = TimeFilterDialog.class.getName() + ".arg.elems";
+        private static final String SELECTION = TimeFilterDialog.class.getName() + ".arg.selection";
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            PermissionUsageFragment fragment = (PermissionUsageFragment) getTargetFragment();
+            CharSequence[] elems = getArguments().getCharSequenceArray(ELEMS);
+            AlertDialog.Builder b = new AlertDialog.Builder(getActivity())
+                    .setTitle(getArguments().getCharSequence(TITLE))
+                    .setSingleChoiceItems(elems, getArguments().getInt(SELECTION),
+                            (dialog, which) -> {
+                                dismissAllowingStateLoss();
+                                fragment.onTimeSelected(which);
+                            }
+                    );
+
+            return b.create();
         }
     }
 
