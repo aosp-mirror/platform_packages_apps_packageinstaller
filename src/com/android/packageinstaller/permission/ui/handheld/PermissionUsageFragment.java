@@ -37,6 +37,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -877,6 +878,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
             String[] groups = getArguments().getStringArray(GROUPS);
             int[] icons = getArguments().getIntArray(ICONS);
             int[] accessCounts = getArguments().getIntArray(ACCESS_COUNTS);
+            int selectedIndex = getArguments().getInt(SELECTION);
 
             LayoutInflater layoutInflater = LayoutInflater.from(fragment.getActivity());
             View view = layoutInflater.inflate(R.layout.permission_filter_dialog, null);
@@ -904,6 +906,9 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
                     dismissAllowingStateLoss();
                     fragment.onPermissionGroupSelected(groupName);
                 });
+
+                ((RadioButton) itemView.requireViewById(R.id.radio_button)).setChecked(
+                        i == selectedIndex);
 
                 itemsListView.addView(itemView);
             }
