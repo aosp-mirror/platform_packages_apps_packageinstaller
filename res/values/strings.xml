@@ -383,16 +383,16 @@
     <string name="app_permission_header"><xliff:g id="perm" example="location">%1$s</xliff:g> access for this app</string>
 
     <!-- Summary for showing a single permission access [CHAR LIMIT=60] -->
-    <string name="app_permission_footer_usage_summary"><xliff:g id="app" example="Maps">%1$s</xliff:g> accessed your <xliff:g id="perm" example="location">%2$s</xliff:g> <xliff:g id="time" example="2 hours">%3$s</xliff:g> ago.</string>
+    <string name="app_permission_footer_usage_summary"><xliff:g id="app" example="Maps">%1$s</xliff:g> accessed your <xliff:g id="perm" example="location">%2$s</xliff:g> <xliff:g id="time" example="2 hours">%3$s</xliff:g> ago</string>
 
     <!-- Summary for showing a single permission access that has not accessed the permission [CHAR LIMIT=60] -->
-    <string name="app_permission_footer_no_usages"><xliff:g id="app" example="Maps">%1$s</xliff:g> has not accessed your <xliff:g id="perm" example="location">%2$s</xliff:g>.</string>
+    <string name="app_permission_footer_no_usages"><xliff:g id="app" example="Maps">%1$s</xliff:g> has not accessed your <xliff:g id="perm" example="location">%2$s</xliff:g></string>
 
     <!-- Text for linking to the page that shows an app's permissions [CHAR LIMIT=none] -->
     <string name="app_permission_footer_app_permissions_link">See all <xliff:g id="app" example="Maps">%1$s</xliff:g> permissions</string>
 
     <!-- Text for linking to the page that shows the apps with a given permission [CHAR LIMIT=none] -->
-    <string name="app_permission_footer_permission_apps_link">See all apps with the <xliff:g id="perm" example="Location">%1$s</xliff:g> permission</string>
+    <string name="app_permission_footer_permission_apps_link">See all apps with this permission</string>
 
     <!-- Label for showing a permission group's description in the header of the list of apps that have that permission [CHAR LIMIT=none] -->
     <string name="permission_description_summary_generic">Apps with this permission can <xliff:g id="description" example="record audio">%1$s</xliff:g></string>
