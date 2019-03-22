@@ -53,7 +53,6 @@ import static com.android.packageinstaller.permission.utils.Utils.isLocationAcce
 
 import static java.lang.System.currentTimeMillis;
 import static java.util.concurrent.TimeUnit.DAYS;
-import static java.util.concurrent.TimeUnit.MINUTES;
 
 import android.app.AppOpsManager;
 import android.app.AppOpsManager.HistoricalOps;
@@ -170,13 +169,13 @@ public class LocationAccessCheck {
     /**
      * Get the delay in between granting a permission and the follow up check.
      *
-     * <p>Default: 10 minutes
+     * <p>Default: 1 day
      *
      * @return The delay in milliseconds
      */
     private long getDelayMillis() {
         return Settings.Secure.getLong(mContentResolver,
-                LOCATION_ACCESS_CHECK_DELAY_MILLIS, MINUTES.toMillis(10));
+                LOCATION_ACCESS_CHECK_DELAY_MILLIS, DAYS.toMillis(1));
     }
 
     /**
