@@ -29,12 +29,14 @@
     <uses-permission android:name="android.permission.MANAGE_ROLE_HOLDERS" />
     <uses-permission android:name="android.permission.OBSERVE_ROLE_HOLDERS" />
     <uses-permission android:name="android.permission.SET_PREFERRED_APPLICATIONS" />
+    <uses-permission android:name="android.permission.ACCESS_SHARED_LIBRARIES" />
     <uses-permission android:name="com.android.permissioncontroller.permission.MANAGE_ROLES_FROM_CONTROLLER" />
     <uses-permission android:name="android.permission.ACCESS_INSTANT_APPS" />
     <uses-permission android:name="android.permission.REQUEST_INCIDENT_REPORT_APPROVAL" />
     <uses-permission android:name="android.permission.APPROVE_INCIDENT_REPORTS" />
     <uses-permission android:name="android.permission.READ_DEVICE_CONFIG" />
     <uses-permission android:name="android.permission.OPEN_ACCESSIBILITY_DETAILS_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
 
     <uses-sdk android:minSdkVersion="28" android:targetSdkVersion="28" />
 
@@ -95,7 +97,6 @@
             <intent-filter android:priority="1">
                 <action android:name="android.intent.action.MANAGE_APP_PERMISSIONS" />
                 <action android:name="android.intent.action.MANAGE_PERMISSION_APPS" />
-                <action android:name="android.intent.action.REVIEW_APP_PERMISSION_USAGE" />
                 <action android:name="android.intent.action.MANAGE_PERMISSIONS" />
                 <action android:name="android.intent.action.REVIEW_PERMISSION_USAGE" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -140,6 +141,16 @@
         <activity android:name="com.android.packageinstaller.permission.ui.LocationProviderInterceptDialog"
                   android:excludeFromRecents="true"
                   android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar" />
+
+        <activity android:name="com.android.packageinstaller.permission.ui.ReviewOngoingUsageActivity"
+                  android:excludeFromRecents="true"
+                  android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar"
+                  android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS" >
+            <intent-filter android:priority="1">
+                <action android:name="android.intent.action.REVIEW_ONGOING_PERMISSION_USAGE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
         <activity android:name="com.android.packageinstaller.permission.ui.ReviewAccessibilityServicesActivity"
                   android:excludeFromRecents="true"

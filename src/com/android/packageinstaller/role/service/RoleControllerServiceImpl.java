@@ -346,7 +346,7 @@ public class RoleControllerServiceImpl extends RoleControllerService {
             return false;
         }
 
-        role.onHolderSelectedAsUser(this, Process.myUserHandle());
+        role.onHolderAddedAsUser(packageName, Process.myUserHandle(), this);
 
         return true;
     }

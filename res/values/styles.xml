@@ -195,6 +195,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:gravity">center_horizontal</item>
         <item name="android:textColor">?android:attr/colorAccent</item>
         <item name="android:paddingStart">?android:attr/listPreferredItemPaddingStart</item>
         <item name="android:paddingEnd">?android:attr/listPreferredItemPaddingEnd</item>
@@ -409,5 +410,84 @@
     </style>
 
     <!-- END GRANDFATHERED MODERN STORAGE GROUP WARNING DIALOG -->
+
+    <!-- START ONGOING USAGE DIALOG -->
+
+    <style name="PermissionUsageDialogContainerScrollView">
+        <item name="android:fillViewport">true</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="PermissionUsageDialogContainerLayout">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="PermissionUsageDialogTitle"
+           parent="@android:style/TextAppearance.DeviceDefault.WindowTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginStart">24dp</item>
+        <item name="android:layout_marginEnd">24dp</item>
+        <item name="android:layout_marginTop">18dp</item>
+        <item name="android:layout_marginBottom">18dp</item>
+    </style>
+
+    <style name="PermissionUsageDialogItemsContainerLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_marginBottom">24dp</item>
+    </style>
+
+    <style name="PermissionUsageDialogItemsContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">start</item>
+    </style>
+
+    <style name="PermissionUsageDialogItemContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:focusable">true</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <style name="PermissionUsageDialogItemIconFrame">
+        <item name="android:layout_width">32dp</item>
+        <item name="android:layout_height">32dp</item>
+        <item name="android:layout_gravity">start|center_vertical</item>
+    </style>
+
+    <style name="PermissionUsageDialogItemIcon">
+        <item name="android:layout_width">32dp</item>
+        <item name="android:layout_height">32dp</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="PermissionUsageDialogItemAppName"
+           parent="@android:style/TextAppearance.DeviceDefault">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginStart">16dp</item>
+    </style>
+
+    <style name="PermissionUsageDialogItemIconsContainer">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">end</item>
+        <item name="android:layout_gravity">end|center_vertical</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <!-- END ONGOING USAGE DIALOG -->
 
 </resources>

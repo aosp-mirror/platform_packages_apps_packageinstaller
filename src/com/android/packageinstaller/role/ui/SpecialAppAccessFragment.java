@@ -155,6 +155,11 @@ public class SpecialAppAccessFragment extends SettingsFragment
             int state) {
         switch (state) {
             case ManageRoleHolderStateLiveData.STATE_SUCCESS:
+                String packageName = liveData.getLastPackageName();
+                if (packageName != null && liveData.isLastAdd()) {
+                    mRole.onHolderSelectedAsUser(packageName, liveData.getLastUser(),
+                            requireContext());
+                }
                 liveData.resetState();
                 break;
             case ManageRoleHolderStateLiveData.STATE_FAILURE:
