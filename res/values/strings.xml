@@ -784,6 +784,10 @@
 
 Allow <xliff:g id="app_name" example="Gmail">%4$s</xliff:g> to upload a bug report?"</string>
 
+    <!-- Content for dialog shown when there was an error parsing the incident / bug report.
+    [CHAR LIMIT=none] -->
+    <string name="incident_report_error_dialog_text">"There was an error processing the bug report for <xliff:g id="app_name" example="Gmail">%1$s</xliff:g>. So sharing the detailed debugging data data has been denied. Sorry for the interruption."</string>
+
     <!-- Label for the button to allow sharing of the report. [CHAR LIMIT=20]-->
     <string name="incident_report_dialog_allow_label">Allow</string>
 

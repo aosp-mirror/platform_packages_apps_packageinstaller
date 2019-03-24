@@ -275,6 +275,24 @@ public class RequestConfirmationTest {
         runTestFlow(false, Status.TIMED_OUT);
     }
 
+    /**
+     * Test that creating the drawables in ConfirmationActivity will fail if we
+     * do it with too many images.
+     */
+    @Test
+    public void testTooManyImages() {
+        // TODO(b/129485788)
+    }
+
+    /**
+     * Test that creating the drawables in ConfirmationActivity will fail if we
+     * do it with not too many images but with images that are too big.
+     */
+    @Test
+    public void testTooBigImages() {
+        // TODO(b/129485788)
+    }
+
     public static final void main(String[] args) {
         Log.d(TAG, "RequestConfirmationTest args=" + java.util.Arrays.toString(args));
         System.out.println("RequestConfirmationTest args=" + java.util.Arrays.toString(args));
