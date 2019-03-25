@@ -762,19 +762,20 @@
     <!-- Dialog message warning about security implications of setting an assistant, displayed when the user selects an assistant. [CHAR LIMIT=NONE] -->
     <string name="assistant_confirmation_message">The assistant will be able to read information about apps in use on your system, including information visible on your screen or accessible within the apps.</string>
 
-    <!-- Name for the notification channel for incident / bug report confirmation
+    <!-- Name for the notification channel for incident / bug report confirmation. Appears in
+    Settings.
     [CHAR LIMIT=50] -->
     <string name="incident_report_channel_name">Share Debugging Data</string>
 
     <!-- Title for notification shown when the user should confirm an incident / bug report.
-    [CHAR LIMIT=50] -->
+    [CHAR LIMIT=60] -->
     <string name="incident_report_notification_title">Share detailed debugging data?</string>
 
     <!-- Content for notification shown when the user should confirm an incident / bug report.
     [CHAR LIMIT=120] -->
     <string name="incident_report_notification_text"><xliff:g id="app_name" example="Gmail">%1$s</xliff:g> would like to upload debugging information.</string>
 
-    <!-- Title for the incident / bug report confirmation dialog [CHAR LIMIT=50] -->
+    <!-- Title for the incident / bug report confirmation dialog. [CHAR LIMIT=50] -->
     <string name="incident_report_dialog_title">Share Debugging Data</string>
 
     <!-- Content for dialog shown when the user should confirm an incident / bug report.
