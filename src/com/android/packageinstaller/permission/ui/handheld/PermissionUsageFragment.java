@@ -37,7 +37,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
@@ -734,11 +733,9 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         // Create the dialog entries.
         String[] groupNames = new String[groups.size() + 1];
         CharSequence[] groupLabels = new CharSequence[groupNames.length];
-        int[] groupIcons = new int[groupNames.length];
         int[] groupAccessCounts = new int[groupNames.length];
         groupNames[0] = null;
         groupLabels[0] = context.getString(R.string.permission_usage_any_permission);
-        groupIcons[0] = 0;
         groupAccessCounts[0] = mGroupAppCounts.get(null);
         int selection = 0;
         int numGroups = groups.size();
@@ -746,7 +743,6 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
             AppPermissionGroup group = groups.get(i);
             groupNames[i + 1] = group.getName();
             groupLabels[i + 1] = group.getLabel();
-            groupIcons[i + 1] = group.getIconResId();
             Integer appCount = mGroupAppCounts.get(group.getName());
             if (appCount == null) {
                 appCount = 0;
@@ -764,7 +760,6 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         args.putCharSequenceArray(PermissionsFilterDialog.ELEMS, groupLabels);
         args.putInt(PermissionsFilterDialog.SELECTION, selection);
         args.putStringArray(PermissionsFilterDialog.GROUPS, groupNames);
-        args.putIntArray(PermissionsFilterDialog.ICONS, groupIcons);
         args.putIntArray(PermissionsFilterDialog.ACCESS_COUNTS, groupAccessCounts);
         PermissionsFilterDialog chooserDialog = new PermissionsFilterDialog();
         chooserDialog.setArguments(args);
@@ -797,8 +792,6 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
                 + ".arg.selection";
         private static final String GROUPS = PermissionsFilterDialog.class.getName()
                 + ".arg.groups";
-        private static final String ICONS = PermissionsFilterDialog.class.getName()
-                + ".arg.icons";
         private static final String ACCESS_COUNTS = PermissionsFilterDialog.class.getName()
                 + ".arg.access_counts";
 
@@ -814,7 +807,6 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
             PermissionUsageFragment fragment = (PermissionUsageFragment) getTargetFragment();
             CharSequence[] elems = getArguments().getCharSequenceArray(ELEMS);
             String[] groups = getArguments().getStringArray(GROUPS);
-            int[] icons = getArguments().getIntArray(ICONS);
             int[] accessCounts = getArguments().getIntArray(ACCESS_COUNTS);
             int selectedIndex = getArguments().getInt(SELECTION);
 
@@ -830,10 +822,6 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
                 View itemView = layoutInflater.inflate(R.layout.permission_filter_dialog_item,
                         itemsListView, false);
 
-                ((ImageView) itemView.requireViewById(R.id.icon)).setImageDrawable(
-                        icons[i] == 0 ? null : Utils.applyTint(getActivity(),
-                                getActivity().getDrawable(icons[i]),
-                                android.R.attr.colorControlNormal));
                 ((TextView) itemView.requireViewById(R.id.title)).setText(elems[i]);
                 ((TextView) itemView.requireViewById(R.id.summary)).setText(
                         getActivity().getResources().getQuantityString(
