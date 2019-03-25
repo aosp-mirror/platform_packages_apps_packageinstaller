@@ -145,6 +145,7 @@
         <activity android:name="com.android.packageinstaller.permission.ui.ReviewOngoingUsageActivity"
                   android:excludeFromRecents="true"
                   android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar"
+                  android:launchMode="singleInstance"
                   android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS" >
             <intent-filter android:priority="1">
                 <action android:name="android.intent.action.REVIEW_ONGOING_PERMISSION_USAGE" />
