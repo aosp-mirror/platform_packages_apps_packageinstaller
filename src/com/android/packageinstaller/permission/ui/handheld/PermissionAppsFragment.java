@@ -233,6 +233,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
 
         mHasSystemApps = false;
         boolean menuOptionsInvalided = false;
+        boolean hasPermissionWithBackgroundMode = false;
 
         ArrayList<PermissionApp> sortedApps = new ArrayList<>(permissionApps.getApps());
         sortedApps.sort((x, y) -> mCollator.compare(x.getLabel(), y.getLabel()));
@@ -240,6 +241,9 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
         for (int i = 0; i < sortedApps.size(); i++) {
             PermissionApp app = sortedApps.get(i);
             AppPermissionGroup group = app.getPermissionGroup();
+
+            hasPermissionWithBackgroundMode =
+                    hasPermissionWithBackgroundMode || group.hasPermissionWithBackgroundMode();
 
             if (!Utils.shouldShowPermission(getContext(), group)) {
                 continue;
@@ -340,6 +344,10 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
 
             pref.setSummary(getString(R.string.app_permissions_group_summary,
                     grantedCount, mExtraScreen.getPreferenceCount()));
+        }
+
+        if (hasPermissionWithBackgroundMode) {
+            allowed.setTitle(R.string.allowed_always_header);
         }
 
         if (allowed.getPreferenceCount() == 0) {

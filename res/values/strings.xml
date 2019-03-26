@@ -472,6 +472,9 @@
     <!-- Header for granted permissions/apps [CHAR LIMIT=40] -->
     <string name="allowed_header">Allowed</string>
 
+    <!-- Header for granted apps that can access the permission in the foreground and the background [CHAR LIMIT=40] -->
+    <string name="allowed_always_header">Allowed all the time</string>
+
     <!-- Header for permissions/apps that are granted only when in the foreground [CHAR LIMIT=40] -->
     <string name="allowed_foreground_header">Allowed only while in use</string>
 
