@@ -263,10 +263,10 @@
     <string name="permission_usage_title">Dashboard</string>
 
     <!-- Summary for showing a single permission access and the time of the last access when it was in the foreground [CHAR LIMIT=80] -->
-    <string name="permission_usage_summary_foreground">Last access: <xliff:g id="time" example="12:10 PM">%1$s</xliff:g> &lt;font color="#0f9d58"&gt;(while the app was in use)&lt;/font&gt;</string>
+    <string name="permission_usage_summary_foreground">Last access: <xliff:g id="time" example="12:10 PM">%1$s</xliff:g>\nLast accessed while app was in use</string>
 
     <!-- Summary for showing a single permission access and the time of the last access when it was in the background [CHAR LIMIT=80] -->
-    <string name="permission_usage_summary_background">Last access: <xliff:g id="time" example="12:10 PM">%1$s</xliff:g> (in the background)</string>
+    <string name="permission_usage_summary_background">Last access: <xliff:g id="time" example="12:10 PM">%1$s</xliff:g>\nLast accessed in the background</string>
 
     <!-- Description for showing permission accesses with any permission [CHAR LIMIT=30] -->
     <string name="permission_usage_any_permission">Any permission</string>
