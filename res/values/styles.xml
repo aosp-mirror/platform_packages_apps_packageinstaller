@@ -315,7 +315,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_marginTop">18dp</item>
-        <item name="android:layout_marginBottom">18dp</item>
+        <item name="android:layout_marginBottom">24dp</item>
         <item name="android:layout_marginStart">24dp</item>
         <item name="android:layout_marginEnd">24dp</item>
     </style>
@@ -324,6 +324,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">vertical</item>
+        <item name="android:layout_marginBottom">8dp</item>
     </style>
 
     <style name="PermissionFilterDialogItemsContainer">
@@ -337,8 +338,8 @@
     <style name="PermissionFilterDialogItemContainer">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">24dp</item>
-        <item name="android:layout_marginEnd">24dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
         <item name="android:paddingTop">6dp</item>
         <item name="android:paddingBottom">6dp</item>
         <item name="android:orientation">horizontal</item>
