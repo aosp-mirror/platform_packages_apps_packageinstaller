@@ -234,14 +234,24 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
                 String lastAccessStr = Utils.getAbsoluteLastUsageString(context,
                         PermissionUsages.loadLastGroupUsage(context, group));
                 if (lastAccessStr != null) {
-                    preference.setSummary(
-                            context.getString(R.string.app_permission_most_recent_summary,
-                                    lastAccessStr));
+                    if (group.areRuntimePermissionsGranted()) {
+                        preference.setSummary(
+                                context.getString(R.string.app_permission_most_recent_summary,
+                                        lastAccessStr));
+                    } else {
+                        preference.setSummary(context.getString(
+                                R.string.app_permission_most_recent_denied_summary, lastAccessStr));
+                    }
                 } else {
                     preference.setGroupSummary(group);
                     if (preference.getSummary().length() == 0 && Utils.isPermissionsHubEnabled()) {
-                        preference.setSummary(
-                                context.getString(R.string.app_permission_never_accessed_summary));
+                        if (group.areRuntimePermissionsGranted()) {
+                            preference.setSummary(context.getString(
+                                    R.string.app_permission_never_accessed_summary));
+                        } else {
+                            preference.setSummary(context.getString(
+                                    R.string.app_permission_never_accessed_denied_summary));
+                        }
                     }
                 }
             } else {

@@ -288,7 +288,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
             if (existingPref != null) {
                 if (existingPref instanceof PermissionControlPreference) {
                     setPreferenceSummary(group, (PermissionControlPreference) existingPref,
-                            context);
+                            category != denied, context);
                 }
                 category.addPreference(existingPref);
                 continue;
@@ -300,7 +300,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
             pref.setTitle(Utils.getFullAppLabel(app.getAppInfo(), context));
             pref.setEllipsizeEnd();
             pref.useSmallerIcon();
-            setPreferenceSummary(group, pref, context);
+            setPreferenceSummary(group, pref, category != denied, context);
 
             if (isSystemApp && isTelevision) {
                 if (mExtraScreen == null) {
@@ -374,17 +374,28 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
     }
 
     private void setPreferenceSummary(AppPermissionGroup group, PermissionControlPreference pref,
-            Context context) {
+            boolean allowed, Context context) {
         if (!Utils.isModernPermissionGroup(group.getName())) {
             return;
         }
         String lastAccessStr = Utils.getAbsoluteLastUsageString(context,
                 PermissionUsages.loadLastGroupUsage(context, group));
         if (lastAccessStr != null) {
-            pref.setSummary(context.getString(R.string.app_permission_most_recent_summary,
-                    lastAccessStr));
+            if (allowed) {
+                pref.setSummary(context.getString(R.string.app_permission_most_recent_summary,
+                        lastAccessStr));
+            } else {
+                pref.setSummary(
+                        context.getString(R.string.app_permission_most_recent_denied_summary,
+                                lastAccessStr));
+            }
         } else if (Utils.isPermissionsHubEnabled()) {
-            pref.setSummary(context.getString(R.string.app_permission_never_accessed_summary));
+            if (allowed) {
+                pref.setSummary(context.getString(R.string.app_permission_never_accessed_summary));
+            } else {
+                pref.setSummary(
+                        context.getString(R.string.app_permission_never_accessed_denied_summary));
+            }
         }
     }
 
