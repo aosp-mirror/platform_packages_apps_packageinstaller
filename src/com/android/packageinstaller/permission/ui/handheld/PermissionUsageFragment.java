@@ -845,8 +845,12 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
                     fragment.onPermissionGroupSelected(groupName);
                 });
 
-                ((RadioButton) itemView.requireViewById(R.id.radio_button)).setChecked(
-                        i == selectedIndex);
+                RadioButton radioButton = itemView.requireViewById(R.id.radio_button);
+                radioButton.setChecked(i == selectedIndex);
+                radioButton.setOnClickListener((v) -> {
+                    dismissAllowingStateLoss();
+                    fragment.onPermissionGroupSelected(groupName);
+                });
 
                 itemsListView.addView(itemView);
             }
