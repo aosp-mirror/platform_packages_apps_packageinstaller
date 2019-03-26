@@ -611,6 +611,19 @@ public class Role {
     }
 
     /**
+     * Callback when a role holder changed.
+     *
+     * @param user the user for the role
+     * @param context the {@code Context} to retrieve system services
+     */
+    public void onHolderChangedAsUser(@NonNull UserHandle user,
+            @NonNull Context context) {
+        if (mBehavior != null) {
+            mBehavior.onHolderChangedAsUser(this, user, context);
+        }
+    }
+
+    /**
      * Callback when the "none" role holder was selected in the UI.
      *
      * @param user the user for the role

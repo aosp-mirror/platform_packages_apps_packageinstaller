@@ -16,6 +16,7 @@
 
 package com.android.packageinstaller.permission.utils;
 
+import static android.Manifest.permission.RECORD_AUDIO;
 import static android.Manifest.permission_group.ACTIVITY_RECOGNITION;
 import static android.Manifest.permission_group.CALENDAR;
 import static android.Manifest.permission_group.CALL_LOG;
@@ -29,16 +30,19 @@ import static android.Manifest.permission_group.PHONE;
 import static android.Manifest.permission_group.SENSORS;
 import static android.Manifest.permission_group.SMS;
 import static android.Manifest.permission_group.STORAGE;
+import static android.app.role.RoleManager.ROLE_ASSISTANT;
 import static android.content.Context.MODE_PRIVATE;
 import static android.content.pm.PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED;
 import static android.content.pm.PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED;
 import static android.os.UserHandle.myUserId;
 
+import static com.android.packageinstaller.Constants.ASSISTANT_RECORD_AUDIO_IS_USER_SENSITIVE_KEY;
 import static com.android.packageinstaller.Constants.FORCED_USER_SENSITIVE_UIDS_KEY;
 import static com.android.packageinstaller.Constants.PREFERENCES_FILE;
 
 import android.Manifest;
 import android.app.Application;
+import android.app.role.RoleManager;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -782,12 +786,26 @@ public final class Utils {
      */
     public static void updateUserSensitive(@NonNull Application application,
             @NonNull UserHandle user) {
-        PackageManager pm = application.getPackageManager();
-        SharedPreferences prefs = getParentUserContext(application).getSharedPreferences(
-                PREFERENCES_FILE, MODE_PRIVATE);
+        Context userContext = getParentUserContext(application);
+        PackageManager pm = userContext.getPackageManager();
+        RoleManager rm = userContext.getSystemService(RoleManager.class);
+        SharedPreferences prefs = userContext.getSharedPreferences(PREFERENCES_FILE, MODE_PRIVATE);
 
+        boolean showAssistantRecordAudio = prefs.getBoolean(
+                ASSISTANT_RECORD_AUDIO_IS_USER_SENSITIVE_KEY, false);
         Set<String> overriddenUids = prefs.getStringSet(FORCED_USER_SENSITIVE_UIDS_KEY,
                 Collections.emptySet());
+
+        List<String> assistants = rm.getRoleHolders(ROLE_ASSISTANT);
+        String assistant = null;
+        if (!assistants.isEmpty()) {
+            if (assistants.size() > 1) {
+                Log.wtf(LOG_TAG, "Assistant role is not exclusive");
+            }
+
+            // Assistant is an exclusive role
+            assistant = assistants.get(0);
+        }
 
         PerUserUidToSensitivityLiveData appUserSensitivityLiveData =
                 PerUserUidToSensitivityLiveData.get(user, application);
@@ -807,16 +825,22 @@ public final class Utils {
             }
 
             boolean isOverridden = overriddenUids.contains(String.valueOf(uid));
+            boolean isAssistantUid = ArrayUtils.contains(uidPkgs, assistant);
 
             ArrayMap<String, Integer> uidPermissions = uidUserSensitivity.valueAt(uidNum);
 
             int numPerms = uidPermissions.size();
             for (int permNum = 0; permNum < numPerms; permNum++) {
+                String perm = uidPermissions.keyAt(permNum);
+
                 for (String uidPkg : uidPkgs) {
                     int flags = isOverridden ? FLAGS_ALWAYS_USER_SENSITIVE : uidPermissions.valueAt(
                             permNum);
 
-                    String perm = uidPermissions.keyAt(permNum);
+                    if (isAssistantUid && perm.equals(RECORD_AUDIO)) {
+                        flags = showAssistantRecordAudio ? FLAGS_ALWAYS_USER_SENSITIVE : 0;
+                    }
+
                     try {
                         pm.updatePermissionFlags(perm, uidPkg, FLAGS_ALWAYS_USER_SENSITIVE, flags,
                                 user);

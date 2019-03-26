@@ -106,6 +106,14 @@ public class Constants {
             "allow_override_user_sensitive_key";
 
     /**
+     * Key in the generic shared preferences that controls if the
+     * {@link android.Manifest.permission#RECORD_AUDIO} of the currently registered assistant is
+     * user sensitive.
+     */
+    public static final String ASSISTANT_RECORD_AUDIO_IS_USER_SENSITIVE_KEY =
+            "assistant_record_audio_is_user_sensitive_key";
+
+    /**
      * Name of file containing the permissions that should be restored, but have not been restored
      * yet.
      */

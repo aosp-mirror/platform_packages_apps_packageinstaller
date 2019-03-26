@@ -235,6 +235,7 @@ public class RoleControllerServiceImpl extends RoleControllerService {
         }
 
         role.onHolderAddedAsUser(packageName, Process.myUserHandle(), this);
+        role.onHolderChangedAsUser(Process.myUserHandle(), this);
 
         return true;
     }
@@ -269,6 +270,8 @@ public class RoleControllerServiceImpl extends RoleControllerService {
             return false;
         }
 
+        role.onHolderChangedAsUser(Process.myUserHandle(), this);
+
         return true;
     }
 
@@ -300,6 +303,8 @@ public class RoleControllerServiceImpl extends RoleControllerService {
         if (!fallbackSuccessful) {
             return false;
         }
+
+        role.onHolderChangedAsUser(Process.myUserHandle(), this);
 
         return true;
     }

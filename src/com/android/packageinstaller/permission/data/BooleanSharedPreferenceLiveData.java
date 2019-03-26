@@ -18,54 +18,56 @@ package com.android.packageinstaller.permission.data;
 
 import static android.content.Context.MODE_PRIVATE;
 
-import static com.android.packageinstaller.Constants.ALLOW_OVERRIDE_USER_SENSITIVE_KEY;
 import static com.android.packageinstaller.Constants.PREFERENCES_FILE;
 import static com.android.packageinstaller.permission.utils.Utils.getParentUserContext;
 
 import android.app.Application;
 import android.content.SharedPreferences;
+import android.util.ArrayMap;
 
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 
-import com.android.packageinstaller.Constants;
-
 /**
- * Is the user allowed to manually mark apps as user sensitive.
+ * Get a live data for a boolean shared preference.
  *
- * <p>Data source: {@link Constants#ALLOW_OVERRIDE_USER_SENSITIVE_KEY} shared preference.
+ * <p>Data source: shared preferences
  */
-public class AllowOverrideUserSensitiveLiveData extends LiveData<Boolean> implements
+public class BooleanSharedPreferenceLiveData extends LiveData<Boolean> implements
         SharedPreferences.OnSharedPreferenceChangeListener {
-    private static AllowOverrideUserSensitiveLiveData sInstance;
+    private static ArrayMap<String, BooleanSharedPreferenceLiveData> sInstances = new ArrayMap<>();
 
-    private final SharedPreferences mPrefs;
+    private final @NonNull SharedPreferences mPrefs;
+    private final @NonNull String mKey;
 
     /**
      * Get a (potentially shared) live data.
      *
+     * @param key The key of the shared preference to listen for
      * @param application The application context
      *
      * @return The live data
      */
     @MainThread
-    public static AllowOverrideUserSensitiveLiveData get(@NonNull Application application) {
-        if (sInstance == null) {
-            sInstance = new AllowOverrideUserSensitiveLiveData(application);
+    public static BooleanSharedPreferenceLiveData get(@NonNull String key,
+            @NonNull Application application) {
+        if (sInstances.get(key) == null) {
+            sInstances.put(key, new BooleanSharedPreferenceLiveData(key, application));
         }
 
-        return sInstance;
+        return sInstances.get(key);
     }
 
-    private AllowOverrideUserSensitiveLiveData(@NonNull Application application) {
+    private BooleanSharedPreferenceLiveData(@NonNull String key, @NonNull Application application) {
         mPrefs = getParentUserContext(application).getSharedPreferences(PREFERENCES_FILE,
                 MODE_PRIVATE);
+        mKey = key;
     }
 
     @Override
     protected void onActive() {
-        onSharedPreferenceChanged(mPrefs, ALLOW_OVERRIDE_USER_SENSITIVE_KEY);
+        onSharedPreferenceChanged(mPrefs, mKey);
         mPrefs.registerOnSharedPreferenceChangeListener(this);
     }
 
@@ -76,8 +78,8 @@ public class AllowOverrideUserSensitiveLiveData extends LiveData<Boolean> implem
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        if (key.equals(ALLOW_OVERRIDE_USER_SENSITIVE_KEY)) {
-            setValue(sharedPreferences.getBoolean(ALLOW_OVERRIDE_USER_SENSITIVE_KEY, false));
+        if (mKey.equals(key)) {
+            setValue(sharedPreferences.getBoolean(mKey, false));
         }
     }
 }

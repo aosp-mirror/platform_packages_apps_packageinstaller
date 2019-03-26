@@ -19,6 +19,7 @@ package com.android.packageinstaller.permission.ui.handheld;
 import static android.content.Context.MODE_PRIVATE;
 
 import static com.android.packageinstaller.Constants.ALLOW_OVERRIDE_USER_SENSITIVE_KEY;
+import static com.android.packageinstaller.Constants.ASSISTANT_RECORD_AUDIO_IS_USER_SENSITIVE_KEY;
 import static com.android.packageinstaller.Constants.FORCED_USER_SENSITIVE_UIDS_KEY;
 import static com.android.packageinstaller.Constants.PREFERENCES_FILE;
 import static com.android.packageinstaller.permission.utils.Utils.getFullAppLabel;
@@ -48,7 +49,8 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceViewHolder;
 import androidx.preference.SwitchPreference;
 
-import com.android.packageinstaller.permission.data.AllowOverrideUserSensitiveLiveData;
+import com.android.packageinstaller.Constants;
+import com.android.packageinstaller.permission.data.BooleanSharedPreferenceLiveData;
 import com.android.packageinstaller.permission.data.ForcedUserSensitiveUidsLiveData;
 import com.android.packageinstaller.permission.data.NonSensitivePackagesLiveData;
 import com.android.packageinstaller.permission.utils.Utils;
@@ -68,8 +70,17 @@ public class AdjustUserSensitiveFragment extends PermissionsFrameFragment {
     private Collator mCollator;
     private UserSensitiveOverrideViewModel mViewModel;
 
-    /** Switch that matches {@link AllowOverrideUserSensitiveLiveData} */
+    /**
+     * Switch that matches the value of the {@link Constants#ALLOW_OVERRIDE_USER_SENSITIVE_KEY}
+     * shared preference
+     */
     private SwitchPreference mGlobalUserSensitiveSwitch;
+
+    /**
+     * Switch that matches the value of the
+     * {@link Constants#ASSISTANT_RECORD_AUDIO_IS_USER_SENSITIVE_KEY} shared preference
+     */
+    private SwitchPreference mAssistantRecordAudioIsUserSensitiveSwitch;
 
     /** The packages that might have non user sensitive permissions */
     private ArrayList<ApplicationInfo> mSortedNonSensitivityPackages;
@@ -107,23 +118,30 @@ public class AdjustUserSensitiveFragment extends PermissionsFrameFragment {
         mViewModel = ViewModelProviders.of(this, new UserSensitiveOverrideViewModel.Factory(
                 getActivity().getApplication())).get(UserSensitiveOverrideViewModel.class);
         mViewModel.getNonSensitivePackagesLiveData().observe(this,
-                (v) -> updateAllUi());
+                (v) -> updateOverrideUi());
         mViewModel.getAllowOverrideUserSensitiveLiveData().observe(this,
-                (v) -> updateAllSwitchStates());
+                (v) -> updateOverrideSwitches());
         mViewModel.getForcedUserSensitiveUidsLiveData().observe(this,
-                (v) -> updatePerPackageSwitchStates());
+                (v) -> updatePerPackageOverrideSwitches());
+        mViewModel.getAssistantRecordAudioIsUserSensitiveLiveData().observe(this,
+                (v) -> mAssistantRecordAudioIsUserSensitiveSwitch.setChecked(v));
 
         addPreferencesFromResource(R.xml.adjust_user_sensitive);
 
         mGlobalUserSensitiveSwitch = findPreference("global");
-
         mGlobalUserSensitiveSwitch.setOnPreferenceChangeListener((p, newValue) -> {
             mViewModel.setAllowOverrideUserSensitive((Boolean) newValue);
             return true;
         });
+
+        mAssistantRecordAudioIsUserSensitiveSwitch = findPreference("assistantrecordaudio");
+        mAssistantRecordAudioIsUserSensitiveSwitch.setOnPreferenceChangeListener((p, newValue) -> {
+            mViewModel.setAssistantRecordAudioIsUserSensitive((Boolean) newValue);
+            return true;
+        });
     }
 
-    private void updateAllUi() {
+    private void updateOverrideUi() {
         mSortedNonSensitivityPackages = mViewModel.getNonSensitivePackagesLiveData().getValue();
 
         int numPkgs = mSortedNonSensitivityPackages.size();
@@ -136,17 +154,17 @@ public class AdjustUserSensitiveFragment extends PermissionsFrameFragment {
         mSortedNonSensitivityPackages.sort((a, b) ->
                 mCollator.compare(mLabelCache.get(a.packageName), mLabelCache.get(b.packageName)));
 
-        updateAllSwitchStates();
+        updateOverrideSwitches();
     }
 
-    private void updateAllSwitchStates() {
+    private void updateOverrideSwitches() {
         mGlobalUserSensitiveSwitch.setChecked(
                 mViewModel.getAllowOverrideUserSensitiveLiveData().getValue());
 
-        updatePerPackageSwitchStates();
+        updatePerPackageOverrideSwitches();
     }
 
-    private void updatePerPackageSwitchStates() {
+    private void updatePerPackageOverrideSwitches() {
         if (mSortedNonSensitivityPackages == null
                 || mViewModel.getForcedUserSensitiveUidsLiveData().getValue() == null) {
             return;
@@ -230,8 +248,9 @@ public class AdjustUserSensitiveFragment extends PermissionsFrameFragment {
         private final @NonNull SharedPreferences mPrefs;
 
         private final @NonNull NonSensitivePackagesLiveData mNonSensitivePackages;
-        private final @NonNull AllowOverrideUserSensitiveLiveData mAllowOverrideUserSensitive;
+        private final @NonNull BooleanSharedPreferenceLiveData mAllowOverrideUserSensitive;
         private final @NonNull ForcedUserSensitiveUidsLiveData mForcedUserSensitiveUids;
+        private final @NonNull BooleanSharedPreferenceLiveData mAssistantRecordAudioIsUserSensitive;
 
         UserSensitiveOverrideViewModel(@NonNull Application application) {
             super(application);
@@ -240,20 +259,27 @@ public class AdjustUserSensitiveFragment extends PermissionsFrameFragment {
                     MODE_PRIVATE);
 
             mNonSensitivePackages = NonSensitivePackagesLiveData.get(application);
-            mAllowOverrideUserSensitive = AllowOverrideUserSensitiveLiveData.get(application);
+            mAllowOverrideUserSensitive = BooleanSharedPreferenceLiveData.get(
+                    ALLOW_OVERRIDE_USER_SENSITIVE_KEY, application);
             mForcedUserSensitiveUids = ForcedUserSensitiveUidsLiveData.get(application);
+            mAssistantRecordAudioIsUserSensitive = BooleanSharedPreferenceLiveData.get(
+                    ASSISTANT_RECORD_AUDIO_IS_USER_SENSITIVE_KEY, application);
         }
 
         @NonNull NonSensitivePackagesLiveData getNonSensitivePackagesLiveData() {
             return mNonSensitivePackages;
         }
 
-        @NonNull AllowOverrideUserSensitiveLiveData getAllowOverrideUserSensitiveLiveData() {
+        @NonNull BooleanSharedPreferenceLiveData getAllowOverrideUserSensitiveLiveData() {
             return mAllowOverrideUserSensitive;
         }
 
         @NonNull ForcedUserSensitiveUidsLiveData getForcedUserSensitiveUidsLiveData() {
             return mForcedUserSensitiveUids;
+        }
+
+        @NonNull BooleanSharedPreferenceLiveData getAssistantRecordAudioIsUserSensitiveLiveData() {
+            return mAssistantRecordAudioIsUserSensitive;
         }
 
         /**
@@ -263,6 +289,22 @@ public class AdjustUserSensitiveFragment extends PermissionsFrameFragment {
          */
         private void updatePermissionFlags(@NonNull UserHandle user) {
             AsyncTask.execute(() -> updateUserSensitive(getApplication(), user));
+        }
+
+        /**
+         * Update permission state to reflect user sensitivity selected. (for all users)
+         */
+        private void updatePermissionFlags() {
+            AsyncTask.execute(() -> {
+                List<UserHandle> users = getApplication().getSystemService(UserManager.class)
+                        .getUserProfiles();
+
+                int numUsers = users.size();
+                for (int userNum = 0; userNum < numUsers; userNum++) {
+                    UserHandle user = users.get(userNum);
+                    updateUserSensitive(getApplication(), user);
+                }
+            });
         }
 
         /**
@@ -332,13 +374,28 @@ public class AdjustUserSensitiveFragment extends PermissionsFrameFragment {
 
             sharedPrefChanges.apply();
 
-            List<UserHandle> users = getApplication().getSystemService(UserManager.class)
-                    .getUserProfiles();
-            int numUsers = users.size();
-            for (int userNum = 0; userNum < numUsers; userNum++) {
-                UserHandle user = users.get(userNum);
-                updatePermissionFlags(user);
+            updatePermissionFlags();
+        }
+
+        /**
+         * Mark the assistant's record audio permissions as user sensitive.
+         *
+         * @param isAssistantRecordAudioUserSensitive {@code true} to mark it as user sensitive,
+         *                                            {@code false} to mark it as non sensitive
+         */
+        void setAssistantRecordAudioIsUserSensitive(boolean isAssistantRecordAudioUserSensitive) {
+            SharedPreferences.Editor sharedPrefChanges = mPrefs.edit();
+
+            if (isAssistantRecordAudioUserSensitive) {
+                sharedPrefChanges.putBoolean(ASSISTANT_RECORD_AUDIO_IS_USER_SENSITIVE_KEY, true);
+            } else {
+                sharedPrefChanges.remove(ASSISTANT_RECORD_AUDIO_IS_USER_SENSITIVE_KEY);
             }
+
+            sharedPrefChanges.apply();
+
+            // We don't know which user contains the assistant
+            updatePermissionFlags();
         }
 
         /**

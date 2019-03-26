@@ -18,6 +18,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <SwitchPreference
+        android:key="assistantrecordaudio"
+        android:title="@string/assistant_record_audio_user_sensitive_title"
+        android:summary="@string/assistant_record_audio_user_sensitive_summary"/>
+
+    <SwitchPreference
         android:key="global"
         android:title="@string/adjust_user_sensitive_globally_title"
         android:summary="@string/adjust_user_sensitive_globally_summary"/>

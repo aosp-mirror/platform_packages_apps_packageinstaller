@@ -814,4 +814,10 @@ Allow <xliff:g id="app_name" example="Gmail">%4$s</xliff:g> to upload a bug repo
 
     <!-- Header above the per app switches that enables/disables the ability for the user to force the app to always be shown in permission controller settings ui instead of being hidden behind "system app" menu. [CHAR LIMIT=60] -->
     <string name="adjust_user_sensitive_per_app_header">Highlight usage for the following</string>
+
+    <!-- Title for switch that enables/disables the microphone status bar icon for the currently selected assistant. [CHAR LIMIT=60] -->
+    <string name="assistant_record_audio_user_sensitive_title">Show Assistant trigger detection</string>
+
+    <!-- Subtitle for switch that enables/disables the microphone status bar icon for the currently selected assistant. [CHAR LIMIT=none] -->
+    <string name="assistant_record_audio_user_sensitive_summary">Show icon in status bar when microphone is used to activate voice assistant</string>
 </resources>
