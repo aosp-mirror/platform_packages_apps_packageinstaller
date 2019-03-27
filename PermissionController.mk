@@ -31,6 +31,7 @@ LOCAL_STATIC_ANDROID_LIBRARIES += \
     SettingsLibAppPreference \
     SettingsLibSearchWidget \
     SettingsLibLayoutPreference \
+    SettingsLibBarChartPreference \
     SettingsLibActionBarShadow \
     SettingsLibProgressBar
 

@@ -15,15 +15,22 @@
      limitations under the License.
 -->
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            style="@style/PermissionFilterDialogScrollView">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/PermissionFilterDialogContainer">
 
     <LinearLayout
-        style="@style/PermissionFilterDialogContainer">
+        android:id="@+id/title_container"
+        style="@style/PermissionFilterDialogTitleContainer">
 
         <TextView
             android:id="@+id/title"
             style="@style/PermissionFilterDialogTitle"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        style="@style/PermissionFilterDialogScrollView">
 
         <LinearLayout
             style="@style/PermissionFilterDialogInnerContainer">
@@ -42,6 +49,6 @@
 
         </LinearLayout>
 
-    </LinearLayout>
+    </ScrollView>
 
-</ScrollView>
+</LinearLayout>
