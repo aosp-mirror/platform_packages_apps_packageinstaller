@@ -45,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="start|center_vertical"
-        android:paddingEnd="16dp"
+        android:paddingEnd="8dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toEndOf="@+id/image_frame_include"
         app:layout_constraintBottom_toBottomOf="@android:id/title"/>

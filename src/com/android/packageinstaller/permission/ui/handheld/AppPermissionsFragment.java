@@ -177,7 +177,7 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
         }
 
         Drawable icon = Utils.getBadgedIcon(activity, appInfo);
-        fragment.setHeader(icon, Utils.getFullAppLabel(appInfo, activity), infoIntent);
+        fragment.setHeader(icon, Utils.getFullAppLabel(appInfo, activity), infoIntent, false);
 
         ActionBar ab = activity.getActionBar();
         if (ab != null) {
@@ -329,7 +329,7 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
         public void onCreate(Bundle savedInstanceState) {
             mOuterFragment = (AppPermissionsFragment) getTargetFragment();
             super.onCreate(savedInstanceState);
-            setHeader(mOuterFragment.mIcon, mOuterFragment.mLabel, null);
+            setHeader(mOuterFragment.mIcon, mOuterFragment.mLabel, null, false);
             setHasOptionsMenu(true);
             setPreferenceScreen(mOuterFragment.mExtraScreen);
         }
