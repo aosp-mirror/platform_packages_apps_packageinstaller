@@ -68,13 +68,9 @@
         <permission name="android.permission.BODY_SENSORS" />
     </permission-set>
 
-    <permission-set name="media_aural">
-        <permission name="android.permission.READ_MEDIA_AUDIO" />
-    </permission-set>
-
-    <permission-set name="media_visual">
-        <permission name="android.permission.READ_MEDIA_VIDEO" />
-        <permission name="android.permission.READ_MEDIA_IMAGES" />
+    <permission-set name="storage">
+        <permission name="android.permission.READ_EXTERNAL_STORAGE" />
+        <permission name="android.permission.WRITE_EXTERNAL_STORAGE" />
     </permission-set>
 
     <role
@@ -263,8 +259,7 @@
             <permission-set name="phone" />
             <permission-set name="contacts" />
             <permission-set name="sms" />
-            <permission-set name="media_aural" />
-            <permission-set name="media_visual" />
+            <permission-set name="storage" />
             <permission-set name="microphone" />
             <permission-set name="camera" />
         </permissions>
@@ -387,7 +382,7 @@
             </activity>
         </required-components>
         <permissions>
-            <permission-set name="media_aural" />
+            <permission-set name="storage" />
         </permissions>
         <app-ops>
             <app-op name="android:write_media_audio" mode="allowed" />
@@ -426,7 +421,7 @@
             </activity>
         </required-components>
         <permissions>
-            <permission-set name="media_visual" />
+            <permission-set name="storage" />
         </permissions>
         <app-ops>
             <app-op name="android:write_media_video" mode="allowed" />

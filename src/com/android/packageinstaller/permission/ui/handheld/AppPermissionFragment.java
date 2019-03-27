@@ -366,13 +366,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         }
 
         // Handle the UI for various special cases.
-        if (mGroup.isGrandfatheredModernStorageGroup()) {
-            mAlwaysButton.setClickable(false);
-            mDenyButton.setClickable(false);
-
-            mRadioGroup.setClickable(true);
-            mRadioGroup.setOnClickListener(v -> showGrandfatheredModernStorageGroupWarningDialog());
-        } else if (isSystemFixed() || isPolicyFullyFixed() || isForegroundDisabledByPolicy()) {
+        if (isSystemFixed() || isPolicyFullyFixed() || isForegroundDisabledByPolicy()) {
             // Disable changing permissions and potentially show administrator message.
             mAlwaysButton.setEnabled(false);
             mForegroundOnlyButton.setEnabled(false);
