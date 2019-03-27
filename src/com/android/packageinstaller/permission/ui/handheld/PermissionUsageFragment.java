@@ -57,6 +57,7 @@ import com.android.packageinstaller.permission.model.PermissionUsages;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 import com.android.settingslib.HelpUtils;
+import com.android.settingslib.widget.ActionBarShadowController;
 
 import java.lang.annotation.Retention;
 import java.text.Collator;
@@ -816,6 +817,9 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
 
             ((TextView) view.requireViewById(R.id.title)).setText(
                     getArguments().getCharSequence(TITLE));
+
+            ActionBarShadowController.attachToView(view.requireViewById(R.id.title_container),
+                    getLifecycle(), view.requireViewById(R.id.scroll_view));
 
             for (int i = 0; i < elems.length; i++) {
                 String groupName = groups[i];
