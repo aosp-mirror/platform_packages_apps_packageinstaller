@@ -73,12 +73,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
@@ -554,6 +556,8 @@ public class LocationAccessCheck {
         clickIntent.putExtra(EXTRA_PACKAGE_NAME, pkgName);
         clickIntent.putExtra(EXTRA_USER, user);
 
+        CharSequence appName = getNotificationAppName();
+
         Notification.Builder b = (new Notification.Builder(mContext,
                 PERMISSION_REMINDER_CHANNEL_ID))
                 .setContentTitle(mContext.getString(
@@ -570,12 +574,30 @@ public class LocationAccessCheck {
                         FLAG_ONE_SHOT | FLAG_UPDATE_CURRENT))
                 .setContentIntent(getBroadcast(mContext, 0, clickIntent,
                         FLAG_ONE_SHOT | FLAG_UPDATE_CURRENT));
+
+        if (appName != null) {
+            Bundle extras = new Bundle();
+            extras.putString(Notification.EXTRA_SUBSTITUTE_APP_NAME, appName.toString());
+            b.addExtras(extras);
+        }
+
         notificationManager.notify(pkgName, LOCATION_ACCESS_CHECK_NOTIFICATION_ID, b.build());
 
         if (DEBUG) Log.i(LOG_TAG, "Notified " + pkgName);
 
         mSharedPrefs.edit().putLong(KEY_LAST_LOCATION_ACCESS_NOTIFICATION_SHOWN,
                 currentTimeMillis()).apply();
+    }
+
+    @Nullable
+    private CharSequence getNotificationAppName() {
+        // We pretend we're the Settings app sending the notification, so figure out its name.
+        Intent openSettingsIntent = new Intent(Settings.ACTION_SETTINGS);
+        ResolveInfo resolveInfo = mPackageManager.resolveActivity(openSettingsIntent, 0);
+        if (resolveInfo == null) {
+            return null;
+        }
+        return mPackageManager.getApplicationLabel(resolveInfo.activityInfo.applicationInfo);
     }
 
     /**
