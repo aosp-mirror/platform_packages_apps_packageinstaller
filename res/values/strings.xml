@@ -329,9 +329,9 @@
     <string name="permission_usage_bar_chart_title_last_minute">Permission usage in last 1 minute</string>
 
     <!-- Label for the bars on the chart that shows how many apps have used various permissions [CHAR LIMIT=10] -->
-    <plurals name="app_permission_usage_bar_label">
-        <item quantity="one">Used by:\n1 app</item>
-        <item quantity="other">Used by:\n<xliff:g id="number" example="7">%s</xliff:g> apps</item>
+    <plurals name="permission_usage_bar_label">
+        <item quantity="one">1 app</item>
+        <item quantity="other"><xliff:g id="number" example="7">%s</xliff:g> apps</item>
     </plurals>
 
     <!-- Label for the button to bring the user to view the details of recent permission accesses [CHAR LIMIT=42] -->
