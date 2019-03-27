@@ -50,6 +50,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 
@@ -199,6 +200,8 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         if (mFinishedInitialLoad) {
             setProgressBarVisible(true);
         }
+
+        hideHeader();
 
         reloadData();
     }
@@ -417,7 +420,6 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         // Update header.
         if (mFilterGroup == null) {
             screen.addPreference(createBarChart(usages, timeFilterItem, context));
-            hideHeader();
         } else {
             AppPermissionGroup group = getGroup(mFilterGroup);
             if (group != null) {
@@ -426,9 +428,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
                         context.getString(R.string.app_permission_usage_filter_label,
                                 group.getLabel()), null);
                 setSummary(context.getString(R.string.app_permission_usage_remove_filter), v -> {
-                    mFilterGroup = null;
-                    // We already loaded all data, so don't reload
-                    updateUI();
+                    onPermissionGroupSelected(null);
                 });
             }
         }
@@ -602,11 +602,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
             BarViewInfo barViewInfo = new BarViewInfo(icon, count, group.getLabel(),
                     context.getResources().getQuantityString(R.plurals.permission_usage_bar_label,
                             count, count), group.getLabel());
-            barViewInfo.setClickListener(v -> {
-                mFilterGroup = group.getName();
-                // We already loaded all data, so don't reload
-                updateUI();
-            });
+            barViewInfo.setClickListener(v -> onPermissionGroupSelected(group.getName()));
             builder.addBarViewInfo(barViewInfo);
         }
 
@@ -873,9 +869,11 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
      *                      all entries.
      */
     private void onPermissionGroupSelected(@Nullable String selectedGroup) {
-        mFilterGroup = selectedGroup;
-        // We already loaded all data, so don't reload
-        updateUI();
+        Fragment frag = newInstance(selectedGroup, mFilterTimes.get(mFilterTimeIndex).getTime());
+        getFragmentManager().beginTransaction()
+                .replace(android.R.id.content, frag)
+                .addToBackStack("PermissionUsage")
+                .commit();
     }
 
     /**
