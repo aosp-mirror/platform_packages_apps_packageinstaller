@@ -72,8 +72,12 @@ public class Roles {
     private static final String TAG_PREFERRED_ACTIVITY = "preferred-activity";
     private static final String ATTRIBUTE_NAME = "name";
     private static final String ATTRIBUTE_BEHAVIOR = "behavior";
+    private static final String ATTRIBUTE_DESCRIPTION = "description";
     private static final String ATTRIBUTE_EXCLUSIVE = "exclusive";
     private static final String ATTRIBUTE_LABEL = "label";
+    private static final String ATTRIBUTE_REQUEST_TITLE = "requestTitle";
+    private static final String ATTRIBUTE_REQUEST_DESCRIPTION = "requestDescription";
+    private static final String ATTRIBUTE_SHORT_LABEL = "shortLabel";
     private static final String ATTRIBUTE_SHOW_NONE = "showNone";
     private static final String ATTRIBUTE_SYSTEM_ONLY = "systemOnly";
     private static final String ATTRIBUTE_PERMISSION = "permission";
@@ -318,6 +322,27 @@ public class Roles {
             return null;
         }
 
+        Integer requestDescriptionResource = requireAttributeResourceValue(parser,
+                ATTRIBUTE_REQUEST_DESCRIPTION, 0, TAG_ROLE);
+        if (requestDescriptionResource == null) {
+            skipCurrentTag(parser);
+            return null;
+        }
+
+        Integer requestTitleResource = requireAttributeResourceValue(parser,
+                ATTRIBUTE_REQUEST_TITLE, 0, TAG_ROLE);
+        if (requestTitleResource == null) {
+            skipCurrentTag(parser);
+            return null;
+        }
+
+        Integer shortLabelResource = requireAttributeResourceValue(parser, ATTRIBUTE_SHORT_LABEL, 0,
+                TAG_ROLE);
+        if (shortLabelResource == null) {
+            skipCurrentTag(parser);
+            return null;
+        }
+
         boolean showNone = getAttributeBooleanValue(parser, ATTRIBUTE_SHOW_NONE, false);
         if (showNone && !exclusive) {
             throwOrLogMessage("showNone=\"true\" is invalid for a non-exclusive role: " + name);
@@ -393,8 +418,9 @@ public class Roles {
         if (preferredActivities == null) {
             preferredActivities = Collections.emptyList();
         }
-        return new Role(name, behavior, exclusive, labelResource, showNone, systemOnly,
-                requiredComponents, permissions, appOps, preferredActivities);
+        return new Role(name, behavior, exclusive, labelResource, requestDescriptionResource,
+                requestTitleResource, shortLabelResource, showNone, systemOnly, requiredComponents,
+                permissions, appOps, preferredActivities);
     }
 
     @NonNull

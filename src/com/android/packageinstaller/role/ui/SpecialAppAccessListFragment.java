@@ -107,7 +107,7 @@ public class SpecialAppAccessListFragment extends SettingsFragment
                 preference = new AppIconPreference(context);
                 preference.setKey(role.getName());
                 preference.setIconSpaceReserved(true);
-                preference.setTitle(role.getLabelResource());
+                preference.setTitle(role.getShortLabelResource());
                 preference.setPersistent(false);
                 preference.setOnPreferenceClickListener(this);
             }

@@ -91,6 +91,26 @@ public class Role {
     private final int mLabelResource;
 
     /**
+     * The string resource for the request description of this role, shown below the selected app in
+     * the request role dialog.
+     */
+    @StringRes
+    private final int mRequestDescriptionResource;
+
+    /**
+     * The string resource for the request title of this role, shown as the title of the request
+     * role dialog.
+     */
+    @StringRes
+    private final int mRequestTitleResource;
+
+    /**
+     * The string resource for the short label of this role, currently used when in a list of roles.
+     */
+    @StringRes
+    private final int mShortLabelResource;
+
+    /**
      * Whether the UI for this role will show the "None" item. Only valid if this role is
      * {@link #mExclusive exclusive}, and {@link #getFallbackHolder(Context)} should also return
      * empty to allow actually selecting "None".
@@ -127,13 +147,18 @@ public class Role {
     private final List<PreferredActivity> mPreferredActivities;
 
     public Role(@NonNull String name, @Nullable RoleBehavior behavior, boolean exclusive,
-            @StringRes int labelResource, boolean showNone, boolean systemOnly,
+            @StringRes int labelResource, @StringRes int requestDescriptionResource,
+            @StringRes int requestTitleResource, @StringRes int shortLabelResource,
+            boolean showNone, boolean systemOnly,
             @NonNull List<RequiredComponent> requiredComponents, @NonNull List<String> permissions,
             @NonNull List<AppOp> appOps, @NonNull List<PreferredActivity> preferredActivities) {
         mName = name;
         mBehavior = behavior;
         mExclusive = exclusive;
         mLabelResource = labelResource;
+        mRequestDescriptionResource = requestDescriptionResource;
+        mRequestTitleResource = requestTitleResource;
+        mShortLabelResource = shortLabelResource;
         mShowNone = showNone;
         mSystemOnly = systemOnly;
         mRequiredComponents = requiredComponents;
@@ -159,6 +184,21 @@ public class Role {
     @StringRes
     public int getLabelResource() {
         return mLabelResource;
+    }
+
+    @StringRes
+    public int getRequestDescriptionResource() {
+        return mRequestDescriptionResource;
+    }
+
+    @StringRes
+    public int getRequestTitleResource() {
+        return mRequestTitleResource;
+    }
+
+    @StringRes
+    public int getShortLabelResource() {
+        return mShortLabelResource;
     }
 
     /**

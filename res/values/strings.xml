@@ -676,9 +676,6 @@
     <!-- Description when an app requests to become the default call companion app. [CHAR LIMIT=60] -->
     <string name="role_call_companion_request_description"></string>
 
-    <!-- Template for the title when an app requests to become a default application. [CHAR LIMIT=100] -->
-    <string name="request_role_title">Set <xliff:g id="app_name" example="Super Duper SMS">%1$s</xliff:g> as your default <xliff:g id="role_name" example="SMS app">%2$s</xliff:g>?</string>
-
     <!-- Subtitle for the application that is the current default application [CHAR LIMIT=30] -->
     <string name="request_role_current_default">Current default</string>
 
