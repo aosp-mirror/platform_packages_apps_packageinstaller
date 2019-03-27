@@ -125,4 +125,10 @@ public interface RoleBehavior {
      */
     default void onHolderSelectedAsUser(@NonNull Role role, @NonNull String packageName,
             @NonNull UserHandle user, @NonNull Context context) {}
+
+    /**
+     * @see Role#onHolderChangedAsUser(String, UserHandle, Context)
+     */
+    default void onHolderChangedAsUser(@NonNull Role role, @NonNull UserHandle user,
+            @NonNull Context context) {}
 }

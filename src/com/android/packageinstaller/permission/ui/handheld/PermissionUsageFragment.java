@@ -59,6 +59,7 @@ import com.android.packageinstaller.permission.model.AppPermissionUsage.GroupUsa
 import com.android.packageinstaller.permission.model.PermissionApps;
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
 import com.android.packageinstaller.permission.model.PermissionUsages;
+import com.android.packageinstaller.permission.ui.AdjustUserSensitiveActivity;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 import com.android.settingslib.HelpUtils;
@@ -96,6 +97,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
     private static final int MENU_FILTER_BY_PERMISSIONS = MENU_HIDE_SYSTEM + 3;
     private static final int MENU_FILTER_BY_TIME = MENU_HIDE_SYSTEM + 4;
     private static final int MENU_REFRESH = MENU_HIDE_SYSTEM + 5;
+    private static final int MENU_ADJUST_USER_SENSITIVE = MENU_HIDE_SYSTEM + 6;
 
     private static final String KEY_SHOW_SYSTEM_PREFS = "_show_system";
     private static final String SHOW_SYSTEM_KEY = PermissionUsageFragment.class.getName()
@@ -274,6 +276,10 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
             mHideSystemMenu = menu.add(Menu.NONE, MENU_HIDE_SYSTEM, Menu.NONE,
                     R.string.menu_hide_system);
         }
+
+        menu.add(Menu.NONE, MENU_ADJUST_USER_SENSITIVE, Menu.NONE,
+                R.string.menu_adjust_user_sensitive);
+
         HelpUtils.prepareHelpMenuItem(getActivity(), menu, R.string.help_permission_usage,
                 getClass().getName());
         MenuItem refresh = menu.add(Menu.NONE, MENU_REFRESH, Menu.NONE,
@@ -314,6 +320,10 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
                 break;
             case MENU_REFRESH:
                 reloadData();
+                break;
+            case MENU_ADJUST_USER_SENSITIVE:
+                getActivity().startActivity(
+                        new Intent(getContext(), AdjustUserSensitiveActivity.class));
                 break;
         }
         return super.onOptionsItemSelected(item);
