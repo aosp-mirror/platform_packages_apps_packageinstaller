@@ -30,4 +30,8 @@
            parent="@android:style/Theme.DeviceDefault.Dialog">
         <item name="android:background">@color/google_grey_800</item>
     </style>
+
+    <style name="PermissionDialog"
+           parent="@android:style/Theme.DeviceDefault.Dialog.NoActionBar">
+    </style>
 </resources>

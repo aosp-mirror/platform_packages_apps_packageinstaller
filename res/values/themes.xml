@@ -64,4 +64,8 @@
            parent="@android:style/Theme.DeviceDefault.Light.Dialog">
     </style>
 
+    <style name="PermissionDialog"
+           parent="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar">
+    </style>
+
 </resources>
