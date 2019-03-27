@@ -121,8 +121,7 @@ public class RequestRoleFragment extends DialogFragment {
         }
         Drawable icon = Utils.getBadgedIcon(context, applicationInfo);
         String applicationLabel = Utils.getAppLabel(applicationInfo, context);
-        String roleLabel = getString(mRole.getLabelResource());
-        String title = getString(R.string.request_role_title, applicationLabel, roleLabel);
+        String title = getString(mRole.getRequestTitleResource(), applicationLabel);
 
         View titleLayout = LayoutInflater.from(context).inflate(R.layout.request_role_title, null);
         ImageView iconImage = titleLayout.findViewById(R.id.icon);
@@ -342,6 +341,8 @@ public class RequestRoleFragment extends DialogFragment {
 
         public void onItemClicked(int position) {
             mUserChecked = true;
+            // We may need to change description based on checked state.
+            notifyDataSetChanged();
         }
 
         public void replace(@NonNull List<Pair<ApplicationInfo, Boolean>> qualifyingApplications) {
@@ -497,8 +498,10 @@ public class RequestRoleFragment extends DialogFragment {
                 icon = Utils.getBadgedIcon(context, qualifyingApplicationInfo);
                 title = Utils.getAppLabel(qualifyingApplicationInfo, context);
                 boolean isHolderApplication = qualifyingApplication.second;
-                subtitle = isHolderApplication ? context.getString(
-                        R.string.request_role_current_default) : null;
+                subtitle = isHolderApplication
+                        ? context.getString(R.string.request_role_current_default)
+                        : mListView.isItemChecked(position)
+                                ? context.getString(mRole.getRequestDescriptionResource()) : null;
             }
 
             holder.iconImage.setImageDrawable(icon);
