@@ -434,7 +434,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
                 setHeader(Utils.applyTint(context, context.getDrawable(group.getIconResId()),
                         android.R.attr.colorControlNormal),
                         context.getString(R.string.app_permission_usage_filter_label,
-                                group.getLabel()), null);
+                                group.getLabel()), null, true);
                 setSummary(context.getString(R.string.app_permission_usage_remove_filter), v -> {
                     mFilterGroup = null;
                     // We already loaded all data, so don't reload
@@ -666,7 +666,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         pref.setTitleIcons(Collections.singletonList(group.getIconResId()));
         pref.setKey(group.getApp().packageName + "," + group.getName());
         pref.useSmallerIcon();
-        pref.setRightIcon(context.getDrawable(R.drawable.ic_settings));
+        pref.setRightIcon(context.getDrawable(R.drawable.ic_settings_accent));
         return pref;
     }
 
