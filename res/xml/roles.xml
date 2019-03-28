@@ -80,6 +80,7 @@
     <role
         name="android.app.role.ASSISTANT"
         behavior="AssistantRoleBehavior"
+        description="@string/role_assistant_description"
         exclusive="true"
         showNone="true"
         label="@string/role_assistant_label"
@@ -129,6 +130,7 @@
     <role
         name="android.app.role.BROWSER"
         behavior="BrowserRoleBehavior"
+        description="@string/role_browser_description"
         exclusive="true"
         label="@string/role_browser_label"
         requestDescription="@string/role_browser_request_description"
@@ -166,6 +168,7 @@
     <role
         name="android.app.role.DIALER"
         behavior="DialerRoleBehavior"
+        description="@string/role_dialer_description"
         exclusive="true"
         label="@string/role_dialer_label"
         requestDescription="@string/role_dialer_request_description"
@@ -225,6 +228,7 @@
     <role
         name="android.app.role.SMS"
         behavior="SmsRoleBehavior"
+        description="@string/role_sms_description"
         exclusive="true"
         label="@string/role_sms_label"
         requestDescription="@string/role_sms_request_description"
@@ -310,6 +314,7 @@
     <role
         name="android.app.role.EMERGENCY"
         behavior="EmergencyRoleBehavior"
+        description="@string/role_emergency_description"
         exclusive="true"
         label="@string/role_emergency_label"
         requestDescription="@string/role_emergency_request_description"
@@ -333,6 +338,7 @@
     <role
         name="android.app.role.HOME"
         behavior="HomeRoleBehavior"
+        description="@string/role_home_description"
         exclusive="true"
         label="@string/role_home_label"
         requestDescription="@string/role_home_request_description"
@@ -366,6 +372,7 @@
     <role
         name="android.app.role.MUSIC"
         behavior="MusicRoleBehavior"
+        description="@string/role_music_description"
         exclusive="true"
         label="@string/role_music_label"
         requestDescription="@string/role_music_request_description"
@@ -404,6 +411,7 @@
     <role
         name="android.app.role.GALLERY"
         behavior="GalleryRoleBehavior"
+        description="@string/role_gallery_description"
         exclusive="true"
         label="@string/role_gallery_label"
         requestDescription="@string/role_gallery_request_description"
@@ -443,6 +451,7 @@
     <!--- @see android.telecom.InCallService -->
     <role
         name="android.app.role.CAR_MODE_DIALER"
+        description="@string/role_car_mode_dialer_description"
         exclusive="true"
         label="@string/role_car_mode_dialer_label"
         requestDescription="@string/role_car_mode_dialer_request_description"
@@ -465,6 +474,7 @@
     <!--- @see android.telecom.CallRedirectionService -->
     <role
         name="android.app.role.CALL_REDIRECTION"
+        description="@string/role_call_redirection_description"
         exclusive="true"
         label="@string/role_call_redirection_label"
         requestDescription="@string/role_call_redirection_request_description"
@@ -482,6 +492,7 @@
     <!--- @see android.telecom.CallScreeningService -->
     <role
         name="android.app.role.CALL_SCREENING"
+        description="@string/role_call_screening_description"
         exclusive="true"
         label="@string/role_call_screening_label"
         requestDescription="@string/role_call_screening_request_description"
@@ -499,6 +510,7 @@
     <!--- @see android.telecom.InCallService -->
     <role
         name="android.app.role.CALL_COMPANION"
+        description="@string/role_call_companion_description"
         exclusive="false"
         label="@string/role_call_companion_label"
         requestDescription="@string/role_call_companion_request_description"
