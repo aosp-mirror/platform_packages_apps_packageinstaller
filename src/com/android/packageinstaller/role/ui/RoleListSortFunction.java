@@ -39,7 +39,7 @@ public class RoleListSortFunction implements Function<List<RoleItem>, List<RoleI
         Collator collator = Collator.getInstance(context.getResources().getConfiguration()
                 .getLocales().get(0));
         mComparator = Comparator.comparing(roleItem -> context.getString(
-                roleItem.getRole().getLabelResource()), collator);
+                roleItem.getRole().getShortLabelResource()), collator);
     }
 
     @NonNull

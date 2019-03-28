@@ -47,6 +47,7 @@ import static com.android.packageinstaller.Constants.PERMISSION_REMINDER_CHANNEL
 import static com.android.packageinstaller.Constants.PREFERENCES_FILE;
 import static com.android.packageinstaller.permission.utils.Utils.OS_PKG;
 import static com.android.packageinstaller.permission.utils.Utils.getParcelableExtraSafe;
+import static com.android.packageinstaller.permission.utils.Utils.getParentUserContext;
 import static com.android.packageinstaller.permission.utils.Utils.getStringExtraSafe;
 import static com.android.packageinstaller.permission.utils.Utils.getSystemServiceSafe;
 import static com.android.packageinstaller.permission.utils.Utils.isLocationAccessCheckEnabled;
@@ -311,22 +312,7 @@ public class LocationAccessCheck {
      * @param shouldCancel If supplied, can be used to interrupt long running operations
      */
     public LocationAccessCheck(@NonNull Context context, @Nullable BooleanSupplier shouldCancel) {
-        UserHandle parentUser = getSystemServiceSafe(context, UserManager.class)
-                .getProfileParent(UserHandle.of(myUserId()));
-
-        if (parentUser != null) {
-            // In a multi profile environment perform all operations as the parent user of the
-            // current profile
-            try {
-                mContext = context.createPackageContextAsUser(context.getPackageName(), 0,
-                        parentUser);
-            } catch (PackageManager.NameNotFoundException e) {
-                // cannot happen
-                throw new IllegalStateException("Could not switch to parent user " + parentUser, e);
-            }
-        } else {
-            mContext = context;
-        }
+        mContext = getParentUserContext(context);
 
         mJobScheduler = getSystemServiceSafe(mContext, JobScheduler.class);
         mAppOpsManager = getSystemServiceSafe(mContext, AppOpsManager.class);
@@ -420,8 +406,8 @@ public class LocationAccessCheck {
 
                     LocationManager locationManager = getSystemServiceSafe(mContext,
                             LocationManager.class, pkg.user);
-                    if (locationManager.isLocationControllerExtraPackageEnabled() && pkg.pkg.equals(
-                            locationManager.getLocationControllerExtraPackage())) {
+                    if (locationManager.isExtraLocationControllerPackageEnabled() && pkg.pkg.equals(
+                            locationManager.getExtraLocationControllerPackage())) {
                         packageToNotifyFor = pkg;
                         break;
                     }

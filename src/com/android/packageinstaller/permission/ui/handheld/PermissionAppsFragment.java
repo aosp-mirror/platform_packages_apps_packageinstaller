@@ -172,7 +172,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
         final Drawable icon = permissionApps.getIcon();
         final CharSequence label = permissionApps.getLabel();
 
-        fragment.setHeader(icon, label, null);
+        fragment.setHeader(icon, label, null, true);
         fragment.setSummary(Utils.getPermissionGroupDescriptionString(fragment.getActivity(),
                 groupName, permissionApps.getDescription()), null);
 
@@ -407,7 +407,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
             mOuterFragment = (PermissionAppsFragment) getTargetFragment();
             setLoading(true /* loading */, false /* animate */);
             super.onCreate(savedInstanceState);
-            setHeader(mOuterFragment.mIcon, mOuterFragment.mLabel, null);
+            setHeader(mOuterFragment.mIcon, mOuterFragment.mLabel, null, true);
             if (mOuterFragment.mExtraScreen != null) {
                 setPreferenceScreen();
             } else {

@@ -16,6 +16,10 @@
 
 package com.android.packageinstaller.permission.ui.handheld;
 
+import static android.Manifest.permission_group.CAMERA;
+import static android.Manifest.permission_group.LOCATION;
+import static android.Manifest.permission_group.MICROPHONE;
+
 import static java.lang.annotation.RetentionPolicy.SOURCE;
 import static java.util.concurrent.TimeUnit.DAYS;
 import static java.util.concurrent.TimeUnit.HOURS;
@@ -26,6 +30,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.ArrayMap;
 import android.util.ArraySet;
@@ -54,9 +59,14 @@ import com.android.packageinstaller.permission.model.AppPermissionUsage.GroupUsa
 import com.android.packageinstaller.permission.model.PermissionApps;
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
 import com.android.packageinstaller.permission.model.PermissionUsages;
+import com.android.packageinstaller.permission.ui.AdjustUserSensitiveActivity;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 import com.android.settingslib.HelpUtils;
+import com.android.settingslib.widget.ActionBarShadowController;
+import com.android.settingslib.widget.BarChartInfo;
+import com.android.settingslib.widget.BarChartPreference;
+import com.android.settingslib.widget.BarViewInfo;
 
 import java.lang.annotation.Retention;
 import java.text.Collator;
@@ -87,6 +97,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
     private static final int MENU_FILTER_BY_PERMISSIONS = MENU_HIDE_SYSTEM + 3;
     private static final int MENU_FILTER_BY_TIME = MENU_HIDE_SYSTEM + 4;
     private static final int MENU_REFRESH = MENU_HIDE_SYSTEM + 5;
+    private static final int MENU_ADJUST_USER_SENSITIVE = MENU_HIDE_SYSTEM + 6;
 
     private static final String KEY_SHOW_SYSTEM_PREFS = "_show_system";
     private static final String SHOW_SYSTEM_KEY = PermissionUsageFragment.class.getName()
@@ -103,6 +114,11 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
     private static final String KEY_FINISHED_INITIAL_LOAD = "_finished_initial_load";
     private static final String FINISHED_INITIAL_LOAD_KEY = PermissionUsageFragment.class.getName()
             + KEY_FINISHED_INITIAL_LOAD;
+
+    /**
+     * The maximum number of columns shown in the bar chart.
+     */
+    private static final int MAXIMUM_NUM_BARS = 4;
 
     private @NonNull PermissionUsages mPermissionUsages;
 
@@ -198,22 +214,28 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         mFilterTimes = new ArrayList<>();
         mFilterTimes.add(new TimeFilterItem(Long.MAX_VALUE,
                 context.getString(R.string.permission_usage_any_time),
-                R.string.permission_usage_list_title_any_time));
+                R.string.permission_usage_list_title_any_time,
+                R.string.permission_usage_bar_chart_title_any_time));
         mFilterTimes.add(new TimeFilterItem(DAYS.toMillis(7),
                 context.getString(R.string.permission_usage_last_7_days),
-                R.string.permission_usage_list_title_last_7_days));
+                R.string.permission_usage_list_title_last_7_days,
+                R.string.permission_usage_bar_chart_title_last_7_days));
         mFilterTimes.add(new TimeFilterItem(DAYS.toMillis(1),
                 context.getString(R.string.permission_usage_last_day),
-                R.string.permission_usage_list_title_last_day));
+                R.string.permission_usage_list_title_last_day,
+                R.string.permission_usage_bar_chart_title_last_day));
         mFilterTimes.add(new TimeFilterItem(HOURS.toMillis(1),
                 context.getString(R.string.permission_usage_last_hour),
-                R.string.permission_usage_list_title_last_hour));
+                R.string.permission_usage_list_title_last_hour,
+                R.string.permission_usage_bar_chart_title_last_hour));
         mFilterTimes.add(new TimeFilterItem(MINUTES.toMillis(15),
                 context.getString(R.string.permission_usage_last_15_minutes),
-                R.string.permission_usage_list_title_last_15_minutes));
+                R.string.permission_usage_list_title_last_15_minutes,
+                R.string.permission_usage_bar_chart_title_last_15_minutes));
         mFilterTimes.add(new TimeFilterItem(MINUTES.toMillis(1),
                 context.getString(R.string.permission_usage_last_minute),
-                R.string.permission_usage_list_title_last_minute));
+                R.string.permission_usage_list_title_last_minute,
+                R.string.permission_usage_bar_chart_title_last_minute));
 
         long numMillis = getArguments().getLong(Intent.EXTRA_DURATION_MILLIS);
         long supremum = Long.MAX_VALUE;
@@ -254,6 +276,10 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
             mHideSystemMenu = menu.add(Menu.NONE, MENU_HIDE_SYSTEM, Menu.NONE,
                     R.string.menu_hide_system);
         }
+
+        menu.add(Menu.NONE, MENU_ADJUST_USER_SENSITIVE, Menu.NONE,
+                R.string.menu_adjust_user_sensitive);
+
         HelpUtils.prepareHelpMenuItem(getActivity(), menu, R.string.help_permission_usage,
                 getClass().getName());
         MenuItem refresh = menu.add(Menu.NONE, MENU_REFRESH, Menu.NONE,
@@ -294,6 +320,10 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
                 break;
             case MENU_REFRESH:
                 reloadData();
+                break;
+            case MENU_ADJUST_USER_SENSITIVE:
+                getActivity().startActivity(
+                        new Intent(getContext(), AdjustUserSensitiveActivity.class));
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -396,6 +426,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
 
         // Update header.
         if (mFilterGroup == null) {
+            screen.addPreference(createBarChart(usages, timeFilterItem, context));
             hideHeader();
         } else {
             AppPermissionGroup group = getGroup(mFilterGroup);
@@ -403,7 +434,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
                 setHeader(Utils.applyTint(context, context.getDrawable(group.getIconResId()),
                         android.R.attr.colorControlNormal),
                         context.getString(R.string.app_permission_usage_filter_label,
-                                group.getLabel()), null);
+                                group.getLabel()), null, true);
                 setSummary(context.getString(R.string.app_permission_usage_remove_filter), v -> {
                     mFilterGroup = null;
                     // We already loaded all data, so don't reload
@@ -516,6 +547,83 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
             setProgressBarVisible(true);
         }
     }
+    /**
+     * Create a bar chart showing the permissions that are used by the most apps.
+     *
+     * @param usages the usages
+     * @param timeFilterItem the time filter, or null if no filter is set
+     * @param context the context
+     *
+     * @return the Preference representing the bar chart
+     */
+    private BarChartPreference createBarChart(
+            @NonNull List<Pair<AppPermissionUsage, GroupUsage>> usages,
+            @Nullable TimeFilterItem timeFilterItem, @NonNull Context context) {
+        ArrayList<AppPermissionGroup> groups = new ArrayList<>();
+        ArrayMap<String, Integer> groupToAppCount = new ArrayMap<>();
+        int usageCount = usages.size();
+        for (int i = 0; i < usageCount; i++) {
+            Pair<AppPermissionUsage, GroupUsage> usage = usages.get(i);
+            GroupUsage groupUsage = usage.second;
+            Integer count = groupToAppCount.get(groupUsage.getGroup().getName());
+            if (count == null) {
+                groups.add(groupUsage.getGroup());
+                groupToAppCount.put(groupUsage.getGroup().getName(), 1);
+            } else {
+                groupToAppCount.put(groupUsage.getGroup().getName(), count + 1);
+            }
+        }
+
+        groups.sort((x, y) -> {
+            String xName = x.getName();
+            String yName = y.getName();
+            int usageDiff = compareLong(groupToAppCount.get(xName), groupToAppCount.get(yName));
+            if (usageDiff != 0) {
+                return usageDiff;
+            }
+            if (xName.equals(LOCATION)) {
+                return -1;
+            } else if (yName.equals(LOCATION)) {
+                return 1;
+            } else if (xName.equals(MICROPHONE)) {
+                return -1;
+            } else if (yName.equals(MICROPHONE)) {
+                return 1;
+            } else if (xName.equals(CAMERA)) {
+                return -1;
+            } else if (yName.equals(CAMERA)) {
+                return 1;
+            }
+            return x.getName().compareTo(y.getName());
+        });
+
+        BarChartInfo.Builder builder = new BarChartInfo.Builder();
+        if (timeFilterItem != null) {
+            builder.setTitle(timeFilterItem.getGraphTitleRes());
+        }
+
+        int numBarsToShow = Math.min(groups.size(), MAXIMUM_NUM_BARS);
+        for (int i = 0; i < numBarsToShow; i++) {
+            AppPermissionGroup group = groups.get(i);
+            int count = groupToAppCount.get(group.getName());
+            Drawable icon = Utils.applyTint(context,
+                    Utils.loadDrawable(context.getPackageManager(), group.getIconPkg(),
+                            group.getIconResId()), android.R.attr.colorControlNormal);
+            BarViewInfo barViewInfo = new BarViewInfo(icon, count, group.getLabel(),
+                    context.getResources().getQuantityString(R.plurals.permission_usage_bar_label,
+                            count, count), group.getLabel());
+            barViewInfo.setClickListener(v -> {
+                mFilterGroup = group.getName();
+                // We already loaded all data, so don't reload
+                updateUI();
+            });
+            builder.addBarViewInfo(barViewInfo);
+        }
+
+        BarChartPreference barChart = new BarChartPreference(context, null);
+        barChart.initializeBarChart(builder.build());
+        return barChart;
+    }
 
     /**
      * Create an expandable preference group that can hold children.
@@ -558,7 +666,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         pref.setTitleIcons(Collections.singletonList(group.getIconResId()));
         pref.setKey(group.getApp().packageName + "," + group.getName());
         pref.useSmallerIcon();
-        pref.setRightIcon(context.getDrawable(R.drawable.ic_settings));
+        pref.setRightIcon(context.getDrawable(R.drawable.ic_settings_accent));
         return pref;
     }
 
@@ -817,6 +925,9 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
             ((TextView) view.requireViewById(R.id.title)).setText(
                     getArguments().getCharSequence(TITLE));
 
+            ActionBarShadowController.attachToView(view.requireViewById(R.id.title_container),
+                    getLifecycle(), view.requireViewById(R.id.scroll_view));
+
             for (int i = 0; i < elems.length; i++) {
                 String groupName = groups[i];
                 View itemView = layoutInflater.inflate(R.layout.permission_filter_dialog_item,
@@ -912,11 +1023,14 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         private final long mTime;
         private final @NonNull String mLabel;
         private final @StringRes int mListTitleRes;
+        private final @StringRes int mGraphTitleRes;
 
-        TimeFilterItem(long time, @NonNull String label, @StringRes int listTitleRes) {
+        TimeFilterItem(long time, @NonNull String label, @StringRes int listTitleRes,
+                @StringRes int graphTitleRes) {
             mTime = time;
             mLabel = label;
             mListTitleRes = listTitleRes;
+            mGraphTitleRes = graphTitleRes;
         }
 
         /**
@@ -934,6 +1048,10 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
 
         public @StringRes int getListTitleRes() {
             return mListTitleRes;
+        }
+
+        public @StringRes int getGraphTitleRes() {
+            return mGraphTitleRes;
         }
     }
 }

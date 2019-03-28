@@ -41,6 +41,7 @@ public abstract class SettingsWithLargeHeader extends PermissionsFrameFragment  
     protected Intent mInfoIntent;
     protected Drawable mIcon;
     protected CharSequence mLabel;
+    protected boolean mSmallIcon;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,12 +62,14 @@ public abstract class SettingsWithLargeHeader extends PermissionsFrameFragment  
      * @param icon the icon
      * @param label the label
      * @param infoIntent the intent to show on click
+     * @param smallIcon whether the icon should be small
      */
     public void setHeader(@NonNull Drawable icon, @NonNull CharSequence label,
-            Intent infoIntent) {
+            Intent infoIntent, boolean smallIcon) {
         mIcon = icon;
         mLabel = label;
         mInfoIntent = infoIntent;
+        mSmallIcon = smallIcon;
         updateHeader(mHeader);
     }
 
@@ -81,6 +84,12 @@ public abstract class SettingsWithLargeHeader extends PermissionsFrameFragment  
 
             ImageView appIcon = header.requireViewById(R.id.entity_header_icon);
             appIcon.setImageDrawable(mIcon);
+            if (mSmallIcon) {
+                int size = getContext().getResources().getDimensionPixelSize(
+                        R.dimen.permission_icon_header_size);
+                appIcon.getLayoutParams().width = size;
+                appIcon.getLayoutParams().height = size;
+            }
 
             TextView appName = header.requireViewById(R.id.entity_header_title);
             appName.setText(mLabel);

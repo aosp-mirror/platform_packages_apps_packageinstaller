@@ -30,12 +30,10 @@ import android.os.UserHandle;
 import android.util.ArrayMap;
 import android.util.ArraySet;
 import android.util.Log;
-import android.util.SparseArray;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
 
-import com.android.packageinstaller.permission.utils.ArrayUtils;
 import com.android.packageinstaller.permission.utils.CollectionUtils;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.packageinstaller.role.model.Role;
@@ -45,7 +43,6 @@ import com.android.packageinstaller.role.utils.PackageUtils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 /**
  * Implementation of {@link RoleControllerService}.
@@ -178,120 +175,11 @@ public class RoleControllerServiceImpl extends RoleControllerService {
             }
         }
 
-        updateUserSensitive();
+        // Load data on this thread instead of background.
+        // TODO: Move out of this thread
+        Utils.updateUserSensitive(getApplication(), Process.myUserHandle());
 
         return true;
-    }
-
-    /**
-     * Update the {@link PackageManager#FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED} and
-     * {@link PackageManager#FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED} for all apps of this user.
-     *
-     * <p>For shared uids:
-     * <dl>
-     *     <dt>For system UIDs</dt>
-     *     <dd>If there is any package for which the permission is not sensitive, the permission
-     *     is not sensitive for all packages with the same the UID</dd>
-     * </dl>
-     * <dl>
-     *     <dt>For app (not system) UIDs</dt>
-     *     <dd>If there is any package for which the permission is sensitive, the permission is
-     *     sensitive for all packages with the same the UID</dd>
-     * </dl>
-     */
-    private void updateUserSensitive() {
-        PackageManager pm = getPackageManager();
-        UserHandle user = Process.myUserHandle();
-        List<PackageInfo> pkgs = pm.getInstalledPackages(PackageManager.GET_PERMISSIONS);
-        Set<String> platformPerms = Utils.getPlatformPermissions();
-        ArraySet<String> pkgsWithLauncherIcon = Utils.getLauncherPackages(this);
-
-        // uid -> permission -> flags
-        SparseArray<ArrayMap<String, Integer>> uidsPermissions = new SparseArray<>();
-
-        // Collect the flags and store it in 'uidsPermissions'
-        int numPkgs = pkgs.size();
-        for (int pkgNum = 0; pkgNum < numPkgs; pkgNum++) {
-            PackageInfo pkg = pkgs.get(pkgNum);
-            boolean pkgHasLauncherIcon = pkgsWithLauncherIcon.contains(pkg.packageName);
-            boolean pkgIsSystemApp = (pkg.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0;
-
-            // permission -> flags
-            ArrayMap<String, Integer> uidPermissions = uidsPermissions.get(pkg.applicationInfo.uid);
-            if (uidPermissions == null) {
-                uidPermissions = new ArrayMap<>();
-                uidsPermissions.put(pkg.applicationInfo.uid, uidPermissions);
-            }
-
-            for (String perm : platformPerms) {
-                if (pkg.requestedPermissions == null || !ArrayUtils.contains(
-                        pkg.requestedPermissions, perm)) {
-                    continue;
-                }
-
-                Integer previousFlagsInt = uidPermissions.get(perm);
-                int previousFlags;
-                if (pkg.applicationInfo.uid < Process.FIRST_APPLICATION_UID) {
-                    previousFlags = previousFlagsInt == null
-                            ? PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED
-                            | PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED
-                            : previousFlagsInt;
-                } else {
-                    previousFlags = previousFlagsInt == null ? 0 : previousFlagsInt;
-                }
-
-                int flags;
-                if (pkgIsSystemApp && !pkgHasLauncherIcon) {
-                    boolean permGrantedByDefault = (pm.getPermissionFlags(perm, pkg.packageName,
-                            user) & PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT) != 0;
-
-                    if (permGrantedByDefault) {
-                        flags = 0;
-                    } else {
-                        flags = PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED;
-                    }
-                } else {
-                    flags = PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED
-                            | PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED;
-                }
-
-                if (pkg.applicationInfo.uid < Process.FIRST_APPLICATION_UID) {
-                    flags &= previousFlags;
-                } else {
-                    flags |= previousFlags;
-                }
-
-                uidPermissions.put(perm, flags);
-            }
-        }
-
-        // Apply the update
-        int numUids = uidsPermissions.size();
-        for (int uidNum = 0; uidNum < numUids; uidNum++) {
-            String[] uidPkgs = pm.getPackagesForUid(uidsPermissions.keyAt(uidNum));
-            if (uidPkgs == null) {
-                continue;
-            }
-
-            ArrayMap<String, Integer> uidPermissions = uidsPermissions.valueAt(uidNum);
-
-            int numPerms = uidPermissions.size();
-            for (int permNum = 0; permNum < numPerms; permNum++) {
-                for (String uidPkg : uidPkgs) {
-                    String perm = uidPermissions.keyAt(permNum);
-                    try {
-                        pm.updatePermissionFlags(perm, uidPkg,
-                                PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED
-                                        | PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED,
-                                uidPermissions.valueAt(permNum), user);
-                        break;
-                    } catch (IllegalArgumentException e) {
-                        Log.e(LOG_TAG, "Unexpected exception while updating flags for "
-                                + uidPkg + " permission " + perm, e);
-                    }
-                }
-            }
-        }
     }
 
     @Override
@@ -347,6 +235,7 @@ public class RoleControllerServiceImpl extends RoleControllerService {
         }
 
         role.onHolderAddedAsUser(packageName, Process.myUserHandle(), this);
+        role.onHolderChangedAsUser(Process.myUserHandle(), this);
 
         return true;
     }
@@ -381,6 +270,8 @@ public class RoleControllerServiceImpl extends RoleControllerService {
             return false;
         }
 
+        role.onHolderChangedAsUser(Process.myUserHandle(), this);
+
         return true;
     }
 
@@ -412,6 +303,8 @@ public class RoleControllerServiceImpl extends RoleControllerService {
         if (!fallbackSuccessful) {
             return false;
         }
+
+        role.onHolderChangedAsUser(Process.myUserHandle(), this);
 
         return true;
     }
