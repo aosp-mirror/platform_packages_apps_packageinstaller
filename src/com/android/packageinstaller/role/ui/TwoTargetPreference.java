@@ -18,9 +18,8 @@ package com.android.packageinstaller.role.ui;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.Gravity;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.view.ViewGroup;
 
 import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
@@ -29,61 +28,55 @@ import androidx.annotation.StyleRes;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceViewHolder;
 
-import com.android.packageinstaller.role.utils.UiUtils;
 import com.android.permissioncontroller.R;
 
 /**
- * {@link Preference} acting as the footer of a page.
+ * {@link Preference} with the widget layout as a separate target.
+ *
+ * @see com.android.settingslib.TwoTargetPreference
  */
-public class FooterPreference extends Preference {
+public class TwoTargetPreference extends Preference {
 
-    private static final int ICON_LAYOUT_PADDING_VERTICAL_DP = 16;
-
-    public FooterPreference(@NonNull Context context, @Nullable AttributeSet attrs,
+    public TwoTargetPreference(@NonNull Context context, @Nullable AttributeSet attrs,
             @AttrRes int defStyleAttr, @StyleRes int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
 
         init();
     }
 
-    public FooterPreference(@NonNull Context context, @Nullable AttributeSet attrs,
+    public TwoTargetPreference(@NonNull Context context, @Nullable AttributeSet attrs,
             @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
         init();
     }
 
-    public FooterPreference(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public TwoTargetPreference(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
         init();
     }
 
-    public FooterPreference(@NonNull Context context) {
+    public TwoTargetPreference(@NonNull Context context) {
         super(context);
 
         init();
     }
 
     private void init() {
-        setIcon(R.drawable.ic_info_outline);
-        setSelectable(false);
+        setLayoutResource(R.layout.two_target_preference);
     }
 
     @Override
     public void onBindViewHolder(@NonNull PreferenceViewHolder holder) {
         super.onBindViewHolder(holder);
 
-        holder.setDividerAllowedAbove(true);
-
-        View iconFrame = holder.findViewById(R.id.icon_frame);
-        LinearLayout.LayoutParams iconFrameLayoutParams = (LinearLayout.LayoutParams)
-                iconFrame.getLayoutParams();
-        iconFrameLayoutParams.gravity = Gravity.TOP;
-        iconFrame.setLayoutParams(iconFrameLayoutParams);
-        int iconFramePaddingVertical = UiUtils.dpToPxOffset(ICON_LAYOUT_PADDING_VERTICAL_DP,
-                iconFrame.getContext());
-        iconFrame.setPaddingRelative(iconFrame.getPaddingStart(), iconFramePaddingVertical,
-                iconFrame.getPaddingEnd(), iconFramePaddingVertical);
+        View widgetFrame = holder.findViewById(android.R.id.widget_frame);
+        ViewGroup widgetFrameParent = (ViewGroup) widgetFrame.getParent();
+        ViewGroup itemView = (ViewGroup) holder.itemView;
+        if (widgetFrameParent != itemView) {
+            widgetFrameParent.removeView(widgetFrame);
+            itemView.addView(widgetFrame);
+        }
     }
 }

@@ -662,7 +662,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         pref.setTitleIcons(Collections.singletonList(group.getIconResId()));
         pref.setKey(group.getApp().packageName + "," + group.getName());
         pref.useSmallerIcon();
-        pref.setRightIcon(context.getDrawable(R.drawable.ic_settings_accent));
+        pref.setRightIcon(context.getDrawable(R.drawable.ic_settings_outline));
         return pref;
     }
 
