@@ -56,6 +56,9 @@ public class DefaultAppFragment extends SettingsFragment
     private static final String PREFERENCE_KEY_NONE = DefaultAppFragment.class.getName()
             + ".preference.NONE";
 
+    private static final String PREFERENCE_KEY_DESCRIPTION = DefaultAppFragment.class.getName()
+            + ".preference.DESCRIPTION";
+
     private String mRoleName;
 
     private UserHandle mUser;
@@ -119,11 +122,13 @@ public class DefaultAppFragment extends SettingsFragment
         Context context = preferenceManager.getContext();
 
         PreferenceScreen preferenceScreen = getPreferenceScreen();
+        Preference oldDescriptionPreference = null;
         ArrayMap<String, Preference> oldPreferences = new ArrayMap<>();
         if (preferenceScreen == null) {
             preferenceScreen = preferenceManager.createPreferenceScreen(context);
             setPreferenceScreen(preferenceScreen);
         } else {
+            oldDescriptionPreference = preferenceScreen.findPreference(PREFERENCE_KEY_DESCRIPTION);
             for (int i = preferenceScreen.getPreferenceCount() - 1; i >= 0; --i) {
                 Preference preference = preferenceScreen.getPreference(i);
 
@@ -152,6 +157,14 @@ public class DefaultAppFragment extends SettingsFragment
             addPreference(key, icon, title, isHolderApplication, qualifyingApplicationInfo,
                     oldPreferences, preferenceScreen, context);
         }
+
+        Preference descriptionPreference = oldDescriptionPreference;
+        if (descriptionPreference == null) {
+            descriptionPreference = new FooterPreference(context);
+            descriptionPreference.setKey(PREFERENCE_KEY_DESCRIPTION);
+            descriptionPreference.setSummary(mRole.getDescriptionResource());
+        }
+        preferenceScreen.addPreference(descriptionPreference);
 
         updateState();
     }

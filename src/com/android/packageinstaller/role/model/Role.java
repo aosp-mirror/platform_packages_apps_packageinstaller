@@ -80,6 +80,12 @@ public class Role {
     private final RoleBehavior mBehavior;
 
     /**
+     * The string resource for the description of this role.
+     */
+    @StringRes
+    private final int mDescriptionResource;
+
+    /**
      * Whether this role is exclusive, i.e. allows at most one holder.
      */
     private final boolean mExclusive;
@@ -146,14 +152,15 @@ public class Role {
     @NonNull
     private final List<PreferredActivity> mPreferredActivities;
 
-    public Role(@NonNull String name, @Nullable RoleBehavior behavior, boolean exclusive,
-            @StringRes int labelResource, @StringRes int requestDescriptionResource,
-            @StringRes int requestTitleResource, @StringRes int shortLabelResource,
-            boolean showNone, boolean systemOnly,
+    public Role(@NonNull String name, @Nullable RoleBehavior behavior,
+            @StringRes int descriptionResource, boolean exclusive, @StringRes int labelResource,
+            @StringRes int requestDescriptionResource, @StringRes int requestTitleResource,
+            @StringRes int shortLabelResource, boolean showNone, boolean systemOnly,
             @NonNull List<RequiredComponent> requiredComponents, @NonNull List<String> permissions,
             @NonNull List<AppOp> appOps, @NonNull List<PreferredActivity> preferredActivities) {
         mName = name;
         mBehavior = behavior;
+        mDescriptionResource = descriptionResource;
         mExclusive = exclusive;
         mLabelResource = labelResource;
         mRequestDescriptionResource = requestDescriptionResource;
@@ -175,6 +182,11 @@ public class Role {
     @Nullable
     public RoleBehavior getBehavior() {
         return mBehavior;
+    }
+
+    @StringRes
+    public int getDescriptionResource() {
+        return mDescriptionResource;
     }
 
     public boolean isExclusive() {
