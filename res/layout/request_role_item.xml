@@ -23,6 +23,7 @@
     android:minHeight="?android:listPreferredItemHeight"
     android:paddingStart="?android:listPreferredItemPaddingStart"
     android:paddingEnd="?android:listPreferredItemPaddingEnd"
+    android:clipChildren="false"
     android:gravity="center_vertical"
     android:orientation="horizontal">
 
@@ -32,10 +33,12 @@
         android:layout_height="32dp" />
 
     <LinearLayout
+        android:id="@+id/title_and_subtitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_marginStart="16dp"
+        android:animateLayoutChanges="true"
         android:orientation="vertical">
 
         <TextView

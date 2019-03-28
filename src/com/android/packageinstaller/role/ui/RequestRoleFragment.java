@@ -295,6 +295,8 @@ public class RequestRoleFragment extends DialogFragment {
         private static final String STATE_USER_CHECKED_PACKAGE_NAME = Adapter.class.getName()
                 + ".state.USER_CHECKED_PACKAGE_NAME";
 
+        private static final int LAYOUT_TRANSITION_DURATION_MILLIS = 150;
+
         @NonNull
         private final Role mRole;
 
@@ -482,6 +484,9 @@ public class RequestRoleFragment extends DialogFragment {
                         false);
                 holder = new ViewHolder(view);
                 view.setTag(holder);
+
+                holder.titleAndSubtitleLayout.getLayoutTransition().setDuration(
+                        LAYOUT_TRANSITION_DURATION_MILLIS);
             }
 
             Pair<ApplicationInfo, Boolean> qualifyingApplication = getItem(position);
@@ -518,12 +523,16 @@ public class RequestRoleFragment extends DialogFragment {
             @NonNull
             public final ImageView iconImage;
             @NonNull
+            public final ViewGroup titleAndSubtitleLayout;
+            @NonNull
             public final TextView titleText;
             @NonNull
             public final TextView subtitleText;
 
             ViewHolder(@NonNull View view) {
                 iconImage = Objects.requireNonNull(view.findViewById(R.id.icon));
+                titleAndSubtitleLayout = Objects.requireNonNull(view.findViewById(
+                        R.id.title_and_subtitle));
                 titleText = Objects.requireNonNull(view.findViewById(R.id.title));
                 subtitleText = Objects.requireNonNull(view.findViewById(R.id.subtitle));
             }
