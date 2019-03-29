@@ -156,14 +156,14 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
      * @param isCanceled callback checked if the group resolution should be aborted
      * @param getAppUiInfo If the UI info for apps should be updated
      * @param getNonPlatformPermissions If we should get non-platform permission groups
-     * @param groupName Optional group to filter for.
+     * @param groupNames Optional groups to filter for.
      * @param packageName Optional package to filter for.
      *
      * @return the list of all groups int the system
      */
     public static @NonNull List<PermissionGroup> getPermissionGroups(@NonNull Context context,
             @Nullable Supplier<Boolean> isCanceled, boolean getAppUiInfo,
-            boolean getNonPlatformPermissions, @Nullable String groupName,
+            boolean getNonPlatformPermissions, @Nullable String[] groupNames,
             @Nullable String packageName) {
         PermissionApps.PmCache pmCache = new PermissionApps.PmCache(
                 context.getPackageManager());
@@ -174,7 +174,7 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
         Set<String> seenPermissions = new ArraySet<>();
 
         PackageManager packageManager = context.getPackageManager();
-        List<PermissionGroupInfo> groupInfos = getPermissionGroupInfos(context, groupName);
+        List<PermissionGroupInfo> groupInfos = getPermissionGroupInfos(context, groupNames);
 
         for (PermissionGroupInfo groupInfo : groupInfos) {
             // Mare sure we respond to cancellation.
@@ -303,15 +303,17 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
     }
 
     private static @NonNull List<PermissionGroupInfo> getPermissionGroupInfos(
-            @NonNull Context context, @Nullable String groupName) {
-        if (groupName == null) {
+            @NonNull Context context, @Nullable String[] groupNames) {
+        if (groupNames == null) {
             return context.getPackageManager().getAllPermissionGroups(0);
         }
         try {
-            final PermissionGroupInfo groupInfo = context.getPackageManager()
-                    .getPermissionGroupInfo(groupName, 0);
-            final List<PermissionGroupInfo> groupInfos = new ArrayList<>(1);
-            groupInfos.add(groupInfo);
+            final List<PermissionGroupInfo> groupInfos = new ArrayList<>(groupNames.length);
+            for (int i = 0; i < groupNames.length; i++) {
+                final PermissionGroupInfo groupInfo = context.getPackageManager()
+                        .getPermissionGroupInfo(groupNames[i], 0);
+                groupInfos.add(groupInfo);
+            }
             return groupInfos;
         } catch (PackageManager.NameNotFoundException e) {
             return Collections.emptyList();

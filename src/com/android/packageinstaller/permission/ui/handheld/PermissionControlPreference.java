@@ -19,7 +19,6 @@ package com.android.packageinstaller.permission.ui.handheld;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.text.Html;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -123,13 +122,11 @@ public class PermissionControlPreference extends Preference {
      */
     public void setUsageSummary(@NonNull GroupUsage groupUsage, @NonNull String accessTimeStr) {
         if (groupUsage.getLastAccessForegroundTime() >= groupUsage.getLastAccessBackgroundTime()) {
-            setSummary(Html.fromHtml(
-                    mContext.getString(R.string.permission_usage_summary_foreground,
-                            accessTimeStr)));
+            setSummary(mContext.getString(R.string.permission_usage_summary_foreground,
+                    accessTimeStr));
         } else {
-            setSummary(Html.fromHtml(
-                    mContext.getString(R.string.permission_usage_summary_background,
-                    accessTimeStr)));
+            setSummary(mContext.getString(R.string.permission_usage_summary_background,
+                    accessTimeStr));
         }
     }
 

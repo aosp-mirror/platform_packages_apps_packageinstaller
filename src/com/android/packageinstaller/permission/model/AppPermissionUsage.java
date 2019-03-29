@@ -162,6 +162,27 @@ public final class AppPermissionUsage {
             );
         }
 
+        public boolean isRunning() {
+            if (mLastUsage == null) {
+                return false;
+            }
+            final ArrayList<Permission> permissions = mGroup.getPermissions();
+            final int permissionCount = permissions.size();
+            for (int i = 0; i < permissionCount; i++) {
+                final Permission permission = permissions.get(i);
+                final String opName = permission.getAppOp();
+                final List<OpEntry> ops = mLastUsage.getOps();
+                final int opCount = ops.size();
+                for (int j = 0; j < opCount; j++) {
+                    final OpEntry op = ops.get(j);
+                    if (op.getOpStr().equals(opName) && op.isRunning()) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
         private long extractAggregate(@NonNull Function<HistoricalOp, Long> extractor) {
             long aggregate = 0;
             final ArrayList<Permission> permissions = mGroup.getPermissions();

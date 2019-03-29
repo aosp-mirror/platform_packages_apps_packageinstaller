@@ -119,4 +119,10 @@ public interface RoleBehavior {
      */
     default void revoke(@NonNull Role role, @NonNull String packageName,
             @NonNull Context context) {}
+
+    /**
+     * @see Role#onHolderSelectedAsUser(String, UserHandle, Context)
+     */
+    default void onHolderSelectedAsUser(@NonNull Role role, @NonNull String packageName,
+            @NonNull UserHandle user, @NonNull Context context) {}
 }
