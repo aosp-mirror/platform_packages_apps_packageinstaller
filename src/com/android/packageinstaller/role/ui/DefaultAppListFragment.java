@@ -158,9 +158,10 @@ public class DefaultAppListFragment extends SettingsFragment
             RoleItem roleItem = roleItems.get(i);
 
             Role role = roleItem.getRole();
-            Preference preference = oldPreferences.get(role.getName());
+            AppIconSettingsButtonPreference preference =
+                    (AppIconSettingsButtonPreference) oldPreferences.get(role.getName());
             if (preference == null) {
-                preference = new AppIconPreference(context);
+                preference = new AppIconSettingsButtonPreference(context);
                 preference.setKey(role.getName());
                 preference.setIconSpaceReserved(true);
                 preference.setTitle(role.getShortLabelResource());
@@ -178,6 +179,7 @@ public class DefaultAppListFragment extends SettingsFragment
                 preference.setIcon(Utils.getBadgedIcon(context, holderApplicationInfo));
                 preference.setSummary(Utils.getAppLabel(holderApplicationInfo, context));
             }
+            role.preparePreferenceAsUser(preference, user, context);
 
             preferenceGroup.addPreference(preference);
         }

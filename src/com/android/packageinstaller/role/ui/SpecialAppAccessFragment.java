@@ -149,6 +149,9 @@ public class SpecialAppAccessFragment extends SettingsFragment
             }
 
             preference.setChecked(isHolderPackage);
+            UserHandle user = UserHandle.getUserHandleForUid(qualifyingApplicationInfo.uid);
+            mRole.prepareApplicationPreferenceAsUser(preference, qualifyingApplicationInfo, user,
+                    context);
 
             preferenceScreen.addPreference(preference);
         }

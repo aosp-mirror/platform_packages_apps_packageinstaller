@@ -35,6 +35,7 @@ import androidx.preference.Preference;
 
 import com.android.packageinstaller.Constants;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.packageinstaller.role.ui.SettingsButtonPreference;
 import com.android.packageinstaller.role.utils.PackageUtils;
 import com.android.packageinstaller.role.utils.UserUtils;
 
@@ -339,6 +340,20 @@ public class Role {
             return mBehavior.getManageIntentAsUser(this, user, context);
         }
         return null;
+    }
+
+    /**
+     * Prepare a {@link Preference} for this role.
+     *
+     * @param preference the {@link Preference} for this role
+     * @param user the user for this role
+     * @param context the {@code Context} to retrieve system services
+     */
+    public void preparePreferenceAsUser(@NonNull SettingsButtonPreference preference,
+            @NonNull UserHandle user, @NonNull Context context) {
+        if (mBehavior != null) {
+            mBehavior.preparePreferenceAsUser(this, preference, user, context);
+        }
     }
 
     /**
