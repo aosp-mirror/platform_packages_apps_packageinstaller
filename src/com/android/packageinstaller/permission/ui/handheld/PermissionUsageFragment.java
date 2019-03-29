@@ -400,6 +400,9 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
                         || groupUsage.getLastAccessTime() < startTime) {
                     continue;
                 }
+                if (mFilterGroup != null && !mFilterGroup.equals(groupUsage.getGroup().getName())) {
+                    continue;
+                }
                 final boolean isSystemApp = !Utils.isGroupOrBgGroupUserSensitive(
                         groupUsage.getGroup());
                 if (!mHasSystemApps) {
@@ -454,9 +457,6 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         } else {
             Log.w(LOG_TAG, "Unexpected sort option: " + mSort);
         }
-
-        usages.removeIf((Pair<AppPermissionUsage, GroupUsage> usage) -> mFilterGroup != null
-                && !mFilterGroup.equals(usage.second.getGroup().getName()));
 
         // If there are no entries, don't show anything.
         if (permApps.isEmpty()) {
