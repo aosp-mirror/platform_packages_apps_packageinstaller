@@ -178,6 +178,57 @@
 
     <!-- END PERMISSION REVIEW SCREEN -->
 
+    <!-- START PERMISSIONS FRAME -->
+
+    <style name="PermissionsFrameNoPermissionsText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+    </style>
+
+    <!-- END PERMISSIONS FRAME -->
+
+    <!-- START HEADER -->
+
+    <style name="Header">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?android:attr/actionBarSize</item>
+        <item name="android:background">?android:attr/colorSecondary</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="HeaderIcon">
+        <item name="android:layout_width">@dimen/header_subsettings_margin_start</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:gravity">end</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="HeaderName">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginStart">@dimen/header_subsettings_margin_start</item>
+        <item name="android:layout_alignWithParentIfMissing">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="HeaderInfo" parent="@android:style/Widget.DeviceDefault.Button.Borderless">
+        <item name="android:layout_width">56dp</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:layout_marginEnd">@dimen/header_subsettings_margin_end</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:scaleType">center</item>
+    </style>
+
+    <!-- END HEADER -->
+
     <!-- START APP PERMISSION SCREEN -->
 
     <style name="AppPermission">
@@ -191,7 +242,7 @@
         <item name="android:gravity">center</item>
     </style>
 
-    <style name="HeaderLink">
+    <style name="LargeHeaderLink">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginBottom">16dp</item>
@@ -376,6 +427,96 @@
     </style>
 
     <!-- END PERMISSION FILTER SCREEN -->
+
+    <!-- START PREFERENCE USAGE -->
+
+    <style name="PreferenceUsage">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:minHeight">?android:attr/listPreferredItemHeightSmall</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">?android:attr/listPreferredItemPaddingLeft</item>
+        <item name="android:paddingRight">?android:attr/listPreferredItemPaddingRight</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="android:focusable">true</item>
+        <item name="android:baselineAligned">false</item>
+    </style>
+
+    <style name="PreferenceUsageImageFrame">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="PreferenceUsageTitleWidgetFrame">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="PreferenceUsageTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceListItem</item>
+        <item name="android:ellipsize">marquee</item>
+    </style>
+
+    <style name="PreferenceUsageSummaryWidgetFrame">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">start|bottom</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="PreferenceUsageSummary">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+        <item name="android:maxLines">10</item>
+    </style>
+
+    <style name="PreferenceUsageWidgetFrame">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">end|center_vertical</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!-- END PREFERENCE USAGE -->
+
+    <!-- START IMAGE VIEW -->
+
+    <style name="ImageView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">end|center_vertical</item>
+    </style>
+
+    <style name="ImageViewIcon">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <!-- END IMAGE VIEW -->
+
+    <!-- START LOADING CONTAINER -->
+
+    <style name="LoadingContainerTextView">
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <!-- END LOADING CONTAINER -->
 
     <!-- START GRANDFATHERED MODERN STORAGE GROUP WARNING DIALOG -->
 

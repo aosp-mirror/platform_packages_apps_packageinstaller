@@ -58,11 +58,22 @@
             <item type="style" name="PermissionReviewButtonContinue" />
             <!-- END PERMISSION REVIEW SCREEN -->
 
+            <!-- START PERMISSIONS FRAME -->
+            <item type="style" name="PermissionsFrameNoPermissionsText" />
+            <!-- END PERMISSIONS FRAME -->
+
+            <!-- START HEADER -->
+            <item type="style" name="Header" />
+            <item type="style" name="HeaderIcon" />
+            <item type="style" name="HeaderName" />
+            <item type="style" name="HeaderInfo" />
+            <!-- END HEADER -->
 
             <!-- START APP PERMISSION SCREEN -->
             <item type="style" name="AppPermission" />
 
             <item type="style" name="LargeHeader" />
+            <item type="style" name="LargeHeaderLink" />
             <item type="style" name="LargeHeaderDivider" />
 
             <item type="style" name="AppPermissionSelection" />
@@ -90,6 +101,25 @@
             <item type="style" name="PermissionFilterDialogItemTitle" />
             <item type="style" name="PermissionFilterDialogItemSummary" />
             <!-- END PERMISSION FILTER SCREEN -->
+
+            <!-- START PREFERENCE USAGE -->
+            <item type="style" name="PreferenceUsage" />
+            <item type="style" name="PreferenceUsageTitleWidgetFrame" />
+            <item type="style" name="PreferenceUsageImageFrame" />
+            <item type="style" name="PreferenceUsageTitle" />
+            <item type="style" name="PreferenceUsageSummaryWidgetFrame" />
+            <item type="style" name="PreferenceUsageSummary" />
+            <item type="style" name="PreferenceUsageWidgetFrame" />
+            <!-- END PREFERENCE USAGE -->
+
+            <!-- START IMAGE VIEW -->
+            <item type="style" name="ImageView" />
+            <item type="style" name="ImageViewIcon" />
+            <!-- END IMAGE VIEW -->
+
+            <!-- START LOADING CONTAINER -->
+            <item type="style" name="LoadingContainerTextView" />
+            <!-- END LOADING CONTAINER -->
 
             <!-- START GRANDFATHERED MODERN STORAGE GROUP WARNING DIALOG -->
             <item type="style" name="GrandfatheredModernStorageGroupWarningDialogHeader" />
