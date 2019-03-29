@@ -122,6 +122,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
     private static final int MAXIMUM_NUM_BARS = 4;
 
     private @NonNull PermissionUsages mPermissionUsages;
+    private @Nullable List<AppPermissionUsage> mAppPermissionUsages;
 
     private Collator mCollator;
 
@@ -192,6 +193,8 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         mCollator = Collator.getInstance(
                 context.getResources().getConfiguration().getLocales().get(0));
         mPermissionUsages = new PermissionUsages(context);
+
+        reloadData();
     }
 
     @Override
@@ -199,13 +202,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         super.onStart();
         getActivity().setTitle(R.string.permission_usage_title);
 
-        if (mFinishedInitialLoad) {
-            setProgressBarVisible(true);
-        }
-
         hideHeader();
-
-        reloadData();
     }
 
     /**
@@ -350,6 +347,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         if (mPermissionUsages.getUsages().isEmpty()) {
             return;
         }
+        mAppPermissionUsages = new ArrayList<>(mPermissionUsages.getUsages());
 
         // Use the saved permission group or the one passed as an argument, if applicable.
         if (mSavedGroupName != null && mFilterGroup == null) {
@@ -368,9 +366,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
     }
 
     private void updateUI() {
-        final List<AppPermissionUsage> appPermissionUsages =
-                new ArrayList<>(mPermissionUsages.getUsages());
-        if (appPermissionUsages.isEmpty() || getActivity() == null) {
+        if (mAppPermissionUsages.isEmpty() || getActivity() == null) {
             return;
         }
         Context context = getActivity();
@@ -391,9 +387,9 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         List<Pair<AppPermissionUsage, GroupUsage>> usages = new ArrayList<>();
         mGroupAppCounts = new ArrayMap<>();
         ArrayList<PermissionApp> permApps = new ArrayList<>();
-        int numApps = appPermissionUsages.size();
+        int numApps = mAppPermissionUsages.size();
         for (int appNum = 0; appNum < numApps; appNum++) {
-            AppPermissionUsage appUsage = appPermissionUsages.get(appNum);
+            AppPermissionUsage appUsage = mAppPermissionUsages.get(appNum);
             boolean used = false;
             List<GroupUsage> appGroups = appUsage.getGroupUsages();
             int numGroups = appGroups.size();
@@ -503,6 +499,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
             setLoading(false, true);
             mFinishedInitialLoad = true;
             setProgressBarVisible(false);
+            mPermissionUsages.stopLoader(getActivity().getLoaderManager());
         }).execute(permApps.toArray(new PermissionApps.PermissionApp[permApps.size()]));
     }
 
@@ -786,10 +783,9 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
     private @NonNull List<AppPermissionGroup> getOSPermissionGroups() {
         final List<AppPermissionGroup> groups = new ArrayList<>();
         final Set<String> seenGroups = new ArraySet<>();
-        final List<AppPermissionUsage> appUsages = mPermissionUsages.getUsages();
-        final int numGroups = appUsages.size();
+        final int numGroups = mAppPermissionUsages.size();
         for (int i = 0; i < numGroups; i++) {
-            final AppPermissionUsage appUsage = appUsages.get(i);
+            final AppPermissionUsage appUsage = mAppPermissionUsages.get(i);
             final List<GroupUsage> groupUsages = appUsage.getGroupUsages();
             final int groupUsageCount = groupUsages.size();
             for (int j = 0; j < groupUsageCount; j++) {
