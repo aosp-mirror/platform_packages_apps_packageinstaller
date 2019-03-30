@@ -309,6 +309,13 @@ public class Roles {
             behavior = null;
         }
 
+        Integer descriptionResource = requireAttributeResourceValue(parser, ATTRIBUTE_DESCRIPTION,
+                0, TAG_ROLE);
+        if (descriptionResource == null) {
+            skipCurrentTag(parser);
+            return null;
+        }
+
         Boolean exclusive = requireAttributeBooleanValue(parser, ATTRIBUTE_EXCLUSIVE, true,
                 TAG_ROLE);
         if (exclusive == null) {
@@ -418,9 +425,9 @@ public class Roles {
         if (preferredActivities == null) {
             preferredActivities = Collections.emptyList();
         }
-        return new Role(name, behavior, exclusive, labelResource, requestDescriptionResource,
-                requestTitleResource, shortLabelResource, showNone, systemOnly, requiredComponents,
-                permissions, appOps, preferredActivities);
+        return new Role(name, behavior, descriptionResource, exclusive, labelResource,
+                requestDescriptionResource, requestTitleResource, shortLabelResource, showNone,
+                systemOnly, requiredComponents, permissions, appOps, preferredActivities);
     }
 
     @NonNull

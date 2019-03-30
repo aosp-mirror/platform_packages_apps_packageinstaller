@@ -551,7 +551,7 @@ public final class Utils {
      */
     public static @Nullable String getRelativeLastUsageString(@NonNull Context context,
             @Nullable AppPermissionUsage.GroupUsage groupUsage) {
-        if (groupUsage == null) {
+        if (groupUsage == null || groupUsage.getLastAccessTime() == 0) {
             return null;
         }
         return getTimeDiffStr(context, System.currentTimeMillis()

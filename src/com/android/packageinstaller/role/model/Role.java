@@ -35,6 +35,7 @@ import androidx.preference.Preference;
 
 import com.android.packageinstaller.Constants;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.packageinstaller.role.ui.SettingsButtonPreference;
 import com.android.packageinstaller.role.utils.PackageUtils;
 import com.android.packageinstaller.role.utils.UserUtils;
 
@@ -78,6 +79,12 @@ public class Role {
      */
     @Nullable
     private final RoleBehavior mBehavior;
+
+    /**
+     * The string resource for the description of this role.
+     */
+    @StringRes
+    private final int mDescriptionResource;
 
     /**
      * Whether this role is exclusive, i.e. allows at most one holder.
@@ -146,14 +153,15 @@ public class Role {
     @NonNull
     private final List<PreferredActivity> mPreferredActivities;
 
-    public Role(@NonNull String name, @Nullable RoleBehavior behavior, boolean exclusive,
-            @StringRes int labelResource, @StringRes int requestDescriptionResource,
-            @StringRes int requestTitleResource, @StringRes int shortLabelResource,
-            boolean showNone, boolean systemOnly,
+    public Role(@NonNull String name, @Nullable RoleBehavior behavior,
+            @StringRes int descriptionResource, boolean exclusive, @StringRes int labelResource,
+            @StringRes int requestDescriptionResource, @StringRes int requestTitleResource,
+            @StringRes int shortLabelResource, boolean showNone, boolean systemOnly,
             @NonNull List<RequiredComponent> requiredComponents, @NonNull List<String> permissions,
             @NonNull List<AppOp> appOps, @NonNull List<PreferredActivity> preferredActivities) {
         mName = name;
         mBehavior = behavior;
+        mDescriptionResource = descriptionResource;
         mExclusive = exclusive;
         mLabelResource = labelResource;
         mRequestDescriptionResource = requestDescriptionResource;
@@ -175,6 +183,11 @@ public class Role {
     @Nullable
     public RoleBehavior getBehavior() {
         return mBehavior;
+    }
+
+    @StringRes
+    public int getDescriptionResource() {
+        return mDescriptionResource;
     }
 
     public boolean isExclusive() {
@@ -327,6 +340,20 @@ public class Role {
             return mBehavior.getManageIntentAsUser(this, user, context);
         }
         return null;
+    }
+
+    /**
+     * Prepare a {@link Preference} for this role.
+     *
+     * @param preference the {@link Preference} for this role
+     * @param user the user for this role
+     * @param context the {@code Context} to retrieve system services
+     */
+    public void preparePreferenceAsUser(@NonNull SettingsButtonPreference preference,
+            @NonNull UserHandle user, @NonNull Context context) {
+        if (mBehavior != null) {
+            mBehavior.preparePreferenceAsUser(this, preference, user, context);
+        }
     }
 
     /**

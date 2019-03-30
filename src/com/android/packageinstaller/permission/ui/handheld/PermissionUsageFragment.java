@@ -50,6 +50,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 
@@ -121,6 +122,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
     private static final int MAXIMUM_NUM_BARS = 4;
 
     private @NonNull PermissionUsages mPermissionUsages;
+    private @Nullable List<AppPermissionUsage> mAppPermissionUsages;
 
     private Collator mCollator;
 
@@ -191,6 +193,8 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         mCollator = Collator.getInstance(
                 context.getResources().getConfiguration().getLocales().get(0));
         mPermissionUsages = new PermissionUsages(context);
+
+        reloadData();
     }
 
     @Override
@@ -198,11 +202,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         super.onStart();
         getActivity().setTitle(R.string.permission_usage_title);
 
-        if (mFinishedInitialLoad) {
-            setProgressBarVisible(true);
-        }
-
-        reloadData();
+        hideHeader();
     }
 
     /**
@@ -347,6 +347,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         if (mPermissionUsages.getUsages().isEmpty()) {
             return;
         }
+        mAppPermissionUsages = new ArrayList<>(mPermissionUsages.getUsages());
 
         // Use the saved permission group or the one passed as an argument, if applicable.
         if (mSavedGroupName != null && mFilterGroup == null) {
@@ -365,9 +366,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
     }
 
     private void updateUI() {
-        final List<AppPermissionUsage> appPermissionUsages =
-                new ArrayList<>(mPermissionUsages.getUsages());
-        if (appPermissionUsages.isEmpty() || getActivity() == null) {
+        if (mAppPermissionUsages.isEmpty() || getActivity() == null) {
             return;
         }
         Context context = getActivity();
@@ -388,9 +387,9 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         List<Pair<AppPermissionUsage, GroupUsage>> usages = new ArrayList<>();
         mGroupAppCounts = new ArrayMap<>();
         ArrayList<PermissionApp> permApps = new ArrayList<>();
-        int numApps = appPermissionUsages.size();
+        int numApps = mAppPermissionUsages.size();
         for (int appNum = 0; appNum < numApps; appNum++) {
-            AppPermissionUsage appUsage = appPermissionUsages.get(appNum);
+            AppPermissionUsage appUsage = mAppPermissionUsages.get(appNum);
             boolean used = false;
             List<GroupUsage> appGroups = appUsage.getGroupUsages();
             int numGroups = appGroups.size();
@@ -399,6 +398,9 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
 
                 if (groupUsage.getAccessCount() <= 0
                         || groupUsage.getLastAccessTime() < startTime) {
+                    continue;
+                }
+                if (mFilterGroup != null && !mFilterGroup.equals(groupUsage.getGroup().getName())) {
                     continue;
                 }
                 final boolean isSystemApp = !Utils.isGroupOrBgGroupUserSensitive(
@@ -427,7 +429,6 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         // Update header.
         if (mFilterGroup == null) {
             screen.addPreference(createBarChart(usages, timeFilterItem, context));
-            hideHeader();
         } else {
             AppPermissionGroup group = getGroup(mFilterGroup);
             if (group != null) {
@@ -436,9 +437,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
                         context.getString(R.string.app_permission_usage_filter_label,
                                 group.getLabel()), null, true);
                 setSummary(context.getString(R.string.app_permission_usage_remove_filter), v -> {
-                    mFilterGroup = null;
-                    // We already loaded all data, so don't reload
-                    updateUI();
+                    onPermissionGroupSelected(null);
                 });
             }
         }
@@ -458,9 +457,6 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         } else {
             Log.w(LOG_TAG, "Unexpected sort option: " + mSort);
         }
-
-        usages.removeIf((Pair<AppPermissionUsage, GroupUsage> usage) -> mFilterGroup != null
-                && !mFilterGroup.equals(usage.second.getGroup().getName()));
 
         // If there are no entries, don't show anything.
         if (permApps.isEmpty()) {
@@ -503,6 +499,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
             setLoading(false, true);
             mFinishedInitialLoad = true;
             setProgressBarVisible(false);
+            mPermissionUsages.stopLoader(getActivity().getLoaderManager());
         }).execute(permApps.toArray(new PermissionApps.PermissionApp[permApps.size()]));
     }
 
@@ -612,11 +609,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
             BarViewInfo barViewInfo = new BarViewInfo(icon, count, group.getLabel(),
                     context.getResources().getQuantityString(R.plurals.permission_usage_bar_label,
                             count, count), group.getLabel());
-            barViewInfo.setClickListener(v -> {
-                mFilterGroup = group.getName();
-                // We already loaded all data, so don't reload
-                updateUI();
-            });
+            barViewInfo.setClickListener(v -> onPermissionGroupSelected(group.getName()));
             builder.addBarViewInfo(barViewInfo);
         }
 
@@ -666,7 +659,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         pref.setTitleIcons(Collections.singletonList(group.getIconResId()));
         pref.setKey(group.getApp().packageName + "," + group.getName());
         pref.useSmallerIcon();
-        pref.setRightIcon(context.getDrawable(R.drawable.ic_settings_accent));
+        pref.setRightIcon(context.getDrawable(R.drawable.ic_settings_outline));
         return pref;
     }
 
@@ -790,10 +783,9 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
     private @NonNull List<AppPermissionGroup> getOSPermissionGroups() {
         final List<AppPermissionGroup> groups = new ArrayList<>();
         final Set<String> seenGroups = new ArraySet<>();
-        final List<AppPermissionUsage> appUsages = mPermissionUsages.getUsages();
-        final int numGroups = appUsages.size();
+        final int numGroups = mAppPermissionUsages.size();
         for (int i = 0; i < numGroups; i++) {
-            final AppPermissionUsage appUsage = appUsages.get(i);
+            final AppPermissionUsage appUsage = mAppPermissionUsages.get(i);
             final List<GroupUsage> groupUsages = appUsage.getGroupUsages();
             final int groupUsageCount = groupUsages.size();
             for (int j = 0; j < groupUsageCount; j++) {
@@ -883,9 +875,11 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
      *                      all entries.
      */
     private void onPermissionGroupSelected(@Nullable String selectedGroup) {
-        mFilterGroup = selectedGroup;
-        // We already loaded all data, so don't reload
-        updateUI();
+        Fragment frag = newInstance(selectedGroup, mFilterTimes.get(mFilterTimeIndex).getTime());
+        getFragmentManager().beginTransaction()
+                .replace(android.R.id.content, frag)
+                .addToBackStack("PermissionUsage")
+                .commit();
     }
 
     /**

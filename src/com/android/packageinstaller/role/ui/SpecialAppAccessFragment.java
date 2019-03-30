@@ -50,7 +50,10 @@ public class SpecialAppAccessFragment extends SettingsFragment
     private static final String LOG_TAG = SpecialAppAccessFragment.class.getSimpleName();
 
     private static final String PREFERENCE_EXTRA_APPLICATION_INFO =
-            "com.android.packageinstaller.role.ui.extra.APPLICATION_INFO";
+            SpecialAppAccessFragment.class.getName() + ".extra.APPLICATION_INFO";
+
+    private static final String PREFERENCE_KEY_DESCRIPTION =
+            SpecialAppAccessFragment.class.getName() + ".preference.DESCRIPTION";
 
     private String mRoleName;
 
@@ -108,11 +111,13 @@ public class SpecialAppAccessFragment extends SettingsFragment
         Context context = preferenceManager.getContext();
 
         PreferenceScreen preferenceScreen = getPreferenceScreen();
+        Preference oldDescriptionPreference = null;
         ArrayMap<String, Preference> oldPreferences = new ArrayMap<>();
         if (preferenceScreen == null) {
             preferenceScreen = preferenceManager.createPreferenceScreen(context);
             setPreferenceScreen(preferenceScreen);
         } else {
+            oldDescriptionPreference = preferenceScreen.findPreference(PREFERENCE_KEY_DESCRIPTION);
             for (int i = preferenceScreen.getPreferenceCount() - 1; i >= 0; --i) {
                 Preference preference = preferenceScreen.getPreference(i);
 
@@ -144,9 +149,20 @@ public class SpecialAppAccessFragment extends SettingsFragment
             }
 
             preference.setChecked(isHolderPackage);
+            UserHandle user = UserHandle.getUserHandleForUid(qualifyingApplicationInfo.uid);
+            mRole.prepareApplicationPreferenceAsUser(preference, qualifyingApplicationInfo, user,
+                    context);
 
             preferenceScreen.addPreference(preference);
         }
+
+        Preference descriptionPreference = oldDescriptionPreference;
+        if (descriptionPreference == null) {
+            descriptionPreference = new FooterPreference(context);
+            descriptionPreference.setKey(PREFERENCE_KEY_DESCRIPTION);
+            descriptionPreference.setSummary(mRole.getDescriptionResource());
+        }
+        preferenceScreen.addPreference(descriptionPreference);
 
         updateState();
     }
