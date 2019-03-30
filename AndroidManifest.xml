@@ -272,6 +272,14 @@
             </intent-filter>
         </service>
 
+        <receiver android:name="com.android.packageinstaller.role.service.ClearUserDeniedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_DATA_CLEARED" />
+                <action android:name="android.intent.action.PACKAGE_FULLY_REMOVED"/>
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
         <!-- Debug report authorization (bugreport and incident report) -->
         <receiver android:name="com.android.packageinstaller.incident.ConfirmationReceiver"
             android:exported="true">
