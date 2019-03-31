@@ -16,9 +16,11 @@
 
 package com.android.packageinstaller.role.ui;
 
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.Settings;
@@ -40,6 +42,7 @@ import com.android.packageinstaller.role.model.Roles;
 import com.android.permissioncontroller.R;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Fragment for the list of default apps.
@@ -48,6 +51,9 @@ public class DefaultAppListFragment extends SettingsFragment
         implements Preference.OnPreferenceClickListener {
 
     private static final String LOG_TAG = DefaultAppListFragment.class.getSimpleName();
+
+    private static final String PREFERENCE_KEY_MORE_DEFAULT_APPS =
+            DefaultAppListFragment.class.getName() + ".preference.MORE_DEFAULT_APPS";
 
     private static final String PREFERENCE_KEY_MANAGE_DOMAIN_URLS =
             DefaultAppListFragment.class.getName() + ".preference.MANAGE_DOMAIN_URLS";
@@ -124,6 +130,7 @@ public class DefaultAppListFragment extends SettingsFragment
 
         addPreferences(preferenceScreen, roleItems, oldPreferences, this, mViewModel.getUser(),
                 context);
+        addMoreDefaultAppsPreference(preferenceScreen, oldPreferences, context);
         addManageDomainUrlsPreference(preferenceScreen, oldPreferences, context);
         if (hasWorkProfile && !workRoleItems.isEmpty()) {
             PreferenceCategory workPreferenceCategory = oldWorkPreferenceCategory;
@@ -197,8 +204,36 @@ public class DefaultAppListFragment extends SettingsFragment
         return true;
     }
 
+    private static void addMoreDefaultAppsPreference(@NonNull PreferenceGroup preferenceGroup,
+            @NonNull ArrayMap<String, Preference> oldPreferences, @NonNull Context context) {
+        Intent intent = new Intent(Settings.ACTION_MANAGE_MORE_DEFAULT_APPS_SETTINGS);
+        if (!isIntentResolvedToSettings(intent, context)) {
+            return;
+        }
+
+        Preference preference = oldPreferences.get(PREFERENCE_KEY_MORE_DEFAULT_APPS);
+        if (preference == null) {
+            preference = new Preference(context);
+            preference.setKey(PREFERENCE_KEY_MORE_DEFAULT_APPS);
+            preference.setIconSpaceReserved(true);
+            preference.setTitle(context.getString(R.string.default_apps_more));
+            preference.setPersistent(false);
+            preference.setOnPreferenceClickListener(preference2 -> {
+                context.startActivity(intent);
+                return true;
+            });
+        }
+
+        preferenceGroup.addPreference(preference);
+    }
+
     private static void addManageDomainUrlsPreference(@NonNull PreferenceGroup preferenceGroup,
             @NonNull ArrayMap<String, Preference> oldPreferences, @NonNull Context context) {
+        Intent intent = new Intent(Settings.ACTION_MANAGE_DOMAIN_URLS);
+        if (!isIntentResolvedToSettings(intent, context)) {
+            return;
+        }
+
         Preference preference = oldPreferences.get(PREFERENCE_KEY_MANAGE_DOMAIN_URLS);
         if (preference == null) {
             preference = new Preference(context);
@@ -207,12 +242,24 @@ public class DefaultAppListFragment extends SettingsFragment
             preference.setTitle(context.getString(R.string.default_apps_manage_domain_urls));
             preference.setPersistent(false);
             preference.setOnPreferenceClickListener(preference2 -> {
-                Intent intent = new Intent(Settings.ACTION_MANAGE_DOMAIN_URLS);
                 context.startActivity(intent);
                 return true;
             });
         }
 
         preferenceGroup.addPreference(preference);
+    }
+
+    private static boolean isIntentResolvedToSettings(@NonNull Intent intent,
+            @NonNull Context context) {
+        PackageManager packageManager = context.getPackageManager();
+        ComponentName componentName = intent.resolveActivity(packageManager);
+        if (componentName == null) {
+            return false;
+        }
+        Intent settingsIntent = new Intent(Settings.ACTION_SETTINGS);
+        String settingsPackageName = settingsIntent.resolveActivity(packageManager)
+                .getPackageName();
+        return Objects.equals(componentName.getPackageName(), settingsPackageName);
     }
 }
