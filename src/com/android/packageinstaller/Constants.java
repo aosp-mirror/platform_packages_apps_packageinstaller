@@ -118,4 +118,21 @@ public class Constants {
      * yet.
      */
     public static final String DELAYED_RESTORE_PERMISSIONS_FILE = "delayed_restore_permissions.xml";
+
+    /**
+     * Name of file containing the user denied status for requesting roles.
+     */
+    public static final String REQUEST_ROLE_USER_DENIED_FILE = "request_role_user_denied";
+
+    /**
+     * Key in the user denied status for requesting roles shared preferences that stores a string
+     * set for the names of the roles that an application has been denied for once.
+     */
+    public static final String REQUEST_ROLE_USER_DENIED_ONCE_KEY_PREFIX = "denied_once:";
+
+    /**
+     * Key in the user denied status for requesting roles shared preferences that stores a string
+     * set for the names of the roles that an application is always denied for.
+     */
+    public static final String REQUEST_ROLE_USER_DENIED_ALWAYS_KEY_PREFIX = "denied_always:";
 }
