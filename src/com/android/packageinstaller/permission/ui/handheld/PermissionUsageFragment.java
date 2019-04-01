@@ -382,7 +382,8 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
 
         final TimeFilterItem timeFilterItem = mFilterTimes.get(mFilterTimeIndex);
         long curTime = System.currentTimeMillis();
-        long startTime = (timeFilterItem == null ? 0 : (curTime - timeFilterItem.getTime()));
+        long startTime = Math.max(timeFilterItem == null ? 0 : (curTime - timeFilterItem.getTime()),
+                Instant.EPOCH.toEpochMilli());
 
         List<Pair<AppPermissionUsage, GroupUsage>> usages = new ArrayList<>();
         mGroupAppCounts = new ArrayMap<>();
@@ -395,9 +396,18 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
             int numGroups = appGroups.size();
             for (int groupNum = 0; groupNum < numGroups; groupNum++) {
                 GroupUsage groupUsage = appGroups.get(groupNum);
+                long lastAccessTime = groupUsage.getLastAccessTime();
 
-                if (groupUsage.getAccessCount() <= 0
-                        || groupUsage.getLastAccessTime() < startTime) {
+                if (groupUsage.getAccessCount() <= 0) {
+                    continue;
+                }
+                if (lastAccessTime == 0) {
+                    Log.w(LOG_TAG,
+                            "Unexpected access time of 0 for " + appUsage.getApp().getKey() + " "
+                                    + groupUsage.getGroup().getName());
+                    continue;
+                }
+                if (lastAccessTime < startTime) {
                     continue;
                 }
                 if (mFilterGroup != null && !mFilterGroup.equals(groupUsage.getGroup().getName())) {
