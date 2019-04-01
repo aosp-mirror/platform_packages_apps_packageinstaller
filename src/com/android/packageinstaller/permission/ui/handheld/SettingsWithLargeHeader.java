@@ -49,8 +49,15 @@ public abstract class SettingsWithLargeHeader extends PermissionsFrameFragment  
         ViewGroup root = (ViewGroup) super.onCreateView(inflater, container, savedInstanceState);
 
         if (!DeviceUtils.isTelevision(getContext())) {
-            mHeader = inflater.inflate(R.layout.header_large, root, false);
-            getPreferencesContainer().addView(mHeader, 0);
+            if (mHeader == null) {
+                mHeader = inflater.inflate(R.layout.header_large, root, false);
+                getPreferencesContainer().addView(mHeader, 0);
+            } else if (mHeader.getVisibility() == View.VISIBLE) {
+                ((ViewGroup) mHeader.getParent()).removeView(mHeader);
+                getPreferencesContainer().addView(mHeader, 0);
+                updateHeader(mHeader);
+                mHeader.requireViewById(R.id.header_link).setVisibility(View.VISIBLE);
+            }
         }
 
         return root;
