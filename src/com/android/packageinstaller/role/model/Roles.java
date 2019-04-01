@@ -20,7 +20,6 @@ import android.app.AppOpsManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.XmlResourceParser;
 import android.os.Build;
 import android.util.ArrayMap;
@@ -108,19 +107,6 @@ public class Roles {
     @Nullable
     private static ArrayMap<String, Role> sRoles;
 
-    private static boolean sIsolatedStorage;
-    private static final List<String> ISOLATED_STORAGE_PERMISSIONS = new ArrayList<>();
-    static {
-        ISOLATED_STORAGE_PERMISSIONS.add(android.Manifest.permission.READ_MEDIA_AUDIO);
-        ISOLATED_STORAGE_PERMISSIONS.add(android.Manifest.permission.READ_MEDIA_VIDEO);
-        ISOLATED_STORAGE_PERMISSIONS.add(android.Manifest.permission.READ_MEDIA_IMAGES);
-    }
-    private static final List<String> LEGACY_STORAGE_PERMISSIONS = new ArrayList<>();
-    static {
-        LEGACY_STORAGE_PERMISSIONS.add(android.Manifest.permission.READ_EXTERNAL_STORAGE);
-        LEGACY_STORAGE_PERMISSIONS.add(android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
-    }
-
     private Roles() {}
 
     /**
@@ -142,16 +128,6 @@ public class Roles {
 
     @NonNull
     private static ArrayMap<String, Role> load(@NonNull Context context) {
-        // If the storage model feature flag is disabled, we need to fiddle
-        // around with permission definitions to return us to pre-Q behavior.
-        // STOPSHIP(b/112545973): remove once feature enabled by default
-        try {
-            context.getPackageManager().getPermissionInfo(ISOLATED_STORAGE_PERMISSIONS.get(0), 0);
-            sIsolatedStorage = true;
-        } catch (NameNotFoundException e) {
-            sIsolatedStorage = false;
-        }
-
         try (XmlResourceParser parser = context.getResources().getXml(R.xml.roles)) {
             Pair<ArrayMap<String, PermissionSet>, ArrayMap<String, Role>> xml = parseXml(parser);
             if (xml == null) {
@@ -681,16 +657,6 @@ public class Roles {
             }
         }
 
-        // If the storage model feature flag is disabled, we need to fiddle
-        // around with permission definitions to return us to pre-Q behavior.
-        // STOPSHIP(b/112545973): remove once feature enabled by default
-        if (!sIsolatedStorage) {
-            boolean removed = permissions.removeAll(ISOLATED_STORAGE_PERMISSIONS);
-            if (removed) {
-                permissions.addAll(LEGACY_STORAGE_PERMISSIONS);
-            }
-        }
-
         return permissions;
     }
 
@@ -957,15 +923,6 @@ public class Roles {
             int permissionsSize = permissions.size();
             for (int permissionsIndex = 0; permissionsIndex < permissionsSize; permissionsIndex++) {
                 String permission = permissions.get(permissionsIndex);
-
-                // If the storage model feature flag is disabled, we need to fiddle
-                // around with permission definitions to return us to pre-Q behavior.
-                // STOPSHIP(b/112545973): remove once feature enabled by default
-                if (!sIsolatedStorage) {
-                    if (ISOLATED_STORAGE_PERMISSIONS.contains(permission)) {
-                        continue;
-                    }
-                }
 
                 validatePermission(permission, context);
             }

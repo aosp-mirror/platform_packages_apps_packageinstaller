@@ -23,8 +23,6 @@ import static android.Manifest.permission_group.CALL_LOG;
 import static android.Manifest.permission_group.CAMERA;
 import static android.Manifest.permission_group.CONTACTS;
 import static android.Manifest.permission_group.LOCATION;
-import static android.Manifest.permission_group.MEDIA_AURAL;
-import static android.Manifest.permission_group.MEDIA_VISUAL;
 import static android.Manifest.permission_group.MICROPHONE;
 import static android.Manifest.permission_group.PHONE;
 import static android.Manifest.permission_group.SENSORS;
@@ -134,12 +132,7 @@ public final class Utils {
 
         PLATFORM_PERMISSIONS.put(Manifest.permission.READ_EXTERNAL_STORAGE, STORAGE);
         PLATFORM_PERMISSIONS.put(Manifest.permission.WRITE_EXTERNAL_STORAGE, STORAGE);
-
-        PLATFORM_PERMISSIONS.put(Manifest.permission.READ_MEDIA_AUDIO, MEDIA_AURAL);
-
-        PLATFORM_PERMISSIONS.put(Manifest.permission.READ_MEDIA_IMAGES, MEDIA_VISUAL);
-        PLATFORM_PERMISSIONS.put(Manifest.permission.READ_MEDIA_VIDEO, MEDIA_VISUAL);
-        PLATFORM_PERMISSIONS.put(Manifest.permission.ACCESS_MEDIA_LOCATION, MEDIA_VISUAL);
+        PLATFORM_PERMISSIONS.put(Manifest.permission.ACCESS_MEDIA_LOCATION, STORAGE);
 
         PLATFORM_PERMISSIONS.put(Manifest.permission.ACCESS_FINE_LOCATION, LOCATION);
         PLATFORM_PERMISSIONS.put(Manifest.permission.ACCESS_COARSE_LOCATION, LOCATION);
@@ -726,10 +719,6 @@ public final class Utils {
                 return context.getString(R.string.permission_description_summary_contacts);
             case LOCATION:
                 return context.getString(R.string.permission_description_summary_location);
-            case MEDIA_AURAL:
-                return context.getString(R.string.permission_description_summary_media_aural);
-            case MEDIA_VISUAL:
-                return context.getString(R.string.permission_description_summary_media_visual);
             case MICROPHONE:
                 return context.getString(R.string.permission_description_summary_microphone);
             case PHONE:
@@ -738,6 +727,8 @@ public final class Utils {
                 return context.getString(R.string.permission_description_summary_sensors);
             case SMS:
                 return context.getString(R.string.permission_description_summary_sms);
+            case STORAGE:
+                return context.getString(R.string.permission_description_summary_storage);
             default:
                 return context.getString(R.string.permission_description_summary_generic,
                         description);
