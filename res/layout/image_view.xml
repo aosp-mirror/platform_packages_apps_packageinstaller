@@ -17,14 +17,10 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="end|center_vertical">
+    style="@style/ImageView">
 
         <com.android.packageinstaller.permission.ui.PreferenceImageView
             android:id="@+id/icon"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:scaleType="fitCenter" />
+            style="@style/ImageViewIcon" />
 
 </LinearLayout>

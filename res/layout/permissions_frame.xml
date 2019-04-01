@@ -39,11 +39,7 @@
 
                 <TextView
                     android:id="@+id/no_permissions"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    style="?android:attr/textAppearanceLarge">
-                </TextView>
+                    style="@style/PermissionsFrameNoPermissionsText" />
 
             </LinearLayout>
 
