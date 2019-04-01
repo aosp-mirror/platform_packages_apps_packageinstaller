@@ -22,22 +22,12 @@
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
-    <View
-        android:layout_width="1dp"
-        android:layout_height="match_parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="?android:listDivider" />
+    <View style="@style/SettingsButtonPreferenceWidgetDivider" />
 
     <ImageButton
         android:id="@+id/settings_button"
-        android:layout_width="wrap_content"
-        android:minWidth="64dp"
-        android:layout_height="match_parent"
-        android:paddingStart="?android:listPreferredItemPaddingEnd"
-        android:paddingEnd="?android:listPreferredItemPaddingEnd"
-        android:background="?android:selectableItemBackground"
         android:contentDescription="@string/settings_button"
-        android:scaleType="center"
-        android:src="@drawable/ic_settings_outline_accent" />
+        android:src="@drawable/ic_settings_outline_accent"
+        style="@style/SettingsButtonPreferenceWidgetButton" />
+
 </LinearLayout>
