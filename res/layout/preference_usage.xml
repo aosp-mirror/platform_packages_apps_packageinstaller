@@ -36,7 +36,10 @@
     <TextView
         android:id="@android:id/title"
         style="@style/PreferenceUsageTitle"
-        app:layout_constraintStart_toEndOf="@+id/title_widget_frame"/>
+        app:layout_constraintStart_toEndOf="@+id/title_widget_frame"
+        app:layout_constraintBottom_toTopOf="@android:id/summary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"/>
 
     <LinearLayout
         android:id="@+id/summary_widget_frame"
@@ -49,7 +52,9 @@
         style="@style/PreferenceUsageSummary"
         app:layout_constraintStart_toEndOf="@+id/summary_widget_frame"
         app:layout_constraintTop_toBottomOf="@android:id/title"
-        app:layout_constraintEnd_toStartOf="@android:id/widget_frame"/>
+        app:layout_constraintEnd_toStartOf="@android:id/widget_frame"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"/>
 
     <!-- Preference should place its actual preference widget here. -->
     <LinearLayout
