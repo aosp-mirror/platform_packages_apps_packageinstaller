@@ -15,6 +15,9 @@
 -->
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+        xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- App name (this is a test app for the Permission Controller app, which
+            is the thing that users use to grant permissions to applications).
+        [CHAR LIMIT=60]-->
     <string name="app_name">Permission Controller Tests</string>
 </resources>

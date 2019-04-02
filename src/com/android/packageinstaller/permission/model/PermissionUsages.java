@@ -136,6 +136,10 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
         return mUsages;
     }
 
+    public void stopLoader(@NonNull LoaderManager loaderManager) {
+        loaderManager.destroyLoader(1);
+    }
+
     public static @Nullable AppPermissionUsage.GroupUsage loadLastGroupUsage(
             @NonNull Context context, @NonNull AppPermissionGroup group) {
         if (!Utils.isPermissionsHubEnabled()) {

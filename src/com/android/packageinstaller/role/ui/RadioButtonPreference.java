@@ -18,6 +18,7 @@ package com.android.packageinstaller.role.ui;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
@@ -47,6 +48,8 @@ public class RadioButtonPreference extends TwoStatePreference {
     }
 
     public RadioButtonPreference(@NonNull Context context, @Nullable AttributeSet attrs) {
+        // TwoStatePreference(Context, AttributeSet) breaks the default style attribute in
+        // Preference(Context, AttributeSet), so we need to add it back here.
         this(context, attrs, TypedArrayUtils.getAttr(context, R.attr.preferenceStyle,
                 android.R.attr.preferenceStyle));
     }
@@ -60,22 +63,22 @@ public class RadioButtonPreference extends TwoStatePreference {
             @AttrRes int defStyleAttr, @StyleRes int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
 
-        setWidgetLayoutResource(R.layout.preference_widget_radio_button);
+        setWidgetLayoutResource(R.layout.radio_button_preference_widget);
     }
 
     @Override
     public void onBindViewHolder(@NonNull PreferenceViewHolder holder) {
         super.onBindViewHolder(holder);
 
-        ViewGroup viewGroup = (ViewGroup) holder.itemView;
-        ViewGroup widgetFrame = (ViewGroup) holder.findViewById(android.R.id.widget_frame);
-        if (viewGroup.indexOfChild(widgetFrame) != 0) {
+        ViewGroup itemView = (ViewGroup) holder.itemView;
+        View widgetFrame = holder.findViewById(android.R.id.widget_frame);
+        if (itemView.indexOfChild(widgetFrame) != 0) {
             widgetFrame.setPaddingRelative(widgetFrame.getPaddingEnd(), widgetFrame.getPaddingTop(),
                     widgetFrame.getPaddingStart(), widgetFrame.getPaddingBottom());
-            viewGroup.removeView(widgetFrame);
-            viewGroup.addView(widgetFrame, 0);
-            viewGroup.setPaddingRelative(0, viewGroup.getPaddingTop(), viewGroup.getPaddingEnd(),
-                    viewGroup.getPaddingBottom());
+            itemView.removeView(widgetFrame);
+            itemView.addView(widgetFrame, 0);
+            itemView.setPaddingRelative(0, itemView.getPaddingTop(), itemView.getPaddingEnd(),
+                    itemView.getPaddingBottom());
         }
 
         RadioButton radioButton = (RadioButton) holder.findViewById(R.id.radio_button);

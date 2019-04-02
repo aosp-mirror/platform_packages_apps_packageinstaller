@@ -102,15 +102,18 @@ public class SpecialAppAccessListFragment extends SettingsFragment
             RoleItem roleItem = roleItems.get(i);
 
             Role role = roleItem.getRole();
-            Preference preference = oldPreferences.get(role.getName());
+            AppIconSettingsButtonPreference preference =
+                    (AppIconSettingsButtonPreference) oldPreferences.get(role.getName());
             if (preference == null) {
-                preference = new AppIconPreference(context);
+                preference = new AppIconSettingsButtonPreference(context);
                 preference.setKey(role.getName());
                 preference.setIconSpaceReserved(true);
-                preference.setTitle(role.getLabelResource());
+                preference.setTitle(role.getShortLabelResource());
                 preference.setPersistent(false);
                 preference.setOnPreferenceClickListener(this);
             }
+
+            role.preparePreferenceAsUser(preference, Process.myUserHandle(), context);
 
             preferenceScreen.addPreference(preference);
         }

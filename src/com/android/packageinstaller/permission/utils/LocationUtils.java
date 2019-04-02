@@ -80,13 +80,14 @@ public class LocationUtils {
             @NonNull String groupName, @NonNull String packageName) {
         return LOCATION_PERMISSION.equals(groupName)
                 && packageName.equals(context.getSystemService(LocationManager.class)
-                        .getLocationControllerExtraPackage());
+                        .getExtraLocationControllerPackage());
     }
 
-    public static boolean isLocationControllerExtraPackageEnabled(Context context) {
+    /** Returns whether the location controller extra package is enabled. */
+    public static boolean isExtraLocationControllerPackageEnabled(Context context) {
         try {
             return context.getSystemService(LocationManager.class)
-                    .isLocationControllerExtraPackageEnabled();
+                    .isExtraLocationControllerPackageEnabled();
         } catch (Exception e) {
             return false;
         }

@@ -177,7 +177,7 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
         }
 
         Drawable icon = Utils.getBadgedIcon(activity, appInfo);
-        fragment.setHeader(icon, Utils.getFullAppLabel(appInfo, activity), infoIntent);
+        fragment.setHeader(icon, Utils.getFullAppLabel(appInfo, activity), infoIntent, false);
 
         ActionBar ab = activity.getActionBar();
         if (ab != null) {
@@ -234,14 +234,24 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
                 String lastAccessStr = Utils.getAbsoluteLastUsageString(context,
                         PermissionUsages.loadLastGroupUsage(context, group));
                 if (lastAccessStr != null) {
-                    preference.setSummary(
-                            context.getString(R.string.app_permission_most_recent_summary,
-                                    lastAccessStr));
+                    if (group.areRuntimePermissionsGranted()) {
+                        preference.setSummary(
+                                context.getString(R.string.app_permission_most_recent_summary,
+                                        lastAccessStr));
+                    } else {
+                        preference.setSummary(context.getString(
+                                R.string.app_permission_most_recent_denied_summary, lastAccessStr));
+                    }
                 } else {
                     preference.setGroupSummary(group);
                     if (preference.getSummary().length() == 0 && Utils.isPermissionsHubEnabled()) {
-                        preference.setSummary(
-                                context.getString(R.string.app_permission_never_accessed_summary));
+                        if (group.areRuntimePermissionsGranted()) {
+                            preference.setSummary(context.getString(
+                                    R.string.app_permission_never_accessed_summary));
+                        } else {
+                            preference.setSummary(context.getString(
+                                    R.string.app_permission_never_accessed_denied_summary));
+                        }
                     }
                 }
             } else {
@@ -319,7 +329,7 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
         public void onCreate(Bundle savedInstanceState) {
             mOuterFragment = (AppPermissionsFragment) getTargetFragment();
             super.onCreate(savedInstanceState);
-            setHeader(mOuterFragment.mIcon, mOuterFragment.mLabel, null);
+            setHeader(mOuterFragment.mIcon, mOuterFragment.mLabel, null, false);
             setHasOptionsMenu(true);
             setPreferenceScreen(mOuterFragment.mExtraScreen);
         }

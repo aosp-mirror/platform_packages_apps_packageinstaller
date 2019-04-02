@@ -35,6 +35,7 @@ import androidx.preference.Preference;
 
 import com.android.packageinstaller.Constants;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.packageinstaller.role.ui.SettingsButtonPreference;
 import com.android.packageinstaller.role.utils.PackageUtils;
 import com.android.packageinstaller.role.utils.UserUtils;
 
@@ -80,6 +81,12 @@ public class Role {
     private final RoleBehavior mBehavior;
 
     /**
+     * The string resource for the description of this role.
+     */
+    @StringRes
+    private final int mDescriptionResource;
+
+    /**
      * Whether this role is exclusive, i.e. allows at most one holder.
      */
     private final boolean mExclusive;
@@ -89,6 +96,26 @@ public class Role {
      */
     @StringRes
     private final int mLabelResource;
+
+    /**
+     * The string resource for the request description of this role, shown below the selected app in
+     * the request role dialog.
+     */
+    @StringRes
+    private final int mRequestDescriptionResource;
+
+    /**
+     * The string resource for the request title of this role, shown as the title of the request
+     * role dialog.
+     */
+    @StringRes
+    private final int mRequestTitleResource;
+
+    /**
+     * The string resource for the short label of this role, currently used when in a list of roles.
+     */
+    @StringRes
+    private final int mShortLabelResource;
 
     /**
      * Whether the UI for this role will show the "None" item. Only valid if this role is
@@ -126,14 +153,20 @@ public class Role {
     @NonNull
     private final List<PreferredActivity> mPreferredActivities;
 
-    public Role(@NonNull String name, @Nullable RoleBehavior behavior, boolean exclusive,
-            @StringRes int labelResource, boolean showNone, boolean systemOnly,
+    public Role(@NonNull String name, @Nullable RoleBehavior behavior,
+            @StringRes int descriptionResource, boolean exclusive, @StringRes int labelResource,
+            @StringRes int requestDescriptionResource, @StringRes int requestTitleResource,
+            @StringRes int shortLabelResource, boolean showNone, boolean systemOnly,
             @NonNull List<RequiredComponent> requiredComponents, @NonNull List<String> permissions,
             @NonNull List<AppOp> appOps, @NonNull List<PreferredActivity> preferredActivities) {
         mName = name;
         mBehavior = behavior;
+        mDescriptionResource = descriptionResource;
         mExclusive = exclusive;
         mLabelResource = labelResource;
+        mRequestDescriptionResource = requestDescriptionResource;
+        mRequestTitleResource = requestTitleResource;
+        mShortLabelResource = shortLabelResource;
         mShowNone = showNone;
         mSystemOnly = systemOnly;
         mRequiredComponents = requiredComponents;
@@ -152,6 +185,11 @@ public class Role {
         return mBehavior;
     }
 
+    @StringRes
+    public int getDescriptionResource() {
+        return mDescriptionResource;
+    }
+
     public boolean isExclusive() {
         return mExclusive;
     }
@@ -159,6 +197,21 @@ public class Role {
     @StringRes
     public int getLabelResource() {
         return mLabelResource;
+    }
+
+    @StringRes
+    public int getRequestDescriptionResource() {
+        return mRequestDescriptionResource;
+    }
+
+    @StringRes
+    public int getRequestTitleResource() {
+        return mRequestTitleResource;
+    }
+
+    @StringRes
+    public int getShortLabelResource() {
+        return mShortLabelResource;
     }
 
     /**
@@ -287,6 +340,20 @@ public class Role {
             return mBehavior.getManageIntentAsUser(this, user, context);
         }
         return null;
+    }
+
+    /**
+     * Prepare a {@link Preference} for this role.
+     *
+     * @param preference the {@link Preference} for this role
+     * @param user the user for this role
+     * @param context the {@code Context} to retrieve system services
+     */
+    public void preparePreferenceAsUser(@NonNull SettingsButtonPreference preference,
+            @NonNull UserHandle user, @NonNull Context context) {
+        if (mBehavior != null) {
+            mBehavior.preparePreferenceAsUser(this, preference, user, context);
+        }
     }
 
     /**
@@ -607,6 +674,19 @@ public class Role {
             @NonNull Context context) {
         if (mBehavior != null) {
             mBehavior.onHolderSelectedAsUser(this, packageName, user, context);
+        }
+    }
+
+    /**
+     * Callback when a role holder changed.
+     *
+     * @param user the user for the role
+     * @param context the {@code Context} to retrieve system services
+     */
+    public void onHolderChangedAsUser(@NonNull UserHandle user,
+            @NonNull Context context) {
+        if (mBehavior != null) {
+            mBehavior.onHolderChangedAsUser(this, user, context);
         }
     }
 

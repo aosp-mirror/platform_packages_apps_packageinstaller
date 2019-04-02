@@ -178,7 +178,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         }
 
         String appLabel = Utils.getFullAppLabel(mGroup.getApp().applicationInfo, context);
-        setHeader(getAppIcon(), appLabel, null);
+        setHeader(getAppIcon(), appLabel, null, false);
         updateHeader(root.requireViewById(R.id.large_header));
 
         ((TextView) root.requireViewById(R.id.permission_message)).setText(
@@ -366,13 +366,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         }
 
         // Handle the UI for various special cases.
-        if (mGroup.isGrandfatheredModernStorageGroup()) {
-            mAlwaysButton.setClickable(false);
-            mDenyButton.setClickable(false);
-
-            mRadioGroup.setClickable(true);
-            mRadioGroup.setOnClickListener(v -> showGrandfatheredModernStorageGroupWarningDialog());
-        } else if (isSystemFixed() || isPolicyFullyFixed() || isForegroundDisabledByPolicy()) {
+        if (isSystemFixed() || isPolicyFullyFixed() || isForegroundDisabledByPolicy()) {
             // Disable changing permissions and potentially show administrator message.
             mAlwaysButton.setEnabled(false);
             mForegroundOnlyButton.setEnabled(false);

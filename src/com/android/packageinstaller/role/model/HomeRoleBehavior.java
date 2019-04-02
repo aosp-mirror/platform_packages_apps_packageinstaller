@@ -16,19 +16,25 @@
 
 package com.android.packageinstaller.role.model;
 
+import android.app.role.RoleManager;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.os.UserHandle;
 import android.provider.Settings;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.preference.Preference;
 
+import com.android.packageinstaller.permission.utils.CollectionUtils;
+import com.android.packageinstaller.role.ui.SettingsButtonPreference;
 import com.android.packageinstaller.role.utils.UserUtils;
 import com.android.permissioncontroller.R;
 
@@ -43,6 +49,8 @@ import java.util.Objects;
  * @see com.android.settings.applications.defaultapps.DefaultHomePicker
  */
 public class HomeRoleBehavior implements RoleBehavior {
+
+    private static final String LOG_TAG = HomeRoleBehavior.class.getSimpleName();
 
     @Override
     public boolean isAvailableAsUser(@NonNull Role role, @NonNull UserHandle user,
@@ -88,6 +96,34 @@ public class HomeRoleBehavior implements RoleBehavior {
     public boolean isVisibleAsUser(@NonNull Role role, @NonNull UserHandle user,
             @NonNull Context context) {
         return VisibilityMixin.isVisible("config_showDefaultHome", context);
+    }
+
+    @Override
+    public void preparePreferenceAsUser(@NonNull Role role,
+            @NonNull SettingsButtonPreference preference, @NonNull UserHandle user,
+            @NonNull Context context) {
+        SettingsButtonPreference.OnSettingsButtonClickListener listener = null;
+        RoleManager roleManager = context.getSystemService(RoleManager.class);
+        String packageName = CollectionUtils.firstOrNull(roleManager.getRoleHoldersAsUser(
+                role.getName(), user));
+        if (packageName != null) {
+            Intent intent = new Intent(Intent.ACTION_APPLICATION_PREFERENCES)
+                    .setPackage(packageName)
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            PackageManager userPackageManager = UserUtils.getUserContext(context, user)
+                    .getPackageManager();
+            ActivityInfo activityInfo = intent.resolveActivityInfo(userPackageManager, 0);
+            if (activityInfo != null && activityInfo.exported) {
+                listener = preference2 -> {
+                    try {
+                        context.startActivity(intent);
+                    } catch (ActivityNotFoundException e) {
+                        Log.e(LOG_TAG, "Cannot start activity for home app preferences", e);
+                    }
+                };
+            }
+        }
+        preference.setOnSettingsButtonClickListener(listener);
     }
 
     @Override

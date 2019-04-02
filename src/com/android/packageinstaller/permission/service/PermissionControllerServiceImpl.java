@@ -455,16 +455,13 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
         for (int appNum = 0; appNum < numApps; appNum++) {
             AppPermissionUsage appPermissionUsage = appPermissionUsages.get(appNum);
 
-            if (appPermissionUsage.getAccessCount() <= 0) {
-                continue;
-            }
-
             List<GroupUsage> appGroups = appPermissionUsage.getGroupUsages();
             int numGroups = appGroups.size();
             for (int groupNum = 0; groupNum < numGroups; groupNum++) {
                 GroupUsage groupUsage = appGroups.get(groupNum);
 
-                if (groupUsage.getAccessCount() <= 0) {
+                if (groupUsage.getAccessCount() <= 0
+                        || groupUsage.getLastAccessTime() < filterTimeBeginMillis) {
                     continue;
                 }
                 if (!shouldShowPermission(this, groupUsage.getGroup())) {

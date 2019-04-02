@@ -20,7 +20,6 @@ import android.app.AppOpsManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.XmlResourceParser;
 import android.os.Build;
 import android.util.ArrayMap;
@@ -72,8 +71,12 @@ public class Roles {
     private static final String TAG_PREFERRED_ACTIVITY = "preferred-activity";
     private static final String ATTRIBUTE_NAME = "name";
     private static final String ATTRIBUTE_BEHAVIOR = "behavior";
+    private static final String ATTRIBUTE_DESCRIPTION = "description";
     private static final String ATTRIBUTE_EXCLUSIVE = "exclusive";
     private static final String ATTRIBUTE_LABEL = "label";
+    private static final String ATTRIBUTE_REQUEST_TITLE = "requestTitle";
+    private static final String ATTRIBUTE_REQUEST_DESCRIPTION = "requestDescription";
+    private static final String ATTRIBUTE_SHORT_LABEL = "shortLabel";
     private static final String ATTRIBUTE_SHOW_NONE = "showNone";
     private static final String ATTRIBUTE_SYSTEM_ONLY = "systemOnly";
     private static final String ATTRIBUTE_PERMISSION = "permission";
@@ -104,19 +107,6 @@ public class Roles {
     @Nullable
     private static ArrayMap<String, Role> sRoles;
 
-    private static boolean sIsolatedStorage;
-    private static final List<String> ISOLATED_STORAGE_PERMISSIONS = new ArrayList<>();
-    static {
-        ISOLATED_STORAGE_PERMISSIONS.add(android.Manifest.permission.READ_MEDIA_AUDIO);
-        ISOLATED_STORAGE_PERMISSIONS.add(android.Manifest.permission.READ_MEDIA_VIDEO);
-        ISOLATED_STORAGE_PERMISSIONS.add(android.Manifest.permission.READ_MEDIA_IMAGES);
-    }
-    private static final List<String> LEGACY_STORAGE_PERMISSIONS = new ArrayList<>();
-    static {
-        LEGACY_STORAGE_PERMISSIONS.add(android.Manifest.permission.READ_EXTERNAL_STORAGE);
-        LEGACY_STORAGE_PERMISSIONS.add(android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
-    }
-
     private Roles() {}
 
     /**
@@ -138,16 +128,6 @@ public class Roles {
 
     @NonNull
     private static ArrayMap<String, Role> load(@NonNull Context context) {
-        // If the storage model feature flag is disabled, we need to fiddle
-        // around with permission definitions to return us to pre-Q behavior.
-        // STOPSHIP(b/112545973): remove once feature enabled by default
-        try {
-            context.getPackageManager().getPermissionInfo(ISOLATED_STORAGE_PERMISSIONS.get(0), 0);
-            sIsolatedStorage = true;
-        } catch (NameNotFoundException e) {
-            sIsolatedStorage = false;
-        }
-
         try (XmlResourceParser parser = context.getResources().getXml(R.xml.roles)) {
             Pair<ArrayMap<String, PermissionSet>, ArrayMap<String, Role>> xml = parseXml(parser);
             if (xml == null) {
@@ -305,6 +285,13 @@ public class Roles {
             behavior = null;
         }
 
+        Integer descriptionResource = requireAttributeResourceValue(parser, ATTRIBUTE_DESCRIPTION,
+                0, TAG_ROLE);
+        if (descriptionResource == null) {
+            skipCurrentTag(parser);
+            return null;
+        }
+
         Boolean exclusive = requireAttributeBooleanValue(parser, ATTRIBUTE_EXCLUSIVE, true,
                 TAG_ROLE);
         if (exclusive == null) {
@@ -314,6 +301,27 @@ public class Roles {
 
         Integer labelResource = requireAttributeResourceValue(parser, ATTRIBUTE_LABEL, 0, TAG_ROLE);
         if (labelResource == null) {
+            skipCurrentTag(parser);
+            return null;
+        }
+
+        Integer requestDescriptionResource = requireAttributeResourceValue(parser,
+                ATTRIBUTE_REQUEST_DESCRIPTION, 0, TAG_ROLE);
+        if (requestDescriptionResource == null) {
+            skipCurrentTag(parser);
+            return null;
+        }
+
+        Integer requestTitleResource = requireAttributeResourceValue(parser,
+                ATTRIBUTE_REQUEST_TITLE, 0, TAG_ROLE);
+        if (requestTitleResource == null) {
+            skipCurrentTag(parser);
+            return null;
+        }
+
+        Integer shortLabelResource = requireAttributeResourceValue(parser, ATTRIBUTE_SHORT_LABEL, 0,
+                TAG_ROLE);
+        if (shortLabelResource == null) {
             skipCurrentTag(parser);
             return null;
         }
@@ -393,8 +401,9 @@ public class Roles {
         if (preferredActivities == null) {
             preferredActivities = Collections.emptyList();
         }
-        return new Role(name, behavior, exclusive, labelResource, showNone, systemOnly,
-                requiredComponents, permissions, appOps, preferredActivities);
+        return new Role(name, behavior, descriptionResource, exclusive, labelResource,
+                requestDescriptionResource, requestTitleResource, shortLabelResource, showNone,
+                systemOnly, requiredComponents, permissions, appOps, preferredActivities);
     }
 
     @NonNull
@@ -645,16 +654,6 @@ public class Roles {
                 default:
                     throwOrLogForUnknownTag(parser);
                     skipCurrentTag(parser);
-            }
-        }
-
-        // If the storage model feature flag is disabled, we need to fiddle
-        // around with permission definitions to return us to pre-Q behavior.
-        // STOPSHIP(b/112545973): remove once feature enabled by default
-        if (!sIsolatedStorage) {
-            boolean removed = permissions.removeAll(ISOLATED_STORAGE_PERMISSIONS);
-            if (removed) {
-                permissions.addAll(LEGACY_STORAGE_PERMISSIONS);
             }
         }
 
@@ -924,15 +923,6 @@ public class Roles {
             int permissionsSize = permissions.size();
             for (int permissionsIndex = 0; permissionsIndex < permissionsSize; permissionsIndex++) {
                 String permission = permissions.get(permissionsIndex);
-
-                // If the storage model feature flag is disabled, we need to fiddle
-                // around with permission definitions to return us to pre-Q behavior.
-                // STOPSHIP(b/112545973): remove once feature enabled by default
-                if (!sIsolatedStorage) {
-                    if (ISOLATED_STORAGE_PERMISSIONS.contains(permission)) {
-                        continue;
-                    }
-                }
 
                 validatePermission(permission, context);
             }

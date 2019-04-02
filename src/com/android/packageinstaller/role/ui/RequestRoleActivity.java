@@ -31,6 +31,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.android.packageinstaller.role.model.Role;
 import com.android.packageinstaller.role.model.Roles;
+import com.android.packageinstaller.role.model.UserDeniedManager;
 import com.android.packageinstaller.role.utils.PackageUtils;
 
 import java.util.List;
@@ -113,6 +114,13 @@ public class RequestRoleActivity extends FragmentActivity {
 
         if (!role.isPackageQualified(mPackageName, this)) {
             Log.w(LOG_TAG, "Application doesn't qualify for role, role: " + mRoleName
+                    + ", package: " + mPackageName);
+            finish();
+            return;
+        }
+
+        if (UserDeniedManager.getInstance(this).isDeniedAlways(mRoleName, mPackageName)) {
+            Log.w(LOG_TAG, "Application is denied always for role, role: " + mRoleName
                     + ", package: " + mPackageName);
             finish();
             return;

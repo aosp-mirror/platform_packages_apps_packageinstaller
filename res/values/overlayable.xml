@@ -58,11 +58,22 @@
             <item type="style" name="PermissionReviewButtonContinue" />
             <!-- END PERMISSION REVIEW SCREEN -->
 
+            <!-- START PERMISSIONS FRAME -->
+            <item type="style" name="PermissionsFrameNoPermissionsText" />
+            <!-- END PERMISSIONS FRAME -->
+
+            <!-- START HEADER -->
+            <item type="style" name="Header" />
+            <item type="style" name="HeaderIcon" />
+            <item type="style" name="HeaderName" />
+            <item type="style" name="HeaderInfo" />
+            <!-- END HEADER -->
 
             <!-- START APP PERMISSION SCREEN -->
             <item type="style" name="AppPermission" />
 
             <item type="style" name="LargeHeader" />
+            <item type="style" name="LargeHeaderLink" />
             <item type="style" name="LargeHeaderDivider" />
 
             <item type="style" name="AppPermissionSelection" />
@@ -79,18 +90,36 @@
             <!-- END APP PERMISSION SCREEN -->
 
             <!-- START PERMISSION FILTER SCREEN -->
-            <item type="style" name="PermissionFilterDialogScrollView" />
             <item type="style" name="PermissionFilterDialogContainer" />
+            <item type="style" name="PermissionFilterDialogTitleContainer" />
             <item type="style" name="PermissionFilterDialogTitle" />
+            <item type="style" name="PermissionFilterDialogScrollView" />
             <item type="style" name="PermissionFilterDialogInnerContainer" />
             <item type="style" name="PermissionFilterDialogItemsContainer" />
             <item type="style" name="PermissionFilterDialogItemContainer" />
-            <item type="style" name="PermissionFilterDialogItemIconFrame" />
-            <item type="style" name="PermissionFilterDialogItemIcon" />
             <item type="style" name="PermissionFilterDialogItemTextFrame" />
             <item type="style" name="PermissionFilterDialogItemTitle" />
             <item type="style" name="PermissionFilterDialogItemSummary" />
             <!-- END PERMISSION FILTER SCREEN -->
+
+            <!-- START PREFERENCE USAGE -->
+            <item type="style" name="PreferenceUsage" />
+            <item type="style" name="PreferenceUsageTitleWidgetFrame" />
+            <item type="style" name="PreferenceUsageImageFrame" />
+            <item type="style" name="PreferenceUsageTitle" />
+            <item type="style" name="PreferenceUsageSummaryWidgetFrame" />
+            <item type="style" name="PreferenceUsageSummary" />
+            <item type="style" name="PreferenceUsageWidgetFrame" />
+            <!-- END PREFERENCE USAGE -->
+
+            <!-- START IMAGE VIEW -->
+            <item type="style" name="ImageView" />
+            <item type="style" name="ImageViewIcon" />
+            <!-- END IMAGE VIEW -->
+
+            <!-- START LOADING CONTAINER -->
+            <item type="style" name="LoadingContainerTextView" />
+            <!-- END LOADING CONTAINER -->
 
             <!-- START GRANDFATHERED MODERN STORAGE GROUP WARNING DIALOG -->
             <item type="style" name="GrandfatheredModernStorageGroupWarningDialogHeader" />
@@ -112,6 +141,32 @@
             <item type="style" name="PermissionUsageDialogItemAppName" />
             <item type="style" name="PermissionUsageDialogItemIconsContainer" />
             <!-- END ONGOING USAGE DIALOG -->
+
+            <!-- START SETTINGSLIB BARCHARTPREFERENCE -->
+            <item type="style" name="SettingsBarChart" />
+            <item type="style" name="SettingsBarChartTitle" />
+
+            <item type="style" name="SettingsBarViewStyle" />
+            <!-- COLORS -->
+            <item type="color" name="settings_bar_view_1_color" />
+            <item type="color" name="settings_bar_view_2_color" />
+            <item type="color" name="settings_bar_view_3_color" />
+            <item type="color" name="settings_bar_view_4_color" />
+
+            <item type="style" name="SettingsBarChartDetailsButton" />
+            <item type="style" name="SettingsBarChartEmptyText" />
+
+            <item type="style" name="SettingsBarChartBar" />
+            <item type="style" name="SettingsBarChartBarIcon" />
+            <item type="style" name="SettingsBarChartBarTitle" />
+            <item type="style" name="SettingsBarChartBarSummary" />
+            <!-- END SETTINGSLIB BARCHARTPREFERENCE -->
+
+            <!-- START SETTINGSLIB APPPREFERENCE -->
+            <!-- DIMEN -->
+            <item type="dimen" name="secondary_app_icon_size" />
+            <!-- END SETTINGSLIB APPPREFERENCE -->
+
         </policy>
 
     </overlayable>

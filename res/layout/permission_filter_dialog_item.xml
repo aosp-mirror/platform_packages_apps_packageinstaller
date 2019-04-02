@@ -24,15 +24,6 @@
         android:layout_height="wrap_content" />
 
     <LinearLayout
-        style="@style/PermissionFilterDialogItemIconFrame">
-
-        <ImageView
-            android:id="@+id/icon"
-            style="@style/PermissionFilterDialogItemIcon"/>
-
-    </LinearLayout>
-
-    <LinearLayout
         style="@style/PermissionFilterDialogItemTextFrame">
 
         <TextView

@@ -68,21 +68,21 @@
         <permission name="android.permission.BODY_SENSORS" />
     </permission-set>
 
-    <permission-set name="media_aural">
-        <permission name="android.permission.READ_MEDIA_AUDIO" />
-    </permission-set>
-
-    <permission-set name="media_visual">
-        <permission name="android.permission.READ_MEDIA_VIDEO" />
-        <permission name="android.permission.READ_MEDIA_IMAGES" />
+    <permission-set name="storage">
+        <permission name="android.permission.READ_EXTERNAL_STORAGE" />
+        <permission name="android.permission.WRITE_EXTERNAL_STORAGE" />
     </permission-set>
 
     <role
         name="android.app.role.ASSISTANT"
         behavior="AssistantRoleBehavior"
+        description="@string/role_assistant_description"
         exclusive="true"
         showNone="true"
-        label="@string/role_label_assistant">
+        label="@string/role_assistant_label"
+        requestDescription="@string/role_assistant_request_description"
+        requestTitle="@string/role_assistant_request_title"
+        shortLabel="@string/role_assistant_short_label">
         <required-components>
             <!-- Qualified components are determined int AssistantRoleBehavior. This comment here is
                  ignored and represents just a rough description
@@ -126,8 +126,12 @@
     <role
         name="android.app.role.BROWSER"
         behavior="BrowserRoleBehavior"
+        description="@string/role_browser_description"
         exclusive="true"
-        label="@string/role_label_browser">
+        label="@string/role_browser_label"
+        requestDescription="@string/role_browser_request_description"
+        requestTitle="@string/role_browser_request_title"
+        shortLabel="@string/role_browser_short_label">
         <!--
           ~ Required components matching is handled in BrowserRoleBehavior because it needs the
           ~ PackageManager.MATCH_ALL flag and other manual filtering, which cannot fit in our
@@ -160,8 +164,12 @@
     <role
         name="android.app.role.DIALER"
         behavior="DialerRoleBehavior"
+        description="@string/role_dialer_description"
         exclusive="true"
-        label="@string/role_label_dialer">
+        label="@string/role_dialer_label"
+        requestDescription="@string/role_dialer_request_description"
+        requestTitle="@string/role_dialer_request_title"
+        shortLabel="@string/role_dialer_short_label">
         <required-components>
             <activity>
                 <intent-filter>
@@ -216,8 +224,12 @@
     <role
         name="android.app.role.SMS"
         behavior="SmsRoleBehavior"
+        description="@string/role_sms_description"
         exclusive="true"
-        label="@string/role_label_sms">
+        label="@string/role_sms_label"
+        requestDescription="@string/role_sms_request_description"
+        requestTitle="@string/role_sms_request_title"
+        shortLabel="@string/role_sms_short_label">
         <required-components>
             <receiver permission="android.permission.BROADCAST_SMS">
                 <intent-filter>
@@ -247,8 +259,7 @@
             <permission-set name="phone" />
             <permission-set name="contacts" />
             <permission-set name="sms" />
-            <permission-set name="media_aural" />
-            <permission-set name="media_visual" />
+            <permission-set name="storage" />
             <permission-set name="microphone" />
             <permission-set name="camera" />
         </permissions>
@@ -298,8 +309,12 @@
     <role
         name="android.app.role.EMERGENCY"
         behavior="EmergencyRoleBehavior"
+        description="@string/role_emergency_description"
         exclusive="true"
-        label="@string/role_label_emergency"
+        label="@string/role_emergency_label"
+        requestDescription="@string/role_emergency_request_description"
+        requestTitle="@string/role_emergency_request_title"
+        shortLabel="@string/role_emergency_short_label"
         systemOnly="true">
         <required-components>
             <activity>
@@ -318,8 +333,12 @@
     <role
         name="android.app.role.HOME"
         behavior="HomeRoleBehavior"
+        description="@string/role_home_description"
         exclusive="true"
-        label="@string/role_label_home">
+        label="@string/role_home_label"
+        requestDescription="@string/role_home_request_description"
+        requestTitle="@string/role_home_request_title"
+        shortLabel="@string/role_home_short_label">
         <!-- Also used by HomeRoleBehavior.getFallbackHolder(). -->
         <required-components>
             <activity>
@@ -348,8 +367,12 @@
     <role
         name="android.app.role.MUSIC"
         behavior="MusicRoleBehavior"
+        description="@string/role_music_description"
         exclusive="true"
-        label="@string/role_label_music">
+        label="@string/role_music_label"
+        requestDescription="@string/role_music_request_description"
+        requestTitle="@string/role_music_request_title"
+        shortLabel="@string/role_music_short_label">
         <required-components>
             <activity>
                 <intent-filter>
@@ -359,7 +382,7 @@
             </activity>
         </required-components>
         <permissions>
-            <permission-set name="media_aural" />
+            <permission-set name="storage" />
         </permissions>
         <app-ops>
             <app-op name="android:write_media_audio" mode="allowed" />
@@ -383,8 +406,12 @@
     <role
         name="android.app.role.GALLERY"
         behavior="GalleryRoleBehavior"
+        description="@string/role_gallery_description"
         exclusive="true"
-        label="@string/role_label_gallery">
+        label="@string/role_gallery_label"
+        requestDescription="@string/role_gallery_request_description"
+        requestTitle="@string/role_gallery_request_title"
+        shortLabel="@string/role_gallery_short_label">
         <required-components>
             <activity>
                 <intent-filter>
@@ -394,7 +421,7 @@
             </activity>
         </required-components>
         <permissions>
-            <permission-set name="media_visual" />
+            <permission-set name="storage" />
         </permissions>
         <app-ops>
             <app-op name="android:write_media_video" mode="allowed" />
@@ -419,8 +446,12 @@
     <!--- @see android.telecom.InCallService -->
     <role
         name="android.app.role.CAR_MODE_DIALER"
+        description="@string/role_car_mode_dialer_description"
         exclusive="true"
-        label="@string/role_label_car_mode_dialer">
+        label="@string/role_car_mode_dialer_label"
+        requestDescription="@string/role_car_mode_dialer_request_description"
+        requestTitle="@string/role_car_mode_dialer_request_title"
+        shortLabel="@string/role_car_mode_dialer_short_label">
         <required-components>
             <service permission="android.permission.BIND_INCALL_SERVICE">
                 <meta-data
@@ -438,8 +469,12 @@
     <!--- @see android.telecom.CallRedirectionService -->
     <role
         name="android.app.role.CALL_REDIRECTION"
+        description="@string/role_call_redirection_description"
         exclusive="true"
-        label="@string/role_label_call_redirection">
+        label="@string/role_call_redirection_label"
+        requestDescription="@string/role_call_redirection_request_description"
+        requestTitle="@string/role_call_redirection_request_title"
+        shortLabel="@string/role_call_redirection_short_label">
         <required-components>
             <service permission="android.permission.BIND_CALL_REDIRECTION_SERVICE">
                 <intent-filter>
@@ -452,8 +487,12 @@
     <!--- @see android.telecom.CallScreeningService -->
     <role
         name="android.app.role.CALL_SCREENING"
+        description="@string/role_call_screening_description"
         exclusive="true"
-        label="@string/role_label_call_screening">
+        label="@string/role_call_screening_label"
+        requestDescription="@string/role_call_screening_request_description"
+        requestTitle="@string/role_call_screening_request_title"
+        shortLabel="@string/role_call_screening_short_label">
         <required-components>
             <service permission="android.permission.BIND_SCREENING_SERVICE">
                 <intent-filter>
@@ -466,8 +505,12 @@
     <!--- @see android.telecom.InCallService -->
     <role
         name="android.app.role.CALL_COMPANION"
+        description="@string/role_call_companion_description"
         exclusive="false"
-        label="@string/role_label_call_companion">
+        label="@string/role_call_companion_label"
+        requestDescription="@string/role_call_companion_request_description"
+        requestTitle="@string/role_call_companion_request_title"
+        shortLabel="@string/role_call_companion_short_label">
         <required-components>
             <service permission="android.permission.BIND_INCALL_SERVICE">
                 <meta-data
