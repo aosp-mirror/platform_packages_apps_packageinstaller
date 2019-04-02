@@ -626,4 +626,99 @@
 
     <!-- END ONGOING USAGE DIALOG -->
 
+    <!-- START REQUEST ROLE DIALOG TITLE -->
+
+    <style name="RequestRoleTitle">
+        <item name="android:paddingStart">?android:dialogPreferredPadding</item>
+        <item name="android:paddingEnd">?android:dialogPreferredPadding</item>
+        <item name="android:paddingTop">18dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="RequestRoleTitleIcon">
+        <item name="android:layout_width">32dp</item>
+        <item name="android:layout_height">32dp</item>
+    </style>
+
+    <style name="RequestRoleTitleText"
+           parent="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <!-- END REQUEST ROLE DIALOG TITLE -->
+
+    <!-- START REQUEST ROLE DIALOG ITEM -->
+
+    <style name="RequestRoleItem">
+        <item name="android:paddingStart">?android:dialogPreferredPadding</item>
+        <item name="android:paddingEnd">?android:dialogPreferredPadding</item>
+        <item name="android:paddingTop">18dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="RequestRoleItemIcon">
+        <item name="android:layout_width">32dp</item>
+        <item name="android:layout_height">32dp</item>
+    </style>
+
+    <style name="RequestRoleItemTitleLayout">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:animateLayoutChanges">true</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="RequestRoleItemTitleText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?android:textAppearanceListItem</item>
+        <item name="android:textColor">?android:textColorAlertDialogListItem</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+    </style>
+
+    <style name="RequestRoleItemSubtitleText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?android:textAppearanceListItemSecondary</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+    </style>
+
+    <style name="RequestRoleItemRadioButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">16dp</item>
+    </style>
+
+    <!-- END REQUEST ROLE DIALOG ITEM -->
+
+    <!-- START SETTINGS BUTTON PREFERENCE WIDGET -->
+
+    <style name="SettingsButtonPreferenceWidgetDivider">
+        <item name="android:layout_width">1dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:background">?android:listDivider</item>
+    </style>
+
+    <style name="SettingsButtonPreferenceWidgetButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:minWidth">64dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingStart">?android:listPreferredItemPaddingEnd</item>
+        <item name="android:paddingEnd">?android:listPreferredItemPaddingEnd</item>
+        <item name="android:background">?android:selectableItemBackground</item>
+        <item name="android:scaleType">center</item>
+    </style>
+
+    <!-- END SETTINGS BUTTON PREFERENCE WIDGET -->
+
 </resources>

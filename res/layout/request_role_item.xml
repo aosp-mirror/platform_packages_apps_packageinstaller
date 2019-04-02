@@ -29,44 +29,29 @@
 
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:duplicateParentState="true" />
+        android:duplicateParentState="true"
+        style="@style/RequestRoleItemIcon" />
 
     <LinearLayout
         android:id="@+id/title_and_subtitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_marginStart="16dp"
-        android:animateLayoutChanges="true"
         android:duplicateParentState="true"
-        android:orientation="vertical">
+        style="@style/RequestRoleItemTitleLayout">
 
         <TextView
             android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:duplicateParentState="true"
-            android:textAppearance="?android:textAppearanceListItem"
-            android:textColor="?android:textColorAlertDialogListItem"
-            android:singleLine="true"
-            android:ellipsize="marquee" />
+            style="@style/RequestRoleItemTitleText" />
 
         <TextView
             android:id="@+id/subtitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:duplicateParentState="true"
-            android:textAppearance="?android:textAppearanceListItemSecondary"
-            android:textColor="?android:textColorSecondary" />
+            style="@style/RequestRoleItemSubtitleText" />
     </LinearLayout>
 
     <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:clickable="false"
         android:duplicateParentState="true"
-        android:focusable="false" />
+        android:focusable="false"
+        style="@style/RequestRoleItemRadioButton" />
+
 </com.android.packageinstaller.role.ui.CheckableLinearLayout>
