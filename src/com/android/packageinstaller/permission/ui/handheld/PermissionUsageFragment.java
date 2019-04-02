@@ -408,9 +408,6 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
                 if (lastAccessTime < startTime) {
                     continue;
                 }
-                if (mFilterGroup != null && !mFilterGroup.equals(groupUsage.getGroup().getName())) {
-                    continue;
-                }
                 final boolean isSystemApp = !Utils.isGroupOrBgGroupUserSensitive(
                         groupUsage.getGroup());
                 if (!mHasSystemApps) {
@@ -423,10 +420,17 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
                     continue;
                 }
 
-                usages.add(Pair.create(appUsage, appGroups.get(groupNum)));
                 used = true;
-
                 addGroupUser(groupUsage.getGroup().getName());
+
+                // Filter out usages that aren't of the filtered permission group.
+                // We do this after we call addGroupUser so we compute the correct usage counts
+                // for the permission filter dialog but before we add the usage to our list.
+                if (mFilterGroup != null && !mFilterGroup.equals(groupUsage.getGroup().getName())) {
+                    continue;
+                }
+
+                usages.add(Pair.create(appUsage, appGroups.get(groupNum)));
             }
             if (used) {
                 permApps.add(appUsage.getApp());
@@ -462,13 +466,17 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         if (mSort == SORT_RECENT) {
             usages.sort(PermissionUsageFragment::compareAccessRecency);
         } else if (mSort == SORT_RECENT_APPS) {
-            usages.sort(PermissionUsageFragment::compareAccessAppRecency);
+            if (mFilterGroup == null) {
+                usages.sort(PermissionUsageFragment::compareAccessAppRecency);
+            } else {
+                usages.sort(PermissionUsageFragment::compareAccessTime);
+            }
         } else {
             Log.w(LOG_TAG, "Unexpected sort option: " + mSort);
         }
 
         // If there are no entries, don't show anything.
-        if (permApps.isEmpty()) {
+        if (usages.isEmpty()) {
             screen.removeAll();
         }
 
