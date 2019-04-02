@@ -122,7 +122,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
     private static final int MAXIMUM_NUM_BARS = 4;
 
     private @NonNull PermissionUsages mPermissionUsages;
-    private @Nullable List<AppPermissionUsage> mAppPermissionUsages;
+    private @Nullable List<AppPermissionUsage> mAppPermissionUsages = new ArrayList<>();
 
     private Collator mCollator;
 
@@ -138,7 +138,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
     private MenuItem mSortByApp;
     private MenuItem mSortByTime;
 
-    private ArrayMap<String, Integer> mGroupAppCounts;
+    private ArrayMap<String, Integer> mGroupAppCounts = new ArrayMap<>();
 
     private boolean mFinishedInitialLoad;
 
@@ -384,7 +384,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
                 Instant.EPOCH.toEpochMilli());
 
         List<Pair<AppPermissionUsage, GroupUsage>> usages = new ArrayList<>();
-        mGroupAppCounts = new ArrayMap<>();
+        mGroupAppCounts.clear();
         ArrayList<PermissionApp> permApps = new ArrayList<>();
         int numApps = mAppPermissionUsages.size();
         for (int appNum = 0; appNum < numApps; appNum++) {
@@ -845,7 +845,11 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         int[] groupAccessCounts = new int[groupNames.length];
         groupNames[0] = null;
         groupLabels[0] = context.getString(R.string.permission_usage_any_permission);
-        groupAccessCounts[0] = mGroupAppCounts.get(null);
+        Integer allAccesses = mGroupAppCounts.get(null);
+        if (allAccesses == null) {
+            allAccesses = 0;
+        }
+        groupAccessCounts[0] = allAccesses;
         int selection = 0;
         int numGroups = groups.size();
         for (int i = 0; i < numGroups; i++) {
