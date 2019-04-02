@@ -37,6 +37,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -51,6 +52,7 @@ import com.android.packageinstaller.permission.utils.PackageRemovalMonitor;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.packageinstaller.role.model.Role;
 import com.android.packageinstaller.role.model.Roles;
+import com.android.packageinstaller.role.model.UserDeniedManager;
 import com.android.packageinstaller.role.utils.PackageUtils;
 import com.android.permissioncontroller.R;
 
@@ -58,7 +60,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-// TODO: STOPSHIP: Add don't ask again, support theming.
 /**
  * {@code Fragment} for a role request.
  */
@@ -66,12 +67,16 @@ public class RequestRoleFragment extends DialogFragment {
 
     private static final String LOG_TAG = RequestRoleFragment.class.getSimpleName();
 
+    private static final String STATE_DONT_ASK_AGAIN = RequestRoleFragment.class.getName()
+            + ".state.DONT_ASK_AGAIN";
+
     private String mRoleName;
     private String mPackageName;
 
     private Role mRole;
 
     private Adapter mAdapter;
+    private CheckBox mDontAskAgainCheck;
 
     private RequestRoleViewModel mViewModel;
 
@@ -113,6 +118,15 @@ public class RequestRoleFragment extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(requireContext(), getTheme());
         Context context = builder.getContext();
 
+        RoleManager roleManager = context.getSystemService(RoleManager.class);
+        List<String> currentPackageNames = roleManager.getRoleHolders(mRoleName);
+        if (currentPackageNames.contains(mPackageName)) {
+            Log.i(LOG_TAG, "Application is already a role holder, role: " + mRoleName
+                    + ", package: " + mPackageName);
+            clearDeniedSetResultOkAndFinish();
+            return super.onCreateDialog(savedInstanceState);
+        }
+
         ApplicationInfo applicationInfo = PackageUtils.getApplicationInfo(mPackageName, context);
         if (applicationInfo == null) {
             Log.w(LOG_TAG, "Unknown application: " + mPackageName);
@@ -123,7 +137,8 @@ public class RequestRoleFragment extends DialogFragment {
         String applicationLabel = Utils.getAppLabel(applicationInfo, context);
         String title = getString(mRole.getRequestTitleResource(), applicationLabel);
 
-        View titleLayout = LayoutInflater.from(context).inflate(R.layout.request_role_title, null);
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View titleLayout = inflater.inflate(R.layout.request_role_title, null);
         ImageView iconImage = titleLayout.findViewById(R.id.icon);
         iconImage.setImageDrawable(icon);
         TextView titleText = titleLayout.findViewById(R.id.title);
@@ -134,27 +149,32 @@ public class RequestRoleFragment extends DialogFragment {
             mAdapter.onRestoreInstanceState(savedInstanceState);
         }
 
-        RoleManager roleManager = context.getSystemService(RoleManager.class);
-        List<String> currentPackageNames = roleManager.getRoleHolders(mRoleName);
-        if (currentPackageNames.contains(mPackageName)) {
-            Log.i(LOG_TAG, "Application is already a role holder, role: " + mRoleName
-                    + ", package: " + mPackageName);
-            setResultOkAndFinish();
-            return super.onCreateDialog(savedInstanceState);
+        View viewLayout = null;
+        if (UserDeniedManager.getInstance(context).isDeniedOnce(mRoleName, mPackageName)) {
+            viewLayout = inflater.inflate(R.layout.request_role_view, null);
+            mDontAskAgainCheck = viewLayout.findViewById(R.id.dont_ask_again);
+            mDontAskAgainCheck.setOnClickListener(view -> updateUi());
+            if (savedInstanceState != null) {
+                boolean dontAskAgain = savedInstanceState.getBoolean(STATE_DONT_ASK_AGAIN);
+                mDontAskAgainCheck.setChecked(dontAskAgain);
+                mAdapter.setDontAskAgain(dontAskAgain);
+            }
         }
 
         AlertDialog dialog = builder
                 .setCustomTitle(titleLayout)
                 .setSingleChoiceItems(mAdapter, AdapterView.INVALID_POSITION, (dialog2, which) ->
                         onItemClicked(which))
+                .setView(viewLayout)
                 // Set the positive button listener later to avoid the automatic dismiss behavior.
                 .setPositiveButton(R.string.request_role_set_as_default, null)
-                .setNegativeButton(android.R.string.cancel, null)
+                // The default behavior for a null listener is to dismiss the dialog, not cancel.
+                .setNegativeButton(android.R.string.cancel, (dialog2, which) -> dialog2.cancel())
                 .create();
         dialog.getWindow().addSystemFlags(
                 WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
         dialog.setOnShowListener(dialog2 -> dialog.getButton(Dialog.BUTTON_POSITIVE)
-                .setOnClickListener(view -> setRoleHolder()));
+                .setOnClickListener(view -> onSetAsDefault()));
         return dialog;
     }
 
@@ -199,6 +219,9 @@ public class RequestRoleFragment extends DialogFragment {
         super.onSaveInstanceState(outState);
 
         mAdapter.onSaveInstanceState(outState);
+        if (mDontAskAgainCheck != null) {
+            outState.putBoolean(STATE_DONT_ASK_AGAIN, mDontAskAgainCheck.isChecked());
+        }
     }
 
     @Override
@@ -216,14 +239,22 @@ public class RequestRoleFragment extends DialogFragment {
         super.onCancel(dialog);
 
         Log.i(LOG_TAG, "Dialog cancelled, role: " + mRoleName + ", package: " + mPackageName);
-        if (getActivity() != null) {
-            finish();
-        }
+        setDeniedOnceAndFinish();
     }
 
     private void onItemClicked(int position) {
         mAdapter.onItemClicked(position);
-        updateUiEnabled();
+        updateUi();
+    }
+
+    private void onSetAsDefault() {
+        if (mDontAskAgainCheck != null && mDontAskAgainCheck.isChecked()) {
+            Log.i(LOG_TAG, "Request denied with don't ask again, role: " + mRoleName + ", package: "
+                    + mPackageName);
+            setDeniedAlwaysAndFinish();
+        } else {
+            setRoleHolder();
+        }
     }
 
     private void setRoleHolder() {
@@ -246,7 +277,7 @@ public class RequestRoleFragment extends DialogFragment {
         switch (state) {
             case ManageRoleHolderStateLiveData.STATE_IDLE:
             case ManageRoleHolderStateLiveData.STATE_WORKING:
-                updateUiEnabled();
+                updateUi();
                 break;
             case ManageRoleHolderStateLiveData.STATE_SUCCESS: {
                 ManageRoleHolderStateLiveData liveData =
@@ -257,9 +288,13 @@ public class RequestRoleFragment extends DialogFragment {
                             requireContext());
                 }
                 if (Objects.equals(packageName, mPackageName)) {
-                    setResultOkAndFinish();
+                    Log.i(LOG_TAG, "Application added as a role holder, role: " + mRoleName
+                            + ", package: " + mPackageName);
+                    clearDeniedSetResultOkAndFinish();
                 } else {
-                    finish();
+                    Log.i(LOG_TAG, "Request denied with another application added as a role holder,"
+                            + " role: " + mRoleName + ", package: " + mPackageName);
+                    setDeniedOnceAndFinish();
                 }
                 break;
             }
@@ -269,18 +304,31 @@ public class RequestRoleFragment extends DialogFragment {
         }
     }
 
-    private void updateUiEnabled() {
+    private void updateUi() {
         AlertDialog dialog = getDialog();
         boolean enabled = mViewModel.getManageRoleHolderStateLiveData().getValue()
                 == ManageRoleHolderStateLiveData.STATE_IDLE;
         dialog.getListView().setEnabled(enabled);
-        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(enabled
-                && !mAdapter.isHolderApplicationChecked());
+        boolean dontAskAgain = mDontAskAgainCheck != null && mDontAskAgainCheck.isChecked();
+        mAdapter.setDontAskAgain(dontAskAgain);
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(enabled && (dontAskAgain
+                || !mAdapter.isHolderApplicationChecked()));
         dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setEnabled(enabled);
     }
 
-    private void setResultOkAndFinish() {
+    private void clearDeniedSetResultOkAndFinish() {
+        UserDeniedManager.getInstance(requireContext()).clearDenied(mRoleName, mPackageName);
         requireActivity().setResult(Activity.RESULT_OK);
+        finish();
+    }
+
+    private void setDeniedOnceAndFinish() {
+        UserDeniedManager.getInstance(requireContext()).setDeniedOnce(mRoleName, mPackageName);
+        finish();
+    }
+
+    private void setDeniedAlwaysAndFinish() {
+        UserDeniedManager.getInstance(requireContext()).setDeniedAlways(mRoleName, mPackageName);
         finish();
     }
 
@@ -308,6 +356,8 @@ public class RequestRoleFragment extends DialogFragment {
         private boolean mHasHolderApplication;
 
         private ListView mListView;
+
+        private boolean mDontAskAgain;
 
         // If user has ever clicked an item to mark it as checked, we no longer automatically mark
         // the current holder as checked.
@@ -339,6 +389,18 @@ public class RequestRoleFragment extends DialogFragment {
 
         public void setListView(@NonNull ListView listView) {
             mListView = listView;
+        }
+
+        public void setDontAskAgain(boolean dontAskAgain) {
+            if (mDontAskAgain == dontAskAgain) {
+                return;
+            }
+            mDontAskAgain = dontAskAgain;
+            if (mDontAskAgain) {
+                mUserChecked = false;
+                updateItemChecked();
+            }
+            notifyDataSetChanged();
         }
 
         public void onItemClicked(int position) {
@@ -454,6 +516,11 @@ public class RequestRoleFragment extends DialogFragment {
         }
 
         @Override
+        public boolean areAllItemsEnabled() {
+            return false;
+        }
+
+        @Override
         public int getCount() {
             return mQualifyingApplications.size();
         }
@@ -469,6 +536,20 @@ public class RequestRoleFragment extends DialogFragment {
             Pair<ApplicationInfo, Boolean> qualifyingApplication = getItem(position);
             return qualifyingApplication == null ? 0
                     : qualifyingApplication.first.packageName.hashCode();
+        }
+
+        @Override
+        public boolean isEnabled(int position) {
+            if (!mDontAskAgain) {
+                return true;
+            }
+            Pair<ApplicationInfo, Boolean> qualifyingApplication = getItem(position);
+            if (qualifyingApplication == null) {
+                return !mHasHolderApplication;
+            } else {
+                boolean isHolderApplication = qualifyingApplication.second;
+                return isHolderApplication;
+            }
         }
 
         @NonNull
@@ -488,6 +569,8 @@ public class RequestRoleFragment extends DialogFragment {
                 holder.titleAndSubtitleLayout.getLayoutTransition().setDuration(
                         LAYOUT_TRANSITION_DURATION_MILLIS);
             }
+
+            view.setEnabled(isEnabled(position));
 
             Pair<ApplicationInfo, Boolean> qualifyingApplication = getItem(position);
             Drawable icon;

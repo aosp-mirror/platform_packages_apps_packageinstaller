@@ -858,6 +858,12 @@ public class LocationAccessCheck {
     public static class PackageResetHandler extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (!(Objects.equals(action, Intent.ACTION_PACKAGE_DATA_CLEARED)
+                    || Objects.equals(action, Intent.ACTION_PACKAGE_FULLY_REMOVED))) {
+                return;
+            }
+
             Uri data = Preconditions.checkNotNull(intent.getData());
             UserHandle user = getUserHandleForUid(intent.getIntExtra(EXTRA_UID, 0));
 

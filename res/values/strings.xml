@@ -431,7 +431,7 @@
     <string name="permission_description_summary_generic">Apps with this permission can <xliff:g id="description" example="record audio">%1$s</xliff:g></string>
 
     <!-- Label for showing a permission group's description in the header of the list of apps that have the activity recognition permission [CHAR LIMIT=none] -->
-    <string name="permission_description_summary_activity_recognition">Apps with this permission can recognize activity</string>
+    <string name="permission_description_summary_activity_recognition">Apps with this permission can access your physical activity, like walking, biking, driving, step count, and more</string>
 
     <!-- Label for showing a permission group's description in the header of the list of apps that have the calendar permission [CHAR LIMIT=none] -->
     <string name="permission_description_summary_calendar">Apps with this permission can access your calendar</string>
@@ -448,12 +448,6 @@
     <!-- Label for showing a permission group's description in the header of the list of apps that have the location permission [CHAR LIMIT=none] -->
     <string name="permission_description_summary_location">Apps with this permission can access this device\'s location</string>
 
-    <!-- Label for showing a permission group's description in the header of the list of apps that have the media_aural permission [CHAR LIMIT=none] -->
-    <string name="permission_description_summary_media_aural">Apps with this permission can access your music</string>
-
-    <!-- Label for showing a permission group's description in the header of the list of apps that have the media_visual permission [CHAR LIMIT=none] -->
-    <string name="permission_description_summary_media_visual">Apps with this permission can access your photos &amp; videos</string>
-
     <!-- Label for showing a permission group's description in the header of the list of apps that have the microphone permission [CHAR LIMIT=none] -->
     <string name="permission_description_summary_microphone">Apps with this permission can record audio</string>
 
@@ -465,6 +459,9 @@
 
     <!-- Label for showing a permission group's description in the header of the list of apps that have the SMS permission [CHAR LIMIT=none] -->
     <string name="permission_description_summary_sms">Apps with this permission can send and view SMS messages</string>
+
+    <!-- Label for showing a permission group's description in the header of the list of apps that have the Storage permission [CHAR LIMIT=none] -->
+    <string name="permission_description_summary_storage">Apps with this permission can access photos, media, and files on your device</string>
 
     <!-- Summary for showing the time and/or date of the most recent access of a permission by an app [CHAR LIMIT=60] -->
     <string name="app_permission_most_recent_summary">Last access: <xliff:g id="time_date" example="12:42 PM">%1$s</xliff:g></string>
@@ -728,6 +725,9 @@
     <!-- Label when there is no default apps [CHAR LIMIT=30] -->
     <string name="no_default_apps">No default apps</string>
 
+    <!-- Title for preference item that will open a screen to manage more default apps [CHAR LIMIT=30] -->
+    <string name="default_apps_more">More defaults</string>
+
     <!-- Title for preference item that will show the user's preferences for this app's priority for opening links to websites that it claims to support [CHAR LIMIT=30] -->
     <string name="default_apps_manage_domain_urls">Opening links</string>
 
@@ -786,6 +786,10 @@
     <string name="incident_report_dialog_text">"<xliff:g id="app_name" example="Gmail">%1$s</xliff:g> is requesting to upload a bug report from this device taken on <xliff:g id="date" example="December 26, 2018">%2$s</xliff:g> at <xliff:g id="time" example="1:20 PM">%3$s</xliff:g>. Bug reports include personal information about your device or logged by apps, for example, user names, location data, device identifiers, and network information. Only share bug reports with people and apps you trust with this information.
 
 Allow <xliff:g id="app_name" example="Gmail">%4$s</xliff:g> to upload a bug report?"</string>
+
+    <!-- Content for dialog shown when there was an error parsing the incident / bug report.
+    [CHAR LIMIT=none] -->
+    <string name="incident_report_error_dialog_text">"There was an error processing the bug report for <xliff:g id="app_name" example="Gmail">%1$s</xliff:g>. So sharing the detailed debugging data data has been denied. Sorry for the interruption."</string>
 
     <!-- Label for the button to allow sharing of the report. [CHAR LIMIT=20]-->
     <string name="incident_report_dialog_allow_label">Allow</string>

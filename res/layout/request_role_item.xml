@@ -30,7 +30,8 @@
     <ImageView
         android:id="@+id/icon"
         android:layout_width="32dp"
-        android:layout_height="32dp" />
+        android:layout_height="32dp"
+        android:duplicateParentState="true" />
 
     <LinearLayout
         android:id="@+id/title_and_subtitle"
@@ -39,12 +40,14 @@
         android:layout_weight="1"
         android:layout_marginStart="16dp"
         android:animateLayoutChanges="true"
+        android:duplicateParentState="true"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:duplicateParentState="true"
             android:textAppearance="?android:textAppearanceListItem"
             android:textColor="?android:textColorAlertDialogListItem"
             android:singleLine="true"
@@ -54,6 +57,7 @@
             android:id="@+id/subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:duplicateParentState="true"
             android:textAppearance="?android:textAppearanceListItemSecondary"
             android:textColor="?android:textColorSecondary" />
     </LinearLayout>
