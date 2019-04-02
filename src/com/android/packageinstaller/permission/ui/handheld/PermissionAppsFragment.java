@@ -366,6 +366,15 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
             denied.addPreference(empty);
         }
 
+        if (!Utils.shouldShowPermissionUsage(mPermissionApps.getGroupName())) {
+            PreferenceCategory footer = new PreferenceCategory(context);
+            getPreferenceScreen().addPreference(footer);
+            Preference footerText = new Preference(context);
+            footerText.setSummary(context.getString(R.string.app_permission_footer_not_available));
+            footerText.setIcon(R.drawable.ic_info_outline);
+            footer.addPreference(footerText);
+        }
+
         setLoading(false /* loading */, true /* animate */);
 
         if (mOnPermissionsLoadedListener != null) {
@@ -376,6 +385,9 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
     private void setPreferenceSummary(AppPermissionGroup group, PermissionControlPreference pref,
             boolean allowed, Context context) {
         if (!Utils.isModernPermissionGroup(group.getName())) {
+            return;
+        }
+        if (!Utils.shouldShowPermissionUsage(group.getName())) {
             return;
         }
         String lastAccessStr = Utils.getAbsoluteLastUsageString(context,
