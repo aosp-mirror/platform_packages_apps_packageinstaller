@@ -238,8 +238,6 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
             root.requireViewById(R.id.footer_all).setVisibility(View.GONE);
         }
 
-        updateButtons();
-
         return root;
     }
 
@@ -293,6 +291,10 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
             ab.setElevation(0);
         }
         ActionBarShadowController.attachToView(activity, getLifecycle(), mNestedScrollView);
+
+        // Re-create the permission group in case permissions have changed and update the UI.
+        createAppPermissionGroup();
+        updateButtons();
     }
 
     @Override
