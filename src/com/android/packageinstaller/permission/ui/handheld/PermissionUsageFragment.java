@@ -201,8 +201,6 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
     public void onStart() {
         super.onStart();
         getActivity().setTitle(R.string.permission_usage_title);
-
-        hideHeader();
     }
 
     /**
@@ -439,6 +437,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         // Update header.
         if (mFilterGroup == null) {
             screen.addPreference(createBarChart(usages, timeFilterItem, context));
+            hideHeader();
         } else {
             AppPermissionGroup group = getGroup(mFilterGroup);
             if (group != null) {
