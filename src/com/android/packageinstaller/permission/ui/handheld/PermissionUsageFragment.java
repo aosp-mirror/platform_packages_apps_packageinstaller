@@ -376,7 +376,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         }
         screen.removeAll();
 
-        mHasSystemApps = false;
+        boolean seenSystemApp = false;
 
         final TimeFilterItem timeFilterItem = mFilterTimes.get(mFilterTimeIndex);
         long curTime = System.currentTimeMillis();
@@ -410,12 +410,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
                 }
                 final boolean isSystemApp = !Utils.isGroupOrBgGroupUserSensitive(
                         groupUsage.getGroup());
-                if (!mHasSystemApps) {
-                    if (isSystemApp) {
-                        mHasSystemApps = true;
-                        getActivity().invalidateOptionsMenu();
-                    }
-                }
+                seenSystemApp = seenSystemApp || isSystemApp;
                 if (isSystemApp && !mShowSystem) {
                     continue;
                 }
@@ -436,6 +431,11 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
                 permApps.add(appUsage.getApp());
                 addGroupUser(null);
             }
+        }
+
+        if (mHasSystemApps != seenSystemApp) {
+            mHasSystemApps = seenSystemApp;
+            getActivity().invalidateOptionsMenu();
         }
 
         // Update header.
