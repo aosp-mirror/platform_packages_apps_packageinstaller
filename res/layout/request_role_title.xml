@@ -20,22 +20,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingStart="?android:dialogPreferredPadding"
-    android:paddingEnd="?android:dialogPreferredPadding"
-    android:paddingTop="18dp"
-    android:gravity="center_horizontal"
-    android:orientation="vertical">
+    style="@style/RequestRoleTitle">
 
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="32dp"
-        android:layout_height="32dp" />
+        style="@style/RequestRoleTitleIcon" />
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:gravity="center_horizontal"
-        android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+        style="@style/RequestRoleTitleText" />
 </LinearLayout>

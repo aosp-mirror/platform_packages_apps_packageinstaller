@@ -122,7 +122,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
     private static final int MAXIMUM_NUM_BARS = 4;
 
     private @NonNull PermissionUsages mPermissionUsages;
-    private @Nullable List<AppPermissionUsage> mAppPermissionUsages;
+    private @Nullable List<AppPermissionUsage> mAppPermissionUsages = new ArrayList<>();
 
     private Collator mCollator;
 
@@ -138,7 +138,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
     private MenuItem mSortByApp;
     private MenuItem mSortByTime;
 
-    private ArrayMap<String, Integer> mGroupAppCounts;
+    private ArrayMap<String, Integer> mGroupAppCounts = new ArrayMap<>();
 
     private boolean mFinishedInitialLoad;
 
@@ -376,7 +376,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         }
         screen.removeAll();
 
-        mHasSystemApps = false;
+        boolean seenSystemApp = false;
 
         final TimeFilterItem timeFilterItem = mFilterTimes.get(mFilterTimeIndex);
         long curTime = System.currentTimeMillis();
@@ -384,7 +384,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
                 Instant.EPOCH.toEpochMilli());
 
         List<Pair<AppPermissionUsage, GroupUsage>> usages = new ArrayList<>();
-        mGroupAppCounts = new ArrayMap<>();
+        mGroupAppCounts.clear();
         ArrayList<PermissionApp> permApps = new ArrayList<>();
         int numApps = mAppPermissionUsages.size();
         for (int appNum = 0; appNum < numApps; appNum++) {
@@ -408,30 +408,34 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
                 if (lastAccessTime < startTime) {
                     continue;
                 }
-                if (mFilterGroup != null && !mFilterGroup.equals(groupUsage.getGroup().getName())) {
-                    continue;
-                }
                 final boolean isSystemApp = !Utils.isGroupOrBgGroupUserSensitive(
                         groupUsage.getGroup());
-                if (!mHasSystemApps) {
-                    if (isSystemApp) {
-                        mHasSystemApps = true;
-                        getActivity().invalidateOptionsMenu();
-                    }
-                }
+                seenSystemApp = seenSystemApp || isSystemApp;
                 if (isSystemApp && !mShowSystem) {
                     continue;
                 }
 
-                usages.add(Pair.create(appUsage, appGroups.get(groupNum)));
                 used = true;
-
                 addGroupUser(groupUsage.getGroup().getName());
+
+                // Filter out usages that aren't of the filtered permission group.
+                // We do this after we call addGroupUser so we compute the correct usage counts
+                // for the permission filter dialog but before we add the usage to our list.
+                if (mFilterGroup != null && !mFilterGroup.equals(groupUsage.getGroup().getName())) {
+                    continue;
+                }
+
+                usages.add(Pair.create(appUsage, appGroups.get(groupNum)));
             }
             if (used) {
                 permApps.add(appUsage.getApp());
                 addGroupUser(null);
             }
+        }
+
+        if (mHasSystemApps != seenSystemApp) {
+            mHasSystemApps = seenSystemApp;
+            getActivity().invalidateOptionsMenu();
         }
 
         // Update header.
@@ -462,13 +466,17 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         if (mSort == SORT_RECENT) {
             usages.sort(PermissionUsageFragment::compareAccessRecency);
         } else if (mSort == SORT_RECENT_APPS) {
-            usages.sort(PermissionUsageFragment::compareAccessAppRecency);
+            if (mFilterGroup == null) {
+                usages.sort(PermissionUsageFragment::compareAccessAppRecency);
+            } else {
+                usages.sort(PermissionUsageFragment::compareAccessTime);
+            }
         } else {
             Log.w(LOG_TAG, "Unexpected sort option: " + mSort);
         }
 
         // If there are no entries, don't show anything.
-        if (permApps.isEmpty()) {
+        if (usages.isEmpty()) {
             screen.removeAll();
         }
 
@@ -845,7 +853,11 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         int[] groupAccessCounts = new int[groupNames.length];
         groupNames[0] = null;
         groupLabels[0] = context.getString(R.string.permission_usage_any_permission);
-        groupAccessCounts[0] = mGroupAppCounts.get(null);
+        Integer allAccesses = mGroupAppCounts.get(null);
+        if (allAccesses == null) {
+            allAccesses = 0;
+        }
+        groupAccessCounts[0] = allAccesses;
         int selection = 0;
         int numGroups = groups.size();
         for (int i = 0; i < numGroups; i++) {
