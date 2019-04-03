@@ -272,6 +272,7 @@
         <item name="android:layout_marginTop">16dp</item>
         <item name="android:layout_marginStart">56dp</item>
         <item name="android:textColor">?android:attr/colorAccent</item>
+        <item name="android:textDirection">locale</item>
     </style>
 
     <style name="AppPermissionRadioButton"
@@ -283,6 +284,7 @@
         <item name="android:paddingTop">8dp</item>
         <item name="android:paddingBottom">8dp</item>
         <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textDirection">locale</item>
     </style>
 
     <style name="AppPermissionDetails">
@@ -477,6 +479,7 @@
         <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
         <item name="android:textColor">?android:attr/textColorSecondary</item>
         <item name="android:maxLines">10</item>
+        <item name="android:textDirection">locale</item>
     </style>
 
     <style name="PreferenceUsageWidgetFrame">

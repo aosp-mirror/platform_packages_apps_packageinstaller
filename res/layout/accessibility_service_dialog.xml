@@ -70,6 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="@android:style/TextAppearance.Material.Subhead"
+            android:textDirection="locale"
             android:layout_marginStart="@dimen/accessibility_service_dialog_text_margin_sides"
             android:layout_marginEnd="@dimen/accessibility_service_dialog_text_margin_sides"
             android:layout_marginTop="18dp"
