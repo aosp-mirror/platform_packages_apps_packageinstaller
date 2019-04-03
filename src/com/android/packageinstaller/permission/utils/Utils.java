@@ -791,7 +791,7 @@ public final class Utils {
      * @return whether or not to show permission usages for the given permission group.
      */
     public static boolean shouldShowPermissionUsage(@NonNull String permissionGroup) {
-        return true;
+        return !permissionGroup.equals(STORAGE);
     }
 
     /**
