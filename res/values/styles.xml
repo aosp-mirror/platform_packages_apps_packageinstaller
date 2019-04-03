@@ -243,14 +243,10 @@
         <item name="android:gravity">center</item>
     </style>
 
-    <style name="LargeHeaderLink">
+    <style name="LargeHeaderLink"
+           parent="@android:style/Widget.DeviceDefault.Button.Borderless.Colored">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginBottom">16dp</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textColor">?android:attr/colorAccent</item>
-        <item name="android:paddingStart">48dp</item>
-        <item name="android:paddingEnd">48dp</item>
     </style>
 
     <style name="LargeHeaderDivider">
