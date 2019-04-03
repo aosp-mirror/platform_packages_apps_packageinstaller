@@ -552,7 +552,7 @@ public class LocationAccessCheck {
                         R.string.background_location_access_reminder_notification_content))
                 .setStyle(new Notification.BigTextStyle().bigText(mContext.getString(
                         R.string.background_location_access_reminder_notification_content)))
-                .setSmallIcon(R.drawable.ic_signal_location)
+                .setSmallIcon(R.drawable.ic_pin_drop)
                 .setLargeIcon(pkgIconBmp)
                 .setColor(mContext.getColor(android.R.color.system_notification_accent_color))
                 .setAutoCancel(true)
