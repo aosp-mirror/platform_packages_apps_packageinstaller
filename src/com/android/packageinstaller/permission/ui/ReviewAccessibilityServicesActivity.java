@@ -53,6 +53,7 @@ public final class ReviewAccessibilityServicesActivity extends FragmentActivity 
         super.onCreate(savedInstanceState);
 
         if (!Utils.isPermissionsHubEnabled()) {
+            finish();
             return;
         }
 
