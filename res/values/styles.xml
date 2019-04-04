@@ -243,14 +243,10 @@
         <item name="android:gravity">center</item>
     </style>
 
-    <style name="LargeHeaderLink">
+    <style name="LargeHeaderLink"
+           parent="@android:style/Widget.DeviceDefault.Button.Borderless.Colored">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginBottom">16dp</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textColor">?android:attr/colorAccent</item>
-        <item name="android:paddingStart">48dp</item>
-        <item name="android:paddingEnd">48dp</item>
     </style>
 
     <style name="LargeHeaderDivider">
@@ -269,13 +265,14 @@
         <item name="android:background">?android:attr/selectableItemBackground</item>
     </style>
 
-    <style name="AppPermissionMessage">
+    <style name="AppPermissionMessage"
+           parent="@style/TextAppearance.CategoryTitle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">16dp</item>
-        <item name="android:layout_marginStart">48dp</item>
-        <item name="android:textAllCaps">true</item>
-        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+        <item name="android:layout_marginStart">56dp</item>
+        <item name="android:textColor">?android:attr/colorAccent</item>
+        <item name="android:textDirection">locale</item>
     </style>
 
     <style name="AppPermissionRadioButton"
@@ -287,6 +284,7 @@
         <item name="android:paddingTop">8dp</item>
         <item name="android:paddingBottom">8dp</item>
         <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textDirection">locale</item>
     </style>
 
     <style name="AppPermissionDetails">
@@ -481,6 +479,7 @@
         <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
         <item name="android:textColor">?android:attr/textColorSecondary</item>
         <item name="android:maxLines">10</item>
+        <item name="android:textDirection">locale</item>
     </style>
 
     <style name="PreferenceUsageWidgetFrame">

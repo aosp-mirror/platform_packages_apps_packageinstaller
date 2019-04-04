@@ -756,6 +756,17 @@ public final class Utils {
     }
 
     /**
+     * Whether we should show permission usages for the specified permission group.
+     *
+     * @param permissionGroup The name of the permission group.
+     *
+     * @return whether or not to show permission usages for the given permission group.
+     */
+    public static boolean shouldShowPermissionUsage(@NonNull String permissionGroup) {
+        return true;
+    }
+
+    /**
      * Get a device protected storage based shared preferences. Avoid storing sensitive data in it.
      *
      * @param context the context to get the shared preferences

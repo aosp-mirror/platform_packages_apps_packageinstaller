@@ -230,7 +230,8 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
             preference.setIcon(Utils.applyTint(context, icon,
                     android.R.attr.colorControlNormal));
             preference.setTitle(group.getFullLabel());
-            if (Utils.isModernPermissionGroup(group.getName())) {
+            if (Utils.isModernPermissionGroup(group.getName()) && Utils.shouldShowPermissionUsage(
+                    group.getName())) {
                 String lastAccessStr = Utils.getAbsoluteLastUsageString(context,
                         PermissionUsages.loadLastGroupUsage(context, group));
                 if (lastAccessStr != null) {

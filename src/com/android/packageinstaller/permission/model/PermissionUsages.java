@@ -217,6 +217,9 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
                 if (!group.getDeclaringPackage().equals(Utils.OS_PKG)) {
                     continue;
                 }
+                if (!Utils.shouldShowPermissionUsage(group.getName())) {
+                    continue;
+                }
 
                 groups.add(group);
 
