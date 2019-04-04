@@ -101,9 +101,9 @@
     <string name="message_staging" msgid="641286607664721291">"ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಲು ಸಿದ್ಧವಿರುವ ಆ್ಯಪ್…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"ಅಪರಿಚಿತ"</string>
     <string name="permission_usage_title" msgid="6808284837306026819">"ಡ್ಯಾಶ್‌ಬೋರ್ಡ್"</string>
-    <!-- no translation found for permission_usage_summary_foreground (3203419920107457274) -->
+    <!-- no translation found for permission_usage_summary_foreground (2482299388611440256) -->
     <skip />
-    <!-- no translation found for permission_usage_summary_background (5719598203265078254) -->
+    <!-- no translation found for permission_usage_summary_background (4789805581854248472) -->
     <skip />
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"ಯಾವುದೇ ಅನುಮತಿ"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"ಯಾವುದಾದರೂ ಸಮಯದಲ್ಲಿ"</string>
@@ -137,11 +137,14 @@
     <skip />
     <!-- no translation found for permission_usage_bar_chart_title_last_minute (236300476767668315) -->
     <skip />
-    <!-- no translation found for app_permission_usage_bar_label (7261634017833698654) -->
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> ಆ್ಯಪ್‌ಗಳು</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ಆ್ಯಪ್‌ಗಳು</item>
+    </plurals>
     <!-- no translation found for permission_usage_view_details (4728049344017619500) -->
     <skip />
     <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"ಈ ಆಧಾರದ ಮೇಲೆ ಫಿಲ್ಟರ್ ಮಾಡಲಾಗಿದೆ: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"ಫಿಲ್ಟರ್ ತೆಗೆದುಹಾಕಿ"</string>
+    <string name="app_permission_usage_remove_filter" msgid="9105565119059367866">"ಎಲ್ಲವನ್ನು ಡ್ಯಾಶ್ ಬೋರ್ಡ್‌ನಲ್ಲಿ ನೋಡಿ"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"ಈ ಪ್ರಕಾರ ಫಿಲ್ಟರ್"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"ಅನುಮತಿಗಳ ಮೂಲಕ ಫಿಲ್ಟರ್ ಮಾಡಿ"</string>
     <!-- no translation found for filter_by_time (1763143592970195407) -->
@@ -166,11 +169,12 @@
     <skip />
     <string name="app_permission_button_deny" msgid="5716368368650638408">"ನಿರಾಕರಿಸಿ"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> ಅನುಮತಿ"</string>
-    <!-- no translation found for app_permission_header (228974007660007656) -->
-    <skip />
+    <string name="app_permission_header" msgid="228974007660007656">"ಈ <xliff:g id="PERM">%1$s</xliff:g> ಆ್ಯಪ್‌ಗಾಗಿ ಪ್ರವೇಶದ ಅನುಮತಿ"</string>
     <!-- no translation found for app_permission_footer_usage_summary (1034436308858219976) -->
     <skip />
     <!-- no translation found for app_permission_footer_no_usages (4444374134047275841) -->
+    <skip />
+    <!-- no translation found for app_permission_footer_not_available (8880039652295478414) -->
     <skip />
     <!-- no translation found for app_permission_footer_app_permissions_link (8033278634020892918) -->
     <skip />
@@ -178,7 +182,7 @@
     <skip />
     <!-- no translation found for permission_description_summary_generic (5479202003136667039) -->
     <skip />
-    <!-- no translation found for permission_description_summary_activity_recognition (2022880340017289990) -->
+    <!-- no translation found for permission_description_summary_activity_recognition (7914828358811635600) -->
     <skip />
     <!-- no translation found for permission_description_summary_calendar (2846128908236787586) -->
     <skip />
@@ -190,10 +194,6 @@
     <skip />
     <!-- no translation found for permission_description_summary_location (687820658574645201) -->
     <skip />
-    <!-- no translation found for permission_description_summary_media_aural (2102206495149326019) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_media_visual (3105938942794669520) -->
-    <skip />
     <!-- no translation found for permission_description_summary_microphone (2300290217308759293) -->
     <skip />
     <!-- no translation found for permission_description_summary_phone (3773977614654088578) -->
@@ -202,9 +202,17 @@
     <skip />
     <!-- no translation found for permission_description_summary_sms (8850213022386508528) -->
     <skip />
+    <!-- no translation found for permission_description_summary_storage (2265909502600142621) -->
+    <skip />
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"ಕೊನೆಯ ಪ್ರವೇಶ:<xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <!-- no translation found for app_permission_most_recent_denied_summary (127066792562419809) -->
+    <skip />
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"ಎಂದಿಗೂ ಪ್ರವೇಶಿಸಿಲ್ಲ"</string>
+    <!-- no translation found for app_permission_never_accessed_denied_summary (4791195647350628165) -->
+    <skip />
     <string name="allowed_header" msgid="6279244592227088158">"ಅನುಮತಿಸಲಾಗಿದೆ"</string>
+    <!-- no translation found for allowed_always_header (6698473105201405782) -->
+    <skip />
     <string name="allowed_foreground_header" msgid="7553595563464819175">"ಬಳಕೆಯಲ್ಲಿದ್ದಾಗ ಮಾತ್ರ ಅನುಮತಿಸಲಾಗಿದೆ"</string>
     <string name="denied_header" msgid="2277998574238617699">"ನಿರಾಕರಿಸಲಾಗಿದೆ"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"ವಿವರಿಸಲಾದ ಬಳಕೆಯನ್ನು ನೋಡಿ"</string>
@@ -239,9 +247,125 @@
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> ಸೇವೆಯು ನಿಮ್ಮ ಸ್ಕ್ರೀನ್, ಕ್ರಿಯೆಗಳು ಮತ್ತು ಇನ್‌ಪುಟ್‌ಗಳು, ಕೆಲಸ ನಿರ್ವಹಣೆ ಕ್ರಿಯೆಗಳು ಮತ್ತು ಡಿಸ್‌ಪ್ಲೇ ನಿಯಂತ್ರಣವನ್ನು ವೀಕ್ಷಿಸಬಹುದು."</string>
     <!-- no translation found for accessibility_service_dialog_bottom_text_multiple (1387803460488775887) -->
     <skip />
-    <!-- no translation found for request_role_title (3611734134669430568) -->
+    <!-- no translation found for role_assistant_label (1755271161954896046) -->
     <skip />
+    <!-- no translation found for role_assistant_short_label (3048707738783655050) -->
+    <skip />
+    <!-- no translation found for role_assistant_description (8677846995018695304) -->
+    <skip />
+    <!-- no translation found for role_assistant_request_title (1838385568238889604) -->
+    <skip />
+    <!-- no translation found for role_assistant_request_description (1086168907357494789) -->
+    <skip />
+    <!-- no translation found for role_browser_label (814240075813716311) -->
+    <skip />
+    <!-- no translation found for role_browser_short_label (6222206565850006894) -->
+    <skip />
+    <!-- no translation found for role_browser_description (2326990202516329438) -->
+    <skip />
+    <!-- no translation found for role_browser_request_title (751745081301397114) -->
+    <skip />
+    <!-- no translation found for role_browser_request_description (3204873553391043604) -->
+    <skip />
+    <!-- no translation found for role_dialer_label (7920168918746178929) -->
+    <skip />
+    <!-- no translation found for role_dialer_short_label (2980581587550675305) -->
+    <skip />
+    <!-- no translation found for role_dialer_description (2684882481061320467) -->
+    <skip />
+    <!-- no translation found for role_dialer_request_title (3203802247886151514) -->
+    <skip />
+    <!-- no translation found for role_dialer_request_description (2931069491309771312) -->
+    <skip />
+    <!-- no translation found for role_sms_label (6995222097027665850) -->
+    <skip />
+    <!-- no translation found for role_sms_short_label (236955440028043972) -->
+    <skip />
+    <!-- no translation found for role_sms_description (3228552135895420442) -->
+    <skip />
+    <!-- no translation found for role_sms_request_title (3667393846881324409) -->
+    <skip />
+    <!-- no translation found for role_sms_request_description (4920787411350418630) -->
+    <skip />
+    <!-- no translation found for role_emergency_label (8986482330376454686) -->
+    <skip />
+    <!-- no translation found for role_emergency_short_label (2546309839225058762) -->
+    <skip />
+    <!-- no translation found for role_emergency_description (3567231505957373289) -->
+    <skip />
+    <!-- no translation found for role_emergency_request_title (6595296517085761522) -->
+    <skip />
+    <!-- no translation found for role_emergency_request_description (2824966073894226992) -->
+    <skip />
+    <!-- no translation found for role_home_label (6245106863177808486) -->
+    <skip />
+    <!-- no translation found for role_home_short_label (4565882523300643525) -->
+    <skip />
+    <!-- no translation found for role_home_description (6736956389161158052) -->
+    <skip />
+    <!-- no translation found for role_home_request_title (2964609319767315444) -->
+    <skip />
+    <!-- no translation found for role_home_request_description (6437733879812403277) -->
+    <skip />
+    <!-- no translation found for role_music_label (3964722099212202119) -->
+    <skip />
+    <!-- no translation found for role_music_short_label (5119108052527581418) -->
+    <skip />
+    <!-- no translation found for role_music_description (6172106860153033272) -->
+    <skip />
+    <!-- no translation found for role_music_request_title (1674906751067278382) -->
+    <skip />
+    <!-- no translation found for role_music_request_description (305266634384433670) -->
+    <skip />
+    <!-- no translation found for role_gallery_label (3622204908078352458) -->
+    <skip />
+    <!-- no translation found for role_gallery_short_label (5079332588386074520) -->
+    <skip />
+    <!-- no translation found for role_gallery_description (7747091950085504563) -->
+    <skip />
+    <!-- no translation found for role_gallery_request_title (8019201567844533028) -->
+    <skip />
+    <!-- no translation found for role_gallery_request_description (2946641507679528110) -->
+    <skip />
+    <!-- no translation found for role_car_mode_dialer_label (4595963908499682544) -->
+    <skip />
+    <!-- no translation found for role_car_mode_dialer_short_label (9197533135596737192) -->
+    <skip />
+    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
+    <!-- no translation found for role_car_mode_dialer_request_title (8346857419720068662) -->
+    <skip />
+    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
+    <!-- no translation found for role_call_redirection_label (7555518736037919521) -->
+    <skip />
+    <!-- no translation found for role_call_redirection_short_label (4214301516577863936) -->
+    <skip />
+    <!-- no translation found for role_call_redirection_description (159351481987081777) -->
+    <skip />
+    <!-- no translation found for role_call_redirection_request_title (5719129486575088263) -->
+    <skip />
+    <!-- no translation found for role_call_redirection_request_description (6117172580087594081) -->
+    <skip />
+    <!-- no translation found for role_call_screening_label (5366988848919437946) -->
+    <skip />
+    <!-- no translation found for role_call_screening_short_label (7596133131034442273) -->
+    <skip />
+    <!-- no translation found for role_call_screening_description (9009090500431969390) -->
+    <skip />
+    <!-- no translation found for role_call_screening_request_title (4775643776524356653) -->
+    <skip />
+    <!-- no translation found for role_call_screening_request_description (7788142583532880646) -->
+    <skip />
+    <!-- no translation found for role_call_companion_label (7279864885074735989) -->
+    <skip />
+    <!-- no translation found for role_call_companion_short_label (1623131440707498562) -->
+    <skip />
+    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
+    <!-- no translation found for role_call_companion_request_title (8482826056222122751) -->
+    <skip />
+    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <!-- no translation found for request_role_current_default (7512045433655289638) -->
+    <skip />
+    <!-- no translation found for request_role_dont_ask_again (6250680190065090205) -->
     <skip />
     <!-- no translation found for request_role_set_as_default (5706081295230541240) -->
     <skip />
@@ -257,8 +381,11 @@
     <skip />
     <!-- no translation found for ongoing_usage_dialog_last_separator (7455459775266515801) -->
     <skip />
+    <string name="settings_button" msgid="4747434541214595321">"ಸೆಟ್ಟಿಂಗ್‌ಗಳು"</string>
     <string name="default_apps" msgid="8554530939151957828">"ಡೀಫಾಲ್ಟ್ ಆ್ಯಪ್‌ಗಳು"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"ಯಾವುದೇ ಡೀಫಾಲ್ಟ್‌ ಆ್ಯಪ್‌ಗಳಿಲ್ಲ"</string>
+    <!-- no translation found for default_apps_more (3908067305593075127) -->
+    <skip />
     <!-- no translation found for default_apps_manage_domain_urls (3146379064445013719) -->
     <skip />
     <string name="default_apps_for_work" msgid="8582151955372061208">"ಕೆಲಸದ ಕುರಿತಾದ ಡೀಫಾಲ್ಟ್ ಆ್ಯಪ್"</string>
@@ -269,19 +396,6 @@
     <string name="special_app_access" msgid="2561673957499408877">"ಆ್ಯಪ್‌ಗೆ ವಿಶೇಷ ಪ್ರವೇಶ"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"ಆ್ಯಪ್‌ಗೆ ವಿಶೇಷ ಪ್ರವೇಶವಿಲ್ಲ"</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"ಯಾವುದೇ ಆ್ಯಪ್‌ಗಳು ಇಲ್ಲ"</string>
-    <string name="role_label_assistant" msgid="456685142560727172">"ಅಸಿಸ್ಟೆಂಟ್ ಆ್ಯಪ್‌"</string>
-    <string name="role_label_browser" msgid="6266502234308421457">"ಬ್ರೌಸರ್ ಆ್ಯಪ್"</string>
-    <string name="role_label_dialer" msgid="3345895090725237533">"ಫೋನ್ ಆ್ಯಪ್"</string>
-    <string name="role_label_sms" msgid="2262769075496017522">"ಎಸ್ಎಂಎಸ್ ಆ್ಯಪ್"</string>
-    <string name="role_label_emergency" msgid="2226651888638211616">"ತುರ್ತು ಅಪ್ಲಿಕೇಶನ್"</string>
-    <string name="role_label_home" msgid="7672863812639457378">"ಮುಖಪುಟ ಅಪ್ಲಿಕೇಶನ್"</string>
-    <string name="role_label_music" msgid="5900245414865932272">"ಸಂಗೀತ ಆ್ಯಪ್‌"</string>
-    <string name="role_label_gallery" msgid="6939560238495155209">"ಗ್ಯಾಲರಿ ಆ್ಯಪ್‌"</string>
-    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"ಕಾರ್‌ ಮೋಡ್‌ ಫೋನ್‌ ಆ್ಯಪ್"</string>
-    <string name="role_label_call_redirection" msgid="8902197181113231577">"ಕರೆ ಮರುನಿರ್ದೇಶನ ಆ್ಯಪ್‌"</string>
-    <!-- no translation found for role_label_call_screening (1089966334646538858) -->
-    <skip />
-    <string name="role_label_call_companion" msgid="7369723859682076467">"ಕರೆ ಕಂಪ್ಯಾನಿಯನ್ ಆ್ಯಪ್"</string>
     <string name="home_missing_work_profile_support" msgid="1439466272746259937">"ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಬೆಂಬಲಿಸುವುದಿಲ್ಲ"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"ಗಮನಿಸಿ: ನೀವು ನಿಮ್ಮ ಸಾಧನವನ್ನು ಮರುಪ್ರಾರಂಭಿಸಿದಲ್ಲಿ ಮತ್ತು ಪರದೆಯ ಲಾಕ್‌ ಹೊಂದಿದ್ದರೆ, ನಿಮ್ಮ ಸಾಧನವನ್ನು ಅನ್‌ಲಾಕ್‌ ಮಾಡುವವರೆಗೂ ಈ ಆ್ಯಪ್‌ ಅನ್ನು ಪ್ರಾರಂಭಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ"</string>
     <string name="assistant_confirmation_message" msgid="4529925223796676824">"ನಿಮ್ಮ ಸ್ಕ್ರೀನ್‌ನಲ್ಲಿ ಗೋಚರಿಸುವ ಅಥವಾ ಆ್ಯಪ್‌ಗಳಲ್ಲಿಯೇ ಪ್ರವೇಶಿಸಬಹುದಾದಂತಹ ಮಾಹಿತಿ ಸೇರಿದಂತೆ, ನಿಮ್ಮ ಸಿಸ್ಟಂನಲ್ಲಿ ಬಳಕೆಯಲ್ಲಿರುವ ಆ್ಯಪ್‌ಗಳ ಕುರಿತ ಮಾಹಿತಿಯನ್ನು ಓದಲು ಅಸಿಸ್ಟೆಂಟ್‌ಗೆ ಸಾಧ್ಯವಾಗುತ್ತದೆ."</string>
@@ -290,6 +404,8 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> ಆ್ಯಪ್, ಡೀಬಗ್ ಮಾಡುವಿಕೆಯ ಮಾಹಿತಿಯನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಲು ಬಯಸುತ್ತದೆ."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"ಡೀಬಗ್ ಮಾಡುವಿಕೆ ಡೇಟಾವನ್ನು ಹಂಚಿಕೊಳ್ಳಿ"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="DATE">%2$s</xliff:g> ದಿನಾಂಕದಂದು <xliff:g id="TIME">%3$s</xliff:g> ಸಮಯಕ್ಕೆ ತೆಗೆದುಕೊಂಡ ಬಗ್ ವರದಿಯನ್ನು ಈ ಸಾಧನದಿಂದ ಅಪ್‌ಲೋಡ್ ಮಾಡುವಂತೆ <xliff:g id="APP_NAME_0">%1$s</xliff:g> ಆ್ಯಪ್ ವಿನಂತಿಸುತ್ತಿದೆ. ಬಗ್ ವರದಿಗಳು, ನಿಮ್ಮ ಸಾಧನ ಅಥವಾ ಆ್ಯಪ್‌ಗಳ ಮೂಲಕ ಲಾಗ್ ಮಾಡಿದ ವೈಯಕ್ತಿಕ ಮಾಹಿತಿಯನ್ನು, ಉದಾಹರಣೆಗೆ ಬಳಕೆದಾರರ ಹೆಸರುಗಳು, ಸ್ಥಳದ ಡೇಟಾ, ಸಾಧನ ಗುರುತಿಸುವಿಕೆಗಳು ಮತ್ತು ನೆಟ್‌ವರ್ಕ್‌ ಮಾಹಿತಿಯನ್ನು ಒಳಗೊಂಡಿದೆ. ಈ ಮಾಹಿತಿ ಒಳಗೊಂಡಂತೆ, ನೀವು ನಂಬುವ ಜನರು ಮತ್ತು ಆ್ಯಪ್‌ಗಳ ಜೊತೆಗೆ ಮಾತ್ರ ಬಗ್ ವರದಿಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳಿ. ಬಗ್ ವರದಿಯನ್ನು ಅಪ್‌ಲೋಡ್‌ ಮಾಡಲು <xliff:g id="APP_NAME_1">%4$s</xliff:g> ಆ್ಯಪ್‌ಗೆ ಅನುಮತಿಸುವುದೇ?"</string>
+    <!-- no translation found for incident_report_error_dialog_text (8397741071510309640) -->
+    <skip />
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"ಅನುಮತಿಸಿ"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"ನಿರಾಕರಿಸಿ"</string>
     <!-- no translation found for grandfathered_modern_storage_permission_deny_warning_title (5699953608028268176) -->
@@ -298,4 +414,11 @@
     <skip />
     <!-- no translation found for dismiss_with_acknowledgment (2879819713128822468) -->
     <skip />
+    <string name="adjust_user_sensitive_title" msgid="979740627674332095">"ಸುಧಾರಿತ ಸೆಟ್ಟಿಂಗ್‌ಗಳು"</string>
+    <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"ಸುಧಾರಿತ ಸೆಟ್ಟಿಂಗ್‌ಗಳು"</string>
+    <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"ಸಿಸ್ಟಂ ಆ್ಯಪ್‌ ಬಳಕೆಯನ್ನು ತೋರಿಸಿ"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"ಸ್ಥಿತಿ ಬಾರ್, ಡ್ಯಾಶ್ ಬೋರ್ಡ್ &amp; ಬೇರೆಲ್ಲಿಯಾದರೂ ಅನುಮತಿಗಳ ಸಿಸ್ಟಂ ಆ್ಯಪ್‌ ಬಳಕೆಯನ್ನು ತೋರಿಸಿ"</string>
+    <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"ಈ ಕೆಳಗಿನವುಗಳಿಗಾಗಿ ಬಳಕೆಯನ್ನು ಹೈಲೈಟ್ ಮಾಡಿ"</string>
+    <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"ಅಸಿಸ್ಟೆಂಟ್ ಟ್ರಿಗ್ಗರ್ ಪತ್ತೆಹಚ್ಚುವಿಕೆಯನ್ನು ತೋರಿಸಿ"</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"ಧ್ವನಿ ಅಸಿಸ್ಟೆಂಟ್ ಸಕ್ರಿಯಗೊಳಿಸಲು ಮೈಕ್ರೊಫೋನ್ ಬಳಸಿದಾಗ ಸ್ಥಿತಿ ಬಾರ್‌ನಲ್ಲಿ ಐಕಾನ್ ಅನ್ನು ತೋರಿಸಿ"</string>
 </resources>
