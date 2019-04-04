@@ -177,7 +177,7 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
         }
 
         Drawable icon = Utils.getBadgedIcon(activity, appInfo);
-        fragment.setHeader(icon, Utils.getFullAppLabel(appInfo, activity), infoIntent);
+        fragment.setHeader(icon, Utils.getFullAppLabel(appInfo, activity), infoIntent, false);
 
         ActionBar ab = activity.getActionBar();
         if (ab != null) {
@@ -230,18 +230,29 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
             preference.setIcon(Utils.applyTint(context, icon,
                     android.R.attr.colorControlNormal));
             preference.setTitle(group.getFullLabel());
-            if (Utils.isModernPermissionGroup(group.getName())) {
+            if (Utils.isModernPermissionGroup(group.getName()) && Utils.shouldShowPermissionUsage(
+                    group.getName())) {
                 String lastAccessStr = Utils.getAbsoluteLastUsageString(context,
                         PermissionUsages.loadLastGroupUsage(context, group));
                 if (lastAccessStr != null) {
-                    preference.setSummary(
-                            context.getString(R.string.app_permission_most_recent_summary,
-                                    lastAccessStr));
+                    if (group.areRuntimePermissionsGranted()) {
+                        preference.setSummary(
+                                context.getString(R.string.app_permission_most_recent_summary,
+                                        lastAccessStr));
+                    } else {
+                        preference.setSummary(context.getString(
+                                R.string.app_permission_most_recent_denied_summary, lastAccessStr));
+                    }
                 } else {
                     preference.setGroupSummary(group);
                     if (preference.getSummary().length() == 0 && Utils.isPermissionsHubEnabled()) {
-                        preference.setSummary(
-                                context.getString(R.string.app_permission_never_accessed_summary));
+                        if (group.areRuntimePermissionsGranted()) {
+                            preference.setSummary(context.getString(
+                                    R.string.app_permission_never_accessed_summary));
+                        } else {
+                            preference.setSummary(context.getString(
+                                    R.string.app_permission_never_accessed_denied_summary));
+                        }
                     }
                 }
             } else {
@@ -283,24 +294,7 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
             category.addPreference(extraPerms);
         }
 
-        if (allowed.getPreferenceCount() > 0) {
-            Preference details = new Preference(context);
-            details.setTitle(R.string.detailed_usage_link);
-            details.setOnPreferenceClickListener(preference -> {
-                Intent intent = new Intent(Intent.ACTION_REVIEW_APP_PERMISSION_USAGE);
-                intent.putExtra(Intent.EXTRA_PACKAGE_NAME,
-                        getArguments().getString(Intent.EXTRA_PACKAGE_NAME));
-                intent.putExtra(Intent.EXTRA_USER, UserHandle.getUserHandleForUid(
-                        mAppPermissions.getPackageInfo().applicationInfo.uid));
-                context.startActivity(intent);
-                return true;
-            });
-            allowed.addPreference(details);
-
-            if (!Utils.isPermissionsHubEnabled()) {
-                allowed.removePreference(details);
-            }
-        } else {
+        if (allowed.getPreferenceCount() == 0) {
             Preference empty = new Preference(context);
             empty.setTitle(getString(R.string.no_permissions_allowed));
             allowed.addPreference(empty);
@@ -336,7 +330,7 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
         public void onCreate(Bundle savedInstanceState) {
             mOuterFragment = (AppPermissionsFragment) getTargetFragment();
             super.onCreate(savedInstanceState);
-            setHeader(mOuterFragment.mIcon, mOuterFragment.mLabel, null);
+            setHeader(mOuterFragment.mIcon, mOuterFragment.mLabel, null, false);
             setHasOptionsMenu(true);
             setPreferenceScreen(mOuterFragment.mExtraScreen);
         }

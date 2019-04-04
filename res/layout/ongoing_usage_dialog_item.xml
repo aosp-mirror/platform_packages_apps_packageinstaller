@@ -15,19 +15,24 @@
      limitations under the License.
 -->
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:gravity="center" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/PermissionUsageDialogItemContainer">
 
-    <com.android.settingslib.widget.settingsspinner.SettingsSpinner
-        android:id="@+id/filter_spinner"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="8dp"/>
+    <FrameLayout
+        style="@style/PermissionUsageDialogItemIconFrame">
+
+        <ImageView
+            android:id="@+id/app_icon"
+            style="@style/PermissionUsageDialogItemIcon"/>
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/app_name"
+        style="@style/PermissionUsageDialogItemAppName"/>
+
+    <LinearLayout
+        android:id="@+id/icons"
+        style="@style/PermissionUsageDialogItemIconsContainer"/>
 
 </LinearLayout>

@@ -93,8 +93,46 @@ public class Constants {
             "search_indexable_provider_password";
 
     /**
+     * Key in the generic shared preferences that stores the name of the packages that are currently
+     * have an overridden user sensitivity.
+     */
+    public static final String FORCED_USER_SENSITIVE_UIDS_KEY = "forced_user_sensitive_uids_key";
+
+    /**
+     * Key in the generic shared preferences that stores if all packages should be considered user
+     * sensitive
+     */
+    public static final String ALLOW_OVERRIDE_USER_SENSITIVE_KEY =
+            "allow_override_user_sensitive_key";
+
+    /**
+     * Key in the generic shared preferences that controls if the
+     * {@link android.Manifest.permission#RECORD_AUDIO} of the currently registered assistant is
+     * user sensitive.
+     */
+    public static final String ASSISTANT_RECORD_AUDIO_IS_USER_SENSITIVE_KEY =
+            "assistant_record_audio_is_user_sensitive_key";
+
+    /**
      * Name of file containing the permissions that should be restored, but have not been restored
      * yet.
      */
     public static final String DELAYED_RESTORE_PERMISSIONS_FILE = "delayed_restore_permissions.xml";
+
+    /**
+     * Name of file containing the user denied status for requesting roles.
+     */
+    public static final String REQUEST_ROLE_USER_DENIED_FILE = "request_role_user_denied";
+
+    /**
+     * Key in the user denied status for requesting roles shared preferences that stores a string
+     * set for the names of the roles that an application has been denied for once.
+     */
+    public static final String REQUEST_ROLE_USER_DENIED_ONCE_KEY_PREFIX = "denied_once:";
+
+    /**
+     * Key in the user denied status for requesting roles shared preferences that stores a string
+     * set for the names of the roles that an application is always denied for.
+     */
+    public static final String REQUEST_ROLE_USER_DENIED_ALWAYS_KEY_PREFIX = "denied_always:";
 }

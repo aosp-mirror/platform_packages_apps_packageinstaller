@@ -23,43 +23,35 @@
     android:minHeight="?android:listPreferredItemHeight"
     android:paddingStart="?android:listPreferredItemPaddingStart"
     android:paddingEnd="?android:listPreferredItemPaddingEnd"
+    android:clipChildren="false"
     android:gravity="center_vertical"
     android:orientation="horizontal">
 
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="32dp"
-        android:layout_height="32dp" />
+        android:duplicateParentState="true"
+        style="@style/RequestRoleItemIcon" />
 
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_marginStart="16dp"
-        android:orientation="vertical">
+        android:id="@+id/title_and_subtitle"
+        android:duplicateParentState="true"
+        style="@style/RequestRoleItemTitleLayout">
 
         <TextView
             android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:textAppearanceListItem"
-            android:textColor="?android:textColorAlertDialogListItem"
-            android:singleLine="true"
-            android:ellipsize="marquee" />
+            android:duplicateParentState="true"
+            style="@style/RequestRoleItemTitleText" />
 
         <TextView
             android:id="@+id/subtitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:textAppearanceListItemSecondary"
-            android:textColor="?android:textColorSecondary" />
+            android:duplicateParentState="true"
+            style="@style/RequestRoleItemSubtitleText" />
     </LinearLayout>
 
     <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:clickable="false"
         android:duplicateParentState="true"
-        android:focusable="false" />
+        android:focusable="false"
+        style="@style/RequestRoleItemRadioButton" />
+
 </com.android.packageinstaller.role.ui.CheckableLinearLayout>

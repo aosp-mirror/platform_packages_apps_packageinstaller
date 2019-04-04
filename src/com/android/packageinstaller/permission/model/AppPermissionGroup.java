@@ -22,7 +22,6 @@ import static android.app.AppOpsManager.MODE_ALLOWED;
 import static android.app.AppOpsManager.MODE_FOREGROUND;
 import static android.app.AppOpsManager.MODE_IGNORED;
 import static android.app.AppOpsManager.OPSTR_LEGACY_STORAGE;
-import static android.content.pm.PackageManager.FLAG_PERMISSION_HIDDEN;
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 
 import android.app.ActivityManager;
@@ -106,7 +105,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
     private final boolean mAppSupportsRuntimePermissions;
     private final boolean mIsEphemeralApp;
-    private final boolean mIsGrandfatheredModernStorageGroup;
+    private final boolean mIsNonIsolatedStorage;
     private boolean mContainsEphemeralPermission;
     private boolean mContainsPreRuntimePermission;
 
@@ -306,10 +305,6 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         for (int i = 0; i < numPermissions; i++) {
             Permission permission = allPermissions.valueAt(i);
 
-            if ((permission.getFlags() & FLAG_PERMISSION_HIDDEN) != 0) {
-                continue;
-            }
-
             if (permission.isBackgroundPermission()) {
                 if (group.getBackgroundPermissions() == null) {
                     group.mBackgroundPermissions = new AppPermissionGroup(group.mContext,
@@ -410,8 +405,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             mIconResId = R.drawable.ic_perm_device_info;
         }
 
-        mIsGrandfatheredModernStorageGroup = targetSDK >= Build.VERSION_CODES.Q
-                        && mAppOps.unsafeCheckOpNoThrow(OPSTR_LEGACY_STORAGE,
+        mIsNonIsolatedStorage = mAppOps.unsafeCheckOpNoThrow(OPSTR_LEGACY_STORAGE,
                         packageInfo.applicationInfo.uid, packageInfo.packageName) == MODE_ALLOWED;
     }
 
@@ -633,7 +627,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         // the controller package itself.
         if (LocationUtils.isLocationGroupAndControllerExtraPackage(
                 mContext, mName, mPackageInfo.packageName)) {
-            return LocationUtils.isLocationControllerExtraPackageEnabled(mContext);
+            return LocationUtils.isExtraLocationControllerPackageEnabled(mContext);
         }
         final int permissionCount = mPermissions.size();
         for (int i = 0; i < permissionCount; i++) {
@@ -1065,15 +1059,14 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
     }
 
     /**
-     * Is the group a grandfathered modern storage permission group.
+     * Is the group a storage permission group that is referring to an app that does not have
+     * isolated storage
      *
-     * <p>Such permissions cannot be revoked. The user needs to uninstall and reinstall the app to
-     * reset the permission
-     *
-     * @return {@code true} iff this is a grandfathered modern storage permission group.
+     * @return {@code true} iff this is a storage group on an app that does not have isolated
+     * storage
      */
-    public boolean isGrandfatheredModernStorageGroup() {
-        return mIsGrandfatheredModernStorageGroup;
+    public boolean isNonIsolatedStorage() {
+        return mIsNonIsolatedStorage;
     }
 
     /**

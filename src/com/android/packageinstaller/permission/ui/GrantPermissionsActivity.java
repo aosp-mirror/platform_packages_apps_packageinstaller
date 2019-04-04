@@ -184,9 +184,6 @@ public class GrantPermissionsActivity extends Activity
             } break;
 
             case DevicePolicyManager.PERMISSION_POLICY_AUTO_DENY: {
-                if (group.areRuntimePermissionsGranted()) {
-                    group.revokeRuntimePermissions(false, new String[]{permission});
-                }
                 state.mState = GroupState.STATE_DENIED;
                 group.setPolicyFixed();
                 skipGroup = true;
@@ -665,7 +662,7 @@ public class GrantPermissionsActivity extends Activity
                         messageId = groupState.mGroup.getBackgroundRequest();
                         detailMessageId = groupState.mGroup.getBackgroundRequestDetail();
                         buttonLabels[LABEL_ALLOW_BUTTON] =
-                                getString(R.string.grant_dialog_button_allow_always);
+                                getString(R.string.grant_dialog_button_allow_background);
                         buttonLabels[LABEL_DENY_BUTTON] =
                                 getString(R.string.grant_dialog_button_deny_background);
                         buttonLabels[LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON] =

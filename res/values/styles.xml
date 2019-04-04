@@ -178,6 +178,58 @@
 
     <!-- END PERMISSION REVIEW SCREEN -->
 
+    <!-- START PERMISSIONS FRAME -->
+
+    <style name="PermissionsFrameNoPermissionsText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+        <item name="android:layout_marginTop">32dp</item>
+    </style>
+
+    <!-- END PERMISSIONS FRAME -->
+
+    <!-- START HEADER -->
+
+    <style name="Header">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?android:attr/actionBarSize</item>
+        <item name="android:background">?android:attr/colorSecondary</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="HeaderIcon">
+        <item name="android:layout_width">@dimen/header_subsettings_margin_start</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:gravity">end</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="HeaderName">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginStart">@dimen/header_subsettings_margin_start</item>
+        <item name="android:layout_alignWithParentIfMissing">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="HeaderInfo" parent="@android:style/Widget.DeviceDefault.Button.Borderless">
+        <item name="android:layout_width">56dp</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:layout_marginEnd">@dimen/header_subsettings_margin_end</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:scaleType">center</item>
+    </style>
+
+    <!-- END HEADER -->
+
     <!-- START APP PERMISSION SCREEN -->
 
     <style name="AppPermission">
@@ -191,13 +243,10 @@
         <item name="android:gravity">center</item>
     </style>
 
-    <style name="HeaderLink">
+    <style name="LargeHeaderLink"
+           parent="@android:style/Widget.DeviceDefault.Button.Borderless.Colored">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginBottom">16dp</item>
-        <item name="android:textColor">?android:attr/colorAccent</item>
-        <item name="android:paddingStart">?android:attr/listPreferredItemPaddingStart</item>
-        <item name="android:paddingEnd">?android:attr/listPreferredItemPaddingEnd</item>
     </style>
 
     <style name="LargeHeaderDivider">
@@ -216,13 +265,14 @@
         <item name="android:background">?android:attr/selectableItemBackground</item>
     </style>
 
-    <style name="AppPermissionMessage">
+    <style name="AppPermissionMessage"
+           parent="@style/TextAppearance.CategoryTitle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">16dp</item>
-        <item name="android:layout_marginStart">48dp</item>
-        <item name="android:textAllCaps">true</item>
-        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+        <item name="android:layout_marginStart">56dp</item>
+        <item name="android:textColor">?android:attr/colorAccent</item>
+        <item name="android:textDirection">locale</item>
     </style>
 
     <style name="AppPermissionRadioButton"
@@ -234,6 +284,7 @@
         <item name="android:paddingTop">8dp</item>
         <item name="android:paddingBottom">8dp</item>
         <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textDirection">locale</item>
     </style>
 
     <style name="AppPermissionDetails">
@@ -294,18 +345,16 @@
 
     <!-- BEGIN PERMISSION FILTER SCREEN -->
 
-    <style name="PermissionFilterDialogScrollView">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:fillViewport">true</item>
-        <item name="android:orientation">vertical</item>
-        <item name="android:fadeScrollbars">false</item>
-    </style>
-
     <style name="PermissionFilterDialogContainer">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="PermissionFilterDialogTitleContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">?android:colorBackgroundFloating</item>
     </style>
 
     <style name="PermissionFilterDialogTitle"
@@ -314,15 +363,24 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_marginTop">18dp</item>
-        <item name="android:layout_marginBottom">18dp</item>
+        <item name="android:layout_marginBottom">24dp</item>
         <item name="android:layout_marginStart">24dp</item>
         <item name="android:layout_marginEnd">24dp</item>
+    </style>
+
+    <style name="PermissionFilterDialogScrollView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:fillViewport">true</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:fadeScrollbars">false</item>
     </style>
 
     <style name="PermissionFilterDialogInnerContainer">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">vertical</item>
+        <item name="android:layout_marginBottom">8dp</item>
     </style>
 
     <style name="PermissionFilterDialogItemsContainer">
@@ -336,25 +394,12 @@
     <style name="PermissionFilterDialogItemContainer">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">24dp</item>
-        <item name="android:layout_marginEnd">24dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
         <item name="android:paddingTop">6dp</item>
         <item name="android:paddingBottom">6dp</item>
         <item name="android:orientation">horizontal</item>
         <item name="android:gravity">center_vertical</item>
-    </style>
-
-    <style name="PermissionFilterDialogItemIconFrame">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_gravity">start|center_vertical</item>
-        <item name="android:layout_marginStart">16dp</item>
-    </style>
-
-    <style name="PermissionFilterDialogItemIcon">
-        <item name="android:layout_width">24dp</item>
-        <item name="android:layout_height">24dp</item>
-        <item name="android:scaleType">fitCenter</item>
     </style>
 
     <style name="PermissionFilterDialogItemTextFrame">
@@ -381,6 +426,97 @@
     </style>
 
     <!-- END PERMISSION FILTER SCREEN -->
+
+    <!-- START PREFERENCE USAGE -->
+
+    <style name="PreferenceUsage">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:minHeight">?android:attr/listPreferredItemHeightSmall</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">?android:attr/listPreferredItemPaddingLeft</item>
+        <item name="android:paddingRight">?android:attr/listPreferredItemPaddingRight</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="android:focusable">true</item>
+        <item name="android:baselineAligned">false</item>
+    </style>
+
+    <style name="PreferenceUsageImageFrame">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="PreferenceUsageTitleWidgetFrame">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="PreferenceUsageTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceListItem</item>
+        <item name="android:ellipsize">marquee</item>
+    </style>
+
+    <style name="PreferenceUsageSummaryWidgetFrame">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">start|bottom</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="PreferenceUsageSummary">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+        <item name="android:maxLines">10</item>
+        <item name="android:textDirection">locale</item>
+    </style>
+
+    <style name="PreferenceUsageWidgetFrame">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">end|center_vertical</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!-- END PREFERENCE USAGE -->
+
+    <!-- START IMAGE VIEW -->
+
+    <style name="ImageView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">end|center_vertical</item>
+    </style>
+
+    <style name="ImageViewIcon">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <!-- END IMAGE VIEW -->
+
+    <!-- START LOADING CONTAINER -->
+
+    <style name="LoadingContainerTextView">
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <!-- END LOADING CONTAINER -->
 
     <!-- START GRANDFATHERED MODERN STORAGE GROUP WARNING DIALOG -->
 
@@ -409,5 +545,180 @@
     </style>
 
     <!-- END GRANDFATHERED MODERN STORAGE GROUP WARNING DIALOG -->
+
+    <!-- START ONGOING USAGE DIALOG -->
+
+    <style name="PermissionUsageDialogContainerScrollView">
+        <item name="android:fillViewport">true</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="PermissionUsageDialogContainerLayout">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="PermissionUsageDialogTitle"
+           parent="@android:style/TextAppearance.DeviceDefault.WindowTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginStart">24dp</item>
+        <item name="android:layout_marginEnd">24dp</item>
+        <item name="android:layout_marginTop">18dp</item>
+        <item name="android:layout_marginBottom">18dp</item>
+    </style>
+
+    <style name="PermissionUsageDialogItemsContainerLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_marginBottom">24dp</item>
+    </style>
+
+    <style name="PermissionUsageDialogItemsContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">start</item>
+    </style>
+
+    <style name="PermissionUsageDialogItemContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:focusable">true</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <style name="PermissionUsageDialogItemIconFrame">
+        <item name="android:layout_width">32dp</item>
+        <item name="android:layout_height">32dp</item>
+        <item name="android:layout_gravity">start|center_vertical</item>
+    </style>
+
+    <style name="PermissionUsageDialogItemIcon">
+        <item name="android:layout_width">32dp</item>
+        <item name="android:layout_height">32dp</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="PermissionUsageDialogItemAppName"
+           parent="@android:style/TextAppearance.DeviceDefault">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:textDirection">locale</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginStart">16dp</item>
+    </style>
+
+    <style name="PermissionUsageDialogItemIconsContainer">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">end|center_vertical</item>
+        <item name="android:layout_gravity">end</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <!-- END ONGOING USAGE DIALOG -->
+
+    <!-- START REQUEST ROLE DIALOG TITLE -->
+
+    <style name="RequestRoleTitle">
+        <item name="android:paddingStart">?android:dialogPreferredPadding</item>
+        <item name="android:paddingEnd">?android:dialogPreferredPadding</item>
+        <item name="android:paddingTop">18dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="RequestRoleTitleIcon">
+        <item name="android:layout_width">32dp</item>
+        <item name="android:layout_height">32dp</item>
+    </style>
+
+    <style name="RequestRoleTitleText"
+           parent="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <!-- END REQUEST ROLE DIALOG TITLE -->
+
+    <!-- START REQUEST ROLE DIALOG ITEM -->
+
+    <style name="RequestRoleItem">
+        <item name="android:paddingStart">?android:dialogPreferredPadding</item>
+        <item name="android:paddingEnd">?android:dialogPreferredPadding</item>
+        <item name="android:paddingTop">18dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="RequestRoleItemIcon">
+        <item name="android:layout_width">32dp</item>
+        <item name="android:layout_height">32dp</item>
+    </style>
+
+    <style name="RequestRoleItemTitleLayout">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:animateLayoutChanges">true</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="RequestRoleItemTitleText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?android:textAppearanceListItem</item>
+        <item name="android:textColor">?android:textColorAlertDialogListItem</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+    </style>
+
+    <style name="RequestRoleItemSubtitleText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?android:textAppearanceListItemSecondary</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+    </style>
+
+    <style name="RequestRoleItemRadioButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">16dp</item>
+    </style>
+
+    <!-- END REQUEST ROLE DIALOG ITEM -->
+
+    <!-- START SETTINGS BUTTON PREFERENCE WIDGET -->
+
+    <style name="SettingsButtonPreferenceWidgetDivider">
+        <item name="android:layout_width">1dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:background">?android:listDivider</item>
+    </style>
+
+    <style name="SettingsButtonPreferenceWidgetButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:minWidth">64dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingStart">?android:listPreferredItemPaddingEnd</item>
+        <item name="android:paddingEnd">?android:listPreferredItemPaddingEnd</item>
+        <item name="android:background">?android:selectableItemBackground</item>
+        <item name="android:scaleType">center</item>
+    </style>
+
+    <!-- END SETTINGS BUTTON PREFERENCE WIDGET -->
 
 </resources>

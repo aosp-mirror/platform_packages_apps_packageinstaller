@@ -441,7 +441,7 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
 
     @Override public @NonNull List<RuntimePermissionUsageInfo> onGetPermissionUsages(
             boolean countSystem, long numMillis) {
-        ArrayMap<CharSequence, Integer> groupUsers = new ArrayMap<>();
+        ArrayMap<String, Integer> groupUsers = new ArrayMap<>();
 
         long curTime = System.currentTimeMillis();
         PermissionUsages usages = new PermissionUsages(this);
@@ -455,16 +455,13 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
         for (int appNum = 0; appNum < numApps; appNum++) {
             AppPermissionUsage appPermissionUsage = appPermissionUsages.get(appNum);
 
-            if (appPermissionUsage.getAccessCount() <= 0) {
-                continue;
-            }
-
             List<GroupUsage> appGroups = appPermissionUsage.getGroupUsages();
             int numGroups = appGroups.size();
             for (int groupNum = 0; groupNum < numGroups; groupNum++) {
                 GroupUsage groupUsage = appGroups.get(groupNum);
 
-                if (groupUsage.getAccessCount() <= 0) {
+                if (groupUsage.getAccessCount() <= 0
+                        || groupUsage.getLastAccessTime() < filterTimeBeginMillis) {
                     continue;
                 }
                 if (!shouldShowPermission(this, groupUsage.getGroup())) {
@@ -474,12 +471,12 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
                     continue;
                 }
 
-                CharSequence groupLabel = groupUsage.getGroup().getName();
-                Integer numUsers = groupUsers.get(groupLabel);
+                String groupName = groupUsage.getGroup().getName();
+                Integer numUsers = groupUsers.get(groupName);
                 if (numUsers == null) {
-                    groupUsers.put(groupLabel, 1);
+                    groupUsers.put(groupName, 1);
                 } else {
-                    groupUsers.put(groupLabel, numUsers + 1);
+                    groupUsers.put(groupName, numUsers + 1);
                 }
             }
         }
@@ -514,7 +511,7 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
                 Collections.singletonList(unexpandedPermission),
                 callerPkgInfo.applicationInfo.targetSdkVersion);
 
-        AppPermissions app = new AppPermissions(this, pkgInfo, false, null);
+        AppPermissions app = new AppPermissions(this, pkgInfo, false, true, null);
 
         int numPerms = expandedPermissions.size();
         for (int i = 0; i < numPerms; i++) {

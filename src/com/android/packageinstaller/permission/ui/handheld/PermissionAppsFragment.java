@@ -172,7 +172,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
         final Drawable icon = permissionApps.getIcon();
         final CharSequence label = permissionApps.getLabel();
 
-        fragment.setHeader(icon, label, null);
+        fragment.setHeader(icon, label, null, true);
         fragment.setSummary(Utils.getPermissionGroupDescriptionString(fragment.getActivity(),
                 groupName, permissionApps.getDescription()), null);
 
@@ -233,6 +233,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
 
         mHasSystemApps = false;
         boolean menuOptionsInvalided = false;
+        boolean hasPermissionWithBackgroundMode = false;
 
         ArrayList<PermissionApp> sortedApps = new ArrayList<>(permissionApps.getApps());
         sortedApps.sort((x, y) -> mCollator.compare(x.getLabel(), y.getLabel()));
@@ -240,6 +241,9 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
         for (int i = 0; i < sortedApps.size(); i++) {
             PermissionApp app = sortedApps.get(i);
             AppPermissionGroup group = app.getPermissionGroup();
+
+            hasPermissionWithBackgroundMode =
+                    hasPermissionWithBackgroundMode || group.hasPermissionWithBackgroundMode();
 
             if (!Utils.shouldShowPermission(getContext(), group)) {
                 continue;
@@ -284,7 +288,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
             if (existingPref != null) {
                 if (existingPref instanceof PermissionControlPreference) {
                     setPreferenceSummary(group, (PermissionControlPreference) existingPref,
-                            context);
+                            category != denied, context);
                 }
                 category.addPreference(existingPref);
                 continue;
@@ -296,7 +300,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
             pref.setTitle(Utils.getFullAppLabel(app.getAppInfo(), context));
             pref.setEllipsizeEnd();
             pref.useSmallerIcon();
-            setPreferenceSummary(group, pref, context);
+            setPreferenceSummary(group, pref, category != denied, context);
 
             if (isSystemApp && isTelevision) {
                 if (mExtraScreen == null) {
@@ -342,6 +346,10 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
                     grantedCount, mExtraScreen.getPreferenceCount()));
         }
 
+        if (hasPermissionWithBackgroundMode) {
+            allowed.setTitle(R.string.allowed_always_header);
+        }
+
         if (allowed.getPreferenceCount() == 0) {
             Preference empty = new Preference(context);
             empty.setTitle(getString(R.string.no_apps_allowed));
@@ -358,6 +366,15 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
             denied.addPreference(empty);
         }
 
+        if (!Utils.shouldShowPermissionUsage(mPermissionApps.getGroupName())) {
+            PreferenceCategory footer = new PreferenceCategory(context);
+            getPreferenceScreen().addPreference(footer);
+            Preference footerText = new Preference(context);
+            footerText.setSummary(context.getString(R.string.app_permission_footer_not_available));
+            footerText.setIcon(R.drawable.ic_info_outline);
+            footer.addPreference(footerText);
+        }
+
         setLoading(false /* loading */, true /* animate */);
 
         if (mOnPermissionsLoadedListener != null) {
@@ -366,17 +383,31 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
     }
 
     private void setPreferenceSummary(AppPermissionGroup group, PermissionControlPreference pref,
-            Context context) {
+            boolean allowed, Context context) {
         if (!Utils.isModernPermissionGroup(group.getName())) {
+            return;
+        }
+        if (!Utils.shouldShowPermissionUsage(group.getName())) {
             return;
         }
         String lastAccessStr = Utils.getAbsoluteLastUsageString(context,
                 PermissionUsages.loadLastGroupUsage(context, group));
         if (lastAccessStr != null) {
-            pref.setSummary(context.getString(R.string.app_permission_most_recent_summary,
-                    lastAccessStr));
+            if (allowed) {
+                pref.setSummary(context.getString(R.string.app_permission_most_recent_summary,
+                        lastAccessStr));
+            } else {
+                pref.setSummary(
+                        context.getString(R.string.app_permission_most_recent_denied_summary,
+                                lastAccessStr));
+            }
         } else if (Utils.isPermissionsHubEnabled()) {
-            pref.setSummary(context.getString(R.string.app_permission_never_accessed_summary));
+            if (allowed) {
+                pref.setSummary(context.getString(R.string.app_permission_never_accessed_summary));
+            } else {
+                pref.setSummary(
+                        context.getString(R.string.app_permission_never_accessed_denied_summary));
+            }
         }
     }
 
@@ -388,7 +419,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
             mOuterFragment = (PermissionAppsFragment) getTargetFragment();
             setLoading(true /* loading */, false /* animate */);
             super.onCreate(savedInstanceState);
-            setHeader(mOuterFragment.mIcon, mOuterFragment.mLabel, null);
+            setHeader(mOuterFragment.mIcon, mOuterFragment.mLabel, null, true);
             if (mOuterFragment.mExtraScreen != null) {
                 setPreferenceScreen();
             } else {

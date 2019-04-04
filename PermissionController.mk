@@ -6,7 +6,8 @@ LOCAL_USE_AAPT2 := true
 LOCAL_MODULE_TAGS := optional
 
 LOCAL_SRC_FILES := \
-    $(call all-java-files-under, src)
+    $(call all-java-files-under, src) \
+    $(call all-proto-files-under, src)
 
 LOCAL_STATIC_ANDROID_LIBRARIES += \
     iconloader \
@@ -30,8 +31,8 @@ LOCAL_STATIC_ANDROID_LIBRARIES += \
     SettingsLibRestrictedLockUtils \
     SettingsLibAppPreference \
     SettingsLibSearchWidget \
-    SettingsLibSettingsSpinner \
     SettingsLibLayoutPreference \
+    SettingsLibBarChartPreference \
     SettingsLibActionBarShadow \
     SettingsLibProgressBar
 
@@ -43,6 +44,7 @@ LOCAL_SDK_VERSION := system_current
 LOCAL_MIN_SDK_VERSION := 28
 LOCAL_PRIVILEGED_MODULE := true
 LOCAL_CERTIFICATE := platform
+LOCAL_PROTOC_OPTIMIZE_TYPE := lite
 
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 

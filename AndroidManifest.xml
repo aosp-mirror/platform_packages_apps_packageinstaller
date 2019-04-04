@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools"
-          package="com.android.permissioncontroller" coreApp="true" android:versionCode="290200"
-          android:versionName="29.2.0">
+<manifest
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  package="com.android.permissioncontroller"
+  coreApp="true"
+  android:versionCode="200000000"
+  android:versionName="29 system image"
+>
 
     <original-package android:name="com.android.permissioncontroller" />
 
@@ -29,12 +33,15 @@
     <uses-permission android:name="android.permission.MANAGE_ROLE_HOLDERS" />
     <uses-permission android:name="android.permission.OBSERVE_ROLE_HOLDERS" />
     <uses-permission android:name="android.permission.SET_PREFERRED_APPLICATIONS" />
+    <uses-permission android:name="android.permission.ACCESS_SHARED_LIBRARIES" />
     <uses-permission android:name="com.android.permissioncontroller.permission.MANAGE_ROLES_FROM_CONTROLLER" />
     <uses-permission android:name="android.permission.ACCESS_INSTANT_APPS" />
     <uses-permission android:name="android.permission.REQUEST_INCIDENT_REPORT_APPROVAL" />
     <uses-permission android:name="android.permission.APPROVE_INCIDENT_REPORTS" />
     <uses-permission android:name="android.permission.READ_DEVICE_CONFIG" />
     <uses-permission android:name="android.permission.OPEN_ACCESSIBILITY_DETAILS_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
+    <uses-permission android:name="android.permission.SUBSTITUTE_NOTIFICATION_APP_NAME" />
 
     <uses-sdk android:minSdkVersion="28" android:targetSdkVersion="28" />
 
@@ -95,12 +102,18 @@
             <intent-filter android:priority="1">
                 <action android:name="android.intent.action.MANAGE_APP_PERMISSIONS" />
                 <action android:name="android.intent.action.MANAGE_PERMISSION_APPS" />
-                <action android:name="android.intent.action.REVIEW_APP_PERMISSION_USAGE" />
                 <action android:name="android.intent.action.MANAGE_PERMISSIONS" />
                 <action android:name="android.intent.action.REVIEW_PERMISSION_USAGE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <activity android:name="com.android.packageinstaller.permission.ui.AdjustUserSensitiveActivity"
+                  android:configChanges="orientation|keyboardHidden|screenSize"
+                  android:label="@string/adjust_user_sensitive_title"
+                  android:theme="@style/Settings"
+                  android:exported="false"
+                  android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS" />
 
         <activity android:name="com.android.packageinstaller.permission.ui.ManagePermissionsActivityTrampoline"
                   android:excludeFromRecents="true"
@@ -139,11 +152,22 @@
 
         <activity android:name="com.android.packageinstaller.permission.ui.LocationProviderInterceptDialog"
                   android:excludeFromRecents="true"
-                  android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar" />
+                  android:theme="@style/PermissionDialog" />
+
+        <activity android:name="com.android.packageinstaller.permission.ui.ReviewOngoingUsageActivity"
+                  android:excludeFromRecents="true"
+                  android:theme="@style/PermissionDialog"
+                  android:launchMode="singleInstance"
+                  android:permission="android.permission.GRANT_RUNTIME_PERMISSIONS" >
+            <intent-filter android:priority="1">
+                <action android:name="android.intent.action.REVIEW_ONGOING_PERMISSION_USAGE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
         <activity android:name="com.android.packageinstaller.permission.ui.ReviewAccessibilityServicesActivity"
                   android:excludeFromRecents="true"
-                  android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar"
+                  android:theme="@style/PermissionDialog"
                   android:permission="android.permission.REVIEW_ACCESSIBILITY_SERVICES" >
             <intent-filter android:priority="1">
                 <action android:name="android.intent.action.REVIEW_ACCESSIBILITY_SERVICES" />
@@ -251,6 +275,14 @@
                 <action android:name="android.app.role.RoleControllerService"/>
             </intent-filter>
         </service>
+
+        <receiver android:name="com.android.packageinstaller.role.service.ClearUserDeniedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_DATA_CLEARED" />
+                <action android:name="android.intent.action.PACKAGE_FULLY_REMOVED"/>
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
 
         <!-- Debug report authorization (bugreport and incident report) -->
         <receiver android:name="com.android.packageinstaller.incident.ConfirmationReceiver"

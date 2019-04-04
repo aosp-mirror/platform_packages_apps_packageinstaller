@@ -28,6 +28,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
 import androidx.lifecycle.LiveData;
 
+import com.android.packageinstaller.AsyncTaskLiveData;
 import com.android.packageinstaller.role.model.Role;
 import com.android.packageinstaller.role.model.Roles;
 import com.android.packageinstaller.role.utils.PackageUtils;

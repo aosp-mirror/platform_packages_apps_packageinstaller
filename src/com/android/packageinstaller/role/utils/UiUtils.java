@@ -18,11 +18,16 @@ package com.android.packageinstaller.role.utils;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.content.Context;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 
+import androidx.annotation.Dimension;
 import androidx.annotation.NonNull;
+import androidx.annotation.Px;
 
 /**
  * Utility methods about UI.
@@ -30,6 +35,61 @@ import androidx.annotation.NonNull;
 public class UiUtils {
 
     private UiUtils() {}
+
+    /**
+     * Convert a dimension value in density independent pixels to pixels.
+     *
+     * @param dp the dimension value in density independent pixels
+     * @param context the context to get the {@link DisplayMetrics}
+     * @return the pixels
+     *
+     * @see TypedValue#complexToDimension(int, DisplayMetrics)
+     */
+    @Dimension
+    public static float dpToPx(@Dimension(unit = Dimension.DP) float dp, @NonNull Context context) {
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, metrics);
+    }
+
+    /**
+     * Convert a dimension value in density independent pixels to an integer pixel offset.
+     *
+     * @param dp the dimension value in density independent pixels
+     * @param context the context to get the {@link DisplayMetrics}
+     * @return the integer pixel offset
+     *
+     * @see TypedValue#complexToDimensionPixelOffset(int, DisplayMetrics)
+     */
+    @Px
+    public static int dpToPxOffset(@Dimension(unit = Dimension.DP) float dp,
+            @NonNull Context context) {
+        return (int) dpToPx(dp, context);
+    }
+
+    /**
+     * Convert a dimension value in density independent pixels to an integer pixel size.
+     *
+     * @param dp the dimension value in density independent pixels
+     * @param context the context to get the {@link DisplayMetrics}
+     * @return the integer pixel size
+     *
+     * @see TypedValue#complexToDimensionPixelSize(int, DisplayMetrics)
+     */
+    @Px
+    public static int dpToPxSize(@Dimension(unit = Dimension.DP) float dp,
+            @NonNull Context context) {
+        float value = dpToPx(dp, context);
+        int size = (int) (value >= 0 ? value + 0.5f : value - 0.5f);
+        if (size != 0) {
+            return size;
+        } else if (value == 0) {
+            return 0;
+        } else if (value > 0) {
+            return 1;
+        } else {
+            return -1;
+        }
+    }
 
     /**
      * Set whether a view is shown.

@@ -47,13 +47,13 @@ import static com.android.packageinstaller.Constants.PERMISSION_REMINDER_CHANNEL
 import static com.android.packageinstaller.Constants.PREFERENCES_FILE;
 import static com.android.packageinstaller.permission.utils.Utils.OS_PKG;
 import static com.android.packageinstaller.permission.utils.Utils.getParcelableExtraSafe;
+import static com.android.packageinstaller.permission.utils.Utils.getParentUserContext;
 import static com.android.packageinstaller.permission.utils.Utils.getStringExtraSafe;
 import static com.android.packageinstaller.permission.utils.Utils.getSystemServiceSafe;
 import static com.android.packageinstaller.permission.utils.Utils.isLocationAccessCheckEnabled;
 
 import static java.lang.System.currentTimeMillis;
 import static java.util.concurrent.TimeUnit.DAYS;
-import static java.util.concurrent.TimeUnit.MINUTES;
 
 import android.app.AppOpsManager;
 import android.app.AppOpsManager.HistoricalOps;
@@ -74,12 +74,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
@@ -170,13 +172,13 @@ public class LocationAccessCheck {
     /**
      * Get the delay in between granting a permission and the follow up check.
      *
-     * <p>Default: 10 minutes
+     * <p>Default: 1 day
      *
      * @return The delay in milliseconds
      */
     private long getDelayMillis() {
         return Settings.Secure.getLong(mContentResolver,
-                LOCATION_ACCESS_CHECK_DELAY_MILLIS, MINUTES.toMillis(10));
+                LOCATION_ACCESS_CHECK_DELAY_MILLIS, DAYS.toMillis(1));
     }
 
     /**
@@ -310,22 +312,7 @@ public class LocationAccessCheck {
      * @param shouldCancel If supplied, can be used to interrupt long running operations
      */
     public LocationAccessCheck(@NonNull Context context, @Nullable BooleanSupplier shouldCancel) {
-        UserHandle parentUser = getSystemServiceSafe(context, UserManager.class)
-                .getProfileParent(UserHandle.of(myUserId()));
-
-        if (parentUser != null) {
-            // In a multi profile environment perform all operations as the parent user of the
-            // current profile
-            try {
-                mContext = context.createPackageContextAsUser(context.getPackageName(), 0,
-                        parentUser);
-            } catch (PackageManager.NameNotFoundException e) {
-                // cannot happen
-                throw new IllegalStateException("Could not switch to parent user " + parentUser, e);
-            }
-        } else {
-            mContext = context;
-        }
+        mContext = getParentUserContext(context);
 
         mJobScheduler = getSystemServiceSafe(mContext, JobScheduler.class);
         mAppOpsManager = getSystemServiceSafe(mContext, AppOpsManager.class);
@@ -419,8 +406,8 @@ public class LocationAccessCheck {
 
                     LocationManager locationManager = getSystemServiceSafe(mContext,
                             LocationManager.class, pkg.user);
-                    if (locationManager.isLocationControllerExtraPackageEnabled() && pkg.pkg.equals(
-                            locationManager.getLocationControllerExtraPackage())) {
+                    if (locationManager.isExtraLocationControllerPackageEnabled() && pkg.pkg.equals(
+                            locationManager.getExtraLocationControllerPackage())) {
                         packageToNotifyFor = pkg;
                         break;
                     }
@@ -555,6 +542,8 @@ public class LocationAccessCheck {
         clickIntent.putExtra(EXTRA_PACKAGE_NAME, pkgName);
         clickIntent.putExtra(EXTRA_USER, user);
 
+        CharSequence appName = getNotificationAppName();
+
         Notification.Builder b = (new Notification.Builder(mContext,
                 PERMISSION_REMINDER_CHANNEL_ID))
                 .setContentTitle(mContext.getString(
@@ -563,7 +552,7 @@ public class LocationAccessCheck {
                         R.string.background_location_access_reminder_notification_content))
                 .setStyle(new Notification.BigTextStyle().bigText(mContext.getString(
                         R.string.background_location_access_reminder_notification_content)))
-                .setSmallIcon(R.drawable.ic_signal_location)
+                .setSmallIcon(R.drawable.ic_pin_drop)
                 .setLargeIcon(pkgIconBmp)
                 .setColor(mContext.getColor(android.R.color.system_notification_accent_color))
                 .setAutoCancel(true)
@@ -571,12 +560,30 @@ public class LocationAccessCheck {
                         FLAG_ONE_SHOT | FLAG_UPDATE_CURRENT))
                 .setContentIntent(getBroadcast(mContext, 0, clickIntent,
                         FLAG_ONE_SHOT | FLAG_UPDATE_CURRENT));
+
+        if (appName != null) {
+            Bundle extras = new Bundle();
+            extras.putString(Notification.EXTRA_SUBSTITUTE_APP_NAME, appName.toString());
+            b.addExtras(extras);
+        }
+
         notificationManager.notify(pkgName, LOCATION_ACCESS_CHECK_NOTIFICATION_ID, b.build());
 
         if (DEBUG) Log.i(LOG_TAG, "Notified " + pkgName);
 
         mSharedPrefs.edit().putLong(KEY_LAST_LOCATION_ACCESS_NOTIFICATION_SHOWN,
                 currentTimeMillis()).apply();
+    }
+
+    @Nullable
+    private CharSequence getNotificationAppName() {
+        // We pretend we're the Settings app sending the notification, so figure out its name.
+        Intent openSettingsIntent = new Intent(Settings.ACTION_SETTINGS);
+        ResolveInfo resolveInfo = mPackageManager.resolveActivity(openSettingsIntent, 0);
+        if (resolveInfo == null) {
+            return null;
+        }
+        return mPackageManager.getApplicationLabel(resolveInfo.activityInfo.applicationInfo);
     }
 
     /**
@@ -851,6 +858,12 @@ public class LocationAccessCheck {
     public static class PackageResetHandler extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (!(Objects.equals(action, Intent.ACTION_PACKAGE_DATA_CLEARED)
+                    || Objects.equals(action, Intent.ACTION_PACKAGE_FULLY_REMOVED))) {
+                return;
+            }
+
             Uri data = Preconditions.checkNotNull(intent.getData());
             UserHandle user = getUserHandleForUid(intent.getIntExtra(EXTRA_UID, 0));
 
