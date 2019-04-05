@@ -93,7 +93,9 @@ public class BrowserRoleBehavior implements RoleBehavior {
                     .setPackage(packageName);
         }
         List<ResolveInfo> resolveInfos = packageManager.queryIntentActivitiesAsUser(intent,
-                PackageManager.MATCH_ALL, user);
+                // To one's surprise, MATCH_ALL doesn't include MATCH_DIRECT_BOOT_*.
+                PackageManager.MATCH_ALL | PackageManager.MATCH_DIRECT_BOOT_AWARE
+                        | PackageManager.MATCH_DIRECT_BOOT_UNAWARE, user);
         ArraySet<String> packageNames = new ArraySet<>();
         int resolveInfosSize = resolveInfos.size();
         for (int i = 0; i < resolveInfosSize; i++) {
