@@ -77,6 +77,7 @@ public final class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
         super.onCreate(savedInstanceState);
 
         if (!Utils.isPermissionsHubEnabled()) {
+            getActivity().finish();
             return;
         }
 
