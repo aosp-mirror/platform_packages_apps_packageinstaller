@@ -18,19 +18,10 @@
 
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingStart="?android:dialogPreferredPadding"
-    android:paddingEnd="?android:dialogPreferredPadding"
-    android:clipChildren="false"
-    android:clipToPadding="false">
+    style="@style/RequestRoleView">
 
     <CheckBox
         android:id="@+id/dont_ask_again"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="40dp"
-        android:paddingStart="16dp"
         android:text="@string/request_role_dont_ask_again"
-        android:textAppearance="@style/android:TextAppearance.Material.Subhead" />
+        style="@style/RequestRoleViewCheckbox" />
 </FrameLayout>
