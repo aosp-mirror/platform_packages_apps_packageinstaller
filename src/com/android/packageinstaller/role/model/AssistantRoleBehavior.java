@@ -100,7 +100,8 @@ public class AssistantRoleBehavior implements RoleBehavior {
         Set<String> availableAssistants = new ArraySet<>();
 
         List<ResolveInfo> services = pm.queryIntentServicesAsUser(ASSIST_SERVICE_PROBE,
-                PackageManager.GET_META_DATA, user);
+                PackageManager.GET_META_DATA | PackageManager.MATCH_DIRECT_BOOT_AWARE
+                        | PackageManager.MATCH_DIRECT_BOOT_UNAWARE, user);
 
         int numServices = services.size();
         for (int i = 0; i < numServices; i++) {
@@ -112,7 +113,8 @@ public class AssistantRoleBehavior implements RoleBehavior {
         }
 
         List<ResolveInfo> activities = pm.queryIntentActivitiesAsUser(ASSIST_ACTIVITY_PROBE,
-                PackageManager.MATCH_DEFAULT_ONLY, user);
+                PackageManager.MATCH_DEFAULT_ONLY | PackageManager.MATCH_DIRECT_BOOT_AWARE
+                        | PackageManager.MATCH_DIRECT_BOOT_UNAWARE, user);
 
         int numActivities = activities.size();
         for (int i = 0; i < numActivities; i++) {
@@ -130,7 +132,8 @@ public class AssistantRoleBehavior implements RoleBehavior {
 
         Intent pkgServiceProbe = new Intent(ASSIST_SERVICE_PROBE).setPackage(packageName);
         List<ResolveInfo> services = pm.queryIntentServices(pkgServiceProbe,
-                PackageManager.GET_META_DATA);
+                PackageManager.GET_META_DATA | PackageManager.MATCH_DIRECT_BOOT_AWARE
+                        | PackageManager.MATCH_DIRECT_BOOT_UNAWARE);
 
         int numServices = services.size();
         for (int i = 0; i < numServices; i++) {
@@ -143,7 +146,8 @@ public class AssistantRoleBehavior implements RoleBehavior {
 
         Intent pkgActivityProbe = new Intent(ASSIST_ACTIVITY_PROBE).setPackage(packageName);
         boolean hasAssistantActivity = !pm.queryIntentActivities(pkgActivityProbe,
-                PackageManager.MATCH_DEFAULT_ONLY).isEmpty();
+                PackageManager.MATCH_DEFAULT_ONLY | PackageManager.MATCH_DIRECT_BOOT_AWARE
+                        | PackageManager.MATCH_DIRECT_BOOT_UNAWARE).isEmpty();
 
         if (!hasAssistantActivity) {
             Log.w(LOG_TAG, "Package " + packageName + " not qualified for " + role.getName()

@@ -619,28 +619,6 @@
     <!-- Description when an app requests to become the default home app. [CHAR LIMIT=60] -->
     <string name="role_home_request_description">No permissions needed</string>
 
-    <!-- Label for the music player role. [CHAR LIMIT=30] -->
-    <string name="role_music_label">Default music app</string>
-    <!-- Short label for the music player role. [CHAR LIMIT=30] -->
-    <string name="role_music_short_label">Music app</string>
-    <!-- Description for the music role. [CHAR LIMIT=NONE] -->
-    <string name="role_music_description">Apps that allow you to play songs, podcasts, and other audio</string>
-    <!-- Template for the title when an app requests to become the default music app. [CHAR LIMIT=100] -->
-    <string name="role_music_request_title">Set <xliff:g id="app_name" example="Super Music">%1$s</xliff:g> as your default music app?</string>
-    <!-- Description when an app requests to become the default music app. [CHAR LIMIT=60] -->
-    <string name="role_music_request_description">Gets access to audio</string>
-
-    <!-- Label for the gallery role. [CHAR LIMIT=30] -->
-    <string name="role_gallery_label">Default gallery app</string>
-    <!-- Short label for the gallery role. [CHAR LIMIT=30] -->
-    <string name="role_gallery_short_label">Gallery app</string>
-    <!-- Description for the gallery role. [CHAR LIMIT=NONE] -->
-    <string name="role_gallery_description">Apps that allow you to view, organize, protect, and share your photos and videos</string>
-    <!-- Template for the title when an app requests to become the default gallery app. [CHAR LIMIT=100] -->
-    <string name="role_gallery_request_title">Set <xliff:g id="app_name" example="Super Gallery">%1$s</xliff:g> as your default gallery app?</string>
-    <!-- Description when an app requests to become the default gallery app. [CHAR LIMIT=60] -->
-    <string name="role_gallery_request_description">Gets access to photos and videos</string>
-
     <!-- Label for the automotive dialer role. [CHAR LIMIT=30] -->
     <string name="role_car_mode_dialer_label">Default car mode phone app</string>
     <!-- Short label for the automotive dialer role. [CHAR LIMIT=30] -->
@@ -796,16 +774,6 @@ Allow <xliff:g id="app_name" example="Gmail">%4$s</xliff:g> to upload a bug repo
 
     <!-- Label for the button to NOT allow sharing of the report. [CHAR LIMIT=20] -->
     <string name="incident_report_dialog_deny_label">Deny</string>
-
-    <!-- Title for the warning dialog shown when user tried to revoke a grandfathered modern storage permission.
-    [CHAR LIMIT=100] -->
-    <string name="grandfathered_modern_storage_permission_deny_warning_title">Permission can\u2019t be denied. Uninstall <xliff:g id="app_name" example="Gmail">%1$s</xliff:g>.</string>
-
-    <!-- Content for the warning dialog shown when user tried to revoke a grandfathered modern storage permission [CHAR LIMIT=none] -->
-    <string name="grandfathered_modern_storage_permission_deny_warning_content"><xliff:g id="app_name" example="Gmail">%1$s</xliff:g> has legacy storage permission to keep your previous data accessible, and the app can stop working when this permission is denied.\n\nTo continue using the app, uninstall it and then reinstall it. Your data in this app may be lost.</string>
-
-    <!-- Dismiss with acknowledgment [CHAR LIMIT=30] -->
-    <string name="dismiss_with_acknowledgment">Got it</string>
 
     <!-- Label for screen allowing the user to force certain apps to always be shown in permission controller settings ui instead of being hidden behind "system app" menu. [CHAR LIMIT=60] -->
     <string name="adjust_user_sensitive_title">Advanced settings</string>
