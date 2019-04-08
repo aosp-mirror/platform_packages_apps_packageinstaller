@@ -27,6 +27,7 @@ import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.Log;
 import android.util.Pair;
@@ -210,6 +211,21 @@ public class PermissionApps {
         if (groupPermInfos == null) {
             return Collections.emptyList();
         }
+        List<PermissionInfo> targetPermInfos = new ArrayList<PermissionInfo>(groupPermInfos.size());
+        for (int i = 0; i < groupPermInfos.size(); i++) {
+            PermissionInfo permInfo = groupPermInfos.get(i);
+            if ((permInfo.protectionLevel & PermissionInfo.PROTECTION_MASK_BASE)
+                    == PermissionInfo.PROTECTION_DANGEROUS
+                    && (permInfo.flags & PermissionInfo.FLAG_INSTALLED) != 0
+                    && (permInfo.flags & PermissionInfo.FLAG_REMOVED) == 0) {
+                targetPermInfos.add(permInfo);
+            }
+        }
+
+        PackageManager packageManager = mContext.getPackageManager();
+        CharSequence groupLabel = groupInfo.loadLabel(packageManager);
+        CharSequence fullGroupLabel = groupInfo.loadSafeLabel(packageManager, 0,
+                TextUtils.SAFE_STRING_FLAG_TRIM | TextUtils.SAFE_STRING_FLAG_FIRST_LINE);
 
         ArrayList<PermissionApp> permApps = new ArrayList<>();
 
@@ -228,7 +244,7 @@ public class PermissionApps {
 
                     PermissionInfo requestedPermissionInfo = null;
 
-                    for (PermissionInfo groupPermInfo : groupPermInfos) {
+                    for (PermissionInfo groupPermInfo : targetPermInfos) {
                         if (requestedPerm.equals(groupPermInfo.name)) {
                             requestedPermissionInfo = groupPermInfo;
                             break;
@@ -239,18 +255,8 @@ public class PermissionApps {
                         continue;
                     }
 
-                    if ((requestedPermissionInfo.protectionLevel
-                                & PermissionInfo.PROTECTION_MASK_BASE)
-                                    != PermissionInfo.PROTECTION_DANGEROUS
-                            || (requestedPermissionInfo.flags
-                                & PermissionInfo.FLAG_INSTALLED) == 0
-                            || (requestedPermissionInfo.flags
-                                & PermissionInfo.FLAG_REMOVED) != 0) {
-                        continue;
-                    }
-
                     AppPermissionGroup group = AppPermissionGroup.create(mContext,
-                            app, groupInfo, groupPermInfos, false);
+                            app, groupInfo, groupPermInfos, groupLabel, fullGroupLabel, false);
 
                     if (group == null) {
                         continue;
