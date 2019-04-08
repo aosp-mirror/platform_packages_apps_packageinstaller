@@ -101,9 +101,9 @@
     <string name="message_staging" msgid="641286607664721291">"ஆப்ஸ் தயாராகிறது…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"தெரியாதது"</string>
     <string name="permission_usage_title" msgid="6808284837306026819">"டாஷ்போர்டு"</string>
-    <!-- no translation found for permission_usage_summary_foreground (3203419920107457274) -->
+    <!-- no translation found for permission_usage_summary_foreground (2482299388611440256) -->
     <skip />
-    <!-- no translation found for permission_usage_summary_background (5719598203265078254) -->
+    <!-- no translation found for permission_usage_summary_background (4789805581854248472) -->
     <skip />
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"அனுமதி எதுவாயினும்"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"எந்த நேரமும்"</string>
@@ -137,11 +137,12 @@
     <skip />
     <!-- no translation found for permission_usage_bar_chart_title_last_minute (236300476767668315) -->
     <skip />
-    <!-- no translation found for app_permission_usage_bar_label (7261634017833698654) -->
+    <!-- no translation found for permission_usage_bar_label (6828034271144198049) -->
     <!-- no translation found for permission_usage_view_details (4728049344017619500) -->
     <skip />
     <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"இதன்படி வடிகட்டப்பட்டது: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"வடிப்பானை அகற்று"</string>
+    <!-- no translation found for app_permission_usage_remove_filter (9105565119059367866) -->
+    <skip />
     <string name="filter_by_title" msgid="5940302511365561845">"இதன்படி வடிகட்டுதல்"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"அனுமதிகளின்படி வடிகட்டு"</string>
     <!-- no translation found for filter_by_time (1763143592970195407) -->
@@ -166,11 +167,12 @@
     <skip />
     <string name="app_permission_button_deny" msgid="5716368368650638408">"நிராகரி"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> என்பதற்கான அனுமதி"</string>
-    <!-- no translation found for app_permission_header (228974007660007656) -->
-    <skip />
+    <string name="app_permission_header" msgid="228974007660007656">"இந்த ஆப்ஸிற்கு <xliff:g id="PERM">%1$s</xliff:g> அணுகல்"</string>
     <!-- no translation found for app_permission_footer_usage_summary (1034436308858219976) -->
     <skip />
     <!-- no translation found for app_permission_footer_no_usages (4444374134047275841) -->
+    <skip />
+    <!-- no translation found for app_permission_footer_not_available (8880039652295478414) -->
     <skip />
     <!-- no translation found for app_permission_footer_app_permissions_link (8033278634020892918) -->
     <skip />
@@ -178,7 +180,7 @@
     <skip />
     <!-- no translation found for permission_description_summary_generic (5479202003136667039) -->
     <skip />
-    <!-- no translation found for permission_description_summary_activity_recognition (2022880340017289990) -->
+    <!-- no translation found for permission_description_summary_activity_recognition (7914828358811635600) -->
     <skip />
     <!-- no translation found for permission_description_summary_calendar (2846128908236787586) -->
     <skip />
@@ -190,10 +192,6 @@
     <skip />
     <!-- no translation found for permission_description_summary_location (687820658574645201) -->
     <skip />
-    <!-- no translation found for permission_description_summary_media_aural (2102206495149326019) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_media_visual (3105938942794669520) -->
-    <skip />
     <!-- no translation found for permission_description_summary_microphone (2300290217308759293) -->
     <skip />
     <!-- no translation found for permission_description_summary_phone (3773977614654088578) -->
@@ -202,9 +200,17 @@
     <skip />
     <!-- no translation found for permission_description_summary_sms (8850213022386508528) -->
     <skip />
+    <!-- no translation found for permission_description_summary_storage (2265909502600142621) -->
+    <skip />
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"கடைசியாகப் பயன்படுத்தியது: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <!-- no translation found for app_permission_most_recent_denied_summary (127066792562419809) -->
+    <skip />
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"பயன்படுத்தியதில்லை"</string>
+    <!-- no translation found for app_permission_never_accessed_denied_summary (4791195647350628165) -->
+    <skip />
     <string name="allowed_header" msgid="6279244592227088158">"அனுமதிக்கப்பட்டவை"</string>
+    <!-- no translation found for allowed_always_header (6698473105201405782) -->
+    <skip />
     <string name="allowed_foreground_header" msgid="7553595563464819175">"உபயோகத்தில் மட்டுமே அனுமதிக்கப்படும்"</string>
     <string name="denied_header" msgid="2277998574238617699">"மறுக்கப்பட்டது"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"உபயோகத்தை விவரமாகக் காட்டு"</string>
@@ -239,9 +245,105 @@
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"உங்கள் திரை, செயல்கள் மற்றும் உள்ளீடுகளைப் பார்க்கவும், செயல்களை நிறைவேற்றவும், காட்சியைக் கட்டுப்படுத்தவும் <xliff:g id="SERVICE_NAME">%s</xliff:g> சேவையால் இயலும்."</string>
     <!-- no translation found for accessibility_service_dialog_bottom_text_multiple (1387803460488775887) -->
     <skip />
-    <!-- no translation found for request_role_title (3611734134669430568) -->
+    <!-- no translation found for role_assistant_label (1755271161954896046) -->
     <skip />
+    <!-- no translation found for role_assistant_short_label (3048707738783655050) -->
+    <skip />
+    <!-- no translation found for role_assistant_description (8677846995018695304) -->
+    <skip />
+    <!-- no translation found for role_assistant_request_title (1838385568238889604) -->
+    <skip />
+    <!-- no translation found for role_assistant_request_description (1086168907357494789) -->
+    <skip />
+    <!-- no translation found for role_browser_label (814240075813716311) -->
+    <skip />
+    <!-- no translation found for role_browser_short_label (6222206565850006894) -->
+    <skip />
+    <!-- no translation found for role_browser_description (2326990202516329438) -->
+    <skip />
+    <!-- no translation found for role_browser_request_title (751745081301397114) -->
+    <skip />
+    <!-- no translation found for role_browser_request_description (3204873553391043604) -->
+    <skip />
+    <!-- no translation found for role_dialer_label (7920168918746178929) -->
+    <skip />
+    <!-- no translation found for role_dialer_short_label (2980581587550675305) -->
+    <skip />
+    <!-- no translation found for role_dialer_description (2684882481061320467) -->
+    <skip />
+    <!-- no translation found for role_dialer_request_title (3203802247886151514) -->
+    <skip />
+    <!-- no translation found for role_dialer_request_description (2931069491309771312) -->
+    <skip />
+    <!-- no translation found for role_sms_label (6995222097027665850) -->
+    <skip />
+    <!-- no translation found for role_sms_short_label (236955440028043972) -->
+    <skip />
+    <!-- no translation found for role_sms_description (3228552135895420442) -->
+    <skip />
+    <!-- no translation found for role_sms_request_title (3667393846881324409) -->
+    <skip />
+    <!-- no translation found for role_sms_request_description (4920787411350418630) -->
+    <skip />
+    <!-- no translation found for role_emergency_label (8986482330376454686) -->
+    <skip />
+    <!-- no translation found for role_emergency_short_label (2546309839225058762) -->
+    <skip />
+    <!-- no translation found for role_emergency_description (3567231505957373289) -->
+    <skip />
+    <!-- no translation found for role_emergency_request_title (6595296517085761522) -->
+    <skip />
+    <!-- no translation found for role_emergency_request_description (2824966073894226992) -->
+    <skip />
+    <!-- no translation found for role_home_label (6245106863177808486) -->
+    <skip />
+    <!-- no translation found for role_home_short_label (4565882523300643525) -->
+    <skip />
+    <!-- no translation found for role_home_description (6736956389161158052) -->
+    <skip />
+    <!-- no translation found for role_home_request_title (2964609319767315444) -->
+    <skip />
+    <!-- no translation found for role_home_request_description (6437733879812403277) -->
+    <skip />
+    <!-- no translation found for role_car_mode_dialer_label (4595963908499682544) -->
+    <skip />
+    <!-- no translation found for role_car_mode_dialer_short_label (9197533135596737192) -->
+    <skip />
+    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
+    <!-- no translation found for role_car_mode_dialer_request_title (8346857419720068662) -->
+    <skip />
+    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
+    <!-- no translation found for role_call_redirection_label (7555518736037919521) -->
+    <skip />
+    <!-- no translation found for role_call_redirection_short_label (4214301516577863936) -->
+    <skip />
+    <!-- no translation found for role_call_redirection_description (159351481987081777) -->
+    <skip />
+    <!-- no translation found for role_call_redirection_request_title (5719129486575088263) -->
+    <skip />
+    <!-- no translation found for role_call_redirection_request_description (6117172580087594081) -->
+    <skip />
+    <!-- no translation found for role_call_screening_label (5366988848919437946) -->
+    <skip />
+    <!-- no translation found for role_call_screening_short_label (7596133131034442273) -->
+    <skip />
+    <!-- no translation found for role_call_screening_description (9009090500431969390) -->
+    <skip />
+    <!-- no translation found for role_call_screening_request_title (4775643776524356653) -->
+    <skip />
+    <!-- no translation found for role_call_screening_request_description (7788142583532880646) -->
+    <skip />
+    <!-- no translation found for role_call_companion_label (7279864885074735989) -->
+    <skip />
+    <!-- no translation found for role_call_companion_short_label (1623131440707498562) -->
+    <skip />
+    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
+    <!-- no translation found for role_call_companion_request_title (8482826056222122751) -->
+    <skip />
+    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <!-- no translation found for request_role_current_default (7512045433655289638) -->
+    <skip />
+    <!-- no translation found for request_role_dont_ask_again (6250680190065090205) -->
     <skip />
     <!-- no translation found for request_role_set_as_default (5706081295230541240) -->
     <skip />
@@ -257,8 +359,12 @@
     <skip />
     <!-- no translation found for ongoing_usage_dialog_last_separator (7455459775266515801) -->
     <skip />
+    <!-- no translation found for settings_button (4747434541214595321) -->
+    <skip />
     <string name="default_apps" msgid="8554530939151957828">"இயல்புநிலை ஆப்ஸ்"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"இயல்புநிலை ஆப்ஸ் இல்லை"</string>
+    <!-- no translation found for default_apps_more (3908067305593075127) -->
+    <skip />
     <!-- no translation found for default_apps_manage_domain_urls (3146379064445013719) -->
     <skip />
     <string name="default_apps_for_work" msgid="8582151955372061208">"பணிக்கான இயல்பு நிலை ஆப்ஸ்"</string>
@@ -269,19 +375,6 @@
     <string name="special_app_access" msgid="2561673957499408877">"ஆப்ஸிற்கான சிறப்பு அணுகல்"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"ஆப்ஸிற்கு சிறப்பு அணுகல் இல்லை"</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"ஆப்ஸ் இல்லை"</string>
-    <string name="role_label_assistant" msgid="456685142560727172">"அசிஸ்ட் ஆப்ஸ்"</string>
-    <string name="role_label_browser" msgid="6266502234308421457">"உலாவி ஆப்ஸ்"</string>
-    <string name="role_label_dialer" msgid="3345895090725237533">"மொபைல் ஆப்ஸ்"</string>
-    <string name="role_label_sms" msgid="2262769075496017522">"மெசேஜ் ஆப்ஸ்"</string>
-    <string name="role_label_emergency" msgid="2226651888638211616">"அவசரகால ஆப்ஸ்"</string>
-    <string name="role_label_home" msgid="7672863812639457378">"முகப்பு ஆப்ஸ்"</string>
-    <string name="role_label_music" msgid="5900245414865932272">"மியூசிக் ஆப்ஸ்"</string>
-    <string name="role_label_gallery" msgid="6939560238495155209">"கேலரி ஆப்ஸ்"</string>
-    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"கார் மோடுக்கான மொபைல் ஆப்ஸ்"</string>
-    <string name="role_label_call_redirection" msgid="8902197181113231577">"அழைப்பைத் திருப்பிவிடும் ஆப்ஸ்"</string>
-    <!-- no translation found for role_label_call_screening (1089966334646538858) -->
-    <skip />
-    <string name="role_label_call_companion" msgid="7369723859682076467">"அழைப்புக்கான கம்பேனியன் ஆப்ஸ்"</string>
     <string name="home_missing_work_profile_support" msgid="1439466272746259937">"பணிக் கணக்கிற்கான ஆதரவு இதில் இல்லை"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"கவனத்திற்கு: திரைப் பூட்டு அமைக்கப்பட்டிருக்கும் நிலையில் உங்கள் மொபைலை மீண்டும் தொடங்கினால் அன்லாக் செய்யப்படும்வரை இந்த ஆப்ஸ் இயங்காது."</string>
     <string name="assistant_confirmation_message" msgid="4529925223796676824">"திரையில் தெரியும் தகவல் அல்லது ஆப்ஸிற்குள் அணுகக்கூடிய தகவல் உட்பட உங்கள் சிஸ்டத்தில் செயல்பாட்டிலுள்ள ஆப்ஸ் பற்றிய தகவல்களை அசிஸ்டண்ட்டால் படிக்க இயலும்."</string>
@@ -290,12 +383,22 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"பிழைதிருத்தத் தகவலை <xliff:g id="APP_NAME">%1$s</xliff:g> பதிவேற்ற விரும்புகிறது."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"பிழைதிருத்தத் தரவைப் பகிர்தல்"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"இந்தச் சாதனத்திலிருந்து <xliff:g id="DATE">%2$s</xliff:g> அன்று <xliff:g id="TIME">%3$s</xliff:g> மணிக்கு எடுக்கப்பட்ட பிழை அறிக்கையைப் பதிவேற்றுமாறு <xliff:g id="APP_NAME_0">%1$s</xliff:g> கோருகிறது. இதில் பயனர் பெயர்கள், இருப்பிடத் தரவு, சாதன அடையாளங்காட்டிகள் மற்றும் நெட்வொர்க் தகவல்கள் போன்ற உங்கள் சாதனம் அல்லது உள்நுழைந்துள்ள ஆப்ஸ் பற்றிய தனிப்பட்ட தகவல்களும் உள்ளடங்கும். இந்தத் தகவல்களுடனான பிழை அறிக்கைகளை நம்பகமானவர்களுடனும் ஆப்ஸுடனும் மட்டுமே பகிரவும். பிழை அறிக்கையைப் பதிவேற்ற <xliff:g id="APP_NAME_1">%4$s</xliff:g> ஆப்ஸை அனுமதிக்கவா?"</string>
+    <!-- no translation found for incident_report_error_dialog_text (8397741071510309640) -->
+    <skip />
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"அனுமதி"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"நிராகரி"</string>
-    <!-- no translation found for grandfathered_modern_storage_permission_deny_warning_title (5699953608028268176) -->
+    <!-- no translation found for adjust_user_sensitive_title (979740627674332095) -->
     <skip />
-    <!-- no translation found for grandfathered_modern_storage_permission_deny_warning_content (6960592986228883592) -->
+    <!-- no translation found for menu_adjust_user_sensitive (9016544530763156678) -->
     <skip />
-    <!-- no translation found for dismiss_with_acknowledgment (2879819713128822468) -->
+    <!-- no translation found for adjust_user_sensitive_globally_title (4596006254112905767) -->
+    <skip />
+    <!-- no translation found for adjust_user_sensitive_globally_summary (4193481017313015238) -->
+    <skip />
+    <!-- no translation found for adjust_user_sensitive_per_app_header (1372152438971168364) -->
+    <skip />
+    <!-- no translation found for assistant_record_audio_user_sensitive_title (5382972366928946381) -->
+    <skip />
+    <!-- no translation found for assistant_record_audio_user_sensitive_summary (6852572549436960848) -->
     <skip />
 </resources>
