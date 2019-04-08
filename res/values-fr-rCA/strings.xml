@@ -230,16 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Les applications qui remplacent les écrans d\'accueil sur votre appareil Android et qui vous donnent accès au contenu et aux fonctionnalités de votre appareil, qu\'on appelle souvent « lanceur d\'applications »"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Définir <xliff:g id="APP_NAME">%1$s</xliff:g> comme application d\'accueil par défaut?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Aucune autorisation nécessaire"</string>
-    <string name="role_music_label" msgid="3964722099212202119">"Appli de musique par défaut"</string>
-    <string name="role_music_short_label" msgid="5119108052527581418">"Application de musique"</string>
-    <string name="role_music_description" msgid="6172106860153033272">"Applications qui vous permettent de faire jouer des chansons, des balados et d\'autres éléments audio"</string>
-    <string name="role_music_request_title" msgid="1674906751067278382">"Définir <xliff:g id="APP_NAME">%1$s</xliff:g> comme application de musique par défaut?"</string>
-    <string name="role_music_request_description" msgid="305266634384433670">"Obtient l\'accès à l\'audio"</string>
-    <string name="role_gallery_label" msgid="3622204908078352458">"Appli. de galerie par défaut"</string>
-    <string name="role_gallery_short_label" msgid="5079332588386074520">"Application de galerie"</string>
-    <string name="role_gallery_description" msgid="7747091950085504563">"Applications qui vous permettent d\'afficher, d\'organiser, de protéger et de partager vos photos et vos vidéos"</string>
-    <string name="role_gallery_request_title" msgid="8019201567844533028">"Définir <xliff:g id="APP_NAME">%1$s</xliff:g> comme application de galerie par défaut?"</string>
-    <string name="role_gallery_request_description" msgid="2946641507679528110">"Obtient l\'accès aux photos et aux vidéos"</string>
     <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Appli par déf. pour mode Voiture"</string>
     <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Appli tél. pour mode Voiture"</string>
     <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
@@ -289,12 +279,10 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> souhaite téléverser des données de débogage."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Partager les données de débogage"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"L\'application <xliff:g id="APP_NAME_0">%1$s</xliff:g> souhaite téléverser un rapport de bogue créé le <xliff:g id="DATE">%2$s</xliff:g> à <xliff:g id="TIME">%3$s</xliff:g> sur cet appareil. Les rapports de bogue contiennent des données personnelles relatives à votre appareil ou enregistrées par des applications, comme des noms d\'utilisateur, des données de localisation, des identifiants d\'appareils et des renseignements relatifs au réseau. Ne partagez les rapports de bogue qu\'avec des personnes et des applications que vous jugez fiables. Autoriser l\'application <xliff:g id="APP_NAME_1">%4$s</xliff:g> à téléverser un rapport de bogue?"</string>
-    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"Une erreur s\'est produite lors du traitement du rapport de bogue pour <xliff:g id="APP_NAME">%1$s</xliff:g>, alors le partage des données de débogage détaillées a été refusé. Nous sommes désolés de l\'interruption."</string>
+    <!-- no translation found for incident_report_error_dialog_text (1001752000696958519) -->
+    <skip />
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Autoriser"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Refuser"</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_title" msgid="5699953608028268176">"L\'autorisation ne peut pas être refusée. Désinstaller <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_content" msgid="6960592986228883592">"L\'application <xliff:g id="APP_NAME">%1$s</xliff:g> possède une autorisation de stockage héritée afin de garder vos anciennes données accessibles. Elle risque de cesser de fonctionner si l\'autorisation est refusée.\n\nPour continuer d\'utiliser l\'application, désinstallez-la, puis réinstallez-la. Il se peut que les données contenues dans cette application soient perdues."</string>
-    <string name="dismiss_with_acknowledgment" msgid="2879819713128822468">"OK"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Paramètres avancés"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Paramètres avancés"</string>
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Afficher l\'usage des applications système"</string>

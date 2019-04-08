@@ -230,16 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Các ứng dụng, thường gọi là trình chạy, thay thế Màn hình chính trên thiết bị Android và giúp bạn truy cập vào các nội dung cũng như tính năng của thiết bị"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Bạn muốn đặt <xliff:g id="APP_NAME">%1$s</xliff:g> làm ứng dụng mặc định trên màn hình chính?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Không cần quyền"</string>
-    <string name="role_music_label" msgid="3964722099212202119">"Ứng dụng nhạc mặc định"</string>
-    <string name="role_music_short_label" msgid="5119108052527581418">"Ứng dụng nhạc"</string>
-    <string name="role_music_description" msgid="6172106860153033272">"Các ứng dụng cho phép bạn phát bài hát, podcast và những âm thanh khác"</string>
-    <string name="role_music_request_title" msgid="1674906751067278382">"Bạn muốn đặt <xliff:g id="APP_NAME">%1$s</xliff:g> làm ứng dụng nhạc mặc định?"</string>
-    <string name="role_music_request_description" msgid="305266634384433670">"Có quyền truy cập vào âm thanh"</string>
-    <string name="role_gallery_label" msgid="3622204908078352458">"Ứng dụng thư viện mặc định"</string>
-    <string name="role_gallery_short_label" msgid="5079332588386074520">"Ứng dụng thư viện"</string>
-    <string name="role_gallery_description" msgid="7747091950085504563">"Các ứng dụng cho phép bạn xem, sắp xếp, bảo vệ và chia sẻ ảnh cũng như video của mình"</string>
-    <string name="role_gallery_request_title" msgid="8019201567844533028">"Bạn muốn đặt <xliff:g id="APP_NAME">%1$s</xliff:g> làm ứng dụng thư viện mặc định?"</string>
-    <string name="role_gallery_request_description" msgid="2946641507679528110">"Có quyền truy cập vào ảnh và video"</string>
     <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Ứng dụng điện thoại mặc định sử dụng cho chế độ ô tô"</string>
     <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Ứng dụng điện thoại sử dụng cho chế độ ô tô"</string>
     <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
@@ -289,12 +279,10 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> muốn tải thông tin gỡ lỗi lên."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Chia sẻ dữ liệu gỡ lỗi"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> đang yêu cầu tải lên từ thiết bị này một báo cáo lỗi được thực hiện vào <xliff:g id="DATE">%2$s</xliff:g> lúc <xliff:g id="TIME">%3$s</xliff:g>. Báo cáo lỗi bao gồm thông tin cá nhân về thiết bị của bạn hoặc do ứng dụng ghi nhật ký, ví dụ như tên người dùng, dữ liệu vị trí, giá trị nhận dạng thiết bị và thông tin mạng. Chỉ chia sẻ báo cáo lỗi với người và ứng dụng bạn tin cậy đối với thông tin này. Bạn muốn cho phép <xliff:g id="APP_NAME_1">%4$s</xliff:g> tải báo cáo lỗi lên?"</string>
-    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"Đã xảy ra lỗi khi xử lý báo cáo lỗi cho <xliff:g id="APP_NAME">%1$s</xliff:g>. Vì vậy, yêu cầu chia sẻ dữ liệu gỡ lỗi chi tiết đã bị từ chối. Rất tiếc vì sự gián đoạn này."</string>
+    <!-- no translation found for incident_report_error_dialog_text (1001752000696958519) -->
+    <skip />
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Cho phép"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Từ chối"</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_title" msgid="5699953608028268176">"Không thể từ chối quyền. Hãy gỡ cài đặt <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_content" msgid="6960592986228883592">"<xliff:g id="APP_NAME">%1$s</xliff:g> có quyền lưu trữ cũ để truy cập vào dữ liệu trước đây của bạn và có thể dừng hoạt động khi quyền này bị từ chối.\n\nĐể tiếp tục sử dụng, hãy gỡ cài đặt ứng dụng này rồi cài đặt lại. Dữ liệu trong ứng dụng này có thể bị mất."</string>
-    <string name="dismiss_with_acknowledgment" msgid="2879819713128822468">"Đã hiểu"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Cài đặt nâng cao"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Cài đặt nâng cao"</string>
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Hiển thị mức sử dụng của ứng dụng hệ thống"</string>

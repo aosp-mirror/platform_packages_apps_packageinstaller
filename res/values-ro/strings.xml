@@ -237,16 +237,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Aplicațiile, denumite adesea lansatoare, înlocuiesc Ecranele de pornire pe dispozitivul Android și vă oferă acces la conținutul și funcțiile dispozitivului"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Setați <xliff:g id="APP_NAME">%1$s</xliff:g> ca aplicație prestabilită din ecranul de pornire?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Nu este nevoie de permisiuni"</string>
-    <string name="role_music_label" msgid="3964722099212202119">"Aplicație prestabilită de muzică"</string>
-    <string name="role_music_short_label" msgid="5119108052527581418">"Aplicația Muzică"</string>
-    <string name="role_music_description" msgid="6172106860153033272">"Aplicații care vă ajută să redați melodii, podcasturi și alte fișiere audio"</string>
-    <string name="role_music_request_title" msgid="1674906751067278382">"Setați <xliff:g id="APP_NAME">%1$s</xliff:g> ca aplicație prestabilită pentru muzică?"</string>
-    <string name="role_music_request_description" msgid="305266634384433670">"Primește acces la fișiere audio"</string>
-    <string name="role_gallery_label" msgid="3622204908078352458">"Aplicație de galerie standard"</string>
-    <string name="role_gallery_short_label" msgid="5079332588386074520">"Aplicația Galerie"</string>
-    <string name="role_gallery_description" msgid="7747091950085504563">"Aplicații în care puteți să vizualizați, să organizați, să protejați și să distribuiți fotografii și videoclipuri"</string>
-    <string name="role_gallery_request_title" msgid="8019201567844533028">"Setați <xliff:g id="APP_NAME">%1$s</xliff:g> ca aplicație prestabilită pentru galerie?"</string>
-    <string name="role_gallery_request_description" msgid="2946641507679528110">"Beneficiați de acces la fotografii și videoclipuri"</string>
     <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Aplicația prestabilită pentru telefon în modul Mașină"</string>
     <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Aplicația pentru telefon în modul Mașină"</string>
     <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
@@ -296,12 +286,10 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> dorește să încarce informațiile despre remedierea erorilor."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Trimiteți datele despre remedierea erorilor"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> solicită încărcarea unui raport de erori de pe acest dispozitiv creat în data de <xliff:g id="DATE">%2$s</xliff:g> la <xliff:g id="TIME">%3$s</xliff:g>. Rapoartele de erori conțin informații cu caracter personal despre dispozitiv sau înregistrate de aplicații, de exemplu: nume de utilizator, date privind locațiile, identificatori ai dispozitivului și informații despre rețea. Trimiteți rapoarte de erori doar persoanelor și aplicațiilor de încredere. Permiteți <xliff:g id="APP_NAME_1">%4$s</xliff:g> să încarce un raport de erori?"</string>
-    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"A apărut o eroare la procesarea raportului de eroare pentru <xliff:g id="APP_NAME">%1$s</xliff:g>. Astfel, accesul la datele detaliate de remedierea erorilor a fost refuzat. Ne cerem scuze pentru întrerupere."</string>
+    <!-- no translation found for incident_report_error_dialog_text (1001752000696958519) -->
+    <skip />
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Permiteți"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Refuzați"</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_title" msgid="5699953608028268176">"Permisiunea nu poate fi refuzată. Dezinstalați <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_content" msgid="6960592986228883592">"<xliff:g id="APP_NAME">%1$s</xliff:g> are o permisiune veche pentru spațiul de stocare ca să păstreze accesibile datele anterioare și este posibil ca aplicația să nu mai funcționeze când permisiunea este refuzată.\n\nPentru a folosi în continuare aplicația, dezinstalați-o și apoi reinstalați-o. Este posibil ca datele din această aplicație să se piardă."</string>
-    <string name="dismiss_with_acknowledgment" msgid="2879819713128822468">"OK"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Setări avansate"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Setări avansate"</string>
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Afișați folosirea aplicației de sistem"</string>

@@ -244,16 +244,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Programos, dažnai vadinamos paleidimo priemonėmis, pakeičiančios pagrindinius ekranus „Android“ įrenginyje ir leidžiančios pasiekti įrenginio turinį bei funkcijas"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Nustatyti „<xliff:g id="APP_NAME">%1$s</xliff:g>“ kaip numatytąją namų programą?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Nereikia jokių leidimų"</string>
-    <string name="role_music_label" msgid="3964722099212202119">"Numatytoji muzikos programa"</string>
-    <string name="role_music_short_label" msgid="5119108052527581418">"Muzikos programa"</string>
-    <string name="role_music_description" msgid="6172106860153033272">"Programos, leidžiančios leisti dainas, tinklalaides ir kitus garso įrašus"</string>
-    <string name="role_music_request_title" msgid="1674906751067278382">"Nustatyti „<xliff:g id="APP_NAME">%1$s</xliff:g>“ kaip numatytąją muzikos programą?"</string>
-    <string name="role_music_request_description" msgid="305266634384433670">"Gali pasiekti garsą"</string>
-    <string name="role_gallery_label" msgid="3622204908078352458">"Numatytoji galerijos programa"</string>
-    <string name="role_gallery_short_label" msgid="5079332588386074520">"Galerijos programa"</string>
-    <string name="role_gallery_description" msgid="7747091950085504563">"Programos, leidžiančios peržiūrėti, tvarkyti, apsaugoti ir bendrinti nuotraukas bei vaizdo įrašus"</string>
-    <string name="role_gallery_request_title" msgid="8019201567844533028">"Nustatyti „<xliff:g id="APP_NAME">%1$s</xliff:g>“ kaip numatytąją galerijos programą?"</string>
-    <string name="role_gallery_request_description" msgid="2946641507679528110">"Gali pasiekti nuotraukas ir vaizdo įrašus"</string>
     <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Numat. autom. rež. tel. progr."</string>
     <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Automob. režimo tel. programa"</string>
     <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
@@ -303,12 +293,10 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"Programa „<xliff:g id="APP_NAME">%1$s</xliff:g>“ norėtų įkelti derinimo informaciją."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Derinimo duomenų bendrinimas"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"Programa „<xliff:g id="APP_NAME_0">%1$s</xliff:g>“ prašo iš šio įrenginio įkelti pranešimą apie riktą, užfiksuotą <xliff:g id="DATE">%2$s</xliff:g>, <xliff:g id="TIME">%3$s</xliff:g>. Į pranešimus apie riktus įtraukiama asmens informacija apie įrenginį arba programų į žurnalą įrašyta informacija, pavyzdžiui, naudotojų vardai, vietovių duomenys, įrenginių identifikatoriai ir tinklo informacija. Pranešimus apie riktus bendrinkite tik su tais žmonėmis ir programomis, kuriais pasitikite ir kuriems galite patikėti šią informaciją. Leisti programai „<xliff:g id="APP_NAME_1">%4$s</xliff:g>“ įkelti pranešimą apie riktą?"</string>
-    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"Apdorojant „<xliff:g id="APP_NAME">%1$s</xliff:g>“ pranešimą apie riktą įvyko klaida, todėl išsamių derinimo duomenų bendrinimas buvo atmestas. Atsiprašome už nepatogumus."</string>
+    <!-- no translation found for incident_report_error_dialog_text (1001752000696958519) -->
+    <skip />
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Leisti"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Atmesti"</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_title" msgid="5699953608028268176">"Leidimo negalima atmesti. Pašalinti „<xliff:g id="APP_NAME">%1$s</xliff:g>“."</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_content" msgid="6960592986228883592">"„<xliff:g id="APP_NAME">%1$s</xliff:g>“ suteiktas pasenęs saugyklos leidimas leisti pasiekti ankstesnius duomenis ir programa gali nebeveikti atmetus šį leidimą.\n\nJei norite toliau naudoti programą, pašalinkite ją ir vėl įdiekite. Galite prarasti šios programos duomenis"</string>
-    <string name="dismiss_with_acknowledgment" msgid="2879819713128822468">"Supratau"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Išplėstiniai nustatymai"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Išplėstiniai nustatymai"</string>
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Rodyti sistemos programų naudojimą"</string>

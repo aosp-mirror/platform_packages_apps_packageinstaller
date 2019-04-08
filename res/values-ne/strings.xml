@@ -147,13 +147,11 @@
     <string name="app_permission_header" msgid="228974007660007656">"यस अनुप्रयोगमाथि <xliff:g id="PERM">%1$s</xliff:g> पहुँच"</string>
     <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"<xliff:g id="APP">%1$s</xliff:g> ले <xliff:g id="TIME">%3$s</xliff:g> अघि तपाईंको <xliff:g id="PERM">%2$s</xliff:g> माथि पहुँच गर्‍यो"</string>
     <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"<xliff:g id="APP">%1$s</xliff:g> ले तपाईंको <xliff:g id="PERM">%2$s</xliff:g> माथि पहुँच गरेको छैन"</string>
-    <!-- no translation found for app_permission_footer_not_available (8880039652295478414) -->
-    <skip />
+    <string name="app_permission_footer_not_available" msgid="8880039652295478414">"पछिल्लो पटक पहुँच राखिएको डेटा यो अनुमतिका लागि हाल उपलब्ध छैन"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"<xliff:g id="APP">%1$s</xliff:g> का सबै अनुमतिहरू हेर्नुहोस्"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"यो अनुमति पाएका सबै अनुप्रयोगहरू हेर्नुहोस्"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"यो अनुमति पाएका अनुप्रयोगहरूले निम्न कार्य गर्न सक्छन् <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <!-- no translation found for permission_description_summary_activity_recognition (7914828358811635600) -->
-    <skip />
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"यो अनुमति भएका अनुप्रयोगहरूले तपाईंको हिँड्ने, साइकल चलाउने, गाडी चलाउने, पाइला गन्नेलगायत थप कुराहरूमाथि पहुँच राख्न सक्छन्"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"यो अनुमति पाएका अनुप्रयोगहरूले तपाईंको पात्रोमाथि पहुँच गर्न सक्छन्"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"यो अनुमतिसहितका अनुप्रयोगहरूले फोन कलको लग पढ्न र लेख्न सक्छन्"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"यो अनुमति पाएका अनुप्रयोगहरूले तस्बिर खिच्न र भिडियो रेकर्ड गर्न सक्छन्"</string>
@@ -163,8 +161,7 @@
     <string name="permission_description_summary_phone" msgid="3773977614654088578">"यो अनुमति पाएका अनुप्रयोगहरूले फोन कल गर्न र तिनको व्यवस्थापन गर्न सक्छन्"</string>
     <string name="permission_description_summary_sensors" msgid="6733606479604624853">"यो अनुमति भएका अनुप्रयोगहरूले तपाईंको शरीरका महत्त्वपूर्ण सङ्केतहरूलाई सेन्सर गर्नेसम्बन्धी डेटामाथि पहुँच राख्न सक्छन्"</string>
     <string name="permission_description_summary_sms" msgid="8850213022386508528">"यो अनुमति पाएका अनुप्रयोगहरूले SMS सन्देशहरू पठाउन र प्राप्त गर्न सक्छन्"</string>
-    <!-- no translation found for permission_description_summary_storage (2265909502600142621) -->
-    <skip />
+    <string name="permission_description_summary_storage" msgid="2265909502600142621">"यो अनुमति भएका अनुप्रयोगहरूले तपाईंको यन्त्रमा रहेका तस्बिर, मिडिया तथा फाइलमाथि पहुँच राख्न सक्छन्"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"पछिल्लो पटक पहुँच राखिएको समय: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"हाल अस्वीकार गरियो / पछिल्लो पटक पहुँच गरिएको: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"कहिल्यै पहुँच गरिएन"</string>
@@ -233,16 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"तपाईंको यन्त्रमा गृह स्क्रिन प्रतिस्थापित गर्ने र तपाईंलाई आफ्नो Android यन्त्रका सामग्री र सुविधाहरूमाथि पहुँच गर्न दिने प्रायः जसो लन्चर पनि भनिने अनुप्रयोगहरू"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"आफ्नो पूर्वनिर्धारित गृह अनुप्रयोगका रूपमा <xliff:g id="APP_NAME">%1$s</xliff:g> सेट गर्ने हो?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"कुनै पनि अनुमति आवश्यक छैन"</string>
-    <string name="role_music_label" msgid="3964722099212202119">"पूर्वनिर्धारित सङ्गीत अनुप्रयोग"</string>
-    <string name="role_music_short_label" msgid="5119108052527581418">"सङ्गीत अनुप्रयोग"</string>
-    <string name="role_music_description" msgid="6172106860153033272">"तपाईंलाई गीत, पोडकास्ट र अन्य अडियो बजाउन दिने अनुप्रयोगहरू"</string>
-    <string name="role_music_request_title" msgid="1674906751067278382">"आफ्नो पूर्वनिर्धारित सङ्गीत अनुप्रयोगका रूपमा <xliff:g id="APP_NAME">%1$s</xliff:g> सेट गर्ने हो?"</string>
-    <string name="role_music_request_description" msgid="305266634384433670">"यसले अडियोमाथि पहुँच गर्छ"</string>
-    <string name="role_gallery_label" msgid="3622204908078352458">"पूर्वनिर्धारित ग्यालेरी अनुप्रयोग"</string>
-    <string name="role_gallery_short_label" msgid="5079332588386074520">"ग्यालेरीसम्बन्धी अनुप्रयोग"</string>
-    <string name="role_gallery_description" msgid="7747091950085504563">"तपाईंलाई आफ्ना तस्बिर र भिडियोहरू हेर्न, सङ्गठित गर्न, सुरक्षित गर्न र आदान प्रदान गर्न दिने अनुप्रयोगहरू"</string>
-    <string name="role_gallery_request_title" msgid="8019201567844533028">"आफ्नो पूर्वनिर्धारित ग्यालेरी अनुप्रयोगका रूपमा <xliff:g id="APP_NAME">%1$s</xliff:g> सेट गर्ने हो?"</string>
-    <string name="role_gallery_request_description" msgid="2946641507679528110">"तस्बिर तथा भिडियोमाथि पहुँच राख्नुहोस्"</string>
     <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"कार मोड नामक पूर्वनिर्धारित फोन अनुप्रयोग"</string>
     <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"कार मोड नामक फोन अनुप्रयोग"</string>
     <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
@@ -275,8 +262,7 @@
     <string name="settings_button" msgid="4747434541214595321">"सेटिङहरू"</string>
     <string name="default_apps" msgid="8554530939151957828">"पूर्वनिर्धारित अनुप्रयोगहरू"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"कुनै पनि पूर्वनिर्धारित अनुप्रयोग छैन"</string>
-    <!-- no translation found for default_apps_more (3908067305593075127) -->
-    <skip />
+    <string name="default_apps_more" msgid="3908067305593075127">"थप पूर्वनिर्धारित अनुप्रयोगहरू"</string>
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"लिंकहरू खोल्दै"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"कार्यका लागि पूर्वनिर्धारित"</string>
     <string name="default_app_none" msgid="7671097769303174666">"कुनै पनि होइन"</string>
@@ -293,13 +279,10 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> डिबग प्रक्रियासम्बन्धी जानकारी अपलोड गर्न चाहन्छ।"</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"डिबग प्रक्रियासम्बन्धी डेटा आदान प्रदान गर्नुहोस्"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> ले <xliff:g id="DATE">%2$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g> मा यो यन्त्रबाट लिएको बगको रिपोर्ट अपलोड गर्ने अनुरोध गर्दै छ। बग रिपोर्टमा प्रयोगकर्ताका नाम, स्ठानसम्बन्धी डेटा, यन्त्रका पहिचानकर्ता र नेटवर्कसम्बन्धी जानकारी जस्ता तपाईंको यन्त्रको व्यक्तिगत जानकारी वा अनुप्रयोगले लग गरेको जानकारी समावेश छ। तपाईंलाई यो जानकारी दिँदा फरक पर्दैन जस्तो लाग्ने विश्वसनीय मान्छे वा अनुप्रयोगसँग मात्र बग रिपोर्टहरू आदान प्रदान गर्नुहोस्। <xliff:g id="APP_NAME_1">%4$s</xliff:g> लाई बग रिपोर्ट अपलोड गर्न दिने हो?"</string>
-    <!-- no translation found for incident_report_error_dialog_text (8397741071510309640) -->
+    <!-- no translation found for incident_report_error_dialog_text (1001752000696958519) -->
     <skip />
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"अनुमति दिनुहोस्"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"अनुमति नदिनुहोस्"</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_title" msgid="5699953608028268176">"अनुमति अस्वीकार गर्न सकिँदैन। <xliff:g id="APP_NAME">%1$s</xliff:g> को स्थापना रद्द गर्नुहोस्।"</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_content" msgid="6960592986228883592">"<xliff:g id="APP_NAME">%1$s</xliff:g> सँग तपाईंको अघिल्लो डेटालाई पहुँच गर्न सकिने बनाउने लिगेसी भण्डारण अनुमति छ र यो अनुमति दिन अस्वीकार गरिँदा उक्त अनुप्रयोगले काम गर्न छाड्छ।\n\n यो अनुप्रयोग प्रयोग गर्न सुरु गर्न यसको स्थापना रद्द गरी पुनः स्थापना गर्नुहोस्। तपाईंको यस अनुप्रयोगको डेटा हराउन सक्छ।"</string>
-    <string name="dismiss_with_acknowledgment" msgid="2879819713128822468">"बुझेँ"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"उन्नत सेटिङहरू"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"उन्नत सेटिङहरू"</string>
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"प्रणालीका अनुप्रयोगको प्रयोगसम्बन्धी जानकारी देखाउनुहोस्"</string>

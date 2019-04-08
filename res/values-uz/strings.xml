@@ -151,7 +151,7 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Barcha <xliff:g id="APP">%1$s</xliff:g> ruxsatlari"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Bu ruxsatga ega barcha ilovalar"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Bunday ruxsatga ega ilovalar bularni qila oladi: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Bunday ruxsatga ega ilovalar yurishingiz, velosiped haydashingiz, avtomobilni boshqarishingiz, qadamlaringiz soni kabi jismoniy faoliyatingiz axborotlariga ham kira oladi"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Bunday ruxsatga ega ilovalar piyoda yurish, velosiped haydash, avtomobil boshqarish, qadamlaringiz soni kabi jismoniy faoliyatingiz haqidagi axborotlarga ham kira oladi"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Bunday ruxsatga ega ilovalar taqvimingizdan foydala oladi"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Bunday ruxsatga ega ilovalar telefon chaqiruv jurnalini oʻqiy oladi va unga yoza oladi"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"Bunday ruxsatga ega ilovalar suratga tushira oladi va video yoza oladi"</string>
@@ -230,16 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Odatda launcherlar deb nomlanuvchi ilovalar Android qurilmangiz bosh ekranini almashtirib, qurilmangiz kontenti va funksiyalardan foydalanish imkonini beradi"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"<xliff:g id="APP_NAME">%1$s</xliff:g> asosiy uy ilovasi sifatida sozlansinmi?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Hech qanday ruxsat zarur emas"</string>
-    <string name="role_music_label" msgid="3964722099212202119">"Asosiy musiqa ilovasi"</string>
-    <string name="role_music_short_label" msgid="5119108052527581418">"Musiqa ilovasi"</string>
-    <string name="role_music_description" msgid="6172106860153033272">"Taronalar, podkastlar va boshqa audio ijro qilish ruxsatini beruvchi ilovalar"</string>
-    <string name="role_music_request_title" msgid="1674906751067278382">"<xliff:g id="APP_NAME">%1$s</xliff:g> asosiy musiqa ilovasi sifatida sozlansinmi?"</string>
-    <string name="role_music_request_description" msgid="305266634384433670">"Audiodan foydala oladi"</string>
-    <string name="role_gallery_label" msgid="3622204908078352458">"Asosiy galereya ilovasi"</string>
-    <string name="role_gallery_short_label" msgid="5079332588386074520">"Galereya ilovasi"</string>
-    <string name="role_gallery_description" msgid="7747091950085504563">"Surat va videolaringizni ochish, tartiblash, himoyalash va ulashish ruxsatini beruvchi ilovalar"</string>
-    <string name="role_gallery_request_title" msgid="8019201567844533028">"<xliff:g id="APP_NAME">%1$s</xliff:g> asosiy galereya ilovasi sifatida sozlansinmi?"</string>
-    <string name="role_gallery_request_description" msgid="2946641507679528110">"Surat va videolarga ruxsat beriladi"</string>
     <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Asosiy avtomobil rejimli telefon ilovasi"</string>
     <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Avtomobil rejimli telefon ilovasi"</string>
     <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
@@ -289,12 +279,10 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> ilovasi nosozliklarni aniqlash axborotini yuklamoqchi."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Nosozliklarni aniqlash axborotini ulashish"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> ilovasi bu qurilmadan <xliff:g id="DATE">%2$s</xliff:g> sanasida <xliff:g id="TIME">%3$s</xliff:g> da olingan xatoliklar hisobotini yuklashni talab etmoqda. Xatoliklar hisobotiga foydalanuvchi nomlari, joylashuv axboroti, qurilma identifikatorlari va tarmoq maʼlumotlari kabi qurilmangiz yoki qayd qilingan ilovalar haqida shaxsiy maʼlumotlar kiradi. Bunday maʼlumotlarni faqat ishonchli odamlar va ilovalarga yuboring. <xliff:g id="APP_NAME_1">%4$s</xliff:g> ilovasiga xatoliklar hisobotini yuklashga ruxsat berilsinmi?"</string>
-    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"<xliff:g id="APP_NAME">%1$s</xliff:g> uchun nosozlik axborotini yuborishda xatolik yuz berdi, shuning uchun batafsil nosozlik axborotini uzatish taqiqlandi. Nosozlik uchun uzr soʻraymiz."</string>
+    <!-- no translation found for incident_report_error_dialog_text (1001752000696958519) -->
+    <skip />
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Ruxsat"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Rad etish"</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_title" msgid="5699953608028268176">"Ruxsatni rad etish imkonsiz. <xliff:g id="APP_NAME">%1$s</xliff:g> ilovasini oʻchirib tashlang."</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_content" msgid="6960592986228883592">"<xliff:g id="APP_NAME">%1$s</xliff:g> ilovasi uchun avval maʼlumotlar uchun eski xotira ruxsat berilgan va bu ruxsat rad etilsa ilova ishlashdan toʻxtaydi.\n\nIlovadan foydalanishda davom etish uchun uni oʻchirib tashlab, qaytadan oʻrnating. Bu ilovadagi maʼlumotlaringiz oʻchib ketishi mumkin."</string>
-    <string name="dismiss_with_acknowledgment" msgid="2879819713128822468">"OK"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Kengaytirilgan sozlamalar"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Kengaytirilgan sozlamalar"</string>
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Tizim ilovasi ishlatilishini chiqarish"</string>

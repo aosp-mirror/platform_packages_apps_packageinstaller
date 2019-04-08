@@ -230,16 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Olyan alkalmazások (más néven indítók), amelyek felváltják az Android-eszköz kezdőképernyőit, és hozzáférést biztosítanak az eszköz tartalmaihoz és funkcióihoz"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Beállítja a(z) <xliff:g id="APP_NAME">%1$s</xliff:g> alkalmazást alapértelmezett kezdőalkalmazásként?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Nincs szükség engedélyre"</string>
-    <string name="role_music_label" msgid="3964722099212202119">"Alapértelmezett zenealkalmazás"</string>
-    <string name="role_music_short_label" msgid="5119108052527581418">"Zenealkalmazás"</string>
-    <string name="role_music_description" msgid="6172106860153033272">"Alkalmazások, amelyek lehetővé teszik zeneszámok, podcastok és más audiotartalmak lejátszását"</string>
-    <string name="role_music_request_title" msgid="1674906751067278382">"Beállítja a(z) <xliff:g id="APP_NAME">%1$s</xliff:g> alkalmazást alapértelmezett zenealkalmazásként?"</string>
-    <string name="role_music_request_description" msgid="305266634384433670">"Hozzáférést kap az audiotartalmakhoz"</string>
-    <string name="role_gallery_label" msgid="3622204908078352458">"Alapértelmezett galériaalkalmazás"</string>
-    <string name="role_gallery_short_label" msgid="5079332588386074520">"Galériaalkalmazás"</string>
-    <string name="role_gallery_description" msgid="7747091950085504563">"Alkalmazások, amelyek lehetővé teszik a fotók és a videók megtekintését, rendszerezését, védelmét és megosztását"</string>
-    <string name="role_gallery_request_title" msgid="8019201567844533028">"Beállítja a(z) <xliff:g id="APP_NAME">%1$s</xliff:g> alkalmazást alapértelmezett galériaalkalmazásként?"</string>
-    <string name="role_gallery_request_description" msgid="2946641507679528110">"Hozzáférést kap a fotókhoz és a videókhoz"</string>
     <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Alapértelmezett telefonalkalmazás autós módhoz"</string>
     <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Telefonalkalmazás autós módhoz"</string>
     <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
@@ -289,12 +279,10 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"A(z) <xliff:g id="APP_NAME">%1$s</xliff:g> hibakeresési adatokat szeretne feltölteni."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Hibakeresési adatok megosztása"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"A(z) <xliff:g id="APP_NAME_0">%1$s</xliff:g> hibajelentést szeretne feltölteni az eszközről (a jelentés létrehozásának időpontja: <xliff:g id="DATE">%2$s</xliff:g>, <xliff:g id="TIME">%3$s</xliff:g>). A hibajelentések eszközre vonatkozó vagy alkalmazások által rögzített személyes adatokat tartalmazhatnak, például felhasználóneveket, helyadatokat, eszközazonosítókat és hálózati adatokat. Csak megbízható személyekkel és alkalmazásokkal osszon meg hibajelentéseket. Engedélyezi, hogy a(z) <xliff:g id="APP_NAME_1">%4$s</xliff:g> hibajelentést töltsön fel?"</string>
-    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"Hiba történt a(z) <xliff:g id="APP_NAME">%1$s</xliff:g> alkalmazás hibajelentésének feldolgozásakor, ezért a rendszer megtagadta a részletes hibaelhárítási adatok megosztását. Elnézést a megszakításért."</string>
+    <!-- no translation found for incident_report_error_dialog_text (1001752000696958519) -->
+    <skip />
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Engedélyezés"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Elutasítás"</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_title" msgid="5699953608028268176">"Az engedélyt nem lehet megtagadni. <xliff:g id="APP_NAME">%1$s</xliff:g> eltávolítása."</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_content" msgid="6960592986228883592">"A(z) <xliff:g id="APP_NAME">%1$s</xliff:g> régi tárhelyengedéllyel rendelkezik a korábbi adatok hozzáférhetőségének megőrzése érdekében, és ha Ön megtagadja ezt az engedélyt, akkor előfordulhat, hogy az alkalmazás nem fog működni.\n\nA használat folytatásához távolítsa el, majd telepítse újra az alkalmazást. Az alkalmazásban tárolt adatai elveszhetnek."</string>
-    <string name="dismiss_with_acknowledgment" msgid="2879819713128822468">"Értem"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Speciális beállítások"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Speciális beállítások"</string>
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Rendszeralkalmazás-használat megjelenítése"</string>

@@ -244,16 +244,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Додатки (так звані панелі запуску), які заміняють головний екран і дають користувачу доступ до вмісту та функцій пристрою Android"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Чи має <xliff:g id="APP_NAME">%1$s</xliff:g> використовуватись як додаток головного екрана за умовчанням?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Дозволи не потрібні"</string>
-    <string name="role_music_label" msgid="3964722099212202119">"Додаток для музики за умовчанням"</string>
-    <string name="role_music_short_label" msgid="5119108052527581418">"Додаток для музики"</string>
-    <string name="role_music_description" msgid="6172106860153033272">"Додатки, у яких можна відтворювати пісні, подкасти та інше аудіо"</string>
-    <string name="role_music_request_title" msgid="1674906751067278382">"Чи має <xliff:g id="APP_NAME">%1$s</xliff:g> використовуватись як додаток для музики за умовчанням?"</string>
-    <string name="role_music_request_description" msgid="305266634384433670">"Отримує доступ до аудіо"</string>
-    <string name="role_gallery_label" msgid="3622204908078352458">"Додаток галереї за умовчанням"</string>
-    <string name="role_gallery_short_label" msgid="5079332588386074520">"Додаток галереї"</string>
-    <string name="role_gallery_description" msgid="7747091950085504563">"Додатки, у яких можна переглядати, упорядковувати й захищати фотографії й відео та ділитися ними"</string>
-    <string name="role_gallery_request_title" msgid="8019201567844533028">"Чи має <xliff:g id="APP_NAME">%1$s</xliff:g> використовуватись як додаток галереї за умовчанням?"</string>
-    <string name="role_gallery_request_description" msgid="2946641507679528110">"Отримує доступ до фотографій і відео"</string>
     <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Додаток для викликів у режимі автомобіля за умовчанням"</string>
     <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Додаток для викликів у режимі автомобіля"</string>
     <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
@@ -303,17 +293,15 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"Додаток <xliff:g id="APP_NAME">%1$s</xliff:g> хоче завантажити інформацію про налагодження."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Поділитися даними про налагодження"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"Додаток <xliff:g id="APP_NAME_0">%1$s</xliff:g> запитує, чи можна завантажити повідомлення про помилку, створене на цьому пристрої <xliff:g id="TIME">%3$s</xliff:g> <xliff:g id="DATE">%2$s</xliff:g>. Повідомлення про помилки містять особисту інформацію про ваш пристрій або відомості, записані додатками, як-от імена користувачів, місцеположення, ідентифікатори пристроїв та інформацію про мережу. Діліться повідомленнями про помилки лише з тими людьми й додатками, яким довіряєте. Дозволити додатку <xliff:g id="APP_NAME_1">%4$s</xliff:g> завантажити повідомлення про помилку?"</string>
-    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"Не вдалося обробити повідомлення про помилку в додатку <xliff:g id="APP_NAME">%1$s</xliff:g>. Дані про налагодження не надіслано. Вибачте за незручності."</string>
+    <!-- no translation found for incident_report_error_dialog_text (1001752000696958519) -->
+    <skip />
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Дозволити"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Відмовити"</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_title" msgid="5699953608028268176">"Не вдається скасувати дозвіл. Видаліть <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_content" msgid="6960592986228883592">"Щоб зберігати ваші дані, додаток <xliff:g id="APP_NAME">%1$s</xliff:g> використовує застарілий дозвіл на доступ до пам’яті. Якщо цей дозвіл скасувати, додаток може перестати працювати.\n\nЩоб продовжити користуватися додатком, видаліть і перевстановіть його. Дані додатка може бути втрачено."</string>
-    <string name="dismiss_with_acknowledgment" msgid="2879819713128822468">"ОК"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Розширені налаштування"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Розширені налаштування"</string>
-    <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Показувати дані про використання системних додатків"</string>
-    <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"Показувати дані про використанні дозволів системними додатками в рядку стану, на інформаційній панелі тощо"</string>
-    <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Показувати наведені нижче дані"</string>
-    <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Показувати дані про визначення активатора Асистента"</string>
-    <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Показувати значок у рядку стану, коли голосовий помічник активується через мікрофон"</string>
+    <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Показувати дані про використання для системних додатків"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"Показувати дані про використання дозволів системними додатками в рядку стану, на інформаційній панелі тощо"</string>
+    <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Показувати дані про використання для цих додатків"</string>
+    <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Показувати значок очікування активатора Асистента"</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Показувати значок у рядку стану, коли мікрофон працює в режимі очікування активатора голосового помічника"</string>
 </resources>
