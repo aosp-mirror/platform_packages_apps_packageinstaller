@@ -147,13 +147,11 @@
     <string name="app_permission_header" msgid="228974007660007656">"Qasja te <xliff:g id="PERM">%1$s</xliff:g> për këtë aplikacion"</string>
     <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"<xliff:g id="APP">%1$s</xliff:g> pati qasje te <xliff:g id="PERM">%2$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g> më parë"</string>
     <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"<xliff:g id="APP">%1$s</xliff:g> nuk ka pasur qasje te <xliff:g id="PERM">%2$s</xliff:g>"</string>
-    <!-- no translation found for app_permission_footer_not_available (8880039652295478414) -->
-    <skip />
+    <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Të dhënat e qasjes së fundit nuk ofrohen aktualisht për këtë leje"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Shiko të gjitha autorizimet e <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Shiko të gjitha aplikacionet me këtë autorizim"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Aplikacionet me këtë autorizim mund <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <!-- no translation found for permission_description_summary_activity_recognition (7914828358811635600) -->
-    <skip />
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Aplikacionet me këtë leje mund të kenë qasje tek aktiviteti yt fizik, si ecja në këmbë, me biçikletë, me makinë, numërimi i hapave etj."</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Aplikacionet me këtë autorizim mund të kenë qasje te kalendari yt"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Aplikacionet me këtë autorizim mund të lexojnë dhe të shkruajnë në evidencën e telefonatave të telefonit"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"Aplikacionet me këtë autorizim mund të nxjerrin fotografi dhe të regjistrojnë video"</string>
@@ -163,8 +161,7 @@
     <string name="permission_description_summary_phone" msgid="3773977614654088578">"Aplikacionet me këtë autorizim mund të bëjnë dhe të menaxhojnë telefonatat"</string>
     <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Aplikacionet me këtë autorizim mund të kenë qasje te të dhënat e sensorëve për shenjat e tua jetësore"</string>
     <string name="permission_description_summary_sms" msgid="8850213022386508528">"Aplikacionet me këtë autorizim mund të dërgojnë dhe të shikojnë mesazhet SMS"</string>
-    <!-- no translation found for permission_description_summary_storage (2265909502600142621) -->
-    <skip />
+    <string name="permission_description_summary_storage" msgid="2265909502600142621">"Aplikacionet me këtë leje mund të kenë qasje te fotografitë, media dhe skedarët në pajisjen tënde"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Qasja e fundit: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Refuzuar aktualisht / qasja e fundit: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Nuk ka asnjë qasje"</string>
@@ -233,16 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Aplikacionet, të quajtura shpesh nisësit, që zëvendësojnë ekranet bazë në pajisjen tënde Android dhe që të japin qasje te përmbajtjet dhe funksionet e pajisjes sate"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Dëshiron ta caktosh <xliff:g id="APP_NAME">%1$s</xliff:g> si aplikacionin e parazgjedhur për ekranin bazë?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Nuk ka nevojë për asnjë autorizim"</string>
-    <string name="role_music_label" msgid="3964722099212202119">"Aplikacioni i parazgjedhur i muzikës"</string>
-    <string name="role_music_short_label" msgid="5119108052527581418">"Aplikacioni i muzikës"</string>
-    <string name="role_music_description" msgid="6172106860153033272">"Aplikacionet që të lejojnë të luash këngë, podkaste dhe audio të tjera"</string>
-    <string name="role_music_request_title" msgid="1674906751067278382">"Dëshiron të caktosh <xliff:g id="APP_NAME">%1$s</xliff:g> si aplikacionin e parazgjedhur të muzikës?"</string>
-    <string name="role_music_request_description" msgid="305266634384433670">"Merr qasjen tek audioja"</string>
-    <string name="role_gallery_label" msgid="3622204908078352458">"Aplikacioni i parazgjedhur i galerisë"</string>
-    <string name="role_gallery_short_label" msgid="5079332588386074520">"Aplikacioni i galerisë"</string>
-    <string name="role_gallery_description" msgid="7747091950085504563">"Aplikacionet që të lejojnë të shikosh, të organizosh, të mbrosh dhe të ndash fotografitë dhe videot e tua"</string>
-    <string name="role_gallery_request_title" msgid="8019201567844533028">"Dëshiron ta caktosh <xliff:g id="APP_NAME">%1$s</xliff:g> si aplikacionin e parazgjedhur të galerisë?"</string>
-    <string name="role_gallery_request_description" msgid="2946641507679528110">"Merr qasje te fotografitë dhe videot"</string>
     <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Aplikacioni i parazgjedhur për modalitetin \"në makinë\""</string>
     <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Aplikacioni i modalitetit \"në makinë\""</string>
     <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
@@ -275,8 +262,7 @@
     <string name="settings_button" msgid="4747434541214595321">"Cilësimet"</string>
     <string name="default_apps" msgid="8554530939151957828">"Aplikacionet e parazgjedhura"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Asnjë aplikacion i parazgjedhur"</string>
-    <!-- no translation found for default_apps_more (3908067305593075127) -->
-    <skip />
+    <string name="default_apps_more" msgid="3908067305593075127">"Parazgjedhje të tjera"</string>
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Lidhjet po hapen"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Të parazgjedhura për punën"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Asnjë"</string>
@@ -293,13 +279,10 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> dëshiron të ngarkojë informacionin e korrigjimit."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Ndaj të dhënat e korrigjimit"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> kërkon të ngarkojë një raport të defekteve në kod nga kjo pajisje të regjistruar më <xliff:g id="DATE">%2$s</xliff:g> në <xliff:g id="TIME">%3$s</xliff:g>. Raportet e defekteve në kod përfshijnë informacione personale rreth pajisjes sate ose të regjistruara nga aplikacionet, për shembull emrat e përdoruesve, të dhënat e vendndodhjes, identifikuesit e pajisjeve, si dhe informacione të rrjetit. Ndaji raportet e defekteve në kod vetëm me personat dhe aplikacionet që i beson me këtë informacion. Të lejohet <xliff:g id="APP_NAME_1">%4$s</xliff:g> të ngarkojë një raport të defekteve në kod?"</string>
-    <!-- no translation found for incident_report_error_dialog_text (8397741071510309640) -->
+    <!-- no translation found for incident_report_error_dialog_text (1001752000696958519) -->
     <skip />
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Lejo"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Refuzo"</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_title" msgid="5699953608028268176">"Leja nuk mund të refuzohet. Çinstalo <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_content" msgid="6960592986228883592">"<xliff:g id="APP_NAME">%1$s</xliff:g> ka autorizime të trashëguara të hapësirës ruajtëse për të ruajtur qasjen për të dhënat e tua të mëparshme dhe aplikacioni mund të ndalojë së funksionuari kur refuzohet ky autorizim.\n\nPër të vazhduar ta përdorësh aplikacionin, çinstaloje dhe më pas instaloje atë përsëri. Të dhënat e tua në këtë aplikacion mund të humbasin."</string>
-    <string name="dismiss_with_acknowledgment" msgid="2879819713128822468">"E kuptova"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Cilësimet e përparuara"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Cilësimet e përparuara"</string>
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Shfaq përdorimin e aplikacioneve të sistemit"</string>

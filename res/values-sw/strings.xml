@@ -230,16 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Programu, zinazoitwa vifungua programu, vinavyowakilisha skrini yako ya kwanza kwenye kifaa chako cha Android na kukupa uwezo wa kufikia maudhui na vipengele vya kifaa chako"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Je, ungependa kuweka <xliff:g id="APP_NAME">%1$s</xliff:g> iwe programu yako chaguomsingi ya ukurasa wa kwanza?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Hakuna ruhusa zinazohitajika"</string>
-    <string name="role_music_label" msgid="3964722099212202119">"Programu chaguomsingi ya muziki"</string>
-    <string name="role_music_short_label" msgid="5119108052527581418">"Programu ya muziki"</string>
-    <string name="role_music_description" msgid="6172106860153033272">"Programu zinazokuruhusu ucheze nyimbo, podcast na sauti nyingine"</string>
-    <string name="role_music_request_title" msgid="1674906751067278382">"Je, ungependa kuweka <xliff:g id="APP_NAME">%1$s</xliff:g> iwe programu yako chaguomsingi ya muziki?"</string>
-    <string name="role_music_request_description" msgid="305266634384433670">"Hupata uwezo wa kufikia sauti"</string>
-    <string name="role_gallery_label" msgid="3622204908078352458">"Programu chaguomsingi ya matunzio"</string>
-    <string name="role_gallery_short_label" msgid="5079332588386074520">"Programu ya matunzio"</string>
-    <string name="role_gallery_description" msgid="7747091950085504563">"Programu zinazokuruhusu kuona, kupanga, kulinda na kushiriki picha na video zako"</string>
-    <string name="role_gallery_request_title" msgid="8019201567844533028">"Je, ungependa kuweka <xliff:g id="APP_NAME">%1$s</xliff:g> iwe programu yako chaguomsingi ya picha?"</string>
-    <string name="role_gallery_request_description" msgid="2946641507679528110">"Hupata uwezo wa kufikia picha na video"</string>
     <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Programu chaguomsingi ya simu ya hali ya gari"</string>
     <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Programu ya simu ya hali ya gari"</string>
     <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
@@ -289,12 +279,10 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> inataka kupakia maelezo ya utatuzi."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Shiriki Data ya Utatuzi"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> inaomba kupakua ripoti ya hitilafu kutoka kifaa hiki, iliyochakatwa tarehe <xliff:g id="DATE">%2$s</xliff:g> saa <xliff:g id="TIME">%3$s</xliff:g>. Ripoti za hitilafu hujumuisha taarifa binafsi kuhusu kifaa chako au iliyohifadhiwa na programu, kwa mfano, majina ya watumiaji, data ya mahali, vitambulishi vya vifaa na maelezo ya mtandao. Shiriki tu ripoti za hitilafu na watu au programu unazoamini kupokea maelezo haya. Ungependa kuruhusu <xliff:g id="APP_NAME_1">%4$s</xliff:g> ipakie ripoti ya hitilafu?"</string>
-    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"Hitilafu imetokea wakati wa kuchakata ripoti ya hitilafu ya <xliff:g id="APP_NAME">%1$s</xliff:g>. Kwa hivyo, kushiriki data ya maelezo ya kina ya utatuzi kumekataliwa. Samahani kwa usumbufu."</string>
+    <!-- no translation found for incident_report_error_dialog_text (1001752000696958519) -->
+    <skip />
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Ruhusu"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Kataa"</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_title" msgid="5699953608028268176">"Ruhusa haiwezi kukataliwa. Ondoa <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_content" msgid="6960592986228883592">"<xliff:g id="APP_NAME">%1$s</xliff:g> ina ruhusa ya nafasi ya hifadhi ili kuiweka data yako ya awali iweze kufikiwa, na programu yenyewe inaweza kuacha kufanya kazi ikikataliwa ruhusa hii.\n\nIli uendelee kutumia programu hii, iondoe na uisakinishe upya. Data yako kwenye programu hii inaweza kupotea."</string>
-    <string name="dismiss_with_acknowledgment" msgid="2879819713128822468">"Nimeelewa"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Mipangilio ya kina"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Mipangilio ya kina"</string>
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Onyesha matumizi ya programu za mfumo"</string>

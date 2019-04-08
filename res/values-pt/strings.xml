@@ -230,16 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Apps, geralmente chamados de acesso rápido, que substituem as telas iniciais do dispositivo Android e concedem acesso a conteúdos e recursos do seu dispositivo"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Definir <xliff:g id="APP_NAME">%1$s</xliff:g> como seu app de início padrão?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Nenhuma permissão necessária"</string>
-    <string name="role_music_label" msgid="3964722099212202119">"App padrão de música"</string>
-    <string name="role_music_short_label" msgid="5119108052527581418">"App de música"</string>
-    <string name="role_music_description" msgid="6172106860153033272">"Apps que permitem ouvir músicas, podcasts e outros tipos de áudio"</string>
-    <string name="role_music_request_title" msgid="1674906751067278382">"Definir <xliff:g id="APP_NAME">%1$s</xliff:g> como seu app padrão de música?"</string>
-    <string name="role_music_request_description" msgid="305266634384433670">"Recebe acesso ao áudio"</string>
-    <string name="role_gallery_label" msgid="3622204908078352458">"App padrão de galeria"</string>
-    <string name="role_gallery_short_label" msgid="5079332588386074520">"App de galeria"</string>
-    <string name="role_gallery_description" msgid="7747091950085504563">"Apps que permitem ver, organizar, proteger e compartilhar fotos e vídeos"</string>
-    <string name="role_gallery_request_title" msgid="8019201567844533028">"Definir <xliff:g id="APP_NAME">%1$s</xliff:g> como app padrão de galeria?"</string>
-    <string name="role_gallery_request_description" msgid="2946641507679528110">"Recebe acesso a fotos e vídeos"</string>
     <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"App tel. padrão modo carro"</string>
     <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"App de telefone no modo carro"</string>
     <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
@@ -289,12 +279,10 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"Solicitação do <xliff:g id="APP_NAME">%1$s</xliff:g> para upload de informações de depuração."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Compartilhar dados de depuração"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"Há uma solicitação do <xliff:g id="APP_NAME_0">%1$s</xliff:g> para upload de um relatório de bug criado neste dispositivo no dia <xliff:g id="DATE">%2$s</xliff:g>, <xliff:g id="TIME">%3$s</xliff:g>. Os relatórios de bug incluem informações pessoais do seu dispositivo ou registradas por apps, como nomes de usuário, dados de local, identificadores do dispositivo e informações de rede. Compartilhe relatórios de bugs apenas com pessoas e apps em que você confie para ter acesso a essas informações. Permitir que o <xliff:g id="APP_NAME_1">%4$s</xliff:g> faça upload do relatório de bug?"</string>
-    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"Ocorreu um erro ao processar o relatório do bug do app <xliff:g id="APP_NAME">%1$s</xliff:g>. Por isso, o compartilhamento dos dados detalhados de depuração foi negado. Lamentamos a interrupção."</string>
+    <!-- no translation found for incident_report_error_dialog_text (1001752000696958519) -->
+    <skip />
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Permitir"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Negar"</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_title" msgid="5699953608028268176">"A permissão não pode ser negada. Desinstale o <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_content" msgid="6960592986228883592">"O <xliff:g id="APP_NAME">%1$s</xliff:g> tem permissão de armazenamento legada para manter dados anteriores acessíveis, e o app poderá deixar de funcionar quando essa permissão for negada.\n\nPara continuar usando o app, desinstale-o e reinstale-o novamente. Seus dados nesse app podem ser perdidos."</string>
-    <string name="dismiss_with_acknowledgment" msgid="2879819713128822468">"Ok"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Configurações avançadas"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Configurações avançadas"</string>
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Mostrar uso de apps do sistema"</string>

@@ -230,16 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Izinhlelo zokusebenza, ezivamise ukubizwa ngeziqalisi, ezingena esikhundleni sezikrini zasekhaya kudivayisi yakho ye-Android nezikunikeza ukufinyelela kokuqukethwe nezici zedivayisi yakho"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Setha i-<xliff:g id="APP_NAME">%1$s</xliff:g> njengohlelo lokusebenza lwasekhaya oluzenzakalelayo?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Azikho izimvume ezidingwayo"</string>
-    <string name="role_music_label" msgid="3964722099212202119">"Uhlelo lokusebenza lomculo oluzenzakalelayo"</string>
-    <string name="role_music_short_label" msgid="5119108052527581418">"Uhlelo lokusebenza lomculo"</string>
-    <string name="role_music_description" msgid="6172106860153033272">"Izinhlelo zokusebenza ezikuvumela ukuthi udlale izingoma, ama-podcast, nomunye umsindo"</string>
-    <string name="role_music_request_title" msgid="1674906751067278382">"Setha i-<xliff:g id="APP_NAME">%1$s</xliff:g> njengohlelo lwakho lokusebenza oluzenzakalelayo lomculo?"</string>
-    <string name="role_music_request_description" msgid="305266634384433670">"Ithola ukufinyelela kumsindo"</string>
-    <string name="role_gallery_label" msgid="3622204908078352458">"Uhlelo lokusebenza lwegalari oluzenzakalelayo"</string>
-    <string name="role_gallery_short_label" msgid="5079332588386074520">"Uhlelo lokusebenza lwegalari"</string>
-    <string name="role_gallery_description" msgid="7747091950085504563">"Izinhlelo zokusebenza ezikuvumela ukuthi ubuke, uhlele, uvikele, uphinde wabelane ngezithombe namavidiyo"</string>
-    <string name="role_gallery_request_title" msgid="8019201567844533028">"Setha i-<xliff:g id="APP_NAME">%1$s</xliff:g> njengohlelo lwakho lokusebenza legalari elizenzakalelayo?"</string>
-    <string name="role_gallery_request_description" msgid="2946641507679528110">"Ithola ukufinyelela kuzithombe namavidiyo"</string>
     <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Uhlelo lokusebenza lwefoni oluzenzakalelayo lwemodi yemoto"</string>
     <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Uhlelo lokusebenza lwefoni lwemodi yemoto"</string>
     <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
@@ -289,12 +279,10 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"I-<xliff:g id="APP_NAME">%1$s</xliff:g> ingathanda ukulayisha ulwazi lokususa iphutha."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Yabelana ngedatha yokususa iphutha"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"I-<xliff:g id="APP_NAME_0">%1$s</xliff:g> icela ukulayisha umbiko wesiphazamisi kusukela kule divayisi othathwe ngomhla ka-<xliff:g id="DATE">%2$s</xliff:g> ngo-<xliff:g id="TIME">%3$s</xliff:g>. Imibiko yesiphazamisi ifaka ulwazi lomuntu siqu olumayelana nedivayisi yakho noma olufakwe ngezinhlelo zokusebenza, isibonelo, amagama abasebenzisi, idatha yendawo, izikhombi zedivayisi, nolwazi lwedivayisi. Yabelana kuphela ngemibiko yesiphazamisi nabantu nezinhlelo zokusebenza ozithembayo ngalolu lwazi. Vumela i-<xliff:g id="APP_NAME_1">%4$s</xliff:g> ukuthi ilayishe umbiko wesiphazamisi?"</string>
-    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"Kube nephutha ukucubungula umbiko wesiphazamisi we-<xliff:g id="APP_NAME">%1$s</xliff:g>. Ngakho-ke ukwabelana ngedatha yokususa isiphazamiso inqatshiwe. Uxolo ngokuphazamisa."</string>
+    <!-- no translation found for incident_report_error_dialog_text (1001752000696958519) -->
+    <skip />
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Vumela"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Phika"</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_title" msgid="5699953608028268176">"Imvume ayikwazi ukunqatshelwa. Khipha i-<xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_content" msgid="6960592986228883592">"I-<xliff:g id="APP_NAME">%1$s</xliff:g> inemvume yesitoreji se-legacy yokugcina idatha yakho yangaphambilini ifinyeleleka, futhi uhlelo lokusebenza lungayeka ukusebenza uma le mvume inqatshelwa.\n\nUkuze uqhubeke usebenzise uhlelo lokusebenza, lukhiphe uphinde ulifake futhi. Idatha yakho kulolu hlelo lokusebenza ingalahleka."</string>
-    <string name="dismiss_with_acknowledgment" msgid="2879819713128822468">"Ngiyezwa"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Izilungiselelo ezithuthukisiwe"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Izilungiselelo ezithuthukisiwe"</string>
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Bonisa ukusetshenziswa kohlelo lokusebenza lesistimu"</string>

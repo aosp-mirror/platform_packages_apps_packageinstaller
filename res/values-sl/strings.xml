@@ -244,16 +244,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Aplikacije, pogosto imenovane zaganjalniki, ki zamenjajo začetne zaslone v napravi Android in vam omogočijo dostop do vsebine in funkcij naprave"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Želite aplikacijo <xliff:g id="APP_NAME">%1$s</xliff:g> nastaviti kot privzeto aplikacijo začetnega zaslona?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Nobeno dovoljenje ni potrebno"</string>
-    <string name="role_music_label" msgid="3964722099212202119">"Privzeta aplikacija za glasbo"</string>
-    <string name="role_music_short_label" msgid="5119108052527581418">"Aplikacija za glasbo"</string>
-    <string name="role_music_description" msgid="6172106860153033272">"Aplikacije, ki vam omogočajo predvajanje skladb, podkastov in drugih zvočnih datotek"</string>
-    <string name="role_music_request_title" msgid="1674906751067278382">"Želite aplikacijo <xliff:g id="APP_NAME">%1$s</xliff:g> nastaviti kot privzeto aplikacijo za glasbo?"</string>
-    <string name="role_music_request_description" msgid="305266634384433670">"Dobi dostop do zvoka"</string>
-    <string name="role_gallery_label" msgid="3622204908078352458">"Privzeta aplikacija galerije"</string>
-    <string name="role_gallery_short_label" msgid="5079332588386074520">"Aplikacija Galerija"</string>
-    <string name="role_gallery_description" msgid="7747091950085504563">"Aplikacije, ki vam omogočajo ogled, organiziranje, zaščito ter skupno rabo fotografij in videoposnetkov"</string>
-    <string name="role_gallery_request_title" msgid="8019201567844533028">"Želite aplikacijo <xliff:g id="APP_NAME">%1$s</xliff:g> nastaviti kot privzeto aplikacijo za galerijo?"</string>
-    <string name="role_gallery_request_description" msgid="2946641507679528110">"Dobi dostop do fotografij in videoposnetkov"</string>
     <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Privz. aplik. za klicanje v načinu za avto"</string>
     <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Apl. za klic. v načinu za avto"</string>
     <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
@@ -303,12 +293,10 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"Aplikacija <xliff:g id="APP_NAME">%1$s</xliff:g> želi naložiti podatke za odpravljanje napak."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Pošiljanje podatkov za odpravljanje napak"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"Aplikacija <xliff:g id="APP_NAME_0">%1$s</xliff:g> želi iz te naprave naložiti poročilo o napakah, pripravljeno dne <xliff:g id="DATE">%2$s</xliff:g> ob <xliff:g id="TIME">%3$s</xliff:g>. Poročila o napakah vključujejo osebne podatke o vaši napravi ali osebne podatke, ki so jih zabeležile aplikacije, na primer uporabniška imena, lokacijske podatke, identifikatorje naprave in podatke o omrežju. Poročila o napakah delite samo z osebami in aplikacijami, ki jim te podatke lahko zaupate. Ali aplikaciji <xliff:g id="APP_NAME_1">%4$s</xliff:g> dovolite, da naloži poročilo o napakah?"</string>
-    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"Pri obdelavi poročila o napakah za aplikacijo <xliff:g id="APP_NAME">%1$s</xliff:g> je prišlo do napake, zato je bilo deljenje podrobnih podatkov za odpravljanje napak zavrnjeno. Oprostite zaradi prekinitve."</string>
+    <!-- no translation found for incident_report_error_dialog_text (1001752000696958519) -->
+    <skip />
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Dovoli"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Zavrni"</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_title" msgid="5699953608028268176">"Dovoljenja ni mogoče zavrniti. Odmestite aplikacijo <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_content" msgid="6960592986228883592">"Aplikacija <xliff:g id="APP_NAME">%1$s</xliff:g> ima starejšo različico dovoljenja za shranjevanje, da bi prejšnji podatki ostali dostopni. Če to dovoljenje zavrnete, bo aplikacija morda ne bo več delovala.\n\nČe želite še naprej uporabljati aplikacijo, jo odmestite in znova namestitev. Podatke v tej aplikaciji aplikacije boste morda izgubili."</string>
-    <string name="dismiss_with_acknowledgment" msgid="2879819713128822468">"Razumem"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Dodatne nastavitve"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Dodatne nastavitve"</string>
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Prikaz uporabe sistemskih aplikacij"</string>

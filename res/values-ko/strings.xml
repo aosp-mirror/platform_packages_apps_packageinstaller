@@ -230,16 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Android 기기의 홈 화면을 대체하고 기기의 콘텐츠 및 기능에 액세스할 권한을 제공하는 앱(런처라고도 함)"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"<xliff:g id="APP_NAME">%1$s</xliff:g> 앱을 기본 홈 앱으로 설정하시겠습니까?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"필요한 권한 없음"</string>
-    <string name="role_music_label" msgid="3964722099212202119">"기본 음악 앱"</string>
-    <string name="role_music_short_label" msgid="5119108052527581418">"음악 앱"</string>
-    <string name="role_music_description" msgid="6172106860153033272">"노래, 팟캐스트 및 기타 오디오를 재생할 수 있게 해 주는 앱"</string>
-    <string name="role_music_request_title" msgid="1674906751067278382">"<xliff:g id="APP_NAME">%1$s</xliff:g> 앱을 기본 음악 앱으로 설정하시겠습니까?"</string>
-    <string name="role_music_request_description" msgid="305266634384433670">"오디오에 액세스"</string>
-    <string name="role_gallery_label" msgid="3622204908078352458">"기본 갤러리 앱"</string>
-    <string name="role_gallery_short_label" msgid="5079332588386074520">"갤러리 앱"</string>
-    <string name="role_gallery_description" msgid="7747091950085504563">"사진과 동영상을 보고, 정리하고, 보호하고, 공유할 수 있게 해 주는 앱"</string>
-    <string name="role_gallery_request_title" msgid="8019201567844533028">"<xliff:g id="APP_NAME">%1$s</xliff:g> 앱을 기본 갤러리 앱으로 설정하시겠습니까?"</string>
-    <string name="role_gallery_request_description" msgid="2946641507679528110">"사진과 동영상에 액세스"</string>
     <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"기본 자동차 모드 전화 앱"</string>
     <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"자동차 모드 전화 앱"</string>
     <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
@@ -289,12 +279,10 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g>에서 디버깅 정보를 업로드하려고 합니다."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"디버깅 데이터 공유"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g>이(가) 이 기기에서 <xliff:g id="DATE">%2$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g>에 만들어진 버그 신고를 업로드하려고 합니다. 버그 신고에는 기기에 관한 개인정보나 앱이 기록한 개인정보(예: 사용자 이름, 위치 데이터, 기기 식별자, 네트워크 정보)가 포함됩니다. 이 정보는 신뢰할 수 있는 사람 또는 앱에 한해 공유해야 합니다. <xliff:g id="APP_NAME_1">%4$s</xliff:g>에서 버그 신고를 업로드하도록 허용할까요?"</string>
-    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"<xliff:g id="APP_NAME">%1$s</xliff:g>에 관한 버그 신고를 처리하는 중에 오류가 발생했습니다. 따라서 상세한 디버깅 데이터 공유가 거부되었습니다. 불편을 끼쳐 드려 죄송합니다."</string>
+    <!-- no translation found for incident_report_error_dialog_text (1001752000696958519) -->
+    <skip />
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"허용"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"거부"</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_title" msgid="5699953608028268176">"권한을 거부할 수 없습니다. <xliff:g id="APP_NAME">%1$s</xliff:g> 앱을 제거하세요."</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_content" msgid="6960592986228883592">"<xliff:g id="APP_NAME">%1$s</xliff:g> 앱에 이전 데이터에 계속 액세스할 수 있는 기존 저장공간 권한이 있으며, 이 권한이 거부되면 앱의 작동이 중지될 수 있습니다.\n\n앱을 계속 사용하려면 앱을 제거한 후 다시 설치하세요. 앱의 데이터가 삭제될 수 있습니다."</string>
-    <string name="dismiss_with_acknowledgment" msgid="2879819713128822468">"확인"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"고급 설정"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"고급 설정"</string>
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"시스템 앱 권한 표시"</string>

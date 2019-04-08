@@ -230,16 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Apps, often called launchers, that replace the Home screens on your Android device and give you access to the contents and features of your device"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Set <xliff:g id="APP_NAME">%1$s</xliff:g> as your default home app?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"No permissions needed"</string>
-    <string name="role_music_label" msgid="3964722099212202119">"Default music app"</string>
-    <string name="role_music_short_label" msgid="5119108052527581418">"Music app"</string>
-    <string name="role_music_description" msgid="6172106860153033272">"Apps that allow you to play songs, podcasts and other audio"</string>
-    <string name="role_music_request_title" msgid="1674906751067278382">"Set <xliff:g id="APP_NAME">%1$s</xliff:g> as your default music app?"</string>
-    <string name="role_music_request_description" msgid="305266634384433670">"Gets access to audio"</string>
-    <string name="role_gallery_label" msgid="3622204908078352458">"Default gallery app"</string>
-    <string name="role_gallery_short_label" msgid="5079332588386074520">"Gallery app"</string>
-    <string name="role_gallery_description" msgid="7747091950085504563">"Apps that allow you to view, organise, protect and share your photos and videos"</string>
-    <string name="role_gallery_request_title" msgid="8019201567844533028">"Set <xliff:g id="APP_NAME">%1$s</xliff:g> as your default gallery app?"</string>
-    <string name="role_gallery_request_description" msgid="2946641507679528110">"Gets access to photos and videos"</string>
     <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Default car mode phone app"</string>
     <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Car mode phone app"</string>
     <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
@@ -289,12 +279,9 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> would like to upload debugging information."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Share Debugging Data"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> is requesting to upload a bug report from this device taken on <xliff:g id="DATE">%2$s</xliff:g> at <xliff:g id="TIME">%3$s</xliff:g>. Bug reports include personal information about your device or logged by apps, for example, user names, location data, device identifiers and network information. Only share bug reports with people and apps that you trust with this information. Allow <xliff:g id="APP_NAME_1">%4$s</xliff:g> to upload a bug report?"</string>
-    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"There was an error processing the bug report for <xliff:g id="APP_NAME">%1$s</xliff:g>. So sharing the detailed debugging data has been denied. Sorry for the interruption."</string>
+    <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"There was an error processing the bug report for <xliff:g id="APP_NAME">%1$s</xliff:g>. So sharing the detailed debugging data has been denied. Sorry for the interruption."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Allow"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Deny"</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_title" msgid="5699953608028268176">"Permission can’t be denied. Uninstall <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_content" msgid="6960592986228883592">"<xliff:g id="APP_NAME">%1$s</xliff:g> has legacy storage permission to keep your previous data accessible, and the app can stop working when this permission is denied.\n\nTo continue using the app, uninstall it and then reinstall it. Your data in this app may be lost."</string>
-    <string name="dismiss_with_acknowledgment" msgid="2879819713128822468">"OK"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Advanced settings"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Advanced settings"</string>
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Show system app usage"</string>

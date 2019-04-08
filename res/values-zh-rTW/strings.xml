@@ -230,16 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"這類應用程式通常稱為啟動器，能夠取代 Android 裝置的主螢幕，並可讓你存取裝置的內容與功能"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"要將「<xliff:g id="APP_NAME">%1$s</xliff:g>」設為預設的主螢幕應用程式嗎？"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"無需任何權限"</string>
-    <string name="role_music_label" msgid="3964722099212202119">"預設音樂應用程式"</string>
-    <string name="role_music_short_label" msgid="5119108052527581418">"音樂應用程式"</string>
-    <string name="role_music_description" msgid="6172106860153033272">"這類應用程式可讓你播放音樂、Podcast 和其他音訊內容"</string>
-    <string name="role_music_request_title" msgid="1674906751067278382">"要將「<xliff:g id="APP_NAME">%1$s</xliff:g>」設為預設的音樂應用程式嗎？"</string>
-    <string name="role_music_request_description" msgid="305266634384433670">"取得音訊存取權"</string>
-    <string name="role_gallery_label" msgid="3622204908078352458">"預設的圖片庫應用程式"</string>
-    <string name="role_gallery_short_label" msgid="5079332588386074520">"圖片庫應用程式"</string>
-    <string name="role_gallery_description" msgid="7747091950085504563">"這類應用程式可讓你查看、整理、保護及分享相片和影片"</string>
-    <string name="role_gallery_request_title" msgid="8019201567844533028">"要將「<xliff:g id="APP_NAME">%1$s</xliff:g>」設為預設的圖片庫應用程式嗎？"</string>
-    <string name="role_gallery_request_description" msgid="2946641507679528110">"取得相片和影片的存取權"</string>
     <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"預設的車用模式電話應用程式"</string>
     <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"車用模式電話應用程式"</string>
     <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
@@ -289,12 +279,10 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"「<xliff:g id="APP_NAME">%1$s</xliff:g>」要求上傳除錯資訊。"</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"分享除錯資料"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"「<xliff:g id="APP_NAME_0">%1$s</xliff:g>」要求上傳這個裝置在 <xliff:g id="DATE">%2$s</xliff:g><xliff:g id="TIME">%3$s</xliff:g> 取得的錯誤報告。錯誤報告包含裝置的相關個人資訊或由應用程式記錄的個人資訊，例如：使用者名稱、位置資料、裝置 ID 和網路資訊。請務必只與你信任的使用者和應用程式分享這項資訊。要允許「<xliff:g id="APP_NAME_1">%4$s</xliff:g>」上傳錯誤報告嗎？"</string>
-    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"處理「<xliff:g id="APP_NAME">%1$s</xliff:g>」的錯誤報告時發生錯誤，因此系統已拒絕分享詳細的除錯資料。對於服務中斷，我們深感抱歉。"</string>
+    <!-- no translation found for incident_report_error_dialog_text (1001752000696958519) -->
+    <skip />
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"允許"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"拒絕"</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_title" msgid="5699953608028268176">"無法拒絕授權要求。解除安裝「<xliff:g id="APP_NAME">%1$s</xliff:g>」。"</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_content" msgid="6960592986228883592">"「<xliff:g id="APP_NAME">%1$s</xliff:g>」具備舊版儲存空間權限，可讓你存取過往資料。如果你拒絕授予此權限，這個應用程式可能會停止運作。\n\n如要繼續使用這個應用程式，請先解除安裝，然後再重新安裝。你儲存在這個應用程式中的資料可能會遺失。"</string>
-    <string name="dismiss_with_acknowledgment" msgid="2879819713128822468">"我知道了"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"進階設定"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"進階設定"</string>
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"顯示系統應用程式使用情況"</string>

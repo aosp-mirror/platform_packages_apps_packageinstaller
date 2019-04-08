@@ -230,16 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Android gailuko hasierako pantailak ordezten dituzten aplikazioak (\"abiarazle\" ere deitzen zaie). Gailuko eduki eta eginbideetarako sarbidea ematen dute."</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"<xliff:g id="APP_NAME">%1$s</xliff:g> ezarri nahi duzu hasierako aplikazio lehenetsi gisa?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Ez du behar baimenik"</string>
-    <string name="role_music_label" msgid="3964722099212202119">"Musika-aplikazio lehenetsia"</string>
-    <string name="role_music_short_label" msgid="5119108052527581418">"Musika-aplikazioa"</string>
-    <string name="role_music_description" msgid="6172106860153033272">"Abestiak, podcastak eta bestelako audioa erreproduzitzea ahalbidetzen dizuten aplikazioak"</string>
-    <string name="role_music_request_title" msgid="1674906751067278382">"<xliff:g id="APP_NAME">%1$s</xliff:g> ezarri nahi duzu SMSen aplikazio lehenetsi gisa?"</string>
-    <string name="role_music_request_description" msgid="305266634384433670">"Audioa atzitu ahalko du"</string>
-    <string name="role_gallery_label" msgid="3622204908078352458">"Galeria-aplikazio lehenetsia"</string>
-    <string name="role_gallery_short_label" msgid="5079332588386074520">"Galeria-aplikazioa"</string>
-    <string name="role_gallery_description" msgid="7747091950085504563">"Argazkiak eta bideoak ikustea, antolatzea, babestea eta partekatzea ahalbidetzen dizuten aplikazioak"</string>
-    <string name="role_gallery_request_title" msgid="8019201567844533028">"<xliff:g id="APP_NAME">%1$s</xliff:g> ezarri nahi duzu galeria-aplikazio lehenetsi gisa?"</string>
-    <string name="role_gallery_request_description" msgid="2946641507679528110">"Argazkiak eta bideoak atzitu ahalko ditu"</string>
     <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Auto moduko telefono-aplikazio lehenetsia"</string>
     <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Auto moduko telefono-aplikazioa"</string>
     <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
@@ -289,12 +279,10 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> aplikazioak arazketa-informazioa kargatu nahi du."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Partekatu arazketa-datuak"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="DATE">%2$s</xliff:g> datan (<xliff:g id="TIME">%3$s</xliff:g>) sortutako akatsen txostena kargatzeko baimena eskatzen ari da <xliff:g id="APP_NAME_0">%1$s</xliff:g>. Akatsen txostenek zure gailuari buruzkoa den edo aplikazioek erregistratu duten informazio pertsonala dute; adibidez, erabiltzaile-izenak, kokapenari buruzko datuak, gailuaren identifikatzaileak eta sareari buruzko informazioa. Informazio hori izateko fidagarriak iruditzen zaizkizun pertsona eta aplikazioekin soilik partekatu beharko zenituzke akatsen txostenak. <xliff:g id="APP_NAME_1">%4$s</xliff:g> aplikazioari akatsen txostena kargatzea baimendu nahi diozu?"</string>
-    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"Errore bat gertatu da <xliff:g id="APP_NAME">%1$s</xliff:g> aplikazioaren akatsen txostena prozesatzean; beraz, ezin izan dira partekatu arazketa-datu xehatuak. Barkatu eragozpenak."</string>
+    <!-- no translation found for incident_report_error_dialog_text (1001752000696958519) -->
+    <skip />
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Baimendu"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Ukatu"</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_title" msgid="5699953608028268176">"Ezin da ukatu baimena. Desinstalatu <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_content" msgid="6960592986228883592">"<xliff:g id="APP_NAME">%1$s</xliff:g> aplikazioak aurreko bertsioko baimena du aurreko datuak erabilgarri mantentzeko, eta baliteke funtzionatzeari uztea baimena ukatuz gero.\n\nAplikazioa erabiltzen jarraitzeko, desinstala ezazu eta instalatu berriro. Baliteke aplikazioan dituzun datuak galtzea."</string>
-    <string name="dismiss_with_acknowledgment" msgid="2879819713128822468">"Ados"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Ezarpen aurreratuak"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Ezarpen aurreratuak"</string>
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Erakutsi sistema-aplikazioaren erabilera"</string>
