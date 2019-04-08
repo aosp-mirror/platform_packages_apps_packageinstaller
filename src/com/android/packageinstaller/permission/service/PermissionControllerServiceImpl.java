@@ -548,4 +548,10 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
 
         return true;
     }
+
+    @Override
+    public void onGrantOrUpgradeDefaultRuntimePermissions() {
+        // TODO: Default permission grants should go here
+        RuntimePermissionsUpgradeController.upgradeIfNeeded(this);
+    }
 }
