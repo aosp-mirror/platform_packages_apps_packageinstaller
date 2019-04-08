@@ -23,10 +23,8 @@
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"لم يتمّ العثور على التطبيق."</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"رفض"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"رفض وعدم طرح السؤال مرةً أخرى"</string>
-    <!-- no translation found for grant_dialog_button_deny_background (5378693207810841555) -->
-    <skip />
-    <!-- no translation found for grant_dialog_button_deny_background_and_dont_ask_again (1032019626928637454) -->
-    <skip />
+    <string name="grant_dialog_button_deny_background" msgid="5378693207810841555">"متابعة الوصول أثناء الاستخدام"</string>
+    <string name="grant_dialog_button_deny_background_and_dont_ask_again" msgid="1032019626928637454">"رفض التغيير وعدم طرح السؤال مرة أخرى"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"معلومات أكثر"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"رفض على أيّ حال"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> من <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
@@ -40,10 +38,8 @@
     <string name="permission_revoked_none" msgid="266013103540772023">"ليس هناك أذونات موقوفة."</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"سماح"</string>
     <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"السماح طوال الوقت"</string>
-    <!-- no translation found for grant_dialog_button_allow_foreground (8090382319222429427) -->
-    <skip />
-    <!-- no translation found for grant_dialog_button_allow_background (3190568549032350790) -->
-    <skip />
+    <string name="grant_dialog_button_allow_foreground" msgid="8090382319222429427">"السماح عند استخدام التطبيق فقط"</string>
+    <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"السماح طوال الوقت"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"تطبيقات"</string>
     <string name="app_permissions" msgid="2778362347879465223">"أذونات التطبيق"</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"مدير الأذونات"</string>
@@ -76,17 +72,13 @@
     <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"أوقف المشرف وصول التطبيق للبيانات أثناء عدم نشاطه."</string>
     <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"فعَّل المشرف وصول التطبيق للبيانات أثناء عدم نشاطه."</string>
     <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"فعَّل المشرف وصول التطبيق للبيانات أثناء نشاطه."</string>
-    <!-- no translation found for permission_summary_enabled_system_fixed (5463084832974856683) -->
-    <skip />
+    <string name="permission_summary_enabled_system_fixed" msgid="5463084832974856683">"يحتاج الجهاز إلى إذن ليتم تشغيله."</string>
     <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
     <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
-    <!-- no translation found for permission_access_always (5419580764084361573) -->
-    <skip />
-    <!-- no translation found for permission_access_only_foreground (2857031150724321567) -->
-    <skip />
-    <!-- no translation found for permission_access_never (425385910378172045) -->
-    <skip />
+    <string name="permission_access_always" msgid="5419580764084361573">"السماح طوال الوقت"</string>
+    <string name="permission_access_only_foreground" msgid="2857031150724321567">"السماح عند استخدام التطبيق فقط"</string>
+    <string name="permission_access_never" msgid="425385910378172045">"رفض"</string>
     <string name="loading" msgid="323483393167148377">"جارٍ التحميل…"</string>
     <string name="all_permissions" msgid="7813580062403112957">"كل الأذونات"</string>
     <string name="other_permissions" msgid="1956312685853070715">"إمكانات التطبيق الأخرى"</string>
@@ -105,10 +97,8 @@
     <string name="message_staging" msgid="641286607664721291">"جارٍ الطرح المرحلي للتطبيق…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"غير معروف"</string>
     <string name="permission_usage_title" msgid="6808284837306026819">"لوحة التحكّم"</string>
-    <!-- no translation found for permission_usage_summary_foreground (3203419920107457274) -->
-    <skip />
-    <!-- no translation found for permission_usage_summary_background (5719598203265078254) -->
-    <skip />
+    <string name="permission_usage_summary_foreground" msgid="2482299388611440256">"آخر إذن وصول: <xliff:g id="TIME">%1$s</xliff:g>\nتم الحصول على الإذن آخر مرة عند استخدام التطبيق."</string>
+    <string name="permission_usage_summary_background" msgid="4789805581854248472">"آخر إذن وصول: <xliff:g id="TIME">%1$s</xliff:g>\nآخر مرة تم السماح بالإذن في الخلفية"</string>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"أيّ إذن"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"أي وقت"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"آخر 7 أيام"</string>
@@ -117,98 +107,79 @@
     <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"آخر 15 دقيقة"</string>
     <string name="permission_usage_last_minute" msgid="1712931459994781087">"الدقيقة الماضية"</string>
     <string name="no_permission_usages" msgid="698858628357371611">"لم يتمّ استخدام الأذونات"</string>
-    <!-- no translation found for permission_usage_list_title_any_time (5641676869304328239) -->
-    <skip />
-    <!-- no translation found for permission_usage_list_title_last_7_days (2972289322203714509) -->
-    <skip />
-    <!-- no translation found for permission_usage_list_title_last_day (6298662604046093174) -->
-    <skip />
-    <!-- no translation found for permission_usage_list_title_last_hour (7224982939487774388) -->
-    <skip />
-    <!-- no translation found for permission_usage_list_title_last_15_minutes (49045607172810502) -->
-    <skip />
-    <!-- no translation found for permission_usage_list_title_last_minute (7716966405942817635) -->
-    <skip />
-    <!-- no translation found for permission_usage_bar_chart_title_any_time (862654449303514044) -->
-    <skip />
-    <!-- no translation found for permission_usage_bar_chart_title_last_7_days (5393381637937213483) -->
-    <skip />
-    <!-- no translation found for permission_usage_bar_chart_title_last_day (7202567658282481259) -->
-    <skip />
-    <!-- no translation found for permission_usage_bar_chart_title_last_hour (4672313408976666479) -->
-    <skip />
-    <!-- no translation found for permission_usage_bar_chart_title_last_15_minutes (1776918144361651860) -->
-    <skip />
-    <!-- no translation found for permission_usage_bar_chart_title_last_minute (236300476767668315) -->
-    <skip />
-    <!-- no translation found for app_permission_usage_bar_label (7261634017833698654) -->
-    <!-- no translation found for permission_usage_view_details (4728049344017619500) -->
-    <skip />
+    <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"آخر إذن وصول في أي وقت"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"آخر وصول خلال آخر 7 أيام"</string>
+    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"آخر مرة تم الوصول فيها خلال آخر 24 ساعة"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"آخر إذن وصول خلال الساعة الأخيرة"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"آخر وصول خلال آخر 15 دقيقة"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"آخر إذن وصول خلال الدقيقة الأخيرة"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"استخدام الإذن في أي وقت"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"استخدام الإذن خلال الأيام السبعة الأخيرة"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"استخدام الإذن خلال آخر 24 ساعة"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="4672313408976666479">"استخدام الإذن خلال الساعة الأخيرة"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"استخدام الإذن خلال آخر 15 دقيقة"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"استخدام الإذن خلال آخر دقيقة"</string>
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
+      <item quantity="zero"><xliff:g id="NUMBER">%s</xliff:g> تطبيق</item>
+      <item quantity="two">تطبيقان (<xliff:g id="NUMBER">%s</xliff:g>)</item>
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> تطبيقات</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> تطبيقًا</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> تطبيق</item>
+      <item quantity="one">تطبيق واحد</item>
+    </plurals>
+    <string name="permission_usage_view_details" msgid="4728049344017619500">"الاطّلاع على الكل في \"لوحة البيانات\""</string>
     <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"تمّت التصفية حسب: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"إزالة الفلتر"</string>
+    <string name="app_permission_usage_remove_filter" msgid="9105565119059367866">"الاطّلاع على الكل في \"لوحة البيانات\""</string>
     <string name="filter_by_title" msgid="5940302511365561845">"تصفية بحسب"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"تصفية بحسب الأذونات"</string>
-    <!-- no translation found for filter_by_time (1763143592970195407) -->
-    <skip />
+    <string name="filter_by_time" msgid="1763143592970195407">"الفلترة حسب الوقت"</string>
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"معظم الأذونات"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"معظم مرّات الدخول"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"آخر دخول"</string>
-    <!-- no translation found for sort_by_app (1912228966803416485) -->
-    <skip />
-    <!-- no translation found for sort_by_time (8280378662234104410) -->
-    <skip />
-    <!-- no translation found for item_separator (8266062815210378175) -->
-    <skip />
+    <string name="sort_by_app" msgid="1912228966803416485">"الترتيب حسب استخدام التطبيق"</string>
+    <string name="sort_by_time" msgid="8280378662234104410">"تصنيف حسب الوقت"</string>
+    <string name="item_separator" msgid="8266062815210378175">"، "</string>
     <string name="permission_usage_refresh" msgid="2182775682810005148">"إعادة تحميل"</string>
-    <!-- no translation found for permission_usage_permission_filter_subtitle (5539392196389332769) -->
+    <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="5539392196389332769">
+      <item quantity="zero"><xliff:g id="NUMBER">%s</xliff:g> تطبيق</item>
+      <item quantity="two">تطبيقان (<xliff:g id="NUMBER">%s</xliff:g>)</item>
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> تطبيقات</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> تطبيقًا</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> تطبيق</item>
+      <item quantity="one">تطبيق واحد</item>
+    </plurals>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"استخدام أذونات التطبيق"</string>
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"استخدام الإذن: <xliff:g id="NUM">%1$s</xliff:g> مرّة إجمالي المدّة: <xliff:g id="DURATION">%2$s</xliff:g>. آخر استخدام قبل <xliff:g id="TIME">%3$s</xliff:g>."</string>
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"استخدام الإذن: <xliff:g id="NUM">%1$s</xliff:g> مرّة آخر استخدام قبل <xliff:g id="TIME">%2$s</xliff:g>."</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"سماح"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"السماح طوال الوقت"</string>
-    <!-- no translation found for app_permission_button_allow_foreground (2303741829613210541) -->
-    <skip />
+    <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"السماح عند استخدام التطبيق فقط"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"رفض"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"إذن <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <!-- no translation found for app_permission_header (228974007660007656) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary (1034436308858219976) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages (4444374134047275841) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_app_permissions_link (8033278634020892918) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_permission_apps_link (8759141212929298774) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_generic (5479202003136667039) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_activity_recognition (2022880340017289990) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_calendar (2846128908236787586) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_call_log (2429916962093948340) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_camera (6699611334403400091) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_contacts (5169995707720233126) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_location (687820658574645201) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_media_aural (2102206495149326019) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_media_visual (3105938942794669520) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_microphone (2300290217308759293) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_phone (3773977614654088578) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_sensors (6733606479604624853) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_sms (8850213022386508528) -->
-    <skip />
+    <string name="app_permission_header" msgid="228974007660007656">"إذن <xliff:g id="PERM">%1$s</xliff:g> الممنوح لهذا التطبيق"</string>
+    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"قبل <xliff:g id="TIME">%3$s</xliff:g>، استخدَم تطبيق <xliff:g id="APP">%1$s</xliff:g> إذن <xliff:g id="PERM">%2$s</xliff:g> الذي منحته."</string>
+    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"لم يحصل تطبيق <xliff:g id="APP">%1$s</xliff:g> على إذن <xliff:g id="PERM">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_not_available" msgid="8880039652295478414">"لا تتوفَّر بيانات آخر وصول لهذا الإذن."</string>
+    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"الاطّلاع على جميع أذونات <xliff:g id="APP">%1$s</xliff:g>"</string>
+    <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"الاطّلاع على جميع التطبيقات التي تتمتّع بهذا الإذن"</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"يمكن للتطبيقات التي لديها هذا الإذن <xliff:g id="DESCRIPTION">%1$s</xliff:g>."</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"يمكن للتطبيقات التي لديها هذا الإذن الوصول إلى النشاط البدني، مثل المشي وركوب الدراجة وقيادة السيارة وعدّ الخطوات وغير ذلك."</string>
+    <string name="permission_description_summary_calendar" msgid="2846128908236787586">"يمكن للتطبيقات التي لديها هذا الإذن الوصول إلى تقويمك."</string>
+    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"يمكن للتطبيقات التي تحصل على هذا الإذن قراءة بيانات سجلّ مكالمات الهاتف وتعديلها."</string>
+    <string name="permission_description_summary_camera" msgid="6699611334403400091">"يمكن للتطبيقات التي تتمتّع بهذا الإذن التقاط صور وتسجيل فيديوهات."</string>
+    <string name="permission_description_summary_contacts" msgid="5169995707720233126">"يمكن للتطبيقات التي لديها هذا الإذن الوصول إلى جهات الاتصال الخاصة بك."</string>
+    <string name="permission_description_summary_location" msgid="687820658574645201">"يمكن للتطبيقات التي لديها هذا الإذن الوصول إلى الموقع الجغرافي لهذا الجهاز."</string>
+    <string name="permission_description_summary_microphone" msgid="2300290217308759293">"يمكن للتطبيقات التي لديها هذا الإذن تسجيل الصوت."</string>
+    <string name="permission_description_summary_phone" msgid="3773977614654088578">"يمكن للتطبيقات التي لديها هذا الإذن إجراء مكالمات هاتفية وإدارتها."</string>
+    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"يمكن للتطبيقات التي لديها هذا الإذن أن تصل إلى بيانات جهاز الاستشعار عن علاماتك الحيوية."</string>
+    <string name="permission_description_summary_sms" msgid="8850213022386508528">"‏يمكن للتطبيقات التي تتمتّع بهذا الإذن إرسال رسائل قصيرة SMS وعرضها."</string>
+    <string name="permission_description_summary_storage" msgid="2265909502600142621">"يمكن للتطبيقات التي لديها هذا الإذن الوصول إلى الصور والوسائط والملفات على جهازك."</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"آخر إذن وصول: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"مرفوض حاليًا / تاريخ آخر وصول: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"لم يتم الوصول مطلقًا."</string>
+    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"تم الرفض / لم يسبق الحصول على الإذن"</string>
     <string name="allowed_header" msgid="6279244592227088158">"التطبيقات أو الأذونات المسموح بها"</string>
+    <string name="allowed_always_header" msgid="6698473105201405782">"مسموح به طوال الوقت"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"السماح فقط أثناء الاستخدام"</string>
     <string name="denied_header" msgid="2277998574238617699">"التطبيقات أو الأذونات المرفوضة"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"الاطّلاع على الاستخدام التفصيلي"</string>
@@ -254,54 +225,80 @@
     <string name="no_apps_denied" msgid="2736758388618487796">"لم يتم رفض أي تطبيقات."</string>
     <string name="settings" msgid="2884124136779508907">"الإعدادات"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"تحظى خدمة <xliff:g id="SERVICE_NAME">%s</xliff:g> بوصول كامل إلى جهازك."</string>
-    <!-- no translation found for accessibility_service_dialog_title_multiple (8129325613496173909) -->
-    <skip />
+    <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"تطبيقات إمكانية الوصول التي تحظى بوصول كامل إلى جهازك: <xliff:g id="NUM_SERVICES">%s</xliff:g> تطبيق."</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"يمكن لخدمة <xliff:g id="SERVICE_NAME">%s</xliff:g> عرض شاشتك وإجراءاتك ومدخلاتك وتنفيذ الإجراءات والتحكم في العرض."</string>
-    <!-- no translation found for accessibility_service_dialog_bottom_text_multiple (1387803460488775887) -->
-    <skip />
-    <!-- no translation found for request_role_title (3611734134669430568) -->
-    <skip />
-    <!-- no translation found for request_role_current_default (7512045433655289638) -->
-    <skip />
-    <!-- no translation found for request_role_set_as_default (5706081295230541240) -->
-    <skip />
-    <!-- no translation found for default_app_search_keyword (6938709626391437391) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_ok (3007005536659549573) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_open_settings (3368892579319881043) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_title (7173961211414061803) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_separator (9008030412869423988) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_last_separator (7455459775266515801) -->
-    <skip />
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"يمكن لهذه التطبيقات عرض شاشتك وإجراءاتك ومدخلاتك وتنفيذ الإجراءات والتحكم في العرض."</string>
+    <string name="role_assistant_label" msgid="1755271161954896046">"تطبيق المساعد التلقائي"</string>
+    <string name="role_assistant_short_label" msgid="3048707738783655050">"تطبيق المساعد"</string>
+    <string name="role_assistant_description" msgid="8677846995018695304">"بإمكان التطبيقات تقديم المساعدة لك استنادًا إلى المعلومات على الشاشة التي تعرضها. وتتوافق بعض التطبيقات مع خدمتيّ المشغّل والإدخال الصوتي لتوفير مساعدة متكاملة لك."</string>
+    <string name="role_assistant_request_title" msgid="1838385568238889604">"هل تريد ضبط <xliff:g id="APP_NAME">%1$s</xliff:g> باعتباره تطبيق المساعد التلقائي؟"</string>
+    <string name="role_assistant_request_description" msgid="1086168907357494789">"‏الحصول على إذن وصول إلى الرسائل القصيرة SMS وسجلّ المكالمات"</string>
+    <string name="role_browser_label" msgid="814240075813716311">"تطبيق المتصفّح التلقائي"</string>
+    <string name="role_browser_short_label" msgid="6222206565850006894">"تطبيق المتصفح"</string>
+    <string name="role_browser_description" msgid="2326990202516329438">"التطبيقات التي تتيح إمكانية الوصول إلى الإنترنت وتعرض روابط تنقر عليها"</string>
+    <string name="role_browser_request_title" msgid="751745081301397114">"هل تريد ضبط <xliff:g id="APP_NAME">%1$s</xliff:g> باعتباره تطبيق المتصفّح التلقائي؟"</string>
+    <string name="role_browser_request_description" msgid="3204873553391043604">"لا يجب تقديم أذونات."</string>
+    <string name="role_dialer_label" msgid="7920168918746178929">"تطبيق الهاتف التلقائي"</string>
+    <string name="role_dialer_short_label" msgid="2980581587550675305">"تطبيق الهاتف"</string>
+    <string name="role_dialer_description" msgid="2684882481061320467">"التطبيقات التي تتيح لك إمكانية إجراء مكالمات هاتفية وتلقّيها على جهازك"</string>
+    <string name="role_dialer_request_title" msgid="3203802247886151514">"هل تريد ضبط <xliff:g id="APP_NAME">%1$s</xliff:g> باعتباره تطبيق الهاتف التلقائي؟"</string>
+    <string name="role_dialer_request_description" msgid="2931069491309771312">"‏الوصول إلى سجلّ المكالمات وإرسال الرسائل القصيرة SMS"</string>
+    <string name="role_sms_label" msgid="6995222097027665850">"‏تطبيق رسائل SMS التلقائي"</string>
+    <string name="role_sms_short_label" msgid="236955440028043972">"‏تطبيق SMS"</string>
+    <string name="role_sms_description" msgid="3228552135895420442">"التطبيقات التي تتيح لك استخدام رقم هاتفك لإرسال وتلقّي رسائل نصية قصيرة وصور وفيديوهات وغيرها"</string>
+    <string name="role_sms_request_title" msgid="3667393846881324409">"‏هل تريد ضبط <xliff:g id="APP_NAME">%1$s</xliff:g> باعتباره تطبيق الرسائل القصيرة SMS التلقائي؟"</string>
+    <string name="role_sms_request_description" msgid="4920787411350418630">"‏الوصول إلى جهات الاتصال والرسائل القصيرة SMS والهاتف"</string>
+    <string name="role_emergency_label" msgid="8986482330376454686">"تطبيق الطوارئ التلقائي"</string>
+    <string name="role_emergency_short_label" msgid="2546309839225058762">"تطبيق الطوارئ"</string>
+    <string name="role_emergency_description" msgid="3567231505957373289">"التطبيقات التي تتيح لك إذن تسجيل معلوماتك الطبية وتتيحها لجهات الطوارئ، وللحصول على تنبيهات بشأن ظروف الطقس القاسية والكوارث الشديدة، ولإشعار الآخرين عند حاجتك إلى مساعدة منهم"</string>
+    <string name="role_emergency_request_title" msgid="6595296517085761522">"هل تريد ضبط <xliff:g id="APP_NAME">%1$s</xliff:g> باعتباره تطبيق الطوارئ التلقائي؟"</string>
+    <string name="role_emergency_request_description" msgid="2824966073894226992">"لا يجب تقديم أذونات."</string>
+    <string name="role_home_label" msgid="6245106863177808486">"تطبيق المنزل التلقائي"</string>
+    <string name="role_home_short_label" msgid="4565882523300643525">"‏تطبيق Home"</string>
+    <string name="role_home_description" msgid="6736956389161158052">"‏التطبيقات التي تُعرف غالبًا باسم \"مشغّل التطبيقات\" والتي تحل محلّ الشاشات الرئيسية على جهاز Android وتمكّنك من الوصول إلى محتويات جهازك وميزاته"</string>
+    <string name="role_home_request_title" msgid="2964609319767315444">"هل تريد ضبط <xliff:g id="APP_NAME">%1$s</xliff:g> باعتباره تطبيق الصفحة الرئيسية التلقائي؟"</string>
+    <string name="role_home_request_description" msgid="6437733879812403277">"لا يجب تقديم أذونات."</string>
+    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"تطبيق الهاتف التلقائي للسيارة"</string>
+    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"تطبيق الهاتف في وضع السيارة"</string>
+    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
+    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"هل تريد ضبط <xliff:g id="APP_NAME">%1$s</xliff:g> باعتباره تطبيق الهاتف التلقائي للسيارة؟"</string>
+    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
+    <string name="role_call_redirection_label" msgid="7555518736037919521">"تطبيق إعادة توجيه المكالمات التلقائي"</string>
+    <string name="role_call_redirection_short_label" msgid="4214301516577863936">"تطبيق إعادة توجيه المكالمات"</string>
+    <string name="role_call_redirection_description" msgid="159351481987081777">"التطبيقات التي تتيح لك إمكانية إعادة توجيه المكالمات إلى رقم هاتف آخر"</string>
+    <string name="role_call_redirection_request_title" msgid="5719129486575088263">"هل تريد ضبط <xliff:g id="APP_NAME">%1$s</xliff:g> باعتباره تطبيق إعادة توجيه المكالمات التلقائي؟"</string>
+    <string name="role_call_redirection_request_description" msgid="6117172580087594081">"لا يجب تقديم أذونات."</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"التطبيق التلقائي لإظهار رقم المتّصل والرسائل غير المرغوب"</string>
+    <string name="role_call_screening_short_label" msgid="7596133131034442273">"تطبيق إظهار رقم المتّصل والرسائل غير المرغوب فيها"</string>
+    <string name="role_call_screening_description" msgid="9009090500431969390">"التطبيقات التي تتيح لك التعرّف على المكالمات الواردة وحظر الرسائل غير المرغوب فيها والمكالمات المسجّلة وإضافة الأرقام غير المرغوب فيها إلى قائمة سودا، وما إلى ذلك"</string>
+    <string name="role_call_screening_request_title" msgid="4775643776524356653">"هل تريد ضبط <xliff:g id="APP_NAME">%1$s</xliff:g> باعتباره التطبيق التلقائي لإظهار رقم المتّصل والمحتوى غير المرغوب فيه؟"</string>
+    <string name="role_call_screening_request_description" msgid="7788142583532880646">"لا يجب تقديم أذونات."</string>
+    <string name="role_call_companion_label" msgid="7279864885074735989">"تطبيق المكالمات المصاحب التلقائي"</string>
+    <string name="role_call_companion_short_label" msgid="1623131440707498562">"تطبيق مصاحب للمكالمات"</string>
+    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
+    <string name="role_call_companion_request_title" msgid="8482826056222122751">"هل تريد ضبط <xliff:g id="APP_NAME">%1$s</xliff:g> باعتباره تطبيق المكالمات المصاحب التلقائي؟"</string>
+    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
+    <string name="request_role_current_default" msgid="7512045433655289638">"التطبيق التلقائي الحالي"</string>
+    <string name="request_role_dont_ask_again" msgid="6250680190065090205">"لا تسألني مرة أخرى."</string>
+    <string name="request_role_set_as_default" msgid="5706081295230541240">"ضبط التطبيق كتلقائي"</string>
+    <string name="default_app_search_keyword" msgid="6938709626391437391">"التطبيقات التلقائية"</string>
+    <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"حسنًا"</string>
+    <string name="ongoing_usage_dialog_open_settings" msgid="3368892579319881043">"إعدادات الخصوصية"</string>
+    <string name="ongoing_usage_dialog_title" msgid="7173961211414061803">"التطبيقات التي تستخدِم <xliff:g id="TYPES_LIST">%s</xliff:g>"</string>
+    <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">"، "</string>
+    <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" و "</string>
+    <string name="settings_button" msgid="4747434541214595321">"الإعدادات"</string>
     <string name="default_apps" msgid="8554530939151957828">"التطبيقات التلقائية"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"ليست هناك تطبيقات تلقائية."</string>
-    <!-- no translation found for default_apps_manage_domain_urls (3146379064445013719) -->
-    <skip />
+    <string name="default_apps_more" msgid="3908067305593075127">"المزيد من الإعدادات التلقائية"</string>
+    <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"فتح الروابط"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"التطبيقات التلقائية للعمل"</string>
     <string name="default_app_none" msgid="7671097769303174666">"بدون"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"ليست هناك تطبيقات."</string>
-    <!-- no translation found for special_app_access_search_keyword (462008045110320714) -->
-    <skip />
+    <string name="special_app_access_search_keyword" msgid="462008045110320714">"أذونات خاصة للتطبيقات"</string>
     <string name="special_app_access" msgid="2561673957499408877">"أذونات خاصة للتطبيقات"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"لا إذن وصول خاص إلى التطبيق."</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"ليست هناك تطبيقات."</string>
-    <string name="role_label_assistant" msgid="456685142560727172">"تطبيق المساعد"</string>
-    <string name="role_label_browser" msgid="6266502234308421457">"تطبيق المتصفّح"</string>
-    <string name="role_label_dialer" msgid="3345895090725237533">"تطبيق الهاتف"</string>
-    <string name="role_label_sms" msgid="2262769075496017522">"‏تطبيق SMS"</string>
-    <string name="role_label_emergency" msgid="2226651888638211616">"تطبيق الطوارئ"</string>
-    <string name="role_label_home" msgid="7672863812639457378">"تطبيق الصفحة الرئيسية"</string>
-    <string name="role_label_music" msgid="5900245414865932272">"تطبيق الموسيقى"</string>
-    <string name="role_label_gallery" msgid="6939560238495155209">"تطبيق المعرض"</string>
-    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"تطبيق الهاتف في وضع السيارة"</string>
-    <string name="role_label_call_redirection" msgid="8902197181113231577">"تطبيق إعادة توجيه المكالمات"</string>
-    <!-- no translation found for role_label_call_screening (1089966334646538858) -->
-    <skip />
-    <string name="role_label_call_companion" msgid="7369723859682076467">"تطبيق مصاحب للمكالمات"</string>
     <string name="home_missing_work_profile_support" msgid="1439466272746259937">"لا يتوافق التطبيق مع الملف الشخصي للعمل."</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"ملاحظة: في حال إعادة تشغيل جهازك وضبط قفل شاشة، لا يمكن بدء هذا التطبيق إلى أن تفتح جهازك."</string>
     <string name="assistant_confirmation_message" msgid="4529925223796676824">"سيتمكن المساعد من قراءة المعلومات عن التطبيقات قيد الاستخدام على نظامك، بما في ذلك المعلومات المرئية على شاشتك أو التي يمكن الوصول إليها داخل التطبيقات."</string>
@@ -310,12 +307,14 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"يريد تطبيق <xliff:g id="APP_NAME">%1$s</xliff:g> تحميل معلومات تصحيح الأخطاء."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"مشاركة بيانات تصحيح الأخطاء"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"يطلب تطبيق <xliff:g id="APP_NAME_0">%1$s</xliff:g> تحميل تقرير خطأ من هذا الجهاز تم تسجيله بتاريخ <xliff:g id="DATE">%2$s</xliff:g> في <xliff:g id="TIME">%3$s</xliff:g>. وتشمل تقارير الأخطاء المعلومات الشخصية حول جهازك أو المعلومات التي سجلتها التطبيقات، مثل أسماء المستخدمين وبيانات الموقع الجغرافي ومعرّفات الأجهزة ومعلومات الشبكة. ويجب عدم مشاركة تقارير الأخطاء إلا مع المستخدمين والتطبيقات التي تثق بمشاركة هذه المعلومات معها. هل تريد السماح لتطبيق <xliff:g id="APP_NAME_1">%4$s</xliff:g> بتحميل تقرير خطأ؟"</string>
+    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"حدث خطأ أثناء معالجة تقرير الخطأ لتطبيق <xliff:g id="APP_NAME">%1$s</xliff:g>، ولذلك تم رفض مشاركة بيانات تصحيح الأخطاء التفصيلية. نأسف للمقاطعة."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"سماح"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"رفض"</string>
-    <!-- no translation found for grandfathered_modern_storage_permission_deny_warning_title (5699953608028268176) -->
-    <skip />
-    <!-- no translation found for grandfathered_modern_storage_permission_deny_warning_content (6960592986228883592) -->
-    <skip />
-    <!-- no translation found for dismiss_with_acknowledgment (2879819713128822468) -->
-    <skip />
+    <string name="adjust_user_sensitive_title" msgid="979740627674332095">"الإعدادات المتقدمة"</string>
+    <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"الإعدادات المتقدمة"</string>
+    <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"عرض بيانات استخدام تطبيقات النظام"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"عرض بيانات استخدام تطبيقات النظام للأذونات في شريط الحالة ولوحة البيانات وفي الأماكن الأخرى"</string>
+    <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"إبراز بيانات الاستخدام لما يلي:"</string>
+    <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"‏عرض رمز رصد تشغيل \"مساعد Google\""</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"عرض الرمز في شريط الحالة عند استخدام الميكروفون لتفعيل المساعد الصوتي."</string>
 </resources>
