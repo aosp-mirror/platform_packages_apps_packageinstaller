@@ -32,13 +32,8 @@
             style="@style/PermissionUsageDialogTitle"/>
 
         <LinearLayout
-            style="@style/PermissionUsageDialogItemsContainerLayout">
-
-            <LinearLayout
-                android:id="@+id/items_container"
-                style="@style/PermissionUsageDialogItemsContainer"/>
-
-        </LinearLayout>
+            android:id="@+id/items_container"
+            style="@style/PermissionUsageDialogItemsContainer"/>
 
     </LinearLayout>
 
