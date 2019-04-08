@@ -16,15 +16,9 @@
 
 package com.android.packageinstaller.role.service;
 
-import android.Manifest;
-import android.app.AppOpsManager;
 import android.app.role.RoleControllerService;
 import android.app.role.RoleManager;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.PermissionInfo;
-import android.os.Build;
 import android.os.Process;
 import android.os.UserHandle;
 import android.util.ArrayMap;
@@ -55,14 +49,11 @@ public class RoleControllerServiceImpl extends RoleControllerService {
     private static final boolean DEBUG = true;
 
     private RoleManager mRoleManager;
-    private AppOpsManager mAppOpsManager;
 
     @Override
     public void onCreate() {
         super.onCreate();
-
         mRoleManager = getSystemService(RoleManager.class);
-        mAppOpsManager = getSystemService(AppOpsManager.class);
     }
 
     @Override
@@ -114,7 +105,10 @@ public class RoleControllerServiceImpl extends RoleControllerService {
                 String packageName = currentPackageNames.get(currentPackageNamesIndex);
 
                 if (role.isPackageQualified(packageName, this)) {
-                    addRoleHolderInternal(role, packageName, false, false, true);
+                    // NOTE: We should not override only if we are granting default permissions
+                    // that are not based on user controlled roles, so for now override.
+                    addRoleHolderInternal(role, packageName, false /* dontKillApp */,
+                            true /* added */);
                 } else {
                     Log.i(LOG_TAG, "Removing package that no longer qualifies for the role,"
                             + " package: " + packageName + ", role: " + roleName);
@@ -148,11 +142,9 @@ public class RoleControllerServiceImpl extends RoleControllerService {
                     }
                     Log.i(LOG_TAG, "Adding package as default/fallback role holder, package: "
                             + packageName + ", role: " + roleName);
-                    // TODO: If we don't override user here, user might end up missing incoming
-                    // phone calls or SMS, so we just keep the old behavior. But overriding user
-                    // choice about permission without explicit user action is bad, so maybe we
-                    // should at least show a notification?
-                    addRoleHolderInternal(role, packageName, true);
+                    // NOTE: We should not override only if we are granting default permissions
+                    // that are not based on user controlled roles, so for now override.
+                    addRoleHolderInternal(role, packageName);
                 }
             }
 
@@ -229,7 +221,7 @@ public class RoleControllerServiceImpl extends RoleControllerService {
         }
 
         boolean dontKillApp = hasFlag(flags, RoleManager.MANAGE_HOLDERS_FLAG_DONT_KILL_APP);
-        added = addRoleHolderInternal(role, packageName, dontKillApp, true, added);
+        added = addRoleHolderInternal(role, packageName, dontKillApp, added);
         if (!added) {
             return false;
         }
@@ -310,19 +302,16 @@ public class RoleControllerServiceImpl extends RoleControllerService {
     }
 
     @WorkerThread
-    private boolean addRoleHolderInternal(@NonNull Role role, @NonNull String packageName,
-            boolean overrideDisabledSystemPackageAndUserSetAndFixedPermissions) {
-        return addRoleHolderInternal(role, packageName, false,
-                overrideDisabledSystemPackageAndUserSetAndFixedPermissions, false);
+    private boolean addRoleHolderInternal(@NonNull Role role, @NonNull String packageName) {
+        return addRoleHolderInternal(role, packageName, false /* dontKillApp */,
+                false /* added */);
     }
 
     @WorkerThread
     private boolean addRoleHolderInternal(@NonNull Role role, @NonNull String packageName,
-            boolean dontKillApp, boolean overrideDisabledSystemPackageAndUserSetAndFixedPermissions,
-            boolean added) {
+            boolean dontKillApp, boolean added) {
         // TODO: STOPSHIP: Pass in appropriate arguments.
-        role.grant(packageName, dontKillApp,
-                overrideDisabledSystemPackageAndUserSetAndFixedPermissions, false, this);
+        role.grant(packageName, dontKillApp, this);
 
         String roleName = role.getName();
         if (!added) {
@@ -399,66 +388,12 @@ public class RoleControllerServiceImpl extends RoleControllerService {
 
         Log.i(LOG_TAG, "Adding package as fallback role holder, package: " + fallbackPackageName
                 + ", role: " + roleName);
-        // TODO: If we don't override user here, user might end up missing incoming
         // phone calls or SMS, so we just keep the old behavior. But overriding user
         // choice about permission without explicit user action is bad, so maybe we
         // should at least show a notification?
-        return addRoleHolderInternal(role, fallbackPackageName, true);
-    }
-
-    @WorkerThread
-    //@Override
-    public void onSmsKillSwitchToggled(boolean enabled) {
-        PackageManager packageManager = getPackageManager();
-        List<PackageInfo> installedPackages = getPackageManager().getInstalledPackages(0);
-        for (int i = 0, size = installedPackages.size(); i < size; i++) {
-            PackageInfo packageInfo = installedPackages.get(i);
-
-            onSmsKillSwitchToggled(enabled, packageInfo, Utils.getPlatformPermissionsOfGroup(
-                    packageManager, Manifest.permission_group.SMS));
-            onSmsKillSwitchToggled(enabled, packageInfo, Utils.getPlatformPermissionsOfGroup(
-                    packageManager, Manifest.permission_group.CALL_LOG));
-        }
-
-        onGrantDefaultRoles();
-    }
-
-    @WorkerThread
-    private void onSmsKillSwitchToggled(boolean enabled, @NonNull PackageInfo packageInfo,
-            @NonNull List<PermissionInfo> permissions) {
-        PackageManager packageManager = getPackageManager();
-        int uid = packageInfo.applicationInfo.uid;
-        for (int i = 0, permissionsSize = permissions.size(); i < permissionsSize; i++) {
-            PermissionInfo permission = permissions.get(i);
-
-            try {
-                int permissionFlags = packageManager.getPermissionFlags(permission.name,
-                        packageInfo.packageName, Process.myUserHandle());
-                if ((permissionFlags & (PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT
-                        | PackageManager.FLAG_PERMISSION_SYSTEM_FIXED)) != 0) {
-                    continue;
-                }
-                if ((permissionFlags & PackageManager.FLAG_PERMISSION_POLICY_FIXED) != 0) {
-                    packageManager.updatePermissionFlags(permission.name, packageInfo.packageName,
-                            PackageManager.FLAG_PERMISSION_POLICY_FIXED, 0, Process.myUserHandle());
-                }
-
-                String appOp = AppOpsManager.permissionToOp(permission.name);
-                if (appOp != null) {
-                    mAppOpsManager.setUidMode(appOp, uid, enabled ? AppOpsManager.MODE_DEFAULT
-                            : AppOpsManager.MODE_ALLOWED);
-                }
-
-                if (!enabled && packageInfo.applicationInfo.targetSdkVersion
-                        >= Build.VERSION_CODES.M) {
-                    packageManager.revokeRuntimePermission(packageInfo.packageName, permission.name,
-                            Process.myUserHandle());
-                }
-            } catch (Exception e) {
-                Log.e(LOG_TAG, "Unexpected exception while cleaning up state for package "
-                        + packageInfo.packageName + " & " + permission.name, e);
-            }
-        }
+        // NOTE: We should not override only if we are granting default permissions
+        // that are not based on user controlled roles, so for now override.
+        return addRoleHolderInternal(role, fallbackPackageName);
     }
 
     @Override

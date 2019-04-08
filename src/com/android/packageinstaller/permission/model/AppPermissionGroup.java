@@ -36,7 +36,6 @@ import android.content.pm.PermissionInfo;
 import android.os.Build;
 import android.os.UserHandle;
 import android.permission.PermissionManager;
-import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.Log;
@@ -54,6 +53,7 @@ import com.android.permissioncontroller.R;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * All permissions of a permission group that are requested by an app.
@@ -229,6 +229,10 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                 getBackgroundRequestDetail(groupInfo), groupInfo.packageName, groupInfo.icon,
                 userHandle, delayChanges, appOpsManager);
 
+        final Set<String> whitelistedRestrictedPermissions = context.getPackageManager()
+                .getWhitelistedRestrictedPermissions(packageInfo.packageName,
+                        Utils.FLAGS_PERMISSION_WHITELIST_ALL);
+
         // Parse and create permissions reqested by the app
         ArrayMap<String, Permission> allPermissions = new ArrayMap<>();
         final int permissionCount = packageInfo.requestedPermissions == null ? 0
@@ -337,19 +341,10 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
                 group.getBackgroundPermissions().addPermission(permission);
             } else {
-                boolean smsAccessRestrictionEnabled = Settings.Global.getInt(
-                        group.mContext.getContentResolver(),
-                        Settings.Global.SMS_ACCESS_RESTRICTION_ENABLED, 0) == 1;
-                if (!smsAccessRestrictionEnabled) {
+                if (!PackageManager.RESTRICTED_PERMISSIONS_ENABLED
+                        || (!permission.isHardRestricted()
+                            || whitelistedRestrictedPermissions.contains(permission.getName()))) {
                     group.addPermission(permission);
-                } else {
-                    String appOp = permission.getAppOp();
-                    boolean appOpDefault = appOp != null && group.mAppOps.unsafeCheckOpNoThrow(
-                            appOp, packageInfo.applicationInfo.uid, packageName)
-                            == AppOpsManager.MODE_DEFAULT;
-                    if (!appOpDefault) {
-                        group.addPermission(permission);
-                    }
                 }
             }
         }

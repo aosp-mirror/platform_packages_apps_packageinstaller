@@ -21,6 +21,7 @@ import static android.util.StatsLogAtoms.PERMISSION_GRANT_REQUEST_RESULT_REPORTE
 import static android.util.StatsLogAtoms.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__AUTO_GRANTED;
 import static android.util.StatsLogAtoms.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__IGNORED;
 import static android.util.StatsLogAtoms.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__IGNORED_POLICY_FIXED;
+import static android.util.StatsLogAtoms.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__IGNORED_RESTRICTED_PERMISSION;
 import static android.util.StatsLogAtoms.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__IGNORED_USER_FIXED;
 import static android.util.StatsLogAtoms.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_DENIED;
 import static android.util.StatsLogAtoms.PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__USER_DENIED_WITH_PREJUDICE;
@@ -143,14 +144,20 @@ public class GrantPermissionsActivity extends Activity
         if (!group.isGrantingAllowed()) {
             reportRequestResult(permission,
                     PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__IGNORED);
-
             // Skip showing groups that we know cannot be granted.
             return;
         }
 
+        // If the permission is restricted it does not show in the UI and
+        // is not added to the group at all, so check that first.
+        if (group.getPermission(permission) == null && ArrayUtils.contains(mAppPermissions
+                .getPackageInfo().requestedPermissions, permission)) {
+            reportRequestResult(permission,
+                  PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__IGNORED_RESTRICTED_PERMISSION);
+            return;
         // We allow the user to choose only non-fixed permissions. A permission
         // is fixed either by device policy or the user denying with prejudice.
-        if (group.isUserFixed()) {
+        } else if (group.isUserFixed()) {
             reportRequestResult(permission,
                     PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__IGNORED_USER_FIXED);
             return;
