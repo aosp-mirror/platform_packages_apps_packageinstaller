@@ -467,14 +467,7 @@ public class LocationAccessCheck {
 
                 UserPackage userPkg = new UserPackage(mContext, pkg, user);
 
-                AppPermissionGroup bgLocationGroup;
-                try {
-                    bgLocationGroup = userPkg.getBackgroundLocationGroup();
-                } catch (PackageManager.NameNotFoundException e) {
-                    // Package was uninstalled
-                    continue;
-                }
-
+                AppPermissionGroup bgLocationGroup = userPkg.getBackgroundLocationGroup();
                 // Do not show notification that do not request the background permission anymore
                 if (bgLocationGroup == null) {
                     continue;
@@ -488,6 +481,14 @@ public class LocationAccessCheck {
 
                 // Do not show notification for permissions that are not user sensitive
                 if (!bgLocationGroup.isUserSensitive()) {
+                    continue;
+                }
+
+                // Never show notification for pregranted permissions as warning the user via the
+                // notification and then warning the user again when revoking the permission is
+                // confusing
+                if (userPkg.getLocationGroup().hasGrantedByDefaultPermission()
+                    && bgLocationGroup.hasGrantedByDefaultPermission()) {
                     continue;
                 }
 
@@ -630,12 +631,8 @@ public class LocationAccessCheck {
         for (UserPackage userPkg : alreadyNotifiedPkgs) {
             throwInterruptedExceptionIfTaskIsCanceled();
 
-            try {
-                AppPermissionGroup bgLocationGroup = userPkg.getBackgroundLocationGroup();
-                if (bgLocationGroup == null || !bgLocationGroup.areRuntimePermissionsGranted()) {
-                    packagesToRemove.add(userPkg);
-                }
-            } catch (PackageManager.NameNotFoundException e) {
+            AppPermissionGroup bgLocationGroup = userPkg.getBackgroundLocationGroup();
+            if (bgLocationGroup == null || !bgLocationGroup.areRuntimePermissionsGranted()) {
                 packagesToRemove.add(userPkg);
             }
         }
@@ -917,13 +914,14 @@ public class LocationAccessCheck {
          * {@link android.Manifest.permission#ACCESS_FINE_LOCATION} and this user package.
          *
          * @return The app permission group or {@code null} if the app does not request location
-         *
-         * @throws PackageManager.NameNotFoundException if package/user does not exist
          */
-        @Nullable AppPermissionGroup getLocationGroup()
-                throws PackageManager.NameNotFoundException {
-            return AppPermissionGroup.create(mContext, getPackageInfo(), ACCESS_FINE_LOCATION,
+        @Nullable AppPermissionGroup getLocationGroup() {
+            try {
+                return AppPermissionGroup.create(mContext, getPackageInfo(), ACCESS_FINE_LOCATION,
                     false);
+            } catch (PackageManager.NameNotFoundException e) {
+                return null;
+            }
         }
 
         /**
@@ -932,11 +930,8 @@ public class LocationAccessCheck {
          *
          * @return The app permission group or {@code null} if the app does not request background
          *         location
-         *
-         * @throws PackageManager.NameNotFoundException if package/user does not exist
          */
-        @Nullable AppPermissionGroup getBackgroundLocationGroup()
-                throws PackageManager.NameNotFoundException {
+        @Nullable AppPermissionGroup getBackgroundLocationGroup() {
             AppPermissionGroup locationGroup = getLocationGroup();
             if (locationGroup == null) {
                 return null;
