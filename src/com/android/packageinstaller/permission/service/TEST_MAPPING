@@ -8,6 +8,9 @@
                 },
                 {
                     "include-filter": "android.permission.cts.PermissionControllerTest"
+                },
+                {
+                    "exclude-annotation": "androidx.test.filters.FlakyTest"
                 }
             ]
         },
@@ -16,6 +19,9 @@
             "options": [
                 {
                     "include-filter": "android.backup.cts.PermissionTest"
+                },
+                {
+                    "exclude-annotation": "androidx.test.filters.FlakyTest"
                 }
             ]
         }
@@ -41,6 +47,9 @@
                 },
                 {
                     "include-filter": "com.android.cts.devicepolicy.MixedManagedProfileOwnerTestApi25#testPermissionGrantPreMApp"
+                },
+                {
+                    "exclude-annotation": "androidx.test.filters.FlakyTest"
                 }
             ]
         }
