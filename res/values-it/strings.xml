@@ -230,16 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"App, spesso chiamate Avvio app, che sostituiscono le schermate Home sul tuo dispositivo Android e che ti forniscono l\'accesso ai contenuti e alle funzionalità del dispositivo"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Impostare <xliff:g id="APP_NAME">%1$s</xliff:g> come app casa predefinita?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Nessuna autorizzazione necessaria"</string>
-    <string name="role_music_label" msgid="3964722099212202119">"App musica predefinita"</string>
-    <string name="role_music_short_label" msgid="5119108052527581418">"App musica"</string>
-    <string name="role_music_description" msgid="6172106860153033272">"App che ti permettono di riprodurre brani, podcast e audio di altro tipo"</string>
-    <string name="role_music_request_title" msgid="1674906751067278382">"Impostare <xliff:g id="APP_NAME">%1$s</xliff:g> come app musica predefinita?"</string>
-    <string name="role_music_request_description" msgid="305266634384433670">"Ottiene accesso all\'audio"</string>
-    <string name="role_gallery_label" msgid="3622204908078352458">"App galleria predefinita"</string>
-    <string name="role_gallery_short_label" msgid="5079332588386074520">"App galleria"</string>
-    <string name="role_gallery_description" msgid="7747091950085504563">"App che ti permettono di visualizzare, organizzare, proteggere e condividere foto e video"</string>
-    <string name="role_gallery_request_title" msgid="8019201567844533028">"Impostare <xliff:g id="APP_NAME">%1$s</xliff:g> come app galleria predefinita?"</string>
-    <string name="role_gallery_request_description" msgid="2946641507679528110">"Ottiene accesso a foto e video"</string>
     <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"App telefono auto predefinita"</string>
     <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"App telefono modalità auto"</string>
     <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
@@ -289,12 +279,10 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"L\'app <xliff:g id="APP_NAME">%1$s</xliff:g> vorrebbe caricare informazioni di debug."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Condividi dati di debug"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"L\'app <xliff:g id="APP_NAME_0">%1$s</xliff:g> chiede di caricare una segnalazione di bug da questo dispositivo, ricevuta il giorno <xliff:g id="DATE">%2$s</xliff:g> alle ore <xliff:g id="TIME">%3$s</xliff:g>. Le segnalazioni di bug includono informazioni personali relative al tuo dispositivo oppure registrate dalle app, ad esempio nomi utente, dati sulla posizione, identificatori dei dispositivi e informazioni sulle reti. Condividi le segnalazioni di bug solo con persone e app che ritieni affidabili. Consentire all\'app <xliff:g id="APP_NAME_1">%4$s</xliff:g> di caricare una segnalazione di bug?"</string>
-    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"Si è verificato un errore durante l\'elaborazione della segnalazione di bug per <xliff:g id="APP_NAME">%1$s</xliff:g>. Di conseguenza è stata negata la condivisione dei dati di debug dettagliati. Siamo spiacenti per l\'interruzione."</string>
+    <!-- no translation found for incident_report_error_dialog_text (1001752000696958519) -->
+    <skip />
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Consenti"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Nega"</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_title" msgid="5699953608028268176">"L\'autorizzazione non può essere negata. Disinstalla <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_content" msgid="6960592986228883592">"<xliff:g id="APP_NAME">%1$s</xliff:g> ha un\'autorizzazione di archiviazione precedente per mantenere l\'accesso ai tuoi dati precedenti; inoltre, l\'app può smettere di funzionare se l\'autorizzazione è negata.\n\nPer continuare a usare l\'app, disinstallala e installala nuovamente. I dati dell\'app potrebbero andare persi."</string>
-    <string name="dismiss_with_acknowledgment" msgid="2879819713128822468">"OK"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Impostazioni avanzate"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Impostazioni avanzate"</string>
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Mostra l\'utilizzo dell\'app di sistema"</string>

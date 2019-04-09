@@ -230,16 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Aplikasi, biasa disebut peluncur, yang menggantikan Layar utama di perangkat Android dan memberi Anda akses ke konten dan fitur di perangkat Anda"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Tetapkan <xliff:g id="APP_NAME">%1$s</xliff:g> sebagai aplikasi beranda default Anda?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Tidak ada izin yang diperlukan"</string>
-    <string name="role_music_label" msgid="3964722099212202119">"Aplikasi musik default"</string>
-    <string name="role_music_short_label" msgid="5119108052527581418">"Aplikasi musik"</string>
-    <string name="role_music_description" msgid="6172106860153033272">"Aplikasi yang memungkinkan Anda memutar lagu, podcast, dan audio lainnya"</string>
-    <string name="role_music_request_title" msgid="1674906751067278382">"Tetapkan <xliff:g id="APP_NAME">%1$s</xliff:g> sebagai aplikasi musik default Anda?"</string>
-    <string name="role_music_request_description" msgid="305266634384433670">"Mendapatkan akses ke audio"</string>
-    <string name="role_gallery_label" msgid="3622204908078352458">"Aplikasi galeri default"</string>
-    <string name="role_gallery_short_label" msgid="5079332588386074520">"Aplikasi Galeri"</string>
-    <string name="role_gallery_description" msgid="7747091950085504563">"Aplikasi yang memungkinkan Anda menampilkan, mengatur, melindungi, dan membagikan foto dan video"</string>
-    <string name="role_gallery_request_title" msgid="8019201567844533028">"Tetapkan <xliff:g id="APP_NAME">%1$s</xliff:g> sebagai aplikasi galeri default Anda?"</string>
-    <string name="role_gallery_request_description" msgid="2946641507679528110">"Mendapatkan akses ke foto dan video"</string>
     <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Apl telepon mode mobil default"</string>
     <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Aplikasi telepon mode mobil"</string>
     <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
@@ -289,12 +279,10 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> ingin mengupload informasi proses debug."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Bagikan Data Proses Debug"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> meminta untuk mengupload laporan bug dari perangkat ini yang diambil pada <xliff:g id="DATE">%2$s</xliff:g> pukul <xliff:g id="TIME">%3$s</xliff:g>. Laporan bug mencakup informasi pribadi tentang perangkat Anda atau yang dicatat dalam log oleh aplikasi, misalnya, nama pengguna, data lokasi, ID perangkat, dan informasi jaringan. Bagikan laporan bug hanya kepada orang dan aplikasi yang Anda percayai dengan informasi ini. Izinkan <xliff:g id="APP_NAME_1">%4$s</xliff:g> mengupload laporan bug?"</string>
-    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"Terjadi error saat memproses laporan bug untuk <xliff:g id="APP_NAME">%1$s</xliff:g>. Jadi, aktivitas berbagi detail data proses debug telah ditolak. Kami mohon maaf atas gangguan ini."</string>
+    <!-- no translation found for incident_report_error_dialog_text (1001752000696958519) -->
+    <skip />
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Izinkan"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Tolak"</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_title" msgid="5699953608028268176">"Izin tidak dapat ditolak. Uninstal <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_content" msgid="6960592986228883592">"<xliff:g id="APP_NAME">%1$s</xliff:g> memiliki izin penyimpanan lama untuk mempertahankan akses ke data sebelumnya. Aplikasi dapat berhenti berfungsi jika izin ini ditolak.\n\nUntuk terus menggunakan aplikasi, uninstal lalu instal ulang aplikasi tersebut. Data Anda di aplikasi ini mungkin akan hilang."</string>
-    <string name="dismiss_with_acknowledgment" msgid="2879819713128822468">"Oke"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Setelan lanjutan"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Setelan lanjutan"</string>
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Tampilkan penggunaan aplikasi sistem"</string>

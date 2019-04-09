@@ -230,16 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Aplicacións que adoitan chamarse \"launchers\" e que substitúen as pantallas de inicio do teu dispositivo Android para permitirche acceder aos contidos e ás funcións do dispositivo"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Queres definir <xliff:g id="APP_NAME">%1$s</xliff:g> como a túa aplicación predeterminada da casa?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Non se necesita ningún permiso"</string>
-    <string name="role_music_label" msgid="3964722099212202119">"App predeterminada de música"</string>
-    <string name="role_music_short_label" msgid="5119108052527581418">"Aplicación de música"</string>
-    <string name="role_music_description" msgid="6172106860153033272">"Aplicacións que che permiten reproducir cancións, podcasts e outro contido de audio"</string>
-    <string name="role_music_request_title" msgid="1674906751067278382">"Queres definir <xliff:g id="APP_NAME">%1$s</xliff:g> como a túa aplicación predeterminada de música?"</string>
-    <string name="role_music_request_description" msgid="305266634384433670">"Recibe acceso ao audio"</string>
-    <string name="role_gallery_label" msgid="3622204908078352458">"App predeterminada de galería"</string>
-    <string name="role_gallery_short_label" msgid="5079332588386074520">"Aplicación Galería"</string>
-    <string name="role_gallery_description" msgid="7747091950085504563">"Aplicacións que che permiten ver, organizar, protexer e compartir as túas fotos e vídeos"</string>
-    <string name="role_gallery_request_title" msgid="8019201567844533028">"Queres definir <xliff:g id="APP_NAME">%1$s</xliff:g> como a túa aplicación predeterminada de galería?"</string>
-    <string name="role_gallery_request_description" msgid="2946641507679528110">"Recibe acceso ás fotos e aos vídeos"</string>
     <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Modo de cond.: app pred. tel."</string>
     <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"App de tel. do modo de cond."</string>
     <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
@@ -289,15 +279,13 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"A aplicación <xliff:g id="APP_NAME">%1$s</xliff:g> quere cargar información de depuración."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Compartir datos de depuración"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"A aplicación <xliff:g id="APP_NAME_0">%1$s</xliff:g> quere subir un informe de erros deste dispositivo, xerado o <xliff:g id="DATE">%2$s</xliff:g> (<xliff:g id="TIME">%3$s</xliff:g>). Os informes de erros inclúen información persoal sobre o dispositivo ou datos rexistrados polas aplicacións, como os nomes de usuario, os datos de localización, os identificadores do dispositivo e a información da rede. Comparte estes informes unicamente con persoas e aplicacións de confianza. Queres permitir que a aplicación <xliff:g id="APP_NAME_1">%4$s</xliff:g> cargue un informe de erros?"</string>
-    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"Houbo un erro ao procesar o informe de erro da aplicación <xliff:g id="APP_NAME">%1$s</xliff:g>, polo cal se denegou o uso compartido dos datos de depuración detallados. Lamentamos a interrupción."</string>
+    <!-- no translation found for incident_report_error_dialog_text (1001752000696958519) -->
+    <skip />
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Permitir"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Denegar"</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_title" msgid="5699953608028268176">"O permiso non se puido denegar. Desinstalar <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_content" msgid="6960592986228883592">"<xliff:g id="APP_NAME">%1$s</xliff:g> ten permiso de acceso ao almacenamento antigo para que poidas acceder aos teus datos anteriores, polo que pode deixar de funcionar se lle denegas este permiso.\n\nPara seguir utilizando a aplicación, desinstálaa e volve instalala. Os datos que teñas nesta aplicación pódense perder."</string>
-    <string name="dismiss_with_acknowledgment" msgid="2879819713128822468">"De acordo"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Configuración avanzada"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Configuración avanzada"</string>
-    <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Mostrar uso da aplicación do sistema"</string>
+    <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Mostrar uso das aplicacións do sistema"</string>
     <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"Mostra o uso de permisos da aplicación do sistema na barra de estado, no panel de control e noutros lugares"</string>
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Destacar o uso das seguintes aplicacións"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Mostrar icona de detección do activador do Asistente"</string>

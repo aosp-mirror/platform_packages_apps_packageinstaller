@@ -244,16 +244,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Праграмы, якія часта называюцца панэлямі запуску, замяняюць сабой галоўныя экраны на прыладзе Android і забяспечваюць вам доступ да змесціва і функцый прылады"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Прызначыць \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" стандартнай галоўнай праграмай?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Дазволы не патрэбныя"</string>
-    <string name="role_music_label" msgid="3964722099212202119">"Стандартная праграма для музыкі"</string>
-    <string name="role_music_short_label" msgid="5119108052527581418">"Праграма \"Музыка\""</string>
-    <string name="role_music_description" msgid="6172106860153033272">"Праграмы, якія дазваляюць вам прайграваць музычныя кампазіцыі, падкасты і іншае аўдыязмесціва"</string>
-    <string name="role_music_request_title" msgid="1674906751067278382">"Прызначыць \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" стандартнай праграмай для музыкі?"</string>
-    <string name="role_music_request_description" msgid="305266634384433670">"Патрабуе доступу да аўдыя"</string>
-    <string name="role_gallery_label" msgid="3622204908078352458">"Стандартная праграма \"Галерэя\""</string>
-    <string name="role_gallery_short_label" msgid="5079332588386074520">"Праграма \"Галерэя\""</string>
-    <string name="role_gallery_description" msgid="7747091950085504563">"Праграмы, якія дазваляюць вам праглядаць, упарадкоўваць, абараняць і абагульваць фота і відэа"</string>
-    <string name="role_gallery_request_title" msgid="8019201567844533028">"Прызначыць \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" стандартнай праграмай для галерэі?"</string>
-    <string name="role_gallery_request_description" msgid="2946641507679528110">"Патрабуе доступу да фота і відэа"</string>
     <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Праграма рэжыму \"У аўтамабілі\""</string>
     <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Праграма рэжыму \"У аўтамабілі\""</string>
     <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
@@ -303,12 +293,10 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"Праграма \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" спрабуе запампаваць звесткі пра адладку."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Абагульванне даных адладкі"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"Праграма \"<xliff:g id="APP_NAME_0">%1$s</xliff:g>\" запытвае запампоўку справаздачы пра памылкі з гэтай прылады ад <xliff:g id="DATE">%2$s</xliff:g> у <xliff:g id="TIME">%3$s</xliff:g>. Справаздача пра памылкі ўключае персанальную інфармацыю пра вашу прыладу ці зарэгістраваныя праграмы, напрыклад імёны карыстальнікаў, звесткі пра месцазнаходжанне, ідэнтыфікатары прылады і даныя пра сетку. Абагульвайце справаздачы пра памылкі толькі з людзьмі і праграмамі, якім давяраеце. Дазволіць праграме \"<xliff:g id="APP_NAME_1">%4$s</xliff:g>\" запампаваць справаздачу пра памылкі?"</string>
-    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"Узнікла памылка пры апрацоўцы справаздачы пра памылкі для праграмы \"<xliff:g id="APP_NAME">%1$s</xliff:g>\". Абагульванне падрабязных звестак пра адладку адхілена. Просім прабачэння за збой."</string>
+    <!-- no translation found for incident_report_error_dialog_text (1001752000696958519) -->
+    <skip />
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Дазволіць"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Адмовіць"</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_title" msgid="5699953608028268176">"Дазвол нельга адхіліць. Выдаліце праграму \"<xliff:g id="APP_NAME">%1$s</xliff:g>\"."</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_content" msgid="6960592986228883592">"Праграма \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" мае стары дазвол на доступ да сховішча для захавання папярэдніх даных, і яна можа перастаць працаваць, калі гэты дазвол будзе адхілены.\n\nКаб карыстацца праграмай далей, выдаліце яе і ўсталюйце паўторна. Вашы даныя ў гэтай праграме могуць быць страчаны."</string>
-    <string name="dismiss_with_acknowledgment" msgid="2879819713128822468">"Зразумела"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Пашыраныя налады"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Пашыраныя налады"</string>
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Паказваць выкарыстанне сістэмных праграм"</string>

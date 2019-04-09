@@ -17,7 +17,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="2792757108872430971">"Berechtigungssteuerung"</string>
-    <string name="ok" msgid="4417794827535157922">"OK"</string>
+    <string name="ok" msgid="4417794827535157922">"Ok"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"Berechtigungen"</string>
     <string name="cancel" msgid="7279939269964834974">"Abbrechen"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"App nicht gefunden"</string>
@@ -230,16 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Oft auch als \"Launcher\" bezeichnete Apps, die den Startbildschirm deines Android-Geräts ersetzen und Zugriff auf Inhalte und Funktionen deines Geräts gewähren"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"<xliff:g id="APP_NAME">%1$s</xliff:g> als standardmäßige Start-App festlegen?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Keine Berechtigungen erforderlich"</string>
-    <string name="role_music_label" msgid="3964722099212202119">"Standard-App für Musik"</string>
-    <string name="role_music_short_label" msgid="5119108052527581418">"Musik App"</string>
-    <string name="role_music_description" msgid="6172106860153033272">"Apps, mit denen du Songs, Podcasts und andere Audiodateien wiedergeben kannst"</string>
-    <string name="role_music_request_title" msgid="1674906751067278382">"<xliff:g id="APP_NAME">%1$s</xliff:g> als Standard-App für Musik festlegen?"</string>
-    <string name="role_music_request_description" msgid="305266634384433670">"Erhält Zugriff auf Audio"</string>
-    <string name="role_gallery_label" msgid="3622204908078352458">"Standard-App für Fotogalerie"</string>
-    <string name="role_gallery_short_label" msgid="5079332588386074520">"Galerie App"</string>
-    <string name="role_gallery_description" msgid="7747091950085504563">"Apps, die das Ansehen, Organisieren, Schützen und Teilen deiner Fotos und Videos erlauben"</string>
-    <string name="role_gallery_request_title" msgid="8019201567844533028">"<xliff:g id="APP_NAME">%1$s</xliff:g> als standardmäßige Galerie App festlegen?"</string>
-    <string name="role_gallery_request_description" msgid="2946641507679528110">"Erhält Zugriff auf Fotos und Videos"</string>
     <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Standard-Automodus-Telefon-App"</string>
     <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Automodus-Telefon-App"</string>
     <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
@@ -264,7 +254,7 @@
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Nicht mehr fragen"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Als Standard festlegen"</string>
     <string name="default_app_search_keyword" msgid="6938709626391437391">"Standard-Apps"</string>
-    <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"OK"</string>
+    <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"Ok"</string>
     <string name="ongoing_usage_dialog_open_settings" msgid="3368892579319881043">"Datenschutzeinstell."</string>
     <string name="ongoing_usage_dialog_title" msgid="7173961211414061803">"Apps, die <xliff:g id="TYPES_LIST">%s</xliff:g> verwenden"</string>
     <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
@@ -289,12 +279,10 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> möchte Informationen zur Fehlerbehebung hochladen."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Daten zur Fehlerbehebung teilen"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> möchte einen Fehlerbericht von diesem Gerät hochladen, der am <xliff:g id="DATE">%2$s</xliff:g> um <xliff:g id="TIME">%3$s</xliff:g> erstellt wurde. Fehlerberichte enthalten Informationen zu deinem Gerät, die du persönlich eingegeben hast oder die von Apps aufgezeichnet werden, z. B. Nutzernamen, Standortdaten, Geräte-IDs und Netzwerkinformationen. Teile Fehlerberichte nur mit Personen und Apps, denen du vertraust. Darf <xliff:g id="APP_NAME_1">%4$s</xliff:g> einen Fehlerbericht hochladen?"</string>
-    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"Bei der Verarbeitung des Fehlerberichts für <xliff:g id="APP_NAME">%1$s</xliff:g> ist ein Fehler aufgetreten. Die detaillierten Daten zur Fehlerbehebung wurden daher nicht geteilt. Wir entschuldigen uns für die Störung."</string>
+    <!-- no translation found for incident_report_error_dialog_text (1001752000696958519) -->
+    <skip />
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Zulassen"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Ablehnen"</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_title" msgid="5699953608028268176">"Die Berechtigung muss zugelassen werden. Deinstalliere <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_content" msgid="6960592986228883592">"<xliff:g id="APP_NAME">%1$s</xliff:g> verfügt über eine veraltete Speicherberechtigung, damit deine früheren Daten zugänglich bleiben. Wenn diese Berechtigung nicht zugelassen wird, funktioniert die App möglicherweise nicht mehr.\n\nWenn du die App weiterhin verwenden möchtest, musst du sie deinstallieren und dann neu installieren. Dabei können deine Daten in dieser App verloren gehen."</string>
-    <string name="dismiss_with_acknowledgment" msgid="2879819713128822468">"OK"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Erweiterte Einstellungen"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Erweiterte Einstellungen"</string>
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Nutzung von System-App anzeigen"</string>

@@ -41,6 +41,7 @@ public final class Permission {
     private boolean mIsRuntimeOnly;
     private Permission mBackgroundPermission;
     private ArrayList<Permission> mForegroundPermissions;
+    private boolean mWhitelisted;
 
     public Permission(String name, @NonNull PermissionInfo permissionInfo, boolean granted,
             String appOp, boolean appOpAllowed, int flags) {
@@ -92,6 +93,10 @@ public final class Permission {
 
     public int getFlags() {
         return mFlags;
+    }
+
+    boolean isHardRestricted() {
+        return (mPermissionInfo.flags & PermissionInfo.FLAG_HARD_RESTRICTED) != 0;
     }
 
     /**

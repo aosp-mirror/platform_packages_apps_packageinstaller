@@ -230,16 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Apps (ofte kaldet applister), som erstatter startskærmene på din Android-enhed og giver dig adgang til indhold og funktioner på din enhed"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Vil du angive <xliff:g id="APP_NAME">%1$s</xliff:g> som din standardstartapp?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Der kræves ingen tilladelser"</string>
-    <string name="role_music_label" msgid="3964722099212202119">"Standardapp til musik"</string>
-    <string name="role_music_short_label" msgid="5119108052527581418">"Musikapp"</string>
-    <string name="role_music_description" msgid="6172106860153033272">"Apps, der giver dig mulighed for at afspille sange, podcasts og anden lyd"</string>
-    <string name="role_music_request_title" msgid="1674906751067278382">"Vil du angive <xliff:g id="APP_NAME">%1$s</xliff:g> som din standardapp til musik?"</string>
-    <string name="role_music_request_description" msgid="305266634384433670">"Appen får adgang til lyd"</string>
-    <string name="role_gallery_label" msgid="3622204908078352458">"Standardapp til galleri"</string>
-    <string name="role_gallery_short_label" msgid="5079332588386074520">"Galleriapp"</string>
-    <string name="role_gallery_description" msgid="7747091950085504563">"Apps, der giver dig mulighed for at se, organisere, beskytte og dele dine billeder og videoer"</string>
-    <string name="role_gallery_request_title" msgid="8019201567844533028">"Vil du angive <xliff:g id="APP_NAME">%1$s</xliff:g> som din standardapp til galleri?"</string>
-    <string name="role_gallery_request_description" msgid="2946641507679528110">"Appen får adgang til billeder og videoer"</string>
     <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Standardopkaldsapp til bilen"</string>
     <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Opkaldsapp til biltilstand"</string>
     <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
@@ -289,12 +279,10 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> vil gerne uploade fejretningsoplysninger."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Del fejlretningsdata"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> anmoder om at uploade en fejlrapport fra denne enhed, som stammer fra <xliff:g id="DATE">%2$s</xliff:g> kl. <xliff:g id="TIME">%3$s</xliff:g>. Fejlrapporter indeholder personlige oplysninger om din enhed eller registreres af apps, f.eks. brugernavne, steddata, enheds-id\'er og netværksoplysninger. Oplysningerne i fejlrapporterne må kun deles med personer og apps, du har tillid til. Vil du give <xliff:g id="APP_NAME_1">%4$s</xliff:g> tilladelse til at uploade en fejlrapport?"</string>
-    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"Der opstod en fejl i behandlingen af fejlrapporten for <xliff:g id="APP_NAME">%1$s</xliff:g>. Det er derfor ikke muligt at dele detaljerede fejlretningsdata. Vi beklager ulejligheden."</string>
+    <!-- no translation found for incident_report_error_dialog_text (1001752000696958519) -->
+    <skip />
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Tillad"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Afvis"</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_title" msgid="5699953608028268176">"Tilladelsen kan ikke afvises. Afinstaller <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_content" msgid="6960592986228883592">"<xliff:g id="APP_NAME">%1$s</xliff:g> har adgang til forældet lagerplads, så du har adgang til dine tidligere data, og appen kan stoppe med at fungere, når denne tilladelse afvises.\n\nHvis du vil fortsætte med at bruge appen, skal du afinstallere den og derefter installere den igen. Du kan miste dine data i denne app."</string>
-    <string name="dismiss_with_acknowledgment" msgid="2879819713128822468">"OK"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Avancerede indstillinger"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Avancerede indstillinger"</string>
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Vis brugen af systemapps"</string>

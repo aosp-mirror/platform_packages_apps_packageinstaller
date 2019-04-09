@@ -230,16 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Las aplicaciones, normalmente denominadas menú de aplicaciones, reemplazan las pantallas de inicio en tu dispositivo Android y te dan acceso al contenido y a las funciones de tu dispositivo"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"¿Quieres establecer a <xliff:g id="APP_NAME">%1$s</xliff:g> como tu aplicación de inicio predeterminada?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"No se necesita ningún permiso"</string>
-    <string name="role_music_label" msgid="3964722099212202119">"App predeterminada de música"</string>
-    <string name="role_music_short_label" msgid="5119108052527581418">"Aplicación de música"</string>
-    <string name="role_music_description" msgid="6172106860153033272">"Son las aplicaciones que te permiten reproducir canciones, podcasts y otro tipo de audio"</string>
-    <string name="role_music_request_title" msgid="1674906751067278382">"¿Quieres establecer a <xliff:g id="APP_NAME">%1$s</xliff:g> como tu aplicación de música predeterminada?"</string>
-    <string name="role_music_request_description" msgid="305266634384433670">"Accede al audio"</string>
-    <string name="role_gallery_label" msgid="3622204908078352458">"App de galería predeterminada"</string>
-    <string name="role_gallery_short_label" msgid="5079332588386074520">"Aplicación de galería"</string>
-    <string name="role_gallery_description" msgid="7747091950085504563">"Son las aplicaciones que te permiten ver, organizar, proteger y compartir tus fotos y vídeos"</string>
-    <string name="role_gallery_request_title" msgid="8019201567844533028">"¿Quieres establecer a <xliff:g id="APP_NAME">%1$s</xliff:g> como tu aplicación de galería predeterminada?"</string>
-    <string name="role_gallery_request_description" msgid="2946641507679528110">"Accede a las fotos y vídeos"</string>
     <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"App llamadas modo coche predet."</string>
     <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"App de llamadas en modo coche"</string>
     <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
@@ -289,12 +279,10 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> quiere subir información de depuración."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Compartir datos de depuración"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> quiere subir el informe de errores de este dispositivo, generado el <xliff:g id="DATE">%2$s</xliff:g> a las <xliff:g id="TIME">%3$s</xliff:g>. Los informes de errores incluyen información personal sobre el dispositivo o datos registrados por las aplicaciones, como nombres de usuario, datos de ubicación, identificadores del dispositivo e información de red. Comparte estos informes únicamente con personas y aplicaciones de confianza. ¿Quieres permitir que <xliff:g id="APP_NAME_1">%4$s</xliff:g> suba un informe de errores?"</string>
-    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"No se ha podido procesar el informe de errores de <xliff:g id="APP_NAME">%1$s</xliff:g>, por lo que no se han podido compartir los datos de depuración detallados. Sentimos las molestias."</string>
+    <!-- no translation found for incident_report_error_dialog_text (1001752000696958519) -->
+    <skip />
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Permitir"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Denegar"</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_title" msgid="5699953608028268176">"No se puede denegar el permiso. Desinstala <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
-    <string name="grandfathered_modern_storage_permission_deny_warning_content" msgid="6960592986228883592">"<xliff:g id="APP_NAME">%1$s</xliff:g> tiene permiso de almacenamiento antiguo con el que tienes acceso a tus datos anteriores, y la aplicación puede dejar de funcionar si este permiso se deniega.\n\nPara dejar de utilizar la aplicación, desinstálala y vuelve a instalarla. Es posible que se pierdan los datos de tu aplicación."</string>
-    <string name="dismiss_with_acknowledgment" msgid="2879819713128822468">"Listo"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Ajustes avanzados"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Ajustes avanzados"</string>
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Mostrar el uso de las aplicaciones del sistema"</string>
