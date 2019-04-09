@@ -21,6 +21,10 @@
     <include layout="@layout/settings_entity_header" />
 
     <TextView
+        android:id="@+id/header_text"
+        style="@style/LargeHeaderText"/>
+
+    <TextView
         android:id="@+id/header_link"
         android:clickable="true"
         style="@style/LargeHeaderLink"/>

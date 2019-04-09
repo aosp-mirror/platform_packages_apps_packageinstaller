@@ -17,7 +17,6 @@
 package com.android.packageinstaller.permission.ui.handheld;
 
 import android.content.Intent;
-import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -121,17 +120,17 @@ public abstract class SettingsWithLargeHeader extends PermissionsFrameFragment  
      * @param listener the click listener if the summary should be clickable
      */
     public void setSummary(@NonNull CharSequence summary, @Nullable View.OnClickListener listener) {
-        TextView summaryView = mHeader.requireViewById(R.id.header_link);
-        summaryView.setVisibility(View.VISIBLE);
-        summaryView.setText(summary);
+        TextView textView = mHeader.requireViewById(R.id.header_text);
+        TextView linkView = mHeader.requireViewById(R.id.header_link);
         if (listener != null) {
-            summaryView.setOnClickListener(listener);
+            linkView.setOnClickListener(listener);
+            linkView.setVisibility(View.VISIBLE);
+            linkView.setText(summary);
+            textView.setVisibility(View.GONE);
         } else {
-            TypedArray a = getContext().obtainStyledAttributes(
-                    new int[] { android.R.attr.textColorSecondary });
-            int color = a.getColor(0, 0);
-            a.recycle();
-            summaryView.setTextColor(color);
+            textView.setVisibility(View.VISIBLE);
+            textView.setText(summary);
+            linkView.setVisibility(View.GONE);
         }
     }
 }
