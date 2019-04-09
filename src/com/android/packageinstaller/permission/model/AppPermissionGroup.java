@@ -36,7 +36,6 @@ import android.content.pm.PermissionInfo;
 import android.os.Build;
 import android.os.UserHandle;
 import android.permission.PermissionManager;
-import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.Log;
@@ -54,6 +53,7 @@ import com.android.permissioncontroller.R;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * All permissions of a permission group that are requested by an app.
@@ -184,6 +184,31 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
      */
     public static AppPermissionGroup create(Context context, PackageInfo packageInfo,
             PackageItemInfo groupInfo, List<PermissionInfo> permissionInfos, boolean delayChanges) {
+        PackageManager packageManager = context.getPackageManager();
+        CharSequence groupLabel = groupInfo.loadLabel(packageManager);
+        CharSequence fullGroupLabel = groupInfo.loadSafeLabel(packageManager, 0,
+                TextUtils.SAFE_STRING_FLAG_TRIM | TextUtils.SAFE_STRING_FLAG_FIRST_LINE);
+        return create(context, packageInfo, groupInfo, permissionInfos, groupLabel,
+                fullGroupLabel, delayChanges);
+    }
+
+    /**
+     * Create the app permission group.
+     *
+     * @param context the {@code Context} to retrieve system services.
+     * @param packageInfo package information about the app.
+     * @param groupInfo the information about the group created.
+     * @param permissionInfos the information about the permissions belonging to the group.
+     * @param groupLabel the label of the group.
+     * @param fullGroupLabel the untruncated label of the group.
+     * @param delayChanges whether to delay changes until {@link #persistChanges} is called.
+     *
+     * @return the AppPermissionGroup.
+     */
+    public static AppPermissionGroup create(Context context, PackageInfo packageInfo,
+            PackageItemInfo groupInfo, List<PermissionInfo> permissionInfos,
+            CharSequence groupLabel, CharSequence fullGroupLabel, boolean delayChanges) {
+        PackageManager packageManager = context.getPackageManager();
         UserHandle userHandle = UserHandle.getUserHandleForUid(packageInfo.applicationInfo.uid);
 
         if (groupInfo instanceof PermissionInfo) {
@@ -195,20 +220,18 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             return null;
         }
 
-        CharSequence groupLabel = groupInfo.loadLabel(context.getPackageManager());
-        String[] permissionNames = new String[permissionInfos.size()];
-        int numPermissionInfos = permissionInfos.size();
-        for (int i = 0; i < numPermissionInfos; i++) {
-            permissionNames[i] = permissionInfos.get(i).name;
-        }
-        CharSequence fullGroupLabel = groupInfo.loadSafeLabel(context.getPackageManager(), 0,
-                TextUtils.SAFE_STRING_FLAG_TRIM | TextUtils.SAFE_STRING_FLAG_FIRST_LINE);
+        AppOpsManager appOpsManager = context.getSystemService(AppOpsManager.class);
+
         AppPermissionGroup group = new AppPermissionGroup(context, packageInfo, groupInfo.name,
                 groupInfo.packageName, groupLabel, fullGroupLabel,
-                loadGroupDescription(context, groupInfo), getRequest(groupInfo),
+                loadGroupDescription(context, groupInfo, packageManager), getRequest(groupInfo),
                 getRequestDetail(groupInfo), getBackgroundRequest(groupInfo),
                 getBackgroundRequestDetail(groupInfo), groupInfo.packageName, groupInfo.icon,
-                userHandle, delayChanges);
+                userHandle, delayChanges, appOpsManager);
+
+        final Set<String> whitelistedRestrictedPermissions = context.getPackageManager()
+                .getWhitelistedRestrictedPermissions(packageInfo.packageName,
+                        Utils.FLAGS_PERMISSION_WHITELIST_ALL);
 
         // Parse and create permissions reqested by the app
         ArrayMap<String, Permission> allPermissions = new ArrayMap<>();
@@ -253,12 +276,12 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             if (appOp == null) {
                 appOpAllowed = false;
             } else {
-                int appOpsMode = context.getSystemService(AppOpsManager.class).unsafeCheckOpRaw(
-                        appOp, packageInfo.applicationInfo.uid, packageName);
+                int appOpsMode = appOpsManager.unsafeCheckOpRaw(appOp,
+                        packageInfo.applicationInfo.uid, packageName);
                 appOpAllowed = appOpsMode == MODE_ALLOWED || appOpsMode == MODE_FOREGROUND;
             }
 
-            final int flags = context.getPackageManager().getPermissionFlags(
+            final int flags = packageManager.getPermissionFlags(
                     requestedPermission, packageName, userHandle);
 
             Permission permission = new Permission(requestedPermission, requestedPermissionInfo,
@@ -313,24 +336,15 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                             group.getRequest(), group.getRequestDetail(),
                             group.getBackgroundRequest(), group.getBackgroundRequestDetail(),
                             group.getIconPkg(), group.getIconResId(), group.getUser(),
-                            delayChanges);
+                            delayChanges, appOpsManager);
                 }
 
                 group.getBackgroundPermissions().addPermission(permission);
             } else {
-                boolean smsAccessRestrictionEnabled = Settings.Global.getInt(
-                        group.mContext.getContentResolver(),
-                        Settings.Global.SMS_ACCESS_RESTRICTION_ENABLED, 0) == 1;
-                if (!smsAccessRestrictionEnabled) {
+                if (!PackageManager.RESTRICTED_PERMISSIONS_ENABLED
+                        || (!permission.isHardRestricted()
+                            || whitelistedRestrictedPermissions.contains(permission.getName()))) {
                     group.addPermission(permission);
-                } else {
-                    String appOp = permission.getAppOp();
-                    boolean appOpDefault = appOp != null && group.mAppOps.unsafeCheckOpNoThrow(
-                            appOp, packageInfo.applicationInfo.uid, packageName)
-                            == AppOpsManager.MODE_DEFAULT;
-                    if (!appOpDefault) {
-                        group.addPermission(permission);
-                    }
                 }
             }
         }
@@ -352,14 +366,13 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         }
     }
 
-    private static CharSequence loadGroupDescription(Context context, PackageItemInfo group) {
+    private static CharSequence loadGroupDescription(Context context, PackageItemInfo group,
+                                                     @NonNull PackageManager packageManager) {
         CharSequence description = null;
         if (group instanceof PermissionGroupInfo) {
-            description = ((PermissionGroupInfo) group).loadDescription(
-                    context.getPackageManager());
+            description = ((PermissionGroupInfo) group).loadDescription(packageManager);
         } else if (group instanceof PermissionInfo) {
-            description = ((PermissionInfo) group).loadDescription(
-                    context.getPackageManager());
+            description = ((PermissionInfo) group).loadDescription(packageManager);
         }
 
         if (description == null || description.length() <= 0) {
@@ -373,8 +386,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
             String declaringPackage, CharSequence label, CharSequence fullLabel,
             CharSequence description, @StringRes int request, @StringRes int requestDetail,
             @StringRes int backgroundRequest, @StringRes int backgroundRequestDetail,
-            String iconPkg, int iconResId,
-            UserHandle userHandle, boolean delayChanges) {
+            String iconPkg, int iconResId, UserHandle userHandle, boolean delayChanges,
+            @NonNull AppOpsManager appOpsManager) {
         int targetSDK = packageInfo.applicationInfo.targetSdkVersion;
 
         mContext = context;
@@ -383,7 +396,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         mPackageInfo = packageInfo;
         mAppSupportsRuntimePermissions = targetSDK > Build.VERSION_CODES.LOLLIPOP_MR1;
         mIsEphemeralApp = packageInfo.applicationInfo.isInstantApp();
-        mAppOps = context.getSystemService(AppOpsManager.class);
+        mAppOps = appOpsManager;
         mActivityManager = context.getSystemService(ActivityManager.class);
         mDeclaringPackage = declaringPackage;
         mName = name;

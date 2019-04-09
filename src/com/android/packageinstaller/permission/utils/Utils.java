@@ -100,6 +100,19 @@ public final class Utils {
 
     public static final float DEFAULT_MAX_LABEL_SIZE_PX = 500f;
 
+    /** Whether to show the Permissions Hub. */
+    private static final String PROPERTY_PERMISSIONS_HUB_ENABLED = "permissions_hub_enabled";
+
+    /** Whether to show location access check notifications. */
+    private static final String PROPERTY_LOCATION_ACCESS_CHECK_ENABLED =
+            "location_access_check_enabled";
+
+    /** All permission whitelists. */
+    public static final int FLAGS_PERMISSION_WHITELIST_ALL =
+            PackageManager.FLAG_PERMISSION_WHITELIST_SYSTEM
+                    | PackageManager.FLAG_PERMISSION_WHITELIST_UPGRADE
+                    | PackageManager.FLAG_PERMISSION_WHITELIST_INSTALLER;
+
     /** Mapping permission -> group for all dangerous platform permissions */
     private static final ArrayMap<String, String> PLATFORM_PERMISSIONS;
 
@@ -247,6 +260,19 @@ public final class Utils {
     }
 
     /**
+     * Get the names for all platform permissions belonging to a group.
+     *
+     * @param group the group
+     *
+     * @return The permission names  or an empty list if the
+     *         group is not does not have platform runtime permissions
+     */
+    public static @NonNull List<String> getPlatformPermissionNamesOfGroup(@NonNull String group) {
+        final ArrayList<String> permissions = PLATFORM_PERMISSION_GROUPS.get(group);
+        return (permissions != null) ? permissions : Collections.emptyList();
+    }
+
+    /**
      * Get the {@link PermissionInfo infos} for all platform permissions belonging to a group.
      *
      * @param pm    Package manager to use to resolve permission infos
@@ -293,7 +319,7 @@ public final class Utils {
             @NonNull PackageManager pm, @NonNull String group)
             throws PackageManager.NameNotFoundException {
         List<PermissionInfo> permissions = pm.queryPermissionsByGroup(group, 0);
-        permissions.addAll(Utils.getPlatformPermissionsOfGroup(pm, group));
+        permissions.addAll(getPlatformPermissionsOfGroup(pm, group));
 
         return permissions;
     }
@@ -741,8 +767,8 @@ public final class Utils {
      * @return {@code true} iff the Location Access Check is enabled.
      */
     public static boolean isLocationAccessCheckEnabled() {
-        return Boolean.parseBoolean(DeviceConfig.getProperty(DeviceConfig.Privacy.NAMESPACE,
-                DeviceConfig.Privacy.PROPERTY_LOCATION_ACCESS_CHECK_ENABLED));
+        return DeviceConfig.getBoolean(DeviceConfig.NAMESPACE_PRIVACY,
+                PROPERTY_LOCATION_ACCESS_CHECK_ENABLED, false);
     }
 
     /**
@@ -751,8 +777,8 @@ public final class Utils {
      * @return whether the Permissions Hub is enabled.
      */
     public static boolean isPermissionsHubEnabled() {
-        return Boolean.parseBoolean(DeviceConfig.getProperty(DeviceConfig.Privacy.NAMESPACE,
-                DeviceConfig.Privacy.PROPERTY_PERMISSIONS_HUB_ENABLED));
+        return DeviceConfig.getBoolean(DeviceConfig.NAMESPACE_PRIVACY,
+                PROPERTY_PERMISSIONS_HUB_ENABLED, false);
     }
 
     /**
