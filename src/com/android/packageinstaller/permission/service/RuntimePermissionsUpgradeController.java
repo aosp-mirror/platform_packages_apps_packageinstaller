@@ -21,10 +21,12 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.permission.PermissionManager;
+import android.text.TextUtils;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.utils.Utils;
 
 import java.util.List;
@@ -33,9 +35,10 @@ import java.util.List;
  * This class handles upgrading the runtime permissions database
  */
 class RuntimePermissionsUpgradeController {
+    private static final String LOG_TAG = RuntimePermissionsUpgradeController.class.getSimpleName();
 
     // The latest version of the runtime permissions database
-    private static final int LATEST_VERSION = 1;
+    private static final int LATEST_VERSION = 2;
 
     private RuntimePermissionsUpgradeController() {
         /* do nothing - hide constructor */
@@ -70,18 +73,19 @@ class RuntimePermissionsUpgradeController {
      * @param currentVersion The current db version.
      */
     private static int onUpgradeLocked(@NonNull Context context, int currentVersion) {
-        // Grandfather SMS and CallLog permissions.
+        final List<PackageInfo> apps = context.getPackageManager()
+                .getInstalledPackages(PackageManager.MATCH_ALL
+                        | PackageManager.GET_PERMISSIONS);
+        final int appCount = apps.size();
+
         if (currentVersion <= 0) {
+            Log.i(LOG_TAG, "Grandfathering SMS and CallLog permissions");
+
             final List<String> smsPermissions = Utils.getPlatformPermissionNamesOfGroup(
                     android.Manifest.permission_group.SMS);
             final List<String> callLogPermissions = Utils.getPlatformPermissionNamesOfGroup(
                     Manifest.permission_group.CALL_LOG);
 
-            final List<PackageInfo> apps = context.getPackageManager()
-                    .getInstalledPackages(PackageManager.MATCH_ALL
-                            | PackageManager.GET_PERMISSIONS);
-
-            final int appCount = apps.size();
             for (int i = 0; i < appCount; i++) {
                 final PackageInfo app = apps.get(i);
                 if (app.requestedPermissions == null) {
@@ -98,6 +102,40 @@ class RuntimePermissionsUpgradeController {
                 }
             }
             currentVersion = 1;
+        }
+
+        if (currentVersion <= 1) {
+            Log.i(LOG_TAG, "Expanding location permissions");
+
+            for (int i = 0; i < appCount; i++) {
+                final PackageInfo app = apps.get(i);
+                if (app.requestedPermissions == null) {
+                    continue;
+                }
+
+                for (String perm : app.requestedPermissions) {
+                    String groupName = Utils.getGroupOfPlatformPermission(perm);
+
+                    if (!TextUtils.equals(groupName, Manifest.permission_group.LOCATION)) {
+                        continue;
+                    }
+
+                    final AppPermissionGroup group = AppPermissionGroup.create(context, app, perm,
+                            false);
+                    final AppPermissionGroup bgGroup = group.getBackgroundPermissions();
+
+                    if (group.areRuntimePermissionsGranted()
+                            && bgGroup != null
+                            && !bgGroup.isUserSet() && !bgGroup.isSystemFixed()
+                            && !bgGroup.isPolicyFixed()) {
+                        bgGroup.grantRuntimePermissions(group.isUserFixed());
+                    }
+
+                    break;
+                }
+            }
+
+            currentVersion = 2;
         }
 
         // XXX: Add new upgrade steps above this point.
