@@ -20,12 +20,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="?android:listPreferredItemHeight"
-    android:paddingStart="?android:listPreferredItemPaddingStart"
-    android:paddingEnd="?android:listPreferredItemPaddingEnd"
-    android:clipChildren="false"
-    android:gravity="center_vertical"
-    android:orientation="horizontal">
+    style="@style/RequestRoleItem">
 
     <ImageView
         android:id="@+id/icon"
@@ -53,5 +48,4 @@
         android:duplicateParentState="true"
         android:focusable="false"
         style="@style/RequestRoleItemRadioButton" />
-
 </com.android.packageinstaller.role.ui.CheckableLinearLayout>
