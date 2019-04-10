@@ -18,6 +18,8 @@ package com.android.packageinstaller.role.ui;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Checkable;
 import android.widget.LinearLayout;
 
@@ -71,6 +73,7 @@ public class CheckableLinearLayout extends LinearLayout implements Checkable {
 
         mChecked = checked;
         refreshDrawableState();
+        updateChildrenChecked();
     }
 
     @Override
@@ -86,5 +89,24 @@ public class CheckableLinearLayout extends LinearLayout implements Checkable {
             mergeDrawableStates(state, CHECKED_STATE_SET);
         }
         return state;
+    }
+
+    private void updateChildrenChecked() {
+        updateChildrenChecked(this, mChecked);
+    }
+
+    // We call setChecked() on checkable children so that accessibility can get the correct state.
+    private static void updateChildrenChecked(@NonNull ViewGroup viewGroup, boolean checked) {
+        int count = viewGroup.getChildCount();
+        for (int i = 0; i < count; i++) {
+            View child = viewGroup.getChildAt(i);
+            if (child.isDuplicateParentStateEnabled()) {
+                if (child instanceof Checkable) {
+                    ((Checkable) child).setChecked(checked);
+                } else if (child instanceof ViewGroup) {
+                    updateChildrenChecked((ViewGroup) child, checked);
+                }
+            }
+        }
     }
 }
