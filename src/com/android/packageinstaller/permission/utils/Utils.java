@@ -32,6 +32,8 @@ import static android.app.role.RoleManager.ROLE_ASSISTANT;
 import static android.content.Context.MODE_PRIVATE;
 import static android.content.pm.PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_DENIED;
 import static android.content.pm.PackageManager.FLAG_PERMISSION_USER_SENSITIVE_WHEN_GRANTED;
+import static android.content.pm.PackageManager.MATCH_DIRECT_BOOT_AWARE;
+import static android.content.pm.PackageManager.MATCH_DIRECT_BOOT_UNAWARE;
 import static android.os.UserHandle.myUserId;
 
 import static com.android.packageinstaller.Constants.ASSISTANT_RECORD_AUDIO_IS_USER_SENSITIVE_KEY;
@@ -490,8 +492,8 @@ public final class Utils {
 
     public static ArraySet<String> getLauncherPackages(Context context) {
         ArraySet<String> launcherPkgs = new ArraySet<>();
-        for (ResolveInfo info :
-            context.getPackageManager().queryIntentActivities(LAUNCHER_INTENT, 0)) {
+        for (ResolveInfo info : context.getPackageManager().queryIntentActivities(LAUNCHER_INTENT,
+                MATCH_DIRECT_BOOT_AWARE | MATCH_DIRECT_BOOT_UNAWARE)) {
             launcherPkgs.add(info.activityInfo.packageName);
         }
 
