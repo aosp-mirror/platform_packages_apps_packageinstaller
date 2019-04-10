@@ -38,6 +38,7 @@
            parent="@android:style/Theme.DeviceDefault.Settings">
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
+        <item name="android:switchStyle">@style/PermissionReviewSwitchStyle</item>
         <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
     </style>
 
