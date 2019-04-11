@@ -364,29 +364,6 @@
         </preferred-activities>
     </role>
 
-    <!--- @see android.telecom.InCallService -->
-    <role
-        name="android.app.role.CAR_MODE_DIALER"
-        description="@string/role_car_mode_dialer_description"
-        exclusive="true"
-        label="@string/role_car_mode_dialer_label"
-        requestDescription="@string/role_car_mode_dialer_request_description"
-        requestTitle="@string/role_car_mode_dialer_request_title"
-        shortLabel="@string/role_car_mode_dialer_short_label">
-        <required-components>
-            <service permission="android.permission.BIND_INCALL_SERVICE">
-                <meta-data
-                    name="android.telecom.IN_CALL_SERVICE_UI"
-                    value="false"
-                    optional="true" />
-                <meta-data name="android.telecom.IN_CALL_SERVICE_CAR_MODE_UI" value="true" />
-                <intent-filter>
-                    <action name="android.telecom.InCallService" />
-                </intent-filter>
-            </service>
-        </required-components>
-    </role>
-
     <!--- @see android.telecom.CallRedirectionService -->
     <role
         name="android.app.role.CALL_REDIRECTION"
@@ -418,32 +395,6 @@
             <service permission="android.permission.BIND_SCREENING_SERVICE">
                 <intent-filter>
                     <action name="android.telecom.CallScreeningService" />
-                </intent-filter>
-            </service>
-        </required-components>
-    </role>
-
-    <!--- @see android.telecom.InCallService -->
-    <role
-        name="android.app.role.CALL_COMPANION"
-        description="@string/role_call_companion_description"
-        exclusive="false"
-        label="@string/role_call_companion_label"
-        requestDescription="@string/role_call_companion_request_description"
-        requestTitle="@string/role_call_companion_request_title"
-        shortLabel="@string/role_call_companion_short_label">
-        <required-components>
-            <service permission="android.permission.BIND_INCALL_SERVICE">
-                <meta-data
-                    name="android.telecom.IN_CALL_SERVICE_UI"
-                    value="false"
-                    optional="true" />
-                <meta-data
-                    name="android.telecom.IN_CALL_SERVICE_CAR_MODE_UI"
-                    value="false"
-                    optional="true" />
-                <intent-filter>
-                    <action name="android.telecom.InCallService" />
                 </intent-filter>
             </service>
         </required-components>
