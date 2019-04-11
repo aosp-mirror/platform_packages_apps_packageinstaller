@@ -38,7 +38,7 @@
     <string name="permission_revoked_none" msgid="266013103540772023">"Keine deaktiviert"</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Zulassen"</string>
     <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"Immer zulassen"</string>
-    <string name="grant_dialog_button_allow_foreground" msgid="8090382319222429427">"Nur bei laufender App-Nutzung zulassen"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="8090382319222429427">"Nur während der App-Nutzung zulassen"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Immer zulassen"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Apps"</string>
     <string name="app_permissions" msgid="2778362347879465223">"App-Berechtigungen"</string>
@@ -73,7 +73,7 @@
     <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
     <string name="permission_access_always" msgid="5419580764084361573">"Immer zulassen"</string>
-    <string name="permission_access_only_foreground" msgid="2857031150724321567">"Nur während App-Verwendung zulassen"</string>
+    <string name="permission_access_only_foreground" msgid="2857031150724321567">"Nur während der App-Nutzung zulassen"</string>
     <string name="permission_access_never" msgid="425385910378172045">"Ablehnen"</string>
     <string name="loading" msgid="323483393167148377">"Wird geladen…"</string>
     <string name="all_permissions" msgid="7813580062403112957">"Alle Berechtigungen"</string>
@@ -141,7 +141,7 @@
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Zugriff: <xliff:g id="NUM">%1$s</xliff:g> Mal. Zuletzt verwendet vor <xliff:g id="TIME">%2$s</xliff:g>"</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Zulassen"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Immer zulassen"</string>
-    <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Nur während App-Verwendung zulassen"</string>
+    <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Nur während der App-Nutzung zulassen"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Nicht zulassen"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"Berechtigung \"<xliff:g id="PERM">%1$s</xliff:g>\""</string>
     <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>-Zugriff für diese App"</string>
@@ -151,7 +151,7 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Alle <xliff:g id="APP">%1$s</xliff:g>-Berechtigungen ansehen"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Alle Apps mit dieser Berechtigung ansehen"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Apps mit dieser Berechtigung dürfen Folgendes tun: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Apps mit dieser Berechtigung dürfen auf Daten zu deinen körperlichen Aktivitäten, wie Spaziergänge und Radtouren, sowie auf Information zu deiner Schrittzahl und deinen Fahrten zugreifen"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Apps mit dieser Berechtigung können auf Daten zu deinen körperlichen Aktivitäten, wie Spaziergänge und Radtouren, sowie auf Information zu deiner Schrittzahl und deinen Fahrten zugreifen"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Apps mit dieser Berechtigung dürfen auf meinen Kalender zugreifen"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Apps mit dieser Berechtigung haben Schreib- und Lesezugriff auf die Anrufliste"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"Apps mit dieser Berechtigung können Fotos und Videos aufnehmen"</string>
@@ -161,7 +161,7 @@
     <string name="permission_description_summary_phone" msgid="3773977614654088578">"Apps mit dieser Berechtigung dürfen Telefonanrufe tätigen und verwalten"</string>
     <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Apps mit dieser Berechtigung dürfen auf Sensordaten zu deinen Vitalfunktionen zugreifen"</string>
     <string name="permission_description_summary_sms" msgid="8850213022386508528">"Apps mit dieser Berechtigung können SMS senden und empfangen"</string>
-    <string name="permission_description_summary_storage" msgid="2265909502600142621">"Apps mit dieser Berechtigung dürfen auf deinem Gerät auf Fotos, Medien und Dateien zugreifen"</string>
+    <string name="permission_description_summary_storage" msgid="2265909502600142621">"Apps mit dieser Berechtigung können auf deinem Gerät auf Fotos, Medien und Dateien zugreifen"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Letzter Zugriff: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Zurzeit nicht zugelassen/Letzter Zugriff: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Nie auf Berechtigung zugegriffen"</string>
@@ -266,6 +266,8 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Links öffnen"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Standardeinstellung für Arbeit"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Keine"</string>
+    <!-- no translation found for default_app_system_default (3870203641514466948) -->
+    <skip />
     <string name="default_app_no_apps" msgid="5344668465735677271">"Keine Apps"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"spezieller App-Zugriff"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Spezieller App-Zugriff"</string>
@@ -279,7 +281,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> möchte Informationen zur Fehlerbehebung hochladen."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Daten zur Fehlerbehebung teilen"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> möchte einen Fehlerbericht von diesem Gerät hochladen, der am <xliff:g id="DATE">%2$s</xliff:g> um <xliff:g id="TIME">%3$s</xliff:g> erstellt wurde. Fehlerberichte enthalten Informationen zu deinem Gerät, die du persönlich eingegeben hast oder die von Apps aufgezeichnet werden, z. B. Nutzernamen, Standortdaten, Geräte-IDs und Netzwerkinformationen. Teile Fehlerberichte nur mit Personen und Apps, denen du vertraust. Darf <xliff:g id="APP_NAME_1">%4$s</xliff:g> einen Fehlerbericht hochladen?"</string>
-    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"Bei der Verarbeitung des Fehlerberichts für <xliff:g id="APP_NAME">%1$s</xliff:g> ist ein Fehler aufgetreten. Die detaillierten Daten zur Fehlerbehebung wurden daher nicht geteilt. Wir entschuldigen uns für die Störung."</string>
+    <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Bei der Verarbeitung des Fehlerberichts für <xliff:g id="APP_NAME">%1$s</xliff:g> ist ein Fehler aufgetreten. Die detaillierten Daten zur Fehlerbehebung wurden daher nicht geteilt. Wir entschuldigen uns für die Störung."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Zulassen"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Ablehnen"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Erweiterte Einstellungen"</string>

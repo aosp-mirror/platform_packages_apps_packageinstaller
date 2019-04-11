@@ -174,16 +174,14 @@
     <skip />
     <!-- no translation found for app_permission_footer_no_usages (4444374134047275841) -->
     <skip />
-    <!-- no translation found for app_permission_footer_not_available (8880039652295478414) -->
-    <skip />
+    <string name="app_permission_footer_not_available" msgid="8880039652295478414">"इस अनुमति के पिछली बार इस्तेमाल किए जाने का डेटा फ़िलहाल मौजूद नहीं है"</string>
     <!-- no translation found for app_permission_footer_app_permissions_link (8033278634020892918) -->
     <skip />
     <!-- no translation found for app_permission_footer_permission_apps_link (8759141212929298774) -->
     <skip />
     <!-- no translation found for permission_description_summary_generic (5479202003136667039) -->
     <skip />
-    <!-- no translation found for permission_description_summary_activity_recognition (7914828358811635600) -->
-    <skip />
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"इसकी अनुमति वाले ऐप्लिकेशन आपकी शारीरिक गतिविधियों की जानकारी एक्सेस कर सकते हैं जिसमें चलने, साइकल चलाने, गाड़ी चलाने और कदमों की संख्या जैसी कई जानकारियां शामिल हैं"</string>
     <!-- no translation found for permission_description_summary_calendar (2846128908236787586) -->
     <skip />
     <!-- no translation found for permission_description_summary_call_log (2429916962093948340) -->
@@ -202,8 +200,7 @@
     <skip />
     <!-- no translation found for permission_description_summary_sms (8850213022386508528) -->
     <skip />
-    <!-- no translation found for permission_description_summary_storage (2265909502600142621) -->
-    <skip />
+    <string name="permission_description_summary_storage" msgid="2265909502600142621">"इसकी अनुमति वाले ऐप्लिकेशन आपके डिवाइस के फ़ोटो, मीडिया, और फ़ाइलें एक्सेस कर सकते हैं"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"पिछली बार एक्सेस किया गया: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <!-- no translation found for app_permission_most_recent_denied_summary (127066792562419809) -->
     <skip />
@@ -364,12 +361,13 @@
     <string name="settings_button" msgid="4747434541214595321">"सेटिंग"</string>
     <string name="default_apps" msgid="8554530939151957828">"डिफ़ॉल्ट ऐप्लिकेशन"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"कोई डिफ़ॉल्ट ऐप्लिकेशन नहीं."</string>
-    <!-- no translation found for default_apps_more (3908067305593075127) -->
-    <skip />
+    <string name="default_apps_more" msgid="3908067305593075127">"और डिफ़ॉल्ट ऐप्लिकेशन देखें"</string>
     <!-- no translation found for default_apps_manage_domain_urls (3146379064445013719) -->
     <skip />
     <string name="default_apps_for_work" msgid="8582151955372061208">"काम के लिए डिफ़ॉल्ट"</string>
     <string name="default_app_none" msgid="7671097769303174666">"कोई नहीं"</string>
+    <!-- no translation found for default_app_system_default (3870203641514466948) -->
+    <skip />
     <string name="default_app_no_apps" msgid="5344668465735677271">"कोई ऐप्लिकेशन नहीं"</string>
     <!-- no translation found for special_app_access_search_keyword (462008045110320714) -->
     <skip />
@@ -384,8 +382,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> डीबग करने की जानकारी अपलोड करना चाहता है."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"डीबग करने की प्रक्रिया का डेटा शेयर करें"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> इस डिवाइस से <xliff:g id="DATE">%2$s</xliff:g> को <xliff:g id="TIME">%3$s</xliff:g> बजे ली गई गड़बड़ी की रिपोर्ट अपलोड करने की मंज़ूरी मांग रहा है. गड़बड़ी की रिपोर्ट में आपके डिवाइस के बारे में या ऐप्लिकेशन की ओर से लॉग की गई निजी जानकारी शामिल होती है, जैसे कि उपयोगकर्ता नाम, जगह की जानकारी का डेटा, डिवाइस पहचानकर्ता, और नेटवर्क की जानकारी. गड़बड़ी की रिपोर्ट सिर्फ़ उन लोगों और ऐप्लिकेशन के साथ शेयर करें जिन पर आप इस जानकारी को लेकर भरोसा करते हैं. क्या आप <xliff:g id="APP_NAME_1">%4$s</xliff:g> को गड़बड़ी की रिपोर्ट अपलोड करने देना चाहते हैं?"</string>
-    <!-- no translation found for incident_report_error_dialog_text (8397741071510309640) -->
-    <skip />
+    <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"<xliff:g id="APP_NAME">%1$s</xliff:g> के लिए गड़बड़ी की रिपोर्ट तैयार करने में दिक्कत हुई. इसलिए, डीबग करने के बारे में ज़्यादा जानकारी का डेटा शेयर नहींं किया जा सका. रुकावट के लिए खेद है."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"अनुमति दें"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"अनुमति न दें"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"बेहतर सेटिंग"</string>

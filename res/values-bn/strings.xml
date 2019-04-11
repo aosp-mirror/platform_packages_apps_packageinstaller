@@ -148,7 +148,7 @@
     <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"<xliff:g id="TIME">%3$s</xliff:g> আগে <xliff:g id="APP">%1$s</xliff:g> আপনার <xliff:g id="PERM">%2$s</xliff:g> অ্যাক্সেস করেছে"</string>
     <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"<xliff:g id="APP">%1$s</xliff:g> আপনার <xliff:g id="PERM">%2$s</xliff:g> অ্যাক্সেস করেনি"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"এই অনুমতির জন্য শেষবারের অ্যাক্সেস করা ডেটা বর্তমানে উপলভ্য নয়"</string>
-    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"<xliff:g id="APP">%1$s</xliff:g>-কে দেওয়া সব অনুমতিগুলি দেখুন"</string>
+    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"<xliff:g id="APP">%1$s</xliff:g>-কে দেওয়া সব অনুমতি দেখুন"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"যেসব অ্যাপের এই অনুমতি আছে সেগুলি দেখুন"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"যেসব অ্যাপের অনুমতি আছে সেগুলি <xliff:g id="DESCRIPTION">%1$s</xliff:g> করতে পারে"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"এই অনুমতি আছে এমন অ্যাপ হাঁটা, বাইক চালানো, ড্রাইভ করা, কত পা চলা হয়েছে এবং আরও অনেক কিছু শারীরিক কার্যকলাপ সংক্রান্ত তথ্য অ্যাক্সেস করতে পারবে"</string>
@@ -266,6 +266,8 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"লিঙ্ক খোলা হচ্ছে"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"অফিসের জন্য ডিফল্ট"</string>
     <string name="default_app_none" msgid="7671097769303174666">"কোনওটিই নয়"</string>
+    <!-- no translation found for default_app_system_default (3870203641514466948) -->
+    <skip />
     <string name="default_app_no_apps" msgid="5344668465735677271">"কোনও অ্যাপ নেই"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"অ্যাপের বিশেষ অ্যাক্সেস"</string>
     <string name="special_app_access" msgid="2561673957499408877">"অ্যাপের বিশেষ অ্যাক্সেস"</string>
@@ -279,7 +281,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> ডিবাগিংয়ের তথ্য আপলোড করতে চায়।"</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"ডিবাগিং ডেটা শেয়ার করুন"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"এই ডিভাইস থেকে <xliff:g id="DATE">%2$s</xliff:g> তারিখে <xliff:g id="TIME">%3$s</xliff:g>-এ নেওয়া একটি সমস্যার রিপোর্ট <xliff:g id="APP_NAME_0">%1$s</xliff:g> আপলোড করতে চাইছে। ইউজার নেম, লোকেশন ডেটা, ডিভাইসের শনাক্তকারী ও নেটওয়ার্কের তথ্যের মতো আপনার ডিভাইস ও লগ-ইন করা অ্যাপের ব্যাপারে ব্যক্তিগত তথ্য সমস্যার রিপোর্টে অন্তর্ভুক্ত থাকে। যেসব লোকজন বা অ্যাপকে আপনি এই তথ্য জানানোর ব্যাপারে বিশ্বাস করতে পারেন শুধুমাত্র তাদের সাথেই সমস্যার রিপোর্ট শেয়ার করুন। একটি সমস্যার রিপোর্ট আপলোড করতে <xliff:g id="APP_NAME_1">%4$s</xliff:g>কে অনুমতি দিতে চান?"</string>
-    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"<xliff:g id="APP_NAME">%1$s</xliff:g> অ্যাপের ত্রুটির প্রতিবেদনে যে সমস্যা উল্লেখ আছে সেটি সমাধান করা হচ্ছে। তাই ডিবাগিং সংক্রান্ত বিস্তারিত ডেটা শেয়ার করার প্রক্রিয়াটি বাতিল করা হয়েছে। বিঘ্ন ঘটায় দুঃখিত।"</string>
+    <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"<xliff:g id="APP_NAME">%1$s</xliff:g>-এর ত্রুটির প্রতিবেদন প্রসেস করার সময় সমস্যা হয়েছে। তাই ডিবাগিং সংক্রান্ত বিস্তারিত ডেটা শেয়ার করার প্রক্রিয়াটি বাতিল করা হয়েছে। বিঘ্ন ঘটায় দুঃখিত।"</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"অনুমতি দিন"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"অনুমতি দেবেন না"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"উন্নত সেটিংস"</string>
