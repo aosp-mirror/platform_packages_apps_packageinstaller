@@ -715,6 +715,9 @@
     <!-- Summary of a default app when there is no app set [CHAR LIMIT=60] -->
     <string name="default_app_none">None</string>
 
+    <!-- Label for a system default app [CHAR LIMIT=60] -->
+    <string name="default_app_system_default">(System default)</string>
+
     <!-- Label when there are no apps available for a default app [CHAR LIMIT=30] -->
     <string name="default_app_no_apps">No apps</string>
 
@@ -767,7 +770,7 @@ Allow <xliff:g id="app_name" example="Gmail">%4$s</xliff:g> to upload a bug repo
 
     <!-- Content for dialog shown when there was an error parsing the incident / bug report.
     [CHAR LIMIT=none] -->
-    <string name="incident_report_error_dialog_text">"There was an error processing the bug report for <xliff:g id="app_name" example="Gmail">%1$s</xliff:g>. So sharing the detailed debugging data data has been denied. Sorry for the interruption."</string>
+    <string name="incident_report_error_dialog_text">"There was an error processing the bug report for <xliff:g id="app_name" example="Gmail">%1$s</xliff:g>. So sharing the detailed debugging data has been denied. Sorry for the interruption."</string>
 
     <!-- Label for the button to allow sharing of the report. [CHAR LIMIT=20]-->
     <string name="incident_report_dialog_allow_label">Allow</string>
