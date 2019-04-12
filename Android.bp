@@ -14,6 +14,21 @@
 // limitations under the License.
 //
 
+genrule {
+    name: "statslog-permissioncontroller-java-gen",
+    tools: ["stats-log-api-gen"],
+    cmd: "$(location stats-log-api-gen) --java $(out) --module permissioncontroller --javaPackage com.android.packageinstaller --javaClass PermissionControllerStatsLog",
+    out: ["com/android/packageinstaller/PermissionControllerStatsLog.java"],
+}
+
+java_library {
+    name: "permissioncontroller-statsd",
+    sdk_version: "system_current",
+
+    srcs: [
+        ":statslog-permissioncontroller-java-gen",
+    ],
+}
 
 android_app {
     name: "PermissionController",
@@ -54,6 +69,7 @@ android_app {
         "SettingsLibActionBarShadow",
         "SettingsLibProgressBar",
         "androidx.annotation_annotation",
+        "permissioncontroller-statsd"
     ],
 
     proto: {
