@@ -552,7 +552,12 @@ public final class Utils {
      */
     public static CharSequence getRequestMessage(CharSequence appLabel, AppPermissionGroup group,
             Context context, @StringRes int requestRes) {
-        if (requestRes != 0) {
+        if (group.getName().equals(STORAGE) && !group.isNonIsolatedStorage()) {
+            return Html.fromHtml(
+                    String.format(context.getResources().getConfiguration().getLocales().get(0),
+                            context.getString(R.string.permgrouprequest_storage_isolated),
+                            appLabel), 0);
+        } else if (requestRes != 0) {
             try {
                 return Html.fromHtml(context.getPackageManager().getResourcesForApplication(
                         group.getDeclaringPackage()).getString(requestRes, appLabel), 0);
