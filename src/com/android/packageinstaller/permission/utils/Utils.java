@@ -770,7 +770,7 @@ public final class Utils {
      */
     public static boolean isLocationAccessCheckEnabled() {
         return DeviceConfig.getBoolean(DeviceConfig.NAMESPACE_PRIVACY,
-                PROPERTY_LOCATION_ACCESS_CHECK_ENABLED, false);
+                PROPERTY_LOCATION_ACCESS_CHECK_ENABLED, true);
     }
 
     /**
