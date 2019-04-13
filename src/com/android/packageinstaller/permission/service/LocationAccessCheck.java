@@ -110,6 +110,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 import java.util.function.BooleanSupplier;
 
 /**
@@ -129,6 +131,8 @@ import java.util.function.BooleanSupplier;
 public class LocationAccessCheck {
     private static final String LOG_TAG = LocationAccessCheck.class.getSimpleName();
     private static final boolean DEBUG = false;
+
+    private static final long GET_HISTORIAL_OPS_TIMEOUT_MILLIS = TimeUnit.SECONDS.toMillis(3);
 
     /** Lock required for all methods called {@code ...Locked} */
     private static final Object sLock = new Object();
@@ -334,6 +338,7 @@ public class LocationAccessCheck {
     private void addLocationNotificationIfNeeded(@NonNull JobParameters params,
             @NonNull LocationAccessCheckJobService service) {
         if (!isLocationAccessCheckEnabled()) {
+            service.jobFinished(params, false);
             return;
         }
 
@@ -355,25 +360,14 @@ public class LocationAccessCheck {
                         Instant.EPOCH.toEpochMilli(), Long.MAX_VALUE)
                         .setOpNames(CollectionUtils.singletonOrEmpty(OPSTR_FINE_LOCATION))
                         .build();
-                HistoricalOps[] ops = new HistoricalOps[1];
-                mAppOpsManager.getHistoricalOps(request,
-                        mContext.getMainExecutor(), (h) -> {
-                            synchronized (ops) {
-                                ops[0] = h;
-                                ops.notifyAll();
-                            }
-                        }
-                );
+                CompletableFuture<HistoricalOps> ops = new CompletableFuture<>();
+                mAppOpsManager.getHistoricalOps(request, mContext.getMainExecutor(), ops::complete);
 
-                synchronized (ops) {
-                    while (ops[0] == null) {
-                        ops.wait();
-                    }
-                }
-
-                addLocationNotificationIfNeeded(ops[0]);
+                addLocationNotificationIfNeeded(
+                        ops.get(GET_HISTORIAL_OPS_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS));
                 service.jobFinished(params, false);
-            } catch (InterruptedException e) {
+            } catch (Exception e) {
+                Log.e(LOG_TAG, "Could not check for location access", e);
                 service.jobFinished(params, true);
             } finally {
                 synchronized (sLock) {
