@@ -13,7 +13,6 @@
     <permission android:name="com.android.permissioncontroller.permission.MANAGE_ROLES_FROM_CONTROLLER"
                 android:protectionLevel="signature" />
 
-    <uses-permission android:name="android.permission.CLEAR_APP_USER_DATA" />
     <uses-permission android:name="android.permission.MANAGE_USERS" />
     <uses-permission android:name="android.permission.GRANT_RUNTIME_PERMISSIONS" />
     <uses-permission android:name="android.permission.REVOKE_RUNTIME_PERMISSIONS" />
