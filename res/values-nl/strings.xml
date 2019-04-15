@@ -198,8 +198,8 @@
     <string name="settings" msgid="2884124136779508907">"Instellingen"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> heeft volledige toegang tot je apparaat"</string>
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"<xliff:g id="NUM_SERVICES">%s</xliff:g> toegankelijkheidsapps hebben volledige toegang tot je apparaat"</string>
-    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> kan je scherm, acties en invoer bekijken, acties uitvoeren en het display beheren."</string>
-    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"Deze apps kunnen je scherm, acties en invoer bekijken, acties uitvoeren en het display beheren."</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> kan je scherm, acties en invoer bekijken, acties uitvoeren en de weergave beheren."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"Deze apps kunnen je scherm, acties en invoer bekijken, acties uitvoeren en de weergave beheren."</string>
     <string name="role_assistant_label" msgid="1755271161954896046">"Standaard-app voor assistentie"</string>
     <string name="role_assistant_short_label" msgid="3048707738783655050">"App voor assistentie"</string>
     <string name="role_assistant_description" msgid="8677846995018695304">"Assistentie-apps kunnen je helpen op basis van de informatie op het scherm dat je bekijkt. Bepaalde apps ondersteunen launcher- en spraakinvoerservices voor geïntegreerde ondersteuning."</string>
@@ -266,6 +266,8 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Links openen"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Standaard voor werk"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Geen"</string>
+    <!-- no translation found for default_app_system_default (3870203641514466948) -->
+    <skip />
     <string name="default_app_no_apps" msgid="5344668465735677271">"Geen apps"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"speciale app-toegang"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Speciale app-toegang"</string>
@@ -279,7 +281,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> wil foutopsporingsinformatie uploaden."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Foutopsporingsgegevens delen"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> wil een bugrapport van dit apparaat uploaden dat is gemaakt op <xliff:g id="DATE">%2$s</xliff:g> om <xliff:g id="TIME">%3$s</xliff:g>. Bugrapporten omvatten persoonsgegevens over je apparaat of gegevens die zijn geregistreerd door apps, zoals gebruikersnamen, locatiegegevens, apparaat-ID\'s en netwerkgegevens. Deel alleen bugrapporten met mensen en apps die je met deze informatie vertrouwt. Wil je <xliff:g id="APP_NAME_1">%4$s</xliff:g> toestaan een bugrapport te uploaden?"</string>
-    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"Er is een fout opgetreden bij het verwerken van het bugrapport voor <xliff:g id="APP_NAME">%1$s</xliff:g>. Het delen van de gedetailleerde foutopsporingsgegevens is daarom geweigerd. Onze excuses voor de onderbreking."</string>
+    <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Er is een fout opgetreden bij het verwerken van het bugrapport voor <xliff:g id="APP_NAME">%1$s</xliff:g>. Het delen van de gedetailleerde foutopsporingsgegevens is daarom geweigerd. Onze excuses voor de onderbreking."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Toestaan"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Weigeren"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Geavanceerde instellingen"</string>

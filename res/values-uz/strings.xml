@@ -37,9 +37,9 @@
     <string name="permission_revoked_all" msgid="6356577996164232918">"hammasi o‘chiq"</string>
     <string name="permission_revoked_none" msgid="266013103540772023">"hech biri o‘chirilmagan"</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Ruxsat"</string>
-    <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"Har qanday rejimda ruxsat berish"</string>
-    <string name="grant_dialog_button_allow_foreground" msgid="8090382319222429427">"Faqat ilova faolligida ruxsat berish"</string>
-    <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Doimiy ruxsat berish"</string>
+    <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"Har doim ruxsat"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="8090382319222429427">"Faqat ilova faolligida ruxsat"</string>
+    <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Har doim ruxsat"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Ilovalar"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Ilovalar uchun ruxsatlar"</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"Ruxsatlar menejeri"</string>
@@ -72,8 +72,8 @@
     <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
     <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
-    <string name="permission_access_always" msgid="5419580764084361573">"Doimiy ruxsat berish"</string>
-    <string name="permission_access_only_foreground" msgid="2857031150724321567">"Faqat ilova faolligida ruxsat berish"</string>
+    <string name="permission_access_always" msgid="5419580764084361573">"Har doim ruxsat"</string>
+    <string name="permission_access_only_foreground" msgid="2857031150724321567">"Faqat ilova faolligida ruxsat"</string>
     <string name="permission_access_never" msgid="425385910378172045">"Rad etish"</string>
     <string name="loading" msgid="323483393167148377">"Yuklanmoqda…"</string>
     <string name="all_permissions" msgid="7813580062403112957">"Barcha ruxsatlar"</string>
@@ -140,8 +140,8 @@
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"Kirish talabi: <xliff:g id="NUM">%1$s</xliff:g> marta. Jami foydalanish vaqti: <xliff:g id="DURATION">%2$s</xliff:g>. Oxirgi marta <xliff:g id="TIME">%3$s</xliff:g> oldin foydalanilgan."</string>
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Kirish talabi: <xliff:g id="NUM">%1$s</xliff:g> marta. Oxirgi marta <xliff:g id="TIME">%2$s</xliff:g> oldin foydalanilgan."</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Ruxsat berish"</string>
-    <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Har qanday rejimda ruxsat berish"</string>
-    <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Faqat ilova faolligida ruxsat berish"</string>
+    <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Har doim ruxsat"</string>
+    <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Faqat ilova faolligida ruxsat"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Rad etish"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> ruxsati"</string>
     <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>: bu ilova uchun ruxsat berish"</string>
@@ -190,7 +190,7 @@
     <string name="permission_reminders" msgid="8040710767178843151">"Ruxsat eslatmalari"</string>
     <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> joylashuvingiz axborotidan foydalanmoqda"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Bu ilova joylashuv axborotingizdan foydalana oladi. Oʻzgartirish uchun bosing."</string>
-    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Faqat ilova faolligida ruxsat berish"</string>
+    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Faqat ilova faolligida ruxsat"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Hech qanday ruxsat berilmagan"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Hech qanday taqiq yoʻq"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Hech qaysi ilovaga ruxsat berilmagan"</string>
@@ -266,6 +266,8 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Havolalarni ochish"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Ish uchun birlamchi"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Hech qanday"</string>
+    <!-- no translation found for default_app_system_default (3870203641514466948) -->
+    <skip />
     <string name="default_app_no_apps" msgid="5344668465735677271">"Hech qanday ilova topilmadi"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"maxsus ilova ruxsatlari"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Maxsus ruxsatlar"</string>
@@ -279,7 +281,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> ilovasi nosozliklarni aniqlash axborotini yuklamoqchi."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Nosozliklarni aniqlash axborotini ulashish"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> ilovasi bu qurilmadan <xliff:g id="DATE">%2$s</xliff:g> sanasida <xliff:g id="TIME">%3$s</xliff:g> da olingan xatoliklar hisobotini yuklashni talab etmoqda. Xatoliklar hisobotiga foydalanuvchi nomlari, joylashuv axboroti, qurilma identifikatorlari va tarmoq maʼlumotlari kabi qurilmangiz yoki qayd qilingan ilovalar haqida shaxsiy maʼlumotlar kiradi. Bunday maʼlumotlarni faqat ishonchli odamlar va ilovalarga yuboring. <xliff:g id="APP_NAME_1">%4$s</xliff:g> ilovasiga xatoliklar hisobotini yuklashga ruxsat berilsinmi?"</string>
-    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"<xliff:g id="APP_NAME">%1$s</xliff:g> uchun nosozlik axborotini yuborishda xatolik yuz berdi, shuning uchun batafsil nosozlik axborotini uzatish taqiqlandi. Nosozlik uchun uzr soʻraymiz."</string>
+    <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"<xliff:g id="APP_NAME">%1$s</xliff:g> uchun nosozlik axborotini yuborishda xatolik yuz berdi, shuning uchun batafsil nosozlik axborotini uzatish taqiqlandi. Nosozlik uchun uzr soʻraymiz."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Ruxsat"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Rad etish"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Kengaytirilgan sozlamalar"</string>

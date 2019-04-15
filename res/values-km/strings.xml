@@ -147,7 +147,7 @@
     <string name="app_permission_header" msgid="228974007660007656">"ការចូលប្រើ <xliff:g id="PERM">%1$s</xliff:g> សម្រាប់​កម្មវិធី​នេះ​"</string>
     <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"<xliff:g id="APP">%1$s</xliff:g> បាន​ចូលប្រើ <xliff:g id="PERM">%2$s</xliff:g> របស់អ្នកកាលពី <xliff:g id="TIME">%3$s</xliff:g> មុន"</string>
     <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"<xliff:g id="APP">%1$s</xliff:g> មិន​បាន​ចូលប្រើ <xliff:g id="PERM">%2$s</xliff:g> របស់អ្នក​ទេ"</string>
-    <string name="app_permission_footer_not_available" msgid="8880039652295478414">"បច្ចុប្បន្ន ការចូលប្រើ​ទិន្នន័យ​ចុងក្រោយមិនមានសម្រាប់ការ​អនុញ្ញាត​នេះទេ"</string>
+    <string name="app_permission_footer_not_available" msgid="8880039652295478414">"បច្ចុប្បន្ន ទិន្នន័យអំពីការចូលប្រើប្រាស់ចុងក្រោយមិនមានសម្រាប់ការ​អនុញ្ញាត​នេះទេ"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"មើល​ការអនុញ្ញាត​ទាំង <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"មើលកម្មវិធី​ទាំងអស់​ដែលមាន​ការអនុញ្ញាត​នេះ"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"កម្មវិធី​ដែលមាន​ការអនុញ្ញាតនេះ​អាច <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
@@ -266,6 +266,8 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"បើកតំណ"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"លំនាំដើម​សម្រាប់ការងារ"</string>
     <string name="default_app_none" msgid="7671097769303174666">"គ្មាន"</string>
+    <!-- no translation found for default_app_system_default (3870203641514466948) -->
+    <skip />
     <string name="default_app_no_apps" msgid="5344668465735677271">"គ្មានកម្មវិធី​ទេ​"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"ការចូលប្រើកម្មវិធីពិសេស"</string>
     <string name="special_app_access" msgid="2561673957499408877">"ការចូលប្រើកម្មវិធីពិសេស"</string>
@@ -279,7 +281,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> ចង់​បង្ហោះ​ព័ត៌មាននៃ​ការជួសជុល។"</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"ចែករំលែក​ទិន្នន័យ​នៃការ​ជួសជុល"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> កំពុង​ស្នើសុំ​បង្ហោះ​របាយការណ៍​អំពី​បញ្ហាពី​ឧបករណ៍​នេះ ដែល​បាន​ធ្វើឡើង​នៅថ្ងៃទី <xliff:g id="DATE">%2$s</xliff:g> ម៉ោង <xliff:g id="TIME">%3$s</xliff:g>។ របាយការណ៍​អំពី​បញ្ហា​រួមមាន​ព័ត៌មាន​អំពី​ឧបករណ៍​របស់អ្នក​ ឬព័ត៌មាន​ដែលបាន​កត់ត្រា​ដោយ​កម្មវិធី​ដូចជា ឈ្មោះ​អ្នកប្រើប្រាស់ ទិន្នន័យទីតាំង ព័ត៌មាន​សម្គាល់​ឧបករណ៍ និង​ព័ត៌មាន​បណ្ដាញ​ជាដើម។ ចែករំលែក​របាយការណ៍​អំពី​បញ្ហា​ជាមួយ​កម្មវិធី និង​មនុស្សដែល​អ្នកទុកចិត្ត​ប៉ុណ្ណោះ ពាក់ព័ន្ធនឹង​ព័ត៌មាន​នេះ។ អនុញ្ញាត​ឱ្យ <xliff:g id="APP_NAME_1">%4$s</xliff:g> បង្ហោះ​របាយការណ៍​អំពី​បញ្ហា?"</string>
-    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"មាន​បញ្ហា​ក្នុងការ​ដំណើរការ​របាយការណ៍អំពីបញ្ហា​សម្រាប់ <xliff:g id="APP_NAME">%1$s</xliff:g> ។ ដូច្នេះ​ការចែករំលែក​ទិន្នន័យ​ជួសជុល​លម្អិត​ត្រូវបានបដិសេដ។ សូមអភ័យទោសចំពោះ​ការរំខាន។"</string>
+    <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"មាន​បញ្ហា​ក្នុងការ​ដំណើរការ​របាយការណ៍អំពីបញ្ហា​សម្រាប់ <xliff:g id="APP_NAME">%1$s</xliff:g> ។ ដូច្នេះ ការចែករំលែក​ទិន្នន័យ​ជួសជុល​លម្អិត​ត្រូវបានបដិសេធ។ សូមអភ័យទោស​ចំពោះ​ការរំខាន។"</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"អនុញ្ញាត"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"បដិសេធ"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"ការកំណត់​កម្រិតខ្ពស់"</string>

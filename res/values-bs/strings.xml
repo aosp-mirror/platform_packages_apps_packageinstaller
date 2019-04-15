@@ -143,7 +143,7 @@
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"Pristup: <xliff:g id="NUM">%1$s</xliff:g> puta. Ukupno trajanje: <xliff:g id="DURATION">%2$s</xliff:g>. Zadnji put korištena prije <xliff:g id="TIME">%3$s</xliff:g>."</string>
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Pristup: <xliff:g id="NUM">%1$s</xliff:g> puta. Zadnji put korištena prije <xliff:g id="TIME">%2$s</xliff:g>."</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Dozvoli"</string>
-    <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Dozvoli svaki put"</string>
+    <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Dozvoli stalno"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Dozvoli samo dok se aplikacija koristi"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Odbij"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"Odobrenje <xliff:g id="PERM">%1$s</xliff:g>"</string>
@@ -273,6 +273,8 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Otvaranje linkova"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Uobičajeno za rad"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Nema"</string>
+    <!-- no translation found for default_app_system_default (3870203641514466948) -->
+    <skip />
     <string name="default_app_no_apps" msgid="5344668465735677271">"Nema aplikacija"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"poseban pristup aplikacijama"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Poseban pristup aplikacijama"</string>
@@ -286,7 +288,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"Aplikacija <xliff:g id="APP_NAME">%1$s</xliff:g> želi otpremiti informacije o otklanjanju grešaka."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Dijeljenje podataka o otklanjanju grešaka"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"Aplikacija <xliff:g id="APP_NAME_0">%1$s</xliff:g> traži otpremanje izvještaja o greškama s ovog uređaja koji je izvršen dana <xliff:g id="DATE">%2$s</xliff:g> u <xliff:g id="TIME">%3$s</xliff:g>. Izvještaji o greškama uključuju lične informacije o vašem uređaju ili akreditivima za prijave u aplikacije, naprimjer korisnička imena, podatke o lokaciji, identifikatore uređaja i informacije o mreži. Izvještaje o greškama dijelite samo s osobama i aplikacijama kojim vjerujete. Dozvoliti aplikaciji <xliff:g id="APP_NAME_1">%4$s</xliff:g> da otpremi izvještaj o greškama?"</string>
-    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"Došlo je do greške prilikom obrade izvještaja o greškama za aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g>. Stoga je odbijeno dijeljenje detaljnih podataka o otklanjanju grešaka. Izvinjavamo se na prekidu."</string>
+    <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Došlo je do greške prilikom obrade izvještaja o greškama za aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g>. Stoga je odbijeno dijeljenje detaljnih podataka o otklanjanju grešaka. Izvinjavamo se na prekidu."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Dozvoli"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Odbij"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Napredne postavke"</string>

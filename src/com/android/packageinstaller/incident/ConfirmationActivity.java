@@ -296,7 +296,7 @@ public class ConfirmationActivity extends Activity implements OnClickListener, O
         }
 
         // Test data
-        if (true) {
+        if (false) {
             drawables.add(new android.graphics.drawable.BitmapDrawable(res,
                     new ByteArrayInputStream(new byte[] {
                         // png image data

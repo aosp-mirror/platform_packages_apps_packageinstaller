@@ -172,16 +172,14 @@
     <skip />
     <!-- no translation found for app_permission_footer_no_usages (4444374134047275841) -->
     <skip />
-    <!-- no translation found for app_permission_footer_not_available (8880039652295478414) -->
-    <skip />
+    <string name="app_permission_footer_not_available" msgid="8880039652295478414">"இந்த அனுமதியில் கடைசியாக அணுகிய தரவு தற்போது கிடைக்கவில்லை"</string>
     <!-- no translation found for app_permission_footer_app_permissions_link (8033278634020892918) -->
     <skip />
     <!-- no translation found for app_permission_footer_permission_apps_link (8759141212929298774) -->
     <skip />
     <!-- no translation found for permission_description_summary_generic (5479202003136667039) -->
     <skip />
-    <!-- no translation found for permission_description_summary_activity_recognition (7914828358811635600) -->
-    <skip />
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"இந்த அனுமதியைக் கொண்டுள்ள ஆப்ஸால் நடத்தல், சைக்கிள் ஓட்டுதல், வாகனம் ஓட்டுதல், படிகளில் ஏறி இறங்குதல் மற்றும் பல உடல்ரீதியான செயல்பாடுகளை அணுக இயலும்"</string>
     <!-- no translation found for permission_description_summary_calendar (2846128908236787586) -->
     <skip />
     <!-- no translation found for permission_description_summary_call_log (2429916962093948340) -->
@@ -200,8 +198,7 @@
     <skip />
     <!-- no translation found for permission_description_summary_sms (8850213022386508528) -->
     <skip />
-    <!-- no translation found for permission_description_summary_storage (2265909502600142621) -->
-    <skip />
+    <string name="permission_description_summary_storage" msgid="2265909502600142621">"இந்த அனுமதியைக் கொண்டுள்ள ஆப்ஸால் உங்கள் சாதனத்திலுள்ள படங்கள், மீடியா மற்றும் ஃபைல்களை அணுக இயலும்"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"கடைசியாகப் பயன்படுத்தியது: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <!-- no translation found for app_permission_most_recent_denied_summary (127066792562419809) -->
     <skip />
@@ -363,12 +360,13 @@
     <skip />
     <string name="default_apps" msgid="8554530939151957828">"இயல்புநிலை ஆப்ஸ்"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"இயல்புநிலை ஆப்ஸ் இல்லை"</string>
-    <!-- no translation found for default_apps_more (3908067305593075127) -->
-    <skip />
+    <string name="default_apps_more" msgid="3908067305593075127">"கூடுதல் இயல்புநிலைகள்"</string>
     <!-- no translation found for default_apps_manage_domain_urls (3146379064445013719) -->
     <skip />
     <string name="default_apps_for_work" msgid="8582151955372061208">"பணிக்கான இயல்பு நிலை ஆப்ஸ்"</string>
     <string name="default_app_none" msgid="7671097769303174666">"ஏதுமில்லை"</string>
+    <!-- no translation found for default_app_system_default (3870203641514466948) -->
+    <skip />
     <string name="default_app_no_apps" msgid="5344668465735677271">"ஆப்ஸ் இல்லை"</string>
     <!-- no translation found for special_app_access_search_keyword (462008045110320714) -->
     <skip />
@@ -383,7 +381,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"பிழைதிருத்தத் தகவலை <xliff:g id="APP_NAME">%1$s</xliff:g> பதிவேற்ற விரும்புகிறது."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"பிழைதிருத்தத் தரவைப் பகிர்தல்"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"இந்தச் சாதனத்திலிருந்து <xliff:g id="DATE">%2$s</xliff:g> அன்று <xliff:g id="TIME">%3$s</xliff:g> மணிக்கு எடுக்கப்பட்ட பிழை அறிக்கையைப் பதிவேற்றுமாறு <xliff:g id="APP_NAME_0">%1$s</xliff:g> கோருகிறது. இதில் பயனர் பெயர்கள், இருப்பிடத் தரவு, சாதன அடையாளங்காட்டிகள் மற்றும் நெட்வொர்க் தகவல்கள் போன்ற உங்கள் சாதனம் அல்லது உள்நுழைந்துள்ள ஆப்ஸ் பற்றிய தனிப்பட்ட தகவல்களும் உள்ளடங்கும். இந்தத் தகவல்களுடனான பிழை அறிக்கைகளை நம்பகமானவர்களுடனும் ஆப்ஸுடனும் மட்டுமே பகிரவும். பிழை அறிக்கையைப் பதிவேற்ற <xliff:g id="APP_NAME_1">%4$s</xliff:g> ஆப்ஸை அனுமதிக்கவா?"</string>
-    <!-- no translation found for incident_report_error_dialog_text (8397741071510309640) -->
+    <!-- no translation found for incident_report_error_dialog_text (1001752000696958519) -->
     <skip />
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"அனுமதி"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"நிராகரி"</string>

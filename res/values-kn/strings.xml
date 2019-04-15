@@ -159,7 +159,7 @@
     <string name="permission_description_summary_location" msgid="687820658574645201">"ಈ ಅನುಮತಿಯನ್ನು ಹೊಂದಿರುವ ಆ್ಯಪ್‌ಗಳು ಈ ಸಾಧನದ ಸ್ಥಳವನ್ನು ಪ್ರವೇಶಿಸಬಹುದು"</string>
     <string name="permission_description_summary_microphone" msgid="2300290217308759293">"ಈ ಅನುಮತಿಯನ್ನು ಹೊಂದಿರುವ ಆ್ಯಪ್‌ಗಳು ಆಡಿಯೊ ರೆಕಾರ್ಡ್ ಮಾಡಬಹುದು"</string>
     <string name="permission_description_summary_phone" msgid="3773977614654088578">"ಈ ಅನುಮತಿಯನ್ನು ಹೊಂದಿರುವ ಆ್ಯಪ್‌ಗಳು ಫೋನ್ ಕರೆಗಳನ್ನು ಮಾಡಬಹುದು ಮತ್ತು ನಿರ್ವಹಿಸಬಹುದು"</string>
-    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"ಈ ಅನುಮತಿಯನ್ನು ಹೊಂದಿರುವ ಆ್ಯಪ್‌ಗಳು ನಿಮ್ಮ ಪ್ರಮುಖ ಸನ್ನೆಗಳ ಕುರಿತ ಸೆನ್ಸಾರ್ ಡೇಟಾವನ್ನು ಪ್ರವೇಶಿಸಬಹುದು"</string>
+    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"ಈ ಅನುಮತಿಯನ್ನು ಹೊಂದಿರುವ ಆ್ಯಪ್‌ಗಳು ನಿಮ್ಮ ಪ್ರಮುಖ ವೈದ್ಯಕೀಯ ಮಾಪನಗಳ ಕುರಿತ ಸೆನ್ಸರ್ ಡೇಟಾವನ್ನು ಪ್ರವೇಶಿಸಬಹುದು"</string>
     <string name="permission_description_summary_sms" msgid="8850213022386508528">"ಈ ಅನುಮತಿಯನ್ನು ಹೊಂದಿರುವ ಆ್ಯಪ್‌ಗಳು SMS ಸಂದೇಶಗಳನ್ನು ಕಳುಹಿಸಬಹುದು ಮತ್ತು ವೀಕ್ಷಿಸಬಹುದು"</string>
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"ಈ ಅನುಮತಿಯ ಜೊತೆಗೆ ಆ್ಯಪ್‌ಗಳು ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ ಫೋಟೋಗಳು, ಮಾಧ್ಯಮ ಮತ್ತು ಫೈಲ್‌ಗಳನ್ನು ಪ್ರವೇಶಿಸಬಹುದು"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"ಕೊನೆಯ ಪ್ರವೇಶ:<xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
@@ -266,6 +266,8 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"ತೆರೆಯುವ ಲಿಂಕ್‍ಗಳು"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"ಕೆಲಸದ ಕುರಿತಾದ ಡೀಫಾಲ್ಟ್ ಆ್ಯಪ್"</string>
     <string name="default_app_none" msgid="7671097769303174666">"ಯಾವುದೂ ಬೇಡ"</string>
+    <!-- no translation found for default_app_system_default (3870203641514466948) -->
+    <skip />
     <string name="default_app_no_apps" msgid="5344668465735677271">"ಯಾವುದೇ ಆ್ಯಪ್‌ಗಳು ಇಲ್ಲ"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"ವಿಶೇಷ ಆ್ಯಪ್ ಪ್ರವೇಶ"</string>
     <string name="special_app_access" msgid="2561673957499408877">"ಆ್ಯಪ್‌ಗೆ ವಿಶೇಷ ಪ್ರವೇಶ"</string>
@@ -279,7 +281,7 @@
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> ಆ್ಯಪ್, ಡೀಬಗ್ ಮಾಡುವಿಕೆಯ ಮಾಹಿತಿಯನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಲು ಬಯಸುತ್ತದೆ."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"ಡೀಬಗ್ ಮಾಡುವಿಕೆ ಡೇಟಾವನ್ನು ಹಂಚಿಕೊಳ್ಳಿ"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="DATE">%2$s</xliff:g> ದಿನಾಂಕದಂದು <xliff:g id="TIME">%3$s</xliff:g> ಸಮಯಕ್ಕೆ ತೆಗೆದುಕೊಂಡ ಬಗ್ ವರದಿಯನ್ನು ಈ ಸಾಧನದಿಂದ ಅಪ್‌ಲೋಡ್ ಮಾಡುವಂತೆ <xliff:g id="APP_NAME_0">%1$s</xliff:g> ಆ್ಯಪ್ ವಿನಂತಿಸುತ್ತಿದೆ. ಬಗ್ ವರದಿಗಳು, ನಿಮ್ಮ ಸಾಧನ ಅಥವಾ ಆ್ಯಪ್‌ಗಳ ಮೂಲಕ ಲಾಗ್ ಮಾಡಿದ ವೈಯಕ್ತಿಕ ಮಾಹಿತಿಯನ್ನು, ಉದಾಹರಣೆಗೆ ಬಳಕೆದಾರರ ಹೆಸರುಗಳು, ಸ್ಥಳದ ಡೇಟಾ, ಸಾಧನ ಗುರುತಿಸುವಿಕೆಗಳು ಮತ್ತು ನೆಟ್‌ವರ್ಕ್‌ ಮಾಹಿತಿಯನ್ನು ಒಳಗೊಂಡಿದೆ. ಈ ಮಾಹಿತಿ ಒಳಗೊಂಡಂತೆ, ನೀವು ನಂಬುವ ಜನರು ಮತ್ತು ಆ್ಯಪ್‌ಗಳ ಜೊತೆಗೆ ಮಾತ್ರ ಬಗ್ ವರದಿಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳಿ. ಬಗ್ ವರದಿಯನ್ನು ಅಪ್‌ಲೋಡ್‌ ಮಾಡಲು <xliff:g id="APP_NAME_1">%4$s</xliff:g> ಆ್ಯಪ್‌ಗೆ ಅನುಮತಿಸುವುದೇ?"</string>
-    <string name="incident_report_error_dialog_text" msgid="8397741071510309640">"<xliff:g id="APP_NAME">%1$s</xliff:g> ಗಾಗಿ ಬಗ್ ವರದಿ ಪ್ರಕ್ರಿಯೆಗೊಳಿಸುವಾಗ ದೋಷ ಕಂಡುಬಂದಿದೆ. ಆದ್ದರಿಂದ, ವಿವರವಾದ ದೋಷ ಡೀಬಗ್ ಮಾಡುವಿಕೆಯ ಡೇಟಾ ಹಂಚಿಕೊಳ್ಳುವುದನ್ನು ನಿರಾಕರಿಸಲಾಗಿದೆ. ಅಡಚಣೆಗಾಗಿ ಕ್ಷಮಿಸಿ."</string>
+    <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"<xliff:g id="APP_NAME">%1$s</xliff:g> ಗಾಗಿ ಬಗ್ ವರದಿ ಪ್ರಕ್ರಿಯೆಗೊಳಿಸುವಾಗ ದೋಷ ಕಂಡುಬಂದಿದೆ. ಆದ್ದರಿಂದ, ವಿವರವಾದ ದೋಷ ಡೀಬಗ್ ಮಾಡುವಿಕೆಯ ಡೇಟಾ ಹಂಚಿಕೊಳ್ಳುವುದನ್ನು ನಿರಾಕರಿಸಲಾಗಿದೆ. ಅಡಚಣೆಗಾಗಿ ಕ್ಷಮಿಸಿ."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"ಅನುಮತಿಸಿ"</string>
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"ನಿರಾಕರಿಸಿ"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"ಸುಧಾರಿತ ಸೆಟ್ಟಿಂಗ್‌ಗಳು"</string>
