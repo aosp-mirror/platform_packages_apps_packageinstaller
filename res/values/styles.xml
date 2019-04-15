@@ -510,6 +510,17 @@
 
     <!-- END PREFERENCE USAGE -->
 
+    <!-- START TITLE SUMMARY IMAGE VIEW -->
+
+    <style name="TitleSummaryImageViewIcon">
+        <item name="android:layout_width">16dp</item>
+        <item name="android:layout_height">16dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:tint">?android:attr/colorControlNormal</item>
+    </style>
+
+    <!-- END TITLE SUMMARY IMAGE VIEW -->
+
     <!-- START IMAGE VIEW -->
 
     <style name="ImageView">
@@ -558,16 +569,10 @@
         <item name="android:layout_marginBottom">18dp</item>
     </style>
 
-    <style name="PermissionUsageDialogItemsContainerLayout">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:orientation">vertical</item>
-        <item name="android:layout_marginBottom">24dp</item>
-    </style>
-
     <style name="PermissionUsageDialogItemsContainer">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">24dp</item>
         <item name="android:orientation">vertical</item>
         <item name="android:gravity">start</item>
     </style>
@@ -734,5 +739,114 @@
     </style>
 
     <!-- END SETTINGS BUTTON PREFERENCE WIDGET -->
+
+    <!-- START ACCESSIBILITY SERVICE DIALOG -->
+
+    <style name="AccessibilityServiceDialogScrollView">
+        <item name="android:fillViewport">true</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="AccessibilityServiceDialog">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="AccessibilityServiceDialogHeader">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">18dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="AccessibilityServiceDialogHeaderIcon">
+        <item name="android:layout_height">32dp</item>
+        <item name="android:layout_width">32dp</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="AccessibilityServiceDialogTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.Material.Title</item>
+        <item name="android:layout_marginStart">24dp</item>
+        <item name="android:layout_marginEnd">24dp</item>
+        <item name="android:layout_marginTop">18dp</item>
+    </style>
+
+    <style name="AccessibilityServiceDialogItemsContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">start</item>
+    </style>
+
+    <style name="AccessibilityServiceDialogMiddleText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.Material.Subhead</item>
+        <item name="android:textDirection">locale</item>
+        <item name="android:layout_marginStart">24dp</item>
+        <item name="android:layout_marginEnd">24dp</item>
+        <item name="android:layout_marginTop">18dp</item>
+    </style>
+
+    <style name="AccessibilityServiceDialogBottomText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginStart">24dp</item>
+        <item name="android:layout_marginEnd">24dp</item>
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:layout_marginBottom">24dp</item>
+    </style>
+
+    <!-- END ACCESSIBILITY SERVICE DIALOG -->
+
+    <!-- START ACCESSIBILITY SERVICE DIALOG ITEM -->
+
+    <style name="AccessibilityServiceDialogItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">24dp</item>
+        <item name="android:layout_marginEnd">24dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <style name="AccessibilityServiceDialogItemIcon">
+        <item name="android:layout_height">32dp</item>
+        <item name="android:layout_width">32dp</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:layout_gravity">start|center_vertical</item>
+    </style>
+
+    <style name="AccessibilityServiceDialogItemDescription">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingTop">18dp</item>
+    </style>
+
+    <style name="AccessibilityServiceDialogItemTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceListItem</item>
+        <item name="android:ellipsize">marquee</item>
+    </style>
+
+    <style name="AccessibilityServiceDialogItemSummary">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceListItemSecondary</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
+    <!-- END ACCESSIBILITY SERVICE DIALOG ITEM -->
 
 </resources>

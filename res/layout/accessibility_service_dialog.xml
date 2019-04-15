@@ -16,76 +16,40 @@
 -->
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport ="true"
-            android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/AccessibilityServiceDialogScrollView" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" >
+        style="@style/AccessibilityServiceDialog" >
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            android:gravity="center" >
+            style="@style/AccessibilityServiceDialogHeader">
 
             <ImageView
                 android:id="@+id/header_icon"
-                android:layout_height="@dimen/accessibility_service_dialog_app_icon_size"
-                android:layout_width="@dimen/accessibility_service_dialog_app_icon_size"
-                android:scaleType="fitCenter"
-                android:visibility="gone" />
+                style="@style/AccessibilityServiceDialogHeaderIcon" />
 
         </LinearLayout>
 
         <TextView
             android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textAppearance="@android:style/TextAppearance.Material.Title"
-            android:layout_marginStart="@dimen/accessibility_service_dialog_text_margin_sides"
-            android:layout_marginEnd="@dimen/accessibility_service_dialog_text_margin_sides"
-            android:layout_marginTop="18dp" />
+            style="@style/AccessibilityServiceDialogTitle" />
 
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <LinearLayout
-                android:id="@+id/items_container"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="start" />
-
-        </LinearLayout>
+            android:id="@+id/items_container"
+            style="@style/AccessibilityServiceDialogItemsContainer" />
 
         <TextView
             android:id="@+id/middle_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="@android:style/TextAppearance.Material.Subhead"
-            android:textDirection="locale"
-            android:layout_marginStart="@dimen/accessibility_service_dialog_text_margin_sides"
-            android:layout_marginEnd="@dimen/accessibility_service_dialog_text_margin_sides"
-            android:layout_marginTop="18dp"
-            android:visibility="gone" />
+            android:visibility="gone"
+            style="@style/AccessibilityServiceDialogMiddleText"/>
 
         <TextView
             android:id="@+id/bottom_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="16sp"
-            android:layout_marginStart="@dimen/accessibility_service_dialog_text_margin_sides"
-            android:layout_marginEnd="@dimen/accessibility_service_dialog_text_margin_sides"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp" />
+            style="@style/AccessibilityServiceDialogBottomText"/>
 
     </LinearLayout>
 
