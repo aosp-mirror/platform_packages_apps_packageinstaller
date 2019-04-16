@@ -221,6 +221,7 @@ public class AdjustUserSensitiveFragment extends PermissionsFrameFragment {
      */
     private static class NonUserSensitiveAppPreference extends SwitchPreference {
         private final int mIconSize;
+        private boolean mIsIconSizeSet = false;
 
         NonUserSensitiveAppPreference(@NonNull Context context, @NonNull String appLabel,
                 @NonNull Drawable appIcon) {
@@ -235,10 +236,14 @@ public class AdjustUserSensitiveFragment extends PermissionsFrameFragment {
 
         @Override
         public void onBindViewHolder(PreferenceViewHolder holder) {
-            ImageView icon = ((ImageView) holder.findViewById(android.R.id.icon));
+            if (!mIsIconSizeSet) {
+                ImageView icon = ((ImageView) holder.findViewById(android.R.id.icon));
 
-            icon.setMaxWidth(mIconSize);
-            icon.setMaxHeight(mIconSize);
+                icon.setMaxWidth(mIconSize);
+                icon.setMaxHeight(mIconSize);
+
+                mIsIconSizeSet = true;
+            }
 
             super.onBindViewHolder(holder);
         }
