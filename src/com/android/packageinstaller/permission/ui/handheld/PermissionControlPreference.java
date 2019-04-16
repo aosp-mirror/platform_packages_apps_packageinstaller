@@ -19,6 +19,7 @@ package com.android.packageinstaller.permission.ui.handheld;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.UserHandle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -63,7 +64,7 @@ public class PermissionControlPreference extends Preference {
             intent.putExtra(Intent.EXTRA_PACKAGE_NAME, group.getApp().packageName);
             intent.putExtra(Intent.EXTRA_PERMISSION_NAME, group.getPermissions().get(0).getName());
             intent.putExtra(Intent.EXTRA_USER, group.getUser());
-            context.startActivity(intent);
+            context.startActivityAsUser(intent, UserHandle.SYSTEM);
             return true;
         });
     }
