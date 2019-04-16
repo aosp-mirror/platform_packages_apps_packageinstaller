@@ -271,6 +271,7 @@
               -->
             <app-op name="android:run_in_background" maxTargetSdkVersion="25" mode="allowed" />
             <app-op name="android:run_any_in_background" mode="allowed" />
+            <app-op name="android:read_device_identifiers" mode="allowed" />
         </app-ops>
         <preferred-activities>
             <preferred-activity>
