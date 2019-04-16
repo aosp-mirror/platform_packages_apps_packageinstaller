@@ -112,9 +112,6 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
     private static final String KEY_SORT = "_sort";
     private static final String SORT_KEY = PermissionUsageFragment.class.getName()
             + KEY_SORT;
-    private static final String KEY_FINISHED_INITIAL_LOAD = "_finished_initial_load";
-    private static final String FINISHED_INITIAL_LOAD_KEY = PermissionUsageFragment.class.getName()
-            + KEY_FINISHED_INITIAL_LOAD;
 
     /**
      * The maximum number of columns shown in the bar chart.
@@ -167,6 +164,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        mFinishedInitialLoad = false;
         mSort = SORT_RECENT_APPS;
         initializeTimeFilter();
         if (savedInstanceState != null) {
@@ -174,7 +172,6 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
             mSavedGroupName = savedInstanceState.getString(PERMS_INDEX_KEY);
             mFilterTimeIndex = savedInstanceState.getInt(TIME_INDEX_KEY);
             mSort = savedInstanceState.getInt(SORT_KEY);
-            mFinishedInitialLoad = savedInstanceState.getBoolean(FINISHED_INITIAL_LOAD_KEY);
         }
 
         setLoading(true, false);
@@ -258,7 +255,6 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
         outState.putString(PERMS_INDEX_KEY, mFilterGroup);
         outState.putInt(TIME_INDEX_KEY, mFilterTimeIndex);
         outState.putInt(SORT_KEY, mSort);
-        outState.putBoolean(FINISHED_INITIAL_LOAD_KEY, mFinishedInitialLoad);
     }
 
     @Override
