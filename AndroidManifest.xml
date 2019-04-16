@@ -13,8 +13,6 @@
     <permission android:name="com.android.permissioncontroller.permission.MANAGE_ROLES_FROM_CONTROLLER"
                 android:protectionLevel="signature" />
 
-    <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
-    <uses-permission android:name="android.permission.CLEAR_APP_USER_DATA" />
     <uses-permission android:name="android.permission.MANAGE_USERS" />
     <uses-permission android:name="android.permission.GRANT_RUNTIME_PERMISSIONS" />
     <uses-permission android:name="android.permission.REVOKE_RUNTIME_PERMISSIONS" />
@@ -25,8 +23,6 @@
     <uses-permission android:name="android.permission.UPDATE_APP_OPS_STATS" />
     <uses-permission android:name="android.permission.MANAGE_APP_OPS_MODES" />
     <uses-permission android:name="android.permission.GET_APP_OPS_STATS" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.KILL_UID" />
     <uses-permission android:name="android.permission.MANAGE_APP_OPS_RESTRICTIONS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
