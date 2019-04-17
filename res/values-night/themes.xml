@@ -20,6 +20,9 @@
     <style name="GrantPermissions"
            parent="@android:style/Theme.DeviceDefault.Dialog.Alert">
         <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="*android:windowFixedHeightMajor">100%</item>
+        <item name="*android:windowFixedHeightMinor">100%</item>
         <!-- The following attributes change the behavior of the dialog, hence they should not be
              themed -->
         <item name="android:windowIsTranslucent">true</item>
@@ -28,7 +31,7 @@
 
     <style name="Theme.PermissionGrantDialog"
            parent="@android:style/Theme.DeviceDefault.Dialog">
-        <item name="android:background">@color/google_grey_800</item>
+        <item name="android:colorBackground">@color/google_grey_800</item>
     </style>
 
     <style name="PermissionDialog"
