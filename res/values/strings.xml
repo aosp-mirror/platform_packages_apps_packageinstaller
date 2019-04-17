@@ -798,4 +798,8 @@ Allow <xliff:g id="app_name" example="Gmail">%4$s</xliff:g> to upload a bug repo
 
     <!-- Subtitle for switch that enables/disables the microphone status bar icon for the currently selected assistant. [CHAR LIMIT=none] -->
     <string name="assistant_record_audio_user_sensitive_summary">Show icon in status bar when microphone is used to activate voice assistant</string>
+
+    <!-- Message shown to the user when the apps requests permission from this group. Shows in the isolated storage case. If ever possible this should stay below 80 characters (assuming the parameters takes 20 characters). Don't abbreviate until the message reaches 120 characters though. [CHAR LIMIT=120] -->
+    <string name="permgrouprequest_storage_isolated">Allow
+        &lt;b><xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b> to access photos and media on your device?</string>
 </resources>

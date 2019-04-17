@@ -114,6 +114,10 @@
             <item type="style" name="PreferenceUsageWidgetFrame" />
             <!-- END PREFERENCE USAGE -->
 
+            <!-- START TITLE SUMMARY IMAGE VIEW -->
+            <item type="style" name="TitleSummaryImageViewIcon" />
+            <!-- END TITLE SUMMARY IMAGE VIEW -->
+
             <!-- START IMAGE VIEW -->
             <item type="style" name="ImageView" />
             <item type="style" name="ImageViewIcon" />
@@ -127,7 +131,6 @@
             <item type="style" name="PermissionUsageDialogContainerScrollView" />
             <item type="style" name="PermissionUsageDialogContainerLayout" />
             <item type="style" name="PermissionUsageDialogTitle" />
-            <item type="style" name="PermissionUsageDialogItemsContainerLayout" />
             <item type="style" name="PermissionUsageDialogItemsContainer" />
 
             <item type="style" name="PermissionUsageDialogItemContainer" />
@@ -161,6 +164,26 @@
             <item type="style" name="SettingsButtonPreferenceWidgetDivider" />
             <item type="style" name="SettingsButtonPreferenceWidgetButton" />
             <!-- END SETTINGS BUTTON PREFERENCE WIDGET -->
+
+            <!-- START ACCESSIBILITY SERVICE DIALOG -->
+            <item type="style" name="AccessibilityServiceDialogScrollView" />
+            <item type="style" name="AccessibilityServiceDialog" />
+            <item type="style" name="AccessibilityServiceDialogHeader" />
+            <item type="style" name="AccessibilityServiceDialogHeaderIcon" />
+            <item type="style" name="AccessibilityServiceDialogTitle" />
+
+            <item type="style" name="AccessibilityServiceDialogItemsContainer" />
+            <item type="style" name="AccessibilityServiceDialogMiddleText" />
+            <item type="style" name="AccessibilityServiceDialogBottomText" />
+            <!-- END ACCESSIBILITY SERVICE DIALOG -->
+
+            <!-- START ACCESSIBILITY SERVICE DIALOG ITEM -->
+            <item type="style" name="AccessibilityServiceDialogItem" />
+            <item type="style" name="AccessibilityServiceDialogItemIcon" />
+            <item type="style" name="AccessibilityServiceDialogItemDescription" />
+            <item type="style" name="AccessibilityServiceDialogItemTitle" />
+            <item type="style" name="AccessibilityServiceDialogItemSummary" />
+            <!-- END ACCESSIBILITY SERVICE DIALOG ITEM -->
 
             <!-- START SETTINGSLIB BARCHARTPREFERENCE -->
             <item type="style" name="SettingsBarChart" />
