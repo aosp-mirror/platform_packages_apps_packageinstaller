@@ -39,7 +39,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Process;
-import android.os.RemoteException;
 import android.os.UserManager;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
@@ -529,16 +528,6 @@ public class PackageInstallerActivity extends OverlayTouchActivity implements On
                 mOriginatingUid, mOriginatingPackage);
         switch (appOpMode) {
             case AppOpsManager.MODE_DEFAULT:
-                try {
-                    int result = mIpm.checkUidPermission(
-                            Manifest.permission.REQUEST_INSTALL_PACKAGES, mOriginatingUid);
-                    if (result == PackageManager.PERMISSION_GRANTED) {
-                        initiateInstall();
-                        break;
-                    }
-                } catch (RemoteException exc) {
-                    Log.e(TAG, "Unable to talk to package manager");
-                }
                 mAppOpsManager.setMode(appOpCode, mOriginatingUid,
                         mOriginatingPackage, AppOpsManager.MODE_ERRORED);
                 // fall through
