@@ -192,10 +192,12 @@ public final class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
             }
 
             itemView.setOnClickListener((v) -> {
+                UserHandle user = UserHandle.getUserHandleForUid(app.getUid());
                 Intent intent = new Intent(Intent.ACTION_MANAGE_APP_PERMISSIONS);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
                 intent.putExtra(Intent.EXTRA_PACKAGE_NAME, app.getPackageName());
-                intent.putExtra(Intent.EXTRA_USER, UserHandle.getUserHandleForUid(app.getUid()));
-                startActivity(intent);
+                intent.putExtra(Intent.EXTRA_USER, user);
+                context.startActivityAsUser(intent, user);
                 mDialog.dismiss();
             });
 
