@@ -20,6 +20,11 @@ import static android.Manifest.permission_group.CAMERA;
 import static android.Manifest.permission_group.LOCATION;
 import static android.Manifest.permission_group.MICROPHONE;
 
+import static com.android.packageinstaller.PermissionControllerStatsLog.PRIVACY_INDICATORS_INTERACTED;
+import static com.android.packageinstaller.PermissionControllerStatsLog.PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_DISMISS;
+import static com.android.packageinstaller.PermissionControllerStatsLog.PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_LINE_ITEM;
+import static com.android.packageinstaller.PermissionControllerStatsLog.PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_PRIVACY_SETTINGS;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -38,6 +43,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.preference.PreferenceFragmentCompat;
 
+import com.android.packageinstaller.PermissionControllerStatsLog;
 import com.android.packageinstaller.permission.model.AppPermissionUsage;
 import com.android.packageinstaller.permission.model.AppPermissionUsage.GroupUsage;
 import com.android.packageinstaller.permission.model.PermissionApps;
@@ -138,10 +144,14 @@ public final class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
     private void showDialog(@NonNull List<Pair<AppPermissionUsage, List<GroupUsage>>> usages) {
         mDialog = new AlertDialog.Builder(getActivity())
                 .setView(createDialogView(usages))
-                .setPositiveButton(R.string.ongoing_usage_dialog_ok, null)
-                .setNeutralButton(R.string.ongoing_usage_dialog_open_settings, (dialog, which) ->
-                        startActivity(new Intent(Settings.ACTION_PRIVACY_SETTINGS).putExtra(
-                                Intent.EXTRA_DURATION_MILLIS, TimeUnit.MINUTES.toMillis(1))))
+                .setPositiveButton(R.string.ongoing_usage_dialog_ok, (dialog, which) ->
+                        PermissionControllerStatsLog.write(PRIVACY_INDICATORS_INTERACTED,
+                                PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_DISMISS, null))
+                .setNeutralButton(R.string.ongoing_usage_dialog_open_settings, (dialog, which) -> {
+                    PermissionControllerStatsLog.write(PRIVACY_INDICATORS_INTERACTED,
+                            PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_PRIVACY_SETTINGS, null);
+                    startActivity(new Intent(Settings.ACTION_PRIVACY_SETTINGS).putExtra(
+                            Intent.EXTRA_DURATION_MILLIS, TimeUnit.MINUTES.toMillis(1))); })
                 .setOnDismissListener((dialog) -> getActivity().finish())
                 .create();
         mDialog.show();
@@ -192,10 +202,15 @@ public final class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
             }
 
             itemView.setOnClickListener((v) -> {
+                String packageName = app.getPackageName();
+                PermissionControllerStatsLog.write(PRIVACY_INDICATORS_INTERACTED,
+                        PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_LINE_ITEM, packageName);
+                UserHandle user = UserHandle.getUserHandleForUid(app.getUid());
                 Intent intent = new Intent(Intent.ACTION_MANAGE_APP_PERMISSIONS);
-                intent.putExtra(Intent.EXTRA_PACKAGE_NAME, app.getPackageName());
-                intent.putExtra(Intent.EXTRA_USER, UserHandle.getUserHandleForUid(app.getUid()));
-                startActivity(intent);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+                intent.putExtra(Intent.EXTRA_PACKAGE_NAME, packageName);
+                intent.putExtra(Intent.EXTRA_USER, user);
+                context.startActivityAsUser(intent, user);
                 mDialog.dismiss();
             });
 
