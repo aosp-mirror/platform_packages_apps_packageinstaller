@@ -214,11 +214,11 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         footer1Link.setText(context.getString(R.string.app_permission_footer_app_permissions_link,
                 appLabel));
         footer1Link.setOnClickListener((v) -> {
+            UserHandle user = UserHandle.getUserHandleForUid(mGroup.getApp().applicationInfo.uid);
             Intent intent = new Intent(Intent.ACTION_MANAGE_APP_PERMISSIONS);
             intent.putExtra(Intent.EXTRA_PACKAGE_NAME, mGroup.getApp().packageName);
-            intent.putExtra(Intent.EXTRA_USER,
-                    UserHandle.getUserHandleForUid(mGroup.getApp().applicationInfo.uid));
-            context.startActivity(intent);
+            intent.putExtra(Intent.EXTRA_USER, user);
+            context.startActivityAsUser(intent, user);
         });
 
         TextView footer2Link = root.requireViewById(R.id.footer_link_2);
