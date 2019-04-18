@@ -112,6 +112,12 @@ public class Role {
     private final int mRequestTitleResource;
 
     /**
+     * Whether this role is requestable by applications with
+     * {@link android.app.role.RoleManager#createRequestRoleIntent(String)}.
+     */
+    private final boolean mRequestable;
+
+    /**
      * The string resource for the short label of this role, currently used when in a list of roles.
      */
     @StringRes
@@ -156,9 +162,10 @@ public class Role {
     public Role(@NonNull String name, @Nullable RoleBehavior behavior,
             @StringRes int descriptionResource, boolean exclusive, @StringRes int labelResource,
             @StringRes int requestDescriptionResource, @StringRes int requestTitleResource,
-            @StringRes int shortLabelResource, boolean showNone, boolean systemOnly,
-            @NonNull List<RequiredComponent> requiredComponents, @NonNull List<String> permissions,
-            @NonNull List<AppOp> appOps, @NonNull List<PreferredActivity> preferredActivities) {
+            boolean requestable, @StringRes int shortLabelResource, boolean showNone,
+            boolean systemOnly, @NonNull List<RequiredComponent> requiredComponents,
+            @NonNull List<String> permissions, @NonNull List<AppOp> appOps,
+            @NonNull List<PreferredActivity> preferredActivities) {
         mName = name;
         mBehavior = behavior;
         mDescriptionResource = descriptionResource;
@@ -166,6 +173,7 @@ public class Role {
         mLabelResource = labelResource;
         mRequestDescriptionResource = requestDescriptionResource;
         mRequestTitleResource = requestTitleResource;
+        mRequestable = requestable;
         mShortLabelResource = shortLabelResource;
         mShowNone = showNone;
         mSystemOnly = systemOnly;
@@ -207,6 +215,10 @@ public class Role {
     @StringRes
     public int getRequestTitleResource() {
         return mRequestTitleResource;
+    }
+
+    public boolean isRequestable() {
+        return mRequestable;
     }
 
     @StringRes
