@@ -43,6 +43,11 @@ public final class ManagePermissionsActivity extends FragmentActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // If there is a previous instance, re-use its Fragment instead of making a new one.
+        if (savedInstanceState != null) {
+            return;
+        }
+
         android.app.Fragment fragment = null;
         Fragment androidXFragment = null;
         String action = getIntent().getAction();
