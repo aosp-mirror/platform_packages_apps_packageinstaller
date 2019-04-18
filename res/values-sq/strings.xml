@@ -164,8 +164,8 @@
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"Aplikacionet me këtë leje mund të kenë qasje te fotografitë, media dhe skedarët në pajisjen tënde"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Qasja e fundit: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Refuzuar aktualisht / qasja e fundit: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
-    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Nuk ka asnjë qasje"</string>
-    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Refuzuar / nuk ka pasur asnjëherë qasje"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Nuk ka pasur asnjëherë qasje"</string>
+    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Refuzuar / Nuk ka pasur asnjëherë qasje"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Të lejuara"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Lejohet gjatë të gjithë kohës"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Lejohet vetëm kur është në përdorim"</string>
@@ -266,8 +266,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Lidhjet po hapen"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Të parazgjedhura për punën"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Asnjë"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Parazgjedhja e sistemit)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Nuk ka aplikacione"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"qasje e veçantë e aplikacionit"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Qasje e veçantë aplikacioni"</string>
@@ -291,4 +290,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Thekso përdorimin për sa më poshtë"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Shfaq zbulimin e aktivizimit të \"Asistentit\""</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Shfaq ikonën në shiritin e statusit kur përdoret mikrofoni për të aktivizuar asistentin me zë"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Të lejohet që &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; të ketë qasje te fotografitë dhe media në pajisjen tënde?"</string>
 </resources>

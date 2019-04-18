@@ -150,23 +150,23 @@
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Dovoli samo med uporabo aplikacije"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Zavrni"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"Dovoljenje <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_header" msgid="228974007660007656">"Dostop tej aplikaciji do: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> je do dovoljenja <xliff:g id="PERM">%2$s</xliff:g> dostopala pred <xliff:g id="TIME">%3$s</xliff:g>"</string>
-    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> ni dostopila do dovoljenja <xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"Dovoljenje »<xliff:g id="PERM">%1$s</xliff:g>« za to aplikacijo"</string>
+    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> je dovoljenje »<xliff:g id="PERM">%2$s</xliff:g>« uporabila pred <xliff:g id="TIME">%3$s</xliff:g>"</string>
+    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> ni uporabila dovoljenja »<xliff:g id="PERM">%2$s</xliff:g>«"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Podatki o zadnjem dostopu trenutno niso na voljo za to dovoljenje"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Ogled vseh dovoljenj za aplikacijo <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Ogled vseh aplikacij s tem dovoljenjem"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Aplikacije s tem dovoljenjem imajo te možnosti: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Aplikacije s tem dovoljenjem lahko dostopajo do podatkov o vaši telesni dejavnosti, na primer hoji, kolesarjenju, vožnji, številu korakov itd."</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Aplikacije s tem dovoljenjem lahko dostopajo do koledarja"</string>
-    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Aplikacije s tem dovoljenjem lahko berejo in zapisujejo v dnevnik klicev v telefonu"</string>
+    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Aplikacije s tem dovoljenjem lahko berejo dnevnik klicev v telefonu in zapisujejo vanj"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"Aplikacije s tem dovoljenjem lahko snemajo fotografije in videoposnetke"</string>
     <string name="permission_description_summary_contacts" msgid="5169995707720233126">"Aplikacije s tem dovoljenjem lahko dostopajo do stikov"</string>
     <string name="permission_description_summary_location" msgid="687820658574645201">"Aplikacije s tem dovoljenjem lahko dostopajo do lokacije te naprave"</string>
     <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Aplikacije s tem dovoljenjem lahko snemajo zvok"</string>
     <string name="permission_description_summary_phone" msgid="3773977614654088578">"Aplikacije s tem dovoljenjem lahko opravljajo in upravljajo telefonske klice"</string>
     <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Aplikacije s tem dovoljenjem lahko dostopajo do podatkov tipal o vaših vitalnih znakih"</string>
-    <string name="permission_description_summary_sms" msgid="8850213022386508528">"Aplikacije s tem dovoljenjem lahko pošiljajo in si ogledujejo sporočila SMS"</string>
+    <string name="permission_description_summary_sms" msgid="8850213022386508528">"Aplikacije s tem dovoljenjem lahko pošiljajo in berejo sporočila SMS"</string>
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"Aplikacije s tem dovoljenjem lahko dostopajo do fotografij, predstavnostnih vsebin in datotek v napravi"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Zadnji dostop: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Trenutno zavrnjeno / zadnji dostop: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
@@ -280,8 +280,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Odpiranje povezav"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Privzeto za delo"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Brez"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(privzeta v sistemu)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Ni aplikacij"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"posebni dostop za aplikacije"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Posebni dostop za aplikacije"</string>
@@ -305,4 +304,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Izpostavitev uporabe za naslednje"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Prikaz zaznavanja sprožilca za pomočnika"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Prikaz ikone v vrstici stanja, ko z mikrofonom aktivirate glasovnega pomočnika"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Želite aplikaciji &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; omogočiti dostop do fotografij in predstavnosti v napravi?"</string>
 </resources>

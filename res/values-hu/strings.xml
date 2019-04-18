@@ -143,7 +143,7 @@
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Mindig engedélyezett"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Engedélyezés csak az alkalmazás használatakor"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Tiltás"</string>
-    <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> engedély"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> – engedély"</string>
     <string name="app_permission_header" msgid="228974007660007656">"Alkalmazás hozzáférése a következőhöz: <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"A(z) <xliff:g id="APP">%1$s</xliff:g> alkalmazás hozzáfért a következőhöz: <xliff:g id="PERM">%2$s</xliff:g> (ennyi ideje: <xliff:g id="TIME">%3$s</xliff:g>)"</string>
     <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"A(z) <xliff:g id="APP">%1$s</xliff:g> nem fért hozzá a következő engedélyhez: <xliff:g id="PERM">%2$s</xliff:g>"</string>
@@ -266,8 +266,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Linkek megnyitása"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Munkahelyi alapértelmezett"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Nincs"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Alapértelmezett)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Nincs alkalmazás"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"különleges alkalmazás-hozzáférés"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Különleges alkalmazás-hozzáférés"</string>
@@ -291,4 +290,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"A következő használatának kiemelése"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Segédet aktiváló parancsok észlelésének megjelenítése"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Ikon megjelenítése az állapotsoron, amikor a rendszer a mikrofont használja a hangsegéd aktiválásához"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Engedélyezi a(z) &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; számára, hogy hozzáférjen az eszközön tárolt fotókhoz és médiatartalmakhoz?"</string>
 </resources>
