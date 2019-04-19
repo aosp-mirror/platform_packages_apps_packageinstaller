@@ -26,12 +26,12 @@
         <!-- The following attributes change the behavior of the dialog, hence they should not be
              themed -->
         <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowCloseOnTouchOutside">@*android:bool/config_closeDialogWhenTouchOutside</item>
     </style>
 
     <style name="Theme.PermissionGrantDialog"
            parent="@android:style/Theme.DeviceDefault.Dialog">
         <item name="android:colorBackground">@color/google_grey_800</item>
+        <item name="android:divider">@drawable/list_divider</item>
     </style>
 
     <style name="PermissionDialog"
