@@ -37,7 +37,7 @@
     <string name="permission_revoked_all" msgid="6356577996164232918">"כל ההרשאות מושבתות"</string>
     <string name="permission_revoked_none" msgid="266013103540772023">"אין הרשאות מושבתות"</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"יש אישור"</string>
-    <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"לאישור כל הזמן"</string>
+    <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"מותר, כל הזמן"</string>
     <string name="grant_dialog_button_allow_foreground" msgid="8090382319222429427">"מותר רק כשהאפליקציה בשימוש"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"להתיר כל הזמן"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"אפליקציות"</string>
@@ -145,13 +145,13 @@
     <string name="app_permission_usage_title" msgid="5641038589468666526">"שימוש בהרשאות האפליקציה"</string>
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"גישה: <xliff:g id="NUM">%1$s</xliff:g> פעמים. משך זמן כולל: <xliff:g id="DURATION">%2$s</xliff:g>. שימוש אחרון לפני <xliff:g id="TIME">%3$s</xliff:g>."</string>
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"גישה: <xliff:g id="NUM">%1$s</xliff:g> פעמים. שימוש אחרון לפני <xliff:g id="TIME">%2$s</xliff:g>."</string>
-    <string name="app_permission_button_allow" msgid="1358817292836175593">"לאישור"</string>
-    <string name="app_permission_button_allow_always" msgid="4313513946865105788">"לאישור כל הזמן"</string>
+    <string name="app_permission_button_allow" msgid="1358817292836175593">"יש אישור"</string>
+    <string name="app_permission_button_allow_always" msgid="4313513946865105788">"מותר, כל הזמן"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"מותר רק כשהאפליקציה בשימוש"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"אני לא מרשה"</string>
-    <string name="app_permission_title" msgid="2453000050669052385">"הרשאה ל<xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_header" msgid="228974007660007656">"גישה ל<xliff:g id="PERM">%1$s</xliff:g> עבור אפליקציה זו"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"האפליקציה <xliff:g id="APP">%1$s</xliff:g> ניגשה אל<xliff:g id="PERM">%2$s</xliff:g> לפני <xliff:g id="TIME">%3$s</xliff:g>"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"הרשאה לאפליקציית <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"אפליקציה זו יכולה לגשת אל <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"האפליקציה <xliff:g id="APP">%1$s</xliff:g> ניגשה אל <xliff:g id="PERM">%2$s</xliff:g> לפני <xliff:g id="TIME">%3$s</xliff:g>"</string>
     <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"האפליקציה <xliff:g id="APP">%1$s</xliff:g> לא ניגשה אל <xliff:g id="PERM">%2$s</xliff:g>"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"נתוני הגישה האחרונה לא זמינים עכשיו להרשאה זו"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"הצגת כל ההרשאות של <xliff:g id="APP">%1$s</xliff:g>"</string>
@@ -170,8 +170,8 @@
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"אפליקציות עם ההרשאה הזו יכולות לקבל גישה לתמונות, למדיה ולקבצים במכשיר שלך"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"גישה אחרונה: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"חסומה כרגע / גישה אחרונה: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
-    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"אף פעם לא בוצעה גישה"</string>
-    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"הגישה נחסמה / מעולם לא בוצעה גישה"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"אף פעם לא הופעלה"</string>
+    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"הגישה נחסמה / מעולם לא הופעלה"</string>
     <string name="allowed_header" msgid="6279244592227088158">"יש הרשאה"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"מותרות כל הזמן"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"מורשית רק בזמן שימוש"</string>
@@ -207,7 +207,7 @@
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"רק בזמן שהאפליקציה בשימוש"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"לא ניתנו הרשאות"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"אין הרשאות שנדחו"</string>
-    <string name="no_apps_allowed" msgid="4529095928504611810">"אין אפליקציות מורשות"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"אין אפליקציות שקיבלו הרשאה"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"אין אפליקציות ללא ההרשאה"</string>
     <string name="settings" msgid="2884124136779508907">"הגדרות"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"לשירות <xliff:g id="SERVICE_NAME">%s</xliff:g> יש גישה מלאה למכשיר שלך"</string>
@@ -280,8 +280,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"פתיחת קישורים"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"ברירת מחדל לעבודה"</string>
     <string name="default_app_none" msgid="7671097769303174666">"ללא"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(ברירת מחדל של המערכת)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"אין אפליקציות"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"גישה מיוחדת של אפליקציה"</string>
     <string name="special_app_access" msgid="2561673957499408877">"גישה מיוחדת לאפליקציה"</string>
@@ -305,4 +304,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"הדגשת השימוש לאפליקציות הבאות"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"‏הצגת הזיהוי של הפעלת ה-Assistant"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"הצגת הסמל בשורת הסטטוס כשהמיקרופון בשימוש לצורך הפעלת האסיסטנט"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"‏לתת לאפליקציה &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; הרשאת גישה לתמונות ולמדיה במכשיר שלך?"</string>
 </resources>

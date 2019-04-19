@@ -143,9 +143,9 @@
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Leyfa alltaf"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Leyfa aðeins þegar forritið er í notkun"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Hafna"</string>
-    <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> heimild"</string>
-    <string name="app_permission_header" msgid="228974007660007656">"Aðgangur að <xliff:g id="PERM">%1$s</xliff:g> fyrir þetta forrit"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"<xliff:g id="APP">%1$s</xliff:g> fékk aðgang að <xliff:g id="PERM">%2$s</xliff:g> fyrir <xliff:g id="TIME">%3$s</xliff:g>"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> - heimild"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>: Aðgangur fyrir þetta forrit"</string>
+    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"<xliff:g id="PERM">%2$s</xliff:g>: <xliff:g id="APP">%1$s</xliff:g> fékk aðgang að fyrir <xliff:g id="TIME">%3$s</xliff:g>"</string>
     <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"<xliff:g id="APP">%1$s</xliff:g> hefur ekki fengið aðgang að <xliff:g id="PERM">%2$s</xliff:g>"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Sem stendur eru gögn um síðasta aðgang ekki tiltæk fyrir þessa heimild."</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Sjá allar heimildir fyrir <xliff:g id="APP">%1$s</xliff:g>"</string>
@@ -266,8 +266,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Opnar tengla"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Sjálfgefið fyrir vinnu"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Ekkert"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Sjálfgildi kerfis)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Engin forrit"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"sérstakur forritaaðgangur"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Sérstakur forritaaðgangur"</string>
@@ -291,4 +290,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Auðkenning notuð fyrir eftirfarandi"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Sýna virkjunarkennsl hjálpara"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Sýna tákn á stöðustiku þegar hljóðnemi er notaður til að ræsa raddaðstoð"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Veita &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aðgang að myndum og efni í tækinu?"</string>
 </resources>

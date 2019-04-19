@@ -143,15 +143,15 @@
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Consenti sempre"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Consenti solo mentre usi l\'app"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Nega"</string>
-    <string name="app_permission_title" msgid="2453000050669052385">"Autorizzazione per i dati di <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"Autorizzazione <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="228974007660007656">"Accesso a <xliff:g id="PERM">%1$s</xliff:g> per questa app"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"<xliff:g id="APP">%1$s</xliff:g> ha avuto accesso ai tuoi dati di <xliff:g id="PERM">%2$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g> fa"</string>
+    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"<xliff:g id="APP">%1$s</xliff:g> ha avuto accesso a <xliff:g id="PERM">%2$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g> fa"</string>
     <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"<xliff:g id="APP">%1$s</xliff:g> non ha accesso a <xliff:g id="PERM">%2$s</xliff:g>"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"I dati sull\'ultimo accesso non sono al momento disponibili per questa autorizzazione"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Mostra tutte le autorizzazioni di <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Mostra tutte le app con questa autorizzazione"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Le app con questa autorizzazione possono <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Le app con questa autorizzazione possono accedere alla tua attività fisica, come camminate, giri in bici, tragitti in auto, numero di passi e non solo"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Le app con questa autorizzazione possono accedere alla tua attività fisica, come camminate, giri in bici, tragitti in auto, numero di passi e altro"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Le app con questa autorizzazione possono accedere al tuo calendario"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Le app con questa autorizzazione possono leggere e scrivere il registro chiamate del telefono"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"Le app con questa autorizzazione possono scattare foto e registrare video"</string>
@@ -163,9 +163,9 @@
     <string name="permission_description_summary_sms" msgid="8850213022386508528">"Le app con questa autorizzazione possono inviare e visualizzare messaggi SMS"</string>
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"Le app con questa autorizzazione possono accedere a foto, contenuti multimediali e file memorizzati sul tuo dispositivo"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Ultimo accesso: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
-    <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Al momento negato/Ultimo accesso: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Al momento rifiutata/Ultimo accesso: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Accesso mai eseguito"</string>
-    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Negato/Accesso mai effettuato"</string>
+    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Rifiutata/Accesso mai effettuato"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Consentite"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Accesso sempre consentito"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Consentite solo durante l\'uso"</string>
@@ -192,7 +192,7 @@
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Questa app può accedere sempre alla tua posizione. Tocca per modificare."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Solo mentre l\'app è in uso"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Nessuna autorizzazione consentita"</string>
-    <string name="no_permissions_denied" msgid="2449583707612365442">"Nessuna autorizzazione negata"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"Nessuna autorizzazione rifiutata"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Nessuna app consentita"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"Nessuna app rifiutata"</string>
     <string name="settings" msgid="2884124136779508907">"Impostazioni"</string>
@@ -207,7 +207,7 @@
     <string name="role_assistant_request_description" msgid="1086168907357494789">"Ottiene accesso a registro chiamate e SMS"</string>
     <string name="role_browser_label" msgid="814240075813716311">"App browser predefinita"</string>
     <string name="role_browser_short_label" msgid="6222206565850006894">"App browser"</string>
-    <string name="role_browser_description" msgid="2326990202516329438">"App che ti forniscono accesso a Internet e mostrano i link che tocchi"</string>
+    <string name="role_browser_description" msgid="2326990202516329438">"App che ti forniscono accesso a Internet e mostrano link che tocchi"</string>
     <string name="role_browser_request_title" msgid="751745081301397114">"Impostare <xliff:g id="APP_NAME">%1$s</xliff:g> come app ber browser predefinita?"</string>
     <string name="role_browser_request_description" msgid="3204873553391043604">"Nessuna autorizzazione necessaria"</string>
     <string name="role_dialer_label" msgid="7920168918746178929">"App telefono predefinita"</string>
@@ -266,8 +266,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Apertura link"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Predefinite per il lavoro"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Nessuna"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Predefinita)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Nessuna app"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"accesso speciale alle app"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Accesso speciale alle app"</string>
@@ -291,4 +290,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Metti in evidenza l\'utilizzo dell\'app seguente"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Mostra il rilevamento dell\'attivazione dell\'assistente"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Mostra l\'icona nella barra di stato quando viene usato il microfono per attivare l\'assistente vocale"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Consentire all\'app &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; di accedere alle foto e ai contenuti multimediali sul tuo dispositivo?"</string>
 </resources>
