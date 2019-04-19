@@ -55,6 +55,7 @@ import java.util.Map;
 public final class PermissionAppsFragment extends SettingsWithLargeHeader implements Callback {
 
     private static final String KEY_SHOW_SYSTEM_PREFS = "_showSystem";
+    private static final String KEY_FOOTER = "_footer";
 
     private static final String SHOW_SYSTEM_KEY = PermissionAppsFragment.class.getName()
             + KEY_SHOW_SYSTEM_PREFS;
@@ -366,8 +367,10 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
             denied.addPreference(empty);
         }
 
-        if (!Utils.shouldShowPermissionUsage(mPermissionApps.getGroupName())) {
+        if (!Utils.shouldShowPermissionUsage(mPermissionApps.getGroupName())
+                && findPreference(KEY_FOOTER) == null) {
             PreferenceCategory footer = new PreferenceCategory(context);
+            footer.setKey(KEY_FOOTER);
             getPreferenceScreen().addPreference(footer);
             Preference footerText = new Preference(context);
             footerText.setSummary(context.getString(R.string.app_permission_footer_not_available));

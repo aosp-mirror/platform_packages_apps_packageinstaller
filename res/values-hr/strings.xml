@@ -167,8 +167,8 @@
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"Aplikacije s tim dopuštenjem mogu pristupati fotografijama, medijima i datotekama na vašem uređaju"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Zadnji pristup: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Trenutačno odbijeno/posljednji pristup: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
-    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Bez pristupa"</string>
-    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Odbijeno/bez pristupa"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Nikad pristupljeno"</string>
+    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Odbijeno/nikad pristupljeno"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Dopušteno"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Dopušteno cijelo vrijeme"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Dopušteno samo tijekom upotrebe"</string>
@@ -273,8 +273,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Otvaranje veza"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Zadano za posao"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Nijedna"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Zadana postavka sustava)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Nema aplikacija"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"poseban pristup za aplikacije"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Poseban pristup aplikaciji"</string>
@@ -298,4 +297,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Isticanje upotrebe za sljedeće"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Prikaz otkrivanja okidača Asistenta"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Prikazuje ikonu na traci statusa kada se za aktiviranje glasovne pomoći upotrebljava mikrofon"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Želite li dopustiti aplikaciji &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; da pristupa fotografijama i medijima na vašem uređaju?"</string>
 </resources>

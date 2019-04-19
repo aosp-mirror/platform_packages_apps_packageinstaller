@@ -144,7 +144,7 @@
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Қолданбаны пайдалану кезінде ғана рұқсат ету"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Тыйым салу"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> рұқсаты"</string>
-    <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g> үшін осы қолданбаны пайдалану рұқсаты"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>: осы қолданбаны пайдалану рұқсаты"</string>
     <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"<xliff:g id="APP">%1$s</xliff:g> қолданбасы <xliff:g id="PERM">%2$s</xliff:g> рұқсатын <xliff:g id="TIME">%3$s</xliff:g> бұрын пайдаланды."</string>
     <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"<xliff:g id="APP">%1$s</xliff:g> қолданбасы <xliff:g id="PERM">%2$s</xliff:g> рұқсатын пайдаланбаған."</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Бұл рұқсат үшін соңғы пайдалану деректері қазір қолжетімді емес."</string>
@@ -162,11 +162,11 @@
     <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Бұл рұқсатқа ие қолданбалар тіршілік белгілері туралы датчик деректерін пайдалана алады."</string>
     <string name="permission_description_summary_sms" msgid="8850213022386508528">"Бұл рұқсатқа ие қолданбалар SMS хабарларын жібере және көре алады."</string>
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"Рұқсатқа ие қолданбалар құрылғыдағы фотосуреттерді, медиамазмұндарды және файлдарды пайдалана алады."</string>
-    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Соңғы рет пайдаланылған уақыт: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Соңғы рет пайдаланған уақыты: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Әзірге тыйым салынған/Соңғы пайдаланылған уақыты: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
-    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Ешқашан пайдаланылмады"</string>
-    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Тыйым салынған/Ешқашан пайдаланылмаған"</string>
-    <string name="allowed_header" msgid="6279244592227088158">"Берілген рұқсаттар"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Ешқашан пайдаланбады"</string>
+    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Тыйым салынған/Ешқашан пайдаланбаған"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"Рұқсат берілгендер"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Біржола рұқсат етілген"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Қолданылып жатқанда ғана рұқсат етіледі"</string>
     <string name="denied_header" msgid="2277998574238617699">"Тыйым салынғандар"</string>
@@ -217,7 +217,7 @@
     <string name="role_dialer_request_description" msgid="2931069491309771312">"Қоңыраулар журналын пайдалана, SMS хабарын жібере алады."</string>
     <string name="role_sms_label" msgid="6995222097027665850">"Әдепкі SMS қолданбасы"</string>
     <string name="role_sms_short_label" msgid="236955440028043972">"SMS қолданбасы"</string>
-    <string name="role_sms_description" msgid="3228552135895420442">"Қысқа мәтіндік хабарларды, фотосуреттерді, бейнелерді және т.б. жіберу және алу үшін телефон нөміріңізді пайдалануға мүмкіндік беретін бағдарламалар"</string>
+    <string name="role_sms_description" msgid="3228552135895420442">"Қысқа мәтіндік хабарларды, фотосуреттерді, бейнелерді және т.б. жіберу және алу үшін телефон нөміріңізді пайдалануға мүмкіндік беретін қолданбалар"</string>
     <string name="role_sms_request_title" msgid="3667393846881324409">"<xliff:g id="APP_NAME">%1$s</xliff:g> қолданбасы әдепкі SMS қолданбасы болып орнатылсын ба?"</string>
     <string name="role_sms_request_description" msgid="4920787411350418630">"Контакт, телефон, SMS хабарларын пайдалануға рұқсат алады."</string>
     <string name="role_emergency_label" msgid="8986482330376454686">"Әдепкі төтенше жағдай қолданбасы"</string>
@@ -266,8 +266,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Сілтемелер ашу"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Жұмыс үшін әдепкі қолданба"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Жоқ"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(жүйенің әдепкі қолданбасы)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Қолданбалар жоқ"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"арнайы қолданба рұқсаты"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Арнайы кіру"</string>
@@ -291,4 +290,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Келесілер үшін пайдалануды көрсету"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Assistant қолданбасының іске қосылуын анықтауды көрсету"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Микрофон арқылы дауыс көмекшісін іске қосқанда, күй жолағында белгішені көрсету"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; қолданбасына құрылғыдағы суреттерді, медиафайлдарды пайдалануға рұқсат берілсін бе?"</string>
 </resources>

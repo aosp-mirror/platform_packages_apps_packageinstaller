@@ -54,8 +54,8 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"這個應用程式是為舊版 Android 所開發。拒絕授予權限可能導致應用程式無法正常運作。"</string>
     <string name="default_permission_description" msgid="692254823411049573">"執行不明的動作"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"已授權給 <xliff:g id="COUNT_0">%1$d</xliff:g> 個應用程式 (共 <xliff:g id="COUNT_1">%2$d</xliff:g> 個)"</string>
-    <string name="menu_show_system" msgid="7623002570829860709">"顯示系統"</string>
-    <string name="menu_hide_system" msgid="2274204366405029090">"隱藏系統"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"顯示系統程序"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"隱藏系統程序"</string>
     <string name="no_apps" msgid="2377153782338039463">"沒有應用程式"</string>
     <string name="location_settings" msgid="547378321761364906">"位置資訊設定"</string>
     <string name="location_warning" msgid="4687406043150343369">"「<xliff:g id="APP_NAME">%1$s</xliff:g>」是這個裝置的定位服務供應商。你可以在位置資訊設定中修改位置資訊存取權。"</string>
@@ -266,8 +266,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"開啟連結"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"預設的工作應用程式"</string>
     <string name="default_app_none" msgid="7671097769303174666">"無"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(系統預設)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"沒有可用的應用程式"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"特殊應用程式存取權"</string>
     <string name="special_app_access" msgid="2561673957499408877">"特殊應用程式存取權"</string>
@@ -291,4 +290,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"醒目顯示以下應用程式的使用情況"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"顯示 Google 助理觸發條件偵測結果"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"使用麥克風啟用語音小幫手時在狀態列顯示相關圖示"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"要允許「<xliff:g id="APP_NAME">%1$s</xliff:g>」存取裝置中的相片和媒體嗎？"</string>
 </resources>
