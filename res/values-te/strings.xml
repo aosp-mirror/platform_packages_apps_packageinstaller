@@ -22,7 +22,7 @@
     <string name="cancel" msgid="7279939269964834974">"రద్దు చేయి"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"యాప్ కనుగొనబడలేదు"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"తిరస్కరించు"</string>
-    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"తిరస్కరించి, ఇకపై మళ్లీ అడగవద్దు"</string>
+    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"తిరస్కరించు, ఇకపై మళ్లీ అడగవద్దు"</string>
     <string name="grant_dialog_button_deny_background" msgid="5378693207810841555">"వినియోగంలో ఉన్నప్పుడు యాక్సెస్‌ను అలాగే ఉంచు"</string>
     <string name="grant_dialog_button_deny_background_and_dont_ask_again" msgid="1032019626928637454">"అలాగే ఉంచి, ఇకపై మళ్లీ అడగవద్దు"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"మరింత సమాచారం"</string>
@@ -37,7 +37,7 @@
     <string name="permission_revoked_all" msgid="6356577996164232918">"అన్నీ నిలిపివేయబడ్డాయి"</string>
     <string name="permission_revoked_none" msgid="266013103540772023">"ఏవీ నిలిపివేయబడలేదు"</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"అనుమతించు"</string>
-    <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"మొత్తం సమయాన్ని చూపు"</string>
+    <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"ఎల్ల‌ప్పుడూ అనుమతించు"</string>
     <string name="grant_dialog_button_allow_foreground" msgid="8090382319222429427">"యాప్‌ను ఉపయోగిస్తున్నప్పుడు మాత్రమే అనుమతించు"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"అన్ని సమయాలలో అనుమతించు"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"యాప్‌లు"</string>
@@ -128,8 +128,8 @@
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"దాదాపుగా అన్ని అనుమతులు"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"మరిన్ని యాక్సెస్‌లు"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"ఇటీవలివి"</string>
-    <string name="sort_by_app" msgid="1912228966803416485">"యాప్ వినియోగం వారీగా క్రమీకరణ"</string>
-    <string name="sort_by_time" msgid="8280378662234104410">"సమయం వారీగా క్రమీకరించు"</string>
+    <string name="sort_by_app" msgid="1912228966803416485">"యాప్ వాడకం బట్టి వర్గీకరణ"</string>
+    <string name="sort_by_time" msgid="8280378662234104410">"టైమ్‌ను బట్టి వర్గీకరణ"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="permission_usage_refresh" msgid="2182775682810005148">"రిఫ్రెష్ చేయి"</string>
     <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="5539392196389332769">
@@ -145,7 +145,7 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"తిరస్కరించు"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> అనుమతి"</string>
     <string name="app_permission_header" msgid="228974007660007656">"ఈ యాప్ కోసం <xliff:g id="PERM">%1$s</xliff:g> యాక్సెస్"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"<xliff:g id="APP">%1$s</xliff:g> మీ <xliff:g id="PERM">%2$s</xliff:g>ను <xliff:g id="TIME">%3$s</xliff:g> క్రితం యాక్సెస్ చేసింది"</string>
+    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"<xliff:g id="APP">%1$s</xliff:g> మీ <xliff:g id="PERM">%2$s</xliff:g>ను <xliff:g id="TIME">%3$s</xliff:g> కింద‌ట‌ యాక్సెస్ చేసింది"</string>
     <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"<xliff:g id="APP">%1$s</xliff:g> మీ <xliff:g id="PERM">%2$s</xliff:g>ను యాక్సెస్ చేయలేదు"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"ఈ అనుమతి కోసం చివరిగా యాక్సెస్ చేసిన డేటా ప్రస్తుతం అందుబాటులో లేదు"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"అన్ని <xliff:g id="APP">%1$s</xliff:g> అనుమతులను చూడండి"</string>
@@ -194,7 +194,7 @@
     <string name="no_permissions_allowed" msgid="5781278485002145993">"అనుమతులు ఏవీ ఇవ్వలేదు"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"అన్ని అనుమతులు ఇచ్చారు"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"ఏ యాప్‌కి ఇవ్వలేదు"</string>
-    <string name="no_apps_denied" msgid="2736758388618487796">"యాప్‌లు ఏవీ నిరాకరించలేదు"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"ఏ యాప్‌ను నిరాక‌రించ‌లేదు"</string>
     <string name="settings" msgid="2884124136779508907">"సెట్టింగ్‌లు"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> మీ పరికరానికి పూర్తి యాక్సెస్ కలిగి ఉంది"</string>
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"<xliff:g id="NUM_SERVICES">%s</xliff:g> యాక్సెస్ సామర్థ్య యాప్‌లు మీ పరికరానికి పూర్తి యాక్సెస్‌ను కలిగి ఉన్నాయి"</string>
@@ -230,11 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"మీ Android పరికరంలో హోమ్ స్క్రీన్‌లను భర్తీ చేయగల, అలాగే మీకు మీ పరికరం కంటెంట్‌లు, ఫీచర్‌లకు యాక్సెస్ అందించగల యాప్‌లు, ఎక్కువగా లాంచర్‌లు అని పిలువబడేవి"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"<xliff:g id="APP_NAME">%1$s</xliff:g>ను మీ డిఫాల్ట్ హోమ్ యాప్‌గా సెట్ చేయాలా?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"అనుమతులు ఇవ్వనవసరం లేదు"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"డిఫాల్ట్ కార్ మోడ్ ఫోన్ యాప్"</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"కార్ మోడ్ ఫోన్ యాప్"</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"<xliff:g id="APP_NAME">%1$s</xliff:g>ను మీ డిఫాల్ట్ కార్ మోడ్ ఫోన్ యాప్‌గా సెట్ చేయాలా?"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"డిఫాల్ట్ కాల్ మళ్లింపు యాప్"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"కాల్ మళ్లింపు యాప్"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"కాల్‍లను మరో ఫోన్ నంబర్‌కు ఫార్వర్డ్ చేయడానికి మిమ్మల్ని అనుమతించే యాప్‌లు"</string>
@@ -245,11 +240,6 @@
     <string name="role_call_screening_description" msgid="9009090500431969390">"ఇన్‌కమింగ్ కాల్‌లను గుర్తించడానికి, స్పామ్ మరియు రోబో కాల్‌లను బ్లాక్ చేయడానికి, అలాగే వద్దనుకునే నంబర్‌లను బ్లాక్‌లిస్ట్ చేయడానికి, మరిన్నింటిని చేయడానికి మిమ్మల్ని అనుమతించే యాప్‌లు"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"<xliff:g id="APP_NAME">%1$s</xliff:g>ను మీ డిఫాల్ట్ కాలర్ ID &amp; స్పామ్ యాప్‌గా సెట్ చేయాలా?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"అనుమతులు ఇవ్వనవసరం లేదు"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"డిఫాల్ట్ కాల్ సహచర యాప్"</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"కాల్ సహచర యాప్"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"<xliff:g id="APP_NAME">%1$s</xliff:g>ను మీ డిఫాల్ట్ కాల్ సహచర యాప్‌గా సెట్ చేయాలా?"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"ప్రస్తుతం డిఫాల్ట్‌గా ఉన్నది"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"మళ్లీ అడగవద్దు"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"దీన్ని డిఫాల్ట్ చేయి"</string>
@@ -266,8 +256,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"లింక్‌లను తెరవడం"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"కార్యాలయం కోసం డిఫాల్ట్"</string>
     <string name="default_app_none" msgid="7671097769303174666">"ఏదీ కాదు"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(సిస్టమ్ డిఫాల్ట్)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"ఏ యాప్ లేదు"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"ప్రత్యేక యాప్ యాక్సెస్"</string>
     <string name="special_app_access" msgid="2561673957499408877">"ప్రత్యేక యాప్ యాక్సెస్"</string>
@@ -275,7 +264,7 @@
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"ఏ యాప్‌కి లేదు"</string>
     <string name="home_missing_work_profile_support" msgid="1439466272746259937">"కార్యాలయ ప్రొఫైల్‌కు మద్దతు ఇవ్వదు"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"చిన్న గమనిక: మీరు భద్రత కోసం స్క్రీన్ లాక్‌ని సెటప్‌ చేసి పెట్టుకున్నారు పైగా మీ పరికరాన్ని పునఃప్రారంభించినట్టున్నారు కనుక స్క్రీన్ లాక్ అయ్యిపోయింది. మీరు పాస్‌వర్డ్‌ని నమోదు చేసేవరకూ ఈ యాప్ ప్రారంభం కాదు."</string>
-    <string name="assistant_confirmation_message" msgid="4529925223796676824">"మీ స్క్రీన్‌పై కనిపించే లేదా యాప్‌లలో యాక్సెస్ చేసే సమాచారంతో పాటు అసిస్టెంట్ మీ సిస్టమ్‌లో వినియోగంలో ఉన్న యాప్‌ల గురించిన సమాచారాన్ని చదవగలుగుతుంది."</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"మీ స్క్రీన్‌పై కనిపించే లేదా యాప్‌లలో యాక్సెస్ చేసే సమాచారంతో పాటు మీ సిస్టమ్‌లో వినియోగంలో ఉన్న యాప్‌ల గురించిన సమాచారాన్ని అసిస్టెంట్ చదవగలుగుతుంది."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"డీబగ్గింగ్ డేటాను షేర్ చేయండి"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"వివరణాత్మక డీబగ్గింగ్ డేటాను షేర్ చేయాలా?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g>డీబగ్గింగ్ సమాచారాన్ని అప్‌లో డ్ చేయదలుచుకుంటున్నారు."</string>
@@ -287,8 +276,9 @@
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"అధునాతన సెట్టింగ్‌లు"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"అధునాతన సెట్టింగ్‌లు"</string>
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"సిస్టమ్ యాప్ వినియోగాన్ని చూపు"</string>
-    <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"స్థితి పట్టీ, డాష్‌బోర్డ్ &amp; మరెక్కడైనాలో అనుమతుల యొక్క సిస్టమ్ యాప్ వినియోగాన్ని చూపు"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"\'స్థితి బార్‌, డాష్‌బోర్డ్ &amp; మరెక్కడైనా\'లో సిస్టమ్ యాప్ వినియోగించే అనుమతులను చూపు"</string>
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"అనుసరిస్తున్న వినియోగాన్ని హైలైట్ చేయండి"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"అసిస్టెంట్ ట్రిగ్గర్ గుర్తింపును చూపు"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"వాయిస్ అసిస్టెంట్‌ను యాక్టివేట్ చేయడానికి మైక్రోఫోన్‌ను ఉపయోగించినప్పుడు, స్థితి పట్టీలో చిహ్నాన్ని చూపు"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"మీ పరికరంలో ఫోటోలు, మీడియాను యాక్సెస్ చేయుటకు &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ను అనుమతించాలా?"</string>
 </resources>

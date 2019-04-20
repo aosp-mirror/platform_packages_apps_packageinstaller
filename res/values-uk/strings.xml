@@ -36,7 +36,7 @@
     <string name="permission_revoked_count" msgid="5556125174203696709">"скасовано <xliff:g id="COUNT">%1$d</xliff:g>"</string>
     <string name="permission_revoked_all" msgid="6356577996164232918">"усі скасовано"</string>
     <string name="permission_revoked_none" msgid="266013103540772023">"нічого не скасовано"</string>
-    <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Надати дозвіл"</string>
+    <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Дозволити"</string>
     <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"Завжди дозволяти"</string>
     <string name="grant_dialog_button_allow_foreground" msgid="8090382319222429427">"Дозволяти, лише коли додаток використовується"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Завжди дозволяти"</string>
@@ -95,8 +95,8 @@
     <string name="message_staging" msgid="641286607664721291">"Підготовка додатка…"</string>
     <string name="app_name_unknown" msgid="8288360585728122735">"Невідомо"</string>
     <string name="permission_usage_title" msgid="6808284837306026819">"Інформаційна панель"</string>
-    <string name="permission_usage_summary_foreground" msgid="2482299388611440256">"Останній сеанс доступу: <xliff:g id="TIME">%1$s</xliff:g>\nВідбувся, коли додаток використовувався"</string>
-    <string name="permission_usage_summary_background" msgid="4789805581854248472">"Останній сеанс доступу: <xliff:g id="TIME">%1$s</xliff:g>\nВостаннє доступ здійснювався у фоновому режимі"</string>
+    <string name="permission_usage_summary_foreground" msgid="2482299388611440256">"Останній доступ: <xliff:g id="TIME">%1$s</xliff:g>\nДоступ під час використання додатка"</string>
+    <string name="permission_usage_summary_background" msgid="4789805581854248472">"Останній доступ: <xliff:g id="TIME">%1$s</xliff:g>\nВостаннє доступ здійснювався у фоновому режимі"</string>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Будь-який дозвіл"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"У будь-який час"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Останні 7 днів"</string>
@@ -105,12 +105,12 @@
     <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Останні 15 хвилин"</string>
     <string name="permission_usage_last_minute" msgid="1712931459994781087">"Остання хвилина"</string>
     <string name="no_permission_usages" msgid="698858628357371611">"Дозволи не використовувалися"</string>
-    <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"Останні сеанси доступу за весь час"</string>
-    <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"Сеанси доступу за останні 7 днів"</string>
-    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"Сеанси доступу за останні 24 години"</string>
-    <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"Сеанси доступу за останню годину"</string>
-    <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"Сеанси доступу за останні 15 хвилин"</string>
-    <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"Сеанси доступу за останню хвилину"</string>
+    <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"Доступ за останній час"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"Доступ за останні 7 днів"</string>
+    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"Доступ за останні 24 години"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"Доступ за останню годину"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"Доступ за останні 15 хвилин"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"Доступ за останню хвилину"</string>
     <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"Використання дозволів за весь час"</string>
     <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"Використання дозволів за останні 7 днів"</string>
     <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"Використання дозволів за останні 24 години"</string>
@@ -132,7 +132,7 @@
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Найбільше дозволів"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Найбільше сеансів доступу"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"Нещодавні сеанси доступу"</string>
-    <string name="sort_by_app" msgid="1912228966803416485">"Сортувати за часом використання додатками"</string>
+    <string name="sort_by_app" msgid="1912228966803416485">"Сортувати за додатком"</string>
     <string name="sort_by_time" msgid="8280378662234104410">"Сортувати за часом"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="permission_usage_refresh" msgid="2182775682810005148">"Оновити"</string>
@@ -150,7 +150,7 @@
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Дозволяти, лише коли додаток використовується"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Заборонити"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"Дозвіл – <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_header" msgid="228974007660007656">"Доступ на <xliff:g id="PERM">%1$s</xliff:g> для цього додатка"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>: доступ для цього додатка"</string>
     <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"Додаток <xliff:g id="APP">%1$s</xliff:g> отримав доступ до даних (<xliff:g id="PERM">%2$s</xliff:g>) <xliff:g id="TIME">%3$s</xliff:g> тому"</string>
     <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"Додаток <xliff:g id="APP">%1$s</xliff:g> не отримував доступу до даних (<xliff:g id="PERM">%2$s</xliff:g>)"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"З цим дозволом не можна переглядати дані про останні сеанси доступу"</string>
@@ -168,7 +168,7 @@
     <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Додатки з цим дозволом мають доступ до даних датчиків про ваші життєві показники"</string>
     <string name="permission_description_summary_sms" msgid="8850213022386508528">"Додатки з цим дозволом можуть надсилати та переглядати SMS-повідомлення"</string>
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"Додатки з цим дозволом мають доступ до фотографій, медіа й інших файлів на вашому пристрої"</string>
-    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Останній сеанс доступу: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Останній доступ: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Наразі заборонено/останній сеанс доступу: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Не отримував доступу"</string>
     <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Заборонено/не отримував доступу"</string>
@@ -224,7 +224,7 @@
     <string name="role_browser_description" msgid="2326990202516329438">"Додатки, які надають вам доступ до Інтернету й показують вміст за натиснутим посиланням"</string>
     <string name="role_browser_request_title" msgid="751745081301397114">"Чи має <xliff:g id="APP_NAME">%1$s</xliff:g> використовуватись як веб-переглядач за умовчанням?"</string>
     <string name="role_browser_request_description" msgid="3204873553391043604">"Дозволи не потрібні"</string>
-    <string name="role_dialer_label" msgid="7920168918746178929">"Додаток для викликів за умовчанням"</string>
+    <string name="role_dialer_label" msgid="7920168918746178929">"Дзвінки за умовчанням"</string>
     <string name="role_dialer_short_label" msgid="2980581587550675305">"Додаток для викликів"</string>
     <string name="role_dialer_description" msgid="2684882481061320467">"Додатки, у яких можна здійснювати та приймати виклики на пристрої"</string>
     <string name="role_dialer_request_title" msgid="3203802247886151514">"Чи має <xliff:g id="APP_NAME">%1$s</xliff:g> використовуватись як додаток для викликів за умовчанням?"</string>
@@ -244,11 +244,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Додатки (так звані панелі запуску), які заміняють головний екран і дають користувачу доступ до вмісту та функцій пристрою Android"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Чи має <xliff:g id="APP_NAME">%1$s</xliff:g> використовуватись як додаток головного екрана за умовчанням?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Дозволи не потрібні"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Додаток для викликів у режимі автомобіля за умовчанням"</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Додаток для викликів у режимі автомобіля"</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"Чи має <xliff:g id="APP_NAME">%1$s</xliff:g> використовуватись як додаток для викликів у режимі автомобіля за умовчанням?"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Додаток для переспрямування викликів за умовчанням"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Додаток для переспрямування викликів"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"Додатки, у яких можна переадресовувати виклики на інший номер телефону"</string>
@@ -259,11 +254,6 @@
     <string name="role_call_screening_description" msgid="9009090500431969390">"Додатки, у яких можна визначати номери, з яких здійснюються вхідні дзвінки, блокувати спам і автоматичні виклики, вносити в чорний список небажані номери тощо"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Чи має <xliff:g id="APP_NAME">%1$s</xliff:g> використовуватись як автоматичний визначник номера й засіб від спаму за умовчанням?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Дозволи не потрібні"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"Супутній додаток для викликів за умовчанням"</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"Супутній додаток для викликів"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"Чи має <xliff:g id="APP_NAME">%1$s</xliff:g> використовуватись як супутній додаток для викликів за умовчанням?"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Поточний за умовчанням"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Не запитувати знову"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Вибрати за умовчанням"</string>
@@ -280,8 +270,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Відкривання посилань"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Для роботи за умовчанням"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Немає"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(За умовчанням)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Немає додатків"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"спеціальний доступ додатка"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Спеціальний доступ"</string>
@@ -305,4 +294,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Показувати дані про використання для цих додатків"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Показувати значок очікування активатора Асистента"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Показувати значок у рядку стану, коли мікрофон працює в режимі очікування активатора голосового помічника"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Надати додатку &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; доступ до фото й медіа на пристрої?"</string>
 </resources>

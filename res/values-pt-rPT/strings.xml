@@ -128,7 +128,7 @@
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Maioria de autorizações"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Maioria de acessos"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"Recentes"</string>
-    <string name="sort_by_app" msgid="1912228966803416485">"Ordenar por utilização aplic."</string>
+    <string name="sort_by_app" msgid="1912228966803416485">"Ordenar por uso de app"</string>
     <string name="sort_by_time" msgid="8280378662234104410">"Ordenar por hora"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="permission_usage_refresh" msgid="2182775682810005148">"Atualizar"</string>
@@ -143,7 +143,7 @@
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Permitir sempre"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Permitir apenas durante a utilização da aplicação"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Recusar"</string>
-    <string name="app_permission_title" msgid="2453000050669052385">"Autorização para o(a) <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"Autorização de <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="228974007660007656">"Acesso ao(à) <xliff:g id="PERM">%1$s</xliff:g> para esta aplicação."</string>
     <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"A aplicação <xliff:g id="APP">%1$s</xliff:g> acedeu ao(à) <xliff:g id="PERM">%2$s</xliff:g> há <xliff:g id="TIME">%3$s</xliff:g>."</string>
     <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"A aplicação <xliff:g id="APP">%1$s</xliff:g> não acedeu à sua <xliff:g id="PERM">%2$s</xliff:g>."</string>
@@ -200,17 +200,17 @@
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"<xliff:g id="NUM_SERVICES">%s</xliff:g> aplicações de acessibilidade têm acesso total ao seu dispositivo"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"O serviço <xliff:g id="SERVICE_NAME">%s</xliff:g> pode ver o seu ecrã, as ações e as entradas, efetuar ações e controlar o ecrã."</string>
     <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"Estas aplicações podem ver o ecrã, as ações e as entradas, efetuar ações e controlar o ecrã."</string>
-    <string name="role_assistant_label" msgid="1755271161954896046">"Aplic. de assistência predef."</string>
+    <string name="role_assistant_label" msgid="1755271161954896046">"App assistência predefinida"</string>
     <string name="role_assistant_short_label" msgid="3048707738783655050">"Aplicação de assistência"</string>
     <string name="role_assistant_description" msgid="8677846995018695304">"As aplicações de assistência podem ajudá-lo com base em informações do ecrã que está a ver. Algumas aplicações são compatíveis com serviços de iniciação e de entrada de texto por voz para oferecer assistência integrada."</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"Pretende definir o <xliff:g id="APP_NAME">%1$s</xliff:g> como aplicação de assistência predefinida?"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"Obtém acesso aos SMS e ao registo de chamadas."</string>
-    <string name="role_browser_label" msgid="814240075813716311">"Aplicação de navegador predef."</string>
+    <string name="role_browser_label" msgid="814240075813716311">"App navegador predefinida"</string>
     <string name="role_browser_short_label" msgid="6222206565850006894">"Aplicação de navegador"</string>
     <string name="role_browser_description" msgid="2326990202516329438">"Aplicações que lhe dão acesso à Internet e apresentam links em que pode tocar."</string>
     <string name="role_browser_request_title" msgid="751745081301397114">"Pretende definir o <xliff:g id="APP_NAME">%1$s</xliff:g> como a aplicação de navegador predefinida?"</string>
     <string name="role_browser_request_description" msgid="3204873553391043604">"Não são necessárias autorizações."</string>
-    <string name="role_dialer_label" msgid="7920168918746178929">"Aplicação de telefone predef."</string>
+    <string name="role_dialer_label" msgid="7920168918746178929">"App de telefone predefinida"</string>
     <string name="role_dialer_short_label" msgid="2980581587550675305">"Aplicação Telefone"</string>
     <string name="role_dialer_description" msgid="2684882481061320467">"Aplicações que permitem efetuar e receber chamadas no seu dispositivo."</string>
     <string name="role_dialer_request_title" msgid="3203802247886151514">"Pretende definir o <xliff:g id="APP_NAME">%1$s</xliff:g> como a aplicação de telefone predefinida?"</string>
@@ -225,16 +225,11 @@
     <string name="role_emergency_description" msgid="3567231505957373289">"Aplicações que permitem registar as suas informações médicas e disponibilizá-las aos contactos de resposta a emergências, receber alertas acerca de eventos atmosféricos e desastres graves, bem como notificar outras pessoas quando precisar de ajuda."</string>
     <string name="role_emergency_request_title" msgid="6595296517085761522">"Pretende definir o <xliff:g id="APP_NAME">%1$s</xliff:g> como a aplicação de emergência predefinida?"</string>
     <string name="role_emergency_request_description" msgid="2824966073894226992">"Não são necessárias autorizações."</string>
-    <string name="role_home_label" msgid="6245106863177808486">"Aplic. Página inicial predef."</string>
+    <string name="role_home_label" msgid="6245106863177808486">"App página inicial predefinida"</string>
     <string name="role_home_short_label" msgid="4565882523300643525">"Aplicação Página inicial"</string>
     <string name="role_home_description" msgid="6736956389161158052">"Aplicações, frequentemente denominadas iniciadores, que substituem os ecrãs principais no dispositivo Android e dão acesso aos conteúdos e às funcionalidades do seu dispositivo."</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Pretende definir o <xliff:g id="APP_NAME">%1$s</xliff:g> como a aplicação Página inicial predefinida?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Não são necessárias autorizações."</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Aplic. Telef. modo auto. pred."</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Aplic. telef. modo automóvel"</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"Pretende definir o <xliff:g id="APP_NAME">%1$s</xliff:g> como a aplicação de telefone de modo automóvel predefinida?"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Aplic. redirec. chamadas pred."</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Aplic. de redirec. de chamadas"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"Aplicações que permitem encaminhar chamadas para outro número de telefone."</string>
@@ -245,11 +240,6 @@
     <string name="role_call_screening_description" msgid="9009090500431969390">"Aplicações que permitem identificar as chamadas recebidas, bloquear spam e chamadas automáticas, adicionar números indesejados à lista negra, etc."</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Pretende definir o <xliff:g id="APP_NAME">%1$s</xliff:g> como a aplicação de identificação de chamadas e spam predefinida?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Não são necessárias autorizações."</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"Aplic. assoc. chamadas pred."</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"Aplic. associada de chamadas"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"Pretende definir o <xliff:g id="APP_NAME">%1$s</xliff:g> como a aplicação associada de chamadas predefinida?"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Predefinição atual"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Não perguntar novamente"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Definir como predef."</string>
@@ -266,8 +256,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Abertura de links"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Predefinição para o trabalho"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Nenhuma"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Predefinição do sistema)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Sem aplicações"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"acesso especial a aplicações"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Acesso especial a aplicações"</string>
@@ -291,4 +280,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Realce a utilização do seguinte"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Mostre a deteção do acionador do Assistente"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Mostre o ícone na barra de estado quando o microfone é utilizado para ativar o assistente de voz"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Pretende permitir que a aplicação &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aceda a fotos e multimédia no dispositivo?"</string>
 </resources>

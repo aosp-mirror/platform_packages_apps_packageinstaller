@@ -139,21 +139,21 @@
       <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> aplikacije</item>
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> aplikacija</item>
     </plurals>
-    <string name="app_permission_usage_title" msgid="5641038589468666526">"Korišćenje dozvola za aplik."</string>
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"Korišćenje dozvola za apl."</string>
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"Pristup: <xliff:g id="NUM">%1$s</xliff:g> put(a). Ukupno trajanje: <xliff:g id="DURATION">%2$s</xliff:g>. Poslednji put korišćena pre <xliff:g id="TIME">%3$s</xliff:g>."</string>
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Pristup: <xliff:g id="NUM">%1$s</xliff:g> put(a). Poslednji put korišćena pre <xliff:g id="TIME">%2$s</xliff:g>."</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Dozvoli"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Dozvoli uvek"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Dozv. samo dok se apl. koristi"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Odbij"</string>
-    <string name="app_permission_title" msgid="2453000050669052385">"Dozvola <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_header" msgid="228974007660007656">"Pristup za ovu aplikaciju: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> je pristupila dozvoli <xliff:g id="PERM">%2$s</xliff:g> pre <xliff:g id="TIME">%3$s</xliff:g>"</string>
-    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila dozvoli <xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> - dozvola"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"Pristup ove aplikacije funkciji „<xliff:g id="PERM">%1$s</xliff:g>“"</string>
+    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> je pristupila funkciji „<xliff:g id="PERM">%2$s</xliff:g>“ pre <xliff:g id="TIME">%3$s</xliff:g>"</string>
+    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila funkciji „<xliff:g id="PERM">%2$s</xliff:g>“"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Podaci o poslednjem pristupu trenutno nisu dostupni za ovu dozvolu"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Prikaži sve dozvole (<xliff:g id="APP">%1$s</xliff:g>)"</string>
-    <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Pregledajte sve aplikacije sa ovom dozvolom"</string>
-    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Aplikacije sa ovom dozvolom mogu sledeće: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
+    <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Prikaži sve aplikacije sa ovom dozvolom"</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Aplikacije sa ovom dozvolom mogu: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Aplikacije sa ovom dozvolom mogu da pristupaju podacima o fizičkim aktivnostima, poput hodanja, vožnje bicikla, vožnje automobila, broja koraka i još mnogo toga"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Aplikacije sa ovom dozvolom mogu da pristupaju kalendaru"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Aplikacije sa ovom dozvolom mogu da čitaju i dodaju stavke u evidenciju poziva na telefonu"</string>
@@ -207,56 +207,46 @@
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"Aplikacije pristupačnosti (<xliff:g id="NUM_SERVICES">%s</xliff:g>) imaju potpun pristup uređaju"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> može da pregleda sadržaj ekrana, radnje i unose, obavlja radnje i upravlja ekranom."</string>
     <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"Ove aplikacije mogu da pregledaju sadržaj ekrana, radnje i unose, kao i da obavljaju radnje i upravljaju ekranom."</string>
-    <string name="role_assistant_label" msgid="1755271161954896046">"Podrazumevana aplik. za pomoć"</string>
+    <string name="role_assistant_label" msgid="1755271161954896046">"Podrazumevana apl. za pomoć"</string>
     <string name="role_assistant_short_label" msgid="3048707738783655050">"Aplikacija za pomoć"</string>
     <string name="role_assistant_description" msgid="8677846995018695304">"Aplikacije za pomoć mogu da vam pomognu na osnovu informacija sa ekrana koji gledate. Neke aplikacije podržavaju usluge pokretača i glasovnog unosa da bi vam pružile integrisanu pomoć."</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"Želite li da podesite aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> kao podrazumevanu aplikaciju za pomoć?"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"Dobija pristup evidenciji SMS-ova i poziva"</string>
-    <string name="role_browser_label" msgid="814240075813716311">"Podrazumevana aplik. za pregl."</string>
+    <string name="role_browser_label" msgid="814240075813716311">"Podrazumevana apl. za pregled"</string>
     <string name="role_browser_short_label" msgid="6222206565850006894">"Aplikacija za pregledač"</string>
     <string name="role_browser_description" msgid="2326990202516329438">"Aplikacije koje vam daju pristup internetu i prikazuju linkove koje možete da dodirnete"</string>
     <string name="role_browser_request_title" msgid="751745081301397114">"Želite li da podesite <xliff:g id="APP_NAME">%1$s</xliff:g> kao podrazumevanu aplikaciju za pregledanje?"</string>
     <string name="role_browser_request_description" msgid="3204873553391043604">"Nije potrebna nijedna dozvola"</string>
-    <string name="role_dialer_label" msgid="7920168918746178929">"Podrazumevana aplik. za tel."</string>
+    <string name="role_dialer_label" msgid="7920168918746178929">"Podrazumevana apl. za telefon"</string>
     <string name="role_dialer_short_label" msgid="2980581587550675305">"Aplikacija za telefon"</string>
     <string name="role_dialer_description" msgid="2684882481061320467">"Aplikacije koje vam omogućavaju da upućujete i primate telefonske pozive na uređaju"</string>
     <string name="role_dialer_request_title" msgid="3203802247886151514">"Želite li da podesite <xliff:g id="APP_NAME">%1$s</xliff:g> kao podrazumevanu aplikaciju za telefon?"</string>
     <string name="role_dialer_request_description" msgid="2931069491309771312">"Dobija pristup evidenciji poziva i slanju SMS-ova"</string>
-    <string name="role_sms_label" msgid="6995222097027665850">"Podrazumevana aplik. za SMS"</string>
+    <string name="role_sms_label" msgid="6995222097027665850">"Podrazumevana apl. za SMS"</string>
     <string name="role_sms_short_label" msgid="236955440028043972">"Aplikacija za SMS"</string>
     <string name="role_sms_description" msgid="3228552135895420442">"Aplikacije koje vam omogućavaju da koristite broj telefona da biste slali i primali kratke SMS-ove, slike, video snimke i još toga"</string>
     <string name="role_sms_request_title" msgid="3667393846881324409">"Želite li da podesite <xliff:g id="APP_NAME">%1$s</xliff:g> kao podrazumevanu aplikacju za SMS?"</string>
     <string name="role_sms_request_description" msgid="4920787411350418630">"Dobija pristup kontaktima, SMS-ovima, telefonu"</string>
-    <string name="role_emergency_label" msgid="8986482330376454686">"Podraz. aplik. za hitne sluč."</string>
+    <string name="role_emergency_label" msgid="8986482330376454686">"Podraz. apl. za hitne sluč."</string>
     <string name="role_emergency_short_label" msgid="2546309839225058762">"Aplikacija za hitne slučajeve"</string>
     <string name="role_emergency_description" msgid="3567231505957373289">"Aplikacije koje vam omogućavaju da čuvate medicinske podatke i učinite ih dostupnim hitnim službama; da biste dobijali obaveštenja o ozbiljnim vremenskim promenama i nepogodama i obavestili druge kada vam treba pomoć"</string>
     <string name="role_emergency_request_title" msgid="6595296517085761522">"Želite li da podesite <xliff:g id="APP_NAME">%1$s</xliff:g> kao podrazumevanu aplikaciju za hitne slučajeve?"</string>
     <string name="role_emergency_request_description" msgid="2824966073894226992">"Nije potrebna nijedna dozvola"</string>
-    <string name="role_home_label" msgid="6245106863177808486">"Podraz. aplik. početne stran."</string>
+    <string name="role_home_label" msgid="6245106863177808486">"Podraz. apl. početne stran."</string>
     <string name="role_home_short_label" msgid="4565882523300643525">"Aplikacija početne stranice"</string>
     <string name="role_home_description" msgid="6736956389161158052">"Aplikacije koje se često zovu pokretači i zamenjuju početne ekrane na Android uređaju i pružaju pristup sadržaju i funkcijama na uređaju"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Želite li da podesite <xliff:g id="APP_NAME">%1$s</xliff:g> kao podrazumevanu aplikaciju početne stranice?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Nije potrebna nijedna dozvola"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Podr. aplik. za tel. za auto."</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Aplik. za tel. za rad u aut."</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"Želite li da podesite <xliff:g id="APP_NAME">%1$s</xliff:g> kao podrazumevanu aplikaciju za telefon za režim rada u automobilu?"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
-    <string name="role_call_redirection_label" msgid="7555518736037919521">"Podraz. aplik. za preus. poz."</string>
-    <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Aplik. za preusmeravanje poziva"</string>
+    <string name="role_call_redirection_label" msgid="7555518736037919521">"Podraz. apl. za preus. poziva"</string>
+    <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Apl. za preusmeravanje poziva"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"Aplikacije koje vam omogućavaju da prosleđujete pozive na drugi broj telefona"</string>
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"Želite li da podesite <xliff:g id="APP_NAME">%1$s</xliff:g> kao podrazumevanu aplikaciju za preusmeravanje poziva?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Nije potrebna nijedna dozvola"</string>
-    <string name="role_call_screening_label" msgid="5366988848919437946">"Podraz. aplik. za ID poziv. i nepož. poruke"</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"Podraz. apl. za ID poziv. i nepož. poruke"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"Apl. za ID poz. i nepož. poz."</string>
     <string name="role_call_screening_description" msgid="9009090500431969390">"Aplikacije koje vam omogućavaju da identifikujete pozive, blokirate nepoželjne i automatizovane pozive, blokirate neželjene brojeve i drugo"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Želite li da podesite <xliff:g id="APP_NAME">%1$s</xliff:g> kao podrazumevanu aplikaciju za ID pozivaoca i nepoželjne poruke?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Nije potrebna nijedna dozvola"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"Podraz. prateća aplik. za poz."</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"Prateća aplikacija za pozive"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"Želite li da podesite <xliff:g id="APP_NAME">%1$s</xliff:g> kao prateću aplikaciju za pozive?"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Trenutno podrazumevana"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Ne pitaj ponovo"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Podesi kao podrazum."</string>
@@ -273,8 +263,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Otvaranje linkova"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Podrazumevana za posao"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Ništa"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Podrazumevana sistemska)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Nema aplikacija"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"pristup za specijalnu aplikaciju"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Pristup za spec. aplikaciju"</string>
@@ -298,4 +287,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Istakni korišćenje za sledeće"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Prikazuj otkrivanje aktiviranja Asistenta"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Prikazuje ikonu na statusnoj traci kada se mikrofon koristi za aktiviranje glasovnog pomoćnika"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Želite li da dozvolite da &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;pristupa slikama i medijima na uređaju?"</string>
 </resources>

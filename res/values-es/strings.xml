@@ -38,7 +38,7 @@
     <string name="permission_revoked_none" msgid="266013103540772023">"ninguno inhabilitado"</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Permitir"</string>
     <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"Permitir siempre"</string>
-    <string name="grant_dialog_button_allow_foreground" msgid="8090382319222429427">"Permitir si la app está en uso"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="8090382319222429427">"Permitir si la aplicación está en uso"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Permitir siempre"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Aplicaciones"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Permisos de aplicaciones"</string>
@@ -59,7 +59,7 @@
     <string name="no_apps" msgid="2377153782338039463">"No hay aplicaciones"</string>
     <string name="location_settings" msgid="547378321761364906">"Ajustes de ubicación"</string>
     <string name="location_warning" msgid="4687406043150343369">"<xliff:g id="APP_NAME">%1$s</xliff:g> es un proveedor de servicios de ubicación de este dispositivo. El acceso a la ubicación se puede modificar en los ajustes de ubicación."</string>
-    <string name="system_warning" msgid="6868290533389195836">"Si rechazas este permiso, es posible que funciones básicas de tu dispositivo dejen de funcionar correctamente."</string>
+    <string name="system_warning" msgid="6868290533389195836">"Si rechazas este permiso, es posible que algunas funciones básicas de tu dispositivo dejen de funcionar correctamente."</string>
     <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"Aplicado por política"</string>
     <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"Acceso en segundo plano inhabilitado por política"</string>
     <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"Acceso en segundo plano habilitado por política"</string>
@@ -73,7 +73,7 @@
     <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
     <string name="permission_access_always" msgid="5419580764084361573">"Permitir siempre"</string>
-    <string name="permission_access_only_foreground" msgid="2857031150724321567">"Permitir si la app está en uso"</string>
+    <string name="permission_access_only_foreground" msgid="2857031150724321567">"Permitir si la aplicación está en uso"</string>
     <string name="permission_access_never" msgid="425385910378172045">"Denegar"</string>
     <string name="loading" msgid="323483393167148377">"Cargando…"</string>
     <string name="all_permissions" msgid="7813580062403112957">"Todos los permisos"</string>
@@ -141,7 +141,7 @@
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Acceso: <xliff:g id="NUM">%1$s</xliff:g> veces. Último uso: hace <xliff:g id="TIME">%2$s</xliff:g>."</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Permitir"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Permitir siempre"</string>
-    <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Permitir si la app está en uso"</string>
+    <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Permitir si la aplicación está en uso"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Denegar"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"Permiso de <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="228974007660007656">"Acceso a <xliff:g id="PERM">%1$s</xliff:g> para esta aplicación"</string>
@@ -166,10 +166,10 @@
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Actualmente denegado / Último acceso: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"No se ha accedido nunca"</string>
     <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Denegado / No se ha accedido nunca"</string>
-    <string name="allowed_header" msgid="6279244592227088158">"Permitidos"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"Permitido"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Permitido siempre"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Solo se permite mientras se usa"</string>
-    <string name="denied_header" msgid="2277998574238617699">"Denegados"</string>
+    <string name="denied_header" msgid="2277998574238617699">"Denegado"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"Ver uso detallado"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> días</item>
@@ -208,7 +208,7 @@
     <string name="role_browser_label" msgid="814240075813716311">"App de navegador predet."</string>
     <string name="role_browser_short_label" msgid="6222206565850006894">"Aplicación de navegador"</string>
     <string name="role_browser_description" msgid="2326990202516329438">"Son aplicaciones que te permiten acceder a Internet y te muestran los enlaces que tocas"</string>
-    <string name="role_browser_request_title" msgid="751745081301397114">"¿Quieres establecer a <xliff:g id="APP_NAME">%1$s</xliff:g> como tu aplicación de navegador predeterminada?"</string>
+    <string name="role_browser_request_title" msgid="751745081301397114">"¿Quieres configurar <xliff:g id="APP_NAME">%1$s</xliff:g> como tu aplicación de navegador predeterminada?"</string>
     <string name="role_browser_request_description" msgid="3204873553391043604">"No se necesita ningún permiso"</string>
     <string name="role_dialer_label" msgid="7920168918746178929">"App teléfono predeterminada"</string>
     <string name="role_dialer_short_label" msgid="2980581587550675305">"Aplicación de teléfono"</string>
@@ -227,14 +227,9 @@
     <string name="role_emergency_request_description" msgid="2824966073894226992">"No se necesita ningún permiso"</string>
     <string name="role_home_label" msgid="6245106863177808486">"Aplicación de inicio predet."</string>
     <string name="role_home_short_label" msgid="4565882523300643525">"Aplicación de inicio"</string>
-    <string name="role_home_description" msgid="6736956389161158052">"Las aplicaciones, normalmente denominadas menú de aplicaciones, reemplazan las pantallas de inicio en tu dispositivo Android y te dan acceso al contenido y a las funciones de tu dispositivo"</string>
+    <string name="role_home_description" msgid="6736956389161158052">"Los launchers reemplazan las pantallas de inicio en tu dispositivo Android y te dan acceso a contenido y funciones de tu dispositivo"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"¿Quieres establecer a <xliff:g id="APP_NAME">%1$s</xliff:g> como tu aplicación de inicio predeterminada?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"No se necesita ningún permiso"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"App llamadas modo coche predet."</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"App de llamadas en modo coche"</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"¿Quieres establecer a <xliff:g id="APP_NAME">%1$s</xliff:g> como tu aplicación de llamadas en modo coche predeterminada?"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"App redirección llamadas predet."</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"App de redirección de llamadas"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"Son las aplicaciones que te permiten reenviar llamadas a otro número de teléfono"</string>
@@ -245,11 +240,6 @@
     <string name="role_call_screening_description" msgid="9009090500431969390">"Son las aplicaciones que te permiten identificar las llamadas entrantes, bloquear spam y llamadas automatizadas, crear una lista con números no deseados, etc."</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"¿Quieres establecer a <xliff:g id="APP_NAME">%1$s</xliff:g> como tu aplicación predeterminada de filtro de ID de llamada y spam?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"No se necesita ningún permiso"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"App complement. llamadas predet."</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"App complementaria de llamadas"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"¿Quieres establecer a <xliff:g id="APP_NAME">%1$s</xliff:g> como tu aplicación complementaria de llamadas predeterminada?"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Predeterminada"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"No volver a preguntar"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Definir como predet."</string>
@@ -265,9 +255,8 @@
     <string name="default_apps_more" msgid="3908067305593075127">"Más apps predeterminadas"</string>
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Abrir enlaces"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Predeterminadas para trabajo"</string>
-    <string name="default_app_none" msgid="7671097769303174666">"Ninguna"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_none" msgid="7671097769303174666">"Ninguno"</string>
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Predeterminada del sistema)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"No hay aplicaciones"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"acceso especial de apps"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Acceso especial de apps"</string>
@@ -291,4 +280,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Destacar el uso de estas opciones"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Mostrar la detección de activación del Asistente"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Mostrar icono en la barra de estado cuando se utilice el micrófono para activar la función Asistente de voz"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"¿Quieres permitir que &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; acceda a las fotos y archivos multimedia del dispositivo?"</string>
 </resources>

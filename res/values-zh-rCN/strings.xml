@@ -101,7 +101,7 @@
     <string name="permission_usage_last_day" msgid="4149912805759768249">"过去 24 小时"</string>
     <string name="permission_usage_last_hour" msgid="2907717357748648755">"过去 1 小时"</string>
     <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"过去 15 分钟"</string>
-    <string name="permission_usage_last_minute" msgid="1712931459994781087">"过去 1 分钟内"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"过去 1 分钟"</string>
     <string name="no_permission_usages" msgid="698858628357371611">"没有使用此权限的应用"</string>
     <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"最近使用的访问权限（不限时间）"</string>
     <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"最近使用的访问权限（过去 7 天内）"</string>
@@ -230,11 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"这类应用通常称为启动器，能够取代 Android 设备的主屏幕，并可让您访问设备的内容和功能"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"要将<xliff:g id="APP_NAME">%1$s</xliff:g>设为您的默认主屏幕应用吗？"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"无需任何权限"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"默认车载模式电话应用"</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"车载模式电话应用"</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"要将<xliff:g id="APP_NAME">%1$s</xliff:g>设为您的默认车载模式电话应用吗？"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"默认来电转接应用"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"来电转接应用"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"这类应用可让您将来电转接到其他电话号码"</string>
@@ -245,11 +240,6 @@
     <string name="role_call_screening_description" msgid="9009090500431969390">"这类应用可让您识别来电、屏蔽骚扰电话和录音推销电话、将骚扰电话号码加入黑名单等"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"要将<xliff:g id="APP_NAME">%1$s</xliff:g>设为您的默认来电显示和骚扰电话屏蔽应用吗？"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"无需任何权限"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"默认通话配套应用"</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"通话配套应用"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"要将<xliff:g id="APP_NAME">%1$s</xliff:g>设为您的默认通话配套应用吗？"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"当前默认应用"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"不再询问"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"设为默认应用"</string>
@@ -266,8 +256,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"打开链接"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"默认工作应用"</string>
     <string name="default_app_none" msgid="7671097769303174666">"无"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"（系统默认）"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"没有应用"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"特殊应用权限"</string>
     <string name="special_app_access" msgid="2561673957499408877">"特殊应用权限"</string>
@@ -291,4 +280,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"突出显示以下应用的权限使用情况"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"显示 Google 助理触发指令检测结果"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"使用麦克风激活语音助理后，在状态栏中显示相关图标"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"要允许&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;访问您设备上的照片和媒体吗？"</string>
 </resources>

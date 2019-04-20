@@ -40,7 +40,7 @@
     <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"همیشه مجاز بودن"</string>
     <string name="grant_dialog_button_allow_foreground" msgid="8090382319222429427">"مجاز فقط حین استفاده از برنامه"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"همیشه مجاز بودن"</string>
-    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"برنامه"</string>
+    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"برنامه‌ها"</string>
     <string name="app_permissions" msgid="2778362347879465223">"مجوزهای برنامه"</string>
     <string name="app_permission_manager" msgid="3802609813311662642">"مدیر مجوز"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"دوباره سؤال نشود"</string>
@@ -149,19 +149,19 @@
     <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"<xliff:g id="APP">%1$s</xliff:g> به <xliff:g id="PERM">%2$s</xliff:g> دسترسی پیدا نکرده است"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"داده‌هایی که اخیراً به آن‌ها دسترسی پیدا کرده‌اید درحال‌حاضر برای این مجوز دردسترس نیست"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"مشاهده همه مجوزهای <xliff:g id="APP">%1$s</xliff:g>"</string>
-    <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"دیدن همه برنامه‌های دارای این مجوز"</string>
-    <string name="permission_description_summary_generic" msgid="5479202003136667039">"برنامه‌های دارای این مجوز می‌توانند <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"برنامه‌های دارای این مجوز می‌توانند به فعالیت فیزیکی شما، مانند پیاده‌روی، دوچرخه‌سواری، رانندگی، قدم‌شماری و غیره دسترسی داشته باشند"</string>
-    <string name="permission_description_summary_calendar" msgid="2846128908236787586">"برنامه‌های دارای این مجوز می‌توانند به تقویمتان دسترسی یابند"</string>
-    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"برنامه‌های دارای این مجوز می‌توانند گزارش تماس تلقنی را بخوانند و بنویسند"</string>
-    <string name="permission_description_summary_camera" msgid="6699611334403400091">"برنامه‌های دارای این مجوز می‌توانند عکس بگیرند و ویدیو ضبط کنند"</string>
-    <string name="permission_description_summary_contacts" msgid="5169995707720233126">"برنامه‌های دارای این مجوز می‌توانند به مخاطبین دسترسی یابند"</string>
-    <string name="permission_description_summary_location" msgid="687820658574645201">"برنامه‌های دارای مجوز می‌توانند به مکان این دستگاه دسترسی یابند"</string>
-    <string name="permission_description_summary_microphone" msgid="2300290217308759293">"برنامه‌های دارای این مجوز می‌توانند صدا ضبط کنند"</string>
-    <string name="permission_description_summary_phone" msgid="3773977614654088578">"برنامه‌های دارای این مجوز می‌توانند تماس تلفنی برقرار کنند و آن‌ را مدیریت کنند"</string>
-    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"برنامه‌های دارای این مجوز می‌توانند به داده‌های حسگر مربوط به نشانه‌های حیاتی دسترسی یابند"</string>
-    <string name="permission_description_summary_sms" msgid="8850213022386508528">"برنامه‌های دارای این مجوز می‌توانند پیام و پیامک ارسال کنند و آن‌ها را ببینند"</string>
-    <string name="permission_description_summary_storage" msgid="2265909502600142621">"برنامه‌های دارای این مجوز می‌توانند به عکس‌ها، رسانه‌ها و فایل‌های موجود در دستگاهتان دسترسی پیدا کنند."</string>
+    <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"دیدن همه برنامه‌هایی که این مجوز را دارند"</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"برنامه‌هایی که این مجوز را داشته باشند می‌توانند <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"برنامه‌هایی که این مجوز را داشته باشند می‌توانند به فعالیت فیزیکی شما، مانند پیاده‌روی، دوچرخه‌سواری، رانندگی، قدم‌شماری، و غیره دسترسی داشته باشند"</string>
+    <string name="permission_description_summary_calendar" msgid="2846128908236787586">"برنامه‌هایی که این مجوز را داشته باشند می‌توانند به تقویمتان دسترسی داشته باشند"</string>
+    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"برنامه‌هایی که این مجوز را داشته باشند می‌توانند گزارش تماس تلقنی را بخوانند و بنویسند"</string>
+    <string name="permission_description_summary_camera" msgid="6699611334403400091">"برنامه‌هایی که این مجوز را داشته باشند می‌توانند عکس بگیرند و ویدیو ضبط کنند"</string>
+    <string name="permission_description_summary_contacts" msgid="5169995707720233126">"برنامه‌هایی که این مجوز را داشته باشند می‌توانند به مخاطبین دسترسی داشته باشند"</string>
+    <string name="permission_description_summary_location" msgid="687820658574645201">"برنامه‌هایی که این مجوز را داشته باشند می‌توانند به مکان این دستگاه دسترسی داشته باشند"</string>
+    <string name="permission_description_summary_microphone" msgid="2300290217308759293">"برنامه‌هایی که این مجوز را داشته باشند می‌توانند صدا ضبط کنند"</string>
+    <string name="permission_description_summary_phone" msgid="3773977614654088578">"برنامه‌هایی که این مجوز را داشته باشند می‌توانند تماس تلفنی برقرار کنند و آن‌ را مدیریت کنند"</string>
+    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"برنامه‌هایی که این مجوز را داشته باشند می‌توانند به داده‌های حسگر مربوط به نشانه‌های حیاتی دسترسی داشته باشند"</string>
+    <string name="permission_description_summary_sms" msgid="8850213022386508528">"برنامه‌هایی که این مجوز را داشته باشند می‌توانند هم پیامک ارسال کنند هم آن‌ها را ببینند"</string>
+    <string name="permission_description_summary_storage" msgid="2265909502600142621">"برنامه‌هایی که این مجوز را داشته باشند می‌توانند به عکس‌ها، رسانه‌ها و فایل‌های موجود در دستگاهتان دسترسی داشته باشند"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"آخرین دسترسی: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"درحال‌حاضر رد شده است / آخرین دسترسی: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"هرگز دسترسی نداشته است"</string>
@@ -230,11 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"‏برنامه‌های عموماً موسوم به راه‌انداز، که جایگزین صفحه‌های اصلی در دستگاه Android می‌شوند و امکان دسترسی به محتواها و ویژگی‌های دستگاه را می‌دهند"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"<xliff:g id="APP_NAME">%1$s</xliff:g> به‌عنوان برنامه صفحه اصلی پیش‌فرض تنظیم شود؟"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"مجوز نیاز نیست"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"برنامه تلفن حالت خودرو پیش‌فرض"</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"برنامه تلفن حالت خودرو"</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"<xliff:g id="APP_NAME">%1$s</xliff:g> به‌عنوان برنامه تلفن حالت خودرو پیش‌فرض تنظیم شود؟"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"برنامه هدایت تماس پیش‌فرض"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"برنامه هدایت تماس"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"برنامه‌هایی که امکان می‌دهند تماس‌ها را به شماره تلفن دیگری بازارسال کنید"</string>
@@ -245,11 +240,6 @@
     <string name="role_call_screening_description" msgid="9009090500431969390">"برنامه‌هایی که امکان می‌دهند تماس‌های ورودی را تشخیص دهید، هرزنامه‌ها و تماس‌های تلفنی خودکار را مسدود کنید، شماره‌های ناخواسته را در فهرست سیاه قرار دهید، و نظایر این‌ها"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"<xliff:g id="APP_NAME">%1$s</xliff:g> به‌عنوان شناسه تماس‌گیرنده و برنامه هرزنامه‌ پیش‌فرض تنظیم شود؟"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"مجوز نیاز نیست"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"برنامه همراه تماس پیش‌فرض"</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"برنامه همراه تماس"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"<xliff:g id="APP_NAME">%1$s</xliff:g> به‌عنوان برنامه همراه تماس پیش‌فرض تنظیم شود؟"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"برنامه پیش‌فرض کنونی"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"دوباره سؤال نشود"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"تنظیم برای پیش‌فرض"</string>
@@ -266,12 +256,11 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"باز کردن پیوندها"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"پیش‌فرض برای کار"</string>
     <string name="default_app_none" msgid="7671097769303174666">"هیچ‌کدام"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(پیش‌فرض سیستم)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"برنامه‌ای موجود نیست"</string>
-    <string name="special_app_access_search_keyword" msgid="462008045110320714">"دسترسی ویژه به برنامه"</string>
-    <string name="special_app_access" msgid="2561673957499408877">"دسترسی ویژه به برنامه"</string>
-    <string name="no_special_app_access" msgid="994977666694457811">"عدم دسترسی ویژه به برنامه"</string>
+    <string name="special_app_access_search_keyword" msgid="462008045110320714">"دسترسی ویژه برنامه"</string>
+    <string name="special_app_access" msgid="2561673957499408877">"دسترسی ویژه برنامه"</string>
+    <string name="no_special_app_access" msgid="994977666694457811">"دسترسی ویژه برنامه وجود ندارد"</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"برنامه‌ای موجود نیست"</string>
     <string name="home_missing_work_profile_support" msgid="1439466272746259937">"از نمایه کاری پشتیبانی نمی‌کند"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"توجه: اگر دستگاهتان را بازراه‌اندازی کنید و قفل صفحه تنظیم کرده باشید، تا قفل تلفن را باز نکنید، این برنامه نمی‌تواند شروع به کار کند."</string>
@@ -291,4 +280,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"استفاده از برجسته کردن برای دنبال کردن"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"نمایش تشخیص راه‌انداز دستیار"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"نمایش نماد مربوطه در نوار وضعیت وقتی از میکروفون برای فعال کردن دستیار صوتی استفاده می‌شود"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"‏به &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;b&gt; اجازه داده شود به عکس‌ها و رسانه‌های موجود در دستگاهتان دسترسی پیدا کند؟"</string>
 </resources>

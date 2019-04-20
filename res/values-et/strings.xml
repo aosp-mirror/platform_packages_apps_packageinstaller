@@ -110,11 +110,11 @@
     <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"Hiljutisim juurdepääs viimase 15 minuti jooksul"</string>
     <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"Hiljutisim juurdepääs viimase 1 minuti jooksul"</string>
     <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"Loa kasutus mis tahes ajal"</string>
-    <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"Loa kasutus viimase 7 päeva jooksul"</string>
-    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"Loa kasutus viimase 24 tunni jooksul"</string>
-    <string name="permission_usage_bar_chart_title_last_hour" msgid="4672313408976666479">"Loa kasutus viimase 1 tunni jooksul"</string>
-    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"Loa kasutus viimase 15 minuti jooksul"</string>
-    <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"Loa kasutus viimase 1 minuti jooksul"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"Lubade kasutus viimase 7 päeva jooksul"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"Lubade kasutus viimase 24 tunni jooksul"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="4672313408976666479">"Lubade kasutus viimase 1 tunni jooksul"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"Lubade kasutus viimase 15 minuti jooksul"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"Lubade kasutus viimase 1 minuti jooksul"</string>
     <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> rakendust</item>
       <item quantity="one">1 rakendus</item>
@@ -145,7 +145,7 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Keela"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"Luba <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="228974007660007656">"Üksuse <xliff:g id="PERM">%1$s</xliff:g> juurdepääs sellele rakendusele"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"Rakendus <xliff:g id="APP">%1$s</xliff:g> pääses loale <xliff:g id="PERM">%2$s</xliff:g> juurde <xliff:g id="TIME">%3$s</xliff:g> tagasi"</string>
+    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"Rakendus <xliff:g id="APP">%1$s</xliff:g> pääses üksusele <xliff:g id="PERM">%2$s</xliff:g> juurde <xliff:g id="TIME">%3$s</xliff:g> tagasi"</string>
     <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"<xliff:g id="APP">%1$s</xliff:g> pole loale <xliff:g id="PERM">%2$s</xliff:g> juurde pääsenud"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Andmed viimase juurdepääsu kohta ei ole selle loa puhul praegu saadaval"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Kuva rakenduse <xliff:g id="APP">%1$s</xliff:g> kõik load"</string>
@@ -169,7 +169,7 @@
     <string name="allowed_header" msgid="6279244592227088158">"Lubatud"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Alati lubatud"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Lubatud ainult kasutuses olles"</string>
-    <string name="denied_header" msgid="2277998574238617699">"Keeldutud"</string>
+    <string name="denied_header" msgid="2277998574238617699">"Keelatud"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"Kuva üksikasjalik kasutus"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> päeva</item>
@@ -225,16 +225,11 @@
     <string name="role_emergency_description" msgid="3567231505957373289">"Rakendused, mis võimaldavad salvestada teie meditsiinilisi andmeid ja muudavad need hädaabiteenustele kättesaadavaks, hankida katastroofi- ja ilmahoiatusi, teavitada teisi, kui vajate abi"</string>
     <string name="role_emergency_request_title" msgid="6595296517085761522">"Kas soovite määrata rakenduse <xliff:g id="APP_NAME">%1$s</xliff:g> vaikimisi kasutatavaks hädaabirakenduseks?"</string>
     <string name="role_emergency_request_description" msgid="2824966073894226992">"Lube ei ole vaja"</string>
-    <string name="role_home_label" msgid="6245106863177808486">"Avaekraani vaikerakendus"</string>
-    <string name="role_home_short_label" msgid="4565882523300643525">"Avaekraani rakendus"</string>
+    <string name="role_home_label" msgid="6245106863177808486">"Avakuva vaikerakendus"</string>
+    <string name="role_home_short_label" msgid="4565882523300643525">"Avakuva rakendus"</string>
     <string name="role_home_description" msgid="6736956389161158052">"Rakendused, mida nimetatakse ka käivitusprogrammideks, mis asendavad teie Android-seadme avaekraanid ning annavad juurdepääsu seadme sisule ja funktsioonidele"</string>
-    <string name="role_home_request_title" msgid="2964609319767315444">"Kas soovite määrata rakenduse <xliff:g id="APP_NAME">%1$s</xliff:g> avaekraani vaikerakenduseks?"</string>
+    <string name="role_home_request_title" msgid="2964609319767315444">"Kas soovite määrata rakenduse <xliff:g id="APP_NAME">%1$s</xliff:g> avakuva vaikerakenduseks?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Lube ei ole vaja"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Autorežiimi telefoni vaikerak."</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Autorežiimi telefonirakendus"</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"Kas soovite määrata rakenduse <xliff:g id="APP_NAME">%1$s</xliff:g> autorežiimi telefoni vaikerakenduseks?"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Kõnede suunamise vaikerakendus"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Kõnede ümbersuunamise rakendus"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"Rakendused, mis võimaldavad teil kõnesid teisele telefoninumbrile suunata"</string>
@@ -245,11 +240,6 @@
     <string name="role_call_screening_description" msgid="9009090500431969390">"Rakendused, mis võimaldavad teil tuvastada sissetulevaid kõnesid, blokeerida rämps- ja robotkõnesid, lisada soovimatuid numbreid musta nimekirja jms"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Kas soovite määrata rakenduse <xliff:g id="APP_NAME">%1$s</xliff:g> helistaja ID ja rämpskõnede vaikerakenduseks?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Lube ei ole vaja"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"Kõnede vaikekaasrakendus"</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"Helistamise kaasrakendus"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"Kas soovite määrata rakenduse <xliff:g id="APP_NAME">%1$s</xliff:g> kõnede vaikekaasrakenduseks?"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Praegune vaikeseade"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Ära enam küsi"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Määra vaikeseadeks"</string>
@@ -266,8 +256,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Linkide avamine"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Vaikerakendused töö jaoks"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Puudub"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Süsteemi vaikeseade)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Rakendusi pole"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"rakenduste erijuurdepääs"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Rakenduste erijuurdepääs"</string>
@@ -291,4 +280,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Järgmise puhul kasutuse esiletõstmine"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Assistendi käivitamise tuvastamise kuvamine"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Ikooni kuvamine olekuribal, kui häälassistendi aktiveerimiseks kasutatakse mikrofoni"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Kas lubada rakendusele &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; juurdepääs seadmes olevatele fotodele ja meediale?"</string>
 </resources>

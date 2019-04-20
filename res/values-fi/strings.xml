@@ -150,7 +150,7 @@
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Tämän käyttöoikeuden viimeisen käyttökerran tietoja ei ole tällä hetkellä saatavilla"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Näytä kaikki käyttöoikeudet: <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Näytä kaikki sovellukset, joilla on tämä käyttöoikeus"</string>
-    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Sovellukset, joilla on tämä käyttöoikeus, voivat <xliff:g id="DESCRIPTION">%1$s</xliff:g>."</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Sovellukset, joilla on tämä käyttöoikeus, voivat <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Sovelluksilla, joilla on tämä käyttöoikeus, on pääsy liikuntatietoihisi, kuten kävelyyn, pyöräilyyn, ajamiseen, ja askelmääriin."</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Sovelluksilla, joilla on tämä käyttöoikeus, on pääsy kalenteriisi."</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Sovelluksilla, joilla on tämä käyttöoikeus, on puhelulokin luku- ja kirjoitusoikeus."</string>
@@ -230,11 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Sovellukset (tunnetaan myös käynnistysohjelmina), jotka korvaavat Android-laitteen aloitusnäytön ja mahdollistavat laitteen sisällön ja ominaisuuksien käytön"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Asetetaanko <xliff:g id="APP_NAME">%1$s</xliff:g> aloitusnäytön oletussovellukseksi?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Käyttöoikeuksia ei tarvita"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Autotilan oletuspuhelinsov."</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Autotilan puhelinsovellus"</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"Asetetaanko <xliff:g id="APP_NAME">%1$s</xliff:g> autotilan oletuspuhelinsovellukseksi?"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Soitonsiirron oletussovellus"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Soitonsiirtosovellus"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"Sovellukset, joiden avulla voit siirtää puheluita toiseen numeroon"</string>
@@ -245,11 +240,6 @@
     <string name="role_call_screening_description" msgid="9009090500431969390">"Sovellukset, joiden avulla voit esimerkiksi tunnistaa saapuvat puhelut, estää häirikkö- ja robottipuhelut ja lisätä ei-toivottuja numeroita mustalle listalle"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Asetetaanko <xliff:g id="APP_NAME">%1$s</xliff:g> soittajan tunnuksen ja häiriköinnin eston oletussovellukseksi?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Käyttöoikeuksia ei tarvita"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"Puheluiden oletuskumppanisov."</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"Puhelujen kumppanisovellus"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"Asetetaanko <xliff:g id="APP_NAME">%1$s</xliff:g> puheluiden oletuskumppanisovellukseksi?"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Nykyinen oletus"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Älä kysy uudelleen"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Aseta oletukseksi"</string>
@@ -266,8 +256,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Linkkien avaaminen"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Työkäytön oletus"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Ei mitään"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Järjestelmän oletusarvo)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Ei sovelluksia"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"sovellusten erikoiskäyttö"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Sovellusten erikoiskäyttö"</string>
@@ -287,8 +276,9 @@
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Lisäasetukset"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Lisäasetukset"</string>
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Näytä järjestelmäsovellusten käyttö"</string>
-    <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"Näytä järjestelmäsovellusten käyttöluvat tilarivillä, hallintapaneelissa ja muualla"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"Näytä järjestelmäsovellusten käyttöluvat tilarivillä, hallintapaneelissa ja muualla."</string>
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Korosta seuraavien käyttö"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Näytä Assistantin käynnistyskomennon havaitseminen"</string>
-    <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Näytä tilarivillä kuvake, kun ääniapuri aktivoidaan mikrofonin avulla"</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Näytä tilarivillä kuvake, kun ääniapuri aktivoidaan mikrofonin avulla."</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Saako &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; käyttää laitteellasi olevia kuvia ja mediaa?"</string>
 </resources>
