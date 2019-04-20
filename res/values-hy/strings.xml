@@ -28,7 +28,7 @@
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Մանրամասն"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Մերժել"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>/<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="1353228984024423745">"Թույլ տա՞լ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; հավելվածին <xliff:g id="ACTION">%2$s</xliff:g>:"</string>
+    <string name="permission_warning_template" msgid="1353228984024423745">"Թույլատրե՞լ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; հավելվածին <xliff:g id="ACTION">%2$s</xliff:g>:"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"Միշտ թույլ տա՞լ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; հավելվածին <xliff:g id="ACTION">%2$s</xliff:g>:"</string>
     <string name="allow_permission_foreground_only" msgid="7444689446874060511">"Միայն հավելվածի օգտագործման ժամանակ"</string>
     <string name="allow_permission_always" msgid="4089537686339013930">"Միշտ"</string>
@@ -105,7 +105,7 @@
     <string name="no_permission_usages" msgid="698858628357371611">"Թույլտվություններ չեն կիրառվել"</string>
     <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"Վերջին օգտագործումը ցանկացած ժամանակ"</string>
     <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"Վերջին օգտագործումը վերջին 7 օրում"</string>
-    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"Վերջին օգտագործումը վերջին 24 ժամում"</string>
+    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"Օգտագործումը վերջին 24 ժամում"</string>
     <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"Վերջին օգտագործումը վերջին 1 ժամում"</string>
     <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"Վերջին օգտագործումը վերջին 15 րոպեում"</string>
     <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"Վերջին օգտագործումը վերջին 1 րոպեում"</string>
@@ -122,7 +122,7 @@
     <string name="permission_usage_view_details" msgid="4728049344017619500">"Դիտել բոլորը կառավարման վահանակում"</string>
     <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Զտված է ըստ՝ <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_usage_remove_filter" msgid="9105565119059367866">"Տեսնել բոլորը կառավարման վահանակում"</string>
-    <string name="filter_by_title" msgid="5940302511365561845">"Զտել ըստ"</string>
+    <string name="filter_by_title" msgid="5940302511365561845">"Զտիչ"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Զտել ըստ թույլտվությունների"</string>
     <string name="filter_by_time" msgid="1763143592970195407">"Զտել ըստ ժամանակի"</string>
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Ամենաշատ օգտագործում"</string>
@@ -230,11 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Հավելվածներ (այսպես կոչված գործարկիչներ), որոնք փոխարինում են Android սարքի հիմնական էկրանը և ապահովում ձեր սարքի բովանդակության և գործառույթների հասանելիությունը"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Նշե՞լ <xliff:g id="APP_NAME">%1$s</xliff:g> հավելվածը որպես կանխադրված հիմնական հավելված"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Թույլտվություններ հարկավոր չեն"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Հեռախոսի կանխադրված հավելված մեքենայի ռեժիմի համար"</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Հեռախոսի հավելված մեքենայի ռեժիմի համար"</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"Նշե՞լ <xliff:g id="APP_NAME">%1$s</xliff:g> հավելվածը որպես մեքենայի ռեժիմի համար հեռախոսի կանխադրված հավելված"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Զանգի վերահասցեավորման կանխադրված հավելված"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Զանգի վերահասցեավորման հավելված"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"Հավելվածներ, որոնք թույլ են տալիս վերահասցեավորել զանգերն այլ հեռախոսահամարի վրա"</string>
@@ -245,11 +240,6 @@
     <string name="role_call_screening_description" msgid="9009090500431969390">"Հավելվածներ, որոնք թույլ են տալիս ճանաչել հեռախոսահամարները, արգելափակել սպամն ու ավտոմատ զանգերը, սև ցուցակ գցել անցանկալի համարները և այլն"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Ընտրե՞լ <xliff:g id="APP_NAME">%1$s</xliff:g> հավելվածը որպես համարների ավտոմատ որոշման և սպամից պաշտպանվելու կանխադված հավելված"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Թույլտվություններ հարկավոր չեն"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"Կանխադրված ուղեկցող հավելված զանգերի համար"</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"Ուղեկցող հավելված զանգերի համար"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"Նշե՞լ <xliff:g id="APP_NAME">%1$s</xliff:g> հավելվածը որպես կանխադրված ուղեկցող հավելված զանգերի համար"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Օգտագործվում է ըստ կանխադրման"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Նորից չհարցնել"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Նշել կանխադրված"</string>
@@ -290,5 +280,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Ցույց տալ ընտրված հավելվածները"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Ցույց տալ ձայնային օգնականի ակտիվացման պատկերակը"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Ցույց տալ պատկերակը կարգավիճակի գոտում, երբ ձայնային օգնականի ակտիվացման համար օգտագործվում է խոսափողը"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Թույլ տա՞լ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; հավելվածին օգտագործել սարքում պահված լուսանկարներն ու մեդիա ֆայլերը:"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Թույլատրե՞լ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; հավելվածին օգտագործել սարքում պահված լուսանկարներն ու մեդիա ֆայլերը:"</string>
 </resources>
