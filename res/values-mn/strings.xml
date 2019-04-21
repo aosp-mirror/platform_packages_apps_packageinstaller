@@ -53,7 +53,7 @@
     </plurals>
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Энэ аппыг Android-н хуучин хувилбарт зориулсан тул зөвшөөрлөөс татгалзсан тохиолдолд энэ нь зохих ёсоор ажиллахаа больж болзошгүй."</string>
     <string name="default_permission_description" msgid="692254823411049573">"тодорхойгүй үйлдэл хийх"</string>
-    <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_1">%2$d</xliff:g>-н <xliff:g id="COUNT_0">%1$d</xliff:g> аппыг зөвшөөрсөн"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_1">%2$d</xliff:g>-с <xliff:g id="COUNT_0">%1$d</xliff:g> аппыг зөвшөөрсөн"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Системийг харуулах"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Системийг нуух"</string>
     <string name="no_apps" msgid="2377153782338039463">"Апп алга"</string>
@@ -152,7 +152,7 @@
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Энэ зөвшөөрөлтэй бүх аппыг харах"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Энэ зөвшөөрөлтэй аппууд <xliff:g id="DESCRIPTION">%1$s</xliff:g> боломжтой"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Энэ зөвшөөрөлтэй аппууд таны алхалт, дугуй уналт, жолоодлого, алхмын тоо болон бусад зэрэг биеийн дасгал хөдөлгөөнд хандах боломжтой"</string>
-    <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Энэ зөвшөөрөлтэй аппууд таны календарьт хандах боломжтой"</string>
+    <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Энэ зөвшөөрөлтэй аппууд таны хуанлид хандах боломжтой"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Энэ зөвшөөрөлтэй аппууд утасны дуудлагын жагсаалтыг унших болон бичих боломжтой"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"Энэ зөвшөөрөлтэй аппууд зураг авах болон видео хийх боломжтой"</string>
     <string name="permission_description_summary_contacts" msgid="5169995707720233126">"Энэ зөвшөөрөлтэй аппууд таны харилцагчид хандах боломжтой"</string>
@@ -225,16 +225,11 @@
     <string name="role_emergency_description" msgid="3567231505957373289">"Танд эрүүл мэндийн мэдээллээ хадгалж, үүнийг анхлан туслагчдад хандах боломжтой болгодог, цаг агаарын онц ноцтой байдал болон гамшгийн үед сэрэмжлүүлэг авах, тусламж хэрэгтэй үедээ бусдад мэдэгдэх боломжийг олгодог аппууд"</string>
     <string name="role_emergency_request_title" msgid="6595296517085761522">"<xliff:g id="APP_NAME">%1$s</xliff:g>-г яаралтай тусламжийн өгөгдмөл аппаар тохируулах уу?"</string>
     <string name="role_emergency_request_description" msgid="2824966073894226992">"Ямар ч зөвшөөрөл шаардлагагүй"</string>
-    <string name="role_home_label" msgid="6245106863177808486">"Гэрийн өгөгдмөл апп"</string>
+    <string name="role_home_label" msgid="6245106863177808486">"Нүүр хуудасны өгөгдмөл апп"</string>
     <string name="role_home_short_label" msgid="4565882523300643525">"Нүүр хуудасны апп"</string>
     <string name="role_home_description" msgid="6736956389161158052">"Таны Android төхөөрөмжийн үндсэн нүүрийг сольдог бөгөөд таны төхөөрөмжийн контент болон онцлогуудад хандах эрх олгодог, ихэвчлэн эхлүүлэгч гэж нэрлэгддэг аппууд"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"<xliff:g id="APP_NAME">%1$s</xliff:g>-г нүүр хуудасны өгөгдмөл аппаар тохируулах уу?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Ямар ч зөвшөөрөл шаардлагагүй"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Машины горимын гар утасны өгөгдмөл апп"</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Машины горимын гар утасны апп"</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"<xliff:g id="APP_NAME">%1$s</xliff:g>-г машины горимын гар утасны өгөгдмөл аппаар тохируулах уу?"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Дуудлагыг дахин чиглүүлэх өгөгдмөл апп"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Дуудлагыг дахин чиглүүлэх апп"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"Танд дуудлагыг өөр утасны дугаар луу дамжуулах боломжийг олгодог аппууд"</string>
@@ -245,11 +240,6 @@
     <string name="role_call_screening_description" msgid="9009090500431969390">"Танд дуудлагыг хэнээс ирж буйг тодорхойлох, спам болон роботын дуудлагыг хориглох, хүсээгүй дугаараа хориглосон жагсаалтад оруулах болон бусад зүйлийг хийх боломжийг олгодог аппууд"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"<xliff:g id="APP_NAME">%1$s</xliff:g>-г дуудлага хийгчийн ID болон спамын өгөгдмөл аппаар тохируулах уу?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Ямар ч зөвшөөрөл шаардлагагүй"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"Дуудлага дэмжигч өгөгдмөл апп"</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"Дуудлага дэмжигч апп"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"<xliff:g id="APP_NAME">%1$s</xliff:g>-г дуудлага дэмжигч өгөгдмөл аппаар тохируулах уу?"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Одоогийн өгөгдмөл апп"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Дахиж бүү асуу"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Өгөгдмөлөөр тохируулах"</string>
@@ -266,8 +256,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Холбоосыг нээх сонголт"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Ажлын өгөгдмөл апп"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Тохируулсан апп алга"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Системийн өгөгдмөл)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Апп алга"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"аппын тусгай хандалт"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Аппын тусгай хандалт"</string>
@@ -291,4 +280,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Дараахын ашиглалтыг тодруулах"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Туслахын өдөөгч илрүүлэлтийг харуулах"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Дуут туслахыг идэвхжүүлэхийн тулд микрофоныг ашиглах үед статус самбарт дүрс тэмдэг харуулах"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;-д төхөөрөмжийнхөө зураг болон медиад хандахыг зөвшөөрөх үү?"</string>
 </resources>

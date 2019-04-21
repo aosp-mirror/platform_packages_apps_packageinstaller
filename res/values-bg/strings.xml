@@ -54,7 +54,7 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Това приложение е създадено за по-стара версия на Android. То може да спре да функционира нормално при отказване на разрешението."</string>
     <string name="default_permission_description" msgid="692254823411049573">"извършване на неизвестно действие"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> от <xliff:g id="COUNT_1">%2$d</xliff:g> приложения имат разрешение"</string>
-    <string name="menu_show_system" msgid="7623002570829860709">"Показване на системните приложения"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"Показване на системн. приложения"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Скриване на системните приложения"</string>
     <string name="no_apps" msgid="2377153782338039463">"Няма приложения"</string>
     <string name="location_settings" msgid="547378321761364906">"Настройки за местоположението"</string>
@@ -99,7 +99,7 @@
     <string name="permission_usage_any_time" msgid="313857697004329939">"По всяко време"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Последните 7 дни"</string>
     <string name="permission_usage_last_day" msgid="4149912805759768249">"Последните 24 часа"</string>
-    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Последният 1 час"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Последния 1 час"</string>
     <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Последните 15 минути"</string>
     <string name="permission_usage_last_minute" msgid="1712931459994781087">"Последната минута"</string>
     <string name="no_permission_usages" msgid="698858628357371611">"Разрешенията не са използвани"</string>
@@ -230,11 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Приложения, често наричани стартови панели, които заменят началните екрани на устройството ви с Android и ви дават достъп до функциите и съдържанието му"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Да се зададе ли <xliff:g id="APP_NAME">%1$s</xliff:g> като стандартно приложение за начален екран?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Не са необходими разрешения"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Станд. прил. за тел. в моторежим"</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Прил. за телефон в моторежим"</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"Да се зададе ли <xliff:g id="APP_NAME">%1$s</xliff:g> като стандартно приложение за телефон в моторежим?"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Станд. прил. за пренас. на обажд."</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Прил. за пренас. на обаждания"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"Приложения, които ви дават възможност да пренасочвате обажданията към друг телефонен номер"</string>
@@ -245,11 +240,6 @@
     <string name="role_call_screening_description" msgid="9009090500431969390">"Приложения, които ви дават възможност да идентифицирате входящите обаждания, да блокирате спам и автоматизирани обаждания, да добавяте нежелани номера в черния списък и др."</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Да се зададе ли <xliff:g id="APP_NAME">%1$s</xliff:g> като стандартно приложение за идентификатор на обаждащия се и спам?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Не са необходими разрешения"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"Станд. придр. прил. за обажд."</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"Придружаващо прил. за обажд."</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"Да се зададе ли <xliff:g id="APP_NAME">%1$s</xliff:g> като стандартно придружаващо приложение за обаждания?"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Текущо стандартно приложение"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Без повторно питане"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Стандартно: Задаване"</string>
@@ -266,8 +256,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Отваряне на връзки"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"По подразбиране за работа"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Няма"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Стандартно за системата)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Няма приложения"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"специален достъп за приложението"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Специален достъп за прилож."</string>
@@ -291,4 +280,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Открояване на употребата за следното"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Показване на икона за готовност на Асистент"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Показване на икона в лентата на състоянието, когато микрофонът се използва за активиране на гласовия асистент"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Да се разреши ли на &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; да осъществява достъп до снимките и мултимедията на устройството ви?"</string>
 </resources>

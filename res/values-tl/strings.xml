@@ -22,7 +22,7 @@
     <string name="cancel" msgid="7279939269964834974">"Kanselahin"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Hindi makita ang app"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Tanggihan"</string>
-    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Tanggihan at huwag nang itanong muli"</string>
+    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Tanggihan at huwag nang itanong ulit"</string>
     <string name="grant_dialog_button_deny_background" msgid="5378693207810841555">"Panatilihin ang access habang ginagamit"</string>
     <string name="grant_dialog_button_deny_background_and_dont_ask_again" msgid="1032019626928637454">"Panatilihin at huwag nang itanong muli"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Higit pang info"</string>
@@ -32,7 +32,7 @@
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"Palaging payagan ang &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; na <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
     <string name="allow_permission_foreground_only" msgid="7444689446874060511">"Habang ginagamit lang ang app"</string>
     <string name="allow_permission_always" msgid="4089537686339013930">"Palagi"</string>
-    <string name="deny_permission_deny_and_dont_ask_again" msgid="8131547398883397878">"Tanggihan at huwag nang itanong muli"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8131547398883397878">"Tanggihan at huwag nang itanong ulit"</string>
     <string name="permission_revoked_count" msgid="5556125174203696709">"<xliff:g id="COUNT">%1$d</xliff:g> ang naka-disable"</string>
     <string name="permission_revoked_all" msgid="6356577996164232918">"naka-disable lahat"</string>
     <string name="permission_revoked_none" msgid="266013103540772023">"walang naka-disable"</string>
@@ -230,11 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Mga app, na kadalasang tinatawag na mga launcher, na pumapalit sa mga Home screen sa Android device mo at nagbibigay sa iyo ng access sa mga content at feature ng device mo"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Itakda ang <xliff:g id="APP_NAME">%1$s</xliff:g> bilang iyong default na home app?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Walang kailangang pahintulot"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Default na car mode phone app"</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Phone app para sa car mode"</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"Itakda ang <xliff:g id="APP_NAME">%1$s</xliff:g> bilang iyong default na phone app para sa car mode?"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Default call redirecting app"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"App sa pag-redirect ng tawag"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"Mga app na nagbibigay-daan sa iyong magpasa ng mga tawag sa isa pang numero ng telepono"</string>
@@ -245,11 +240,6 @@
     <string name="role_call_screening_description" msgid="9009090500431969390">"Mga app na nagbibigay-daan sa iyong tukuyin ang mga papasok na tawag, i-block ang mga spam at robocall, i-blacklist ang mga hindi gustong numero, at higit pa"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Itakda ang <xliff:g id="APP_NAME">%1$s</xliff:g> bilang iyong default na caller ID at spam app?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Walang kailangang pahintulot"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"Default na call companion app"</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"Kasamang app sa pagtawag"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"Itakda ang <xliff:g id="APP_NAME">%1$s</xliff:g> bilang iyong default na kasamang app sa pagtawag?"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Kasalukuyang default"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Huwag nang itanong muli"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Itakdang default"</string>
@@ -266,8 +256,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Pagbubukas ng mga link"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Default para sa trabaho"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Wala"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Default ng system)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Walang app"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"Espesyal na access ng app"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Espesyal na app access"</string>
@@ -291,4 +280,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"I-highlight ang paggamit para sa sumusunod"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Ipakita ang pagtukoy ng trigger ng Assistant"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Ipakita ang icon sa status bar kapag gumamit ng mikropono para i-activate ang voice assistant"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Payagan ang &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; na i-access ang mga larawan at media sa iyong device?"</string>
 </resources>

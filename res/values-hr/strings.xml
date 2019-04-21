@@ -104,12 +104,12 @@
     <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Posljednjih 15 minuta"</string>
     <string name="permission_usage_last_minute" msgid="1712931459994781087">"Posljednja minuta"</string>
     <string name="no_permission_usages" msgid="698858628357371611">"Nema upotreba dopuštenja"</string>
-    <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"Posljednji pristup u bilo kojem vremenu"</string>
-    <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"Posljednji pristup u posljednjih tjedan dana"</string>
-    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"Posljednji pristup u posljednja 24 sata"</string>
-    <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"Posljednji pristup u posljednjih sat vremena"</string>
-    <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"Posljednji pristup u posljednjih 15 minuta"</string>
-    <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"Posljednji pristup u posljednjoj minuti"</string>
+    <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"Posljednji pristup u bilo koje vrijeme"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"Posljednji pristup u prethodnih tjedan dana"</string>
+    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"Posljednji pristup u prethodna 24 h"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"Posljednji pristup u prethodnih sat vremena"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"Posljednji pristup u prethodnih 15 minuta"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"Posljednji pristup u prethodnoj minuti"</string>
     <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"Upotreba dopuštenja u bilo kojem vremenu"</string>
     <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"Upotreba dopuštenja u posljednjih tjedan dana"</string>
     <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"Upotreba dopuštenja u posljednja 24 sata"</string>
@@ -147,8 +147,8 @@
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Dopusti samo dok se aplikacija koristi"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Odbij"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"Dopuštenje <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_header" msgid="228974007660007656">"Pristup za ovu aplikaciju: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> pristupila je dopuštenju <xliff:g id="PERM">%2$s</xliff:g> prije <xliff:g id="TIME">%3$s</xliff:g>"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"Aplikacija ima pristup značajci: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> pristupila je značajci \"<xliff:g id="PERM">%2$s</xliff:g>\" prije <xliff:g id="TIME">%3$s</xliff:g>"</string>
     <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila vašem dopuštenju <xliff:g id="PERM">%2$s</xliff:g>"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Podaci o posljednjem pristupu trenutačno nisu dostupni za ovo dopuštenje"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Pogledajte sva dopuštenja aplikacije <xliff:g id="APP">%1$s</xliff:g>"</string>
@@ -167,8 +167,8 @@
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"Aplikacije s tim dopuštenjem mogu pristupati fotografijama, medijima i datotekama na vašem uređaju"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Zadnji pristup: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Trenutačno odbijeno/posljednji pristup: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
-    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Bez pristupa"</string>
-    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Odbijeno/bez pristupa"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Nikad pristupljeno"</string>
+    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Odbijeno/nikad pristupljeno"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Dopušteno"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Dopušteno cijelo vrijeme"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Dopušteno samo tijekom upotrebe"</string>
@@ -237,11 +237,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Aplikacije, često se zovu pokretači, koje zamjenjuju početne zaslone na vašem Android uređaju i pružaju vam pristup sadržajima i značajkama na njemu"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Želite li postaviti aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> kao zadanu aplikaciju početnog zaslona?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Nije potrebno nijedno dopuštenje"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Zadana ap. za automobil. način"</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Ap. za način rada u automobilu"</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"Želite li postaviti aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> kao zadanu aplikaciju telefona za način rada u automobilu?"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Zadana apl. za preusmj. poziva"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Apl. za preusmjeravanje poziva"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"Aplikacije koje vam omogućuju prosljeđivanje poziva na neki drugi telefonski broj"</string>
@@ -252,11 +247,6 @@
     <string name="role_call_screening_description" msgid="9009090500431969390">"Aplikacije koje vam omogućuju identifikaciju dolaznih poziva, blokiranje neželjenih i automatiziranih poziva, izradu popisa nedopuštenih brojeva i tako dalje"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Želite li postaviti aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> kao svoju zadanu aplikaciju za ID pozivatelja i neželjene pozive?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Nije potrebno nijedno dopuštenje"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"Zadana popratna apl. za pozive"</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"Popratna aplikacija za pozive"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"Želite li postaviti aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> kao zadanu popratnu aplikaciju za pozive?"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Trenutačna zadana"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Više me ne pitaj"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Postavi kao zadano"</string>
@@ -273,8 +263,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Otvaranje veza"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Zadano za posao"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Nijedna"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Zadana postavka sustava)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Nema aplikacija"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"poseban pristup za aplikacije"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Poseban pristup aplikaciji"</string>
@@ -298,4 +287,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Isticanje upotrebe za sljedeće"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Prikaz otkrivanja okidača Asistenta"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Prikazuje ikonu na traci statusa kada se za aktiviranje glasovne pomoći upotrebljava mikrofon"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Želite li dopustiti aplikaciji &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; da pristupa fotografijama i medijima na vašem uređaju?"</string>
 </resources>

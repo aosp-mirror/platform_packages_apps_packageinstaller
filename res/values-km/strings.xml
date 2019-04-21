@@ -59,7 +59,7 @@
     <string name="no_apps" msgid="2377153782338039463">"គ្មានកម្មវិធី"</string>
     <string name="location_settings" msgid="547378321761364906">"ការកំណត់ទីតាំង"</string>
     <string name="location_warning" msgid="4687406043150343369">"<xliff:g id="APP_NAME">%1$s</xliff:g> គឺជាកម្មវិធី​ផ្តល់សេវាកម្ម​ទីតាំង​សម្រាប់​ឧបករណ៍នេះ។ ការចូលប្រើ​ទីតាំងអាច​កែសម្រួល​បានពីការកំណត់​ទីតាំង។"</string>
-    <string name="system_warning" msgid="6868290533389195836">"ប្រសិនបើ​អ្នកបដិសេធ​ការអនុញ្ញាត​នេះ មុខងារសំខាន់ៗ​នៃឧបករណ៍​របស់អ្នក​ប្រហែលជាមិនដំណើរការ​ដូចការគ្រោងទុកតទៅទៀតទេ។"</string>
+    <string name="system_warning" msgid="6868290533389195836">"ប្រសិនបើ​អ្នកបដិសេធ​ការអនុញ្ញាត​នេះ មុខងារគោលនៃឧបករណ៍​របស់អ្នក​ប្រហែលជាមិនដំណើរការ​ដូចការគ្រោងទុកតទៅទៀតទេ។"</string>
     <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"អនុវត្តតាមគោលការណ៍"</string>
     <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"ការចូលប្រើផ្ទៃខាងក្រោយ​ត្រូវបានបិទដោយគោលការណ៍"</string>
     <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"ការចូលប្រើផ្ទៃខាងក្រោយ​ត្រូវបានបើកដោយគោលការណ៍"</string>
@@ -148,7 +148,7 @@
     <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"<xliff:g id="APP">%1$s</xliff:g> បាន​ចូលប្រើ <xliff:g id="PERM">%2$s</xliff:g> របស់អ្នកកាលពី <xliff:g id="TIME">%3$s</xliff:g> មុន"</string>
     <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"<xliff:g id="APP">%1$s</xliff:g> មិន​បាន​ចូលប្រើ <xliff:g id="PERM">%2$s</xliff:g> របស់អ្នក​ទេ"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"បច្ចុប្បន្ន ទិន្នន័យអំពីការចូលប្រើប្រាស់ចុងក្រោយមិនមានសម្រាប់ការ​អនុញ្ញាត​នេះទេ"</string>
-    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"មើល​ការអនុញ្ញាត​ទាំង <xliff:g id="APP">%1$s</xliff:g>"</string>
+    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"មើល​ការអនុញ្ញាតឱ្យទៅ <xliff:g id="APP">%1$s</xliff:g> ទាំងអស់"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"មើលកម្មវិធី​ទាំងអស់​ដែលមាន​ការអនុញ្ញាត​នេះ"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"កម្មវិធី​ដែលមាន​ការអនុញ្ញាតនេះ​អាច <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"កម្មវិធី​ដែលមាន​ការអនុញ្ញាត​នេះ​អាច​ចូលប្រើ​សកម្មភាពរាងកាយ ដូចជាការដើរ ការជិះកង់ ការបើកបរ ចំនួនជំហាន និងអ្វីៗច្រើនទៀត"</string>
@@ -230,11 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"កម្មវិធី​ដែលជាទូទៅហៅថា​កម្មវិធី​ចាប់ផ្ដើម​ ដែលជំនួសអេក្រង់​ដើមនៅលើឧបករណ៍​ Android របស់អ្នក និងផ្ដល់លទ្ធភាពឱ្យអ្នក​ចូលប្រើ​ខ្លឹមសារ និងមុខងារ​របស់ឧបករណ៍​អ្នក"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"កំណត់ <xliff:g id="APP_NAME">%1$s</xliff:g> ជាកម្មវិធី​ទំព័រដើមលំនាំដើម​របស់អ្នក?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"មិន​ត្រូវការការអនុញ្ញាត​ទេ"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"កម្មវិធី​ទូរសព្ទមុខងាររថយន្ត​លំនាំដើម"</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"កម្មវិធី​ទូរសព្ទ​មុខងារ​រថយន្ត"</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"កំណត់​ <xliff:g id="APP_NAME">%1$s</xliff:g> ជាកម្មវិធី​ទូរសព្ទ​មុខងារ​រថយន្ត​លំនាំដើម​របស់អ្នក?"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"កម្មវិធី​បញ្ជូនបន្ត​​ការហៅទូរសព្ទលំនាំដើម"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"កម្មវិធី​បញ្ជូនបន្ត​ការហៅទូរសព្ទ"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"កម្មវិធី​ដែលអនុញ្ញាតឱ្យអ្នក​បញ្ជូនបន្ត​ការហៅទូរសព្ទទៅ​លេខទូរសព្ទផ្សេងទៀត"</string>
@@ -245,11 +240,6 @@
     <string name="role_call_screening_description" msgid="9009090500431969390">"កម្មវិធី​ដែល​អនុញ្ញាត​ឱ្យអ្នក​សម្គាល់​ការហៅចូល ទប់ស្កាត់​សារឥតបានការ និងការ​ហៅ​ទូរសព្ទ​ដោយស្វ័យប្រវត្តិ ដាក់​លេខទូរសព្ទដែលមិនចង់បានចូលក្នុងបញ្ជីខ្មៅ និងធ្វើអ្វីៗជាច្រើនទៀត"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"កំណត់​ <xliff:g id="APP_NAME">%1$s</xliff:g> ជាកម្មវិធីសារឥតបាន​ការ និង​​អត្តសញ្ញាណអ្នកហៅទូរសព្ទលំនាំដើមរបស់​អ្នក?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"មិន​ត្រូវការការអនុញ្ញាត​ទេ"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"កម្មវិធី​ដៃគូ​សម្រាប់ការហៅទូរសព្ទ​លំនាំដើម"</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"កម្មវិធី​ដៃគូ​សម្រាប់​ហៅទូរសព្ទ"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"កំណត់ <xliff:g id="APP_NAME">%1$s</xliff:g> ជាកម្មវិធីដៃគូហៅ​ទូរសព្ទ​លំនាំដើម​របស់អ្នក?"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"លំនាំដើម​បច្ចុប្បន្ន"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"កុំសួរទៀត"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"កំណត់ជាលំនាំដើម"</string>
@@ -266,8 +256,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"បើកតំណ"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"លំនាំដើម​សម្រាប់ការងារ"</string>
     <string name="default_app_none" msgid="7671097769303174666">"គ្មាន"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(លំនាំដើមប្រព័ន្ធ)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"គ្មានកម្មវិធី​ទេ​"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"ការចូលប្រើកម្មវិធីពិសេស"</string>
     <string name="special_app_access" msgid="2561673957499408877">"ការចូលប្រើកម្មវិធីពិសេស"</string>
@@ -291,4 +280,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"រំលេច​ការប្រើប្រាស់​សម្រាប់​ចំណុចខាងក្រោម"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"បង្ហាញការ​ចាប់សញ្ញារបស់ជំនួយការ"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"បង្ហាញ​រូបតំណាង​នៅក្នុង​របារស្ថានភាព នៅពេលប្រើប្រាស់​មីក្រូហ្វូន​ ដើម្បី​បើកដំណើរការ​ជំនួយការសំឡេង"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"អនុញ្ញាតឱ្យ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ចូលប្រើ​រូបថត និង​មេឌៀ​នៅលើ​ឧបករណ៍​របស់អ្នក?"</string>
 </resources>

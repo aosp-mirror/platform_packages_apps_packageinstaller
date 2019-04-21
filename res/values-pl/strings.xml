@@ -149,14 +149,14 @@
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Zawsze zezwalaj"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Zezwalaj tylko podczas używania aplikacji"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Odmów"</string>
-    <string name="app_permission_title" msgid="2453000050669052385">"Uprawnienie dostępu do: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> – dostęp"</string>
     <string name="app_permission_header" msgid="228974007660007656">"Dostęp aplikacji do: <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"Aplikacja <xliff:g id="APP">%1$s</xliff:g> użyła dostępu do: <xliff:g id="PERM">%2$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g> temu"</string>
     <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"Aplikacja <xliff:g id="APP">%1$s</xliff:g> nie korzysta z: <xliff:g id="PERM">%2$s</xliff:g>"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Dane o ostatnich użyciu nie są obecnie dostępne dla tych uprawnień"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Zobacz wszystkie uprawnienia aplikacji <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Wyświetl wszystkie aplikacje z tymi uprawnieniami"</string>
-    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Aplikacje z tymi uprawnieniami mogą: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Aplikacje z tymi uprawnieniami mają <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Aplikacje z tymi uprawnieniami mają dostęp do danych o Twojej aktywności fizycznej takiej jak spacery, jazda na rowerze, jazda samochodem, liczba kroków i inne"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Aplikacje z tymi uprawnieniami mają dostęp do kalendarza"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Aplikacje z tymi uprawnieniami mogą odczytywać i zapisywać rejestr połączeń telefonicznych"</string>
@@ -229,7 +229,7 @@
     <string name="role_dialer_description" msgid="2684882481061320467">"Aplikacje umożliwiające nawiązywanie i odbieranie połączeń telefonicznych na urządzeniu"</string>
     <string name="role_dialer_request_title" msgid="3203802247886151514">"Czy aplikacja <xliff:g id="APP_NAME">%1$s</xliff:g> ma być domyślną aplikacją do obsługi telefonu?"</string>
     <string name="role_dialer_request_description" msgid="2931069491309771312">"Otrzymuje dostęp do rejestru połączeń i wysyłania SMS-ów"</string>
-    <string name="role_sms_label" msgid="6995222097027665850">"Domyślna aplikacja do SMS-ów"</string>
+    <string name="role_sms_label" msgid="6995222097027665850">"Domyślna aplikacja – SMS-y"</string>
     <string name="role_sms_short_label" msgid="236955440028043972">"Aplikacja do SMS-ów"</string>
     <string name="role_sms_description" msgid="3228552135895420442">"Aplikacje umożliwiające użycie Twojego numeru telefonu do wysyłania i odbierania SMS-ów, zdjęć, filmów i innych danych."</string>
     <string name="role_sms_request_title" msgid="3667393846881324409">"Czy aplikacja <xliff:g id="APP_NAME">%1$s</xliff:g> ma być domyślną aplikacją do SMS-ów?"</string>
@@ -244,11 +244,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Aplikacje, często nazywane programami uruchamiającymi, które zastępują ekrany główne na urządzeniu z Androidem i zapewniają dostęp do zawartości oraz funkcji urządzenia."</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Czy aplikacja <xliff:g id="APP_NAME">%1$s</xliff:g> ma być domyślną aplikacją ekranu głównego?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Nie potrzebuje uprawnień"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Domyślna aplikacja telefonu w trybie samochodowym"</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Telefon w trybie samochodowym"</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"Czy aplikacja <xliff:g id="APP_NAME">%1$s</xliff:g> ma być domyślną aplikacją telefonu w trybie samochodowym?"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Domyślna aplikacja do przekierowywania połączeń"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Aplikacja przekierowująca połączenia"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"Aplikacje umożliwiające przekazywanie połączeń pod inny numer telefonu"</string>
@@ -259,11 +254,6 @@
     <string name="role_call_screening_description" msgid="9009090500431969390">"Aplikacje umożliwiające m.in. identyfikowanie połączeń przychodzących, blokowanie spamu i automatycznych wiadomości telefonicznych, dodawanie numerów do czarnej listy."</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Czy aplikacja <xliff:g id="APP_NAME">%1$s</xliff:g> ma być domyślną aplikacją do identyfikacji rozmówcy i spamu?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Nie potrzebuje uprawnień"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"Domyślna aplikacja towarzysząca połączeniom"</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"Aplikacja towarzysząca połączeniom"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"Czy aplikacja <xliff:g id="APP_NAME">%1$s</xliff:g> ma być domyślną aplikacją towarzyszącą połączeniom"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Bieżąca aplikacja domyślna"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Nie pytaj ponownie"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Ustaw jako domyślną"</string>
@@ -280,11 +270,10 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Otwieranie linków"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Domyślne do pracy"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Brak"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Domyślna aplikacja systemu)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Brak aplikacji"</string>
-    <string name="special_app_access_search_keyword" msgid="462008045110320714">"specjalny dostęp do aplikacji"</string>
-    <string name="special_app_access" msgid="2561673957499408877">"Specjalny dostęp do aplikacji"</string>
+    <string name="special_app_access_search_keyword" msgid="462008045110320714">"aplikacje ze specjalnym dostępem"</string>
+    <string name="special_app_access" msgid="2561673957499408877">"Aplikacje ze specjalnym dostępem"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Brak specjalnego dostępu do aplikacji"</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"Brak aplikacji"</string>
     <string name="home_missing_work_profile_support" msgid="1439466272746259937">"Nie obsługuje profilu do pracy"</string>
@@ -305,4 +294,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Wyróżnij te informacje o użyciu"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Pokaż wykrywanie wyzwalacza Asystenta"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Pokaż ikonę na pasku stanu, gdy używany jest mikrofon do uruchomienia asystenta głosowego"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Zezwolić aplikacji &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; na dostęp do zdjęć i multimediów na urządzeniu?"</string>
 </resources>

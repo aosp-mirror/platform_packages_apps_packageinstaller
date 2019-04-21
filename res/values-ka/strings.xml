@@ -123,7 +123,7 @@
     <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"გაფილტვრის კრიტერიუმი: <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_usage_remove_filter" msgid="9105565119059367866">"ყველაფრის ნახვა საინფორმაციო დაფაზე"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"გაფილტვრა კრიტერიუმით:"</string>
-    <string name="filter_by_permissions" msgid="7761207093643478436">"გაფილტვრა ნებართვების მიხედვით"</string>
+    <string name="filter_by_permissions" msgid="7761207093643478436">"გაფილტვრა ნებართვების მიხედვ."</string>
     <string name="filter_by_time" msgid="1763143592970195407">"გაფილტვრა დროის მიხედვით"</string>
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"ყველაზე მეტი ნებართვა"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"ყველაზე მეტი წვდომა"</string>
@@ -230,11 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"ხშირად გამშვებების სახელით მოხსენიებული აპები, რომლებიც თქვენს Android მოწყობილობაზე მთავარ ეკრანს ცვლის და თქვენი მოწყობილობის კონტენტსა და ფუნქციებზე გაძლევთ წვდომას"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"გახდეს <xliff:g id="APP_NAME">%1$s</xliff:g> თქვენი ნაგულისხმევი მთავარი აპი?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"ნებართვები არ არის საჭირო"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"მანქან. რეჟ. ნაგულის. ტელ. აპი"</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"მანქანის რეჟიმის ტელეფონ. აპი"</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"გახდეს <xliff:g id="APP_NAME">%1$s</xliff:g> თქვენი ნაგულისხმევი მანქანის რეჟიმის ტელეფონის აპი?"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"ზარის გადამისამ. ნაგულისხ. აპი"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"ზარების გადამისამართების აპი"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"აპები, რომლებიც საშუალებას გაძლევთ, გადაამისამართოთ ზარები ტელეფონის სხვა ნომერზე"</string>
@@ -245,11 +240,6 @@
     <string name="role_call_screening_description" msgid="9009090500431969390">"აპები, რომლებიც საშუალებას გაძლევთ, ამოიცნოთ შემომავალი ზარები, დაბლოკოთ სპამი და ავტომატიზირებული ზარები, შავ სიაში შეიყვანოთ არასასურველი ნომრები და ა.შ."</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"გახდეს <xliff:g id="APP_NAME">%1$s</xliff:g> თქვენი ნაგულისხმევი აბონენტის ID და სპამის აპი?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"ნებართვები არ არის საჭირო"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"დარეკვის ნაგულისხ. კომპან. აპი"</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"დარეკვის კომპანიონი აპი"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"გახდეს <xliff:g id="APP_NAME">%1$s</xliff:g> თქვენი ნაგულისხმევი დარეკვის კომპანიონი აპი?"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"ამჟამინდელი ნაგულისხმევი"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"აღარ მკითხოთ"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"ნაგულისხმ. დაყენება"</string>
@@ -266,8 +256,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"ბმულების გახსნა"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"ნაგულისხმევი სამსახურისთვის"</string>
     <string name="default_app_none" msgid="7671097769303174666">"არცერთი"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(სისტემის ნაგულისხმევი)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"აპები არ არის"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"აპების სპეციალური წვდომა"</string>
     <string name="special_app_access" msgid="2561673957499408877">"აპების სპეციალური წვდომა"</string>
@@ -291,4 +280,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"მოხმარების გამოყოფა შემდეგისთვის:"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"ასისტენტის გაშვების ხატულის ჩვენება"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"მიკროფონის მეშვეობით ხმოვანი ასისტენტის გააქტიურებისას სტატუსის ზოლში ხატულის ჩვენება"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"გსურთ, მიანიჭოთ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;-ს თქვენს მოწყობილობაზე არსებულ ფოტოებზე და მედია-კონტენტზე წვდომის ნებართვა?"</string>
 </resources>

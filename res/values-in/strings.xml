@@ -230,11 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Aplikasi, biasa disebut peluncur, yang menggantikan Layar utama di perangkat Android dan memberi Anda akses ke konten dan fitur di perangkat Anda"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Tetapkan <xliff:g id="APP_NAME">%1$s</xliff:g> sebagai aplikasi beranda default Anda?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Tidak ada izin yang diperlukan"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Apl telepon mode mobil default"</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Aplikasi telepon mode mobil"</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"Tetapkan <xliff:g id="APP_NAME">%1$s</xliff:g> sebagai aplikasi telepon mode mobil default Anda?"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Apl pengalih panggilan default"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Aplikasi pengalihan panggilan"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"Aplikasi yang memungkinkan Anda meneruskan panggilan ke nomor telepon lain"</string>
@@ -245,11 +240,6 @@
     <string name="role_call_screening_description" msgid="9009090500431969390">"Aplikasi yang memungkinkan Anda mengidentifikasi panggilan masuk, memblokir spam dan robocall, memasukkan nomor yang tidak diinginkan ke daftar hitam, dan sebagainya"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Tetapkan <xliff:g id="APP_NAME">%1$s</xliff:g> sebagai aplikasi nomor penelepon &amp; spam default Anda?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Tidak ada izin yang diperlukan"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"Apl pendamping telepon default"</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"Aplikasi pendamping telepon"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"Tetapkan <xliff:g id="APP_NAME">%1$s</xliff:g> sebagai aplikasi pendamping panggilan default Anda?"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Default saat ini"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Jangan tanya lagi"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Jadikan default"</string>
@@ -266,8 +256,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Membuka link"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Default untuk kerja"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Tidak Ada"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Default sistem)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Tidak ada aplikasi"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"akses aplikasi khusus"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Akses aplikasi khusus"</string>
@@ -291,4 +280,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Perjelas penggunaan untuk berikut"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Tampilkan deteksi pemicu Asisten"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Tampilkan ikon di status bar saat mikrofon digunakan untuk mengaktifkan asisten suara"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Izinkan &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; mengakses foto dan media di perangkat?"</string>
 </resources>

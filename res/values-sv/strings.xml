@@ -150,7 +150,7 @@
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Det finns just nu ingen tillgänglig data om senaste användningen för den här behörigheten"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Visa alla behörigheter för <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Visa alla appar med den här behörigheten"</string>
-    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Appar med den här behörigheten kan <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Appar med den här behörigheten kan få <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Appar med den här behörigheten får åtkomst till din fysiska aktivitet, till exempel promenader, cykelturer, körning, stegräkning och annat"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Appar med den här behörigheten får åtkomst till din kalender"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Appar med den här behörigheten kan läsa och skriva samtalshistoriken"</string>
@@ -230,11 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Appar som kallas Översikter ersätter startskärmarna på Android-enheten. Du får åtkomst till innehåll och funktioner på enheten via översikten"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Vill du ställa in <xliff:g id="APP_NAME">%1$s</xliff:g> som din standardapp för startskärm?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Inga behörigheter krävs"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Standardtelefonapp i billäge"</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Telefonapp i billäge"</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"Vill du ställa in <xliff:g id="APP_NAME">%1$s</xliff:g> som din standardtelefonapp i billäget?"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Standardapp för omdirigering"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Omdirigeringsapp för samtal"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"Appar som möjliggör vidarebefordran av samtal till andra telefonnummer"</string>
@@ -245,11 +240,6 @@
     <string name="role_call_screening_description" msgid="9009090500431969390">"Appar som möjliggör identifiering av inkommande samtal, blockering av spam och robotsamtal, svartlistning av oönskade nummer och liknande"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Vill du ställa in <xliff:g id="APP_NAME">%1$s</xliff:g> som din standardapp för spam och nummerpresentatör?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Inga behörigheter krävs"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"Tillhörande standardsamtalsapp"</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"Tillhörande samtalsapp"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"Vill du ställa in <xliff:g id="APP_NAME">%1$s</xliff:g> som tillhörande standardsamtalsapp?"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Nuvarande standardapp"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Fråga inte igen"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Ange som standard"</string>
@@ -266,8 +256,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Öppna länkar"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Standardinställning för jobbet"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Ingen"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Systemstandard)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Inga appar"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"särskild appåtkomst"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Särskild åtkomst för app"</string>
@@ -291,4 +280,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Visa alltid användning för följande"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Visa när enheten lyssnar efter ord som aktiverar assistenten"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Visa en ikon i statusfältet när mikrofonen används för att aktivera röstassistenten"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Vill du ge &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; åtkomstbehörighet till foton och media på enheten?"</string>
 </resources>

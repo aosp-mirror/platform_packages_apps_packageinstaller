@@ -96,12 +96,12 @@
     <string name="permission_usage_summary_foreground" msgid="2482299388611440256">"Τελευταία πρόσβαση: <xliff:g id="TIME">%1$s</xliff:g>\nΤελευταία πρόσβαση κατά τη χρήση της εφαρμογής"</string>
     <string name="permission_usage_summary_background" msgid="4789805581854248472">"Τελευταία πρόσβαση: <xliff:g id="TIME">%1$s</xliff:g>\nΤελευταία πρόσβαση στο παρασκήνιο"</string>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Οποιαδήποτε άδεια"</string>
-    <string name="permission_usage_any_time" msgid="313857697004329939">"Οποιαδήποτε στιγμή"</string>
-    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Τελευταίες 7 ημέρες"</string>
-    <string name="permission_usage_last_day" msgid="4149912805759768249">"Τελευταίες 24 ώρες"</string>
-    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Τελευταία 1 ώρα"</string>
-    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Τελευταία 15 λεπτά"</string>
-    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Τελευταίο 1 λεπτό"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"οποιαδήποτε στιγμή"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"τελευταίες 7 ημέρες"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"τελευταίες 24 ώρες"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"τελευταία 1 ώρα"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"τελευταία 15 λεπτά"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"τελευταίο 1 λεπτό"</string>
     <string name="no_permission_usages" msgid="698858628357371611">"Καμία χρήση δικαιωμάτων"</string>
     <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"Πιο πρόσφατη πρόσβαση ανά πάσα στιγμή"</string>
     <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"Πιο πρόσφατη πρόσβαση τις τελευταίες 7 ημέρες"</string>
@@ -122,7 +122,7 @@
     <string name="permission_usage_view_details" msgid="4728049344017619500">"Εμφάνιση όλων στον Πίνακα ελέγχου"</string>
     <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Φιλτράρισμα κατά: <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_usage_remove_filter" msgid="9105565119059367866">"Εμφάνιση όλων στον πίνακα ελέγχου"</string>
-    <string name="filter_by_title" msgid="5940302511365561845">"Φιλτράρισμα ανά"</string>
+    <string name="filter_by_title" msgid="5940302511365561845">"Φιλτράρισμα κατά"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Φιλτράρισμα κατά άδεια"</string>
     <string name="filter_by_time" msgid="1763143592970195407">"Φιλτράρισμα κατά χρόνο"</string>
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Περισσότερες άδειες"</string>
@@ -230,11 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Εφαρμογές, που συχνά αποκαλούνται εφαρμογές εκκίνησης, που αντικαθιστούν τις Αρχικές οθόνες στη συσκευή σας Android και σας δίνουν πρόσβαση στα περιεχόμενα και τις λειτουργίες της συσκευή σας"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Ορισμός εφαρμογής <xliff:g id="APP_NAME">%1$s</xliff:g> ως προεπιλεγμένης εφαρμογής αρχικής οθόνης;"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Δεν απαιτούνται άδειες"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Προεπ. εφ. τηλ. σε λειτ. αυτ."</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Εφαρ. Τηλέφωνο σε λειτ. αυτ."</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"Ορισμός εφαρμογής <xliff:g id="APP_NAME">%1$s</xliff:g> ως προεπιλεγμένης εφαρμογής Τηλέφωνο;"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Προεπ. εφαρμ. ανακατ. κλήσεων"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Εφαρμογή ανακατεύθ. κλήσεων"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"Εφαρμογές που σας επιτρέπουν να προωθήσετε κλήσεις σε έναν άλλο αριθμό τηλεφώνου"</string>
@@ -245,11 +240,6 @@
     <string name="role_call_screening_description" msgid="9009090500431969390">"Εφαρμογές που σας επιτρέπουν να προσδιορίσετε τις εισερχόμενες κλήσεις, να αποκλείσετε τα ανεπιθύμητα μηνύματα και τις αυτοματοποιημένες κλήσεις, να προσθέσετε ανεπιθύμητους αριθμούς στη μαύρη λίστα κ.λπ."</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Ορισμός εφαρμογής <xliff:g id="APP_NAME">%1$s</xliff:g> ως προεπιλεγμένης εφαρμογής αναγνώρισης κλήσης και ανεπιθύμητου περιεχομένου;"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Δεν απαιτούνται άδειες"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"Προεπ. συνοδ. εφαρμογή κλήσεων"</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"Συνοδευτική εφαρμογή κλήσης"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"Ορισμός εφαρμογής <xliff:g id="APP_NAME">%1$s</xliff:g> ως προεπιλεγμένης συνοδευτικής εφαρμογής κλήσεων;"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Τρέχουσα προεπιλογή"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Να μην ερωτηθώ ξανά"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Προεπιλογή"</string>
@@ -266,8 +256,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Άνοιγμα συνδέσμων"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Προεπιλογή για εργασία"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Καμία"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Προεπιλογή συστήματος)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Δεν υπάρχουν εφαρμογές"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"ειδική πρόσβαση στην εφαρμογή"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Ειδική άδεια εφαρμογής"</string>
@@ -291,4 +280,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Επισήμανση χρήσης για τα παρακάτω"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Εμφάνιση εντοπισμού ενεργοποίησης Βοηθού"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Εμφάνιση εικονιδίου στη γραμμή κατάστασης όταν το μικρόφωνο χρησιμοποιείται για την ενεργοποίηση του φωνητικού βοηθού"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Να επιτρέπεται στην εφαρμογή &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; να έχει πρόσβαση σε φωτογραφίες και μέσα στη συσκευή σας;"</string>
 </resources>

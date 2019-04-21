@@ -42,7 +42,7 @@
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Luôn cho phép"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Ứng dụng"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Quyền ứng dụng"</string>
-    <string name="app_permission_manager" msgid="3802609813311662642">"Người quản lý quyền"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"Trình quản lý quyền"</string>
     <string name="never_ask_again" msgid="7645304182523160030">"Không hỏi lại"</string>
     <string name="no_permissions" msgid="2193893107241172888">"Không có quyền"</string>
     <string name="additional_permissions" msgid="7124470111123472154">"Quyền bổ sung"</string>
@@ -94,24 +94,24 @@
     <string name="app_name_unknown" msgid="8288360585728122735">"Không xác định"</string>
     <string name="permission_usage_title" msgid="6808284837306026819">"Trang tổng quan"</string>
     <string name="permission_usage_summary_foreground" msgid="2482299388611440256">"Lần truy cập gần đây nhất: <xliff:g id="TIME">%1$s</xliff:g>\nLần truy cập gần đây nhất khi ứng dụng được dùng"</string>
-    <string name="permission_usage_summary_background" msgid="4789805581854248472">"Lần truy cập gần đây nhất: <xliff:g id="TIME">%1$s</xliff:g>\nLần gần đây nhất là truy cập trong nền"</string>
+    <string name="permission_usage_summary_background" msgid="4789805581854248472">"Lần truy cập gần đây nhất: <xliff:g id="TIME">%1$s</xliff:g>\nLần truy cập gần đây nhất là trong nền"</string>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Mọi quyền"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"Mọi lúc"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"7 ngày qua"</string>
     <string name="permission_usage_last_day" msgid="4149912805759768249">"24 giờ qua"</string>
     <string name="permission_usage_last_hour" msgid="2907717357748648755">"1 giờ qua"</string>
-    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"15 phút trước"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"15 phút qua"</string>
     <string name="permission_usage_last_minute" msgid="1712931459994781087">"1 phút qua"</string>
     <string name="no_permission_usages" msgid="698858628357371611">"Không sử dụng quyền"</string>
     <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"Lần truy cập gần đây nhất vào bất kỳ thời gian nào"</string>
     <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"Lần truy cập gần đây nhất trong 7 ngày qua"</string>
-    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"Lần truy cập gần đây nhất trong 24 giờ trước"</string>
+    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"Lần truy cập gần đây nhất trong 24 giờ qua"</string>
     <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"Lần truy cập gần đây nhất trong 1 giờ qua"</string>
     <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"Lần truy cập gần đây nhất trong 15 phút trước"</string>
     <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"Lần truy cập gần đây nhất trong 1 phút trước"</string>
     <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"Tần suất sử dụng quyền ở mọi thời gian"</string>
     <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"Tần suất sử dụng quyền trong 7 ngày trước"</string>
-    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"Tần suất sử dụng quyền trong 24 giờ trước"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"Mức sử dụng quyền truy cập trong 24 giờ qua"</string>
     <string name="permission_usage_bar_chart_title_last_hour" msgid="4672313408976666479">"Tần suất sử dụng quyền trong 1 giờ trước"</string>
     <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"Tần suất sử dụng quyền trong 15 phút trước"</string>
     <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"Tần suất sử dụng quyền trong 1 phút trước"</string>
@@ -120,7 +120,7 @@
       <item quantity="one">1 ứng dụng</item>
     </plurals>
     <string name="permission_usage_view_details" msgid="4728049344017619500">"Xem tất cả trong Trang tổng quan"</string>
-    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Đã lọc bởi: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Lọc theo: <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_usage_remove_filter" msgid="9105565119059367866">"Xem tất cả trong Trang tổng quan"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"Lọc theo"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Lọc theo quyền"</string>
@@ -128,7 +128,7 @@
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Nhiều quyền nhất"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Nhiều lần truy cập nhất"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"Gần đây"</string>
-    <string name="sort_by_app" msgid="1912228966803416485">"Sắp xếp theo tần suất sử dụng"</string>
+    <string name="sort_by_app" msgid="1912228966803416485">"Sắp xếp theo mức sử dụng"</string>
     <string name="sort_by_time" msgid="8280378662234104410">"Sắp xếp theo thời gian"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="permission_usage_refresh" msgid="2182775682810005148">"Làm mới"</string>
@@ -202,7 +202,7 @@
     <string name="accessibility_service_dialog_bottom_text_multiple" msgid="1387803460488775887">"Những ứng dụng này có thể xem màn hình, hành động và dữ liệu nhập của bạn cũng như thực hiện hành động và điều khiển màn hình."</string>
     <string name="role_assistant_label" msgid="1755271161954896046">"Ứng dụng trợ lý mặc định"</string>
     <string name="role_assistant_short_label" msgid="3048707738783655050">"Ứng dụng trợ lý"</string>
-    <string name="role_assistant_description" msgid="8677846995018695304">"Ứng dụng trợ lý có thể giúp bạn dựa trên thông tin từ màn hình bạn đang xem. Một số ứng dụng hỗ trợ cả dịch vụ nhập bằng giọng nói và trình chạy để cung cấp cho bạn khả năng hỗ trợ tích hợp."</string>
+    <string name="role_assistant_description" msgid="8677846995018695304">"Các ứng dụng trợ lý có thể giúp bạn dựa trên thông tin từ màn hình bạn đang xem. Một số ứng dụng hỗ trợ cả dịch vụ nhập bằng giọng nói và trình chạy để hỗ trợ bạn toàn diện hơn."</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"Bạn muốn đặt <xliff:g id="APP_NAME">%1$s</xliff:g> làm ứng dụng trợ lý mặc định?"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"Có quyền truy cập vào SMS, nhật ký cuộc gọi"</string>
     <string name="role_browser_label" msgid="814240075813716311">"Ứng dụng trình duyệt mặc định"</string>
@@ -230,26 +230,16 @@
     <string name="role_home_description" msgid="6736956389161158052">"Các ứng dụng, thường gọi là trình chạy, thay thế Màn hình chính trên thiết bị Android và giúp bạn truy cập vào các nội dung cũng như tính năng của thiết bị"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Bạn muốn đặt <xliff:g id="APP_NAME">%1$s</xliff:g> làm ứng dụng mặc định trên màn hình chính?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Không cần quyền"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Ứng dụng điện thoại mặc định sử dụng cho chế độ ô tô"</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Ứng dụng điện thoại sử dụng cho chế độ ô tô"</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"Bạn muốn đặt <xliff:g id="APP_NAME">%1$s</xliff:g> làm ứng dụng điện thoại mặc định ở chế độ ô tô?"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Ứng dụng chuyển hướng cuộc gọi mặc định"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Ứng dụng chuyển hướng cuộc gọi"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"Các ứng dụng cho phép bạn chuyển tiếp cuộc gọi đến một số điện thoại khác"</string>
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"Bạn muốn đặt <xliff:g id="APP_NAME">%1$s</xliff:g> làm ứng dụng chuyển hướng cuộc gọi mặc định?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Không cần quyền"</string>
-    <string name="role_call_screening_label" msgid="5366988848919437946">"Ứng dụng chặn spam và số gọi đến mặc định"</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"Ứng dụng nhận dạng người gọi và chặn spam"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"Ứng dụng chặn spam, số gọi đến"</string>
-    <string name="role_call_screening_description" msgid="9009090500431969390">"Các ứng dụng giúp bạn xác định cuộc gọi đến, chặn spam và cuộc gọi tự động, đưa các số không mong muốn vào danh sách cấm và làm nhiều việc khác nữa"</string>
+    <string name="role_call_screening_description" msgid="9009090500431969390">"Các ứng dụng giúp bạn xác định cuộc gọi đến, chặn spam và cuộc gọi tự động, đưa các số không mong muốn vào danh sách cấm và nhiều tính năng khác"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Bạn muốn đặt <xliff:g id="APP_NAME">%1$s</xliff:g> làm ứng dụng chặn spam và số gọi đến mặc định?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Không cần quyền"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"Ứng dụng đồng hành cuộc gọi mặc định"</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"Ứng dụng đồng hành cuộc gọi"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"Bạn muốn đặt <xliff:g id="APP_NAME">%1$s</xliff:g> làm ứng dụng đồng hành cuộc gọi mặc định?"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Ứng dụng mặc định hiện tại"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Không hỏi lại"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Đặt làm mặc định"</string>
@@ -266,8 +256,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Mở liên kết"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Ứng dụng mặc định cho công việc"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Không có"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Ứng dụng mặc định của hệ thống)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Không có ứng dụng nào"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"quyền truy cập ứng dụng đặc biệt"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Quyền truy cập đặc biệt"</string>
@@ -291,4 +280,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Hiển thị mức sử dụng của"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Hiển thị tính năng phát hiện trình kích hoạt của Trợ lý"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Hiển thị biểu tượng trong thanh trạng thái khi sử dụng micrô để kích hoạt trợ lý thoại"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Bạn có cho phép &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; truy cập vào ảnh và nội dung nghe nhìn trên thiết bị của mình không?"</string>
 </resources>

@@ -26,7 +26,7 @@
     <string name="grant_dialog_button_deny_background" msgid="5378693207810841555">"เก็บสิทธิ์เข้าถึงขณะใช้งาน"</string>
     <string name="grant_dialog_button_deny_background_and_dont_ask_again" msgid="1032019626928637454">"เก็บไว้และไม่ต้องถามอีก"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"ข้อมูลเพิ่มเติม"</string>
-    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"ปฏิเสธอยู่ต่อไป"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"ยืนยันการปฏิเสธ"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> จาก <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> รายการ"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>ไหม"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>ทุกครั้งใช่ไหม"</string>
@@ -95,7 +95,7 @@
     <string name="permission_usage_title" msgid="6808284837306026819">"หน้าแดชบอร์ด"</string>
     <string name="permission_usage_summary_foreground" msgid="2482299388611440256">"เข้าถึงล่าสุด: <xliff:g id="TIME">%1$s</xliff:g>\nเข้าถึงล่าสุดขณะกำลังใช้แอป"</string>
     <string name="permission_usage_summary_background" msgid="4789805581854248472">"เข้าถึงล่าสุด: <xliff:g id="TIME">%1$s</xliff:g>\nเข้าถึงล่าสุดในเบื้องหลัง"</string>
-    <string name="permission_usage_any_permission" msgid="7824062114364689751">"สิทธิ์ใดก็ได้"</string>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"ทุกสิทธิ์"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"ทุกเวลา"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"7 วันที่ผ่านมา"</string>
     <string name="permission_usage_last_day" msgid="4149912805759768249">"24 ชั่วโมงที่ผ่านมา"</string>
@@ -166,10 +166,10 @@
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"ถูกปฏิเสธ/เข้าถึงล่าสุด: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"ไม่เคยเข้าถึง"</string>
     <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"ปฏิเสธ/ไม่เคยเข้าถึง"</string>
-    <string name="allowed_header" msgid="6279244592227088158">"ได้รับอนุญาตแล้ว"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"อนุญาต"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"อนุญาตตลอด"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"อนุญาตขณะใช้งานอยู่เท่านั้น"</string>
-    <string name="denied_header" msgid="2277998574238617699">"ถูกปฏิเสธ"</string>
+    <string name="denied_header" msgid="2277998574238617699">"ปฏิเสธ"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"ดูการใช้งานโดยละเอียด"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> วัน</item>
@@ -230,11 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"แอปที่มักเรียกกันว่า Launcher ซึ่งใช้แทนหน้าจอหลักในอุปกรณ์ Android และให้คุณเข้าถึงเนื้อหาและฟีเจอร์ต่างๆ ของอุปกรณ์"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"ตั้งค่า <xliff:g id="APP_NAME">%1$s</xliff:g> เป็นแอปหน้าแรกเริ่มต้นไหม"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"ไม่ต้องใช้สิทธิ์"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"แอปโทรศัพท์เริ่มต้นสำหรับโหมดรถยนต์"</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"แอปโทรศัพท์สำหรับโหมดรถยนต์"</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"ตั้งค่า <xliff:g id="APP_NAME">%1$s</xliff:g> เป็นแอปโทรศัพท์เริ่มต้นสำหรับโหมดรถยนต์ไหม"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"แอปเปลี่ยนเส้นทางการโทรเริ่มต้น"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"แอปเปลี่ยนเส้นทางสายเรียกเข้า"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"แอปที่ให้คุณโอนสายไปยังหมายเลขโทรศัพท์อื่น"</string>
@@ -245,11 +240,6 @@
     <string name="role_call_screening_description" msgid="9009090500431969390">"แอปที่ให้คุณระบุสายเรียกเข้า บล็อกสแปมและสายจากระบบตอบรับอัตโนมัติ รวมถึงขึ้นบัญชีดำหมายและที่ไม่พึงประสงค์ และอีกมากมาย"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"ตั้งค่า <xliff:g id="APP_NAME">%1$s</xliff:g> เป็นแอปเริ่มต้นสำหรับสกรีนหมายเลขผู้โทรและสแปมไหม"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"ไม่ต้องใช้สิทธิ์"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"แอปเริ่มต้นที่ใช้ร่วมกับการโทร"</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"แอปที่ใช้ร่วมกับการโทร"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"ตั้งค่า <xliff:g id="APP_NAME">%1$s</xliff:g> เป็นแอปเริ่มต้นที่ใช้ร่วมกับการโทรไหม"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"แอปเริ่มต้นปัจจุบัน"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"ไม่ต้องถามอีก"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"ตั้งเป็นแอปเริ่มต้น"</string>
@@ -266,8 +256,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"การเปิดลิงก์"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"ค่าเริ่มต้นสำหรับงาน"</string>
     <string name="default_app_none" msgid="7671097769303174666">"ไม่มี"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(ค่าเริ่มต้นของระบบ)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"ไม่มีแอป"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"สิทธิ์เข้าถึงพิเศษของแอป"</string>
     <string name="special_app_access" msgid="2561673957499408877">"สิทธิ์เข้าถึงพิเศษของแอป"</string>
@@ -289,6 +278,7 @@
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"แสดงการใช้งานแอประบบ"</string>
     <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"แสดงการใช้สิทธิ์ของแอประบบในแถบสถานะ หน้าแดชบอร์ด และที่อื่นๆ"</string>
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"ไฮไลต์การใช้งานแอปต่อไปนี้"</string>
-    <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"แสดงการตรวจพบทริกเกอร์ Assistant"</string>
-    <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"แสดงไอคอนในแถบสถานะเมื่อมีการใช้ไมโครโฟนเพื่อเปิดใช้งานผู้ช่วยแบบเสียง"</string>
+    <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"แสดงไอคอน Assistant"</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"แสดงไอคอนในแถบสถานะเมื่อมีการใช้ไมโครโฟนเพื่อเปิดใช้งานผู้ช่วยสั่งการด้วยเสียง"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; เข้าถึงรูปภาพและสื่อในอุปกรณ์ไหม"</string>
 </resources>

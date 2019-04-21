@@ -36,7 +36,7 @@
     <string name="permission_revoked_count" msgid="5556125174203696709">"<xliff:g id="COUNT">%1$d</xliff:g> inhabilitados"</string>
     <string name="permission_revoked_all" msgid="6356577996164232918">"todos inhabilitados"</string>
     <string name="permission_revoked_none" msgid="266013103540772023">"ninguno inhabilitado"</string>
-    <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Otorgar"</string>
+    <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Permitir"</string>
     <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"Permitir todo el tiempo"</string>
     <string name="grant_dialog_button_allow_foreground" msgid="8090382319222429427">"Permitir solo con app en uso"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Permitir todo el tiempo"</string>
@@ -151,14 +151,14 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Ver todos los permisos de <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Ver todas las apps que tienen este permiso"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Las apps con este permiso pueden <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Las apps que tienen este permiso pueden acceder a tu actividad física, como caminar, andar en bicicleta, conducir, recontar pasos y más"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Las apps que tienen este permiso pueden acceder a tu actividad física, recorridos a pie o en bicicleta, trayectos en coche, recuento de pasos y mucho más"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Las apps con este permiso pueden acceder a tu calendario"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Las apps que tienen este permiso pueden leer el registro de llamadas del teléfono y escribir en él"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"Las apps que tienen este permiso pueden tomar fotos y grabar videos"</string>
-    <string name="permission_description_summary_contacts" msgid="5169995707720233126">"Las apps con este permiso puede acceder a tus contactos"</string>
-    <string name="permission_description_summary_location" msgid="687820658574645201">"Las apps con este permiso puede acceder a la ubicación de este dispositivo"</string>
-    <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Las apps con este permiso pueden grabar audio"</string>
-    <string name="permission_description_summary_phone" msgid="3773977614654088578">"Las apps con este permiso puede realizar y administrar llamadas telefónicas"</string>
+    <string name="permission_description_summary_contacts" msgid="5169995707720233126">"Las apps que tienen este permiso pueden acceder a tus contactos"</string>
+    <string name="permission_description_summary_location" msgid="687820658574645201">"Las apps que tienen este permiso pueden acceder a la ubicación del dispositivo"</string>
+    <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Las apps que tienen este permiso pueden grabar audio"</string>
+    <string name="permission_description_summary_phone" msgid="3773977614654088578">"Las apps que tienen este permiso pueden realizar y administrar llamadas telefónicas"</string>
     <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Las apps que tienen este permiso pueden acceder a los datos del sensor de tus signos vitales"</string>
     <string name="permission_description_summary_sms" msgid="8850213022386508528">"Las apps que tienen este permiso pueden enviar y ver mensajes SMS"</string>
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"Las apps que tienen este permiso pueden acceder a fotos, contenido multimedia y archivos en tu dispositivo"</string>
@@ -167,8 +167,8 @@
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"No accedió nunca"</string>
     <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Denegado / No accedió nunca"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Permitidos"</string>
-    <string name="allowed_always_header" msgid="6698473105201405782">"Permitir todo el tiempo"</string>
-    <string name="allowed_foreground_header" msgid="7553595563464819175">"Permitidos solo durante el uso"</string>
+    <string name="allowed_always_header" msgid="6698473105201405782">"Permitido todo el tiempo"</string>
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"Permitido solo durante el uso"</string>
     <string name="denied_header" msgid="2277998574238617699">"Rechazados"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"Ver uso detallado"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -194,7 +194,7 @@
     <string name="no_permissions_allowed" msgid="5781278485002145993">"No se otorgó ningún permiso"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"No se rechazó ningún permiso"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"No se le otorgó permiso a ninguna app"</string>
-    <string name="no_apps_denied" msgid="2736758388618487796">"A ninguna app se le rechazó el permiso"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"No se le rechazó el permiso a ninguna app"</string>
     <string name="settings" msgid="2884124136779508907">"Configuración"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> tiene acceso completo a tu dispositivo"</string>
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"<xliff:g id="NUM_SERVICES">%s</xliff:g> apps de accesibilidad tienen acceso completo a tu dispositivo"</string>
@@ -230,11 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Apps (que suelen llamarse Launcher) que reemplazan las pantallas principales en tu dispositivo Android y te otorgan acceso al contenido y a las funciones de tu dispositivo"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"¿Quieres establecer <xliff:g id="APP_NAME">%1$s</xliff:g> como tu app de inicio predeterminada?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"No se requieren permisos"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"App de teléfono en modo auto"</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"App de teléfono en modo auto"</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"¿Quieres establecer <xliff:g id="APP_NAME">%1$s</xliff:g> como tu app de teléfono en modo auto predeterminada?"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"App de redireccionamiento"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"App para desviar llamadas"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"Apps que te permiten desviar llamadas a otro número de teléfono"</string>
@@ -245,11 +240,6 @@
     <string name="role_call_screening_description" msgid="9009090500431969390">"Apps que te permiten identificar llamadas entrantes, bloquear spam y llamadas automáticas, colocar números no deseados en la lista negra y mucho más"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"¿Quieres establecer <xliff:g id="APP_NAME">%1$s</xliff:g> como tu app de identificador de llamada y spam predeterminada?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"No se requieren permisos"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"App complementaria de llamadas"</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"App de llamadas complementaria"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"¿Quieres establecer <xliff:g id="APP_NAME">%1$s</xliff:g> como tu app complementaria de llamadas predeterminada?"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"App predeterminada actualmente"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"No volver a preguntar"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Hacer predeterminada"</string>
@@ -266,8 +256,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Vínculos de apertura"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Predeterminadas de trabajo"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Ninguna"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Predeterminada de sistema)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Sin apps"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"Acceso especial a apps"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Acceso especial a apps"</string>
@@ -291,4 +280,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Destacar el uso de estas opciones"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Mostrar la detección de activación del Asistente"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Mostrar ícono en la barra de estado cuando se use el micrófono para activar la función \"Asistente de voz\""</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"¿Quieres permitir que &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; acceda a las fotos y el contenido multimedia del dispositivo?"</string>
 </resources>
