@@ -94,7 +94,7 @@
     <string name="app_name_unknown" msgid="8288360585728122735">"Haijulikani"</string>
     <string name="permission_usage_title" msgid="6808284837306026819">"Dashibodi"</string>
     <string name="permission_usage_summary_foreground" msgid="2482299388611440256">"Ilitumiwa mwisho: <xliff:g id="TIME">%1$s</xliff:g>\n Ilitumiwa mara ya mwisho programu ilipokuwa ikitumika"</string>
-    <string name="permission_usage_summary_background" msgid="4789805581854248472">"Ilitumiwa mwisho: <xliff:g id="TIME">%1$s</xliff:g>\n Mara ya mwisho kutumiwa chinichini"</string>
+    <string name="permission_usage_summary_background" msgid="4789805581854248472">"Ilitumiwa mwisho: <xliff:g id="TIME">%1$s</xliff:g>\nMara ya mwisho kutumiwa chinichini"</string>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Ruhusa yoyote"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"Wakati wowote"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Siku 7 zilizopita"</string>
@@ -105,10 +105,10 @@
     <string name="no_permission_usages" msgid="698858628357371611">"Hakuna matumizi ya ruhusa"</string>
     <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"Zinazotumia zaidi wakati wowote"</string>
     <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"Zilizotumiwa zaidi katika siku 7 zilizopita"</string>
-    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"Zilizotumia zaidi katika saa 24 zilizopita"</string>
+    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"Zilizotumia punde zaidi katika saa 24 zilizopita"</string>
     <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"Zilizotumiwa zaidi katika saa 1 iliyopita"</string>
     <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"Zilizotumiwa zaidi katika dakika 15 zilizopita"</string>
-    <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"Zilizotumia zaidi katika dakika 1 iliyopita"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"Zilizotumia punde zaidi katika dakika 1 iliyopita"</string>
     <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"Matumizi ya ruhusa wakati wowote"</string>
     <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"Matumizi ya ruhusa katika siku 7 zilizopita"</string>
     <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"Matumizi ya ruhusa katika saa 24 zilizopita"</string>
@@ -230,11 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Programu, zinazoitwa vifungua programu, vinavyowakilisha skrini yako ya kwanza kwenye kifaa chako cha Android na kukupa uwezo wa kufikia maudhui na vipengele vya kifaa chako"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Je, ungependa kuweka <xliff:g id="APP_NAME">%1$s</xliff:g> iwe programu yako chaguomsingi ya ukurasa wa kwanza?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Hakuna ruhusa zinazohitajika"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Programu chaguomsingi ya simu ya hali ya gari"</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Programu ya simu ya hali ya gari"</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"Je, ungependa kuweka <xliff:g id="APP_NAME">%1$s</xliff:g> kama programu yako chaguomsingi ya simu ya hali ya gari?"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Programu chaguomsingi ya kuelekeza simu kwingine"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Programu ya kuelekeza simu"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"Programu zinazokuruhusu usambaze simu kwenye nambari nyingine ya simu"</string>
@@ -245,11 +240,6 @@
     <string name="role_call_screening_description" msgid="9009090500431969390">"Programu zinazokuruhusu utambue simu zinazoingia, kuzuia taka na simu zinazopigwa kiotomatiki, kuziondolea idhini nambari zisizohitajika na kadhalika."</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Je, ungependa kuweka <xliff:g id="APP_NAME">%1$s</xliff:g> iwe programu chaguomsingi ya kukagua kitambulisho cha anayepiga na taka?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Hakuna ruhusa zinazohitajika"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"Programu chaguomsingi ya kudhibiti simu"</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"Programu inayodhibiti simu"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"Je, ungependa kuweka <xliff:g id="APP_NAME">%1$s</xliff:g> iwe programu yako chaguomsingi ya kudhibiti simu?"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Chaguomsingi ya sasa"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Isiniulize tena"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Weka iwe chaguomsingi"</string>
