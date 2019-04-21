@@ -55,7 +55,7 @@
     </plurals>
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Táto aplikácia bola navrhnutá pre staršiu verziu Androidu. Odmietnutie povolenia môže spôsobiť, že nebude optimálne fungovať."</string>
     <string name="default_permission_description" msgid="692254823411049573">"umožňuje vykonať neznámu akciu"</string>
-    <string name="app_permissions_group_summary" msgid="5019625174481872207">"Povolené: <xliff:g id="COUNT_0">%1$d</xliff:g> z <xliff:g id="COUNT_1">%2$d</xliff:g> aplikácií"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"Povolené <xliff:g id="COUNT_0">%1$d</xliff:g> z <xliff:g id="COUNT_1">%2$d</xliff:g> aplikácií"</string>
     <string name="menu_show_system" msgid="7623002570829860709">"Zobraziť systémové"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Skryť systémové"</string>
     <string name="no_apps" msgid="2377153782338039463">"Žiadne aplikácie"</string>
@@ -76,7 +76,7 @@
     <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
     <string name="permission_access_always" msgid="5419580764084361573">"Povoliť vždy"</string>
     <string name="permission_access_only_foreground" msgid="2857031150724321567">"Povoliť iba pri používaní aplikácie"</string>
-    <string name="permission_access_never" msgid="425385910378172045">"Odmietnuť"</string>
+    <string name="permission_access_never" msgid="425385910378172045">"Zamietnuť"</string>
     <string name="loading" msgid="323483393167148377">"Načítava sa…"</string>
     <string name="all_permissions" msgid="7813580062403112957">"Všetky povolenia"</string>
     <string name="other_permissions" msgid="1956312685853070715">"Ďalšie možnosti aplikácie"</string>
@@ -107,7 +107,7 @@
     <string name="no_permission_usages" msgid="698858628357371611">"Žiadne využitie povolení"</string>
     <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"Posledný prístup kedykoľvek"</string>
     <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"Posledný prístup za posledných sedem dní"</string>
-    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"Posledný prístup za posledných 24 hodín"</string>
+    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"Prístup za posledných 24 hodín"</string>
     <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"Posledný prístup za poslednú hodinu"</string>
     <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"Posledný prístup za posledných pätnásť minút"</string>
     <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"Posledný prístup za poslednú minútu"</string>
@@ -148,9 +148,9 @@
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Povoliť"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Povoliť vždy"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Povoliť iba pri používaní aplikácie"</string>
-    <string name="app_permission_button_deny" msgid="5716368368650638408">"Odmietnuť"</string>
-    <string name="app_permission_title" msgid="2453000050669052385">"Povolenie <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_header" msgid="228974007660007656">"Prístup aplikácie: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_button_deny" msgid="5716368368650638408">"Zamietnuť"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g>: povolenie"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>: prístup pre túto aplikáciu"</string>
     <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"Aplikácia <xliff:g id="APP">%1$s</xliff:g> použila povolenie <xliff:g id="PERM">%2$s</xliff:g> pred <xliff:g id="TIME">%3$s</xliff:g>"</string>
     <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"Aplikácia <xliff:g id="APP">%1$s</xliff:g> nepoužila povolenie <xliff:g id="PERM">%2$s</xliff:g>"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Pre toto povolenie nie sú momentálne k dispozícii údaje o poslednom prístupe"</string>
@@ -169,11 +169,11 @@
     <string name="permission_description_summary_sms" msgid="8850213022386508528">"Aplikácie s týmto povolením môžu odosielať a zobrazovať správy SMS"</string>
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"Aplikácie s týmto povolením majú prístup k fotkám, médiám a súborom vo vašom zariadení"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Posledný prístup: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
-    <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Momentálne odmietnuté / posledný prístup: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
-    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Prístup sa nikdy neuskutočnil"</string>
-    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Odmietnuté / prístup sa nikdy neuskutočnil"</string>
+    <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Momentálne zamietnuté / posledný prístup <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Nikdy nebolo použité"</string>
+    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Zamietnuté / nikdy nebolo použité"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Povolené"</string>
-    <string name="allowed_always_header" msgid="6698473105201405782">"Povolené po celý čas"</string>
+    <string name="allowed_always_header" msgid="6698473105201405782">"Povolené vždy"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Povolené iba počas používania"</string>
     <string name="denied_header" msgid="2277998574238617699">"Zamietnuté"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"Zobraziť podrobné údaje o využití"</string>
@@ -184,31 +184,31 @@
       <item quantity="one">1 deň</item>
     </plurals>
     <plurals name="hours" formatted="false" msgid="2123927014975877155">
-      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> hodiny</item>
-      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> hodiny</item>
-      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> hodín</item>
-      <item quantity="one">1 hodina</item>
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> h</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> h</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> h</item>
+      <item quantity="one">1 h</item>
     </plurals>
     <plurals name="minutes" formatted="false" msgid="4331145652577957044">
-      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> minúty</item>
-      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> minúty</item>
-      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> minút</item>
-      <item quantity="one">1 minúta</item>
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> min</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> min</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> min</item>
+      <item quantity="one">1 min</item>
     </plurals>
     <plurals name="seconds" formatted="false" msgid="1632909606956324957">
-      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> sekundy</item>
-      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> sekundy</item>
-      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sekúnd</item>
-      <item quantity="one">1 sekunda</item>
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> s</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> s</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> s</item>
+      <item quantity="one">1 s</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Pripomenutia povolení"</string>
     <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> používa vašu polohu"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Táto aplikácia má neobmedzený prístup k polohe. Klepnutím to zmeníte."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Iba počas používania aplikácie"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Žiadne udelené povolenia"</string>
-    <string name="no_permissions_denied" msgid="2449583707612365442">"Žiadne odmietnuté povolenia"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"Žiadne zamietnuté povolenia"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Žiadne povolené aplikácie"</string>
-    <string name="no_apps_denied" msgid="2736758388618487796">"Žiadne odmietnuté aplikácie"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"Žiadne zamietnuté aplikácie"</string>
     <string name="settings" msgid="2884124136779508907">"Nastavenia"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> má úplný prístup do vášho zariadenia"</string>
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"Aplikácie dostupnosti s úplným prístupom do vášho zariadenia: <xliff:g id="NUM_SERVICES">%s</xliff:g>"</string>
@@ -219,10 +219,10 @@
     <string name="role_assistant_description" msgid="8677846995018695304">"Asistenčné aplikácie vám pomáhajú na základe informácií zo zobrazenej obrazovky. Niektoré aplikácie podporujú spúšťač aj služby hlasového vstupu, aby vám poskytli integrovanú pomoc."</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"Chcete <xliff:g id="APP_NAME">%1$s</xliff:g> nastaviť ako predvolenú asistenčnú aplikáciu?"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"Získa prístup k správam SMS, denníku hovorov"</string>
-    <string name="role_browser_label" msgid="814240075813716311">"Predvolená aplikácia na prehliadanie internetu"</string>
+    <string name="role_browser_label" msgid="814240075813716311">"Predvolený prehliadač"</string>
     <string name="role_browser_short_label" msgid="6222206565850006894">"Aplikácia na prehliadanie"</string>
     <string name="role_browser_description" msgid="2326990202516329438">"Aplikácie, ktoré vám poskytujú prístup k internetu a zobrazujú odkazy, na ktoré môžete klepnúť"</string>
-    <string name="role_browser_request_title" msgid="751745081301397114">"Chcete <xliff:g id="APP_NAME">%1$s</xliff:g> nastaviť ako predvolenú aplikáciu na prehliadanie internetu?"</string>
+    <string name="role_browser_request_title" msgid="751745081301397114">"Chcete <xliff:g id="APP_NAME">%1$s</xliff:g> nastaviť ako predvolený prehliadač?"</string>
     <string name="role_browser_request_description" msgid="3204873553391043604">"Nie sú potrebné žiadne povolenia"</string>
     <string name="role_dialer_label" msgid="7920168918746178929">"Predvolená aplikácia na telefonovanie"</string>
     <string name="role_dialer_short_label" msgid="2980581587550675305">"Aplikácia Telefón"</string>
@@ -231,7 +231,7 @@
     <string name="role_dialer_request_description" msgid="2931069491309771312">"Získa prístup k denníku hovorov, odosielaniu správ SMS"</string>
     <string name="role_sms_label" msgid="6995222097027665850">"Predvolená aplikácia na SMS"</string>
     <string name="role_sms_short_label" msgid="236955440028043972">"Aplikácia na SMS"</string>
-    <string name="role_sms_description" msgid="3228552135895420442">"Aplikácie, ktoré vám umožňujú používať svoje telefónne číslo na odosielanie a prijímanie krátkych textových správ, fotiek, videí a ďalšieho obsahu"</string>
+    <string name="role_sms_description" msgid="3228552135895420442">"Aplikácie, ktoré vám umožňujú prostredníctvom vášho telefónneho čísla odosielať a prijímať krátke textové správy, fotky, videá a ďalší obsah"</string>
     <string name="role_sms_request_title" msgid="3667393846881324409">"Chcete <xliff:g id="APP_NAME">%1$s</xliff:g> nastaviť ako predvolenú aplikáciu na SMS?"</string>
     <string name="role_sms_request_description" msgid="4920787411350418630">"Získa prístup ku kontaktom, správam SMS, telefónu"</string>
     <string name="role_emergency_label" msgid="8986482330376454686">"Predvolená tiesňová aplikácia"</string>
@@ -239,16 +239,11 @@
     <string name="role_emergency_description" msgid="3567231505957373289">"Aplikácie, ktoré vám umožňujú zaznamenať zdravotné údaje a sprístupniť ich pracovníkom záchranných služieb, získavať upozornenia na závažné meteorologické udalosti a katastrofy a upozorňovať ostatných, že potrebujete pomoc"</string>
     <string name="role_emergency_request_title" msgid="6595296517085761522">"Chcete <xliff:g id="APP_NAME">%1$s</xliff:g> nastaviť ako predvolenú aplikáciu na tiesňové volania?"</string>
     <string name="role_emergency_request_description" msgid="2824966073894226992">"Nie sú potrebné žiadne povolenia"</string>
-    <string name="role_home_label" msgid="6245106863177808486">"Predvolená domovská aplikácia"</string>
-    <string name="role_home_short_label" msgid="4565882523300643525">"Domovská aplikácia"</string>
-    <string name="role_home_description" msgid="6736956389161158052">"Aplikácie (často nazývané spúšťače), ktoré nahradzujú domovské obrazovky v zariadení s Androidom a poskytujú prístup k obsahu a funkciám v zariadení"</string>
-    <string name="role_home_request_title" msgid="2964609319767315444">"Chcete <xliff:g id="APP_NAME">%1$s</xliff:g> nastaviť ako predvolenú domovskú aplikáciu?"</string>
+    <string name="role_home_label" msgid="6245106863177808486">"Predvolená vstupná aplikácia"</string>
+    <string name="role_home_short_label" msgid="4565882523300643525">"Vstupná aplikácia"</string>
+    <string name="role_home_description" msgid="6736956389161158052">"Aplikácie, tzv. spúšťače, ktoré nahradia plochu vo vašom zariadení a dávajú vám prístup k obsahu a funkciám v zariadení"</string>
+    <string name="role_home_request_title" msgid="2964609319767315444">"Chcete <xliff:g id="APP_NAME">%1$s</xliff:g> nastaviť ako predvolenú vstupnú aplikáciu?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Nie sú potrebné žiadne povolenia"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Predvolená aplikácia na telefonovanie v režime v aute"</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Aplikácia na telefonovanie v režime v aute"</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"Chcete <xliff:g id="APP_NAME">%1$s</xliff:g> nastaviť ako predvolenú aplikáciu na telefonovanie v režime v aute?"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Predvolená aplikácia na presmerovanie hovorov"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Aplikácia na presmer. hovorov"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"Aplikácie, ktoré vám umožňujú presmerovať hovory na iné telefónne číslo"</string>
@@ -259,11 +254,6 @@
     <string name="role_call_screening_description" msgid="9009090500431969390">"Aplikácia, ktorá vám umožňuje identifikovať prichádzajúce hovory, blokovať spam a robotické hovory, pridávať nechcené čísla do zoznamu zakázaných čísel a pod."</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Chcete <xliff:g id="APP_NAME">%1$s</xliff:g> nastaviť ako predvolenú aplikáciu na identifikáciu volajúceho a spam?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Nie sú potrebné žiadne povolenia"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"Predvolená sprievodná aplikácia na hovory"</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"Sprievodná aplikácia na hovory"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"Chcete <xliff:g id="APP_NAME">%1$s</xliff:g> nastaviť ako predvolenú sprievodnú aplikáciu na telefonovanie?"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Aktuálne predvolená"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Nabudúce sa nepýtať"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Nastav. ako predvol."</string>
@@ -280,8 +270,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Otváranie odkazov"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Predvolené na prácu"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Žiadna"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Predvolená systémová)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Žiadne aplikácie"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"špeciálny prístup aplikácií"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Špeciálny prístup aplikácií"</string>
@@ -289,20 +278,21 @@
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"Žiadne aplikácie"</string>
     <string name="home_missing_work_profile_support" msgid="1439466272746259937">"Nepodporuje pracovný profil"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Poznámka: Ak reštartujete zariadenie a máte nastavenú zámku obrazovky, táto aplikácia sa spustí až po odomknutí zariadenia."</string>
-    <string name="assistant_confirmation_message" msgid="4529925223796676824">"Pomocník bude môcť čítať informácie o aplikáciách používaných vo vašom systéme vrátane údajov viditeľných na obrazovke alebo prístupných v aplikáciách."</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"Asistent bude môcť čítať informácie o aplikáciách používaných v systéme vrátane údajov viditeľných na obrazovke alebo prístupných v aplikáciách."</string>
     <string name="incident_report_channel_name" msgid="2405001892012870358">"Zdieľanie údajov o ladení"</string>
     <string name="incident_report_notification_title" msgid="8506385602505147862">"Chcete zdieľať podrobné údaje o ladení?"</string>
     <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> chce nahrať informácie o ladení."</string>
     <string name="incident_report_dialog_title" msgid="6147075171471634629">"Zdieľanie údajov o ladení"</string>
     <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> žiada o nahranie hlásenia chyby z tohto zariadenia vytvoreného <xliff:g id="DATE">%2$s</xliff:g> o <xliff:g id="TIME">%3$s</xliff:g>. Hlásenia chýb zahŕňajú osobné údaje o zariadení alebo osobné údaje zapísané aplikáciami, napríklad používateľské mená, údaje o polohe, identifikátory zariadenia a informácie o sieti. Hlásenia chýb zdieľajte iba s dôveryhodnými osobami a aplikáciami. Chcete povoliť aplikácii <xliff:g id="APP_NAME_1">%4$s</xliff:g> nahrať hlásenie chyby?"</string>
-    <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Pri spracovávaní hlásenia chyby pre <xliff:g id="APP_NAME">%1$s</xliff:g> sa vyskytla chyba. Zdieľanie podrobných údajov o ladení bolo preto zakázané. Ospravedlňujeme sa za prerušenie."</string>
+    <string name="incident_report_error_dialog_text" msgid="1001752000696958519">"Pri spracúvaní hlásenia chyby pre <xliff:g id="APP_NAME">%1$s</xliff:g> sa vyskytla chyba. Zdieľanie podrobných údajov o ladení bolo preto zamietnuté. Ospravedlňujeme sa za prerušenie."</string>
     <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Povoliť"</string>
-    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Odmietnuť"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Zamietnuť"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Rozšírené nastavenia"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Rozšírené nastavenia"</string>
-    <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Zobrazovať používanie systémových aplikácií"</string>
-    <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"Zobrazte si používanie povolení systémovými aplikáciami v stavovom riadku, hlavnom paneli a inde"</string>
-    <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Zvýraznenie používania nasledujúcej aplikácie"</string>
+    <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Zobrazovať využitie systémovými aplikáciami"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"Zobrazovať využitie povolení systémovými aplikáciami v stavovom riadku, hlavnom paneli a inde"</string>
+    <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Zvýrazniť využitie týmito aplikáciami"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Zobrazovať rozpoznávanie spúšťania Asistenta"</string>
-    <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Zobrazovať ikonu v stavovom riadku, keď sa hlasový asistent aktivuje pomocou mikrofónu"</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Zobrazovať v stavovom riadku ikonu, keď bude pomocou mikrofónu aktivovaný hlasový asistent"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Chcete povoliť aplikácii &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; používať fotky a médiá v zariadení?"</string>
 </resources>

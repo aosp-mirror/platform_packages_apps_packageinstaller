@@ -143,9 +143,9 @@
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Leyfa alltaf"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Leyfa aðeins þegar forritið er í notkun"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Hafna"</string>
-    <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> heimild"</string>
-    <string name="app_permission_header" msgid="228974007660007656">"Aðgangur að <xliff:g id="PERM">%1$s</xliff:g> fyrir þetta forrit"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"<xliff:g id="APP">%1$s</xliff:g> fékk aðgang að <xliff:g id="PERM">%2$s</xliff:g> fyrir <xliff:g id="TIME">%3$s</xliff:g>"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> - heimild"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>: Aðgangur fyrir þetta forrit"</string>
+    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"<xliff:g id="PERM">%2$s</xliff:g>: <xliff:g id="APP">%1$s</xliff:g> fékk aðgang að fyrir <xliff:g id="TIME">%3$s</xliff:g>"</string>
     <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"<xliff:g id="APP">%1$s</xliff:g> hefur ekki fengið aðgang að <xliff:g id="PERM">%2$s</xliff:g>"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Sem stendur eru gögn um síðasta aðgang ekki tiltæk fyrir þessa heimild."</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Sjá allar heimildir fyrir <xliff:g id="APP">%1$s</xliff:g>"</string>
@@ -230,11 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Forrit sem koma í stað heimaskjásins í Android tækinu þínu, stundum nefnd ræsiforrit, sem gefa þér aðgang að efni og eiginleikum í tækinu."</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Velja <xliff:g id="APP_NAME">%1$s</xliff:g> sem sjálfgefið heimaforrit?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Engra heimilda krafist"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Sjálfg. forrit bílastillingar"</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Símaforrit í bílastillingu"</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"Viltu gera <xliff:g id="APP_NAME">%1$s</xliff:g> að sjálfgefnu forriti fyrir bílastillingu?"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Sjálfg. forrit frams. símtala"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Símtalsflutningaforrit"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"Forrit sem leyfa þér að framsenda símtöl í annað símanúmer"</string>
@@ -245,11 +240,6 @@
     <string name="role_call_screening_description" msgid="9009090500431969390">"Forrit sem gera þér kleift að sjá hver er að hringja, loka fyrir símtöl úr ruslnúmerum og sjálfvirk símtöl, setja óæskileg símanúmer á bannlista og svo framvegis"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Velja <xliff:g id="APP_NAME">%1$s</xliff:g> sem sjálfgefið forrit fyrir númerabirtingu og ruslpóst?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Engra heimilda krafist"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"Sjálfgefið fylgiforrit símtala"</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"Fylgiforrit fyrir símtöl"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"Viltu gera <xliff:g id="APP_NAME">%1$s</xliff:g> að sjálfgefnu fylgiforriti símtala?"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Núverandi sjálfgefið forrit"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Ekki spyrja aftur"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Velja sem sjálfgefið"</string>
@@ -266,8 +256,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Opnar tengla"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Sjálfgefið fyrir vinnu"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Ekkert"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Sjálfgildi kerfis)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Engin forrit"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"sérstakur forritaaðgangur"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Sérstakur forritaaðgangur"</string>
@@ -291,4 +280,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Auðkenning notuð fyrir eftirfarandi"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Sýna virkjunarkennsl hjálpara"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Sýna tákn á stöðustiku þegar hljóðnemi er notaður til að ræsa raddaðstoð"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Veita &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aðgang að myndum og efni í tækinu?"</string>
 </resources>

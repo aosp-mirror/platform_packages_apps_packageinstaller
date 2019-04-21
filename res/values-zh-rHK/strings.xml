@@ -151,13 +151,13 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"查看「<xliff:g id="APP">%1$s</xliff:g>」的所有權限"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"查看擁有此權限的所有應用程式"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"擁有此權限的應用程式可以<xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"擁有此權限的應用程式可以存取您的運動資料，例如步行、踏單車、駕駛、步數及其他資料"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"擁有此權限的應用程式可以存取您的體能活動資料，例如步行、踏單車、駕駛、步數及其他資料"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"擁有此權限的應用程式可以存取您的日曆"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"擁有此權限的應用程式可以讀取及寫入手機通話記錄"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"擁有此權限的應用程式可以拍照及錄製影片"</string>
     <string name="permission_description_summary_contacts" msgid="5169995707720233126">"擁有此權限的應用程式可以存取您的聯絡人"</string>
     <string name="permission_description_summary_location" msgid="687820658574645201">"擁有此權限的應用程式可以存取此裝置的位置資訊"</string>
-    <string name="permission_description_summary_microphone" msgid="2300290217308759293">"擁有此權限的應用程式可以錄製音效檔案"</string>
+    <string name="permission_description_summary_microphone" msgid="2300290217308759293">"擁有此權限的應用程式可以錄音"</string>
     <string name="permission_description_summary_phone" msgid="3773977614654088578">"擁有此權限的應用程式可以撥打電話和管理通話"</string>
     <string name="permission_description_summary_sensors" msgid="6733606479604624853">"擁有此權限的應用程式可以存取與您身體機能相關的感應器資料"</string>
     <string name="permission_description_summary_sms" msgid="8850213022386508528">"擁有此權限的應用程式可以傳送及查看短訊"</string>
@@ -227,14 +227,9 @@
     <string name="role_emergency_request_description" msgid="2824966073894226992">"無需任何權限"</string>
     <string name="role_home_label" msgid="6245106863177808486">"預設主畫面應用程式"</string>
     <string name="role_home_short_label" msgid="4565882523300643525">"主畫面應用程式"</string>
-    <string name="role_home_description" msgid="6736956389161158052">"應用程式通常又稱啟動器，用於取代 Android 裝置的主畫面，並能讓您存取裝置的內容和功能"</string>
+    <string name="role_home_description" msgid="6736956389161158052">"這類應用程式通常稱為啟動器，用於取代 Android 裝置的主畫面，讓您存取裝置的內容和功能"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"要將「<xliff:g id="APP_NAME">%1$s</xliff:g>」設為預設主畫面應用程式嗎？"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"無需任何權限"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"預設車用模式手機應用程式"</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"車用模式手機應用程式"</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"要將 <xliff:g id="APP_NAME">%1$s</xliff:g> 設為預設車用模式手機應用程式嗎？"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"預設通話重新導向應用程式"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"通話重新導向應用程式"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"此類應用程式允許您將來電轉駁至其他手機號碼"</string>
@@ -245,11 +240,6 @@
     <string name="role_call_screening_description" msgid="9009090500431969390">"此類應用程式允許您辨識來電、封鎖垃圾郵件和預錄電話、將騷擾電話號碼加入黑名單及執行其他動作"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"要將「<xliff:g id="APP_NAME">%1$s</xliff:g>」設為預設來電顯示與垃圾郵件應用程式嗎？"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"無需任何權限"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"預設通話隨附應用程式"</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"通話隨附應用程式"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"要將 <xliff:g id="APP_NAME">%1$s</xliff:g> 設為預設通話隨附應用程式嗎？"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"目前預設"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"不要再詢問"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"設定為預設"</string>
@@ -266,8 +256,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"開啟連結"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"預設用於工作"</string>
     <string name="default_app_none" msgid="7671097769303174666">"無"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(系統預設)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"沒有應用程式"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"特別應用程式存取權"</string>
     <string name="special_app_access" msgid="2561673957499408877">"特別應用程式權限"</string>
@@ -291,4 +280,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"突顯以下應用程式的使用情況"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"顯示 Google 助理觸發偵測"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"使用麥克風啟用語音助手時，在狀態列中顯示圖示"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"要允許「<xliff:g id="APP_NAME">%1$s</xliff:g>」&lt;b&gt;&lt;/b&gt;存取您裝置上的相片和媒體嗎？"</string>
 </resources>

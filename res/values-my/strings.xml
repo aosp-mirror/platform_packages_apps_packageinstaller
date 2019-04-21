@@ -22,7 +22,7 @@
     <string name="cancel" msgid="7279939269964834974">"မလုပ်တော့"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"အက်ပ် မတွေ့ပါ"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"ငြင်းပယ်ရန်"</string>
-    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"ငြင်းပယ်ပြီး ထပ်မမေးတော့ရန်"</string>
+    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"ငြင်းပယ်သည်၊ ထပ်မမေးပါနှင့်"</string>
     <string name="grant_dialog_button_deny_background" msgid="5378693207810841555">"အသုံးပြုနေစဉ် ဝင်သုံးခွင့်ကို သိမ်းထားပါ"</string>
     <string name="grant_dialog_button_deny_background_and_dont_ask_again" msgid="1032019626928637454">"သိမ်းပါ၊ ထပ်မမေးပါနှင့်"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"နောက်ထပ်"</string>
@@ -105,7 +105,7 @@
     <string name="no_permission_usages" msgid="698858628357371611">"မည်သည့်ခွင့်ပြုချက်မှ မသုံးပါ"</string>
     <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"အချိန်မရွေး လတ်တလောအဖြစ်ဆုံး ဝင်သုံးမှု"</string>
     <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"ပြီးခဲ့သော ၇ ရက်အတွင်း လတ်တလော ဝင်သုံးမှု"</string>
-    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"ပြီးခဲ့သော ၂၄ နာရီအတွင်း လတ်တလော ဝင်သုံးမှု"</string>
+    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"ပြီးခဲ့သော ၂၄ နာရီအတွင်း နောက်ဆုံးအသုံးပြုမှု"</string>
     <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"ပြီးခဲ့သော ၁ နာရီအတွင်း လတ်တလော ဝင်သုံးမှု"</string>
     <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"ပြီးခဲ့သော ၁၅ မိနစ်အတွင်း လတ်တလော ဝင်သုံးမှု"</string>
     <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"ပြီးခဲ့သော ၁ မိနစ်အတွင်း လတ်တလော ဝင်သုံးမှု"</string>
@@ -150,7 +150,7 @@
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"ဤခွင့်ပြုချက်အတွက် နောက်ဆုံးဝင်သုံးထားသော ဒေတာကို လက်ရှိတွင် မရနိုင်ပါ"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"<xliff:g id="APP">%1$s</xliff:g> ခွင့်ပြုချက်အားလုံး ကြည့်ရန်"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"ဤခွင့်ပြုချက်ရှိသော အက်ပ်အားလုံးကို ကြည့်ရန်"</string>
-    <string name="permission_description_summary_generic" msgid="5479202003136667039">"ဤခွင့်ပြုချက် ရှိသောအက်ပ်များ <xliff:g id="DESCRIPTION">%1$s</xliff:g> နိုင်သည်"</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"ဤခွင့်ပြုချက်ရှိသော အက်ပ်များက <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"ဤခွင့်ပြုချက်ရှိသော အက်ပ်များက လမ်းလျှောက်ခြင်း၊ စက်ဘီးစီးခြင်း၊ ကားမောင်းခြင်း၊ ခြေလှမ်းအရေအတွက်နှင့် အခြားအရာများကဲ့သို့ သင့်ကိုယ်လက်လှုပ်ရှားမှုကို ဝင်သုံးနိုင်သည်"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"ဤခွင့်ပြုချက်ရှိသော အက်ပ်များက သင့်ပြက္ခဒိန်ကို ဝင်သုံးနိုင်သည်"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"ဤခွင့်ပြုချက်ရှိသော အက်ပ်များသည် ဖုန်းခေါ်ဆိုထားသော မှတ်တမ်းကို ဖတ်ခြင်း၊ ရေးခြင်းတို့ လုပ်နိုင်သည်"</string>
@@ -164,8 +164,8 @@
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"ဤခွင့်ပြုချက်ရှိသော အက်ပ်များက သင့်စက်ပေါ်ရှိ ဓာတ်ပုံ၊ မီဒီယာနှင့် ဖိုင်များကို ဝင်သုံးနိုင်သည်"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"နောက်ဆုံး အသုံးပြုချိန်- <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"လက်ရှိငြင်းပယ်ထားသည် / နောက်ဆုံးဝင်သုံးချိန်− <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
-    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"တစ်ခါမျှ အသုံးပြုမထားပါ"</string>
-    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"ငြင်းထားသည် / တစ်ခါမျှ အသုံးပြုမထားပါ"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"တစ်ခါမှ အသုံးပြုမထားပါ"</string>
+    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"ငြင်းထားသည် / တစ်ခါမှ အသုံးပြုမထားပါ"</string>
     <string name="allowed_header" msgid="6279244592227088158">"ခွင့်ပြုထားသည်"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"အမြဲ ခွင့်ပြုထားသည်များ"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"အသုံးပြုစဉ်တွင်သာ ခွင့်ပြုထားသည်"</string>
@@ -230,11 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"သင့် Android စက်ပစ္စည်းပေါ်ရှိ \'ပင်မစာမျက်နှာများ\' ကိုအစားထိုးသော ဖွင့်စနစ်များဟု ခေါ်လေ့ရှိသည့် အက်ပ်များနှင့် သင့်စက်ပစ္စည်း၏ အကြောင်းအရာနှင့် ဝန်ဆောင်မှုများသို့ ဝင်သုံးခွင့်ပေးသော အက်ပ်များ"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"<xliff:g id="APP_NAME">%1$s</xliff:g> ကို သင့်မူရင်း ပင်မစာမျက်နှာ အက်ပ်အဖြစ် သတ်မှတ်လိုပါသလား။"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"ခွင့်ပြုချက် မလိုပါ"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"မူရင်း ကားမုဒ်ဖုန်းအက်ပ်"</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"ကားမုဒ် ဖုန်းအက်ပ်"</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"<xliff:g id="APP_NAME">%1$s</xliff:g> ကို သင့်မူရင်း ကားမုဒ် ဖုန်းအက်ပ်အဖြစ် သတ်မှတ်လိုပါသလား။"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"မူရင်း ဖုန်းတစ်ဆင့်ခေါ် အက်ပ်"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"ခေါ်ဆိုမှု တစ်ဆင့်ညွှန်အက်ပ်"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"ခေါ်ဆိုမှုများကို နောက်ဖုန်းနံပါတ်တစ်ခုသို့ ရှေ့ဆက်ပို့ရန် ခွင့်ပြုသော အက်ပ်များ"</string>
@@ -245,11 +240,6 @@
     <string name="role_call_screening_description" msgid="9009090500431969390">"အဝင်ခေါ်ဆိုမှုများ ခွဲခြားသတ်မှတ်ခြင်း၊ စပမ်းနှင့် အလိုအလျောက် ဖုန်းခေါ်ဆိုမှုစနစ်များ ပိတ်ဆို့ခြင်း၊ မလိုလားသော နံပါတ်များကို အမည်ပျက်စာရင်းသွင်းခြင်းနှင့် အခြားအရာများ ပြုလုပ်ခွင့်ပြုသော အက်ပ်များ"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"<xliff:g id="APP_NAME">%1$s</xliff:g> ကို သင့်မူရင်း ခေါ်ဆိုသူ ID နှင့် စပမ်းအက်ပ်အဖြစ် သတ်မှတ်လိုပါသလား။"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"ခွင့်ပြုချက် မလိုပါ"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"မူရင်း ခေါ်ဆိုမှု တွဲဖက်အက်ပ်"</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"ခေါ်ဆိုမှု တွဲဖက်အက်ပ်"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"<xliff:g id="APP_NAME">%1$s</xliff:g> ကို သင့်မူရင်း ခေါ်ဆိုမှုတွဲဖက် အက်ပ်အဖြစ် သတ်မှတ်လိုပါသလား။"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"လက်ရှိ မူရင်း"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"ထပ်မမေးပါနှင့်"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"မူရင်း သတ်မှတ်ရန်"</string>
@@ -266,8 +256,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"လင့်ခ်များကို ဖွင့်ခြင်း"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"အလုပ်အတွက် မူရင်း"</string>
     <string name="default_app_none" msgid="7671097769303174666">"မရှိ"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(စနစ်မူလ)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"အက်ပ် မရှိပါ"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"အထူးအက်ပ်များ ဝင်သုံးခွင့်"</string>
     <string name="special_app_access" msgid="2561673957499408877">"အထူးအက်ပ်များ သုံးခွင့်ရှိသည်"</string>
@@ -291,4 +280,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"အောက်ပါအတွက် အသုံးပြုမှုကို အထူးအသားပေးခြင်း"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Assistant စတင်မှုဆိုင်ရာ သိရှိစနစ်ကို ပြပါ"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"\'အသံ အကူအညီ\' စတင်ရန် မိုက်ခရိုဖုန်းအသုံးပြုသည့်အခါ သင်္ကေတကို အခြေအနေဘားတွင် ပြပါသည်"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; အား သင့်စက်ပေါ်ရှိ ဓာတ်ပုံနှင့် မီဒီယာဖိုင်များ ဝင်သုံးခွင့်ပေးလိုပါသလား။"</string>
 </resources>

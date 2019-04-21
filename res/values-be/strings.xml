@@ -22,7 +22,7 @@
     <string name="cancel" msgid="7279939269964834974">"Скасаваць"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Праграма не знойдзена"</string>
     <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Адмовіць"</string>
-    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Адхіліць і больш не пытацца"</string>
+    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Адмовіць і больш не пытацца"</string>
     <string name="grant_dialog_button_deny_background" msgid="5378693207810841555">"Захаваць доступ падчас карыстання"</string>
     <string name="grant_dialog_button_deny_background_and_dont_ask_again" msgid="1032019626928637454">"Захаваць і больш не пытацца"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Разгарнуць"</string>
@@ -156,7 +156,7 @@
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Даныя пра апошні доступ цяпер недаступныя для гэтага дазволу"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Паказаць усе дазволы праграмы \"<xliff:g id="APP">%1$s</xliff:g>\""</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Паказаць усе праграмы з гэтым дазволам"</string>
-    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Праграмы з гэтым дазволам могуць: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Характарыстыка дазволу: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Праграмы з такім дазволам могуць мець доступ да звестак пра вашу фізічную актыўнасць, напрыклад перамяшчэнні пешшу, язду на веласіпедзе, на аўтамабілі, колькасць крокаў і многае іншае"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Праграмы з гэтым дазволам могуць мець доступ да календара"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Праграмы з гэтым дазволам могуць чытаць журнал выклікаў тэлефона і рабіць у яго запісы"</string>
@@ -207,8 +207,8 @@
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Толькі ў актыўным рэжыме праграмы"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Няма дазволаў"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Дазволы не адхілены"</string>
-    <string name="no_apps_allowed" msgid="4529095928504611810">"Праграмы не дазволены"</string>
-    <string name="no_apps_denied" msgid="2736758388618487796">"Праграмы не адхілены"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"Няма дазволеных праграм"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"Няма адмоўленых праграм"</string>
     <string name="settings" msgid="2884124136779508907">"Налады"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> мае поўны доступ да даных вашай прылады"</string>
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"Праграмы са спецыяльнымі магчымасцямі (<xliff:g id="NUM_SERVICES">%s</xliff:g> шт.) маюць поўны доступ да даных вашай прылады"</string>
@@ -244,11 +244,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"Праграмы, якія часта называюцца панэлямі запуску, замяняюць сабой галоўныя экраны на прыладзе Android і забяспечваюць вам доступ да змесціва і функцый прылады"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Прызначыць \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" стандартнай галоўнай праграмай?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Дазволы не патрэбныя"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Праграма рэжыму \"У аўтамабілі\""</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Праграма рэжыму \"У аўтамабілі\""</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"Прызначыць \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" стандартнай праграмай для рэжыму \"У аўтамабілі\"?"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Праграма перанакіравання"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Перанакіраванне выклікаў"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"Праграмы, якія дазваляюць вам пераадрасоўваць выклікі на іншы нумар тэлефона"</string>
@@ -259,11 +254,6 @@
     <string name="role_call_screening_description" msgid="9009090500431969390">"Праграмы, якія дазваляюць вам вызначаць уваходныя выклікі, блакіраваць спам і аўтаматызаваныя выклікі, уносіць непажаданыя нумары ў чорны спіс і гэтак далей"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Прызначыць \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" стандартнай праграмай для ідэнтыфікацыі абанента і спама?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Дазволы не патрэбныя"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"Спадарожная праграма выклікаў"</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"Спадарожная праграма выклікаў"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"Прызначыць \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" стандартнай спадарожнай праграмай для выклікаў?"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Цяперашняя стандартная"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Больш не пытацца"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Зрабіць стандартнай"</string>
@@ -280,8 +270,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Адкрыццё спасылак"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Стандартныя для працы"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Няма"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Стандартная сістэмная)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Няма праграм"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"спецыяльны доступ да праграм"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Спецыяльны доступ да праграм"</string>
@@ -305,4 +294,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Паказваць выбраныя праграмы"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Паказваць значок актывацыі Памочніка"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Паказваць значок на панэлі стану, калі мікрафон выкарыстоўваецца для актывацыі галасавога памочніка"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Дазволіць праграме &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; доступ да фота і мультымедыя на вашай прыладзе?"</string>
 </resources>

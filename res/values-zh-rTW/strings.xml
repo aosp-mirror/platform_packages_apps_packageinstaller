@@ -26,7 +26,7 @@
     <string name="grant_dialog_button_deny_background" msgid="5378693207810841555">"維持僅在使用時存取"</string>
     <string name="grant_dialog_button_deny_background_and_dont_ask_again" msgid="1032019626928637454">"維持原狀且不要再詢問"</string>
     <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"更多資訊"</string>
-    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"直接拒絕"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"仍要拒絕"</string>
     <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>/<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="1353228984024423745">"要允許「<xliff:g id="APP_NAME">%1$s</xliff:g>」<xliff:g id="ACTION">%2$s</xliff:g>嗎？"</string>
     <string name="permission_add_background_warning_template" msgid="1046864917164159751">"要一律允許「<xliff:g id="APP_NAME">%1$s</xliff:g>」<xliff:g id="ACTION">%2$s</xliff:g>嗎？"</string>
@@ -54,12 +54,12 @@
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"這個應用程式是為舊版 Android 所開發。拒絕授予權限可能導致應用程式無法正常運作。"</string>
     <string name="default_permission_description" msgid="692254823411049573">"執行不明的動作"</string>
     <string name="app_permissions_group_summary" msgid="5019625174481872207">"已授權給 <xliff:g id="COUNT_0">%1$d</xliff:g> 個應用程式 (共 <xliff:g id="COUNT_1">%2$d</xliff:g> 個)"</string>
-    <string name="menu_show_system" msgid="7623002570829860709">"顯示系統"</string>
-    <string name="menu_hide_system" msgid="2274204366405029090">"隱藏系統"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"顯示系統程序"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"隱藏系統程序"</string>
     <string name="no_apps" msgid="2377153782338039463">"沒有應用程式"</string>
     <string name="location_settings" msgid="547378321761364906">"位置資訊設定"</string>
     <string name="location_warning" msgid="4687406043150343369">"「<xliff:g id="APP_NAME">%1$s</xliff:g>」是這個裝置的定位服務供應商。你可以在位置資訊設定中修改位置資訊存取權。"</string>
-    <string name="system_warning" msgid="6868290533389195836">"如果你拒絕這項權限，裝置的基本功能可能無法正常運作。"</string>
+    <string name="system_warning" msgid="6868290533389195836">"如果你拒絕開放這項權限，裝置的基本功能可能無法正常運作。"</string>
     <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"依據政策規定強制執行"</string>
     <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"已根據政策停用背景存取權"</string>
     <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"已根據政策啟用背景存取權"</string>
@@ -95,7 +95,7 @@
     <string name="permission_usage_title" msgid="6808284837306026819">"資訊主頁"</string>
     <string name="permission_usage_summary_foreground" msgid="2482299388611440256">"上次存取時間：<xliff:g id="TIME">%1$s</xliff:g>\n在你上次使用該應用程式時存取"</string>
     <string name="permission_usage_summary_background" msgid="4789805581854248472">"上次存取時間：<xliff:g id="TIME">%1$s</xliff:g>\n(於背景存取)"</string>
-    <string name="permission_usage_any_permission" msgid="7824062114364689751">"任意權限"</string>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"不限權限"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"不限時間"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"過去 7 天"</string>
     <string name="permission_usage_last_day" msgid="4149912805759768249">"過去 24 小時"</string>
@@ -230,11 +230,6 @@
     <string name="role_home_description" msgid="6736956389161158052">"這類應用程式通常稱為啟動器，能夠取代 Android 裝置的主螢幕，並可讓你存取裝置的內容與功能"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"要將「<xliff:g id="APP_NAME">%1$s</xliff:g>」設為預設的主螢幕應用程式嗎？"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"無需任何權限"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"預設的車用模式電話應用程式"</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"車用模式電話應用程式"</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"要將「<xliff:g id="APP_NAME">%1$s</xliff:g>」設為預設的車用模式電話應用程式嗎？"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"預設的電話轉接應用程式"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"來電轉接應用程式"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"這類應用程式可讓你將來電轉接到其他電話號碼"</string>
@@ -245,11 +240,6 @@
     <string name="role_call_screening_description" msgid="9009090500431969390">"這類應用程式可讓你辨識來電、封鎖騷擾/廣告電和自動語音電話、將不想接聽的電話號碼加入黑名單等等"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"要將「<xliff:g id="APP_NAME">%1$s</xliff:g>」設為預設的來電顯示與騷擾/廣告電話過濾應用程式嗎？"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"無需任何權限"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"預設的通話隨附應用程式"</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"通話隨附應用程式"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"要將「<xliff:g id="APP_NAME">%1$s</xliff:g>」設為預設的通話隨附應用程式嗎？"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"目前的預設應用程式"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"不要再詢問"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"設為預設"</string>
@@ -266,8 +256,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"開啟連結"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"預設的工作應用程式"</string>
     <string name="default_app_none" msgid="7671097769303174666">"無"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(系統預設)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"沒有可用的應用程式"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"特殊應用程式存取權"</string>
     <string name="special_app_access" msgid="2561673957499408877">"特殊應用程式存取權"</string>
@@ -291,4 +280,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"醒目顯示以下應用程式的使用情況"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"顯示 Google 助理觸發條件偵測結果"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"使用麥克風啟用語音小幫手時在狀態列顯示相關圖示"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"要允許「<xliff:g id="APP_NAME">%1$s</xliff:g>」存取裝置中的相片和媒體嗎？"</string>
 </resources>

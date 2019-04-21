@@ -159,7 +159,7 @@
     <string name="permission_description_summary_location" msgid="687820658574645201">"Programme met hierdie toestemming kan toegang tot jou toestel se ligging kry"</string>
     <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Programme met hierdie toestemming kan oudio opneem"</string>
     <string name="permission_description_summary_phone" msgid="3773977614654088578">"Programme met hierdie toestemming kan foonoproepe maak en bestuur"</string>
-    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Programme met hierdie toestemming kan toegang kry tot sensordata oor jou lewenstekens?"</string>
+    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Programme met hierdie toestemming kan toegang kry tot sensordata oor jou lewenstekens"</string>
     <string name="permission_description_summary_sms" msgid="8850213022386508528">"Programme met hierdie toestemming kan SMS-boodskappe stuur en bekyk"</string>
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"Programme met hierdie toestemming kan ingaan by foto\'s, media en lêers op jou toestel"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Jongste toegang: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
@@ -227,14 +227,9 @@
     <string name="role_emergency_request_description" msgid="2824966073894226992">"Geen toestemmings is nodig nie"</string>
     <string name="role_home_label" msgid="6245106863177808486">"Verstekhuisprogram"</string>
     <string name="role_home_short_label" msgid="4565882523300643525">"Huisprogram"</string>
-    <string name="role_home_description" msgid="6736956389161158052">"Programme, dikwels lanseerders genoem, wat die Tuisskerms op jou Android-toestel vervang en jou toegang tot die inhoud en kenmerke van jou toestel gee"</string>
+    <string name="role_home_description" msgid="6736956389161158052">"Programme, wat dikwels lanseerders genoem word, wat die Tuisskerms op jou Android-toestel vervang en vir jou toegang gee tot die inhoud en kenmerke van jou toestel"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Stel <xliff:g id="APP_NAME">%1$s</xliff:g> as jou verstekhuisprogram?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Geen toestemmings is nodig nie"</string>
-    <string name="role_car_mode_dialer_label" msgid="4595963908499682544">"Motormodusfoon-verstekprogram"</string>
-    <string name="role_car_mode_dialer_short_label" msgid="9197533135596737192">"Motormodus-foonprogram"</string>
-    <string name="role_car_mode_dialer_description" msgid="3460581309103379657"></string>
-    <string name="role_car_mode_dialer_request_title" msgid="8346857419720068662">"Stel <xliff:g id="APP_NAME">%1$s</xliff:g> as jou motormodusfoon-verstekprogram?"</string>
-    <string name="role_car_mode_dialer_request_description" msgid="1463755737928650351"></string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Oproepherleiding-verstekprogram"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Oproepherleidingprogram"</string>
     <string name="role_call_redirection_description" msgid="159351481987081777">"Programme wat jou toelaat om oproepe na \'n ander foonnommer aan te stuur"</string>
@@ -245,11 +240,6 @@
     <string name="role_call_screening_description" msgid="9009090500431969390">"Programme wat jou toelaat om inkomende oproepe te identifiseer, strooipos en robotoproepe te blokkeer, ongewenste nommers te swartlys, en so aan"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Stel <xliff:g id="APP_NAME">%1$s</xliff:g> as jou verstekbeller-ID en -strooiposprogram?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Geen toestemmings is nodig nie"</string>
-    <string name="role_call_companion_label" msgid="7279864885074735989">"Oproepmetgesel-verstekprogram"</string>
-    <string name="role_call_companion_short_label" msgid="1623131440707498562">"Oproepmetgeselprogram"</string>
-    <string name="role_call_companion_description" msgid="6213685488394109285"></string>
-    <string name="role_call_companion_request_title" msgid="8482826056222122751">"Stel <xliff:g id="APP_NAME">%1$s</xliff:g> as jou oproepmetgesel-verstekprogram?"</string>
-    <string name="role_call_companion_request_description" msgid="1193737624836397369"></string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Huidige verstek"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Moenie weer vra nie"</string>
     <string name="request_role_set_as_default" msgid="5706081295230541240">"Stel as verstek"</string>
@@ -266,8 +256,7 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Oopmaak van skakels"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Verstek vir werk"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Geen"</string>
-    <!-- no translation found for default_app_system_default (3870203641514466948) -->
-    <skip />
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Stelselverstek)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Geen programme nie"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"spesiale programtoegang"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Spesiale programtoegang"</string>
@@ -291,4 +280,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Beklemtoon gebruik vir die volgende"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Wys Assistent-aktiveringbespeuring"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Wys ikoon in statusbalk wanneer mikrofoon gebruik word om stemassistent te aktiveer"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Gee &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; toegang tot jou foto\'s en media op jou toestel?"</string>
 </resources>
