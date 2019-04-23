@@ -19,7 +19,6 @@ package com.android.packageinstaller.permission.ui.handheld;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.os.UserHandle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,7 +33,6 @@ import androidx.preference.PreferenceViewHolder;
 
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissionUsage.GroupUsage;
-import com.android.packageinstaller.permission.ui.AppPermissionActivity;
 import com.android.permissioncontroller.R;
 
 import java.util.List;
@@ -60,11 +58,11 @@ public class PermissionControlPreference extends Preference {
         mTitleIcons = null;
         mSummaryIcons = null;
         setOnPreferenceClickListener(preference -> {
-            Intent intent = new Intent(context, AppPermissionActivity.class);
+            Intent intent = new Intent(Intent.ACTION_MANAGE_APP_PERMISSION);
             intent.putExtra(Intent.EXTRA_PACKAGE_NAME, group.getApp().packageName);
             intent.putExtra(Intent.EXTRA_PERMISSION_NAME, group.getPermissions().get(0).getName());
             intent.putExtra(Intent.EXTRA_USER, group.getUser());
-            context.startActivityAsUser(intent, UserHandle.SYSTEM);
+            context.startActivity(intent);
             return true;
         });
     }
