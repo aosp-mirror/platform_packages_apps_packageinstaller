@@ -23,7 +23,7 @@
         <item name="preferenceCategoryTitleTextAppearance">@style/TextAppearance.CategoryTitle</item>
     </style>
     <style name="TextAppearance.CategoryTitle"
-           parent="@*android:style/TextAppearance.DeviceDefault.Body2">
+           parent="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textAllCaps">true</item>
         <item name="android:textSize">11sp</item>
         <!-- 0.8 Spacing, 0.8/11 = 0.072727273 -->
@@ -45,10 +45,10 @@
     <style name="GrantPermissions"
            parent="@android:style/Theme.DeviceDefault.Light.Dialog.Alert">
         <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
         <!-- The following attributes change the behavior of the dialog, hence they should not be
              themed -->
         <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowCloseOnTouchOutside">@*android:bool/config_closeDialogWhenTouchOutside</item>
     </style>
 
     <style name="Header.Settings"
@@ -71,6 +71,7 @@
 
     <style name="Theme.PermissionGrantDialog"
            parent="@android:style/Theme.DeviceDefault.Light.Dialog">
+        <item name="android:divider">@drawable/list_divider</item>
     </style>
 
     <style name="PermissionDialog"
