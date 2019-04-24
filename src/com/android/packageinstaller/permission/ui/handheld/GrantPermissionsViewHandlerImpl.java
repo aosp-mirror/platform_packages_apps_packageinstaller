@@ -26,12 +26,15 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Icon;
 import android.os.Bundle;
+import android.transition.ChangeBounds;
+import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.WindowManager.LayoutParams;
 import android.view.accessibility.AccessibilityNodeInfo;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -139,12 +142,23 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         updateDescription();
         updateDetailDescription();
         updateButtons();
+
+//      Animate change in size
+//      Grow or shrink the content container to size of new content
+        ChangeBounds growShrinkToNewContentSize = new ChangeBounds();
+        growShrinkToNewContentSize.setDuration(ANIMATION_DURATION_MILLIS);
+        growShrinkToNewContentSize.setInterpolator(AnimationUtils.loadInterpolator(mActivity,
+                android.R.interpolator.fast_out_slow_in));
+        TransitionManager.beginDelayedTransition(mRootView, growShrinkToNewContentSize);
     }
 
     @Override
     public View createView() {
         mRootView = (ViewGroup) LayoutInflater.from(mActivity)
                 .inflate(R.layout.grant_permissions, null);
+
+        int h = mActivity.getResources().getDisplayMetrics().heightPixels;
+        mRootView.setMinimumHeight(h);
 
         mMessageView = (TextView) mRootView.findViewById(R.id.permission_message);
         mDetailMessageView = (TextView) mRootView.findViewById(R.id.detail_message);
