@@ -533,12 +533,14 @@ public class Role {
      *
      * @param packageName the package name of the application to be granted this role to
      * @param dontKillApp whether this application should not be killed despite changes
+     * @param overrideUserSetAndFixedPermissions whether to override user set and fixed flags on
+     *                                           permissions
      * @param context the {@code Context} to retrieve system services
      */
-    public void grant(@NonNull String packageName, boolean dontKillApp, @NonNull Context context) {
+    public void grant(@NonNull String packageName, boolean dontKillApp,
+            boolean overrideUserSetAndFixedPermissions, @NonNull Context context) {
         boolean permissionOrAppOpChanged = Permissions.grant(packageName, mPermissions,
-                true /*overrideDisabledSystemPackageAndUserSetAndFixedPermissions*/,
-                false /*setPermissionsSystemFixed*/, false /*defaultGrant*/, context);
+                true, overrideUserSetAndFixedPermissions, false, false, context);
 
         int appOpsSize = mAppOps.size();
         for (int i = 0; i < appOpsSize; i++) {
