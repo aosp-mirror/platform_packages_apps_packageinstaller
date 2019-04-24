@@ -22,6 +22,7 @@
 
             <!-- START PERMISSION GRANT DIALOG -->
             <item type="style" name="PermissionGrantScrollView" />
+            <item type="style" name="PermissionGrantSingleton" />
             <item type="style" name="PermissionGrantDialog" />
 
             <item type="style" name="PermissionGrantContent" />
@@ -185,6 +186,10 @@
             <item type="style" name="AccessibilityServiceDialogItemSummary" />
             <!-- END ACCESSIBILITY SERVICE DIALOG ITEM -->
 
+            <!-- START LOCATION ACCESS CHECK PIN DROP -->
+            <item type="color" name="system_notification_accent_color" />
+            <!-- END LOCATION ACCESS CHECK PIN DROP -->
+
             <!-- START SETTINGSLIB BARCHARTPREFERENCE -->
             <item type="style" name="SettingsBarChart" />
             <item type="style" name="SettingsBarChartTitle" />
@@ -209,6 +214,18 @@
             <!-- DIMEN -->
             <item type="dimen" name="secondary_app_icon_size" />
             <!-- END SETTINGSLIB APPPREFERENCE -->
+
+            <!-- START THEMES -->
+            <item type="style" name="Settings" />
+            <item type="style" name="TextAppearance.CategoryTitle" />
+            <item type="style" name="PagedListTheme" />
+            <item type="style" name="ReviewPermissions" />
+            <item type="style" name="GrantPermissions" />
+            <item type="style" name="Header.Settings" />
+            <item type="style" name="RequestRole" />
+            <item type="style" name="Theme.PermissionGrantDialog" />
+            <item type="style" name="PermissionDialog" />
+            <!-- END THEMES -->
 
         </policy>
 

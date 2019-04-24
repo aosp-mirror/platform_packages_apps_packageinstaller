@@ -21,6 +21,9 @@
     android:layout_height="match_parent"
     style="@style/PermissionGrantScrollView">
 
+    <LinearLayout
+        style="@style/PermissionGrantSingleton">
+
         <!-- The dialog -->
         <LinearLayout
             android:theme="@style/Theme.PermissionGrantDialog"
@@ -83,4 +86,5 @@
             </LinearLayout>
 
         </LinearLayout>
+    </LinearLayout>
 </ScrollView>

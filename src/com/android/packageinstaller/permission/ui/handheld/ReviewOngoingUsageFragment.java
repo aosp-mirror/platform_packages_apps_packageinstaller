@@ -210,7 +210,7 @@ public final class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
                 intent.putExtra(Intent.EXTRA_PACKAGE_NAME, packageName);
                 intent.putExtra(Intent.EXTRA_USER, user);
-                context.startActivityAsUser(intent, user);
+                context.startActivity(intent);
                 mDialog.dismiss();
             });
 
