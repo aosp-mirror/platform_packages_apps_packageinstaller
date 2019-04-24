@@ -62,13 +62,11 @@ public class Permissions {
      *
      * @param packageName the package name of the application to be granted permissions to
      * @param permissions the list of permissions to be granted
-     * @param overrideDisabledSystemPackageAndUserSetAndFixed whether to ignore the permissions of a
-     *                                                        disabled system package (if this
-     *                                                        package is an updated system package),
-     *                                                        and whether to override user set and
-     *                                                        fixed flags on the permission
+     * @param overrideDisabledSystemPackage whether to ignore the permissions of a disabled system
+     *                                      package (if this package is an updated system package)
+     * @param overrideUserSetAndFixed whether to override user set and fixed flags on the permission
+     * @param setGrantedByDefault whether the permissions will be granted as granted-by-default
      * @param setSystemFixed whether the permissions will be granted as system-fixed
-     * @param defaultGrant whether this is a default grant
      * @param context the {@code Context} to retrieve system services
      *
      * @return whether any permission or app op changed
@@ -77,8 +75,8 @@ public class Permissions {
      *      PackageInfo, java.util.Set, boolean, boolean, int)
      */
     public static boolean grant(@NonNull String packageName, @NonNull List<String> permissions,
-            boolean overrideDisabledSystemPackageAndUserSetAndFixed, boolean setSystemFixed,
-            boolean defaultGrant, @NonNull Context context) {
+            boolean overrideDisabledSystemPackage, boolean overrideUserSetAndFixed,
+            boolean setGrantedByDefault, boolean setSystemFixed, @NonNull Context context) {
         PackageInfo packageInfo = getPackageInfo(packageName, context);
         if (packageInfo == null) {
             return false;
@@ -115,7 +113,7 @@ public class Permissions {
         // choice to grant this app the permissions needed to function. For all other
         // apps, (default grants on first boot and user creation) we don't grant default
         // permissions if the version on the system image does not declare them.
-        if (!overrideDisabledSystemPackageAndUserSetAndFixed && isUpdatedSystemApp(packageInfo)) {
+        if (!overrideDisabledSystemPackage && isUpdatedSystemApp(packageInfo)) {
             PackageInfo disabledSystemPackageInfo = getFactoryPackageInfo(packageName, context);
             if (disabledSystemPackageInfo != null) {
                 if (ArrayUtils.isEmpty(disabledSystemPackageInfo.requestedPermissions)) {
@@ -148,29 +146,28 @@ public class Permissions {
             }
         }
 
-        Set<String> whitelistedRestrictedPermissions = new ArraySet<>(context.getPackageManager()
-                .getWhitelistedRestrictedPermissions(packageName,
-                        PackageManager.FLAG_PERMISSION_WHITELIST_SYSTEM));
+        boolean permissionOrAppOpChanged = false;
 
+        PackageManager packageManager = context.getPackageManager();
+        Set<String> whitelistedRestrictedPermissions = new ArraySet<>(
+                packageManager.getWhitelistedRestrictedPermissions(packageName,
+                        PackageManager.FLAG_PERMISSION_WHITELIST_SYSTEM));
         List<String> smsPermissions = Utils.getPlatformPermissionNamesOfGroup(
                 Manifest.permission_group.SMS);
         List<String> callLogPermissions = Utils.getPlatformPermissionNamesOfGroup(
                 Manifest.permission_group.CALL_LOG);
-
-        boolean permissionOrAppOpChanged = false;
 
         int sortedPermissionsToGrantLength = sortedPermissionsToGrant.length;
         for (int i = 0; i < sortedPermissionsToGrantLength; i++) {
             String permission = sortedPermissionsToGrant[i];
 
             permissionOrAppOpChanged |= grantSingle(packageName, permission,
-                    overrideDisabledSystemPackageAndUserSetAndFixed, setSystemFixed,
-                    defaultGrant, context);
+                    overrideUserSetAndFixed, setGrantedByDefault, setSystemFixed, context);
 
             if ((smsPermissions.contains(permission) || callLogPermissions.contains(permission))
                     && whitelistedRestrictedPermissions.add(permission)) {
-                context.getPackageManager().addWhitelistedRestrictedPermission(packageName,
-                        permission, PackageManager.FLAG_PERMISSION_WHITELIST_SYSTEM);
+                packageManager.addWhitelistedRestrictedPermission(packageName, permission,
+                        PackageManager.FLAG_PERMISSION_WHITELIST_SYSTEM);
             }
         }
 
@@ -178,7 +175,7 @@ public class Permissions {
     }
 
     private static boolean grantSingle(@NonNull String packageName, @NonNull String permission,
-            boolean overrideUserSetAndFixed, boolean setSystemFixed, boolean defaultGrant,
+            boolean overrideUserSetAndFixed, boolean setGrantedByDefault, boolean setSystemFixed,
             @NonNull Context context) {
         boolean wasPermissionOrAppOpGranted = isPermissionAndAppOpGranted(packageName, permission,
                 context);
@@ -213,7 +210,7 @@ public class Permissions {
 
         // Update permission flags.
         int newFlags = 0;
-        if (defaultGrant) {
+        if (setGrantedByDefault) {
             newFlags |= PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT;
         }
         if (setSystemFixed) {
@@ -228,7 +225,7 @@ public class Permissions {
         }
         // If a component gets a permission for being the default handler A and also default handler
         // B, we grant the weaker grant form. This only applies to default permission grant.
-        if (defaultGrant && !setSystemFixed) {
+        if (setGrantedByDefault && !setSystemFixed) {
             int oldFlags = getPermissionFlags(packageName, permission, context);
             if ((oldFlags & PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT) != 0
                     && (oldFlags & PackageManager.FLAG_PERMISSION_SYSTEM_FIXED) != 0) {
@@ -398,8 +395,9 @@ public class Permissions {
             }
         }
 
-        Set<String> whitelistedRestrictedPermissions = context.getPackageManager()
-                .getWhitelistedRestrictedPermissions(packageName,
+        PackageManager packageManager = context.getPackageManager();
+        Set<String> whitelistedRestrictedPermissions =
+                packageManager.getWhitelistedRestrictedPermissions(packageName,
                         Utils.FLAGS_PERMISSION_WHITELIST_ALL);
 
         boolean permissionOrAppOpChanged = false;
@@ -413,10 +411,9 @@ public class Permissions {
 
             // Remove from the system whitelist only if not granted by default.
             if (!isPermissionGrantedByDefault(packageName, permission, context)
-                    && whitelistedRestrictedPermissions != null
                     && whitelistedRestrictedPermissions.remove(permission)) {
-                context.getPackageManager().removeWhitelistedRestrictedPermission(packageName,
-                        permission, PackageManager.FLAG_PERMISSION_WHITELIST_SYSTEM);
+                packageManager.removeWhitelistedRestrictedPermission(packageName, permission,
+                        PackageManager.FLAG_PERMISSION_WHITELIST_SYSTEM);
             }
         }
 
