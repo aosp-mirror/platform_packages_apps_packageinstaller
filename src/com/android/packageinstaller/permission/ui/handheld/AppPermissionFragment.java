@@ -110,11 +110,15 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
      * @return A new fragment
      */
     public static @NonNull AppPermissionFragment newInstance(@NonNull String packageName,
-            @NonNull String groupName, @NonNull UserHandle userHandle) {
+            @NonNull String permName, @Nullable String groupName, @NonNull UserHandle userHandle) {
         AppPermissionFragment fragment = new AppPermissionFragment();
         Bundle arguments = new Bundle();
         arguments.putString(Intent.EXTRA_PACKAGE_NAME, packageName);
-        arguments.putString(Intent.EXTRA_PERMISSION_GROUP_NAME, groupName);
+        if (groupName == null) {
+            arguments.putString(Intent.EXTRA_PERMISSION_NAME, permName);
+        } else {
+            arguments.putString(Intent.EXTRA_PERMISSION_GROUP_NAME, groupName);
+        }
         arguments.putParcelable(Intent.EXTRA_USER, userHandle);
         fragment.setArguments(arguments);
         return fragment;
@@ -146,6 +150,9 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
 
         String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
         String groupName = getArguments().getString(Intent.EXTRA_PERMISSION_GROUP_NAME);
+        if (groupName == null) {
+            groupName = getArguments().getString(Intent.EXTRA_PERMISSION_NAME);
+        }
         PackageItemInfo groupInfo = Utils.getGroupInfo(groupName, context);
         List<PermissionInfo> groupPermInfos = Utils.getGroupPermissionInfos(groupName, context);
         if (groupInfo == null || groupPermInfos == null) {
