@@ -19,6 +19,7 @@ package com.android.packageinstaller.permission.model;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.os.UserHandle;
 import android.util.ArrayMap;
 
 import com.android.packageinstaller.permission.utils.Utils;
@@ -108,8 +109,10 @@ public final class AppPermissions {
 
     private void loadPackageInfo() {
         try {
-            mPackageInfo = mContext.getPackageManager().getPackageInfo(
-                    mPackageInfo.packageName, PackageManager.GET_PERMISSIONS);
+            mPackageInfo = mContext.createPackageContextAsUser(mPackageInfo.packageName, 0,
+                    UserHandle.getUserHandleForUid(mPackageInfo.applicationInfo.uid))
+                    .getPackageManager().getPackageInfo(mPackageInfo.packageName,
+                            PackageManager.GET_PERMISSIONS);
         } catch (PackageManager.NameNotFoundException e) {
             if (mOnErrorCallback != null) {
                 mOnErrorCallback.run();

@@ -17,17 +17,25 @@
 
 <resources>
 
-    <!-- PERMISSION GRANT DIALOG -->
+    <!-- START PERMISSION GRANT DIALOG -->
 
     <style name="PermissionGrantScrollView">
         <item name="android:scrollbars">none</item>
+        <item name="android:fillViewport">true</item>
+        <item name="android:clipChildren">false</item>
+    </style>
+
+    <style name="PermissionGrantSingleton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
     </style>
 
     <style name="PermissionGrantDialog">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">?android:attr/windowBackground</item>
         <item name="android:orientation">vertical</item>
-        <item name="android:divider">@*android:drawable/list_divider_material</item>
         <item name="android:showDividers">middle</item>
     </style>
 
@@ -75,7 +83,6 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">vertical</item>
-        <item name="android:divider">@*android:drawable/list_divider_material</item>
         <item name="android:showDividers">middle</item>
     </style>
 
@@ -86,7 +93,7 @@
     </style>
 
     <style name="PermissionGrantButton"
-           parent="@*android:style/Widget.DeviceDefault.Button.ButtonBar.AlertDialog">
+           parent="@android:style/Widget.DeviceDefault.Button.Borderless.Colored">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">56dp</item>
         <item name="android:paddingLeft">8dp</item>
@@ -166,7 +173,9 @@
     </style>
 
     <style name="PermissionReviewButton"
-           parent="@*android:style/Widget.DeviceDefault.Button.ButtonBar.AlertDialog">
+           parent="@android:style/Widget.DeviceDefault.Button.Borderless.Colored">
+        <item name="android:minWidth">@dimen/alert_dialog_button_bar_width</item>
+        <item name="android:minHeight">@dimen/alert_dialog_button_bar_height</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
@@ -359,7 +368,7 @@
 
     <!-- END APP PERMISSION SCREEN -->
 
-    <!-- BEGIN PERMISSION FILTER SCREEN -->
+    <!-- START PERMISSION FILTER SCREEN -->
 
     <style name="PermissionFilterDialogContainer">
         <item name="android:layout_width">match_parent</item>
