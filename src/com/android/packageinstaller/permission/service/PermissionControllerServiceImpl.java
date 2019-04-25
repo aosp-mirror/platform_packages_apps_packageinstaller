@@ -33,6 +33,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.os.AsyncTask;
 import android.os.UserHandle;
 import android.permission.PermissionControllerService;
 import android.permission.PermissionManager;
@@ -63,9 +64,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
+import java.util.function.IntConsumer;
 
 /**
- * Calls from the system into the permission controller
+ * Calls from the system into the permission controller.
+ *
+ * All methods are called async beside the backup related method. For these we force to use the
+ * async-task single thread executor so that multiple parallel backups don't override the delayed
+ * the backup state racily.
  */
 public final class PermissionControllerServiceImpl extends PermissionControllerService {
     private static final String LOG_TAG = PermissionControllerServiceImpl.class.getSimpleName();
@@ -203,7 +210,14 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
     }
 
     @Override
-    public @NonNull Map<String, List<String>> onRevokeRuntimePermissions(
+    public void onRevokeRuntimePermissions(@NonNull Map<String, List<String>> request,
+            boolean doDryRun, int reason, @NonNull String callerPackageName,
+            @NonNull Consumer<Map<String, List<String>>> callback) {
+        AsyncTask.THREAD_POOL_EXECUTOR.execute(() -> callback.accept(
+                onRevokeRuntimePermissions(request, doDryRun, reason, callerPackageName)));
+    }
+
+    private @NonNull Map<String, List<String>> onRevokeRuntimePermissions(
             @NonNull Map<String, List<String>> request, boolean doDryRun,
             int reason, @NonNull String callerPackageName) {
         // The reason parameter is not checked by platform code as this might need to be updated
@@ -291,7 +305,15 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
 
     @Override
     public void onGetRuntimePermissionsBackup(@NonNull UserHandle user,
-            @NonNull OutputStream backup) {
+            @NonNull OutputStream backup, @NonNull Runnable callback) {
+        AsyncTask.execute(() -> {
+            onGetRuntimePermissionsBackup(user, backup);
+            callback.run();
+        });
+    }
+
+    private void onGetRuntimePermissionsBackup(@NonNull UserHandle user,
+                @NonNull OutputStream backup) {
         BackupHelper backupHelper = new BackupHelper(this, user);
 
         try {
@@ -307,6 +329,14 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
 
     @Override
     public void onRestoreRuntimePermissionsBackup(@NonNull UserHandle user,
+            @NonNull InputStream backup, Runnable callback) {
+        AsyncTask.execute(() -> {
+            onRestoreRuntimePermissionsBackup(user, backup);
+            callback.run();
+        });
+    }
+
+    private void onRestoreRuntimePermissionsBackup(@NonNull UserHandle user,
             @NonNull InputStream backup) {
         try {
             XmlPullParser parser = Xml.newPullParser();
@@ -319,7 +349,13 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
     }
 
     @Override
-    public boolean onRestoreDelayedRuntimePermissionsBackup(@NonNull String packageName,
+    public void onRestoreDelayedRuntimePermissionsBackup(@NonNull String packageName,
+            @NonNull UserHandle user, @NonNull Consumer<Boolean> callback) {
+        AsyncTask.execute(() -> callback.accept(
+                onRestoreDelayedRuntimePermissionsBackup(packageName, user)));
+    }
+
+    private boolean onRestoreDelayedRuntimePermissionsBackup(@NonNull String packageName,
             @NonNull UserHandle user) {
         try {
             return new BackupHelper(this, user).restoreDelayedState(packageName);
@@ -330,9 +366,10 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
     }
 
     @Override
-    public @NonNull List<RuntimePermissionPresentationInfo> onGetAppPermissions(
-            @NonNull String packageName) {
-        return onGetAppPermissions(this, packageName);
+    public void onGetAppPermissions(@NonNull String packageName,
+            @NonNull Consumer<List<RuntimePermissionPresentationInfo>> callback) {
+        AsyncTask.THREAD_POOL_EXECUTOR.execute(() -> callback.accept(
+                onGetAppPermissions(this, packageName)));
     }
 
     /**
@@ -368,6 +405,14 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
 
     @Override
     public void onRevokeRuntimePermission(@NonNull String packageName,
+            @NonNull String permissionName, @NonNull Runnable callback) {
+        AsyncTask.THREAD_POOL_EXECUTOR.execute(() -> {
+            onRevokeRuntimePermission(packageName, permissionName);
+            callback.run();
+        });
+    }
+
+    private void onRevokeRuntimePermission(@NonNull String packageName,
             @NonNull String permissionName) {
         try {
             final PackageInfo packageInfo = getPackageManager().getPackageInfo(packageName,
@@ -387,7 +432,13 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
     }
 
     @Override
-    public int onCountPermissionApps(@NonNull List<String> permissionNames, int flags) {
+    public void onCountPermissionApps(@NonNull List<String> permissionNames, int flags,
+            @NonNull IntConsumer callback) {
+        AsyncTask.THREAD_POOL_EXECUTOR.execute(() -> callback.accept(
+                onCountPermissionApps(permissionNames, flags)));
+    }
+
+    private int onCountPermissionApps(@NonNull List<String> permissionNames, int flags) {
         boolean countSystem = (flags & COUNT_WHEN_SYSTEM) != 0;
         boolean countOnlyGranted = (flags & COUNT_ONLY_WHEN_GRANTED) != 0;
 
@@ -439,7 +490,14 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
         return numApps;
     }
 
-    @Override public @NonNull List<RuntimePermissionUsageInfo> onGetPermissionUsages(
+    @Override
+    public void onGetPermissionUsages(boolean countSystem, long numMillis,
+            @NonNull Consumer<List<RuntimePermissionUsageInfo>> callback) {
+        AsyncTask.THREAD_POOL_EXECUTOR.execute(
+                () -> callback.accept(onGetPermissionUsages(countSystem, numMillis)));
+    }
+
+    private @NonNull List<RuntimePermissionUsageInfo> onGetPermissionUsages(
             boolean countSystem, long numMillis) {
         ArrayMap<String, Integer> groupUsers = new ArrayMap<>();
 
@@ -491,7 +549,15 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
     }
 
     @Override
-    public boolean onSetRuntimePermissionGrantStateByDeviceAdmin(@NonNull String callerPackageName,
+    public void onSetRuntimePermissionGrantStateByDeviceAdmin(@NonNull String callerPackageName,
+            @NonNull String packageName, @NonNull String unexpandedPermission, int grantState,
+            @NonNull Consumer<Boolean> callback) {
+        AsyncTask.THREAD_POOL_EXECUTOR.execute(() -> callback.accept(
+                onSetRuntimePermissionGrantStateByDeviceAdmin(callerPackageName, packageName,
+                        unexpandedPermission, grantState)));
+    }
+
+    private boolean onSetRuntimePermissionGrantStateByDeviceAdmin(@NonNull String callerPackageName,
             @NonNull String packageName, @NonNull String unexpandedPermission, int grantState) {
         PackageInfo callerPkgInfo = getPkgInfo(callerPackageName);
         if (callerPkgInfo == null) {
@@ -550,7 +616,14 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
     }
 
     @Override
-    public void onGrantOrUpgradeDefaultRuntimePermissions() {
+    public void onGrantOrUpgradeDefaultRuntimePermissions(@NonNull Runnable callback) {
+        AsyncTask.THREAD_POOL_EXECUTOR.execute(() -> {
+            onGrantOrUpgradeDefaultRuntimePermissions();
+            callback.run();
+        });
+    }
+
+    private void onGrantOrUpgradeDefaultRuntimePermissions() {
         // TODO: Default permission grants should go here
         RuntimePermissionsUpgradeController.upgradeIfNeeded(this);
     }
