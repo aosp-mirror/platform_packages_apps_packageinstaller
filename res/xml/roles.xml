@@ -80,8 +80,7 @@
         exclusive="true"
         showNone="true"
         label="@string/role_assistant_label"
-        requestDescription="@string/role_assistant_request_description"
-        requestTitle="@string/role_assistant_request_title"
+        requestable="false"
         shortLabel="@string/role_assistant_short_label">
         <required-components>
             <!-- Qualified components are determined int AssistantRoleBehavior. This comment here is

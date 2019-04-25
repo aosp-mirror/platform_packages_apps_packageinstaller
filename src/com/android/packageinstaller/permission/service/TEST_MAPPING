@@ -4,9 +4,6 @@
             "name": "CtsPermissionTestCases",
             "options": [
                 {
-                    "include-filter": "android.permission.cts.LocationAccessCheckTest"
-                },
-                {
                     "include-filter": "android.permission.cts.PermissionControllerTest"
                 },
                 {
@@ -27,6 +24,17 @@
         }
     ],
     "postsubmit": [
+        {
+            "name": "CtsPermissionTestCases",
+            "options": [
+                {
+                    "include-filter": "android.permission.cts.LocationAccessCheckTest"
+                },
+                {
+                    "exclude-annotation": "androidx.test.filters.FlakyTest"
+                }
+            ]
+        },
         {
             "name": "CtsDevicePolicyManagerTestCases",
             "options": [
