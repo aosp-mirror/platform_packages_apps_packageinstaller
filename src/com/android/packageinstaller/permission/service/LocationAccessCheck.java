@@ -30,6 +30,7 @@ import static android.content.Intent.EXTRA_UID;
 import static android.content.Intent.EXTRA_USER;
 import static android.content.Intent.FLAG_ACTIVITY_MULTIPLE_TASK;
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+import static android.content.Intent.FLAG_RECEIVER_FOREGROUND;
 import static android.content.pm.PackageManager.GET_PERMISSIONS;
 import static android.graphics.Bitmap.Config.ARGB_8888;
 import static android.graphics.Bitmap.createBitmap;
@@ -532,10 +533,12 @@ public class LocationAccessCheck {
         Intent deleteIntent = new Intent(mContext, NotificationDeleteHandler.class);
         deleteIntent.putExtra(EXTRA_PACKAGE_NAME, pkgName);
         deleteIntent.putExtra(EXTRA_USER, user);
+        deleteIntent.setFlags(FLAG_RECEIVER_FOREGROUND);
 
         Intent clickIntent = new Intent(mContext, NotificationClickHandler.class);
         clickIntent.putExtra(EXTRA_PACKAGE_NAME, pkgName);
         clickIntent.putExtra(EXTRA_USER, user);
+        clickIntent.setFlags(FLAG_RECEIVER_FOREGROUND);
 
         CharSequence appName = getNotificationAppName();
 
