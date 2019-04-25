@@ -413,10 +413,76 @@
     <string name="app_permission_header"><xliff:g id="perm" example="location">%1$s</xliff:g> access for this app</string>
 
     <!-- Summary for showing a single permission access [CHAR LIMIT=60] -->
-    <string name="app_permission_footer_usage_summary"><xliff:g id="app" example="Maps">%1$s</xliff:g> accessed your <xliff:g id="perm" example="location">%2$s</xliff:g> <xliff:g id="time" example="2 hours">%3$s</xliff:g> ago</string>
+    <string name="app_permission_footer_usage_summary_generic"><xliff:g id="app" example="Maps">%1$s</xliff:g> accessed your <xliff:g id="perm" example="location">%2$s</xliff:g> <xliff:g id="time" example="2 hours">%3$s</xliff:g> ago</string>
+
+    <!-- Summary for showing a single activity recognition permission access [CHAR LIMIT=60] -->
+    <string name="app_permission_footer_usage_summary_activity_recognition"><xliff:g id="app" example="Maps">%1$s</xliff:g> accessed your physical activity <xliff:g id="time" example="2 hours">%2$s</xliff:g> ago</string>
+
+    <!-- Summary for showing a single calendar permission access [CHAR LIMIT=60] -->
+    <string name="app_permission_footer_usage_summary_calendar"><xliff:g id="app" example="Maps">%1$s</xliff:g> accessed your calendar <xliff:g id="time" example="2 hours">%2$s</xliff:g> ago</string>
+
+    <!-- Summary for showing a single call log permission access [CHAR LIMIT=60] -->
+    <string name="app_permission_footer_usage_summary_call_log"><xliff:g id="app" example="Maps">%1$s</xliff:g> accessed your call logs <xliff:g id="time" example="2 hours">%2$s</xliff:g> ago</string>
+
+    <!-- Summary for showing a single camera permission access [CHAR LIMIT=60] -->
+    <string name="app_permission_footer_usage_summary_camera"><xliff:g id="app" example="Maps">%1$s</xliff:g> accessed your camera <xliff:g id="time" example="2 hours">%2$s</xliff:g> ago</string>
+
+    <!-- Summary for showing a single contacts permission access [CHAR LIMIT=60] -->
+    <string name="app_permission_footer_usage_summary_contacts"><xliff:g id="app" example="Maps">%1$s</xliff:g> accessed your contacts <xliff:g id="time" example="2 hours">%2$s</xliff:g> ago</string>
+
+    <!-- Summary for showing a single location permission access [CHAR LIMIT=60] -->
+    <string name="app_permission_footer_usage_summary_location"><xliff:g id="app" example="Maps">%1$s</xliff:g> accessed your location <xliff:g id="time" example="2 hours">%2$s</xliff:g> ago</string>
+
+    <!-- Summary for showing a single microphone permission access [CHAR LIMIT=60] -->
+    <string name="app_permission_footer_usage_summary_microphone"><xliff:g id="app" example="Maps">%1$s</xliff:g> accessed your microphone <xliff:g id="time" example="2 hours">%2$s</xliff:g> ago</string>
+
+    <!-- Summary for showing a single phone permission access [CHAR LIMIT=60] -->
+    <string name="app_permission_footer_usage_summary_phone"><xliff:g id="app" example="Maps">%1$s</xliff:g> accessed your phone <xliff:g id="time" example="2 hours">%2$s</xliff:g> ago</string>
+
+    <!-- Summary for showing a single sensors permission access [CHAR LIMIT=60] -->
+    <string name="app_permission_footer_usage_summary_sensors"><xliff:g id="app" example="Maps">%1$s</xliff:g> accessed your sensors <xliff:g id="time" example="2 hours">%2$s</xliff:g> ago</string>
+
+    <!-- Summary for showing a single SMS permission access [CHAR LIMIT=60] -->
+    <string name="app_permission_footer_usage_summary_sms"><xliff:g id="app" example="Maps">%1$s</xliff:g> accessed your SMS <xliff:g id="time" example="2 hours">%2$s</xliff:g> ago</string>
+
+    <!-- Summary for showing a single storage permission access [CHAR LIMIT=60] -->
+    <string name="app_permission_footer_usage_summary_storage"><xliff:g id="app" example="Maps">%1$s</xliff:g> accessed your storage <xliff:g id="time" example="2 hours">%2$s</xliff:g> ago</string>
 
     <!-- Summary for showing a single permission access that has not accessed the permission [CHAR LIMIT=60] -->
-    <string name="app_permission_footer_no_usages"><xliff:g id="app" example="Maps">%1$s</xliff:g> has not accessed your <xliff:g id="perm" example="location">%2$s</xliff:g></string>
+    <string name="app_permission_footer_no_usages_generic"><xliff:g id="app" example="Maps">%1$s</xliff:g> has not accessed your <xliff:g id="perm" example="location">%2$s</xliff:g></string>
+
+    <!-- Summary for showing a single permission access that has not accessed the activity recognition permission [CHAR LIMIT=60] -->
+    <string name="app_permission_footer_no_usages_activity_recognition"><xliff:g id="app" example="Maps">%1$s</xliff:g> has not accessed your physical activity</string>
+
+    <!-- Summary for showing a single permission access that has not accessed the calendar permission [CHAR LIMIT=60] -->
+    <string name="app_permission_footer_no_usages_calendar"><xliff:g id="app" example="Maps">%1$s</xliff:g> has not accessed your calendar</string>
+
+    <!-- Summary for showing a single permission access that has not accessed the call log permission [CHAR LIMIT=60] -->
+    <string name="app_permission_footer_no_usages_call_log"><xliff:g id="app" example="Maps">%1$s</xliff:g> has not accessed your call logs</string>
+
+    <!-- Summary for showing a single permission access that has not accessed the camera permission [CHAR LIMIT=60] -->
+    <string name="app_permission_footer_no_usages_camera"><xliff:g id="app" example="Maps">%1$s</xliff:g> has not accessed your camera</string>
+
+    <!-- Summary for showing a single permission access that has not accessed the contacts permission [CHAR LIMIT=60] -->
+    <string name="app_permission_footer_no_usages_contacts"><xliff:g id="app" example="Maps">%1$s</xliff:g> has not accessed your contacts</string>
+
+    <!-- Summary for showing a single permission access that has not accessed the location permission [CHAR LIMIT=60] -->
+    <string name="app_permission_footer_no_usages_location"><xliff:g id="app" example="Maps">%1$s</xliff:g> has not accessed your location</string>
+
+    <!-- Summary for showing a single permission access that has not accessed the microphone permission [CHAR LIMIT=60] -->
+    <string name="app_permission_footer_no_usages_microphone"><xliff:g id="app" example="Maps">%1$s</xliff:g> has not accessed your microphone</string>
+
+    <!-- Summary for showing a single permission access that has not accessed the phone permission [CHAR LIMIT=60] -->
+    <string name="app_permission_footer_no_usages_phone"><xliff:g id="app" example="Maps">%1$s</xliff:g> has not accessed your phone</string>
+
+    <!-- Summary for showing a single permission access that has not accessed the sensors permission [CHAR LIMIT=60] -->
+    <string name="app_permission_footer_no_usages_sensors"><xliff:g id="app" example="Maps">%1$s</xliff:g> has not accessed your sensors</string>
+
+    <!-- Summary for showing a single permission access that has not accessed the SMS permission [CHAR LIMIT=60] -->
+    <string name="app_permission_footer_no_usages_sms"><xliff:g id="app" example="Maps">%1$s</xliff:g> has not accessed your SMS</string>
+
+    <!-- Summary for showing a single permission access that has not accessed the storage permission [CHAR LIMIT=60] -->
+    <string name="app_permission_footer_no_usages_storage"><xliff:g id="app" example="Maps">%1$s</xliff:g> has not accessed your storage</string>
 
     <!-- Summary for showing that the permission usage data for a permission is not available [CHAR LIMIT=none] -->
     <string name="app_permission_footer_not_available">Last access data is currently not available for this permission</string>
