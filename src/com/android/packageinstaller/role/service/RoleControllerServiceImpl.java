@@ -105,10 +105,10 @@ public class RoleControllerServiceImpl extends RoleControllerService {
                 String packageName = currentPackageNames.get(currentPackageNamesIndex);
 
                 if (role.isPackageQualified(packageName, this)) {
-                    // NOTE: We should not override only if we are granting default permissions
-                    // that are not based on user controlled roles, so for now override.
-                    addRoleHolderInternal(role, packageName, false /* dontKillApp */,
-                            true /* added */);
+                    // We should not override user set or fixed permissions because we are only
+                    // redoing the grant here. Otherwise, user won't be able to revoke permissions
+                    // granted by role.
+                    addRoleHolderInternal(role, packageName, false, false, true);
                 } else {
                     Log.i(LOG_TAG, "Removing package that no longer qualifies for the role,"
                             + " package: " + packageName + ", role: " + roleName);
@@ -142,9 +142,11 @@ public class RoleControllerServiceImpl extends RoleControllerService {
                     }
                     Log.i(LOG_TAG, "Adding package as default/fallback role holder, package: "
                             + packageName + ", role: " + roleName);
-                    // NOTE: We should not override only if we are granting default permissions
-                    // that are not based on user controlled roles, so for now override.
-                    addRoleHolderInternal(role, packageName);
+                    // TODO: If we don't override user here, user might end up missing incoming
+                    // phone calls or SMS, so we just keep the old behavior. But overriding user
+                    // choice about permission without explicit user action is bad, so maybe we
+                    // should at least show a notification?
+                    addRoleHolderInternal(role, packageName, true);
                 }
             }
 
@@ -221,7 +223,7 @@ public class RoleControllerServiceImpl extends RoleControllerService {
         }
 
         boolean dontKillApp = hasFlag(flags, RoleManager.MANAGE_HOLDERS_FLAG_DONT_KILL_APP);
-        added = addRoleHolderInternal(role, packageName, dontKillApp, added);
+        added = addRoleHolderInternal(role, packageName, dontKillApp, true, added);
         if (!added) {
             return false;
         }
@@ -302,16 +304,16 @@ public class RoleControllerServiceImpl extends RoleControllerService {
     }
 
     @WorkerThread
-    private boolean addRoleHolderInternal(@NonNull Role role, @NonNull String packageName) {
-        return addRoleHolderInternal(role, packageName, false /* dontKillApp */,
-                false /* added */);
+    private boolean addRoleHolderInternal(@NonNull Role role, @NonNull String packageName,
+            boolean overrideUserSetAndFixedPermissions) {
+        return addRoleHolderInternal(role, packageName, false, overrideUserSetAndFixedPermissions,
+                false);
     }
 
     @WorkerThread
     private boolean addRoleHolderInternal(@NonNull Role role, @NonNull String packageName,
-            boolean dontKillApp, boolean added) {
-        // TODO: STOPSHIP: Pass in appropriate arguments.
-        role.grant(packageName, dontKillApp, this);
+            boolean dontKillApp, boolean overrideUserSetAndFixedPermissions, boolean added) {
+        role.grant(packageName, dontKillApp, overrideUserSetAndFixedPermissions, this);
 
         String roleName = role.getName();
         if (!added) {
@@ -388,12 +390,11 @@ public class RoleControllerServiceImpl extends RoleControllerService {
 
         Log.i(LOG_TAG, "Adding package as fallback role holder, package: " + fallbackPackageName
                 + ", role: " + roleName);
+        // TODO: If we don't override user here, user might end up missing incoming
         // phone calls or SMS, so we just keep the old behavior. But overriding user
         // choice about permission without explicit user action is bad, so maybe we
         // should at least show a notification?
-        // NOTE: We should not override only if we are granting default permissions
-        // that are not based on user controlled roles, so for now override.
-        return addRoleHolderInternal(role, fallbackPackageName);
+        return addRoleHolderInternal(role, fallbackPackageName, true);
     }
 
     @Override

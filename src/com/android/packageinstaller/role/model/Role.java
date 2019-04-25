@@ -112,6 +112,12 @@ public class Role {
     private final int mRequestTitleResource;
 
     /**
+     * Whether this role is requestable by applications with
+     * {@link android.app.role.RoleManager#createRequestRoleIntent(String)}.
+     */
+    private final boolean mRequestable;
+
+    /**
      * The string resource for the short label of this role, currently used when in a list of roles.
      */
     @StringRes
@@ -156,9 +162,10 @@ public class Role {
     public Role(@NonNull String name, @Nullable RoleBehavior behavior,
             @StringRes int descriptionResource, boolean exclusive, @StringRes int labelResource,
             @StringRes int requestDescriptionResource, @StringRes int requestTitleResource,
-            @StringRes int shortLabelResource, boolean showNone, boolean systemOnly,
-            @NonNull List<RequiredComponent> requiredComponents, @NonNull List<String> permissions,
-            @NonNull List<AppOp> appOps, @NonNull List<PreferredActivity> preferredActivities) {
+            boolean requestable, @StringRes int shortLabelResource, boolean showNone,
+            boolean systemOnly, @NonNull List<RequiredComponent> requiredComponents,
+            @NonNull List<String> permissions, @NonNull List<AppOp> appOps,
+            @NonNull List<PreferredActivity> preferredActivities) {
         mName = name;
         mBehavior = behavior;
         mDescriptionResource = descriptionResource;
@@ -166,6 +173,7 @@ public class Role {
         mLabelResource = labelResource;
         mRequestDescriptionResource = requestDescriptionResource;
         mRequestTitleResource = requestTitleResource;
+        mRequestable = requestable;
         mShortLabelResource = shortLabelResource;
         mShowNone = showNone;
         mSystemOnly = systemOnly;
@@ -207,6 +215,10 @@ public class Role {
     @StringRes
     public int getRequestTitleResource() {
         return mRequestTitleResource;
+    }
+
+    public boolean isRequestable() {
+        return mRequestable;
     }
 
     @StringRes
@@ -533,12 +545,14 @@ public class Role {
      *
      * @param packageName the package name of the application to be granted this role to
      * @param dontKillApp whether this application should not be killed despite changes
+     * @param overrideUserSetAndFixedPermissions whether to override user set and fixed flags on
+     *                                           permissions
      * @param context the {@code Context} to retrieve system services
      */
-    public void grant(@NonNull String packageName, boolean dontKillApp, @NonNull Context context) {
+    public void grant(@NonNull String packageName, boolean dontKillApp,
+            boolean overrideUserSetAndFixedPermissions, @NonNull Context context) {
         boolean permissionOrAppOpChanged = Permissions.grant(packageName, mPermissions,
-                true /*overrideDisabledSystemPackageAndUserSetAndFixedPermissions*/,
-                false /*setPermissionsSystemFixed*/, false /*defaultGrant*/, context);
+                true, overrideUserSetAndFixedPermissions, false, false, context);
 
         int appOpsSize = mAppOps.size();
         for (int i = 0; i < appOpsSize; i++) {

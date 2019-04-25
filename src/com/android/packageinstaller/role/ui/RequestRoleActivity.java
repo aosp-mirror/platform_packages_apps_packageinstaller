@@ -90,6 +90,12 @@ public class RequestRoleActivity extends FragmentActivity {
             return;
         }
 
+        if (!role.isRequestable()) {
+            Log.e(LOG_TAG, "Role is not requestable: " + mRoleName);
+            finish();
+            return;
+        }
+
         if (!role.isExclusive()) {
             Log.e(LOG_TAG, "Role is not exclusive: " + mRoleName);
             finish();
