@@ -557,7 +557,7 @@ public class Role {
         int appOpsSize = mAppOps.size();
         for (int i = 0; i < appOpsSize; i++) {
             AppOp appOp = mAppOps.get(i);
-            permissionOrAppOpChanged |= appOp.grant(packageName, context);
+            appOp.grant(packageName, context);
         }
 
         int preferredActivitiesSize = mPreferredActivities.size();
@@ -610,7 +610,7 @@ public class Role {
         int appOpsSize = appOpsToRevoke.size();
         for (int i = 0; i < appOpsSize; i++) {
             AppOp appOp = appOpsToRevoke.get(i);
-            permissionOrAppOpChanged |= appOp.revoke(packageName, context);
+            appOp.revoke(packageName, context);
         }
 
         // TODO: STOPSHIP: Revoke preferred activities?
