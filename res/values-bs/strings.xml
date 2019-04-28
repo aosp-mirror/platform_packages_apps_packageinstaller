@@ -148,8 +148,54 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Odbij"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"Odobrenje <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="228974007660007656">"Pristup \"<xliff:g id="PERM">%1$s</xliff:g>\" za ovu aplikaciju"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> je pristupila odobrenju \"<xliff:g id="PERM">%2$s</xliff:g>\" prije <xliff:g id="TIME">%3$s</xliff:g>"</string>
-    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila vašem odobrenju \"<xliff:g id="PERM">%2$s</xliff:g>\""</string>
+    <!-- no translation found for app_permission_footer_usage_summary_generic (7811075583756658149) -->
+    <skip />
+    <!-- no translation found for app_permission_footer_usage_summary_activity_recognition (8791288545338985169) -->
+    <skip />
+    <!-- no translation found for app_permission_footer_usage_summary_calendar (8982393303411011561) -->
+    <skip />
+    <!-- no translation found for app_permission_footer_usage_summary_call_log (5841205759869615348) -->
+    <skip />
+    <!-- no translation found for app_permission_footer_usage_summary_camera (4915099510475162393) -->
+    <skip />
+    <!-- no translation found for app_permission_footer_usage_summary_contacts (8892786668058834823) -->
+    <skip />
+    <!-- no translation found for app_permission_footer_usage_summary_location (257321357251736067) -->
+    <skip />
+    <!-- no translation found for app_permission_footer_usage_summary_microphone (6461237822187085578) -->
+    <skip />
+    <!-- no translation found for app_permission_footer_usage_summary_phone (1791466121210148997) -->
+    <skip />
+    <!-- no translation found for app_permission_footer_usage_summary_sensors (8010060979779849320) -->
+    <skip />
+    <!-- no translation found for app_permission_footer_usage_summary_sms (481907038945469547) -->
+    <skip />
+    <!-- no translation found for app_permission_footer_usage_summary_storage (7847355419185631004) -->
+    <skip />
+    <!-- no translation found for app_permission_footer_no_usages_generic (7904373526554483299) -->
+    <skip />
+    <!-- no translation found for app_permission_footer_no_usages_activity_recognition (1015916448819291701) -->
+    <skip />
+    <!-- no translation found for app_permission_footer_no_usages_calendar (1448523686184653876) -->
+    <skip />
+    <!-- no translation found for app_permission_footer_no_usages_call_log (5433327903098404145) -->
+    <skip />
+    <!-- no translation found for app_permission_footer_no_usages_camera (3812424069400633756) -->
+    <skip />
+    <!-- no translation found for app_permission_footer_no_usages_contacts (2962618560409910236) -->
+    <skip />
+    <!-- no translation found for app_permission_footer_no_usages_location (3139403882972245466) -->
+    <skip />
+    <!-- no translation found for app_permission_footer_no_usages_microphone (4502324845867303326) -->
+    <skip />
+    <!-- no translation found for app_permission_footer_no_usages_phone (3134870310324070582) -->
+    <skip />
+    <!-- no translation found for app_permission_footer_no_usages_sensors (6780114763414830921) -->
+    <skip />
+    <!-- no translation found for app_permission_footer_no_usages_sms (2914635748085007335) -->
+    <skip />
+    <!-- no translation found for app_permission_footer_no_usages_storage (6855153915670393812) -->
+    <skip />
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Zadnji pristup podacima trenutno nije dostupan za ovo odobrenje"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Prikaži sva odobrenja aplikacije <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Prikaži sve aplikacije koje imaju ovo odobrenje"</string>
@@ -242,9 +288,9 @@
     <string name="role_call_redirection_description" msgid="159351481987081777">"Aplikacije kojima dozvoljavate prosljeđivanje poziva na drugi broj telefona"</string>
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"Postaviti aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> kao zadanu aplikaciju za preusmjeravanje poziva?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Nije potrebno odobrenje"</string>
-    <string name="role_call_screening_label" msgid="5366988848919437946">"Zadana aplikacija za prikaz broja pozivaoca i blokadu neželjenih poziva"</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"Zadana apl. za prikaz ID-a poziv./neželj. poz."</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"Apl. za prikaz ID-a pozivaoca i blok. neželj. poruka"</string>
-    <string name="role_call_screening_description" msgid="9009090500431969390">"Aplikacije koje vam omogućavaju identificiranje dolaznih poziva, blokiranje neželjenih poruka i automatiziranih telefonskih poziva, blokiranje neželjenih brojeva i tako dalje"</string>
+    <string name="role_call_screening_description" msgid="9009090500431969390">"Aplikacije koje vam omogućavaju identificiranje dolaznih poziva, blokiranje neželjenih i automatiziranih poziva, blokiranje neželjenih brojeva i drugo"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Postaviti aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> kao zadanu aplikaciju za prikaz ID-a pozivaoca i blokadu neželjenih poziva?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Nije potrebno odobrenje"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Trenutno zadano"</string>
