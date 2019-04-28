@@ -83,8 +83,8 @@ public final class AppPermissionActivity extends FragmentActivity {
             return;
         }
 
-        Fragment androidXFragment = AppPermissionFragment.newInstance(packageName, groupName,
-                userHandle);
+        Fragment androidXFragment = AppPermissionFragment.newInstance(packageName, permissionName,
+                groupName, userHandle);
 
         getSupportFragmentManager().beginTransaction().replace(android.R.id.content,
                     androidXFragment).commit();
