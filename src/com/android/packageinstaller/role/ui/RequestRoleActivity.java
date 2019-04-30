@@ -20,8 +20,8 @@ import android.app.role.RoleManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
-import android.os.Build;
 import android.os.Bundle;
+import android.os.Process;
 import android.provider.Telephony;
 import android.text.TextUtils;
 import android.util.Log;
@@ -32,6 +32,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 
 import com.android.packageinstaller.PermissionControllerStatsLog;
+import com.android.packageinstaller.permission.utils.CollectionUtils;
 import com.android.packageinstaller.role.model.Role;
 import com.android.packageinstaller.role.model.Roles;
 import com.android.packageinstaller.role.model.UserDeniedManager;
@@ -60,7 +61,12 @@ public class RequestRoleActivity extends FragmentActivity {
         mRoleName = getIntent().getStringExtra(Intent.EXTRA_ROLE_NAME);
         mPackageName = getCallingPackage();
 
-        ensureSmsDefaultDialogCompatibility();
+        if (!handleSmsDefaultDialogCompatibility()) {
+            reportRequestResult(
+                    PermissionControllerStatsLog.ROLE_REQUEST_RESULT_REPORTED__RESULT__IGNORED);
+            finish();
+            return;
+        }
 
         if (TextUtils.isEmpty(mRoleName)) {
             Log.w(LOG_TAG, "Role name cannot be null or empty: " + mRoleName);
@@ -167,47 +173,53 @@ public class RequestRoleActivity extends FragmentActivity {
     }
 
     /**
-     * @see com.android.settings.SmsDefaultDialog
+     * Handle compatibility with the old {@link com.android.settings.SmsDefaultDialog}.
+     *
+     * @return whether we should continue requesting the role. The activity should be finished if
+     *         {@code false} is returned.
      */
-    private void ensureSmsDefaultDialogCompatibility() {
+    private boolean handleSmsDefaultDialogCompatibility() {
         Intent intent = getIntent();
         if (!Objects.equals(intent.getAction(), Telephony.Sms.Intents.ACTION_CHANGE_DEFAULT)) {
-            return;
-        }
-        if (intent.hasExtra(Intent.EXTRA_ROLE_NAME)) {
-            // Don't allow calling legacy interface with a role name.
-            return;
+            return true;
         }
 
         Log.w(LOG_TAG, "Telephony.Sms.Intents.ACTION_CHANGE_DEFAULT is deprecated; please use"
                 + " RoleManager.createRequestRoleIntent() and Activity.startActivityForResult()"
                 + " instead");
-        if (intent.hasExtra(Intent.EXTRA_PACKAGE_NAME)) {
-            Log.w(LOG_TAG, "Intent.EXTRA_PACKAGE_NAME is deprecated, and will be ignored in most"
-                    + " cases. For SMS backup, please use the new backup role instead.");
-        }
-
-        mRoleName = null;
-        mPackageName = null;
-
-        String packageName = getCallingPackage();
-        if (packageName == null) {
-            return;
-        }
-        ApplicationInfo applicationInfo = PackageUtils.getApplicationInfo(packageName, this);
-        if (applicationInfo == null || applicationInfo.targetSdkVersion >= Build.VERSION_CODES.Q) {
-            return;
-        }
 
         mRoleName = RoleManager.ROLE_SMS;
-        mPackageName = packageName;
+        mPackageName = null;
+
+        String callingPackageName = getCallingPackage();
+        String extraPackageName = intent.getStringExtra(Telephony.Sms.Intents.EXTRA_PACKAGE_NAME);
+        if (extraPackageName == null) {
+            // Launch the settings activity to show the list.
+            // TODO: Return RESULT_OK if any changes were made?
+            Intent defaultAppActivityIntent = DefaultAppActivity.createIntent(
+                    RoleManager.ROLE_SMS, Process.myUserHandle(), this)
+                    .addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+            startActivity(defaultAppActivityIntent);
+            return false;
+        }
+
+        if (Objects.equals(extraPackageName, callingPackageName)) {
+            // Requesting for itself is okay.
+            mPackageName = extraPackageName;
+            return true;
+        }
 
         RoleManager roleManager = getSystemService(RoleManager.class);
-        if (roleManager.getRoleHolders(RoleManager.ROLE_SMS).contains(mPackageName)) {
-            if (intent.hasExtra(Intent.EXTRA_PACKAGE_NAME)) {
-                mPackageName = intent.getStringExtra(Intent.EXTRA_PACKAGE_NAME);
-            }
+        String holderPackageName = CollectionUtils.firstOrNull(roleManager.getRoleHolders(
+                RoleManager.ROLE_SMS));
+        if (Objects.equals(callingPackageName, holderPackageName)) {
+            // Giving away its own role is okay.
+            mPackageName = extraPackageName;
+            return true;
         }
+
+        // If we reach here it's not okay.
+        return false;
     }
 
     private void reportRequestResult(int result) {
