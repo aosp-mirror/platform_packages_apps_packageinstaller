@@ -16,8 +16,8 @@
 
 package com.android.packageinstaller.permission.model;
 
-import static android.content.pm.PackageItemInfo.SAFE_LABEL_FLAG_FIRST_LINE;
-import static android.content.pm.PackageItemInfo.SAFE_LABEL_FLAG_TRIM;
+import static android.text.TextUtils.SAFE_STRING_FLAG_FIRST_LINE;
+import static android.text.TextUtils.SAFE_STRING_FLAG_TRIM;
 
 import android.Manifest;
 import android.app.LoaderManager;
@@ -112,7 +112,7 @@ public final class PermissionGroups implements LoaderCallbacks<List<PermissionGr
     private static @NonNull CharSequence loadItemInfoLabel(@NonNull Context context,
             @NonNull PackageItemInfo itemInfo) {
         CharSequence label = itemInfo.loadSafeLabel(context.getPackageManager(), 0,
-                SAFE_LABEL_FLAG_FIRST_LINE | SAFE_LABEL_FLAG_TRIM);
+                SAFE_STRING_FLAG_FIRST_LINE | SAFE_STRING_FLAG_TRIM);
         if (label == null) {
             label = itemInfo.name;
         }

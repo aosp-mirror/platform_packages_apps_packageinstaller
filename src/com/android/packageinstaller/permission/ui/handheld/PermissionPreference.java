@@ -24,9 +24,9 @@ import static java.lang.annotation.RetentionPolicy.SOURCE;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.pm.PackageItemInfo;
 import android.os.Bundle;
 import android.text.BidiFormatter;
+import android.text.TextUtils;
 import android.widget.ImageView;
 import android.widget.Switch;
 
@@ -437,8 +437,8 @@ class PermissionPreference extends MultiTargetSwitchPreference {
         return BidiFormatter.getInstance().unicodeWrap(
                 mGroup.getApp().applicationInfo.loadSafeLabel(getContext().getPackageManager(),
                         DEFAULT_MAX_LABEL_SIZE_PX,
-                        PackageItemInfo.SAFE_LABEL_FLAG_TRIM
-                                | PackageItemInfo.SAFE_LABEL_FLAG_FIRST_LINE)
+                        TextUtils.SAFE_STRING_FLAG_TRIM
+                                | TextUtils.SAFE_STRING_FLAG_FIRST_LINE)
                         .toString());
     }
 
