@@ -186,14 +186,15 @@
             </intent-filter>
         </activity>
 
-        <!-- TODO: STOPSHIP: Removed permissions because apps were able to launch it. Is this good? -->
         <activity android:name="com.android.packageinstaller.role.ui.DefaultAppListActivity"
                   android:label="@string/default_apps"
                   android:theme="@style/Settings">
-            <!-- TODO: STOPSHIP: give this a priority greater than 1 to override Settings. -->
-            <intent-filter android:priority="0">
+            <intent-filter android:priority="2">
                 <action android:name="android.settings.MANAGE_DEFAULT_APPS_SETTINGS" />
-                <!-- TODO: Redirect into role page? -->
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <!-- TODO: STOPSHIP: Redirect into its own default app page? -->
+            <intent-filter android:priority="2">
                 <action android:name="android.settings.HOME_SETTINGS" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -218,7 +219,7 @@
             </intent-filter>
         </activity>
 
-        <!-- TODO: STOPSHIP: Override other Settings intents. -->
+        <!-- TODO: Override other Settings intents when we've done migrating them. -->
         <activity android:name="com.android.packageinstaller.role.ui.SpecialAppAccessActivity"
                   android:theme="@style/Settings" />
 
