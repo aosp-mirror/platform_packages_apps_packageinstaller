@@ -23,6 +23,7 @@ import android.content.pm.ApplicationInfo;
 import android.os.Bundle;
 import android.os.Process;
 import android.provider.Telephony;
+import android.telecom.TelecomManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.WindowManager;
@@ -60,6 +61,13 @@ public class RequestRoleActivity extends FragmentActivity {
 
         mRoleName = getIntent().getStringExtra(Intent.EXTRA_ROLE_NAME);
         mPackageName = getCallingPackage();
+
+        if (!handleChangeDefaultDialerDialogCompatibility()) {
+            reportRequestResult(
+                    PermissionControllerStatsLog.ROLE_REQUEST_RESULT_REPORTED__RESULT__IGNORED);
+            finish();
+            return;
+        }
 
         if (!handleSmsDefaultDialogCompatibility()) {
             reportRequestResult(
@@ -170,6 +178,48 @@ public class RequestRoleActivity extends FragmentActivity {
                     .add(fragment, null)
                     .commit();
         }
+    }
+
+    /**
+     * Handle compatibility with the old
+     * {@link com.android.server.telecom.components.ChangeDefaultDialerDialog}.
+     *
+     * @return whether we should continue requesting the role. The activity should be finished if
+     *         {@code false} is returned.
+     */
+    private boolean handleChangeDefaultDialerDialogCompatibility() {
+        Intent intent = getIntent();
+        if (!Objects.equals(intent.getAction(), TelecomManager.ACTION_CHANGE_DEFAULT_DIALER)) {
+            return true;
+        }
+
+        Log.w(LOG_TAG, "TelecomManager.ACTION_CHANGE_DEFAULT_DIALER is deprecated; please use"
+                + " RoleManager.createRequestRoleIntent() and Activity.startActivityForResult()"
+                + " instead");
+
+        mRoleName = RoleManager.ROLE_DIALER;
+        mPackageName = null;
+
+        String callingPackageName = getCallingPackage();
+        String extraPackageName = intent.getStringExtra(
+                TelecomManager.EXTRA_CHANGE_DEFAULT_DIALER_PACKAGE_NAME);
+        if (Objects.equals(extraPackageName, callingPackageName)) {
+            // Requesting for itself is okay.
+            mPackageName = extraPackageName;
+            return true;
+        }
+
+        RoleManager roleManager = getSystemService(RoleManager.class);
+        String holderPackageName = CollectionUtils.firstOrNull(roleManager.getRoleHolders(
+                RoleManager.ROLE_DIALER));
+        if (Objects.equals(callingPackageName, holderPackageName)) {
+            // Giving away its own role is okay.
+            mPackageName = extraPackageName;
+            return true;
+        }
+
+        // If we reach here it's not okay.
+        return false;
     }
 
     /**
