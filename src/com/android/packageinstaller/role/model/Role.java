@@ -551,8 +551,8 @@ public class Role {
      */
     public void grant(@NonNull String packageName, boolean dontKillApp,
             boolean overrideUserSetAndFixedPermissions, @NonNull Context context) {
-        boolean permissionOrAppOpChanged = Permissions.grant(packageName, mPermissions,
-                true, overrideUserSetAndFixedPermissions, false, false, context);
+        boolean permissionOrAppOpChanged = Permissions.grant(packageName, mPermissions, true,
+                overrideUserSetAndFixedPermissions, true, false, false, context);
 
         int appOpsSize = mAppOps.size();
         for (int i = 0; i < appOpsSize; i++) {
@@ -599,7 +599,7 @@ public class Role {
             permissionsToRevoke.removeAll(role.getPermissions());
         }
         boolean permissionOrAppOpChanged = Permissions.revoke(packageName, permissionsToRevoke,
-                overrideSystemFixedPermissions, context);
+                true, false, overrideSystemFixedPermissions, context);
 
         List<AppOp> appOpsToRevoke = new ArrayList<>(mAppOps);
         for (int i = 0; i < otherRoleNamesSize; i++) {
