@@ -32,6 +32,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Switch;
@@ -261,7 +262,7 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
             icon = context.getDrawable(R.drawable.ic_perm_device_info);
         }
         pref.setIcon(Utils.applyTint(context, icon, android.R.attr.colorControlNormal));
-        pref.setTitle(perm.loadSafeLabel(pm, 20000, PackageItemInfo.SAFE_LABEL_FLAG_TRIM));
+        pref.setTitle(perm.loadSafeLabel(pm, 20000, TextUtils.SAFE_STRING_FLAG_TRIM));
         pref.setSingleLineTitle(false);
         final CharSequence desc = perm.loadDescription(pm);
 
