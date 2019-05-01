@@ -87,13 +87,6 @@ public final class PackageUtils {
     @Nullable
     public static ApplicationInfo getApplicationInfoAsUser(@NonNull String packageName,
             @NonNull UserHandle user, @NonNull Context context) {
-        PackageManager packageManager = context.getPackageManager();
-        try {
-            return packageManager.getApplicationInfoAsUser(packageName,
-                    PackageManager.MATCH_DIRECT_BOOT_AWARE
-                            | PackageManager.MATCH_DIRECT_BOOT_UNAWARE, user);
-        } catch (PackageManager.NameNotFoundException e) {
-            return null;
-        }
+        return getApplicationInfo(packageName, UserUtils.getUserContext(context, user));
     }
 }
