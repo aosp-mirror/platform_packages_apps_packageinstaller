@@ -28,6 +28,8 @@ import android.util.ArraySet;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.android.packageinstaller.role.utils.UserUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,16 +88,17 @@ public class BrowserRoleBehavior implements RoleBehavior {
     @NonNull
     private List<String> getQualifyingPackagesAsUserInternal(@Nullable String packageName,
             @NonNull UserHandle user, @NonNull Context context) {
-        PackageManager packageManager = context.getPackageManager();
+        Context userContext = UserUtils.getUserContext(context, user);
+        PackageManager userPackageManager = userContext.getPackageManager();
         Intent intent = BROWSER_INTENT;
         if (packageName != null) {
             intent = new Intent(intent)
                     .setPackage(packageName);
         }
-        List<ResolveInfo> resolveInfos = packageManager.queryIntentActivitiesAsUser(intent,
+        List<ResolveInfo> resolveInfos = userPackageManager.queryIntentActivities(intent,
                 // To one's surprise, MATCH_ALL doesn't include MATCH_DIRECT_BOOT_*.
                 PackageManager.MATCH_ALL | PackageManager.MATCH_DIRECT_BOOT_AWARE
-                        | PackageManager.MATCH_DIRECT_BOOT_UNAWARE, user);
+                        | PackageManager.MATCH_DIRECT_BOOT_UNAWARE);
         ArraySet<String> packageNames = new ArraySet<>();
         int resolveInfosSize = resolveInfos.size();
         for (int i = 0; i < resolveInfosSize; i++) {
