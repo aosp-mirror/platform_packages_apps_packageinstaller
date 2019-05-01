@@ -27,6 +27,8 @@ import android.os.UserHandle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.android.packageinstaller.role.utils.UserUtils;
+
 import java.util.List;
 
 /**
@@ -43,8 +45,9 @@ public class RequiredBroadcastReceiver extends RequiredComponent {
     @Override
     protected List<ResolveInfo> queryIntentComponentsAsUser(@NonNull Intent intent, int flags,
             @NonNull UserHandle user, @NonNull Context context) {
-        PackageManager packageManager = context.getPackageManager();
-        return packageManager.queryBroadcastReceiversAsUser(intent, flags, user);
+        Context userContext = UserUtils.getUserContext(context, user);
+        PackageManager userPackageManager = userContext.getPackageManager();
+        return userPackageManager.queryBroadcastReceivers(intent, flags);
     }
 
     @NonNull
