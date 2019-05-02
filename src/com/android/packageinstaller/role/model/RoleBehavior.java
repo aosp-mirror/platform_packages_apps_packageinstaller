@@ -25,7 +25,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.preference.Preference;
 
-import com.android.packageinstaller.role.ui.SettingsButtonPreference;
+import com.android.packageinstaller.role.ui.TwoTargetPreference;
 
 import java.util.Collections;
 import java.util.List;
@@ -77,10 +77,10 @@ public interface RoleBehavior {
     }
 
     /**
-     * @see Role#preparePreferenceAsUser(SettingsButtonPreference, UserHandle, Context)
+     * @see Role#preparePreferenceAsUser(TwoTargetPreference, UserHandle, Context)
      */
     default void preparePreferenceAsUser(@NonNull Role role,
-            @NonNull SettingsButtonPreference preference, @NonNull UserHandle user,
+            @NonNull TwoTargetPreference preference, @NonNull UserHandle user,
             @NonNull Context context) {}
 
     /**

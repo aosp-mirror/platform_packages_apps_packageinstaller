@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 The Android Open Source Project
+ * Copyright (C) 2019 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.packageinstaller.role.ui;
+package com.android.packageinstaller.role.ui.handheld;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -26,34 +26,34 @@ import androidx.annotation.StyleRes;
 import androidx.preference.PreferenceViewHolder;
 
 /**
- * {@link RadioButtonPreference} with {@link AppIconPreference.Mixin}.
+ * {@link SettingsButtonPreference} with {@link AppIconPreference.Mixin}.
  */
-public class AppIconRadioButtonPreference extends RadioButtonPreference {
+public class AppIconSettingsButtonPreference extends SettingsButtonPreference {
 
     private AppIconPreference.Mixin mMixin;
 
-    public AppIconRadioButtonPreference(@NonNull Context context) {
-        super(context);
+    public AppIconSettingsButtonPreference(@NonNull Context context, @Nullable AttributeSet attrs,
+            @AttrRes int defStyleAttr, @StyleRes int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
 
         init();
     }
 
-    public AppIconRadioButtonPreference(@NonNull Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-
-        init();
-    }
-
-    public AppIconRadioButtonPreference(@NonNull Context context, @Nullable AttributeSet attrs,
+    public AppIconSettingsButtonPreference(@NonNull Context context, @Nullable AttributeSet attrs,
             @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
         init();
     }
 
-    public AppIconRadioButtonPreference(@NonNull Context context, @Nullable AttributeSet attrs,
-            @AttrRes int defStyleAttr, @StyleRes int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
+    public AppIconSettingsButtonPreference(@NonNull Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+
+        init();
+    }
+
+    public AppIconSettingsButtonPreference(@NonNull Context context) {
+        super(context);
 
         init();
     }

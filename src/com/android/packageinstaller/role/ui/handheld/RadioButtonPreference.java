@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.packageinstaller.role.ui;
+package com.android.packageinstaller.role.ui.handheld;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -38,32 +38,32 @@ import com.android.permissioncontroller.R;
  *
  * @see com.android.settings.widget.RadioButtonPreference
  */
-public class RadioButtonPreference extends TwoStatePreference {
+class RadioButtonPreference extends TwoStatePreference {
 
     @NonNull
     private final OnCheckedChangeListener mOnCheckedChangeListener = new OnCheckedChangeListener();
 
-    public RadioButtonPreference(@NonNull Context context) {
-        this(context, null);
+    RadioButtonPreference(@NonNull Context context, @Nullable AttributeSet attrs,
+            @AttrRes int defStyleAttr, @StyleRes int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+
+        setWidgetLayoutResource(R.layout.radio_button_preference_widget);
     }
 
-    public RadioButtonPreference(@NonNull Context context, @Nullable AttributeSet attrs) {
+    RadioButtonPreference(@NonNull Context context, @Nullable AttributeSet attrs,
+            @AttrRes int defStyleAttr) {
+        this(context, attrs, defStyleAttr, 0);
+    }
+
+    RadioButtonPreference(@NonNull Context context, @Nullable AttributeSet attrs) {
         // TwoStatePreference(Context, AttributeSet) breaks the default style attribute in
         // Preference(Context, AttributeSet), so we need to add it back here.
         this(context, attrs, TypedArrayUtils.getAttr(context, R.attr.preferenceStyle,
                 android.R.attr.preferenceStyle));
     }
 
-    public RadioButtonPreference(@NonNull Context context, @Nullable AttributeSet attrs,
-            @AttrRes int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
-    }
-
-    public RadioButtonPreference(@NonNull Context context, @Nullable AttributeSet attrs,
-            @AttrRes int defStyleAttr, @StyleRes int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-
-        setWidgetLayoutResource(R.layout.radio_button_preference_widget);
+    RadioButtonPreference(@NonNull Context context) {
+        this(context, null);
     }
 
     @Override

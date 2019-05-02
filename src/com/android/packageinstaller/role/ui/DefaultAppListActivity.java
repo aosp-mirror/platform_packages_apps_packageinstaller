@@ -22,6 +22,8 @@ import android.view.WindowManager;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 
+import com.android.packageinstaller.role.ui.handheld.HandheldDefaultAppListFragment;
+
 /**
  * Activity for the list of default apps.
  */
@@ -35,7 +37,7 @@ public class DefaultAppListActivity extends FragmentActivity {
                 WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
 
         if (savedInstanceState == null) {
-            DefaultAppListFragment fragment = DefaultAppListFragment.newInstance();
+            HandheldDefaultAppListFragment fragment = HandheldDefaultAppListFragment.newInstance();
             getSupportFragmentManager().beginTransaction()
                     .add(android.R.id.content, fragment)
                     .commit();

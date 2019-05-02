@@ -28,10 +28,11 @@ import android.util.ArrayMap;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceManager;
 import androidx.preference.PreferenceScreen;
@@ -45,21 +46,23 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Fragment for the list of default apps.
+ * Child fragment for the list of default apps. Must be added as a child fragment and its parent
+ * fragment must be a {@link PreferenceFragmentCompat} which implements {@link Parent}.
+ *
+ * @param <PF> type of the parent fragment
  */
-public class DefaultAppListFragment extends SettingsFragment
+public class DefaultAppListChildFragment<PF extends PreferenceFragmentCompat
+        & DefaultAppListChildFragment.Parent> extends Fragment
         implements Preference.OnPreferenceClickListener {
 
-    private static final String LOG_TAG = DefaultAppListFragment.class.getSimpleName();
-
     private static final String PREFERENCE_KEY_MORE_DEFAULT_APPS =
-            DefaultAppListFragment.class.getName() + ".preference.MORE_DEFAULT_APPS";
+            DefaultAppListChildFragment.class.getName() + ".preference.MORE_DEFAULT_APPS";
 
     private static final String PREFERENCE_KEY_MANAGE_DOMAIN_URLS =
-            DefaultAppListFragment.class.getName() + ".preference.MANAGE_DOMAIN_URLS";
+            DefaultAppListChildFragment.class.getName() + ".preference.MANAGE_DOMAIN_URLS";
 
     private static final String PREFERENCE_KEY_WORK_CATEGORY =
-            DefaultAppListFragment.class.getName() + ".preference.WORK_CATEGORY";
+            DefaultAppListChildFragment.class.getName() + ".preference.WORK_CATEGORY";
 
     private DefaultAppListViewModel mViewModel;
 
@@ -69,8 +72,8 @@ public class DefaultAppListFragment extends SettingsFragment
      * @return a new instance of this fragment
      */
     @NonNull
-    public static DefaultAppListFragment newInstance() {
-        return new DefaultAppListFragment();
+    public static DefaultAppListChildFragment newInstance() {
+        return new DefaultAppListChildFragment();
     }
 
     @Override
@@ -82,17 +85,6 @@ public class DefaultAppListFragment extends SettingsFragment
         if (mViewModel.hasWorkProfile()) {
             mViewModel.getWorkLiveData().observe(this, roleItems -> onRoleListChanged());
         }
-    }
-
-    @Override
-    @StringRes
-    protected int getEmptyTextResource() {
-        return R.string.no_default_apps;
-    }
-
-    @Override
-    protected int getHelpUriResource() {
-        return R.string.help_uri_default_apps;
     }
 
     private void onRoleListChanged() {
@@ -109,17 +101,18 @@ public class DefaultAppListFragment extends SettingsFragment
             }
         }
 
-        PreferenceManager preferenceManager = getPreferenceManager();
+        PF preferenceFragment = requirePreferenceFragment();
+        PreferenceManager preferenceManager = preferenceFragment.getPreferenceManager();
         Context context = preferenceManager.getContext();
-        PreferenceScreen preferenceScreen = getPreferenceScreen();
+        PreferenceScreen preferenceScreen = preferenceFragment.getPreferenceScreen();
         ArrayMap<String, Preference> oldPreferences = new ArrayMap<>();
         PreferenceCategory oldWorkPreferenceCategory = null;
         ArrayMap<String, Preference> oldWorkPreferences = new ArrayMap<>();
         if (preferenceScreen == null) {
             preferenceScreen = preferenceManager.createPreferenceScreen(context);
-            setPreferenceScreen(preferenceScreen);
+            preferenceFragment.setPreferenceScreen(preferenceScreen);
         } else {
-            oldWorkPreferenceCategory = (PreferenceCategory) preferenceScreen.findPreference(
+            oldWorkPreferenceCategory = preferenceScreen.findPreference(
                     PREFERENCE_KEY_WORK_CATEGORY);
             if (oldWorkPreferenceCategory != null) {
                 clearPreferences(oldWorkPreferenceCategory, oldWorkPreferences);
@@ -144,7 +137,7 @@ public class DefaultAppListFragment extends SettingsFragment
                     mViewModel.getWorkProfile(), context);
         }
 
-        updateState();
+        preferenceFragment.onPreferenceScreenChanged();
     }
 
     private static void clearPreferences(@NonNull PreferenceGroup preferenceGroup,
@@ -156,19 +149,20 @@ public class DefaultAppListFragment extends SettingsFragment
         }
     }
 
-    private static void addPreferences(@NonNull PreferenceGroup preferenceGroup,
+    private void addPreferences(@NonNull PreferenceGroup preferenceGroup,
             @NonNull List<RoleItem> roleItems, @NonNull ArrayMap<String, Preference> oldPreferences,
             @NonNull Preference.OnPreferenceClickListener listener, @NonNull UserHandle user,
             @NonNull Context context) {
+        PF preferenceFragment = requirePreferenceFragment();
         int roleItemsSize = roleItems.size();
         for (int i = 0; i < roleItemsSize; i++) {
             RoleItem roleItem = roleItems.get(i);
 
             Role role = roleItem.getRole();
-            AppIconSettingsButtonPreference preference =
-                    (AppIconSettingsButtonPreference) oldPreferences.get(role.getName());
+            TwoTargetPreference preference = (TwoTargetPreference) oldPreferences.get(
+                    role.getName());
             if (preference == null) {
-                preference = new AppIconSettingsButtonPreference(context);
+                preference = preferenceFragment.createPreference(context);
                 preference.setKey(role.getName());
                 preference.setIconSpaceReserved(true);
                 preference.setTitle(role.getShortLabelResource());
@@ -263,5 +257,33 @@ public class DefaultAppListFragment extends SettingsFragment
         String settingsPackageName = settingsIntent.resolveActivity(packageManager)
                 .getPackageName();
         return Objects.equals(componentName.getPackageName(), settingsPackageName);
+    }
+
+    @NonNull
+    private PF requirePreferenceFragment() {
+        //noinspection unchecked
+        return (PF) requireParentFragment();
+    }
+
+    /**
+     * Interface that the parent fragment must implement.
+     */
+    public interface Parent {
+
+        /**
+         * Create a new preference for a role.
+         *
+         * @param context the {@code Context} to use when creating the preference.
+         *
+         * @return a new preference for a role
+         */
+        @NonNull
+        TwoTargetPreference createPreference(@NonNull Context context);
+
+        /**
+         * Callback when changes have been made to the {@link PreferenceScreen} of the parent
+         * {@link PreferenceFragmentCompat}.
+         */
+        void onPreferenceScreenChanged();
     }
 }
