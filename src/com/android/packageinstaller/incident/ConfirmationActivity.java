@@ -241,7 +241,7 @@ public class ConfirmationActivity extends Activity implements OnClickListener, O
     ArrayList<Drawable> getImages(IncidentMinimal incident, Resources res) {
         final ArrayList<Drawable> drawables = new ArrayList();
 
-        final int totalImageCountLimit = 20;
+        final int totalImageCountLimit = 200;
         int totalImageCount = 0;
 
         if (incident.hasRestrictedImagesSection()) {
