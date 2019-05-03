@@ -33,6 +33,8 @@ import androidx.preference.PreferenceScreen;
 
 import com.android.packageinstaller.role.model.Role;
 import com.android.packageinstaller.role.model.Roles;
+import com.android.packageinstaller.role.ui.handheld.AppIconSettingsButtonPreference;
+import com.android.packageinstaller.role.ui.handheld.SettingsFragment;
 import com.android.permissioncontroller.R;
 
 import java.util.List;

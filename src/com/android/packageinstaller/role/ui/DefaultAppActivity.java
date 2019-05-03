@@ -30,6 +30,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.android.packageinstaller.role.model.Role;
 import com.android.packageinstaller.role.model.Roles;
+import com.android.packageinstaller.role.ui.handheld.HandheldDefaultAppFragment;
 
 /**
  * Activity for a default app.
@@ -88,7 +89,8 @@ public class DefaultAppActivity extends FragmentActivity {
         }
 
         if (savedInstanceState == null) {
-            DefaultAppFragment fragment = DefaultAppFragment.newInstance(roleName, user);
+            HandheldDefaultAppFragment fragment = HandheldDefaultAppFragment.newInstance(roleName,
+                    user);
             getSupportFragmentManager().beginTransaction()
                     .add(android.R.id.content, fragment)
                     .commit();

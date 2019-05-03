@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.packageinstaller.role.ui;
+package com.android.packageinstaller.role.ui.handheld;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -34,31 +34,31 @@ import com.android.permissioncontroller.R;
 /**
  * {@link Preference} with its icon view set to a fixed size for app icons.
  */
-public class AppIconPreference extends Preference {
+class AppIconPreference extends Preference {
 
     private Mixin mMixin;
 
-    public AppIconPreference(@NonNull Context context, @Nullable AttributeSet attrs,
+    AppIconPreference(@NonNull Context context, @Nullable AttributeSet attrs,
             @AttrRes int defStyleAttr, @StyleRes int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
 
         init();
     }
 
-    public AppIconPreference(@NonNull Context context, @Nullable AttributeSet attrs,
+    AppIconPreference(@NonNull Context context, @Nullable AttributeSet attrs,
             @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
         init();
     }
 
-    public AppIconPreference(@NonNull Context context, @Nullable AttributeSet attrs) {
+    AppIconPreference(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
         init();
     }
 
-    public AppIconPreference(@NonNull Context context) {
+    AppIconPreference(@NonNull Context context) {
         super(context);
 
         init();
@@ -83,7 +83,7 @@ public class AppIconPreference extends Preference {
         @Px
         private int mIconSize;
 
-        public Mixin(@NonNull Context context) {
+        Mixin(@NonNull Context context) {
             mIconSize = context.getResources().getDimensionPixelSize(
                     R.dimen.secondary_app_icon_size);
         }

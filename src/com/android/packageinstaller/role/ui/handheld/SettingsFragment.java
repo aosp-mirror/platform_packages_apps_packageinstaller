@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.packageinstaller.role.ui;
+package com.android.packageinstaller.role.ui.handheld;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -42,8 +42,6 @@ import com.android.settingslib.HelpUtils;
  * Base class for settings fragments.
  */
 public abstract class SettingsFragment extends PreferenceFragmentCompat {
-
-    private static final String LOG_TAG = SettingsFragment.class.getSimpleName();
 
     private FrameLayout mContentLayout;
     private LinearLayout mPreferenceLayout;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.packageinstaller.role.ui;
+package com.android.packageinstaller.role.ui.handheld;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -33,14 +33,9 @@ public class AppIconSwitchPreference extends SwitchPreference {
 
     private AppIconPreference.Mixin mMixin;
 
-    public AppIconSwitchPreference(@NonNull Context context) {
-        super(context);
-
-        init();
-    }
-
-    public AppIconSwitchPreference(@NonNull Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
+    public AppIconSwitchPreference(@NonNull Context context, @Nullable AttributeSet attrs,
+            @AttrRes int defStyleAttr, @StyleRes int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
 
         init();
     }
@@ -52,9 +47,14 @@ public class AppIconSwitchPreference extends SwitchPreference {
         init();
     }
 
-    public AppIconSwitchPreference(@NonNull Context context, @Nullable AttributeSet attrs,
-            @AttrRes int defStyleAttr, @StyleRes int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
+    public AppIconSwitchPreference(@NonNull Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+
+        init();
+    }
+
+    public AppIconSwitchPreference(@NonNull Context context) {
+        super(context);
 
         init();
     }
