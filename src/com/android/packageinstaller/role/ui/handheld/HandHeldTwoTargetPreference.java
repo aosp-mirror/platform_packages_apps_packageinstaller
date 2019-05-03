@@ -14,10 +14,12 @@
  * limitations under the License.
  */
 
-package com.android.packageinstaller.role.ui;
+package com.android.packageinstaller.role.ui.handheld;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
@@ -25,47 +27,54 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
 import androidx.preference.PreferenceViewHolder;
 
+import com.android.packageinstaller.role.ui.TwoTargetPreference;
+import com.android.permissioncontroller.R;
+
 /**
- * {@link SettingsButtonPreference} with {@link AppIconPreference.Mixin}.
+ * Handheld implementation of {@link TwoTargetPreference}.
  */
-public class AppIconSettingsButtonPreference extends SettingsButtonPreference {
+abstract class HandHeldTwoTargetPreference extends TwoTargetPreference {
 
-    private AppIconPreference.Mixin mMixin;
-
-    public AppIconSettingsButtonPreference(@NonNull Context context, @Nullable AttributeSet attrs,
+    HandHeldTwoTargetPreference(@NonNull Context context, @Nullable AttributeSet attrs,
             @AttrRes int defStyleAttr, @StyleRes int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
 
         init();
     }
 
-    public AppIconSettingsButtonPreference(@NonNull Context context, @Nullable AttributeSet attrs,
+    HandHeldTwoTargetPreference(@NonNull Context context, @Nullable AttributeSet attrs,
             @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
         init();
     }
 
-    public AppIconSettingsButtonPreference(@NonNull Context context, @Nullable AttributeSet attrs) {
+    HandHeldTwoTargetPreference(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
         init();
     }
 
-    public AppIconSettingsButtonPreference(@NonNull Context context) {
+    HandHeldTwoTargetPreference(@NonNull Context context) {
         super(context);
 
         init();
     }
 
     private void init() {
-        mMixin = new AppIconPreference.Mixin(getContext());
+        setLayoutResource(R.layout.two_target_preference);
     }
 
     @Override
     public void onBindViewHolder(@NonNull PreferenceViewHolder holder) {
         super.onBindViewHolder(holder);
 
-        mMixin.onBindViewHolder(holder);
+        View widgetFrame = holder.findViewById(android.R.id.widget_frame);
+        ViewGroup widgetFrameParent = (ViewGroup) widgetFrame.getParent();
+        ViewGroup itemView = (ViewGroup) holder.itemView;
+        if (widgetFrameParent != itemView) {
+            widgetFrameParent.removeView(widgetFrame);
+            itemView.addView(widgetFrame);
+        }
     }
 }
