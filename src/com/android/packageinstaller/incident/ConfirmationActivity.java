@@ -84,6 +84,7 @@ public class ConfirmationActivity extends Activity implements OnClickListener, O
         final Formatting formatting = new Formatting(this);
 
         final Uri uri = getIntent().getData();
+        Log.d(TAG, "uri=" + uri);
         if (uri == null) {
             Log.w(TAG, "No uri in intent: " + getIntent());
             finish();
@@ -213,6 +214,12 @@ public class ConfirmationActivity extends Activity implements OnClickListener, O
         try {
             final IncidentManager incidentManager = getSystemService(IncidentManager.class);
             final IncidentManager.IncidentReport report = incidentManager.getIncidentReport(uri);
+            if (report == null) {
+                // There is no incident report, so no images to show, so return empty list.
+                // Other errors below are invalid images, which we reject, because they're there
+                // but we can't let  the user confirm it.
+                return new ArrayList();
+            }
 
             final InputStream stream = report.getInputStream();
             if (stream != null) {
