@@ -31,12 +31,14 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Switch;
 
+import androidx.annotation.NonNull;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceGroup;
@@ -63,20 +65,20 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
 
     private static final String KEY_OTHER = "other_perms";
 
-    private static final String EXTRA_FILTER_GROUP =
-            "com.android.packageinstaller.extra.FILTER_GROUP";
-
     private List<AppPermissionGroup> mGroups;
 
-    public static AllAppPermissionsFragment newInstance(String packageName) {
-        return newInstance(packageName, null);
+    public static AllAppPermissionsFragment newInstance(@NonNull String packageName,
+            @NonNull UserHandle userHandle) {
+        return newInstance(packageName, null, userHandle);
     }
 
-    public static AllAppPermissionsFragment newInstance(String packageName, String filterGroup) {
+    public static AllAppPermissionsFragment newInstance(@NonNull String packageName,
+            @NonNull String filterGroup, @NonNull UserHandle userHandle) {
         AllAppPermissionsFragment instance = new AllAppPermissionsFragment();
         Bundle arguments = new Bundle();
         arguments.putString(Intent.EXTRA_PACKAGE_NAME, packageName);
-        arguments.putString(EXTRA_FILTER_GROUP, filterGroup);
+        arguments.putString(Intent.EXTRA_PERMISSION_GROUP_NAME, filterGroup);
+        arguments.putParcelable(Intent.EXTRA_USER, userHandle);
         instance.setArguments(arguments);
         return instance;
     }
@@ -88,7 +90,7 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
         final ActionBar ab = getActivity().getActionBar();
         if (ab != null) {
             // If we target a group make this look like app permissions.
-            if (getArguments().getString(EXTRA_FILTER_GROUP) == null) {
+            if (getArguments().getString(Intent.EXTRA_PERMISSION_GROUP_NAME) == null) {
                 ab.setTitle(R.string.all_permissions);
             } else {
                 ab.setTitle(R.string.app_permissions);
@@ -121,12 +123,14 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
         ArrayList<Preference> prefs = new ArrayList<>(); // Used for sorting.
         prefs.add(otherGroup);
         String pkg = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
-        String filterGroup = getArguments().getString(EXTRA_FILTER_GROUP);
+        String filterGroup = getArguments().getString(Intent.EXTRA_PERMISSION_GROUP_NAME);
+        UserHandle userHandle = getArguments().getParcelable(Intent.EXTRA_USER);
         otherGroup.removeAll();
         PackageManager pm = getContext().getPackageManager();
 
         try {
-            PackageInfo info = pm.getPackageInfo(pkg, PackageManager.GET_PERMISSIONS);
+            PackageInfo info = getActivity().createPackageContextAsUser(pkg, 0, userHandle)
+                    .getPackageManager().getPackageInfo(pkg, PackageManager.GET_PERMISSIONS);
 
             ApplicationInfo appInfo = info.applicationInfo;
             final Drawable icon = Utils.getBadgedIcon(getContext(), appInfo);
@@ -137,7 +141,7 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
                 infoIntent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
                         .setData(Uri.fromParts("package", pkg, null));
             }
-            setHeader(icon, label, infoIntent);
+            setHeader(icon, label, infoIntent, userHandle);
 
             if (info.requestedPermissions != null) {
                 for (int i = 0; i < info.requestedPermissions.length; i++) {
