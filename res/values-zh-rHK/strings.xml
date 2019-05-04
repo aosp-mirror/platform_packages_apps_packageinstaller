@@ -105,7 +105,7 @@
     <string name="no_permission_usages" msgid="698858628357371611">"沒有應用程式使用要求的權限"</string>
     <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"任意時段內的最近一次存取"</string>
     <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"過去 7 天內的近期存取"</string>
-    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"過去 24 小時內的最近一次存取"</string>
+    <string name="permission_usage_list_title_last_day" msgid="6298662604046093174">"過去 24 小時內的最近存取"</string>
     <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"過去 1 小時內的最近一次存取"</string>
     <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"過去 15 分鐘內的最近一次存取"</string>
     <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"過去 1 分鐘內的最近一次存取"</string>
@@ -145,8 +145,30 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"拒絕"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g>權限"</string>
     <string name="app_permission_header" msgid="228974007660007656">"這個應用程式的<xliff:g id="PERM">%1$s</xliff:g>存取權"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"「<xliff:g id="APP">%1$s</xliff:g>」於 <xliff:g id="TIME">%3$s</xliff:g>前存取了您的<xliff:g id="PERM">%2$s</xliff:g>"</string>
-    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"「<xliff:g id="APP">%1$s</xliff:g>」沒有存取<xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"「<xliff:g id="APP">%1$s</xliff:g>」於 <xliff:g id="TIME">%3$s</xliff:g>前存取了您的<xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"「<xliff:g id="APP">%1$s</xliff:g>」於 <xliff:g id="TIME">%2$s</xliff:g>前存取了您的運動資料"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"「<xliff:g id="APP">%1$s</xliff:g>」於 <xliff:g id="TIME">%2$s</xliff:g>前存取了您的日曆"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"「<xliff:g id="APP">%1$s</xliff:g>」於 <xliff:g id="TIME">%2$s</xliff:g>前存取了您的通話記錄"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"「<xliff:g id="APP">%1$s</xliff:g>」於 <xliff:g id="TIME">%2$s</xliff:g>前存取了您的相機"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"「<xliff:g id="APP">%1$s</xliff:g>」於 <xliff:g id="TIME">%2$s</xliff:g>前存取了您的聯絡人"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"「<xliff:g id="APP">%1$s</xliff:g>」於 <xliff:g id="TIME">%2$s</xliff:g>前存取了您的位置"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"「<xliff:g id="APP">%1$s</xliff:g>」於 <xliff:g id="TIME">%2$s</xliff:g>前存取了您的麥克風"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"「<xliff:g id="APP">%1$s</xliff:g>」於 <xliff:g id="TIME">%2$s</xliff:g>前存取了您的手機"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"「<xliff:g id="APP">%1$s</xliff:g>」於 <xliff:g id="TIME">%2$s</xliff:g>前存取了您的感應器"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"「<xliff:g id="APP">%1$s</xliff:g>」於 <xliff:g id="TIME">%2$s</xliff:g>前存取了您的短訊"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"「<xliff:g id="APP">%1$s</xliff:g>」於 <xliff:g id="TIME">%2$s</xliff:g>前存取了您的儲存空間"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"「<xliff:g id="APP">%1$s</xliff:g>」沒有存取您的<xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"「<xliff:g id="APP">%1$s</xliff:g>」沒有存取您的運動資料"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"「<xliff:g id="APP">%1$s</xliff:g>」沒有存取您的日曆"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"「<xliff:g id="APP">%1$s</xliff:g>」沒有存取您的通話記錄"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"「<xliff:g id="APP">%1$s</xliff:g>」沒有存取您的相機"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"「<xliff:g id="APP">%1$s</xliff:g>」沒有存取您的聯絡人"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"「<xliff:g id="APP">%1$s</xliff:g>」沒有存取您的位置"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"「<xliff:g id="APP">%1$s</xliff:g>」沒有存取您的麥克風"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"「<xliff:g id="APP">%1$s</xliff:g>」沒有存取您的手機"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"「<xliff:g id="APP">%1$s</xliff:g>」沒有存取您的感應器"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"「<xliff:g id="APP">%1$s</xliff:g>」沒有存取您的短訊"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"「<xliff:g id="APP">%1$s</xliff:g>」沒有存取您的儲存空間"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"目前無法提供此權限的上次存取資料"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"查看「<xliff:g id="APP">%1$s</xliff:g>」的所有權限"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"查看擁有此權限的所有應用程式"</string>

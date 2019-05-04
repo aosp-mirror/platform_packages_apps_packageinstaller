@@ -143,10 +143,32 @@
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Autoriser tout le temps"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Autoriser uniquement lorsque l\'appli est en cours d\'utilisation"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Refuser"</string>
-    <string name="app_permission_title" msgid="2453000050669052385">"Autorisation <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"Autorisation : <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="228974007660007656">"Accès demandé pour cette application : <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"<xliff:g id="APP">%1$s</xliff:g> a accédé à votre (vos) <xliff:g id="PERM">%2$s</xliff:g> il y a <xliff:g id="TIME">%3$s</xliff:g>"</string>
-    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"L\'application <xliff:g id="APP">%1$s</xliff:g> n\'a pas accédé à votre (vos) <xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g> a accédé à votre <xliff:g id="PERM">%2$s</xliff:g> il y a <xliff:g id="TIME">%3$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g> a accédé à votre activité physique il y a <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="APP">%1$s</xliff:g> a accédé à votre agenda il y a <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"<xliff:g id="APP">%1$s</xliff:g> a accédé à vos journaux d\'appel il y a <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"<xliff:g id="APP">%1$s</xliff:g> a accédé à votre appareil photo il y a <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"<xliff:g id="APP">%1$s</xliff:g> a accédé à vos contacts il y a <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"<xliff:g id="APP">%1$s</xliff:g> a accédé à votre position il y a <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"<xliff:g id="APP">%1$s</xliff:g> a accédé à votre microphone il y a <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"<xliff:g id="APP">%1$s</xliff:g> a accédé à votre téléphone il y a <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"<xliff:g id="APP">%1$s</xliff:g> a accédé à vos capteurs il y a <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"<xliff:g id="APP">%1$s</xliff:g> a accédé à vos messages texte il y a <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"<xliff:g id="APP">%1$s</xliff:g> a accédé à votre espace de stockage il y a <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"<xliff:g id="APP">%1$s</xliff:g> n\'a pas accédé à votre <xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"<xliff:g id="APP">%1$s</xliff:g> n\'a pas accédé à votre activité physique"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"<xliff:g id="APP">%1$s</xliff:g> n\'a pas accédé à votre agenda"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"<xliff:g id="APP">%1$s</xliff:g> n\'a pas accédé à vos journaux d\'appel"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"<xliff:g id="APP">%1$s</xliff:g> n\'a pas accédé à votre appareil photo"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"<xliff:g id="APP">%1$s</xliff:g> n\'a pas accédé à vos contacts"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"<xliff:g id="APP">%1$s</xliff:g> n\'a pas accédé à votre position"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"<xliff:g id="APP">%1$s</xliff:g> n\'a pas accédé à votre microphone"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"<xliff:g id="APP">%1$s</xliff:g> n\'a pas accédé à votre téléphone"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"<xliff:g id="APP">%1$s</xliff:g> n\'a pas accédé à vos capteurs"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"<xliff:g id="APP">%1$s</xliff:g> n\'a pas accédé à vos messages texte"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"<xliff:g id="APP">%1$s</xliff:g> n\'a pas accédé à votre espace de stockage"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Les données relative au dernier accès ne sont pas présentement accessibles pour cette autorisation"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Afficher toutes les autorisations pour <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Afficher toutes les applications qui possèdent cette autorisation"</string>
@@ -225,9 +247,9 @@
     <string name="role_emergency_description" msgid="3567231505957373289">"Applications qui vous permettent d\'enregistrer vos données médicales et de les rendre accessibles aux intervenants d\'urgence; pour recevoir des alertes sur des événements météorologiques graves et des désastres naturels; pour avertir d\'autres personnes lorsque vous avez besoin d\'aide"</string>
     <string name="role_emergency_request_title" msgid="6595296517085761522">"Définir <xliff:g id="APP_NAME">%1$s</xliff:g> comme application par défaut pour les urgences?"</string>
     <string name="role_emergency_request_description" msgid="2824966073894226992">"Aucune autorisation nécessaire"</string>
-    <string name="role_home_label" msgid="6245106863177808486">"Application d\'accueil par défaut"</string>
+    <string name="role_home_label" msgid="6245106863177808486">"Appli d\'accueil par défaut"</string>
     <string name="role_home_short_label" msgid="4565882523300643525">"Application d\'accueil"</string>
-    <string name="role_home_description" msgid="6736956389161158052">"Les applications qui remplacent les écrans d\'accueil sur votre appareil Android et qui vous donnent accès au contenu et aux fonctionnalités de votre appareil, qu\'on appelle souvent « lanceur d\'applications »"</string>
+    <string name="role_home_description" msgid="6736956389161158052">"Applications qui remplacent les écrans d\'accueil sur votre appareil Android et qui vous donnent accès au contenu et aux fonctionnalités de votre appareil"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Définir <xliff:g id="APP_NAME">%1$s</xliff:g> comme application d\'accueil par défaut?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Aucune autorisation nécessaire"</string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Appli redirect. appel par déf."</string>

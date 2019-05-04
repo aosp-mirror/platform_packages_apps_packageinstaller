@@ -157,8 +157,30 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"رفض"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"إذن <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="228974007660007656">"منح هذا التطبيق الإذن بالوصول إلى <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"قبل <xliff:g id="TIME">%3$s</xliff:g>، استخدَم تطبيق <xliff:g id="APP">%1$s</xliff:g> إذن <xliff:g id="PERM">%2$s</xliff:g> الذي منحته."</string>
-    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"لم يستخدم تطبيق \"<xliff:g id="APP">%1$s</xliff:g>\" إذن <xliff:g id="PERM">%2$s</xliff:g> حتى الآن."</string>
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"حصل تطبيق <xliff:g id="APP">%1$s</xliff:g> على إذن بالدخول إلى <xliff:g id="PERM">%2$s</xliff:g> قبل <xliff:g id="TIME">%3$s</xliff:g>."</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"حصل تطبيق <xliff:g id="APP">%1$s</xliff:g> على إذن بالدخول إلى نشاطك البدني قبل <xliff:g id="TIME">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"حصل تطبيق <xliff:g id="APP">%1$s</xliff:g> على إذن بالدخول إلى التقويم قبل <xliff:g id="TIME">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"حصل تطبيق <xliff:g id="APP">%1$s</xliff:g> على إذن بالدخول إلى سجّلات المكالمات قبل <xliff:g id="TIME">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"حصل تطبيق <xliff:g id="APP">%1$s</xliff:g> على إذن بالدخول إلى الكاميرا قبل <xliff:g id="TIME">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"حصل تطبيق <xliff:g id="APP">%1$s</xliff:g> على إذن بالدخول إلى جهات الاتصال قبل <xliff:g id="TIME">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"حصل تطبيق <xliff:g id="APP">%1$s</xliff:g> على إذن بالدخول إلى الموقع الجغرافي قبل <xliff:g id="TIME">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"حصل تطبيق <xliff:g id="APP">%1$s</xliff:g> على إذن بالدخول إلى الميكروفون قبل <xliff:g id="TIME">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"حصل تطبيق <xliff:g id="APP">%1$s</xliff:g> على إذن بالدخول إلى هاتفك قبل <xliff:g id="TIME">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"حصل تطبيق <xliff:g id="APP">%1$s</xliff:g> على إذن بالدخول إلى أجهزة الاستشعار قبل <xliff:g id="TIME">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"‏حصل تطبيق <xliff:g id="APP">%1$s</xliff:g> على إذن بالدخول إلى رسائل SMS قبل <xliff:g id="TIME">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"حصل تطبيق <xliff:g id="APP">%1$s</xliff:g> على إذن بالدخول إلى سعة التخزين قبل <xliff:g id="TIME">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"لم يحصل تطبيق <xliff:g id="APP">%1$s</xliff:g> على إذن بالدخول إلى <xliff:g id="PERM">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"لم يحصل تطبيق <xliff:g id="APP">%1$s</xliff:g> على إذن بالدخول إلى نشاطك البدني."</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"لم يحصل تطبيق <xliff:g id="APP">%1$s</xliff:g> على إذن بالدخول إلى التقويم."</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"لم يحصل تطبيق <xliff:g id="APP">%1$s</xliff:g> على إذن بالدخول إلى سجّلات المكالمات."</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"لم يحصل تطبيق <xliff:g id="APP">%1$s</xliff:g> على إذن بالدخول إلى الكاميرا."</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"لم يحصل تطبيق <xliff:g id="APP">%1$s</xliff:g> على إذن بالدخول إلى جهات اتصالك."</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"لم يحصل تطبيق <xliff:g id="APP">%1$s</xliff:g> على إذن بالدخول إلى الموقع الجغرافي."</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"لم يحصل تطبيق <xliff:g id="APP">%1$s</xliff:g> على إذن بالدخول إلى الميكروفون."</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"لم يحصل تطبيق <xliff:g id="APP">%1$s</xliff:g> على إذن بالدخول إلى هاتفك."</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"لم يحصل تطبيق <xliff:g id="APP">%1$s</xliff:g> على إذن بالدخول إلى أجهزة الاستشعار."</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"‏لم يحصل تطبيق <xliff:g id="APP">%1$s</xliff:g> على إذن بالدخول إلى رسائل SMS."</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"لم يحصل تطبيق <xliff:g id="APP">%1$s</xliff:g> على إذن بالدخول إلى مساحة التخزين."</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"لا تتوفَّر بيانات آخر وصول لهذا الإذن."</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"الاطّلاع على جميع أذونات <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"الاطّلاع على جميع التطبيقات التي لديها هذا الإذن"</string>
