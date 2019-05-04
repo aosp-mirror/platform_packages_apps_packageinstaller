@@ -160,7 +160,7 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
     private void showAllPermissions(String filterGroup) {
         Fragment frag = AllAppPermissionsFragment.newInstance(
                 getArguments().getString(Intent.EXTRA_PACKAGE_NAME),
-                filterGroup);
+                filterGroup, getArguments().getParcelable(Intent.EXTRA_USER));
         getFragmentManager().beginTransaction()
                 .replace(android.R.id.content, frag)
                 .addToBackStack("AllPerms")
@@ -177,7 +177,8 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
         }
 
         Drawable icon = Utils.getBadgedIcon(activity, appInfo);
-        fragment.setHeader(icon, Utils.getFullAppLabel(appInfo, activity), infoIntent, false);
+        fragment.setHeader(icon, Utils.getFullAppLabel(appInfo, activity), infoIntent,
+                UserHandle.getUserHandleForUid(appInfo.uid), false);
 
         ActionBar ab = activity.getActionBar();
         if (ab != null) {
@@ -330,7 +331,7 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
         public void onCreate(Bundle savedInstanceState) {
             mOuterFragment = (AppPermissionsFragment) getTargetFragment();
             super.onCreate(savedInstanceState);
-            setHeader(mOuterFragment.mIcon, mOuterFragment.mLabel, null, false);
+            setHeader(mOuterFragment.mIcon, mOuterFragment.mLabel, null, null, false);
             setHasOptionsMenu(true);
             setPreferenceScreen(mOuterFragment.mExtraScreen);
         }

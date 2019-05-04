@@ -23,6 +23,7 @@ import android.content.pm.PackageInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.RemoteCallback;
+import android.os.UserHandle;
 import android.text.Html;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -151,6 +152,8 @@ public final class ReviewPermissionsFragment extends PreferenceFragmentCompat
             Intent intent = new Intent(Intent.ACTION_MANAGE_APP_PERMISSIONS);
             intent.putExtra(Intent.EXTRA_PACKAGE_NAME,
                     mAppPermissions.getPackageInfo().packageName);
+            intent.putExtra(Intent.EXTRA_USER, UserHandle.getUserHandleForUid(
+                    mAppPermissions.getPackageInfo().applicationInfo.uid));
             intent.putExtra(ManagePermissionsActivity.EXTRA_ALL_PERMISSIONS, true);
             getActivity().startActivity(intent);
         }

@@ -19,23 +19,25 @@ package com.android.packageinstaller.permission.ui.handheld;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+
 import com.android.packageinstaller.DeviceUtils;
 import com.android.permissioncontroller.R;
 
-public abstract class SettingsWithHeader extends PermissionsFrameFragment
-        implements OnClickListener {
+public abstract class SettingsWithHeader extends PermissionsFrameFragment {
 
     private View mHeader;
     protected Intent mInfoIntent;
     protected Drawable mIcon;
     protected CharSequence mLabel;
+    protected UserHandle mUserHandle;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,10 +53,12 @@ public abstract class SettingsWithHeader extends PermissionsFrameFragment
         return root;
     }
 
-    public void setHeader(Drawable icon, CharSequence label, Intent infoIntent) {
+    public void setHeader(Drawable icon, CharSequence label, Intent infoIntent,
+            @Nullable UserHandle userHandle) {
         mIcon = icon;
         mLabel = label;
         mInfoIntent = infoIntent;
+        mUserHandle = userHandle;
         updateHeader();
     }
 
@@ -72,13 +76,9 @@ public abstract class SettingsWithHeader extends PermissionsFrameFragment
             } else {
                 info.setVisibility(View.VISIBLE);
                 info.setClickable(true);
-                info.setOnClickListener(this);
+                info.setOnClickListener(v -> getActivity().startActivityAsUser(mInfoIntent,
+                        mUserHandle));
             }
         }
-    }
-
-    @Override
-    public void onClick(View v) {
-        getActivity().startActivity(mInfoIntent);
     }
 }
