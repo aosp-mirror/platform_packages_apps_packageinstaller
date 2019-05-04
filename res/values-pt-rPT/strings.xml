@@ -145,8 +145,30 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Recusar"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"Autorização de <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="228974007660007656">"Acesso ao(à) <xliff:g id="PERM">%1$s</xliff:g> para esta aplicação."</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"A aplicação <xliff:g id="APP">%1$s</xliff:g> acedeu ao(à) <xliff:g id="PERM">%2$s</xliff:g> há <xliff:g id="TIME">%3$s</xliff:g>."</string>
-    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"A aplicação <xliff:g id="APP">%1$s</xliff:g> não acedeu à sua <xliff:g id="PERM">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"A aplicação <xliff:g id="APP">%1$s</xliff:g> acedeu à autorização <xliff:g id="PERM">%2$s</xliff:g> há <xliff:g id="TIME">%3$s</xliff:g>."</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"A aplicação <xliff:g id="APP">%1$s</xliff:g> acedeu à atividade física há <xliff:g id="TIME">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"A aplicação <xliff:g id="APP">%1$s</xliff:g> acedeu ao calendário há <xliff:g id="TIME">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"A aplicação <xliff:g id="APP">%1$s</xliff:g> acedeu aos registos de chamadas há <xliff:g id="TIME">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"A aplicação <xliff:g id="APP">%1$s</xliff:g> acedeu à câmara há <xliff:g id="TIME">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"A aplicação <xliff:g id="APP">%1$s</xliff:g> acedeu aos contactos há <xliff:g id="TIME">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"A aplicação <xliff:g id="APP">%1$s</xliff:g> acedeu à localização há <xliff:g id="TIME">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"A aplicação <xliff:g id="APP">%1$s</xliff:g> acedeu ao microfone há <xliff:g id="TIME">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"A aplicação <xliff:g id="APP">%1$s</xliff:g> acedeu ao telemóvel há <xliff:g id="TIME">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"A aplicação <xliff:g id="APP">%1$s</xliff:g> acedeu aos sensores há <xliff:g id="TIME">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"A aplicação <xliff:g id="APP">%1$s</xliff:g> acedeu às SMS há <xliff:g id="TIME">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"A aplicação <xliff:g id="APP">%1$s</xliff:g> acedeu ao armazenamento há <xliff:g id="TIME">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"A aplicação <xliff:g id="APP">%1$s</xliff:g> não acedeu à autorização <xliff:g id="PERM">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"A aplicação <xliff:g id="APP">%1$s</xliff:g> não acedeu à atividade física."</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"A aplicação <xliff:g id="APP">%1$s</xliff:g> não acedeu ao calendário."</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"A aplicação <xliff:g id="APP">%1$s</xliff:g> não acedeu aos registos de chamadas."</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"A aplicação <xliff:g id="APP">%1$s</xliff:g> não acedeu à câmara."</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"A aplicação <xliff:g id="APP">%1$s</xliff:g> não acedeu aos contactos."</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"A aplicação <xliff:g id="APP">%1$s</xliff:g> não acedeu à localização."</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"A aplicação <xliff:g id="APP">%1$s</xliff:g> não acedeu ao microfone."</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"A aplicação <xliff:g id="APP">%1$s</xliff:g> não acedeu ao telemóvel."</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"A aplicação <xliff:g id="APP">%1$s</xliff:g> não acedeu aos sensores."</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"A aplicação <xliff:g id="APP">%1$s</xliff:g> não acedeu às SMS."</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"A aplicação <xliff:g id="APP">%1$s</xliff:g> não acedeu ao armazenamento."</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"De momento, os dados do último acesso não estão disponíveis para esta autorização."</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Ver todas as autorizações da aplicação <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Ver todas as aplicações com esta autorização"</string>

@@ -145,8 +145,30 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Tolak"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"Kebenaran <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="228974007660007656">"Akses <xliff:g id="PERM">%1$s</xliff:g> untuk apl ini"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"<xliff:g id="APP">%1$s</xliff:g> mengakses <xliff:g id="PERM">%2$s</xliff:g> anda <xliff:g id="TIME">%3$s</xliff:g> yang lalu"</string>
-    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"<xliff:g id="APP">%1$s</xliff:g> belum mengakses <xliff:g id="PERM">%2$s</xliff:g> anda"</string>
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g> mengakses <xliff:g id="PERM">%2$s</xliff:g> anda <xliff:g id="TIME">%3$s</xliff:g> yang lalu"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g> mengakses aktiviti fizikal anda <xliff:g id="TIME">%2$s</xliff:g> yang lalu"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="APP">%1$s</xliff:g> mengakses kalendar anda <xliff:g id="TIME">%2$s</xliff:g> yang lalu"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"<xliff:g id="APP">%1$s</xliff:g> mengakses log panggilan anda <xliff:g id="TIME">%2$s</xliff:g> yang lalu"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"<xliff:g id="APP">%1$s</xliff:g> mengakses kamera anda <xliff:g id="TIME">%2$s</xliff:g> yang lalu"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"<xliff:g id="APP">%1$s</xliff:g> mengakses kenalan anda <xliff:g id="TIME">%2$s</xliff:g> yang lalu"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"<xliff:g id="APP">%1$s</xliff:g> mengakses lokasi anda <xliff:g id="TIME">%2$s</xliff:g> yang lalu"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"<xliff:g id="APP">%1$s</xliff:g> mengakses mikrofon anda <xliff:g id="TIME">%2$s</xliff:g> yang lalu"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"<xliff:g id="APP">%1$s</xliff:g> mengakses telefon anda <xliff:g id="TIME">%2$s</xliff:g> yang lalu"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"<xliff:g id="APP">%1$s</xliff:g> mengakses penderia anda <xliff:g id="TIME">%2$s</xliff:g> yang lalu"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"<xliff:g id="APP">%1$s</xliff:g> mengakses SMS anda <xliff:g id="TIME">%2$s</xliff:g> yang lalu"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"<xliff:g id="APP">%1$s</xliff:g> mengakses storan anda <xliff:g id="TIME">%2$s</xliff:g> yang lalu"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"<xliff:g id="APP">%1$s</xliff:g> belum mengakses <xliff:g id="PERM">%2$s</xliff:g> anda"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"<xliff:g id="APP">%1$s</xliff:g> belum mengakses aktiviti fizikal anda"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"<xliff:g id="APP">%1$s</xliff:g> belum mengakses kalendar anda"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"<xliff:g id="APP">%1$s</xliff:g> belum mengakses log panggilan anda"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"<xliff:g id="APP">%1$s</xliff:g> belum mengakses kamera anda"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"<xliff:g id="APP">%1$s</xliff:g> belum mengakses kenalan anda"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"<xliff:g id="APP">%1$s</xliff:g> belum mengakses lokasi anda"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"<xliff:g id="APP">%1$s</xliff:g> belum mengakses mikrofon anda"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"<xliff:g id="APP">%1$s</xliff:g> belum mengakses telefon anda"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"<xliff:g id="APP">%1$s</xliff:g> belum mengakses penderia anda"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"<xliff:g id="APP">%1$s</xliff:g> belum mengakses SMS anda"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"<xliff:g id="APP">%1$s</xliff:g> belum mengakses storan anda"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Data akses terakhir tidak tersedia untuk kebenaran ini pada masa ini"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Lihat semua kebenaran <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Lihat semua apl dengan kebenaran ini"</string>

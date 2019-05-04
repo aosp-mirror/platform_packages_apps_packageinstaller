@@ -151,8 +151,30 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Запретить"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"Разрешение \"<xliff:g id="PERM">%1$s</xliff:g>\""</string>
     <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>: доступ для этого приложения"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" использовало разрешение \"<xliff:g id="PERM">%2$s</xliff:g>\" <xliff:g id="TIME">%3$s</xliff:g> назад."</string>
-    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" не использовало разрешение \"<xliff:g id="PERM">%2$s</xliff:g>\"."</string>
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" использовало разрешение \"<xliff:g id="PERM">%2$s</xliff:g>\" <xliff:g id="TIME">%3$s</xliff:g> назад."</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" использовало доступ к физ. активности <xliff:g id="TIME">%2$s</xliff:g> назад."</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" использовало доступ к календарю <xliff:g id="TIME">%2$s</xliff:g> назад."</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" использовало доступ к списку вызовов <xliff:g id="TIME">%2$s</xliff:g> назад."</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" использовало доступ к камере <xliff:g id="TIME">%2$s</xliff:g> назад."</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" использовало доступ к контактам <xliff:g id="TIME">%2$s</xliff:g> назад."</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" использовало доступ к местоположению <xliff:g id="TIME">%2$s</xliff:g> назад."</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" использовало доступ к микрофону <xliff:g id="TIME">%2$s</xliff:g> назад."</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" использовало доступ к телефону <xliff:g id="TIME">%2$s</xliff:g> назад."</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" использовало доступ к датчикам <xliff:g id="TIME">%2$s</xliff:g> назад."</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" использовало доступ к SMS <xliff:g id="TIME">%2$s</xliff:g> назад."</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" использовало доступ к хранилищу <xliff:g id="TIME">%2$s</xliff:g> назад."</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" не использовало разрешение \"<xliff:g id="PERM">%2$s</xliff:g>\"."</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" не использовало доступ к физ. активности."</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" не использовало доступ к календарю."</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" не использовало доступ к списку вызовов."</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" не использовало доступ к камере."</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" не использовало доступ к контактам."</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" не использовало доступ к местоположению."</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" не использовало доступ к микрофону."</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" не использовало доступ к телефону."</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" не использовало доступ к датчикам."</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" не использовало доступ к SMS."</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" не использовало доступ к хранилищу."</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Нет данных о доступе для этого разрешения."</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Все разрешения приложения \"<xliff:g id="APP">%1$s</xliff:g>\""</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Все приложения с этим разрешением"</string>

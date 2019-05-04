@@ -145,11 +145,33 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"નકારો"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> પરવાનગી"</string>
     <string name="app_permission_header" msgid="228974007660007656">"આ ઍપ માટે <xliff:g id="PERM">%1$s</xliff:g>નો ઍક્સેસ"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"<xliff:g id="APP">%1$s</xliff:g>એ તમારી <xliff:g id="PERM">%2$s</xliff:g>ને <xliff:g id="TIME">%3$s</xliff:g> પહેલાં ઍક્સેસ કરી"</string>
-    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"<xliff:g id="APP">%1$s</xliff:g>એ તમારા <xliff:g id="PERM">%2$s</xliff:g>નો ઍક્સેસ મેળવ્યો નથી"</string>
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g>એ તમારી <xliff:g id="PERM">%2$s</xliff:g>ને <xliff:g id="TIME">%3$s</xliff:g> પહેલાં ઍક્સેસ કરી હતી"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g>એ <xliff:g id="TIME">%2$s</xliff:g> પહેલાં તમારી શારીરિક પ્રવૃત્તિને ઍક્સેસ કરી હતી"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="APP">%1$s</xliff:g>એ <xliff:g id="TIME">%2$s</xliff:g> પહેલાં તમારું કૅલેન્ડર ઍક્સેસ કર્યું હતું"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"<xliff:g id="APP">%1$s</xliff:g>એ <xliff:g id="TIME">%2$s</xliff:g> પહેલાં તમારો કૉલ લૉગ ઍક્સેસ કર્યો હતો"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"<xliff:g id="APP">%1$s</xliff:g>એ <xliff:g id="TIME">%2$s</xliff:g> પહેલાં તમારો કૅમેરો ઍક્સેસ કર્યો હતો"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"<xliff:g id="APP">%1$s</xliff:g>એ <xliff:g id="TIME">%2$s</xliff:g> પહેલાં તમારા સંપર્કોને ઍક્સેસ કર્યા હતા"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"<xliff:g id="APP">%1$s</xliff:g>એ <xliff:g id="TIME">%2$s</xliff:g> પહેલાં તમારી સ્થાન સેવા ઍક્સેસ કરી હતી"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"<xliff:g id="APP">%1$s</xliff:g>એ <xliff:g id="TIME">%2$s</xliff:g> પહેલાં તમારો માઇક્રોફોન ઍક્સેસ કર્યો હતો"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"<xliff:g id="APP">%1$s</xliff:g>એ <xliff:g id="TIME">%2$s</xliff:g> પહેલાં તમારા ફોનને ઍક્સેસ કર્યો હતો"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"<xliff:g id="APP">%1$s</xliff:g>એ <xliff:g id="TIME">%2$s</xliff:g> પહેલાં તમારા સેન્સર ઍક્સેસ કર્યા હતા"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"<xliff:g id="APP">%1$s</xliff:g>એ <xliff:g id="TIME">%2$s</xliff:g> પહેલાં તમારી SMS સેવા ઍક્સેસ કરી હતી"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"<xliff:g id="APP">%1$s</xliff:g>એ <xliff:g id="TIME">%2$s</xliff:g> પહેલાં તમારો સ્ટોરેજ ઍક્સેસ કર્યો હતો"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"<xliff:g id="APP">%1$s</xliff:g>એ તમારી <xliff:g id="PERM">%2$s</xliff:g>ને ઍક્સેસ કરી નથી"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"<xliff:g id="APP">%1$s</xliff:g>એ તમારી શારીરિક પ્રવૃત્તિ ઍક્સેસ કરી નથી"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"<xliff:g id="APP">%1$s</xliff:g>એ તમારું કૅલેન્ડર ઍક્સેસ કર્યું નથી"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"<xliff:g id="APP">%1$s</xliff:g>એ તમારો કૉલ લૉગ ઍક્સેસ કર્યો નથી"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"<xliff:g id="APP">%1$s</xliff:g>એ તમારો કૅમેરો ઍક્સેસ કર્યો નથી"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"<xliff:g id="APP">%1$s</xliff:g>એ તમારા સંપર્કો ઍક્સેસ કર્યા નથી"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"<xliff:g id="APP">%1$s</xliff:g>એ તમારી સ્થાન સેવા ઍક્સેસ કરી નથી"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"<xliff:g id="APP">%1$s</xliff:g>એ તમારા માઇક્રોફોનને ઍક્સેસ કર્યું નથી"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"<xliff:g id="APP">%1$s</xliff:g>એ તમારા ફોનને ઍક્સેસ કર્યો નથી"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"<xliff:g id="APP">%1$s</xliff:g>એ તમારા સેન્સર ઍક્સેસ કર્યા નથી"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"<xliff:g id="APP">%1$s</xliff:g>એ તમારી SMS સેવા ઍક્સેસ કરી નથી"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"<xliff:g id="APP">%1$s</xliff:g>એ તમારી સ્ટોરેજ ઍક્સેસ કરી નથી"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"આ પરવાનગી માટે છેલ્લે ઍક્સેસ કરેલો ડેટા હાલમાં ઉપલબ્ધ નથી"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"<xliff:g id="APP">%1$s</xliff:g>ની બધી પરવાનગીઓ જુઓ"</string>
-    <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"આ પરવાનગી વડે બધી ઍપ જુઓ"</string>
+    <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"આ પરવાનગી સાથે બધી ઍપ જુઓ"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"આ પરવાનગી ધરાવતી ઍપ <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"આ પરવાનગી ધરાવતી ઍપ તમારી શારીરિક પ્રવૃત્તિ જેમ કે ચાલવું, બાઇકિંગ, ડ્રાઇવિંગ, પગલાંની સંખ્યા અને બીજી ઘણી બધી પ્રવૃત્તિ ઍક્સેસ કરી શકે છે"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"આ પરવાનગી ધરાવતી ઍપ તમારા કૅલેન્ડરને ઍક્સેસ કરી શકશે"</string>

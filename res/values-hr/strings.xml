@@ -148,8 +148,30 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Odbij"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"Dopuštenje <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="228974007660007656">"Aplikacija ima pristup značajci: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> pristupila je značajci \"<xliff:g id="PERM">%2$s</xliff:g>\" prije <xliff:g id="TIME">%3$s</xliff:g>"</string>
-    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila vašem dopuštenju <xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> pristupila je dopuštenju <xliff:g id="PERM">%2$s</xliff:g> prije <xliff:g id="TIME">%3$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> pristupila je tjelesnoj aktivnosti prije <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> pristupila je kalendaru prije <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> pristupila je zapisniku poziva prije <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> pristupila je fotoaparatu prije <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> pristupila je kontaktima prije <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> pristupila je lokaciji prije <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> pristupila je mikrofonu prije <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> pristupila je telefonu prije <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> pristupila je senzorima prije <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> pristupila je SMS-u prije <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> pristupila je pohrani prije <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila vašem dopuštenju <xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila tjelesnoj aktivnosti"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila kalendaru"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila zapisniku poziva"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila fotoaparatu"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila kontaktima"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila lokaciji"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila mikrofonu"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila telefonu"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila senzorima"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila SMS-u"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila pohrani"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Podaci o posljednjem pristupu trenutačno nisu dostupni za ovo dopuštenje"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Pogledajte sva dopuštenja aplikacije <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Pogledajte sve aplikacije s tim dopuštenjem"</string>
