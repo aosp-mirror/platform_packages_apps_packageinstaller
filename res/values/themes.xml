@@ -22,6 +22,12 @@
         <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
         <item name="preferenceCategoryTitleTextAppearance">@style/TextAppearance.CategoryTitle</item>
     </style>
+
+    <style name="Settings.NoActionBar" parent="Settings">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
     <style name="TextAppearance.CategoryTitle"
            parent="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textAllCaps">true</item>
@@ -76,6 +82,16 @@
 
     <style name="PermissionDialog"
            parent="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar">
+    </style>
+
+    <style name="CarSettings" parent="Settings.NoActionBar">
+        <item name="preferenceTheme">@style/CarPreferenceTheme</item>
+        <item name="carDividerColor">@*android:color/car_list_divider</item>
+    </style>
+
+    <style name="CarPreferenceTheme">
+        <item name="preferenceFragmentCompatStyle">@style/CarPreferenceFragment</item>
+        <item name="preferenceFragmentListStyle">@style/CarPreferenceFragmentList</item>
     </style>
 
 </resources>
