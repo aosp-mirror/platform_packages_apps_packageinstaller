@@ -173,7 +173,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
         final Drawable icon = permissionApps.getIcon();
         final CharSequence label = permissionApps.getLabel();
 
-        fragment.setHeader(icon, label, null, true);
+        fragment.setHeader(icon, label, null, null, true);
         fragment.setSummary(Utils.getPermissionGroupDescriptionString(fragment.getActivity(),
                 groupName, permissionApps.getDescription()), null);
 
@@ -237,7 +237,13 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
         boolean hasPermissionWithBackgroundMode = false;
 
         ArrayList<PermissionApp> sortedApps = new ArrayList<>(permissionApps.getApps());
-        sortedApps.sort((x, y) -> mCollator.compare(x.getLabel(), y.getLabel()));
+        sortedApps.sort((x, y) -> {
+            int result = mCollator.compare(x.getLabel(), y.getLabel());
+            if (result == 0) {
+                result = x.getUid() - y.getUid();
+            }
+            return result;
+        });
 
         for (int i = 0; i < sortedApps.size(); i++) {
             PermissionApp app = sortedApps.get(i);
@@ -422,7 +428,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
             mOuterFragment = (PermissionAppsFragment) getTargetFragment();
             setLoading(true /* loading */, false /* animate */);
             super.onCreate(savedInstanceState);
-            setHeader(mOuterFragment.mIcon, mOuterFragment.mLabel, null, true);
+            setHeader(mOuterFragment.mIcon, mOuterFragment.mLabel, null, null, true);
             if (mOuterFragment.mExtraScreen != null) {
                 setPreferenceScreen();
             } else {
