@@ -237,7 +237,13 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
         boolean hasPermissionWithBackgroundMode = false;
 
         ArrayList<PermissionApp> sortedApps = new ArrayList<>(permissionApps.getApps());
-        sortedApps.sort((x, y) -> mCollator.compare(x.getLabel(), y.getLabel()));
+        sortedApps.sort((x, y) -> {
+            int result = mCollator.compare(x.getLabel(), y.getLabel());
+            if (result == 0) {
+                result = x.getUid() - y.getUid();
+            }
+            return result;
+        });
 
         for (int i = 0; i < sortedApps.size(); i++) {
             PermissionApp app = sortedApps.get(i);
