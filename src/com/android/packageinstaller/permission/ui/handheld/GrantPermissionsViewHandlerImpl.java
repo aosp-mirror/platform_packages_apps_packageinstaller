@@ -26,6 +26,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Icon;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.transition.ChangeBounds;
 import android.transition.TransitionManager;
 import android.view.LayoutInflater;
@@ -38,6 +39,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 import com.android.packageinstaller.permission.ui.GrantPermissionsViewHandler;
 import com.android.packageinstaller.permission.ui.ManagePermissionsActivity;
@@ -60,6 +63,7 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
 
     private final Activity mActivity;
     private final String mAppPackageName;
+    private final UserHandle mUserHandle;
 
     private ResultListener mResultListener;
 
@@ -83,9 +87,11 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
     private Button mDenyAndDontAskAgainButton;
     private ViewGroup mRootView;
 
-    public GrantPermissionsViewHandlerImpl(Activity activity, String appPackageName) {
+    public GrantPermissionsViewHandlerImpl(Activity activity, String appPackageName,
+            @NonNull UserHandle userHandle) {
         mActivity = activity;
         mAppPackageName = appPackageName;
+        mUserHandle = userHandle;
     }
 
     @Override
@@ -287,6 +293,7 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
             case R.id.permission_more_info_button:
                 Intent intent = new Intent(Intent.ACTION_MANAGE_APP_PERMISSIONS);
                 intent.putExtra(Intent.EXTRA_PACKAGE_NAME, mAppPackageName);
+                intent.putExtra(Intent.EXTRA_USER, mUserHandle);
                 intent.putExtra(ManagePermissionsActivity.EXTRA_ALL_PERMISSIONS, true);
                 mActivity.startActivity(intent);
                 break;

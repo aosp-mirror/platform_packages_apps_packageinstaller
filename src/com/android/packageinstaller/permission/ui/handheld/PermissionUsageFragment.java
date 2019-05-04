@@ -435,7 +435,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
                 setHeader(Utils.applyTint(context, context.getDrawable(group.getIconResId()),
                         android.R.attr.colorControlNormal),
                         context.getString(R.string.app_permission_usage_filter_label,
-                                group.getLabel()), null, true);
+                                group.getLabel()), null, null, true);
                 setSummary(context.getString(R.string.app_permission_usage_remove_filter), v -> {
                     onPermissionGroupSelected(null);
                 });
