@@ -145,8 +145,30 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"İmtina edin"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> üçün icazə"</string>
     <string name="app_permission_header" msgid="228974007660007656">"Bu tətbiq üçün <xliff:g id="PERM">%1$s</xliff:g> girişi"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="PERM">%2$s</xliff:g> icazəsinə <xliff:g id="TIME">%3$s</xliff:g> əvvəl daxil oldu"</string>
-    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"<xliff:g id="APP">%1$s</xliff:g> üçün <xliff:g id="PERM">%2$s</xliff:g> icazəsi əlçatan deyil"</string>
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g> əvvəl <xliff:g id="PERM">%2$s</xliff:g> icazəsinə daxil oldu"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> əvvəl fiziki fəaliyyətinizə daxil oldu"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> əvvəl təqvimə daxil oldu"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> əvvəl zəng siyahısına daxil oldu"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> əvvəl kameraya daxil oldu"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> əvvəl kontaktlara daxil oldu"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> əvvəl məkana daxil oldu"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> əvvəl mikrofona daxil oldu"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> əvvəl telefona daxil oldu"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> əvvəl sensorlara daxil oldu"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> əvvəl SMS-ə daxil oldu"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> əvvəl yaddaşa daxil oldu"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="PERM">%2$s</xliff:g> icazəsinə daxil olmayıb"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"<xliff:g id="APP">%1$s</xliff:g> fiziki fəaliyyətinizə daxil olmayıb"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"<xliff:g id="APP">%1$s</xliff:g> təqvimə daxil olmayıb"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"<xliff:g id="APP">%1$s</xliff:g> zəng siyahısına daxil olmayıb"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"<xliff:g id="APP">%1$s</xliff:g> kameraya daxil olmayıb"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"<xliff:g id="APP">%1$s</xliff:g> kontaktlara daxil olmayıb"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"<xliff:g id="APP">%1$s</xliff:g> məkana daxil olmayıb"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"<xliff:g id="APP">%1$s</xliff:g> mikrofona daxil olmayıb"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"<xliff:g id="APP">%1$s</xliff:g> telefona daxil olmayıb"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"<xliff:g id="APP">%1$s</xliff:g> sensorlara daxil olmayıb"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"<xliff:g id="APP">%1$s</xliff:g> SMS-ə daxil olmayıb"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"<xliff:g id="APP">%1$s</xliff:g> yaddaşa daxil olmayıb"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Son giriş datası hazırda bu icazə üçün əlçatan deyil"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Bütün <xliff:g id="APP">%1$s</xliff:g> icazələrinə baxın"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Bu icazəyə sahib olan bütün tətbiqlərə baxın"</string>
@@ -236,7 +258,7 @@
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"<xliff:g id="APP_NAME">%1$s</xliff:g> defolt zəng yönləndirmə tətbiqi olaraq ayarlansın?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"İcazəyə ehtiyac yoxdur"</string>
     <string name="role_call_screening_label" msgid="5366988848919437946">"Defolt zəng edənin ID-si &amp; spam tətbiqi"</string>
-    <string name="role_call_screening_short_label" msgid="7596133131034442273">"Zəng edənin ID-si &amp; spam ətbiqi"</string>
+    <string name="role_call_screening_short_label" msgid="7596133131034442273">"Zəng ID-si &amp; spam tətbiqi"</string>
     <string name="role_call_screening_description" msgid="9009090500431969390">"Gələn zəngləri müəyyən etməyə, spam və avtomatik zəngləri blok etməyə, lazımsız nömrələri qara siyahıya salmağa və daha çoxuna icazə verən tətbiqlər"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"<xliff:g id="APP_NAME">%1$s</xliff:g> defolt zəng edənin ID-si və spam tətbiqi olaraq ayarlansın?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"İcazəyə ehtiyac yoxdur"</string>

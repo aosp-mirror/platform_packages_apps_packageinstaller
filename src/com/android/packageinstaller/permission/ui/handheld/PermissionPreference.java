@@ -25,6 +25,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.text.BidiFormatter;
 import android.text.TextUtils;
 import android.widget.ImageView;
@@ -420,7 +421,7 @@ class PermissionPreference extends MultiTargetSwitchPreference {
      */
     private void showAllPermissions(String filterGroup) {
         Fragment frag = AllAppPermissionsFragment.newInstance(mGroup.getApp().packageName,
-                filterGroup);
+                filterGroup, UserHandle.getUserHandleForUid(mGroup.getApp().applicationInfo.uid));
         mFragment.getFragmentManager().beginTransaction()
                 .replace(android.R.id.content, frag)
                 .addToBackStack("AllPerms")

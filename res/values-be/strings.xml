@@ -151,8 +151,30 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Адмовіць"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"Дазвол \"<xliff:g id="PERM">%1$s</xliff:g>\""</string>
     <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>: доступ для гэтай праграмы"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" атрымала доступ да функцыі \"<xliff:g id="PERM">%2$s</xliff:g>\" <xliff:g id="TIME">%3$s</xliff:g> таму назад"</string>
-    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" не атрымала доступу да функцыі \"<xliff:g id="PERM">%2$s</xliff:g>\""</string>
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" атрымала доступ да дазволу \"<xliff:g id="PERM">%2$s</xliff:g>\" <xliff:g id="TIME">%3$s</xliff:g> таму назад"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" атрымала доступ да фізічнай актыўнасці <xliff:g id="TIME">%2$s</xliff:g> таму"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" атрымала доступ да календара <xliff:g id="TIME">%2$s</xliff:g> таму назад"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" атрымала доступ да журналаў выклікаў <xliff:g id="TIME">%2$s</xliff:g> таму назад"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" атрымала доступ да камеры <xliff:g id="TIME">%2$s</xliff:g> таму"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" атрымала доступ да кантактаў <xliff:g id="TIME">%2$s</xliff:g> таму назад"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" атрымала доступ да даных месцазнаходжання <xliff:g id="TIME">%2$s</xliff:g> таму"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" атрымала доступ да мікрафона <xliff:g id="TIME">%2$s</xliff:g> таму назад"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" атрымала доступ да тэлефона <xliff:g id="TIME">%2$s</xliff:g> таму назад"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" атрымала доступ да датчыкаў <xliff:g id="TIME">%2$s</xliff:g> таму назад"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" атрымала доступ да SMS <xliff:g id="TIME">%2$s</xliff:g> таму назад"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" атрымала доступ да сховішча <xliff:g id="TIME">%2$s</xliff:g> таму назад"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" не атрымала доступу да дазволу \"<xliff:g id="PERM">%2$s</xliff:g>\""</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" не атрымала доступу да даных фізічнай актыўнасці"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" не атрымала доступу да календара"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" не атрымала доступу да журналаў выклікаў"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" не атрымала доступу да камеры"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" не атрымала доступу да кантактаў"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" не атрымала доступу да даных месцазнаходжання"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" не атрымала доступу да мікрафона"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" не атрымала доступу да тэлефона"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" не атрымала доступу да датчыкаў"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" не атрымала доступу да SMS"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" не атрымала доступу да сховішча"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Даныя пра апошні доступ цяпер недаступныя для гэтага дазволу"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Паказаць усе дазволы праграмы \"<xliff:g id="APP">%1$s</xliff:g>\""</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Паказаць усе праграмы з гэтым дазволам"</string>

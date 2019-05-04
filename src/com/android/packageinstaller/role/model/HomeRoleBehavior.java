@@ -34,7 +34,7 @@ import androidx.annotation.Nullable;
 import androidx.preference.Preference;
 
 import com.android.packageinstaller.permission.utils.CollectionUtils;
-import com.android.packageinstaller.role.ui.SettingsButtonPreference;
+import com.android.packageinstaller.role.ui.TwoTargetPreference;
 import com.android.packageinstaller.role.utils.UserUtils;
 import com.android.permissioncontroller.R;
 
@@ -99,10 +99,9 @@ public class HomeRoleBehavior implements RoleBehavior {
     }
 
     @Override
-    public void preparePreferenceAsUser(@NonNull Role role,
-            @NonNull SettingsButtonPreference preference, @NonNull UserHandle user,
-            @NonNull Context context) {
-        SettingsButtonPreference.OnSettingsButtonClickListener listener = null;
+    public void preparePreferenceAsUser(@NonNull Role role, @NonNull TwoTargetPreference preference,
+            @NonNull UserHandle user, @NonNull Context context) {
+        TwoTargetPreference.OnSecondTargetClickListener listener = null;
         RoleManager roleManager = context.getSystemService(RoleManager.class);
         String packageName = CollectionUtils.firstOrNull(roleManager.getRoleHoldersAsUser(
                 role.getName(), user));
@@ -123,7 +122,7 @@ public class HomeRoleBehavior implements RoleBehavior {
                 };
             }
         }
-        preference.setOnSettingsButtonClickListener(listener);
+        preference.setOnSecondTargetClickListener(listener);
     }
 
     @Override

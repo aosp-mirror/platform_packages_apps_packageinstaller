@@ -24,17 +24,18 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.util.ArrayMap;
-import android.util.Log;
 import android.util.Pair;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 import androidx.appcompat.content.res.AppCompatResources;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 import androidx.preference.PreferenceScreen;
+import androidx.preference.TwoStatePreference;
 
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.packageinstaller.role.model.Role;
@@ -45,18 +46,20 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Fragment for a default app.
+ * Child fragment for a default app. Must be added as a child fragment and its parent fragment must
+ * be a {@link PreferenceFragmentCompat} which implements {@link Parent}.
+ *
+ * @param <PF> type of the parent fragment
  */
-public class DefaultAppFragment extends SettingsFragment
+public class DefaultAppChildFragment<PF extends PreferenceFragmentCompat
+        & DefaultAppChildFragment.Parent> extends Fragment
         implements DefaultAppConfirmationDialogFragment.Listener,
         Preference.OnPreferenceClickListener {
 
-    private static final String LOG_TAG = DefaultAppFragment.class.getSimpleName();
-
-    private static final String PREFERENCE_KEY_NONE = DefaultAppFragment.class.getName()
+    private static final String PREFERENCE_KEY_NONE = DefaultAppChildFragment.class.getName()
             + ".preference.NONE";
 
-    private static final String PREFERENCE_KEY_DESCRIPTION = DefaultAppFragment.class.getName()
+    private static final String PREFERENCE_KEY_DESCRIPTION = DefaultAppChildFragment.class.getName()
             + ".preference.DESCRIPTION";
 
     private String mRoleName;
@@ -76,9 +79,9 @@ public class DefaultAppFragment extends SettingsFragment
      * @return a new instance of this fragment
      */
     @NonNull
-    public static DefaultAppFragment newInstance(@NonNull String roleName,
+    public static DefaultAppChildFragment newInstance(@NonNull String roleName,
             @NonNull UserHandle user) {
-        DefaultAppFragment fragment = new DefaultAppFragment();
+        DefaultAppChildFragment fragment = new DefaultAppChildFragment();
         Bundle arguments = new Bundle();
         arguments.putString(Intent.EXTRA_ROLE_NAME, roleName);
         arguments.putParcelable(Intent.EXTRA_USER, user);
@@ -99,9 +102,10 @@ public class DefaultAppFragment extends SettingsFragment
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        PF preferenceFragment = requirePreferenceFragment();
         Activity activity = requireActivity();
         mRole = Roles.get(activity).get(mRoleName);
-        activity.setTitle(mRole.getLabelResource());
+        preferenceFragment.setTitle(getString(mRole.getLabelResource()));
 
         mViewModel = ViewModelProviders.of(this, new DefaultAppViewModel.Factory(mRole, mUser,
                 activity.getApplication())).get(DefaultAppViewModel.class);
@@ -110,23 +114,18 @@ public class DefaultAppFragment extends SettingsFragment
                 this::onManageRoleHolderStateChanged);
     }
 
-    @Override
-    @StringRes
-    protected int getEmptyTextResource() {
-        return R.string.default_app_no_apps;
-    }
-
     private void onRoleChanged(
             @NonNull List<Pair<ApplicationInfo, Boolean>> qualifyingApplications) {
-        PreferenceManager preferenceManager = getPreferenceManager();
+        PF preferenceFragment = requirePreferenceFragment();
+        PreferenceManager preferenceManager = preferenceFragment.getPreferenceManager();
         Context context = preferenceManager.getContext();
 
-        PreferenceScreen preferenceScreen = getPreferenceScreen();
+        PreferenceScreen preferenceScreen = preferenceFragment.getPreferenceScreen();
         Preference oldDescriptionPreference = null;
         ArrayMap<String, Preference> oldPreferences = new ArrayMap<>();
         if (preferenceScreen == null) {
             preferenceScreen = preferenceManager.createPreferenceScreen(context);
-            setPreferenceScreen(preferenceScreen);
+            preferenceFragment.setPreferenceScreen(preferenceScreen);
         } else {
             oldDescriptionPreference = preferenceScreen.findPreference(PREFERENCE_KEY_DESCRIPTION);
             for (int i = preferenceScreen.getPreferenceCount() - 1; i >= 0; --i) {
@@ -160,13 +159,13 @@ public class DefaultAppFragment extends SettingsFragment
 
         Preference descriptionPreference = oldDescriptionPreference;
         if (descriptionPreference == null) {
-            descriptionPreference = new FooterPreference(context);
+            descriptionPreference = preferenceFragment.createFooterPreference(context);
             descriptionPreference.setKey(PREFERENCE_KEY_DESCRIPTION);
             descriptionPreference.setSummary(mRole.getDescriptionResource());
         }
         preferenceScreen.addPreference(descriptionPreference);
 
-        updateState();
+        preferenceFragment.onPreferenceScreenChanged();
     }
 
     private static boolean hasHolderApplication(
@@ -187,10 +186,9 @@ public class DefaultAppFragment extends SettingsFragment
             @NonNull CharSequence title, boolean checked, @Nullable ApplicationInfo applicationInfo,
             @NonNull ArrayMap<String, Preference> oldPreferences,
             @NonNull PreferenceScreen preferenceScreen, @NonNull Context context) {
-        AppIconRadioButtonPreference preference = (AppIconRadioButtonPreference) oldPreferences.get(
-                key);
+        TwoStatePreference preference = (TwoStatePreference) oldPreferences.get(key);
         if (preference == null) {
-            preference = new AppIconRadioButtonPreference(context);
+            preference = requirePreferenceFragment().createApplicationPreference(context);
             preference.setKey(key);
             preference.setIcon(icon);
             preference.setTitle(title);
@@ -229,7 +227,7 @@ public class DefaultAppFragment extends SettingsFragment
     public boolean onPreferenceClick(@NonNull Preference preference) {
         String key = preference.getKey();
         if (Objects.equals(key, PREFERENCE_KEY_NONE)) {
-            setNoneDefaultApp();
+            mViewModel.setNoneDefaultApp();
         } else {
             String packageName = key;
             CharSequence confirmationMessage = mRole.getConfirmationMessage(packageName,
@@ -245,22 +243,51 @@ public class DefaultAppFragment extends SettingsFragment
 
     @Override
     public void setDefaultApp(@NonNull String packageName) {
-        ManageRoleHolderStateLiveData liveData = mViewModel.getManageRoleHolderStateLiveData();
-        if (liveData.getValue() != ManageRoleHolderStateLiveData.STATE_IDLE) {
-            Log.i(LOG_TAG, "Trying to set default app while another request is on-going");
-            return;
-        }
-        liveData.setRoleHolderAsUser(mRoleName, packageName, true, 0, mUser, requireContext());
+        mViewModel.setDefaultApp(packageName);
     }
 
-    private void setNoneDefaultApp() {
-        mRole.onNoneHolderSelectedAsUser(mUser, requireContext());
+    @NonNull
+    private PF requirePreferenceFragment() {
+        //noinspection unchecked
+        return (PF) requireParentFragment();
+    }
 
-        ManageRoleHolderStateLiveData liveData = mViewModel.getManageRoleHolderStateLiveData();
-        if (liveData.getValue() != ManageRoleHolderStateLiveData.STATE_IDLE) {
-            Log.i(LOG_TAG, "Trying to set default app while another request is on-going");
-            return;
-        }
-        liveData.clearRoleHoldersAsUser(mRoleName, 0, mUser, requireContext());
+    /**
+     * Interface that the parent fragment must implement.
+     */
+    public interface Parent {
+
+        /**
+         * Set the title of the current settings page.
+         *
+         * @param title the title of the current settings page
+         */
+        void setTitle(@NonNull CharSequence title);
+
+        /**
+         * Create a new preference for an application.
+         *
+         * @param context the {@code Context} to use when creating the preference.
+         *
+         * @return a new preference for an application
+         */
+        @NonNull
+        TwoStatePreference createApplicationPreference(@NonNull Context context);
+
+        /**
+         * Create a new preference for the footer.
+         *
+         * @param context the {@code Context} to use when creating the preference.
+         *
+         * @return a new preference for the footer
+         */
+        @NonNull
+        Preference createFooterPreference(@NonNull Context context);
+
+        /**
+         * Callback when changes have been made to the {@link PreferenceScreen} of the parent
+         * {@link PreferenceFragmentCompat}.
+         */
+        void onPreferenceScreenChanged();
     }
 }

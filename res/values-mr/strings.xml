@@ -48,8 +48,8 @@
     <string name="additional_permissions" msgid="7124470111123472154">"अतिरिक्त परवानग्या"</string>
     <string name="app_permissions_info_button_label" msgid="6566057048862462066">"अ‍ॅप माहिती उघडा"</string>
     <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
-      <item quantity="one">अधिक <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="other">अधिक <xliff:g id="COUNT_1">%1$d</xliff:g></item>
+      <item quantity="one">अधिक <xliff:g id="COUNT_0">%1$d</xliff:g></item>
     </plurals>
     <string name="old_sdk_deny_warning" msgid="6018489265342857714">"हे अ‍ॅप Android च्या जुन्या आवृत्तीसाठी डीझाइन करण्यात आले होते. परवानगी नाकारल्यामुळे ते यापुढे अपेक्षित असल्याप्रमाणे कार्य करणार नाही."</string>
     <string name="default_permission_description" msgid="692254823411049573">"अज्ञात क्रिया करा"</string>
@@ -116,8 +116,8 @@
     <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"मागील १५ मिनिटांतील परवानगी वापर"</string>
     <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"मागील एका मिनिटातील परवानगी वापर"</string>
     <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
-      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> अ‍ॅप</item>
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> अ‍ॅप्स</item>
+      <item quantity="one">एक अ‍ॅप</item>
     </plurals>
     <string name="permission_usage_view_details" msgid="4728049344017619500">"डॅशबोर्डमध्ये सर्व पहा"</string>
     <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"यानुसार फिल्टर केले: <xliff:g id="PERM">%1$s</xliff:g>"</string>
@@ -133,8 +133,8 @@
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="permission_usage_refresh" msgid="2182775682810005148">"रिफ्रेश करा"</string>
     <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="5539392196389332769">
-      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> अ‍ॅप</item>
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> अ‍ॅप्स</item>
+      <item quantity="one">एक अ‍ॅप</item>
     </plurals>
     <string name="app_permission_usage_title" msgid="5641038589468666526">"अ‍ॅप परवानग्यांचा वापर"</string>
     <string name="app_permission_usage_summary" msgid="8560461104458882198">"अॅक्सेस करा: <xliff:g id="NUM">%1$s</xliff:g> वेळा. एकूण कालावधी: <xliff:g id="DURATION">%2$s</xliff:g>. <xliff:g id="TIME">%3$s</xliff:g> पूर्वी शेवटचे वापरले."</string>
@@ -145,8 +145,30 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"नकार द्या"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> परवानगी"</string>
     <string name="app_permission_header" msgid="228974007660007656">"या अ‍ॅपसाठी <xliff:g id="PERM">%1$s</xliff:g> अ‍ॅक्सेस केला"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"<xliff:g id="APP">%1$s</xliff:g> ने तुमचे <xliff:g id="PERM">%2$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g> पूर्वी अॅक्सेस केले"</string>
-    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"<xliff:g id="APP">%1$s</xliff:g> ने तुमचे <xliff:g id="PERM">%2$s</xliff:g> अॅक्सेस केलेले नाही"</string>
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g> ने <xliff:g id="TIME">%3$s</xliff:g> पूर्वी तुमचे <xliff:g id="PERM">%2$s</xliff:g> अ‍ॅक्सेस केले"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g> ने <xliff:g id="TIME">%2$s</xliff:g> पूर्वी तुमची शारीरिक अ‍ॅक्टिव्हिटी अ‍ॅक्सेस केली"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="APP">%1$s</xliff:g> ने <xliff:g id="TIME">%2$s</xliff:g> पूर्वी तुमचे कॅलेंडर अ‍ॅक्सेस केले"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"<xliff:g id="APP">%1$s</xliff:g> ने <xliff:g id="TIME">%2$s</xliff:g> पूर्वी तुमचे कॉल लॉग अ‍ॅक्सेस केले"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"<xliff:g id="APP">%1$s</xliff:g> ने <xliff:g id="TIME">%2$s</xliff:g> पूर्वी तुमचा कॅमेरा अ‍ॅक्सेस केला"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"<xliff:g id="APP">%1$s</xliff:g> ने <xliff:g id="TIME">%2$s</xliff:g> पूर्वी तुमचे संपर्क अ‍ॅक्सेस केले"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"<xliff:g id="APP">%1$s</xliff:g> ने <xliff:g id="TIME">%2$s</xliff:g> पूर्वी तुमचे स्थान अ‍ॅक्सेस केले"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"<xliff:g id="APP">%1$s</xliff:g> ने <xliff:g id="TIME">%2$s</xliff:g> पूर्वी तुमचा मायक्रोफोन अ‍ॅक्सेस केला"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"<xliff:g id="APP">%1$s</xliff:g> ने <xliff:g id="TIME">%2$s</xliff:g> पूर्वी तुमचा फोन अ‍ॅक्सेस केला"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"<xliff:g id="APP">%1$s</xliff:g> ने <xliff:g id="TIME">%2$s</xliff:g> पूर्वी तुमचे सेंसर अ‍ॅक्सेस केले"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"<xliff:g id="APP">%1$s</xliff:g> ने <xliff:g id="TIME">%2$s</xliff:g> पूर्वी तुमचा एसएमएस अ‍ॅक्सेस केला"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"<xliff:g id="APP">%1$s</xliff:g> ने <xliff:g id="TIME">%2$s</xliff:g> पूर्वी तुमचा स्टोरेज अ‍ॅक्सेस केला"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"<xliff:g id="APP">%1$s</xliff:g> ने तुमचे <xliff:g id="PERM">%2$s</xliff:g> अ‍ॅक्सेस केलेले नाही"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"<xliff:g id="APP">%1$s</xliff:g> ने तुमची शारीरिक अ‍ॅक्टिव्हिटी अ‍ॅक्सेस केलेली नाही"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"<xliff:g id="APP">%1$s</xliff:g> ने तुमचे कॅलेंडर अ‍ॅक्सेस केलेले नाही"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"<xliff:g id="APP">%1$s</xliff:g> ने तुमचे कॉल लॉग अ‍ॅक्सेस केलेले नाहीत"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"<xliff:g id="APP">%1$s</xliff:g> ने तुमचा कॅमेराचा अ‍ॅक्सेस केलेला नाही"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"<xliff:g id="APP">%1$s</xliff:g> ने तुमचे संपर्क अ‍ॅक्सेस केलेले नाहीत"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"<xliff:g id="APP">%1$s</xliff:g> ने तुमचे स्थान अ‍ॅक्सेस केलेले नाही"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"<xliff:g id="APP">%1$s</xliff:g> ने तुमचा मायक्रोफोन अ‍ॅक्सेस केलेला नाही"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"<xliff:g id="APP">%1$s</xliff:g> ने तुमचा फोन अ‍ॅक्सेस केलेला नाही"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"<xliff:g id="APP">%1$s</xliff:g> ने तुमचे सेंसर अ‍ॅक्सेस केलेले नाहीत"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"<xliff:g id="APP">%1$s</xliff:g> ने तुमचा एसएमएस अ‍ॅक्सेस केलेला नाही"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"<xliff:g id="APP">%1$s</xliff:g> ने तुमचा स्टोरेज अ‍ॅक्सेस केलेला नाही"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"या परवानगीसाठी शेवटचा अ‍ॅक्सेस केलेला डेटा सध्या उपलब्ध नाही"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"सर्व <xliff:g id="APP">%1$s</xliff:g> परवानग्या पहा"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"ही परवानगी असलेली सर्व अ‍ॅप्स पहा"</string>
@@ -159,7 +181,7 @@
     <string name="permission_description_summary_location" msgid="687820658574645201">"ही परवानगी असलेली अ‍ॅप्स या डिव्हाइसचे स्थान अ‍ॅक्सेस करू शकतात"</string>
     <string name="permission_description_summary_microphone" msgid="2300290217308759293">"ही परवानगी असलेली अ‍ॅप्स ऑडिओ रेकॉर्ड करू शकतात"</string>
     <string name="permission_description_summary_phone" msgid="3773977614654088578">"ही परवानगी असलेली अ‍ॅप्स फोन कॉल करू आणि व्यवस्थापित करू शकतात"</string>
-    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"ही परवानगी असलेली अ‍ॅप्स तुमच्या महत्त्वाच्या लक्षणांबद्दलचा सेंसर डेटा अ‍ॅक्सेस करू शकतात"</string>
+    <string name="permission_description_summary_sensors" msgid="6733606479604624853">"ही परवानगी असलेली अ‍ॅप्स तुमच्या महत्त्वाच्या लक्षणांबद्दलचा सेन्सर डेटा अ‍ॅक्सेस करू शकतात"</string>
     <string name="permission_description_summary_sms" msgid="8850213022386508528">"ही परवानगी असलेली अ‍ॅप्स एसएमएस मेसेज पाठवू आणि पाहू शकतात"</string>
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"ही परवानगी असलेली अ‍ॅप्स तुमच्या डिव्हाइसवरील फोटो, मीडिया आणि फायली अ‍ॅक्सेस करू शकतात"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"शेवटचा अ‍ॅक्सेस: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
@@ -172,20 +194,20 @@
     <string name="denied_header" msgid="2277998574238617699">"नाकारलेली"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"तपशीलवार वापर पाहा"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
-      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> दिवस</item>
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> दिवस</item>
+      <item quantity="one">एक दिवस</item>
     </plurals>
     <plurals name="hours" formatted="false" msgid="2123927014975877155">
-      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> तास</item>
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> तास</item>
+      <item quantity="one">एक तास</item>
     </plurals>
     <plurals name="minutes" formatted="false" msgid="4331145652577957044">
-      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> मिनिट</item>
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> मिनिटे</item>
+      <item quantity="one">एक मिनिट</item>
     </plurals>
     <plurals name="seconds" formatted="false" msgid="1632909606956324957">
-      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> सेकंद</item>
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> सेकंद</item>
+      <item quantity="one">एक सेकंद</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"परवानगी रिमाइंडर"</string>
     <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> तुमचे स्थान वापरत आहे"</string>

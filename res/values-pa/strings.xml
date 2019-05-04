@@ -145,8 +145,30 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"ਅਸਵੀਕਾਰ ਕਰੋ"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> ਇਜਾਜ਼ਤ"</string>
     <string name="app_permission_header" msgid="228974007660007656">"ਇਸ ਐਪ ਲਈ <xliff:g id="PERM">%1$s</xliff:g> ਪਹੁੰਚ"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"<xliff:g id="APP">%1$s</xliff:g> ਨੇ <xliff:g id="TIME">%3$s</xliff:g> ਪਹਿਲਾਂ ਤੁਹਾਡੇ <xliff:g id="PERM">%2$s</xliff:g> ਤੱਕ ਪਹੁੰਚ ਕੀਤੀ"</string>
-    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"<xliff:g id="APP">%1$s</xliff:g> ਨੇ ਤੁਹਾਡੇ <xliff:g id="PERM">%2$s</xliff:g> ਤੱਕ ਪਹੁੰਚ ਨਹੀਂ ਕੀਤੀ"</string>
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g> ਨੇ <xliff:g id="TIME">%3$s</xliff:g> ਪਹਿਲਾਂ ਤੁਹਾਡੇ <xliff:g id="PERM">%2$s</xliff:g> ਤੱਕ ਪਹੁੰਚ ਕੀਤੀ"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g> ਨੇ <xliff:g id="TIME">%2$s</xliff:g> ਪਹਿਲਾਂ ਤੁਹਾਡੀ ਸਰੀਰਕ ਸਰਗਰਮੀ ਤੱਕ ਪਹੁੰਚ ਕੀਤੀ"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="APP">%1$s</xliff:g> ਨੇ <xliff:g id="TIME">%2$s</xliff:g> ਪਹਿਲਾਂ ਤੁਹਾਡੇ ਕੈਲੰਡਰ ਤੱਕ ਪਹੁੰਚ ਕੀਤੀ"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"<xliff:g id="APP">%1$s</xliff:g> ਨੇ <xliff:g id="TIME">%2$s</xliff:g> ਪਹਿਲਾਂ ਕਾਲ ਲੌਗਾਂ ਤੱਕ ਪਹੁੰਚ ਕੀਤੀ"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"<xliff:g id="APP">%1$s</xliff:g> ਨੇ <xliff:g id="TIME">%2$s</xliff:g> ਪਹਿਲਾਂ ਤੁਹਾਡੇ ਕੈਮਰੇ ਤੱਕ ਪਹੁੰਚ ਕੀਤੀ"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"<xliff:g id="APP">%1$s</xliff:g> ਨੇ <xliff:g id="TIME">%2$s</xliff:g> ਪਹਿਲਾਂ ਤੁਹਾਡੇ ਸੰਪਰਕਾਂ ਤੱਕ ਪਹੁੰਚ ਕੀਤੀ"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"<xliff:g id="APP">%1$s</xliff:g> ਨੇ <xliff:g id="TIME">%2$s</xliff:g> ਪਹਿਲਾਂ ਤੁਹਾਡੇ ਟਿਕਾਣੇ ਤੱਕ ਪਹੁੰਚ ਕੀਤੀ"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"<xliff:g id="APP">%1$s</xliff:g> ਨੇ <xliff:g id="TIME">%2$s</xliff:g> ਪਹਿਲਾਂ ਤੁਹਾਡੇ ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਤੱਕ ਪਹੁੰਚ ਕੀਤੀ"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"<xliff:g id="APP">%1$s</xliff:g> ਨੇ <xliff:g id="TIME">%2$s</xliff:g> ਪਹਿਲਾਂ ਤੁਹਾਡੇ ਫ਼ੋਨ ਤੱਕ ਪਹੁੰਚ ਕੀਤੀ"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"<xliff:g id="APP">%1$s</xliff:g> ਨੇ <xliff:g id="TIME">%2$s</xliff:g> ਪਹਿਲਾਂ ਤੁਹਾਡੇ ਸੈਂਸਰਾਂ ਤੱਕ ਪਹੁੰਚ ਕੀਤੀ"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"<xliff:g id="APP">%1$s</xliff:g> ਨੇ <xliff:g id="TIME">%2$s</xliff:g> ਪਹਿਲਾਂ ਤੁਹਾਡੇ SMS ਤੱਕ ਪਹੁੰਚ ਕੀਤੀ"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"<xliff:g id="APP">%1$s</xliff:g> ਨੇ <xliff:g id="TIME">%2$s</xliff:g> ਪਹਿਲਾਂ ਤੁਹਾਡੀ ਸਟੋਰੇਜ ਤੱਕ ਪਹੁੰਚ ਕੀਤੀ"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"<xliff:g id="APP">%1$s</xliff:g> ਨੇ ਤੁਹਾਡੇ <xliff:g id="PERM">%2$s</xliff:g> ਤੱਕ ਪਹੁੰਚ ਨਹੀਂ ਕੀਤੀ"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"<xliff:g id="APP">%1$s</xliff:g> ਨੇ ਤੁਹਾਡੀ ਸਰੀਰਕ ਸਰਗਰਮੀ ਤੱਕ ਪਹੁੰਚ ਨਹੀਂ ਕੀਤੀ"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"<xliff:g id="APP">%1$s</xliff:g> ਨੇ ਤੁਹਾਡੇ ਕੈਲੰਡਰ ਤੱਕ ਪਹੁੰਚ ਨਹੀਂ ਕੀਤੀ"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"<xliff:g id="APP">%1$s</xliff:g> ਨੇ ਤੁਹਾਡੇ ਕਾਲ ਲੌਗਾਂ ਤੱਕ ਪਹੁੰਚ ਨਹੀਂ ਕੀਤੀ"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"<xliff:g id="APP">%1$s</xliff:g> ਨੇ ਤੁਹਾਡੇ ਕੈਮਰੇ ਤੱਕ ਪਹੁੰਚ ਨਹੀਂ ਕੀਤੀ"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"<xliff:g id="APP">%1$s</xliff:g> ਨੇ ਤੁਹਾਡੇ ਸੰਪਰਕਾਂ ਤੱਕ ਪਹੁੰਚ ਨਹੀਂ ਕੀਤੀ"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"<xliff:g id="APP">%1$s</xliff:g> ਨੇ ਤੁਹਾਡੇ ਟਿਕਾਣੇ ਤੱਕ ਪਹੁੰਚ ਨਹੀਂ ਕੀਤੀ"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"<xliff:g id="APP">%1$s</xliff:g> ਨੇ ਤੁਹਾਡੇ ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਤੱਕ ਪਹੁੰਚ ਨਹੀਂ ਕੀਤੀ"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"<xliff:g id="APP">%1$s</xliff:g> ਨੇ ਤੁਹਾਡੇ ਫ਼ੋਨ ਤੱਕ ਪਹੁੰਚ ਨਹੀਂ ਕੀਤੀ"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"<xliff:g id="APP">%1$s</xliff:g> ਨੇ ਤੁਹਾਡੇ ਸੈਂਸਰਾਂ ਤੱਕ ਪਹੁੰਚ ਨਹੀਂ ਕੀਤੀ"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"<xliff:g id="APP">%1$s</xliff:g> ਨੇ ਤੁਹਾਡੇ SMS ਤੱਕ ਪਹੁੰਚ ਨਹੀਂ ਕੀਤੀ"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"<xliff:g id="APP">%1$s</xliff:g> ਨੇ ਤੁਹਾਡੀ ਸਟੋਰੇਜ ਤੱਕ ਪਹੁੰਚ ਨਹੀਂ ਕੀਤੀ"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"ਇਸ ਇਜਾਜ਼ਤ ਲਈ ਪਿਛਲੀ ਵਾਰ ਪਹੁੰਚ ਕੀਤਾ ਡਾਟਾ ਇਸ ਵੇਲੇ ਉਪਲਬਧ ਨਹੀਂ ਹੈ"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"<xliff:g id="APP">%1$s</xliff:g> ਦੀਆਂ ਸਾਰੀਆਂ ਇਜਾਜ਼ਤਾਂ ਦੇਖੋ"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"ਇਸ ਇਜਾਜ਼ਤ ਵਾਲੀਆਂ ਸਾਰੀਆਂ ਐਪਾਂ ਦੇਖੋ"</string>
@@ -237,7 +259,7 @@
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"ਕਿਸੇ ਇਜਾਜ਼ਤ ਦੀ ਲੋੜ ਨਹੀਂ ਹੈ"</string>
     <string name="role_call_screening_label" msgid="5366988848919437946">"ਪੂਰਵ-ਨਿਰਧਾਰਤ ਕਾਲਰ ਆਈ.ਡੀ. ਅਤੇ ਸਪੈਮ ਐਪ"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"ਕਾਲਰ ਆਈ.ਡੀ. ਅਤੇ ਸਪੈਮ ਐਪ"</string>
-    <string name="role_call_screening_description" msgid="9009090500431969390">"ਐਪਾਂ ਜੋ ਤੁਹਾਨੂੰ ਆਉਣ ਵਾਲੀਆਂ ਕਾਲਾਂ ਦੀ ਪਛਾਣ ਕਰਨ, ਸਪੈਮ ਅਤੇ ਰੋਬੋਕਾਲਾਂ ਬਲਾਕ ਕਰਨ, ਆਣਚਾਹੇ ਨੰਬਰਾਂ ਨੂੰ ਬਲੈਕਲਿਸਟ ਕਰਨ ਅਤੇ ਹੋਰ ਬਹੁਤ ਚੀਜ਼ਾਂ ਕਰਨ ਦਿੰਦੀਆਂ ਹਨ"</string>
+    <string name="role_call_screening_description" msgid="9009090500431969390">"ਐਪਾਂ ਜੋ ਤੁਹਾਨੂੰ ਆਉਣ ਵਾਲੀਆਂ ਕਾਲਾਂ ਦੀ ਪਛਾਣ ਕਰਨ, ਸਪੈਮ ਅਤੇ ਰੋਬੋਕਾਲਾਂ ਬਲਾਕ ਕਰਨ, ਅਣਚਾਹੇ ਨੰਬਰਾਂ ਨੂੰ ਬਲੈਕਲਿਸਟ ਕਰਨ ਅਤੇ ਹੋਰ ਬਹੁਤ ਚੀਜ਼ਾਂ ਕਰਨ ਦਿੰਦੀਆਂ ਹਨ"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"ਕੀ <xliff:g id="APP_NAME">%1$s</xliff:g> ਨੂੰ ਤੁਹਾਡੀ ਪੂਰਵ-ਨਿਰਧਾਰਤ ਕਾਲਰ ਆਈ.ਡੀ. ਅਤੇ ਸਪੈਮ ਐਪ ਵਜੋਂ ਸੈੱਟ ਕਰਨਾ ਹੈ?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"ਕਿਸੇ ਇਜਾਜ਼ਤ ਦੀ ਲੋੜ ਨਹੀਂ ਹੈ"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"ਮੌਜੂਦਾ ਪੂਰਵ-ਨਿਰਧਾਰਤ"</string>
