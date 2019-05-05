@@ -45,6 +45,7 @@ import android.content.res.Resources;
 import android.graphics.drawable.Icon;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.permission.PermissionManager;
 import android.text.Html;
 import android.text.Spanned;
@@ -264,6 +265,18 @@ public class GrantPermissionsActivity extends Activity
 
         setTitle(R.string.permission_request_title);
 
+        PackageInfo callingPackageInfo = getCallingPackageInfo();
+
+        if (callingPackageInfo == null || callingPackageInfo.requestedPermissions == null
+                || callingPackageInfo.requestedPermissions.length <= 0) {
+            setResultAndFinish();
+            return;
+        }
+
+        mCallingUid = callingPackageInfo.applicationInfo.uid;
+
+        UserHandle userHandle = UserHandle.getUserHandleForUid(mCallingUid);
+
         if (DeviceUtils.isTelevision(this)) {
             mViewHandler = new com.android.packageinstaller.permission.ui.television
                     .GrantPermissionsViewHandlerImpl(this,
@@ -271,11 +284,11 @@ public class GrantPermissionsActivity extends Activity
         } else if (DeviceUtils.isWear(this)) {
             mViewHandler = new GrantPermissionsWatchViewHandler(this).setResultListener(this);
         } else if (DeviceUtils.isAuto(this)) {
-            mViewHandler = new GrantPermissionsAutoViewHandler(this, mCallingPackage)
+            mViewHandler = new GrantPermissionsAutoViewHandler(this, mCallingPackage, userHandle)
                     .setResultListener(this);
         } else {
             mViewHandler = new com.android.packageinstaller.permission.ui.handheld
-                    .GrantPermissionsViewHandlerImpl(this, mCallingPackage)
+                    .GrantPermissionsViewHandlerImpl(this, mCallingPackage, userHandle)
                     .setResultListener(this);
         }
 
@@ -291,16 +304,6 @@ public class GrantPermissionsActivity extends Activity
             setResultAndFinish();
             return;
         }
-
-        PackageInfo callingPackageInfo = getCallingPackageInfo();
-
-        if (callingPackageInfo == null || callingPackageInfo.requestedPermissions == null
-                || callingPackageInfo.requestedPermissions.length <= 0) {
-            setResultAndFinish();
-            return;
-        }
-
-        mCallingUid = callingPackageInfo.applicationInfo.uid;
 
         // Don't allow legacy apps to request runtime permissions.
         if (callingPackageInfo.applicationInfo.targetSdkVersion < Build.VERSION_CODES.M) {

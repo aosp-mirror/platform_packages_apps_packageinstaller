@@ -17,8 +17,10 @@
 package com.android.packageinstaller.role.ui;
 
 import android.app.Application;
+import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.os.UserHandle;
+import android.util.Log;
 import android.util.Pair;
 
 import androidx.annotation.NonNull;
@@ -37,6 +39,13 @@ import java.util.List;
  */
 public class DefaultAppViewModel extends AndroidViewModel {
 
+    private static final String LOG_TAG = DefaultAppViewModel.class.getSimpleName();
+
+    @NonNull
+    private final Role mRole;
+    @NonNull
+    private final UserHandle mUser;
+
     @NonNull
     private final LiveData<List<Pair<ApplicationInfo, Boolean>>> mRoleLiveData;
 
@@ -48,7 +57,10 @@ public class DefaultAppViewModel extends AndroidViewModel {
             @NonNull Application application) {
         super(application);
 
-        mRoleLiveData = Transformations.map(new RoleLiveData(role, user, application),
+        mRole = role;
+        mUser = user;
+
+        mRoleLiveData = Transformations.map(new RoleLiveData(mRole, mUser, application),
                 new RoleSortFunction(application));
     }
 
@@ -60,6 +72,33 @@ public class DefaultAppViewModel extends AndroidViewModel {
     @NonNull
     public ManageRoleHolderStateLiveData getManageRoleHolderStateLiveData() {
         return mManageRoleHolderStateLiveData;
+    }
+
+    /**
+     * Set an application as the default app.
+     *
+     * @param packageName the package name of the application
+     */
+    public void setDefaultApp(@NonNull String packageName) {
+        if (mManageRoleHolderStateLiveData.getValue() != ManageRoleHolderStateLiveData.STATE_IDLE) {
+            Log.i(LOG_TAG, "Trying to set default app while another request is on-going");
+            return;
+        }
+        mManageRoleHolderStateLiveData.setRoleHolderAsUser(mRole.getName(), packageName, true, 0,
+                mUser, getApplication());
+    }
+
+    /**
+     * Set "None" as the default app.
+     */
+    public void setNoneDefaultApp() {
+        Context context = getApplication();
+        mRole.onNoneHolderSelectedAsUser(mUser, context);
+        if (mManageRoleHolderStateLiveData.getValue() != ManageRoleHolderStateLiveData.STATE_IDLE) {
+            Log.i(LOG_TAG, "Trying to set default app while another request is on-going");
+            return;
+        }
+        mManageRoleHolderStateLiveData.clearRoleHoldersAsUser(mRole.getName(), 0, mUser, context);
     }
 
     /**

@@ -19,6 +19,7 @@ package com.android.packageinstaller.permission.ui.handheld;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,7 @@ public abstract class SettingsWithLargeHeader extends PermissionsFrameFragment  
 
     private View mHeader;
     protected Intent mInfoIntent;
+    protected UserHandle mUserHandle;
     protected Drawable mIcon;
     protected CharSequence mLabel;
     protected boolean mSmallIcon;
@@ -71,10 +73,11 @@ public abstract class SettingsWithLargeHeader extends PermissionsFrameFragment  
      * @param smallIcon whether the icon should be small
      */
     public void setHeader(@NonNull Drawable icon, @NonNull CharSequence label,
-            Intent infoIntent, boolean smallIcon) {
+            Intent infoIntent, @Nullable UserHandle userHandle, boolean smallIcon) {
         mIcon = icon;
         mLabel = label;
         mInfoIntent = infoIntent;
+        mUserHandle = userHandle;
         mSmallIcon = smallIcon;
         updateHeader(mHeader);
     }
@@ -95,6 +98,10 @@ public abstract class SettingsWithLargeHeader extends PermissionsFrameFragment  
                         R.dimen.permission_icon_header_size);
                 appIcon.getLayoutParams().width = size;
                 appIcon.getLayoutParams().height = size;
+            }
+            if (mInfoIntent != null) {
+                appIcon.setOnClickListener(v -> getActivity().startActivityAsUser(mInfoIntent,
+                        mUserHandle));
             }
 
             TextView appName = header.requireViewById(R.id.entity_header_title);

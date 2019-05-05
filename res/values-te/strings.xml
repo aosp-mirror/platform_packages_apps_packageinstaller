@@ -145,12 +145,34 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"తిరస్కరించు"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> అనుమతి"</string>
     <string name="app_permission_header" msgid="228974007660007656">"ఈ యాప్ కోసం <xliff:g id="PERM">%1$s</xliff:g> యాక్సెస్"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"<xliff:g id="APP">%1$s</xliff:g> మీ <xliff:g id="PERM">%2$s</xliff:g>ను <xliff:g id="TIME">%3$s</xliff:g> కింద‌ట‌ యాక్సెస్ చేసింది"</string>
-    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"<xliff:g id="APP">%1$s</xliff:g> మీ <xliff:g id="PERM">%2$s</xliff:g>ను యాక్సెస్ చేయలేదు"</string>
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g> మీ <xliff:g id="PERM">%2$s</xliff:g>ను <xliff:g id="TIME">%3$s</xliff:g> క్రితం యాక్సెస్ చేసింది"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="TIME">%2$s</xliff:g> క్రితం <xliff:g id="APP">%1$s</xliff:g> మీ భౌతిక కార్యకలాపాన్ని యాక్సెస్ చేసింది"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="TIME">%2$s</xliff:g> క్రితం <xliff:g id="APP">%1$s</xliff:g> మీ క్యాలెండర్‌ను యాక్సెస్ చేసింది"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"<xliff:g id="TIME">%2$s</xliff:g> క్రితం <xliff:g id="APP">%1$s</xliff:g> మీ కాల్ లాగ్‌లను యాక్సెస్ చేసింది"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"<xliff:g id="TIME">%2$s</xliff:g> క్రితం <xliff:g id="APP">%1$s</xliff:g> మీ కెమెరాను యాక్సెస్ చేసింది"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"<xliff:g id="TIME">%2$s</xliff:g> క్రితం <xliff:g id="APP">%1$s</xliff:g> మీ పరిచయాలను యాక్సెస్ చేసింది"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"<xliff:g id="TIME">%2$s</xliff:g> క్రితం <xliff:g id="APP">%1$s</xliff:g> మీ స్థానాన్ని యాక్సెస్ చేసింది"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"<xliff:g id="TIME">%2$s</xliff:g> క్రితం <xliff:g id="APP">%1$s</xliff:g> మీ మైక్రోఫోన్‌ను యాక్సెస్ చేసింది"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"<xliff:g id="TIME">%2$s</xliff:g> క్రితం <xliff:g id="APP">%1$s</xliff:g> మీ ఫోన్‌ను యాక్సెస్ చేసింది"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"<xliff:g id="TIME">%2$s</xliff:g> క్రితం <xliff:g id="APP">%1$s</xliff:g> మీ సెన్సార్‌లను యాక్సెస్ చేసింది"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"<xliff:g id="TIME">%2$s</xliff:g> క్రితం <xliff:g id="APP">%1$s</xliff:g> మీ SMSను యాక్సెస్ చేసింది"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"<xliff:g id="TIME">%2$s</xliff:g> క్రితం <xliff:g id="APP">%1$s</xliff:g> మీ నిల్వను యాక్సెస్ చేసింది"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"<xliff:g id="APP">%1$s</xliff:g> మీ <xliff:g id="PERM">%2$s</xliff:g>ను యాక్సెస్ చేయలేదు"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"<xliff:g id="APP">%1$s</xliff:g> మీ భౌతిక కార్యాకలాపాన్ని యాక్సెస్ చేయలేదు"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"<xliff:g id="APP">%1$s</xliff:g> మీ క్యాలెండర్‌ను యాక్సెస్ చేయలేదు"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"<xliff:g id="APP">%1$s</xliff:g> మీ కాల్ లాగ్‌లను యాక్సెస్ చేయలేదు"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"<xliff:g id="APP">%1$s</xliff:g> మీ కెమెరాను యాక్సెస్ చేయలేదు"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"<xliff:g id="APP">%1$s</xliff:g> మీ పరిచయాలను యాక్సెస్ చేయలేదు"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"<xliff:g id="APP">%1$s</xliff:g> మీ స్థానాన్ని యాక్సెస్ చేయలేదు"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"<xliff:g id="APP">%1$s</xliff:g> మీ మైక్రోఫోన్‌ను యాక్సెస్ చేయలేదు"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"<xliff:g id="APP">%1$s</xliff:g> మీ ఫోన్‌ను యాక్సెస్ చేయలేదు"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"<xliff:g id="APP">%1$s</xliff:g> మీ సెన్సార్‌లను యాక్సెస్ చేయలేదు"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"<xliff:g id="APP">%1$s</xliff:g> మీ SMSను యాక్సెస్ చేయలేదు"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"<xliff:g id="APP">%1$s</xliff:g> మీ నిల్వను యాక్సెస్ చేయలేదు"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"ఈ అనుమతి కోసం చివరిగా యాక్సెస్ చేసిన డేటా ప్రస్తుతం అందుబాటులో లేదు"</string>
-    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"అన్ని <xliff:g id="APP">%1$s</xliff:g> అనుమతులను చూడండి"</string>
+    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"అన్ని \'<xliff:g id="APP">%1$s</xliff:g>\' అనుమతులను చూడండి"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"ఈ అనుమతి ఉన్న అన్ని యాప్‌లను చూడండి"</string>
-    <string name="permission_description_summary_generic" msgid="5479202003136667039">"ఈ అనుమతి ఉన్న యాప్‌లు <xliff:g id="DESCRIPTION">%1$s</xliff:g> చేయగలవు"</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"ఈ యాప్‌ల‌కు ఈ అనుమ‌తి ఇస్తుంది- <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"ఈ అనుమతి ఉన్న యాప్‌లు వాకింగ్, బైకింగ్, డ్రైవింగ్, అడుగుల గణన వంటి మీ భౌతిక కార్యాకలాపాన్ని ఇంకా మరిన్నింటిని యాక్సెస్ చేయగలవు"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"ఈ అనుమతి ఉన్న యాప్‌లు మీ క్యాలెండర్‌ను యాక్సెస్ చేయగలవు"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"ఈ అనుమతి ఉన్న యాప్‍‌లు ఫోన్ కాల్ లాగ్‌ను చదవగలుగుతాయి, దానిలో రాయగలుగుతాయి"</string>
@@ -193,7 +215,7 @@
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"యాప్ వినియోగంలో ఉన్నప్పుడు మాత్రమే"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"అనుమతులు ఏవీ ఇవ్వలేదు"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"అన్ని అనుమతులు ఇచ్చారు"</string>
-    <string name="no_apps_allowed" msgid="4529095928504611810">"ఏ యాప్‌కి ఇవ్వలేదు"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"ఏ యాప్‌న‌కు ఇవ్వలేదు"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"ఏ యాప్‌ను నిరాక‌రించ‌లేదు"</string>
     <string name="settings" msgid="2884124136779508907">"సెట్టింగ్‌లు"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> మీ పరికరానికి పూర్తి యాక్సెస్ కలిగి ఉంది"</string>
@@ -227,7 +249,7 @@
     <string name="role_emergency_request_description" msgid="2824966073894226992">"అనుమతులు ఇవ్వనవసరం లేదు"</string>
     <string name="role_home_label" msgid="6245106863177808486">"డిఫాల్ట్ హోమ్ యాప్"</string>
     <string name="role_home_short_label" msgid="4565882523300643525">"హోమ్ యాప్"</string>
-    <string name="role_home_description" msgid="6736956389161158052">"మీ Android పరికరంలో హోమ్ స్క్రీన్‌లను భర్తీ చేయగల, అలాగే మీకు మీ పరికరం కంటెంట్‌లు, ఫీచర్‌లకు యాక్సెస్ అందించగల యాప్‌లు, ఎక్కువగా లాంచర్‌లు అని పిలువబడేవి"</string>
+    <string name="role_home_description" msgid="6736956389161158052">"మీ Android పరికరంలో హోమ్ స్క్రీన్‌లను భర్తీ చేయగల, మీ పరికరం కంటెంట్‌లు, ఫీచర్‌లకు యాక్సెస్ ఇవ్వ‌గల యాప్‌లు. వీటిని త‌ర‌చుగా లాంచర్‌లు అని పిలుస్తారు"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"<xliff:g id="APP_NAME">%1$s</xliff:g>ను మీ డిఫాల్ట్ హోమ్ యాప్‌గా సెట్ చేయాలా?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"అనుమతులు ఇవ్వనవసరం లేదు"</string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"డిఫాల్ట్ కాల్ మళ్లింపు యాప్"</string>

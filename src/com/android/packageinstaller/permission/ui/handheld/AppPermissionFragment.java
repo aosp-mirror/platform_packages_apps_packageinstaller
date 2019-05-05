@@ -186,7 +186,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         }
 
         String appLabel = Utils.getFullAppLabel(mGroup.getApp().applicationInfo, context);
-        setHeader(getAppIcon(), appLabel, null, false);
+        setHeader(getAppIcon(), appLabel, null, null, false);
         updateHeader(root.requireViewById(R.id.large_header));
 
         ((TextView) root.requireViewById(R.id.permission_message)).setText(
@@ -212,6 +212,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
             Intent intent = new Intent(Intent.ACTION_MANAGE_APP_PERMISSIONS);
             intent.putExtra(Intent.EXTRA_PACKAGE_NAME, mGroup.getApp().packageName);
             intent.putExtra(Intent.EXTRA_USER, user);
+            intent.putExtra(AppPermissionsFragment.EXTRA_HIDE_INFO_BUTTON, true);
             context.startActivity(intent);
         });
 
@@ -744,7 +745,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
      */
     private void showAllPermissions(@NonNull String filterGroup) {
         Fragment frag = AllAppPermissionsFragment.newInstance(mGroup.getApp().packageName,
-                filterGroup);
+                filterGroup, UserHandle.getUserHandleForUid(mGroup.getApp().applicationInfo.uid));
         getFragmentManager().beginTransaction()
                 .replace(android.R.id.content, frag)
                 .addToBackStack("AllPerms")

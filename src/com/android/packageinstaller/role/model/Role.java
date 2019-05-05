@@ -35,7 +35,7 @@ import androidx.preference.Preference;
 
 import com.android.packageinstaller.Constants;
 import com.android.packageinstaller.permission.utils.Utils;
-import com.android.packageinstaller.role.ui.SettingsButtonPreference;
+import com.android.packageinstaller.role.ui.TwoTargetPreference;
 import com.android.packageinstaller.role.utils.PackageUtils;
 import com.android.packageinstaller.role.utils.UserUtils;
 
@@ -361,7 +361,7 @@ public class Role {
      * @param user the user for this role
      * @param context the {@code Context} to retrieve system services
      */
-    public void preparePreferenceAsUser(@NonNull SettingsButtonPreference preference,
+    public void preparePreferenceAsUser(@NonNull TwoTargetPreference preference,
             @NonNull UserHandle user, @NonNull Context context) {
         if (mBehavior != null) {
             mBehavior.preparePreferenceAsUser(this, preference, user, context);
@@ -557,7 +557,7 @@ public class Role {
         int appOpsSize = mAppOps.size();
         for (int i = 0; i < appOpsSize; i++) {
             AppOp appOp = mAppOps.get(i);
-            permissionOrAppOpChanged |= appOp.grant(packageName, context);
+            appOp.grant(packageName, context);
         }
 
         int preferredActivitiesSize = mPreferredActivities.size();
@@ -610,7 +610,7 @@ public class Role {
         int appOpsSize = appOpsToRevoke.size();
         for (int i = 0; i < appOpsSize; i++) {
             AppOp appOp = appOpsToRevoke.get(i);
-            permissionOrAppOpChanged |= appOp.revoke(packageName, context);
+            appOp.revoke(packageName, context);
         }
 
         // TODO: STOPSHIP: Revoke preferred activities?

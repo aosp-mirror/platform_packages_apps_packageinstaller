@@ -145,8 +145,30 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Tiltás"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> – engedély"</string>
     <string name="app_permission_header" msgid="228974007660007656">"Alkalmazás hozzáférése a következőhöz: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"A(z) <xliff:g id="APP">%1$s</xliff:g> alkalmazás hozzáfért a következőhöz: <xliff:g id="PERM">%2$s</xliff:g> (ennyi ideje: <xliff:g id="TIME">%3$s</xliff:g>)"</string>
-    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"A(z) <xliff:g id="APP">%1$s</xliff:g> nem fért hozzá a következő engedélyhez: <xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"A(z) <xliff:g id="APP">%1$s</xliff:g> alkalmazás hozzáfért a következőhöz: <xliff:g id="PERM">%2$s</xliff:g> (ennyi ideje: <xliff:g id="TIME">%3$s</xliff:g>)"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"A(z) <xliff:g id="APP">%1$s</xliff:g> hozzáfért a testmozgási adatokhoz (ennyi ideje: <xliff:g id="TIME">%2$s</xliff:g>)"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"A(z) <xliff:g id="APP">%1$s</xliff:g> hozzáfért a naptárhoz (ennyi ideje: <xliff:g id="TIME">%2$s</xliff:g>)"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"A(z) <xliff:g id="APP">%1$s</xliff:g> hozzáfért a hívásnaplóhoz (ennyi ideje: <xliff:g id="TIME">%2$s</xliff:g>)"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"A(z) <xliff:g id="APP">%1$s</xliff:g> hozzáfért a kamerához (ennyi ideje: <xliff:g id="TIME">%2$s</xliff:g>)"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"A(z) <xliff:g id="APP">%1$s</xliff:g> hozzáfért a névjegyekhez (ennyi ideje: <xliff:g id="TIME">%2$s</xliff:g>)"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"A(z) <xliff:g id="APP">%1$s</xliff:g> hozzáfért a helyadatokhoz (ennyi ideje: <xliff:g id="TIME">%2$s</xliff:g>)"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"A(z) <xliff:g id="APP">%1$s</xliff:g> hozzáfért a mikrofonhoz (ennyi ideje: <xliff:g id="TIME">%2$s</xliff:g>)"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"A(z) <xliff:g id="APP">%1$s</xliff:g> hozzáfért a telefonhoz (ennyi ideje: <xliff:g id="TIME">%2$s</xliff:g>)"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"A(z) <xliff:g id="APP">%1$s</xliff:g> hozzáfért az érzékelőkhöz (ennyi ideje: <xliff:g id="TIME">%2$s</xliff:g>)"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"A(z) <xliff:g id="APP">%1$s</xliff:g> hozzáfért az SMS-ekhez (ennyi ideje: <xliff:g id="TIME">%2$s</xliff:g>)"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"A(z) <xliff:g id="APP">%1$s</xliff:g> hozzáfért a tárhelyhez (ennyi ideje: <xliff:g id="TIME">%2$s</xliff:g>)"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"A(z) <xliff:g id="APP">%1$s</xliff:g> nem fért hozzá a következő engedélyhez: <xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"A(z) <xliff:g id="APP">%1$s</xliff:g> még nem fért hozzá a testmozgási adatokhoz"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"A(z) <xliff:g id="APP">%1$s</xliff:g> még nem fért hozzá a naptárhoz"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"A(z) <xliff:g id="APP">%1$s</xliff:g> még nem fért hozzá a hívásnaplóhoz"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"A(z) <xliff:g id="APP">%1$s</xliff:g> még nem fért hozzá a kamerához"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"A(z) <xliff:g id="APP">%1$s</xliff:g> még nem fért hozzá a névjegyekhez"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"A(z) <xliff:g id="APP">%1$s</xliff:g> még nem fért hozzá a helyadatokhoz"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"A(z) <xliff:g id="APP">%1$s</xliff:g> még nem fért hozzá a mikrofonhoz"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"A(z) <xliff:g id="APP">%1$s</xliff:g> még nem fért hozzá a telefonhoz"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"A(z) <xliff:g id="APP">%1$s</xliff:g> még nem fért hozzá az érzékelőkhöz"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"A(z) <xliff:g id="APP">%1$s</xliff:g> még nem fért hozzá az SMS-ekhez"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"A(z) <xliff:g id="APP">%1$s</xliff:g> még nem fért hozzá a tárhelyhez"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"A legutóbbi hozzáférés adatai jelenleg nem állnak rendelkezésre ennél az engedélynél"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"A(z) <xliff:g id="APP">%1$s</xliff:g> összes engedélyének megtekintése"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Az ezzel az engedéllyel rendelkező összes alkalmazás megtekintése"</string>

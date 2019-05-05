@@ -145,8 +145,30 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"നിരസിക്കുക"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> അനുമതി"</string>
     <string name="app_permission_header" msgid="228974007660007656">"ഈ ആപ്പിനുള്ള <xliff:g id="PERM">%1$s</xliff:g> ആക്‌സ‌സ്"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"നിങ്ങളുടെ <xliff:g id="PERM">%2$s</xliff:g> <xliff:g id="APP">%1$s</xliff:g> എന്ന ആപ്പ് <xliff:g id="TIME">%3$s</xliff:g> മുമ്പ് ആക്‌സസ് ചെയ്‌തു"</string>
-    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"<xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ <xliff:g id="PERM">%2$s</xliff:g> ആക്‌സസ് ചെയ്‌തിട്ടില്ല"</string>
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="TIME">%3$s</xliff:g> മുമ്പ് <xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ <xliff:g id="PERM">%2$s</xliff:g> ആക്‌സസ് ചെയ്‌തു"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="TIME">%2$s</xliff:g> മുമ്പ് <xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ ശാരീരിക പ്രവർത്തനം ആക്‌സസ് ചെയ്‌തു"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="TIME">%2$s</xliff:g> മുമ്പ് <xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ കലണ്ടർ ആക്‌സസ് ചെയ്‌തു"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"<xliff:g id="TIME">%2$s</xliff:g> മുമ്പ് <xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ കോൾ ചരിത്രങ്ങൾ ആക്‌സസ് ചെയ്‌തു"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"<xliff:g id="TIME">%2$s</xliff:g> മുമ്പ് <xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ ക്യാമറ ആക്‌സസ് ചെയ്‌തു"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"<xliff:g id="TIME">%2$s</xliff:g> മുമ്പ് <xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ കോൺടാക്‌റ്റുകൾ ആക്‌സസ് ചെയ്‌തു"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"<xliff:g id="TIME">%2$s</xliff:g> മുമ്പ് <xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ ലൊക്കേഷൻ ആക്‌സസ് ചെയ്‌തു"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"<xliff:g id="TIME">%2$s</xliff:g> മുമ്പ് <xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ മൈക്രോഫോൺ ആക്‌സസ് ചെയ്‌തു"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"<xliff:g id="TIME">%2$s</xliff:g> മുമ്പ് <xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ ഫോൺ ആക്‌സസ് ചെയ്‌തു"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"<xliff:g id="TIME">%2$s</xliff:g> മുമ്പ് <xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ സെൻസറുകൾ ആക്‌സസ് ചെയ്‌തു"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"<xliff:g id="TIME">%2$s</xliff:g> മുമ്പ് <xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ SMS ആക്‌സസ് ചെയ്‌തു"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"<xliff:g id="TIME">%2$s</xliff:g> മുമ്പ് <xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ സ്‌റ്റോറേജ് ആക്‌സസ് ചെയ്‌തു"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"<xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ <xliff:g id="PERM">%2$s</xliff:g> ആക്‌സസ് ചെയ്‌തിട്ടില്ല"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"<xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ ശാരീരിക പ്രവർത്തനം ആക്‌‌സസ് ചെയ്‌തിട്ടില്ല"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"<xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ കലണ്ടർ ആക്‌സസ് ചെയ്‌തിട്ടില്ല"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"<xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ കോൾ ചരിത്രങ്ങൾ ആക്‌സസ് ചെയ്‌തു"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"<xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ ക്യാമറ ആക്‌സസ് ചെയ്‌തിട്ടില്ല"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"<xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ കോൺടാക്‌റ്റുകൾ ആക്‌സസ് ചെയ്‌തിട്ടില്ല"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"<xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ ലൊക്കേഷൻ ആക്‌സസ് ചെയ്‌തിട്ടില്ല"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"<xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ മൈക്രോഫോൺ ആക്‌സസ് ചെയ്‌തിട്ടില്ല"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"<xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ ഫോൺ ആക്‌സസ് ചെയ്‌തിട്ടില്ല"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"<xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ സെൻസറുകൾ ആക്‌സസ് ചെയ്‌തിട്ടില്ല"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"<xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ SMS ആക്‌സസ് ചെയ്‌തിട്ടില്ല"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"<xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ സ്‌റ്റോറേജ് ആക്‌സസ് ചെയ്‌തിട്ടില്ല"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"ഈ അനുമതിക്കായുള്ള അവസാന ആക്‌സസ് ഡാറ്റ നിലവിൽ ലഭ്യമല്ല"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"എല്ലാ <xliff:g id="APP">%1$s</xliff:g> അനുമതികളും കാണുക"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"ഈ അനുമതിയുള്ള എല്ലാ ആപ്പുകളും കാണുക"</string>
@@ -217,7 +239,7 @@
     <string name="role_dialer_request_description" msgid="2931069491309771312">"SMS അയയ്‌ക്കൽ, കോൾ ചരിത്രം എന്നിവയിലേക്ക് ആക്‌സസ് നേടുക"</string>
     <string name="role_sms_label" msgid="6995222097027665850">"ഡിഫോൾട്ട് SMS ആപ്പ്"</string>
     <string name="role_sms_short_label" msgid="236955440028043972">"SMS ആപ്പ്"</string>
-    <string name="role_sms_description" msgid="3228552135895420442">"ചുരുക്കത്തിലുള്ള ടെക്‌സ്‌റ്റ് മെസേജുകൾ, ഫോട്ടോകൾ, വീഡിയോകൾ എന്നിവയും മറ്റും അയയ്ക്കാനും ലഭിക്കാനും നിങ്ങളുടെ ഫോൺ നമ്പർ ഉപയോഗിക്കാൻ അനുവദിക്കുന്ന ആപ്പുകൾ"</string>
+    <string name="role_sms_description" msgid="3228552135895420442">"ചുരുക്കത്തിലുള്ള ടെക്‌സ്‌റ്റ് മെസേജുകൾ, ഫോട്ടോകൾ, വീഡിയോകൾ എന്നിവയും മറ്റും അയയ്ക്കാനും സ്വീകരിക്കാനും നിങ്ങളുടെ ഫോൺ നമ്പർ ഉപയോഗിക്കാൻ അനുവദിക്കുന്ന ആപ്പുകൾ"</string>
     <string name="role_sms_request_title" msgid="3667393846881324409">"<xliff:g id="APP_NAME">%1$s</xliff:g> എന്നതിനെ നിങ്ങളുടെ ഡിഫോൾട്ട് SMS ആപ്പായി സജ്ജീകരിക്കണോ?"</string>
     <string name="role_sms_request_description" msgid="4920787411350418630">"കോൺടാക്‌റ്റുകൾ, SMS, ഫോൺ എന്നിവയിലേക്ക് ആക്‌സസ് നേടുക"</string>
     <string name="role_emergency_label" msgid="8986482330376454686">"ഡിഫോൾട്ട് അടിയന്തിര ആപ്പ്"</string>

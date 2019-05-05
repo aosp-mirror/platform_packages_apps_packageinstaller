@@ -114,14 +114,14 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                 } else {
                     final boolean allPermissions = getIntent().getBooleanExtra(
                             EXTRA_ALL_PERMISSIONS, false);
+                    UserHandle userHandle = getIntent().getParcelableExtra(Intent.EXTRA_USER);
+                    if (userHandle == null) {
+                        userHandle = UserHandle.of(UserHandle.myUserId());
+                    }
                     if (allPermissions) {
                         androidXFragment = com.android.packageinstaller.permission.ui.handheld
-                                .AllAppPermissionsFragment.newInstance(packageName);
+                                .AllAppPermissionsFragment.newInstance(packageName, userHandle);
                     } else {
-                        UserHandle userHandle = getIntent().getParcelableExtra(Intent.EXTRA_USER);
-                        if (userHandle == null) {
-                            userHandle = UserHandle.of(UserHandle.myUserId());
-                        }
                         androidXFragment = com.android.packageinstaller.permission.ui.handheld
                                 .AppPermissionsFragment.newInstance(packageName, userHandle);
                     }

@@ -145,8 +145,30 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Να μην επιτρέπεται"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"Άδεια <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="228974007660007656">"Πρόσβαση σε <xliff:g id="PERM">%1$s</xliff:g> για αυτήν την εφαρμογή"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"Η εφαρμογή <xliff:g id="APP">%1$s</xliff:g> είχε πρόσβαση σε <xliff:g id="PERM">%2$s</xliff:g> πριν από <xliff:g id="TIME">%3$s</xliff:g>"</string>
-    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"Η εφαρμογή <xliff:g id="APP">%1$s</xliff:g> δεν απέκτησε πρόσβαση σε <xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"Η εφαρμογή <xliff:g id="APP">%1$s</xliff:g> απέκτησε πρόσβαση στην άδεια <xliff:g id="PERM">%2$s</xliff:g> πριν από <xliff:g id="TIME">%3$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"Η εφαρμογή <xliff:g id="APP">%1$s</xliff:g> απέκτησε πρόσβ. στη σωματική δραστηρ. πριν από <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"Η εφαρμογή <xliff:g id="APP">%1$s</xliff:g> απέκτησε πρόσβαση στο ημερολόγιό σας πριν από <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"Η εφαρμ. <xliff:g id="APP">%1$s</xliff:g> απέκτησε πρόσβ. στα αρχεία καταγρ. κλήσ. πριν από <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"Η εφαρμογή <xliff:g id="APP">%1$s</xliff:g> απέκτησε πρόσβαση στην κάμερά σας πριν από <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"Η εφαρμογή <xliff:g id="APP">%1$s</xliff:g> απέκτησε πρόσβαση στις επαφές σας πριν από <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"Η εφαρμογή <xliff:g id="APP">%1$s</xliff:g> απέκτησε πρόσβαση στην τοποθεσία σας πριν από <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"Η εφαρμογή <xliff:g id="APP">%1$s</xliff:g> απέκτησε πρόσβαση στο μικρόφωνό σας πριν από <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"Η εφαρμογή <xliff:g id="APP">%1$s</xliff:g> απέκτησε πρόσβαση στο τηλέφωνό σας πριν από <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"Η εφαρμογή <xliff:g id="APP">%1$s</xliff:g> απέκτησε πρόσβαση στους αισθητήρες σας πριν από <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"Η εφαρμογή <xliff:g id="APP">%1$s</xliff:g> απέκτησε πρόσβαση στα SMS σας πριν από <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"Η εφαρμογή <xliff:g id="APP">%1$s</xliff:g> απέκτησε πρόσβαση στον αποθηκευτ. χώρο πριν από <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"Η εφαρμογή <xliff:g id="APP">%1$s</xliff:g> δεν απέκτησε πρόσβαση στην άδεια <xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"Η εφαρμογή <xliff:g id="APP">%1$s</xliff:g> δεν απέκτησε πρόσβαση στη σωματική δραστηριότητα"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"Η εφαρμογή <xliff:g id="APP">%1$s</xliff:g> δεν απέκτησε πρόσβαση στο ημερολόγιό σας"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"Η εφαρμογή <xliff:g id="APP">%1$s</xliff:g> δεν απέκτησε πρόσβαση στα αρχεία καταγρ. κλήσεων"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"Η εφαρμογή <xliff:g id="APP">%1$s</xliff:g> δεν απέκτησε πρόσβαση στην κάμερά σας"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"Η εφαρμογή <xliff:g id="APP">%1$s</xliff:g> δεν απέκτησε πρόσβαση στις επαφές σας"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"Η εφαρμογή <xliff:g id="APP">%1$s</xliff:g> δεν απέκτησε πρόσβαση στην τοποθεσία σας"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"Η εφαρμογή <xliff:g id="APP">%1$s</xliff:g> δεν απέκτησε πρόσβαση στο μικρόφωνό σας"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"Η εφαρμογή <xliff:g id="APP">%1$s</xliff:g> δεν απέκτησε πρόσβαση στο τηλέφωνό σας"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"Η εφαρμογή <xliff:g id="APP">%1$s</xliff:g> δεν απέκτησε πρόσβαση στους αισθητήρες σας"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"Η εφαρμογή <xliff:g id="APP">%1$s</xliff:g> δεν απέκτησε πρόσβαση στα SMS σας"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"Η εφαρμογή <xliff:g id="APP">%1$s</xliff:g> δεν απέκτησε πρόσβαση στον αποθηκευτικό χώρο σας"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Τα δεδομένα τελευταίας πρόσβασης δεν είναι διαθέσιμα αυτήν τη στιγμή για αυτήν την άδεια"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Εμφάνιση όλων των αδειών της εφαρμογής <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Εμφάνιση όλων των εφαρμογών με αυτήν την άδεια"</string>

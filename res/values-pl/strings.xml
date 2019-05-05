@@ -151,8 +151,30 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Odmów"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> – dostęp"</string>
     <string name="app_permission_header" msgid="228974007660007656">"Dostęp aplikacji do: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"Aplikacja <xliff:g id="APP">%1$s</xliff:g> użyła dostępu do: <xliff:g id="PERM">%2$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g> temu"</string>
-    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"Aplikacja <xliff:g id="APP">%1$s</xliff:g> nie korzysta z: <xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"Aplikacja <xliff:g id="APP">%1$s</xliff:g> korzystała z: <xliff:g id="PERM">%2$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g> temu"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"Aplikacja <xliff:g id="APP">%1$s</xliff:g> korzystała z aktywności fizycznej <xliff:g id="TIME">%2$s</xliff:g> temu"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"Aplikacja <xliff:g id="APP">%1$s</xliff:g> korzystała z kalendarza <xliff:g id="TIME">%2$s</xliff:g> temu"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"Aplikacja <xliff:g id="APP">%1$s</xliff:g> korzystała z rejestru połączeń <xliff:g id="TIME">%2$s</xliff:g> temu"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"Aplikacja <xliff:g id="APP">%1$s</xliff:g> korzystała z aparatu <xliff:g id="TIME">%2$s</xliff:g> temu"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"Aplikacja <xliff:g id="APP">%1$s</xliff:g> korzystała z kontaktów <xliff:g id="TIME">%2$s</xliff:g> temu"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"Aplikacja <xliff:g id="APP">%1$s</xliff:g> korzystała z lokalizacji <xliff:g id="TIME">%2$s</xliff:g> temu"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"Aplikacja <xliff:g id="APP">%1$s</xliff:g> korzystała z mikrofonu <xliff:g id="TIME">%2$s</xliff:g> temu"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"Aplikacja <xliff:g id="APP">%1$s</xliff:g> korzystała z telefonu <xliff:g id="TIME">%2$s</xliff:g> temu"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"Aplikacja <xliff:g id="APP">%1$s</xliff:g> korzystała z czujników <xliff:g id="TIME">%2$s</xliff:g> temu"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"Aplikacja <xliff:g id="APP">%1$s</xliff:g> korzystała z SMS-ów <xliff:g id="TIME">%2$s</xliff:g> temu"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"Aplikacja <xliff:g id="APP">%1$s</xliff:g> korzystała z pamięci <xliff:g id="TIME">%2$s</xliff:g> temu"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"Aplikacja <xliff:g id="APP">%1$s</xliff:g> nie korzysta z: <xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"Aplikacja <xliff:g id="APP">%1$s</xliff:g> nie korzysta z aktywności fizycznej"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"Aplikacja <xliff:g id="APP">%1$s</xliff:g> nie korzysta z kalendarza"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"Aplikacja <xliff:g id="APP">%1$s</xliff:g> nie korzysta z rejestru połączeń"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"Aplikacja <xliff:g id="APP">%1$s</xliff:g> nie korzysta z aparatu"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"Aplikacja <xliff:g id="APP">%1$s</xliff:g> nie korzysta z kontaktów"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"Aplikacja <xliff:g id="APP">%1$s</xliff:g> nie korzysta z lokalizacji"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"Aplikacja <xliff:g id="APP">%1$s</xliff:g> nie korzysta z mikrofonu"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"Aplikacja <xliff:g id="APP">%1$s</xliff:g> nie korzysta z: telefonu"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"Aplikacja <xliff:g id="APP">%1$s</xliff:g> nie korzysta z czujników"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"Aplikacja <xliff:g id="APP">%1$s</xliff:g> nie korzysta z SMS-ów"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"Aplikacja <xliff:g id="APP">%1$s</xliff:g> nie korzysta z pamięci"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Dane o ostatnich użyciu nie są obecnie dostępne dla tych uprawnień"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Zobacz wszystkie uprawnienia aplikacji <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Wyświetl wszystkie aplikacje z tymi uprawnieniami"</string>
