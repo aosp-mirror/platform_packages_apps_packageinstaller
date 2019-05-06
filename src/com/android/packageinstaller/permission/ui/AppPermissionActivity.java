@@ -38,6 +38,9 @@ import com.android.packageinstaller.permission.utils.Utils;
 public final class AppPermissionActivity extends FragmentActivity {
     private static final String LOG_TAG = AppPermissionActivity.class.getSimpleName();
 
+    public static final String EXTRA_CALLER_NAME =
+            "com.android.packageinstaller.extra.CALLER_NAME";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,8 +86,10 @@ public final class AppPermissionActivity extends FragmentActivity {
             return;
         }
 
+        String caller = getIntent().getStringExtra(EXTRA_CALLER_NAME);
+
         Fragment androidXFragment = AppPermissionFragment.newInstance(packageName, permissionName,
-                groupName, userHandle);
+                groupName, userHandle, caller);
 
         getSupportFragmentManager().beginTransaction().replace(android.R.id.content,
                     androidXFragment).commit();

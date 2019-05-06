@@ -301,7 +301,8 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
                 continue;
             }
 
-            PermissionControlPreference pref = new PermissionControlPreference(context, group);
+            PermissionControlPreference pref = new PermissionControlPreference(context, group,
+                    PermissionAppsFragment.class.getName());
             pref.setKey(key);
             pref.setIcon(app.getIcon());
             pref.setTitle(Utils.getFullAppLabel(app.getAppInfo(), context));
