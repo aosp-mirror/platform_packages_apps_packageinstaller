@@ -26,11 +26,15 @@ import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
+import com.android.packageinstaller.DeviceUtils;
 import com.android.packageinstaller.role.model.Role;
 import com.android.packageinstaller.role.model.Roles;
+import com.android.packageinstaller.role.ui.auto.AutoDefaultAppFragment;
 import com.android.packageinstaller.role.ui.handheld.HandheldDefaultAppFragment;
+import com.android.permissioncontroller.R;
 
 /**
  * Activity for a default app.
@@ -58,6 +62,11 @@ public class DefaultAppActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        if (DeviceUtils.isAuto(this)) {
+            // Automotive relies on a different theme. Apply before calling super so that
+            // fragments are restored properly on configuration changes.
+            setTheme(R.style.CarSettings);
+        }
         super.onCreate(savedInstanceState);
 
         getWindow().addSystemFlags(
@@ -89,8 +98,12 @@ public class DefaultAppActivity extends FragmentActivity {
         }
 
         if (savedInstanceState == null) {
-            HandheldDefaultAppFragment fragment = HandheldDefaultAppFragment.newInstance(roleName,
-                    user);
+            Fragment fragment;
+            if (DeviceUtils.isAuto(this)) {
+                fragment = AutoDefaultAppFragment.newInstance(roleName, user);
+            } else {
+                fragment = HandheldDefaultAppFragment.newInstance(roleName, user);
+            }
             getSupportFragmentManager().beginTransaction()
                     .add(android.R.id.content, fragment)
                     .commit();
