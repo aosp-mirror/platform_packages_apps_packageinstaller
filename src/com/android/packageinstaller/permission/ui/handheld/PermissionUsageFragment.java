@@ -655,7 +655,7 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
             @NonNull AppPermissionUsage appPermissionUsage,
             @NonNull GroupUsage groupUsage, @NonNull String accessTimeStr) {
         final PermissionControlPreference pref = new PermissionControlPreference(context,
-                groupUsage.getGroup());
+                groupUsage.getGroup(), PermissionUsageFragment.class.getName());
 
         final AppPermissionGroup group = groupUsage.getGroup();
         pref.setTitle(group.getLabel());

@@ -55,6 +55,7 @@ import androidx.fragment.app.Fragment;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.model.PermissionUsages;
+import com.android.packageinstaller.permission.ui.AppPermissionActivity;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.PackageRemovalMonitor;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
@@ -111,7 +112,8 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
      * @return A new fragment
      */
     public static @NonNull AppPermissionFragment newInstance(@NonNull String packageName,
-            @NonNull String permName, @Nullable String groupName, @NonNull UserHandle userHandle) {
+            @NonNull String permName, @Nullable String groupName, @NonNull UserHandle userHandle,
+            @Nullable String caller) {
         AppPermissionFragment fragment = new AppPermissionFragment();
         Bundle arguments = new Bundle();
         arguments.putString(Intent.EXTRA_PACKAGE_NAME, packageName);
@@ -121,6 +123,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
             arguments.putString(Intent.EXTRA_PERMISSION_GROUP_NAME, groupName);
         }
         arguments.putParcelable(Intent.EXTRA_USER, userHandle);
+        arguments.putString(AppPermissionActivity.EXTRA_CALLER_NAME, caller);
         fragment.setArguments(arguments);
         return fragment;
     }
@@ -192,7 +195,9 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         ((TextView) root.requireViewById(R.id.permission_message)).setText(
                 context.getString(R.string.app_permission_header, mGroup.getLabel()));
 
-        if (Utils.isModernPermissionGroup(mGroup.getName())) {
+        if (!Utils.isPermissionsHubEnabled()) {
+            root.requireViewById(R.id.usage_summary).setVisibility(View.GONE);
+        } else if (Utils.isModernPermissionGroup(mGroup.getName())) {
             if (!Utils.shouldShowPermissionUsage(mGroup.getName())) {
                 ((TextView) root.requireViewById(R.id.usage_summary)).setText(
                         context.getString(R.string.app_permission_footer_not_available));
@@ -224,6 +229,13 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
             context.startActivity(intent);
         });
 
+        String caller = getArguments().getString(AppPermissionActivity.EXTRA_CALLER_NAME);
+        if (AppPermissionsFragment.class.getName().equals(caller)) {
+            footer1Link.setVisibility(View.GONE);
+        } else if (PermissionAppsFragment.class.getName().equals(caller)) {
+            footer2Link.setVisibility(View.GONE);
+        }
+
         mRadioGroup = root.requireViewById(R.id.radiogroup);
         mAlwaysButton = root.requireViewById(R.id.allow_radio_button);
         mForegroundOnlyButton = root.requireViewById(R.id.foreground_only_radio_button);
@@ -233,10 +245,6 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         mPermissionDetails = root.requireViewById(R.id.permission_details);
 
         mNestedScrollView = root.requireViewById(R.id.nested_scroll_view);
-
-        if (!Utils.isPermissionsHubEnabled()) {
-            root.requireViewById(R.id.footer_all).setVisibility(View.GONE);
-        }
 
         return root;
     }
