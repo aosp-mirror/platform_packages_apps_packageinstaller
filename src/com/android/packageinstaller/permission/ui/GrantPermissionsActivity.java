@@ -650,12 +650,17 @@ public class GrantPermissionsActivity extends Activity
                 if (needForegroundPermission) {
                     messageId = groupState.mGroup.getRequest();
 
-                    if (needBackgroundPermission) {
+                    if (groupState.mGroup.hasPermissionWithBackgroundMode()) {
                         buttonLabels[LABEL_ALLOW_BUTTON] = null;
-                        buttonLabels[LABEL_ALLOW_ALWAYS_BUTTON] =
-                                getString(R.string.grant_dialog_button_allow_always);
                         buttonLabels[LABEL_ALLOW_FOREGROUND_BUTTON] =
                                 getString(R.string.grant_dialog_button_allow_foreground);
+                        if (needBackgroundPermission) {
+                            buttonLabels[LABEL_ALLOW_ALWAYS_BUTTON] =
+                                    getString(R.string.grant_dialog_button_allow_always);
+                            if (isForegroundPermissionUserSet || isBackgroundPermissionUserSet) {
+                                buttonLabels[LABEL_DENY_BUTTON] = null;
+                            }
+                        }
                     } else {
                         detailMessageId = groupState.mGroup.getRequestDetail();
                     }
