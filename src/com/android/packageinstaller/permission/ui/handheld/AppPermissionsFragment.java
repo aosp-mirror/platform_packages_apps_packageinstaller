@@ -298,11 +298,13 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
         if (allowed.getPreferenceCount() == 0) {
             Preference empty = new Preference(context);
             empty.setTitle(getString(R.string.no_permissions_allowed));
+            empty.setSelectable(false);
             allowed.addPreference(empty);
         }
         if (denied.getPreferenceCount() == 0) {
             Preference empty = new Preference(context);
             empty.setTitle(getString(R.string.no_permissions_denied));
+            empty.setSelectable(false);
             denied.addPreference(empty);
         }
 
