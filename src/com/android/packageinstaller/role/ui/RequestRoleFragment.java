@@ -48,6 +48,7 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.android.packageinstaller.PermissionControllerStatsLog;
 import com.android.packageinstaller.permission.utils.PackageRemovalMonitor;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.packageinstaller.role.model.Role;
@@ -123,6 +124,8 @@ public class RequestRoleFragment extends DialogFragment {
         if (currentPackageNames.contains(mPackageName)) {
             Log.i(LOG_TAG, "Application is already a role holder, role: " + mRoleName
                     + ", package: " + mPackageName);
+            reportRequestResult(PermissionControllerStatsLog
+                    .ROLE_REQUEST_RESULT_REPORTED__RESULT__IGNORED_ALREADY_GRANTED, null);
             clearDeniedSetResultOkAndFinish();
             return super.onCreateDialog(savedInstanceState);
         }
@@ -130,6 +133,9 @@ public class RequestRoleFragment extends DialogFragment {
         ApplicationInfo applicationInfo = PackageUtils.getApplicationInfo(mPackageName, context);
         if (applicationInfo == null) {
             Log.w(LOG_TAG, "Unknown application: " + mPackageName);
+            reportRequestResult(
+                    PermissionControllerStatsLog.ROLE_REQUEST_RESULT_REPORTED__RESULT__IGNORED,
+                    null);
             finish();
             return super.onCreateDialog(savedInstanceState);
         }
@@ -190,6 +196,9 @@ public class RequestRoleFragment extends DialogFragment {
         Context context = requireContext();
         if (PackageUtils.getApplicationInfo(mPackageName, context) == null) {
             Log.w(LOG_TAG, "Unknown application: " + mPackageName);
+            reportRequestResult(
+                    PermissionControllerStatsLog.ROLE_REQUEST_RESULT_REPORTED__RESULT__IGNORED,
+                    null);
             finish();
             return;
         }
@@ -199,6 +208,9 @@ public class RequestRoleFragment extends DialogFragment {
             protected void onPackageRemoved() {
                 Log.w(LOG_TAG, "Application is uninstalled, role: " + mRoleName + ", package: "
                         + mPackageName);
+                reportRequestResult(
+                        PermissionControllerStatsLog.ROLE_REQUEST_RESULT_REPORTED__RESULT__IGNORED,
+                        null);
                 finish();
             }
         };
@@ -239,6 +251,9 @@ public class RequestRoleFragment extends DialogFragment {
         super.onCancel(dialog);
 
         Log.i(LOG_TAG, "Dialog cancelled, role: " + mRoleName + ", package: " + mPackageName);
+        reportRequestResult(
+                PermissionControllerStatsLog.ROLE_REQUEST_RESULT_REPORTED__RESULT__USER_DENIED,
+                null);
         setDeniedOnceAndFinish();
     }
 
@@ -251,6 +266,8 @@ public class RequestRoleFragment extends DialogFragment {
         if (mDontAskAgainCheck != null && mDontAskAgainCheck.isChecked()) {
             Log.i(LOG_TAG, "Request denied with don't ask again, role: " + mRoleName + ", package: "
                     + mPackageName);
+            reportRequestResult(PermissionControllerStatsLog
+                    .ROLE_REQUEST_RESULT_REPORTED__RESULT__USER_DENIED_WITH_ALWAYS, null);
             setDeniedAlwaysAndFinish();
         } else {
             setRoleHolder();
@@ -262,12 +279,23 @@ public class RequestRoleFragment extends DialogFragment {
         Context context = requireContext();
         UserHandle user = Process.myUserHandle();
         if (packageName == null) {
+            reportRequestResult(PermissionControllerStatsLog
+                            .ROLE_REQUEST_RESULT_REPORTED__RESULT__USER_DENIED_GRANTED_ANOTHER,
+                    null);
             mRole.onNoneHolderSelectedAsUser(user, context);
             mViewModel.getManageRoleHolderStateLiveData().clearRoleHoldersAsUser(mRoleName, 0, user,
                     context);
         } else {
-            int flags = Objects.equals(packageName, mPackageName)
-                    ? RoleManager.MANAGE_HOLDERS_FLAG_DONT_KILL_APP : 0;
+            boolean isRequestingApplication = Objects.equals(packageName, mPackageName);
+            if (isRequestingApplication) {
+                reportRequestResult(PermissionControllerStatsLog
+                        .ROLE_REQUEST_RESULT_REPORTED__RESULT__USER_GRANTED, null);
+            } else {
+                reportRequestResult(PermissionControllerStatsLog
+                        .ROLE_REQUEST_RESULT_REPORTED__RESULT__USER_DENIED_GRANTED_ANOTHER,
+                        packageName);
+            }
+            int flags = isRequestingApplication ? RoleManager.MANAGE_HOLDERS_FLAG_DONT_KILL_APP : 0;
             mViewModel.getManageRoleHolderStateLiveData().setRoleHolderAsUser(mRoleName,
                     packageName, true, flags, user, context);
         }
@@ -299,6 +327,7 @@ public class RequestRoleFragment extends DialogFragment {
                 break;
             }
             case ManageRoleHolderStateLiveData.STATE_FAILURE:
+                // TODO: Notify user?
                 finish();
                 break;
         }
@@ -334,6 +363,97 @@ public class RequestRoleFragment extends DialogFragment {
 
     private void finish() {
         requireActivity().finish();
+    }
+
+    private void reportRequestResult(int result, @Nullable String grantedAnotherPackageName) {
+        String holderPackageName = getHolderPackageName();
+        reportRequestResult(getApplicationUid(mPackageName), mPackageName, mRoleName,
+                getQualifyingApplicationCount(), getQualifyingApplicationUid(holderPackageName),
+                holderPackageName, getQualifyingApplicationUid(grantedAnotherPackageName),
+                grantedAnotherPackageName, result);
+    }
+
+    private int getApplicationUid(@NonNull String packageName) {
+        int uid = getQualifyingApplicationUid(packageName);
+        if (uid != -1) {
+            return uid;
+        }
+        ApplicationInfo applicationInfo = PackageUtils.getApplicationInfo(packageName,
+                requireActivity());
+        if (applicationInfo == null) {
+            return -1;
+        }
+        return applicationInfo.uid;
+    }
+
+    private int getQualifyingApplicationUid(@Nullable String packageName) {
+        if (packageName == null || mAdapter == null) {
+            return -1;
+        }
+        int count = mAdapter.getCount();
+        for (int i = 0; i < count; i++) {
+            Pair<ApplicationInfo, Boolean> qualifyingApplication = mAdapter.getItem(i);
+            if (qualifyingApplication == null) {
+                // Skip the "None" item.
+                continue;
+            }
+            ApplicationInfo qualifyingApplicationInfo = qualifyingApplication.first;
+            if (Objects.equals(qualifyingApplicationInfo.packageName, packageName)) {
+                return qualifyingApplicationInfo.uid;
+            }
+        }
+        return -1;
+    }
+
+    private int getQualifyingApplicationCount() {
+        if (mAdapter == null) {
+            return -1;
+        }
+        int count = mAdapter.getCount();
+        if (count > 0 && mAdapter.getItem(0) == null) {
+            // Exclude the "None" item.
+            --count;
+        }
+        return count;
+    }
+
+    @Nullable
+    private String getHolderPackageName() {
+        if (mAdapter == null) {
+            return null;
+        }
+        int count = mAdapter.getCount();
+        for (int i = 0; i < count; i++) {
+            Pair<ApplicationInfo, Boolean> qualifyingApplication = mAdapter.getItem(i);
+            if (qualifyingApplication == null) {
+                // Skip the "None" item.
+                continue;
+            }
+            boolean isHolderApplication = qualifyingApplication.second;
+            if (isHolderApplication) {
+                return qualifyingApplication.first.packageName;
+            }
+        }
+        return null;
+    }
+
+    static void reportRequestResult(int requestingUid, String requestingPackageName,
+            String roleName, int qualifyingCount, int currentUid, String currentPackageName,
+            int grantedAnotherUid, String grantedAnotherPackageName, int result) {
+        Log.v(LOG_TAG, "Role request result"
+                + " requestingUid=" + requestingUid
+                + " requestingPackageName=" + requestingPackageName
+                + " roleName=" + roleName
+                + " qualifyingCount=" + qualifyingCount
+                + " currentUid=" + currentUid
+                + " currentPackageName=" + currentPackageName
+                + " grantedAnotherUid=" + grantedAnotherUid
+                + " grantedAnotherPackageName=" + grantedAnotherPackageName
+                + " result=" + result);
+        PermissionControllerStatsLog.write(
+                PermissionControllerStatsLog.ROLE_REQUEST_RESULT_REPORTED, requestingUid,
+                requestingPackageName, roleName, qualifyingCount, currentUid, currentPackageName,
+                grantedAnotherUid, grantedAnotherPackageName, result);
     }
 
     private static class Adapter extends BaseAdapter {
