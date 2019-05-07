@@ -50,6 +50,5 @@ public class AutoSettingsPreference extends TwoTargetPreference {
 
     @Override
     public void setOnSecondTargetClickListener(@Nullable OnSecondTargetClickListener listener) {
-        return;
     }
 }

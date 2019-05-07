@@ -102,6 +102,7 @@ public abstract class SettingsWithLargeHeader extends PermissionsFrameFragment  
             if (mInfoIntent != null) {
                 appIcon.setOnClickListener(v -> getActivity().startActivityAsUser(mInfoIntent,
                         mUserHandle));
+                appIcon.setContentDescription(mLabel);
             }
 
             TextView appName = header.requireViewById(R.id.entity_header_title);
