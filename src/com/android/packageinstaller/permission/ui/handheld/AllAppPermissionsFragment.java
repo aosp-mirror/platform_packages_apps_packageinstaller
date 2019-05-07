@@ -59,7 +59,7 @@ import java.util.List;
  *
  * <p>Shows the list of individual runtime and non-runtime permissions the app has requested.
  */
-public final class AllAppPermissionsFragment extends SettingsWithHeader {
+public final class AllAppPermissionsFragment extends SettingsWithLargeHeader {
 
     private static final String LOG_TAG = "AllAppPermissionsFragment";
 
@@ -141,7 +141,7 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
                 infoIntent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
                         .setData(Uri.fromParts("package", pkg, null));
             }
-            setHeader(icon, label, infoIntent, userHandle);
+            setHeader(icon, label, infoIntent, userHandle, false);
 
             if (info.requestedPermissions != null) {
                 for (int i = 0; i < info.requestedPermissions.length; i++) {

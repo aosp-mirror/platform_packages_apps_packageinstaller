@@ -301,7 +301,8 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
                 continue;
             }
 
-            PermissionControlPreference pref = new PermissionControlPreference(context, group);
+            PermissionControlPreference pref = new PermissionControlPreference(context, group,
+                    PermissionAppsFragment.class.getName());
             pref.setKey(key);
             pref.setIcon(app.getIcon());
             pref.setTitle(Utils.getFullAppLabel(app.getAppInfo(), context));
@@ -360,6 +361,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
         if (allowed.getPreferenceCount() == 0) {
             Preference empty = new Preference(context);
             empty.setTitle(getString(R.string.no_apps_allowed));
+            empty.setSelectable(false);
             allowed.addPreference(empty);
         }
         if (allowedForeground.getPreferenceCount() == 0) {
@@ -370,6 +372,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
         if (denied.getPreferenceCount() == 0) {
             Preference empty = new Preference(context);
             empty.setTitle(getString(R.string.no_apps_denied));
+            empty.setSelectable(false);
             denied.addPreference(empty);
         }
 
@@ -381,6 +384,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
             Preference footerText = new Preference(context);
             footerText.setSummary(context.getString(R.string.app_permission_footer_not_available));
             footerText.setIcon(R.drawable.ic_info_outline);
+            footerText.setSelectable(false);
             footer.addPreference(footerText);
         }
 
