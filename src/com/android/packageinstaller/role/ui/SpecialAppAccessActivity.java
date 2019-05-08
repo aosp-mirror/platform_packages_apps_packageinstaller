@@ -28,6 +28,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.android.packageinstaller.role.model.Role;
 import com.android.packageinstaller.role.model.Roles;
+import com.android.packageinstaller.role.ui.handheld.HandheldSpecialAppAccessFragment;
 
 /**
  * Activity for a special app access.
@@ -77,7 +78,8 @@ public class SpecialAppAccessActivity extends FragmentActivity {
         }
 
         if (savedInstanceState == null) {
-            SpecialAppAccessFragment fragment = SpecialAppAccessFragment.newInstance(roleName);
+            HandheldSpecialAppAccessFragment fragment =
+                    HandheldSpecialAppAccessFragment.newInstance(roleName);
             getSupportFragmentManager().beginTransaction()
                     .add(android.R.id.content, fragment)
                     .commit();
