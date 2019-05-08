@@ -21,9 +21,6 @@ package com.android.packageinstaller;
  */
 public class Constants {
 
-    // STOPSHIP: Remove this once we get a Play prebuilt.
-    public static boolean RESTRICTED_PERMISSIONS_ENABLED = false;
-
     /**
      * ID for the periodic job in
      * {@link com.android.packageinstaller.permission.service.LocationAccessCheck}.
