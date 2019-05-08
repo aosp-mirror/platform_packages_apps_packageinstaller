@@ -29,31 +29,31 @@ import androidx.preference.SwitchPreference;
 /**
  * {@link SwitchPreference} with {@link AppIconPreference.Mixin}.
  */
-public class AppIconSwitchPreference extends SwitchPreference {
+class AppIconSwitchPreference extends SwitchPreference {
 
     private AppIconPreference.Mixin mMixin;
 
-    public AppIconSwitchPreference(@NonNull Context context, @Nullable AttributeSet attrs,
+    AppIconSwitchPreference(@NonNull Context context, @Nullable AttributeSet attrs,
             @AttrRes int defStyleAttr, @StyleRes int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
 
         init();
     }
 
-    public AppIconSwitchPreference(@NonNull Context context, @Nullable AttributeSet attrs,
+    AppIconSwitchPreference(@NonNull Context context, @Nullable AttributeSet attrs,
             @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
         init();
     }
 
-    public AppIconSwitchPreference(@NonNull Context context, @Nullable AttributeSet attrs) {
+    AppIconSwitchPreference(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
         init();
     }
 
-    public AppIconSwitchPreference(@NonNull Context context) {
+    AppIconSwitchPreference(@NonNull Context context) {
         super(context);
 
         init();
