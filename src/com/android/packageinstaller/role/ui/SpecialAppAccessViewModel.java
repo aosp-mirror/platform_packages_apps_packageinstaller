@@ -21,6 +21,7 @@ import android.content.pm.ApplicationInfo;
 import android.os.Process;
 import android.os.UserHandle;
 import android.util.ArrayMap;
+import android.util.Log;
 import android.util.Pair;
 
 import androidx.annotation.NonNull;
@@ -37,9 +38,14 @@ import com.android.packageinstaller.role.utils.UserUtils;
 import java.util.List;
 
 /**
- * {@link ViewModel} for a default app.
+ * {@link ViewModel} for a special app access.
  */
 public class SpecialAppAccessViewModel extends AndroidViewModel {
+
+    private static final String LOG_TAG = SpecialAppAccessViewModel.class.getSimpleName();
+
+    @NonNull
+    private final Role mRole;
 
     @NonNull
     private final LiveData<List<Pair<ApplicationInfo, Boolean>>> mRoleLiveData;
@@ -48,10 +54,10 @@ public class SpecialAppAccessViewModel extends AndroidViewModel {
     private final ArrayMap<String, ManageRoleHolderStateLiveData> mManageRoleHolderStateLiveDatas =
             new ArrayMap<>();
 
-    private ManageRoleHolderStateObserver mManageRoleHolderStateObserver;
-
     public SpecialAppAccessViewModel(@NonNull Role role, @NonNull Application application) {
         super(application);
+
+        mRole = role;
 
         UserHandle user = Process.myUserHandle();
         RoleLiveData roleLiveData = new RoleLiveData(role, user, application);
@@ -79,14 +85,12 @@ public class SpecialAppAccessViewModel extends AndroidViewModel {
      */
     public void observeManageRoleHolderState(@NonNull LifecycleOwner owner,
             @NonNull ManageRoleHolderStateObserver observer) {
-        mManageRoleHolderStateObserver = observer;
-
         int manageRoleHolderStateLiveDatasSize = mManageRoleHolderStateLiveDatas.size();
         for (int i = 0; i < manageRoleHolderStateLiveDatasSize; i++) {
             ManageRoleHolderStateLiveData liveData = mManageRoleHolderStateLiveDatas.valueAt(i);
 
-            liveData.observe(owner, state -> mManageRoleHolderStateObserver
-                    .onManageRoleHolderStateChanged(liveData, state));
+            liveData.observe(owner, state -> observer.onManageRoleHolderStateChanged(liveData,
+                    state));
         }
     }
 
@@ -95,21 +99,45 @@ public class SpecialAppAccessViewModel extends AndroidViewModel {
      *
      * @param key the key for the {@link ManageRoleHolderStateLiveData}
      * @param owner the {@link LifecycleOwner} which controls the observer
+     * @param observer the observer that will receive the events
      *
      * @return the {@link ManageRoleHolderStateLiveData}
      */
     @NonNull
-    public ManageRoleHolderStateLiveData getManageRoleHolderStateLiveData(
-            @NonNull String key, @NonNull LifecycleOwner owner) {
+    private ManageRoleHolderStateLiveData getManageRoleHolderStateLiveData(@NonNull String key,
+            @NonNull LifecycleOwner owner, @NonNull ManageRoleHolderStateObserver observer) {
         ManageRoleHolderStateLiveData liveData = mManageRoleHolderStateLiveDatas.get(key);
         if (liveData == null) {
             liveData = new ManageRoleHolderStateLiveData();
             ManageRoleHolderStateLiveData finalLiveData = liveData;
-            liveData.observe(owner, state -> mManageRoleHolderStateObserver
-                    .onManageRoleHolderStateChanged(finalLiveData, state));
+            liveData.observe(owner, state -> observer.onManageRoleHolderStateChanged(finalLiveData,
+                    state));
             mManageRoleHolderStateLiveDatas.put(key, liveData);
         }
         return liveData;
+    }
+
+    /**
+     * Set whether an application has an special app access.
+     *
+     * @param packageName the package name of the application
+     * @param allow whether the application should have the access
+     * @param user the user of the application
+     * @param key the key for the {@link ManageRoleHolderStateLiveData}
+     * @param owner the {@link LifecycleOwner} which controls the observer
+     * @param observer the observer that will receive the events
+     */
+    public void setSpecialAppAccessAsUser(@NonNull String packageName, boolean allow,
+            @NonNull UserHandle user, @NonNull String key, @NonNull LifecycleOwner owner,
+            @NonNull ManageRoleHolderStateObserver observer) {
+        ManageRoleHolderStateLiveData liveData = getManageRoleHolderStateLiveData(key, owner,
+                observer);
+        if (liveData.getValue() != ManageRoleHolderStateLiveData.STATE_IDLE) {
+            Log.i(LOG_TAG, "Trying to set special app access while another request is on-going");
+            return;
+        }
+        liveData.setRoleHolderAsUser(mRole.getName(), packageName, allow, 0, user,
+                getApplication());
     }
 
     /**

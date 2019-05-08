@@ -22,6 +22,8 @@ import android.view.WindowManager;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 
+import com.android.packageinstaller.role.ui.handheld.HandheldSpecialAppAccessListFragment;
+
 /**
  * Activity for the list of special app accesses.
  */
@@ -35,7 +37,8 @@ public class SpecialAppAccessListActivity extends FragmentActivity {
                 WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
 
         if (savedInstanceState == null) {
-            SpecialAppAccessListFragment fragment = SpecialAppAccessListFragment.newInstance();
+            HandheldSpecialAppAccessListFragment fragment =
+                    HandheldSpecialAppAccessListFragment.newInstance();
             getSupportFragmentManager().beginTransaction()
                     .add(android.R.id.content, fragment)
                     .commit();
