@@ -17,7 +17,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="2792757108872430971">"Kontroler odobrenja"</string>
-    <string name="ok" msgid="4417794827535157922">"UREDU"</string>
+    <string name="ok" msgid="4417794827535157922">"Uredu"</string>
     <string name="permission_search_keyword" msgid="1652964722383449182">"odobrenja"</string>
     <string name="cancel" msgid="7279939269964834974">"Otkaži"</string>
     <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Aplikacija nije pronađena"</string>
@@ -122,7 +122,7 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> aplikacija</item>
     </plurals>
     <string name="permission_usage_view_details" msgid="4728049344017619500">"Prikaži sve na kontrolnoj tabli"</string>
-    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Filtrirano po: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Filtrirano prema: <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_usage_remove_filter" msgid="9105565119059367866">"Prikaži sve na kontrolnoj tabli"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"Filtriraj prema"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Filtriraj prema odobrenjima"</string>
@@ -148,54 +148,30 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Odbij"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"Odobrenje <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="228974007660007656">"Pristup \"<xliff:g id="PERM">%1$s</xliff:g>\" za ovu aplikaciju"</string>
-    <!-- no translation found for app_permission_footer_usage_summary_generic (7811075583756658149) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_activity_recognition (8791288545338985169) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_calendar (8982393303411011561) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_call_log (5841205759869615348) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_camera (4915099510475162393) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_contacts (8892786668058834823) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_location (257321357251736067) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_microphone (6461237822187085578) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_phone (1791466121210148997) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_sensors (8010060979779849320) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_sms (481907038945469547) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_storage (7847355419185631004) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_generic (7904373526554483299) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_activity_recognition (1015916448819291701) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_calendar (1448523686184653876) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_call_log (5433327903098404145) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_camera (3812424069400633756) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_contacts (2962618560409910236) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_location (3139403882972245466) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_microphone (4502324845867303326) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_phone (3134870310324070582) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_sensors (6780114763414830921) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_sms (2914635748085007335) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_storage (6855153915670393812) -->
-    <skip />
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> pristupila je odobrenju <xliff:g id="PERM">%2$s</xliff:g> prije <xliff:g id="TIME">%3$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> pristupila je vašoj fizičkoj aktivnosti prije <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> pristupila je vašem kalendaru prije <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> pristupila je vašim popisima poziva prije <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> pristupila je vašoj kameri prije <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> pristupila je vašem sadržaju prije <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> pristupila je vašoj lokaciji prije <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> pristupila je vašem mikrofonu prije <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> pristupila je vašem telefonu prije <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> pristupila je vašim senzorima prije <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> pristupila je vašem SMS-u prije <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> pristupila je vašoj pohrani prije <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila vašem odobrenju <xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila vašim fizičkim aktivnostima"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila vašem kalendaru"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila vašim popisima poziva"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila vašoj kameri"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila vašim kontaktima"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila vašoj lokaciji"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila vašem mikrofonu"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila vašem telefonu"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila vašim senzorima"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila vašem SMS-u"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila vašoj pohrani"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Zadnji pristup podacima trenutno nije dostupan za ovo odobrenje"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Prikaži sva odobrenja aplikacije <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Prikaži sve aplikacije koje imaju ovo odobrenje"</string>
@@ -241,7 +217,7 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sekundi</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Podsjetnici odobrenja"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"Aplikacija <xliff:g id="APP_NAME">%s</xliff:g> je koristila vašu lokaciju"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Aplikacija <xliff:g id="APP_NAME">%s</xliff:g> pristupa vašoj lokaciji u pozadini"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Ova aplikacija uvijek može pristupiti vašoj lokaciji. Dodirnite da promijenite."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Samo kada se aplikacija koristi"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Nijedno odobrenje nije dato"</string>
@@ -311,6 +287,8 @@
     <string name="default_app_none" msgid="7671097769303174666">"Nema"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(Sistemski zadano)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Nema aplikacija"</string>
+    <string name="car_default_app_selected" msgid="2813270284225505741">"Odabrano"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"Odabrano – <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"poseban pristup aplikacijama"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Poseban pristup aplikacijama"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Nema pristupa posebnim apl."</string>

@@ -145,54 +145,30 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"नामंज़ूर करें"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> अनुमति"</string>
     <string name="app_permission_header" msgid="228974007660007656">"इस ऐप्लिकेशन के लिए <xliff:g id="PERM">%1$s</xliff:g> इस्तेमाल करने की अनुमति"</string>
-    <!-- no translation found for app_permission_footer_usage_summary_generic (7811075583756658149) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_activity_recognition (8791288545338985169) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_calendar (8982393303411011561) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_call_log (5841205759869615348) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_camera (4915099510475162393) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_contacts (8892786668058834823) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_location (257321357251736067) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_microphone (6461237822187085578) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_phone (1791466121210148997) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_sensors (8010060979779849320) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_sms (481907038945469547) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_storage (7847355419185631004) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_generic (7904373526554483299) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_activity_recognition (1015916448819291701) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_calendar (1448523686184653876) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_call_log (5433327903098404145) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_camera (3812424069400633756) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_contacts (2962618560409910236) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_location (3139403882972245466) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_microphone (4502324845867303326) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_phone (3134870310324070582) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_sensors (6780114763414830921) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_sms (2914635748085007335) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_storage (6855153915670393812) -->
-    <skip />
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g> ने <xliff:g id="TIME">%3$s</xliff:g> पहले आपकी <xliff:g id="PERM">%2$s</xliff:g> एक्सेस की"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g> ने <xliff:g id="TIME">%2$s</xliff:g> पहले आपकी शारीरिक गतिविधि की जानकारी एक्सेस की"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="APP">%1$s</xliff:g> ने <xliff:g id="TIME">%2$s</xliff:g> पहले आपका कैलेंडर एक्सेस किया"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"<xliff:g id="APP">%1$s</xliff:g> ने <xliff:g id="TIME">%2$s</xliff:g> पहले आपके कॉल लॉग एक्सेस किए"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"<xliff:g id="APP">%1$s</xliff:g> ने <xliff:g id="TIME">%2$s</xliff:g> पहले आपका कैमरा एक्सेस किया"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"<xliff:g id="APP">%1$s</xliff:g> ने <xliff:g id="TIME">%2$s</xliff:g> पहले आपके संपर्क एक्सेस किए"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"<xliff:g id="APP">%1$s</xliff:g> ने <xliff:g id="TIME">%2$s</xliff:g> पहले आपकी जगह की जानकारी एक्सेस की"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"<xliff:g id="APP">%1$s</xliff:g> ने <xliff:g id="TIME">%2$s</xliff:g> पहले आपका माइक्रोफ़ोन एक्सेस किया"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"<xliff:g id="APP">%1$s</xliff:g> ने <xliff:g id="TIME">%2$s</xliff:g> पहले आपका फ़ोन एक्सेस किया"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"<xliff:g id="APP">%1$s</xliff:g> ने <xliff:g id="TIME">%2$s</xliff:g> पहले आपके सेंसर एक्सेस किए"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"<xliff:g id="APP">%1$s</xliff:g> ने <xliff:g id="TIME">%2$s</xliff:g> पहले आपके मैसेज (एसएमएस) एक्सेस किए"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"<xliff:g id="APP">%1$s</xliff:g> ने <xliff:g id="TIME">%2$s</xliff:g> पहले आपके डिवाइस की मेमोरी एक्सेस की"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"<xliff:g id="APP">%1$s</xliff:g> ने आपकी <xliff:g id="PERM">%2$s</xliff:g> एक्सेस नहीं की"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"<xliff:g id="APP">%1$s</xliff:g> ने आपकी शारीरिक गतिविधि की जानकारी एक्सेस नहीं की"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"<xliff:g id="APP">%1$s</xliff:g> ने आपका कैलेंडर एक्सेस नहीं किया"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"<xliff:g id="APP">%1$s</xliff:g> ने आपके कॉल लॉग एक्सेस नहीं किए"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"<xliff:g id="APP">%1$s</xliff:g> ने आपका कैमरा एक्सेस नहीं किया"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"<xliff:g id="APP">%1$s</xliff:g> ने आपके संपर्क एक्सेस नहीं किए"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"<xliff:g id="APP">%1$s</xliff:g> ने आपकी जगह की जानकारी एक्सेस नहीं की"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"<xliff:g id="APP">%1$s</xliff:g> ने आपका माइक्रोफ़ोन एक्सेस नहीं किया"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"<xliff:g id="APP">%1$s</xliff:g> ने आपका फ़ोन एक्सेस नहीं किया"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"<xliff:g id="APP">%1$s</xliff:g> ने आपके सेंसर एक्सेस नहीं किए"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"<xliff:g id="APP">%1$s</xliff:g> ने आपके मैसेज (एसएमएस) नहीं एक्सेस किए"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"<xliff:g id="APP">%1$s</xliff:g> ने आपके डिवाइस की मेमोरी एक्सेस नहीं की"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"इस अनुमति के पिछली बार इस्तेमाल किए जाने का डेटा फ़िलहाल मौजूद नहीं है"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"सभी <xliff:g id="APP">%1$s</xliff:g> अनुमतियां देखें"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"इस अनुमति वाले सभी ऐप्लिकेशन देखें"</string>
@@ -234,7 +210,7 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> सेकंड</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"अनुमति रिमाइंडर"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> आपकी जगह की जानकारी का इस्तेमाल कर रहा है"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> अब बैकग्राउंड में आपकी जगह की जानकारी एक्सेस कर सकता है"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"यह ऐप्लिकेशन हमेशा आपकी जगह की जानकारी एक्सेस कर सकता है. बदलने के लिए टैप करें."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"सिर्फ़ ऐप्लिकेशन इस्तेमाल में होने के दौरान"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"कोई अनुमति नहीं मिली है"</string>
@@ -253,7 +229,7 @@
     <string name="role_assistant_request_description" msgid="1086168907357494789">"मैसेज, कॉल लॉग का एक्सेस पाएं"</string>
     <string name="role_browser_label" msgid="814240075813716311">"डिफ़ॉल्ट ब्राउज़र ऐप्लिकेशन"</string>
     <string name="role_browser_short_label" msgid="6222206565850006894">"ब्राउज़र ऐप्लिकेशन"</string>
-    <string name="role_browser_description" msgid="2326990202516329438">"ऐसे ऐप्लिकेशन जो आपको इंटरनेट का एक्सेस देते हैं और टैप करने के लिए डिस्प्ले लिंक देते हैं"</string>
+    <string name="role_browser_description" msgid="2326990202516329438">"ऐसे ऐप्लिकेशन जो आपको इंटरनेट का एक्सेस देते हैं और टैप करने के लिए डिसप्ले लिंक देते हैं"</string>
     <string name="role_browser_request_title" msgid="751745081301397114">"<xliff:g id="APP_NAME">%1$s</xliff:g> को अपने डिफ़ॉल्ट ब्राउज़र ऐप्लिकेशन के तौर पर सेट करें?"</string>
     <string name="role_browser_request_description" msgid="3204873553391043604">"अनुमति की ज़रूरत नहीं है"</string>
     <string name="role_dialer_label" msgid="7920168918746178929">"डिफ़ॉल्ट फ़ोन ऐप्लिकेशन"</string>
@@ -304,6 +280,10 @@
     <string name="default_app_none" msgid="7671097769303174666">"कोई नहीं"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(सिस्टम डिफ़ॉल्ट)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"कोई ऐप्लिकेशन नहीं"</string>
+    <!-- no translation found for car_default_app_selected (2813270284225505741) -->
+    <skip />
+    <!-- no translation found for car_default_app_selected_with_info (5067890906522338747) -->
+    <skip />
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"ऐप्लिकेशन को खास अनुमति"</string>
     <string name="special_app_access" msgid="2561673957499408877">"ऐप्लिकेशन को खास अनुमति"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"ऐप्लिकेशन को खास अनुमति नहीं"</string>

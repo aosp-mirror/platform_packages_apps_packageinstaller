@@ -123,7 +123,7 @@
     <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"ಈ ಆಧಾರದ ಮೇಲೆ ಫಿಲ್ಟರ್ ಮಾಡಲಾಗಿದೆ: <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_usage_remove_filter" msgid="9105565119059367866">"ಎಲ್ಲವನ್ನು ಡ್ಯಾಶ್ ಬೋರ್ಡ್‌ನಲ್ಲಿ ನೋಡಿ"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"ಈ ಪ್ರಕಾರ ಫಿಲ್ಟರ್"</string>
-    <string name="filter_by_permissions" msgid="7761207093643478436">"ಅನುಮತಿಗಳ ಮೂಲಕ ಫಿಲ್ಟರ್ ಮಾಡಿ"</string>
+    <string name="filter_by_permissions" msgid="7761207093643478436">"ಅನುಮತಿಗಳ ಪ್ರಕಾರ ಫಿಲ್ಟರ್ ಮಾಡಿ"</string>
     <string name="filter_by_time" msgid="1763143592970195407">"ಸಮಯದ ಪ್ರಕಾರ ಫಿಲ್ಟರ್ ಮಾಡಿ"</string>
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"ಹೆಚ್ಚಿನ ಅನುಮತಿಗಳು"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"ಹೆಚ್ಚಿನ ಪ್ರವೇಶಗಳು"</string>
@@ -145,54 +145,30 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"ನಿರಾಕರಿಸಿ"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> ಅನುಮತಿ"</string>
     <string name="app_permission_header" msgid="228974007660007656">"ಈ <xliff:g id="PERM">%1$s</xliff:g> ಆ್ಯಪ್‌ಗಾಗಿ ಪ್ರವೇಶದ ಅನುಮತಿ"</string>
-    <!-- no translation found for app_permission_footer_usage_summary_generic (7811075583756658149) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_activity_recognition (8791288545338985169) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_calendar (8982393303411011561) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_call_log (5841205759869615348) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_camera (4915099510475162393) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_contacts (8892786668058834823) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_location (257321357251736067) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_microphone (6461237822187085578) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_phone (1791466121210148997) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_sensors (8010060979779849320) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_sms (481907038945469547) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_storage (7847355419185631004) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_generic (7904373526554483299) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_activity_recognition (1015916448819291701) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_calendar (1448523686184653876) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_call_log (5433327903098404145) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_camera (3812424069400633756) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_contacts (2962618560409910236) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_location (3139403882972245466) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_microphone (4502324845867303326) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_phone (3134870310324070582) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_sensors (6780114763414830921) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_sms (2914635748085007335) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_storage (6855153915670393812) -->
-    <skip />
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g> ಆ್ಯಪ್ ನಿಮ್ಮ <xliff:g id="PERM">%2$s</xliff:g> ಸ್ಥಳವನ್ನು <xliff:g id="TIME">%3$s</xliff:g> ಸಮಯದ ಹಿಂದೆ ಪ್ರವೇಶಿಸಿದೆ"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g> ಆ್ಯಪ್ ನಿಮ್ಮ ದೈಹಿಕ ಚಟುವಟಿಕೆಯನ್ನು <xliff:g id="TIME">%2$s</xliff:g> ಸಮಯದ ಹಿಂದೆ ಪ್ರವೇಶಿಸಿದೆ"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="APP">%1$s</xliff:g> ಆ್ಯಪ್ ನಿಮ್ಮ ಕ್ಯಾಲೆಂಡರ್ ಅನ್ನು <xliff:g id="TIME">%2$s</xliff:g> ಸಮಯದ ಹಿಂದೆ ಪ್ರವೇಶಿಸಿದೆ"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"<xliff:g id="APP">%1$s</xliff:g> ಆ್ಯಪ್ ನಿಮ್ಮ ಕರೆಯ ಲಾಗ್‌ಗಳನ್ನು <xliff:g id="TIME">%2$s</xliff:g> ಸಮಯದ ಹಿಂದೆ ಪ್ರವೇಶಿಸಿದೆ"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"<xliff:g id="APP">%1$s</xliff:g> ಆ್ಯಪ್ ನಿಮ್ಮ ಕ್ಯಾಮರಾವನ್ನು <xliff:g id="TIME">%2$s</xliff:g> ಸಮಯದ ಹಿಂದೆ ಪ್ರವೇಶಿಸಿದೆ"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"<xliff:g id="APP">%1$s</xliff:g> ಆ್ಯಪ್ ನಿಮ್ಮ ಸಂಪರ್ಕಗಳನ್ನು <xliff:g id="TIME">%2$s</xliff:g> ಸಮಯದ ಹಿಂದೆ ಪ್ರವೇಶಿಸಿದೆ"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"<xliff:g id="APP">%1$s</xliff:g> ಆ್ಯಪ್ ನಿಮ್ಮ ಸ್ಥಳವನ್ನು <xliff:g id="TIME">%2$s</xliff:g> ಸಮಯದ ಹಿಂದೆ ಪ್ರವೇಶಿಸಿದೆ"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"<xliff:g id="APP">%1$s</xliff:g> ಆ್ಯಪ್ ನಿಮ್ಮ ಮೈಕ್ರೋಫೋನ್ ಅನ್ನು <xliff:g id="TIME">%2$s</xliff:g> ಸಮಯದ ಹಿಂದೆ ಪ್ರವೇಶಿಸಿದೆ"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"<xliff:g id="APP">%1$s</xliff:g> ಆ್ಯಪ್ ನಿಮ್ಮ ಫೋನ್ ಅನ್ನು <xliff:g id="TIME">%2$s</xliff:g> ಸಮಯದ ಹಿಂದೆ ಪ್ರವೇಶಿಸಿದೆ"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"<xliff:g id="APP">%1$s</xliff:g> ಆ್ಯಪ್ ನಿಮ್ಮ ಸೆನ್ಸರ್‌ಗಳನ್ನು <xliff:g id="TIME">%2$s</xliff:g> ಸಮಯದ ಹಿಂದೆ ಪ್ರವೇಶಿಸಿದೆ"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"<xliff:g id="APP">%1$s</xliff:g> ಆ್ಯಪ್ ನಿಮ್ಮ ಎಸ್‌ಎಂಎಸ್ ಅನ್ನು <xliff:g id="TIME">%2$s</xliff:g> ಸಮಯದ ಹಿಂದೆ ಪ್ರವೇಶಿಸಿದೆ"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"<xliff:g id="APP">%1$s</xliff:g> ಆ್ಯಪ್ ನಿಮ್ಮ ಸಂಗ್ರಹಣೆಯನ್ನು <xliff:g id="TIME">%2$s</xliff:g> ಸಮಯದ ಹಿಂದೆ ಪ್ರವೇಶಿಸಿದೆ"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"<xliff:g id="APP">%1$s</xliff:g> ಆ್ಯಪ್ ನಿಮ್ಮ <xliff:g id="PERM">%2$s</xliff:g> ಸ್ಥಳವನ್ನು ಪ್ರವೇಶಿಸಿಲ್ಲ"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"<xliff:g id="APP">%1$s</xliff:g> ಆ್ಯಪ್ ನಿಮ್ಮ ದೈಹಿಕ ಚಟುವಟಿಕೆಯನ್ನು ಪ್ರವೇಶಿಸಿಲ್ಲ"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"<xliff:g id="APP">%1$s</xliff:g> ಆ್ಯಪ್ ನಿಮ್ಮ ಕ್ಯಾಲೆಂಡರ್ ಅನ್ನು ಪ್ರವೇಶಿಸಿಲ್ಲ"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"<xliff:g id="APP">%1$s</xliff:g> ಆ್ಯಪ್ ನಿಮ್ಮ ಕರೆಯ ಲಾಗ್‌ಗಳನ್ನು ಪ್ರವೇಶಿಸಿಲ್ಲ"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"<xliff:g id="APP">%1$s</xliff:g> ಆ್ಯಪ್ ನಿಮ್ಮ ಕ್ಯಾಮರಾವನ್ನು ಪ್ರವೇಶಿಸಿಲ್ಲ"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"<xliff:g id="APP">%1$s</xliff:g> ಆ್ಯಪ್ ನಿಮ್ಮ ಸಂಪರ್ಕಗಳನ್ನು ಪ್ರವೇಶಿಸಿಲ್ಲ"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"<xliff:g id="APP">%1$s</xliff:g> ಆ್ಯಪ್ ನಿಮ್ಮ ಸ್ಥಳವನ್ನು ಪ್ರವೇಶಿಸಿಲ್ಲ"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"<xliff:g id="APP">%1$s</xliff:g> ಆ್ಯಪ್ ನಿಮ್ಮ ಮೈಕ್ರೋಫೋನ್ ಅನ್ನು ಪ್ರವೇಶಿಸಿಲ್ಲ"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"<xliff:g id="APP">%1$s</xliff:g> ಆ್ಯಪ್ ನಿಮ್ಮ ಫೋನ್ ಅನ್ನು ಪ್ರವೇಶಿಸಿಲ್ಲ"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"<xliff:g id="APP">%1$s</xliff:g> ಆ್ಯಪ್ ನಿಮ್ಮ ಸೆನ್ಸರ್‌ಗಳನ್ನು ಪ್ರವೇಶಿಸಿಲ್ಲ"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"<xliff:g id="APP">%1$s</xliff:g> ಆ್ಯಪ್ ನಿಮ್ಮ ಎಸ್‌ಎಂಎಸ್ ಅನ್ನು ಪ್ರವೇಶಿಸಿಲ್ಲ"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"<xliff:g id="APP">%1$s</xliff:g> ಆ್ಯಪ್ ನಿಮ್ಮ ಸಂಗ್ರಹಣೆಯನ್ನು ಪ್ರವೇಶಿಸಿಲ್ಲ"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"ಈ ಅನುಮತಿಗಾಗಿ ಈ ಹಿಂದೆ ಪ್ರವೇಶಿಸಿದ ಡೇಟಾ ಪ್ರಸ್ತುತ ಲಭ್ಯವಿಲ್ಲ"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"ಎಲ್ಲಾ <xliff:g id="APP">%1$s</xliff:g> ಅನುಮತಿಗಳನ್ನು ವೀಕ್ಷಿಸಿ"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"ಈ ಅನುಮತಿಯನ್ನು ಹೊಂದಿರುವ ಎಲ್ಲಾ ಆ್ಯಪ್‌ಗಳನ್ನು ವೀಕ್ಷಿಸಿ"</string>
@@ -234,7 +210,7 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ಸೆಕೆಂಡುಗಳು</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"ಅನುಮತಿ ಜ್ಞಾಪನೆಗಳು"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> ನಿಮ್ಮ ಸ್ಥಳವನ್ನು ಬಳಸುತ್ತಿದೆ"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ನಿಮ್ಮ ಸ್ಥಳವನ್ನು ಹಿನ್ನಲೆಯಲ್ಲಿ ಪಡೆದುಕೊಂಡಿದೆ"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"ಈ ಆ್ಯಪ್‌ ಯಾವಾಗಲೂ ನಿಮ್ಮ ಸ್ಥಳವನ್ನು ಪ್ರವೇಶಿಸಬಹುದು. ಬದಲಾಯಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"ಆ್ಯಪ್ ಬಳಕೆಯಲ್ಲಿದ್ದಾಗ ಮಾತ್ರ"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"ಯಾವುದೇ ಅನುಮತಿಗಳನ್ನು ಅನುಮತಿಸಲಾಗಿಲ್ಲ"</string>
@@ -304,6 +280,10 @@
     <string name="default_app_none" msgid="7671097769303174666">"ಯಾವುದೂ ಬೇಡ"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(ಸಿಸ್ಟಂ ಡಿಫಾಲ್ಟ್)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"ಯಾವುದೇ ಆ್ಯಪ್‌ಗಳು ಇಲ್ಲ"</string>
+    <!-- no translation found for car_default_app_selected (2813270284225505741) -->
+    <skip />
+    <!-- no translation found for car_default_app_selected_with_info (5067890906522338747) -->
+    <skip />
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"ವಿಶೇಷ ಆ್ಯಪ್ ಪ್ರವೇಶ"</string>
     <string name="special_app_access" msgid="2561673957499408877">"ಆ್ಯಪ್‌ಗೆ ವಿಶೇಷ ಪ್ರವೇಶ"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"ಆ್ಯಪ್‌ಗೆ ವಿಶೇಷ ಪ್ರವೇಶವಿಲ್ಲ"</string>

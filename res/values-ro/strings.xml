@@ -148,54 +148,30 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Refuzați"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"Permisiune <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="228974007660007656">"Accesul la <xliff:g id="PERM">%1$s</xliff:g> pentru această aplicație"</string>
-    <!-- no translation found for app_permission_footer_usage_summary_generic (7811075583756658149) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_activity_recognition (8791288545338985169) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_calendar (8982393303411011561) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_call_log (5841205759869615348) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_camera (4915099510475162393) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_contacts (8892786668058834823) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_location (257321357251736067) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_microphone (6461237822187085578) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_phone (1791466121210148997) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_sensors (8010060979779849320) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_sms (481907038945469547) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_storage (7847355419185631004) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_generic (7904373526554483299) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_activity_recognition (1015916448819291701) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_calendar (1448523686184653876) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_call_log (5433327903098404145) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_camera (3812424069400633756) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_contacts (2962618560409910236) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_location (3139403882972245466) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_microphone (4502324845867303326) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_phone (3134870310324070582) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_sensors (6780114763414830921) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_sms (2914635748085007335) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_storage (6855153915670393812) -->
-    <skip />
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"Aplicația <xliff:g id="APP">%1$s</xliff:g> a accesat <xliff:g id="PERM">%2$s</xliff:g> acum <xliff:g id="TIME">%3$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"Aplicația <xliff:g id="APP">%1$s</xliff:g> a accesat activitatea fizică acum <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"Aplicația <xliff:g id="APP">%1$s</xliff:g> a accesat calendarul acum <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"Aplicația <xliff:g id="APP">%1$s</xliff:g> a accesat jurnalele de apeluri acum <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"Aplicația <xliff:g id="APP">%1$s</xliff:g> a accesat camera foto acum <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"Aplicația <xliff:g id="APP">%1$s</xliff:g> a accesat persoanele de contact acum <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"Aplicația <xliff:g id="APP">%1$s</xliff:g> a accesat locația acum <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"Aplicația <xliff:g id="APP">%1$s</xliff:g> a accesat microfonul acum <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"Aplicația <xliff:g id="APP">%1$s</xliff:g> a accesat telefonul acum <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"Aplicația <xliff:g id="APP">%1$s</xliff:g> a accesat senzorii acum <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"Aplicația <xliff:g id="APP">%1$s</xliff:g> a accesat mesajele SMS acum <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"Aplicația <xliff:g id="APP">%1$s</xliff:g> a accesat spațiul de stocare acum <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"Aplicația <xliff:g id="APP">%1$s</xliff:g> nu a accesat <xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"Aplicația <xliff:g id="APP">%1$s</xliff:g> nu a accesat activitatea fizică"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"Aplicația <xliff:g id="APP">%1$s</xliff:g> nu a accesat calendarul"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"Aplicația <xliff:g id="APP">%1$s</xliff:g> nu a accesat jurnalele de apeluri"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"Aplicația <xliff:g id="APP">%1$s</xliff:g> nu a accesat camera foto"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"Aplicația <xliff:g id="APP">%1$s</xliff:g> nu a accesat persoanele de contact"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"Aplicația <xliff:g id="APP">%1$s</xliff:g> nu a accesat locația"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"Aplicația <xliff:g id="APP">%1$s</xliff:g> nu a accesat microfonul"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"Aplicația <xliff:g id="APP">%1$s</xliff:g> nu a accesat telefonul"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"Aplicația <xliff:g id="APP">%1$s</xliff:g> nu a accesat senzorii"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"Aplicația <xliff:g id="APP">%1$s</xliff:g> nu a accesat mesajele SMS"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"Aplicația <xliff:g id="APP">%1$s</xliff:g> nu a accesat spațiul de stocare"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Datele ultimei accesări nu sunt disponibile momentan pentru această permisiune"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Vedeți toate permisiunile aplicației <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Vedeți toate aplicațiile cu această permisiune"</string>
@@ -241,7 +217,7 @@
       <item quantity="one">O secundă</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Mementouri de permisiune"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> folosește locația dvs."</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> v-a obținut locația în fundal"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Această aplicație poate accesa întotdeauna locația dvs. Atingeți ca să modificați."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Numai când aplicația este folosită"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Nicio permisiune"</string>
@@ -306,11 +282,15 @@
     <string name="default_apps" msgid="8554530939151957828">"Aplicații prestabilite"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"Nicio aplicație prestabilită."</string>
     <string name="default_apps_more" msgid="3908067305593075127">"Mai multe setări prestabilite"</string>
-    <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Se deschid linkurile"</string>
+    <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Deschiderea linkurilor"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Prestabilite pentru serviciu"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Niciuna"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(Valoare prestabilită de sistem)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Nicio aplicație"</string>
+    <!-- no translation found for car_default_app_selected (2813270284225505741) -->
+    <skip />
+    <!-- no translation found for car_default_app_selected_with_info (5067890906522338747) -->
+    <skip />
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"acces special pentru aplicații"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Acces special pentru aplicații"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Niciun acces special pentru aplicații"</string>

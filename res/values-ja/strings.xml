@@ -59,7 +59,7 @@
     <string name="no_apps" msgid="2377153782338039463">"アプリがありません"</string>
     <string name="location_settings" msgid="547378321761364906">"位置情報の設定"</string>
     <string name="location_warning" msgid="4687406043150343369">"<xliff:g id="APP_NAME">%1$s</xliff:g>はこのデバイスの位置情報サービスのプロバイダです。位置情報へのアクセスは位置情報の設定から変更できます。"</string>
-    <string name="system_warning" msgid="6868290533389195836">"この権限を許可しないと、お使いのデバイスの基本的な機能が意図されたとおりに動作しなくなる可能性があります。"</string>
+    <string name="system_warning" msgid="6868290533389195836">"この権限を許可しない場合、デバイスの基本機能が正しく動作しなくなることがあります。"</string>
     <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"ポリシーにより適用"</string>
     <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"バックグラウンドでのアクセスはポリシーによって無効です"</string>
     <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"バックグラウンドでのアクセスはポリシーによって有効です"</string>
@@ -145,54 +145,30 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"許可しない"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g>の権限"</string>
     <string name="app_permission_header" msgid="228974007660007656">"このアプリの<xliff:g id="PERM">%1$s</xliff:g>へのアクセス権限"</string>
-    <!-- no translation found for app_permission_footer_usage_summary_generic (7811075583756658149) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_activity_recognition (8791288545338985169) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_calendar (8982393303411011561) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_call_log (5841205759869615348) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_camera (4915099510475162393) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_contacts (8892786668058834823) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_location (257321357251736067) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_microphone (6461237822187085578) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_phone (1791466121210148997) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_sensors (8010060979779849320) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_sms (481907038945469547) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_storage (7847355419185631004) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_generic (7904373526554483299) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_activity_recognition (1015916448819291701) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_calendar (1448523686184653876) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_call_log (5433327903098404145) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_camera (3812424069400633756) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_contacts (2962618560409910236) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_location (3139403882972245466) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_microphone (4502324845867303326) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_phone (3134870310324070582) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_sensors (6780114763414830921) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_sms (2914635748085007335) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_storage (6855153915670393812) -->
-    <skip />
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g>が <xliff:g id="TIME">%3$s</xliff:g>前に<xliff:g id="PERM">%2$s</xliff:g>にアクセスしました"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g>が <xliff:g id="TIME">%2$s</xliff:g>前に運動データにアクセスしました"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="APP">%1$s</xliff:g>が <xliff:g id="TIME">%2$s</xliff:g>前にカレンダーにアクセスしました"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"<xliff:g id="APP">%1$s</xliff:g>が <xliff:g id="TIME">%2$s</xliff:g>前に通話履歴にアクセスしました"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"<xliff:g id="APP">%1$s</xliff:g>が <xliff:g id="TIME">%2$s</xliff:g>前にカメラにアクセスしました"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"<xliff:g id="APP">%1$s</xliff:g>が <xliff:g id="TIME">%2$s</xliff:g>前に連絡先にアクセスしました"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"<xliff:g id="APP">%1$s</xliff:g>が <xliff:g id="TIME">%2$s</xliff:g>前に位置情報にアクセスしました"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"<xliff:g id="APP">%1$s</xliff:g>が <xliff:g id="TIME">%2$s</xliff:g>前にマイクにアクセスしました"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"<xliff:g id="APP">%1$s</xliff:g>が <xliff:g id="TIME">%2$s</xliff:g>前にスマートフォンにアクセスしました"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"<xliff:g id="APP">%1$s</xliff:g>が <xliff:g id="TIME">%2$s</xliff:g>前にセンサーにアクセスしました"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"<xliff:g id="APP">%1$s</xliff:g>が <xliff:g id="TIME">%2$s</xliff:g>前に SMS にアクセスしました"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"<xliff:g id="APP">%1$s</xliff:g>が <xliff:g id="TIME">%2$s</xliff:g>前にストレージにアクセスしました"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"<xliff:g id="APP">%1$s</xliff:g>は<xliff:g id="PERM">%2$s</xliff:g>にアクセスしていません"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"<xliff:g id="APP">%1$s</xliff:g>は運動データにアクセスしていません"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"<xliff:g id="APP">%1$s</xliff:g>はカレンダーにアクセスしていません"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"<xliff:g id="APP">%1$s</xliff:g>が通話履歴にアクセスしました"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"<xliff:g id="APP">%1$s</xliff:g>はカメラにアクセスしていません"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"<xliff:g id="APP">%1$s</xliff:g>は連絡先にアクセスしていません"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"<xliff:g id="APP">%1$s</xliff:g>は位置情報にアクセスしていません"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"<xliff:g id="APP">%1$s</xliff:g>はマイクにアクセスしていません"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"<xliff:g id="APP">%1$s</xliff:g>はスマートフォンにアクセスしていません"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"<xliff:g id="APP">%1$s</xliff:g>はセンサーにアクセスしていません"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"<xliff:g id="APP">%1$s</xliff:g>は SMS にアクセスしていません"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"<xliff:g id="APP">%1$s</xliff:g>はストレージにアクセスしていません"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"現在、この権限の最終アクセスデータはご利用いただけません"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"<xliff:g id="APP">%1$s</xliff:g>の権限をすべて表示"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"この権限があるアプリをすべて表示"</string>
@@ -234,7 +210,7 @@
       <item quantity="one">1秒</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"権限のリマインダー"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> は位置情報を使用しています"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> がバックグラウンドで位置情報を取得しました"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"このアプリは常に位置情報にアクセスできます。設定を変更するにはタップしてください。"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"アプリが使用中の場合のみ"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"許可されている権限はありません"</string>
@@ -304,6 +280,10 @@
     <string name="default_app_none" msgid="7671097769303174666">"なし"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"（システムのデフォルト）"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"アプリなし"</string>
+    <!-- no translation found for car_default_app_selected (2813270284225505741) -->
+    <skip />
+    <!-- no translation found for car_default_app_selected_with_info (5067890906522338747) -->
+    <skip />
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"特別なアプリアクセス"</string>
     <string name="special_app_access" msgid="2561673957499408877">"特別なアプリアクセス"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"特別なアプリアクセスなし"</string>
