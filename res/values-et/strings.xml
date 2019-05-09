@@ -143,10 +143,10 @@
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Luba alati"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Luba rakenduse kasutamise ajal"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Keela"</string>
-    <string name="app_permission_title" msgid="2453000050669052385">"Luba <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_header" msgid="228974007660007656">"Üksuse <xliff:g id="PERM">%1$s</xliff:g> juurdepääs sellele rakendusele"</string>
-    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"Rakendus <xliff:g id="APP">%1$s</xliff:g> pääses teie loale <xliff:g id="PERM">%2$s</xliff:g> juurde <xliff:g id="TIME">%3$s</xliff:g> tagasi"</string>
-    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"Rakendus <xliff:g id="APP">%1$s</xliff:g> pääses teie füüsilist. tegevustele juurde <xliff:g id="TIME">%2$s</xliff:g> tagasi"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"Funktsiooni <xliff:g id="PERM">%1$s</xliff:g> luba"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"Funktsiooni <xliff:g id="PERM">%1$s</xliff:g> juurdepääs sellele rakendusele"</string>
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"Rakendus <xliff:g id="APP">%1$s</xliff:g> pääses funktsioonile <xliff:g id="PERM">%2$s</xliff:g> ligi <xliff:g id="TIME">%3$s</xliff:g> tagasi"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"Rakendus <xliff:g id="APP">%1$s</xliff:g> pääses teie füüsilisele tegevustele juurde <xliff:g id="TIME">%2$s</xliff:g> tagasi"</string>
     <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"Rakendus <xliff:g id="APP">%1$s</xliff:g> pääses teie kalendrile juurde <xliff:g id="TIME">%2$s</xliff:g> tagasi"</string>
     <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"Rakendus <xliff:g id="APP">%1$s</xliff:g> pääses teie kõnelogidele juurde <xliff:g id="TIME">%2$s</xliff:g> tagasi"</string>
     <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"Rakendus <xliff:g id="APP">%1$s</xliff:g> pääses teie kaamerale juurde <xliff:g id="TIME">%2$s</xliff:g> tagasi"</string>
@@ -186,7 +186,7 @@
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"Selle loaga rakendused pääsevad teie seadmes juurde fotodele, meediale ja failidele"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Viimane juurdepääs: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Praegu keelatud / viimane juurdepääs: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
-    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Pole kunagi juurde pääsetud"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Pole kunagi juurde pääsenud"</string>
     <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Keelatud / pole kunagi juurde pääsetud"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Lubatud"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Alati lubatud"</string>
@@ -210,7 +210,7 @@
       <item quantity="one">1 sekund</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Loa meeldetuletused"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> on kasutanud teie asukohta"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> sai taustal teie asukoha"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"See rakendus pääseb teie asukohale alati juurde. Puudutage muutmiseks."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Ainult rakenduse kasutamise ajal"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Ühtegi luba pole antud"</string>
@@ -237,8 +237,8 @@
     <string name="role_dialer_description" msgid="2684882481061320467">"Rakendused, mis võimaldavad teil seadmes telefonikõnesid teha ja vastu võtta"</string>
     <string name="role_dialer_request_title" msgid="3203802247886151514">"Kas soovite määrata rakenduse <xliff:g id="APP_NAME">%1$s</xliff:g> telefoni vaikerakenduseks?"</string>
     <string name="role_dialer_request_description" msgid="2931069491309771312">"Saab juurdepääsu kõnelogidele ja saata SMS-e"</string>
-    <string name="role_sms_label" msgid="6995222097027665850">"SMS-i vaikerakendus"</string>
-    <string name="role_sms_short_label" msgid="236955440028043972">"SMS-i rakendus"</string>
+    <string name="role_sms_label" msgid="6995222097027665850">"SMS-vaikerakendus"</string>
+    <string name="role_sms_short_label" msgid="236955440028043972">"SMS-rakendus"</string>
     <string name="role_sms_description" msgid="3228552135895420442">"Rakendused, millel on luba kasutada teie telefoninumbrit lühisõnumite, fotode, videote jms saatmiseks ja vastuvõtmiseks"</string>
     <string name="role_sms_request_title" msgid="3667393846881324409">"Kas soovite määrata rakenduse <xliff:g id="APP_NAME">%1$s</xliff:g> SMS-i vaikerakenduseks?"</string>
     <string name="role_sms_request_description" msgid="4920787411350418630">"Saab juurdepääsu kontaktidele, SMS-idele, telefonile"</string>
@@ -280,6 +280,8 @@
     <string name="default_app_none" msgid="7671097769303174666">"Puudub"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(Süsteemi vaikeseade)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Rakendusi pole"</string>
+    <string name="car_default_app_selected" msgid="2813270284225505741">"Valitud"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"Valitud – <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"rakenduste erijuurdepääs"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Rakenduste erijuurdepääs"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Rakenduse erijuurdepääs puudub"</string>

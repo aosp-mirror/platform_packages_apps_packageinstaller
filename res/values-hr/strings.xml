@@ -217,7 +217,7 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sekundi</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Podsjetnici za dopuštenja"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"Aplikacija <xliff:g id="APP_NAME">%s</xliff:g> koristi vašu lokaciju"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Aplikacija <xliff:g id="APP_NAME">%s</xliff:g> pristupa vašoj lokaciji u pozadini"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Ova aplikacija može uvijek pristupiti vašoj lokaciji. Dodirnite za promjenu."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Samo dok je aplikacija u upotrebi"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Nije odobreno nijedno dopuštenje"</string>
@@ -264,9 +264,9 @@
     <string name="role_call_redirection_description" msgid="159351481987081777">"Aplikacije koje vam omogućuju prosljeđivanje poziva na neki drugi telefonski broj"</string>
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"Želite li postaviti aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> kao zadanu aplikaciju za preusmjeravanje poziva?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Nije potrebno nijedno dopuštenje"</string>
-    <string name="role_call_screening_label" msgid="5366988848919437946">"Zadana ap. za ID pozivatelja/neželjene pozive"</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"ID poziv. i neželj. pozivi"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"Apl. za ID pozivatelja/spam"</string>
-    <string name="role_call_screening_description" msgid="9009090500431969390">"Aplikacije koje vam omogućuju identifikaciju dolaznih poziva, blokiranje neželjenih i automatiziranih poziva, izradu popisa nedopuštenih brojeva i tako dalje"</string>
+    <string name="role_call_screening_description" msgid="9009090500431969390">"Aplikacije koje vam omogućuju identifikaciju dolaznih poziva, blokiranje neželjenih i automatiziranih poziva, izradu popisa nedopuštenih brojeva i drugo"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Želite li postaviti aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> kao svoju zadanu aplikaciju za ID pozivatelja i neželjene pozive?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Nije potrebno nijedno dopuštenje"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Trenutačna zadana"</string>
@@ -287,6 +287,8 @@
     <string name="default_app_none" msgid="7671097769303174666">"Nijedna"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(Zadana postavka sustava)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Nema aplikacija"</string>
+    <string name="car_default_app_selected" msgid="2813270284225505741">"Odabrano"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"Odabrano – <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"poseban pristup za aplikacije"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Poseban pristup aplikaciji"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Bez poseb. pristupa aplikaciji"</string>
@@ -305,7 +307,7 @@
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Napredne postavke"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Napredne postavke"</string>
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Prikaz upotrebe aplikacije sustava"</string>
-    <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"Prikaz upotrebe dopuštenja za aplikaciju sustava na traci statusa, nadzornoj ploči i drugdje"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"Prikazuje upotrebu dopuštenja za aplikaciju sustava na traci statusa, nadzornoj ploči i drugdje"</string>
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Isticanje upotrebe za sljedeće"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Prikaz otkrivanja okidača Asistenta"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Prikazuje ikonu na traci statusa kada se za aktiviranje glasovne pomoći upotrebljava mikrofon"</string>

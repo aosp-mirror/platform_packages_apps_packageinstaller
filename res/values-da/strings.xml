@@ -96,7 +96,7 @@
     <string name="permission_usage_summary_foreground" msgid="2482299388611440256">"Seneste adgang: <xliff:g id="TIME">%1$s</xliff:g>\nSeneste adgang, da appen var i brug"</string>
     <string name="permission_usage_summary_background" msgid="4789805581854248472">"Seneste adgang: <xliff:g id="TIME">%1$s</xliff:g>\nSenest anvendt i baggrunden"</string>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"Alle tilladelser"</string>
-    <string name="permission_usage_any_time" msgid="313857697004329939">"Når som helst"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"Nogensinde"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"De seneste 7 dage"</string>
     <string name="permission_usage_last_day" msgid="4149912805759768249">"De seneste 24 timer"</string>
     <string name="permission_usage_last_hour" msgid="2907717357748648755">"Den seneste time"</string>
@@ -109,12 +109,12 @@
     <string name="permission_usage_list_title_last_hour" msgid="7224982939487774388">"Seneste adgang den seneste time"</string>
     <string name="permission_usage_list_title_last_15_minutes" msgid="49045607172810502">"Seneste adgang i de sidste 15 minutter"</string>
     <string name="permission_usage_list_title_last_minute" msgid="7716966405942817635">"Seneste adgang det seneste minut"</string>
-    <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"Brug af tilladelse nogensinde"</string>
-    <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"Brug af tilladelse i de sidste 7 dage"</string>
-    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"Brug af tilladelse i de sidste 24 timer"</string>
-    <string name="permission_usage_bar_chart_title_last_hour" msgid="4672313408976666479">"Brug af tilladelse den seneste time"</string>
-    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"Brug af tilladelse i de sidste 15 minutter"</string>
-    <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"Brug af tilladelse det seneste minut"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="862654449303514044">"Anvendte tilladelser nogensinde"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="5393381637937213483">"Anvendte tilladelser i de sidste 7 dage"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="7202567658282481259">"Anvendte tilladelser i de sidste 24 timer"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="4672313408976666479">"Anvendte tilladelser den seneste time"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"Anvendte tilladelser i de sidste 15 minutter"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"Anvendte tilladelser det seneste minut"</string>
     <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
       <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> app</item>
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> apps</item>
@@ -173,7 +173,7 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Se alle tilladelser for <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Se alle apps med denne tilladelse"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Apps med denne tilladelse kan <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Apps med denne tilladelse har adgang til dine fysiske aktiviteter, f.eks. hvor meget du har gået, cyklet eller kørt, skridttæller og meget mere"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Apps med denne tilladelse har adgang til dine fysiske aktiviteter, f.eks. hvor meget du har gået, cyklet eller kørt, skridttæller m.m."</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Apps med denne tilladelse kan få adgang til din kalender"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Apps med denne tilladelse kan læse og redigere telefonens opkaldsliste"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"Apps med denne tilladelse kan tage billeder og optage video"</string>
@@ -210,7 +210,7 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sekunder</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Påmindelser om tilladelse"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> har anvendt din placering"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> har din placering i baggrunden"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Denne app kan altid få adgang til din placering. Tryk for at ændre denne indstilling."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Kun mens appen er i brug"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Der ikke givet nogen tilladelser"</string>
@@ -280,6 +280,10 @@
     <string name="default_app_none" msgid="7671097769303174666">"Ingen"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(Systemstandard)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Ingen apps"</string>
+    <!-- no translation found for car_default_app_selected (2813270284225505741) -->
+    <skip />
+    <!-- no translation found for car_default_app_selected_with_info (5067890906522338747) -->
+    <skip />
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"særlig appadgang"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Særlig appadgang"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Ingen særlig appadgang"</string>
@@ -297,8 +301,8 @@
     <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Afvis"</string>
     <string name="adjust_user_sensitive_title" msgid="979740627674332095">"Avancerede indstillinger"</string>
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Avancerede indstillinger"</string>
-    <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Vis brugen af systemapps"</string>
-    <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"Vis systemapps anvendelse af tilladelser på statusbjælken, i betjeningspanelet og andre steder"</string>
+    <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Vis brug af systemapps"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"Vis systemapps\' anvendelse af tilladelser på statusbjælken, i betjeningspanelet og andre steder"</string>
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Fremhæv brugen af følgende"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Vis aktiveringsregistrering for Assistent"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Vis ikon på statusbjælken, når mikrofonen bruges til at aktivere taleassistenten"</string>
