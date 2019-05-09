@@ -28,31 +28,31 @@ import androidx.preference.PreferenceViewHolder;
 /**
  * {@link SettingsButtonPreference} with {@link AppIconPreference.Mixin}.
  */
-public class AppIconSettingsButtonPreference extends SettingsButtonPreference {
+class AppIconSettingsButtonPreference extends SettingsButtonPreference {
 
     private AppIconPreference.Mixin mMixin;
 
-    public AppIconSettingsButtonPreference(@NonNull Context context, @Nullable AttributeSet attrs,
+    AppIconSettingsButtonPreference(@NonNull Context context, @Nullable AttributeSet attrs,
             @AttrRes int defStyleAttr, @StyleRes int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
 
         init();
     }
 
-    public AppIconSettingsButtonPreference(@NonNull Context context, @Nullable AttributeSet attrs,
+    AppIconSettingsButtonPreference(@NonNull Context context, @Nullable AttributeSet attrs,
             @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
         init();
     }
 
-    public AppIconSettingsButtonPreference(@NonNull Context context, @Nullable AttributeSet attrs) {
+    AppIconSettingsButtonPreference(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
         init();
     }
 
-    public AppIconSettingsButtonPreference(@NonNull Context context) {
+    AppIconSettingsButtonPreference(@NonNull Context context) {
         super(context);
 
         init();
