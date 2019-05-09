@@ -171,7 +171,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
     private static void bindUi(SettingsWithLargeHeader fragment, PermissionApps permissionApps,
             @NonNull String groupName) {
         final Drawable icon = permissionApps.getIcon();
-        final CharSequence label = permissionApps.getLabel();
+        final CharSequence label = permissionApps.getFullLabel();
 
         fragment.setHeader(icon, label, null, null, true);
         fragment.setSummary(Utils.getPermissionGroupDescriptionString(fragment.getActivity(),

@@ -56,6 +56,7 @@ public class PermissionApps {
     private final @Nullable AppDataCache mAppDataCache;
 
     private CharSequence mLabel;
+    private CharSequence mFullLabel;
     private Drawable mIcon;
     private @Nullable CharSequence mDescription;
     private List<PermissionApp> mPermApps;
@@ -158,6 +159,10 @@ public class PermissionApps {
 
     public CharSequence getLabel() {
         return mLabel;
+    }
+
+    public CharSequence getFullLabel() {
+        return mFullLabel;
     }
 
     public Drawable getIcon() {
@@ -327,6 +332,8 @@ public class PermissionApps {
             }
         }
         mLabel = info.loadLabel(mPm);
+        mFullLabel = info.loadSafeLabel(mPm, 0,
+                TextUtils.SAFE_STRING_FLAG_TRIM | TextUtils.SAFE_STRING_FLAG_FIRST_LINE);
         if (info.icon != 0) {
             mIcon = info.loadUnbadgedIcon(mPm);
         } else {
