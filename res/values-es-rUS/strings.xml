@@ -173,7 +173,7 @@
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Ver todos los permisos de <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Ver todas las apps que tienen este permiso"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Las apps con este permiso pueden <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Las apps que tienen este permiso pueden acceder a tu actividad física, recorridos a pie o en bicicleta, trayectos en coche, recuento de pasos y mucho más"</string>
+    <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Las apps que tienen este permiso pueden acceder a tu actividad física, recorridos a pie o en bicicleta, trayectos en automóvil, recuento de pasos y mucho más"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Las apps con este permiso pueden acceder a tu calendario"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Las apps que tienen este permiso pueden leer el registro de llamadas del teléfono y escribir en él"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"Las apps que tienen este permiso pueden tomar fotos y grabar videos"</string>
@@ -210,7 +210,7 @@
       <item quantity="one">1 segundo</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Recordatorios de permisos"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> ha estado usando tu ubicación"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> accedió a tu ubicación en segundo plano"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Esta app puede acceder a tu ubicación en todo momento. Presiona para cambiar el permiso."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Solo cuando la app está en uso"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"No se otorgó ningún permiso"</string>
@@ -227,7 +227,7 @@
     <string name="role_assistant_description" msgid="8677846995018695304">"Las aplicaciones de asistencia pueden brindarte ayuda en función de la pantalla que estás viendo. Para ofrecerte asistencia integrada, algunas aplicaciones son compatibles con los servicios de selector y entrada de voz."</string>
     <string name="role_assistant_request_title" msgid="1838385568238889604">"¿Quieres establecer <xliff:g id="APP_NAME">%1$s</xliff:g> como tu aplicación de asistencia predeterminada?"</string>
     <string name="role_assistant_request_description" msgid="1086168907357494789">"Obtiene acceso a los SMS y al registro de llamadas"</string>
-    <string name="role_browser_label" msgid="814240075813716311">"App navegador predeterminada"</string>
+    <string name="role_browser_label" msgid="814240075813716311">"Navegador predet."</string>
     <string name="role_browser_short_label" msgid="6222206565850006894">"App de navegador"</string>
     <string name="role_browser_description" msgid="2326990202516329438">"Apps que te permiten acceder a Internet y mostrar los vínculos que presionas"</string>
     <string name="role_browser_request_title" msgid="751745081301397114">"¿Quieres establecer <xliff:g id="APP_NAME">%1$s</xliff:g> como tu app de navegador predeterminada?"</string>
@@ -280,6 +280,10 @@
     <string name="default_app_none" msgid="7671097769303174666">"Ninguna"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(Predeterminada de sistema)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Sin apps"</string>
+    <!-- no translation found for car_default_app_selected (2813270284225505741) -->
+    <skip />
+    <!-- no translation found for car_default_app_selected_with_info (5067890906522338747) -->
+    <skip />
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"Acceso especial a apps"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Acceso especial a apps"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"No hay acceso especial a apps"</string>

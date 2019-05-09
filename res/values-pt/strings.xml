@@ -143,7 +143,7 @@
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Permitir o tempo todo"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Permitir durante o uso do app"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Negar"</string>
-    <string name="app_permission_title" msgid="2453000050669052385">"Permissão de <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"Acesso aos recursos de <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="228974007660007656">"Permitir que este app acesse o app <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g> acessou <xliff:g id="PERM">%2$s</xliff:g> há <xliff:g id="TIME">%3$s</xliff:g>"</string>
     <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g> acessou sua atividade física há <xliff:g id="TIME">%2$s</xliff:g>"</string>
@@ -210,7 +210,7 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> segundos</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Lembretes de permissões"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"O app <xliff:g id="APP_NAME">%s</xliff:g> está usando sua localização"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"O app <xliff:g id="APP_NAME">%s</xliff:g> tem acesso à sua localização em segundo plano"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Este app pode acessar sua localização a qualquer momento. Toque para alterar."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Apenas enquanto o app estiver em uso"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Nenhuma permissão autorizada"</string>
@@ -280,6 +280,8 @@
     <string name="default_app_none" msgid="7671097769303174666">"Nenhum"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(Padrão do sistema)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Nenhum app"</string>
+    <string name="car_default_app_selected" msgid="2813270284225505741">"Selecionado"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"Selecionado: <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"Acesso especial de app"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Acesso especial ao app"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Nenhum acesso especial ao app"</string>
@@ -300,7 +302,7 @@
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Mostrar uso de apps do sistema"</string>
     <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"Mostrar apps do sistema que usam as permissões na barra de status, no painel e em outros lugares"</string>
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Destacar uso para os apps a seguir"</string>
-    <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Mostrar detecção de gatilho do Assistente"</string>
-    <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Mostrar ícone na barra de status quando o microfone for usado para ativar o assistente por viva-voz"</string>
+    <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Mostrar quando o Assistente detectar uma frase de gatilho"</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Mostrar ícone na barra de status quando o microfone for usado para ativar o assistente por voz"</string>
     <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Permitir que &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; acesse fotos e mídia no seu dispositivo?"</string>
 </resources>

@@ -210,7 +210,7 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> секунди</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Потсетници за дозволата"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> ја користи вашата локација"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ја има вашата локација во заднина"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Апликацијава секогаш може да пристапува до вашата локација. Допрете за да го промените тоа."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Само додека се користи апликацијата"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Нема овозможени дозволи"</string>
@@ -280,6 +280,8 @@
     <string name="default_app_none" msgid="7671097769303174666">"Нема"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(Стандардно за системот)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Нема апликации"</string>
+    <string name="car_default_app_selected" msgid="2813270284225505741">"Избрана"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"Избрана - <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"посебен пристап за апликации"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Посебен пристап за апликации"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Нема посебен пристап за аплик."</string>
@@ -301,6 +303,6 @@
     <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"Прикажувај го користењето дозволи од системските апликации во статусната лента, контролната табла и на други места"</string>
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Нагласи го користењето за следново"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Прикажувај го откривањето за активирање на „Помошникот“"</string>
-    <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Прикажувај икона во статусната лента кога микрофонот се користи за активирање „Гласовна помош“"</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Прикажувај икона во статусната лента кога микрофонот се користи за активирање на гласовниот помошник"</string>
     <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Да се дозволи &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; да пристапува до фотографии и аудиовизуелни содржини на уредот?"</string>
 </resources>

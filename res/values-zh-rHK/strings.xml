@@ -94,7 +94,7 @@
     <string name="app_name_unknown" msgid="8288360585728122735">"不明"</string>
     <string name="permission_usage_title" msgid="6808284837306026819">"資訊主頁"</string>
     <string name="permission_usage_summary_foreground" msgid="2482299388611440256">"上次存取時間：<xliff:g id="TIME">%1$s</xliff:g>\n上次存取：使用應用程式時"</string>
-    <string name="permission_usage_summary_background" msgid="4789805581854248472">"上次存取時間：<xliff:g id="TIME">%1$s</xliff:g>\n上次存取：背景"</string>
+    <string name="permission_usage_summary_background" msgid="4789805581854248472">"上次存取時間：<xliff:g id="TIME">%1$s</xliff:g>，\n於背景存取"</string>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"任何權限"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"不限時間"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"過去 7 天"</string>
@@ -157,18 +157,18 @@
     <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"「<xliff:g id="APP">%1$s</xliff:g>」於 <xliff:g id="TIME">%2$s</xliff:g>前存取了您的感應器"</string>
     <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"「<xliff:g id="APP">%1$s</xliff:g>」於 <xliff:g id="TIME">%2$s</xliff:g>前存取了您的短訊"</string>
     <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"「<xliff:g id="APP">%1$s</xliff:g>」於 <xliff:g id="TIME">%2$s</xliff:g>前存取了您的儲存空間"</string>
-    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"「<xliff:g id="APP">%1$s</xliff:g>」沒有存取您的<xliff:g id="PERM">%2$s</xliff:g>"</string>
-    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"「<xliff:g id="APP">%1$s</xliff:g>」沒有存取您的運動資料"</string>
-    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"「<xliff:g id="APP">%1$s</xliff:g>」沒有存取您的日曆"</string>
-    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"「<xliff:g id="APP">%1$s</xliff:g>」沒有存取您的通話記錄"</string>
-    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"「<xliff:g id="APP">%1$s</xliff:g>」沒有存取您的相機"</string>
-    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"「<xliff:g id="APP">%1$s</xliff:g>」沒有存取您的聯絡人"</string>
-    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"「<xliff:g id="APP">%1$s</xliff:g>」沒有存取您的位置"</string>
-    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"「<xliff:g id="APP">%1$s</xliff:g>」沒有存取您的麥克風"</string>
-    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"「<xliff:g id="APP">%1$s</xliff:g>」沒有存取您的手機"</string>
-    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"「<xliff:g id="APP">%1$s</xliff:g>」沒有存取您的感應器"</string>
-    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"「<xliff:g id="APP">%1$s</xliff:g>」沒有存取您的短訊"</string>
-    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"「<xliff:g id="APP">%1$s</xliff:g>」沒有存取您的儲存空間"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"「<xliff:g id="APP">%1$s</xliff:g>」沒存取過您的<xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"「<xliff:g id="APP">%1$s</xliff:g>」沒存取過您的運動資料"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"「<xliff:g id="APP">%1$s</xliff:g>」沒存取過您的日曆"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"「<xliff:g id="APP">%1$s</xliff:g>」沒存取過您的通話記錄"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"「<xliff:g id="APP">%1$s</xliff:g>」沒存取過您的相機"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"「<xliff:g id="APP">%1$s</xliff:g>」沒存取過您的聯絡人"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"「<xliff:g id="APP">%1$s</xliff:g>」沒存取過您的位置"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"「<xliff:g id="APP">%1$s</xliff:g>」沒存取過您的麥克風"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"「<xliff:g id="APP">%1$s</xliff:g>」沒存取過您的手機"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"「<xliff:g id="APP">%1$s</xliff:g>」沒存取過您的感應器"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"「<xliff:g id="APP">%1$s</xliff:g>」沒存取過您的短訊"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"「<xliff:g id="APP">%1$s</xliff:g>」沒存取過您的儲存空間"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"目前無法提供此權限的上次存取資料"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"查看「<xliff:g id="APP">%1$s</xliff:g>」的所有權限"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"查看擁有此權限的所有應用程式"</string>
@@ -187,7 +187,7 @@
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"上次存取時間：<xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"目前遭拒/上次存取時間：<xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"從未存取過"</string>
-    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"遭到拒絕/從未存取過"</string>
+    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"已拒絕/從未存取過"</string>
     <string name="allowed_header" msgid="6279244592227088158">"已允許"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"一律允許"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"只在使用時允許"</string>
@@ -210,12 +210,12 @@
       <item quantity="one">1 秒</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"權限提醒"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g>在使用您的位置資訊"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g>在背景存取了您的位置資訊"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"此應用程式可隨時存取您的位置資訊。輕按即可變更權限。"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"只在使用應用程式時"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"不允許任何權限"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"沒有拒絕任何權限"</string>
-    <string name="no_apps_allowed" msgid="4529095928504611810">"不允許任何應用程式"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"沒有允許任何應用程式"</string>
     <string name="no_apps_denied" msgid="2736758388618487796">"沒有拒絕任何應用程式"</string>
     <string name="settings" msgid="2884124136779508907">"設定"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g>可以取得您裝置的完整存取權"</string>
@@ -280,6 +280,10 @@
     <string name="default_app_none" msgid="7671097769303174666">"無"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(系統預設)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"沒有應用程式"</string>
+    <!-- no translation found for car_default_app_selected (2813270284225505741) -->
+    <skip />
+    <!-- no translation found for car_default_app_selected_with_info (5067890906522338747) -->
+    <skip />
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"特別應用程式存取權"</string>
     <string name="special_app_access" msgid="2561673957499408877">"特別應用程式權限"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"沒有特別應用程式權限"</string>

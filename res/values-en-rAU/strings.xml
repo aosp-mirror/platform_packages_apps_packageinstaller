@@ -175,7 +175,7 @@
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Apps with this permission can <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Apps with this permission can access your physical activity, such as walking, cycling, driving, step count and more"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Apps with this permission can access your calendar"</string>
-    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Apps with this permission can read and write phone call log"</string>
+    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Apps with this permission can read and write phone call logs"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"Apps with this permission can take pictures and record video"</string>
     <string name="permission_description_summary_contacts" msgid="5169995707720233126">"Apps with this permission can access your contacts"</string>
     <string name="permission_description_summary_location" msgid="687820658574645201">"Apps with this permission can access this device\'s location"</string>
@@ -210,7 +210,7 @@
       <item quantity="one">1 second</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Permission reminders"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> has been using your location"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> got your location in the background"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"This app can always access your location. Tap to change."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Only while app is in use"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"No permissions allowed"</string>
@@ -280,6 +280,8 @@
     <string name="default_app_none" msgid="7671097769303174666">"None"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(System default)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"No apps"</string>
+    <string name="car_default_app_selected" msgid="2813270284225505741">"Selected"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"Selected – <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"special app access"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Special app access"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"No special app access"</string>

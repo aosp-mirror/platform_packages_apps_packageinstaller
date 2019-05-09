@@ -116,12 +116,12 @@
     <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="1776918144361651860">"Utilização das autorizações nos últimos 15 minutos"</string>
     <string name="permission_usage_bar_chart_title_last_minute" msgid="236300476767668315">"Utilização das autorizações no último minuto"</string>
     <plurals name="permission_usage_bar_label" formatted="false" msgid="6828034271144198049">
-      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> aplic.</item>
-      <item quantity="one">1 aplic.</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> apps</item>
+      <item quantity="one">1 app</item>
     </plurals>
     <string name="permission_usage_view_details" msgid="4728049344017619500">"Ver tudo no painel de controlo"</string>
     <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Filtrado por: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_usage_remove_filter" msgid="9105565119059367866">"Ver todas no painel de controlo"</string>
+    <string name="app_permission_usage_remove_filter" msgid="9105565119059367866">"Ver tudo no painel de controlo"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"Filtrar por"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Filtrar por autorizações"</string>
     <string name="filter_by_time" msgid="1763143592970195407">"Filtrar por hora"</string>
@@ -210,7 +210,7 @@
       <item quantity="one">1 segundo</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Lembretes de autorização"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"A aplicação <xliff:g id="APP_NAME">%s</xliff:g> tem estado a utilizar a sua localização"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"A aplicação <xliff:g id="APP_NAME">%s</xliff:g> obteve a sua localização em segundo plano"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Esta aplicação consegue aceder sempre à sua localização. Toque para alterar."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Apenas enquanto a aplicação está a ser utilizada"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Nenhuma autorização permitida."</string>
@@ -258,7 +258,7 @@
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"Pretende definir <xliff:g id="APP_NAME">%1$s</xliff:g> como a aplicação de redirecionamento de chamadas predefinida?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Não são necessárias autorizações."</string>
     <string name="role_call_screening_label" msgid="5366988848919437946">"Aplicação identific. chamadas e spam predef."</string>
-    <string name="role_call_screening_short_label" msgid="7596133131034442273">"Aplic. ident. chamadas e spam"</string>
+    <string name="role_call_screening_short_label" msgid="7596133131034442273">"App de ID de chamada e spam"</string>
     <string name="role_call_screening_description" msgid="9009090500431969390">"Aplicações que permitem identificar as chamadas recebidas, bloquear spam e chamadas automáticas, adicionar números indesejados à lista negra, etc."</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Pretende definir o <xliff:g id="APP_NAME">%1$s</xliff:g> como a aplicação de identificação de chamadas e spam predefinida?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Não são necessárias autorizações."</string>
@@ -280,6 +280,8 @@
     <string name="default_app_none" msgid="7671097769303174666">"Nenhuma"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(Predefinição do sistema)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Sem aplicações"</string>
+    <string name="car_default_app_selected" msgid="2813270284225505741">"Selecionada"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"Selecionada – <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"acesso especial a aplicações"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Acesso especial a aplicações"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Sem acesso especial a aplic."</string>

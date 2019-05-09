@@ -38,7 +38,7 @@
     <string name="permission_revoked_none" msgid="266013103540772023">"ешқандай рұқсат өшірілмеді"</string>
     <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Рұқсат беру"</string>
     <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"Әрқашан рұқсат беру"</string>
-    <string name="grant_dialog_button_allow_foreground" msgid="8090382319222429427">"Қолданбаны пайдалану кезінде ғана рұқсат ету"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="8090382319222429427">"Қолданбаны пайдалану кезінде ғана рұқсат беру"</string>
     <string name="grant_dialog_button_allow_background" msgid="3190568549032350790">"Біржола рұқсат ету"</string>
     <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Қолданбалар"</string>
     <string name="app_permissions" msgid="2778362347879465223">"Қолданба рұқсаттары"</string>
@@ -57,7 +57,7 @@
     <string name="menu_show_system" msgid="7623002570829860709">"Жүйені көрсету"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Жүйені жасыру"</string>
     <string name="no_apps" msgid="2377153782338039463">"Қолданбалар жоқ"</string>
-    <string name="location_settings" msgid="547378321761364906">"Орынды анықтау параметрлері"</string>
+    <string name="location_settings" msgid="547378321761364906">"Орналасу параметрлері"</string>
     <string name="location_warning" msgid="4687406043150343369">"<xliff:g id="APP_NAME">%1$s</xliff:g> – осы құрылғыға орынды анықтау қызметтерін көрсететін қолданба. Орынды пайдалану мүмкіндігін орынды анықтау параметрлерінде өзгертуге болады."</string>
     <string name="system_warning" msgid="6868290533389195836">"Бұл рұқсатты бермесеңіз, құрылғының негізгі функциялары енді көзделгендей жұмыс істемеуі мүмкін."</string>
     <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"Саясат арқылы қолданылған"</string>
@@ -141,7 +141,7 @@
     <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Кіру рұқсаты сұралды: <xliff:g id="NUM">%1$s</xliff:g> рет. Соңғы рет <xliff:g id="TIME">%2$s</xliff:g> бұрын пайдаланылған."</string>
     <string name="app_permission_button_allow" msgid="1358817292836175593">"Рұқсат беру"</string>
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Әрдайым рұқсат беру"</string>
-    <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Қолданбаны пайдалану кезінде ғана рұқсат ету"</string>
+    <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Қолданбаны пайдалану кезінде ғана рұқсат беру"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Тыйым салу"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> рұқсаты"</string>
     <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>: осы қолданбаны пайдалану рұқсаты"</string>
@@ -183,7 +183,7 @@
     <string name="permission_description_summary_phone" msgid="3773977614654088578">"Бұл рұқсатқа ие қолданбалар телефон қоңырауларын шала және басқара алады."</string>
     <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Бұл рұқсатқа ие қолданбалар тіршілік белгілері туралы датчик деректерін пайдалана алады."</string>
     <string name="permission_description_summary_sms" msgid="8850213022386508528">"Бұл рұқсатқа ие қолданбалар SMS хабарларын жібере және көре алады."</string>
-    <string name="permission_description_summary_storage" msgid="2265909502600142621">"Рұқсатқа ие қолданбалар құрылғыдағы фотосуреттерді, медиамазмұндарды және файлдарды пайдалана алады."</string>
+    <string name="permission_description_summary_storage" msgid="2265909502600142621">"Рұқсатқа ие қолданбалар құрылғыдағы фотосуреттерді, медиафайлдарды және басқа да файлдарды пайдалана алады."</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Соңғы рет пайдаланған уақыты: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Әзірге тыйым салынған/Соңғы пайдаланылған уақыты: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Ешқашан пайдаланбады"</string>
@@ -210,7 +210,7 @@
       <item quantity="one">1 секунд</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Рұқсат туралы еске салғыштар"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> қолданбасы геодерегіңізді пайдаланып келді"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> сіздің орналасқан жеріңізді фондық режимде анықтады."</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Бұл қолданба геодерегіңізді кез келген уақытта пайдалана алады. Өзгерту үшін түртіңіз."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Қолданба пайдаланып жатқанда ғана"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Ешқандай рұқсат берілмеді"</string>
@@ -280,6 +280,10 @@
     <string name="default_app_none" msgid="7671097769303174666">"Жоқ"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(жүйенің әдепкі қолданбасы)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Қолданбалар жоқ"</string>
+    <!-- no translation found for car_default_app_selected (2813270284225505741) -->
+    <skip />
+    <!-- no translation found for car_default_app_selected_with_info (5067890906522338747) -->
+    <skip />
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"арнайы қолданба рұқсаты"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Арнайы кіру"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Арнайы кіру мүмкіндігі жоқ"</string>
