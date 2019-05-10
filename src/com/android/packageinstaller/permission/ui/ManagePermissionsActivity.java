@@ -28,10 +28,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
 import com.android.packageinstaller.DeviceUtils;
+import com.android.packageinstaller.permission.ui.auto.AutoAppPermissionsFragment;
 import com.android.packageinstaller.permission.ui.handheld.ManageStandardPermissionsFragment;
 import com.android.packageinstaller.permission.ui.handheld.PermissionUsageFragment;
 import com.android.packageinstaller.permission.ui.wear.AppPermissionsFragmentWear;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.permissioncontroller.R;
 
 public final class ManagePermissionsActivity extends FragmentActivity {
     private static final String LOG_TAG = ManagePermissionsActivity.class.getSimpleName();
@@ -41,6 +43,11 @@ public final class ManagePermissionsActivity extends FragmentActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        if (DeviceUtils.isAuto(this)) {
+            // Automotive relies on a different theme. Apply before calling super so that
+            // fragments are restored properly on configuration changes.
+            setTheme(R.style.CarSettings);
+        }
         super.onCreate(savedInstanceState);
 
         // If there is a previous instance, re-use its Fragment instead of making a new one.
@@ -103,21 +110,30 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                     finish();
                     return;
                 }
+
+                final boolean allPermissions = getIntent().getBooleanExtra(
+                        EXTRA_ALL_PERMISSIONS, false);
+
+                UserHandle userHandle = getIntent().getParcelableExtra(Intent.EXTRA_USER);
+                if (userHandle == null) {
+                    userHandle = UserHandle.of(UserHandle.myUserId());
+                }
+
                 if (DeviceUtils.isAuto(this)) {
-                    fragment = com.android.packageinstaller.permission.ui.auto
-                            .AppPermissionsFragment.newInstance(packageName);
+                    if (allPermissions) {
+                        // TODO: Replace this with a car version.
+                        androidXFragment = com.android.packageinstaller.permission.ui.handheld
+                                .AllAppPermissionsFragment.newInstance(packageName, userHandle);
+                    } else {
+                        androidXFragment = AutoAppPermissionsFragment.newInstance(packageName,
+                                userHandle);
+                    }
                 } else if (DeviceUtils.isWear(this)) {
                     androidXFragment = AppPermissionsFragmentWear.newInstance(packageName);
                 } else if (DeviceUtils.isTelevision(this)) {
                     fragment = com.android.packageinstaller.permission.ui.television
                             .AppPermissionsFragment.newInstance(packageName);
                 } else {
-                    final boolean allPermissions = getIntent().getBooleanExtra(
-                            EXTRA_ALL_PERMISSIONS, false);
-                    UserHandle userHandle = getIntent().getParcelableExtra(Intent.EXTRA_USER);
-                    if (userHandle == null) {
-                        userHandle = UserHandle.of(UserHandle.myUserId());
-                    }
                     if (allPermissions) {
                         androidXFragment = com.android.packageinstaller.permission.ui.handheld
                                 .AllAppPermissionsFragment.newInstance(packageName, userHandle);
