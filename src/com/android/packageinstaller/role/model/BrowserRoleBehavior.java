@@ -29,6 +29,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.android.packageinstaller.role.utils.UserUtils;
+import com.android.permissioncontroller.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -112,5 +113,11 @@ public class BrowserRoleBehavior implements RoleBehavior {
             packageNames.add(resolveInfo.activityInfo.packageName);
         }
         return new ArrayList<>(packageNames);
+    }
+
+    @Override
+    public boolean isVisibleAsUser(@NonNull Role role, @NonNull UserHandle user,
+            @NonNull Context context) {
+        return context.getResources().getBoolean(R.bool.config_showBrowserRole);
     }
 }

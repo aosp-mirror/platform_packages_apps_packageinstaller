@@ -227,6 +227,31 @@
             <item type="style" name="PermissionDialog" />
             <!-- END THEMES -->
 
+            <!-- START VISIBILITY CONFIGS -->
+            <!-- Assistant role uses: config_showDefaultAssistant -->
+            <!-- Home role uses: config_showDefaultHome -->
+            <!-- Emergency role uses: config_showDefaultEmergency -->
+            <item type="bool" name="config_showBrowserRole" />
+            <item type="bool" name="config_showDialerRole" />
+            <item type="bool" name="config_showSmsRole" />
+            <!-- END VISIBILITY CONFIGS -->
+
+            <!-- START CAR DIMENS -->
+            <item type="dimen" name="car_action_bar_height" />
+            <item type="dimen" name="car_margin" />
+            <item type="dimen" name="car_icon_size" />
+            <!-- END CAR DIMENS -->
+
+            <!-- START CAR STYLES -->
+            <item type="style" name="CarPreferenceFragment" />
+            <item type="style" name="CarPreferenceFragmentList" />
+            <!-- END CAR STYLES -->
+
+            <!-- START CAR THEMES -->
+            <item type="style" name="CarSettings" />
+            <item type="style" name="CarPreferenceTheme" />
+            <!-- END CAR THEMES -->
+
         </policy>
 
     </overlayable>
