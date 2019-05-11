@@ -41,7 +41,7 @@ import com.android.settingslib.HelpUtils;
 /**
  * Base class for settings fragments.
  */
-public abstract class SettingsFragment extends PreferenceFragmentCompat {
+abstract class SettingsFragment extends PreferenceFragmentCompat {
 
     private FrameLayout mContentLayout;
     private LinearLayout mPreferenceLayout;

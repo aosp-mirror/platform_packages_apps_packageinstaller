@@ -44,7 +44,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 
-import com.android.packageinstaller.Constants;
 import com.android.packageinstaller.permission.service.LocationAccessCheck;
 import com.android.packageinstaller.permission.utils.ArrayUtils;
 import com.android.packageinstaller.permission.utils.LocationUtils;
@@ -342,9 +341,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
                 group.getBackgroundPermissions().addPermission(permission);
             } else {
-                if (!Constants.RESTRICTED_PERMISSIONS_ENABLED
-                        || (!permission.isHardRestricted()
-                            || whitelistedRestrictedPermissions.contains(permission.getName()))) {
+                if (!permission.isHardRestricted()
+                            || whitelistedRestrictedPermissions.contains(permission.getName())) {
                     group.addPermission(permission);
                 }
             }

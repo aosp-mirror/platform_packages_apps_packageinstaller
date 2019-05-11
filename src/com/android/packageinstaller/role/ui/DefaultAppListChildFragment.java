@@ -194,7 +194,7 @@ public class DefaultAppListChildFragment<PF extends PreferenceFragmentCompat
         UserHandle user = preference.getExtras().getParcelable(Intent.EXTRA_USER);
         Intent intent = role.getManageIntentAsUser(user, context);
         if (intent == null) {
-            intent = DefaultAppActivity.createIntent(roleName, user, requireContext());
+            intent = DefaultAppActivity.createIntent(roleName, user, context);
         }
         startActivity(intent);
         return true;
@@ -271,11 +271,11 @@ public class DefaultAppListChildFragment<PF extends PreferenceFragmentCompat
     public interface Parent {
 
         /**
-         * Create a new preference for a role.
+         * Create a new preference for a default app.
          *
          * @param context the {@code Context} to use when creating the preference.
          *
-         * @return a new preference for a role
+         * @return a new preference for a default app
          */
         @NonNull
         TwoTargetPreference createPreference(@NonNull Context context);
