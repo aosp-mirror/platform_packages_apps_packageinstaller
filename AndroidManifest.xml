@@ -179,9 +179,12 @@
                 <action android:name="android.app.role.action.REQUEST_ROLE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-            <!-- TODO: STOPSHIP: give this a priority greater than 1 to override Settings. -->
-            <intent-filter android:priority="0">
+            <intent-filter android:priority="2">
                 <action android:name="android.provider.Telephony.ACTION_CHANGE_DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter android:priority="1001">
+                <action android:name="android.telecom.action.CHANGE_DEFAULT_DIALER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
