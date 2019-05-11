@@ -690,7 +690,7 @@
     <!-- Short label for the call redirection role. [CHAR LIMIT=30] -->
     <string name="role_call_redirection_short_label">Call redirecting app</string>
     <!-- Description for the call redirection role. [CHAR LIMIT=NONE] -->
-    <string name="role_call_redirection_description">Apps that allow you to forward calls to another phone number</string>
+    <string name="role_call_redirection_description">Apps that allow you to forward outgoing calls to another phone number</string>
     <!-- Template for the title when an app requests to become the default call redirection app. [CHAR LIMIT=100] -->
     <string name="role_call_redirection_request_title">Set <xliff:g id="app_name" example="Super Call Redirection">%1$s</xliff:g> as your default call redirection app?</string>
     <!-- Description when an app requests to become the default call redirection app. [CHAR LIMIT=60] -->
@@ -701,7 +701,7 @@
     <!-- Short label for the call screening role. [CHAR LIMIT=30] -->
     <string name="role_call_screening_short_label">Caller ID &amp; spam app</string>
     <!-- Description for the call screening role. [CHAR LIMIT=NONE] -->
-    <string name="role_call_screening_description">Apps that allow you to identify incoming calls, block spam and robocalls, blacklist unwanted numbers, and so on</string>
+    <string name="role_call_screening_description">Apps that allow you to identify calls, block spam and robocalls, and blacklist unwanted numbers</string>
     <!-- Template for the title when an app requests to become the default call screening app. [CHAR LIMIT=100] -->
     <string name="role_call_screening_request_title">Set <xliff:g id="app_name" example="Super Call Screening">%1$s</xliff:g> as your default caller ID &amp; spam app?</string>
     <!-- Description when an app requests to become the default call screening app. [CHAR LIMIT=60] -->

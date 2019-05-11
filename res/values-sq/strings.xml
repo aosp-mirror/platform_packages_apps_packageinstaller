@@ -210,7 +210,7 @@
       <item quantity="one">1 sekondë</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Alarmet rikujtuese për lejet"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> ka përdorur vendndodhjen tënde"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ka marrë vendndodhjen tënde në sfond"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Ky aplikacion mund të qaset gjithmonë te vendndodhja jote. Trokit për ta ndryshuar."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Vetëm kur aplikacioni është në përdorim"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Nuk jepet asnjë leje"</string>
@@ -234,12 +234,12 @@
     <string name="role_browser_request_description" msgid="3204873553391043604">"Nuk ka nevojë për asnjë autorizim"</string>
     <string name="role_dialer_label" msgid="7920168918746178929">"Aplikacioni i parazgjedhur i telefonit"</string>
     <string name="role_dialer_short_label" msgid="2980581587550675305">"Aplikacioni \"Telefoni\""</string>
-    <string name="role_dialer_description" msgid="2684882481061320467">"Aplikacionet që të lejojnë të bësh dhe të marrësh telefonata në pajisjen tënde"</string>
+    <string name="role_dialer_description" msgid="2684882481061320467">"Aplikacione që të lejojnë të bësh dhe të marrësh telefonata në pajisjen tënde"</string>
     <string name="role_dialer_request_title" msgid="3203802247886151514">"Dëshiron ta caktosh <xliff:g id="APP_NAME">%1$s</xliff:g> si aplikacionin tënd të parazgjedhur të telefonit?"</string>
     <string name="role_dialer_request_description" msgid="2931069491309771312">"Merr qasjen tek evidenca e telefonatave dhe dërgon SMS"</string>
     <string name="role_sms_label" msgid="6995222097027665850">"Aplikacioni i parazgjedhur i SMS-ve"</string>
     <string name="role_sms_short_label" msgid="236955440028043972">"Aplikacioni i mesazheve SMS"</string>
-    <string name="role_sms_description" msgid="3228552135895420442">"Aplikacionet që të lejojnë të përdorësh numrin e telefonit për të dërguar dhe për të marrë mesazhe të shkurtra me tekst, fotografi, video etj."</string>
+    <string name="role_sms_description" msgid="3228552135895420442">"Aplikacione që të lejojnë të përdorësh numrin e telefonit për të dërguar dhe për të marrë mesazhe të shkurtra me tekst, fotografi, video etj."</string>
     <string name="role_sms_request_title" msgid="3667393846881324409">"Dëshiron ta caktosh <xliff:g id="APP_NAME">%1$s</xliff:g> si aplikacionin e parazgjedhur për mesazhet SMS?"</string>
     <string name="role_sms_request_description" msgid="4920787411350418630">"Merr qasjen te kontaktet, mesazhet SMS dhe telefoni"</string>
     <string name="role_emergency_label" msgid="8986482330376454686">"Aplikacioni i parazgjedhur i urgjencës"</string>
@@ -249,12 +249,12 @@
     <string name="role_emergency_request_description" msgid="2824966073894226992">"Nuk ka nevojë për asnjë autorizim"</string>
     <string name="role_home_label" msgid="6245106863177808486">"Aplikacioni bazë i parazgjedhur"</string>
     <string name="role_home_short_label" msgid="4565882523300643525">"Aplikacioni bazë"</string>
-    <string name="role_home_description" msgid="6736956389161158052">"Aplikacionet, të quajtura shpesh nisësit, që zëvendësojnë ekranet bazë në pajisjen tënde Android dhe që të japin qasje te përmbajtjet dhe funksionet e pajisjes sate"</string>
+    <string name="role_home_description" msgid="6736956389161158052">"Aplikacione, të quajtura shpesh \"nisësit\", që zëvendësojnë ekranet bazë në pajisjen tënde Android dhe që të japin qasje te përmbajtjet dhe funksionet e pajisjes sate"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Dëshiron ta caktosh <xliff:g id="APP_NAME">%1$s</xliff:g> si aplikacionin e parazgjedhur për ekranin bazë?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Nuk ka nevojë për asnjë autorizim"</string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Aplikacioni i parazgjedhur i ridrejtimit të telefonatave"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Aplikacioni i ridrejtimit të telefonatave"</string>
-    <string name="role_call_redirection_description" msgid="159351481987081777">"Aplikacionet që të lejojnë t\'i transferosh telefonatat te një numër tjetër telefoni"</string>
+    <string name="role_call_redirection_description" msgid="159351481987081777">"Aplikacione që të lejojnë t\'i transferosh telefonatat te një numër tjetër telefoni"</string>
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"Dëshiron ta caktosh <xliff:g id="APP_NAME">%1$s</xliff:g> si aplikacionin e parazgjedhur për ridrejtimin e telefonatave?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Nuk ka nevojë për asnjë autorizim"</string>
     <string name="role_call_screening_label" msgid="5366988848919437946">"Aplikacioni i parazgjedhur për ID-në dhe telefonuesit e bezdisshëm"</string>
@@ -280,6 +280,10 @@
     <string name="default_app_none" msgid="7671097769303174666">"Asnjë"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(Parazgjedhja e sistemit)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Nuk ka aplikacione"</string>
+    <!-- no translation found for car_default_app_selected (2813270284225505741) -->
+    <skip />
+    <!-- no translation found for car_default_app_selected_with_info (5067890906522338747) -->
+    <skip />
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"qasje e veçantë e aplikacionit"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Qasje e veçantë aplikacioni"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Jo qasje e veçantë aplikacioni"</string>

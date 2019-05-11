@@ -101,7 +101,7 @@
     <string name="permission_usage_last_day" msgid="4149912805759768249">"Les 24 dernières heures"</string>
     <string name="permission_usage_last_hour" msgid="2907717357748648755">"La dernière heure"</string>
     <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Les 15 dernières minutes"</string>
-    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Au cours de la dernière minute"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Dernière minute"</string>
     <string name="no_permission_usages" msgid="698858628357371611">"Aucune autoris. d\'utilisation"</string>
     <string name="permission_usage_list_title_any_time" msgid="5641676869304328239">"L\'accès le plus récent en tout temps"</string>
     <string name="permission_usage_list_title_last_7_days" msgid="2972289322203714509">"Accès le plus récent au cours des 7 derniers jours"</string>
@@ -190,7 +190,7 @@
     <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Refusée/aucune tentative d\'accès"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Autorisées"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Toujours autorisées"</string>
-    <string name="allowed_foreground_header" msgid="7553595563464819175">"Autorisée seulement durant l\'utilisation"</string>
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"Autorisées seulement durant l\'utilisation"</string>
     <string name="denied_header" msgid="2277998574238617699">"Refusées"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"Afficher les détails d\'utilisation"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -210,7 +210,7 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> secondes</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Rappels d\'autorisation"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> utilise l\'accès à votre position"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"L\'application <xliff:g id="APP_NAME">%s</xliff:g> a accédé à votre position en arrière-plan"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Cette application peut toujours accéder à votre position. Touchez l\'écran pour modifier cela."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Uniquement lorsque l\'application est en cours d\'utilisation"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Aucune autorisation accordée"</string>
@@ -280,6 +280,8 @@
     <string name="default_app_none" msgid="7671097769303174666">"Aucune"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(Valeurs par défaut du système)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Aucune application"</string>
+    <string name="car_default_app_selected" msgid="2813270284225505741">"Sélectionnée"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"Sélectionnée – <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"accès spécial pour applications"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Accès spécial pour applis"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Aucun accès spécial pour applis"</string>
@@ -299,7 +301,7 @@
     <string name="menu_adjust_user_sensitive" msgid="9016544530763156678">"Paramètres avancés"</string>
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Afficher l\'usage des applications système"</string>
     <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"Afficher l\'utilisation des autorisations par les applications système dans la barre d\'état, le tableau de bord et ailleurs"</string>
-    <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Mettre en avant l\'usage pour les éléments suivants"</string>
+    <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Mettre en avant l\'utilisation pour les éléments suivants"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Afficher la détection des déclencheurs de l\'Assistant"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Afficher l\'icône dans la barre d\'état lorsque le microphone est utilisé pour activer l\'assistant vocal"</string>
     <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Autoriser « <xliff:g id="APP_NAME">%1$s</xliff:g> » à accéder aux photos et aux médias de votre appareil?"</string>

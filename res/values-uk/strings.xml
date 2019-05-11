@@ -181,7 +181,7 @@
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Додатки з цим дозволом можуть <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Додатки з цим дозволом мають доступ до даних про вашу фізичну активність (ходьбу, поїздки на велосипеді й автомобілі, кількість кроків тощо)"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Додатки з цим дозволом мають доступ до вашого календаря"</string>
-    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Додатки з цим дозволом можуть переглядати й записувати ваш журнал викликів"</string>
+    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Додатки з цим дозволом можуть переглядати й редагувати ваш журнал викликів"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"Додатки з цим дозволом можуть робити знімки та записувати відео"</string>
     <string name="permission_description_summary_contacts" msgid="5169995707720233126">"Додатки з цим дозволом мають доступ до ваших контактів"</string>
     <string name="permission_description_summary_location" msgid="687820658574645201">"Додатки з цим дозволом мають доступ до геоданих цього пристрою"</string>
@@ -193,10 +193,10 @@
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Останній доступ: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Наразі заборонено/останній сеанс доступу: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Не отримував доступу"</string>
-    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Заборонено/не отримував доступу"</string>
+    <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Відхилено/не отримував доступу"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Дозволено"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Завжди дозволено"</string>
-    <string name="allowed_foreground_header" msgid="7553595563464819175">"Дозволено лише за активності додатка"</string>
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"Дозволено додаткам, які використовуються"</string>
     <string name="denied_header" msgid="2277998574238617699">"Відхилено"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"Переглянути дані про використання"</string>
     <plurals name="days" formatted="false" msgid="3903419301028414979">
@@ -224,13 +224,13 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> секунди</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Нагадування про дозволи"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> використовує геодані пристрою"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Додаток <xliff:g id="APP_NAME">%s</xliff:g> отримав доступ до даних про місцезнаходження у фоновому режимі"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Цей додаток завжди має доступ до геоданих пристрою. Торкніться, щоб змінити це."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Лише коли додаток використовується"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Немає наданих дозволів"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Немає відхилених дозволів"</string>
-    <string name="no_apps_allowed" msgid="4529095928504611810">"Немає дозволених додатків"</string>
-    <string name="no_apps_denied" msgid="2736758388618487796">"Немає додатків, дозвіл для яких було відхилено"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"Немає додатків із дозволом"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"Немає додатків, яким відмовлено"</string>
     <string name="settings" msgid="2884124136779508907">"Налаштування"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"Сервіс <xliff:g id="SERVICE_NAME">%s</xliff:g> має повний доступ до вашого пристрою"</string>
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"Додатки зі спеціальними можливостями (<xliff:g id="NUM_SERVICES">%s</xliff:g>) мають повний доступ до вашого пристрою"</string>
@@ -253,7 +253,7 @@
     <string name="role_dialer_request_description" msgid="2931069491309771312">"Отримує доступ до журналу викликів і надсилання SMS"</string>
     <string name="role_sms_label" msgid="6995222097027665850">"Додаток для SMS за умовчанням"</string>
     <string name="role_sms_short_label" msgid="236955440028043972">"Додаток для SMS"</string>
-    <string name="role_sms_description" msgid="3228552135895420442">"Додатки, у яких можна надсилати короткі текстові повідомлення, фотографії, відео й іншими даними зі свого номера телефону"</string>
+    <string name="role_sms_description" msgid="3228552135895420442">"Додатки, у яких можна обмінюватися короткими текстовими повідомленнями, фото, відео й іншими даними через свій номер телефону"</string>
     <string name="role_sms_request_title" msgid="3667393846881324409">"Чи має <xliff:g id="APP_NAME">%1$s</xliff:g> використовуватись як додаток для SMS за умовчанням?"</string>
     <string name="role_sms_request_description" msgid="4920787411350418630">"Отримує доступ до контактів, SMS і телефона"</string>
     <string name="role_emergency_label" msgid="8986482330376454686">"Додаток для екстрених викликів за умовчанням"</string>
@@ -263,7 +263,7 @@
     <string name="role_emergency_request_description" msgid="2824966073894226992">"Дозволи не потрібні"</string>
     <string name="role_home_label" msgid="6245106863177808486">"Додаток головного екрана за умовчанням"</string>
     <string name="role_home_short_label" msgid="4565882523300643525">"Додаток головного екрана"</string>
-    <string name="role_home_description" msgid="6736956389161158052">"Додатки (так звані панелі запуску), які заміняють головний екран і дають користувачу доступ до вмісту та функцій пристрою Android"</string>
+    <string name="role_home_description" msgid="6736956389161158052">"Додатки, які заміняють головний екран і забезпечують доступ до вмісту та функцій пристрою Android (так звані панелі запуску)"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Чи має <xliff:g id="APP_NAME">%1$s</xliff:g> використовуватись як додаток головного екрана за умовчанням?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"Дозволи не потрібні"</string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Додаток для переспрямування викликів за умовчанням"</string>
@@ -294,6 +294,10 @@
     <string name="default_app_none" msgid="7671097769303174666">"Немає"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(За умовчанням)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Немає додатків"</string>
+    <!-- no translation found for car_default_app_selected (2813270284225505741) -->
+    <skip />
+    <!-- no translation found for car_default_app_selected_with_info (5067890906522338747) -->
+    <skip />
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"спеціальний доступ додатка"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Спеціальний доступ"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Немає спеціального доступу"</string>

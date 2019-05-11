@@ -175,7 +175,7 @@
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Le app con questa autorizzazione possono <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Le app con questa autorizzazione possono accedere alla tua attività fisica, come camminate, giri in bici, tragitti in auto, numero di passi e altro"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Le app con questa autorizzazione possono accedere al tuo calendario"</string>
-    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Le app con questa autorizzazione possono leggere e scrivere il registro chiamate del telefono"</string>
+    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Le app con questa autorizzazione possono leggere e modificare il registro chiamate del telefono"</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"Le app con questa autorizzazione possono scattare foto e registrare video"</string>
     <string name="permission_description_summary_contacts" msgid="5169995707720233126">"Le app con questa autorizzazione possono accedere ai tuoi contatti"</string>
     <string name="permission_description_summary_location" msgid="687820658574645201">"Le app con questa autorizzazione possono accedere alla posizione di questo dispositivo"</string>
@@ -189,7 +189,7 @@
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Accesso mai eseguito"</string>
     <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Rifiutata/Accesso mai effettuato"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Consentite"</string>
-    <string name="allowed_always_header" msgid="6698473105201405782">"Accesso sempre consentito"</string>
+    <string name="allowed_always_header" msgid="6698473105201405782">"Sempre consentite"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"Consentite solo durante l\'uso"</string>
     <string name="denied_header" msgid="2277998574238617699">"Rifiutate"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"Vedi dati dettagliati sull\'utilizzo"</string>
@@ -210,7 +210,7 @@
       <item quantity="one">1 secondo</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Promemoria autorizzazione"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"L\'app <xliff:g id="APP_NAME">%s</xliff:g> sta usando la tua posizione"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ha recuperato la tua posizione in background"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Questa app può accedere sempre alla tua posizione. Tocca per modificare."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Solo mentre l\'app è in uso"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Nessuna autorizzazione consentita"</string>
@@ -280,6 +280,8 @@
     <string name="default_app_none" msgid="7671097769303174666">"Nessuna"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(Predefinita)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Nessuna app"</string>
+    <string name="car_default_app_selected" msgid="2813270284225505741">"Selezionata"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"Selezionata - <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"accesso speciale alle app"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Accesso speciale alle app"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Nessun accesso speciale ad app"</string>

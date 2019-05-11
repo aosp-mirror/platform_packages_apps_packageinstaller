@@ -60,7 +60,7 @@
     <string name="no_apps" msgid="2377153782338039463">"Nema aplikacija"</string>
     <string name="location_settings" msgid="547378321761364906">"Podešavanja lokacije"</string>
     <string name="location_warning" msgid="4687406043150343369">"<xliff:g id="APP_NAME">%1$s</xliff:g> pruža usluge lokacije za ovaj uređaj. Pristup lokaciji možete da izmenite u podešavanjima lokacije."</string>
-    <string name="system_warning" msgid="6868290533389195836">"Ako odbijete ovu dozvolu, osnovne funkcije uređaja možda neće više funkcionisati ispravno."</string>
+    <string name="system_warning" msgid="6868290533389195836">"Ako odbijete ovu dozvolu, osnovne funkcije uređaja možda neće više ispravno raditi."</string>
     <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"Primenjuje se u skladu sa smernicama"</string>
     <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"Pristup u pozadini je onemogućen smernicama"</string>
     <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"Pristup u pozadini je omogućen smernicama"</string>
@@ -217,7 +217,7 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sekundi</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Podsetnici za dozvole"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> koristi vašu lokaciju"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ima vašu lokaciju u pozadini"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Ova aplikacija može uvek da pristupa lokaciji. Dodirnite da biste to promenili."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Samo dok se aplikacija koristi"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Dozvole nisu odobrene"</string>
@@ -287,6 +287,8 @@
     <string name="default_app_none" msgid="7671097769303174666">"Ništa"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(Podrazumevana sistemska)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Nema aplikacija"</string>
+    <string name="car_default_app_selected" msgid="2813270284225505741">"Izabrano"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"Izabrano – <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"pristup za specijalnu aplikaciju"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Pristup za spec. aplikaciju"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Nema pristupa za spec. apl."</string>
