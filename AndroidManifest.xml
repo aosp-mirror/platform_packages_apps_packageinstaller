@@ -183,6 +183,10 @@
                 <action android:name="android.provider.Telephony.ACTION_CHANGE_DEFAULT" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+            <intent-filter android:priority="1001">
+                <action android:name="android.telecom.action.CHANGE_DEFAULT_DIALER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
 
         <activity android:name="com.android.packageinstaller.role.ui.DefaultAppListActivity"
