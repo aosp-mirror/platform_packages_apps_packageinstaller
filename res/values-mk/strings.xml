@@ -145,54 +145,30 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Одбиј"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"Пристап до <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="228974007660007656">"Пристап до <xliff:g id="PERM">%1$s</xliff:g> за апликацијава"</string>
-    <!-- no translation found for app_permission_footer_usage_summary_generic (7811075583756658149) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_activity_recognition (8791288545338985169) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_calendar (8982393303411011561) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_call_log (5841205759869615348) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_camera (4915099510475162393) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_contacts (8892786668058834823) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_location (257321357251736067) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_microphone (6461237822187085578) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_phone (1791466121210148997) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_sensors (8010060979779849320) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_sms (481907038945469547) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_storage (7847355419185631004) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_generic (7904373526554483299) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_activity_recognition (1015916448819291701) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_calendar (1448523686184653876) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_call_log (5433327903098404145) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_camera (3812424069400633756) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_contacts (2962618560409910236) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_location (3139403882972245466) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_microphone (4502324845867303326) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_phone (3134870310324070582) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_sensors (6780114763414830921) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_sms (2914635748085007335) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_storage (6855153915670393812) -->
-    <skip />
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g> пристапи до <xliff:g id="PERM">%2$s</xliff:g> пред <xliff:g id="TIME">%3$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g> пристапи до вашата физичка активност пред <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="APP">%1$s</xliff:g> пристапи до вашиот календар пред <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"<xliff:g id="APP">%1$s</xliff:g> пристапи до вашата евиденција на повици пред <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"<xliff:g id="APP">%1$s</xliff:g> пристапи до вашата камера пред <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"<xliff:g id="APP">%1$s</xliff:g> пристапи до вашите контакти пред <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"<xliff:g id="APP">%1$s</xliff:g> пристапи до вашата локација пред <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"<xliff:g id="APP">%1$s</xliff:g> пристапи до вашиот микрофон пред <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"<xliff:g id="APP">%1$s</xliff:g> пристапи до вашиот телефон пред <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"<xliff:g id="APP">%1$s</xliff:g> пристапи до вашите сензори пред <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"<xliff:g id="APP">%1$s</xliff:g> пристапи до вашите SMS-пораки пред <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"<xliff:g id="APP">%1$s</xliff:g> пристапи до вашиот капацитет пред <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"<xliff:g id="APP">%1$s</xliff:g> не пристапи до <xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"<xliff:g id="APP">%1$s</xliff:g> не пристапи до вашата физичка активност"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"<xliff:g id="APP">%1$s</xliff:g> не пристапи до вашиот календар"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"<xliff:g id="APP">%1$s</xliff:g> не пристапи до вашата евиденција на повици"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"<xliff:g id="APP">%1$s</xliff:g> не пристапи до вашата камера"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"<xliff:g id="APP">%1$s</xliff:g> не пристапи до вашите контакти"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"<xliff:g id="APP">%1$s</xliff:g> не пристапи до вашата локација"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"<xliff:g id="APP">%1$s</xliff:g> не пристапи до вашиот микрофон"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"<xliff:g id="APP">%1$s</xliff:g> не пристапи до вашиот телефон"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"<xliff:g id="APP">%1$s</xliff:g> не пристапи до вашите сензори"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"<xliff:g id="APP">%1$s</xliff:g> не пристапи до вашите SMS-пораки"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"<xliff:g id="APP">%1$s</xliff:g> не пристапи до вашиот капацитет"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Последните податоци за пристап не се достапни за оваа дозвола во моментов"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Прикажи ги сите дозволи за <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Прикажи ги сите апликации со оваа дозвола"</string>
@@ -234,7 +210,7 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> секунди</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Потсетници за дозволата"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> ја користи вашата локација"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ја има вашата локација во заднина"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Апликацијава секогаш може да пристапува до вашата локација. Допрете за да го промените тоа."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Само додека се користи апликацијата"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Нема овозможени дозволи"</string>
@@ -304,6 +280,8 @@
     <string name="default_app_none" msgid="7671097769303174666">"Нема"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(Стандардно за системот)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Нема апликации"</string>
+    <string name="car_default_app_selected" msgid="2813270284225505741">"Избрана"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"Избрана - <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"посебен пристап за апликации"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Посебен пристап за апликации"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Нема посебен пристап за аплик."</string>
@@ -325,6 +303,6 @@
     <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"Прикажувај го користењето дозволи од системските апликации во статусната лента, контролната табла и на други места"</string>
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Нагласи го користењето за следново"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Прикажувај го откривањето за активирање на „Помошникот“"</string>
-    <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Прикажувај икона во статусната лента кога микрофонот се користи за активирање „Гласовна помош“"</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Прикажувај икона во статусната лента кога микрофонот се користи за активирање на гласовниот помошник"</string>
     <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Да се дозволи &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; да пристапува до фотографии и аудиовизуелни содржини на уредот?"</string>
 </resources>

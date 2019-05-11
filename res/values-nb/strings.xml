@@ -124,7 +124,7 @@
     <string name="app_permission_usage_remove_filter" msgid="9105565119059367866">"Se alt i oversikten"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"Filtrér etter"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Filtrér etter tillatelser"</string>
-    <string name="filter_by_time" msgid="1763143592970195407">"Filtrer etter tid"</string>
+    <string name="filter_by_time" msgid="1763143592970195407">"Filtrér etter tid"</string>
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Flest tillatelser"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Mest brukt"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"Nylig"</string>
@@ -145,55 +145,31 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Avvis"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g>tillatelse"</string>
     <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>tilgang for denne appen"</string>
-    <!-- no translation found for app_permission_footer_usage_summary_generic (7811075583756658149) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_activity_recognition (8791288545338985169) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_calendar (8982393303411011561) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_call_log (5841205759869615348) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_camera (4915099510475162393) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_contacts (8892786668058834823) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_location (257321357251736067) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_microphone (6461237822187085578) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_phone (1791466121210148997) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_sensors (8010060979779849320) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_sms (481907038945469547) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_storage (7847355419185631004) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_generic (7904373526554483299) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_activity_recognition (1015916448819291701) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_calendar (1448523686184653876) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_call_log (5433327903098404145) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_camera (3812424069400633756) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_contacts (2962618560409910236) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_location (3139403882972245466) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_microphone (4502324845867303326) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_phone (3134870310324070582) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_sensors (6780114763414830921) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_sms (2914635748085007335) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_storage (6855153915670393812) -->
-    <skip />
-    <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Data om forrige bruk er for øyeblikket utilgjengelig for denne tillatelsen"</string>
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g> brukte <xliff:g id="PERM">%2$s</xliff:g> for <xliff:g id="TIME">%3$s</xliff:g> siden"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g> brukte den fysiske aktiviteten din for <xliff:g id="TIME">%2$s</xliff:g> siden"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="APP">%1$s</xliff:g> brukte kalenderen din for <xliff:g id="TIME">%2$s</xliff:g> siden"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"<xliff:g id="APP">%1$s</xliff:g> brukte samtaleloggene dine for <xliff:g id="TIME">%2$s</xliff:g> siden"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"<xliff:g id="APP">%1$s</xliff:g> brukte kameraet ditt for <xliff:g id="TIME">%2$s</xliff:g> siden"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"<xliff:g id="APP">%1$s</xliff:g> brukte kontaktene dine for <xliff:g id="TIME">%2$s</xliff:g> siden"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"<xliff:g id="APP">%1$s</xliff:g> brukte posisjonen din for <xliff:g id="TIME">%2$s</xliff:g> siden"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"<xliff:g id="APP">%1$s</xliff:g> brukte mikrofonen din for <xliff:g id="TIME">%2$s</xliff:g> siden"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"<xliff:g id="APP">%1$s</xliff:g> brukte telefonen din for <xliff:g id="TIME">%2$s</xliff:g> siden"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"<xliff:g id="APP">%1$s</xliff:g> brukte sensorene dine for <xliff:g id="TIME">%2$s</xliff:g> siden"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"<xliff:g id="APP">%1$s</xliff:g> brukte SMS for <xliff:g id="TIME">%2$s</xliff:g> siden"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"<xliff:g id="APP">%1$s</xliff:g> brukte lagringsplassen din for <xliff:g id="TIME">%2$s</xliff:g> siden"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"<xliff:g id="APP">%1$s</xliff:g> har ikke brukt <xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"<xliff:g id="APP">%1$s</xliff:g> har ikke brukt den fysiske aktiviteten din"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"<xliff:g id="APP">%1$s</xliff:g> har ikke brukt kalenderen din"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"<xliff:g id="APP">%1$s</xliff:g> har ikke brukt samtaleloggene dine"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"<xliff:g id="APP">%1$s</xliff:g> har ikke brukt kameraet ditt"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"<xliff:g id="APP">%1$s</xliff:g> har ikke brukt kontaktene dine"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"<xliff:g id="APP">%1$s</xliff:g> har ikke brukt posisjonen din"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"<xliff:g id="APP">%1$s</xliff:g> har ikke brukt mikrofonen din"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"<xliff:g id="APP">%1$s</xliff:g> har ikke brukt telefonen din"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"<xliff:g id="APP">%1$s</xliff:g> har ikke brukt sensorene dine"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"<xliff:g id="APP">%1$s</xliff:g> har ikke brukt SMS"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"<xliff:g id="APP">%1$s</xliff:g> har ikke brukt lagringsplassen din"</string>
+    <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Data om forrige bruk er foreløpig ikke tilgjengelig for denne tillatelsen"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Se alle tillatelsene <xliff:g id="APP">%1$s</xliff:g> har"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Se alle apper med denne tillatelsen"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Apper med denne tillatelsen kan <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
@@ -234,13 +210,13 @@
       <item quantity="one">1 sekund</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Påminnelser om tillatelser"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> har brukt posisjonen din"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> fikk posisjonen din i bakgrunnen"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Denne appen har alltid tilgang til posisjonen din. Trykk for å endre."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Bare mens appen er i bruk"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Ingen tillatelser er gitt"</string>
     <string name="no_permissions_denied" msgid="2449583707612365442">"Ingen tillatelser er nektet"</string>
     <string name="no_apps_allowed" msgid="4529095928504611810">"Ingen apper har denne tillatelsen"</string>
-    <string name="no_apps_denied" msgid="2736758388618487796">"Ingen apper er nektet"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"Ingen apptillatelser er avvist"</string>
     <string name="settings" msgid="2884124136779508907">"Innstillinger"</string>
     <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> har full tilgang til enheten din"</string>
     <string name="accessibility_service_dialog_title_multiple" msgid="8129325613496173909">"<xliff:g id="NUM_SERVICES">%s</xliff:g> tilgjengelighetsapper har full tilgang til enheten din"</string>
@@ -266,10 +242,10 @@
     <string name="role_sms_description" msgid="3228552135895420442">"Apper som lar deg bruke telefonnummeret til å sende og motta korte tekstmeldinger, bilder, videoer med mer"</string>
     <string name="role_sms_request_title" msgid="3667393846881324409">"Vil du angi <xliff:g id="APP_NAME">%1$s</xliff:g> som standardapp for SMS?"</string>
     <string name="role_sms_request_description" msgid="4920787411350418630">"Får tilgang til kontakter, SMS, telefon"</string>
-    <string name="role_emergency_label" msgid="8986482330376454686">"Standardapp for nødsituasjoner"</string>
+    <string name="role_emergency_label" msgid="8986482330376454686">"Standardapp for nødssituasjoner"</string>
     <string name="role_emergency_short_label" msgid="2546309839225058762">"Nødapp"</string>
     <string name="role_emergency_description" msgid="3567231505957373289">"Apper som lar deg registrere den medisinske informasjonen din og gjøre den tilgjengelig til utrykningspersonell, motta varsler om ekstremvær og katastrofer, og varsle andre når du trenger hjelp"</string>
-    <string name="role_emergency_request_title" msgid="6595296517085761522">"Vil du angi <xliff:g id="APP_NAME">%1$s</xliff:g> som standardapp for nødsituasjoner?"</string>
+    <string name="role_emergency_request_title" msgid="6595296517085761522">"Vil du angi <xliff:g id="APP_NAME">%1$s</xliff:g> som standardapp for nødssituasjoner?"</string>
     <string name="role_emergency_request_description" msgid="2824966073894226992">"Ingen tillatelser er nødvendige"</string>
     <string name="role_home_label" msgid="6245106863177808486">"Standard startsideapp"</string>
     <string name="role_home_short_label" msgid="4565882523300643525">"Startsideapp"</string>
@@ -304,6 +280,10 @@
     <string name="default_app_none" msgid="7671097769303174666">"Ingen"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(Systemstandard)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Ingen apper"</string>
+    <!-- no translation found for car_default_app_selected (2813270284225505741) -->
+    <skip />
+    <!-- no translation found for car_default_app_selected_with_info (5067890906522338747) -->
+    <skip />
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"spesiell apptilgang"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Spesiell apptilgang"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Ingen spesiell apptilgang"</string>
@@ -324,7 +304,7 @@
     <string name="adjust_user_sensitive_globally_title" msgid="4596006254112905767">"Vis systemappenes bruk"</string>
     <string name="adjust_user_sensitive_globally_summary" msgid="4193481017313015238">"Vis systemappenes bruk av tillatelser i statusfelt, oversikt og andre steder"</string>
     <string name="adjust_user_sensitive_per_app_header" msgid="1372152438971168364">"Fremhev bruk for følgende"</string>
-    <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Vis registrering utløst av Assistent"</string>
+    <string name="assistant_record_audio_user_sensitive_title" msgid="5382972366928946381">"Vis aktivering av Assistent"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="6852572549436960848">"Vis ikon i statusfeltet når mikrofonen brukes til å aktivere taleassistent"</string>
     <string name="permgrouprequest_storage_isolated" msgid="1019696034804170865">"Vil du gi &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; tilgang til bilder og medier på enheten din?"</string>
 </resources>

@@ -72,4 +72,10 @@ public class DialerRoleBehavior implements RoleBehavior {
     public String getFallbackHolder(@NonNull Role role, @NonNull Context context) {
         return ExclusiveDefaultHolderMixin.getDefaultHolder(role, "config_defaultDialer", context);
     }
+
+    @Override
+    public boolean isVisibleAsUser(@NonNull Role role, @NonNull UserHandle user,
+            @NonNull Context context) {
+        return context.getResources().getBoolean(R.bool.config_showDialerRole);
+    }
 }
