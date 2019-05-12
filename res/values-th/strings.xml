@@ -254,12 +254,14 @@
     <string name="role_home_request_description" msgid="6437733879812403277">"ไม่ต้องใช้สิทธิ์"</string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"แอปเปลี่ยนเส้นทางการโทรเริ่มต้น"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"แอปเปลี่ยนเส้นทางสายเรียกเข้า"</string>
-    <string name="role_call_redirection_description" msgid="159351481987081777">"แอปที่ให้คุณโอนสายไปยังหมายเลขโทรศัพท์อื่น"</string>
+    <!-- no translation found for role_call_redirection_description (769231030043298555) -->
+    <skip />
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"ตั้งค่า <xliff:g id="APP_NAME">%1$s</xliff:g> เป็นแอปเปลี่ยนเส้นทางการโทรเริ่มต้นไหม"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"ไม่ต้องใช้สิทธิ์"</string>
     <string name="role_call_screening_label" msgid="5366988848919437946">"แอปเริ่มต้นสำหรับสกรีนหมายเลขผู้โทรและสแปม"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"แอปสกรีนหมายเลขผู้โทรและสแปม"</string>
-    <string name="role_call_screening_description" msgid="9009090500431969390">"แอปที่ให้คุณระบุสายเรียกเข้า บล็อกสแปมและสายจากระบบตอบรับอัตโนมัติ รวมถึงขึ้นบัญชีดำหมายเลขที่ไม่พึงประสงค์ และอีกมากมาย"</string>
+    <!-- no translation found for role_call_screening_description (4470066768170089758) -->
+    <skip />
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"ตั้งค่า <xliff:g id="APP_NAME">%1$s</xliff:g> เป็นแอปเริ่มต้นสำหรับสกรีนหมายเลขผู้โทรและสแปมไหม"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"ไม่ต้องใช้สิทธิ์"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"แอปเริ่มต้นปัจจุบัน"</string>
@@ -268,7 +270,7 @@
     <string name="default_app_search_keyword" msgid="6938709626391437391">"แอปเริ่มต้น"</string>
     <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"รับทราบ"</string>
     <string name="ongoing_usage_dialog_open_settings" msgid="3368892579319881043">"ตั้งค่าความเป็นส่วนตัว"</string>
-    <string name="ongoing_usage_dialog_title" msgid="7173961211414061803">"มีหลายแอปกำลังใช้<xliff:g id="TYPES_LIST">%s</xliff:g>ของคุณ"</string>
+    <string name="ongoing_usage_dialog_title" msgid="7173961211414061803">"แอปที่กำลังใช้<xliff:g id="TYPES_LIST">%s</xliff:g>ของคุณ"</string>
     <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">" "</string>
     <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" และ "</string>
     <string name="settings_button" msgid="4747434541214595321">"การตั้งค่า"</string>
@@ -280,10 +282,8 @@
     <string name="default_app_none" msgid="7671097769303174666">"ไม่มี"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(ค่าเริ่มต้นของระบบ)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"ไม่มีแอป"</string>
-    <!-- no translation found for car_default_app_selected (2813270284225505741) -->
-    <skip />
-    <!-- no translation found for car_default_app_selected_with_info (5067890906522338747) -->
-    <skip />
+    <string name="car_default_app_selected" msgid="2813270284225505741">"เลือกไว้"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"เลือกไว้ - <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"สิทธิ์เข้าถึงพิเศษของแอป"</string>
     <string name="special_app_access" msgid="2561673957499408877">"สิทธิ์เข้าถึงพิเศษของแอป"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"ไม่มีสิทธิ์เข้าถึงพิเศษของแอป"</string>
