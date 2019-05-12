@@ -254,12 +254,14 @@
     <string name="role_home_request_description" msgid="6437733879812403277">"No se requieren permisos"</string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"App de redireccionamiento"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"App para desviar llamadas"</string>
-    <string name="role_call_redirection_description" msgid="159351481987081777">"Apps que te permiten desviar llamadas a otro número de teléfono"</string>
+    <!-- no translation found for role_call_redirection_description (769231030043298555) -->
+    <skip />
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"¿Quieres establecer <xliff:g id="APP_NAME">%1$s</xliff:g> como tu app de redireccionamiento de llamadas predeterminada?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"No se requieren permisos"</string>
     <string name="role_call_screening_label" msgid="5366988848919437946">"App de ID de llamada y spam predeterminada"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"App de ID de llamada y spam"</string>
-    <string name="role_call_screening_description" msgid="9009090500431969390">"Apps que te permiten identificar llamadas entrantes, bloquear spam y llamadas automáticas, colocar números no deseados en la lista negra y mucho más"</string>
+    <!-- no translation found for role_call_screening_description (4470066768170089758) -->
+    <skip />
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"¿Quieres establecer <xliff:g id="APP_NAME">%1$s</xliff:g> como tu app de identificador de llamada y spam predeterminada?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"No se requieren permisos"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"App predeterminada actualmente"</string>
@@ -280,10 +282,8 @@
     <string name="default_app_none" msgid="7671097769303174666">"Ninguna"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(Predeterminada de sistema)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Sin apps"</string>
-    <!-- no translation found for car_default_app_selected (2813270284225505741) -->
-    <skip />
-    <!-- no translation found for car_default_app_selected_with_info (5067890906522338747) -->
-    <skip />
+    <string name="car_default_app_selected" msgid="2813270284225505741">"Seleccionada"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"Se seleccionó: <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"Acceso especial a apps"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Acceso especial a apps"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"No hay acceso especial a apps"</string>
