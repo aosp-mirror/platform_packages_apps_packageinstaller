@@ -27,6 +27,7 @@ import androidx.annotation.Nullable;
 
 import com.android.packageinstaller.permission.utils.CollectionUtils;
 import com.android.packageinstaller.role.utils.UserUtils;
+import com.android.permissioncontroller.R;
 
 import java.util.List;
 
@@ -78,5 +79,11 @@ public class SmsRoleBehavior implements RoleBehavior {
             @NonNull Context context) {
         return EncryptionUnawareConfirmationMixin.getConfirmationMessage(role, packageName,
                 context);
+    }
+
+    @Override
+    public boolean isVisibleAsUser(@NonNull Role role, @NonNull UserHandle user,
+            @NonNull Context context) {
+        return context.getResources().getBoolean(R.bool.config_showSmsRole);
     }
 }

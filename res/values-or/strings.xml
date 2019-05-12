@@ -94,7 +94,7 @@
     <string name="app_name_unknown" msgid="8288360585728122735">"ଅଜଣା"</string>
     <string name="permission_usage_title" msgid="6808284837306026819">"ଡ୍ୟାସ୍‍‍ବୋର୍ଡ"</string>
     <string name="permission_usage_summary_foreground" msgid="2482299388611440256">"ଶେଷ ଆକ୍ସେସ୍: ଆପ୍ ବ୍ୟବହାର କରିବା ସମୟରେ <xliff:g id="TIME">%1$s</xliff:g>\nରେ ଶେଷଥର ଆକ୍ସେସ୍ କରାଯାଇଥିଲା"</string>
-    <string name="permission_usage_summary_background" msgid="4789805581854248472">"ଶେଷ ଆକ୍ସେସ୍: ପୃଷ୍ଠଭୂମିରେ <xliff:g id="TIME">%1$s</xliff:g>\nରେ ଶେଷଥର ଆକ୍ସେସ୍ କରାଯାଇଥିଲା"</string>
+    <string name="permission_usage_summary_background" msgid="4789805581854248472">"ଗତ ଆକ୍ସେସ୍:<xliff:g id="TIME">%1$s</xliff:g>\n ପୃଷ୍ଠଭୂମିରେ  ଗତଥର ଆକ୍ସେସ୍ କରାଯାଇଥିଲା"</string>
     <string name="permission_usage_any_permission" msgid="7824062114364689751">"ଯେକୌଣସି ଅନୁମତି"</string>
     <string name="permission_usage_any_time" msgid="313857697004329939">"ଯେକୌଣସି ସମୟରେ"</string>
     <string name="permission_usage_last_7_days" msgid="4553199171543115540">"ଗତ 7 ଦିନ"</string>
@@ -128,7 +128,7 @@
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"ଅଧିକ ଅନୁମତିଗୁଡିକ"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"ସର୍ବାଧିକ ଆକ୍ସେସ୍‍ଗୁଡିକ"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"ସମ୍ପ୍ରତି"</string>
-    <string name="sort_by_app" msgid="1912228966803416485">"ବ୍ୟବହାର ଅନୁସାରେ ଆପ୍‌କୁ ସଜାନ୍ତୁ"</string>
+    <string name="sort_by_app" msgid="1912228966803416485">"ଆପ୍‌ ବ୍ୟବହାର ଅନୁସାରେ  ସଜାନ୍ତୁ"</string>
     <string name="sort_by_time" msgid="8280378662234104410">"ସମୟ ଅନୁସାରେ ସଜାନ୍ତୁ"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="permission_usage_refresh" msgid="2182775682810005148">"ରିଫ୍ରେଶ୍ କରନ୍ତୁ"</string>
@@ -189,7 +189,7 @@
     <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"କେବେବି ଆକ୍ସେସ୍ ହୋଇନାହିଁ"</string>
     <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"ପ୍ରତ୍ୟାଖ୍ୟାନ କରାଯାଇଛି / କେବେବି ଆକ୍ସେସ୍ ହୋଇନାହିଁ"</string>
     <string name="allowed_header" msgid="6279244592227088158">"ଅନୁମୋଦିତ"</string>
-    <string name="allowed_always_header" msgid="6698473105201405782">"ସର୍ବଦା ଅନୁମତି ଦିଅନ୍ତୁ"</string>
+    <string name="allowed_always_header" msgid="6698473105201405782">"ସର୍ବଦା ଅନୁମତି ଦିଆଯାଇଥିବା ଆପ୍ସ"</string>
     <string name="allowed_foreground_header" msgid="7553595563464819175">"କେବଳ ବ୍ୟବହାର ପାଇଁ ଅନୁମତି ଦିଆଯାଇଛି"</string>
     <string name="denied_header" msgid="2277998574238617699">"ପ୍ରତ୍ୟାଖ୍ୟାନ କରାଗଲା"</string>
     <string name="detailed_usage_link" msgid="3990452346369247944">"ବିସ୍ତାରିତ ବ୍ୟବହାର ଦେଖନ୍ତୁ"</string>
@@ -210,7 +210,7 @@
       <item quantity="one">1 ସେକେଣ୍ଡ</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"ଅନୁମତି ରିମାଇଣ୍ଡର୍"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> ଆପଣଙ୍କ ଲୋକେସନ୍ ବ୍ୟବହାର କରୁଛନ୍ତି"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ପୃଷ୍ଠପଟରେ ଆପଣଙ୍କ ଲୋକେସନ୍ ପାଇଛି"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"ଏହି ଆପ୍ ସବୁବେଳେ ଆପଣଙ୍କ ଲୋକେସନ୍ ଆକ୍ସେସ୍ କରିପାରିବ। ବଦଳାଇବା ପାଇଁ ଟାପ୍ କରନ୍ତୁ"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"କେବଳ ଆପ୍‍ ବ୍ୟବହାରରେ ରହିଥିବା ବେଳେ"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"କୌଣସି ଅନୁମତି ଦିଆଯାଇ ନାହିଁ"</string>
@@ -259,7 +259,7 @@
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"କୌଣସି ଅନୁମତି ଆବଶ୍ୟକ ନାହିଁ"</string>
     <string name="role_call_screening_label" msgid="5366988848919437946">"ଡିଫଲ୍ଟ କଲର୍ ID &amp; ସ୍ପାମ୍ ଆପ୍"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"କଲର୍ ID &amp; ସ୍ପାମ୍ ଆପ୍"</string>
-    <string name="role_call_screening_description" msgid="9009090500431969390">"ଆପ୍ସ ଯାହା ଆପଣଙ୍କୁ ଇନ୍‌କମିଂ କଲ୍, ବ୍ଲକ୍ ସ୍ପାମ୍ ଏବଂ ରୋବୋକଲ୍, ବ୍ଲାକ୍‌ଲିଷ୍ଟ ଅଦରକାରୀ ସଂଖ୍ୟା, ଏବଂ ଅନେକ କିଛି ଚିହ୍ନଟ କରିବା ପାଇଁ ଅନୁମତି ଦିଏ"</string>
+    <string name="role_call_screening_description" msgid="9009090500431969390">"ଆପ୍ସ ଯାହା ଆପଣଙ୍କୁ ଇନ୍‌କମିଂ କଲ୍, ବ୍ଲକ୍ ସ୍ପାମ୍ ଏବଂ ରୋବୋକଲ୍, ବ୍ଲାକ୍‌ଲିଷ୍ଟରେ ଥିବା ଅନାବଶ୍ୟକ ନମ୍ବର ଏବଂ ଅନେକ କିଛି ଚିହ୍ନଟ କରିବା ପାଇଁ ଅନୁମତି ଦିଏ"</string>
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"<xliff:g id="APP_NAME">%1$s</xliff:g>କୁ ଆପଣଙ୍କର ଡିଫଲ୍ଟ କଲର୍ ଆଇଡି &amp; ସ୍ପାମ୍ ଆପ୍ ଭାବ୍ ସେଟ୍ କରିବେ କି?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"କୌଣସି ଅନୁମତି ଆବଶ୍ୟକ ନାହିଁ"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"ସମ୍ପ୍ରତ୍ତି ଡିଫଲ୍ଟ"</string>
@@ -275,11 +275,15 @@
     <string name="default_apps" msgid="8554530939151957828">"ଡିଫଲ୍ଟ ଆପ୍ସ"</string>
     <string name="no_default_apps" msgid="5642715159090903032">"କୌଣସି ଡିଫଲ୍ଟ ଆପ୍ସ ନାହିଁ"</string>
     <string name="default_apps_more" msgid="3908067305593075127">"ଅଧିକ ଡିଫଲ୍ଟଗୁଡ଼ିକ"</string>
-    <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"ଲିଙ୍କ୍‌ଗୁଡ଼ିକ ଖୋଲୁଛି"</string>
+    <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"ଓପନିଂ ଲିଙ୍କ୍"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"କାର୍ଯ୍ୟ ପାଇଁ ଡିଫଲ୍ଟ ଅଛି"</string>
     <string name="default_app_none" msgid="7671097769303174666">"କିଛି ଆପ୍‌ ସେଟ୍‌ କରାଯାଇନାହିଁ"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(ସିଷ୍ଟମ୍ ଡିଫଲ୍ଟ)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"କୌଣସି ଆପ୍‌ ନାହିଁ"</string>
+    <!-- no translation found for car_default_app_selected (2813270284225505741) -->
+    <skip />
+    <!-- no translation found for car_default_app_selected_with_info (5067890906522338747) -->
+    <skip />
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"ବିଶେଷ ଆପ୍‌ ଆକ୍ସେସ୍‌"</string>
     <string name="special_app_access" msgid="2561673957499408877">"ସ୍ୱତନ୍ତ୍ର ଆପ୍‌ ଆକ୍ସେସ୍‌"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"କୌଣସି ସ୍ଵତନ୍ତ୍ର ଆପ୍‍ ଆକ୍ସେସ୍‍ ନାହିଁ"</string>

@@ -178,7 +178,7 @@
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Údaje o posledním přístupu momentálně nejsou v rámci tohoto oprávnění dostupné"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Zobrazit všechna oprávnění aplikace <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Zobrazit všechny aplikace s tímto oprávněním"</string>
-    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Aplikace s tímto oprávněním mohou <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Aplikace s tímto oprávněním mohou: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Aplikace s tímto oprávněním mají přístup k vaší fyzické aktivitě, jako je chůze, jízda na kole, jízda autem, počet kroků a další"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Aplikace s tímto oprávněním mají přístup ke kalendáři"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Aplikace s tímto oprávněním mohou číst a zapisovat do seznamu hovorů v telefonu"</string>
@@ -224,7 +224,7 @@
       <item quantity="one">1 sekunda</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Připomenutí o oprávněních"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"Aplikace <xliff:g id="APP_NAME">%s</xliff:g> využívá vaši polohu"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> má přístup k poloze na pozadí"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Tato aplikace má neomezený přístup k poloze. Klepnutím to změníte."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Jen během používání aplikace"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Nejsou povolena žádná oprávnění"</string>
@@ -294,6 +294,10 @@
     <string name="default_app_none" msgid="7671097769303174666">"Žádné"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(Výchozí nastavení systému)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Žádné aplikace"</string>
+    <!-- no translation found for car_default_app_selected (2813270284225505741) -->
+    <skip />
+    <!-- no translation found for car_default_app_selected_with_info (5067890906522338747) -->
+    <skip />
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"přístup ke speciálním aplikacím"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Přístup ke spec. aplikacím"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Žádný přístup ke spec. aplik."</string>

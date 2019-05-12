@@ -129,7 +129,7 @@
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Amb més accessos"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"Recents"</string>
     <string name="sort_by_app" msgid="1912228966803416485">"Ordena per ús de l\'aplicació"</string>
-    <string name="sort_by_time" msgid="8280378662234104410">"Ordena per temps"</string>
+    <string name="sort_by_time" msgid="8280378662234104410">"Ordena per hora"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="permission_usage_refresh" msgid="2182775682810005148">"Actualitza"</string>
     <plurals name="permission_usage_permission_filter_subtitle" formatted="false" msgid="5539392196389332769">
@@ -143,7 +143,7 @@
     <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Permet sempre"</string>
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"Permet mentre s\'utilitza l\'aplicació"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Denega"</string>
-    <string name="app_permission_title" msgid="2453000050669052385">"Permís per accedir a <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"Permís d\'accés a <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="228974007660007656">"Accés a <xliff:g id="PERM">%1$s</xliff:g> per a aquesta aplicació"</string>
     <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g> ha accedit fa <xliff:g id="TIME">%3$s</xliff:g> a: <xliff:g id="PERM">%2$s</xliff:g>"</string>
     <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g> ha accedit a l\'activitat física fa <xliff:g id="TIME">%2$s</xliff:g>"</string>
@@ -186,7 +186,7 @@
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"Les aplicacions amb aquest permís poden accedir a les fotos, al contingut multimèdia i als fitxers del dispositiu"</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Últim accés: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Actualment denegat / Últim accés: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
-    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"No hi ha accedit mai"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"No s\'hi ha accedit mai"</string>
     <string name="app_permission_never_accessed_denied_summary" msgid="4791195647350628165">"Denegat / No hi ha accedit mai"</string>
     <string name="allowed_header" msgid="6279244592227088158">"Permès"</string>
     <string name="allowed_always_header" msgid="6698473105201405782">"Permès sempre"</string>
@@ -210,7 +210,7 @@
       <item quantity="one">1 segon</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Recordatoris de permisos"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> ha estat utilitzant la teva ubicació"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ha obtingut la teva ubicació en segon pla"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Aquesta aplicació pot accedir a la teva ubicació en qualsevol moment. Toca per canviar-ho."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Només mentre s\'utilitza l\'aplicació"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"No s\'ha concedit cap permís"</string>
@@ -233,7 +233,7 @@
     <string name="role_browser_request_title" msgid="751745081301397114">"Vols establir <xliff:g id="APP_NAME">%1$s</xliff:g> com a aplicació de navegador predeterminada?"</string>
     <string name="role_browser_request_description" msgid="3204873553391043604">"No calen permisos"</string>
     <string name="role_dialer_label" msgid="7920168918746178929">"Aplicació Telèfon predeterminada"</string>
-    <string name="role_dialer_short_label" msgid="2980581587550675305">"Aplicació Telèfon"</string>
+    <string name="role_dialer_short_label" msgid="2980581587550675305">"Aplicació de telèfon"</string>
     <string name="role_dialer_description" msgid="2684882481061320467">"Aplicacions que et permeten fer i rebre trucades al dispositiu"</string>
     <string name="role_dialer_request_title" msgid="3203802247886151514">"Vols establir <xliff:g id="APP_NAME">%1$s</xliff:g> com a aplicació de telèfon predeterminada?"</string>
     <string name="role_dialer_request_description" msgid="2931069491309771312">"Tindrà accés al registre de trucades i podrà enviar SMS"</string>
@@ -249,7 +249,7 @@
     <string name="role_emergency_request_description" msgid="2824966073894226992">"No calen permisos"</string>
     <string name="role_home_label" msgid="6245106863177808486">"Aplicació d\'inici predeterminada"</string>
     <string name="role_home_short_label" msgid="4565882523300643525">"Aplicació d\'inici"</string>
-    <string name="role_home_description" msgid="6736956389161158052">"Aplicacions, o sovint anomenades \"menú d\'aplicacions\", que reemplacen les pantalles d\'inici del dispositiu Android i et donen accés al contingut i funcions del teu dispositiu"</string>
+    <string name="role_home_description" msgid="6736956389161158052">"Aplicacions, sovint anomenades \"menú d\'aplicacions\", que reemplacen les pantalles d\'inici del dispositiu Android i et donen accés al contingut i funcions del teu dispositiu"</string>
     <string name="role_home_request_title" msgid="2964609319767315444">"Vols establir <xliff:g id="APP_NAME">%1$s</xliff:g> com a aplicació d\'inici predeterminada?"</string>
     <string name="role_home_request_description" msgid="6437733879812403277">"No calen permisos"</string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Aplicació predeterminada per redirigir trucades"</string>
@@ -257,10 +257,10 @@
     <string name="role_call_redirection_description" msgid="159351481987081777">"Aplicacions que et permeten desviar trucades a altres números de telèfon"</string>
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"Vols establir <xliff:g id="APP_NAME">%1$s</xliff:g> com a aplicació de desviació de trucades predeterminada?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"No calen permisos"</string>
-    <string name="role_call_screening_label" msgid="5366988848919437946">"App predeterminada per identificar i filtrar trucades brossa"</string>
-    <string name="role_call_screening_short_label" msgid="7596133131034442273">"Aplicació per identificar i filtrar trucades brossa"</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"App predeterminada ID trucades i filtre trucades brossa"</string>
+    <string name="role_call_screening_short_label" msgid="7596133131034442273">"Aplicació ID trucades i filtre trucades brossa"</string>
     <string name="role_call_screening_description" msgid="9009090500431969390">"Aplicacions que et permeten identificar les trucades entrants, bloquejar les trucades brossa i automàtiques, afegir els números que no vulguis que et truquin a una llista negra, entre d\'altres"</string>
-    <string name="role_call_screening_request_title" msgid="4775643776524356653">"Vols establir <xliff:g id="APP_NAME">%1$s</xliff:g> com a aplicació predeterminada per identificar i filtrar trucades brossa?"</string>
+    <string name="role_call_screening_request_title" msgid="4775643776524356653">"Vols establir <xliff:g id="APP_NAME">%1$s</xliff:g> com a aplicació predeterminada per identificar trucades i filtrar trucades brossa?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"No calen permisos"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Predeterminada actualment"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"No m\'ho tornis a preguntar"</string>
@@ -278,8 +278,10 @@
     <string name="default_apps_manage_domain_urls" msgid="3146379064445013719">"Obertura d\'enllaços"</string>
     <string name="default_apps_for_work" msgid="8582151955372061208">"Predeterminada per a la feina"</string>
     <string name="default_app_none" msgid="7671097769303174666">"Cap"</string>
-    <string name="default_app_system_default" msgid="3870203641514466948">"(Opció predetermina del sistema)"</string>
+    <string name="default_app_system_default" msgid="3870203641514466948">"(Opció predeterminada del sistema)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Cap aplicació"</string>
+    <string name="car_default_app_selected" msgid="2813270284225505741">"Seleccionada"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"Seleccionada: <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"accés especial d\'aplicacions"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Accés especial d\'aplicacions"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Sense accés especial d\'apps"</string>
