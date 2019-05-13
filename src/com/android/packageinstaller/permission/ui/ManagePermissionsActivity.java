@@ -28,6 +28,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
 import com.android.packageinstaller.DeviceUtils;
+import com.android.packageinstaller.permission.ui.auto.AutoAllAppPermissionsFragment;
 import com.android.packageinstaller.permission.ui.auto.AutoAppPermissionsFragment;
 import com.android.packageinstaller.permission.ui.handheld.ManageStandardPermissionsFragment;
 import com.android.packageinstaller.permission.ui.handheld.PermissionUsageFragment;
@@ -121,9 +122,8 @@ public final class ManagePermissionsActivity extends FragmentActivity {
 
                 if (DeviceUtils.isAuto(this)) {
                     if (allPermissions) {
-                        // TODO: Replace this with a car version.
-                        androidXFragment = com.android.packageinstaller.permission.ui.handheld
-                                .AllAppPermissionsFragment.newInstance(packageName, userHandle);
+                        androidXFragment = AutoAllAppPermissionsFragment.newInstance(packageName,
+                                userHandle);
                     } else {
                         androidXFragment = AutoAppPermissionsFragment.newInstance(packageName,
                                 userHandle);

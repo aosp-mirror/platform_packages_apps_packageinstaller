@@ -19,16 +19,11 @@ package com.android.packageinstaller.permission.ui.auto;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.UserHandle;
-import android.provider.Settings;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -44,7 +39,6 @@ import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.PermissionUsages;
 import com.android.packageinstaller.permission.ui.AppPermissionActivity;
-import com.android.packageinstaller.permission.ui.handheld.AllAppPermissionsFragment;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 
@@ -53,11 +47,7 @@ import java.util.ArrayList;
 
 /** Screen to show the permissions for a specific application. */
 public class AutoAppPermissionsFragment extends AutoSettingsFrameFragment {
-    private static final String LOG_TAG = "ManagePermsFragment";
 
-    static final String EXTRA_HIDE_INFO_BUTTON = "hideInfoButton";
-    private static final String KEY_APP_INFO_INTENT = "key_app_info_intent";
-    private static final String KEY_USER_HANDLE = "key_user_handle";
     private static final String KEY_ALLOWED_PERMISSIONS_GROUP = "allowed_permissions_group";
     private static final String KEY_DENIED_PERMISSIONS_GROUP = "denied_permissions_group";
 
@@ -91,8 +81,9 @@ public class AutoAppPermissionsFragment extends AutoSettingsFrameFragment {
 
         String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
         UserHandle userHandle = getArguments().getParcelable(Intent.EXTRA_USER);
-        Activity activity = getActivity();
-        PackageInfo packageInfo = getPackageInfo(activity, packageName, userHandle);
+        Activity activity = requireActivity();
+        PackageInfo packageInfo = AutoPermissionsUtils.getPackageInfo(activity, packageName,
+                userHandle);
         if (packageInfo == null) {
             Toast.makeText(getContext(), R.string.app_not_found_dlg_title,
                     Toast.LENGTH_LONG).show();
@@ -135,7 +126,7 @@ public class AutoAppPermissionsFragment extends AutoSettingsFrameFragment {
     }
 
     private void showAllPermissions() {
-        Fragment frag = AllAppPermissionsFragment.newInstance(
+        Fragment frag = AutoAllAppPermissionsFragment.newInstance(
                 getArguments().getString(Intent.EXTRA_PACKAGE_NAME),
                 getArguments().getParcelable(Intent.EXTRA_USER));
         getFragmentManager().beginTransaction()
@@ -145,7 +136,9 @@ public class AutoAppPermissionsFragment extends AutoSettingsFrameFragment {
     }
 
     protected void bindUi(PackageInfo packageInfo) {
-        addAppHeaderPreference(requireActivity(), getPreferenceScreen(), packageInfo);
+        getPreferenceScreen().addPreference(
+                AutoPermissionsUtils.createHeaderPreference(getContext(),
+                        packageInfo.applicationInfo));
 
         PreferenceGroup allowed = new PreferenceCategory(getContext());
         allowed.setKey(KEY_ALLOWED_PERMISSIONS_GROUP);
@@ -172,8 +165,8 @@ public class AutoAppPermissionsFragment extends AutoSettingsFrameFragment {
 
         if (mExtraScreen != null) {
             mExtraScreen.removeAll();
-            addAppHeaderPreference(requireActivity(), mExtraScreen,
-                    mAppPermissions.getPackageInfo());
+            mExtraScreen.addPreference(AutoPermissionsUtils.createHeaderPreference(getContext(),
+                    mAppPermissions.getPackageInfo().applicationInfo));
         }
 
         Preference extraPerms = new Preference(context);
@@ -203,8 +196,9 @@ public class AutoAppPermissionsFragment extends AutoSettingsFrameFragment {
             } else {
                 if (mExtraScreen == null) {
                     mExtraScreen = getPreferenceManager().createPreferenceScreen(context);
-                    addAppHeaderPreference(requireActivity(), mExtraScreen,
-                            mAppPermissions.getPackageInfo());
+                    mExtraScreen.addPreference(
+                            AutoPermissionsUtils.createHeaderPreference(getContext(),
+                                    mAppPermissions.getPackageInfo().applicationInfo));
                 }
                 mExtraScreen.addPreference(preference);
                 if (group.areRuntimePermissionsGranted()) {
@@ -250,56 +244,6 @@ public class AutoAppPermissionsFragment extends AutoSettingsFrameFragment {
         }
 
         setLoading(false);
-    }
-
-    private PackageInfo getPackageInfo(Activity activity, @NonNull String packageName,
-            @NonNull UserHandle userHandle) {
-        try {
-            return activity.createPackageContextAsUser(packageName, 0,
-                    userHandle).getPackageManager().getPackageInfo(packageName,
-                    PackageManager.GET_PERMISSIONS);
-        } catch (PackageManager.NameNotFoundException e) {
-            Log.i(LOG_TAG, "No package:" + activity.getCallingPackage(), e);
-            return null;
-        }
-    }
-
-    private void addAppHeaderPreference(Activity activity, PreferenceScreen screen,
-            PackageInfo packageInfo) {
-        // Only add the app header if it is the first preference to be added.
-        if (screen.getPreferenceCount() != 0) {
-            Log.e(LOG_TAG, "cannot add app header, since screen is already populated");
-            return;
-        }
-
-        Intent infoIntent = null;
-        if (!activity.getIntent().getBooleanExtra(EXTRA_HIDE_INFO_BUTTON, false)) {
-            infoIntent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                    .setData(Uri.fromParts("package", packageInfo.packageName, null));
-        }
-
-        Preference preference = createHeaderPreference(activity, infoIntent,
-                packageInfo.applicationInfo);
-        screen.addPreference(preference);
-    }
-
-    private Preference createHeaderPreference(Context context, Intent infoIntent,
-            ApplicationInfo appInfo) {
-        Drawable icon = Utils.getBadgedIcon(context, appInfo);
-        Preference preference = new Preference(context);
-        preference.setIcon(icon);
-        preference.setKey(appInfo.packageName);
-        preference.setTitle(Utils.getFullAppLabel(appInfo, context));
-        preference.getExtras().putParcelable(KEY_APP_INFO_INTENT, infoIntent);
-        preference.getExtras().putParcelable(KEY_USER_HANDLE,
-                UserHandle.getUserHandleForUid(appInfo.uid));
-        preference.setOnPreferenceClickListener(pref -> {
-            Intent intent = pref.getExtras().getParcelable(KEY_APP_INFO_INTENT);
-            UserHandle user = pref.getExtras().getParcelable(KEY_USER_HANDLE);
-            context.startActivityAsUser(intent, user);
-            return true;
-        });
-        return preference;
     }
 
     private Preference createPermissionPreference(Context context, AppPermissionGroup group) {
