@@ -26,6 +26,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
 import com.android.packageinstaller.DeviceUtils;
+import com.android.packageinstaller.permission.ui.auto.ReviewOngoingUsageAutoFragment;
 import com.android.packageinstaller.permission.ui.handheld.ReviewOngoingUsageFragment;
 
 /**
@@ -43,8 +44,13 @@ public final class ReviewOngoingUsageActivity extends FragmentActivity {
         getWindow().addSystemFlags(SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
 
         long numMillis = getIntent().getLongExtra(Intent.EXTRA_DURATION_MILLIS, DEFAULT_MILLIS);
-        getSupportFragmentManager().beginTransaction().replace(android.R.id.content,
-                ReviewOngoingUsageFragment.newInstance(numMillis)).commit();
+        if (DeviceUtils.isAuto(this)) {
+            getSupportFragmentManager().beginTransaction().replace(android.R.id.content,
+                    ReviewOngoingUsageAutoFragment.newInstance(numMillis)).commit();
+        } else {
+            getSupportFragmentManager().beginTransaction().replace(android.R.id.content,
+                    ReviewOngoingUsageFragment.newInstance(numMillis)).commit();
+        }
     }
 
 
