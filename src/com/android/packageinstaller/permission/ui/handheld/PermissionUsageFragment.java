@@ -383,9 +383,6 @@ public class PermissionUsageFragment extends SettingsWithLargeHeader implements
                 GroupUsage groupUsage = appGroups.get(groupNum);
                 long lastAccessTime = groupUsage.getLastAccessTime();
 
-                if (groupUsage.getAccessCount() <= 0) {
-                    continue;
-                }
                 if (lastAccessTime == 0) {
                     Log.w(LOG_TAG,
                             "Unexpected access time of 0 for " + appUsage.getApp().getKey() + " "
