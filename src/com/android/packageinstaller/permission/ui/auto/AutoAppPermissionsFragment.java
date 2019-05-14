@@ -24,7 +24,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -107,15 +106,10 @@ public class AutoAppPermissionsFragment extends AutoSettingsFrameFragment {
     }
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        bindUi(mAppPermissions.getPackageInfo());
-    }
-
-    @Override
     public void onStart() {
         super.onStart();
         mAppPermissions.refresh();
+        bindUi(mAppPermissions.getPackageInfo());
         updatePreferences();
     }
 
