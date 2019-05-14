@@ -124,7 +124,7 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> додатка</item>
     </plurals>
     <string name="permission_usage_view_details" msgid="4728049344017619500">"Переглянути деталі на інформаційній панелі"</string>
-    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Відфільтровано за параметром: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Відфільтровано за параметром \"<xliff:g id="PERM">%1$s</xliff:g>\""</string>
     <string name="app_permission_usage_remove_filter" msgid="9105565119059367866">"Переглянути все на інформаційній панелі"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"Фільтр"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Фільтрувати за дозволами"</string>
@@ -224,7 +224,7 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> секунди</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Нагадування про дозволи"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Додаток <xliff:g id="APP_NAME">%s</xliff:g> отримав доступ до даних про місцезнаходження у фоновому режимі"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Додаток <xliff:g id="APP_NAME">%s</xliff:g> визначив ваше місцезнаходження у фоновому режимі"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Цей додаток завжди має доступ до геоданих пристрою. Торкніться, щоб змінити це."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Лише коли додаток використовується"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Немає наданих дозволів"</string>
@@ -268,12 +268,14 @@
     <string name="role_home_request_description" msgid="6437733879812403277">"Дозволи не потрібні"</string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Додаток для переспрямування викликів за умовчанням"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Додаток для переспрямування викликів"</string>
-    <string name="role_call_redirection_description" msgid="159351481987081777">"Додатки, у яких можна переадресовувати виклики на інший номер телефону"</string>
+    <!-- no translation found for role_call_redirection_description (769231030043298555) -->
+    <skip />
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"Чи має <xliff:g id="APP_NAME">%1$s</xliff:g> використовуватись як додаток для переспрямування викликів за умовчанням?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Дозволи не потрібні"</string>
     <string name="role_call_screening_label" msgid="5366988848919437946">"Автоматичний визначник номера й засіб від спаму за умовчанням"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"Автоматичний визначник номера й засіб від спаму"</string>
-    <string name="role_call_screening_description" msgid="9009090500431969390">"Додатки, у яких можна визначати номери, з яких здійснюються вхідні дзвінки, блокувати спам і автоматичні виклики, вносити в чорний список небажані номери тощо"</string>
+    <!-- no translation found for role_call_screening_description (4470066768170089758) -->
+    <skip />
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Чи має <xliff:g id="APP_NAME">%1$s</xliff:g> використовуватись як автоматичний визначник номера й засіб від спаму за умовчанням?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Дозволи не потрібні"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Поточний за умовчанням"</string>
@@ -294,10 +296,8 @@
     <string name="default_app_none" msgid="7671097769303174666">"Немає"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(За умовчанням)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Немає додатків"</string>
-    <!-- no translation found for car_default_app_selected (2813270284225505741) -->
-    <skip />
-    <!-- no translation found for car_default_app_selected_with_info (5067890906522338747) -->
-    <skip />
+    <string name="car_default_app_selected" msgid="2813270284225505741">"Вибрано"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"Вибрано: <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"спеціальний доступ додатка"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Спеціальний доступ"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Немає спеціального доступу"</string>
