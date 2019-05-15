@@ -18,10 +18,10 @@ package com.android.packageinstaller.role.ui.auto;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.core.content.res.TypedArrayUtils;
 import androidx.preference.PreferenceViewHolder;
 import androidx.preference.TwoStatePreference;
 
@@ -30,21 +30,9 @@ import com.android.permissioncontroller.R;
 /** Preference used to represent apps that can be picked as a default app. */
 public class AutoDefaultAppPreference extends TwoStatePreference {
 
-    public AutoDefaultAppPreference(Context context, AttributeSet attrs,
-            int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-    }
-
-    public AutoDefaultAppPreference(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-    }
-
-    public AutoDefaultAppPreference(Context context, AttributeSet attrs) {
-        super(context, attrs);
-    }
-
     public AutoDefaultAppPreference(Context context) {
-        super(context);
+        super(context, null, TypedArrayUtils.getAttr(context, R.attr.preferenceStyle,
+                android.R.attr.preferenceStyle));
     }
 
     @Override
