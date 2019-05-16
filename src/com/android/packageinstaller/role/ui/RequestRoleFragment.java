@@ -327,7 +327,6 @@ public class RequestRoleFragment extends DialogFragment {
                 break;
             }
             case ManageRoleHolderStateLiveData.STATE_FAILURE:
-                // TODO: Notify user?
                 finish();
                 break;
         }
