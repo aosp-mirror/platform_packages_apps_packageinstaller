@@ -30,6 +30,7 @@ import androidx.fragment.app.FragmentActivity;
 import com.android.packageinstaller.DeviceUtils;
 import com.android.packageinstaller.permission.ui.auto.AutoAllAppPermissionsFragment;
 import com.android.packageinstaller.permission.ui.auto.AutoAppPermissionsFragment;
+import com.android.packageinstaller.permission.ui.auto.AutoManageStandardPermissionsFragment;
 import com.android.packageinstaller.permission.ui.auto.AutoPermissionAppsFragment;
 import com.android.packageinstaller.permission.ui.handheld.ManageStandardPermissionsFragment;
 import com.android.packageinstaller.permission.ui.handheld.PermissionUsageFragment;
@@ -66,7 +67,9 @@ public final class ManagePermissionsActivity extends FragmentActivity {
         String permissionName;
         switch (action) {
             case Intent.ACTION_MANAGE_PERMISSIONS:
-                if (DeviceUtils.isTelevision(this)) {
+                if (DeviceUtils.isAuto(this)) {
+                    androidXFragment = AutoManageStandardPermissionsFragment.newInstance();
+                } else if (DeviceUtils.isTelevision(this)) {
                     fragment =
                             com.android.packageinstaller.permission.ui.television
                                     .ManagePermissionsFragment.newInstance();
