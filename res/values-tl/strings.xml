@@ -145,8 +145,30 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Tanggihan"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> na pahintulot"</string>
     <string name="app_permission_header" msgid="228974007660007656">"access sa <xliff:g id="PERM">%1$s</xliff:g> para sa app na ito"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"Na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong <xliff:g id="PERM">%2$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g> ang nakalipas"</string>
-    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"Hindi na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong <xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"Na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong <xliff:g id="PERM">%2$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g> ang nakalipas"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"Na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong pisikal na aktibidad <xliff:g id="TIME">%2$s</xliff:g> na ang nakalipas"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"Na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong kalendaryo <xliff:g id="TIME">%2$s</xliff:g> na ang nakalipas"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"Na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong mga log ng tawag <xliff:g id="TIME">%2$s</xliff:g> na ang nakalipas"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"Na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong camera <xliff:g id="TIME">%2$s</xliff:g> na ang nakalipas"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"Na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong mga contact <xliff:g id="TIME">%2$s</xliff:g> na ang nakalipas"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"Na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong lokasyon <xliff:g id="TIME">%2$s</xliff:g> na ang nakalipas"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"Na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong mikropono <xliff:g id="TIME">%2$s</xliff:g> na ang nakalipas"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"Na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong telepono <xliff:g id="TIME">%2$s</xliff:g> na ang nakalipas"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"Na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong mga sensor <xliff:g id="TIME">%2$s</xliff:g> na ang nakalipas"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"Na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong SMS <xliff:g id="TIME">%2$s</xliff:g> na ang nakalipas"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"Na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong storage <xliff:g id="TIME">%2$s</xliff:g> na ang nakalipas"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"Hindi na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong <xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"Hindi na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong pisikal na aktibidad"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"Hindi na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong kalendaryo"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"Hindi na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong mga log ng tawag"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"Hindi na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong camera"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"Hindi na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong mga contact"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"Hindi na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong lokasyon"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"Hindi na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong mikropono"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"Hindi na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong telepono"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"Hindi na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong mga sensor"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"Hindi na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong SMS"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"Hindi na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong storage"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Kasalukuyang hindi available ang data ng huling pag-access para sa pahintulot na ito"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Tingnan ang lahat ng pahintulot ng <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Tingnan ang lahat ng app na may ganitong pahintulot"</string>
@@ -188,7 +210,7 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> na segundo</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Mga paalala sa pahintulot"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"Ginagamit ng <xliff:g id="APP_NAME">%s</xliff:g> ang iyong lokasyon"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Kinuha ng <xliff:g id="APP_NAME">%s</xliff:g> ang iyong lokasyon sa background"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Maa-access ng app na ito ang iyong lokasyon anumang oras. I-tap para baguhin."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Habang ginagamit lang ang app"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Walang pinayagang pahintulot"</string>
@@ -232,12 +254,14 @@
     <string name="role_home_request_description" msgid="6437733879812403277">"Walang kailangang pahintulot"</string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Default call redirecting app"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"App sa pag-redirect ng tawag"</string>
-    <string name="role_call_redirection_description" msgid="159351481987081777">"Mga app na nagbibigay-daan sa iyong magpasa ng mga tawag sa isa pang numero ng telepono"</string>
+    <!-- no translation found for role_call_redirection_description (769231030043298555) -->
+    <skip />
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"Itakda ang <xliff:g id="APP_NAME">%1$s</xliff:g> bilang iyong default na app sa pag-redirect?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Walang kailangang pahintulot"</string>
     <string name="role_call_screening_label" msgid="5366988848919437946">"Default na app para sa caller ID at spam"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"App para sa caller ID at spam"</string>
-    <string name="role_call_screening_description" msgid="9009090500431969390">"Mga app na nagbibigay-daan sa iyong tukuyin ang mga papasok na tawag, i-block ang mga spam at robocall, i-blacklist ang mga hindi gustong numero, at higit pa"</string>
+    <!-- no translation found for role_call_screening_description (4470066768170089758) -->
+    <skip />
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Itakda ang <xliff:g id="APP_NAME">%1$s</xliff:g> bilang iyong default na caller ID at spam app?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Walang kailangang pahintulot"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Kasalukuyang default"</string>
@@ -258,6 +282,8 @@
     <string name="default_app_none" msgid="7671097769303174666">"Wala"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(Default ng system)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Walang app"</string>
+    <string name="car_default_app_selected" msgid="2813270284225505741">"Napili"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"Pinili - <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"Espesyal na access ng app"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Espesyal na app access"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Walang espesyal na app access"</string>

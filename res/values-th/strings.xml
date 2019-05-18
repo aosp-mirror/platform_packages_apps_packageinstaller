@@ -144,13 +144,35 @@
     <string name="app_permission_button_allow_foreground" msgid="2303741829613210541">"อนุญาตขณะมีการใช้แอปเท่านั้น"</string>
     <string name="app_permission_button_deny" msgid="5716368368650638408">"ปฏิเสธ"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"สิทธิ์เกี่ยวกับ<xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_header" msgid="228974007660007656">"สิทธิ์การเข้าถึง<xliff:g id="PERM">%1$s</xliff:g>สำหรับแอปนี้"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"<xliff:g id="APP">%1$s</xliff:g> เข้าถึง<xliff:g id="PERM">%2$s</xliff:g>ของคุณเมื่อ <xliff:g id="TIME">%3$s</xliff:g>ที่ผ่านมา"</string>
-    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"<xliff:g id="APP">%1$s</xliff:g> ไม่ได้เข้าถึง<xliff:g id="PERM">%2$s</xliff:g>ของคุณ"</string>
+    <string name="app_permission_header" msgid="228974007660007656">"สิทธิ์การเข้าถึง \"<xliff:g id="PERM">%1$s</xliff:g>\" สำหรับแอปนี้"</string>
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="APP">%1$s</xliff:g> เข้าถึง<xliff:g id="PERM">%2$s</xliff:g>เมื่อ <xliff:g id="TIME">%3$s</xliff:g>ที่ผ่านมา"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="APP">%1$s</xliff:g> เข้าถึงกิจกรรมการเคลื่อนไหวร่างกายเมื่อ <xliff:g id="TIME">%2$s</xliff:g>ที่ผ่านมา"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="APP">%1$s</xliff:g> เข้าถึงปฏิทินเมื่อ <xliff:g id="TIME">%2$s</xliff:g>ที่ผ่านมา"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"<xliff:g id="APP">%1$s</xliff:g> เข้าถึงประวัติการโทรเมื่อ <xliff:g id="TIME">%2$s</xliff:g>ที่ผ่านมา"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"<xliff:g id="APP">%1$s</xliff:g> เข้าถึงกล้องเมื่อ <xliff:g id="TIME">%2$s</xliff:g>ที่ผ่านมา"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"<xliff:g id="APP">%1$s</xliff:g> เข้าถึงรายชื่อติดต่อเมื่อ <xliff:g id="TIME">%2$s</xliff:g>ที่ผ่านมา"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"<xliff:g id="APP">%1$s</xliff:g> เข้าถึงตำแหน่งของคุณเมื่อ <xliff:g id="TIME">%2$s</xliff:g>ที่ผ่านมา"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"<xliff:g id="APP">%1$s</xliff:g> เข้าถึงไมโครโฟนเมื่อ <xliff:g id="TIME">%2$s</xliff:g>ที่ผ่านมา"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"<xliff:g id="APP">%1$s</xliff:g> เข้าถึงโทรศัพท์เมื่อ <xliff:g id="TIME">%2$s</xliff:g>ที่ผ่านมา"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"<xliff:g id="APP">%1$s</xliff:g> เข้าถึงเซ็นเซอร์เมื่อ <xliff:g id="TIME">%2$s</xliff:g>ที่ผ่านมา"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"<xliff:g id="APP">%1$s</xliff:g> เข้าถึง SMS เมื่อ <xliff:g id="TIME">%2$s</xliff:g>ที่ผ่านมา"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"<xliff:g id="APP">%1$s</xliff:g> เข้าถึงพื้นที่เก็บข้อมูลเมื่อ <xliff:g id="TIME">%2$s</xliff:g>ที่ผ่านมา"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"<xliff:g id="APP">%1$s</xliff:g> ไม่ได้เข้าถึง<xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"<xliff:g id="APP">%1$s</xliff:g> ไม่ได้เข้าถึงกิจกรรมการเคลื่อนไหวร่างกาย"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"<xliff:g id="APP">%1$s</xliff:g> ไม่ได้เข้าถึงปฏิทิน"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"<xliff:g id="APP">%1$s</xliff:g> ไม่ได้เข้าถึงประวัติการโทร"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"<xliff:g id="APP">%1$s</xliff:g> ไม่ได้เข้าถึงกล้อง"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"<xliff:g id="APP">%1$s</xliff:g> ไม่ได้เข้าถึงรายชื่อติดต่อ"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"<xliff:g id="APP">%1$s</xliff:g> ไม่ได้เข้าถึงตำแหน่งของคุณ"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"<xliff:g id="APP">%1$s</xliff:g> ไม่ได้เข้าถึงไมโครโฟน"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"<xliff:g id="APP">%1$s</xliff:g> ไม่ได้เข้าถึงโทรศัพท์"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"<xliff:g id="APP">%1$s</xliff:g> ไม่ได้เข้าถึงเซ็นเซอร์"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"<xliff:g id="APP">%1$s</xliff:g> ไม่ได้เข้าถึง SMS"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"<xliff:g id="APP">%1$s</xliff:g> ไม่ได้เข้าถึงพื้นที่เก็บข้อมูล"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"ขณะนี้ข้อมูลการเข้าถึงล่าสุดไม่พร้อมใช้งานสำหรับสิทธิ์นี้"</string>
-    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"ดูสิทธิ์ทั้งหมดของ <xliff:g id="APP">%1$s</xliff:g>"</string>
+    <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"ดูสิทธิ์ทั้งหมดของ \"<xliff:g id="APP">%1$s</xliff:g>\""</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"ดูแอปทั้งหมดที่มีสิทธิ์นี้"</string>
-    <string name="permission_description_summary_generic" msgid="5479202003136667039">"แอปที่มีสิทธิ์นี้จะ<xliff:g id="DESCRIPTION">%1$s</xliff:g>ได้"</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"แอปที่มีสิทธิ์นี้จะ<xliff:g id="DESCRIPTION">%1$s</xliff:g> ได้"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"แอปที่มีสิทธิ์นี้จะเข้าถึงกิจกรรมการเคลื่อนไหวร่างกายได้ เช่น การเดิน การปั่นจักรยาน การขับรถ การนับจำนวนก้าว และอื่นๆ"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"แอปที่มีสิทธิ์นี้จะเข้าถึงปฏิทินของคุณได้"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"แอปที่มีสิทธิ์นี้จะอ่านและเขียนประวัติการโทรได้"</string>
@@ -188,7 +210,7 @@
       <item quantity="one">1 วินาที</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"การช่วยเตือนเกี่ยวกับสิทธิ์"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> ใช้ตำแหน่งของคุณ"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> เข้าถึงตำแหน่งของคุณอยู่เบื้องหลัง"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"แอปนี้เข้าถึงตำแหน่งของคุณได้ตลอดเวลา แตะเพื่อเปลี่ยน"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"เมื่อมีการใช้แอปเท่านั้น"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"ไม่ได้ให้สิทธิ์ใดเลย"</string>
@@ -207,7 +229,7 @@
     <string name="role_assistant_request_description" msgid="1086168907357494789">"มีสิทธิ์เข้าถึง SMS และประวัติการโทร"</string>
     <string name="role_browser_label" msgid="814240075813716311">"แอปเบราว์เซอร์เริ่มต้น"</string>
     <string name="role_browser_short_label" msgid="6222206565850006894">"แอปเบราว์เซอร์"</string>
-    <string name="role_browser_description" msgid="2326990202516329438">"แอปที่ให้คุณเข้าถึงลิงก์อินเทอร์เน็ตและจอแสดงผลที่คุณแตะ"</string>
+    <string name="role_browser_description" msgid="2326990202516329438">"แอปที่ให้คุณเข้าถึงอินเทอร์เน็ตและแสดงลิงก์ที่คุณแตะ"</string>
     <string name="role_browser_request_title" msgid="751745081301397114">"ตั้งค่า <xliff:g id="APP_NAME">%1$s</xliff:g> เป็นแอปเบราว์เซอร์เริ่มต้นไหม"</string>
     <string name="role_browser_request_description" msgid="3204873553391043604">"ไม่ต้องใช้สิทธิ์"</string>
     <string name="role_dialer_label" msgid="7920168918746178929">"แอปโทรศัพท์เริ่มต้น"</string>
@@ -217,7 +239,7 @@
     <string name="role_dialer_request_description" msgid="2931069491309771312">"มีสิทธิ์เข้าถึงประวัติการโทรและส่ง SMS"</string>
     <string name="role_sms_label" msgid="6995222097027665850">"แอป SMS เริ่มต้น"</string>
     <string name="role_sms_short_label" msgid="236955440028043972">"แอป SMS"</string>
-    <string name="role_sms_description" msgid="3228552135895420442">"แอปที่ให้คุณใช้หมายเลขโทรศัพท์เพื่อส่งและรับข้อความ รูปภาพ วิดีโอ และอื่นๆ"</string>
+    <string name="role_sms_description" msgid="3228552135895420442">"แอปที่ให้คุณใช้หมายเลขโทรศัพท์เพื่อส่งและรับ SMS, รูปภาพ, วิดีโอ และอื่นๆ"</string>
     <string name="role_sms_request_title" msgid="3667393846881324409">"ตั้งค่า <xliff:g id="APP_NAME">%1$s</xliff:g> เป็นแอป SMS เริ่มต้น"</string>
     <string name="role_sms_request_description" msgid="4920787411350418630">"มีสิทธิ์เข้าถึงรายชื่อติดต่อ SMS และโทรศัพท์"</string>
     <string name="role_emergency_label" msgid="8986482330376454686">"แอปฉุกเฉินเริ่มต้น"</string>
@@ -232,12 +254,14 @@
     <string name="role_home_request_description" msgid="6437733879812403277">"ไม่ต้องใช้สิทธิ์"</string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"แอปเปลี่ยนเส้นทางการโทรเริ่มต้น"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"แอปเปลี่ยนเส้นทางสายเรียกเข้า"</string>
-    <string name="role_call_redirection_description" msgid="159351481987081777">"แอปที่ให้คุณโอนสายไปยังหมายเลขโทรศัพท์อื่น"</string>
+    <!-- no translation found for role_call_redirection_description (769231030043298555) -->
+    <skip />
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"ตั้งค่า <xliff:g id="APP_NAME">%1$s</xliff:g> เป็นแอปเปลี่ยนเส้นทางการโทรเริ่มต้นไหม"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"ไม่ต้องใช้สิทธิ์"</string>
     <string name="role_call_screening_label" msgid="5366988848919437946">"แอปเริ่มต้นสำหรับสกรีนหมายเลขผู้โทรและสแปม"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"แอปสกรีนหมายเลขผู้โทรและสแปม"</string>
-    <string name="role_call_screening_description" msgid="9009090500431969390">"แอปที่ให้คุณระบุสายเรียกเข้า บล็อกสแปมและสายจากระบบตอบรับอัตโนมัติ รวมถึงขึ้นบัญชีดำหมายและที่ไม่พึงประสงค์ และอีกมากมาย"</string>
+    <!-- no translation found for role_call_screening_description (4470066768170089758) -->
+    <skip />
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"ตั้งค่า <xliff:g id="APP_NAME">%1$s</xliff:g> เป็นแอปเริ่มต้นสำหรับสกรีนหมายเลขผู้โทรและสแปมไหม"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"ไม่ต้องใช้สิทธิ์"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"แอปเริ่มต้นปัจจุบัน"</string>
@@ -246,7 +270,7 @@
     <string name="default_app_search_keyword" msgid="6938709626391437391">"แอปเริ่มต้น"</string>
     <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"รับทราบ"</string>
     <string name="ongoing_usage_dialog_open_settings" msgid="3368892579319881043">"ตั้งค่าความเป็นส่วนตัว"</string>
-    <string name="ongoing_usage_dialog_title" msgid="7173961211414061803">"มีหลายแอปกำลังใช้<xliff:g id="TYPES_LIST">%s</xliff:g>ของคุณ"</string>
+    <string name="ongoing_usage_dialog_title" msgid="7173961211414061803">"แอปที่กำลังใช้<xliff:g id="TYPES_LIST">%s</xliff:g>ของคุณ"</string>
     <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">" "</string>
     <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" และ "</string>
     <string name="settings_button" msgid="4747434541214595321">"การตั้งค่า"</string>
@@ -258,6 +282,8 @@
     <string name="default_app_none" msgid="7671097769303174666">"ไม่มี"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(ค่าเริ่มต้นของระบบ)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"ไม่มีแอป"</string>
+    <string name="car_default_app_selected" msgid="2813270284225505741">"เลือกไว้"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"เลือกไว้ - <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"สิทธิ์เข้าถึงพิเศษของแอป"</string>
     <string name="special_app_access" msgid="2561673957499408877">"สิทธิ์เข้าถึงพิเศษของแอป"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"ไม่มีสิทธิ์เข้าถึงพิเศษของแอป"</string>

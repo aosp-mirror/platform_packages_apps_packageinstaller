@@ -151,12 +151,34 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Zakázat"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"Oprávnění <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="228974007660007656">"Přístup aplikace: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"Aplikace <xliff:g id="APP">%1$s</xliff:g> získala přístup k těmto údajům (před: <xliff:g id="TIME">%3$s</xliff:g>): <xliff:g id="PERM">%2$s</xliff:g>"</string>
-    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"Aplikace <xliff:g id="APP">%1$s</xliff:g> nezískala přístup k oprávnění <xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"Aplikace <xliff:g id="APP">%1$s</xliff:g> před <xliff:g id="TIME">%3$s</xliff:g> získala přístup k oprávnění <xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"Aplikace <xliff:g id="APP">%1$s</xliff:g> před <xliff:g id="TIME">%2$s</xliff:g> získala přístup k vaší fyzické aktivitě"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"Aplikace <xliff:g id="APP">%1$s</xliff:g> před <xliff:g id="TIME">%2$s</xliff:g> získala přístup ke kalendáři"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"Aplikace <xliff:g id="APP">%1$s</xliff:g> před <xliff:g id="TIME">%2$s</xliff:g> získala přístup k seznamu hovorů"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"Aplikace <xliff:g id="APP">%1$s</xliff:g> před <xliff:g id="TIME">%2$s</xliff:g> získala přístup k fotoaparátu"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"Aplikace <xliff:g id="APP">%1$s</xliff:g> před <xliff:g id="TIME">%2$s</xliff:g> získala přístup ke kontaktům"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"Aplikace <xliff:g id="APP">%1$s</xliff:g> před <xliff:g id="TIME">%2$s</xliff:g> získala přístup k poloze"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"Aplikace <xliff:g id="APP">%1$s</xliff:g> před <xliff:g id="TIME">%2$s</xliff:g> nezískala přístup k mikrofonu"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"Aplikace <xliff:g id="APP">%1$s</xliff:g> před <xliff:g id="TIME">%2$s</xliff:g> získala přístup k telefonu"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"Aplikace <xliff:g id="APP">%1$s</xliff:g> před <xliff:g id="TIME">%2$s</xliff:g> získala přístup k senzorům"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"Aplikace <xliff:g id="APP">%1$s</xliff:g> před <xliff:g id="TIME">%2$s</xliff:g> získala přístup k SMS"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"Aplikace <xliff:g id="APP">%1$s</xliff:g> před <xliff:g id="TIME">%2$s</xliff:g> získala přístup k úložišti"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"Aplikace <xliff:g id="APP">%1$s</xliff:g> nezískala přístup k oprávnění <xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"Aplikace <xliff:g id="APP">%1$s</xliff:g> nezískala přístup k vaší fyzické aktivitě"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"Aplikace <xliff:g id="APP">%1$s</xliff:g> nezískala přístup ke kalendáři"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"Aplikace <xliff:g id="APP">%1$s</xliff:g> nezískala přístup k seznamu hovorů"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"Aplikace <xliff:g id="APP">%1$s</xliff:g> nezískala přístup k fotoaparátu"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"Aplikace <xliff:g id="APP">%1$s</xliff:g> nezískala přístup ke kontaktům"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"Aplikace <xliff:g id="APP">%1$s</xliff:g> nezískala přístup k poloze"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"Aplikace <xliff:g id="APP">%1$s</xliff:g> nezískala přístup k mikrofonu"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"Aplikace <xliff:g id="APP">%1$s</xliff:g> nezískala přístup k telefonu"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"Aplikace <xliff:g id="APP">%1$s</xliff:g> nezískala přístup k senzorům"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"Aplikace <xliff:g id="APP">%1$s</xliff:g> nezískala přístup k SMS"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"Aplikace <xliff:g id="APP">%1$s</xliff:g> nezískala přístup k úložišti"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Údaje o posledním přístupu momentálně nejsou v rámci tohoto oprávnění dostupné"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Zobrazit všechna oprávnění aplikace <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Zobrazit všechny aplikace s tímto oprávněním"</string>
-    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Aplikace s tímto oprávněním mohou <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
+    <string name="permission_description_summary_generic" msgid="5479202003136667039">"Aplikace s tímto oprávněním mohou: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Aplikace s tímto oprávněním mají přístup k vaší fyzické aktivitě, jako je chůze, jízda na kole, jízda autem, počet kroků a další"</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Aplikace s tímto oprávněním mají přístup ke kalendáři"</string>
     <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Aplikace s tímto oprávněním mohou číst a zapisovat do seznamu hovorů v telefonu"</string>
@@ -202,7 +224,7 @@
       <item quantity="one">1 sekunda</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Připomenutí o oprávněních"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"Aplikace <xliff:g id="APP_NAME">%s</xliff:g> využívá vaši polohu"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> má přístup k poloze na pozadí"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Tato aplikace má neomezený přístup k poloze. Klepnutím to změníte."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Jen během používání aplikace"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Nejsou povolena žádná oprávnění"</string>
@@ -226,7 +248,7 @@
     <string name="role_browser_request_description" msgid="3204873553391043604">"Není potřeba žádné oprávnění"</string>
     <string name="role_dialer_label" msgid="7920168918746178929">"Výchozí aplikace telefonu"</string>
     <string name="role_dialer_short_label" msgid="2980581587550675305">"Aplikace k telefonování"</string>
-    <string name="role_dialer_description" msgid="2684882481061320467">"Aplikace, které vám v zařízení umožňují realizovat a přijímat hovory"</string>
+    <string name="role_dialer_description" msgid="2684882481061320467">"Aplikace, které vám v zařízení umožňují volat a přijímat hovory"</string>
     <string name="role_dialer_request_title" msgid="3203802247886151514">"Nastavit <xliff:g id="APP_NAME">%1$s</xliff:g> jako výchozí aplikaci k telefonování?"</string>
     <string name="role_dialer_request_description" msgid="2931069491309771312">"Získá přístup k seznamu hovorů a posílání SMS"</string>
     <string name="role_sms_label" msgid="6995222097027665850">"Výchozí aplikace pro SMS"</string>
@@ -246,12 +268,14 @@
     <string name="role_home_request_description" msgid="6437733879812403277">"Není potřeba žádné oprávnění"</string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Výchozí ap. na přesměr. hovorů"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Aplikace k přesměrování hovorů"</string>
-    <string name="role_call_redirection_description" msgid="159351481987081777">"Aplikace, které vám umožňují přesměrovat hovory na jiné číslo"</string>
+    <!-- no translation found for role_call_redirection_description (769231030043298555) -->
+    <skip />
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"Nastavit <xliff:g id="APP_NAME">%1$s</xliff:g> jako výchozí aplikaci na přesměrování hovorů?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Není potřeba žádné oprávnění"</string>
     <string name="role_call_screening_label" msgid="5366988848919437946">"Výchozí ap. na ID volajícího a redukci spamu"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"Ap. na ID volajícího a spam"</string>
-    <string name="role_call_screening_description" msgid="9009090500431969390">"Aplikace, které umožňují identifikovat příchozí hovory, blokovat spam a automatické hovory, vytvořit seznam zakázaných čísel apod."</string>
+    <!-- no translation found for role_call_screening_description (4470066768170089758) -->
+    <skip />
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Nastavit <xliff:g id="APP_NAME">%1$s</xliff:g> jako výchozí aplikaci k identifikaci volajícího a prevenci spamu?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Není potřeba žádné oprávnění"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Aktuálně výchozí"</string>
@@ -272,6 +296,8 @@
     <string name="default_app_none" msgid="7671097769303174666">"Žádné"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(Výchozí nastavení systému)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Žádné aplikace"</string>
+    <string name="car_default_app_selected" msgid="2813270284225505741">"Vybráno"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"Vybráno – <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"přístup ke speciálním aplikacím"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Přístup ke spec. aplikacím"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Žádný přístup ke spec. aplik."</string>

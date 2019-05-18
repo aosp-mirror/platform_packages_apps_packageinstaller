@@ -124,7 +124,7 @@
     <string name="app_permission_usage_remove_filter" msgid="9105565119059367866">"Ver todo no panel de control"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"Filtrar por"</string>
     <string name="filter_by_permissions" msgid="7761207093643478436">"Filtrar por permisos"</string>
-    <string name="filter_by_time" msgid="1763143592970195407">"Filtrar por nome"</string>
+    <string name="filter_by_time" msgid="1763143592970195407">"Filtrar por hora"</string>
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Máis permisos"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Máis accesos"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"Accesos recentes"</string>
@@ -145,8 +145,30 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Denegar"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"Permiso de <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="228974007660007656">"Permiso de acceso desta aplicación a: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"A aplicación <xliff:g id="APP">%1$s</xliff:g> accedeu hai <xliff:g id="TIME">%3$s</xliff:g> a: <xliff:g id="PERM">%2$s</xliff:g>"</string>
-    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"A aplicación <xliff:g id="APP">%1$s</xliff:g> non ten acceso a: <xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"A aplicación <xliff:g id="APP">%1$s</xliff:g> accedeu hai <xliff:g id="TIME">%3$s</xliff:g> a: <xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"A aplicación <xliff:g id="APP">%1$s</xliff:g> accedeu á túa actividade física hai <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"A aplicación <xliff:g id="APP">%1$s</xliff:g> accedeu ao teu calendario hai <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"A aplicación <xliff:g id="APP">%1$s</xliff:g> accedeu ao teu rexistro de chamadas hai <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"A aplicación <xliff:g id="APP">%1$s</xliff:g> accedeu á túa cámara hai <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"A aplicación <xliff:g id="APP">%1$s</xliff:g> accedeu aos teus contactos hai <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"A aplicación <xliff:g id="APP">%1$s</xliff:g> accedeu á túa localización hai <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"A aplicación <xliff:g id="APP">%1$s</xliff:g> accedeu ao teu micrófono hai <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"A aplicación <xliff:g id="APP">%1$s</xliff:g> accedeu ao teu teléfono hai <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"A aplicación <xliff:g id="APP">%1$s</xliff:g> accedeu aos teus sensores hai <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"A aplicación <xliff:g id="APP">%1$s</xliff:g> accedeu á túa SMS hai <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"A aplicación <xliff:g id="APP">%1$s</xliff:g> accedeu ao teu almacenamento hai <xliff:g id="TIME">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"A aplicación <xliff:g id="APP">%1$s</xliff:g> non accedeu a: <xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"A aplicación <xliff:g id="APP">%1$s</xliff:g> non accedeu á túa actividade física"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"A aplicación <xliff:g id="APP">%1$s</xliff:g> non accedeu ao teu calendario"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"A aplicación <xliff:g id="APP">%1$s</xliff:g> non accedeu aos teus rexistros de chamadas"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"A aplicación <xliff:g id="APP">%1$s</xliff:g> non accedeu á túa cámara"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"A aplicación <xliff:g id="APP">%1$s</xliff:g> non accedeu aos teus contactos"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"A aplicación <xliff:g id="APP">%1$s</xliff:g> non accedeu á túa localización"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"A aplicación <xliff:g id="APP">%1$s</xliff:g> non accedeu ao teu micrófono"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"A aplicación <xliff:g id="APP">%1$s</xliff:g> non accedeu ao teu teléfono"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"A aplicación <xliff:g id="APP">%1$s</xliff:g> non accedeu aos teus sensores"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"A aplicación <xliff:g id="APP">%1$s</xliff:g> non accedeu á túa SMS"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"A aplicación <xliff:g id="APP">%1$s</xliff:g> non accedeu ao teu almacenamento"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Os datos relativos ao último acceso non están dispoñibles para este permiso"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Ver todos os permisos de <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Ver todas as aplicacións que teñen este permiso"</string>
@@ -188,7 +210,7 @@
       <item quantity="one">1 segundo</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Recordatorios de permisos"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"A aplicación <xliff:g id="APP_NAME">%s</xliff:g> estivo utilizando a túa localización"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"A aplicación <xliff:g id="APP_NAME">%s</xliff:g> accedeu á túa localización en segundo plano"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Esta aplicación pode acceder sempre á túa localización. Toca para cambiar esta opción."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Só cando se estea utilizando a aplicación"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Non se concederon permisos"</string>
@@ -210,7 +232,7 @@
     <string name="role_browser_description" msgid="2326990202516329438">"Aplicacións que che permiten acceder a Internet e abrir as ligazóns que tocas"</string>
     <string name="role_browser_request_title" msgid="751745081301397114">"Queres definir <xliff:g id="APP_NAME">%1$s</xliff:g> como a túa aplicación predeterminada de navegación?"</string>
     <string name="role_browser_request_description" msgid="3204873553391043604">"Non se necesita ningún permiso"</string>
-    <string name="role_dialer_label" msgid="7920168918746178929">"App do teléfono predeterminada"</string>
+    <string name="role_dialer_label" msgid="7920168918746178929">"App de teléfono predeterminada"</string>
     <string name="role_dialer_short_label" msgid="2980581587550675305">"Aplicación de teléfono"</string>
     <string name="role_dialer_description" msgid="2684882481061320467">"Aplicacións que che permiten realizar e recibir chamadas telefónicas utilizando o teu dispositivo"</string>
     <string name="role_dialer_request_title" msgid="3203802247886151514">"Queres definir <xliff:g id="APP_NAME">%1$s</xliff:g> como a túa aplicación predeterminada de teléfono?"</string>
@@ -232,13 +254,15 @@
     <string name="role_home_request_description" msgid="6437733879812403277">"Non se necesita ningún permiso"</string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"App desvío de chamadas predet."</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"App de redirección de chamadas"</string>
-    <string name="role_call_redirection_description" msgid="159351481987081777">"Aplicacións que che permiten desviar chamadas a outro número de teléfono"</string>
+    <!-- no translation found for role_call_redirection_description (769231030043298555) -->
+    <skip />
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"Queres definir <xliff:g id="APP_NAME">%1$s</xliff:g> como a túa aplicación predeterminada de desvío de chamadas?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Non se necesita ningún permiso"</string>
-    <string name="role_call_screening_label" msgid="5366988848919437946">"App predet. de identif. de chamadas e spam"</string>
+    <string name="role_call_screening_label" msgid="5366988848919437946">"App de filtro de chamadas e spam predefinida"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"App ident. de chamadas e spam"</string>
-    <string name="role_call_screening_description" msgid="9009090500431969390">"Aplicacións que che permiten identificar as chamadas entrantes, bloquear o spam e as chamadas automatizadas, engadir os números non desexados á lista negra e realizar outras accións similares"</string>
-    <string name="role_call_screening_request_title" msgid="4775643776524356653">"Queres definir <xliff:g id="APP_NAME">%1$s</xliff:g> como a túa aplicación predeterminada de identificador de chamadas e spam?"</string>
+    <!-- no translation found for role_call_screening_description (4470066768170089758) -->
+    <skip />
+    <string name="role_call_screening_request_title" msgid="4775643776524356653">"Queres definir <xliff:g id="APP_NAME">%1$s</xliff:g> como a túa aplicación predeterminada de identificación de chamadas e spam?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Non se necesita ningún permiso"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"App predeterminada actual"</string>
     <string name="request_role_dont_ask_again" msgid="6250680190065090205">"Non preguntar de novo"</string>
@@ -246,7 +270,7 @@
     <string name="default_app_search_keyword" msgid="6938709626391437391">"aplicacións predeterminadas"</string>
     <string name="ongoing_usage_dialog_ok" msgid="3007005536659549573">"De acordo"</string>
     <string name="ongoing_usage_dialog_open_settings" msgid="3368892579319881043">"Config. privacidade"</string>
-    <string name="ongoing_usage_dialog_title" msgid="7173961211414061803">"Aplicacións que utilizan o seguinte: <xliff:g id="TYPES_LIST">%s</xliff:g>"</string>
+    <string name="ongoing_usage_dialog_title" msgid="7173961211414061803">"Aplicacións que usan: <xliff:g id="TYPES_LIST">%s</xliff:g>"</string>
     <string name="ongoing_usage_dialog_separator" msgid="9008030412869423988">", "</string>
     <string name="ongoing_usage_dialog_last_separator" msgid="7455459775266515801">" e "</string>
     <string name="settings_button" msgid="4747434541214595321">"Configuración"</string>
@@ -258,9 +282,11 @@
     <string name="default_app_none" msgid="7671097769303174666">"Ningunha"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(Opción predeterminada do sistema)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Non hai ningunha aplicación"</string>
+    <string name="car_default_app_selected" msgid="2813270284225505741">"Aplicación seleccionada"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"Aplicación seleccionada (<xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>)"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"acceso especial das aplicacións"</string>
-    <string name="special_app_access" msgid="2561673957499408877">"Acceso especial as aplicacións"</string>
-    <string name="no_special_app_access" msgid="994977666694457811">"Sen acceso especial ás apps"</string>
+    <string name="special_app_access" msgid="2561673957499408877">"Acceso especial das aplicacións"</string>
+    <string name="no_special_app_access" msgid="994977666694457811">"Sen acceso especial das apps"</string>
     <string name="special_app_access_no_apps" msgid="3934763650592564818">"Non hai ningunha aplicación"</string>
     <string name="home_missing_work_profile_support" msgid="1439466272746259937">"Non é compatible co perfil de traballo"</string>
     <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Nota: Se reinicias o dispositivo e definiches un bloqueo de pantalla, esta aplicación non se poderá iniciar ata que desbloquees o dispositivo."</string>

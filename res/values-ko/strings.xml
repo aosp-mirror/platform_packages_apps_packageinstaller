@@ -123,12 +123,12 @@
     <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"필터링 기준: <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_usage_remove_filter" msgid="9105565119059367866">"대시보드에서 모두 보기"</string>
     <string name="filter_by_title" msgid="5940302511365561845">"필터링 기준"</string>
-    <string name="filter_by_permissions" msgid="7761207093643478436">"권한별로 필터링"</string>
+    <string name="filter_by_permissions" msgid="7761207093643478436">"권한으로 필터링"</string>
     <string name="filter_by_time" msgid="1763143592970195407">"시간으로 필터링"</string>
     <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"사용된 권한 수"</string>
     <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"액세스 횟수"</string>
     <string name="sort_spinner_recent" msgid="8391312947480880412">"최근"</string>
-    <string name="sort_by_app" msgid="1912228966803416485">"앱 사용량순 정렬"</string>
+    <string name="sort_by_app" msgid="1912228966803416485">"앱 사용 시간순 정렬"</string>
     <string name="sort_by_time" msgid="8280378662234104410">"시간순 정렬"</string>
     <string name="item_separator" msgid="8266062815210378175">", "</string>
     <string name="permission_usage_refresh" msgid="2182775682810005148">"새로고침"</string>
@@ -145,8 +145,30 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"거부"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> 액세스 권한"</string>
     <string name="app_permission_header" msgid="228974007660007656">"이 앱의 <xliff:g id="PERM">%1$s</xliff:g> 액세스 권한"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"<xliff:g id="TIME">%3$s</xliff:g> 전에 <xliff:g id="APP">%1$s</xliff:g> 앱이 <xliff:g id="PERM">%2$s</xliff:g>에 액세스했습니다."</string>
-    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"<xliff:g id="APP">%1$s</xliff:g> 앱이 <xliff:g id="PERM">%2$s</xliff:g>에 액세스하지 않았습니다."</string>
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="TIME">%3$s</xliff:g> 전 <xliff:g id="APP">%1$s</xliff:g> 앱이 <xliff:g id="PERM">%2$s</xliff:g>에 액세스했습니다."</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="TIME">%2$s</xliff:g> 전 <xliff:g id="APP">%1$s</xliff:g> 앱이 신체 활동에 액세스했습니다."</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="TIME">%2$s</xliff:g> 전 <xliff:g id="APP">%1$s</xliff:g> 앱이 캘린더에 액세스했습니다."</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"<xliff:g id="TIME">%2$s</xliff:g> 전 <xliff:g id="APP">%1$s</xliff:g> 앱이 통화 기록에 액세스했습니다."</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"<xliff:g id="TIME">%2$s</xliff:g> 전 <xliff:g id="APP">%1$s</xliff:g> 앱이 카메라에 액세스했습니다."</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"<xliff:g id="TIME">%2$s</xliff:g> 전 <xliff:g id="APP">%1$s</xliff:g> 앱이 연락처에 액세스했습니다."</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"<xliff:g id="TIME">%2$s</xliff:g> 전 <xliff:g id="APP">%1$s</xliff:g> 앱이 위치에 액세스했습니다."</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"<xliff:g id="TIME">%2$s</xliff:g> 전 <xliff:g id="APP">%1$s</xliff:g> 앱이 마이크에 액세스했습니다."</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"<xliff:g id="TIME">%2$s</xliff:g> 전 <xliff:g id="APP">%1$s</xliff:g> 앱이 휴대전화에 액세스했습니다."</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"<xliff:g id="TIME">%2$s</xliff:g> 전 <xliff:g id="APP">%1$s</xliff:g> 앱이 센서에 액세스했습니다."</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"<xliff:g id="TIME">%2$s</xliff:g> 전 <xliff:g id="APP">%1$s</xliff:g> 앱이 SMS에 액세스했습니다."</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"<xliff:g id="TIME">%2$s</xliff:g> 전 <xliff:g id="APP">%1$s</xliff:g> 앱이 저장용량에 액세스했습니다."</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"<xliff:g id="APP">%1$s</xliff:g> 앱은 <xliff:g id="PERM">%2$s</xliff:g>에 액세스하지 않았습니다."</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"<xliff:g id="APP">%1$s</xliff:g> 앱은 신체 활동에 액세스하지 않았습니다."</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"<xliff:g id="APP">%1$s</xliff:g> 앱은 캘린더에 액세스하지 않았습니다."</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"<xliff:g id="APP">%1$s</xliff:g> 앱은 통화 기록에 액세스하지 않았습니다."</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"<xliff:g id="APP">%1$s</xliff:g> 앱은 카메라에 액세스하지 않았습니다."</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"<xliff:g id="APP">%1$s</xliff:g> 앱은 연락처에 액세스하지 않았습니다."</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"<xliff:g id="APP">%1$s</xliff:g> 앱은 위치에 액세스하지 않았습니다."</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"<xliff:g id="APP">%1$s</xliff:g> 앱은 마이크에 액세스하지 않았습니다."</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"<xliff:g id="APP">%1$s</xliff:g> 앱은 휴대전화에 액세스하지 않았습니다."</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"<xliff:g id="APP">%1$s</xliff:g> 앱은 센서에 액세스하지 않았습니다."</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"<xliff:g id="APP">%1$s</xliff:g> 앱은 SMS에 액세스하지 않았습니다."</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"<xliff:g id="APP">%1$s</xliff:g> 앱은 저장용량에 액세스하지 않았습니다."</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"현재 이 권한에 관한 마지막 액세스 데이터를 사용할 수 없습니다."</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"<xliff:g id="APP">%1$s</xliff:g> 앱 권한 모두 보기"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"이 권한이 있는 앱 모두 보기"</string>
@@ -188,7 +210,7 @@
       <item quantity="one">1초</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"권한 알림"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g>에서 내 위치를 사용함"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g>에서 백그라운드에서 내 위치에 액세스함"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"이 앱에서 내 위치에 항상 액세스할 수 있습니다. 변경하려면 탭하세요."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"앱 사용 중에만"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"허용된 권한 없음"</string>
@@ -217,7 +239,7 @@
     <string name="role_dialer_request_description" msgid="2931069491309771312">"통화 기록 액세스 및 SMS 전송 권한"</string>
     <string name="role_sms_label" msgid="6995222097027665850">"기본 SMS 앱"</string>
     <string name="role_sms_short_label" msgid="236955440028043972">"SMS 앱"</string>
-    <string name="role_sms_description" msgid="3228552135895420442">"내 전화번호를 사용하여 짧은 SMS, 사진, 동영상 등을 보내고 받을 수 있는 앱"</string>
+    <string name="role_sms_description" msgid="3228552135895420442">"내 전화번호를 사용하여 SMS, 사진, 동영상 등을 보내고 받을 수 있는 앱"</string>
     <string name="role_sms_request_title" msgid="3667393846881324409">"<xliff:g id="APP_NAME">%1$s</xliff:g> 앱을 기본 SMS 앱으로 설정하시겠습니까?"</string>
     <string name="role_sms_request_description" msgid="4920787411350418630">"연락처, SMS, 전화에 액세스"</string>
     <string name="role_emergency_label" msgid="8986482330376454686">"기본 긴급 앱"</string>
@@ -232,12 +254,14 @@
     <string name="role_home_request_description" msgid="6437733879812403277">"필요한 권한 없음"</string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"기본 통화 리디렉션 앱"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"통화 리디렉션 앱"</string>
-    <string name="role_call_redirection_description" msgid="159351481987081777">"다른 전화번호로 통화를 전달할 수 있게 해 주는 앱"</string>
+    <!-- no translation found for role_call_redirection_description (769231030043298555) -->
+    <skip />
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"<xliff:g id="APP_NAME">%1$s</xliff:g> 앱을 기본 통화 리디렉션 앱으로 설정하시겠습니까?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"필요한 권한 없음"</string>
     <string name="role_call_screening_label" msgid="5366988848919437946">"기본 발신번호 표시 및 스팸 앱"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"발신번호 표시 및 스팸 앱"</string>
-    <string name="role_call_screening_description" msgid="9009090500431969390">"수신 전화를 확인하고, 스팸 및 자동녹음전화를 차단하고, 원하지 않는 번호를 블랙리스트에 추가하는 등의 작업을 할 수 있는 앱"</string>
+    <!-- no translation found for role_call_screening_description (4470066768170089758) -->
+    <skip />
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"<xliff:g id="APP_NAME">%1$s</xliff:g> 앱을 기본 발신번호 표시 및 스팸 앱으로 설정하시겠습니까?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"필요한 권한 없음"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"현재 기본 앱"</string>
@@ -258,6 +282,8 @@
     <string name="default_app_none" msgid="7671097769303174666">"없음"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(시스템 기본값)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"앱 없음"</string>
+    <string name="car_default_app_selected" msgid="2813270284225505741">"선택됨"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"선택됨 - <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"특수 앱 액세스 권한"</string>
     <string name="special_app_access" msgid="2561673957499408877">"특수 앱 액세스 권한"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"특수 앱 액세스 권한 없음"</string>

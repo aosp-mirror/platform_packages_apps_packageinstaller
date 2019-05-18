@@ -145,8 +145,30 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"நிராகரி"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> என்பதற்கான அனுமதி"</string>
     <string name="app_permission_header" msgid="228974007660007656">"இந்த ஆப்ஸிற்கு <xliff:g id="PERM">%1$s</xliff:g> அணுகல்"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"<xliff:g id="TIME">%3$s</xliff:g> முன்பு <xliff:g id="APP">%1$s</xliff:g> ஆப்ஸ் உங்கள் <xliff:g id="PERM">%2$s</xliff:g> அணுகலைப் பயன்படுத்தியது"</string>
-    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"<xliff:g id="APP">%1$s</xliff:g> உங்கள் <xliff:g id="PERM">%2$s</xliff:g> அணுகலைப் பயன்படுத்தவில்லை"</string>
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"<xliff:g id="TIME">%3$s</xliff:g> முன்பு <xliff:g id="APP">%1$s</xliff:g> ஆப்ஸ் உங்கள் <xliff:g id="PERM">%2$s</xliff:g> அணுகலைப் பயன்படுத்தியது"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"<xliff:g id="TIME">%2$s</xliff:g> முன்பு <xliff:g id="APP">%1$s</xliff:g> உடல் செயல்பாடுகளுக்கான அணுகலைப் பயன்படுத்தியது"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"<xliff:g id="TIME">%2$s</xliff:g> முன்பு <xliff:g id="APP">%1$s</xliff:g> உங்கள் கேலெண்டருக்கான அணுகலைப் பயன்படுத்தியது"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"<xliff:g id="TIME">%2$s</xliff:g> முன்பு <xliff:g id="APP">%1$s</xliff:g> அழைப்புப் பதிவுகளுக்கான அணுகலைப் பயன்படுத்தியது"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"<xliff:g id="TIME">%2$s</xliff:g> முன்பு<xliff:g id="APP">%1$s</xliff:g> உங்கள் கேமராவிற்கான அணுகலைப் பயன்படுத்தியது"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"<xliff:g id="TIME">%2$s</xliff:g> முன்பு <xliff:g id="APP">%1$s</xliff:g> உங்கள் தொடர்புகளுக்கான அணுகலைப் பயன்படுத்தியது"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"<xliff:g id="TIME">%2$s</xliff:g> முன்பு <xliff:g id="APP">%1$s</xliff:g> உங்கள் இருப்பிட அணுகலைப் பயன்படுத்தியது"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"<xliff:g id="TIME">%2$s</xliff:g> முன்பு <xliff:g id="APP">%1$s</xliff:g> உங்கள் மைக்ரோஃபோனுக்கான அணுகலைப் பயன்படுத்தியது"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"<xliff:g id="TIME">%2$s</xliff:g> முன்பு <xliff:g id="APP">%1$s</xliff:g> உங்கள் மொபைலுக்கான அணுகலைப் பயன்படுத்தியது"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"<xliff:g id="TIME">%2$s</xliff:g> முன்பு <xliff:g id="APP">%1$s</xliff:g> உங்கள் சென்சார்களுக்கான அணுகலைப் பயன்படுத்தியது"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"<xliff:g id="TIME">%2$s</xliff:g> முன்பு <xliff:g id="APP">%1$s</xliff:g> உங்கள் SMSஸைப் பயன்படுத்தியது"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"<xliff:g id="TIME">%2$s</xliff:g> முன்பு <xliff:g id="APP">%1$s</xliff:g> உங்கள் சேமிப்பக அணுகலைப் பயன்படுத்தியது"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"<xliff:g id="APP">%1$s</xliff:g> உங்கள் <xliff:g id="PERM">%2$s</xliff:g> அணுகலைப் பயன்படுத்தவில்லை"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"<xliff:g id="APP">%1$s</xliff:g> உங்கள் உடல் செயல்பாடுகளுக்கான அணுகலைப் பயன்படுத்தவில்லை"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"<xliff:g id="APP">%1$s</xliff:g> உங்கள் கேலெண்டருக்கான அணுகலைப் பயன்படுத்தவில்லை"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"<xliff:g id="APP">%1$s</xliff:g> உங்கள் அழைப்புப் பதிவுகளுக்கான அணுகலைப் பயன்படுத்தவில்லை"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"<xliff:g id="APP">%1$s</xliff:g> உங்கள் கேமராவிற்கான அணுகலைப் பயன்படுத்தவில்லை"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"<xliff:g id="APP">%1$s</xliff:g> உங்கள் தொடர்புகளுக்கான அணுகலைப் பயன்படுத்தவில்லை"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"<xliff:g id="APP">%1$s</xliff:g> உங்கள் இருப்பிட அணுகலைப் பயன்படுத்தவில்லை"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"<xliff:g id="APP">%1$s</xliff:g> உங்கள் மைக்ரோஃபோனுக்கான அணுகலைப் பயன்படுத்தவில்லை"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"<xliff:g id="APP">%1$s</xliff:g> உங்கள் மொபைலுக்கான அணுகலைப் பயன்படுத்தவில்லை"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"<xliff:g id="APP">%1$s</xliff:g> உங்கள் சென்சார்களுக்கான அணுகலைப் பயன்படுத்தவில்லை"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"<xliff:g id="APP">%1$s</xliff:g> உங்கள் SMSஸிற்கான அணுகலைப் பயன்படுத்தவில்லை"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"<xliff:g id="APP">%1$s</xliff:g> உங்கள் சேமிப்பக அணுகலைப் பயன்படுத்தவில்லை"</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"இந்த அனுமதியில் கடைசியாக அணுகிய தரவு தற்போது கிடைக்கவில்லை"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"அனைத்து <xliff:g id="APP">%1$s</xliff:g> அனுமதிகளையும் காட்டு"</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"இந்த அனுமதியைக் கொண்டுள்ள அனைத்து ஆப்ஸையும் காட்டு"</string>
@@ -188,7 +210,7 @@
       <item quantity="one">1 விநாடி</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"அனுமதிக்கான நினைவூட்டல்கள்"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> உங்கள் இருப்பிடத்தைப் பயன்படுத்துகிறது"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"<xliff:g id="APP_NAME">%s</xliff:g> ஆப்ஸ் உங்கள் இருப்பிடத்தைப் பின்புலத்தில் பெற்றது"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"எப்பொழுதும் உங்கள் இருப்பிடத்தை இந்த ஆப்ஸால் பயன்படுத்த இயலும். மாற்றத் தட்டவும்."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"ஆப்ஸ் உபயோகத்தில் இருக்கும்போது மட்டும்"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"எந்த அனுமதிகளும் வழங்கப்படவில்லை"</string>
@@ -232,12 +254,14 @@
     <string name="role_home_request_description" msgid="6437733879812403277">"அனுமதிகள் தேவையில்லை"</string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"இயல்பு அழைப்புதிருப்பும் ஆப்ஸ்"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"அழைப்பைத் திருப்பிவிடும் ஆப்ஸ்"</string>
-    <string name="role_call_redirection_description" msgid="159351481987081777">"அழைப்புகளை வேறு மொபைல் எண்ணிற்குத் திருப்பிவிட அனுமதிக்கும் ஆப்ஸ்"</string>
+    <!-- no translation found for role_call_redirection_description (769231030043298555) -->
+    <skip />
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"<xliff:g id="APP_NAME">%1$s</xliff:g>ஐ அழைப்பைத் திசைதிருப்பும் இயல்பான ஆப்ஸாக அமைக்கவா?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"அனுமதிகள் தேவையில்லை"</string>
     <string name="role_call_screening_label" msgid="5366988848919437946">"இயல்பான அழைப்பாளர் ஐடி &amp; ஸ்பேம் ஆப்ஸ்"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"அழைப்பாளர் ஐடி &amp; ஸ்பேம் ஆப்ஸ்"</string>
-    <string name="role_call_screening_description" msgid="9009090500431969390">"உங்களுக்கு வரும் அழைப்புகள், ஸ்பேம் மற்றும் ரோபோ அழைப்புகள் போன்றவற்றை அடையாளம் காணவும், தேவையில்லாத எண்களை மறுப்புப்பட்டியலில் சேர்க்கவும், மேலும் பலவற்றைச் செய்யவும் அனுமதிக்கும் ஆப்ஸ்"</string>
+    <!-- no translation found for role_call_screening_description (4470066768170089758) -->
+    <skip />
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"<xliff:g id="APP_NAME">%1$s</xliff:g>ஐ இயல்பான அழைப்பாளர் ஐடி &amp; ஸ்பேம் ஆப்ஸாக அமைக்கவா?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"அனுமதிகள் தேவையில்லை"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"தற்போதைய இயல்பான ஆப்ஸ்"</string>
@@ -258,6 +282,10 @@
     <string name="default_app_none" msgid="7671097769303174666">"ஏதுமில்லை"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(சிஸ்டத்தின் இயல்புநிலை)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"ஆப்ஸ் இல்லை"</string>
+    <!-- no translation found for car_default_app_selected (2813270284225505741) -->
+    <skip />
+    <!-- no translation found for car_default_app_selected_with_info (5067890906522338747) -->
+    <skip />
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"ஆப்ஸிற்கான சிறப்பு அணுகல்"</string>
     <string name="special_app_access" msgid="2561673957499408877">"ஆப்ஸிற்கான சிறப்பு அணுகல்"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"ஆப்ஸிற்கு சிறப்பு அணுகல் இல்லை"</string>

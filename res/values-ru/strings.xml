@@ -59,7 +59,7 @@
     <string name="menu_show_system" msgid="7623002570829860709">"Показать системные процессы"</string>
     <string name="menu_hide_system" msgid="2274204366405029090">"Скрыть системные процессы"</string>
     <string name="no_apps" msgid="2377153782338039463">"Нет приложений"</string>
-    <string name="location_settings" msgid="547378321761364906">"Открыть настройки доступа"</string>
+    <string name="location_settings" msgid="547378321761364906">"Настройки геолокации"</string>
     <string name="location_warning" msgid="4687406043150343369">"Приложение \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" обеспечивает геолокацию на этом устройстве. Вы всегда можете изменить настройки доступа к данным о местоположении."</string>
     <string name="system_warning" msgid="6868290533389195836">"Без этого разрешения основные функции устройства могут работать неправильно."</string>
     <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"В соответствии с правилами"</string>
@@ -151,22 +151,44 @@
     <string name="app_permission_button_deny" msgid="5716368368650638408">"Запретить"</string>
     <string name="app_permission_title" msgid="2453000050669052385">"Разрешение \"<xliff:g id="PERM">%1$s</xliff:g>\""</string>
     <string name="app_permission_header" msgid="228974007660007656">"<xliff:g id="PERM">%1$s</xliff:g>: доступ для этого приложения"</string>
-    <string name="app_permission_footer_usage_summary" msgid="1034436308858219976">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" использовало разрешение \"<xliff:g id="PERM">%2$s</xliff:g>\" <xliff:g id="TIME">%3$s</xliff:g> назад."</string>
-    <string name="app_permission_footer_no_usages" msgid="4444374134047275841">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" не использовало разрешение \"<xliff:g id="PERM">%2$s</xliff:g>\"."</string>
+    <string name="app_permission_footer_usage_summary_generic" msgid="7811075583756658149">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" использовало разрешение \"<xliff:g id="PERM">%2$s</xliff:g>\" <xliff:g id="TIME">%3$s</xliff:g> назад."</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="8791288545338985169">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" использовало доступ к физ. активности <xliff:g id="TIME">%2$s</xliff:g> назад."</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="8982393303411011561">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" использовало доступ к календарю <xliff:g id="TIME">%2$s</xliff:g> назад."</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="5841205759869615348">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" использовало доступ к списку вызовов <xliff:g id="TIME">%2$s</xliff:g> назад."</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="4915099510475162393">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" использовало доступ к камере <xliff:g id="TIME">%2$s</xliff:g> назад."</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="8892786668058834823">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" использовало доступ к контактам <xliff:g id="TIME">%2$s</xliff:g> назад."</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="257321357251736067">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" использовало доступ к местоположению <xliff:g id="TIME">%2$s</xliff:g> назад."</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="6461237822187085578">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" использовало доступ к микрофону <xliff:g id="TIME">%2$s</xliff:g> назад."</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="1791466121210148997">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" использовало доступ к телефону <xliff:g id="TIME">%2$s</xliff:g> назад."</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="8010060979779849320">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" использовало доступ к датчикам <xliff:g id="TIME">%2$s</xliff:g> назад."</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="481907038945469547">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" использовало доступ к SMS <xliff:g id="TIME">%2$s</xliff:g> назад."</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="7847355419185631004">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" использовало доступ к хранилищу <xliff:g id="TIME">%2$s</xliff:g> назад."</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="7904373526554483299">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" не использовало разрешение \"<xliff:g id="PERM">%2$s</xliff:g>\"."</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="1015916448819291701">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" не использовало доступ к физ. активности."</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="1448523686184653876">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" не использовало доступ к календарю."</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="5433327903098404145">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" не использовало доступ к списку вызовов."</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="3812424069400633756">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" не использовало доступ к камере."</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="2962618560409910236">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" не использовало доступ к контактам."</string>
+    <string name="app_permission_footer_no_usages_location" msgid="3139403882972245466">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" не использовало доступ к местоположению."</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="4502324845867303326">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" не использовало доступ к микрофону."</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="3134870310324070582">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" не использовало доступ к телефону."</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="6780114763414830921">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" не использовало доступ к датчикам."</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2914635748085007335">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" не использовало доступ к SMS."</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="6855153915670393812">"Приложение \"<xliff:g id="APP">%1$s</xliff:g>\" не использовало доступ к хранилищу."</string>
     <string name="app_permission_footer_not_available" msgid="8880039652295478414">"Нет данных о доступе для этого разрешения."</string>
     <string name="app_permission_footer_app_permissions_link" msgid="8033278634020892918">"Все разрешения приложения \"<xliff:g id="APP">%1$s</xliff:g>\""</string>
     <string name="app_permission_footer_permission_apps_link" msgid="8759141212929298774">"Все приложения с этим разрешением"</string>
     <string name="permission_description_summary_generic" msgid="5479202003136667039">"Приложения с этим разрешением могут выполнять следующие действия: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
     <string name="permission_description_summary_activity_recognition" msgid="7914828358811635600">"Приложения с этим разрешением могут получить доступ к данным о вашей физической активности, например прогулках, поездках на велосипеде, количестве пройденных шагов и пр."</string>
     <string name="permission_description_summary_calendar" msgid="2846128908236787586">"Приложения с этим разрешением могут получать доступ к календарю."</string>
-    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Приложения с этим разрешением могут получать доступ к списку вызовов и изменять его."</string>
+    <string name="permission_description_summary_call_log" msgid="2429916962093948340">"Приложения с этим разрешением могут читать список вызовов и создавать записи в нем."</string>
     <string name="permission_description_summary_camera" msgid="6699611334403400091">"Приложения с этим разрешением могут снимать фото и видео."</string>
     <string name="permission_description_summary_contacts" msgid="5169995707720233126">"Приложения с этим разрешением могут получать доступ к контактам."</string>
     <string name="permission_description_summary_location" msgid="687820658574645201">"Приложения с этим разрешением могут получать доступ к местоположению устройства."</string>
     <string name="permission_description_summary_microphone" msgid="2300290217308759293">"Приложения с этим разрешением могут записывать аудио."</string>
     <string name="permission_description_summary_phone" msgid="3773977614654088578">"Приложения с этим разрешением могут совершать звонки и управлять ими."</string>
     <string name="permission_description_summary_sensors" msgid="6733606479604624853">"Приложения с этим разрешением могут получать доступ к данным датчиков о состоянии организма."</string>
-    <string name="permission_description_summary_sms" msgid="8850213022386508528">"Приложения с этим разрешением могут получать доступ к SMS и отправлять их."</string>
+    <string name="permission_description_summary_sms" msgid="8850213022386508528">"Приложения с этим разрешением могут отправлять и просматривать SMS-сообщения."</string>
     <string name="permission_description_summary_storage" msgid="2265909502600142621">"Приложения с этим разрешением могут получить доступ к фотографиям, медиа и другим файлам на вашем устройстве."</string>
     <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Последний раз использовано: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="127066792562419809">"Временно запрещено / Последний доступ: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
@@ -202,7 +224,7 @@
       <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> сек.</item>
     </plurals>
     <string name="permission_reminders" msgid="8040710767178843151">"Напоминания о разрешениях"</string>
-    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"Приложение \"<xliff:g id="APP_NAME">%s</xliff:g>\" использовало ваши геоданные"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="458109692937364585">"Приложению \"<xliff:g id="APP_NAME">%s</xliff:g>\" в фоновом режиме доступны геоданные"</string>
     <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"У этого приложения есть постоянный доступ к сведениям о вашем местоположении. Нажмите, чтобы изменить настройки."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Разрешить только в активном режиме"</string>
     <string name="no_permissions_allowed" msgid="5781278485002145993">"Разрешения не предоставлены"</string>
@@ -246,12 +268,14 @@
     <string name="role_home_request_description" msgid="6437733879812403277">"Разрешения не требуются"</string>
     <string name="role_call_redirection_label" msgid="7555518736037919521">"Переадресация (по умолчанию)"</string>
     <string name="role_call_redirection_short_label" msgid="4214301516577863936">"Переадресация звонков"</string>
-    <string name="role_call_redirection_description" msgid="159351481987081777">"Приложения, которые позволяют перенаправлять звонки на другой номер телефона."</string>
+    <!-- no translation found for role_call_redirection_description (769231030043298555) -->
+    <skip />
     <string name="role_call_redirection_request_title" msgid="5719129486575088263">"Сделать \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" приложением для переадресации звонков по умолчанию?"</string>
     <string name="role_call_redirection_request_description" msgid="6117172580087594081">"Разрешения не требуются"</string>
     <string name="role_call_screening_label" msgid="5366988848919437946">"АОН и защита от спама по умолчанию"</string>
     <string name="role_call_screening_short_label" msgid="7596133131034442273">"АОН и защита от спама"</string>
-    <string name="role_call_screening_description" msgid="9009090500431969390">"Приложения, которые позволяют определять номера, блокировать спам и автоматические звонки, заносить нежелательные номера в черный список и т. д."</string>
+    <!-- no translation found for role_call_screening_description (4470066768170089758) -->
+    <skip />
     <string name="role_call_screening_request_title" msgid="4775643776524356653">"Сделать \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" приложением для автоматического определения номеров и защиты от спама по умолчанию?"</string>
     <string name="role_call_screening_request_description" msgid="7788142583532880646">"Разрешения не требуются"</string>
     <string name="request_role_current_default" msgid="7512045433655289638">"Используется по умолчанию"</string>
@@ -272,6 +296,8 @@
     <string name="default_app_none" msgid="7671097769303174666">"Нет"</string>
     <string name="default_app_system_default" msgid="3870203641514466948">"(по умолчанию)"</string>
     <string name="default_app_no_apps" msgid="5344668465735677271">"Приложений нет"</string>
+    <string name="car_default_app_selected" msgid="2813270284225505741">"Выбрано"</string>
+    <string name="car_default_app_selected_with_info" msgid="5067890906522338747">"Выбрано: <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="462008045110320714">"специальный доступ для приложений"</string>
     <string name="special_app_access" msgid="2561673957499408877">"Спец. доступ для приложений"</string>
     <string name="no_special_app_access" msgid="994977666694457811">"Специальный доступ не настроен"</string>
