@@ -33,7 +33,7 @@
     <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"क्या आप इस मौजूदा ऐप में नई जानकारी इंस्टॉल करना चाहते हैं? आपका मौजूदा डेटा बना रहेगा. इसे किसी खास पहुंच की ज़रुरत नहीं होती."</string>
     <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"क्या आप इस मौजूदा ऐप में नई जानकारी इंस्टॉल करना चाहते हैं? आपका मौजूदा डेटा बना रहेगा. इसे किसी खास पहुंच की ज़रुरत नहीं होती."</string>
     <string name="install_failed" msgid="6579998651498970899">"ऐप्स  इंस्‍टॉल नहीं हुआ."</string>
-    <string name="install_failed_blocked" msgid="1606870930588770025">"पैकेज को इंस्टॉल होने से अवरुद्ध किया हुआ है."</string>
+    <string name="install_failed_blocked" msgid="1606870930588770025">"पैकेज को इंस्टॉल होने से रोका गया है."</string>
     <string name="install_failed_conflict" msgid="5336045235168070954">"ऐप्लिकेशन इंस्टॉल नहीं हुआ क्योंकि पैकेज का किसी मौजूदा पैकेज से विरोध है."</string>
     <string name="install_failed_incompatible" product="tablet" msgid="6682387386242708974">"ऐप्लिकेशन इंस्टॉल नहीं हुआ क्योंकि ऐप्लिकेशन आपके टैबलेट से संगत नहीं है."</string>
     <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"यह ऐप आपके टीवी के संगत नहीं है."</string>
@@ -51,7 +51,7 @@
     <string name="manage_applications" msgid="4033876279091996596">"ऐप्स  प्रबंधित करें"</string>
     <string name="dlg_app_replacement_title" msgid="1232230739563820951">"ऐप्स  बदलें?"</string>
     <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"आप जिस ऐप को इंस्‍टॉल कर रहे हैं वह दूसरे वह दूसरे ऐप की जगह ले लेगा.\n\nपहले से मौजूद आपका पूरा डेटा सहेजकर रखा जाएगा."</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"यह कोई सिस्‍टम एप्लिकेशन है.\n\nपहले से मौजूद आपका पूरा डेटा सेव कर लिया जाएगा."</string>
+    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"यह कोई सिस्‍टम ऐप्लिकेशन है.\n\nपहले से मौजूद आपका पूरा डेटा सेव कर लिया जाएगा."</string>
     <string name="out_of_space_dlg_title" msgid="7843674437613797326">"जगह नहीं है"</string>
     <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> को इंस्‍टॉल नहीं किया जा सका. थोड़ी जगह खाली करें और फिर से कोशिश करें."</string>
     <string name="dlg_ok" msgid="6944357727705699232">"ठीक है"</string>
@@ -68,19 +68,19 @@
     <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"क्या आप इस ऐप्स  को "<b>"सभी"</b>" उपयोगकर्ताओं के लिए अनइंस्टॉल करना चाहते हैं? ऐप्स  और उसके डेटा को डिवाइस पर "<b>"सभी"</b>" उपयोगकर्ताओं से निकाल दिया जाएगा."</string>
     <string name="uninstall_application_text_user" msgid="8766882355635485733">"क्या आप उपयोगकर्ता <xliff:g id="USERNAME">%1$s</xliff:g> के लिए इस ऐप को अनइंस्टॉल करना चाहते हैं?"</string>
     <string name="uninstall_update_text" msgid="1394549691152728409">"इस ऐप्लिकेशन को फ़ैक्टरी वर्शन से बदलें? सभी डेटा निकाल दिया जाएगा."</string>
-    <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"इस ऐप्लिकेशन को फ़ैक्ट्री वर्शन से बदलें? पूरा डेटा निकाल दिया जाएगा. इसका इस डिवाइस के सभी उपयोगकर्ताओं पर असर पड़ेगा, जिनमें कार्य प्रोफ़ाइल वाले उपयोगकर्ता शामिल हैं."</string>
+    <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"इस ऐप्लिकेशन को फ़ैक्ट्री वर्शन से बदलें? पूरा डेटा निकाल दिया जाएगा. इसका इस डिवाइस के सभी उपयोगकर्ताओं पर असर पड़ेगा, जिनमें वर्क प्रोफ़ाइल वाले उपयोगकर्ता शामिल हैं."</string>
     <string name="uninstalling_notification_channel" msgid="5698369661583525583">"वे अनइंस्टॉल जो चल रहे हैं"</string>
     <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"वे अनइंस्टॉल जो सफल नहीं रहे"</string>
     <string name="uninstalling" msgid="5556217435895938250">"अनइंस्‍टॉल कर रहा है…"</string>
     <string name="uninstalling_app" msgid="2773617614877719294">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> अनइंस्टॉल किया जा रहा है…"</string>
-    <string name="uninstall_done" msgid="3792487853420281888">"अनइंस्‍टॉल करना पूर्ण हो गया."</string>
+    <string name="uninstall_done" msgid="3792487853420281888">"अनइंस्‍टॉल करना पूरा हो गया."</string>
     <string name="uninstall_done_app" msgid="775837862728680479">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> अनइंस्टॉल किया गया"</string>
     <string name="uninstall_failed" msgid="631122574306299512">"अनइंस्‍टॉल करना विफल."</string>
     <string name="uninstall_failed_app" msgid="945277834056527022">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> को अनइंस्टॉल करना असफल."</string>
     <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"सक्रिय डिवाइस व्यवस्थापक ऐप्लिकेशन को अनइंस्टॉल नहीं किया जा सकता"</string>
     <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"<xliff:g id="USERNAME">%1$s</xliff:g> के लिए सक्रिय डिवाइस व्यवस्थापक ऐप्लिकेशन को अनइंस्टॉल नहीं किया जा सकता"</string>
-    <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"यह ऐप्लिकेशन कुछ उपयोगकर्ताओं या प्रोफ़ाइल हेतु आवश्यक है और अन्य हेतु अनइंस्टॉल हो गया है"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"आपकी कार्य प्रोफ़ाइल के लिए यह ऐप्लिकेशन आवश्यक है और उसे अनइंस्टॉल नहीं किया जा सकता."</string>
+    <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"यह ऐप्लिकेशन कुछ उपयोगकर्ताओं या प्रोफ़ाइल के लिए आवश्यक है और अन्य के लिए अनइंस्टॉल हो गया है"</string>
+    <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"आपकी वर्क प्रोफ़ाइल के लिए यह ऐप्लिकेशन आवश्यक है और उसे अनइंस्टॉल नहीं किया जा सकता."</string>
     <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"आपके डिवाइस व्यवस्थापक के लिए यह ऐप्स जरूरी है व इसे अनइंस्टॉल नहीं किया जा सकता."</string>
     <string name="manage_device_administrators" msgid="118178632652346535">"डिवाइस व्यवस्थापक ऐप्लिकेशन प्रबंधित करें"</string>
     <string name="manage_users" msgid="3125018886835668847">"उपयोगकर्ताओं को प्रबंधित करें"</string>
@@ -93,7 +93,7 @@
     <string name="no_new_perms" msgid="6657813692169565975">"इस अपडेट लिए अनुमति की ज़रुरत नहीं है."</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"क्या आप नीचे दी गई बातों की अनुमति देना चाहते हैं ? इससे इन चीजों पर पहुंचा जा सकेगा:"</string>
     <string name="grant_dialog_button_deny" msgid="2176510645406614340">"अस्वीकार करें"</string>
-    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"अधिक जानकारी"</string>
+    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"ज़्यादा जानकारी"</string>
     <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"फिर भी अस्वीकार करें"</string>
     <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> में से <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>"</string>
     <string name="permission_warning_template" msgid="7332275268559121742">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; को <xliff:g id="ACTION">%2$s</xliff:g> की अनुमति दें?"</string>
@@ -120,7 +120,7 @@
     <string name="no_apps" msgid="1965493419005012569">"कोई ऐप्स नहीं"</string>
     <string name="location_settings" msgid="1774875730854491297">"जगह की सेटिंग"</string>
     <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> इस डिवाइस के लिए जगह की जानकारी उपलब्‍ध कराता है. जगह की पहुंच (एक्सेस) को जगह की सेटिंग से बदला जा सकता है."</string>
-    <string name="system_warning" msgid="7103819124542305179">"यदि आप इस अनुमति को अस्वीकार करते हैं, तो हो सकता है कि आपके डिवाइस की मूलभूत सुविधाएं लक्षित कार्य ना कर पाएं."</string>
+    <string name="system_warning" msgid="7103819124542305179">"अगर आप इस अनुमति को अस्वीकार करते हैं, तो हो सकता है कि आपके डिवाइस की मूलभूत सुविधाएं जरूरी काम न कर पाएं."</string>
     <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"नीति द्वारा लागू"</string>
     <string name="loading" msgid="7811651799620593731">"लोड हो रहा है…"</string>
     <string name="all_permissions" msgid="5156669007784613042">"सभी अनुमतियां"</string>
@@ -143,9 +143,9 @@
     <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"आपकी सुरक्षा के लिए, आपके टैबलेट को इस स्रोत से आने वाले अनजान ऐप्लिकेशन इंस्टॉल करने की अनुमति नहीं है."</string>
     <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"आपकी सुरक्षा के लिए, आपके टीवी को इस स्रोत से आने वाले अनजान ऐप्लिकेशन इंस्टॉल करने की अनुमति नहीं है."</string>
     <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"आपकी सुरक्षा के लिए, आपके फ़ोन को इस स्रोत से आने वाले अनजान ऐप्लिकेशन इंस्टॉल करने की अनुमति नहीं है."</string>
-    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"आपका फ़ोन और व्यक्तिगत डेटा अज्ञात ऐप्लिकेशन के हमले के प्रति अधिक संवेदनशील हैं. इस ऐप्लिकेशन को इंस्टॉल करके आप सहमति देते हैं कि इसके उपयोग के चलते आपके फ़ोन को होने वाले किसी भी नुकसान या डेटा की हानि के लिए आप ज़िम्मेदार हैं."</string>
-    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"आपका टैबलेट और व्यक्तिगत डेटा अज्ञात ऐप्लिकेशन के हमले के प्रति अधिक संवेदनशील हैं. इस ऐप्लिकेशन को इंस्टॉल करके आप सहमति देते हैं कि इसके उपयोग के चलते आपके टैबलेट को होने वाले किसी भी नुकसान या डेटा की हानि के लिए आप ज़िम्मेदार हैं."</string>
-    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"आपका टीवी और व्यक्तिगत डेटा अज्ञात ऐप्लिकेशन के हमले के प्रति अधिक संवेदनशील हैं. इस ऐप्लिकेशन को इंस्टॉल करके आप सहमति देते हैं कि इसके उपयोग के चलते आपके टीवी को होने वाले किसी भी नुकसान या डेटा की हानि के लिए आप ज़िम्मेदार हैं."</string>
+    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"आपका फ़ोन और व्यक्तिगत डेटा अज्ञात ऐप्लिकेशन के हमले के प्रति ज़्यादा संवेदनशील हैं. इस ऐप्लिकेशन को इंस्टॉल करके आप सहमति देते हैं कि इसके उपयोग के चलते आपके फ़ोन को होने वाले किसी भी नुकसान या डेटा की हानि के लिए आप ज़िम्मेदार हैं."</string>
+    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"आपका टैबलेट और व्यक्तिगत डेटा अज्ञात ऐप्लिकेशन के हमले के प्रति ज़्यादा संवेदनशील हैं. इस ऐप्लिकेशन को इंस्टॉल करके आप सहमति देते हैं कि इसके उपयोग के चलते आपके टैबलेट को होने वाले किसी भी नुकसान या डेटा की हानि के लिए आप ज़िम्मेदार हैं."</string>
+    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"आपका टीवी और व्यक्तिगत डेटा अज्ञात ऐप्लिकेशन के हमले के प्रति ज़्यादा संवेदनशील हैं. इस ऐप्लिकेशन को इंस्टॉल करके आप सहमति देते हैं कि इसके उपयोग के चलते आपके टीवी को होने वाले किसी भी नुकसान या डेटा की हानि के लिए आप ज़िम्मेदार हैं."</string>
     <string name="anonymous_source_continue" msgid="2094381167954332292">"जारी रखें"</string>
     <string name="external_sources_settings" msgid="8601453744517291632">"सेटिंग"</string>
     <string name="wear_app_channel" msgid="6200840123672949356">"वियर ऐप इंस्टॉल/अनइंस्टॉल हो रहे हैं"</string>
