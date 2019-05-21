@@ -72,8 +72,9 @@ public class PreferredActivity {
         PackageManager packageManager = context.getPackageManager();
         ComponentName packageActivity = mActivity.getQualifyingComponentForPackage(
                 packageName, context);
-        // TODO: STOPSHIP: Race condition, what if packageActivity became null? Just don't crash?
         if (packageActivity == null) {
+            // We might be running into some race condition here, but we can't do anything about it.
+            // This should be handled by a future reconciliation started by the package change.
             return;
         }
 
