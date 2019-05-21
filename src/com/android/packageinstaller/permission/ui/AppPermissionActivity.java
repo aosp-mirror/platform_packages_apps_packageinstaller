@@ -28,9 +28,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
 import com.android.packageinstaller.DeviceUtils;
+import com.android.packageinstaller.permission.ui.auto.AutoAppPermissionFragment;
 import com.android.packageinstaller.permission.ui.handheld.AppPermissionFragment;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.permissioncontroller.R;
 
 /**
  * Manage a single permission of a single app
@@ -43,6 +45,11 @@ public final class AppPermissionActivity extends FragmentActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        if (DeviceUtils.isAuto(this)) {
+            // Automotive relies on a different theme. Apply before calling super so that
+            // fragments are restored properly on configuration changes.
+            setTheme(R.style.CarSettings);
+        }
         super.onCreate(savedInstanceState);
 
         getWindow().addSystemFlags(SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
@@ -88,11 +95,17 @@ public final class AppPermissionActivity extends FragmentActivity {
 
         String caller = getIntent().getStringExtra(EXTRA_CALLER_NAME);
 
-        Fragment androidXFragment = AppPermissionFragment.newInstance(packageName, permissionName,
-                groupName, userHandle, caller);
+        Fragment androidXFragment;
+        if (DeviceUtils.isAuto(this)) {
+            androidXFragment = AutoAppPermissionFragment.newInstance(packageName, permissionName,
+                    groupName, userHandle);
+        } else {
+            androidXFragment = AppPermissionFragment.newInstance(packageName, permissionName,
+                    groupName, userHandle, caller);
+        }
 
         getSupportFragmentManager().beginTransaction().replace(android.R.id.content,
-                    androidXFragment).commit();
+                androidXFragment).commit();
     }
 
     @Override
