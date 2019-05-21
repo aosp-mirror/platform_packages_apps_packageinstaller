@@ -109,7 +109,6 @@
             -->
         </required-components>
         <permissions>
-            <!-- STOPSHIP: Allow to only enable permissions, but not grant them -->
             <permission-set name="sms" />
             <permission name="android.permission.READ_CALL_LOG" />
         </permissions>
@@ -202,10 +201,19 @@
                 <activity>
                     <intent-filter>
                         <action name="android.intent.action.DIAL" />
+                    </intent-filter>
+                </activity>
+                <intent-filter>
+                    <action name="android.intent.action.DIAL" />
+                </intent-filter>
+            </preferred-activity>
+            <preferred-activity>
+                <activity>
+                    <intent-filter>
+                        <action name="android.intent.action.DIAL" />
                         <data scheme="tel" />
                     </intent-filter>
                 </activity>
-                <!-- TODO: STOPSHIP: Set preferred? -->
                 <intent-filter>
                     <action name="android.intent.action.DIAL" />
                     <data scheme="tel" />
@@ -300,7 +308,6 @@
         </preferred-activities>
     </role>
 
-    <!-- TODO: STOPSHIP: Intent action sometimes changing dynamically in com.android.phone.EmergencyAssistanceHelper.getIntentAction -->
     <!---
       ~ @see com.android.settings.applications.defaultapps.DefaultEmergencyPreferenceController
       ~ @see com.android.settings.applications.defaultapps.DefaultEmergencyPicker
