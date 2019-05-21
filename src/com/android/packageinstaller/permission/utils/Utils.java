@@ -59,7 +59,6 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Parcelable;
-import android.os.Process;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.DeviceConfig;
@@ -720,14 +719,10 @@ public final class Utils {
     public static @NonNull Drawable getBadgedIcon(@NonNull Context context,
             @NonNull ApplicationInfo appInfo) {
         UserHandle user = UserHandle.getUserHandleForUid(appInfo.uid);
-        if (Process.myUserHandle().equals(user)) {
-            return appInfo.loadIcon(context.getPackageManager());
-        } else {
-            try (IconFactory iconFactory = IconFactory.obtain(context)) {
-                Bitmap iconBmp = iconFactory.createBadgedIconBitmap(
-                        appInfo.loadUnbadgedIcon(context.getPackageManager()), user, false).icon;
-                return new BitmapDrawable(context.getResources(), iconBmp);
-            }
+        try (IconFactory iconFactory = IconFactory.obtain(context)) {
+            Bitmap iconBmp = iconFactory.createBadgedIconBitmap(
+                    appInfo.loadUnbadgedIcon(context.getPackageManager()), user, false).icon;
+            return new BitmapDrawable(context.getResources(), iconBmp);
         }
     }
 
