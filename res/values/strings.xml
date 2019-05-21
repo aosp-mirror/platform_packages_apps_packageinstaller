@@ -812,6 +812,12 @@
     <!-- Title for the incident / bug report confirmation dialog. [CHAR LIMIT=50] -->
     <string name="incident_report_dialog_title">Share Debugging Data</string>
 
+    <!-- Title text for introduction to incident / bug report confirmation dialog.
+    Following this text is a bulleted list of reasons that a bug is being collected (e.g. "bad
+    battery life detected"). Please try to keep this as short as possible (<40 chars if possible).
+    The dialog is getting full, but going over is ok if necessary.  [CHAR LIMIT=60] -->
+    <string name="incident_report_dialog_intro">The system has detected a problem.</string>
+
     <!-- Content for dialog shown when the user should confirm an incident / bug report.
     [CHAR LIMIT=none] -->
     <string name="incident_report_dialog_text">"<xliff:g id="app_name" example="Gmail">%1$s</xliff:g> is requesting to upload a bug report from this device taken on <xliff:g id="date" example="December 26, 2018">%2$s</xliff:g> at <xliff:g id="time" example="1:20 PM">%3$s</xliff:g>. Bug reports include personal information about your device or logged by apps, for example, user names, location data, device identifiers, and network information. Only share bug reports with people and apps you trust with this information.
