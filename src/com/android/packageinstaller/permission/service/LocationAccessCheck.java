@@ -57,9 +57,8 @@ import static java.lang.System.currentTimeMillis;
 import static java.util.concurrent.TimeUnit.DAYS;
 
 import android.app.AppOpsManager;
-import android.app.AppOpsManager.HistoricalOps;
-import android.app.AppOpsManager.HistoricalOpsRequest;
-import android.app.AppOpsManager.HistoricalPackageOps;
+import android.app.AppOpsManager.OpEntry;
+import android.app.AppOpsManager.PackageOps;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -97,7 +96,6 @@ import androidx.core.util.Preconditions;
 
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.ui.AppPermissionActivity;
-import com.android.packageinstaller.permission.utils.CollectionUtils;
 import com.android.permissioncontroller.R;
 
 import java.io.BufferedReader;
@@ -106,13 +104,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.TimeUnit;
 import java.util.function.BooleanSupplier;
 
 /**
@@ -132,8 +127,6 @@ import java.util.function.BooleanSupplier;
 public class LocationAccessCheck {
     private static final String LOG_TAG = LocationAccessCheck.class.getSimpleName();
     private static final boolean DEBUG = false;
-
-    private static final long GET_HISTORIAL_OPS_TIMEOUT_MILLIS = TimeUnit.SECONDS.toMillis(3);
 
     /** Lock required for all methods called {@code ...Locked} */
     private static final Object sLock = new Object();
@@ -357,15 +350,8 @@ public class LocationAccessCheck {
                     return;
                 }
 
-                HistoricalOpsRequest request = new HistoricalOpsRequest.Builder(
-                        Instant.EPOCH.toEpochMilli(), Long.MAX_VALUE)
-                        .setOpNames(CollectionUtils.singletonOrEmpty(OPSTR_FINE_LOCATION))
-                        .build();
-                CompletableFuture<HistoricalOps> ops = new CompletableFuture<>();
-                mAppOpsManager.getHistoricalOps(request, mContext.getMainExecutor(), ops::complete);
-
-                addLocationNotificationIfNeeded(
-                        ops.get(GET_HISTORIAL_OPS_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS));
+                addLocationNotificationIfNeeded(mAppOpsManager.getPackagesForOps(
+                        new String[]{OPSTR_FINE_LOCATION}));
                 service.jobFinished(params, false);
             } catch (Exception e) {
                 Log.e(LOG_TAG, "Could not check for location access", e);
@@ -378,7 +364,7 @@ public class LocationAccessCheck {
         }
     }
 
-    private void addLocationNotificationIfNeeded(@NonNull HistoricalOps ops)
+    private void addLocationNotificationIfNeeded(@NonNull List<PackageOps> ops)
             throws InterruptedException {
         synchronized (sLock) {
             List<UserPackage> packages = getLocationUsersWithNoNotificationYetLocked(ops);
@@ -435,67 +421,62 @@ public class LocationAccessCheck {
      * @throws InterruptedException If {@link #mShouldCancel}
      */
     private @NonNull List<UserPackage> getLocationUsersWithNoNotificationYetLocked(
-            @NonNull HistoricalOps allOps) throws InterruptedException {
+            @NonNull List<PackageOps> allOps) throws InterruptedException {
         List<UserPackage> pkgsWithLocationAccess = new ArrayList<>();
         List<UserHandle> profiles = mUserManager.getUserProfiles();
 
         LocationManager lm = mContext.getSystemService(LocationManager.class);
 
-        int numUid = allOps.getUidCount();
-        for (int uidNum = 0; uidNum < numUid; uidNum++) {
-            AppOpsManager.HistoricalUidOps uidOps = allOps.getUidOpsAt(uidNum);
+        int numPkgs = allOps.size();
+        for (int pkgNum = 0; pkgNum < numPkgs; pkgNum++) {
+            PackageOps packageOps = allOps.get(pkgNum);
 
-            int numPkgs = uidOps.getPackageCount();
-            for (int pkgNum = 0; pkgNum < numPkgs; pkgNum++) {
-                HistoricalPackageOps ops = uidOps.getPackageOpsAt(pkgNum);
+            String pkg = packageOps.getPackageName();
+            if (pkg.equals(OS_PKG) || lm.isProviderPackage(pkg)) {
+                continue;
+            }
 
-                String pkg = ops.getPackageName();
-                if (pkg.equals(OS_PKG) || lm.isProviderPackage(pkg)) {
-                    continue;
-                }
+            UserHandle user = getUserHandleForUid(packageOps.getUid());
+            // Do not handle apps that belong to a different profile user group
+            if (!profiles.contains(user)) {
+                continue;
+            }
 
-                UserHandle user = getUserHandleForUid(uidOps.getUid());
-                // Do not handle apps that belong to a different profile user group
-                if (!profiles.contains(user)) {
-                    continue;
-                }
+            UserPackage userPkg = new UserPackage(mContext, pkg, user);
 
-                UserPackage userPkg = new UserPackage(mContext, pkg, user);
+            AppPermissionGroup bgLocationGroup = userPkg.getBackgroundLocationGroup();
+            // Do not show notification that do not request the background permission anymore
+            if (bgLocationGroup == null) {
+                continue;
+            }
 
-                AppPermissionGroup bgLocationGroup = userPkg.getBackgroundLocationGroup();
-                // Do not show notification that do not request the background permission anymore
-                if (bgLocationGroup == null) {
-                    continue;
-                }
+            // Do not show notification that do not currently have the background permission
+            // granted
+            if (!bgLocationGroup.areRuntimePermissionsGranted()) {
+                continue;
+            }
 
-                // Do not show notification that do not currently have the background permission
-                // granted
-                if (!bgLocationGroup.areRuntimePermissionsGranted()) {
-                    continue;
-                }
+            // Do not show notification for permissions that are not user sensitive
+            if (!bgLocationGroup.isUserSensitive()) {
+                continue;
+            }
 
-                // Do not show notification for permissions that are not user sensitive
-                if (!bgLocationGroup.isUserSensitive()) {
-                    continue;
-                }
-
-                // Never show notification for pregranted permissions as warning the user via the
-                // notification and then warning the user again when revoking the permission is
-                // confusing
-                if (userPkg.getLocationGroup().hasGrantedByDefaultPermission()
+            // Never show notification for pregranted permissions as warning the user via the
+            // notification and then warning the user again when revoking the permission is
+            // confusing
+            if (userPkg.getLocationGroup().hasGrantedByDefaultPermission()
                     && bgLocationGroup.hasGrantedByDefaultPermission()) {
-                    continue;
-                }
+                continue;
+            }
 
-                int numOps = ops.getOpCount();
-                for (int opNum = 0; opNum < numOps; opNum++) {
-                    AppOpsManager.HistoricalOp op = ops.getOpAt(opNum);
+            int numOps = packageOps.getOps().size();
+            for (int opNum = 0; opNum < numOps; opNum++) {
+                OpEntry entry = packageOps.getOps().get(opNum);
 
-                    if (op.getBackgroundAccessCount(AppOpsManager.OP_FLAGS_ALL_TRUSTED) > 0) {
-                        pkgsWithLocationAccess.add(userPkg);
+                if (entry.getLastAccessBackgroundTime(AppOpsManager.OP_FLAGS_ALL_TRUSTED) > 0) {
+                    pkgsWithLocationAccess.add(userPkg);
 
-                        break;
-                    }
+                    break;
                 }
             }
         }
