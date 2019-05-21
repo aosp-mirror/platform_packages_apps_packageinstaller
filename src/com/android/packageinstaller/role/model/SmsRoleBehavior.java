@@ -66,8 +66,9 @@ public class SmsRoleBehavior implements RoleBehavior {
             return defaultPackageName;
         }
 
-        // TODO: STOPSHIP: This was the previous behavior, however this allows any third-party app
-        // to suddenly become the default SMS app and get the permissions.
+        // TODO(b/132916161): This was the previous behavior, however this may allow any third-party
+        //  app to suddenly become the default SMS app and get the permissions, if no system default
+        //  SMS app is available.
         List<String> qualifyingPackageNames = role.getQualifyingPackagesAsUser(
                 Process.myUserHandle(), context);
         return CollectionUtils.firstOrNull(qualifyingPackageNames);
