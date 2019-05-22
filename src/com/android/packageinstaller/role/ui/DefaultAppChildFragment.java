@@ -217,7 +217,6 @@ public class DefaultAppChildFragment<PF extends PreferenceFragmentCompat
                 liveData.resetState();
                 break;
             case ManageRoleHolderStateLiveData.STATE_FAILURE:
-                // TODO: STOPSHIP: Notify user.
                 liveData.resetState();
                 break;
         }
