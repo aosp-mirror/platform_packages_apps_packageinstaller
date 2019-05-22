@@ -177,7 +177,6 @@ public class SpecialAppAccessChildFragment<PF extends PreferenceFragmentCompat
                 break;
             case ManageRoleHolderStateLiveData.STATE_FAILURE:
                 liveData.resetState();
-                // TODO: STOPSHIP: Notify user.
                 break;
         }
     }

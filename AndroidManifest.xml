@@ -196,11 +196,6 @@
                 <action android:name="android.settings.MANAGE_DEFAULT_APPS_SETTINGS" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-            <!-- TODO: STOPSHIP: Redirect into its own default app page? -->
-            <intent-filter android:priority="2">
-                <action android:name="android.settings.HOME_SETTINGS" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
 
         <activity android:name="com.android.packageinstaller.role.ui.DefaultAppActivity"
@@ -208,6 +203,16 @@
                   android:theme="@style/Settings">
             <intent-filter android:priority="1">
                 <action android:name="android.intent.action.MANAGE_DEFAULT_APP" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.android.packageinstaller.role.ui.HomeSettingsActivity"
+                  android:excludeFromRecents="true"
+                  android:noHistory="true"
+                  android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter android:priority="2">
+                <action android:name="android.settings.HOME_SETTINGS" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

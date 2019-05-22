@@ -265,10 +265,31 @@ public class GrantPermissionsActivity extends Activity
 
         setTitle(R.string.permission_request_title);
 
+        mRequestedPermissions = getIntent().getStringArrayExtra(
+                PackageManager.EXTRA_REQUEST_PERMISSIONS_NAMES);
+        if (mRequestedPermissions == null) {
+            mRequestedPermissions = new String[0];
+        }
+
+        final int requestedPermCount = mRequestedPermissions.length;
+
+        if (requestedPermCount == 0) {
+            setResultAndFinish();
+            return;
+        }
+
         PackageInfo callingPackageInfo = getCallingPackageInfo();
 
         if (callingPackageInfo == null || callingPackageInfo.requestedPermissions == null
                 || callingPackageInfo.requestedPermissions.length <= 0) {
+            setResultAndFinish();
+            return;
+        }
+
+        // Don't allow legacy apps to request runtime permissions.
+        if (callingPackageInfo.applicationInfo.targetSdkVersion < Build.VERSION_CODES.M) {
+            // Returning empty arrays means a cancellation.
+            mRequestedPermissions = new String[0];
             setResultAndFinish();
             return;
         }
@@ -290,27 +311,6 @@ public class GrantPermissionsActivity extends Activity
             mViewHandler = new com.android.packageinstaller.permission.ui.handheld
                     .GrantPermissionsViewHandlerImpl(this, mCallingPackage, userHandle)
                     .setResultListener(this);
-        }
-
-        mRequestedPermissions = getIntent().getStringArrayExtra(
-                PackageManager.EXTRA_REQUEST_PERMISSIONS_NAMES);
-        if (mRequestedPermissions == null) {
-            mRequestedPermissions = new String[0];
-        }
-
-        final int requestedPermCount = mRequestedPermissions.length;
-
-        if (requestedPermCount == 0) {
-            setResultAndFinish();
-            return;
-        }
-
-        // Don't allow legacy apps to request runtime permissions.
-        if (callingPackageInfo.applicationInfo.targetSdkVersion < Build.VERSION_CODES.M) {
-            // Returning empty arrays means a cancellation.
-            mRequestedPermissions = new String[0];
-            setResultAndFinish();
-            return;
         }
 
         mAppPermissions = new AppPermissions(this, callingPackageInfo, false,
