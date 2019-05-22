@@ -61,7 +61,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * A dialog listing the currently uses of camera, microphone, and location.
  */
-public final class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
+public class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
 
     private @NonNull PermissionUsages mPermissionUsages;
     private @Nullable AlertDialog mDialog;
@@ -91,7 +91,7 @@ public final class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
 
         mPermissionUsages = new PermissionUsages(getActivity());
         mStartTime = Math.max(System.currentTimeMillis() - numMillis, Instant.EPOCH.toEpochMilli());
-        mPermissionUsages.load(null, new String[] { CAMERA, LOCATION, MICROPHONE }, mStartTime,
+        mPermissionUsages.load(null, new String[]{CAMERA, LOCATION, MICROPHONE}, mStartTime,
                 Long.MAX_VALUE, PermissionUsages.USAGE_FLAG_LAST, getActivity().getLoaderManager(),
                 false, false, this::onPermissionUsagesLoaded, false);
     }
@@ -142,19 +142,24 @@ public final class ReviewOngoingUsageFragment extends PreferenceFragmentCompat {
     }
 
     private void showDialog(@NonNull List<Pair<AppPermissionUsage, List<GroupUsage>>> usages) {
-        mDialog = new AlertDialog.Builder(getActivity())
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
                 .setView(createDialogView(usages))
                 .setPositiveButton(R.string.ongoing_usage_dialog_ok, (dialog, which) ->
                         PermissionControllerStatsLog.write(PRIVACY_INDICATORS_INTERACTED,
                                 PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_DISMISS, null))
-                .setNeutralButton(R.string.ongoing_usage_dialog_open_settings, (dialog, which) -> {
-                    PermissionControllerStatsLog.write(PRIVACY_INDICATORS_INTERACTED,
-                            PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_PRIVACY_SETTINGS, null);
-                    startActivity(new Intent(Settings.ACTION_PRIVACY_SETTINGS).putExtra(
-                            Intent.EXTRA_DURATION_MILLIS, TimeUnit.MINUTES.toMillis(1))); })
-                .setOnDismissListener((dialog) -> getActivity().finish())
-                .create();
+                .setOnDismissListener((dialog) -> getActivity().finish());
+        setNeutralButton(builder);
+        mDialog = builder.create();
         mDialog.show();
+    }
+
+    protected void setNeutralButton(AlertDialog.Builder builder) {
+        builder.setNeutralButton(R.string.ongoing_usage_dialog_open_settings, (dialog, which) -> {
+            PermissionControllerStatsLog.write(PRIVACY_INDICATORS_INTERACTED,
+                    PRIVACY_INDICATORS_INTERACTED__TYPE__DIALOG_PRIVACY_SETTINGS, null);
+            startActivity(new Intent(Settings.ACTION_PRIVACY_SETTINGS).putExtra(
+                    Intent.EXTRA_DURATION_MILLIS, TimeUnit.MINUTES.toMillis(1)));
+        });
     }
 
     private @NonNull View createDialogView(

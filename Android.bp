@@ -44,9 +44,9 @@ android_app {
 
     static_libs: [
         "iconloader",
-        "androidx.car_car",
         "com.google.android.material_material",
         "androidx.transition_transition",
+        "androidx-constraintlayout_constraintlayout",
         "androidx.core_core",
         "androidx.media_media",
         "androidx.legacy_legacy-support-core-utils",

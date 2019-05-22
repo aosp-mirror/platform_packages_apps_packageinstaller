@@ -171,7 +171,6 @@ public class RequestRoleActivity extends FragmentActivity {
             return;
         }
 
-        // TODO: STOPSHIP: Handle other form factors.
         if (savedInstanceState == null) {
             RequestRoleFragment fragment = RequestRoleFragment.newInstance(mRoleName, mPackageName);
             getSupportFragmentManager().beginTransaction()
