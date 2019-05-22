@@ -30,10 +30,6 @@
         <!-- 0.8 Spacing, 0.8/11 = 0.072727273 -->
         <item name="android:letterSpacing">0.072727273</item>
     </style>
-    <style name="PagedListTheme" parent="Theme.Car.NoActionBar">
-        <item name="listItemPrimaryIconTint">?android:attr/textColorPrimary</item>
-        <item name="android:colorAccent">@*android:color/accent_device_default_light</item>
-     </style>
 
     <style name="ReviewPermissions"
            parent="@android:style/Theme.DeviceDefault.Settings">
