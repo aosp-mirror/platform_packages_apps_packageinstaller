@@ -60,7 +60,7 @@ public class RequiredContentProvider extends RequiredComponent {
     @Nullable
     @Override
     protected String getComponentPermission(@NonNull ResolveInfo resolveInfo) {
-        // TODO: STOPSHIP: Which permission? Or both?
+        // TODO: Which permission? Or both?
         //return resolveInfo.providerInfo.readPermission;
         throw new UnsupportedOperationException();
     }

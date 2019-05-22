@@ -525,7 +525,9 @@ public class Role {
             return false;
         }
 
-        // TODO: STOPSHIP: Check for disabled packages?
+        if (!applicationInfo.enabled) {
+            return false;
+        }
 
         if (applicationInfo.isInstantApp()) {
             return false;
@@ -613,7 +615,10 @@ public class Role {
             appOp.revoke(packageName, context);
         }
 
-        // TODO: STOPSHIP: Revoke preferred activities?
+        // TODO: Revoke preferred activities? But this is unnecessary for most roles using it as
+        //  they have fallback holders. Moreover, clearing the preferred activity might result in
+        //  other system components listening to preferred activity change get notified for the
+        //  wrong thing when we are removing a exclusive role holder for adding another.
 
         if (mBehavior != null) {
             mBehavior.revoke(this, packageName, context);
