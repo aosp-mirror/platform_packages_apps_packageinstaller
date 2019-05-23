@@ -45,7 +45,7 @@ public class RoleControllerServiceImpl extends RoleControllerService {
 
     private static final String LOG_TAG = RoleControllerServiceImpl.class.getSimpleName();
 
-    // TODO: STOPSHIP: Turn off debugging before we ship.
+    // STOPSHIP: Turn off debugging before we ship.
     private static final boolean DEBUG = true;
 
     private RoleManager mRoleManager;
@@ -53,6 +53,7 @@ public class RoleControllerServiceImpl extends RoleControllerService {
     @Override
     public void onCreate() {
         super.onCreate();
+
         mRoleManager = getSystemService(RoleManager.class);
     }
 
@@ -335,7 +336,6 @@ public class RoleControllerServiceImpl extends RoleControllerService {
         }
 
         if (applicationInfo != null) {
-            // TODO: STOPSHIP: Pass in appropriate arguments.
             role.revoke(packageName, dontKillApp, false, this);
         }
 
