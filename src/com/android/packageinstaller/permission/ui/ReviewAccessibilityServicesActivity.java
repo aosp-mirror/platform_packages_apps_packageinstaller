@@ -52,11 +52,6 @@ public final class ReviewAccessibilityServicesActivity extends FragmentActivity 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (!Utils.isPermissionsHubEnabled()) {
-            finish();
-            return;
-        }
-
         AccessibilityManager accessibilityManager = getSystemService(
                 AccessibilityManager.class);
         List<AccessibilityServiceInfo> services = accessibilityManager
