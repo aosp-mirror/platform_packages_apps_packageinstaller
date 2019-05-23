@@ -52,7 +52,6 @@
             parent="@android:style/Theme.DeviceDefault.Settings">
     </style>
 
-    <!-- TODO: STOPSHIP: Make themeable? -->
     <style name="RequestRole" parent="android:Theme.DeviceDefault.Settings">
         <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
