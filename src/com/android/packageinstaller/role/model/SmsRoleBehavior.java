@@ -51,7 +51,9 @@ public class SmsRoleBehavior implements RoleBehavior {
             return false;
         }
         TelephonyManager telephonyManager = context.getSystemService(TelephonyManager.class);
-        if (!telephonyManager.isSmsCapable()) {
+        if (!telephonyManager.isSmsCapable()
+                // Ensure sms role is present on car despite !isSmsCapable config (b/132972702)
+                && getDefaultHolder(role, context) == null) {
             return false;
         }
         return true;
@@ -60,8 +62,7 @@ public class SmsRoleBehavior implements RoleBehavior {
     @Nullable
     @Override
     public String getFallbackHolder(@NonNull Role role, @NonNull Context context) {
-        String defaultPackageName = ExclusiveDefaultHolderMixin.getDefaultHolder(role,
-                "config_defaultSms", context);
+        String defaultPackageName = getDefaultHolder(role, context);
         if (defaultPackageName != null) {
             return defaultPackageName;
         }
@@ -72,6 +73,11 @@ public class SmsRoleBehavior implements RoleBehavior {
         List<String> qualifyingPackageNames = role.getQualifyingPackagesAsUser(
                 Process.myUserHandle(), context);
         return CollectionUtils.firstOrNull(qualifyingPackageNames);
+    }
+
+    @Nullable
+    private static String getDefaultHolder(@NonNull Role role, @NonNull Context context) {
+        return ExclusiveDefaultHolderMixin.getDefaultHolder(role, "config_defaultSms", context);
     }
 
     @Nullable
