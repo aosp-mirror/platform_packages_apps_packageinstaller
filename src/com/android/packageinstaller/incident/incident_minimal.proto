@@ -19,19 +19,41 @@ package com.android.packageinstaller.incident;
 
 option java_multiple_files = true;
 
+
+/*
+ * Everything in this file is a subset of the platform incident.proto.
+ */
+
 /**
  * This message has the same fields in an incident report that we care about
  * but none of the ones we don't.  So when we receive one, we attempt to parse
  * it using this proto, which will result in the rest of the fields being dropped.
+ *
+ * From frameworks/base/core/proto/android/os/incident.proto
  */
 message IncidentMinimal {
+    repeated IncidentHeaderProto header = 1;
     optional RestrictedImagesDumpProto restricted_images_section = 3025;
 }
 
+/**
+ * From frameworks/base/core/proto/android/os/header.proto
+ */
+message IncidentHeaderProto {
+    // A human readable reason why an incident report is requested.
+    optional string reason = 2;
+}
+
+/**
+ * From frameworks/base/core/proto/android/service/restricted_image.proto
+ */
 message RestrictedImagesDumpProto {
     repeated RestrictedImageSetProto sets = 1;
 }
 
+/**
+ * From frameworks/base/core/proto/android/service/restricted_image.proto
+ */
 message RestrictedImageSetProto {
     // Name of the service producing the data.
     optional string category = 1;
@@ -43,6 +65,9 @@ message RestrictedImageSetProto {
     optional bytes metadata = 3;
 }
 
+/**
+ * From frameworks/base/core/proto/android/service/restricted_image.proto
+ */
 message RestrictedImageProto {
     // Type of image data
     optional string mime_type = 1;
