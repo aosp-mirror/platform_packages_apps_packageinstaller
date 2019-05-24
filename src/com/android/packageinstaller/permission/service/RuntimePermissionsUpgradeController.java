@@ -38,7 +38,7 @@ class RuntimePermissionsUpgradeController {
     private static final String LOG_TAG = RuntimePermissionsUpgradeController.class.getSimpleName();
 
     // The latest version of the runtime permissions database
-    private static final int LATEST_VERSION = 3;
+    private static final int LATEST_VERSION = 4;
 
     private RuntimePermissionsUpgradeController() {
         /* do nothing - hide constructor */
@@ -161,6 +161,28 @@ class RuntimePermissionsUpgradeController {
                 }
             }
             currentVersion = 3;
+        }
+
+        if (currentVersion == 3) {
+            Log.i(LOG_TAG, "Grandfathering location background permissions");
+
+            for (int i = 0; i < appCount; i++) {
+                final PackageInfo app = apps.get(i);
+                if (app.requestedPermissions == null) {
+                    continue;
+                }
+
+                for (String requestedPermission : app.requestedPermissions) {
+                    if (requestedPermission.equals(
+                            Manifest.permission.ACCESS_BACKGROUND_LOCATION)) {
+                        context.getPackageManager().addWhitelistedRestrictedPermission(
+                                app.packageName, Manifest.permission.ACCESS_BACKGROUND_LOCATION,
+                                PackageManager.FLAG_PERMISSION_WHITELIST_UPGRADE);
+                        break;
+                    }
+                }
+            }
+            currentVersion = 4;
         }
 
         // XXX: Add new upgrade steps above this point.
