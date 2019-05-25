@@ -38,7 +38,7 @@ class RuntimePermissionsUpgradeController {
     private static final String LOG_TAG = RuntimePermissionsUpgradeController.class.getSimpleName();
 
     // The latest version of the runtime permissions database
-    private static final int LATEST_VERSION = 3;
+    private static final int LATEST_VERSION = 4;
 
     private RuntimePermissionsUpgradeController() {
         /* do nothing - hide constructor */
@@ -78,7 +78,18 @@ class RuntimePermissionsUpgradeController {
                         | PackageManager.GET_PERMISSIONS);
         final int appCount = apps.size();
 
-        if (currentVersion <= 0) {
+        final boolean sdkUpgradedFromP;
+        if (currentVersion <= -1) {
+            Log.i(LOG_TAG, "Upgrading from Android P");
+
+            sdkUpgradedFromP = true;
+
+            currentVersion = 0;
+        } else {
+            sdkUpgradedFromP = false;
+        }
+
+        if (currentVersion == 0) {
             Log.i(LOG_TAG, "Grandfathering SMS and CallLog permissions");
 
             final List<String> smsPermissions = Utils.getPlatformPermissionNamesOfGroup(
@@ -105,34 +116,39 @@ class RuntimePermissionsUpgradeController {
         }
 
         if (currentVersion == 1) {
-            Log.i(LOG_TAG, "Expanding location permissions");
+            if (sdkUpgradedFromP) {
+                Log.i(LOG_TAG, "Expanding location permissions");
 
-            for (int i = 0; i < appCount; i++) {
-                final PackageInfo app = apps.get(i);
-                if (app.requestedPermissions == null) {
-                    continue;
-                }
-
-                for (String perm : app.requestedPermissions) {
-                    String groupName = Utils.getGroupOfPlatformPermission(perm);
-
-                    if (!TextUtils.equals(groupName, Manifest.permission_group.LOCATION)) {
+                for (int i = 0; i < appCount; i++) {
+                    final PackageInfo app = apps.get(i);
+                    if (app.requestedPermissions == null) {
                         continue;
                     }
 
-                    final AppPermissionGroup group = AppPermissionGroup.create(context, app, perm,
-                            false);
-                    final AppPermissionGroup bgGroup = group.getBackgroundPermissions();
+                    for (String perm : app.requestedPermissions) {
+                        String groupName = Utils.getGroupOfPlatformPermission(perm);
 
-                    if (group.areRuntimePermissionsGranted()
-                            && bgGroup != null
-                            && !bgGroup.isUserSet() && !bgGroup.isSystemFixed()
-                            && !bgGroup.isPolicyFixed()) {
-                        bgGroup.grantRuntimePermissions(group.isUserFixed());
+                        if (!TextUtils.equals(groupName, Manifest.permission_group.LOCATION)) {
+                            continue;
+                        }
+
+                        final AppPermissionGroup group = AppPermissionGroup.create(context, app,
+                                perm, false);
+                        final AppPermissionGroup bgGroup = group.getBackgroundPermissions();
+
+                        if (group.areRuntimePermissionsGranted()
+                                && bgGroup != null
+                                && !bgGroup.isUserSet() && !bgGroup.isSystemFixed()
+                                && !bgGroup.isPolicyFixed()) {
+                            bgGroup.grantRuntimePermissions(group.isUserFixed());
+                        }
+
+                        break;
                     }
-
-                    break;
                 }
+            } else {
+                Log.i(LOG_TAG, "Not expanding location permissions as this is not an upgrade "
+                        + "from Android P");
             }
 
             currentVersion = 2;
@@ -161,6 +177,28 @@ class RuntimePermissionsUpgradeController {
                 }
             }
             currentVersion = 3;
+        }
+
+        if (currentVersion == 3) {
+            Log.i(LOG_TAG, "Grandfathering location background permissions");
+
+            for (int i = 0; i < appCount; i++) {
+                final PackageInfo app = apps.get(i);
+                if (app.requestedPermissions == null) {
+                    continue;
+                }
+
+                for (String requestedPermission : app.requestedPermissions) {
+                    if (requestedPermission.equals(
+                            Manifest.permission.ACCESS_BACKGROUND_LOCATION)) {
+                        context.getPackageManager().addWhitelistedRestrictedPermission(
+                                app.packageName, Manifest.permission.ACCESS_BACKGROUND_LOCATION,
+                                PackageManager.FLAG_PERMISSION_WHITELIST_UPGRADE);
+                        break;
+                    }
+                }
+            }
+            currentVersion = 4;
         }
 
         // XXX: Add new upgrade steps above this point.
