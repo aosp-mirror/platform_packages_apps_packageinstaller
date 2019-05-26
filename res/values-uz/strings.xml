@@ -96,8 +96,7 @@
     <string name="app_name_unknown" msgid="8931522764510159105">"Noma’lum"</string>
     <string name="permission_usage_title" msgid="2836714315390340012">"Boshqaruv paneli"</string>
     <string name="permission_usage_summary_foreground" msgid="926040696577673055">"Oxirgi marta ishlatilgan: <xliff:g id="TIME">%1$s</xliff:g>\nIlovadan foydalanganda ishlatilgan"</string>
-    <!-- no translation found for permission_usage_summary_background (9179526841353882748) -->
-    <skip />
+    <string name="permission_usage_summary_background" msgid="9179526841353882748">"Oxirgi marta ishlatilgan: <xliff:g id="TIME">%1$s</xliff:g>\nOrqa fonda ishlatilgan"</string>
     <string name="permission_usage_any_permission" msgid="8832731783727406380">"Har qanday ruxsat"</string>
     <string name="permission_usage_any_time" msgid="1476491940247458210">"Har qanday vaqt"</string>
     <string name="permission_usage_last_7_days" msgid="4888188421845723880">"Oxirgi 7 kun"</string>
@@ -152,54 +151,30 @@
     <string name="app_permission_button_deny" msgid="6476351587498235802">"Rad etish"</string>
     <string name="app_permission_title" msgid="5335967448269243651">"<xliff:g id="PERM">%1$s</xliff:g> ruxsati"</string>
     <string name="app_permission_header" msgid="6247289774554173809">"<xliff:g id="PERM">%1$s</xliff:g>: bu ilova uchun ruxsat"</string>
-    <!-- no translation found for app_permission_footer_usage_summary_generic (8066565238703750648) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_activity_recognition (6224606940699705802) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_calendar (7675173035887568420) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_call_log (4987849901381920883) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_camera (2472049066125117479) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_contacts (2797813377552324816) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_location (2139958644685442454) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_microphone (5389687207650592055) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_phone (2837455934182233739) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_sensors (1884302729411890466) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_sms (8773249966836488293) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_storage (4229213694450790269) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_generic (8379981388202799895) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_activity_recognition (2088781216296754537) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_calendar (3981677081050005404) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_call_log (3647675286098004733) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_camera (8924966957792679299) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_contacts (6520074289889256166) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_location (6817824511661660078) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_microphone (2210999632883194559) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_phone (8388913723991339353) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_sensors (5716861361576610045) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_sms (2453537470852966962) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_storage (1296053906120407192) -->
-    <skip />
+    <string name="app_permission_footer_usage_summary_generic" msgid="8066565238703750648">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g> oldin <xliff:g id="PERM">%2$s</xliff:g> ruxsatidan foydalandi"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="6224606940699705802">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> oldin jismoniy faoliyatingiz axborotidan foydalandi"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="7675173035887568420">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> oldin taqvimingizdan foydalandi"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="4987849901381920883">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> oldin chaqiruvlar jurnalidan foydalandi"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="2472049066125117479">"<xliff:g id="APP">%1$s</xliff:g>  <xliff:g id="TIME">%2$s</xliff:g> oldin kameradan foydalandi"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="2797813377552324816">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> oldin kontaktlaringizga kirdi"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="2139958644685442454">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> oldin joylashuvingiz haqidagi axborotga kirdi"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="5389687207650592055">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> oldin mikrofondan foydalandi"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="2837455934182233739">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> oldin telefoningizga kirdi"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="1884302729411890466">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> oldin sensorlardan foydalandi"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="8773249966836488293">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> oldin SMS xabarlaringizga kirdi"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="4229213694450790269">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> oldin xotiradan foydalandi"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="8379981388202799895">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="PERM">%2$s</xliff:g> ruxsatidan foydalanmadi"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="2088781216296754537">"<xliff:g id="APP">%1$s</xliff:g> jismoniy faoliyatingiz axborotiga kirmadi"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="3981677081050005404">"<xliff:g id="APP">%1$s</xliff:g> taqvimdan foydalanmadi"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="3647675286098004733">"<xliff:g id="APP">%1$s</xliff:g> chaqiruvlar jurnalini ochmadi"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="8924966957792679299">"<xliff:g id="APP">%1$s</xliff:g> kamerangizdan foydalanmadi"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="6520074289889256166">"<xliff:g id="APP">%1$s</xliff:g> kontaktlaringizga kirmadi"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="6817824511661660078">"<xliff:g id="APP">%1$s</xliff:g> joylashuvingiz haqidagi axborotga kirmadi"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="2210999632883194559">"<xliff:g id="APP">%1$s</xliff:g> mikrofondan foydalanmadi"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="8388913723991339353">"<xliff:g id="APP">%1$s</xliff:g> telefoningizdan foydalanmadi"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="5716861361576610045">"<xliff:g id="APP">%1$s</xliff:g> sensorlardan foydalanmadi"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2453537470852966962">"<xliff:g id="APP">%1$s</xliff:g> SMS xabarlaringizga kirmadi"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="1296053906120407192">"<xliff:g id="APP">%1$s</xliff:g> xotiradan foydalanmadi"</string>
     <!-- no translation found for app_permission_footer_not_available (7473636495733881225) -->
     <skip />
     <string name="app_permission_footer_app_permissions_link" msgid="6074026408119212662">"<xliff:g id="APP">%1$s</xliff:g> uchun berilgan barcha ruxsatlar"</string>
@@ -241,8 +216,7 @@
     <!-- no translation found for minutes (269873289285218670) -->
     <!-- no translation found for seconds (7518380254369486125) -->
     <string name="permission_reminders" msgid="7692569306867004285">"Ruxsat eslatmalari"</string>
-    <!-- no translation found for background_location_access_reminder_notification_title (1447771664601165880) -->
-    <skip />
+    <string name="background_location_access_reminder_notification_title" msgid="1447771664601165880">"<xliff:g id="APP_NAME">%s</xliff:g> ilova joylashuv axborotingizni orqa fonda oldi"</string>
     <string name="background_location_access_reminder_notification_content" msgid="4931939953173203901">"Bu ilova joylashuv axborotingizdan foydalana oladi. Oʻzgartirish uchun bosing."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="4173535624805161577">"Faqat ilova faolligida ruxsat"</string>
     <string name="no_permissions_allowed" msgid="3972033828052568206">"Hech qanday ruxsat berilmagan"</string>
@@ -284,8 +258,7 @@
     <skip />
     <string name="role_emergency_short_label" msgid="594672497758636578">"Favqulodda holatlar ilovasi"</string>
     <string name="role_emergency_description" msgid="1328017704085954407">"Tibbiy axborotingizni yozib olish va uni favqulodda holatlar qutqaruvchilariga ulashish, jiddiy ob-havo holatlari va falokatlar haqida ogohlantirishlar olish, yordam kerakligida boshqalarni ogohlantirish ruxsatini beruvchi ilovalar"</string>
-    <!-- no translation found for role_emergency_request_title (862426026906033381) -->
-    <skip />
+    <string name="role_emergency_request_title" msgid="862426026906033381">"<xliff:g id="APP_NAME">%1$s</xliff:g> asosiy favqulodda holatlar ilovasi sifatida sozlansinmi?"</string>
     <!-- no translation found for role_emergency_request_description (6604461788824945209) -->
     <skip />
     <!-- no translation found for role_home_label (2403568779207064895) -->
@@ -316,8 +289,7 @@
     <skip />
     <!-- no translation found for ongoing_usage_dialog_open_settings (180561046130062839) -->
     <skip />
-    <!-- no translation found for ongoing_usage_dialog_title (7494746761292131980) -->
-    <skip />
+    <string name="ongoing_usage_dialog_title" msgid="7494746761292131980">"Ilovalar <xliff:g id="TYPES_LIST">%s</xliff:g> ishlatmoqda"</string>
     <!-- no translation found for ongoing_usage_dialog_separator (3220814513543042443) -->
     <skip />
     <string name="ongoing_usage_dialog_last_separator" msgid="970720969260545688">" va "</string>
@@ -335,8 +307,7 @@
     <string name="default_app_no_apps" msgid="295747201345391862">"Hech qanday ilova topilmadi"</string>
     <!-- no translation found for car_default_app_selected (5041173040939570813) -->
     <skip />
-    <!-- no translation found for car_default_app_selected_with_info (846119554232771428) -->
-    <skip />
+    <string name="car_default_app_selected_with_info" msgid="846119554232771428">"Tanlandi – <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="1933225255981974193">"maxsus ilova ruxsatlari"</string>
     <string name="special_app_access" msgid="1809336016722693481">"Maxsus ruxsatlar"</string>
     <string name="no_special_app_access" msgid="1990650297459671983">"Maxsus ilova ruxsatlari yoʻq"</string>
@@ -351,8 +322,7 @@
     <!-- no translation found for incident_report_dialog_intro (4267939213446817062) -->
     <skip />
     <string name="incident_report_dialog_text" msgid="4831945625929455288">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> ilovasi bu qurilmadan <xliff:g id="DATE">%2$s</xliff:g> sanasida <xliff:g id="TIME">%3$s</xliff:g> da olingan xatoliklar hisobotini yuklashni talab etmoqda. Xatoliklar hisobotiga foydalanuvchi nomlari, joylashuv axboroti, qurilma identifikatorlari va tarmoq maʼlumotlari kabi qurilmangiz yoki qayd qilingan ilovalar haqida shaxsiy maʼlumotlar kiradi. Bunday maʼlumotlarni faqat ishonchli odamlar va ilovalarga yuboring. <xliff:g id="APP_NAME_1">%4$s</xliff:g> ilovasiga xatoliklar hisobotini yuklashga ruxsat berilsinmi?"</string>
-    <!-- no translation found for incident_report_error_dialog_text (7571987324653854729) -->
-    <skip />
+    <string name="incident_report_error_dialog_text" msgid="7571987324653854729">"<xliff:g id="APP_NAME">%1$s</xliff:g> uchun nosozlik axborotini yuborishda xatolik yuz berdi, shuning uchun batafsil nosozlik axborotini uzatish taqiqlandi. Nosozlik uchun uzr soʻraymiz."</string>
     <string name="incident_report_dialog_allow_label" msgid="39628365401477149">"Ruxsat"</string>
     <string name="incident_report_dialog_deny_label" msgid="3613078094039859343">"Rad etish"</string>
     <!-- no translation found for adjust_user_sensitive_title (6181325993919599745) -->
@@ -369,6 +339,5 @@
     <skip />
     <!-- no translation found for assistant_record_audio_user_sensitive_summary (4952742951700902553) -->
     <skip />
-    <!-- no translation found for permgrouprequest_storage_isolated (6769845877344258537) -->
-    <skip />
+    <string name="permgrouprequest_storage_isolated" msgid="6769845877344258537">"<xliff:g id="APP_NAME">%1$s</xliff:g> uchun qurilmadagi suratlar va media fayllarga kirish ruxsati berilsinmi?"</string>
 </resources>

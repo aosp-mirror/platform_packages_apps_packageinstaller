@@ -96,8 +96,7 @@
     <string name="app_name_unknown" msgid="8931522764510159105">"അജ്ഞാതം"</string>
     <string name="permission_usage_title" msgid="2836714315390340012">"ഡാഷ്‌ബോർഡ്"</string>
     <string name="permission_usage_summary_foreground" msgid="926040696577673055">"അവസാന ആക്‌സസ്: <xliff:g id="TIME">%1$s</xliff:g>\nആപ്പ് ഉപയോഗിച്ചുകൊണ്ടിരിക്കുമ്പോൾ അവസാനം ആക്‌സസ് ചെയ്‌തത്"</string>
-    <!-- no translation found for permission_usage_summary_background (9179526841353882748) -->
-    <skip />
+    <string name="permission_usage_summary_background" msgid="9179526841353882748">"അവസാന ആക്‌സസ്: <xliff:g id="TIME">%1$s</xliff:g>\nപശ്ചാത്തലത്തിൽ അവസാനം ആക്‌സസ് ചെയ്‌തത്"</string>
     <string name="permission_usage_any_permission" msgid="8832731783727406380">"ഏതെങ്കിലും അനുമതി"</string>
     <string name="permission_usage_any_time" msgid="1476491940247458210">"ഏത് സമയത്തും"</string>
     <string name="permission_usage_last_7_days" msgid="4888188421845723880">"കഴിഞ്ഞ 7 ദിവസം"</string>
@@ -152,54 +151,30 @@
     <string name="app_permission_button_deny" msgid="6476351587498235802">"നിരസിക്കുക"</string>
     <string name="app_permission_title" msgid="5335967448269243651">"<xliff:g id="PERM">%1$s</xliff:g> അനുമതി"</string>
     <string name="app_permission_header" msgid="6247289774554173809">"ഈ ആപ്പിനുള്ള <xliff:g id="PERM">%1$s</xliff:g> ആക്‌സ‌സ്"</string>
-    <!-- no translation found for app_permission_footer_usage_summary_generic (8066565238703750648) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_activity_recognition (6224606940699705802) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_calendar (7675173035887568420) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_call_log (4987849901381920883) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_camera (2472049066125117479) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_contacts (2797813377552324816) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_location (2139958644685442454) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_microphone (5389687207650592055) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_phone (2837455934182233739) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_sensors (1884302729411890466) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_sms (8773249966836488293) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_storage (4229213694450790269) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_generic (8379981388202799895) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_activity_recognition (2088781216296754537) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_calendar (3981677081050005404) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_call_log (3647675286098004733) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_camera (8924966957792679299) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_contacts (6520074289889256166) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_location (6817824511661660078) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_microphone (2210999632883194559) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_phone (8388913723991339353) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_sensors (5716861361576610045) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_sms (2453537470852966962) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_storage (1296053906120407192) -->
-    <skip />
+    <string name="app_permission_footer_usage_summary_generic" msgid="8066565238703750648">"<xliff:g id="TIME">%3$s</xliff:g> മുമ്പ് <xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ <xliff:g id="PERM">%2$s</xliff:g> ആക്‌സസ് ചെയ്‌തു"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="6224606940699705802">"<xliff:g id="TIME">%2$s</xliff:g> മുമ്പ് <xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ ശാരീരിക പ്രവർത്തനം ആക്‌സസ് ചെയ്‌തു"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="7675173035887568420">"<xliff:g id="TIME">%2$s</xliff:g> മുമ്പ് <xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ കലണ്ടർ ആക്‌സസ് ചെയ്‌തു"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="4987849901381920883">"<xliff:g id="TIME">%2$s</xliff:g> മുമ്പ് <xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ കോൾ ചരിത്രങ്ങൾ ആക്‌സസ് ചെയ്‌തു"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="2472049066125117479">"<xliff:g id="TIME">%2$s</xliff:g> മുമ്പ് <xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ ക്യാമറ ആക്‌സസ് ചെയ്‌തു"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="2797813377552324816">"<xliff:g id="TIME">%2$s</xliff:g> മുമ്പ് <xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ കോൺടാക്‌റ്റുകൾ ആക്‌സസ് ചെയ്‌തു"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="2139958644685442454">"<xliff:g id="TIME">%2$s</xliff:g> മുമ്പ് <xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ ലൊക്കേഷൻ ആക്‌സസ് ചെയ്‌തു"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="5389687207650592055">"<xliff:g id="TIME">%2$s</xliff:g> മുമ്പ് <xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ മൈക്രോഫോൺ ആക്‌സസ് ചെയ്‌തു"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="2837455934182233739">"<xliff:g id="TIME">%2$s</xliff:g> മുമ്പ് <xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ ഫോൺ ആക്‌സസ് ചെയ്‌തു"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="1884302729411890466">"<xliff:g id="TIME">%2$s</xliff:g> മുമ്പ് <xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ സെൻസറുകൾ ആക്‌സസ് ചെയ്‌തു"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="8773249966836488293">"<xliff:g id="TIME">%2$s</xliff:g> മുമ്പ് <xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ SMS ആക്‌സസ് ചെയ്‌തു"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="4229213694450790269">"<xliff:g id="TIME">%2$s</xliff:g> മുമ്പ് <xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ സ്‌റ്റോറേജ് ആക്‌സസ് ചെയ്‌തു"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="8379981388202799895">"<xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ <xliff:g id="PERM">%2$s</xliff:g> ആക്‌സസ് ചെയ്‌തിട്ടില്ല"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="2088781216296754537">"<xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ ശാരീരിക പ്രവർത്തനം ആക്‌‌സസ് ചെയ്‌തിട്ടില്ല"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="3981677081050005404">"<xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ കലണ്ടർ ആക്‌സസ് ചെയ്‌തിട്ടില്ല"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="3647675286098004733">"<xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ കോൾ ചരിത്രങ്ങൾ ആക്‌സസ് ചെയ്‌തു"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="8924966957792679299">"<xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ ക്യാമറ ആക്‌സസ് ചെയ്‌തിട്ടില്ല"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="6520074289889256166">"<xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ കോൺടാക്‌റ്റുകൾ ആക്‌സസ് ചെയ്‌തിട്ടില്ല"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="6817824511661660078">"<xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ ലൊക്കേഷൻ ആക്‌സസ് ചെയ്‌തിട്ടില്ല"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="2210999632883194559">"<xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ മൈക്രോഫോൺ ആക്‌സസ് ചെയ്‌തിട്ടില്ല"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="8388913723991339353">"<xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ ഫോൺ ആക്‌സസ് ചെയ്‌തിട്ടില്ല"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="5716861361576610045">"<xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ സെൻസറുകൾ ആക്‌സസ് ചെയ്‌തിട്ടില്ല"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2453537470852966962">"<xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ SMS ആക്‌സസ് ചെയ്‌തിട്ടില്ല"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="1296053906120407192">"<xliff:g id="APP">%1$s</xliff:g> നിങ്ങളുടെ സ്‌റ്റോറേജ് ആക്‌സസ് ചെയ്‌തിട്ടില്ല"</string>
     <!-- no translation found for app_permission_footer_not_available (7473636495733881225) -->
     <skip />
     <string name="app_permission_footer_app_permissions_link" msgid="6074026408119212662">"എല്ലാ <xliff:g id="APP">%1$s</xliff:g> അനുമതികളും കാണുക"</string>
@@ -241,8 +216,7 @@
     <!-- no translation found for minutes (269873289285218670) -->
     <!-- no translation found for seconds (7518380254369486125) -->
     <string name="permission_reminders" msgid="7692569306867004285">"അനുമതിയ്ക്കുള്ള റിമൈൻഡറുകൾ"</string>
-    <!-- no translation found for background_location_access_reminder_notification_title (1447771664601165880) -->
-    <skip />
+    <string name="background_location_access_reminder_notification_title" msgid="1447771664601165880">"<xliff:g id="APP_NAME">%s</xliff:g>-ന് നിങ്ങളുടെ ലൊക്കേഷൻ പശ്ചാത്തലത്തിൽ ലഭിച്ചു"</string>
     <string name="background_location_access_reminder_notification_content" msgid="4931939953173203901">"ഈ ആപ്പിന് എപ്പോഴും നിങ്ങളുടെ ലൊക്കേഷൻ ആക്‌സസ് ചെയ്യാനാവും. മാറ്റാൻ ടാപ്പ് ചെയ്യുക."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="4173535624805161577">"ആപ്പ് ഉപയോഗത്തിലുള്ളപ്പോൾ മാത്രം"</string>
     <string name="no_permissions_allowed" msgid="3972033828052568206">"അനുമതികളൊന്നും നൽകിയിട്ടില്ല"</string>
@@ -284,8 +258,7 @@
     <skip />
     <string name="role_emergency_short_label" msgid="594672497758636578">"അടിയന്തിര ആപ്പ്"</string>
     <string name="role_emergency_description" msgid="1328017704085954407">"നിങ്ങളുടെ മെഡിക്കൽ വിവരങ്ങൾ റിക്കോർഡ് ചെയ്യാനും അടിയന്തര സാഹചര്യത്തിൽ പ്രതികരിക്കുന്നവർക്ക് ആക്‌സസ് ചെയ്യുന്നതിനും; ഗുരുതര കാലാവസ്ഥാ ഇവന്റുകളെയും ദുരന്തങ്ങളെയും കുറിച്ച് മുന്നറിയിപ്പുകൾ നേടാനും; നിങ്ങൾക്ക് സഹായമാവശ്യമുള്ളപ്പോൾ മറ്റുള്ളവരെ അറിയിക്കാനും അനുവദിക്കുന്ന ആപ്പുകൾ"</string>
-    <!-- no translation found for role_emergency_request_title (862426026906033381) -->
-    <skip />
+    <string name="role_emergency_request_title" msgid="862426026906033381">"<xliff:g id="APP_NAME">%1$s</xliff:g> എന്നതിനെ നിങ്ങളുടെ ഡിഫോൾട്ട് അടിയന്തിര ആപ്പായി സജ്ജീകരിക്കണോ?"</string>
     <!-- no translation found for role_emergency_request_description (6604461788824945209) -->
     <skip />
     <!-- no translation found for role_home_label (2403568779207064895) -->
@@ -316,8 +289,7 @@
     <skip />
     <!-- no translation found for ongoing_usage_dialog_open_settings (180561046130062839) -->
     <skip />
-    <!-- no translation found for ongoing_usage_dialog_title (7494746761292131980) -->
-    <skip />
+    <string name="ongoing_usage_dialog_title" msgid="7494746761292131980">"നിങ്ങളുടെ <xliff:g id="TYPES_LIST">%s</xliff:g> ഉപയോഗിക്കുന്ന ആപ്പുകൾ"</string>
     <!-- no translation found for ongoing_usage_dialog_separator (3220814513543042443) -->
     <skip />
     <string name="ongoing_usage_dialog_last_separator" msgid="970720969260545688">" ഒപ്പം "</string>
@@ -335,8 +307,7 @@
     <string name="default_app_no_apps" msgid="295747201345391862">"ആപ്പുകൾ ഒന്നുമില്ല"</string>
     <!-- no translation found for car_default_app_selected (5041173040939570813) -->
     <skip />
-    <!-- no translation found for car_default_app_selected_with_info (846119554232771428) -->
-    <skip />
+    <string name="car_default_app_selected_with_info" msgid="846119554232771428">"<xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g> - തിരഞ്ഞെടുത്തു"</string>
     <string name="special_app_access_search_keyword" msgid="1933225255981974193">"പ്രത്യേക ആപ്പ് ആക്‌സസ്"</string>
     <string name="special_app_access" msgid="1809336016722693481">"പ്രത്യേക ആപ്പ് ആക്‌സസ്"</string>
     <string name="no_special_app_access" msgid="1990650297459671983">"പ്രത്യേക ആപ്പ് ആക്‌സസില്ല"</string>
@@ -351,8 +322,7 @@
     <!-- no translation found for incident_report_dialog_intro (4267939213446817062) -->
     <skip />
     <string name="incident_report_dialog_text" msgid="4831945625929455288">"ഈ ഉപകരണത്തിൽ നിന്ന് <xliff:g id="DATE">%2$s</xliff:g>-ന് <xliff:g id="TIME">%3$s</xliff:g>-മണിയ്ക്ക് എടുത്ത ഒരു ബഗ് റിപ്പോർട്ട് അപ്‌ലോഡ് ചെയ്യാൻ <xliff:g id="APP_NAME_0">%1$s</xliff:g> അഭ്യർത്ഥിക്കുന്നു. നിങ്ങളുടെ ഉപകരണത്തെക്കുറിച്ചുള്ള വ്യക്തിഗത വിവരമോ ആപ്പുകൾ ലോഗ് ചെയ്യുമ്പോൾ നൽകുന്ന വിവരമോ, ഉദാഹരണത്തിന് നെറ്റ്‌വർക്ക് വിവരങ്ങൾ, ഉപകരണ ഐഡന്റിഫയറുകൾ, ലൊക്കേഷൻ ഡാറ്റ, ഉപയോക്തൃനാമങ്ങൾ എന്നിവ ബഗ് റിപ്പോർട്ടുകളിൽ ഉൾപ്പെടുന്നു. ഈ വിവരം ഉപയോഗിച്ച് നിങ്ങൾ വിശ്വസിക്കുന്ന ആപ്പുകൾക്കും ആളുകൾക്കും മാത്രം ബഗ് റിപ്പോർട്ടുകൾ പങ്കിടുക. <xliff:g id="APP_NAME_1">%4$s</xliff:g> എന്നതിനെ ഒരു ബഗ് റിപ്പോർട്ട് അപ്‌ലോഡ് ചെയ്യാൻ അനുവദിക്കണോ?"</string>
-    <!-- no translation found for incident_report_error_dialog_text (7571987324653854729) -->
-    <skip />
+    <string name="incident_report_error_dialog_text" msgid="7571987324653854729">"<xliff:g id="APP_NAME">%1$s</xliff:g> എന്ന ആപ്പിൻ്റെ ബഗ് റിപ്പോർട്ട് പ്രോസസ് ചെയ്യുന്നതിൽ ഒരു പിശകുണ്ടായി. അതിനാൽ വിശദമായ ഡീബഗ്ഗ് ചെയ്യൽ ഡാറ്റ പങ്കിടുന്നത് തടഞ്ഞു. തടസ്സം നേരിട്ടതിൽ ഖേദിക്കുന്നു."</string>
     <string name="incident_report_dialog_allow_label" msgid="39628365401477149">"അനുവദിക്കുക"</string>
     <string name="incident_report_dialog_deny_label" msgid="3613078094039859343">"നിരസിക്കുക"</string>
     <!-- no translation found for adjust_user_sensitive_title (6181325993919599745) -->
@@ -369,6 +339,5 @@
     <skip />
     <!-- no translation found for assistant_record_audio_user_sensitive_summary (4952742951700902553) -->
     <skip />
-    <!-- no translation found for permgrouprequest_storage_isolated (6769845877344258537) -->
-    <skip />
+    <string name="permgrouprequest_storage_isolated" msgid="6769845877344258537">"നിങ്ങളുടെ ഉപകരണത്തിലെ ഫോട്ടോകളും മീഡിയയും ഫയലുകളും ആക്‌സസ് ചെയ്യാൻ &lt;b&gt; <xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ആപ്പിനെ അനുവദിക്കണോ?"</string>
 </resources>

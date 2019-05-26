@@ -96,8 +96,7 @@
     <string name="app_name_unknown" msgid="8931522764510159105">"نامشخص"</string>
     <string name="permission_usage_title" msgid="2836714315390340012">"داشبورد"</string>
     <string name="permission_usage_summary_foreground" msgid="926040696577673055">"آخرین دسترسی: <xliff:g id="TIME">%1$s</xliff:g>\nآخرین دسترسی درحین استفاده از برنامه"</string>
-    <!-- no translation found for permission_usage_summary_background (9179526841353882748) -->
-    <skip />
+    <string name="permission_usage_summary_background" msgid="9179526841353882748">"آخرین دسترسی: <xliff:g id="TIME">%1$s</xliff:g>\nآخرین دسترسی در پس‌زمینه"</string>
     <string name="permission_usage_any_permission" msgid="8832731783727406380">"همه مجوزها"</string>
     <string name="permission_usage_any_time" msgid="1476491940247458210">"هر زمانی"</string>
     <string name="permission_usage_last_7_days" msgid="4888188421845723880">"۷ روز اخیر"</string>
@@ -152,54 +151,30 @@
     <string name="app_permission_button_deny" msgid="6476351587498235802">"اجازه ندادن"</string>
     <string name="app_permission_title" msgid="5335967448269243651">"مجوز <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="6247289774554173809">"دسترسی <xliff:g id="PERM">%1$s</xliff:g> برای این برنامه"</string>
-    <!-- no translation found for app_permission_footer_usage_summary_generic (8066565238703750648) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_activity_recognition (6224606940699705802) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_calendar (7675173035887568420) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_call_log (4987849901381920883) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_camera (2472049066125117479) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_contacts (2797813377552324816) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_location (2139958644685442454) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_microphone (5389687207650592055) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_phone (2837455934182233739) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_sensors (1884302729411890466) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_sms (8773249966836488293) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_storage (4229213694450790269) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_generic (8379981388202799895) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_activity_recognition (2088781216296754537) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_calendar (3981677081050005404) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_call_log (3647675286098004733) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_camera (8924966957792679299) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_contacts (6520074289889256166) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_location (6817824511661660078) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_microphone (2210999632883194559) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_phone (8388913723991339353) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_sensors (5716861361576610045) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_sms (2453537470852966962) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_storage (1296053906120407192) -->
-    <skip />
+    <string name="app_permission_footer_usage_summary_generic" msgid="8066565238703750648">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g> پیش به <xliff:g id="PERM">%2$s</xliff:g> دسترسی یافت"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="6224606940699705802">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> پیش به فعالیت فیزیکی شما دسترسی پیدا کرد"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="7675173035887568420">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> پیش به تقویم شما دسترسی پیدا کرد"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="4987849901381920883">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> پیش به گزارش‌های تماس شما دسترسی پیدا کرد"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="2472049066125117479">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> پیش به دوربین شما دسترس پیدا کرد"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="2797813377552324816">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> پیش به مخاطبین شما دسترسی پیدا کرد"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="2139958644685442454">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> پیش به مکان شما دسترسی پیدا کرد"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="5389687207650592055">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> پیش به میکروفون شما دسترسی پیدا کرد"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="2837455934182233739">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> پیش به تلفن شما دسترسی پیدا کرد"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="1884302729411890466">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> پیش به حسگرهای شما دسترسی پیدا کرد"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="8773249966836488293">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> پیش به پیامک شما دسترسی پیدا کرد"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="4229213694450790269">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> پیش به فضای ذخیره‌سازی شما دسترسی پیدا کرد"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="8379981388202799895">"<xliff:g id="APP">%1$s</xliff:g> به <xliff:g id="PERM">%2$s</xliff:g> دسترسی پیدا نکرده است"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="2088781216296754537">"<xliff:g id="APP">%1$s</xliff:g> به فعالیت فیزیکی شما دسترسی پیدا نکرده است"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="3981677081050005404">"<xliff:g id="APP">%1$s</xliff:g> به تقویم شما دسترسی پیدا نکرده است"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="3647675286098004733">"<xliff:g id="APP">%1$s</xliff:g> به گزارش‌های تماس شما دسترسی پیدا نکرده است"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="8924966957792679299">"<xliff:g id="APP">%1$s</xliff:g> به دوربین شما دسترسی پیدا نکرده است"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="6520074289889256166">"<xliff:g id="APP">%1$s</xliff:g> به مخاطبین شما دسترسی پیدا نکرده است"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="6817824511661660078">"<xliff:g id="APP">%1$s</xliff:g> به مکان شما دسترسی پیدا نکرده است"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="2210999632883194559">"<xliff:g id="APP">%1$s</xliff:g> به میکروفون شما دسترسی پیدا نکرده است"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="8388913723991339353">"<xliff:g id="APP">%1$s</xliff:g> به تلفن شما دسترسی پیدا نکرده است"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="5716861361576610045">"<xliff:g id="APP">%1$s</xliff:g> به حسگرهای شما دسترسی پیدا نکرده است"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2453537470852966962">"<xliff:g id="APP">%1$s</xliff:g> به پیامک شما دسترسی پیدا نکرده است"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="1296053906120407192">"<xliff:g id="APP">%1$s</xliff:g> به فضای ذخیره‌سازی شما دسترسی پیدا نکرده است"</string>
     <!-- no translation found for app_permission_footer_not_available (7473636495733881225) -->
     <skip />
     <string name="app_permission_footer_app_permissions_link" msgid="6074026408119212662">"مشاهده همه مجوزهای <xliff:g id="APP">%1$s</xliff:g>"</string>
@@ -241,8 +216,7 @@
     <!-- no translation found for minutes (269873289285218670) -->
     <!-- no translation found for seconds (7518380254369486125) -->
     <string name="permission_reminders" msgid="7692569306867004285">"یادآوری‌های مجوز"</string>
-    <!-- no translation found for background_location_access_reminder_notification_title (1447771664601165880) -->
-    <skip />
+    <string name="background_location_access_reminder_notification_title" msgid="1447771664601165880">"<xliff:g id="APP_NAME">%s</xliff:g> به موقعیت مکانی شما در پس‌زمینه دسترسی دارد"</string>
     <string name="background_location_access_reminder_notification_content" msgid="4931939953173203901">"این برنامه همیشه می‌تواند به مکانتان دسترسی داشته باشد. برای تغییر دادن، ضربه بزنید."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="4173535624805161577">"تنها هنگام استفاده از برنامه"</string>
     <string name="no_permissions_allowed" msgid="3972033828052568206">"هیچ مجوزی اعطا نشده است"</string>
@@ -284,8 +258,7 @@
     <skip />
     <string name="role_emergency_short_label" msgid="594672497758636578">"برنامه اضطراری"</string>
     <string name="role_emergency_description" msgid="1328017704085954407">"برنامه‌هایی که امکان می‌دهند اطلاعات پزشکی‌تان را ثبت کنید و آن‌ها را برای مسئولان خدمات اضطراری دسترس‌پذیر کنید، درباره رویدادهای آب‌وهوایی شدید و فجایع هشدار دریافت کنید، و هنگام نیاز به کمک، دیگران را مطلع کنید."</string>
-    <!-- no translation found for role_emergency_request_title (862426026906033381) -->
-    <skip />
+    <string name="role_emergency_request_title" msgid="862426026906033381">"<xliff:g id="APP_NAME">%1$s</xliff:g> به‌عنوان برنامه اضطراری پیش‌فرض تنظیم شود؟"</string>
     <!-- no translation found for role_emergency_request_description (6604461788824945209) -->
     <skip />
     <!-- no translation found for role_home_label (2403568779207064895) -->
@@ -316,8 +289,7 @@
     <skip />
     <!-- no translation found for ongoing_usage_dialog_open_settings (180561046130062839) -->
     <skip />
-    <!-- no translation found for ongoing_usage_dialog_title (7494746761292131980) -->
-    <skip />
+    <string name="ongoing_usage_dialog_title" msgid="7494746761292131980">"برنامه‌هایی که از <xliff:g id="TYPES_LIST">%s</xliff:g> شما استفاده می‌کنند"</string>
     <!-- no translation found for ongoing_usage_dialog_separator (3220814513543042443) -->
     <skip />
     <string name="ongoing_usage_dialog_last_separator" msgid="970720969260545688">" و "</string>
@@ -335,8 +307,7 @@
     <string name="default_app_no_apps" msgid="295747201345391862">"برنامه‌ای موجود نیست"</string>
     <!-- no translation found for car_default_app_selected (5041173040939570813) -->
     <skip />
-    <!-- no translation found for car_default_app_selected_with_info (846119554232771428) -->
-    <skip />
+    <string name="car_default_app_selected_with_info" msgid="846119554232771428">"انتخاب‌شده - <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="1933225255981974193">"دسترسی ویژه برنامه"</string>
     <string name="special_app_access" msgid="1809336016722693481">"دسترسی ویژه برنامه"</string>
     <string name="no_special_app_access" msgid="1990650297459671983">"دسترسی ویژه برنامه وجود ندارد"</string>
@@ -351,8 +322,7 @@
     <!-- no translation found for incident_report_dialog_intro (4267939213446817062) -->
     <skip />
     <string name="incident_report_dialog_text" msgid="4831945625929455288">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> درخواست بارگذاری گزارش اشکالی را دارد که در <xliff:g id="DATE">%2$s</xliff:g> ساعت <xliff:g id="TIME">%3$s</xliff:g> در این دستگاه پیش آمده است. گزارش‌های اشکال شامل اطلاعات شخصی درباره دستگاه شما است یا اطلاعاتی که توسط برنامه‌ها گزارش شده است، برای مثال نام‌های کاربر، داده‌های مکان، شناسه‌های دستگاه و اطلاعات شبکه. گزارش‌های اشکال را تنها با افراد و برنامه‌هایی هم‌رسانی کنید که به آن‌ها در این‌باره اعتماد دارید. به <xliff:g id="APP_NAME_1">%4$s</xliff:g> اجازه بارگذاری گزارش اشکال داده شود؟"</string>
-    <!-- no translation found for incident_report_error_dialog_text (7571987324653854729) -->
-    <skip />
+    <string name="incident_report_error_dialog_text" msgid="7571987324653854729">"هنگام پردازش گزارش اشکال برای <xliff:g id="APP_NAME">%1$s</xliff:g> خطایی رخ داد. بنابراین هم‌رسانی داده‌های اشکال‌زدایی دقیق رد شد. از وقفه پیش‌آمده پوزش می‌طلبیم."</string>
     <string name="incident_report_dialog_allow_label" msgid="39628365401477149">"مجاز"</string>
     <string name="incident_report_dialog_deny_label" msgid="3613078094039859343">"رد کردن"</string>
     <!-- no translation found for adjust_user_sensitive_title (6181325993919599745) -->
@@ -369,6 +339,5 @@
     <skip />
     <!-- no translation found for assistant_record_audio_user_sensitive_summary (4952742951700902553) -->
     <skip />
-    <!-- no translation found for permgrouprequest_storage_isolated (6769845877344258537) -->
-    <skip />
+    <string name="permgrouprequest_storage_isolated" msgid="6769845877344258537">"‏به &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;b&gt; اجازه داده شود به عکس‌ها و رسانه‌های موجود در دستگاهتان دسترسی پیدا کند؟"</string>
 </resources>

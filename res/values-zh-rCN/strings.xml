@@ -96,8 +96,7 @@
     <string name="app_name_unknown" msgid="8931522764510159105">"未知"</string>
     <string name="permission_usage_title" msgid="2836714315390340012">"信息中心"</string>
     <string name="permission_usage_summary_foreground" msgid="926040696577673055">"上次访问时间：<xliff:g id="TIME">%1$s</xliff:g>\n上次使用应用时访问过"</string>
-    <!-- no translation found for permission_usage_summary_background (9179526841353882748) -->
-    <skip />
+    <string name="permission_usage_summary_background" msgid="9179526841353882748">"上次访问时间：<xliff:g id="TIME">%1$s</xliff:g>\n（在后台访问）"</string>
     <string name="permission_usage_any_permission" msgid="8832731783727406380">"不限权限"</string>
     <string name="permission_usage_any_time" msgid="1476491940247458210">"不限时间"</string>
     <string name="permission_usage_last_7_days" msgid="4888188421845723880">"过去 7 天"</string>
@@ -152,54 +151,30 @@
     <string name="app_permission_button_deny" msgid="6476351587498235802">"拒绝"</string>
     <string name="app_permission_title" msgid="5335967448269243651">"<xliff:g id="PERM">%1$s</xliff:g>权限"</string>
     <string name="app_permission_header" msgid="6247289774554173809">"是否允许这个应用访问<xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <!-- no translation found for app_permission_footer_usage_summary_generic (8066565238703750648) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_activity_recognition (6224606940699705802) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_calendar (7675173035887568420) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_call_log (4987849901381920883) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_camera (2472049066125117479) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_contacts (2797813377552324816) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_location (2139958644685442454) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_microphone (5389687207650592055) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_phone (2837455934182233739) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_sensors (1884302729411890466) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_sms (8773249966836488293) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_storage (4229213694450790269) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_generic (8379981388202799895) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_activity_recognition (2088781216296754537) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_calendar (3981677081050005404) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_call_log (3647675286098004733) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_camera (8924966957792679299) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_contacts (6520074289889256166) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_location (6817824511661660078) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_microphone (2210999632883194559) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_phone (8388913723991339353) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_sensors (5716861361576610045) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_sms (2453537470852966962) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_storage (1296053906120407192) -->
-    <skip />
+    <string name="app_permission_footer_usage_summary_generic" msgid="8066565238703750648">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g>前访问过您的<xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="6224606940699705802">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g>前访问过您的健身运动"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="7675173035887568420">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g>前访问过您的日历"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="4987849901381920883">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g>前访问过您的通话记录"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="2472049066125117479">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g>前访问过您的相机"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="2797813377552324816">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g>前访问过您的通讯录"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="2139958644685442454">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g>前访问过您的位置信息"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="5389687207650592055">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g>前访问过您的麦克风"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="2837455934182233739">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g>前访问过您的手机"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="1884302729411890466">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g>前访问过您的传感器"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="8773249966836488293">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g>前访问过您的短信"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="4229213694450790269">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g>前访问过您的存储空间"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="8379981388202799895">"<xliff:g id="APP">%1$s</xliff:g>尚未访问您的<xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="2088781216296754537">"<xliff:g id="APP">%1$s</xliff:g>尚未访问您的健身运动"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="3981677081050005404">"<xliff:g id="APP">%1$s</xliff:g>尚未访问您的日历"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="3647675286098004733">"<xliff:g id="APP">%1$s</xliff:g>尚未访问您的通话记录"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="8924966957792679299">"<xliff:g id="APP">%1$s</xliff:g>尚未访问您的相机"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="6520074289889256166">"<xliff:g id="APP">%1$s</xliff:g>尚未访问您的通讯录"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="6817824511661660078">"<xliff:g id="APP">%1$s</xliff:g>尚未访问您的位置信息"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="2210999632883194559">"<xliff:g id="APP">%1$s</xliff:g>尚未访问您的麦克风"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="8388913723991339353">"<xliff:g id="APP">%1$s</xliff:g>尚未访问您的手机"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="5716861361576610045">"<xliff:g id="APP">%1$s</xliff:g>尚未访问您的传感器"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2453537470852966962">"<xliff:g id="APP">%1$s</xliff:g>尚未访问您的短信"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="1296053906120407192">"<xliff:g id="APP">%1$s</xliff:g>尚未访问您的存储空间"</string>
     <!-- no translation found for app_permission_footer_not_available (7473636495733881225) -->
     <skip />
     <string name="app_permission_footer_app_permissions_link" msgid="6074026408119212662">"查看<xliff:g id="APP">%1$s</xliff:g>的所有权限"</string>
@@ -241,8 +216,7 @@
     <!-- no translation found for minutes (269873289285218670) -->
     <!-- no translation found for seconds (7518380254369486125) -->
     <string name="permission_reminders" msgid="7692569306867004285">"权限提醒"</string>
-    <!-- no translation found for background_location_access_reminder_notification_title (1447771664601165880) -->
-    <skip />
+    <string name="background_location_access_reminder_notification_title" msgid="1447771664601165880">"<xliff:g id="APP_NAME">%s</xliff:g>在后台获取了您的位置信息"</string>
     <string name="background_location_access_reminder_notification_content" msgid="4931939953173203901">"此应用随时可以使用您的位置信息。点按即可更改。"</string>
     <string name="permission_subtitle_only_in_foreground" msgid="4173535624805161577">"仅在使用该应用期间允许"</string>
     <string name="no_permissions_allowed" msgid="3972033828052568206">"未允许任何权限"</string>
@@ -284,8 +258,7 @@
     <skip />
     <string name="role_emergency_short_label" msgid="594672497758636578">"紧急警报应用"</string>
     <string name="role_emergency_description" msgid="1328017704085954407">"这类应用可让您记录医疗信息，并将信息提供给急救人员、接收恶劣天气事件和灾害的相关提醒，以及在您需要帮助时通知他人"</string>
-    <!-- no translation found for role_emergency_request_title (862426026906033381) -->
-    <skip />
+    <string name="role_emergency_request_title" msgid="862426026906033381">"要将<xliff:g id="APP_NAME">%1$s</xliff:g>设为您的默认紧急应用吗？"</string>
     <!-- no translation found for role_emergency_request_description (6604461788824945209) -->
     <skip />
     <!-- no translation found for role_home_label (2403568779207064895) -->
@@ -316,8 +289,7 @@
     <skip />
     <!-- no translation found for ongoing_usage_dialog_open_settings (180561046130062839) -->
     <skip />
-    <!-- no translation found for ongoing_usage_dialog_title (7494746761292131980) -->
-    <skip />
+    <string name="ongoing_usage_dialog_title" msgid="7494746761292131980">"正在使用您的<xliff:g id="TYPES_LIST">%s</xliff:g>的应用"</string>
     <!-- no translation found for ongoing_usage_dialog_separator (3220814513543042443) -->
     <skip />
     <string name="ongoing_usage_dialog_last_separator" msgid="970720969260545688">" 和 "</string>
@@ -335,8 +307,7 @@
     <string name="default_app_no_apps" msgid="295747201345391862">"没有应用"</string>
     <!-- no translation found for car_default_app_selected (5041173040939570813) -->
     <skip />
-    <!-- no translation found for car_default_app_selected_with_info (846119554232771428) -->
-    <skip />
+    <string name="car_default_app_selected_with_info" msgid="846119554232771428">"已选择 - <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="1933225255981974193">"特殊应用权限"</string>
     <string name="special_app_access" msgid="1809336016722693481">"特殊应用权限"</string>
     <string name="no_special_app_access" msgid="1990650297459671983">"没有特殊应用权限"</string>
@@ -351,8 +322,7 @@
     <!-- no translation found for incident_report_dialog_intro (4267939213446817062) -->
     <skip />
     <string name="incident_report_dialog_text" msgid="4831945625929455288">"<xliff:g id="APP_NAME_0">%1$s</xliff:g>正在请求上传此设备在 <xliff:g id="DATE">%2$s</xliff:g><xliff:g id="TIME">%3$s</xliff:g> 获取的错误报告。错误报告包含与您设备有关或由应用记录的个人信息，例如：用户名、位置数据、设备标识符和网络信息。请务必只与您认为可以向其透露这些信息的人和应用分享错误报告。是否允许<xliff:g id="APP_NAME_1">%4$s</xliff:g>上传错误报告？"</string>
-    <!-- no translation found for incident_report_error_dialog_text (7571987324653854729) -->
-    <skip />
+    <string name="incident_report_error_dialog_text" msgid="7571987324653854729">"处理<xliff:g id="APP_NAME">%1$s</xliff:g>的错误报告时出错，因此系统已拒绝分享详细的调试数据。不便之处，敬请见谅。"</string>
     <string name="incident_report_dialog_allow_label" msgid="39628365401477149">"允许"</string>
     <string name="incident_report_dialog_deny_label" msgid="3613078094039859343">"拒绝"</string>
     <!-- no translation found for adjust_user_sensitive_title (6181325993919599745) -->
@@ -369,6 +339,5 @@
     <skip />
     <!-- no translation found for assistant_record_audio_user_sensitive_summary (4952742951700902553) -->
     <skip />
-    <!-- no translation found for permgrouprequest_storage_isolated (6769845877344258537) -->
-    <skip />
+    <string name="permgrouprequest_storage_isolated" msgid="6769845877344258537">"要允许&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;访问您设备上的照片和媒体吗？"</string>
 </resources>

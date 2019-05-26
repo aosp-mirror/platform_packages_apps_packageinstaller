@@ -68,13 +68,11 @@
     <string name="permission_summary_disabled_by_admin_background_only" msgid="2185473379176174735">"පසුබිම් ප්‍රවේශය පරිපාලක විසින් අබල කර ඇත"</string>
     <string name="permission_summary_enabled_by_admin_background_only" msgid="4558536214810713340">"පසුබිම් ප්‍රවේශය පරිපාලක විසින් සබල කර ඇත"</string>
     <string name="permission_summary_enabled_by_admin_foreground_only" msgid="3735312186687063512">"පෙරබිම් ප්‍රවේශය පරිපාලක විසින් සබල කර ඇත"</string>
-    <!-- no translation found for permission_summary_enabled_system_fixed (2986671472344103830) -->
-    <skip />
+    <string name="permission_summary_enabled_system_fixed" msgid="2986671472344103830">"ක්‍රියා කිරීමට උපාංගය මෙම අවසරය අවශ්‍ය කරයි"</string>
     <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
     <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
-    <!-- no translation found for permission_access_always (8746815855070494802) -->
-    <skip />
+    <string name="permission_access_always" msgid="8746815855070494802">"සැම විටම ඉඩ දෙන්න"</string>
     <string name="permission_access_only_foreground" msgid="1653942358383006807">"යෙදුම භාවිතයේදී පමණක් ඉඩ දෙන්න"</string>
     <string name="permission_access_never" msgid="6189440007697689967">"ප්‍රතික්‍ෂේප කරන්න"</string>
     <string name="loading" msgid="7811651799620593731">"පූරණය කරමින්…"</string>
@@ -96,8 +94,7 @@
     <string name="app_name_unknown" msgid="8931522764510159105">"නොදනී"</string>
     <string name="permission_usage_title" msgid="2836714315390340012">"උපකරණ පුවරුව"</string>
     <string name="permission_usage_summary_foreground" msgid="926040696577673055">"අවසන් ප්‍රවේශය: <xliff:g id="TIME">%1$s</xliff:g>\nඅවසන් වරට ප්‍රවේශ වූයේ යෙදුම භාවිතයේ තිබූ විට"</string>
-    <!-- no translation found for permission_usage_summary_background (9179526841353882748) -->
-    <skip />
+    <string name="permission_usage_summary_background" msgid="9179526841353882748">"අවසන් ප්‍රවේශය: <xliff:g id="TIME">%1$s</xliff:g>\nඅවසන් වරට පසුබිමේ ප්‍රවේශ විය"</string>
     <string name="permission_usage_any_permission" msgid="8832731783727406380">"ඕනෑම අවසරයක්"</string>
     <string name="permission_usage_any_time" msgid="1476491940247458210">"ඕනෑම වේලාවක"</string>
     <string name="permission_usage_last_7_days" msgid="4888188421845723880">"පසුගිය දින 7"</string>
@@ -108,34 +105,30 @@
     <string name="no_permission_usages" msgid="5322488885313825032">"අවසර භාවිත නැත"</string>
     <string name="permission_usage_list_title_any_time" msgid="5231969131124312338">"ඕනෑම වේලාවක ඉතාම මෑත ප්‍රවේශය"</string>
     <string name="permission_usage_list_title_last_7_days" msgid="3481601827843295434">"අවසාන දින 7 ක් තුළ ඉතා මෑත ප්‍රවේශය"</string>
-    <!-- no translation found for permission_usage_list_title_last_day (8004766042375735038) -->
-    <skip />
-    <!-- no translation found for permission_usage_list_title_last_hour (5263636446126109595) -->
-    <skip />
+    <string name="permission_usage_list_title_last_day" msgid="8004766042375735038">"අවසාන පැය 24 තුළ ඉතාම මෑත ප්‍රවේශය"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="5263636446126109595">"අවසාන 1 පැයක් තුළ ඉතාම මෑත ප්‍රවේශය"</string>
     <string name="permission_usage_list_title_last_15_minutes" msgid="3842584491108496053">"අවසාන විනාඩි 15 තුළ ඉතාම මෑත ප්‍රවේශය"</string>
     <string name="permission_usage_list_title_last_minute" msgid="6135511482448899737">"අවසාන 1 විනාඩියක් තුළ ඉතාම මෑත ප්‍රවේශය"</string>
     <string name="permission_usage_bar_chart_title_any_time" msgid="2233750755422237444">"ඕනෑම වේලාවක අවසර භාවිතය"</string>
-    <!-- no translation found for permission_usage_bar_chart_title_last_7_days (2505302271268657969) -->
-    <skip />
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="2505302271268657969">"අවසාන දින 7 ක් තුළ අවසර භාවිතය"</string>
     <string name="permission_usage_bar_chart_title_last_day" msgid="3929341411684348428">"අවසාන පැය 24 තුළ අවසර භාවිතය"</string>
     <string name="permission_usage_bar_chart_title_last_hour" msgid="1473287216393833028">"අවසාන 1 පැයක් තුළ අවසර භාවිතය"</string>
-    <!-- no translation found for permission_usage_bar_chart_title_last_15_minutes (8394883927589032677) -->
-    <skip />
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="8394883927589032677">"අවසාන විනාඩි 15 තුළ අවසර භාවිතය"</string>
     <string name="permission_usage_bar_chart_title_last_minute" msgid="8821351707225812097">"අවසාන 1 විනාඩිය තුළ අවසර භාවිතය"</string>
-    <!-- no translation found for permission_usage_bar_label (7669269046102999228) -->
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="7669269046102999228">
+      <item quantity="one">යෙදුම් <xliff:g id="NUMBER">%s</xliff:g>ක්</item>
+      <item quantity="other">යෙදුම් <xliff:g id="NUMBER">%s</xliff:g>ක්</item>
+    </plurals>
     <string name="permission_usage_view_details" msgid="7240872485880156540">"උපකරණ පුවරුවේ ඇති සියල්ල බලන්න"</string>
     <string name="app_permission_usage_filter_label" msgid="4632636077566071507">"මේ අනුව පෙරහන්න: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <!-- no translation found for app_permission_usage_remove_filter (5502079672930422033) -->
-    <skip />
+    <string name="app_permission_usage_remove_filter" msgid="5502079672930422033">"උපකරණ පුවරුවේ සියල්ල බලන්න"</string>
     <string name="filter_by_title" msgid="7213659781851489723">"මේ අනුව පෙරහන්න"</string>
     <string name="filter_by_permissions" msgid="6808193127145660341">"අවසර අනුව පෙරහන්න"</string>
-    <!-- no translation found for filter_by_time (4037550957826791975) -->
-    <skip />
+    <string name="filter_by_time" msgid="4037550957826791975">"වේලාවට අනුව පෙරහන්න"</string>
     <string name="sort_spinner_most_permissions" msgid="6852540142388944721">"බොහෝ අවසර"</string>
     <string name="sort_spinner_most_accesses" msgid="1219554524183666955">"බොහෝ ප්‍රවේශ වීම්"</string>
     <string name="sort_spinner_recent" msgid="1418334780798429342">"මෑත"</string>
-    <!-- no translation found for sort_by_app (5836911326872031928) -->
-    <skip />
+    <string name="sort_by_app" msgid="5836911326872031928">"යෙදුම් භාවිතයට අනුව පෙළගස්වන්න"</string>
     <string name="sort_by_time" msgid="5904361063977286957">"කාලයට අනුව පෙළගස්වන්න"</string>
     <string name="item_separator" msgid="5590105992485222167">", "</string>
     <string name="permission_usage_refresh" msgid="2424637977565575554">"නැවුම් කරන්න"</string>
@@ -152,120 +145,91 @@
     <string name="app_permission_button_deny" msgid="6476351587498235802">"ප්‍රතික්ෂේප කර."</string>
     <string name="app_permission_title" msgid="5335967448269243651">"<xliff:g id="PERM">%1$s</xliff:g> අවසරය"</string>
     <string name="app_permission_header" msgid="6247289774554173809">"මෙම යෙදුම සඳහා <xliff:g id="PERM">%1$s</xliff:g> ප්‍රවේශය"</string>
-    <!-- no translation found for app_permission_footer_usage_summary_generic (8066565238703750648) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_activity_recognition (6224606940699705802) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_calendar (7675173035887568420) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_call_log (4987849901381920883) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_camera (2472049066125117479) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_contacts (2797813377552324816) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_location (2139958644685442454) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_microphone (5389687207650592055) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_phone (2837455934182233739) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_sensors (1884302729411890466) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_sms (8773249966836488293) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_storage (4229213694450790269) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_generic (8379981388202799895) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_activity_recognition (2088781216296754537) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_calendar (3981677081050005404) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_call_log (3647675286098004733) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_camera (8924966957792679299) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_contacts (6520074289889256166) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_location (6817824511661660078) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_microphone (2210999632883194559) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_phone (8388913723991339353) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_sensors (5716861361576610045) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_sms (2453537470852966962) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_storage (1296053906120407192) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_not_available (7473636495733881225) -->
-    <skip />
+    <string name="app_permission_footer_usage_summary_generic" msgid="8066565238703750648">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g>කට පෙර ඔබේ <xliff:g id="PERM">%2$s</xliff:g> වෙත ප්‍රවේශ විය"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="6224606940699705802">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ට පෙර ඔබේ ශාරීරික ක්‍රියාකාරකමට ප්‍රවේශ විය"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="7675173035887568420">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ට පෙර ඔබේ දින දර්ශනයට ප්‍රවේශ විය"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="4987849901381920883">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ට පෙර ඔබේ ඇමතුම් ලොගවලට ප්‍රවේශ විය"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="2472049066125117479">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ට පෙර ඔබේ කැමරාවට ප්‍රවේශ වී නැත"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="2797813377552324816">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ට පෙර ඔබේ සම්බන්ධතා වෙත ප්‍රවේශ විය"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="2139958644685442454">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ට පෙර ඔබේ ස්ථානයට ප්‍රවේශ විය"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="5389687207650592055">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ට පෙර ඔබේ මයික්‍රොෆෝනයට ප්‍රවේශ විය"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="2837455934182233739">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ට පෙර ඔබේ දුරකථනයට ප්‍රවේශ විය"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="1884302729411890466">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ට පෙර ඔබේ සංවේදකවලට ප්‍රවේශ විය"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="8773249966836488293">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ට පෙර ඔබේ කෙටි පණිවුඩ වෙත ප්‍රවේශ විය"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="4229213694450790269">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%2$s</xliff:g> ට පෙර ඔබේ ආචයනයට ප්‍රවේශ විය"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="8379981388202799895">"<xliff:g id="APP">%1$s</xliff:g> ඔබේ <xliff:g id="PERM">%2$s</xliff:g> වෙත ප්‍රවේශ වී නැත"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="2088781216296754537">"<xliff:g id="APP">%1$s</xliff:g> ඔබේ ශාරීරික ක්‍රියාකාරකමට ප්‍රවේශ වී නැත"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="3981677081050005404">"<xliff:g id="APP">%1$s</xliff:g> ඔබේ දින දර්ශනයට ප්‍රවේශ වී නැත"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="3647675286098004733">"<xliff:g id="APP">%1$s</xliff:g> ඔබේ ඇමතුම් ලොගවලට ප්‍රවේශ වීනැත"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="8924966957792679299">"<xliff:g id="APP">%1$s</xliff:g> ඔබේ කැමරාවට ප්‍රවේශ වී නැත"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="6520074289889256166">"<xliff:g id="APP">%1$s</xliff:g> ඔබේ සම්බන්ධතා වෙත ප්‍රවේශ වී නැත"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="6817824511661660078">"<xliff:g id="APP">%1$s</xliff:g> ඔබේ ස්ථානයට ප්‍රවේශ වී නැත"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="2210999632883194559">"<xliff:g id="APP">%1$s</xliff:g> ඔබේ මයික්‍රොෆෝනයට ප්‍රවේශ වී නැත"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="8388913723991339353">"<xliff:g id="APP">%1$s</xliff:g> ඔබේ දුරකථනයට ප්‍රවේශ වී නැත"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="5716861361576610045">"<xliff:g id="APP">%1$s</xliff:g> ඔබේ සංවේදකවලට ප්‍රවේශ වී නැත"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2453537470852966962">"<xliff:g id="APP">%1$s</xliff:g> ඔබේ කෙටි පණිවුඩ වෙත ප්‍රවේශ වී නැත"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="1296053906120407192">"<xliff:g id="APP">%1$s</xliff:g> ඔබේ ආචයනයට ප්‍රවේශ වී නැත"</string>
+    <string name="app_permission_footer_not_available" msgid="7473636495733881225">"මෙම අවසරය සඳහා අවසාන ප්‍රවේශ දත්ත දැනට නොමැත"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="6074026408119212662">"සියලුම <xliff:g id="APP">%1$s</xliff:g> අවසර බලන්න"</string>
-    <!-- no translation found for app_permission_footer_permission_apps_link (3489066323918915073) -->
-    <skip />
+    <string name="app_permission_footer_permission_apps_link" msgid="3489066323918915073">"මෙම අවසරය සහිත සියලුම යෙදුම් බලන්න"</string>
     <string name="permission_description_summary_generic" msgid="1134416469764865198">"මෙම අවසරය සහිත යෙදුම්වලට <xliff:g id="DESCRIPTION">%1$s</xliff:g> කළ හැක"</string>
-    <!-- no translation found for permission_description_summary_activity_recognition (3371048800215659444) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_calendar (7627624281615554407) -->
-    <skip />
+    <string name="permission_description_summary_activity_recognition" msgid="3371048800215659444">"මෙම අවසරය සහිත යෙදුම්වලට ඇවිදීම, බයිසිකල් පැදීම, රිය පැදවීම, පියවර ගණනය සහ තවත් දේ වැනි, ඔබේ ශාරීරික ක්‍රියාකාරකම්වලට ප්‍රවේශ විය හැක"</string>
+    <string name="permission_description_summary_calendar" msgid="7627624281615554407">"මෙම අවසරය සහිත යෙදුම්වලට ඔබේ දින දර්ශනය වෙත ප්‍රවේශ විය හැක"</string>
     <string name="permission_description_summary_call_log" msgid="4715804544768878751">"මෙම අවසරය සහිත යෙදුම්වලට දුරකථන ඇමතුම් ලොගය කියවීමටත් ලිවීමටත් හැකි ය"</string>
-    <!-- no translation found for permission_description_summary_camera (7879547592935186291) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_contacts (2833167258022765303) -->
-    <skip />
+    <string name="permission_description_summary_camera" msgid="7879547592935186291">"මෙම අවසරය සහිත යෙදුම්වලට පින්තූර ලබා ගැනීමට සහ වීඩියෝ පටිගත කිරීමටත් හැකි ය"</string>
+    <string name="permission_description_summary_contacts" msgid="2833167258022765303">"මෙම අවසරය සහිත යෙදුම්වලට ඔබේ සම්බන්ධතා වෙත ප්‍රවේශ විය හැක"</string>
     <string name="permission_description_summary_location" msgid="4722113806360938675">"මෙම අවසරය සහිත යෙදුම්වලට මෙම උපාංගයේ ස්ථානය වෙත ප්‍රවේශ විය හැක"</string>
-    <!-- no translation found for permission_description_summary_microphone (1349810138634077494) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_phone (6972180067860067462) -->
-    <skip />
+    <string name="permission_description_summary_microphone" msgid="1349810138634077494">"මෙම අවසරය සහිත යෙදුම්වලට ශ්‍රව්‍ය පටිගත කළ හැක"</string>
+    <string name="permission_description_summary_phone" msgid="6972180067860067462">"මෙම අවසරය සහිත යෙදුම්වලට දුරකථන ඇමතුම් කිරීමටත් කළමනා කිරීමටත් හැකි ය"</string>
     <string name="permission_description_summary_sensors" msgid="5747969909098898581">"මෙම අවසරය සහිත යෙදුම්වලට ඔබේ ජෛව ලක්‍ෂණ පිළිබඳ සංවේදී දත්ත වෙත ප්‍රවේශ විය හැක"</string>
-    <!-- no translation found for permission_description_summary_sms (1394630256073587627) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_storage (3947962757455327167) -->
-    <skip />
+    <string name="permission_description_summary_sms" msgid="1394630256073587627">"මෙම අවසරය සහිත යෙදුම්වලට කෙටි පණිවුඩ යැවීමටත් බැලීමටත් හැකි ය"</string>
+    <string name="permission_description_summary_storage" msgid="3947962757455327167">"මෙම අවසරය සහිත යෙදුම්වලට ඔබේ උපාංගයෙහි ඡායාරූප, මාධ්‍ය සහ ගොනුවලට ප්‍රවේශ විය හැක"</string>
     <string name="app_permission_most_recent_summary" msgid="2806631058626902828">"අවසන් ප්‍රවේශය: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="474549680139911807">"දැනට ප්‍රතික්‍ෂේප කෙරේ / අවසාන ප්‍රවේශය: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="5253530744650386602">"කිසි විටෙක ප්‍රවේශ නොවූ"</string>
-    <!-- no translation found for app_permission_never_accessed_denied_summary (5074713608728279798) -->
-    <skip />
+    <string name="app_permission_never_accessed_denied_summary" msgid="5074713608728279798">"ප්‍රතික්‍ෂේප / කිසි විටෙක ප්‍රවේශ නොවූ"</string>
     <string name="allowed_header" msgid="670868581011741572">"ඉඩ දුන්"</string>
-    <!-- no translation found for allowed_always_header (3129163790476916487) -->
-    <skip />
+    <string name="allowed_always_header" msgid="3129163790476916487">"සැම විටම ඉඩ දෙනු ලැබේ"</string>
     <string name="allowed_foreground_header" msgid="508441909373674270">"භාවිත කෙරෙන විට පමණක් අනුමත කෙරේ"</string>
     <string name="denied_header" msgid="4716097249466859449">"ප්‍රතික්ෂේපයි"</string>
     <string name="detailed_usage_link" msgid="3213629980587953904">"විස්තරාත්මක භාවිතය බලන්න"</string>
-    <!-- no translation found for days (7685720539370448104) -->
-    <!-- no translation found for hours (5513137617382570199) -->
-    <!-- no translation found for minutes (269873289285218670) -->
-    <!-- no translation found for seconds (7518380254369486125) -->
+    <plurals name="days" formatted="false" msgid="7685720539370448104">
+      <item quantity="one">දින <xliff:g id="NUMBER">%s</xliff:g>ක්</item>
+      <item quantity="other">දින <xliff:g id="NUMBER">%s</xliff:g>ක්</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="5513137617382570199">
+      <item quantity="one">පැය <xliff:g id="NUMBER">%s</xliff:g>ක්</item>
+      <item quantity="other">පැය <xliff:g id="NUMBER">%s</xliff:g>ක්</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="269873289285218670">
+      <item quantity="one">විනාඩි <xliff:g id="NUMBER">%s</xliff:g>ක්</item>
+      <item quantity="other">විනාඩි <xliff:g id="NUMBER">%s</xliff:g>ක්</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="7518380254369486125">
+      <item quantity="one">තත්පර <xliff:g id="NUMBER">%s</xliff:g></item>
+      <item quantity="other">තත්පර <xliff:g id="NUMBER">%s</xliff:g></item>
+    </plurals>
     <string name="permission_reminders" msgid="7692569306867004285">"අවසර සිහි කැඳවීම්"</string>
-    <!-- no translation found for background_location_access_reminder_notification_title (1447771664601165880) -->
-    <skip />
+    <string name="background_location_access_reminder_notification_title" msgid="1447771664601165880">"<xliff:g id="APP_NAME">%s</xliff:g> පසුබිම තුළ ඔබේ ස්ථානය ලබා ගත්තා"</string>
     <string name="background_location_access_reminder_notification_content" msgid="4931939953173203901">"මෙම යෙදුම සැමවිටම ඔබේ ස්ථානය වෙත ප්‍රවේශ විය හැක. වෙනස් කිරීමට තට්ටු කරන්න."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="4173535624805161577">"යෙදුම භාවිතයේ දී පමණි"</string>
     <string name="no_permissions_allowed" msgid="3972033828052568206">"අවසරවලට ඉඩ නොදේ"</string>
     <string name="no_permissions_denied" msgid="4148813660212679056">"අවසර ප්‍රතික්ෂේප නොකෙරේ"</string>
     <string name="no_apps_allowed" msgid="4959324189831343508">"යෙදුම්වලට ඉඩ නොදේ"</string>
     <string name="no_apps_denied" msgid="4966465333227047186">"යෙදුම් ප්‍රතික්ෂේප නොකෙරේ"</string>
-    <!-- no translation found for car_permission_selected (5788441628706535323) -->
-    <skip />
+    <string name="car_permission_selected" msgid="5788441628706535323">"තේරිණි"</string>
     <string name="settings" msgid="6743583734099755409">"සැකසීම්"</string>
     <string name="accessibility_service_dialog_title_single" msgid="8163574312765390697">"<xliff:g id="SERVICE_NAME">%s</xliff:g> හට ඔබේ උපාංගය වෙත පූර්ණ ප්‍රවේශය තිබේ"</string>
     <string name="accessibility_service_dialog_title_multiple" msgid="593839615447260933">"<xliff:g id="NUM_SERVICES">%s</xliff:g> ප්‍රවේශ්‍යතා යෙදුම්වලට ඔබේ උපාංගය වෙත පූර්ණ ප්‍රවේශය තිබේ"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="1201610224744125691">"<xliff:g id="SERVICE_NAME">%s</xliff:g> හට ඔබේ තිරය, ක්‍රියා, සහ ආදාන බැලීමට, කාර්ය ඉටු කිරීමට, සහ සංදර්ශකය පාලන කිරීමට හැකි ය."</string>
-    <!-- no translation found for accessibility_service_dialog_bottom_text_multiple (99044354994789512) -->
-    <skip />
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="99044354994789512">"මෙම යෙදුම්වලට ඔබේ තිරය, ක්‍රියා, සහ ආදාන බැලීමට, කාර්ය ඉටු කිරීමට, සහ සංදර්ශකය පාලන කිරීමට හැකි ය."</string>
     <string name="role_assistant_label" msgid="325607225419991524">"පෙරනිමි සහය යෙදුම"</string>
-    <!-- no translation found for role_assistant_short_label (5324338887042810318) -->
-    <skip />
+    <string name="role_assistant_short_label" msgid="5324338887042810318">"සහය යෙදුම"</string>
     <string name="role_assistant_description" msgid="5980622464037768572">"සහායක යෙදුම්වලට ඔබ බලන තිරයෙන් ලැබෙන තොරතුරුවලට අනුව ඔබට උදවු කළ හැක. සමහර යෙදුම් ඔබට ඒකාබද්ධ සහය ලබා දීමට දියක්කරණය සහ හඬ ආදාන සේවා යන දෙකටම සහය දක්වති."</string>
     <string name="role_assistant_request_title" msgid="2198246079117996249">"<xliff:g id="APP_NAME">%1$s</xliff:g> ඔබේ පෙරනිමි සහකරු යෙදුම ලෙස සකසන්නේද?"</string>
     <string name="role_assistant_request_description" msgid="9007538649849881727">"කෙටි පණිවුඩ, ඇමතුම් ලොග වෙත ප්‍රවේශය ලබන්න"</string>
     <string name="role_browser_label" msgid="1452186785584890151">"පෙරනිමි බ්‍රවුසර යෙදුම"</string>
-    <!-- no translation found for role_browser_short_label (7008704096614388208) -->
-    <skip />
+    <string name="role_browser_short_label" msgid="7008704096614388208">"බ්‍රවුසර යෙදුම"</string>
     <string name="role_browser_description" msgid="3733812642667691329">"අන්තර්ජාලය වෙත ඔබට ප්‍රවේශය දෙන යෙදුම් සහ ඔබ තට්ටු කරන සංදර්ශන සබැඳි"</string>
     <string name="role_browser_request_title" msgid="6682328732125865006">"<xliff:g id="APP_NAME">%1$s</xliff:g> ඔබේ පෙරනිමි බ්‍රවුසර යෙදුම ලෙස සකසන්නේද?"</string>
     <string name="role_browser_request_description" msgid="5273230084027848407">"අවසර අවශ්‍ය නැත"</string>
@@ -274,69 +238,51 @@
     <string name="role_dialer_description" msgid="8168811763060055520">"ඔබට ඔබේ උපාංගය මත දුරකථන ඇමතුම් කිරීමටත් ලැබීමටත් ඉඩ සලසන යෙදුම්"</string>
     <string name="role_dialer_request_title" msgid="2281942809560056462">"<xliff:g id="APP_NAME">%1$s</xliff:g> ඔබේ පෙරනිමි දුරකථන යෙදුම ලෙස සකසන්නේද?"</string>
     <string name="role_dialer_request_description" msgid="1597958203339261473">"ඇමතුම් ලොගය, කෙටි පණිවුඩ යැවීම වෙත ප්‍රවේශය ලබන්න"</string>
-    <!-- no translation found for role_sms_label (1282375330984375167) -->
-    <skip />
+    <string name="role_sms_label" msgid="1282375330984375167">"පෙරනිමි කෙටි පණිවුඩ යෙදුම"</string>
     <string name="role_sms_short_label" msgid="4774295162759580727">"කෙටි පණිවුඩ යෙදුම"</string>
     <string name="role_sms_description" msgid="8688975508844386261">"කෙටි පණිවුඩ, ඡායාරූප, වීඩියෝ, සහ තවත් ඒවා යැවීමටත් ලැබීමටත් ඔබට ඔබේ දුරකථන අංකය භාවිත කිරීමට ඉඩ සලසන යෙදුම්"</string>
     <string name="role_sms_request_title" msgid="3942676190809695139">"<xliff:g id="APP_NAME">%1$s</xliff:g> ඔබේ පෙරනිමි කෙටි පණිවුඩ යෙදුම ලෙස සකසන්නේද?"</string>
     <string name="role_sms_request_description" msgid="6079312070314434582">"සම්බන්ධතා, කෙටි පණිවුඩ, දුරකථනය වෙත ප්‍රවේශය ලබන්න"</string>
-    <!-- no translation found for role_emergency_label (8510350771744625248) -->
-    <skip />
+    <string name="role_emergency_label" msgid="8510350771744625248">"පෙරනිමි හදිසි යෙදුම"</string>
     <string name="role_emergency_short_label" msgid="594672497758636578">"හදිසි යෙදුම"</string>
     <string name="role_emergency_description" msgid="1328017704085954407">"ඔබට ඔබේ වෛද්‍ය තොරතුරු සටහන් කිරීමටත් ඒවා හදිසි ප්‍රතිචාර දක්වන්නන්ට ප්‍රවේශ විය හැකි කිරීමටත්; දැඩි කාලගුණ සිදුවීම් සහ ආපදා පිළිබඳ ඇඟවීම් ලබා ගැනීමටත්; ඔබට උදවු අවශ්‍ය වූ විට අන් අයට දැනුම් දීමටත් ඉඩ සලසන යෙදුම්"</string>
-    <!-- no translation found for role_emergency_request_title (862426026906033381) -->
-    <skip />
-    <!-- no translation found for role_emergency_request_description (6604461788824945209) -->
-    <skip />
-    <!-- no translation found for role_home_label (2403568779207064895) -->
-    <skip />
+    <string name="role_emergency_request_title" msgid="862426026906033381">"<xliff:g id="APP_NAME">%1$s</xliff:g> ඔබේ පෙරනිමි හදිසි යෙදුම ලෙස සකසන්නේද?"</string>
+    <string name="role_emergency_request_description" msgid="6604461788824945209">"අවසර අවශ්‍ය නැත"</string>
+    <string name="role_home_label" msgid="2403568779207064895">"පෙරනිමි මුල් පිටු යෙදුම"</string>
     <string name="role_home_short_label" msgid="8293261293243062773">"මුල් පිටු යෙදුම"</string>
     <string name="role_home_description" msgid="4692657963991101103">"බොහෝ දුරට දියත්කරණ ලෙස හැඳින් වෙන, ඔබේ Android උපාංගයේ මුල් තිරය ප්‍රතිස්ථාපන කරන සහ ඔබට ඔබේ උපාංගයේ අන්තර්ගත සහ විශේෂාංග වෙත ප්‍රවේශය දෙන යෙදුම්"</string>
     <string name="role_home_request_title" msgid="7254377742128731004">"<xliff:g id="APP_NAME">%1$s</xliff:g> ඔබේ පෙරනිමි මුල් පිටු යෙදුම ලෙස සකසන්නේද?"</string>
     <string name="role_home_request_description" msgid="1649615419642117675">"අවසර අවශ්‍ය නැත"</string>
     <string name="role_call_redirection_label" msgid="8614962962542193455">"පෙරනිමි ඇමතුම් ප්‍රතියොමු කිරීමේ යෙදුම"</string>
     <string name="role_call_redirection_short_label" msgid="7030817671864547206">"ඇමතුම් ප්‍රතියොමු කිරීමේ යෙදුම"</string>
-    <!-- no translation found for role_call_redirection_description (1118180396571102108) -->
-    <skip />
+    <string name="role_call_redirection_description" msgid="1118180396571102108">"ඔබට යන ඇමතුම් වෙනත් දුරකථන අංකයක් වෙත යොමු කිරීමට ඉඩ සලසන යෙදුම්"</string>
     <string name="role_call_redirection_request_title" msgid="3292712900764740951">"<xliff:g id="APP_NAME">%1$s</xliff:g> ඔබේ පෙරනිමි ඇමතුම් ප්‍රතියොමු කිරීමේ යෙදුම ලෙස සකසන්නේද?"</string>
     <string name="role_call_redirection_request_description" msgid="9130097590698779041">"අවසර අවශ්‍ය නැත"</string>
     <string name="role_call_screening_label" msgid="6762278758943136846">"පෙරනිමි අමතන්නා හැඳුනුම් සහ අයාචිත යෙදුම"</string>
-    <!-- no translation found for role_call_screening_short_label (4405732075031564902) -->
-    <skip />
-    <!-- no translation found for role_call_screening_description (630332789277798256) -->
-    <skip />
+    <string name="role_call_screening_short_label" msgid="4405732075031564902">"අමතන්නා හැඳුනුම් සහ අයාචිත යෙදුම"</string>
+    <string name="role_call_screening_description" msgid="630332789277798256">"ඔබට ඇමතුම් හඳුනා ගැනීමට, අයාචිත තැපැල් සහ රොබෝකෝල් අවහිර කිරීමට, සහ අනවශ්‍ය අංක කළු ලැයිස්තු කිරීමට ඉඩ දෙන යෙදුම්"</string>
     <string name="role_call_screening_request_title" msgid="2918540778717341412">"<xliff:g id="APP_NAME">%1$s</xliff:g> ඔබේ පෙරනිමි අමතන්නා හැඳුනුම සහ අයාචිත යෙදුම ලෙස සකසන්නේද?"</string>
     <string name="role_call_screening_request_description" msgid="2238766550271106517">"අවසර අවශ්‍ය නැත"</string>
     <string name="request_role_current_default" msgid="8010053122057418777">"වත්මන් පෙරනිමිය"</string>
     <string name="request_role_dont_ask_again" msgid="1002776641382604316">"නැවත නොඅසන්න"</string>
     <string name="request_role_set_as_default" msgid="161884072789965631">"පෙරනිමි ලෙස සකසන්න"</string>
-    <!-- no translation found for default_app_search_keyword (5893328509368498565) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_ok (2849153333510041980) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_open_settings (180561046130062839) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_title (7494746761292131980) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_separator (3220814513543042443) -->
-    <skip />
+    <string name="default_app_search_keyword" msgid="5893328509368498565">"පෙරනිමි යෙදුම්"</string>
+    <string name="ongoing_usage_dialog_ok" msgid="2849153333510041980">"තේරුණා"</string>
+    <string name="ongoing_usage_dialog_open_settings" msgid="180561046130062839">"පෞද්ගලිකත්ව සැකසීම්"</string>
+    <string name="ongoing_usage_dialog_title" msgid="7494746761292131980">"ඔබගේ <xliff:g id="TYPES_LIST">%s</xliff:g> භාවිත කරන යෙදුම්"</string>
+    <string name="ongoing_usage_dialog_separator" msgid="3220814513543042443">", "</string>
     <string name="ongoing_usage_dialog_last_separator" msgid="970720969260545688">" සහ "</string>
-    <!-- no translation found for settings_button (1808682743475842576) -->
-    <skip />
+    <string name="settings_button" msgid="1808682743475842576">"සැකසීම්"</string>
     <string name="default_apps" msgid="5730264737920158250">"පෙරනිමි යෙදුම්"</string>
     <string name="no_default_apps" msgid="2998405086652908867">"පෙරනිමි යෙදුම් නැත"</string>
-    <!-- no translation found for default_apps_more (2432881430817521134) -->
-    <skip />
+    <string name="default_apps_more" msgid="2432881430817521134">"තවත් පෙරනිමි"</string>
     <string name="default_apps_manage_domain_urls" msgid="814023242306919121">"සබැඳි විවෘත කිරීම"</string>
     <string name="default_apps_for_work" msgid="6893448061977233772">"වැඩ සඳහා පෙරනිමි"</string>
     <string name="default_app_none" msgid="4430855885741769064">"කිසිවක් නැත"</string>
-    <!-- no translation found for default_app_system_default (330065926244492508) -->
-    <skip />
+    <string name="default_app_system_default" msgid="330065926244492508">"(පද්ධති පෙරනිමිය)"</string>
     <string name="default_app_no_apps" msgid="295747201345391862">"යෙදුම් නොමැත"</string>
-    <!-- no translation found for car_default_app_selected (5041173040939570813) -->
-    <skip />
-    <!-- no translation found for car_default_app_selected_with_info (846119554232771428) -->
-    <skip />
+    <string name="car_default_app_selected" msgid="5041173040939570813">"තේරිණි"</string>
+    <string name="car_default_app_selected_with_info" msgid="846119554232771428">"තේරිණි - <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="1933225255981974193">"විශේෂ යෙදුම් ප්‍රවේශය"</string>
     <string name="special_app_access" msgid="1809336016722693481">"විශේෂ යෙදුම් ප්‍රවේශය"</string>
     <string name="no_special_app_access" msgid="1990650297459671983">"විශේෂිත යෙදුම් ප්‍රවේශයක් නැත"</string>
@@ -348,27 +294,17 @@
     <string name="incident_report_notification_title" msgid="5639002400773574216">"විස්තරාත්මක නිදොසීම් දත්ත බෙදා ගන්න ද?"</string>
     <string name="incident_report_notification_text" msgid="3982379040142711581">"<xliff:g id="APP_NAME">%1$s</xliff:g> නිදොසීම් තොරතුරු උඩුගත කිරීමට කැමතිය."</string>
     <string name="incident_report_dialog_title" msgid="7779774651136791681">"නිදොසීම් දත්ත බෙදා ගන්න"</string>
-    <!-- no translation found for incident_report_dialog_intro (4267939213446817062) -->
-    <skip />
+    <string name="incident_report_dialog_intro" msgid="4267939213446817062">"පද්ධතිය ගැටලුවක් අනාවරණ කර ඇත."</string>
     <string name="incident_report_dialog_text" msgid="4831945625929455288">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> මෙම උපාංගයෙන් <xliff:g id="DATE">%2$s</xliff:g> හි <xliff:g id="TIME">%3$s</xliff:g> හිදී ගෙන ඇති දෝෂ වාර්තාවක් උඩුගත කිරීමට ඉල්ලා සිටී. දෝෂ වාර්තාවල ඔබේ උපාංගය පිළිබඳ හෝ යෙදුම් විසින් සටහන් කර ඇති පුද්ගලික තොරතුරු, උදාහරණයක් ලෙස, පරිශීලක නාම, ස්ථාන දත්ත, උපාංග හැඳුනුම්කාරක සහ ජාල තොරතුරු ඇතුළත් වේ. ඔබ මෙම තොරතුරු සමඟ විශ්වාස කරන පුද්ගලයින් සහ යෙදුම් සමඟ පමණක් දෝෂ වාර්තා බෙදා ගන්න. <xliff:g id="APP_NAME_1">%4$s</xliff:g> හට දෝෂ වාර්තාවක් උඩුගත කිරීමට ඉඩ දෙන්න ද?"</string>
-    <!-- no translation found for incident_report_error_dialog_text (7571987324653854729) -->
-    <skip />
+    <string name="incident_report_error_dialog_text" msgid="7571987324653854729">"<xliff:g id="APP_NAME">%1$s</xliff:g> සඳහා දෝෂ වාර්තාව සැකසීමේ දෝෂයක් ඇති විය. එබැවින් විස්තරාත්මක නිදොසීම් දත්ත බෙදා ගැනීම ප්‍රතික්‍ෂේප කර ඇත. බාධා කිරීම ගැන කනගාටුයි."</string>
     <string name="incident_report_dialog_allow_label" msgid="39628365401477149">"ඉඩ දෙන්න"</string>
     <string name="incident_report_dialog_deny_label" msgid="3613078094039859343">"ප්‍රතික්ෂේප කරන්න"</string>
-    <!-- no translation found for adjust_user_sensitive_title (6181325993919599745) -->
-    <skip />
-    <!-- no translation found for menu_adjust_user_sensitive (277984416700153328) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_globally_title (7250948764129867522) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_globally_summary (2331110562911167243) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_per_app_header (3463088084190391428) -->
-    <skip />
-    <!-- no translation found for assistant_record_audio_user_sensitive_title (4527980682419054323) -->
-    <skip />
-    <!-- no translation found for assistant_record_audio_user_sensitive_summary (4952742951700902553) -->
-    <skip />
-    <!-- no translation found for permgrouprequest_storage_isolated (6769845877344258537) -->
-    <skip />
+    <string name="adjust_user_sensitive_title" msgid="6181325993919599745">"උසස් සැකසීම්"</string>
+    <string name="menu_adjust_user_sensitive" msgid="277984416700153328">"උසස් සැකසීම්"</string>
+    <string name="adjust_user_sensitive_globally_title" msgid="7250948764129867522">"පද්ධති යෙදුම් භාවිතය පෙන්වන්න"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="2331110562911167243">"තත්ත්ව තීරුව, උපකරණ පුවරුව සහ වෙනත් තැන්වල අවසරවල පද්ධති යෙදුම් භාවිතය පෙන්වන්න"</string>
+    <string name="adjust_user_sensitive_per_app_header" msgid="3463088084190391428">"පහත දේ සඳහා භාවිතය ඉස්මතු කරන්න"</string>
+    <string name="assistant_record_audio_user_sensitive_title" msgid="4527980682419054323">"සහකරු ප්‍රේරක අනාවරණය පෙන්වන්න"</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="4952742951700902553">"හඬ සහකරු සක්‍රීය කිරීමට මයික්‍රෆෝනය භාවිත කරන විට තත්ත්ව තීරුවේ නිරූපකය පෙන්වන්න"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="6769845877344258537">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;b&gt; වෙත ඔබගේ උපාංගය තුළ ඇති ඡායාරූප, මාධ්‍ය, සහ ගොනු වෙත ප්‍රවේශ වීමට ඉඩ දෙන්නේද?"</string>
 </resources>
