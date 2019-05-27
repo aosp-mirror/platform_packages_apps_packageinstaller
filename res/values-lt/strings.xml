@@ -98,8 +98,7 @@
     <string name="app_name_unknown" msgid="8931522764510159105">"Nežinoma"</string>
     <string name="permission_usage_title" msgid="2836714315390340012">"Informacijos suvestinė"</string>
     <string name="permission_usage_summary_foreground" msgid="926040696577673055">"Paskutinį kartą pasiekta: <xliff:g id="TIME">%1$s</xliff:g>\nPaskutinį kartą pasiekta, kai programa buvo naudojama"</string>
-    <!-- no translation found for permission_usage_summary_background (9179526841353882748) -->
-    <skip />
+    <string name="permission_usage_summary_background" msgid="9179526841353882748">"Paskutinį kartą pasiekta: <xliff:g id="TIME">%1$s</xliff:g>\nPaskutinį kartą pasiekta fone"</string>
     <string name="permission_usage_any_permission" msgid="8832731783727406380">"Bet koks leidimas"</string>
     <string name="permission_usage_any_time" msgid="1476491940247458210">"Bet koks laikas"</string>
     <string name="permission_usage_last_7_days" msgid="4888188421845723880">"Pastarosios 7 dienos"</string>
@@ -156,54 +155,30 @@
     <string name="app_permission_button_deny" msgid="6476351587498235802">"Atmesti"</string>
     <string name="app_permission_title" msgid="5335967448269243651">"Leidimas: <xliff:g id="PERM">%1$s</xliff:g>"</string>
     <string name="app_permission_header" msgid="6247289774554173809">"<xliff:g id="PERM">%1$s</xliff:g>: šios programos prieiga"</string>
-    <!-- no translation found for app_permission_footer_usage_summary_generic (8066565238703750648) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_activity_recognition (6224606940699705802) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_calendar (7675173035887568420) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_call_log (4987849901381920883) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_camera (2472049066125117479) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_contacts (2797813377552324816) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_location (2139958644685442454) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_microphone (5389687207650592055) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_phone (2837455934182233739) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_sensors (1884302729411890466) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_sms (8773249966836488293) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_storage (4229213694450790269) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_generic (8379981388202799895) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_activity_recognition (2088781216296754537) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_calendar (3981677081050005404) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_call_log (3647675286098004733) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_camera (8924966957792679299) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_contacts (6520074289889256166) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_location (6817824511661660078) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_microphone (2210999632883194559) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_phone (8388913723991339353) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_sensors (5716861361576610045) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_sms (2453537470852966962) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_storage (1296053906120407192) -->
-    <skip />
+    <string name="app_permission_footer_usage_summary_generic" msgid="8066565238703750648">"Programa „<xliff:g id="APP">%1$s</xliff:g>“ prieš <xliff:g id="TIME">%3$s</xliff:g> pasiekė: <xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="6224606940699705802">"Programa „<xliff:g id="APP">%1$s</xliff:g>“ prieš <xliff:g id="TIME">%2$s</xliff:g> pasiekė jūsų fizinę veiklą"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="7675173035887568420">"Programa „<xliff:g id="APP">%1$s</xliff:g>“ prieš <xliff:g id="TIME">%2$s</xliff:g> pasiekė jūsų kalendorių"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="4987849901381920883">"Programa „<xliff:g id="APP">%1$s</xliff:g>“ prieš <xliff:g id="TIME">%2$s</xliff:g> pasiekė jūsų skambučių žurnalus"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="2472049066125117479">"Programa „<xliff:g id="APP">%1$s</xliff:g>“ prieš <xliff:g id="TIME">%2$s</xliff:g> pasiekė jūsų fotoaparatą"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="2797813377552324816">"Programa „<xliff:g id="APP">%1$s</xliff:g>“ prieš <xliff:g id="TIME">%2$s</xliff:g> pasiekė jūsų kontaktus"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="2139958644685442454">"Programa „<xliff:g id="APP">%1$s</xliff:g>“ prieš <xliff:g id="TIME">%2$s</xliff:g> pasiekė jūsų vietovę"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="5389687207650592055">"Programa „<xliff:g id="APP">%1$s</xliff:g>“ prieš <xliff:g id="TIME">%2$s</xliff:g> pasiekė jūsų mikrofoną"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="2837455934182233739">"Programa „<xliff:g id="APP">%1$s</xliff:g>“ prieš <xliff:g id="TIME">%2$s</xliff:g> pasiekė jūsų telefoną"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="1884302729411890466">"Programa „<xliff:g id="APP">%1$s</xliff:g>“ prieš <xliff:g id="TIME">%2$s</xliff:g> pasiekė jūsų jutiklius"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="8773249966836488293">"Programa „<xliff:g id="APP">%1$s</xliff:g>“ prieš <xliff:g id="TIME">%2$s</xliff:g> pasiekė jūsų SMS"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="4229213694450790269">"Programa „<xliff:g id="APP">%1$s</xliff:g>“ prieš <xliff:g id="TIME">%2$s</xliff:g> pasiekė jūsų saugyklą"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="8379981388202799895">"Programa „<xliff:g id="APP">%1$s</xliff:g>“ nepasiekė: <xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="2088781216296754537">"Programa „<xliff:g id="APP">%1$s</xliff:g>“ nepasiekė jūsų fizinės veiklos"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="3981677081050005404">"Programa „<xliff:g id="APP">%1$s</xliff:g>“ nepasiekė jūsų kalendoriaus"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="3647675286098004733">"Programa „<xliff:g id="APP">%1$s</xliff:g>“ nepasiekė jūsų skambučių žurnalų"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="8924966957792679299">"Programa „<xliff:g id="APP">%1$s</xliff:g>“ nepasiekė jūsų fotoaparato"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="6520074289889256166">"Programa „<xliff:g id="APP">%1$s</xliff:g>“ nepasiekė jūsų kontaktų"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="6817824511661660078">"Programa „<xliff:g id="APP">%1$s</xliff:g>“ nepasiekė jūsų vietovės"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="2210999632883194559">"Programa „<xliff:g id="APP">%1$s</xliff:g>“ nepasiekė jūsų mikrofono"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="8388913723991339353">"Programa „<xliff:g id="APP">%1$s</xliff:g>“ nepasiekė jūsų telefono"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="5716861361576610045">"Programa „<xliff:g id="APP">%1$s</xliff:g>“ nepasiekė jūsų jutiklių"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2453537470852966962">"Programa „<xliff:g id="APP">%1$s</xliff:g>“ nepasiekė jūsų SMS"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="1296053906120407192">"Programa „<xliff:g id="APP">%1$s</xliff:g>“ nepasiekė jūsų saugyklos"</string>
     <!-- no translation found for app_permission_footer_not_available (7473636495733881225) -->
     <skip />
     <string name="app_permission_footer_app_permissions_link" msgid="6074026408119212662">"Žr. visus „<xliff:g id="APP">%1$s</xliff:g>“ leidimus"</string>
@@ -245,8 +220,7 @@
     <!-- no translation found for minutes (269873289285218670) -->
     <!-- no translation found for seconds (7518380254369486125) -->
     <string name="permission_reminders" msgid="7692569306867004285">"Leidimų priminimai"</string>
-    <!-- no translation found for background_location_access_reminder_notification_title (1447771664601165880) -->
-    <skip />
+    <string name="background_location_access_reminder_notification_title" msgid="1447771664601165880">"Programa „<xliff:g id="APP_NAME">%s</xliff:g>“ gavo vietovės duomenis fone"</string>
     <string name="background_location_access_reminder_notification_content" msgid="4931939953173203901">"Ši programa visada gali pasiekti jūsų vietovę. Palieskite, kad pakeistumėte."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="4173535624805161577">"Tik tada, kai programa naudojama"</string>
     <string name="no_permissions_allowed" msgid="3972033828052568206">"Nesuteikta jokių leidimų"</string>
@@ -288,8 +262,7 @@
     <skip />
     <string name="role_emergency_short_label" msgid="594672497758636578">"Kritinės padėties programa"</string>
     <string name="role_emergency_description" msgid="1328017704085954407">"Programos, leidžiančios įrašyti savo medicininę informaciją ir leisti ją pasiekti pagalbos numeriu atsiliepusiems žmonėms; gauti įspėjimus apie sudėtingas oro sąlygas ir nelaimes; pranešti kitiems, kai reikia pagalbos"</string>
-    <!-- no translation found for role_emergency_request_title (862426026906033381) -->
-    <skip />
+    <string name="role_emergency_request_title" msgid="862426026906033381">"Nustatyti „<xliff:g id="APP_NAME">%1$s</xliff:g>“ kaip numatytąją kritinės padėties programą?"</string>
     <!-- no translation found for role_emergency_request_description (6604461788824945209) -->
     <skip />
     <!-- no translation found for role_home_label (2403568779207064895) -->
@@ -320,8 +293,7 @@
     <skip />
     <!-- no translation found for ongoing_usage_dialog_open_settings (180561046130062839) -->
     <skip />
-    <!-- no translation found for ongoing_usage_dialog_title (7494746761292131980) -->
-    <skip />
+    <string name="ongoing_usage_dialog_title" msgid="7494746761292131980">"Programos, kurios naudoja: <xliff:g id="TYPES_LIST">%s</xliff:g>"</string>
     <!-- no translation found for ongoing_usage_dialog_separator (3220814513543042443) -->
     <skip />
     <string name="ongoing_usage_dialog_last_separator" msgid="970720969260545688">" ir "</string>
@@ -339,8 +311,7 @@
     <string name="default_app_no_apps" msgid="295747201345391862">"Nėra programų"</string>
     <!-- no translation found for car_default_app_selected (5041173040939570813) -->
     <skip />
-    <!-- no translation found for car_default_app_selected_with_info (846119554232771428) -->
-    <skip />
+    <string name="car_default_app_selected_with_info" msgid="846119554232771428">"Pasirinkta: <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="1933225255981974193">"speciali prieiga prie programų"</string>
     <string name="special_app_access" msgid="1809336016722693481">"Speciali prieiga prie programų"</string>
     <string name="no_special_app_access" msgid="1990650297459671983">"Nėra spec. prieig. prie progr."</string>
@@ -355,8 +326,7 @@
     <!-- no translation found for incident_report_dialog_intro (4267939213446817062) -->
     <skip />
     <string name="incident_report_dialog_text" msgid="4831945625929455288">"Programa „<xliff:g id="APP_NAME_0">%1$s</xliff:g>“ prašo iš šio įrenginio įkelti pranešimą apie riktą, užfiksuotą <xliff:g id="DATE">%2$s</xliff:g>, <xliff:g id="TIME">%3$s</xliff:g>. Į pranešimus apie riktus įtraukiama asmens informacija apie įrenginį arba programų į žurnalą įrašyta informacija, pavyzdžiui, naudotojų vardai, vietovių duomenys, įrenginių identifikatoriai ir tinklo informacija. Pranešimus apie riktus bendrinkite tik su tais žmonėmis ir programomis, kuriais pasitikite ir kuriems galite patikėti šią informaciją. Leisti programai „<xliff:g id="APP_NAME_1">%4$s</xliff:g>“ įkelti pranešimą apie riktą?"</string>
-    <!-- no translation found for incident_report_error_dialog_text (7571987324653854729) -->
-    <skip />
+    <string name="incident_report_error_dialog_text" msgid="7571987324653854729">"Apdorojant „<xliff:g id="APP_NAME">%1$s</xliff:g>“ pranešimą apie riktą įvyko klaida, todėl išsamių derinimo duomenų bendrinimas buvo atmestas. Atsiprašome už nepatogumus."</string>
     <string name="incident_report_dialog_allow_label" msgid="39628365401477149">"Leisti"</string>
     <string name="incident_report_dialog_deny_label" msgid="3613078094039859343">"Atmesti"</string>
     <!-- no translation found for adjust_user_sensitive_title (6181325993919599745) -->
@@ -373,6 +343,5 @@
     <skip />
     <!-- no translation found for assistant_record_audio_user_sensitive_summary (4952742951700902553) -->
     <skip />
-    <!-- no translation found for permgrouprequest_storage_isolated (6769845877344258537) -->
-    <skip />
+    <string name="permgrouprequest_storage_isolated" msgid="6769845877344258537">"Suteikti &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; galimybę pasiekti įrenginio nuotraukas ir mediją?"</string>
 </resources>

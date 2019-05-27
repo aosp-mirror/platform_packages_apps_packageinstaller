@@ -96,8 +96,7 @@
     <string name="app_name_unknown" msgid="8931522764510159105">"Ismeretlen"</string>
     <string name="permission_usage_title" msgid="2836714315390340012">"Irányítópult"</string>
     <string name="permission_usage_summary_foreground" msgid="926040696577673055">"Legutóbbi hozzáférés: <xliff:g id="TIME">%1$s</xliff:g>\nLegutóbbi hozzáférés az alkalmazás használata során"</string>
-    <!-- no translation found for permission_usage_summary_background (9179526841353882748) -->
-    <skip />
+    <string name="permission_usage_summary_background" msgid="9179526841353882748">"Legutóbbi hozzáférés: <xliff:g id="TIME">%1$s</xliff:g>\nLegutóbbi hozzáférés a háttérben"</string>
     <string name="permission_usage_any_permission" msgid="8832731783727406380">"Bármely engedély"</string>
     <string name="permission_usage_any_time" msgid="1476491940247458210">"Bármikor"</string>
     <string name="permission_usage_last_7_days" msgid="4888188421845723880">"Elmúlt 7 nap"</string>
@@ -152,54 +151,30 @@
     <string name="app_permission_button_deny" msgid="6476351587498235802">"Tiltás"</string>
     <string name="app_permission_title" msgid="5335967448269243651">"<xliff:g id="PERM">%1$s</xliff:g> – engedély"</string>
     <string name="app_permission_header" msgid="6247289774554173809">"Alkalmazás hozzáférése a következőhöz: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <!-- no translation found for app_permission_footer_usage_summary_generic (8066565238703750648) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_activity_recognition (6224606940699705802) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_calendar (7675173035887568420) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_call_log (4987849901381920883) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_camera (2472049066125117479) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_contacts (2797813377552324816) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_location (2139958644685442454) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_microphone (5389687207650592055) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_phone (2837455934182233739) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_sensors (1884302729411890466) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_sms (8773249966836488293) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_usage_summary_storage (4229213694450790269) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_generic (8379981388202799895) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_activity_recognition (2088781216296754537) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_calendar (3981677081050005404) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_call_log (3647675286098004733) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_camera (8924966957792679299) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_contacts (6520074289889256166) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_location (6817824511661660078) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_microphone (2210999632883194559) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_phone (8388913723991339353) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_sensors (5716861361576610045) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_sms (2453537470852966962) -->
-    <skip />
-    <!-- no translation found for app_permission_footer_no_usages_storage (1296053906120407192) -->
-    <skip />
+    <string name="app_permission_footer_usage_summary_generic" msgid="8066565238703750648">"A(z) <xliff:g id="APP">%1$s</xliff:g> alkalmazás hozzáfért a következőhöz: <xliff:g id="PERM">%2$s</xliff:g> (ennyi ideje: <xliff:g id="TIME">%3$s</xliff:g>)"</string>
+    <string name="app_permission_footer_usage_summary_activity_recognition" msgid="6224606940699705802">"A(z) <xliff:g id="APP">%1$s</xliff:g> hozzáfért a testmozgási adatokhoz (ennyi ideje: <xliff:g id="TIME">%2$s</xliff:g>)"</string>
+    <string name="app_permission_footer_usage_summary_calendar" msgid="7675173035887568420">"A(z) <xliff:g id="APP">%1$s</xliff:g> hozzáfért a naptárhoz (ennyi ideje: <xliff:g id="TIME">%2$s</xliff:g>)"</string>
+    <string name="app_permission_footer_usage_summary_call_log" msgid="4987849901381920883">"A(z) <xliff:g id="APP">%1$s</xliff:g> hozzáfért a hívásnaplóhoz (ennyi ideje: <xliff:g id="TIME">%2$s</xliff:g>)"</string>
+    <string name="app_permission_footer_usage_summary_camera" msgid="2472049066125117479">"A(z) <xliff:g id="APP">%1$s</xliff:g> hozzáfért a kamerához (ennyi ideje: <xliff:g id="TIME">%2$s</xliff:g>)"</string>
+    <string name="app_permission_footer_usage_summary_contacts" msgid="2797813377552324816">"A(z) <xliff:g id="APP">%1$s</xliff:g> hozzáfért a névjegyekhez (ennyi ideje: <xliff:g id="TIME">%2$s</xliff:g>)"</string>
+    <string name="app_permission_footer_usage_summary_location" msgid="2139958644685442454">"A(z) <xliff:g id="APP">%1$s</xliff:g> hozzáfért a helyadatokhoz (ennyi ideje: <xliff:g id="TIME">%2$s</xliff:g>)"</string>
+    <string name="app_permission_footer_usage_summary_microphone" msgid="5389687207650592055">"A(z) <xliff:g id="APP">%1$s</xliff:g> hozzáfért a mikrofonhoz (ennyi ideje: <xliff:g id="TIME">%2$s</xliff:g>)"</string>
+    <string name="app_permission_footer_usage_summary_phone" msgid="2837455934182233739">"A(z) <xliff:g id="APP">%1$s</xliff:g> hozzáfért a telefonhoz (ennyi ideje: <xliff:g id="TIME">%2$s</xliff:g>)"</string>
+    <string name="app_permission_footer_usage_summary_sensors" msgid="1884302729411890466">"A(z) <xliff:g id="APP">%1$s</xliff:g> hozzáfért az érzékelőkhöz (ennyi ideje: <xliff:g id="TIME">%2$s</xliff:g>)"</string>
+    <string name="app_permission_footer_usage_summary_sms" msgid="8773249966836488293">"A(z) <xliff:g id="APP">%1$s</xliff:g> hozzáfért az SMS-ekhez (ennyi ideje: <xliff:g id="TIME">%2$s</xliff:g>)"</string>
+    <string name="app_permission_footer_usage_summary_storage" msgid="4229213694450790269">"A(z) <xliff:g id="APP">%1$s</xliff:g> hozzáfért a tárhelyhez (ennyi ideje: <xliff:g id="TIME">%2$s</xliff:g>)"</string>
+    <string name="app_permission_footer_no_usages_generic" msgid="8379981388202799895">"A(z) <xliff:g id="APP">%1$s</xliff:g> nem fért hozzá a következő engedélyhez: <xliff:g id="PERM">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_no_usages_activity_recognition" msgid="2088781216296754537">"A(z) <xliff:g id="APP">%1$s</xliff:g> még nem fért hozzá a testmozgási adatokhoz"</string>
+    <string name="app_permission_footer_no_usages_calendar" msgid="3981677081050005404">"A(z) <xliff:g id="APP">%1$s</xliff:g> még nem fért hozzá a naptárhoz"</string>
+    <string name="app_permission_footer_no_usages_call_log" msgid="3647675286098004733">"A(z) <xliff:g id="APP">%1$s</xliff:g> még nem fért hozzá a hívásnaplóhoz"</string>
+    <string name="app_permission_footer_no_usages_camera" msgid="8924966957792679299">"A(z) <xliff:g id="APP">%1$s</xliff:g> még nem fért hozzá a kamerához"</string>
+    <string name="app_permission_footer_no_usages_contacts" msgid="6520074289889256166">"A(z) <xliff:g id="APP">%1$s</xliff:g> még nem fért hozzá a névjegyekhez"</string>
+    <string name="app_permission_footer_no_usages_location" msgid="6817824511661660078">"A(z) <xliff:g id="APP">%1$s</xliff:g> még nem fért hozzá a helyadatokhoz"</string>
+    <string name="app_permission_footer_no_usages_microphone" msgid="2210999632883194559">"A(z) <xliff:g id="APP">%1$s</xliff:g> még nem fért hozzá a mikrofonhoz"</string>
+    <string name="app_permission_footer_no_usages_phone" msgid="8388913723991339353">"A(z) <xliff:g id="APP">%1$s</xliff:g> még nem fért hozzá a telefonhoz"</string>
+    <string name="app_permission_footer_no_usages_sensors" msgid="5716861361576610045">"A(z) <xliff:g id="APP">%1$s</xliff:g> még nem fért hozzá az érzékelőkhöz"</string>
+    <string name="app_permission_footer_no_usages_sms" msgid="2453537470852966962">"A(z) <xliff:g id="APP">%1$s</xliff:g> még nem fért hozzá az SMS-ekhez"</string>
+    <string name="app_permission_footer_no_usages_storage" msgid="1296053906120407192">"A(z) <xliff:g id="APP">%1$s</xliff:g> még nem fért hozzá a tárhelyhez"</string>
     <!-- no translation found for app_permission_footer_not_available (7473636495733881225) -->
     <skip />
     <string name="app_permission_footer_app_permissions_link" msgid="6074026408119212662">"A(z) <xliff:g id="APP">%1$s</xliff:g> összes engedélyének megtekintése"</string>
@@ -241,8 +216,7 @@
     <!-- no translation found for minutes (269873289285218670) -->
     <!-- no translation found for seconds (7518380254369486125) -->
     <string name="permission_reminders" msgid="7692569306867004285">"Engedélyekre vonatkozó emlékeztetők"</string>
-    <!-- no translation found for background_location_access_reminder_notification_title (1447771664601165880) -->
-    <skip />
+    <string name="background_location_access_reminder_notification_title" msgid="1447771664601165880">"A(z) <xliff:g id="APP_NAME">%s</xliff:g> hozzáfér az Ön helyadataihoz a háttérben"</string>
     <string name="background_location_access_reminder_notification_content" msgid="4931939953173203901">"Ez az alkalmazás bármikor hozzáférhet az Ön tartózkodási helyéhez. A módosításhoz koppintson."</string>
     <string name="permission_subtitle_only_in_foreground" msgid="4173535624805161577">"Csak az alkalmazás használata közben"</string>
     <string name="no_permissions_allowed" msgid="3972033828052568206">"Nincs megadott engedély"</string>
@@ -284,8 +258,7 @@
     <skip />
     <string name="role_emergency_short_label" msgid="594672497758636578">"Segélyhívó"</string>
     <string name="role_emergency_description" msgid="1328017704085954407">"Alkalmazások, amelyek lehetővé teszik az egészségügyi adatok rögzítését és hozzáférhetővé tételét a gyorsbeavatkozó szolgálatok számára; figyelmeztetés fogadását rendkívül rossz időjárás és katasztrófák esetén; illetve mások értesítését, ha segítségre van szüksége"</string>
-    <!-- no translation found for role_emergency_request_title (862426026906033381) -->
-    <skip />
+    <string name="role_emergency_request_title" msgid="862426026906033381">"Beállítja a(z) <xliff:g id="APP_NAME">%1$s</xliff:g> alkalmazást alapértelmezett segélykérő alkalmazásként?"</string>
     <!-- no translation found for role_emergency_request_description (6604461788824945209) -->
     <skip />
     <!-- no translation found for role_home_label (2403568779207064895) -->
@@ -316,8 +289,7 @@
     <skip />
     <!-- no translation found for ongoing_usage_dialog_open_settings (180561046130062839) -->
     <skip />
-    <!-- no translation found for ongoing_usage_dialog_title (7494746761292131980) -->
-    <skip />
+    <string name="ongoing_usage_dialog_title" msgid="7494746761292131980">"A következőt használó alkalmazások: <xliff:g id="TYPES_LIST">%s</xliff:g>"</string>
     <!-- no translation found for ongoing_usage_dialog_separator (3220814513543042443) -->
     <skip />
     <string name="ongoing_usage_dialog_last_separator" msgid="970720969260545688">" és "</string>
@@ -335,8 +307,7 @@
     <string name="default_app_no_apps" msgid="295747201345391862">"Nincs alkalmazás"</string>
     <!-- no translation found for car_default_app_selected (5041173040939570813) -->
     <skip />
-    <!-- no translation found for car_default_app_selected_with_info (846119554232771428) -->
-    <skip />
+    <string name="car_default_app_selected_with_info" msgid="846119554232771428">"Kiválasztva – <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="1933225255981974193">"különleges alkalmazás-hozzáférés"</string>
     <string name="special_app_access" msgid="1809336016722693481">"Különleges alkalmazás-hozzáférés"</string>
     <string name="no_special_app_access" msgid="1990650297459671983">"Nincs különleges hozzáférés"</string>
@@ -351,8 +322,7 @@
     <!-- no translation found for incident_report_dialog_intro (4267939213446817062) -->
     <skip />
     <string name="incident_report_dialog_text" msgid="4831945625929455288">"A(z) <xliff:g id="APP_NAME_0">%1$s</xliff:g> hibajelentést szeretne feltölteni az eszközről (a jelentés létrehozásának időpontja: <xliff:g id="DATE">%2$s</xliff:g>, <xliff:g id="TIME">%3$s</xliff:g>). A hibajelentések eszközre vonatkozó vagy alkalmazások által rögzített személyes adatokat tartalmazhatnak, például felhasználóneveket, helyadatokat, eszközazonosítókat és hálózati adatokat. Csak megbízható személyekkel és alkalmazásokkal osszon meg hibajelentéseket. Engedélyezi, hogy a(z) <xliff:g id="APP_NAME_1">%4$s</xliff:g> hibajelentést töltsön fel?"</string>
-    <!-- no translation found for incident_report_error_dialog_text (7571987324653854729) -->
-    <skip />
+    <string name="incident_report_error_dialog_text" msgid="7571987324653854729">"Hiba történt a(z) <xliff:g id="APP_NAME">%1$s</xliff:g> alkalmazás hibajelentésének feldolgozásakor, ezért a rendszer megtagadta a részletes hibaelhárítási adatok megosztását. Elnézést a megszakításért."</string>
     <string name="incident_report_dialog_allow_label" msgid="39628365401477149">"Engedélyezés"</string>
     <string name="incident_report_dialog_deny_label" msgid="3613078094039859343">"Elutasítás"</string>
     <!-- no translation found for adjust_user_sensitive_title (6181325993919599745) -->
@@ -369,6 +339,5 @@
     <skip />
     <!-- no translation found for assistant_record_audio_user_sensitive_summary (4952742951700902553) -->
     <skip />
-    <!-- no translation found for permgrouprequest_storage_isolated (6769845877344258537) -->
-    <skip />
+    <string name="permgrouprequest_storage_isolated" msgid="6769845877344258537">"Engedélyezi a(z) &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; számára, hogy hozzáférjen az eszközön tárolt fotókhoz és médiatartalmakhoz?"</string>
 </resources>
