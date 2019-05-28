@@ -7,6 +7,14 @@
                     "include-filter": "android.appsecurity.cts.PermissionsHostTest"
                 }
             ]
+        },
+        {
+            "name": "CtsDevicePolicyManagerTestCases",
+            "options": [
+                {
+                    "include-filter": "com.android.cts.devicepolicy.MixedManagedProfileOwnerTest#testPermissionGrantOfDisallowedPermissionWhileOtherPermIsGranted"
+                }
+            ]
         }
     ]
 }
