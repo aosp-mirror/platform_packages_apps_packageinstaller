@@ -137,7 +137,7 @@ public class SpecialAppAccessChildFragment<PF extends PreferenceFragmentCompat
                 preference = preferenceFragment.createApplicationPreference(context);
                 preference.setKey(key);
                 preference.setIcon(Utils.getBadgedIcon(context, qualifyingApplicationInfo));
-                preference.setTitle(Utils.getAppLabel(qualifyingApplicationInfo, context));
+                preference.setTitle(Utils.getFullAppLabel(qualifyingApplicationInfo, context));
                 preference.setPersistent(false);
                 preference.setOnPreferenceChangeListener((preference2, newValue) -> false);
                 preference.setOnPreferenceClickListener(this);
