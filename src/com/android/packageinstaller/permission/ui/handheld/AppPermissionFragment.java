@@ -51,6 +51,7 @@ import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
+import com.android.packageinstaller.Constants;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.ui.AppPermissionActivity;
@@ -110,8 +111,8 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
      * @return A new fragment
      */
     public static @NonNull AppPermissionFragment newInstance(@NonNull String packageName,
-            @NonNull String permName, @Nullable String groupName, @NonNull UserHandle userHandle,
-            @Nullable String caller) {
+            @NonNull String permName, @Nullable String groupName,
+            @NonNull UserHandle userHandle, @Nullable String caller, long sessionId) {
         AppPermissionFragment fragment = new AppPermissionFragment();
         Bundle arguments = new Bundle();
         arguments.putString(Intent.EXTRA_PACKAGE_NAME, packageName);
@@ -122,6 +123,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         }
         arguments.putParcelable(Intent.EXTRA_USER, userHandle);
         arguments.putString(AppPermissionActivity.EXTRA_CALLER_NAME, caller);
+        arguments.putLong(Constants.EXTRA_SESSION_ID, sessionId);
         fragment.setArguments(arguments);
         return fragment;
     }
@@ -194,6 +196,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
                 context.getString(R.string.app_permission_header, mGroup.getFullLabel()));
 
         root.requireViewById(R.id.usage_summary).setVisibility(View.GONE);
+        long sessionId = getArguments().getLong(Constants.EXTRA_SESSION_ID);
 
         TextView footer1Link = root.requireViewById(R.id.footer_link_1);
         footer1Link.setText(context.getString(R.string.app_permission_footer_app_permissions_link,
@@ -202,6 +205,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
             UserHandle user = UserHandle.getUserHandleForUid(mGroup.getApp().applicationInfo.uid);
             Intent intent = new Intent(Intent.ACTION_MANAGE_APP_PERMISSIONS);
             intent.putExtra(Intent.EXTRA_PACKAGE_NAME, mGroup.getApp().packageName);
+            intent.putExtra(Constants.EXTRA_SESSION_ID, sessionId);
             intent.putExtra(Intent.EXTRA_USER, user);
             context.startActivity(intent);
         });
@@ -211,6 +215,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         footer2Link.setOnClickListener((v) -> {
             Intent intent = new Intent(Intent.ACTION_MANAGE_PERMISSION_APPS);
             intent.putExtra(Intent.EXTRA_PERMISSION_NAME, mGroup.getName());
+            intent.putExtra(Constants.EXTRA_SESSION_ID, sessionId);
             context.startActivity(intent);
         });
 
