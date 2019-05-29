@@ -24,11 +24,15 @@ import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
+import com.android.packageinstaller.DeviceUtils;
 import com.android.packageinstaller.role.model.Role;
 import com.android.packageinstaller.role.model.Roles;
+import com.android.packageinstaller.role.ui.auto.AutoSpecialAppAccessFragment;
 import com.android.packageinstaller.role.ui.handheld.HandheldSpecialAppAccessFragment;
+import com.android.permissioncontroller.R;
 
 /**
  * Activity for a special app access.
@@ -41,8 +45,7 @@ public class SpecialAppAccessActivity extends FragmentActivity {
      * Create an intent for starting this activity.
      *
      * @param roleName the name of the role for the special app access
-     * @param context the context to create the intent
-     *
+     * @param context  the context to create the intent
      * @return an intent to start this activity
      */
     @NonNull
@@ -53,6 +56,11 @@ public class SpecialAppAccessActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        if (DeviceUtils.isAuto(this)) {
+            // Automotive relies on a different theme. Apply before calling super so that
+            // fragments are restored properly on configuration changes.
+            setTheme(R.style.CarSettings);
+        }
         super.onCreate(savedInstanceState);
 
         getWindow().addSystemFlags(
@@ -78,8 +86,12 @@ public class SpecialAppAccessActivity extends FragmentActivity {
         }
 
         if (savedInstanceState == null) {
-            HandheldSpecialAppAccessFragment fragment =
-                    HandheldSpecialAppAccessFragment.newInstance(roleName);
+            Fragment fragment;
+            if (DeviceUtils.isAuto(this)) {
+                fragment = AutoSpecialAppAccessFragment.newInstance(roleName);
+            } else {
+                fragment = HandheldSpecialAppAccessFragment.newInstance(roleName);
+            }
             getSupportFragmentManager().beginTransaction()
                     .add(android.R.id.content, fragment)
                     .commit();
