@@ -22,18 +22,24 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.android.packageinstaller.auto.AutoSettingsFrameFragment;
 import com.android.packageinstaller.role.ui.DefaultAppListChildFragment;
 import com.android.packageinstaller.role.ui.TwoTargetPreference;
 import com.android.permissioncontroller.R;
 
 /** Shows various roles for which a default app can be picked. */
-public class AutoDefaultAppListFragment extends DefaultAppFrameFragment implements
+public class AutoDefaultAppListFragment extends AutoSettingsFrameFragment implements
         DefaultAppListChildFragment.Parent {
 
     /** Create a new instance of this fragment. */
     @NonNull
     public static AutoDefaultAppListFragment newInstance() {
         return new AutoDefaultAppListFragment();
+    }
+
+    @Override
+    public void onCreatePreferences(Bundle bundle, String s) {
+        // Preferences will be added via shared logic in {@link DefaultAppListChildFragment}.
     }
 
     @Override
