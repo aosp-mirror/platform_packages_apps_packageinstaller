@@ -26,12 +26,13 @@ import androidx.annotation.Nullable;
 import androidx.preference.Preference;
 import androidx.preference.TwoStatePreference;
 
+import com.android.packageinstaller.auto.AutoSettingsFrameFragment;
 import com.android.packageinstaller.role.model.Role;
 import com.android.packageinstaller.role.ui.DefaultAppChildFragment;
 import com.android.permissioncontroller.R;
 
 /** Screen to pick a default app for a particular {@link Role}. */
-public class AutoDefaultAppFragment extends DefaultAppFrameFragment implements
+public class AutoDefaultAppFragment extends AutoSettingsFrameFragment implements
         DefaultAppChildFragment.Parent {
 
     private String mRoleName;
@@ -63,6 +64,11 @@ public class AutoDefaultAppFragment extends DefaultAppFrameFragment implements
         Bundle arguments = getArguments();
         mRoleName = arguments.getString(Intent.EXTRA_ROLE_NAME);
         mUser = arguments.getParcelable(Intent.EXTRA_USER);
+    }
+
+    @Override
+    public void onCreatePreferences(Bundle bundle, String s) {
+        // Preferences will be added via shared logic in {@link DefaultAppChildFragment}.
     }
 
     @Override
