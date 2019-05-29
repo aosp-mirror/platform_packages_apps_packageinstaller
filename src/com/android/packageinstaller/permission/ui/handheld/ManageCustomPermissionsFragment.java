@@ -16,12 +16,27 @@
 
 package com.android.packageinstaller.permission.ui.handheld;
 
+import static com.android.packageinstaller.Constants.EXTRA_SESSION_ID;
+
+import android.os.Bundle;
 import android.view.MenuItem;
 
 /**
  * Fragment that allows the user to manage custom permissions.
  */
 public class ManageCustomPermissionsFragment extends ManagePermissionsFragment {
+
+    /**
+     * @return A new fragment
+     */
+    public static ManageCustomPermissionsFragment newInstance(long sessionId) {
+        ManageCustomPermissionsFragment fragment = new ManageCustomPermissionsFragment();
+        Bundle arguments = new Bundle();
+        arguments.putLong(EXTRA_SESSION_ID, sessionId);
+        fragment.setArguments(arguments);
+        return fragment;
+    }
+
     @Override
     public void onStart() {
         super.onStart();
