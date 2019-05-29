@@ -152,7 +152,7 @@ public class DefaultAppChildFragment<PF extends PreferenceFragmentCompat
 
             String key = qualifyingApplicationInfo.packageName;
             Drawable icon = Utils.getBadgedIcon(context, qualifyingApplicationInfo);
-            String title = Utils.getAppLabel(qualifyingApplicationInfo, context);
+            String title = Utils.getFullAppLabel(qualifyingApplicationInfo, context);
             addPreference(key, icon, title, isHolderApplication, qualifyingApplicationInfo,
                     oldPreferences, preferenceScreen, context);
         }
