@@ -47,8 +47,7 @@ public class Roles {
 
     private static final String LOG_TAG = Roles.class.getSimpleName();
 
-    // STOPSHIP: Turn this off before we ship.
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
 
     private static final String TAG_ROLES = "roles";
     private static final String TAG_PERMISSION_SET = "permission-set";
@@ -460,9 +459,9 @@ public class Roles {
         String permission = getAttributeValue(parser, ATTRIBUTE_PERMISSION);
         IntentFilterData intentFilterData = null;
         List<RequiredMetaData> metaData = new ArrayList<>();
-        List<String> metaDataNames;
+        List<String> debugMetaDataNames;
         if (DEBUG) {
-            metaDataNames = new ArrayList<>();
+            debugMetaDataNames = new ArrayList<>();
         }
 
         int type;
@@ -491,7 +490,7 @@ public class Roles {
                         continue;
                     }
                     if (DEBUG) {
-                        checkDuplicateElement(metaDataName, metaDataNames, "meta data");
+                        checkDuplicateElement(metaDataName, debugMetaDataNames, "meta data");
                     }
                     // HACK: Only support boolean for now.
                     // TODO: Support android:resource and other types of android:value, maybe by
@@ -507,7 +506,7 @@ public class Roles {
                             metaDataValue, metaDataOptional);
                     metaData.add(requiredMetaData);
                     if (DEBUG) {
-                        metaDataNames.add(metaDataName);
+                        debugMetaDataNames.add(metaDataName);
                     }
                     break;
                 default:
@@ -698,12 +697,9 @@ public class Roles {
                 if (maxTargetSdkVersion == Integer.MIN_VALUE) {
                     maxTargetSdkVersion = null;
                 }
-                if (DEBUG) {
-                    if (maxTargetSdkVersion != null
-                            && maxTargetSdkVersion < Build.VERSION_CODES.BASE) {
-                        throwOrLogMessage("Invalid value for \"maxTargetSdkVersion\": "
-                                + maxTargetSdkVersion);
-                    }
+                if (maxTargetSdkVersion != null && maxTargetSdkVersion < Build.VERSION_CODES.BASE) {
+                    throwOrLogMessage("Invalid value for \"maxTargetSdkVersion\": "
+                            + maxTargetSdkVersion);
                 }
                 String modeName = requireAttributeValue(parser, ATTRIBUTE_MODE, TAG_APP_OP);
                 if (modeName == null) {
@@ -797,11 +793,9 @@ public class Roles {
                     }
                     checkDuplicateElement(intentFilterData, intentFilterDatas,
                             "intent filter");
-                    if (DEBUG) {
-                        if (intentFilterData.getDataType() != null) {
-                            throwOrLogMessage("mimeType in <data> is not supported when setting a"
-                                    + " preferred activity");
-                        }
+                    if (intentFilterData.getDataType() != null) {
+                        throwOrLogMessage("mimeType in <data> is not supported when setting a"
+                                + " preferred activity");
                     }
                     intentFilterDatas.add(intentFilterData);
                     break;
