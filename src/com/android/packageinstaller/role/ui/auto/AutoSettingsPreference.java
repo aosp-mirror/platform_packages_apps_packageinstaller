@@ -25,7 +25,7 @@ import androidx.annotation.Nullable;
 import com.android.packageinstaller.role.ui.TwoTargetPreference;
 
 /**
- * Preference to show default app list. Extends {@link TwoTargetPreference} in order to make sure of
+ * Preference for use in auto lists. Extends {@link TwoTargetPreference} in order to make sure of
  * shared logic between phone and auto settings UI.
  */
 public class AutoSettingsPreference extends TwoTargetPreference {
