@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The Android Open Source Project
+ * Copyright 2019 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,23 +23,23 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.android.packageinstaller.auto.AutoSettingsFrameFragment;
-import com.android.packageinstaller.role.ui.DefaultAppListChildFragment;
+import com.android.packageinstaller.role.ui.SpecialAppAccessListChildFragment;
 import com.android.packageinstaller.role.ui.TwoTargetPreference;
 import com.android.permissioncontroller.R;
 
-/** Shows various roles for which a default app can be picked. */
-public class AutoDefaultAppListFragment extends AutoSettingsFrameFragment implements
-        DefaultAppListChildFragment.Parent {
+/** Automotive fragment for the list of role related special app accesses. */
+public class AutoSpecialAppAccessListFragment extends AutoSettingsFrameFragment implements
+        SpecialAppAccessListChildFragment.Parent {
 
-    /** Create a new instance of this fragment. */
+    /** Returns a new instance of {@link AutoSpecialAppAccessListFragment}. */
     @NonNull
-    public static AutoDefaultAppListFragment newInstance() {
-        return new AutoDefaultAppListFragment();
+    public static AutoSpecialAppAccessListFragment newInstance() {
+        return new AutoSpecialAppAccessListFragment();
     }
 
     @Override
     public void onCreatePreferences(Bundle bundle, String s) {
-        // Preferences will be added via shared logic in {@link DefaultAppListChildFragment}.
+        // Preferences will be added by the child fragment.
     }
 
     @Override
@@ -47,13 +47,14 @@ public class AutoDefaultAppListFragment extends AutoSettingsFrameFragment implem
         super.onActivityCreated(savedInstanceState);
 
         if (savedInstanceState == null) {
-            DefaultAppListChildFragment fragment = DefaultAppListChildFragment.newInstance();
+            SpecialAppAccessListChildFragment fragment =
+                    SpecialAppAccessListChildFragment.newInstance();
             getChildFragmentManager().beginTransaction()
-                    .add(fragment, null)
+                    .add(fragment, /* tag= */ null)
                     .commit();
         }
 
-        setHeaderLabel(getString(R.string.default_apps));
+        setHeaderLabel(getString(R.string.special_app_access));
     }
 
     @NonNull
