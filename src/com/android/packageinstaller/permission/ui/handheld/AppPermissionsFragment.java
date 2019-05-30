@@ -51,7 +51,6 @@ import androidx.preference.PreferenceScreen;
 import com.android.packageinstaller.PermissionControllerStatsLog;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
-import com.android.packageinstaller.permission.model.PermissionUsages;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 import com.android.settingslib.HelpUtils;
@@ -249,34 +248,7 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
             preference.setIcon(Utils.applyTint(context, icon,
                     android.R.attr.colorControlNormal));
             preference.setTitle(group.getFullLabel());
-            if (Utils.isModernPermissionGroup(group.getName()) && Utils.shouldShowPermissionUsage(
-                    group.getName())) {
-                String lastAccessStr = Utils.getAbsoluteLastUsageString(context,
-                        PermissionUsages.loadLastGroupUsage(context, group));
-                if (lastAccessStr != null) {
-                    if (group.areRuntimePermissionsGranted()) {
-                        preference.setSummary(
-                                context.getString(R.string.app_permission_most_recent_summary,
-                                        lastAccessStr));
-                    } else {
-                        preference.setSummary(context.getString(
-                                R.string.app_permission_most_recent_denied_summary, lastAccessStr));
-                    }
-                } else {
-                    preference.setGroupSummary(group);
-                    if (preference.getSummary().length() == 0 && Utils.isPermissionsHubEnabled()) {
-                        if (group.areRuntimePermissionsGranted()) {
-                            preference.setSummary(context.getString(
-                                    R.string.app_permission_never_accessed_summary));
-                        } else {
-                            preference.setSummary(context.getString(
-                                    R.string.app_permission_never_accessed_denied_summary));
-                        }
-                    }
-                }
-            } else {
-                preference.setGroupSummary(group);
-            }
+            preference.setGroupSummary(group);
 
             if (isPlatform) {
                 PreferenceCategory category =
