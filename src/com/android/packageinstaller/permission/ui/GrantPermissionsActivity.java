@@ -181,9 +181,10 @@ public class GrantPermissionsActivity extends Activity
         boolean skipGroup = false;
         switch (getPermissionPolicy()) {
             case DevicePolicyManager.PERMISSION_POLICY_AUTO_GRANT: {
-                group.grantRuntimePermissions(false, new String[]{permName});
+                final String[] filterPermissions = new String[]{permName};
+                group.grantRuntimePermissions(false, filterPermissions);
+                group.setPolicyFixed(filterPermissions);
                 state.mState = GroupState.STATE_ALLOWED;
-                group.setPolicyFixed();
                 skipGroup = true;
 
                 reportRequestResult(permName,
@@ -191,8 +192,9 @@ public class GrantPermissionsActivity extends Activity
             } break;
 
             case DevicePolicyManager.PERMISSION_POLICY_AUTO_DENY: {
+                final String[] filterPermissions = new String[]{permName};
+                group.setPolicyFixed(filterPermissions);
                 state.mState = GroupState.STATE_DENIED;
-                group.setPolicyFixed();
                 skipGroup = true;
 
                 reportRequestResult(permName,
