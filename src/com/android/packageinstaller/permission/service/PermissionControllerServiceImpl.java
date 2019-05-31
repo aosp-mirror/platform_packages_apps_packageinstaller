@@ -47,8 +47,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
+import com.android.packageinstaller.permission.model.AppPermissionUsage;
+import com.android.packageinstaller.permission.model.AppPermissionUsage.GroupUsage;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.Permission;
+import com.android.packageinstaller.permission.model.PermissionUsages;
 import com.android.packageinstaller.permission.utils.Utils;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -496,7 +499,52 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
 
     private @NonNull List<RuntimePermissionUsageInfo> onGetPermissionUsages(
             boolean countSystem, long numMillis) {
-        return Collections.emptyList();
+        ArrayMap<String, Integer> groupUsers = new ArrayMap<>();
+
+        long curTime = System.currentTimeMillis();
+        PermissionUsages usages = new PermissionUsages(this);
+        long filterTimeBeginMillis = Math.max(System.currentTimeMillis() - numMillis, 0);
+        usages.load(null, null, filterTimeBeginMillis, Long.MAX_VALUE,
+                PermissionUsages.USAGE_FLAG_LAST | PermissionUsages.USAGE_FLAG_HISTORICAL, null,
+                false, false, null, true);
+
+        List<AppPermissionUsage> appPermissionUsages = usages.getUsages();
+        int numApps = appPermissionUsages.size();
+        for (int appNum = 0; appNum < numApps; appNum++) {
+            AppPermissionUsage appPermissionUsage = appPermissionUsages.get(appNum);
+
+            List<GroupUsage> appGroups = appPermissionUsage.getGroupUsages();
+            int numGroups = appGroups.size();
+            for (int groupNum = 0; groupNum < numGroups; groupNum++) {
+                GroupUsage groupUsage = appGroups.get(groupNum);
+
+                if (groupUsage.getLastAccessTime() < filterTimeBeginMillis) {
+                    continue;
+                }
+                if (!shouldShowPermission(this, groupUsage.getGroup())) {
+                    continue;
+                }
+                if (!countSystem && !Utils.isGroupOrBgGroupUserSensitive(groupUsage.getGroup())) {
+                    continue;
+                }
+
+                String groupName = groupUsage.getGroup().getName();
+                Integer numUsers = groupUsers.get(groupName);
+                if (numUsers == null) {
+                    groupUsers.put(groupName, 1);
+                } else {
+                    groupUsers.put(groupName, numUsers + 1);
+                }
+            }
+        }
+
+        List<RuntimePermissionUsageInfo> users = new ArrayList<>();
+        int numGroups = groupUsers.size();
+        for (int groupNum = 0; groupNum < numGroups; groupNum++) {
+            users.add(new RuntimePermissionUsageInfo(groupUsers.keyAt(groupNum),
+                    groupUsers.valueAt(groupNum)));
+        }
+        return users;
     }
 
     @Override
