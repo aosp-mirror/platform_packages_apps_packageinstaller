@@ -38,7 +38,7 @@ class RuntimePermissionsUpgradeController {
     private static final String LOG_TAG = RuntimePermissionsUpgradeController.class.getSimpleName();
 
     // The latest version of the runtime permissions database
-    private static final int LATEST_VERSION = 4;
+    private static final int LATEST_VERSION = 5;
 
     private RuntimePermissionsUpgradeController() {
         /* do nothing - hide constructor */
@@ -116,41 +116,7 @@ class RuntimePermissionsUpgradeController {
         }
 
         if (currentVersion == 1) {
-            if (sdkUpgradedFromP) {
-                Log.i(LOG_TAG, "Expanding location permissions");
-
-                for (int i = 0; i < appCount; i++) {
-                    final PackageInfo app = apps.get(i);
-                    if (app.requestedPermissions == null) {
-                        continue;
-                    }
-
-                    for (String perm : app.requestedPermissions) {
-                        String groupName = Utils.getGroupOfPlatformPermission(perm);
-
-                        if (!TextUtils.equals(groupName, Manifest.permission_group.LOCATION)) {
-                            continue;
-                        }
-
-                        final AppPermissionGroup group = AppPermissionGroup.create(context, app,
-                                perm, false);
-                        final AppPermissionGroup bgGroup = group.getBackgroundPermissions();
-
-                        if (group.areRuntimePermissionsGranted()
-                                && bgGroup != null
-                                && !bgGroup.isUserSet() && !bgGroup.isSystemFixed()
-                                && !bgGroup.isPolicyFixed()) {
-                            bgGroup.grantRuntimePermissions(group.isUserFixed());
-                        }
-
-                        break;
-                    }
-                }
-            } else {
-                Log.i(LOG_TAG, "Not expanding location permissions as this is not an upgrade "
-                        + "from Android P");
-            }
-
+            // moved to step 4->5 as it has to be after the grandfathering of loc bg perms
             currentVersion = 2;
         }
 
@@ -199,6 +165,45 @@ class RuntimePermissionsUpgradeController {
                 }
             }
             currentVersion = 4;
+        }
+
+        if (currentVersion == 4) {
+            if (sdkUpgradedFromP) {
+                Log.i(LOG_TAG, "Expanding location permissions");
+
+                for (int i = 0; i < appCount; i++) {
+                    final PackageInfo app = apps.get(i);
+                    if (app.requestedPermissions == null) {
+                        continue;
+                    }
+
+                    for (String perm : app.requestedPermissions) {
+                        String groupName = Utils.getGroupOfPlatformPermission(perm);
+
+                        if (!TextUtils.equals(groupName, Manifest.permission_group.LOCATION)) {
+                            continue;
+                        }
+
+                        final AppPermissionGroup group = AppPermissionGroup.create(context, app,
+                                perm, false);
+                        final AppPermissionGroup bgGroup = group.getBackgroundPermissions();
+
+                        if (group.areRuntimePermissionsGranted()
+                                && bgGroup != null
+                                && !bgGroup.isUserSet() && !bgGroup.isSystemFixed()
+                                && !bgGroup.isPolicyFixed()) {
+                            bgGroup.grantRuntimePermissions(group.isUserFixed());
+                        }
+
+                        break;
+                    }
+                }
+            } else {
+                Log.i(LOG_TAG, "Not expanding location permissions as this is not an upgrade "
+                        + "from Android P");
+            }
+
+            currentVersion = 5;
         }
 
         // XXX: Add new upgrade steps above this point.

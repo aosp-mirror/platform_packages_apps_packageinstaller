@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The Android Open Source Project
+ * Copyright 2019 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,40 +19,32 @@ package com.android.packageinstaller.role.ui.auto;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.UserHandle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.preference.Preference;
+import androidx.preference.SwitchPreference;
 import androidx.preference.TwoStatePreference;
 
 import com.android.packageinstaller.auto.AutoSettingsFrameFragment;
-import com.android.packageinstaller.role.model.Role;
-import com.android.packageinstaller.role.ui.DefaultAppChildFragment;
+import com.android.packageinstaller.role.ui.SpecialAppAccessChildFragment;
 import com.android.permissioncontroller.R;
 
-/** Screen to pick a default app for a particular {@link Role}. */
-public class AutoDefaultAppFragment extends AutoSettingsFrameFragment implements
-        DefaultAppChildFragment.Parent {
+/** Automotive fragment for displaying special app access for a role. */
+public class AutoSpecialAppAccessFragment extends AutoSettingsFrameFragment implements
+        SpecialAppAccessChildFragment.Parent {
 
     private String mRoleName;
 
-    private UserHandle mUser;
-
     /**
-     * Create a new instance of this fragment.
-     *
-     * @param roleName the name of the role for the default app
-     * @param user     the user for the default app
-     * @return a new instance of this fragment
+     * Returns a new instance of {@link AutoSpecialAppAccessFragment} for the given {@code
+     * roleName}.
      */
     @NonNull
-    public static AutoDefaultAppFragment newInstance(@NonNull String roleName,
-            @NonNull UserHandle user) {
-        AutoDefaultAppFragment fragment = new AutoDefaultAppFragment();
+    public static AutoSpecialAppAccessFragment newInstance(@NonNull String roleName) {
+        AutoSpecialAppAccessFragment fragment = new AutoSpecialAppAccessFragment();
         Bundle arguments = new Bundle();
         arguments.putString(Intent.EXTRA_ROLE_NAME, roleName);
-        arguments.putParcelable(Intent.EXTRA_USER, user);
         fragment.setArguments(arguments);
         return fragment;
     }
@@ -63,12 +55,11 @@ public class AutoDefaultAppFragment extends AutoSettingsFrameFragment implements
 
         Bundle arguments = getArguments();
         mRoleName = arguments.getString(Intent.EXTRA_ROLE_NAME);
-        mUser = arguments.getParcelable(Intent.EXTRA_USER);
     }
 
     @Override
     public void onCreatePreferences(Bundle bundle, String s) {
-        // Preferences will be added via shared logic in {@link DefaultAppChildFragment}.
+        // Preferences will be added by the child fragment.
     }
 
     @Override
@@ -76,8 +67,8 @@ public class AutoDefaultAppFragment extends AutoSettingsFrameFragment implements
         super.onActivityCreated(savedInstanceState);
 
         if (savedInstanceState == null) {
-            DefaultAppChildFragment fragment = DefaultAppChildFragment.newInstance(mRoleName,
-                    mUser);
+            SpecialAppAccessChildFragment fragment = SpecialAppAccessChildFragment.newInstance(
+                    mRoleName);
             getChildFragmentManager().beginTransaction()
                     .add(fragment, null)
                     .commit();
@@ -92,7 +83,7 @@ public class AutoDefaultAppFragment extends AutoSettingsFrameFragment implements
     @NonNull
     @Override
     public TwoStatePreference createApplicationPreference(@NonNull Context context) {
-        return new AutoDefaultAppPreference(context);
+        return new SwitchPreference(context);
     }
 
     @NonNull

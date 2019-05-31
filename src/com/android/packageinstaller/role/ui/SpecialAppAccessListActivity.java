@@ -20,9 +20,13 @@ import android.os.Bundle;
 import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
+import com.android.packageinstaller.DeviceUtils;
+import com.android.packageinstaller.role.ui.auto.AutoSpecialAppAccessListFragment;
 import com.android.packageinstaller.role.ui.handheld.HandheldSpecialAppAccessListFragment;
+import com.android.permissioncontroller.R;
 
 /**
  * Activity for the list of special app accesses.
@@ -31,14 +35,23 @@ public class SpecialAppAccessListActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        if (DeviceUtils.isAuto(this)) {
+            // Automotive relies on a different theme. Apply before calling super so that
+            // fragments are restored properly on configuration changes.
+            setTheme(R.style.CarSettings);
+        }
         super.onCreate(savedInstanceState);
 
         getWindow().addSystemFlags(
                 WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
 
         if (savedInstanceState == null) {
-            HandheldSpecialAppAccessListFragment fragment =
-                    HandheldSpecialAppAccessListFragment.newInstance();
+            Fragment fragment;
+            if (DeviceUtils.isAuto(this)) {
+                fragment = AutoSpecialAppAccessListFragment.newInstance();
+            } else {
+                fragment = HandheldSpecialAppAccessListFragment.newInstance();
+            }
             getSupportFragmentManager().beginTransaction()
                     .add(android.R.id.content, fragment)
                     .commit();
