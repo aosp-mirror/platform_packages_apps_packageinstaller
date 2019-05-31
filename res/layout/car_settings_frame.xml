@@ -84,11 +84,7 @@
     <FrameLayout
         android:id="@android:id/list_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <com.android.car.apps.common.widget.PagedRecyclerView
-            android:id="@+id/recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
-    </FrameLayout>
+        android:layout_height="match_parent"
+        android:paddingEnd="@*android:dimen/car_margin"
+        android:paddingStart="@*android:dimen/car_margin"/>
 </LinearLayout>
