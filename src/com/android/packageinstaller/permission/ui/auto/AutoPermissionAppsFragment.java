@@ -33,6 +33,7 @@ import com.android.packageinstaller.auto.AutoSettingsFrameFragment;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionApps;
 import com.android.packageinstaller.permission.model.PermissionApps.Callback;
+import com.android.packageinstaller.permission.model.PermissionUsages;
 import com.android.packageinstaller.permission.ui.handheld.PermissionAppsFragment;
 import com.android.packageinstaller.permission.ui.handheld.PermissionControlPreference;
 import com.android.packageinstaller.permission.utils.Utils;
@@ -262,6 +263,10 @@ public class AutoPermissionAppsFragment extends AutoSettingsFrameFragment implem
             }
 
             if (existingPref != null) {
+                if (existingPref instanceof PermissionControlPreference) {
+                    setPreferenceSummary(group, (PermissionControlPreference) existingPref,
+                            category != denied, context);
+                }
                 category.addPreference(existingPref);
                 continue;
             }
@@ -273,6 +278,7 @@ public class AutoPermissionAppsFragment extends AutoSettingsFrameFragment implem
             pref.setTitle(Utils.getFullAppLabel(app.getAppInfo(), context));
             pref.setEllipsizeEnd();
             pref.useSmallerIcon();
+            setPreferenceSummary(group, pref, category != denied, context);
             category.addPreference(pref);
         }
 
@@ -300,5 +306,33 @@ public class AutoPermissionAppsFragment extends AutoSettingsFrameFragment implem
 
         setShowSystemAppsToggle();
         setLoading(false);
+    }
+
+    private void setPreferenceSummary(AppPermissionGroup group, PermissionControlPreference pref,
+            boolean allowed, Context context) {
+        if (!Utils.isModernPermissionGroup(group.getName())) {
+            return;
+        }
+        if (!Utils.shouldShowPermissionUsage(group.getName())) {
+            return;
+        }
+        String lastAccessStr = Utils.getAbsoluteLastUsageString(context,
+                PermissionUsages.loadLastGroupUsage(context, group));
+        if (lastAccessStr != null) {
+            if (allowed) {
+                pref.setSummary(context.getString(R.string.app_permission_most_recent_summary,
+                        lastAccessStr));
+            } else {
+                pref.setSummary(
+                        context.getString(R.string.app_permission_most_recent_denied_summary,
+                                lastAccessStr));
+            }
+        } else if (Utils.isPermissionsHubEnabled()) {
+            if (allowed) {
+                pref.setSummary(R.string.app_permission_never_accessed_summary);
+            } else {
+                pref.setSummary(R.string.app_permission_never_accessed_denied_summary);
+            }
+        }
     }
 }

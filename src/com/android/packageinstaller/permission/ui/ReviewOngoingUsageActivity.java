@@ -16,16 +16,57 @@
 
 package com.android.packageinstaller.permission.ui;
 
-import android.os.Bundle;
+import static android.view.WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.MenuItem;
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
+import com.android.packageinstaller.DeviceUtils;
+import com.android.packageinstaller.permission.ui.auto.ReviewOngoingUsageAutoFragment;
+import com.android.packageinstaller.permission.ui.handheld.ReviewOngoingUsageFragment;
+
+/**
+ * A dialog listing the currently uses of camera, microphone, and location.
+ */
 public final class ReviewOngoingUsageActivity extends FragmentActivity {
+
+    // Number of milliseconds in the past to look for accesses if nothing was specified.
+    private static final long DEFAULT_MILLIS = 5000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        finish();
-        return;
+
+        getWindow().addSystemFlags(SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
+
+        long numMillis = getIntent().getLongExtra(Intent.EXTRA_DURATION_MILLIS, DEFAULT_MILLIS);
+        if (DeviceUtils.isAuto(this)) {
+            getSupportFragmentManager().beginTransaction().replace(android.R.id.content,
+                    ReviewOngoingUsageAutoFragment.newInstance(numMillis)).commit();
+        } else {
+            getSupportFragmentManager().beginTransaction().replace(android.R.id.content,
+                    ReviewOngoingUsageFragment.newInstance(numMillis)).commit();
+        }
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // in automotive mode, there's no system wide back button, so need to add that
+                if (DeviceUtils.isAuto(this)) {
+                    onBackPressed();
+                } else {
+                    finish();
+                }
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
