@@ -70,13 +70,11 @@
     <string name="permission_summary_disabled_by_admin_background_only" msgid="2185473379176174735">"הגישה ברקע מושבתת על ידי מנהל מערכת"</string>
     <string name="permission_summary_enabled_by_admin_background_only" msgid="4558536214810713340">"הגישה ברקע מופעלת על ידי מנהל מערכת"</string>
     <string name="permission_summary_enabled_by_admin_foreground_only" msgid="3735312186687063512">"הגישה במצב פעיל מופעלת על ידי מנהל מערכת"</string>
-    <!-- no translation found for permission_summary_enabled_system_fixed (2986671472344103830) -->
-    <skip />
+    <string name="permission_summary_enabled_system_fixed" msgid="2986671472344103830">"ההרשאה הזו נחוצה למכשיר כדי לפעול"</string>
     <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
     <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
-    <!-- no translation found for permission_access_always (8746815855070494802) -->
-    <skip />
+    <string name="permission_access_always" msgid="8746815855070494802">"להתיר כל הזמן"</string>
     <string name="permission_access_only_foreground" msgid="1653942358383006807">"מותר רק כשהאפליקציה בשימוש"</string>
     <string name="permission_access_never" msgid="6189440007697689967">"אני לא מרשה"</string>
     <string name="loading" msgid="7811651799620593731">"טוען..."</string>
@@ -109,34 +107,32 @@
     <string name="no_permission_usages" msgid="5322488885313825032">"אין שימוש בהרשאות"</string>
     <string name="permission_usage_list_title_any_time" msgid="5231969131124312338">"הגישה האחרונה בכל מסגרת זמן"</string>
     <string name="permission_usage_list_title_last_7_days" msgid="3481601827843295434">"הגישה האחרונה ב-7 הימים האחרונים"</string>
-    <!-- no translation found for permission_usage_list_title_last_day (8004766042375735038) -->
-    <skip />
-    <!-- no translation found for permission_usage_list_title_last_hour (5263636446126109595) -->
-    <skip />
+    <string name="permission_usage_list_title_last_day" msgid="8004766042375735038">"הגישה האחרונה ב-24 השעות האחרונות"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="5263636446126109595">"הגישה האחרונה בשעה האחרונה"</string>
     <string name="permission_usage_list_title_last_15_minutes" msgid="3842584491108496053">"הגישה האחרונה ב-15 הדקות האחרונות"</string>
     <string name="permission_usage_list_title_last_minute" msgid="6135511482448899737">"הגישה האחרונה בדקה האחרונה"</string>
     <string name="permission_usage_bar_chart_title_any_time" msgid="2233750755422237444">"שימוש בהרשאות בכל מסגרת זמן"</string>
-    <!-- no translation found for permission_usage_bar_chart_title_last_7_days (2505302271268657969) -->
-    <skip />
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="2505302271268657969">"שימוש בהרשאות ב-7 הימים האחרונים"</string>
     <string name="permission_usage_bar_chart_title_last_day" msgid="3929341411684348428">"שימוש בהרשאות ב-24 השעות האחרונות"</string>
     <string name="permission_usage_bar_chart_title_last_hour" msgid="1473287216393833028">"שימוש בהרשאות בשעה האחרונה"</string>
-    <!-- no translation found for permission_usage_bar_chart_title_last_15_minutes (8394883927589032677) -->
-    <skip />
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="8394883927589032677">"שימוש בהרשאות ב-15 הדקות האחרונות"</string>
     <string name="permission_usage_bar_chart_title_last_minute" msgid="8821351707225812097">"שימוש בהרשאות בדקה האחרונה"</string>
-    <!-- no translation found for permission_usage_bar_label (7669269046102999228) -->
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="7669269046102999228">
+      <item quantity="two"><xliff:g id="NUMBER">%s</xliff:g> אפליקציות</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> אפליקציות</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> אפליקציות</item>
+      <item quantity="one">אפליקציה אחת</item>
+    </plurals>
     <string name="permission_usage_view_details" msgid="7240872485880156540">"הצגת כל הפרטים במרכז השליטה"</string>
     <string name="app_permission_usage_filter_label" msgid="4632636077566071507">"סינון לפי: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <!-- no translation found for app_permission_usage_remove_filter (5502079672930422033) -->
-    <skip />
+    <string name="app_permission_usage_remove_filter" msgid="5502079672930422033">"הצגת כל הפרטים במרכז השליטה"</string>
     <string name="filter_by_title" msgid="7213659781851489723">"סינון לפי"</string>
     <string name="filter_by_permissions" msgid="6808193127145660341">"סינון לפי הרשאות"</string>
-    <!-- no translation found for filter_by_time (4037550957826791975) -->
-    <skip />
+    <string name="filter_by_time" msgid="4037550957826791975">"סינון לפי שעה"</string>
     <string name="sort_spinner_most_permissions" msgid="6852540142388944721">"הכי הרבה הרשאות"</string>
     <string name="sort_spinner_most_accesses" msgid="1219554524183666955">"הכי הרבה קבלות גישה"</string>
     <string name="sort_spinner_recent" msgid="1418334780798429342">"מהזמן האחרון"</string>
-    <!-- no translation found for sort_by_app (5836911326872031928) -->
-    <skip />
+    <string name="sort_by_app" msgid="5836911326872031928">"מיון לפי שימוש באפליקציה"</string>
     <string name="sort_by_time" msgid="5904361063977286957">"מיון לפי שעה"</string>
     <string name="item_separator" msgid="5590105992485222167">", "</string>
     <string name="permission_usage_refresh" msgid="2424637977565575554">"רענון"</string>
@@ -179,46 +175,54 @@
     <string name="app_permission_footer_no_usages_sensors" msgid="5716861361576610045">"האפליקציה <xliff:g id="APP">%1$s</xliff:g> לא ניגשה אל החיישנים שלך"</string>
     <string name="app_permission_footer_no_usages_sms" msgid="2453537470852966962">"‏האפליקציה <xliff:g id="APP">%1$s</xliff:g> לא ניגשה אל ה-SMS"</string>
     <string name="app_permission_footer_no_usages_storage" msgid="1296053906120407192">"האפליקציה <xliff:g id="APP">%1$s</xliff:g> לא ניגשה אל האחסון שלך"</string>
-    <!-- no translation found for app_permission_footer_not_available (7473636495733881225) -->
-    <skip />
+    <string name="app_permission_footer_not_available" msgid="7473636495733881225">"נתוני הגישה האחרונה לא זמינים עכשיו להרשאה זו"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="6074026408119212662">"הצגת כל ההרשאות של \'<xliff:g id="APP">%1$s</xliff:g>\'"</string>
-    <!-- no translation found for app_permission_footer_permission_apps_link (3489066323918915073) -->
-    <skip />
+    <string name="app_permission_footer_permission_apps_link" msgid="3489066323918915073">"הצגת כל האפליקציות עם ההרשאה הזו"</string>
     <string name="permission_description_summary_generic" msgid="1134416469764865198">"אפליקציות עם ההרשאה הזו יכולות <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <!-- no translation found for permission_description_summary_activity_recognition (3371048800215659444) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_calendar (7627624281615554407) -->
-    <skip />
+    <string name="permission_description_summary_activity_recognition" msgid="3371048800215659444">"אפליקציות עם ההרשאה הזו יכולות לגשת לפעילות הגופנית שלך, למשל הליכה, רכיבה על אופניים, נהיגה, ספירת צעדים ועוד"</string>
+    <string name="permission_description_summary_calendar" msgid="7627624281615554407">"אפליקציות עם ההרשאה הזו יכולות לגשת אל היומן"</string>
     <string name="permission_description_summary_call_log" msgid="4715804544768878751">"אפליקציות עם ההרשאה הזו יכולות לקרוא ולכתוב ביומן השיחות של הטלפון"</string>
-    <!-- no translation found for permission_description_summary_camera (7879547592935186291) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_contacts (2833167258022765303) -->
-    <skip />
+    <string name="permission_description_summary_camera" msgid="7879547592935186291">"אפליקציות עם ההרשאה הזו יכולות לצלם תמונות ולהקליט וידאו"</string>
+    <string name="permission_description_summary_contacts" msgid="2833167258022765303">"אפליקציות עם ההרשאה הזו יכולות לגשת אל אנשי הקשר"</string>
     <string name="permission_description_summary_location" msgid="4722113806360938675">"אפליקציות עם ההרשאה הזו יכולות לגשת אל מיקום המכשיר"</string>
-    <!-- no translation found for permission_description_summary_microphone (1349810138634077494) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_phone (6972180067860067462) -->
-    <skip />
+    <string name="permission_description_summary_microphone" msgid="1349810138634077494">"אפליקציות עם ההרשאה הזו יכולות להקליט אודיו"</string>
+    <string name="permission_description_summary_phone" msgid="6972180067860067462">"אפליקציות עם ההרשאה הזו יכולות להתקשר ולנהל שיחות טלפון"</string>
     <string name="permission_description_summary_sensors" msgid="5747969909098898581">"אפליקציות עם ההרשאה הזו יכולות לגשת אל נתוני חיישנים שמודדים את הסימנים החיוניים שלך"</string>
-    <!-- no translation found for permission_description_summary_sms (1394630256073587627) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_storage (3947962757455327167) -->
-    <skip />
+    <string name="permission_description_summary_sms" msgid="1394630256073587627">"‏אפליקציות עם ההרשאה הזו יכולות לשלוח ולהציג הודעות SMS"</string>
+    <string name="permission_description_summary_storage" msgid="3947962757455327167">"אפליקציות עם ההרשאה הזו יכולות לגשת לתמונות, למדיה ולקבצים במכשיר שלך"</string>
     <string name="app_permission_most_recent_summary" msgid="2806631058626902828">"גישה אחרונה: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="474549680139911807">"חסומה כרגע / גישה אחרונה: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="5253530744650386602">"אף פעם לא הופעלה"</string>
-    <!-- no translation found for app_permission_never_accessed_denied_summary (5074713608728279798) -->
-    <skip />
+    <string name="app_permission_never_accessed_denied_summary" msgid="5074713608728279798">"הגישה נחסמה / מעולם לא הופעלה"</string>
     <string name="allowed_header" msgid="670868581011741572">"יש הרשאה"</string>
-    <!-- no translation found for allowed_always_header (3129163790476916487) -->
-    <skip />
+    <string name="allowed_always_header" msgid="3129163790476916487">"מותרות כל הזמן"</string>
     <string name="allowed_foreground_header" msgid="508441909373674270">"מורשית רק בזמן שימוש"</string>
     <string name="denied_header" msgid="4716097249466859449">"אין הרשאה"</string>
     <string name="detailed_usage_link" msgid="3213629980587953904">"הצגת נתוני שימוש מפורטים בהרשאות"</string>
-    <!-- no translation found for days (7685720539370448104) -->
-    <!-- no translation found for hours (5513137617382570199) -->
-    <!-- no translation found for minutes (269873289285218670) -->
-    <!-- no translation found for seconds (7518380254369486125) -->
+    <plurals name="days" formatted="false" msgid="7685720539370448104">
+      <item quantity="two">יומיים (<xliff:g id="NUMBER">%s</xliff:g>)</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> ימים</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ימים</item>
+      <item quantity="one">יום אחד</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="5513137617382570199">
+      <item quantity="two">שעתיים (<xliff:g id="NUMBER">%s</xliff:g>)</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> שעות</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> שעות</item>
+      <item quantity="one">שעה אחת</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="269873289285218670">
+      <item quantity="two"><xliff:g id="NUMBER">%s</xliff:g> דקות</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> דקות</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> דקות</item>
+      <item quantity="one">דקה אחת</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="7518380254369486125">
+      <item quantity="two"><xliff:g id="NUMBER">%s</xliff:g> שניות</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> שניות</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> שניות</item>
+      <item quantity="one">שנייה אחת</item>
+    </plurals>
     <string name="permission_reminders" msgid="7692569306867004285">"תזכורות להרשאות"</string>
     <string name="background_location_access_reminder_notification_title" msgid="1447771664601165880">"האפליקציה <xliff:g id="APP_NAME">%s</xliff:g> קיבלה גישה ברקע למיקום שלך"</string>
     <string name="background_location_access_reminder_notification_content" msgid="4931939953173203901">"האפליקציה הזו יכולה תמיד לגשת למיקום שלך. יש להקיש כדי לשנות הגדרה זו."</string>
@@ -227,23 +231,19 @@
     <string name="no_permissions_denied" msgid="4148813660212679056">"אין הרשאות שנדחו"</string>
     <string name="no_apps_allowed" msgid="4959324189831343508">"אין אפליקציות שקיבלו הרשאה"</string>
     <string name="no_apps_denied" msgid="4966465333227047186">"אין אפליקציות ללא ההרשאה"</string>
-    <!-- no translation found for car_permission_selected (5788441628706535323) -->
-    <skip />
+    <string name="car_permission_selected" msgid="5788441628706535323">"נבחר"</string>
     <string name="settings" msgid="6743583734099755409">"הגדרות"</string>
     <string name="accessibility_service_dialog_title_single" msgid="8163574312765390697">"לשירות <xliff:g id="SERVICE_NAME">%s</xliff:g> יש גישה מלאה למכשיר שלך"</string>
     <string name="accessibility_service_dialog_title_multiple" msgid="593839615447260933">"ל-<xliff:g id="NUM_SERVICES">%s</xliff:g> אפליקציות נגישות יש גישה מלאה אל המכשיר שלך"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="1201610224744125691">"השירות <xliff:g id="SERVICE_NAME">%s</xliff:g> יכול להציג את המסך, הפעולות ופריטי הפלט שלך, וכן לבצע פעולות ולשלוט בתצוגה."</string>
-    <!-- no translation found for accessibility_service_dialog_bottom_text_multiple (99044354994789512) -->
-    <skip />
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="99044354994789512">"האפליקציות האלה יכולות להציג את המסך, הפעולות והקלט שלך, וכן לבצע פעולות ולשלוט בתצוגה."</string>
     <string name="role_assistant_label" msgid="325607225419991524">"אפליקציית ברירת מחדל לעזרה"</string>
-    <!-- no translation found for role_assistant_short_label (5324338887042810318) -->
-    <skip />
+    <string name="role_assistant_short_label" msgid="5324338887042810318">"אפליקציית עזרה"</string>
     <string name="role_assistant_description" msgid="5980622464037768572">"אפליקציות עזרה יכולות לסייע על סמך המידע שמוצג לך במסך. אפליקציות מסוימות תומכות בשירותי מרכז אפליקציות וגם בקלט קולי כדי לספק סיוע משולב."</string>
     <string name="role_assistant_request_title" msgid="2198246079117996249">"להגדיר את <xliff:g id="APP_NAME">%1$s</xliff:g> בתור אפליקציית העזרה שתשמש כברירת מחדל?"</string>
     <string name="role_assistant_request_description" msgid="9007538649849881727">"‏מקבלת גישה אל SMS ויומן שיחות"</string>
     <string name="role_browser_label" msgid="1452186785584890151">"אפליקציית ברירת מחדל לדפדפן"</string>
-    <!-- no translation found for role_browser_short_label (7008704096614388208) -->
-    <skip />
+    <string name="role_browser_short_label" msgid="7008704096614388208">"אפליקציית דפדפן"</string>
     <string name="role_browser_description" msgid="3733812642667691329">"אפליקציות שמספקות לך גישה לאינטרנט ומציגות קישורים להקשה"</string>
     <string name="role_browser_request_title" msgid="6682328732125865006">"להגדיר את <xliff:g id="APP_NAME">%1$s</xliff:g> כאפליקציית הדפדפן המשמשת כברירת מחדל?"</string>
     <string name="role_browser_request_description" msgid="5273230084027848407">"אין צורך בהרשאות"</string>
@@ -252,65 +252,50 @@
     <string name="role_dialer_description" msgid="8168811763060055520">"אפליקציות שמאפשרות לך להתקשר ולקבל שיחות במכשיר"</string>
     <string name="role_dialer_request_title" msgid="2281942809560056462">"להגדיר את <xliff:g id="APP_NAME">%1$s</xliff:g> בתור אפליקציית הטלפון שמשמשת כברירת מחדל?"</string>
     <string name="role_dialer_request_description" msgid="1597958203339261473">"‏מקבלת גישה אל יומן השיחות ולשליחת SMS"</string>
-    <!-- no translation found for role_sms_label (1282375330984375167) -->
-    <skip />
+    <string name="role_sms_label" msgid="1282375330984375167">"‏אפליקציית ברירת מחדל ל-SMS"</string>
     <string name="role_sms_short_label" msgid="4774295162759580727">"‏אפליקציית SMS"</string>
     <string name="role_sms_description" msgid="8688975508844386261">"אפליקציות שמאפשרות לך להשתמש במספר הטלפון כדי לשלוח ולקבל הודעות טקסט קצרות, תמונות, סרטונים ועוד"</string>
     <string name="role_sms_request_title" msgid="3942676190809695139">"‏להגדיר את <xliff:g id="APP_NAME">%1$s</xliff:g> כאפליקציית ברירת המחדל ל-SMS?"</string>
     <string name="role_sms_request_description" msgid="6079312070314434582">"‏מקבלת גישה אל אנשי הקשר, SMS והטלפון"</string>
-    <!-- no translation found for role_emergency_label (8510350771744625248) -->
-    <skip />
+    <string name="role_emergency_label" msgid="8510350771744625248">"אפליקציית ברירת מחדל לחירום"</string>
     <string name="role_emergency_short_label" msgid="594672497758636578">"אפליקציה לשעת חירום"</string>
     <string name="role_emergency_description" msgid="1328017704085954407">"אפליקציות שמאפשרות לך לתעד מידע רפואי ולהפוך אותו לנגיש בשביל מגיבים בשעת חירום, כדי לקבל התראות על אסונות ואירועי מזג אוויר חמורים, כדי להודיע לאחרים כשיש לך צורך בעזרה"</string>
     <string name="role_emergency_request_title" msgid="862426026906033381">"להגדיר את <xliff:g id="APP_NAME">%1$s</xliff:g> כאפליקציית ברירת המחדל למקרי חירום?"</string>
-    <!-- no translation found for role_emergency_request_description (6604461788824945209) -->
-    <skip />
-    <!-- no translation found for role_home_label (2403568779207064895) -->
-    <skip />
+    <string name="role_emergency_request_description" msgid="6604461788824945209">"אין צורך בהרשאות"</string>
+    <string name="role_home_label" msgid="2403568779207064895">"אפליקציית ברירת המחדל לדף הבית"</string>
     <string name="role_home_short_label" msgid="8293261293243062773">"אפליקציית דף הבית"</string>
     <string name="role_home_description" msgid="4692657963991101103">"‏אפליקציות (לעיתים קרובות נקראות \'מרכזי אפליקציות\') שמחליפות את מסכי דף הבית במכשיר ה-Android ונותנות לך גישה אל התוכן והתכונות של המכשיר"</string>
     <string name="role_home_request_title" msgid="7254377742128731004">"להגדיר את <xliff:g id="APP_NAME">%1$s</xliff:g> בתור אפליקציית ברירת המחדל לדף הבית?"</string>
     <string name="role_home_request_description" msgid="1649615419642117675">"אין צורך בהרשאות"</string>
     <string name="role_call_redirection_label" msgid="8614962962542193455">"אפליקציית ברירת מחדל להפניית שיחות"</string>
     <string name="role_call_redirection_short_label" msgid="7030817671864547206">"אפליקציה להפניית שיחות"</string>
-    <!-- no translation found for role_call_redirection_description (1118180396571102108) -->
-    <skip />
+    <string name="role_call_redirection_description" msgid="1118180396571102108">"אפליקציות שמאפשרות לך להעביר שיחות יוצאות אל מספר טלפון אחר"</string>
     <string name="role_call_redirection_request_title" msgid="3292712900764740951">"להגדיר את <xliff:g id="APP_NAME">%1$s</xliff:g> כאפליקציית ברירת המחדל להפניית שיחות?"</string>
     <string name="role_call_redirection_request_description" msgid="9130097590698779041">"אין צורך בהרשאות"</string>
     <string name="role_call_screening_label" msgid="6762278758943136846">"אפליקציית ברירת מחדל לשיחה מזוהה וחסימת ספאם"</string>
-    <!-- no translation found for role_call_screening_short_label (4405732075031564902) -->
-    <skip />
-    <!-- no translation found for role_call_screening_description (630332789277798256) -->
-    <skip />
+    <string name="role_call_screening_short_label" msgid="4405732075031564902">"אפליקציית שיחה מזוהה וספאם"</string>
+    <string name="role_call_screening_description" msgid="630332789277798256">"אפליקציות שמאפשרות לך לזהות שיחות, לחסום ספאם ושיחות אוטומטיות ולנהל רשימה שחורה של מספרים לא רצויים"</string>
     <string name="role_call_screening_request_title" msgid="2918540778717341412">"להגדיר את <xliff:g id="APP_NAME">%1$s</xliff:g> כאפליקציית ברירת המחדל לשיחות מזוהות וחסימת ספאם?"</string>
     <string name="role_call_screening_request_description" msgid="2238766550271106517">"אין צורך בהרשאות"</string>
     <string name="request_role_current_default" msgid="8010053122057418777">"ברירת המחדל הנוכחית"</string>
     <string name="request_role_dont_ask_again" msgid="1002776641382604316">"לא לשאול שוב"</string>
     <string name="request_role_set_as_default" msgid="161884072789965631">"הגדרה כברירת מחדל"</string>
-    <!-- no translation found for default_app_search_keyword (5893328509368498565) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_ok (2849153333510041980) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_open_settings (180561046130062839) -->
-    <skip />
+    <string name="default_app_search_keyword" msgid="5893328509368498565">"אפליקציות ברירת מחדל"</string>
+    <string name="ongoing_usage_dialog_ok" msgid="2849153333510041980">"הבנתי"</string>
+    <string name="ongoing_usage_dialog_open_settings" msgid="180561046130062839">"הגדרות פרטיות"</string>
     <string name="ongoing_usage_dialog_title" msgid="7494746761292131980">"אפליקציות משתמשות ב-<xliff:g id="TYPES_LIST">%s</xliff:g>"</string>
-    <!-- no translation found for ongoing_usage_dialog_separator (3220814513543042443) -->
-    <skip />
+    <string name="ongoing_usage_dialog_separator" msgid="3220814513543042443">", "</string>
     <string name="ongoing_usage_dialog_last_separator" msgid="970720969260545688">" וגם "</string>
-    <!-- no translation found for settings_button (1808682743475842576) -->
-    <skip />
+    <string name="settings_button" msgid="1808682743475842576">"הגדרות"</string>
     <string name="default_apps" msgid="5730264737920158250">"אפליקציות ברירת מחדל"</string>
     <string name="no_default_apps" msgid="2998405086652908867">"אין אפליקציות ברירת מחדל"</string>
-    <!-- no translation found for default_apps_more (2432881430817521134) -->
-    <skip />
+    <string name="default_apps_more" msgid="2432881430817521134">"עוד ברירות מחדל"</string>
     <string name="default_apps_manage_domain_urls" msgid="814023242306919121">"פתיחת קישורים"</string>
     <string name="default_apps_for_work" msgid="6893448061977233772">"ברירת מחדל לעבודה"</string>
     <string name="default_app_none" msgid="4430855885741769064">"ללא"</string>
-    <!-- no translation found for default_app_system_default (330065926244492508) -->
-    <skip />
+    <string name="default_app_system_default" msgid="330065926244492508">"(ברירת מחדל של המערכת)"</string>
     <string name="default_app_no_apps" msgid="295747201345391862">"אין אפליקציות"</string>
-    <!-- no translation found for car_default_app_selected (5041173040939570813) -->
-    <skip />
+    <string name="car_default_app_selected" msgid="5041173040939570813">"נבחרה"</string>
     <string name="car_default_app_selected_with_info" msgid="846119554232771428">"נבחרה - <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="1933225255981974193">"גישה מיוחדת של אפליקציה"</string>
     <string name="special_app_access" msgid="1809336016722693481">"גישה מיוחדת לאפליקציה"</string>
@@ -323,25 +308,17 @@
     <string name="incident_report_notification_title" msgid="5639002400773574216">"לשתף נתונים מפורטים של ניפוי באגים?"</string>
     <string name="incident_report_notification_text" msgid="3982379040142711581">"האפליקציה <xliff:g id="APP_NAME">%1$s</xliff:g> מבקשת להעלות נתונים של ניפוי באגים."</string>
     <string name="incident_report_dialog_title" msgid="7779774651136791681">"שיתוף נתונים של ניפוי באגים"</string>
-    <!-- no translation found for incident_report_dialog_intro (4267939213446817062) -->
-    <skip />
+    <string name="incident_report_dialog_intro" msgid="4267939213446817062">"המערכת איתרה בעיה."</string>
     <string name="incident_report_dialog_text" msgid="4831945625929455288">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> מבקשת להעלות דוח על באגים ממכשיר זה, שנוצר בתאריך <xliff:g id="DATE">%2$s</xliff:g> בשעה <xliff:g id="TIME">%3$s</xliff:g>. דוחות על באגים כוללים מידע אישי על המכשיר או מידע אישי שנשמר באמצעות אפליקציות. למשל, שמות משתמשים, נתוני מיקום, מזהי מכשיר ופרטי רשת. יש לשתף דוחות על באגים רק עם אנשים ואפליקציות מהימנים. לאפשר לאפליקציה <xliff:g id="APP_NAME_1">%4$s</xliff:g> להעלות דוח על באגים?"</string>
     <string name="incident_report_error_dialog_text" msgid="7571987324653854729">"אירעה שגיאה בעיבוד הדוח על הבאג עבור <xliff:g id="APP_NAME">%1$s</xliff:g>. לכן, נדחה שיתוף הנתונים המפורטים לגבי ניפוי השגיאות. מצטערים על ההפרעה."</string>
     <string name="incident_report_dialog_allow_label" msgid="39628365401477149">"כן, זה בסדר"</string>
     <string name="incident_report_dialog_deny_label" msgid="3613078094039859343">"אני לא מרשה"</string>
-    <!-- no translation found for adjust_user_sensitive_title (6181325993919599745) -->
-    <skip />
-    <!-- no translation found for menu_adjust_user_sensitive (277984416700153328) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_globally_title (7250948764129867522) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_globally_summary (2331110562911167243) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_per_app_header (3463088084190391428) -->
-    <skip />
-    <!-- no translation found for assistant_record_audio_user_sensitive_title (4527980682419054323) -->
-    <skip />
-    <!-- no translation found for assistant_record_audio_user_sensitive_summary (4952742951700902553) -->
-    <skip />
+    <string name="adjust_user_sensitive_title" msgid="6181325993919599745">"הגדרות מתקדמות"</string>
+    <string name="menu_adjust_user_sensitive" msgid="277984416700153328">"הגדרות מתקדמות"</string>
+    <string name="adjust_user_sensitive_globally_title" msgid="7250948764129867522">"הצגת השימוש באפליקציות מערכת"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="2331110562911167243">"הצגת השימוש של אפליקציות המערכת בהרשאות בשורת הסטטוס, במרכז השליטה ובמקומות אחרים"</string>
+    <string name="adjust_user_sensitive_per_app_header" msgid="3463088084190391428">"הדגשת השימוש לאפליקציות הבאות"</string>
+    <string name="assistant_record_audio_user_sensitive_title" msgid="4527980682419054323">"‏הצגת הזיהוי של הפעלת ה-Assistant"</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="4952742951700902553">"הצגת הסמל בשורת הסטטוס כשהמיקרופון בשימוש לצורך הפעלת האסיסטנט"</string>
     <string name="permgrouprequest_storage_isolated" msgid="6769845877344258537">"‏לתת לאפליקציה &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; הרשאת גישה לתמונות ולמדיה במכשיר שלך?"</string>
 </resources>
