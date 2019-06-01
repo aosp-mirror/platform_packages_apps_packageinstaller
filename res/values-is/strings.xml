@@ -68,13 +68,11 @@
     <string name="permission_summary_disabled_by_admin_background_only" msgid="2185473379176174735">"Bakgrunnsaðgangur gerður óvirkur af kerfisstjóra"</string>
     <string name="permission_summary_enabled_by_admin_background_only" msgid="4558536214810713340">"Bakgrunnsaðgangur gerður virkur af kerfisstjóra"</string>
     <string name="permission_summary_enabled_by_admin_foreground_only" msgid="3735312186687063512">"Forgrunnsaðgangur gerður virkur af kerfisstjóra"</string>
-    <!-- no translation found for permission_summary_enabled_system_fixed (2986671472344103830) -->
-    <skip />
+    <string name="permission_summary_enabled_system_fixed" msgid="2986671472344103830">"Tækið þarf að hafa þessa heimild til að geta keyrt"</string>
     <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
     <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
-    <!-- no translation found for permission_access_always (8746815855070494802) -->
-    <skip />
+    <string name="permission_access_always" msgid="8746815855070494802">"Leyfa alltaf"</string>
     <string name="permission_access_only_foreground" msgid="1653942358383006807">"Leyfa þegar forrit er í notkun"</string>
     <string name="permission_access_never" msgid="6189440007697689967">"Hafna"</string>
     <string name="loading" msgid="7811651799620593731">"Hleður…"</string>
@@ -107,34 +105,30 @@
     <string name="no_permission_usages" msgid="5322488885313825032">"Engin heimildanotkun"</string>
     <string name="permission_usage_list_title_any_time" msgid="5231969131124312338">"Síðasti aðgangur, hvenær sem er"</string>
     <string name="permission_usage_list_title_last_7_days" msgid="3481601827843295434">"Síðasti aðgangur síðustu 7 daga"</string>
-    <!-- no translation found for permission_usage_list_title_last_day (8004766042375735038) -->
-    <skip />
-    <!-- no translation found for permission_usage_list_title_last_hour (5263636446126109595) -->
-    <skip />
+    <string name="permission_usage_list_title_last_day" msgid="8004766042375735038">"Síðasti aðgangur síðasta sólarhring"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="5263636446126109595">"Síðasti aðgangur síðustu klukkustund"</string>
     <string name="permission_usage_list_title_last_15_minutes" msgid="3842584491108496053">"Síðasti aðgangur síðustu 15 mínúturnar"</string>
     <string name="permission_usage_list_title_last_minute" msgid="6135511482448899737">"Síðasti aðgangur síðustu mínútu"</string>
     <string name="permission_usage_bar_chart_title_any_time" msgid="2233750755422237444">"Heimildanotkun hvenær sem er"</string>
-    <!-- no translation found for permission_usage_bar_chart_title_last_7_days (2505302271268657969) -->
-    <skip />
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="2505302271268657969">"Heimildanotkun síðustu 7 daga"</string>
     <string name="permission_usage_bar_chart_title_last_day" msgid="3929341411684348428">"Heimildanotkun síðasta sólarhringinn"</string>
     <string name="permission_usage_bar_chart_title_last_hour" msgid="1473287216393833028">"Heimildanotkun síðustu klukkustund"</string>
-    <!-- no translation found for permission_usage_bar_chart_title_last_15_minutes (8394883927589032677) -->
-    <skip />
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="8394883927589032677">"Heimildanotkun síðustu 15 mínútur"</string>
     <string name="permission_usage_bar_chart_title_last_minute" msgid="8821351707225812097">"Heimildanotkun síðustu mínútu"</string>
-    <!-- no translation found for permission_usage_bar_label (7669269046102999228) -->
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="7669269046102999228">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> forrit</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> forrit</item>
+    </plurals>
     <string name="permission_usage_view_details" msgid="7240872485880156540">"Sjá allt á stjórnborði"</string>
     <string name="app_permission_usage_filter_label" msgid="4632636077566071507">"Síað eftir: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <!-- no translation found for app_permission_usage_remove_filter (5502079672930422033) -->
-    <skip />
+    <string name="app_permission_usage_remove_filter" msgid="5502079672930422033">"Sjá allt á stjórnborði"</string>
     <string name="filter_by_title" msgid="7213659781851489723">"Sía eftir"</string>
     <string name="filter_by_permissions" msgid="6808193127145660341">"Sía eftir heimildum"</string>
-    <!-- no translation found for filter_by_time (4037550957826791975) -->
-    <skip />
+    <string name="filter_by_time" msgid="4037550957826791975">"Sía eftir tíma"</string>
     <string name="sort_spinner_most_permissions" msgid="6852540142388944721">"Flestar heimildir"</string>
     <string name="sort_spinner_most_accesses" msgid="1219554524183666955">"Mesta notkun"</string>
     <string name="sort_spinner_recent" msgid="1418334780798429342">"Nýlegt"</string>
-    <!-- no translation found for sort_by_app (5836911326872031928) -->
-    <skip />
+    <string name="sort_by_app" msgid="5836911326872031928">"Raða eftir notkun forrita"</string>
     <string name="sort_by_time" msgid="5904361063977286957">"Raða eftir tíma"</string>
     <string name="item_separator" msgid="5590105992485222167">", "</string>
     <string name="permission_usage_refresh" msgid="2424637977565575554">"Endurnýja"</string>
@@ -175,46 +169,46 @@
     <string name="app_permission_footer_no_usages_sensors" msgid="5716861361576610045">"<xliff:g id="APP">%1$s</xliff:g> hefur ekki fengið aðgang að skynjurunum þínum"</string>
     <string name="app_permission_footer_no_usages_sms" msgid="2453537470852966962">"<xliff:g id="APP">%1$s</xliff:g> hefur ekki fengið aðgang að SMS hjá þér"</string>
     <string name="app_permission_footer_no_usages_storage" msgid="1296053906120407192">"<xliff:g id="APP">%1$s</xliff:g> hefur ekki fengið aðgang að geymslunni þinni"</string>
-    <!-- no translation found for app_permission_footer_not_available (7473636495733881225) -->
-    <skip />
+    <string name="app_permission_footer_not_available" msgid="7473636495733881225">"Sem stendur eru gögn um síðasta aðgang ekki tiltæk fyrir þessa heimild."</string>
     <string name="app_permission_footer_app_permissions_link" msgid="6074026408119212662">"Sjá allar heimildir fyrir <xliff:g id="APP">%1$s</xliff:g>"</string>
-    <!-- no translation found for app_permission_footer_permission_apps_link (3489066323918915073) -->
-    <skip />
+    <string name="app_permission_footer_permission_apps_link" msgid="3489066323918915073">"Sjá öll forrit með þessa heimild"</string>
     <string name="permission_description_summary_generic" msgid="1134416469764865198">"Forrit með þessa heimild geta <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <!-- no translation found for permission_description_summary_activity_recognition (3371048800215659444) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_calendar (7627624281615554407) -->
-    <skip />
+    <string name="permission_description_summary_activity_recognition" msgid="3371048800215659444">"Forrit með þessa heimild hafa aðgang að upplýsingum um hreyfingu þína, svo sem göngu, hjólreiðar, akstur, skrefafjölda og fleira"</string>
+    <string name="permission_description_summary_calendar" msgid="7627624281615554407">"Forrit með þessa heimild hafa aðgang að dagatalinu þínu"</string>
     <string name="permission_description_summary_call_log" msgid="4715804544768878751">"Forrit með þessa heimild geta lesið og skrifað símtalaskrá síma"</string>
-    <!-- no translation found for permission_description_summary_camera (7879547592935186291) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_contacts (2833167258022765303) -->
-    <skip />
+    <string name="permission_description_summary_camera" msgid="7879547592935186291">"Forrit með þessa heimild geta tekið myndir og tekið upp myndskeið"</string>
+    <string name="permission_description_summary_contacts" msgid="2833167258022765303">"Forrit með þessa heimild hafa aðgang að tengiliðum þínum"</string>
     <string name="permission_description_summary_location" msgid="4722113806360938675">"Forrit með þessa heimild hafa aðgang að staðsetningu þessa tækis"</string>
-    <!-- no translation found for permission_description_summary_microphone (1349810138634077494) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_phone (6972180067860067462) -->
-    <skip />
+    <string name="permission_description_summary_microphone" msgid="1349810138634077494">"Forrit með þessa heimild geta tekið upp hljóð"</string>
+    <string name="permission_description_summary_phone" msgid="6972180067860067462">"Forrit með þessa heimild geta hringt og stjórnað símtölum"</string>
     <string name="permission_description_summary_sensors" msgid="5747969909098898581">"Forrit með þessa heimild hafa aðgang að skynjaragögnum yfir lífsmörk þín"</string>
-    <!-- no translation found for permission_description_summary_sms (1394630256073587627) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_storage (3947962757455327167) -->
-    <skip />
+    <string name="permission_description_summary_sms" msgid="1394630256073587627">"Forrit með þessa heimild geta sent og skoðað SMS-skilaboð"</string>
+    <string name="permission_description_summary_storage" msgid="3947962757455327167">"Forrit sem hafa þessa heimild hafa aðgang að myndum, efni og skrám í tækinu þínu"</string>
     <string name="app_permission_most_recent_summary" msgid="2806631058626902828">"Síðast notuð: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="474549680139911807">"Hafnað eins og er / síðast notuð: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="5253530744650386602">"Aldrei notuð"</string>
-    <!-- no translation found for app_permission_never_accessed_denied_summary (5074713608728279798) -->
-    <skip />
+    <string name="app_permission_never_accessed_denied_summary" msgid="5074713608728279798">"Hafnað / aldrei fengið aðgang"</string>
     <string name="allowed_header" msgid="670868581011741572">"Leyft"</string>
-    <!-- no translation found for allowed_always_header (3129163790476916487) -->
-    <skip />
+    <string name="allowed_always_header" msgid="3129163790476916487">"Leyfa alltaf"</string>
     <string name="allowed_foreground_header" msgid="508441909373674270">"Aðeins leyft við notkun"</string>
     <string name="denied_header" msgid="4716097249466859449">"Hafnað"</string>
     <string name="detailed_usage_link" msgid="3213629980587953904">"Sjá ítarlegar upplýsingar um notkun"</string>
-    <!-- no translation found for days (7685720539370448104) -->
-    <!-- no translation found for hours (5513137617382570199) -->
-    <!-- no translation found for minutes (269873289285218670) -->
-    <!-- no translation found for seconds (7518380254369486125) -->
+    <plurals name="days" formatted="false" msgid="7685720539370448104">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> dagur</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> dagar</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="5513137617382570199">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> klukkustund</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> klukkustundir</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="269873289285218670">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> mínúta</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> mínútur</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="7518380254369486125">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> sek.</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sek.</item>
+    </plurals>
     <string name="permission_reminders" msgid="7692569306867004285">"Áminningar um heimild"</string>
     <string name="background_location_access_reminder_notification_title" msgid="1447771664601165880">"<xliff:g id="APP_NAME">%s</xliff:g> er með staðsetningu þína í bakgrunni"</string>
     <string name="background_location_access_reminder_notification_content" msgid="4931939953173203901">"Þetta forrit hefur alltaf aðgang að staðsetningu þinni. Ýttu til að breyta."</string>
@@ -223,23 +217,19 @@
     <string name="no_permissions_denied" msgid="4148813660212679056">"Engum heimildum hafnað"</string>
     <string name="no_apps_allowed" msgid="4959324189831343508">"Engin forrit leyfð"</string>
     <string name="no_apps_denied" msgid="4966465333227047186">"Engum forritum hafnað"</string>
-    <!-- no translation found for car_permission_selected (5788441628706535323) -->
-    <skip />
+    <string name="car_permission_selected" msgid="5788441628706535323">"Valið"</string>
     <string name="settings" msgid="6743583734099755409">"Stillingar"</string>
     <string name="accessibility_service_dialog_title_single" msgid="8163574312765390697">"<xliff:g id="SERVICE_NAME">%s</xliff:g> hefur fullan aðgang að tækinu þínu"</string>
     <string name="accessibility_service_dialog_title_multiple" msgid="593839615447260933">"<xliff:g id="NUM_SERVICES">%s</xliff:g> aðgengisforrit hafa fullan aðgang að tækinu þínu"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="1201610224744125691">"<xliff:g id="SERVICE_NAME">%s</xliff:g> getur skoðað skjáinn þinn, aðgerðir og innslátt, framkvæmt aðgerðir og stjórnað skjánum."</string>
-    <!-- no translation found for accessibility_service_dialog_bottom_text_multiple (99044354994789512) -->
-    <skip />
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="99044354994789512">"Þessi forrit geta skoðað skjáinn þinn, aðgerðir og innslátt, framkvæmt aðgerðir og stjórnað skjánum."</string>
     <string name="role_assistant_label" msgid="325607225419991524">"Sjálfgefið aðstoðarforrit"</string>
-    <!-- no translation found for role_assistant_short_label (5324338887042810318) -->
-    <skip />
+    <string name="role_assistant_short_label" msgid="5324338887042810318">"Aðstoðarforrit"</string>
     <string name="role_assistant_description" msgid="5980622464037768572">"Aðstoðarforrit geta notað upplýsingar á skjánum til að hjálpa þér. Sum forrit styðja bæði ræsiforrit og raddinntak til að geta veitt þér heildstæða aðstoð."</string>
     <string name="role_assistant_request_title" msgid="2198246079117996249">"Velja <xliff:g id="APP_NAME">%1$s</xliff:g> sem sjálfgefið aðstoðarforrit?"</string>
     <string name="role_assistant_request_description" msgid="9007538649849881727">"Fær aðgang að SMS-skilaboðum og símtalaskrám"</string>
     <string name="role_browser_label" msgid="1452186785584890151">"Sjálfgefið vafraforrit"</string>
-    <!-- no translation found for role_browser_short_label (7008704096614388208) -->
-    <skip />
+    <string name="role_browser_short_label" msgid="7008704096614388208">"Vafraforrit"</string>
     <string name="role_browser_description" msgid="3733812642667691329">"Forrit sem veita þér aðgang að netinu og birta tengla sem þú ýtir á"</string>
     <string name="role_browser_request_title" msgid="6682328732125865006">"Velja <xliff:g id="APP_NAME">%1$s</xliff:g> sem sjálfgefið vafraforrit?"</string>
     <string name="role_browser_request_description" msgid="5273230084027848407">"Engra heimilda krafist"</string>
@@ -248,65 +238,50 @@
     <string name="role_dialer_description" msgid="8168811763060055520">"Forrit sem gera þér kleift að hringja og svara símtölum í tækinu"</string>
     <string name="role_dialer_request_title" msgid="2281942809560056462">"Velja <xliff:g id="APP_NAME">%1$s</xliff:g> sem sjálfgefið símaforrit?"</string>
     <string name="role_dialer_request_description" msgid="1597958203339261473">"Fær aðgang að símtalaskrám og getur sent SMS-skilaboð"</string>
-    <!-- no translation found for role_sms_label (1282375330984375167) -->
-    <skip />
+    <string name="role_sms_label" msgid="1282375330984375167">"Sjálfgefið SMS-forrit"</string>
     <string name="role_sms_short_label" msgid="4774295162759580727">"SMS-forrit"</string>
     <string name="role_sms_description" msgid="8688975508844386261">"Forrit sem gera þér kleift að nota símanúmerið þitt til að senda og taka á móti stuttum textaskilaboðum, myndum, myndskeiðum og fleira"</string>
     <string name="role_sms_request_title" msgid="3942676190809695139">"Velja <xliff:g id="APP_NAME">%1$s</xliff:g> sem sjálfgefið SMS-forrit?"</string>
     <string name="role_sms_request_description" msgid="6079312070314434582">"Fær aðgang að tengiliðum, SMS-skilaboðum og síma"</string>
-    <!-- no translation found for role_emergency_label (8510350771744625248) -->
-    <skip />
+    <string name="role_emergency_label" msgid="8510350771744625248">"Sjálfgefið neyðarforrit"</string>
     <string name="role_emergency_short_label" msgid="594672497758636578">"Neyðarforrit"</string>
     <string name="role_emergency_description" msgid="1328017704085954407">"Forrit sem gera þér kleift að skrá læknisfræðilegar upplýsingar og gera þær aðgengilegar fyrir viðbragðsaðila neyðarþjónustu; til að fá viðvaranir um óveður og hamfarir; til að láta aðra vita þegar þú þarft á hjálp að halda"</string>
     <string name="role_emergency_request_title" msgid="862426026906033381">"Viltu gera <xliff:g id="APP_NAME">%1$s</xliff:g> að sjálfgefnu neyðarforriti?"</string>
-    <!-- no translation found for role_emergency_request_description (6604461788824945209) -->
-    <skip />
-    <!-- no translation found for role_home_label (2403568779207064895) -->
-    <skip />
+    <string name="role_emergency_request_description" msgid="6604461788824945209">"Engra heimilda krafist"</string>
+    <string name="role_home_label" msgid="2403568779207064895">"Sjálfgefið heimaforrit"</string>
     <string name="role_home_short_label" msgid="8293261293243062773">"Heimaforrit"</string>
     <string name="role_home_description" msgid="4692657963991101103">"Forrit sem koma í stað heimaskjásins í Android tækinu þínu, stundum nefnd ræsiforrit, sem gefa þér aðgang að efni og eiginleikum í tækinu."</string>
     <string name="role_home_request_title" msgid="7254377742128731004">"Velja <xliff:g id="APP_NAME">%1$s</xliff:g> sem sjálfgefið heimaforrit?"</string>
     <string name="role_home_request_description" msgid="1649615419642117675">"Engra heimilda krafist"</string>
     <string name="role_call_redirection_label" msgid="8614962962542193455">"Sjálfg. forrit frams. símtala"</string>
     <string name="role_call_redirection_short_label" msgid="7030817671864547206">"Símtalsflutningaforrit"</string>
-    <!-- no translation found for role_call_redirection_description (1118180396571102108) -->
-    <skip />
+    <string name="role_call_redirection_description" msgid="1118180396571102108">"Forrit sem leyfa þér að framsenda hringd símtöl í annað símanúmer"</string>
     <string name="role_call_redirection_request_title" msgid="3292712900764740951">"Viltu gera <xliff:g id="APP_NAME">%1$s</xliff:g> að sjálfgefnu forriti fyrir framsendingu símtala?"</string>
     <string name="role_call_redirection_request_description" msgid="9130097590698779041">"Engra heimilda krafist"</string>
     <string name="role_call_screening_label" msgid="6762278758943136846">"Sjálfg. forrit númerabirtingar og ruslsímtala"</string>
-    <!-- no translation found for role_call_screening_short_label (4405732075031564902) -->
-    <skip />
-    <!-- no translation found for role_call_screening_description (630332789277798256) -->
-    <skip />
+    <string name="role_call_screening_short_label" msgid="4405732075031564902">"Forrit númerab. og ruslsímtala"</string>
+    <string name="role_call_screening_description" msgid="630332789277798256">"Forrit sem gera þér kleift að sjá hver er að hringja, loka fyrir símtöl úr ruslnúmerum og sjálfvirk símtöl, og setja óæskileg símanúmer á bannlista"</string>
     <string name="role_call_screening_request_title" msgid="2918540778717341412">"Velja <xliff:g id="APP_NAME">%1$s</xliff:g> sem sjálfgefið forrit fyrir númerabirtingu og ruslpóst?"</string>
     <string name="role_call_screening_request_description" msgid="2238766550271106517">"Engra heimilda krafist"</string>
     <string name="request_role_current_default" msgid="8010053122057418777">"Núverandi sjálfgefið forrit"</string>
     <string name="request_role_dont_ask_again" msgid="1002776641382604316">"Ekki spyrja aftur"</string>
     <string name="request_role_set_as_default" msgid="161884072789965631">"Velja sem sjálfgefið"</string>
-    <!-- no translation found for default_app_search_keyword (5893328509368498565) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_ok (2849153333510041980) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_open_settings (180561046130062839) -->
-    <skip />
+    <string name="default_app_search_keyword" msgid="5893328509368498565">"sjálfgefin forrit"</string>
+    <string name="ongoing_usage_dialog_ok" msgid="2849153333510041980">"Ég skil"</string>
+    <string name="ongoing_usage_dialog_open_settings" msgid="180561046130062839">"Persónuverndarstillingar"</string>
     <string name="ongoing_usage_dialog_title" msgid="7494746761292131980">"Forrit sem nota <xliff:g id="TYPES_LIST">%s</xliff:g>"</string>
-    <!-- no translation found for ongoing_usage_dialog_separator (3220814513543042443) -->
-    <skip />
+    <string name="ongoing_usage_dialog_separator" msgid="3220814513543042443">", "</string>
     <string name="ongoing_usage_dialog_last_separator" msgid="970720969260545688">" og "</string>
-    <!-- no translation found for settings_button (1808682743475842576) -->
-    <skip />
+    <string name="settings_button" msgid="1808682743475842576">"Stillingar"</string>
     <string name="default_apps" msgid="5730264737920158250">"Sjálfgefin forrit"</string>
     <string name="no_default_apps" msgid="2998405086652908867">"Engin sjálfgefin forrit"</string>
-    <!-- no translation found for default_apps_more (2432881430817521134) -->
-    <skip />
+    <string name="default_apps_more" msgid="2432881430817521134">"Fleiri sjálfgildi"</string>
     <string name="default_apps_manage_domain_urls" msgid="814023242306919121">"Opnar tengla"</string>
     <string name="default_apps_for_work" msgid="6893448061977233772">"Sjálfgefið fyrir vinnu"</string>
     <string name="default_app_none" msgid="4430855885741769064">"Ekkert"</string>
-    <!-- no translation found for default_app_system_default (330065926244492508) -->
-    <skip />
+    <string name="default_app_system_default" msgid="330065926244492508">"(Sjálfgildi kerfis)"</string>
     <string name="default_app_no_apps" msgid="295747201345391862">"Engin forrit"</string>
-    <!-- no translation found for car_default_app_selected (5041173040939570813) -->
-    <skip />
+    <string name="car_default_app_selected" msgid="5041173040939570813">"Valið"</string>
     <string name="car_default_app_selected_with_info" msgid="846119554232771428">"Valið – <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="1933225255981974193">"sérstakur forritaaðgangur"</string>
     <string name="special_app_access" msgid="1809336016722693481">"Sérstakur forritaaðgangur"</string>
@@ -319,25 +294,17 @@
     <string name="incident_report_notification_title" msgid="5639002400773574216">"Viltu deila ítarlegum villuleitargögnum?"</string>
     <string name="incident_report_notification_text" msgid="3982379040142711581">"<xliff:g id="APP_NAME">%1$s</xliff:g> vill hlaða inn upplýsingum um villuleit."</string>
     <string name="incident_report_dialog_title" msgid="7779774651136791681">"Deila villuleitargögnum"</string>
-    <!-- no translation found for incident_report_dialog_intro (4267939213446817062) -->
-    <skip />
+    <string name="incident_report_dialog_intro" msgid="4267939213446817062">"Kerfið greindi vandamál."</string>
     <string name="incident_report_dialog_text" msgid="4831945625929455288">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> biður um að hlaða inn villutilkynningu úr þessu tæki frá <xliff:g id="DATE">%2$s</xliff:g> kl. <xliff:g id="TIME">%3$s</xliff:g>. Villutilkynningar innihalda persónuupplýsingar um tækið eða innskráningar forrita, til dæmis notendanöfn, staðsetningargögn, auðkenni tækis og upplýsingar um netkerfi. Deildu aðeins villutilkynningum með fólki og forritum sem þú treystir fyrir þessum upplýsingum. Leyfa <xliff:g id="APP_NAME_1">%4$s</xliff:g> að hlaða inn villutilkynningu?"</string>
     <string name="incident_report_error_dialog_text" msgid="7571987324653854729">"Villa kom upp við vinnslu villuskýrslu fyrir <xliff:g id="APP_NAME">%1$s</xliff:g> og því er ekki hægt að deila ítarlegum villuleitargögnum. Afsakaðu truflunina."</string>
     <string name="incident_report_dialog_allow_label" msgid="39628365401477149">"Leyfa"</string>
     <string name="incident_report_dialog_deny_label" msgid="3613078094039859343">"Hafna"</string>
-    <!-- no translation found for adjust_user_sensitive_title (6181325993919599745) -->
-    <skip />
-    <!-- no translation found for menu_adjust_user_sensitive (277984416700153328) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_globally_title (7250948764129867522) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_globally_summary (2331110562911167243) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_per_app_header (3463088084190391428) -->
-    <skip />
-    <!-- no translation found for assistant_record_audio_user_sensitive_title (4527980682419054323) -->
-    <skip />
-    <!-- no translation found for assistant_record_audio_user_sensitive_summary (4952742951700902553) -->
-    <skip />
+    <string name="adjust_user_sensitive_title" msgid="6181325993919599745">"Ítarlegar stillingar"</string>
+    <string name="menu_adjust_user_sensitive" msgid="277984416700153328">"Ítarlegar stillingar"</string>
+    <string name="adjust_user_sensitive_globally_title" msgid="7250948764129867522">"Sýna notkun kerfisforrita"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="2331110562911167243">"Skoða heimildanotkun kerfisforrita á stöðustiku, stjórnborði og annars staðar"</string>
+    <string name="adjust_user_sensitive_per_app_header" msgid="3463088084190391428">"Auðkenning notuð fyrir eftirfarandi"</string>
+    <string name="assistant_record_audio_user_sensitive_title" msgid="4527980682419054323">"Sýna virkjunarkennsl hjálpara"</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="4952742951700902553">"Sýna tákn á stöðustiku þegar hljóðnemi er notaður til að ræsa raddaðstoð"</string>
     <string name="permgrouprequest_storage_isolated" msgid="6769845877344258537">"Veita &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aðgang að myndum og efni í tækinu?"</string>
 </resources>
