@@ -133,33 +133,36 @@ public class GrantPermissionsActivity extends Activity
      * affected permissions}.
      *
      * @param group The group the permission belongs to (might be a background permission group)
-     * @param permission The permission to add
+     * @param permName The name of the permission to add
      * @param isFirstInstance Is this the first time the groupStates get created
      */
-    private void addRequestedPermissions(AppPermissionGroup group, String permission,
+    private void addRequestedPermissions(AppPermissionGroup group, String permName,
             boolean isFirstInstance) {
         if (!group.isGrantingAllowed()) {
-            reportRequestResult(permission,
+            reportRequestResult(permName,
                     PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__IGNORED);
             // Skip showing groups that we know cannot be granted.
             return;
         }
 
+        Permission permission = group.getPermission(permName);
+
         // If the permission is restricted it does not show in the UI and
         // is not added to the group at all, so check that first.
-        if (group.getPermission(permission) == null && ArrayUtils.contains(mAppPermissions
-                .getPackageInfo().requestedPermissions, permission)) {
-            reportRequestResult(permission,
+        if (permission == null && ArrayUtils.contains(
+                mAppPermissions.getPackageInfo().requestedPermissions, permName)) {
+            reportRequestResult(permName,
                   PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__IGNORED_RESTRICTED_PERMISSION);
             return;
         // We allow the user to choose only non-fixed permissions. A permission
         // is fixed either by device policy or the user denying with prejudice.
         } else if (group.isUserFixed()) {
-            reportRequestResult(permission,
+            reportRequestResult(permName,
                     PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__IGNORED_USER_FIXED);
             return;
-        } else if (group.isPolicyFixed() && !group.areRuntimePermissionsGranted()) {
-            reportRequestResult(permission,
+        } else if (group.isPolicyFixed() && !group.areRuntimePermissionsGranted()
+                || permission.isPolicyFixed()) {
+            reportRequestResult(permName,
                     PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__IGNORED_POLICY_FIXED);
             return;
         }
@@ -173,36 +176,38 @@ public class GrantPermissionsActivity extends Activity
             mRequestGrantPermissionGroups.put(groupKey, state);
         }
         state.affectedPermissions = ArrayUtils.appendString(
-                state.affectedPermissions, permission);
+                state.affectedPermissions, permName);
 
         boolean skipGroup = false;
         switch (getPermissionPolicy()) {
             case DevicePolicyManager.PERMISSION_POLICY_AUTO_GRANT: {
-                group.grantRuntimePermissions(false, new String[]{permission});
+                final String[] filterPermissions = new String[]{permName};
+                group.grantRuntimePermissions(false, filterPermissions);
+                group.setPolicyFixed(filterPermissions);
                 state.mState = GroupState.STATE_ALLOWED;
-                group.setPolicyFixed();
                 skipGroup = true;
 
-                reportRequestResult(permission,
+                reportRequestResult(permName,
                         PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__AUTO_GRANTED);
             } break;
 
             case DevicePolicyManager.PERMISSION_POLICY_AUTO_DENY: {
+                final String[] filterPermissions = new String[]{permName};
+                group.setPolicyFixed(filterPermissions);
                 state.mState = GroupState.STATE_DENIED;
-                group.setPolicyFixed();
                 skipGroup = true;
 
-                reportRequestResult(permission,
+                reportRequestResult(permName,
                         PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__AUTO_DENIED);
             } break;
 
             default: {
                 if (group.areRuntimePermissionsGranted()) {
-                    group.grantRuntimePermissions(false, new String[]{permission});
+                    group.grantRuntimePermissions(false, new String[]{permName});
                     state.mState = GroupState.STATE_ALLOWED;
                     skipGroup = true;
 
-                    reportRequestResult(permission,
+                    reportRequestResult(permName,
                             PERMISSION_GRANT_REQUEST_RESULT_REPORTED__RESULT__AUTO_GRANTED);
                 }
             } break;
