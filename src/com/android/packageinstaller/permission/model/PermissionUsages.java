@@ -308,7 +308,7 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
                         });
                 try {
                     latch.await(5, TimeUnit.DAYS);
-                } catch (InterruptedException ignored) {}
+                } catch (InterruptedException ignored) { }
 
                 final HistoricalOps historicalOps = historicalOpsRef.get();
                 if (historicalOps != null) {
