@@ -68,13 +68,11 @@
     <string name="permission_summary_disabled_by_admin_background_only" msgid="2185473379176174735">"Akses latar belakang dilumpuhkan oleh pentadbir"</string>
     <string name="permission_summary_enabled_by_admin_background_only" msgid="4558536214810713340">"Akses latar belakang didayakan oleh pentadbir"</string>
     <string name="permission_summary_enabled_by_admin_foreground_only" msgid="3735312186687063512">"Akses latar depan didayakan oleh pentadbir"</string>
-    <!-- no translation found for permission_summary_enabled_system_fixed (2986671472344103830) -->
-    <skip />
+    <string name="permission_summary_enabled_system_fixed" msgid="2986671472344103830">"Peranti memerlukan kebenaran ini untuk beroperasi"</string>
     <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
     <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
-    <!-- no translation found for permission_access_always (8746815855070494802) -->
-    <skip />
+    <string name="permission_access_always" msgid="8746815855070494802">"Benarkan sepanjang masa"</string>
     <string name="permission_access_only_foreground" msgid="1653942358383006807">"Benarkan semasa menggunakn apl"</string>
     <string name="permission_access_never" msgid="6189440007697689967">"Tolak"</string>
     <string name="loading" msgid="7811651799620593731">"Memuatkan…"</string>
@@ -107,34 +105,30 @@
     <string name="no_permission_usages" msgid="5322488885313825032">"Tiada penggunaan kebenaran"</string>
     <string name="permission_usage_list_title_any_time" msgid="5231969131124312338">"Akses terbaharu pada bila-bila masa"</string>
     <string name="permission_usage_list_title_last_7_days" msgid="3481601827843295434">"Akses terbaharu dalam 7 hari terakhir"</string>
-    <!-- no translation found for permission_usage_list_title_last_day (8004766042375735038) -->
-    <skip />
-    <!-- no translation found for permission_usage_list_title_last_hour (5263636446126109595) -->
-    <skip />
+    <string name="permission_usage_list_title_last_day" msgid="8004766042375735038">"Akses terbaharu dalam 24 jam lalu"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="5263636446126109595">"Akses terbaharu dalam 1 jam terakhir"</string>
     <string name="permission_usage_list_title_last_15_minutes" msgid="3842584491108496053">"Akses terbaharu dalam 15 minit terakhir"</string>
     <string name="permission_usage_list_title_last_minute" msgid="6135511482448899737">"Akses terbaharu dalam 1 minit yang lalu"</string>
     <string name="permission_usage_bar_chart_title_any_time" msgid="2233750755422237444">"Penggunaan kebenaran pada bila-bila masa"</string>
-    <!-- no translation found for permission_usage_bar_chart_title_last_7_days (2505302271268657969) -->
-    <skip />
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="2505302271268657969">"Penggunaan kebenaran dalam 7 hari terakhir"</string>
     <string name="permission_usage_bar_chart_title_last_day" msgid="3929341411684348428">"Penggunaan kebenaran dalam tempoh 24 jam terakhir"</string>
     <string name="permission_usage_bar_chart_title_last_hour" msgid="1473287216393833028">"Penggunaan kebenaran dalam 1 jam terakhir"</string>
-    <!-- no translation found for permission_usage_bar_chart_title_last_15_minutes (8394883927589032677) -->
-    <skip />
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="8394883927589032677">"Penggunaan kebenaran dalam 15 minit terakhir"</string>
     <string name="permission_usage_bar_chart_title_last_minute" msgid="8821351707225812097">"Penggunaan kebenaran dalam 1 minit terakhir"</string>
-    <!-- no translation found for permission_usage_bar_label (7669269046102999228) -->
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="7669269046102999228">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> apl</item>
+      <item quantity="one">1 apl</item>
+    </plurals>
     <string name="permission_usage_view_details" msgid="7240872485880156540">"Lihat semua dalam Papan Pemuka"</string>
     <string name="app_permission_usage_filter_label" msgid="4632636077566071507">"Ditapis mengikut: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <!-- no translation found for app_permission_usage_remove_filter (5502079672930422033) -->
-    <skip />
+    <string name="app_permission_usage_remove_filter" msgid="5502079672930422033">"Lihat semua dalam Papan Pemuka"</string>
     <string name="filter_by_title" msgid="7213659781851489723">"Tapis mengikut"</string>
     <string name="filter_by_permissions" msgid="6808193127145660341">"Tapis mengikut kebenaran"</string>
-    <!-- no translation found for filter_by_time (4037550957826791975) -->
-    <skip />
+    <string name="filter_by_time" msgid="4037550957826791975">"Tapis mengikut masa"</string>
     <string name="sort_spinner_most_permissions" msgid="6852540142388944721">"Paling banyak kebenaran"</string>
     <string name="sort_spinner_most_accesses" msgid="1219554524183666955">"Paling banyak akses"</string>
     <string name="sort_spinner_recent" msgid="1418334780798429342">"Terbaharu"</string>
-    <!-- no translation found for sort_by_app (5836911326872031928) -->
-    <skip />
+    <string name="sort_by_app" msgid="5836911326872031928">"Isih mengikut penggunaan apl"</string>
     <string name="sort_by_time" msgid="5904361063977286957">"Isih mengikut waktu"</string>
     <string name="item_separator" msgid="5590105992485222167">", "</string>
     <string name="permission_usage_refresh" msgid="2424637977565575554">"Muat smula"</string>
@@ -175,46 +169,46 @@
     <string name="app_permission_footer_no_usages_sensors" msgid="5716861361576610045">"<xliff:g id="APP">%1$s</xliff:g> belum mengakses penderia anda"</string>
     <string name="app_permission_footer_no_usages_sms" msgid="2453537470852966962">"<xliff:g id="APP">%1$s</xliff:g> belum mengakses SMS anda"</string>
     <string name="app_permission_footer_no_usages_storage" msgid="1296053906120407192">"<xliff:g id="APP">%1$s</xliff:g> belum mengakses storan anda"</string>
-    <!-- no translation found for app_permission_footer_not_available (7473636495733881225) -->
-    <skip />
+    <string name="app_permission_footer_not_available" msgid="7473636495733881225">"Data akses terakhir tidak tersedia untuk kebenaran ini pada masa ini"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="6074026408119212662">"Lihat semua kebenaran <xliff:g id="APP">%1$s</xliff:g>"</string>
-    <!-- no translation found for app_permission_footer_permission_apps_link (3489066323918915073) -->
-    <skip />
+    <string name="app_permission_footer_permission_apps_link" msgid="3489066323918915073">"Lihat semua apl dengan kebenaran ini"</string>
     <string name="permission_description_summary_generic" msgid="1134416469764865198">"Apl dengan kebenaran ini boleh <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <!-- no translation found for permission_description_summary_activity_recognition (3371048800215659444) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_calendar (7627624281615554407) -->
-    <skip />
+    <string name="permission_description_summary_activity_recognition" msgid="3371048800215659444">"Apl dengan kebenaran ini boleh mengakses aktiviti fizikal anda, seperti berjalan, berbasikal, memandu, kiraan langkah dan pelbagai lagi"</string>
+    <string name="permission_description_summary_calendar" msgid="7627624281615554407">"Apl dengan kebenaran ini boleh mengakses kalendar anda"</string>
     <string name="permission_description_summary_call_log" msgid="4715804544768878751">"Apl dengan kebenaran ini boleh membaca dan menulis log panggilan telefon"</string>
-    <!-- no translation found for permission_description_summary_camera (7879547592935186291) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_contacts (2833167258022765303) -->
-    <skip />
+    <string name="permission_description_summary_camera" msgid="7879547592935186291">"Apl dengan kebenaran ini boleh mengambil gambar dan merakam video"</string>
+    <string name="permission_description_summary_contacts" msgid="2833167258022765303">"Apl dengan kebenaran ini boleh mengakses kenalan anda"</string>
     <string name="permission_description_summary_location" msgid="4722113806360938675">"Apl dengan kebenaran ini boleh mengakses lokasi peranti ini"</string>
-    <!-- no translation found for permission_description_summary_microphone (1349810138634077494) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_phone (6972180067860067462) -->
-    <skip />
+    <string name="permission_description_summary_microphone" msgid="1349810138634077494">"Apl dengan kebenaran ini boleh merakam audio"</string>
+    <string name="permission_description_summary_phone" msgid="6972180067860067462">"Apl dengan kebenaran ini boleh membuat dan mengurus panggilan telefon"</string>
     <string name="permission_description_summary_sensors" msgid="5747969909098898581">"Apl dengan kebenaran ini boleh mengakses data penderia tentang tanda vital anda"</string>
-    <!-- no translation found for permission_description_summary_sms (1394630256073587627) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_storage (3947962757455327167) -->
-    <skip />
+    <string name="permission_description_summary_sms" msgid="1394630256073587627">"Apl dengan kebenaran ini boleh menghantar dan melihat mesej SMS"</string>
+    <string name="permission_description_summary_storage" msgid="3947962757455327167">"Apl dengan kebenaran ini boleh mengakses foto, media dan fail pada peranti anda"</string>
     <string name="app_permission_most_recent_summary" msgid="2806631058626902828">"Akses terakhir: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="474549680139911807">"Ditolak pada masa ini / Akses terakhir: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="5253530744650386602">"Tidak pernah mengakses"</string>
-    <!-- no translation found for app_permission_never_accessed_denied_summary (5074713608728279798) -->
-    <skip />
+    <string name="app_permission_never_accessed_denied_summary" msgid="5074713608728279798">"Ditolak / Tidak pernah mengakses"</string>
     <string name="allowed_header" msgid="670868581011741572">"Dibenarkan"</string>
-    <!-- no translation found for allowed_always_header (3129163790476916487) -->
-    <skip />
+    <string name="allowed_always_header" msgid="3129163790476916487">"Dibenarkan pada sepanjang masa"</string>
     <string name="allowed_foreground_header" msgid="508441909373674270">"Dibenarkan hanya semasa dalam penggunaan"</string>
     <string name="denied_header" msgid="4716097249466859449">"Ditolak"</string>
     <string name="detailed_usage_link" msgid="3213629980587953904">"Lihat penggunaan terperinci"</string>
-    <!-- no translation found for days (7685720539370448104) -->
-    <!-- no translation found for hours (5513137617382570199) -->
-    <!-- no translation found for minutes (269873289285218670) -->
-    <!-- no translation found for seconds (7518380254369486125) -->
+    <plurals name="days" formatted="false" msgid="7685720539370448104">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> hari</item>
+      <item quantity="one">1 hari</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="5513137617382570199">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> jam</item>
+      <item quantity="one">1 jam</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="269873289285218670">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> minit</item>
+      <item quantity="one">1 minit</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="7518380254369486125">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> saat</item>
+      <item quantity="one">1 saat</item>
+    </plurals>
     <string name="permission_reminders" msgid="7692569306867004285">"Peringatan kebenaran"</string>
     <string name="background_location_access_reminder_notification_title" msgid="1447771664601165880">"<xliff:g id="APP_NAME">%s</xliff:g> mendapat lokasi anda di latar belakang"</string>
     <string name="background_location_access_reminder_notification_content" msgid="4931939953173203901">"Apl ini boleh mengakses lokasi anda pada setiap masa. Ketik untuk menukar."</string>
@@ -223,23 +217,19 @@
     <string name="no_permissions_denied" msgid="4148813660212679056">"Tiada kebenaran ditolak"</string>
     <string name="no_apps_allowed" msgid="4959324189831343508">"Tiada apl dibenarkan"</string>
     <string name="no_apps_denied" msgid="4966465333227047186">"Tiada apl ditolak"</string>
-    <!-- no translation found for car_permission_selected (5788441628706535323) -->
-    <skip />
+    <string name="car_permission_selected" msgid="5788441628706535323">"Dipilih"</string>
     <string name="settings" msgid="6743583734099755409">"Tetapan"</string>
     <string name="accessibility_service_dialog_title_single" msgid="8163574312765390697">"<xliff:g id="SERVICE_NAME">%s</xliff:g> mempunyai akses penuh kepada peranti anda"</string>
     <string name="accessibility_service_dialog_title_multiple" msgid="593839615447260933">"<xliff:g id="NUM_SERVICES">%s</xliff:g> apl kebolehaksesan mempunyai akses penuh kepada peranti anda"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="1201610224744125691">"<xliff:g id="SERVICE_NAME">%s</xliff:g> dapat melihat skrin, tindakan dan input anda, melaksanakan tindakan serta mengawal paparan."</string>
-    <!-- no translation found for accessibility_service_dialog_bottom_text_multiple (99044354994789512) -->
-    <skip />
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="99044354994789512">"Apl ini dapat melihat skrin, tindakan dan input anda, melaksanakan tindakan serta mengawal paparan."</string>
     <string name="role_assistant_label" msgid="325607225419991524">"Apl bantu lalai"</string>
-    <!-- no translation found for role_assistant_short_label (5324338887042810318) -->
-    <skip />
+    <string name="role_assistant_short_label" msgid="5324338887042810318">"Apl bantu"</string>
     <string name="role_assistant_description" msgid="5980622464037768572">"Apl bantu dapat membantu anda berdasarkan maklumat daripada skrin yang sedang dilihat. Sesetengah apl menyokong perkhidmatan pelancar dan input suara untuk memberi anda bantuan bersepadu."</string>
     <string name="role_assistant_request_title" msgid="2198246079117996249">"Tetapkan <xliff:g id="APP_NAME">%1$s</xliff:g> sebagai apl bantu lalai anda?"</string>
     <string name="role_assistant_request_description" msgid="9007538649849881727">"Mendapat akses kepada SMS, log panggilan"</string>
     <string name="role_browser_label" msgid="1452186785584890151">"Apl penyemak imbas lalai"</string>
-    <!-- no translation found for role_browser_short_label (7008704096614388208) -->
-    <skip />
+    <string name="role_browser_short_label" msgid="7008704096614388208">"Apl penyemak imbas"</string>
     <string name="role_browser_description" msgid="3733812642667691329">"Apl yang memberi anda akses kepada Internet dan memaparkan pautan yang anda ketik"</string>
     <string name="role_browser_request_title" msgid="6682328732125865006">"Tetapkan <xliff:g id="APP_NAME">%1$s</xliff:g> sebagai apl penyemak imbas lalai anda?"</string>
     <string name="role_browser_request_description" msgid="5273230084027848407">"Kebenaran tidak diperlukan"</string>
@@ -248,65 +238,50 @@
     <string name="role_dialer_description" msgid="8168811763060055520">"Apl yang membenarkan anda membuat dan menerima panggilan telefon pada peranti anda"</string>
     <string name="role_dialer_request_title" msgid="2281942809560056462">"Tetapkan <xliff:g id="APP_NAME">%1$s</xliff:g> sebagai apl telefon lalai anda?"</string>
     <string name="role_dialer_request_description" msgid="1597958203339261473">"Mendapat akses kepada log panggilan, menghantar SMS"</string>
-    <!-- no translation found for role_sms_label (1282375330984375167) -->
-    <skip />
+    <string name="role_sms_label" msgid="1282375330984375167">"Apl SMS lalai"</string>
     <string name="role_sms_short_label" msgid="4774295162759580727">"Apl SMS"</string>
     <string name="role_sms_description" msgid="8688975508844386261">"Apl yang membenarkan anda menggunakan nombor telefon untuk menghantar dan menerima mesej teks pendek, foto, video dan pelbagai lagi"</string>
     <string name="role_sms_request_title" msgid="3942676190809695139">"Tetapkan <xliff:g id="APP_NAME">%1$s</xliff:g> sebagai apl SMS lalai anda?"</string>
     <string name="role_sms_request_description" msgid="6079312070314434582">"Mendapat akses kepada kenalan, SMS, telefon"</string>
-    <!-- no translation found for role_emergency_label (8510350771744625248) -->
-    <skip />
+    <string name="role_emergency_label" msgid="8510350771744625248">"Apl kecemasan lalai"</string>
     <string name="role_emergency_short_label" msgid="594672497758636578">"Apl kecemasan"</string>
     <string name="role_emergency_description" msgid="1328017704085954407">"Apl yang membenarkan anda merekodkan maklumat perubatan dan membolehkan maklumat itu diakses oleh pasukan bantuan kecemasan; mendapat makluman tentang peristiwa cuaca buruk dan bencana; memaklumi pihak lain apabila anda memerlukan bantuan"</string>
     <string name="role_emergency_request_title" msgid="862426026906033381">"Tetapkan <xliff:g id="APP_NAME">%1$s</xliff:g> sebagai apl kecemasan lalai anda?"</string>
-    <!-- no translation found for role_emergency_request_description (6604461788824945209) -->
-    <skip />
-    <!-- no translation found for role_home_label (2403568779207064895) -->
-    <skip />
+    <string name="role_emergency_request_description" msgid="6604461788824945209">"Kebenaran tidak diperlukan"</string>
+    <string name="role_home_label" msgid="2403568779207064895">"Apl skrin utama lalai"</string>
     <string name="role_home_short_label" msgid="8293261293243062773">"Apl skrin utama"</string>
     <string name="role_home_description" msgid="4692657963991101103">"Apl, yang sering dipanggil pelancar, yang menggantikan Skrin Utama pada peranti Android anda dan memberi anda akses kepada kandungan dan ciri peranti anda"</string>
     <string name="role_home_request_title" msgid="7254377742128731004">"Tetapkan <xliff:g id="APP_NAME">%1$s</xliff:g> sebagai apl skrin utama lalai anda?"</string>
     <string name="role_home_request_description" msgid="1649615419642117675">"Kebenaran tidak diperlukan"</string>
     <string name="role_call_redirection_label" msgid="8614962962542193455">"Apl pengubahhalaan pgln lalai"</string>
     <string name="role_call_redirection_short_label" msgid="7030817671864547206">"Apl pengubahhalaan panggilan"</string>
-    <!-- no translation found for role_call_redirection_description (1118180396571102108) -->
-    <skip />
+    <string name="role_call_redirection_description" msgid="1118180396571102108">"Apl yang membenarkan anda memajukan panggilan keluar ke nombor telefon lain"</string>
     <string name="role_call_redirection_request_title" msgid="3292712900764740951">"Tetapkan <xliff:g id="APP_NAME">%1$s</xliff:g> sebagai apl pengubahhalaan panggilan lalai anda?"</string>
     <string name="role_call_redirection_request_description" msgid="9130097590698779041">"Kebenaran tidak diperlukan"</string>
     <string name="role_call_screening_label" msgid="6762278758943136846">"ID pemanggil &amp; apl spam lalai"</string>
-    <!-- no translation found for role_call_screening_short_label (4405732075031564902) -->
-    <skip />
-    <!-- no translation found for role_call_screening_description (630332789277798256) -->
-    <skip />
+    <string name="role_call_screening_short_label" msgid="4405732075031564902">"ID Pemanggil &amp; apl spam"</string>
+    <string name="role_call_screening_description" msgid="630332789277798256">"Apl yang membenarkan anda mengenal pasti panggilan, menyekat spam dan robopanggilan serta menyenaraihitamkan nombor yang tidak dikehendaki"</string>
     <string name="role_call_screening_request_title" msgid="2918540778717341412">"Tetapkan <xliff:g id="APP_NAME">%1$s</xliff:g> sebagai ID pemanggil &amp; apl spam lalai anda?"</string>
     <string name="role_call_screening_request_description" msgid="2238766550271106517">"Kebenaran tidak diperlukan"</string>
     <string name="request_role_current_default" msgid="8010053122057418777">"Lalai semasa"</string>
     <string name="request_role_dont_ask_again" msgid="1002776641382604316">"Jangan tanya lagi"</string>
     <string name="request_role_set_as_default" msgid="161884072789965631">"Tetapkan sbg lalai"</string>
-    <!-- no translation found for default_app_search_keyword (5893328509368498565) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_ok (2849153333510041980) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_open_settings (180561046130062839) -->
-    <skip />
+    <string name="default_app_search_keyword" msgid="5893328509368498565">"apl lalai"</string>
+    <string name="ongoing_usage_dialog_ok" msgid="2849153333510041980">"OK"</string>
+    <string name="ongoing_usage_dialog_open_settings" msgid="180561046130062839">"Tetapan privasi"</string>
     <string name="ongoing_usage_dialog_title" msgid="7494746761292131980">"Apl yang menggunakan <xliff:g id="TYPES_LIST">%s</xliff:g> anda"</string>
-    <!-- no translation found for ongoing_usage_dialog_separator (3220814513543042443) -->
-    <skip />
+    <string name="ongoing_usage_dialog_separator" msgid="3220814513543042443">", "</string>
     <string name="ongoing_usage_dialog_last_separator" msgid="970720969260545688">" dan "</string>
-    <!-- no translation found for settings_button (1808682743475842576) -->
-    <skip />
+    <string name="settings_button" msgid="1808682743475842576">"Tetapan"</string>
     <string name="default_apps" msgid="5730264737920158250">"Apl lalai"</string>
     <string name="no_default_apps" msgid="2998405086652908867">"Tiada apl lalai"</string>
-    <!-- no translation found for default_apps_more (2432881430817521134) -->
-    <skip />
+    <string name="default_apps_more" msgid="2432881430817521134">"Lagi tetapan lalai"</string>
     <string name="default_apps_manage_domain_urls" msgid="814023242306919121">"Membuka pautan"</string>
     <string name="default_apps_for_work" msgid="6893448061977233772">"Lalai untuk kerja"</string>
     <string name="default_app_none" msgid="4430855885741769064">"Tiada"</string>
-    <!-- no translation found for default_app_system_default (330065926244492508) -->
-    <skip />
+    <string name="default_app_system_default" msgid="330065926244492508">"(Lalai sistem)"</string>
     <string name="default_app_no_apps" msgid="295747201345391862">"Tiada apl"</string>
-    <!-- no translation found for car_default_app_selected (5041173040939570813) -->
-    <skip />
+    <string name="car_default_app_selected" msgid="5041173040939570813">"Dipilih"</string>
     <string name="car_default_app_selected_with_info" msgid="846119554232771428">"Dipilih - <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="1933225255981974193">"akses apl khas"</string>
     <string name="special_app_access" msgid="1809336016722693481">"Akses apl khas"</string>
@@ -319,25 +294,17 @@
     <string name="incident_report_notification_title" msgid="5639002400773574216">"Kongsi data penyahpepijatan secara terperinci?"</string>
     <string name="incident_report_notification_text" msgid="3982379040142711581">"<xliff:g id="APP_NAME">%1$s</xliff:g> mahu memuat naik maklumat penyahpepijatan."</string>
     <string name="incident_report_dialog_title" msgid="7779774651136791681">"Kongsi Data Penyahpepijatan"</string>
-    <!-- no translation found for incident_report_dialog_intro (4267939213446817062) -->
-    <skip />
+    <string name="incident_report_dialog_intro" msgid="4267939213446817062">"Sistem telah mengesan masalah."</string>
     <string name="incident_report_dialog_text" msgid="4831945625929455288">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> mahu memuat naik laporan pepijat daripada peranti ini yang diambil pada <xliff:g id="DATE">%2$s</xliff:g> pada <xliff:g id="TIME">%3$s</xliff:g>. Laporan pepijat termasuk maklumat peribadi tentang peranti anda atau yang dilog oleh apl, contohnya, nama pengguna, data lokasi, pengecam peranti dan maklumat rangkaian. Kongsi laporan pepijat dengan orang dan apl yang anda percayai sahaja berhubung maklumat ini. Benarkan <xliff:g id="APP_NAME_1">%4$s</xliff:g> memuat naik laporan pepijat?"</string>
     <string name="incident_report_error_dialog_text" msgid="7571987324653854729">"Ralat telah berlaku semasa memproses laporan pepijat untuk <xliff:g id="APP_NAME">%1$s</xliff:g>. Oleh sebab itu, perkongsian data penyahpepijatan yang terperinci telah ditolak. Kami memohon maaf kerana gangguan ini."</string>
     <string name="incident_report_dialog_allow_label" msgid="39628365401477149">"Benarkan"</string>
     <string name="incident_report_dialog_deny_label" msgid="3613078094039859343">"Tolak"</string>
-    <!-- no translation found for adjust_user_sensitive_title (6181325993919599745) -->
-    <skip />
-    <!-- no translation found for menu_adjust_user_sensitive (277984416700153328) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_globally_title (7250948764129867522) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_globally_summary (2331110562911167243) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_per_app_header (3463088084190391428) -->
-    <skip />
-    <!-- no translation found for assistant_record_audio_user_sensitive_title (4527980682419054323) -->
-    <skip />
-    <!-- no translation found for assistant_record_audio_user_sensitive_summary (4952742951700902553) -->
-    <skip />
+    <string name="adjust_user_sensitive_title" msgid="6181325993919599745">"Tetapan terperinci"</string>
+    <string name="menu_adjust_user_sensitive" msgid="277984416700153328">"Tetapan terperinci"</string>
+    <string name="adjust_user_sensitive_globally_title" msgid="7250948764129867522">"Tunjukkan penggunaan apl sistem"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="2331110562911167243">"Tunjukkan penggunaan kebenaran oleh apl sistem dalam bar status, papan pemuka &amp; tempat lain"</string>
+    <string name="adjust_user_sensitive_per_app_header" msgid="3463088084190391428">"Serlahkan penggunaan untuk item berikut"</string>
+    <string name="assistant_record_audio_user_sensitive_title" msgid="4527980682419054323">"Tunjukkan pengesanan cetusan Assistant"</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="4952742951700902553">"Tunjukkan ikon dalam bar status apabila mikrofon digunakan untuk mengaktifkan pembantu suara"</string>
     <string name="permgrouprequest_storage_isolated" msgid="6769845877344258537">"Benarkan &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; mengakses foto dan media pada peranti anda?"</string>
 </resources>

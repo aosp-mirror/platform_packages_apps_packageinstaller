@@ -69,13 +69,11 @@
     <string name="permission_summary_disabled_by_admin_background_only" msgid="2185473379176174735">"Administrators atspējoja piekļuvi fonā"</string>
     <string name="permission_summary_enabled_by_admin_background_only" msgid="4558536214810713340">"Administrators iespējoja piekļuvi fonā"</string>
     <string name="permission_summary_enabled_by_admin_foreground_only" msgid="3735312186687063512">"Administrators iespējoja piekļuvi priekšplānā"</string>
-    <!-- no translation found for permission_summary_enabled_system_fixed (2986671472344103830) -->
-    <skip />
+    <string name="permission_summary_enabled_system_fixed" msgid="2986671472344103830">"Šī atļauja ir nepieciešama ierīces darbībai"</string>
     <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
     <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
-    <!-- no translation found for permission_access_always (8746815855070494802) -->
-    <skip />
+    <string name="permission_access_always" msgid="8746815855070494802">"Vienmēr atļaut"</string>
     <string name="permission_access_only_foreground" msgid="1653942358383006807">"Atļaut tikai lietotnes izmantošanas laikā"</string>
     <string name="permission_access_never" msgid="6189440007697689967">"Neatļaut"</string>
     <string name="loading" msgid="7811651799620593731">"Notiek ielāde..."</string>
@@ -108,34 +106,31 @@
     <string name="no_permission_usages" msgid="5322488885313825032">"Nav lietota neviena atļauja"</string>
     <string name="permission_usage_list_title_any_time" msgid="5231969131124312338">"Nesenākā piekļuve jebkurā laikā"</string>
     <string name="permission_usage_list_title_last_7_days" msgid="3481601827843295434">"Nesenākā piekļuve pēdējo 7 dienu laikā"</string>
-    <!-- no translation found for permission_usage_list_title_last_day (8004766042375735038) -->
-    <skip />
-    <!-- no translation found for permission_usage_list_title_last_hour (5263636446126109595) -->
-    <skip />
+    <string name="permission_usage_list_title_last_day" msgid="8004766042375735038">"Nesenākā piekļuve pēdējās 24 stundās"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="5263636446126109595">"Nesenākā piekļuve pēdējās stundas laikā"</string>
     <string name="permission_usage_list_title_last_15_minutes" msgid="3842584491108496053">"Nesenākā piekļuve pēdējo 15 minūšu laikā"</string>
     <string name="permission_usage_list_title_last_minute" msgid="6135511482448899737">"Nesenākā piekļuve pēdējās minūtes laikā"</string>
     <string name="permission_usage_bar_chart_title_any_time" msgid="2233750755422237444">"Atļaujas lietojums jebkurā laikā"</string>
-    <!-- no translation found for permission_usage_bar_chart_title_last_7_days (2505302271268657969) -->
-    <skip />
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="2505302271268657969">"Atļauju lietojums pēdējās 7 dienās"</string>
     <string name="permission_usage_bar_chart_title_last_day" msgid="3929341411684348428">"Atļauju lietojums pēdējo 24 stundu laikā"</string>
     <string name="permission_usage_bar_chart_title_last_hour" msgid="1473287216393833028">"Atļauju lietojums pēdējās stundas laikā"</string>
-    <!-- no translation found for permission_usage_bar_chart_title_last_15_minutes (8394883927589032677) -->
-    <skip />
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="8394883927589032677">"Atļauju lietojums pēdējās 15 minūtēs"</string>
     <string name="permission_usage_bar_chart_title_last_minute" msgid="8821351707225812097">"Atļauju lietojums pēdējā minūtē"</string>
-    <!-- no translation found for permission_usage_bar_label (7669269046102999228) -->
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="7669269046102999228">
+      <item quantity="zero"><xliff:g id="NUMBER">%s</xliff:g> lietotņu</item>
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> lietotne</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> lietotnes</item>
+    </plurals>
     <string name="permission_usage_view_details" msgid="7240872485880156540">"Skatīt visu rīkā Permission Dashboard"</string>
     <string name="app_permission_usage_filter_label" msgid="4632636077566071507">"Filtrēts pēc: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <!-- no translation found for app_permission_usage_remove_filter (5502079672930422033) -->
-    <skip />
+    <string name="app_permission_usage_remove_filter" msgid="5502079672930422033">"Skatīt visu informācijas panelī"</string>
     <string name="filter_by_title" msgid="7213659781851489723">"Filtrēt pēc"</string>
     <string name="filter_by_permissions" msgid="6808193127145660341">"Filtrēt pēc atļaujām"</string>
-    <!-- no translation found for filter_by_time (4037550957826791975) -->
-    <skip />
+    <string name="filter_by_time" msgid="4037550957826791975">"Filtrēt pēc laika"</string>
     <string name="sort_spinner_most_permissions" msgid="6852540142388944721">"Lielākā daļa atļauju"</string>
     <string name="sort_spinner_most_accesses" msgid="1219554524183666955">"Lielākais piekļuvju skaits"</string>
     <string name="sort_spinner_recent" msgid="1418334780798429342">"Jaunākās"</string>
-    <!-- no translation found for sort_by_app (5836911326872031928) -->
-    <skip />
+    <string name="sort_by_app" msgid="5836911326872031928">"Kārtot pēc lietotņu lietojuma"</string>
     <string name="sort_by_time" msgid="5904361063977286957">"Kārtot pēc laika"</string>
     <string name="item_separator" msgid="5590105992485222167">", "</string>
     <string name="permission_usage_refresh" msgid="2424637977565575554">"Atsvaidzināt"</string>
@@ -177,46 +172,50 @@
     <string name="app_permission_footer_no_usages_sensors" msgid="5716861361576610045">"Lietotnei <xliff:g id="APP">%1$s</xliff:g> nav piekļuves jūsu sensoriem"</string>
     <string name="app_permission_footer_no_usages_sms" msgid="2453537470852966962">"Lietotnei <xliff:g id="APP">%1$s</xliff:g> nav piekļuves jūsu īsziņām"</string>
     <string name="app_permission_footer_no_usages_storage" msgid="1296053906120407192">"Lietotnei <xliff:g id="APP">%1$s</xliff:g> nav piekļuves jūsu krātuvei"</string>
-    <!-- no translation found for app_permission_footer_not_available (7473636495733881225) -->
-    <skip />
+    <string name="app_permission_footer_not_available" msgid="7473636495733881225">"Pašlaik nav pieejami dati par pēdējo piekļuvi, kam tika izmantota šī atļauja"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="6074026408119212662">"Skatīt visas lietotnei <xliff:g id="APP">%1$s</xliff:g> piešķirtās atļaujas"</string>
-    <!-- no translation found for app_permission_footer_permission_apps_link (3489066323918915073) -->
-    <skip />
+    <string name="app_permission_footer_permission_apps_link" msgid="3489066323918915073">"Skatīt visas lietotnes, kam ir šī atļauja"</string>
     <string name="permission_description_summary_generic" msgid="1134416469764865198">"Lietotnes, kurām ir šī atļauja, var <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <!-- no translation found for permission_description_summary_activity_recognition (3371048800215659444) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_calendar (7627624281615554407) -->
-    <skip />
+    <string name="permission_description_summary_activity_recognition" msgid="3371048800215659444">"Lietotnes, kurām ir šī atļauja, var piekļūt informācijai par jūsu fiziskajām aktivitātēm, piemēram, soļu skaitam, informācijai par iešanu, riteņbraukšanu un braukšanu automašīnā un citai informācijai"</string>
+    <string name="permission_description_summary_calendar" msgid="7627624281615554407">"Lietotnes, kurām ir šī atļauja, var piekļūt jūsu kalendāram"</string>
     <string name="permission_description_summary_call_log" msgid="4715804544768878751">"Lietotnes, kurām ir šī atļauja, var lasīt un rakstīt tālruņa zvanu žurnālu"</string>
-    <!-- no translation found for permission_description_summary_camera (7879547592935186291) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_contacts (2833167258022765303) -->
-    <skip />
+    <string name="permission_description_summary_camera" msgid="7879547592935186291">"Lietotnes, kurām ir šī atļauja, var uzņemt attēlus un ierakstīt videoklipus"</string>
+    <string name="permission_description_summary_contacts" msgid="2833167258022765303">"Lietotnes, kurām ir šī atļauja, var piekļūt jūsu kontaktpersonām"</string>
     <string name="permission_description_summary_location" msgid="4722113806360938675">"Lietotnes, kurām ir šī atļauja, var piekļūt šīs ierīces atrašanās vietai"</string>
-    <!-- no translation found for permission_description_summary_microphone (1349810138634077494) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_phone (6972180067860067462) -->
-    <skip />
+    <string name="permission_description_summary_microphone" msgid="1349810138634077494">"Lietotnes, kurām ir šī atļauja, var ierakstīt audio"</string>
+    <string name="permission_description_summary_phone" msgid="6972180067860067462">"Lietotnes, kurām ir šī atļauja, var veikt un pārvaldīt tālruņa zvanus"</string>
     <string name="permission_description_summary_sensors" msgid="5747969909098898581">"Lietotnes, kurām ir šī atļauja, var piekļūt sensoru datiem par jūsu veselības rādījumiem"</string>
-    <!-- no translation found for permission_description_summary_sms (1394630256073587627) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_storage (3947962757455327167) -->
-    <skip />
+    <string name="permission_description_summary_sms" msgid="1394630256073587627">"Lietotnes, kurām ir šī atļauja, var sūtīt un skatīt īsziņas"</string>
+    <string name="permission_description_summary_storage" msgid="3947962757455327167">"Lietotnes, kurām ir šī atļauja, var piekļūt ierīcē saglabātajiem fotoattēliem, multivides saturam un failiem"</string>
     <string name="app_permission_most_recent_summary" msgid="2806631058626902828">"Pēdējā piekļuve: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="474549680139911807">"Pašreiz tiek liegta / Pēdējā piekļuves reize: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="5253530744650386602">"Nekad nav piekļūts"</string>
-    <!-- no translation found for app_permission_never_accessed_denied_summary (5074713608728279798) -->
-    <skip />
+    <string name="app_permission_never_accessed_denied_summary" msgid="5074713608728279798">"Liegta/ nekad nav piekļūts"</string>
     <string name="allowed_header" msgid="670868581011741572">"Atļauts"</string>
-    <!-- no translation found for allowed_always_header (3129163790476916487) -->
-    <skip />
+    <string name="allowed_always_header" msgid="3129163790476916487">"Vienmēr atļauts"</string>
     <string name="allowed_foreground_header" msgid="508441909373674270">"Atļauts tikai izmantošanas laikā"</string>
     <string name="denied_header" msgid="4716097249466859449">"Noraidīts"</string>
     <string name="detailed_usage_link" msgid="3213629980587953904">"Skatīt detalizētu lietojuma informāciju"</string>
-    <!-- no translation found for days (7685720539370448104) -->
-    <!-- no translation found for hours (5513137617382570199) -->
-    <!-- no translation found for minutes (269873289285218670) -->
-    <!-- no translation found for seconds (7518380254369486125) -->
+    <plurals name="days" formatted="false" msgid="7685720539370448104">
+      <item quantity="zero"><xliff:g id="NUMBER">%s</xliff:g> dienu</item>
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> diena</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> dienas</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="5513137617382570199">
+      <item quantity="zero"><xliff:g id="NUMBER">%s</xliff:g> stundu</item>
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> stunda</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> stundas</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="269873289285218670">
+      <item quantity="zero"><xliff:g id="NUMBER">%s</xliff:g> minūšu</item>
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> minūte</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> minūtes</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="7518380254369486125">
+      <item quantity="zero"><xliff:g id="NUMBER">%s</xliff:g> sekunžu</item>
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> sekunde</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sekundes</item>
+    </plurals>
     <string name="permission_reminders" msgid="7692569306867004285">"Atgādinājumi par atļauju"</string>
     <string name="background_location_access_reminder_notification_title" msgid="1447771664601165880">"Lietotne <xliff:g id="APP_NAME">%s</xliff:g> ieguva jūsu atrašanās vietas informāciju fonā"</string>
     <string name="background_location_access_reminder_notification_content" msgid="4931939953173203901">"Šī lietotne jebkurā laikā var piekļūt jūsu atrašanās vietai. Pieskarieties, lai mainītu šo iestatījumu."</string>
@@ -225,23 +224,19 @@
     <string name="no_permissions_denied" msgid="4148813660212679056">"Nav noraidīta neviena atļauja"</string>
     <string name="no_apps_allowed" msgid="4959324189831343508">"Nav atļauta neviena lietotne"</string>
     <string name="no_apps_denied" msgid="4966465333227047186">"Nav noraidīta neviena lietotne"</string>
-    <!-- no translation found for car_permission_selected (5788441628706535323) -->
-    <skip />
+    <string name="car_permission_selected" msgid="5788441628706535323">"Atlasīta"</string>
     <string name="settings" msgid="6743583734099755409">"Iestatījumi"</string>
     <string name="accessibility_service_dialog_title_single" msgid="8163574312765390697">"Pakalpojumam <xliff:g id="SERVICE_NAME">%s</xliff:g> ir pilna piekļuve jūsu ierīcei"</string>
     <string name="accessibility_service_dialog_title_multiple" msgid="593839615447260933">"<xliff:g id="NUM_SERVICES">%s</xliff:g> pieejamības lietotnēm ir pilna piekļuve jūsu ierīcei"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="1201610224744125691">"Pakalpojums <xliff:g id="SERVICE_NAME">%s</xliff:g> var skatīt jūsu ekrānu, darbības un ievadīto informāciju, kā arī veikt darbības un kontrolēt attēlojumu displejā."</string>
-    <!-- no translation found for accessibility_service_dialog_bottom_text_multiple (99044354994789512) -->
-    <skip />
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="99044354994789512">"Šīs lietotnes var skatīt jūsu ekrānu, darbības un ievadīto informāciju, kā arī veikt darbības un kontrolēt attēlojumu displejā."</string>
     <string name="role_assistant_label" msgid="325607225419991524">"Noklusējuma palīga lietotne"</string>
-    <!-- no translation found for role_assistant_short_label (5324338887042810318) -->
-    <skip />
+    <string name="role_assistant_short_label" msgid="5324338887042810318">"Palīga lietotne"</string>
     <string name="role_assistant_description" msgid="5980622464037768572">"Izmantojot palīga lietotnes, varat iegūt palīdzību, pamatojoties uz ekrānā redzamo informāciju. Dažās lietotnēs tiek atbalstītas gan palaišanas programmas, gan balss ievades pakalpojumi, lai nodrošinātu integrētu palīdzību."</string>
     <string name="role_assistant_request_title" msgid="2198246079117996249">"Vai vēlaties iestatīt <xliff:g id="APP_NAME">%1$s</xliff:g> kā noklusējuma palīga lietotni?"</string>
     <string name="role_assistant_request_description" msgid="9007538649849881727">"Iegūst piekļuvi īsziņām un zvanu žurnālam"</string>
     <string name="role_browser_label" msgid="1452186785584890151">"Noklusējuma pārlūka lietotne"</string>
-    <!-- no translation found for role_browser_short_label (7008704096614388208) -->
-    <skip />
+    <string name="role_browser_short_label" msgid="7008704096614388208">"Pārlūka lietotne"</string>
     <string name="role_browser_description" msgid="3733812642667691329">"Lietotnes, kas sniedz jums piekļuvi internetam un atver saites, kam jūs pieskaraties"</string>
     <string name="role_browser_request_title" msgid="6682328732125865006">"Vai vēlaties iestatīt lietotni <xliff:g id="APP_NAME">%1$s</xliff:g> kā noklusējuma pārlūka lietotni?"</string>
     <string name="role_browser_request_description" msgid="5273230084027848407">"Atļaujas nav nepieciešamas"</string>
@@ -250,65 +245,50 @@
     <string name="role_dialer_description" msgid="8168811763060055520">"Lietotnes, kas ļauj jums ierīcē veikt un saņemt tālruņa zvanus"</string>
     <string name="role_dialer_request_title" msgid="2281942809560056462">"Vai vēlaties iestatīt <xliff:g id="APP_NAME">%1$s</xliff:g> kā noklusējuma tālruņa lietotni?"</string>
     <string name="role_dialer_request_description" msgid="1597958203339261473">"Iegūst piekļuvi zvanu žurnālam un īsziņu sūtīšanai"</string>
-    <!-- no translation found for role_sms_label (1282375330984375167) -->
-    <skip />
+    <string name="role_sms_label" msgid="1282375330984375167">"Noklusējuma īsziņu lietotne"</string>
     <string name="role_sms_short_label" msgid="4774295162759580727">"Īsziņu lietotne"</string>
     <string name="role_sms_description" msgid="8688975508844386261">"Lietotnes, kas ļauj sūtīt un saņemt īsziņas, fotoattēlus, videoklipus un citu saturu, izmantojot tālruņa numuru"</string>
     <string name="role_sms_request_title" msgid="3942676190809695139">"Vai vēlaties iestatīt lietotni <xliff:g id="APP_NAME">%1$s</xliff:g> kā noklusējuma lietotni īsziņām?"</string>
     <string name="role_sms_request_description" msgid="6079312070314434582">"Iegūst piekļuvi kontaktpersonām, SMS un tālrunim"</string>
-    <!-- no translation found for role_emergency_label (8510350771744625248) -->
-    <skip />
+    <string name="role_emergency_label" msgid="8510350771744625248">"Noklus. ārkārtas izs. lietotne"</string>
     <string name="role_emergency_short_label" msgid="594672497758636578">"Ārkārtas izsaukumu lietotne"</string>
     <string name="role_emergency_description" msgid="1328017704085954407">"Izmantojot šīs lietotnes, varat piekļūt savai medicīniskajai informācijai un padarīt to pieejamu avārijas dienestu darbiniekiem, saņemt brīdinājumus par bīstamiem laika apstākļiem un katastrofām, kā arī paziņot citiem, ka jums nepieciešama palīdzība"</string>
     <string name="role_emergency_request_title" msgid="862426026906033381">"Vai vēlaties iestatīt lietotni <xliff:g id="APP_NAME">%1$s</xliff:g> kā noklusējuma lietotni ārkārtas izsaukumiem?"</string>
-    <!-- no translation found for role_emergency_request_description (6604461788824945209) -->
-    <skip />
-    <!-- no translation found for role_home_label (2403568779207064895) -->
-    <skip />
+    <string name="role_emergency_request_description" msgid="6604461788824945209">"Atļaujas nav nepieciešamas"</string>
+    <string name="role_home_label" msgid="2403568779207064895">"Noklusējuma sākuma lietotne"</string>
     <string name="role_home_short_label" msgid="8293261293243062773">"Sākuma lietotne"</string>
     <string name="role_home_description" msgid="4692657963991101103">"Šīs lietotnes, ko bieži sauc par palaišanas programmām, aizstāj Android ierīces sākuma ekrānu un sniedz piekļuvi ierīces saturam un funkcijām"</string>
     <string name="role_home_request_title" msgid="7254377742128731004">"Vai vēlaties iestatīt lietotni <xliff:g id="APP_NAME">%1$s</xliff:g> kā noklusējuma sākuma lietotni?"</string>
     <string name="role_home_request_description" msgid="1649615419642117675">"Atļaujas nav nepieciešamas"</string>
     <string name="role_call_redirection_label" msgid="8614962962542193455">"Noklus. zvanu pāradr. lietotne"</string>
     <string name="role_call_redirection_short_label" msgid="7030817671864547206">"Zvanu novirzīšanas lietotne"</string>
-    <!-- no translation found for role_call_redirection_description (1118180396571102108) -->
-    <skip />
+    <string name="role_call_redirection_description" msgid="1118180396571102108">"Lietotnes, kas ļauj jums pāradresēt izejošos zvanus uz citu tālruņa numuru"</string>
     <string name="role_call_redirection_request_title" msgid="3292712900764740951">"Vai vēlaties iestatīt lietotni <xliff:g id="APP_NAME">%1$s</xliff:g> kā noklusējuma lietotni zvanu pāradresācijai?"</string>
     <string name="role_call_redirection_request_description" msgid="9130097590698779041">"Atļaujas nav nepieciešamas"</string>
     <string name="role_call_screening_label" msgid="6762278758943136846">"Noklus. zvanītāja ID un nevēl. zvanu lietotne"</string>
-    <!-- no translation found for role_call_screening_short_label (4405732075031564902) -->
-    <skip />
-    <!-- no translation found for role_call_screening_description (630332789277798256) -->
-    <skip />
+    <string name="role_call_screening_short_label" msgid="4405732075031564902">"Zvanītāja ID un nevēl. zvaniem"</string>
+    <string name="role_call_screening_description" msgid="630332789277798256">"Lietotnes, kas ļauj jums noteikt zvanus, bloķēt mēstules un robota zvanus, kā arī iekļaut melnajā sarakstā nevēlamus tālruņa numurus"</string>
     <string name="role_call_screening_request_title" msgid="2918540778717341412">"Vai vēlaties iestatīt <xliff:g id="APP_NAME">%1$s</xliff:g> kā noklusējuma lietotni zvanītāja ID rādīšanai un nevēlamu zvanu bloķēšanai?"</string>
     <string name="role_call_screening_request_description" msgid="2238766550271106517">"Atļaujas nav nepieciešamas"</string>
     <string name="request_role_current_default" msgid="8010053122057418777">"Pašreizējais noklusējums"</string>
     <string name="request_role_dont_ask_again" msgid="1002776641382604316">"Nejautāt atkārtoti"</string>
     <string name="request_role_set_as_default" msgid="161884072789965631">"Iest. kā noklusējumu"</string>
-    <!-- no translation found for default_app_search_keyword (5893328509368498565) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_ok (2849153333510041980) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_open_settings (180561046130062839) -->
-    <skip />
+    <string name="default_app_search_keyword" msgid="5893328509368498565">"noklusējuma lietotnes"</string>
+    <string name="ongoing_usage_dialog_ok" msgid="2849153333510041980">"Labi"</string>
+    <string name="ongoing_usage_dialog_open_settings" msgid="180561046130062839">"Konfidencialitāte"</string>
     <string name="ongoing_usage_dialog_title" msgid="7494746761292131980">"Lietotnes, kurās tiek izmantotas šādas atļaujas: <xliff:g id="TYPES_LIST">%s</xliff:g>"</string>
-    <!-- no translation found for ongoing_usage_dialog_separator (3220814513543042443) -->
-    <skip />
+    <string name="ongoing_usage_dialog_separator" msgid="3220814513543042443">", "</string>
     <string name="ongoing_usage_dialog_last_separator" msgid="970720969260545688">" un "</string>
-    <!-- no translation found for settings_button (1808682743475842576) -->
-    <skip />
+    <string name="settings_button" msgid="1808682743475842576">"Iestatījumi"</string>
     <string name="default_apps" msgid="5730264737920158250">"Noklusējuma lietotnes"</string>
     <string name="no_default_apps" msgid="2998405086652908867">"Nav noklusējuma lietotņu"</string>
-    <!-- no translation found for default_apps_more (2432881430817521134) -->
-    <skip />
+    <string name="default_apps_more" msgid="2432881430817521134">"Citas noklusējuma lietotnes"</string>
     <string name="default_apps_manage_domain_urls" msgid="814023242306919121">"Saišu atvēršana"</string>
     <string name="default_apps_for_work" msgid="6893448061977233772">"Noklusējuma iestatījums darbam"</string>
     <string name="default_app_none" msgid="4430855885741769064">"Nav"</string>
-    <!-- no translation found for default_app_system_default (330065926244492508) -->
-    <skip />
+    <string name="default_app_system_default" msgid="330065926244492508">"(Sistēmas noklusējums)"</string>
     <string name="default_app_no_apps" msgid="295747201345391862">"Nav lietotņu"</string>
-    <!-- no translation found for car_default_app_selected (5041173040939570813) -->
-    <skip />
+    <string name="car_default_app_selected" msgid="5041173040939570813">"Atlasīta"</string>
     <string name="car_default_app_selected_with_info" msgid="846119554232771428">"Atlasīta — <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="1933225255981974193">"Īpaša lietotņu piekļuve"</string>
     <string name="special_app_access" msgid="1809336016722693481">"Īpaša piekļuve lietotnēm"</string>
@@ -321,25 +301,17 @@
     <string name="incident_report_notification_title" msgid="5639002400773574216">"Vai kopīgot detalizētus atkļūdošanas datus?"</string>
     <string name="incident_report_notification_text" msgid="3982379040142711581">"<xliff:g id="APP_NAME">%1$s</xliff:g> vēlas augšupielādēt atkļūdošanas informāciju."</string>
     <string name="incident_report_dialog_title" msgid="7779774651136791681">"Atkļūdošanas datu kopīgošana"</string>
-    <!-- no translation found for incident_report_dialog_intro (4267939213446817062) -->
-    <skip />
+    <string name="incident_report_dialog_intro" msgid="4267939213446817062">"Sistēmā tika konstatēta problēma."</string>
     <string name="incident_report_dialog_text" msgid="4831945625929455288">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> pieprasa augšupielādēt kļūdas pārskatu no šīs ierīces, kas veikts: <xliff:g id="DATE">%2$s</xliff:g> plkst. <xliff:g id="TIME">%3$s</xliff:g>. Kļūdu pārskatos ir ietverta personas informācija par jūsu ierīci vai lietotnēs reģistrēta informācija, piemēram, lietotājvārdi, atrašanās vietas dati, ierīču identifikatori un tīkla informācija. Kopīgojiet kļūdu pārskatus tikai ar lietotājiem un lietotnēm, kuriem uzticat šo informāciju. Vai atļaut lietotnei <xliff:g id="APP_NAME_1">%4$s</xliff:g> augšupielādēt kļūdas pārskatu?"</string>
     <string name="incident_report_error_dialog_text" msgid="7571987324653854729">"Apstrādājot lietotnes <xliff:g id="APP_NAME">%1$s</xliff:g> kļūdas pārskatu, radās problēma. Tāpēc detalizēto atkļūdošanas datu kopīgošana tika liegta. Atvainojiet par traucējumu!"</string>
     <string name="incident_report_dialog_allow_label" msgid="39628365401477149">"Atļaut"</string>
     <string name="incident_report_dialog_deny_label" msgid="3613078094039859343">"Neatļaut"</string>
-    <!-- no translation found for adjust_user_sensitive_title (6181325993919599745) -->
-    <skip />
-    <!-- no translation found for menu_adjust_user_sensitive (277984416700153328) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_globally_title (7250948764129867522) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_globally_summary (2331110562911167243) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_per_app_header (3463088084190391428) -->
-    <skip />
-    <!-- no translation found for assistant_record_audio_user_sensitive_title (4527980682419054323) -->
-    <skip />
-    <!-- no translation found for assistant_record_audio_user_sensitive_summary (4952742951700902553) -->
-    <skip />
+    <string name="adjust_user_sensitive_title" msgid="6181325993919599745">"Papildu iestatījumi"</string>
+    <string name="menu_adjust_user_sensitive" msgid="277984416700153328">"Papildu iestatījumi"</string>
+    <string name="adjust_user_sensitive_globally_title" msgid="7250948764129867522">"Sistēmas lietotņu izmantojuma rādīšana"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="2331110562911167243">"Rādīt sistēmas lietotņu atļauju izmantojumu statusa joslā, informācijas panelī un citur"</string>
+    <string name="adjust_user_sensitive_per_app_header" msgid="3463088084190391428">"Tālāk norādīto lietotņu izmantojuma atzīmēšana"</string>
+    <string name="assistant_record_audio_user_sensitive_title" msgid="4527980682419054323">"Asistenta aktivizētāja noteikšanas rādīšana"</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="4952742951700902553">"Rādīt ikonu statusa joslā, ja mikrofons tiek izmantots balss palīga aktivizēšanai"</string>
     <string name="permgrouprequest_storage_isolated" msgid="6769845877344258537">"Vai atļaut lietotnei &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; piekļūt fotoattēliem un multivides saturam jūsu ierīcē?"</string>
 </resources>

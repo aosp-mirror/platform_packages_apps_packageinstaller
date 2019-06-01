@@ -70,13 +70,11 @@
     <string name="permission_summary_disabled_by_admin_background_only" msgid="2185473379176174735">"Přístup na pozadí byl zakázán administrátorem"</string>
     <string name="permission_summary_enabled_by_admin_background_only" msgid="4558536214810713340">"Přístup na pozadí byl povolen administrátorem"</string>
     <string name="permission_summary_enabled_by_admin_foreground_only" msgid="3735312186687063512">"Přístup na popředí byl povolen administrátorem"</string>
-    <!-- no translation found for permission_summary_enabled_system_fixed (2986671472344103830) -->
-    <skip />
+    <string name="permission_summary_enabled_system_fixed" msgid="2986671472344103830">"Zařízení toto oprávnění vyžaduje, aby fungovalo"</string>
     <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
     <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
-    <!-- no translation found for permission_access_always (8746815855070494802) -->
-    <skip />
+    <string name="permission_access_always" msgid="8746815855070494802">"Povolit vždy"</string>
     <string name="permission_access_only_foreground" msgid="1653942358383006807">"Povolit jen při používání"</string>
     <string name="permission_access_never" msgid="6189440007697689967">"Zakázat"</string>
     <string name="loading" msgid="7811651799620593731">"Načítání…"</string>
@@ -109,34 +107,32 @@
     <string name="no_permission_usages" msgid="5322488885313825032">"Žádné využití oprávnění"</string>
     <string name="permission_usage_list_title_any_time" msgid="5231969131124312338">"Poslední využití kdykoli"</string>
     <string name="permission_usage_list_title_last_7_days" msgid="3481601827843295434">"Poslední použití za 7 dnů"</string>
-    <!-- no translation found for permission_usage_list_title_last_day (8004766042375735038) -->
-    <skip />
-    <!-- no translation found for permission_usage_list_title_last_hour (5263636446126109595) -->
-    <skip />
+    <string name="permission_usage_list_title_last_day" msgid="8004766042375735038">"Poslední využití za uplynulých 24 hodin"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="5263636446126109595">"Poslední využití za uplynulou hodinu"</string>
     <string name="permission_usage_list_title_last_15_minutes" msgid="3842584491108496053">"Poslední využití za uplynulých 15 minut"</string>
     <string name="permission_usage_list_title_last_minute" msgid="6135511482448899737">"Poslední využití za uplynulou minutu"</string>
     <string name="permission_usage_bar_chart_title_any_time" msgid="2233750755422237444">"Využití oprávnění kdykoli"</string>
-    <!-- no translation found for permission_usage_bar_chart_title_last_7_days (2505302271268657969) -->
-    <skip />
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="2505302271268657969">"Využití oprávnění za posledních 7 dnů"</string>
     <string name="permission_usage_bar_chart_title_last_day" msgid="3929341411684348428">"Využití oprávnění za posledních 24 hodin"</string>
     <string name="permission_usage_bar_chart_title_last_hour" msgid="1473287216393833028">"Využití oprávnění za poslední hodinu"</string>
-    <!-- no translation found for permission_usage_bar_chart_title_last_15_minutes (8394883927589032677) -->
-    <skip />
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="8394883927589032677">"Využití oprávnění za posledních 15 minut"</string>
     <string name="permission_usage_bar_chart_title_last_minute" msgid="8821351707225812097">"Využití oprávnění za poslední minutu"</string>
-    <!-- no translation found for permission_usage_bar_label (7669269046102999228) -->
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="7669269046102999228">
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> aplikace</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> aplikace</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> aplikací</item>
+      <item quantity="one">1 aplikace</item>
+    </plurals>
     <string name="permission_usage_view_details" msgid="7240872485880156540">"Zobrazit vše na panelu"</string>
     <string name="app_permission_usage_filter_label" msgid="4632636077566071507">"Filtrováno podle: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <!-- no translation found for app_permission_usage_remove_filter (5502079672930422033) -->
-    <skip />
+    <string name="app_permission_usage_remove_filter" msgid="5502079672930422033">"Zobrazit vše na panelu"</string>
     <string name="filter_by_title" msgid="7213659781851489723">"Filtrovat podle"</string>
     <string name="filter_by_permissions" msgid="6808193127145660341">"Filtrovat podle oprávnění"</string>
-    <!-- no translation found for filter_by_time (4037550957826791975) -->
-    <skip />
+    <string name="filter_by_time" msgid="4037550957826791975">"Filtrovat podle času"</string>
     <string name="sort_spinner_most_permissions" msgid="6852540142388944721">"Nejvíce oprávnění"</string>
     <string name="sort_spinner_most_accesses" msgid="1219554524183666955">"Nejvíce použití"</string>
     <string name="sort_spinner_recent" msgid="1418334780798429342">"Nedávné"</string>
-    <!-- no translation found for sort_by_app (5836911326872031928) -->
-    <skip />
+    <string name="sort_by_app" msgid="5836911326872031928">"Seřadit podle využití aplikací"</string>
     <string name="sort_by_time" msgid="5904361063977286957">"Seřadit podle času"</string>
     <string name="item_separator" msgid="5590105992485222167">", "</string>
     <string name="permission_usage_refresh" msgid="2424637977565575554">"Obnovit"</string>
@@ -179,46 +175,54 @@
     <string name="app_permission_footer_no_usages_sensors" msgid="5716861361576610045">"Aplikace <xliff:g id="APP">%1$s</xliff:g> nezískala přístup k senzorům"</string>
     <string name="app_permission_footer_no_usages_sms" msgid="2453537470852966962">"Aplikace <xliff:g id="APP">%1$s</xliff:g> nezískala přístup k SMS"</string>
     <string name="app_permission_footer_no_usages_storage" msgid="1296053906120407192">"Aplikace <xliff:g id="APP">%1$s</xliff:g> nezískala přístup k úložišti"</string>
-    <!-- no translation found for app_permission_footer_not_available (7473636495733881225) -->
-    <skip />
+    <string name="app_permission_footer_not_available" msgid="7473636495733881225">"Údaje o posledním přístupu momentálně nejsou v rámci tohoto oprávnění dostupné"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="6074026408119212662">"Zobrazit všechna oprávnění aplikace <xliff:g id="APP">%1$s</xliff:g>"</string>
-    <!-- no translation found for app_permission_footer_permission_apps_link (3489066323918915073) -->
-    <skip />
+    <string name="app_permission_footer_permission_apps_link" msgid="3489066323918915073">"Zobrazit všechny aplikace s tímto oprávněním"</string>
     <string name="permission_description_summary_generic" msgid="1134416469764865198">"Aplikace s tímto oprávněním mohou: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <!-- no translation found for permission_description_summary_activity_recognition (3371048800215659444) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_calendar (7627624281615554407) -->
-    <skip />
+    <string name="permission_description_summary_activity_recognition" msgid="3371048800215659444">"Aplikace s tímto oprávněním mají přístup k vaší fyzické aktivitě, jako je chůze, jízda na kole, jízda autem, počet kroků a další"</string>
+    <string name="permission_description_summary_calendar" msgid="7627624281615554407">"Aplikace s tímto oprávněním mají přístup ke kalendáři"</string>
     <string name="permission_description_summary_call_log" msgid="4715804544768878751">"Aplikace s tímto oprávněním mohou číst a zapisovat do seznamu hovorů v telefonu"</string>
-    <!-- no translation found for permission_description_summary_camera (7879547592935186291) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_contacts (2833167258022765303) -->
-    <skip />
+    <string name="permission_description_summary_camera" msgid="7879547592935186291">"Aplikace s tímto oprávněním mohou fotit a nahrávat video"</string>
+    <string name="permission_description_summary_contacts" msgid="2833167258022765303">"Aplikace s tímto oprávněním mají přístup ke kontaktům"</string>
     <string name="permission_description_summary_location" msgid="4722113806360938675">"Aplikace s tímto oprávněním mají přístup k poloze zařízení"</string>
-    <!-- no translation found for permission_description_summary_microphone (1349810138634077494) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_phone (6972180067860067462) -->
-    <skip />
+    <string name="permission_description_summary_microphone" msgid="1349810138634077494">"Aplikace s tímto oprávněním mohou nahrávat zvuk"</string>
+    <string name="permission_description_summary_phone" msgid="6972180067860067462">"Aplikace s tímto oprávněním mohou realizovat a spravovat telefonické hovory"</string>
     <string name="permission_description_summary_sensors" msgid="5747969909098898581">"Aplikace s tímto oprávněním mají přístup k datům ze snímačů vašich životních funkcí"</string>
-    <!-- no translation found for permission_description_summary_sms (1394630256073587627) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_storage (3947962757455327167) -->
-    <skip />
+    <string name="permission_description_summary_sms" msgid="1394630256073587627">"Aplikace s tímto oprávněním mohou odesílat a zobrazovat SMS"</string>
+    <string name="permission_description_summary_storage" msgid="3947962757455327167">"Aplikace s tímto oprávněním mají přístup k fotkám, médiím a souborům v zařízení"</string>
     <string name="app_permission_most_recent_summary" msgid="2806631058626902828">"Poslední přístup: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="474549680139911807">"Zakázáno / naposledy použito: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="5253530744650386602">"Žádný přístup"</string>
-    <!-- no translation found for app_permission_never_accessed_denied_summary (5074713608728279798) -->
-    <skip />
+    <string name="app_permission_never_accessed_denied_summary" msgid="5074713608728279798">"Zakázáno / žádný přístup"</string>
     <string name="allowed_header" msgid="670868581011741572">"Povoleno"</string>
-    <!-- no translation found for allowed_always_header (3129163790476916487) -->
-    <skip />
+    <string name="allowed_always_header" msgid="3129163790476916487">"Povoleno celou dobu"</string>
     <string name="allowed_foreground_header" msgid="508441909373674270">"Povoleno pouze během používání"</string>
     <string name="denied_header" msgid="4716097249466859449">"Zamítnuto"</string>
     <string name="detailed_usage_link" msgid="3213629980587953904">"Zobrazit podrobné údaje o využití"</string>
-    <!-- no translation found for days (7685720539370448104) -->
-    <!-- no translation found for hours (5513137617382570199) -->
-    <!-- no translation found for minutes (269873289285218670) -->
-    <!-- no translation found for seconds (7518380254369486125) -->
+    <plurals name="days" formatted="false" msgid="7685720539370448104">
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> dny</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> dne</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> dní</item>
+      <item quantity="one">1 den</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="5513137617382570199">
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> hodiny</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> hodiny</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> hodin</item>
+      <item quantity="one">1 hodina</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="269873289285218670">
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> minuty</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> minuty</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> minut</item>
+      <item quantity="one">1 minuta</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="7518380254369486125">
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> sekundy</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> sekundy</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sekund</item>
+      <item quantity="one">1 sekunda</item>
+    </plurals>
     <string name="permission_reminders" msgid="7692569306867004285">"Připomenutí o oprávněních"</string>
     <string name="background_location_access_reminder_notification_title" msgid="1447771664601165880">"<xliff:g id="APP_NAME">%s</xliff:g> má přístup k poloze na pozadí"</string>
     <string name="background_location_access_reminder_notification_content" msgid="4931939953173203901">"Tato aplikace má neomezený přístup k poloze. Klepnutím to změníte."</string>
@@ -227,23 +231,19 @@
     <string name="no_permissions_denied" msgid="4148813660212679056">"Nejsou zakázána žádná oprávnění"</string>
     <string name="no_apps_allowed" msgid="4959324189831343508">"Nejsou povoleny žádné aplikace"</string>
     <string name="no_apps_denied" msgid="4966465333227047186">"Nejsou zakázány žádné aplikace"</string>
-    <!-- no translation found for car_permission_selected (5788441628706535323) -->
-    <skip />
+    <string name="car_permission_selected" msgid="5788441628706535323">"Vybráno"</string>
     <string name="settings" msgid="6743583734099755409">"Nastavení"</string>
     <string name="accessibility_service_dialog_title_single" msgid="8163574312765390697">"Služba <xliff:g id="SERVICE_NAME">%s</xliff:g> má plný přístup k vašemu zařízení"</string>
     <string name="accessibility_service_dialog_title_multiple" msgid="593839615447260933">"Služby přístupnosti, které mají plný přístup k vašemu zařízení: <xliff:g id="NUM_SERVICES">%s</xliff:g>"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="1201610224744125691">"Služba <xliff:g id="SERVICE_NAME">%s</xliff:g> může zobrazit vaši obrazovku, akce a vstup, provádět akce a ovládat obrazovku."</string>
-    <!-- no translation found for accessibility_service_dialog_bottom_text_multiple (99044354994789512) -->
-    <skip />
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="99044354994789512">"Tyto aplikace mohou zobrazit vaši obrazovku, akce a zadávaný obsah, provádět akce a ovládat obrazovku."</string>
     <string name="role_assistant_label" msgid="325607225419991524">"Výchozí asistenční aplikace"</string>
-    <!-- no translation found for role_assistant_short_label (5324338887042810318) -->
-    <skip />
+    <string name="role_assistant_short_label" msgid="5324338887042810318">"Asistenční aplikace"</string>
     <string name="role_assistant_description" msgid="5980622464037768572">"Asistenční aplikace vám může pomoci na základě informací na zobrazené obrazovce. Některé aplikace podporují Launcher i hlasový vstup a nabízejí integrovanou asistenci."</string>
     <string name="role_assistant_request_title" msgid="2198246079117996249">"Nastavit <xliff:g id="APP_NAME">%1$s</xliff:g> jako výchozí asistenční aplikaci?"</string>
     <string name="role_assistant_request_description" msgid="9007538649849881727">"Získá přístup k SMS a seznamu hovorů"</string>
     <string name="role_browser_label" msgid="1452186785584890151">"Výchozí prohlížeč"</string>
-    <!-- no translation found for role_browser_short_label (7008704096614388208) -->
-    <skip />
+    <string name="role_browser_short_label" msgid="7008704096614388208">"Prohlížeč"</string>
     <string name="role_browser_description" msgid="3733812642667691329">"Aplikace, které vám umožňují přístup k internetu a zobrazují odkazy, na které můžete klepnout"</string>
     <string name="role_browser_request_title" msgid="6682328732125865006">"Nastavit <xliff:g id="APP_NAME">%1$s</xliff:g> jako výchozí prohlížeč?"</string>
     <string name="role_browser_request_description" msgid="5273230084027848407">"Není potřeba žádné oprávnění"</string>
@@ -252,65 +252,50 @@
     <string name="role_dialer_description" msgid="8168811763060055520">"Aplikace, které vám v zařízení umožňují volat a přijímat hovory"</string>
     <string name="role_dialer_request_title" msgid="2281942809560056462">"Nastavit <xliff:g id="APP_NAME">%1$s</xliff:g> jako výchozí aplikaci k telefonování?"</string>
     <string name="role_dialer_request_description" msgid="1597958203339261473">"Získá přístup k seznamu hovorů a posílání SMS"</string>
-    <!-- no translation found for role_sms_label (1282375330984375167) -->
-    <skip />
+    <string name="role_sms_label" msgid="1282375330984375167">"Výchozí aplikace pro SMS"</string>
     <string name="role_sms_short_label" msgid="4774295162759580727">"Aplikace pro SMS"</string>
     <string name="role_sms_description" msgid="8688975508844386261">"Aplikace, které vám umožňují pomocí telefonního čísla odesílat a přijímat SMS, fotky, videa a další obsah"</string>
     <string name="role_sms_request_title" msgid="3942676190809695139">"Nastavit <xliff:g id="APP_NAME">%1$s</xliff:g> jako výchozí aplikaci pro SMS?"</string>
     <string name="role_sms_request_description" msgid="6079312070314434582">"Získá přístup ke kontaktům, SMS a telefonu"</string>
-    <!-- no translation found for role_emergency_label (8510350771744625248) -->
-    <skip />
+    <string name="role_emergency_label" msgid="8510350771744625248">"Výchozí nouzová aplikace"</string>
     <string name="role_emergency_short_label" msgid="594672497758636578">"Nouzová aplikace"</string>
     <string name="role_emergency_description" msgid="1328017704085954407">"Aplikace, které vám umožní zaznamenat váš zdravotní stav a odeslat ho záchranářům; které poskytují upozornění na mimořádné povětrnostní podmínky a katastrofy; které oznámí ostatním, že potřebujete pomoc"</string>
     <string name="role_emergency_request_title" msgid="862426026906033381">"Nastavit <xliff:g id="APP_NAME">%1$s</xliff:g> jako výchozí nouzovou aplikaci?"</string>
-    <!-- no translation found for role_emergency_request_description (6604461788824945209) -->
-    <skip />
-    <!-- no translation found for role_home_label (2403568779207064895) -->
-    <skip />
+    <string name="role_emergency_request_description" msgid="6604461788824945209">"Není potřeba žádné oprávnění"</string>
+    <string name="role_home_label" msgid="2403568779207064895">"Výchozí aplikace pro domácnost"</string>
     <string name="role_home_short_label" msgid="8293261293243062773">"Aplikace pro domácnost"</string>
     <string name="role_home_description" msgid="4692657963991101103">"Aplikace (tzv. spouštěče), které nahrazují plochy na zařízení Android a dávají vám přístup k obsahu a funkcím zařízení"</string>
     <string name="role_home_request_title" msgid="7254377742128731004">"Nastavit <xliff:g id="APP_NAME">%1$s</xliff:g> jako výchozí aplikaci pro domácnost?"</string>
     <string name="role_home_request_description" msgid="1649615419642117675">"Není potřeba žádné oprávnění"</string>
     <string name="role_call_redirection_label" msgid="8614962962542193455">"Výchozí ap. na přesměr. hovorů"</string>
     <string name="role_call_redirection_short_label" msgid="7030817671864547206">"Aplikace k přesměrování hovorů"</string>
-    <!-- no translation found for role_call_redirection_description (1118180396571102108) -->
-    <skip />
+    <string name="role_call_redirection_description" msgid="1118180396571102108">"Aplikace, které vám umožňují přesměrovat odchozí hovory na jiné číslo"</string>
     <string name="role_call_redirection_request_title" msgid="3292712900764740951">"Nastavit <xliff:g id="APP_NAME">%1$s</xliff:g> jako výchozí aplikaci na přesměrování hovorů?"</string>
     <string name="role_call_redirection_request_description" msgid="9130097590698779041">"Není potřeba žádné oprávnění"</string>
     <string name="role_call_screening_label" msgid="6762278758943136846">"Výchozí ap. na ID volajícího a redukci spamu"</string>
-    <!-- no translation found for role_call_screening_short_label (4405732075031564902) -->
-    <skip />
-    <!-- no translation found for role_call_screening_description (630332789277798256) -->
-    <skip />
+    <string name="role_call_screening_short_label" msgid="4405732075031564902">"Ap. na ID volajícího a spam"</string>
+    <string name="role_call_screening_description" msgid="630332789277798256">"Aplikace, které umožňují identifikovat hovory, blokovat spam a automatické hovory a vytvořit seznam zakázaných čísel"</string>
     <string name="role_call_screening_request_title" msgid="2918540778717341412">"Nastavit <xliff:g id="APP_NAME">%1$s</xliff:g> jako výchozí aplikaci k identifikaci volajícího a prevenci spamu?"</string>
     <string name="role_call_screening_request_description" msgid="2238766550271106517">"Není potřeba žádné oprávnění"</string>
     <string name="request_role_current_default" msgid="8010053122057418777">"Aktuálně výchozí"</string>
     <string name="request_role_dont_ask_again" msgid="1002776641382604316">"Příště se neptat"</string>
     <string name="request_role_set_as_default" msgid="161884072789965631">"Změnit na výchozí"</string>
-    <!-- no translation found for default_app_search_keyword (5893328509368498565) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_ok (2849153333510041980) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_open_settings (180561046130062839) -->
-    <skip />
+    <string name="default_app_search_keyword" msgid="5893328509368498565">"výchozí aplikace"</string>
+    <string name="ongoing_usage_dialog_ok" msgid="2849153333510041980">"OK"</string>
+    <string name="ongoing_usage_dialog_open_settings" msgid="180561046130062839">"Nastavení soukromí"</string>
     <string name="ongoing_usage_dialog_title" msgid="7494746761292131980">"Aplikace používající vaše údaje: <xliff:g id="TYPES_LIST">%s</xliff:g>"</string>
-    <!-- no translation found for ongoing_usage_dialog_separator (3220814513543042443) -->
-    <skip />
+    <string name="ongoing_usage_dialog_separator" msgid="3220814513543042443">", "</string>
     <string name="ongoing_usage_dialog_last_separator" msgid="970720969260545688">" a "</string>
-    <!-- no translation found for settings_button (1808682743475842576) -->
-    <skip />
+    <string name="settings_button" msgid="1808682743475842576">"Nastavení"</string>
     <string name="default_apps" msgid="5730264737920158250">"Výchozí aplikace"</string>
     <string name="no_default_apps" msgid="2998405086652908867">"Žádné výchozí aplikace"</string>
-    <!-- no translation found for default_apps_more (2432881430817521134) -->
-    <skip />
+    <string name="default_apps_more" msgid="2432881430817521134">"Další výchozí aplikace"</string>
     <string name="default_apps_manage_domain_urls" msgid="814023242306919121">"Otevírání odkazů"</string>
     <string name="default_apps_for_work" msgid="6893448061977233772">"Výchozí pracovní"</string>
     <string name="default_app_none" msgid="4430855885741769064">"Žádné"</string>
-    <!-- no translation found for default_app_system_default (330065926244492508) -->
-    <skip />
+    <string name="default_app_system_default" msgid="330065926244492508">"(Výchozí nastavení systému)"</string>
     <string name="default_app_no_apps" msgid="295747201345391862">"Žádné aplikace"</string>
-    <!-- no translation found for car_default_app_selected (5041173040939570813) -->
-    <skip />
+    <string name="car_default_app_selected" msgid="5041173040939570813">"Vybráno"</string>
     <string name="car_default_app_selected_with_info" msgid="846119554232771428">"Vybráno – <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="1933225255981974193">"přístup ke speciálním aplikacím"</string>
     <string name="special_app_access" msgid="1809336016722693481">"Přístup ke spec. aplikacím"</string>
@@ -323,25 +308,17 @@
     <string name="incident_report_notification_title" msgid="5639002400773574216">"Sdílet podrobná data pro ladění?"</string>
     <string name="incident_report_notification_text" msgid="3982379040142711581">"Aplikace <xliff:g id="APP_NAME">%1$s</xliff:g> chce nahrát informace pro ladění."</string>
     <string name="incident_report_dialog_title" msgid="7779774651136791681">"Sdílet data ladění"</string>
-    <!-- no translation found for incident_report_dialog_intro (4267939213446817062) -->
-    <skip />
+    <string name="incident_report_dialog_intro" msgid="4267939213446817062">"Systém zjistil problém."</string>
     <string name="incident_report_dialog_text" msgid="4831945625929455288">"Aplikace <xliff:g id="APP_NAME_0">%1$s</xliff:g> chce nahrát zprávu o chybě tohoto zařízení, která byla pořízena <xliff:g id="DATE">%2$s</xliff:g> v <xliff:g id="TIME">%3$s</xliff:g>. Zprávy o chybě zahrnují osobní údaje o zařízení a údaje z aplikací, např. uživatelská jména, údaje o poloze, identifikátory zařízení a informace o sítích. Zprávy o chybách sdílejte jen s lidmi a aplikacemi, kterým důvěřujete. Chcete aplikaci <xliff:g id="APP_NAME_1">%4$s</xliff:g> povolit nahrát zprávu o chybě?"</string>
     <string name="incident_report_error_dialog_text" msgid="7571987324653854729">"Při zpracování zprávy o chybě aplikace <xliff:g id="APP_NAME">%1$s</xliff:g> došlo k chybě. Sdílení podrobných údajů o ladění proto bylo zamítnuto. Omlouváme se za přerušení."</string>
     <string name="incident_report_dialog_allow_label" msgid="39628365401477149">"Povolit"</string>
     <string name="incident_report_dialog_deny_label" msgid="3613078094039859343">"Zamítnout"</string>
-    <!-- no translation found for adjust_user_sensitive_title (6181325993919599745) -->
-    <skip />
-    <!-- no translation found for menu_adjust_user_sensitive (277984416700153328) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_globally_title (7250948764129867522) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_globally_summary (2331110562911167243) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_per_app_header (3463088084190391428) -->
-    <skip />
-    <!-- no translation found for assistant_record_audio_user_sensitive_title (4527980682419054323) -->
-    <skip />
-    <!-- no translation found for assistant_record_audio_user_sensitive_summary (4952742951700902553) -->
-    <skip />
+    <string name="adjust_user_sensitive_title" msgid="6181325993919599745">"Rozšířená nastavení"</string>
+    <string name="menu_adjust_user_sensitive" msgid="277984416700153328">"Rozšířená nastavení"</string>
+    <string name="adjust_user_sensitive_globally_title" msgid="7250948764129867522">"Zobrazit využití systémových aplikací"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="2331110562911167243">"Zobrazovat využití oprávnění systémovými aplikacemi na stavovém řádku, hlavním panelu a jinde"</string>
+    <string name="adjust_user_sensitive_per_app_header" msgid="3463088084190391428">"Zvýraznit využití těchto aplikací"</string>
+    <string name="assistant_record_audio_user_sensitive_title" msgid="4527980682419054323">"Zobrazit detekci spuštění Asistenta"</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="4952742951700902553">"Zobrazovat na stavovém řádku ikonu, když bude pomocí mikrofonu aktivován hlasový asistent"</string>
     <string name="permgrouprequest_storage_isolated" msgid="6769845877344258537">"Povolit aplikaci &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; přístup k fotkám a mediálnímu obsahu v zařízení?"</string>
 </resources>
