@@ -70,13 +70,11 @@
     <string name="permission_summary_disabled_by_admin_background_only" msgid="2185473379176174735">"Адміністратар адключыў доступ у фонавым рэжыме"</string>
     <string name="permission_summary_enabled_by_admin_background_only" msgid="4558536214810713340">"Адміністратар уключыў доступ у фонавым рэжыме"</string>
     <string name="permission_summary_enabled_by_admin_foreground_only" msgid="3735312186687063512">"Адміністратар уключыў доступ у актыўным рэжыме"</string>
-    <!-- no translation found for permission_summary_enabled_system_fixed (2986671472344103830) -->
-    <skip />
+    <string name="permission_summary_enabled_system_fixed" msgid="2986671472344103830">"Для працы прыладзе патрэбны гэты дазвол"</string>
     <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
     <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
-    <!-- no translation found for permission_access_always (8746815855070494802) -->
-    <skip />
+    <string name="permission_access_always" msgid="8746815855070494802">"Дазволіць у любым рэжыме"</string>
     <string name="permission_access_only_foreground" msgid="1653942358383006807">"Падчас карыстання праграмай"</string>
     <string name="permission_access_never" msgid="6189440007697689967">"Адмовіць"</string>
     <string name="loading" msgid="7811651799620593731">"Загрузка..."</string>
@@ -109,34 +107,32 @@
     <string name="no_permission_usages" msgid="5322488885313825032">"Без выкарыстання дазволаў"</string>
     <string name="permission_usage_list_title_any_time" msgid="5231969131124312338">"Доступы за ўвесь час"</string>
     <string name="permission_usage_list_title_last_7_days" msgid="3481601827843295434">"Доступы за апошнія 7 дзён"</string>
-    <!-- no translation found for permission_usage_list_title_last_day (8004766042375735038) -->
-    <skip />
-    <!-- no translation found for permission_usage_list_title_last_hour (5263636446126109595) -->
-    <skip />
+    <string name="permission_usage_list_title_last_day" msgid="8004766042375735038">"Доступы за апошнія 24 гадзіны"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="5263636446126109595">"Доступы за апошнюю гадзіну"</string>
     <string name="permission_usage_list_title_last_15_minutes" msgid="3842584491108496053">"Доступы за апошнія 15 хвілін"</string>
     <string name="permission_usage_list_title_last_minute" msgid="6135511482448899737">"Доступы за апошнюю хвіліну"</string>
     <string name="permission_usage_bar_chart_title_any_time" msgid="2233750755422237444">"Выкарыстанне дазволу за ўвесь час"</string>
-    <!-- no translation found for permission_usage_bar_chart_title_last_7_days (2505302271268657969) -->
-    <skip />
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="2505302271268657969">"Выкарыстанне дазволу за апошнія 7 дзён"</string>
     <string name="permission_usage_bar_chart_title_last_day" msgid="3929341411684348428">"Выкарыстанне дазволу за апошнія 24 гадзіны"</string>
     <string name="permission_usage_bar_chart_title_last_hour" msgid="1473287216393833028">"Выкарыстанне дазволаў за апошнюю гадзіну"</string>
-    <!-- no translation found for permission_usage_bar_chart_title_last_15_minutes (8394883927589032677) -->
-    <skip />
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="8394883927589032677">"Выкарыстаннне дазволаў за апошнія 15 хвілін"</string>
     <string name="permission_usage_bar_chart_title_last_minute" msgid="8821351707225812097">"Выкарыстанне дазволаў за апошнюю хвіліну"</string>
-    <!-- no translation found for permission_usage_bar_label (7669269046102999228) -->
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="7669269046102999228">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> праграма</item>
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> праграмы</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> праграм</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> праграмы</item>
+    </plurals>
     <string name="permission_usage_view_details" msgid="7240872485880156540">"Паказаць усе на панэлі кіравання"</string>
     <string name="app_permission_usage_filter_label" msgid="4632636077566071507">"Параметр фільтравання: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <!-- no translation found for app_permission_usage_remove_filter (5502079672930422033) -->
-    <skip />
+    <string name="app_permission_usage_remove_filter" msgid="5502079672930422033">"Паказваць усе на панэлі кіравання"</string>
     <string name="filter_by_title" msgid="7213659781851489723">"Параметр фільтравання"</string>
     <string name="filter_by_permissions" msgid="6808193127145660341">"Фільтраваць па дазволах"</string>
-    <!-- no translation found for filter_by_time (4037550957826791975) -->
-    <skip />
+    <string name="filter_by_time" msgid="4037550957826791975">"Фільтраваць па часе"</string>
     <string name="sort_spinner_most_permissions" msgid="6852540142388944721">"Найбольшая колькасць дазволаў"</string>
     <string name="sort_spinner_most_accesses" msgid="1219554524183666955">"Найбольшая колькасць доступаў"</string>
     <string name="sort_spinner_recent" msgid="1418334780798429342">"Нядаўнія"</string>
-    <!-- no translation found for sort_by_app (5836911326872031928) -->
-    <skip />
+    <string name="sort_by_app" msgid="5836911326872031928">"Сартаваць паводле карыстання"</string>
     <string name="sort_by_time" msgid="5904361063977286957">"Сартаваць па часе"</string>
     <string name="item_separator" msgid="5590105992485222167">", "</string>
     <string name="permission_usage_refresh" msgid="2424637977565575554">"Абнавіць"</string>
@@ -179,46 +175,54 @@
     <string name="app_permission_footer_no_usages_sensors" msgid="5716861361576610045">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" не атрымала доступу да датчыкаў"</string>
     <string name="app_permission_footer_no_usages_sms" msgid="2453537470852966962">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" не атрымала доступу да SMS"</string>
     <string name="app_permission_footer_no_usages_storage" msgid="1296053906120407192">"Праграма \"<xliff:g id="APP">%1$s</xliff:g>\" не атрымала доступу да сховішча"</string>
-    <!-- no translation found for app_permission_footer_not_available (7473636495733881225) -->
-    <skip />
+    <string name="app_permission_footer_not_available" msgid="7473636495733881225">"Даныя пра апошні доступ цяпер недаступныя для гэтага дазволу"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="6074026408119212662">"Паказаць усе дазволы праграмы \"<xliff:g id="APP">%1$s</xliff:g>\""</string>
-    <!-- no translation found for app_permission_footer_permission_apps_link (3489066323918915073) -->
-    <skip />
+    <string name="app_permission_footer_permission_apps_link" msgid="3489066323918915073">"Паказаць усе праграмы з гэтым дазволам"</string>
     <string name="permission_description_summary_generic" msgid="1134416469764865198">"Характарыстыка дазволу: <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <!-- no translation found for permission_description_summary_activity_recognition (3371048800215659444) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_calendar (7627624281615554407) -->
-    <skip />
+    <string name="permission_description_summary_activity_recognition" msgid="3371048800215659444">"Праграмы з гэтым дазволам могуць мець доступ да звестак пра вашу фізічную актыўнасць, напрыклад перамяшчэнні пешшу, язду на веласіпедзе, на аўтамабілі, колькасць крокаў і многае іншае"</string>
+    <string name="permission_description_summary_calendar" msgid="7627624281615554407">"Праграмы з гэтым дазволам могуць мець доступ да календара"</string>
     <string name="permission_description_summary_call_log" msgid="4715804544768878751">"Праграмы з гэтым дазволам могуць чытаць журнал выклікаў тэлефона і рабіць у яго запісы"</string>
-    <!-- no translation found for permission_description_summary_camera (7879547592935186291) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_contacts (2833167258022765303) -->
-    <skip />
+    <string name="permission_description_summary_camera" msgid="7879547592935186291">"Праграмы з гэтым дазволам могуць рабіць фота і запісваць відэа"</string>
+    <string name="permission_description_summary_contacts" msgid="2833167258022765303">"Праграмы з гэтым дазволам могуць мець доступ да кантактаў"</string>
     <string name="permission_description_summary_location" msgid="4722113806360938675">"Праграмы з гэтым дазволам могуць мець доступ да звестак пра месцазнаходжанне прылады"</string>
-    <!-- no translation found for permission_description_summary_microphone (1349810138634077494) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_phone (6972180067860067462) -->
-    <skip />
+    <string name="permission_description_summary_microphone" msgid="1349810138634077494">"Праграмы з гэтым дазволам могуць запісваць аўдыя"</string>
+    <string name="permission_description_summary_phone" msgid="6972180067860067462">"Праграмы з гэтым дазволам могуць рабіць тэлефонныя выклікі і кіраваць імі"</string>
     <string name="permission_description_summary_sensors" msgid="5747969909098898581">"Праграмы з гэтым дазволам могуць мець доступ да даных з датчыкаў пра вашы асноўныя фізіялагічныя паказчыкі"</string>
-    <!-- no translation found for permission_description_summary_sms (1394630256073587627) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_storage (3947962757455327167) -->
-    <skip />
+    <string name="permission_description_summary_sms" msgid="1394630256073587627">"Праграмы з гэтым дазволам могуць адпраўляць і паказваць SMS"</string>
+    <string name="permission_description_summary_storage" msgid="3947962757455327167">"Праграмы з гэтым дазволам могуць мець доступ да фота, мультымедыя і файлаў на вашай прыладзе"</string>
     <string name="app_permission_most_recent_summary" msgid="2806631058626902828">"Апошні доступ: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="474549680139911807">"Цяпер адхілена / Апошні доступ: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="5253530744650386602">"Без доступаў"</string>
-    <!-- no translation found for app_permission_never_accessed_denied_summary (5074713608728279798) -->
-    <skip />
+    <string name="app_permission_never_accessed_denied_summary" msgid="5074713608728279798">"Адмоўлена / Няма доступу"</string>
     <string name="allowed_header" msgid="670868581011741572">"Дазволеныя"</string>
-    <!-- no translation found for allowed_always_header (3129163790476916487) -->
-    <skip />
+    <string name="allowed_always_header" msgid="3129163790476916487">"Дазволена ў любым рэжыме"</string>
     <string name="allowed_foreground_header" msgid="508441909373674270">"Дазволена толькі падчас карыстання"</string>
     <string name="denied_header" msgid="4716097249466859449">"Адмоўленыя"</string>
     <string name="detailed_usage_link" msgid="3213629980587953904">"Паказаць падрабязнасці выкарыстання"</string>
-    <!-- no translation found for days (7685720539370448104) -->
-    <!-- no translation found for hours (5513137617382570199) -->
-    <!-- no translation found for minutes (269873289285218670) -->
-    <!-- no translation found for seconds (7518380254369486125) -->
+    <plurals name="days" formatted="false" msgid="7685720539370448104">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> дзень</item>
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> дні</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> дзён</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> дня</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="5513137617382570199">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> гадзіна</item>
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> гадзіны</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> гадзін</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> гадзіны</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="269873289285218670">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> хвіліна</item>
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> хвіліны</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> хвілін</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> хвіліны</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="7518380254369486125">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> секунда</item>
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> секунды</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> секунд</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> секунды</item>
+    </plurals>
     <string name="permission_reminders" msgid="7692569306867004285">"Напаміны пра дазволы"</string>
     <string name="background_location_access_reminder_notification_title" msgid="1447771664601165880">"<xliff:g id="APP_NAME">%s</xliff:g> атрымала доступ да даных месцазнаходжання ў фонавым рэжыме"</string>
     <string name="background_location_access_reminder_notification_content" msgid="4931939953173203901">"Гэта праграма заўсёды можа атрымаць доступ да даных пра ваша месцазнаходжанне. Націсніце, каб змяніць."</string>
@@ -227,23 +231,19 @@
     <string name="no_permissions_denied" msgid="4148813660212679056">"Дазволы не адхілены"</string>
     <string name="no_apps_allowed" msgid="4959324189831343508">"Няма дазволеных праграм"</string>
     <string name="no_apps_denied" msgid="4966465333227047186">"Няма адмоўленых праграм"</string>
-    <!-- no translation found for car_permission_selected (5788441628706535323) -->
-    <skip />
+    <string name="car_permission_selected" msgid="5788441628706535323">"Выбрана"</string>
     <string name="settings" msgid="6743583734099755409">"Налады"</string>
     <string name="accessibility_service_dialog_title_single" msgid="8163574312765390697">"<xliff:g id="SERVICE_NAME">%s</xliff:g> мае поўны доступ да даных вашай прылады"</string>
     <string name="accessibility_service_dialog_title_multiple" msgid="593839615447260933">"Праграмы са спецыяльнымі магчымасцямі (<xliff:g id="NUM_SERVICES">%s</xliff:g> шт.) маюць поўны доступ да даных вашай прылады"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="1201610224744125691">"<xliff:g id="SERVICE_NAME">%s</xliff:g> можа праглядаць ваш экран, дзеянні і ўводы, самастойна выконваць дзеянні і кіраваць дысплэем."</string>
-    <!-- no translation found for accessibility_service_dialog_bottom_text_multiple (99044354994789512) -->
-    <skip />
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="99044354994789512">"Гэтыя праграмы могуць праглядаць ваш экран, дзеянні і ўводы, а таксама самастойна выконваць дзеянні і кіраваць экранам."</string>
     <string name="role_assistant_label" msgid="325607225419991524">"Стандартная праграма-памочнік"</string>
-    <!-- no translation found for role_assistant_short_label (5324338887042810318) -->
-    <skip />
+    <string name="role_assistant_short_label" msgid="5324338887042810318">"Праграма-памочнік"</string>
     <string name="role_assistant_description" msgid="5980622464037768572">"Праграмы-памочнікі кіруюцца інфармацыяй на экране. Для вашай зручнасці некаторыя з іх падтрымліваюць панэль запуску і галасавы ўвод."</string>
     <string name="role_assistant_request_title" msgid="2198246079117996249">"Прызначыць \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" стандартнай праграмай-памочнікам?"</string>
     <string name="role_assistant_request_description" msgid="9007538649849881727">"Патрабуе доступу да SMS і журнала выклікаў"</string>
     <string name="role_browser_label" msgid="1452186785584890151">"Стандартны браўзер"</string>
-    <!-- no translation found for role_browser_short_label (7008704096614388208) -->
-    <skip />
+    <string name="role_browser_short_label" msgid="7008704096614388208">"Браўзер"</string>
     <string name="role_browser_description" msgid="3733812642667691329">"Праграмы, якія даюць доступ да інтэрнэту і паказваюць спасылкі, на якія вы націскаеце"</string>
     <string name="role_browser_request_title" msgid="6682328732125865006">"Прызначыць \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" стандартнай праграмай для прагляду?"</string>
     <string name="role_browser_request_description" msgid="5273230084027848407">"Дазволы не патрэбныя"</string>
@@ -252,65 +252,50 @@
     <string name="role_dialer_description" msgid="8168811763060055520">"Праграмы, якія дазваляюць вам рабіць і прымаць тэлефонныя выклікі на прыладзе"</string>
     <string name="role_dialer_request_title" msgid="2281942809560056462">"Прызначыць \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" стандартнай праграмай для тэлефона?"</string>
     <string name="role_dialer_request_description" msgid="1597958203339261473">"Патрабуе доступу да журнала выклікаў і да адпраўкі SMS"</string>
-    <!-- no translation found for role_sms_label (1282375330984375167) -->
-    <skip />
+    <string name="role_sms_label" msgid="1282375330984375167">"Стандартная праграма для SMS"</string>
     <string name="role_sms_short_label" msgid="4774295162759580727">"Праграма для SMS"</string>
     <string name="role_sms_description" msgid="8688975508844386261">"Праграмы, якія дазваляюць вам выкарыстоўваць нумар тэлефона для адпраўкі і атрымання кароткіх тэкставых паведамленняў, фота, відэа і іншага"</string>
     <string name="role_sms_request_title" msgid="3942676190809695139">"Прызначыць \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" стандартнай праграмай для SMS?"</string>
     <string name="role_sms_request_description" msgid="6079312070314434582">"Патрабуе доступу да кантактаў, SMS, тэлефона"</string>
-    <!-- no translation found for role_emergency_label (8510350771744625248) -->
-    <skip />
+    <string name="role_emergency_label" msgid="8510350771744625248">"Праграма экстраннай дапамогі"</string>
     <string name="role_emergency_short_label" msgid="594672497758636578">"Праграма экстраннай дапамогі"</string>
     <string name="role_emergency_description" msgid="1328017704085954407">"Праграмы, якія даюць вам магчымасць: запісаць медыцынскую інфармацыю і зрабіць яе даступнай для экстраннай службы; атрымліваць абвесткі пра стыхійныя бедствы і складаныя ўмовы надвор\'я; апавяшчаць іншых пра тое, што вам патрабуецца дапамога"</string>
     <string name="role_emergency_request_title" msgid="862426026906033381">"Прызначыць \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" стандартнай праграмай экстраннай дапамогі?"</string>
-    <!-- no translation found for role_emergency_request_description (6604461788824945209) -->
-    <skip />
-    <!-- no translation found for role_home_label (2403568779207064895) -->
-    <skip />
+    <string name="role_emergency_request_description" msgid="6604461788824945209">"Дазволы не патрэбныя"</string>
+    <string name="role_home_label" msgid="2403568779207064895">"Стандартная галоўная праграма"</string>
     <string name="role_home_short_label" msgid="8293261293243062773">"Галоўная праграма"</string>
     <string name="role_home_description" msgid="4692657963991101103">"Праграмы, якія часта называюцца панэлямі запуску, замяняюць сабой галоўныя экраны на прыладзе Android і забяспечваюць вам доступ да змесціва і функцый прылады"</string>
     <string name="role_home_request_title" msgid="7254377742128731004">"Прызначыць \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" стандартнай галоўнай праграмай?"</string>
     <string name="role_home_request_description" msgid="1649615419642117675">"Дазволы не патрэбныя"</string>
     <string name="role_call_redirection_label" msgid="8614962962542193455">"Праграма перанакіравання"</string>
     <string name="role_call_redirection_short_label" msgid="7030817671864547206">"Перанакіраванне выклікаў"</string>
-    <!-- no translation found for role_call_redirection_description (1118180396571102108) -->
-    <skip />
+    <string name="role_call_redirection_description" msgid="1118180396571102108">"Праграмы, якія дазваляюць пераадрасоўваць выходныя выклікі на іншы нумар тэлефона"</string>
     <string name="role_call_redirection_request_title" msgid="3292712900764740951">"Прызначыць \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" стандартнай праграмай для перанакіравання выклікаў?"</string>
     <string name="role_call_redirection_request_description" msgid="9130097590698779041">"Дазволы не патрэбныя"</string>
     <string name="role_call_screening_label" msgid="6762278758943136846">"Праграма для ідэнтыфікацыі абанента і спама"</string>
-    <!-- no translation found for role_call_screening_short_label (4405732075031564902) -->
-    <skip />
-    <!-- no translation found for role_call_screening_description (630332789277798256) -->
-    <skip />
+    <string name="role_call_screening_short_label" msgid="4405732075031564902">"Ідэнтыфікатар абанента і спам"</string>
+    <string name="role_call_screening_description" msgid="630332789277798256">"Праграмы, якія дазваляюць вам вызначаць выклікі, блакіраваць спам і аўтаматызаваныя выклікі, а таксама ўносіць непажаданыя нумары ў чорны спіс"</string>
     <string name="role_call_screening_request_title" msgid="2918540778717341412">"Прызначыць \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" стандартнай праграмай для ідэнтыфікацыі абанента і спама?"</string>
     <string name="role_call_screening_request_description" msgid="2238766550271106517">"Дазволы не патрэбныя"</string>
     <string name="request_role_current_default" msgid="8010053122057418777">"Цяперашняя стандартная"</string>
     <string name="request_role_dont_ask_again" msgid="1002776641382604316">"Больш не пытацца"</string>
     <string name="request_role_set_as_default" msgid="161884072789965631">"Зрабіць стандартнай"</string>
-    <!-- no translation found for default_app_search_keyword (5893328509368498565) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_ok (2849153333510041980) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_open_settings (180561046130062839) -->
-    <skip />
+    <string name="default_app_search_keyword" msgid="5893328509368498565">"стандартныя праграмы"</string>
+    <string name="ongoing_usage_dialog_ok" msgid="2849153333510041980">"Зразумела"</string>
+    <string name="ongoing_usage_dialog_open_settings" msgid="180561046130062839">"Налады прыватнасці"</string>
     <string name="ongoing_usage_dialog_title" msgid="7494746761292131980">"Праграмы, якія выкарыстоўваюць функцыю \"<xliff:g id="TYPES_LIST">%s</xliff:g>\""</string>
-    <!-- no translation found for ongoing_usage_dialog_separator (3220814513543042443) -->
-    <skip />
+    <string name="ongoing_usage_dialog_separator" msgid="3220814513543042443">", "</string>
     <string name="ongoing_usage_dialog_last_separator" msgid="970720969260545688">" і "</string>
-    <!-- no translation found for settings_button (1808682743475842576) -->
-    <skip />
+    <string name="settings_button" msgid="1808682743475842576">"Налады"</string>
     <string name="default_apps" msgid="5730264737920158250">"Стандартныя праграмы"</string>
     <string name="no_default_apps" msgid="2998405086652908867">"Няма стандартных праграм"</string>
-    <!-- no translation found for default_apps_more (2432881430817521134) -->
-    <skip />
+    <string name="default_apps_more" msgid="2432881430817521134">"Іншыя стандартныя праграмы"</string>
     <string name="default_apps_manage_domain_urls" msgid="814023242306919121">"Адкрыццё спасылак"</string>
     <string name="default_apps_for_work" msgid="6893448061977233772">"Стандартныя для працы"</string>
     <string name="default_app_none" msgid="4430855885741769064">"Няма"</string>
-    <!-- no translation found for default_app_system_default (330065926244492508) -->
-    <skip />
+    <string name="default_app_system_default" msgid="330065926244492508">"(Стандартная сістэмная)"</string>
     <string name="default_app_no_apps" msgid="295747201345391862">"Няма праграм"</string>
-    <!-- no translation found for car_default_app_selected (5041173040939570813) -->
-    <skip />
+    <string name="car_default_app_selected" msgid="5041173040939570813">"Выбрана"</string>
     <string name="car_default_app_selected_with_info" msgid="846119554232771428">"Выбрана – <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="1933225255981974193">"спецыяльны доступ да праграм"</string>
     <string name="special_app_access" msgid="1809336016722693481">"Спецыяльны доступ да праграм"</string>
@@ -323,25 +308,17 @@
     <string name="incident_report_notification_title" msgid="5639002400773574216">"Абагуліць падрабязнасці адладкі?"</string>
     <string name="incident_report_notification_text" msgid="3982379040142711581">"Праграма \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" спрабуе запампаваць звесткі пра адладку."</string>
     <string name="incident_report_dialog_title" msgid="7779774651136791681">"Абагульванне даных адладкі"</string>
-    <!-- no translation found for incident_report_dialog_intro (4267939213446817062) -->
-    <skip />
+    <string name="incident_report_dialog_intro" msgid="4267939213446817062">"Сістэма выявіла праблему."</string>
     <string name="incident_report_dialog_text" msgid="4831945625929455288">"Праграма \"<xliff:g id="APP_NAME_0">%1$s</xliff:g>\" запытвае запампоўку справаздачы пра памылкі з гэтай прылады ад <xliff:g id="DATE">%2$s</xliff:g> у <xliff:g id="TIME">%3$s</xliff:g>. Справаздача пра памылкі ўключае персанальную інфармацыю пра вашу прыладу ці зарэгістраваныя праграмы, напрыклад імёны карыстальнікаў, звесткі пра месцазнаходжанне, ідэнтыфікатары прылады і даныя пра сетку. Абагульвайце справаздачы пра памылкі толькі з людзьмі і праграмамі, якім давяраеце. Дазволіць праграме \"<xliff:g id="APP_NAME_1">%4$s</xliff:g>\" запампаваць справаздачу пра памылкі?"</string>
     <string name="incident_report_error_dialog_text" msgid="7571987324653854729">"Узнікла памылка пры апрацоўцы справаздачы пра памылкі для праграмы \"<xliff:g id="APP_NAME">%1$s</xliff:g>\". Абагульванне падрабязных звестак пра адладку адхілена. Просім прабачэння за збой."</string>
     <string name="incident_report_dialog_allow_label" msgid="39628365401477149">"Дазволіць"</string>
     <string name="incident_report_dialog_deny_label" msgid="3613078094039859343">"Адмовіць"</string>
-    <!-- no translation found for adjust_user_sensitive_title (6181325993919599745) -->
-    <skip />
-    <!-- no translation found for menu_adjust_user_sensitive (277984416700153328) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_globally_title (7250948764129867522) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_globally_summary (2331110562911167243) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_per_app_header (3463088084190391428) -->
-    <skip />
-    <!-- no translation found for assistant_record_audio_user_sensitive_title (4527980682419054323) -->
-    <skip />
-    <!-- no translation found for assistant_record_audio_user_sensitive_summary (4952742951700902553) -->
-    <skip />
+    <string name="adjust_user_sensitive_title" msgid="6181325993919599745">"Пашыраныя налады"</string>
+    <string name="menu_adjust_user_sensitive" msgid="277984416700153328">"Пашыраныя налады"</string>
+    <string name="adjust_user_sensitive_globally_title" msgid="7250948764129867522">"Паказваць выкарыстанне сістэмных праграм"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="2331110562911167243">"Паказваць выкарыстанне дазволаў сістэмай на панэлі стану, панэлі кіравання і г. д."</string>
+    <string name="adjust_user_sensitive_per_app_header" msgid="3463088084190391428">"Паказваць выбраныя праграмы"</string>
+    <string name="assistant_record_audio_user_sensitive_title" msgid="4527980682419054323">"Паказваць значок актывацыі Памочніка"</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="4952742951700902553">"Паказваць значок на панэлі стану, калі для актывацыі галасавога памочніка выкарыстоўваецца мікрафон"</string>
     <string name="permgrouprequest_storage_isolated" msgid="6769845877344258537">"Дазволіць праграме &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; доступ да фота і мультымедыя на вашай прыладзе?"</string>
 </resources>
