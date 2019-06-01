@@ -45,8 +45,7 @@ public class RoleControllerServiceImpl extends RoleControllerService {
 
     private static final String LOG_TAG = RoleControllerServiceImpl.class.getSimpleName();
 
-    // STOPSHIP: Turn off debugging before we ship.
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
 
     private RoleManager mRoleManager;
 
