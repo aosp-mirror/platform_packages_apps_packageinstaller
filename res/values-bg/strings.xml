@@ -68,13 +68,11 @@
     <string name="permission_summary_disabled_by_admin_background_only" msgid="2185473379176174735">"Достъпът на заден план е деактивиран от администратора"</string>
     <string name="permission_summary_enabled_by_admin_background_only" msgid="4558536214810713340">"Достъпът на заден план е активиран от администратора"</string>
     <string name="permission_summary_enabled_by_admin_foreground_only" msgid="3735312186687063512">"Достъпът на преден план е активиран от администратора"</string>
-    <!-- no translation found for permission_summary_enabled_system_fixed (2986671472344103830) -->
-    <skip />
+    <string name="permission_summary_enabled_system_fixed" msgid="2986671472344103830">"Устройството изисква това разрешение, за да функционира"</string>
     <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
     <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
-    <!-- no translation found for permission_access_always (8746815855070494802) -->
-    <skip />
+    <string name="permission_access_always" msgid="8746815855070494802">"Разрешаване във всички случаи"</string>
     <string name="permission_access_only_foreground" msgid="1653942358383006807">"Разрешаване само при ползване"</string>
     <string name="permission_access_never" msgid="6189440007697689967">"Отказ"</string>
     <string name="loading" msgid="7811651799620593731">"Зарежда се…"</string>
@@ -107,34 +105,30 @@
     <string name="no_permission_usages" msgid="5322488885313825032">"Разрешенията не са използвани"</string>
     <string name="permission_usage_list_title_any_time" msgid="5231969131124312338">"Най-скорошен достъп във всеки един момент"</string>
     <string name="permission_usage_list_title_last_7_days" msgid="3481601827843295434">"Най-скорошен достъп през последните 7 дни"</string>
-    <!-- no translation found for permission_usage_list_title_last_day (8004766042375735038) -->
-    <skip />
-    <!-- no translation found for permission_usage_list_title_last_hour (5263636446126109595) -->
-    <skip />
+    <string name="permission_usage_list_title_last_day" msgid="8004766042375735038">"Най-скорошен достъп през последните 24 часа"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="5263636446126109595">"Най-скорошен достъп през последния час"</string>
     <string name="permission_usage_list_title_last_15_minutes" msgid="3842584491108496053">"Най-скорошен достъп през последните 15 минути"</string>
     <string name="permission_usage_list_title_last_minute" msgid="6135511482448899737">"Най-скорошен достъп през последната минута"</string>
     <string name="permission_usage_bar_chart_title_any_time" msgid="2233750755422237444">"Използвани разрешения във всеки един момент"</string>
-    <!-- no translation found for permission_usage_bar_chart_title_last_7_days (2505302271268657969) -->
-    <skip />
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="2505302271268657969">"Използвани разрешения през последните 7 дни"</string>
     <string name="permission_usage_bar_chart_title_last_day" msgid="3929341411684348428">"Използвани разрешения през последните 24 часа"</string>
     <string name="permission_usage_bar_chart_title_last_hour" msgid="1473287216393833028">"Използвани разрешения през последния час"</string>
-    <!-- no translation found for permission_usage_bar_chart_title_last_15_minutes (8394883927589032677) -->
-    <skip />
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="8394883927589032677">"Използвани разрешения през последните 15 минути"</string>
     <string name="permission_usage_bar_chart_title_last_minute" msgid="8821351707225812097">"Използвани разрешения през последната минута"</string>
-    <!-- no translation found for permission_usage_bar_label (7669269046102999228) -->
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="7669269046102999228">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> прилож.</item>
+      <item quantity="one">1 прилож.</item>
+    </plurals>
     <string name="permission_usage_view_details" msgid="7240872485880156540">"Преглед на всичко в таблото за управление"</string>
     <string name="app_permission_usage_filter_label" msgid="4632636077566071507">"Филтрирано по: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <!-- no translation found for app_permission_usage_remove_filter (5502079672930422033) -->
-    <skip />
+    <string name="app_permission_usage_remove_filter" msgid="5502079672930422033">"Преглед на всичко в таблото за управление"</string>
     <string name="filter_by_title" msgid="7213659781851489723">"Филтриране по"</string>
     <string name="filter_by_permissions" msgid="6808193127145660341">"Филтриране по разрешения"</string>
-    <!-- no translation found for filter_by_time (4037550957826791975) -->
-    <skip />
+    <string name="filter_by_time" msgid="4037550957826791975">"Филтриране по време"</string>
     <string name="sort_spinner_most_permissions" msgid="6852540142388944721">"Най-много разрешения"</string>
     <string name="sort_spinner_most_accesses" msgid="1219554524183666955">"Най-много осъществ. на достъп"</string>
     <string name="sort_spinner_recent" msgid="1418334780798429342">"Скорошни"</string>
-    <!-- no translation found for sort_by_app (5836911326872031928) -->
-    <skip />
+    <string name="sort_by_app" msgid="5836911326872031928">"Сортиране по използване"</string>
     <string name="sort_by_time" msgid="5904361063977286957">"Сортиране по време"</string>
     <string name="item_separator" msgid="5590105992485222167">", "</string>
     <string name="permission_usage_refresh" msgid="2424637977565575554">"Опресняване"</string>
@@ -175,46 +169,46 @@
     <string name="app_permission_footer_no_usages_sensors" msgid="5716861361576610045">"Приложението <xliff:g id="APP">%1$s</xliff:g> не е осъществило достъп до сензорите ви"</string>
     <string name="app_permission_footer_no_usages_sms" msgid="2453537470852966962">"Приложението <xliff:g id="APP">%1$s</xliff:g> не е осъществило достъп до SMS съобщенията ви"</string>
     <string name="app_permission_footer_no_usages_storage" msgid="1296053906120407192">"Приложението <xliff:g id="APP">%1$s</xliff:g> не е осъществило достъп до хранилището ви"</string>
-    <!-- no translation found for app_permission_footer_not_available (7473636495733881225) -->
-    <skip />
+    <string name="app_permission_footer_not_available" msgid="7473636495733881225">"Данните за последния достъп понастоящем не са налице за това разрешение"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="6074026408119212662">"Преглед на всички разрешения за <xliff:g id="APP">%1$s</xliff:g>"</string>
-    <!-- no translation found for app_permission_footer_permission_apps_link (3489066323918915073) -->
-    <skip />
+    <string name="app_permission_footer_permission_apps_link" msgid="3489066323918915073">"Преглед на всички приложения с това разрешение"</string>
     <string name="permission_description_summary_generic" msgid="1134416469764865198">"Приложенията с това разрешение могат да <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <!-- no translation found for permission_description_summary_activity_recognition (3371048800215659444) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_calendar (7627624281615554407) -->
-    <skip />
+    <string name="permission_description_summary_activity_recognition" msgid="3371048800215659444">"Приложенията с това разрешение имат достъп до физическата ви активност, като например ходене, колоездене, шофиране, брой крачки и др."</string>
+    <string name="permission_description_summary_calendar" msgid="7627624281615554407">"Приложенията с това разрешение имат достъп до календара ви"</string>
     <string name="permission_description_summary_call_log" msgid="4715804544768878751">"Приложенията с това разрешение могат да четат списъка с телефонните обаждания и да записват в него"</string>
-    <!-- no translation found for permission_description_summary_camera (7879547592935186291) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_contacts (2833167258022765303) -->
-    <skip />
+    <string name="permission_description_summary_camera" msgid="7879547592935186291">"Приложенията с това разрешение могат да правят снимки и да записват видеоклипове"</string>
+    <string name="permission_description_summary_contacts" msgid="2833167258022765303">"Приложенията с това разрешение имат достъп до контактите ви"</string>
     <string name="permission_description_summary_location" msgid="4722113806360938675">"Приложенията с това разрешение имат достъп до местоположението на устройството"</string>
-    <!-- no translation found for permission_description_summary_microphone (1349810138634077494) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_phone (6972180067860067462) -->
-    <skip />
+    <string name="permission_description_summary_microphone" msgid="1349810138634077494">"Приложенията с това разрешение могат да записват аудио"</string>
+    <string name="permission_description_summary_phone" msgid="6972180067860067462">"Приложенията с това разрешение могат да извършват телефонни обаждания и да ги управляват"</string>
     <string name="permission_description_summary_sensors" msgid="5747969909098898581">"Приложенията с това разрешение имат достъп до данните от сензорите за жизнените ви показатели"</string>
-    <!-- no translation found for permission_description_summary_sms (1394630256073587627) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_storage (3947962757455327167) -->
-    <skip />
+    <string name="permission_description_summary_sms" msgid="1394630256073587627">"Приложенията с това разрешение могат да изпращат и преглеждат SMS съобщения"</string>
+    <string name="permission_description_summary_storage" msgid="3947962757455327167">"Приложенията с това разрешение имат достъп до снимките, мултимедията и файловете на устройството ви"</string>
     <string name="app_permission_most_recent_summary" msgid="2806631058626902828">"Последен достъп: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="474549680139911807">"Понастоящем отказано/последен достъп: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="5253530744650386602">"Никога не е осъществяван достъп"</string>
-    <!-- no translation found for app_permission_never_accessed_denied_summary (5074713608728279798) -->
-    <skip />
+    <string name="app_permission_never_accessed_denied_summary" msgid="5074713608728279798">"Отказано/никога не е осъществяван достъп"</string>
     <string name="allowed_header" msgid="670868581011741572">"Разрешено"</string>
-    <!-- no translation found for allowed_always_header (3129163790476916487) -->
-    <skip />
+    <string name="allowed_always_header" msgid="3129163790476916487">"Разрешено във всички случаи"</string>
     <string name="allowed_foreground_header" msgid="508441909373674270">"Разрешено само при използване"</string>
     <string name="denied_header" msgid="4716097249466859449">"Отказано"</string>
     <string name="detailed_usage_link" msgid="3213629980587953904">"Преглед на подробната употреба"</string>
-    <!-- no translation found for days (7685720539370448104) -->
-    <!-- no translation found for hours (5513137617382570199) -->
-    <!-- no translation found for minutes (269873289285218670) -->
-    <!-- no translation found for seconds (7518380254369486125) -->
+    <plurals name="days" formatted="false" msgid="7685720539370448104">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> дни</item>
+      <item quantity="one">1 ден</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="5513137617382570199">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> часа</item>
+      <item quantity="one">1 час</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="269873289285218670">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> минути</item>
+      <item quantity="one">1 минута</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="7518380254369486125">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> секунди</item>
+      <item quantity="one">1 секунда</item>
+    </plurals>
     <string name="permission_reminders" msgid="7692569306867004285">"Напомняния за разрешения"</string>
     <string name="background_location_access_reminder_notification_title" msgid="1447771664601165880">"<xliff:g id="APP_NAME">%s</xliff:g> получи достъп до местоположението ви на заден план"</string>
     <string name="background_location_access_reminder_notification_content" msgid="4931939953173203901">"Приложението винаги има достъп до местоположението ви. Докоснете, за да промените това."</string>
@@ -223,23 +217,19 @@
     <string name="no_permissions_denied" msgid="4148813660212679056">"Няма отказани разрешения"</string>
     <string name="no_apps_allowed" msgid="4959324189831343508">"Няма разрешени приложения"</string>
     <string name="no_apps_denied" msgid="4966465333227047186">"Няма отказани приложения"</string>
-    <!-- no translation found for car_permission_selected (5788441628706535323) -->
-    <skip />
+    <string name="car_permission_selected" msgid="5788441628706535323">"Избрано"</string>
     <string name="settings" msgid="6743583734099755409">"Настройки"</string>
     <string name="accessibility_service_dialog_title_single" msgid="8163574312765390697">"<xliff:g id="SERVICE_NAME">%s</xliff:g> има пълен достъп до устройството ви"</string>
     <string name="accessibility_service_dialog_title_multiple" msgid="593839615447260933">"<xliff:g id="NUM_SERVICES">%s</xliff:g> приложения за достъпност имат пълен достъп до устройството ви"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="1201610224744125691">"<xliff:g id="SERVICE_NAME">%s</xliff:g> може да вижда екрана, действията ви и данните, които въвеждате, както и да извършва действия и да контролира дисплея."</string>
-    <!-- no translation found for accessibility_service_dialog_bottom_text_multiple (99044354994789512) -->
-    <skip />
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="99044354994789512">"Тези приложения могат да виждат екрана, действията ви и данните, които въвеждате, както и да извършват действия и да контролират дисплея."</string>
     <string name="role_assistant_label" msgid="325607225419991524">"Стандартно помощно приложение"</string>
-    <!-- no translation found for role_assistant_short_label (5324338887042810318) -->
-    <skip />
+    <string name="role_assistant_short_label" msgid="5324338887042810318">"Помощно приложение"</string>
     <string name="role_assistant_description" msgid="5980622464037768572">"Помощните приложения могат да ви помагат въз основа на информацията от екрана, който преглеждате. Някои от тях предлагат поддръжка за стартовия панел и услугите за гласово въвеждане, за да ви предоставят интегрирана помощ."</string>
     <string name="role_assistant_request_title" msgid="2198246079117996249">"Да се зададе ли <xliff:g id="APP_NAME">%1$s</xliff:g> като стандартно помощно приложение?"</string>
     <string name="role_assistant_request_description" msgid="9007538649849881727">"Получава достъп до SMS, списъка с обажданията"</string>
     <string name="role_browser_label" msgid="1452186785584890151">"Стандартно прилож. за браузър"</string>
-    <!-- no translation found for role_browser_short_label (7008704096614388208) -->
-    <skip />
+    <string name="role_browser_short_label" msgid="7008704096614388208">"Приложение за браузър"</string>
     <string name="role_browser_description" msgid="3733812642667691329">"Приложения, които ви дават достъп до интернет и показват връзки, които можете да докоснете"</string>
     <string name="role_browser_request_title" msgid="6682328732125865006">"Да се зададе ли <xliff:g id="APP_NAME">%1$s</xliff:g> като стандартно приложение за браузър?"</string>
     <string name="role_browser_request_description" msgid="5273230084027848407">"Не са необходими разрешения"</string>
@@ -248,65 +238,50 @@
     <string name="role_dialer_description" msgid="8168811763060055520">"Приложения, които ви дават възможност да извършвате и получавате телефонни обаждания на устройството си"</string>
     <string name="role_dialer_request_title" msgid="2281942809560056462">"Да се зададе ли <xliff:g id="APP_NAME">%1$s</xliff:g> като стандартно приложение за телефон?"</string>
     <string name="role_dialer_request_description" msgid="1597958203339261473">"Получава достъп до изпращането на SMS, списъка с обажданията"</string>
-    <!-- no translation found for role_sms_label (1282375330984375167) -->
-    <skip />
+    <string name="role_sms_label" msgid="1282375330984375167">"Стандартно приложение за SMS"</string>
     <string name="role_sms_short_label" msgid="4774295162759580727">"Приложение за SMS"</string>
     <string name="role_sms_description" msgid="8688975508844386261">"Приложения, които ви дават възможност да използвате телефонния си номер за изпращане и получаване на кратки SMS съобщения, снимки, видеоклипове и др."</string>
     <string name="role_sms_request_title" msgid="3942676190809695139">"Да се зададе ли <xliff:g id="APP_NAME">%1$s</xliff:g> като стандартно приложение за SMS?"</string>
     <string name="role_sms_request_description" msgid="6079312070314434582">"Получава достъп до контактите, SMS, телефона"</string>
-    <!-- no translation found for role_emergency_label (8510350771744625248) -->
-    <skip />
+    <string name="role_emergency_label" msgid="8510350771744625248">"Станд. прил. за спешни случаи"</string>
     <string name="role_emergency_short_label" msgid="594672497758636578">"Приложение за спешни случаи"</string>
     <string name="role_emergency_description" msgid="1328017704085954407">"Приложения, които ви дават възможност да записвате медицинската си информация и да я предоставяте на органите за бързо реагиране, да получавате сигнали за лошо време и бедствия и да уведомявате други хора, когато имате нужда от помощ"</string>
     <string name="role_emergency_request_title" msgid="862426026906033381">"Да се зададе ли <xliff:g id="APP_NAME">%1$s</xliff:g> като стандартно приложение за спешни случаи?"</string>
-    <!-- no translation found for role_emergency_request_description (6604461788824945209) -->
-    <skip />
-    <!-- no translation found for role_home_label (2403568779207064895) -->
-    <skip />
+    <string name="role_emergency_request_description" msgid="6604461788824945209">"Не са необходими разрешения"</string>
+    <string name="role_home_label" msgid="2403568779207064895">"Стандартно прил. за нач. екран"</string>
     <string name="role_home_short_label" msgid="8293261293243062773">"Приложение за начален екран"</string>
     <string name="role_home_description" msgid="4692657963991101103">"Приложения, често наричани стартови панели, които заменят началните екрани на устройството ви с Android и ви дават достъп до функциите и съдържанието му"</string>
     <string name="role_home_request_title" msgid="7254377742128731004">"Да се зададе ли <xliff:g id="APP_NAME">%1$s</xliff:g> като стандартно приложение за начален екран?"</string>
     <string name="role_home_request_description" msgid="1649615419642117675">"Не са необходими разрешения"</string>
     <string name="role_call_redirection_label" msgid="8614962962542193455">"Станд. прил. за пренас. на обажд."</string>
     <string name="role_call_redirection_short_label" msgid="7030817671864547206">"Прил. за пренас. на обаждания"</string>
-    <!-- no translation found for role_call_redirection_description (1118180396571102108) -->
-    <skip />
+    <string name="role_call_redirection_description" msgid="1118180396571102108">"Приложения, които ви дават възможност да пренасочвате изходящите обаждания към друг телефонен номер"</string>
     <string name="role_call_redirection_request_title" msgid="3292712900764740951">"Да се зададе ли <xliff:g id="APP_NAME">%1$s</xliff:g> като стандартно приложение за пренасочване на обажданията?"</string>
     <string name="role_call_redirection_request_description" msgid="9130097590698779041">"Не са необходими разрешения"</string>
     <string name="role_call_screening_label" msgid="6762278758943136846">"Станд. прил. за идент. на обаждащия се и спам"</string>
-    <!-- no translation found for role_call_screening_short_label (4405732075031564902) -->
-    <skip />
-    <!-- no translation found for role_call_screening_description (630332789277798256) -->
-    <skip />
+    <string name="role_call_screening_short_label" msgid="4405732075031564902">"Идент. на обаждащия се и спам"</string>
+    <string name="role_call_screening_description" msgid="630332789277798256">"Приложения, които ви дават възможност да идентифицирате обажданията, да блокирате спам и автоматизирани обаждания и да добавяте нежелани номера в черния списък"</string>
     <string name="role_call_screening_request_title" msgid="2918540778717341412">"Да се зададе ли <xliff:g id="APP_NAME">%1$s</xliff:g> като стандартно приложение за идентификатор на обаждащия се и спам?"</string>
     <string name="role_call_screening_request_description" msgid="2238766550271106517">"Не са необходими разрешения"</string>
     <string name="request_role_current_default" msgid="8010053122057418777">"Текущо стандартно приложение"</string>
     <string name="request_role_dont_ask_again" msgid="1002776641382604316">"Без повторно питане"</string>
     <string name="request_role_set_as_default" msgid="161884072789965631">"Стандартно: Задаване"</string>
-    <!-- no translation found for default_app_search_keyword (5893328509368498565) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_ok (2849153333510041980) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_open_settings (180561046130062839) -->
-    <skip />
+    <string name="default_app_search_keyword" msgid="5893328509368498565">"стандартни приложения"</string>
+    <string name="ongoing_usage_dialog_ok" msgid="2849153333510041980">"Разбрах"</string>
+    <string name="ongoing_usage_dialog_open_settings" msgid="180561046130062839">"Поверит.: Настройки"</string>
     <string name="ongoing_usage_dialog_title" msgid="7494746761292131980">"Приложения, които използват <xliff:g id="TYPES_LIST">%s</xliff:g>"</string>
-    <!-- no translation found for ongoing_usage_dialog_separator (3220814513543042443) -->
-    <skip />
+    <string name="ongoing_usage_dialog_separator" msgid="3220814513543042443">", "</string>
     <string name="ongoing_usage_dialog_last_separator" msgid="970720969260545688">" и "</string>
-    <!-- no translation found for settings_button (1808682743475842576) -->
-    <skip />
+    <string name="settings_button" msgid="1808682743475842576">"Настройки"</string>
     <string name="default_apps" msgid="5730264737920158250">"Приложения по подразбиране"</string>
     <string name="no_default_apps" msgid="2998405086652908867">"Няма стандартни приложия"</string>
-    <!-- no translation found for default_apps_more (2432881430817521134) -->
-    <skip />
+    <string name="default_apps_more" msgid="2432881430817521134">"Още стандартни приложения"</string>
     <string name="default_apps_manage_domain_urls" msgid="814023242306919121">"Отваряне на връзки"</string>
     <string name="default_apps_for_work" msgid="6893448061977233772">"По подразбиране за работа"</string>
     <string name="default_app_none" msgid="4430855885741769064">"Няма"</string>
-    <!-- no translation found for default_app_system_default (330065926244492508) -->
-    <skip />
+    <string name="default_app_system_default" msgid="330065926244492508">"(стандартно за системата)"</string>
     <string name="default_app_no_apps" msgid="295747201345391862">"Няма приложения"</string>
-    <!-- no translation found for car_default_app_selected (5041173040939570813) -->
-    <skip />
+    <string name="car_default_app_selected" msgid="5041173040939570813">"Избрано"</string>
     <string name="car_default_app_selected_with_info" msgid="846119554232771428">"Избрано – <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="1933225255981974193">"специален достъп за приложението"</string>
     <string name="special_app_access" msgid="1809336016722693481">"Специален достъп за прилож."</string>
@@ -319,25 +294,17 @@
     <string name="incident_report_notification_title" msgid="5639002400773574216">"Споделяне на подробни данни за отстран. на грешки?"</string>
     <string name="incident_report_notification_text" msgid="3982379040142711581">"<xliff:g id="APP_NAME">%1$s</xliff:g> иска да качи информация за отстраняване на грешки."</string>
     <string name="incident_report_dialog_title" msgid="7779774651136791681">"Споделяне на данните за отстраняване на грешки"</string>
-    <!-- no translation found for incident_report_dialog_intro (4267939213446817062) -->
-    <skip />
+    <string name="incident_report_dialog_intro" msgid="4267939213446817062">"Системата откри проблем."</string>
     <string name="incident_report_dialog_text" msgid="4831945625929455288">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> иска да качи сигнал за програмна грешка от това устройство, създаден на <xliff:g id="DATE">%2$s</xliff:g> в <xliff:g id="TIME">%3$s</xliff:g>. Сигналите за програмни грешки включват лична информация за устройството ви или регистрирана от приложенията, като например потребителски имена, данни за местоположението, идентификатори на устройството и информация за мрежата. Споделяйте сигналите за програмни грешки само с хора и приложения, на които бихте доверили тази информация. Да се разреши ли на <xliff:g id="APP_NAME_1">%4$s</xliff:g> да качи сигнал за програмна грешка?"</string>
     <string name="incident_report_error_dialog_text" msgid="7571987324653854729">"При обработката на сигнала за програмна грешка за <xliff:g id="APP_NAME">%1$s</xliff:g> възникна проблем. Затова споделянето на подробните данни за отстраняването на грешки бе отказано. Извиняваме се за прекъсването."</string>
     <string name="incident_report_dialog_allow_label" msgid="39628365401477149">"Разрешаване"</string>
     <string name="incident_report_dialog_deny_label" msgid="3613078094039859343">"Отказ"</string>
-    <!-- no translation found for adjust_user_sensitive_title (6181325993919599745) -->
-    <skip />
-    <!-- no translation found for menu_adjust_user_sensitive (277984416700153328) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_globally_title (7250948764129867522) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_globally_summary (2331110562911167243) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_per_app_header (3463088084190391428) -->
-    <skip />
-    <!-- no translation found for assistant_record_audio_user_sensitive_title (4527980682419054323) -->
-    <skip />
-    <!-- no translation found for assistant_record_audio_user_sensitive_summary (4952742951700902553) -->
-    <skip />
+    <string name="adjust_user_sensitive_title" msgid="6181325993919599745">"Разширени настройки"</string>
+    <string name="menu_adjust_user_sensitive" msgid="277984416700153328">"Разширени настройки"</string>
+    <string name="adjust_user_sensitive_globally_title" msgid="7250948764129867522">"Показване на използването от системните приложения"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="2331110562911167243">"Използването на разрешения от системните приложения да се показва в лентата на състоянието, таблото за управление и на други места"</string>
+    <string name="adjust_user_sensitive_per_app_header" msgid="3463088084190391428">"Открояване на употребата за следното"</string>
+    <string name="assistant_record_audio_user_sensitive_title" msgid="4527980682419054323">"Показване на икона за готовност на Асистент"</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="4952742951700902553">"Показване на икона в лентата на състоянието, когато микрофонът се използва за активиране на гласовия асистент"</string>
     <string name="permgrouprequest_storage_isolated" msgid="6769845877344258537">"Да се разреши ли на &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; да осъществява достъп до снимките и мултимедията на устройството ви?"</string>
 </resources>
