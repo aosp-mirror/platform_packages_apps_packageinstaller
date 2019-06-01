@@ -68,13 +68,11 @@
     <string name="permission_summary_disabled_by_admin_background_only" msgid="2185473379176174735">"Acesso em segundo plano desativado pelo administrador."</string>
     <string name="permission_summary_enabled_by_admin_background_only" msgid="4558536214810713340">"Acesso em segundo plano ativado pelo administrador."</string>
     <string name="permission_summary_enabled_by_admin_foreground_only" msgid="3735312186687063512">"Acesso em primeiro plano ativado pelo administrador."</string>
-    <!-- no translation found for permission_summary_enabled_system_fixed (2986671472344103830) -->
-    <skip />
+    <string name="permission_summary_enabled_system_fixed" msgid="2986671472344103830">"O dispositivo requer esta autorização para funcionar"</string>
     <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
     <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
-    <!-- no translation found for permission_access_always (8746815855070494802) -->
-    <skip />
+    <string name="permission_access_always" msgid="8746815855070494802">"Permitir sempre"</string>
     <string name="permission_access_only_foreground" msgid="1653942358383006807">"Perm. durante utiliz. aplic."</string>
     <string name="permission_access_never" msgid="6189440007697689967">"Recusar"</string>
     <string name="loading" msgid="7811651799620593731">"A carregar…"</string>
@@ -107,34 +105,30 @@
     <string name="no_permission_usages" msgid="5322488885313825032">"Autorizações não utilizadas"</string>
     <string name="permission_usage_list_title_any_time" msgid="5231969131124312338">"Acesso mais recente em qualquer altura"</string>
     <string name="permission_usage_list_title_last_7_days" msgid="3481601827843295434">"Acesso mais recente nos últimos 7 dias"</string>
-    <!-- no translation found for permission_usage_list_title_last_day (8004766042375735038) -->
-    <skip />
-    <!-- no translation found for permission_usage_list_title_last_hour (5263636446126109595) -->
-    <skip />
+    <string name="permission_usage_list_title_last_day" msgid="8004766042375735038">"Acesso mais recente nas últimas 24 horas"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="5263636446126109595">"Acesso mais recente na última hora"</string>
     <string name="permission_usage_list_title_last_15_minutes" msgid="3842584491108496053">"Acesso mais recente nos últimos 15 minutos"</string>
     <string name="permission_usage_list_title_last_minute" msgid="6135511482448899737">"Acesso mais recente no último minuto"</string>
     <string name="permission_usage_bar_chart_title_any_time" msgid="2233750755422237444">"Utilização das autorizações em qualquer altura"</string>
-    <!-- no translation found for permission_usage_bar_chart_title_last_7_days (2505302271268657969) -->
-    <skip />
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="2505302271268657969">"Utilização das autorizações nos últimos 7 dias"</string>
     <string name="permission_usage_bar_chart_title_last_day" msgid="3929341411684348428">"Utilização das autorizações nas últimas 24 horas"</string>
     <string name="permission_usage_bar_chart_title_last_hour" msgid="1473287216393833028">"Utilização das autorizações na última hora"</string>
-    <!-- no translation found for permission_usage_bar_chart_title_last_15_minutes (8394883927589032677) -->
-    <skip />
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="8394883927589032677">"Utilização das autorizações nos últimos 15 minutos"</string>
     <string name="permission_usage_bar_chart_title_last_minute" msgid="8821351707225812097">"Utilização das autorizações no último minuto"</string>
-    <!-- no translation found for permission_usage_bar_label (7669269046102999228) -->
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="7669269046102999228">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> aplic.</item>
+      <item quantity="one">1 aplic.</item>
+    </plurals>
     <string name="permission_usage_view_details" msgid="7240872485880156540">"Ver tudo no painel de controlo"</string>
     <string name="app_permission_usage_filter_label" msgid="4632636077566071507">"Filtrado por: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <!-- no translation found for app_permission_usage_remove_filter (5502079672930422033) -->
-    <skip />
+    <string name="app_permission_usage_remove_filter" msgid="5502079672930422033">"Ver tudo no painel de controlo"</string>
     <string name="filter_by_title" msgid="7213659781851489723">"Filtrar por"</string>
     <string name="filter_by_permissions" msgid="6808193127145660341">"Filtrar por autorizações"</string>
-    <!-- no translation found for filter_by_time (4037550957826791975) -->
-    <skip />
+    <string name="filter_by_time" msgid="4037550957826791975">"Filtrar por hora"</string>
     <string name="sort_spinner_most_permissions" msgid="6852540142388944721">"Maioria de autorizações"</string>
     <string name="sort_spinner_most_accesses" msgid="1219554524183666955">"Maioria de acessos"</string>
     <string name="sort_spinner_recent" msgid="1418334780798429342">"Recentes"</string>
-    <!-- no translation found for sort_by_app (5836911326872031928) -->
-    <skip />
+    <string name="sort_by_app" msgid="5836911326872031928">"Ordenar por uso de aplicação"</string>
     <string name="sort_by_time" msgid="5904361063977286957">"Ordenar por hora"</string>
     <string name="item_separator" msgid="5590105992485222167">", "</string>
     <string name="permission_usage_refresh" msgid="2424637977565575554">"Atualizar"</string>
@@ -175,46 +169,46 @@
     <string name="app_permission_footer_no_usages_sensors" msgid="5716861361576610045">"A aplicação <xliff:g id="APP">%1$s</xliff:g> não acedeu aos sensores."</string>
     <string name="app_permission_footer_no_usages_sms" msgid="2453537470852966962">"A aplicação <xliff:g id="APP">%1$s</xliff:g> não acedeu às SMS."</string>
     <string name="app_permission_footer_no_usages_storage" msgid="1296053906120407192">"A aplicação <xliff:g id="APP">%1$s</xliff:g> não acedeu ao armazenamento."</string>
-    <!-- no translation found for app_permission_footer_not_available (7473636495733881225) -->
-    <skip />
+    <string name="app_permission_footer_not_available" msgid="7473636495733881225">"De momento, os dados do último acesso não estão disponíveis para esta autorização."</string>
     <string name="app_permission_footer_app_permissions_link" msgid="6074026408119212662">"Ver todas as autorizações da aplicação <xliff:g id="APP">%1$s</xliff:g>"</string>
-    <!-- no translation found for app_permission_footer_permission_apps_link (3489066323918915073) -->
-    <skip />
+    <string name="app_permission_footer_permission_apps_link" msgid="3489066323918915073">"Ver todas as aplicações com esta autorização"</string>
     <string name="permission_description_summary_generic" msgid="1134416469764865198">"As aplicações com esta autorização podem <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <!-- no translation found for permission_description_summary_activity_recognition (3371048800215659444) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_calendar (7627624281615554407) -->
-    <skip />
+    <string name="permission_description_summary_activity_recognition" msgid="3371048800215659444">"As aplicações com esta autorização podem aceder aos dados da sua atividade física, como caminhar, andar de bicicleta, conduzir, contagem de passos, etc."</string>
+    <string name="permission_description_summary_calendar" msgid="7627624281615554407">"As aplicações com esta autorização podem aceder ao seu calendário"</string>
     <string name="permission_description_summary_call_log" msgid="4715804544768878751">"As aplicações com esta autorização podem ler e escrever no registo de chamadas do telemóvel"</string>
-    <!-- no translation found for permission_description_summary_camera (7879547592935186291) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_contacts (2833167258022765303) -->
-    <skip />
+    <string name="permission_description_summary_camera" msgid="7879547592935186291">"As aplicações com esta autorização podem tirar fotos e gravar vídeo"</string>
+    <string name="permission_description_summary_contacts" msgid="2833167258022765303">"As aplicações com esta autorização podem aceder aos seus contactos"</string>
     <string name="permission_description_summary_location" msgid="4722113806360938675">"As aplicações com esta autorização podem aceder à localização deste dispositivo"</string>
-    <!-- no translation found for permission_description_summary_microphone (1349810138634077494) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_phone (6972180067860067462) -->
-    <skip />
+    <string name="permission_description_summary_microphone" msgid="1349810138634077494">"As aplicações com esta autorização podem gravar áudio"</string>
+    <string name="permission_description_summary_phone" msgid="6972180067860067462">"As aplicações com esta autorização podem efetuar e gerir chamadas telefónicas"</string>
     <string name="permission_description_summary_sensors" msgid="5747969909098898581">"As aplicações com esta autorização podem aceder aos dados de sensores acerca dos seus sinais vitais"</string>
-    <!-- no translation found for permission_description_summary_sms (1394630256073587627) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_storage (3947962757455327167) -->
-    <skip />
+    <string name="permission_description_summary_sms" msgid="1394630256073587627">"As aplicações com esta autorização podem enviar e ver mensagens SMS"</string>
+    <string name="permission_description_summary_storage" msgid="3947962757455327167">"As aplicações com esta autorização podem aceder a fotos, conteúdos multimédia e ficheiros no dispositivo."</string>
     <string name="app_permission_most_recent_summary" msgid="2806631058626902828">"Último acesso: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="474549680139911807">"Atualmente recusado/último acesso: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="5253530744650386602">"Nunca acedida"</string>
-    <!-- no translation found for app_permission_never_accessed_denied_summary (5074713608728279798) -->
-    <skip />
+    <string name="app_permission_never_accessed_denied_summary" msgid="5074713608728279798">"Recusada/nunca foi acedida"</string>
     <string name="allowed_header" msgid="670868581011741572">"Permitidas"</string>
-    <!-- no translation found for allowed_always_header (3129163790476916487) -->
-    <skip />
+    <string name="allowed_always_header" msgid="3129163790476916487">"Permitidas sempre"</string>
     <string name="allowed_foreground_header" msgid="508441909373674270">"Apenas permitido durante a utilização"</string>
     <string name="denied_header" msgid="4716097249466859449">"Recusadas"</string>
     <string name="detailed_usage_link" msgid="3213629980587953904">"Ver a utilização detalhada"</string>
-    <!-- no translation found for days (7685720539370448104) -->
-    <!-- no translation found for hours (5513137617382570199) -->
-    <!-- no translation found for minutes (269873289285218670) -->
-    <!-- no translation found for seconds (7518380254369486125) -->
+    <plurals name="days" formatted="false" msgid="7685720539370448104">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> dias</item>
+      <item quantity="one">1 dia</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="5513137617382570199">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> horas</item>
+      <item quantity="one">1 hora</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="269873289285218670">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> minutos</item>
+      <item quantity="one">1 minuto</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="7518380254369486125">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> segundos</item>
+      <item quantity="one">1 segundo</item>
+    </plurals>
     <string name="permission_reminders" msgid="7692569306867004285">"Lembretes de autorização"</string>
     <string name="background_location_access_reminder_notification_title" msgid="1447771664601165880">"A aplicação <xliff:g id="APP_NAME">%s</xliff:g> obteve a sua localização em segundo plano"</string>
     <string name="background_location_access_reminder_notification_content" msgid="4931939953173203901">"Esta aplicação consegue aceder sempre à sua localização. Toque para alterar."</string>
@@ -223,23 +217,19 @@
     <string name="no_permissions_denied" msgid="4148813660212679056">"Nenhuma autorização recusada."</string>
     <string name="no_apps_allowed" msgid="4959324189831343508">"Nenhuma aplicação permitida."</string>
     <string name="no_apps_denied" msgid="4966465333227047186">"Nenhuma aplicação recusada."</string>
-    <!-- no translation found for car_permission_selected (5788441628706535323) -->
-    <skip />
+    <string name="car_permission_selected" msgid="5788441628706535323">"Selecionada"</string>
     <string name="settings" msgid="6743583734099755409">"Definições"</string>
     <string name="accessibility_service_dialog_title_single" msgid="8163574312765390697">"O serviço <xliff:g id="SERVICE_NAME">%s</xliff:g> tem acesso total ao seu dispositivo"</string>
     <string name="accessibility_service_dialog_title_multiple" msgid="593839615447260933">"<xliff:g id="NUM_SERVICES">%s</xliff:g> aplicações de acessibilidade têm acesso total ao seu dispositivo"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="1201610224744125691">"O serviço <xliff:g id="SERVICE_NAME">%s</xliff:g> pode ver o seu ecrã, as ações e as entradas, efetuar ações e controlar o ecrã."</string>
-    <!-- no translation found for accessibility_service_dialog_bottom_text_multiple (99044354994789512) -->
-    <skip />
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="99044354994789512">"Estas aplicações podem ver o ecrã, as ações e as entradas, efetuar ações e controlar o ecrã."</string>
     <string name="role_assistant_label" msgid="325607225419991524">"App assistência predefinida"</string>
-    <!-- no translation found for role_assistant_short_label (5324338887042810318) -->
-    <skip />
+    <string name="role_assistant_short_label" msgid="5324338887042810318">"Aplicação de assistência"</string>
     <string name="role_assistant_description" msgid="5980622464037768572">"As aplicações de assistência podem ajudá-lo com base em informações do ecrã que está a ver. Algumas aplicações são compatíveis com serviços de iniciação e de entrada de texto por voz para oferecer assistência integrada."</string>
     <string name="role_assistant_request_title" msgid="2198246079117996249">"Pretende definir o <xliff:g id="APP_NAME">%1$s</xliff:g> como aplicação de assistência predefinida?"</string>
     <string name="role_assistant_request_description" msgid="9007538649849881727">"Obtém acesso aos SMS e ao registo de chamadas."</string>
     <string name="role_browser_label" msgid="1452186785584890151">"App navegador predefinida"</string>
-    <!-- no translation found for role_browser_short_label (7008704096614388208) -->
-    <skip />
+    <string name="role_browser_short_label" msgid="7008704096614388208">"Aplicação de navegador"</string>
     <string name="role_browser_description" msgid="3733812642667691329">"Aplicações que lhe dão acesso à Internet e apresentam links em que pode tocar."</string>
     <string name="role_browser_request_title" msgid="6682328732125865006">"Pretende definir o <xliff:g id="APP_NAME">%1$s</xliff:g> como a aplicação de navegador predefinida?"</string>
     <string name="role_browser_request_description" msgid="5273230084027848407">"Não são necessárias autorizações."</string>
@@ -248,65 +238,50 @@
     <string name="role_dialer_description" msgid="8168811763060055520">"Aplicações que permitem efetuar e receber chamadas no seu dispositivo."</string>
     <string name="role_dialer_request_title" msgid="2281942809560056462">"Pretende definir o <xliff:g id="APP_NAME">%1$s</xliff:g> como a aplicação de telefone predefinida?"</string>
     <string name="role_dialer_request_description" msgid="1597958203339261473">"Obtém acesso ao registo de chamadas e envia SMS."</string>
-    <!-- no translation found for role_sms_label (1282375330984375167) -->
-    <skip />
+    <string name="role_sms_label" msgid="1282375330984375167">"Aplicação de SMS predefinida"</string>
     <string name="role_sms_short_label" msgid="4774295162759580727">"Aplicação de SMS"</string>
     <string name="role_sms_description" msgid="8688975508844386261">"Aplicações que permitem utilizar o seu número de telefone para enviar e receber mensagens de texto, fotos, vídeos e muito mais."</string>
     <string name="role_sms_request_title" msgid="3942676190809695139">"Pretende definir o <xliff:g id="APP_NAME">%1$s</xliff:g> como aplicação SMS predefinida?"</string>
     <string name="role_sms_request_description" msgid="6079312070314434582">"Obtém acesso aos contactos, aos SMS e ao telemóvel."</string>
-    <!-- no translation found for role_emergency_label (8510350771744625248) -->
-    <skip />
+    <string name="role_emergency_label" msgid="8510350771744625248">"Aplic. de emergência predef."</string>
     <string name="role_emergency_short_label" msgid="594672497758636578">"Aplicação de emergência"</string>
     <string name="role_emergency_description" msgid="1328017704085954407">"Aplicações que permitem registar as suas informações médicas e disponibilizá-las aos contactos de resposta a emergências, receber alertas acerca de eventos atmosféricos e desastres graves, bem como notificar outras pessoas quando precisar de ajuda."</string>
     <string name="role_emergency_request_title" msgid="862426026906033381">"Pretende definir o <xliff:g id="APP_NAME">%1$s</xliff:g> como a aplicação de emergência predefinida?"</string>
-    <!-- no translation found for role_emergency_request_description (6604461788824945209) -->
-    <skip />
-    <!-- no translation found for role_home_label (2403568779207064895) -->
-    <skip />
+    <string name="role_emergency_request_description" msgid="6604461788824945209">"Não são necessárias autorizações."</string>
+    <string name="role_home_label" msgid="2403568779207064895">"Aplic. página inicial predef."</string>
     <string name="role_home_short_label" msgid="8293261293243062773">"Aplicação Página inicial"</string>
     <string name="role_home_description" msgid="4692657963991101103">"Aplicações, frequentemente denominadas iniciadores, que substituem os ecrãs principais no dispositivo Android e dão acesso aos conteúdos e às funcionalidades do seu dispositivo."</string>
     <string name="role_home_request_title" msgid="7254377742128731004">"Pretende definir o <xliff:g id="APP_NAME">%1$s</xliff:g> como a aplicação Página inicial predefinida?"</string>
     <string name="role_home_request_description" msgid="1649615419642117675">"Não são necessárias autorizações."</string>
     <string name="role_call_redirection_label" msgid="8614962962542193455">"Aplic. redirec. chamadas pred."</string>
     <string name="role_call_redirection_short_label" msgid="7030817671864547206">"Aplic. de redirec. de chamadas"</string>
-    <!-- no translation found for role_call_redirection_description (1118180396571102108) -->
-    <skip />
+    <string name="role_call_redirection_description" msgid="1118180396571102108">"Aplicações que permitem encaminhar chamadas efetuadas para outro número de telefone."</string>
     <string name="role_call_redirection_request_title" msgid="3292712900764740951">"Pretende definir <xliff:g id="APP_NAME">%1$s</xliff:g> como a aplicação de redirecionamento de chamadas predefinida?"</string>
     <string name="role_call_redirection_request_description" msgid="9130097590698779041">"Não são necessárias autorizações."</string>
     <string name="role_call_screening_label" msgid="6762278758943136846">"Aplicação identific. chamadas e spam predef."</string>
-    <!-- no translation found for role_call_screening_short_label (4405732075031564902) -->
-    <skip />
-    <!-- no translation found for role_call_screening_description (630332789277798256) -->
-    <skip />
+    <string name="role_call_screening_short_label" msgid="4405732075031564902">"Aplic. ident. chamadas e spam"</string>
+    <string name="role_call_screening_description" msgid="630332789277798256">"Aplicações que permitem identificar chamadas, bloquear spam e chamadas automáticas, bem como adicionar números indesejados à lista negra."</string>
     <string name="role_call_screening_request_title" msgid="2918540778717341412">"Pretende definir o <xliff:g id="APP_NAME">%1$s</xliff:g> como a aplicação de identificação de chamadas e spam predefinida?"</string>
     <string name="role_call_screening_request_description" msgid="2238766550271106517">"Não são necessárias autorizações."</string>
     <string name="request_role_current_default" msgid="8010053122057418777">"Predefinição atual"</string>
     <string name="request_role_dont_ask_again" msgid="1002776641382604316">"Não perguntar novamente"</string>
     <string name="request_role_set_as_default" msgid="161884072789965631">"Definir como predef."</string>
-    <!-- no translation found for default_app_search_keyword (5893328509368498565) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_ok (2849153333510041980) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_open_settings (180561046130062839) -->
-    <skip />
+    <string name="default_app_search_keyword" msgid="5893328509368498565">"aplicações predefinidas"</string>
+    <string name="ongoing_usage_dialog_ok" msgid="2849153333510041980">"Compreendi"</string>
+    <string name="ongoing_usage_dialog_open_settings" msgid="180561046130062839">"Definições privacidade"</string>
     <string name="ongoing_usage_dialog_title" msgid="7494746761292131980">"Aplicações que utilizam: <xliff:g id="TYPES_LIST">%s</xliff:g>"</string>
-    <!-- no translation found for ongoing_usage_dialog_separator (3220814513543042443) -->
-    <skip />
+    <string name="ongoing_usage_dialog_separator" msgid="3220814513543042443">", "</string>
     <string name="ongoing_usage_dialog_last_separator" msgid="970720969260545688">" e "</string>
-    <!-- no translation found for settings_button (1808682743475842576) -->
-    <skip />
+    <string name="settings_button" msgid="1808682743475842576">"Definições"</string>
     <string name="default_apps" msgid="5730264737920158250">"Aplicações predefinidas"</string>
     <string name="no_default_apps" msgid="2998405086652908867">"Sem aplicações predefinidas"</string>
-    <!-- no translation found for default_apps_more (2432881430817521134) -->
-    <skip />
+    <string name="default_apps_more" msgid="2432881430817521134">"Mais predefinições"</string>
     <string name="default_apps_manage_domain_urls" msgid="814023242306919121">"Abertura de links"</string>
     <string name="default_apps_for_work" msgid="6893448061977233772">"Predefinição para o trabalho"</string>
     <string name="default_app_none" msgid="4430855885741769064">"Nenhuma"</string>
-    <!-- no translation found for default_app_system_default (330065926244492508) -->
-    <skip />
+    <string name="default_app_system_default" msgid="330065926244492508">"(Predefinição do sistema)"</string>
     <string name="default_app_no_apps" msgid="295747201345391862">"Sem aplicações"</string>
-    <!-- no translation found for car_default_app_selected (5041173040939570813) -->
-    <skip />
+    <string name="car_default_app_selected" msgid="5041173040939570813">"Selecionada"</string>
     <string name="car_default_app_selected_with_info" msgid="846119554232771428">"Selecionada – <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="1933225255981974193">"acesso especial a aplicações"</string>
     <string name="special_app_access" msgid="1809336016722693481">"Acesso especial a aplicações"</string>
@@ -319,25 +294,17 @@
     <string name="incident_report_notification_title" msgid="5639002400773574216">"Pretende partilhar dados de depuração detalhados?"</string>
     <string name="incident_report_notification_text" msgid="3982379040142711581">"A aplicação <xliff:g id="APP_NAME">%1$s</xliff:g> pretende carregar informações de depuração."</string>
     <string name="incident_report_dialog_title" msgid="7779774651136791681">"Partilhar dados de depuração"</string>
-    <!-- no translation found for incident_report_dialog_intro (4267939213446817062) -->
-    <skip />
+    <string name="incident_report_dialog_intro" msgid="4267939213446817062">"O sistema detetou um problema."</string>
     <string name="incident_report_dialog_text" msgid="4831945625929455288">"A aplicação <xliff:g id="APP_NAME_0">%1$s</xliff:g> está a solicitar o carregamento de um relatório de erro a partir deste dispositivo realizado a <xliff:g id="DATE">%2$s</xliff:g> à(s) <xliff:g id="TIME">%3$s</xliff:g>. Os relatórios de erros incluem informações pessoais acerca do seu dispositivo ou registadas por aplicações, por exemplo, nomes de utilizador, dados de localização, identificadores do dispositivo e informações da rede. Apenas partilhe relatórios de erros com pessoas e aplicações nas quais confia. Permite que a aplicação <xliff:g id="APP_NAME_1">%4$s</xliff:g> carregue um relatório de erro?"</string>
     <string name="incident_report_error_dialog_text" msgid="7571987324653854729">"Ocorreu um erro ao processar o relatório de erro para a aplicação <xliff:g id="APP_NAME">%1$s</xliff:g>. Como tal, a partilha dos dados de depuração detalhados foi negada. Pedimos desculpa pela interrupção."</string>
     <string name="incident_report_dialog_allow_label" msgid="39628365401477149">"Permitir"</string>
     <string name="incident_report_dialog_deny_label" msgid="3613078094039859343">"Recusar"</string>
-    <!-- no translation found for adjust_user_sensitive_title (6181325993919599745) -->
-    <skip />
-    <!-- no translation found for menu_adjust_user_sensitive (277984416700153328) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_globally_title (7250948764129867522) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_globally_summary (2331110562911167243) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_per_app_header (3463088084190391428) -->
-    <skip />
-    <!-- no translation found for assistant_record_audio_user_sensitive_title (4527980682419054323) -->
-    <skip />
-    <!-- no translation found for assistant_record_audio_user_sensitive_summary (4952742951700902553) -->
-    <skip />
+    <string name="adjust_user_sensitive_title" msgid="6181325993919599745">"Definições avançadas"</string>
+    <string name="menu_adjust_user_sensitive" msgid="277984416700153328">"Definições avançadas"</string>
+    <string name="adjust_user_sensitive_globally_title" msgid="7250948764129867522">"Mostre a utilização da aplicação de sistema"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="2331110562911167243">"Mostre a utilização de autorizações pela aplicação do sistema na barra de estado, no painel de controlo, etc."</string>
+    <string name="adjust_user_sensitive_per_app_header" msgid="3463088084190391428">"Realce a utilização do seguinte"</string>
+    <string name="assistant_record_audio_user_sensitive_title" msgid="4527980682419054323">"Mostre a deteção do acionador do Assistente"</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="4952742951700902553">"Mostre o ícone na barra de estado quando o microfone é utilizado para ativar o assistente de voz"</string>
     <string name="permgrouprequest_storage_isolated" msgid="6769845877344258537">"Pretende permitir que a aplicação &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; aceda a fotos e multimédia no dispositivo?"</string>
 </resources>
