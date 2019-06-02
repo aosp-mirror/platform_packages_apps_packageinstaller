@@ -68,13 +68,11 @@
     <string name="permission_summary_disabled_by_admin_background_only" msgid="2185473379176174735">"Qasja në sfond është e çaktivizuar nga administratori"</string>
     <string name="permission_summary_enabled_by_admin_background_only" msgid="4558536214810713340">"Qasja në sfond është e aktivizuar nga administratori"</string>
     <string name="permission_summary_enabled_by_admin_foreground_only" msgid="3735312186687063512">"Qasja në planin e parë është e aktivizuar nga administratori"</string>
-    <!-- no translation found for permission_summary_enabled_system_fixed (2986671472344103830) -->
-    <skip />
+    <string name="permission_summary_enabled_system_fixed" msgid="2986671472344103830">"Pajisja kërkon këtë autorizim për të funksionuar"</string>
     <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
     <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
-    <!-- no translation found for permission_access_always (8746815855070494802) -->
-    <skip />
+    <string name="permission_access_always" msgid="8746815855070494802">"Lejo gjithmonë"</string>
     <string name="permission_access_only_foreground" msgid="1653942358383006807">"Lejo vetëm kur përdor aplikacionin"</string>
     <string name="permission_access_never" msgid="6189440007697689967">"Refuzo"</string>
     <string name="loading" msgid="7811651799620593731">"Po ngarkon..."</string>
@@ -107,34 +105,30 @@
     <string name="no_permission_usages" msgid="5322488885313825032">"Nuk ka përdorime të lejeve"</string>
     <string name="permission_usage_list_title_any_time" msgid="5231969131124312338">"Qasja më e fundit në çdo kohë"</string>
     <string name="permission_usage_list_title_last_7_days" msgid="3481601827843295434">"Qasja më e fundit në 7 ditët e fundit"</string>
-    <!-- no translation found for permission_usage_list_title_last_day (8004766042375735038) -->
-    <skip />
-    <!-- no translation found for permission_usage_list_title_last_hour (5263636446126109595) -->
-    <skip />
+    <string name="permission_usage_list_title_last_day" msgid="8004766042375735038">"Qasja më e fundit në 24 orët e fundit"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="5263636446126109595">"Qasja më e fundit në 1 orën e fundit"</string>
     <string name="permission_usage_list_title_last_15_minutes" msgid="3842584491108496053">"Qasja më e fundit në 15 minutat e fundit"</string>
     <string name="permission_usage_list_title_last_minute" msgid="6135511482448899737">"Qasja më e fundit në 1 minutën e fundit"</string>
     <string name="permission_usage_bar_chart_title_any_time" msgid="2233750755422237444">"Përdorimi i autorizimeve në çdo kohë"</string>
-    <!-- no translation found for permission_usage_bar_chart_title_last_7_days (2505302271268657969) -->
-    <skip />
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="2505302271268657969">"Përdorimi i autorizimeve në 7 ditët e fundit"</string>
     <string name="permission_usage_bar_chart_title_last_day" msgid="3929341411684348428">"Përdorimi i autorizimeve në 24 orët e fundit"</string>
     <string name="permission_usage_bar_chart_title_last_hour" msgid="1473287216393833028">"Përdorimi i autorizimeve në 1 orën e fundit"</string>
-    <!-- no translation found for permission_usage_bar_chart_title_last_15_minutes (8394883927589032677) -->
-    <skip />
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="8394883927589032677">"Përdorimi i autorizimeve në 15 minutat e fundit"</string>
     <string name="permission_usage_bar_chart_title_last_minute" msgid="8821351707225812097">"Përdorimi i autorizimeve në 1 minutën e fundit"</string>
-    <!-- no translation found for permission_usage_bar_label (7669269046102999228) -->
+    <plurals name="permission_usage_bar_label" formatted="false" msgid="7669269046102999228">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> apl.</item>
+      <item quantity="one">1 apl.</item>
+    </plurals>
     <string name="permission_usage_view_details" msgid="7240872485880156540">"Shikoji të gjitha te \"Paneli\""</string>
     <string name="app_permission_usage_filter_label" msgid="4632636077566071507">"Filtruar sipas: <xliff:g id="PERM">%1$s</xliff:g>"</string>
-    <!-- no translation found for app_permission_usage_remove_filter (5502079672930422033) -->
-    <skip />
+    <string name="app_permission_usage_remove_filter" msgid="5502079672930422033">"Shikoji të gjitha te \"Paneli\""</string>
     <string name="filter_by_title" msgid="7213659781851489723">"Filtro sipas"</string>
     <string name="filter_by_permissions" msgid="6808193127145660341">"Filtro sipas autorizimeve"</string>
-    <!-- no translation found for filter_by_time (4037550957826791975) -->
-    <skip />
+    <string name="filter_by_time" msgid="4037550957826791975">"Filtro sipas kohës"</string>
     <string name="sort_spinner_most_permissions" msgid="6852540142388944721">"Shumica e autorizimeve"</string>
     <string name="sort_spinner_most_accesses" msgid="1219554524183666955">"Shumica e qasjeve"</string>
     <string name="sort_spinner_recent" msgid="1418334780798429342">"Më të fundit"</string>
-    <!-- no translation found for sort_by_app (5836911326872031928) -->
-    <skip />
+    <string name="sort_by_app" msgid="5836911326872031928">"Rendit sipas aplikacionit"</string>
     <string name="sort_by_time" msgid="5904361063977286957">"Rendit sipas kohës"</string>
     <string name="item_separator" msgid="5590105992485222167">", "</string>
     <string name="permission_usage_refresh" msgid="2424637977565575554">"Rifresko"</string>
@@ -175,46 +169,46 @@
     <string name="app_permission_footer_no_usages_sensors" msgid="5716861361576610045">"<xliff:g id="APP">%1$s</xliff:g> nuk ka pasur qasje te sensorët e tu"</string>
     <string name="app_permission_footer_no_usages_sms" msgid="2453537470852966962">"<xliff:g id="APP">%1$s</xliff:g> nuk ka pasur qasje te mesazhet e tua SMS"</string>
     <string name="app_permission_footer_no_usages_storage" msgid="1296053906120407192">"<xliff:g id="APP">%1$s</xliff:g> nuk ka pasur qasje te hapësira jote ruajtëse"</string>
-    <!-- no translation found for app_permission_footer_not_available (7473636495733881225) -->
-    <skip />
+    <string name="app_permission_footer_not_available" msgid="7473636495733881225">"Të dhënat e qasjes së fundit nuk ofrohen aktualisht për këtë leje"</string>
     <string name="app_permission_footer_app_permissions_link" msgid="6074026408119212662">"Shiko të gjitha autorizimet e <xliff:g id="APP">%1$s</xliff:g>"</string>
-    <!-- no translation found for app_permission_footer_permission_apps_link (3489066323918915073) -->
-    <skip />
+    <string name="app_permission_footer_permission_apps_link" msgid="3489066323918915073">"Shiko të gjitha aplikacionet me këtë autorizim"</string>
     <string name="permission_description_summary_generic" msgid="1134416469764865198">"Aplikacionet me këtë autorizim mund <xliff:g id="DESCRIPTION">%1$s</xliff:g>"</string>
-    <!-- no translation found for permission_description_summary_activity_recognition (3371048800215659444) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_calendar (7627624281615554407) -->
-    <skip />
+    <string name="permission_description_summary_activity_recognition" msgid="3371048800215659444">"Aplikacionet me këtë leje mund të kenë qasje tek aktiviteti yt fizik, si ecja në këmbë, me biçikletë, me makinë, numërimi i hapave etj."</string>
+    <string name="permission_description_summary_calendar" msgid="7627624281615554407">"Aplikacionet me këtë autorizim mund të kenë qasje te kalendari yt"</string>
     <string name="permission_description_summary_call_log" msgid="4715804544768878751">"Aplikacionet me këtë autorizim mund të lexojnë dhe të shkruajnë në evidencën e telefonatave të telefonit"</string>
-    <!-- no translation found for permission_description_summary_camera (7879547592935186291) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_contacts (2833167258022765303) -->
-    <skip />
+    <string name="permission_description_summary_camera" msgid="7879547592935186291">"Aplikacionet me këtë autorizim mund të nxjerrin fotografi dhe të regjistrojnë video"</string>
+    <string name="permission_description_summary_contacts" msgid="2833167258022765303">"Aplikacionet me këtë autorizim mund të kenë qasje te kontaktet e tua"</string>
     <string name="permission_description_summary_location" msgid="4722113806360938675">"Aplikacionet me këtë autorizim mund të kenë qasje te vendndodhja e kësaj pajisjeje"</string>
-    <!-- no translation found for permission_description_summary_microphone (1349810138634077494) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_phone (6972180067860067462) -->
-    <skip />
+    <string name="permission_description_summary_microphone" msgid="1349810138634077494">"Aplikacionet me këtë autorizim mund të regjistrojnë audion"</string>
+    <string name="permission_description_summary_phone" msgid="6972180067860067462">"Aplikacionet me këtë autorizim mund të bëjnë dhe të menaxhojnë telefonatat"</string>
     <string name="permission_description_summary_sensors" msgid="5747969909098898581">"Aplikacionet me këtë autorizim mund të kenë qasje te të dhënat e sensorëve për shenjat e tua jetësore"</string>
-    <!-- no translation found for permission_description_summary_sms (1394630256073587627) -->
-    <skip />
-    <!-- no translation found for permission_description_summary_storage (3947962757455327167) -->
-    <skip />
+    <string name="permission_description_summary_sms" msgid="1394630256073587627">"Aplikacionet me këtë autorizim mund të dërgojnë dhe të shikojnë mesazhet SMS"</string>
+    <string name="permission_description_summary_storage" msgid="3947962757455327167">"Aplikacionet me këtë leje mund të kenë qasje te fotografitë, media dhe skedarët në pajisjen tënde"</string>
     <string name="app_permission_most_recent_summary" msgid="2806631058626902828">"Qasja e fundit: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_most_recent_denied_summary" msgid="474549680139911807">"Refuzuar aktualisht / qasja e fundit: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
     <string name="app_permission_never_accessed_summary" msgid="5253530744650386602">"Nuk ka pasur asnjëherë qasje"</string>
-    <!-- no translation found for app_permission_never_accessed_denied_summary (5074713608728279798) -->
-    <skip />
+    <string name="app_permission_never_accessed_denied_summary" msgid="5074713608728279798">"Refuzuar / nuk ka pasur asnjëherë qasje"</string>
     <string name="allowed_header" msgid="670868581011741572">"Të lejuara"</string>
-    <!-- no translation found for allowed_always_header (3129163790476916487) -->
-    <skip />
+    <string name="allowed_always_header" msgid="3129163790476916487">"Lejohet gjatë të gjithë kohës"</string>
     <string name="allowed_foreground_header" msgid="508441909373674270">"Lejohet vetëm kur është në përdorim"</string>
     <string name="denied_header" msgid="4716097249466859449">"Të refuzuara"</string>
     <string name="detailed_usage_link" msgid="3213629980587953904">"Shiko përdorimin e detajuar"</string>
-    <!-- no translation found for days (7685720539370448104) -->
-    <!-- no translation found for hours (5513137617382570199) -->
-    <!-- no translation found for minutes (269873289285218670) -->
-    <!-- no translation found for seconds (7518380254369486125) -->
+    <plurals name="days" formatted="false" msgid="7685720539370448104">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ditë</item>
+      <item quantity="one">1 ditë</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="5513137617382570199">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> orë</item>
+      <item quantity="one">1 orë</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="269873289285218670">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> minuta</item>
+      <item quantity="one">1 minutë</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="7518380254369486125">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sekonda</item>
+      <item quantity="one">1 sekondë</item>
+    </plurals>
     <string name="permission_reminders" msgid="7692569306867004285">"Alarmet rikujtuese për lejet"</string>
     <string name="background_location_access_reminder_notification_title" msgid="1447771664601165880">"<xliff:g id="APP_NAME">%s</xliff:g> ka marrë vendndodhjen tënde në sfond"</string>
     <string name="background_location_access_reminder_notification_content" msgid="4931939953173203901">"Ky aplikacion mund të qaset gjithmonë te vendndodhja jote. Trokit për ta ndryshuar."</string>
@@ -223,23 +217,19 @@
     <string name="no_permissions_denied" msgid="4148813660212679056">"Asnjë leje nuk është refuzuar"</string>
     <string name="no_apps_allowed" msgid="4959324189831343508">"Nuk lejohet asnjë aplikacion"</string>
     <string name="no_apps_denied" msgid="4966465333227047186">"Asnjë aplikacion nuk është refuzuar"</string>
-    <!-- no translation found for car_permission_selected (5788441628706535323) -->
-    <skip />
+    <string name="car_permission_selected" msgid="5788441628706535323">"Zgjedhur"</string>
     <string name="settings" msgid="6743583734099755409">"Cilësimet"</string>
     <string name="accessibility_service_dialog_title_single" msgid="8163574312765390697">"<xliff:g id="SERVICE_NAME">%s</xliff:g> ka qasje të plotë në pajisjen tënde"</string>
     <string name="accessibility_service_dialog_title_multiple" msgid="593839615447260933">"<xliff:g id="NUM_SERVICES">%s</xliff:g> aplikacione të qasshmërisë kanë qasje të plotë në pajisjen tënde"</string>
     <string name="accessibility_service_dialog_bottom_text_single" msgid="1201610224744125691">"<xliff:g id="SERVICE_NAME">%s</xliff:g> mund të shikojë ekranin tënd, veprimet dhe hyrjet, mund të kryejë veprime dhe kontrollojë ekranin."</string>
-    <!-- no translation found for accessibility_service_dialog_bottom_text_multiple (99044354994789512) -->
-    <skip />
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="99044354994789512">"Këto aplikacione mund të shikojnë ekranin tënd, veprimet dhe hyrjet e tua, mund të kryejnë veprime dhe të kontrollojnë ekranin."</string>
     <string name="role_assistant_label" msgid="325607225419991524">"Aplikacioni i parazgjedhur i asistentit"</string>
-    <!-- no translation found for role_assistant_short_label (5324338887042810318) -->
-    <skip />
+    <string name="role_assistant_short_label" msgid="5324338887042810318">"Aplikacioni i asistentit"</string>
     <string name="role_assistant_description" msgid="5980622464037768572">"Aplikacionet e asistentit të ndihmojnë bazuar në informacionet nga ekrani që je duke shikuar. Disa aplikacione mbështesin shërbimet e nisësit dhe të hyrjes me zë për të të siguruar një ndihmë të integruar."</string>
     <string name="role_assistant_request_title" msgid="2198246079117996249">"Dëshiron ta caktosh <xliff:g id="APP_NAME">%1$s</xliff:g> si aplikacionin tënd të parazgjedhur të asistentit?"</string>
     <string name="role_assistant_request_description" msgid="9007538649849881727">"Merr qasjen tek evidenca e telefonatave dhe mesazhet SMS"</string>
     <string name="role_browser_label" msgid="1452186785584890151">"Aplikacioni i parazgjedhur i shfletuesit"</string>
-    <!-- no translation found for role_browser_short_label (7008704096614388208) -->
-    <skip />
+    <string name="role_browser_short_label" msgid="7008704096614388208">"Aplikacioni i shfletuesit"</string>
     <string name="role_browser_description" msgid="3733812642667691329">"Aplikacionet që të japin qasje në internet dhe që shfaqin lidhjet që troket ti"</string>
     <string name="role_browser_request_title" msgid="6682328732125865006">"Dëshiron ta caktosh <xliff:g id="APP_NAME">%1$s</xliff:g> si aplikacionin e parazgjedhur të shfletuesit?"</string>
     <string name="role_browser_request_description" msgid="5273230084027848407">"Nuk ka nevojë për asnjë autorizim"</string>
@@ -248,65 +238,50 @@
     <string name="role_dialer_description" msgid="8168811763060055520">"Aplikacione që të lejojnë të bësh dhe të marrësh telefonata në pajisjen tënde"</string>
     <string name="role_dialer_request_title" msgid="2281942809560056462">"Dëshiron ta caktosh <xliff:g id="APP_NAME">%1$s</xliff:g> si aplikacionin tënd të parazgjedhur të telefonit?"</string>
     <string name="role_dialer_request_description" msgid="1597958203339261473">"Merr qasjen tek evidenca e telefonatave dhe dërgon SMS"</string>
-    <!-- no translation found for role_sms_label (1282375330984375167) -->
-    <skip />
+    <string name="role_sms_label" msgid="1282375330984375167">"Aplikacioni i parazgjedhur i SMS-ve"</string>
     <string name="role_sms_short_label" msgid="4774295162759580727">"Aplikacioni i mesazheve SMS"</string>
     <string name="role_sms_description" msgid="8688975508844386261">"Aplikacione që të lejojnë të përdorësh numrin e telefonit për të dërguar dhe për të marrë mesazhe të shkurtra me tekst, fotografi, video etj."</string>
     <string name="role_sms_request_title" msgid="3942676190809695139">"Dëshiron ta caktosh <xliff:g id="APP_NAME">%1$s</xliff:g> si aplikacionin e parazgjedhur për mesazhet SMS?"</string>
     <string name="role_sms_request_description" msgid="6079312070314434582">"Merr qasjen te kontaktet, mesazhet SMS dhe telefoni"</string>
-    <!-- no translation found for role_emergency_label (8510350771744625248) -->
-    <skip />
+    <string name="role_emergency_label" msgid="8510350771744625248">"Aplikacioni i parazgjedhur i urgjencës"</string>
     <string name="role_emergency_short_label" msgid="594672497758636578">"Aplikacioni i urgjencës"</string>
     <string name="role_emergency_description" msgid="1328017704085954407">"Aplikacionet që të lejojnë të regjistrosh informacionet e tua mjekësore dhe t\'i bësh ato të qasshme për personat e parë që përgjigjen në rast urgjence; për të marrë sinjalizime për rastet e motit të ashpër dhe katastrofave; për të njoftuar të tjerët kur ke nevojë për ndihmë"</string>
     <string name="role_emergency_request_title" msgid="862426026906033381">"Dëshiron ta caktosh <xliff:g id="APP_NAME">%1$s</xliff:g> si aplikacionin e parazgjedhur të urgjencës?"</string>
-    <!-- no translation found for role_emergency_request_description (6604461788824945209) -->
-    <skip />
-    <!-- no translation found for role_home_label (2403568779207064895) -->
-    <skip />
+    <string name="role_emergency_request_description" msgid="6604461788824945209">"Nuk ka nevojë për asnjë autorizim"</string>
+    <string name="role_home_label" msgid="2403568779207064895">"Aplikacioni bazë i parazgjedhur"</string>
     <string name="role_home_short_label" msgid="8293261293243062773">"Aplikacioni bazë"</string>
     <string name="role_home_description" msgid="4692657963991101103">"Aplikacione, të quajtura shpesh \"nisësit\", që zëvendësojnë ekranet bazë në pajisjen tënde Android dhe që të japin qasje te përmbajtjet dhe funksionet e pajisjes sate"</string>
     <string name="role_home_request_title" msgid="7254377742128731004">"Dëshiron ta caktosh <xliff:g id="APP_NAME">%1$s</xliff:g> si aplikacionin e parazgjedhur për ekranin bazë?"</string>
     <string name="role_home_request_description" msgid="1649615419642117675">"Nuk ka nevojë për asnjë autorizim"</string>
     <string name="role_call_redirection_label" msgid="8614962962542193455">"Aplikacioni i parazgjedhur i ridrejtimit të telefonatave"</string>
     <string name="role_call_redirection_short_label" msgid="7030817671864547206">"Aplikacioni i ridrejtimit të telefonatave"</string>
-    <!-- no translation found for role_call_redirection_description (1118180396571102108) -->
-    <skip />
+    <string name="role_call_redirection_description" msgid="1118180396571102108">"Aplikacione që të lejojnë t\'i transferosh telefonatat dalëse te një numër tjetër telefoni"</string>
     <string name="role_call_redirection_request_title" msgid="3292712900764740951">"Dëshiron ta caktosh <xliff:g id="APP_NAME">%1$s</xliff:g> si aplikacionin e parazgjedhur për ridrejtimin e telefonatave?"</string>
     <string name="role_call_redirection_request_description" msgid="9130097590698779041">"Nuk ka nevojë për asnjë autorizim"</string>
     <string name="role_call_screening_label" msgid="6762278758943136846">"Aplikacioni i parazgjedhur për ID-në dhe telefonuesit e bezdisshëm"</string>
-    <!-- no translation found for role_call_screening_short_label (4405732075031564902) -->
-    <skip />
-    <!-- no translation found for role_call_screening_description (630332789277798256) -->
-    <skip />
+    <string name="role_call_screening_short_label" msgid="4405732075031564902">"Aplikacioni për ID-në dhe telefonuesit e bezdisshëm"</string>
+    <string name="role_call_screening_description" msgid="630332789277798256">"Aplikacionet që të lejojnë të identifikosh telefonatat, të bllokosh komunikimet e padëshiruara dhe thirrjet robotike si dhe të vendosësh në listën e ndalimeve numrat e padëshiruar"</string>
     <string name="role_call_screening_request_title" msgid="2918540778717341412">"Dëshiron të caktosh <xliff:g id="APP_NAME">%1$s</xliff:g> si aplikacionin e parazgjedhur për ID-në e telefonuesit dhe telefonuesit e bezdisshëm?"</string>
     <string name="role_call_screening_request_description" msgid="2238766550271106517">"Nuk ka nevojë për asnjë autorizim"</string>
     <string name="request_role_current_default" msgid="8010053122057418777">"Parazgjedhja aktuale"</string>
     <string name="request_role_dont_ask_again" msgid="1002776641382604316">"Mos pyet më"</string>
     <string name="request_role_set_as_default" msgid="161884072789965631">"Cakto si parazgjedhje"</string>
-    <!-- no translation found for default_app_search_keyword (5893328509368498565) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_ok (2849153333510041980) -->
-    <skip />
-    <!-- no translation found for ongoing_usage_dialog_open_settings (180561046130062839) -->
-    <skip />
+    <string name="default_app_search_keyword" msgid="5893328509368498565">"aplikacionet e parazgjedhura"</string>
+    <string name="ongoing_usage_dialog_ok" msgid="2849153333510041980">"E kuptova"</string>
+    <string name="ongoing_usage_dialog_open_settings" msgid="180561046130062839">"Cilësimet e privatësisë"</string>
     <string name="ongoing_usage_dialog_title" msgid="7494746761292131980">"Aplikacionet që po përdorin <xliff:g id="TYPES_LIST">%s</xliff:g>"</string>
-    <!-- no translation found for ongoing_usage_dialog_separator (3220814513543042443) -->
-    <skip />
+    <string name="ongoing_usage_dialog_separator" msgid="3220814513543042443">", "</string>
     <string name="ongoing_usage_dialog_last_separator" msgid="970720969260545688">" dhe "</string>
-    <!-- no translation found for settings_button (1808682743475842576) -->
-    <skip />
+    <string name="settings_button" msgid="1808682743475842576">"Cilësimet"</string>
     <string name="default_apps" msgid="5730264737920158250">"Aplikacionet e parazgjedhura"</string>
     <string name="no_default_apps" msgid="2998405086652908867">"Asnjë aplikacion i parazgjedhur"</string>
-    <!-- no translation found for default_apps_more (2432881430817521134) -->
-    <skip />
+    <string name="default_apps_more" msgid="2432881430817521134">"Parazgjedhje të tjera"</string>
     <string name="default_apps_manage_domain_urls" msgid="814023242306919121">"Lidhjet po hapen"</string>
     <string name="default_apps_for_work" msgid="6893448061977233772">"Të parazgjedhura për punën"</string>
     <string name="default_app_none" msgid="4430855885741769064">"Asnjë"</string>
-    <!-- no translation found for default_app_system_default (330065926244492508) -->
-    <skip />
+    <string name="default_app_system_default" msgid="330065926244492508">"(Parazgjedhja e sistemit)"</string>
     <string name="default_app_no_apps" msgid="295747201345391862">"Nuk ka aplikacione"</string>
-    <!-- no translation found for car_default_app_selected (5041173040939570813) -->
-    <skip />
+    <string name="car_default_app_selected" msgid="5041173040939570813">"Zgjedhur"</string>
     <string name="car_default_app_selected_with_info" msgid="846119554232771428">"Zgjedhur - <xliff:g id="ADDITIONAL_INFO">%1$s</xliff:g>"</string>
     <string name="special_app_access_search_keyword" msgid="1933225255981974193">"qasje e veçantë e aplikacionit"</string>
     <string name="special_app_access" msgid="1809336016722693481">"Qasje e veçantë aplikacioni"</string>
@@ -319,25 +294,17 @@
     <string name="incident_report_notification_title" msgid="5639002400773574216">"Të ndahen të dhënat e detajuara të korrigjimit?"</string>
     <string name="incident_report_notification_text" msgid="3982379040142711581">"<xliff:g id="APP_NAME">%1$s</xliff:g> dëshiron të ngarkojë informacionin e korrigjimit."</string>
     <string name="incident_report_dialog_title" msgid="7779774651136791681">"Ndaj të dhënat e korrigjimit"</string>
-    <!-- no translation found for incident_report_dialog_intro (4267939213446817062) -->
-    <skip />
+    <string name="incident_report_dialog_intro" msgid="4267939213446817062">"Sistemi ka zbuluar një problem."</string>
     <string name="incident_report_dialog_text" msgid="4831945625929455288">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> kërkon të ngarkojë një raport të defekteve në kod nga kjo pajisje të regjistruar më <xliff:g id="DATE">%2$s</xliff:g> në <xliff:g id="TIME">%3$s</xliff:g>. Raportet e defekteve në kod përfshijnë informacione personale rreth pajisjes sate ose të regjistruara nga aplikacionet, për shembull emrat e përdoruesve, të dhënat e vendndodhjes, identifikuesit e pajisjeve, si dhe informacione të rrjetit. Ndaji raportet e defekteve në kod vetëm me personat dhe aplikacionet që i beson me këtë informacion. Të lejohet <xliff:g id="APP_NAME_1">%4$s</xliff:g> të ngarkojë një raport të defekteve në kod?"</string>
     <string name="incident_report_error_dialog_text" msgid="7571987324653854729">"Kishte një gabim me përpunimin e raportit të defekteve në kod për <xliff:g id="APP_NAME">%1$s</xliff:g>. Kështu që ndarja e të dhënave të detajuara të korrigjimit është refuzuar. Na vjen keq për ndërprerjen."</string>
     <string name="incident_report_dialog_allow_label" msgid="39628365401477149">"Lejo"</string>
     <string name="incident_report_dialog_deny_label" msgid="3613078094039859343">"Refuzo"</string>
-    <!-- no translation found for adjust_user_sensitive_title (6181325993919599745) -->
-    <skip />
-    <!-- no translation found for menu_adjust_user_sensitive (277984416700153328) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_globally_title (7250948764129867522) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_globally_summary (2331110562911167243) -->
-    <skip />
-    <!-- no translation found for adjust_user_sensitive_per_app_header (3463088084190391428) -->
-    <skip />
-    <!-- no translation found for assistant_record_audio_user_sensitive_title (4527980682419054323) -->
-    <skip />
-    <!-- no translation found for assistant_record_audio_user_sensitive_summary (4952742951700902553) -->
-    <skip />
+    <string name="adjust_user_sensitive_title" msgid="6181325993919599745">"Cilësimet e përparuara"</string>
+    <string name="menu_adjust_user_sensitive" msgid="277984416700153328">"Cilësimet e përparuara"</string>
+    <string name="adjust_user_sensitive_globally_title" msgid="7250948764129867522">"Shfaq përdorimin e aplikacioneve të sistemit"</string>
+    <string name="adjust_user_sensitive_globally_summary" msgid="2331110562911167243">"Shfaq përdorimin e lejeve nga aplikacionet e sistemit në shiritin e statusit, në panel dhe në vende të tjera"</string>
+    <string name="adjust_user_sensitive_per_app_header" msgid="3463088084190391428">"Thekso përdorimin për sa më poshtë"</string>
+    <string name="assistant_record_audio_user_sensitive_title" msgid="4527980682419054323">"Shfaq zbulimin e aktivizimit të \"Asistentit\""</string>
+    <string name="assistant_record_audio_user_sensitive_summary" msgid="4952742951700902553">"Shfaq ikonën në shiritin e statusit kur përdoret mikrofoni për të aktivizuar asistentin me zë"</string>
     <string name="permgrouprequest_storage_isolated" msgid="6769845877344258537">"Të lejohet që &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; të ketë qasje te fotografitë dhe media në pajisjen tënde?"</string>
 </resources>
