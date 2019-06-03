@@ -99,6 +99,10 @@ public final class Permission {
         return (mPermissionInfo.flags & PermissionInfo.FLAG_HARD_RESTRICTED) != 0;
     }
 
+    boolean isSoftRestricted() {
+        return (mPermissionInfo.flags & PermissionInfo.FLAG_SOFT_RESTRICTED) != 0;
+    }
+
     /**
      * Does this permission affect app ops.
      *
