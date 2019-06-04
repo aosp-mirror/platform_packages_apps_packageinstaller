@@ -47,6 +47,7 @@ import androidx.annotation.StringRes;
 import com.android.packageinstaller.permission.service.LocationAccessCheck;
 import com.android.packageinstaller.permission.utils.ArrayUtils;
 import com.android.packageinstaller.permission.utils.LocationUtils;
+import com.android.packageinstaller.permission.utils.SoftRestrictedPermissionPolicy;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 
@@ -341,8 +342,10 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
                 group.getBackgroundPermissions().addPermission(permission);
             } else {
-                if (!permission.isHardRestricted()
-                            || whitelistedRestrictedPermissions.contains(permission.getName())) {
+                if ((!permission.isHardRestricted()
+                        || whitelistedRestrictedPermissions.contains(permission.getName()))
+                        && (!permission.isSoftRestricted()
+                        || SoftRestrictedPermissionPolicy.shouldShow(packageInfo, permission))) {
                     group.addPermission(permission);
                 }
             }
