@@ -1020,18 +1020,11 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
         return wasAllRevoked;
     }
 
-    /**
-     * Mark permissions in this group as policy fixed.
-     *
-     * @param filterPermissions The permissions to mark
-     */
-    public void setPolicyFixed(@NonNull String[] filterPermissions) {
-        for (String permissionName : filterPermissions) {
-            Permission permission = mPermissions.get(permissionName);
-
-            if (permission != null) {
-                permission.setPolicyFixed(true);
-            }
+    public void setPolicyFixed() {
+        final int permissionCount = mPermissions.size();
+        for (int i = 0; i < permissionCount; i++) {
+            Permission permission = mPermissions.valueAt(i);
+            permission.setPolicyFixed(true);
         }
 
         if (!mDelayChanges) {

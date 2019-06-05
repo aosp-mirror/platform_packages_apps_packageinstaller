@@ -16,6 +16,12 @@
 
 package com.android.packageinstaller.permission.model;
 
+import android.app.AppOpsManager;
+import android.app.AppOpsManager.HistoricalOps;
+import android.app.AppOpsManager.HistoricalOpsRequest;
+import android.app.AppOpsManager.HistoricalPackageOps;
+import android.app.AppOpsManager.HistoricalUidOps;
+import android.app.AppOpsManager.PackageOps;
 import android.app.LoaderManager;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.AsyncTaskLoader;
@@ -23,13 +29,23 @@ import android.content.Context;
 import android.content.Loader;
 import android.os.Bundle;
 import android.os.Process;
+import android.util.ArrayMap;
+import android.util.ArraySet;
+import android.util.Pair;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.android.packageinstaller.permission.model.AppPermissionUsage.Builder;
+import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
+import com.android.packageinstaller.permission.utils.Utils;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * Loads all permission usages for a set of apps and permission groups.
@@ -126,7 +142,27 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
 
     public static @Nullable AppPermissionUsage.GroupUsage loadLastGroupUsage(
             @NonNull Context context, @NonNull AppPermissionGroup group) {
-        return null;
+        if (!Utils.isPermissionsHubEnabled()) {
+            return null;
+        }
+        final ArraySet<String> opNames = new ArraySet<>();
+        final List<Permission> permissions = group.getPermissions();
+        final int permCount = permissions.size();
+        for (int i = 0; i < permCount; i++) {
+            final Permission permission = permissions.get(i);
+            final String opName = permission.getAppOp();
+            if (opName != null) {
+                opNames.add(opName);
+            }
+        }
+        final String[] opNamesArray = opNames.toArray(new String[opNames.size()]);
+        final List<PackageOps> usageOps = context.getSystemService(AppOpsManager.class)
+                        .getOpsForPackage(group.getApp().applicationInfo.uid,
+                                group.getApp().packageName, opNamesArray);
+        if (usageOps == null || usageOps.isEmpty()) {
+            return null;
+        }
+        return new AppPermissionUsage.GroupUsage(group, usageOps.get(0), null);
     }
 
     private static final class UsageLoader extends AsyncTaskLoader<List<AppPermissionUsage>> {
@@ -158,7 +194,151 @@ public final class PermissionUsages implements LoaderCallbacks<List<AppPermissio
 
         @Override
         public @NonNull List<AppPermissionUsage> loadInBackground() {
-            return Collections.emptyList();
+            final List<PermissionGroup> groups = PermissionGroups.getPermissionGroups(
+                    getContext(), this::isLoadInBackgroundCanceled, mGetUiInfo,
+                    mGetNonPlatformPermissions, mFilterPermissionGroups, mFilterPackageName);
+            if (!Utils.isPermissionsHubEnabled()) {
+                return Collections.emptyList();
+            }
+
+            if (groups.isEmpty()) {
+                return Collections.emptyList();
+            }
+
+            final List<AppPermissionUsage> usages = new ArrayList<>();
+            final ArraySet<String> opNames = new ArraySet<>();
+            final ArrayMap<Pair<Integer, String>, AppPermissionUsage.Builder> usageBuilders =
+                    new ArrayMap<>();
+
+            final int groupCount = groups.size();
+            for (int groupIdx = 0; groupIdx < groupCount; groupIdx++) {
+                final PermissionGroup group = groups.get(groupIdx);
+                // Filter out third party permissions
+                if (!group.getDeclaringPackage().equals(Utils.OS_PKG)) {
+                    continue;
+                }
+                if (!Utils.shouldShowPermissionUsage(group.getName())) {
+                    continue;
+                }
+
+                groups.add(group);
+
+                final List<PermissionApp> permissionApps = group.getPermissionApps().getApps();
+                final int appCount = permissionApps.size();
+                for (int appIdx = 0; appIdx < appCount; appIdx++) {
+                    final PermissionApp permissionApp = permissionApps.get(appIdx);
+                    if (mFilterUid != Process.INVALID_UID
+                            && permissionApp.getAppInfo().uid != mFilterUid) {
+                        continue;
+                    }
+
+                    final AppPermissionGroup appPermGroup = permissionApp.getPermissionGroup();
+                    if (!Utils.shouldShowPermission(getContext(), appPermGroup)) {
+                        continue;
+                    }
+                    final Pair<Integer, String> usageKey = Pair.create(permissionApp.getUid(),
+                            permissionApp.getPackageName());
+                    AppPermissionUsage.Builder usageBuilder = usageBuilders.get(usageKey);
+                    if (usageBuilder == null) {
+                        usageBuilder = new Builder(permissionApp);
+                        usageBuilders.put(usageKey, usageBuilder);
+                    }
+                    usageBuilder.addGroup(appPermGroup);
+                    final List<Permission> permissions = appPermGroup.getPermissions();
+                    final int permCount = permissions.size();
+                    for (int permIdx = 0; permIdx < permCount; permIdx++) {
+                        final Permission permission = permissions.get(permIdx);
+                        final String opName = permission.getAppOp();
+                        if (opName != null) {
+                            opNames.add(opName);
+                        }
+                    }
+                }
+            }
+
+            if (usageBuilders.isEmpty()) {
+                return Collections.emptyList();
+            }
+
+            final AppOpsManager appOpsManager = getContext().getSystemService(AppOpsManager.class);
+
+            // Get last usage data and put in a map for a quick lookup.
+            final ArrayMap<Pair<Integer, String>, PackageOps> lastUsages =
+                    new ArrayMap<>(usageBuilders.size());
+            final String[] opNamesArray = opNames.toArray(new String[opNames.size()]);
+            if ((mUsageFlags & USAGE_FLAG_LAST) != 0) {
+                final List<PackageOps> usageOps;
+                if (mFilterPackageName != null || mFilterUid != Process.INVALID_UID) {
+                    usageOps = appOpsManager.getOpsForPackage(mFilterUid, mFilterPackageName,
+                            opNamesArray);
+                } else {
+                    usageOps = appOpsManager.getPackagesForOps(opNamesArray);
+                }
+                if (usageOps != null && !usageOps.isEmpty()) {
+                    final int usageOpsCount = usageOps.size();
+                    for (int i = 0; i < usageOpsCount; i++) {
+                        final PackageOps usageOp = usageOps.get(i);
+                        lastUsages.put(Pair.create(usageOp.getUid(), usageOp.getPackageName()),
+                                usageOp);
+                    }
+                }
+            }
+
+            if (isLoadInBackgroundCanceled()) {
+                return Collections.emptyList();
+            }
+
+            // Get historical usage data and put in a map for a quick lookup
+            final ArrayMap<Pair<Integer, String>, HistoricalPackageOps> historicalUsages =
+                    new ArrayMap<>(usageBuilders.size());
+            if ((mUsageFlags & USAGE_FLAG_HISTORICAL) != 0) {
+                final AtomicReference<HistoricalOps> historicalOpsRef = new AtomicReference<>();
+                final CountDownLatch latch = new CountDownLatch(1);
+                final HistoricalOpsRequest request = new HistoricalOpsRequest.Builder(
+                        mFilterBeginTimeMillis, mFilterEndTimeMillis)
+                        .setUid(mFilterUid)
+                        .setPackageName(mFilterPackageName)
+                        .setOpNames(new ArrayList<>(opNames))
+                        .setFlags(AppOpsManager.OP_FLAGS_ALL_TRUSTED)
+                        .build();
+                appOpsManager.getHistoricalOps(request, Runnable::run,
+                        (HistoricalOps ops) -> {
+                            historicalOpsRef.set(ops);
+                            latch.countDown();
+                        });
+                try {
+                    latch.await(5, TimeUnit.DAYS);
+                } catch (InterruptedException ignored) {}
+
+                final HistoricalOps historicalOps = historicalOpsRef.get();
+                if (historicalOps != null) {
+                    final int uidCount = historicalOps.getUidCount();
+                    for (int i = 0; i < uidCount; i++) {
+                        final HistoricalUidOps uidOps = historicalOps.getUidOpsAt(i);
+                        final int packageCount = uidOps.getPackageCount();
+                        for (int j = 0; j < packageCount; j++) {
+                            final HistoricalPackageOps packageOps = uidOps.getPackageOpsAt(j);
+                            historicalUsages.put(
+                                    Pair.create(uidOps.getUid(), packageOps.getPackageName()),
+                                    packageOps);
+                        }
+                    }
+                }
+            }
+
+            // Construct the historical usages based on data we fetched
+            final int builderCount = usageBuilders.size();
+            for (int i = 0; i < builderCount; i++) {
+                final Pair<Integer, String> key = usageBuilders.keyAt(i);
+                final Builder usageBuilder = usageBuilders.valueAt(i);
+                final PackageOps lastUsage = lastUsages.get(key);
+                usageBuilder.setLastUsage(lastUsage);
+                final HistoricalPackageOps historicalUsage = historicalUsages.get(key);
+                usageBuilder.setHistoricalUsage(historicalUsage);
+                usages.add(usageBuilder.build());
+            }
+
+            return usages;
         }
     }
 }

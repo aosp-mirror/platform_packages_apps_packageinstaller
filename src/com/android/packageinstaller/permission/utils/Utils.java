@@ -84,6 +84,7 @@ import com.android.launcher3.icons.IconFactory;
 import com.android.packageinstaller.Constants;
 import com.android.packageinstaller.permission.data.PerUserUidToSensitivityLiveData;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
+import com.android.packageinstaller.permission.model.AppPermissionUsage;
 import com.android.permissioncontroller.R;
 
 import java.util.ArrayList;
@@ -100,6 +101,9 @@ public final class Utils {
     public static final String OS_PKG = "android";
 
     public static final float DEFAULT_MAX_LABEL_SIZE_PX = 500f;
+
+    /** Whether to show the Permissions Hub. */
+    private static final String PROPERTY_PERMISSIONS_HUB_ENABLED = "permissions_hub_enabled";
 
     /** Whether to show location access check notifications. */
     private static final String PROPERTY_LOCATION_ACCESS_CHECK_ENABLED =
@@ -566,6 +570,39 @@ public final class Utils {
     }
 
     /**
+     * Build a string representing the amount of time passed since the most recent permission usage.
+     *
+     * @return a string representing the amount of time since this app's most recent permission
+     * usage or null if there are no usages.
+     */
+    public static @Nullable String getRelativeLastUsageString(@NonNull Context context,
+            @Nullable AppPermissionUsage.GroupUsage groupUsage) {
+        if (groupUsage == null || groupUsage.getLastAccessTime() == 0) {
+            return null;
+        }
+        return getTimeDiffStr(context, System.currentTimeMillis()
+                - groupUsage.getLastAccessTime());
+    }
+
+    /**
+     * Build a string representing the time of the most recent permission usage if it happened on
+     * the current day and the date otherwise.
+     *
+     * @param context the context.
+     * @param groupUsage the permission usage.
+     *
+     * @return a string representing the time or date of the most recent usage or null if there are
+     * no usages.
+     */
+    public static @Nullable String getAbsoluteLastUsageString(@NonNull Context context,
+            @Nullable AppPermissionUsage.GroupUsage groupUsage) {
+        if (groupUsage == null) {
+            return null;
+        }
+        return getAbsoluteTimeString(context, groupUsage.getLastAccessTime());
+    }
+
+    /**
      * Build a string representing the given time if it happened on the current day and the date
      * otherwise.
      *
@@ -584,6 +621,20 @@ public final class Utils {
         } else {
             return DateFormat.getMediumDateFormat(context).format(lastAccessTime);
         }
+    }
+
+    /**
+     * Build a string representing the duration of a permission usage.
+     *
+     * @return a string representing the duration of this app's usage or null if there are no
+     * usages.
+     */
+    public static @Nullable String getUsageDurationString(@NonNull Context context,
+            @Nullable AppPermissionUsage.GroupUsage groupUsage) {
+        if (groupUsage == null) {
+            return null;
+        }
+        return getTimeDiffStr(context, groupUsage.getAccessDuration());
     }
 
     /**
@@ -724,6 +775,27 @@ public final class Utils {
     public static boolean isLocationAccessCheckEnabled() {
         return DeviceConfig.getBoolean(DeviceConfig.NAMESPACE_PRIVACY,
                 PROPERTY_LOCATION_ACCESS_CHECK_ENABLED, true);
+    }
+
+    /**
+     * Whether the Permissions Hub is enabled.
+     *
+     * @return whether the Permissions Hub is enabled.
+     */
+    public static boolean isPermissionsHubEnabled() {
+        return DeviceConfig.getBoolean(DeviceConfig.NAMESPACE_PRIVACY,
+                PROPERTY_PERMISSIONS_HUB_ENABLED, false);
+    }
+
+    /**
+     * Whether we should show permission usages for the specified permission group.
+     *
+     * @param permissionGroup The name of the permission group.
+     *
+     * @return whether or not to show permission usages for the given permission group.
+     */
+    public static boolean shouldShowPermissionUsage(@NonNull String permissionGroup) {
+        return !permissionGroup.equals(STORAGE);
     }
 
     /**
