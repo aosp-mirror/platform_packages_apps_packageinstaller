@@ -1,0 +1,28 @@
+android_test {
+
+    name: "PermissionControllerUnitTests",
+
+    srcs: ["src/**/*.java"],
+
+    libs: [
+        "android.test.base",
+        "android.test.mock",
+        "android.test.runner",
+    ],
+
+    static_libs: [
+        "androidx.test.rules",
+        "androidx.test.espresso.core",
+        "androidx.test.ext.truth",
+        "mockito-target-minus-junit4",
+        "ub-uiautomator",
+    ],
+
+    certificate: "platform",
+
+    instrumentation_for: "PermissionController",
+
+    platform_apis: true,
+
+    test_suites: ["device-tests"]
+}
