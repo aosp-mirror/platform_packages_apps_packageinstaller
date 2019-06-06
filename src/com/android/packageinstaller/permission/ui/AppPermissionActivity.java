@@ -18,6 +18,8 @@ package com.android.packageinstaller.permission.ui;
 
 import static android.view.WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS;
 
+import static com.android.packageinstaller.Constants.INVALID_SESSION_ID;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -27,6 +29,7 @@ import android.view.MenuItem;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
+import com.android.packageinstaller.Constants;
 import com.android.packageinstaller.DeviceUtils;
 import com.android.packageinstaller.permission.ui.auto.AutoAppPermissionFragment;
 import com.android.packageinstaller.permission.ui.handheld.AppPermissionFragment;
@@ -100,8 +103,10 @@ public final class AppPermissionActivity extends FragmentActivity {
             androidXFragment = AutoAppPermissionFragment.newInstance(packageName, permissionName,
                     groupName, userHandle);
         } else {
+            long sessionId = getIntent().getLongExtra(Constants.EXTRA_SESSION_ID,
+                    INVALID_SESSION_ID);
             androidXFragment = AppPermissionFragment.newInstance(packageName, permissionName,
-                    groupName, userHandle, caller);
+                    groupName, userHandle, caller, sessionId);
         }
 
         getSupportFragmentManager().beginTransaction().replace(android.R.id.content,

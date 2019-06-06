@@ -15,6 +15,8 @@
  */
 package com.android.packageinstaller.permission.ui.handheld;
 
+import static com.android.packageinstaller.Constants.EXTRA_SESSION_ID;
+
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -38,10 +40,13 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
     /**
      * @return A new fragment
      */
-    public static ManageStandardPermissionsFragment newInstance() {
-        return new ManageStandardPermissionsFragment();
+    public static ManageStandardPermissionsFragment newInstance(long sessionId) {
+        ManageStandardPermissionsFragment fragment = new ManageStandardPermissionsFragment();
+        Bundle arguments = new Bundle();
+        arguments.putLong(EXTRA_SESSION_ID, sessionId);
+        fragment.setArguments(arguments);
+        return fragment;
     }
-
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -95,8 +100,9 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
                         android.R.attr.colorControlNormal));
                 additionalPermissionsPreference.setTitle(R.string.additional_permissions);
                 additionalPermissionsPreference.setOnPreferenceClickListener(preference -> {
+                    long sessionId = getArguments().getLong(EXTRA_SESSION_ID);
                     ManageCustomPermissionsFragment frag =
-                            new ManageCustomPermissionsFragment();
+                            ManageCustomPermissionsFragment.newInstance(sessionId);
                     frag.setTargetFragment(ManageStandardPermissionsFragment.this, 0);
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
                     ft.replace(android.R.id.content, frag);
