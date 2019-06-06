@@ -18,6 +18,8 @@ package com.android.packageinstaller.permission.ui;
 
 import static android.view.WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS;
 
+import static com.android.packageinstaller.Constants.INVALID_SESSION_ID;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -27,6 +29,7 @@ import android.view.MenuItem;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
+import com.android.packageinstaller.Constants;
 import com.android.packageinstaller.DeviceUtils;
 import com.android.packageinstaller.permission.ui.auto.AutoAllAppPermissionsFragment;
 import com.android.packageinstaller.permission.ui.auto.AutoAppPermissionsFragment;
@@ -35,6 +38,8 @@ import com.android.packageinstaller.permission.ui.auto.AutoPermissionAppsFragmen
 import com.android.packageinstaller.permission.ui.handheld.ManageStandardPermissionsFragment;
 import com.android.packageinstaller.permission.ui.wear.AppPermissionsFragmentWear;
 import com.android.permissioncontroller.R;
+
+import java.util.Random;
 
 public final class ManagePermissionsActivity extends FragmentActivity {
     private static final String LOG_TAG = ManagePermissionsActivity.class.getSimpleName();
@@ -62,6 +67,11 @@ public final class ManagePermissionsActivity extends FragmentActivity {
 
         getWindow().addSystemFlags(SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
 
+        long sessionId = getIntent().getLongExtra(Constants.EXTRA_SESSION_ID, INVALID_SESSION_ID);
+        while (sessionId == INVALID_SESSION_ID) {
+            sessionId = new Random().nextLong();
+        }
+
         String permissionName;
         switch (action) {
             case Intent.ACTION_MANAGE_PERMISSIONS:
@@ -72,7 +82,7 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                             com.android.packageinstaller.permission.ui.television
                                     .ManagePermissionsFragment.newInstance();
                 } else {
-                    androidXFragment = ManageStandardPermissionsFragment.newInstance();
+                    androidXFragment = ManageStandardPermissionsFragment.newInstance(sessionId);
                 }
                 break;
 
@@ -115,7 +125,8 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                                 .AllAppPermissionsFragment.newInstance(packageName, userHandle);
                     } else {
                         androidXFragment = com.android.packageinstaller.permission.ui.handheld
-                                .AppPermissionsFragment.newInstance(packageName, userHandle);
+                                .AppPermissionsFragment.newInstance(
+                                        packageName, userHandle, sessionId);
                     }
                 }
             } break;
@@ -135,7 +146,7 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                             .PermissionAppsFragment.newInstance(permissionName);
                 } else {
                     androidXFragment = com.android.packageinstaller.permission.ui.handheld
-                            .PermissionAppsFragment.newInstance(permissionName);
+                            .PermissionAppsFragment.newInstance(permissionName, sessionId);
                 }
             } break;
 
