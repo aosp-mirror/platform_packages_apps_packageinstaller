@@ -15,6 +15,9 @@
  */
 package com.android.packageinstaller.permission.ui.handheld;
 
+import static com.android.packageinstaller.Constants.EXTRA_SESSION_ID;
+import static com.android.packageinstaller.Constants.INVALID_SESSION_ID;
+
 import android.app.ActionBar;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -75,7 +78,9 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
         }
 
         Intent intent = new Intent(Intent.ACTION_MANAGE_PERMISSION_APPS)
-                .putExtra(Intent.EXTRA_PERMISSION_NAME, key);
+                .putExtra(Intent.EXTRA_PERMISSION_NAME, key)
+                .putExtra(EXTRA_SESSION_ID,
+                        getArguments().getLong(EXTRA_SESSION_ID, INVALID_SESSION_ID));
         try {
             getActivity().startActivity(intent);
         } catch (ActivityNotFoundException e) {
