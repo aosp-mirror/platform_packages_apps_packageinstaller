@@ -16,6 +16,8 @@
 
 package com.android.packageinstaller.permission.ui.handheld;
 
+import static com.android.packageinstaller.Constants.EXTRA_SESSION_ID;
+
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -50,6 +52,11 @@ public class PermissionControlPreference extends Preference {
 
     public PermissionControlPreference(@NonNull Context context,
             @NonNull AppPermissionGroup group, @NonNull String caller) {
+        this(context, group, caller, 0);
+    }
+
+    public PermissionControlPreference(@NonNull Context context,
+            @NonNull AppPermissionGroup group, @NonNull String caller, long sessionId) {
         super(context);
         mContext = context;
         mWidgetIcon = null;
@@ -63,6 +70,7 @@ public class PermissionControlPreference extends Preference {
             intent.putExtra(Intent.EXTRA_PERMISSION_NAME, group.getPermissions().get(0).getName());
             intent.putExtra(Intent.EXTRA_USER, group.getUser());
             intent.putExtra(AppPermissionActivity.EXTRA_CALLER_NAME, caller);
+            intent.putExtra(EXTRA_SESSION_ID, sessionId);
             context.startActivity(intent);
             return true;
         });
