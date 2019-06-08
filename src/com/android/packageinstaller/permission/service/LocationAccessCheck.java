@@ -39,6 +39,8 @@ import static android.os.UserHandle.myUserId;
 import static android.provider.Settings.Secure.LOCATION_ACCESS_CHECK_DELAY_MILLIS;
 import static android.provider.Settings.Secure.LOCATION_ACCESS_CHECK_INTERVAL_MILLIS;
 
+import static com.android.packageinstaller.Constants.EXTRA_SESSION_ID;
+import static com.android.packageinstaller.Constants.INVALID_SESSION_ID;
 import static com.android.packageinstaller.Constants.KEY_LAST_LOCATION_ACCESS_NOTIFICATION_SHOWN;
 import static com.android.packageinstaller.Constants.LOCATION_ACCESS_CHECK_ALREADY_NOTIFIED_FILE;
 import static com.android.packageinstaller.Constants.LOCATION_ACCESS_CHECK_JOB_ID;
@@ -516,9 +518,16 @@ public class LocationAccessCheck {
         deleteIntent.putExtra(EXTRA_USER, user);
         deleteIntent.setFlags(FLAG_RECEIVER_FOREGROUND);
 
+        long sessionId = INVALID_SESSION_ID;
+
+        while (sessionId == INVALID_SESSION_ID) {
+            sessionId = new Random().nextLong();
+        }
+
         Intent clickIntent = new Intent(mContext, NotificationClickHandler.class);
         clickIntent.putExtra(EXTRA_PACKAGE_NAME, pkgName);
         clickIntent.putExtra(EXTRA_USER, user);
+        clickIntent.putExtra(EXTRA_SESSION_ID, sessionId);
         clickIntent.setFlags(FLAG_RECEIVER_FOREGROUND);
 
         CharSequence appName = getNotificationAppName();
@@ -813,6 +822,7 @@ public class LocationAccessCheck {
         public void onReceive(Context context, Intent intent) {
             String pkg = getStringExtraSafe(intent, EXTRA_PACKAGE_NAME);
             UserHandle user = getParcelableExtraSafe(intent, EXTRA_USER);
+            long sessionId = intent.getLongExtra(EXTRA_SESSION_ID, INVALID_SESSION_ID);
 
             new LocationAccessCheck(context, null).markAsNotified(pkg, user);
 
@@ -821,6 +831,8 @@ public class LocationAccessCheck {
             manageAppPermission.putExtra(EXTRA_PERMISSION_NAME, ACCESS_FINE_LOCATION);
             manageAppPermission.putExtra(EXTRA_PACKAGE_NAME, pkg);
             manageAppPermission.putExtra(EXTRA_USER, user);
+            manageAppPermission.putExtra(EXTRA_SESSION_ID, sessionId);
+
 
             context.startActivity(manageAppPermission);
         }
