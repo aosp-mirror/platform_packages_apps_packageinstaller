@@ -15,6 +15,9 @@
  */
 package com.android.packageinstaller.permission.ui.handheld;
 
+import static com.android.packageinstaller.Constants.EXTRA_SESSION_ID;
+import static com.android.packageinstaller.Constants.INVALID_SESSION_ID;
+
 import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
@@ -60,13 +63,19 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
     private static final String SHOW_SYSTEM_KEY = PermissionAppsFragment.class.getName()
             + KEY_SHOW_SYSTEM_PREFS;
 
-    public static PermissionAppsFragment newInstance(String permissionName) {
-        return setPermissionName(new PermissionAppsFragment(), permissionName);
+    /**
+     * @return A new fragment
+     */
+    public static PermissionAppsFragment newInstance(String permissionName, long sessionId) {
+        return setPermissionNameAndSessionId(
+                new PermissionAppsFragment(), permissionName, sessionId);
     }
 
-    private static <T extends Fragment> T setPermissionName(T fragment, String permissionName) {
+    private static <T extends Fragment> T setPermissionNameAndSessionId(
+            T fragment, String permissionName, long sessionId) {
         Bundle arguments = new Bundle();
         arguments.putString(Intent.EXTRA_PERMISSION_NAME, permissionName);
+        arguments.putLong(EXTRA_SESSION_ID, sessionId);
         fragment.setArguments(arguments);
         return fragment;
     }
@@ -245,6 +254,8 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
             return result;
         });
 
+        long sessionId = getArguments().getLong(EXTRA_SESSION_ID, INVALID_SESSION_ID);
+
         for (int i = 0; i < sortedApps.size(); i++) {
             PermissionApp app = sortedApps.get(i);
             AppPermissionGroup group = app.getPermissionGroup();
@@ -302,7 +313,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
             }
 
             PermissionControlPreference pref = new PermissionControlPreference(context, group,
-                    PermissionAppsFragment.class.getName());
+                    PermissionAppsFragment.class.getName(), sessionId);
             pref.setKey(key);
             pref.setIcon(app.getIcon());
             pref.setTitle(Utils.getFullAppLabel(app.getAppInfo(), context));
@@ -338,7 +349,8 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
                 pref.setTitle(R.string.preference_show_system_apps);
                 pref.setOnPreferenceClickListener(preference -> {
                     SystemAppsFragment frag = new SystemAppsFragment();
-                    setPermissionName(frag, getArguments().getString(Intent.EXTRA_PERMISSION_NAME));
+                    setPermissionNameAndSessionId(frag,
+                            getArguments().getString(Intent.EXTRA_PERMISSION_NAME), sessionId);
                     frag.setTargetFragment(PermissionAppsFragment.this, 0);
                     getFragmentManager().beginTransaction()
                         .replace(android.R.id.content, frag)

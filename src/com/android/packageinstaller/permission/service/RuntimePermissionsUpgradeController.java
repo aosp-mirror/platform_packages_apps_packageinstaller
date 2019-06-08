@@ -38,7 +38,7 @@ class RuntimePermissionsUpgradeController {
     private static final String LOG_TAG = RuntimePermissionsUpgradeController.class.getSimpleName();
 
     // The latest version of the runtime permissions database
-    private static final int LATEST_VERSION = 5;
+    private static final int LATEST_VERSION = 7;
 
     private RuntimePermissionsUpgradeController() {
         /* do nothing - hide constructor */
@@ -121,27 +121,7 @@ class RuntimePermissionsUpgradeController {
         }
 
         if (currentVersion == 2) {
-            Log.i(LOG_TAG, "Grandfathering Storage permissions");
-
-            final List<String> storagePermissions = Utils.getPlatformPermissionNamesOfGroup(
-                    Manifest.permission_group.STORAGE);
-
-            for (int i = 0; i < appCount; i++) {
-                final PackageInfo app = apps.get(i);
-                if (app.requestedPermissions == null) {
-                    continue;
-                }
-
-                // We don't want to allow modification of storage post install, so put it
-                // on the internal system whitelist to prevent the installer changing it.
-                for (String requestedPermission : app.requestedPermissions) {
-                    if (storagePermissions.contains(requestedPermission)) {
-                        context.getPackageManager().addWhitelistedRestrictedPermission(
-                                app.packageName, requestedPermission,
-                                PackageManager.FLAG_PERMISSION_WHITELIST_UPGRADE);
-                    }
-                }
-            }
+            // moved to step 5->6 to clean up broken permission state during dogfooding
             currentVersion = 3;
         }
 
@@ -168,6 +148,36 @@ class RuntimePermissionsUpgradeController {
         }
 
         if (currentVersion == 4) {
+            // moved to step 5->6 to clean up broken permission state during beta 4->5 upgrade
+            currentVersion = 5;
+        }
+
+        if (currentVersion == 5) {
+            Log.i(LOG_TAG, "Grandfathering Storage permissions");
+
+            final List<String> storagePermissions = Utils.getPlatformPermissionNamesOfGroup(
+                    Manifest.permission_group.STORAGE);
+
+            for (int i = 0; i < appCount; i++) {
+                final PackageInfo app = apps.get(i);
+                if (app.requestedPermissions == null) {
+                    continue;
+                }
+
+                // We don't want to allow modification of storage post install, so put it
+                // on the internal system whitelist to prevent the installer changing it.
+                for (String requestedPermission : app.requestedPermissions) {
+                    if (storagePermissions.contains(requestedPermission)) {
+                        context.getPackageManager().addWhitelistedRestrictedPermission(
+                                app.packageName, requestedPermission,
+                                PackageManager.FLAG_PERMISSION_WHITELIST_UPGRADE);
+                    }
+                }
+            }
+            currentVersion = 6;
+        }
+
+        if (currentVersion == 6) {
             if (sdkUpgradedFromP) {
                 Log.i(LOG_TAG, "Expanding location permissions");
 
@@ -203,7 +213,7 @@ class RuntimePermissionsUpgradeController {
                         + "from Android P");
             }
 
-            currentVersion = 5;
+            currentVersion = 7;
         }
 
         // XXX: Add new upgrade steps above this point.
