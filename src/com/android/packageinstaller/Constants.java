@@ -136,4 +136,15 @@ public class Constants {
      * set for the names of the roles that an application is always denied for.
      */
     public static final String REQUEST_ROLE_USER_DENIED_ALWAYS_KEY_PREFIX = "denied_always:";
+
+    /**
+     * Intent extra used to pass current sessionId between Permission Controller fragments.
+     */
+    public static final String EXTRA_SESSION_ID =
+            "com.android.packageinstaller.extra.SESSION_ID";
+
+    /**
+     * Invalid session id.
+     */
+    public static final long INVALID_SESSION_ID = 0;
 }
