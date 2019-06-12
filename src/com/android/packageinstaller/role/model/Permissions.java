@@ -168,15 +168,15 @@ public class Permissions {
         for (int i = 0; i < sortedPermissionsToGrantLength; i++) {
             String permission = sortedPermissionsToGrant[i];
 
-            permissionOrAppOpChanged |= grantSingle(packageName, permission,
-                    overrideUserSetAndFixed, setGrantedByRole, setGrantedByDefault, setSystemFixed,
-                    context);
-
             if ((smsPermissions.contains(permission) || callLogPermissions.contains(permission))
                     && whitelistedRestrictedPermissions.add(permission)) {
                 packageManager.addWhitelistedRestrictedPermission(packageName, permission,
                         PackageManager.FLAG_PERMISSION_WHITELIST_SYSTEM);
             }
+
+            permissionOrAppOpChanged |= grantSingle(packageName, permission,
+                    overrideUserSetAndFixed, setGrantedByRole, setGrantedByDefault, setSystemFixed,
+                    context);
         }
 
         return permissionOrAppOpChanged;
