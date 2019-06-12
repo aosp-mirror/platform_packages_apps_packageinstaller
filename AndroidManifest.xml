@@ -4,7 +4,7 @@
   xmlns:tools="http://schemas.android.com/tools"
   package="com.android.permissioncontroller"
   coreApp="true"
-  android:versionCode="220000000"
+  android:versionCode="290000000"
   android:versionName="29 system image"
 >
 
@@ -42,7 +42,7 @@
     <!-- This permission will be removed in R. -->
     <uses-permission android:name="android.permission.START_ACTIVITIES_FROM_BACKGROUND" />
 
-    <uses-sdk android:minSdkVersion="28" android:targetSdkVersion="28" />
+    <uses-sdk android:minSdkVersion="29" android:targetSdkVersion="29" />
 
     <application android:name="com.android.packageinstaller.PackageInstallerApplication"
             android:label="@string/app_name"
