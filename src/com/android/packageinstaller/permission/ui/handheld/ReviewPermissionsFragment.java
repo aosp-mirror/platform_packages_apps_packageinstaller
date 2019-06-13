@@ -16,10 +16,13 @@
 
 package com.android.packageinstaller.permission.ui.handheld;
 
+import static android.content.pm.PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.RemoteCallback;
@@ -99,11 +102,6 @@ public final class ReviewPermissionsFragment extends PreferenceFragmentCompat
         mAppPermissions = new AppPermissions(activity, packageInfo, false, true,
                 () -> getActivity().finish());
 
-        if (mAppPermissions.getPermissionGroups().isEmpty()) {
-            activity.finish();
-            return;
-        }
-
         boolean reviewRequired = false;
         for (AppPermissionGroup group : mAppPermissions.getPermissionGroups()) {
             if (group.isReviewRequired() || (group.getBackgroundPermissions() != null
@@ -114,6 +112,9 @@ public final class ReviewPermissionsFragment extends PreferenceFragmentCompat
         }
 
         if (!reviewRequired) {
+            // If the system called for a review but no groups are found, this means that all groups
+            // are restricted. Hence there is nothing to review and instantly continue.
+            confirmPermissionsReview();
             activity.finish();
         }
     }
@@ -200,7 +201,6 @@ public final class ReviewPermissionsFragment extends PreferenceFragmentCompat
                     if (group.isReviewRequired() && !permPreference.wasChanged()) {
                         grantReviewedPermission(group);
                     }
-                    group.unsetReviewRequired();
 
                     AppPermissionGroup backgroundGroup = group.getBackgroundPermissions();
                     if (backgroundGroup != null) {
@@ -208,13 +208,23 @@ public final class ReviewPermissionsFragment extends PreferenceFragmentCompat
                         if (backgroundGroup.isReviewRequired() && !permPreference.wasChanged()) {
                             grantReviewedPermission(backgroundGroup);
                         }
-                        backgroundGroup.unsetReviewRequired();
                     }
                 }
             }
         }
 
         mAppPermissions.persistChanges(true);
+
+        // Some permission might be restricted and hence there is no AppPermissionGroup for it.
+        // Manually unset all review-required flags, regardless of restriction.
+        PackageManager pm = getContext().getPackageManager();
+        PackageInfo pkg = mAppPermissions.getPackageInfo();
+        UserHandle user = UserHandle.getUserHandleForUid(pkg.applicationInfo.uid);
+
+        for (String perm : pkg.requestedPermissions) {
+            pm.updatePermissionFlags(perm, pkg.packageName, FLAG_PERMISSION_REVIEW_REQUIRED,
+                    0, user);
+        }
     }
 
     private void bindUi() {
