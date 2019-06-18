@@ -116,10 +116,15 @@ public class SpecialAppAccessChildFragment<PF extends PreferenceFragmentCompat
             preferenceFragment.setPreferenceScreen(preferenceScreen);
         } else {
             oldDescriptionPreference = preferenceScreen.findPreference(PREFERENCE_KEY_DESCRIPTION);
+            if (oldDescriptionPreference != null) {
+                preferenceScreen.removePreference(oldDescriptionPreference);
+                oldDescriptionPreference.setOrder(Preference.DEFAULT_ORDER);
+            }
             for (int i = preferenceScreen.getPreferenceCount() - 1; i >= 0; --i) {
                 Preference preference = preferenceScreen.getPreference(i);
 
                 preferenceScreen.removePreference(preference);
+                preference.setOrder(Preference.DEFAULT_ORDER);
                 oldPreferences.put(preference.getKey(), preference);
             }
         }
