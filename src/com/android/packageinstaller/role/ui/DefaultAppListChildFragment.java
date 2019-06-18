@@ -117,6 +117,7 @@ public class DefaultAppListChildFragment<PF extends PreferenceFragmentCompat
             if (oldWorkPreferenceCategory != null) {
                 clearPreferences(oldWorkPreferenceCategory, oldWorkPreferences);
                 preferenceScreen.removePreference(oldWorkPreferenceCategory);
+                oldWorkPreferenceCategory.setOrder(Preference.DEFAULT_ORDER);
             }
             clearPreferences(preferenceScreen, oldPreferences);
         }
@@ -143,9 +144,11 @@ public class DefaultAppListChildFragment<PF extends PreferenceFragmentCompat
     private static void clearPreferences(@NonNull PreferenceGroup preferenceGroup,
             @NonNull ArrayMap<String, Preference> oldPreferences) {
         for (int i = preferenceGroup.getPreferenceCount() - 1; i >= 0; --i) {
-            Preference Preference = preferenceGroup.getPreference(i);
+            Preference preference = preferenceGroup.getPreference(i);
 
-            oldPreferences.put(Preference.getKey(), Preference);
+            preferenceGroup.removePreference(preference);
+            preference.setOrder(Preference.DEFAULT_ORDER);
+            oldPreferences.put(preference.getKey(), preference);
         }
     }
 
