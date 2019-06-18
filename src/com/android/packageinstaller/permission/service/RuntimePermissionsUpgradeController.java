@@ -16,6 +16,8 @@
 
 package com.android.packageinstaller.permission.service;
 
+import static com.android.packageinstaller.PermissionControllerStatsLog.RUNTIME_PERMISSIONS_UPGRADE_RESULT;
+
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -26,9 +28,12 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.android.packageinstaller.PermissionControllerStatsLog;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
+import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.utils.Utils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -209,6 +214,9 @@ class RuntimePermissionsUpgradeController {
                                 && !bgGroup.isSystemFixed()
                                 && !bgGroup.isPolicyFixed()) {
                             bgGroup.grantRuntimePermissions(group.isUserFixed());
+
+                            logRuntimePermissionUpgradeResult(bgGroup,
+                                    app.applicationInfo.uid, app.packageName);
                         }
 
                         break;
@@ -225,5 +233,18 @@ class RuntimePermissionsUpgradeController {
         // XXX: Add new upgrade steps above this point.
 
         return currentVersion;
+    }
+
+    private static void logRuntimePermissionUpgradeResult(AppPermissionGroup permissionGroup,
+            int uid, String packageName) {
+        ArrayList<Permission> permissions = permissionGroup.getPermissions();
+        int numPermissions = permissions.size();
+        for (int i = 0; i < numPermissions; i++) {
+            Permission permission = permissions.get(i);
+            PermissionControllerStatsLog.write(RUNTIME_PERMISSIONS_UPGRADE_RESULT,
+                    permission.getName(), uid, packageName);
+            Log.v(LOG_TAG, "Runtime permission upgrade logged for permissionName="
+                    + permission.getName() + " uid=" + uid + " packageName=" + packageName);
+        }
     }
 }
