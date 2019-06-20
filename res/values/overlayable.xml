@@ -16,9 +16,15 @@
 
 <resources>
 
+    <!-- TODO(evanseverson) rename this overlayable -->
     <overlayable name="PermissionControllerStyles">
 
         <policy type="product|system|vendor">
+
+            <!-- START HELP LINKS -->
+            <item type="string" name="help_app_permissions" />
+            <item type="string" name="help_permission_usage" />
+            <!-- END HELP LINKS -->
 
             <!-- START PERMISSION GRANT DIALOG -->
             <item type="style" name="PermissionGrantScrollView" />
