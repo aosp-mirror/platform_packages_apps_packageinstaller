@@ -48,6 +48,10 @@ import static com.android.packageinstaller.Constants.LOCATION_ACCESS_CHECK_NOTIF
 import static com.android.packageinstaller.Constants.PERIODIC_LOCATION_ACCESS_CHECK_JOB_ID;
 import static com.android.packageinstaller.Constants.PERMISSION_REMINDER_CHANNEL_ID;
 import static com.android.packageinstaller.Constants.PREFERENCES_FILE;
+import static com.android.packageinstaller.PermissionControllerStatsLog.LOCATION_ACCESS_CHECK_NOTIFICATION_ACTION;
+import static com.android.packageinstaller.PermissionControllerStatsLog.LOCATION_ACCESS_CHECK_NOTIFICATION_ACTION__RESULT__NOTIFICATION_CLICKED;
+import static com.android.packageinstaller.PermissionControllerStatsLog.LOCATION_ACCESS_CHECK_NOTIFICATION_ACTION__RESULT__NOTIFICATION_DECLINED;
+import static com.android.packageinstaller.PermissionControllerStatsLog.LOCATION_ACCESS_CHECK_NOTIFICATION_ACTION__RESULT__NOTIFICATION_PRESENTED;
 import static com.android.packageinstaller.permission.utils.Utils.OS_PKG;
 import static com.android.packageinstaller.permission.utils.Utils.getParcelableExtraSafe;
 import static com.android.packageinstaller.permission.utils.Utils.getParentUserContext;
@@ -96,6 +100,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 import androidx.core.util.Preconditions;
 
+import com.android.packageinstaller.PermissionControllerStatsLog;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.ui.AppPermissionActivity;
 import com.android.permissioncontroller.R;
@@ -513,21 +518,23 @@ public class LocationAccessCheck {
         NotificationManager notificationManager = getSystemServiceSafe(mContext,
                 NotificationManager.class, user);
 
-        Intent deleteIntent = new Intent(mContext, NotificationDeleteHandler.class);
-        deleteIntent.putExtra(EXTRA_PACKAGE_NAME, pkgName);
-        deleteIntent.putExtra(EXTRA_USER, user);
-        deleteIntent.setFlags(FLAG_RECEIVER_FOREGROUND);
-
         long sessionId = INVALID_SESSION_ID;
-
         while (sessionId == INVALID_SESSION_ID) {
             sessionId = new Random().nextLong();
         }
 
+        Intent deleteIntent = new Intent(mContext, NotificationDeleteHandler.class);
+        deleteIntent.putExtra(EXTRA_PACKAGE_NAME, pkgName);
+        deleteIntent.putExtra(EXTRA_SESSION_ID, sessionId);
+        deleteIntent.putExtra(EXTRA_UID, pkg.applicationInfo.uid);
+        deleteIntent.putExtra(EXTRA_USER, user);
+        deleteIntent.setFlags(FLAG_RECEIVER_FOREGROUND);
+
         Intent clickIntent = new Intent(mContext, NotificationClickHandler.class);
         clickIntent.putExtra(EXTRA_PACKAGE_NAME, pkgName);
-        clickIntent.putExtra(EXTRA_USER, user);
         clickIntent.putExtra(EXTRA_SESSION_ID, sessionId);
+        clickIntent.putExtra(EXTRA_UID, pkg.applicationInfo.uid);
+        clickIntent.putExtra(EXTRA_USER, user);
         clickIntent.setFlags(FLAG_RECEIVER_FOREGROUND);
 
         CharSequence appName = getNotificationAppName();
@@ -558,6 +565,12 @@ public class LocationAccessCheck {
         notificationManager.notify(pkgName, LOCATION_ACCESS_CHECK_NOTIFICATION_ID, b.build());
 
         if (DEBUG) Log.i(LOG_TAG, "Notified " + pkgName);
+
+        PermissionControllerStatsLog.write(LOCATION_ACCESS_CHECK_NOTIFICATION_ACTION, sessionId,
+                pkg.applicationInfo.uid, pkgName,
+                LOCATION_ACCESS_CHECK_NOTIFICATION_ACTION__RESULT__NOTIFICATION_PRESENTED);
+        Log.v(LOG_TAG, "Location access check notification shown with sessionId=" + sessionId + ""
+                + " uid=" + pkg.applicationInfo.uid + " pkgName=" + pkgName);
 
         mSharedPrefs.edit().putLong(KEY_LAST_LOCATION_ACCESS_NOTIFICATION_SHOWN,
                 currentTimeMillis()).apply();
@@ -809,6 +822,15 @@ public class LocationAccessCheck {
         public void onReceive(Context context, Intent intent) {
             String pkg = getStringExtraSafe(intent, EXTRA_PACKAGE_NAME);
             UserHandle user = getParcelableExtraSafe(intent, EXTRA_USER);
+            long sessionId = intent.getLongExtra(EXTRA_SESSION_ID, INVALID_SESSION_ID);
+            int uid = intent.getIntExtra(EXTRA_UID, 0);
+
+            PermissionControllerStatsLog.write(LOCATION_ACCESS_CHECK_NOTIFICATION_ACTION, sessionId,
+                    uid, pkg,
+                    LOCATION_ACCESS_CHECK_NOTIFICATION_ACTION__RESULT__NOTIFICATION_DECLINED);
+            Log.v(LOG_TAG,
+                    "Location access check notification declined with sessionId=" + sessionId + ""
+                            + " uid=" + uid + " pkgName=" + pkg);
 
             new LocationAccessCheck(context, null).markAsNotified(pkg, user);
         }
@@ -822,9 +844,17 @@ public class LocationAccessCheck {
         public void onReceive(Context context, Intent intent) {
             String pkg = getStringExtraSafe(intent, EXTRA_PACKAGE_NAME);
             UserHandle user = getParcelableExtraSafe(intent, EXTRA_USER);
+            int uid = intent.getIntExtra(EXTRA_UID, 0);
             long sessionId = intent.getLongExtra(EXTRA_SESSION_ID, INVALID_SESSION_ID);
 
             new LocationAccessCheck(context, null).markAsNotified(pkg, user);
+
+            PermissionControllerStatsLog.write(LOCATION_ACCESS_CHECK_NOTIFICATION_ACTION, sessionId,
+                    uid, pkg,
+                    LOCATION_ACCESS_CHECK_NOTIFICATION_ACTION__RESULT__NOTIFICATION_CLICKED);
+            Log.v(LOG_TAG,
+                    "Location access check notification clicked with sessionId=" + sessionId + ""
+                            + " uid=" + uid + " pkgName=" + pkg);
 
             Intent manageAppPermission = new Intent(context, AppPermissionActivity.class);
             manageAppPermission.addFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_MULTIPLE_TASK);
