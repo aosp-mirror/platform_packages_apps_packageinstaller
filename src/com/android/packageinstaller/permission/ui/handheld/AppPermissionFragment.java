@@ -18,6 +18,7 @@ package com.android.packageinstaller.permission.ui.handheld;
 
 import static com.android.packageinstaller.Constants.EXTRA_SESSION_ID;
 import static com.android.packageinstaller.Constants.INVALID_SESSION_ID;
+import static com.android.packageinstaller.PermissionControllerStatsLog.APP_PERMISSION_FRAGMENT_ACTION_REPORTED;
 import static com.android.packageinstaller.PermissionControllerStatsLog.APP_PERMISSION_FRAGMENT_VIEWED;
 
 import static java.lang.annotation.RetentionPolicy.SOURCE;
@@ -71,7 +72,9 @@ import com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 import com.android.settingslib.widget.ActionBarShadowController;
 
 import java.lang.annotation.Retention;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Show and manage a single permission group for an app.
@@ -421,6 +424,73 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private ArrayList<PermissionState> createPermissionSnapshot() {
+        ArrayList<PermissionState> permissionSnapshot = new ArrayList<>();
+        ArrayList<Permission> permissions = mGroup.getPermissions();
+        int numPermissions = permissions.size();
+
+        for (int i = 0; i < numPermissions; i++) {
+            Permission permission = permissions.get(i);
+            permissionSnapshot.add(new PermissionState(permission.getName(),
+                    permission.isGrantedIncludingAppOp()));
+        }
+
+        AppPermissionGroup permissionGroup = mGroup.getBackgroundPermissions();
+
+        if (permissionGroup == null) {
+            return permissionSnapshot;
+        }
+
+        permissions = mGroup.getPermissions();
+        numPermissions = permissions.size();
+
+        for (int i = 0; i < numPermissions; i++) {
+            Permission permission = permissions.get(i);
+            permissionSnapshot.add(new PermissionState(permission.getName(),
+                    permission.isGrantedIncludingAppOp()));
+        }
+
+        return permissionSnapshot;
+    }
+
+    private void logPermissionChanges(ArrayList<PermissionState> previousPermissionSnapshot) {
+        long changeId = new Random().nextLong();
+        int numPermissions = previousPermissionSnapshot.size();
+        long sessionId = getArguments().getLong(EXTRA_SESSION_ID, INVALID_SESSION_ID);
+
+        for (int i = 0; i < numPermissions; i++) {
+            PermissionState permissionState = previousPermissionSnapshot.get(i);
+            boolean wasGranted = permissionState.permissionGranted;
+            Permission permission = mGroup.getPermission(permissionState.permissionName);
+
+            if (permission == null) {
+                if (mGroup.getBackgroundPermissions() == null) {
+                    continue;
+                }
+                permission = mGroup.getBackgroundPermissions().getPermission(
+                        permissionState.permissionName);
+            }
+
+            boolean isGranted = permission.isGrantedIncludingAppOp();
+
+            if (wasGranted != isGranted) {
+                logAppPermissionFragmentActionReported(sessionId, changeId,
+                        permissionState.permissionName, isGranted);
+            }
+        }
+    }
+
+    private void logAppPermissionFragmentActionReported(
+            long sessionId, long changeId, String permissionName, boolean isGranted) {
+        PermissionControllerStatsLog.write(APP_PERMISSION_FRAGMENT_ACTION_REPORTED, sessionId,
+                changeId, mGroup.getApp().applicationInfo.uid, mGroup.getApp().packageName,
+                permissionName, isGranted);
+        Log.v(LOG_TAG, "Permission changed via UI with sessionId=" + sessionId + " changeId="
+                + changeId + " uid=" + mGroup.getApp().applicationInfo.uid + " packageName="
+                + mGroup.getApp().packageName + " permission="
+                + permissionName + " isGranted=" + isGranted);
     }
 
     private void updateButtons() {
@@ -806,6 +876,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         }
 
         if (requestGrant) {
+            ArrayList<PermissionState> stateBefore = createPermissionSnapshot();
             if ((changeTarget & CHANGE_FOREGROUND) != 0) {
                 if (!mGroup.areRuntimePermissionsGranted()) {
                     SafetyNetLogger.logPermissionToggled(mGroup);
@@ -822,6 +893,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
                     mGroup.getBackgroundPermissions().grantRuntimePermissions(false);
                 }
             }
+            logPermissionChanges(stateBefore);
         } else {
             boolean showDefaultDenyDialog = false;
 
@@ -846,6 +918,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
                 updateButtons();
                 return false;
             } else {
+                ArrayList<PermissionState> stateBefore = createPermissionSnapshot();
                 if ((changeTarget & CHANGE_FOREGROUND) != 0
                         && mGroup.areRuntimePermissionsGranted()) {
                     if (mGroup.areRuntimePermissionsGranted()) {
@@ -864,6 +937,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
                         mGroup.getBackgroundPermissions().revokeRuntimePermissions(false);
                     }
                 }
+                logPermissionChanges(stateBefore);
             }
         }
 
@@ -920,6 +994,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
      */
     void onDenyAnyWay(@ChangeTarget int changeTarget) {
         boolean hasDefaultPermissions = false;
+        ArrayList<PermissionState> stateBefore = createPermissionSnapshot();
         if ((changeTarget & CHANGE_FOREGROUND) != 0) {
             if (mGroup.areRuntimePermissionsGranted()) {
                 SafetyNetLogger.logPermissionToggled(mGroup);
@@ -939,6 +1014,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
                         mGroup.getBackgroundPermissions().hasGrantedByDefaultPermission();
             }
         }
+        logPermissionChanges(stateBefore);
 
         if (hasDefaultPermissions || !mGroup.doesSupportRuntimePermissions()) {
             mHasConfirmedRevoke = true;
@@ -992,4 +1068,15 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
             }
         }
     }
+
+    private static class PermissionState {
+        @NonNull public final String permissionName;
+        public final boolean permissionGranted;
+
+        PermissionState(@NonNull String permissionName, boolean permissionGranted) {
+            this.permissionName = permissionName;
+            this.permissionGranted = permissionGranted;
+        }
+    }
+
 }
