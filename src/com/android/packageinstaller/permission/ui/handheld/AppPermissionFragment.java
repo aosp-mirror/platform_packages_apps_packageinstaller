@@ -16,6 +16,10 @@
 
 package com.android.packageinstaller.permission.ui.handheld;
 
+import static com.android.packageinstaller.Constants.EXTRA_SESSION_ID;
+import static com.android.packageinstaller.Constants.INVALID_SESSION_ID;
+import static com.android.packageinstaller.PermissionControllerStatsLog.APP_PERMISSION_FRAGMENT_VIEWED;
+
 import static java.lang.annotation.RetentionPolicy.SOURCE;
 
 import android.Manifest;
@@ -52,7 +56,7 @@ import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
-import com.android.packageinstaller.Constants;
+import com.android.packageinstaller.PermissionControllerStatsLog;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.model.PermissionUsages;
@@ -125,7 +129,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         }
         arguments.putParcelable(Intent.EXTRA_USER, userHandle);
         arguments.putString(AppPermissionActivity.EXTRA_CALLER_NAME, caller);
-        arguments.putLong(Constants.EXTRA_SESSION_ID, sessionId);
+        arguments.putLong(EXTRA_SESSION_ID, sessionId);
         fragment.setArguments(arguments);
         return fragment;
     }
@@ -147,6 +151,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
             getActivity().setTitle(
                     getPreferenceManager().getContext().getString(R.string.app_permission_title,
                             mGroup.getFullLabel()));
+            logAppPermissionFragmentViewed();
         }
     }
 
@@ -197,21 +202,8 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         ((TextView) root.requireViewById(R.id.permission_message)).setText(
                 context.getString(R.string.app_permission_header, mGroup.getFullLabel()));
 
-        if (!Utils.isPermissionsHubEnabled()) {
-            root.requireViewById(R.id.usage_summary).setVisibility(View.GONE);
-        } else if (Utils.isModernPermissionGroup(mGroup.getName())) {
-            if (!Utils.shouldShowPermissionUsage(mGroup.getName())) {
-                ((TextView) root.requireViewById(R.id.usage_summary)).setText(
-                        context.getString(R.string.app_permission_footer_not_available));
-            } else {
-                ((TextView) root.requireViewById(R.id.usage_summary)).setText(
-                        getUsageSummary(context, appLabel));
-            }
-        } else {
-            root.requireViewById(R.id.usage_summary).setVisibility(View.GONE);
-        }
-
-        long sessionId = getArguments().getLong(Constants.EXTRA_SESSION_ID);
+        root.requireViewById(R.id.usage_summary).setVisibility(View.GONE);
+        long sessionId = getArguments().getLong(EXTRA_SESSION_ID);
 
         TextView footer1Link = root.requireViewById(R.id.footer_link_1);
         footer1Link.setText(context.getString(R.string.app_permission_footer_app_permissions_link,
@@ -220,7 +212,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
             UserHandle user = UserHandle.getUserHandleForUid(mGroup.getApp().applicationInfo.uid);
             Intent intent = new Intent(Intent.ACTION_MANAGE_APP_PERMISSIONS);
             intent.putExtra(Intent.EXTRA_PACKAGE_NAME, mGroup.getApp().packageName);
-            intent.putExtra(Constants.EXTRA_SESSION_ID, sessionId);
+            intent.putExtra(EXTRA_SESSION_ID, sessionId);
             intent.putExtra(Intent.EXTRA_USER, user);
             context.startActivity(intent);
         });
@@ -230,7 +222,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         footer2Link.setOnClickListener((v) -> {
             Intent intent = new Intent(Intent.ACTION_MANAGE_PERMISSION_APPS);
             intent.putExtra(Intent.EXTRA_PERMISSION_NAME, mGroup.getName());
-            intent.putExtra(Constants.EXTRA_SESSION_ID, sessionId);
+            intent.putExtra(EXTRA_SESSION_ID, sessionId);
             context.startActivity(intent);
         });
 
@@ -395,6 +387,15 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         // Re-create the permission group in case permissions have changed and update the UI.
         createAppPermissionGroup();
         updateButtons();
+    }
+
+    void logAppPermissionFragmentViewed() {
+        long sessionId = getArguments().getLong(EXTRA_SESSION_ID, INVALID_SESSION_ID);
+        PermissionControllerStatsLog.write(APP_PERMISSION_FRAGMENT_VIEWED, sessionId,
+                mGroup.getApp().applicationInfo.uid, mGroup.getApp().packageName, mGroup.getName());
+        Log.v(LOG_TAG, "AppPermission fragment viewed with sessionId=" + sessionId + " uid="
+                + mGroup.getApp().applicationInfo.uid + " packageName="
+                + mGroup.getApp().packageName + " permissionGroupName=" + mGroup.getName());
     }
 
     @Override
