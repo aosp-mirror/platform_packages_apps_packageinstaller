@@ -1,23 +1,27 @@
 /*
-* Copyright (C) 2015 The Android Open Source Project
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+ * Copyright (C) 2015 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 package com.android.packageinstaller.permission.ui.handheld;
 
 import static com.android.packageinstaller.Constants.EXTRA_SESSION_ID;
 import static com.android.packageinstaller.Constants.INVALID_SESSION_ID;
+import static com.android.packageinstaller.PermissionControllerStatsLog.APP_PERMISSIONS_FRAGMENT_VIEWED;
+import static com.android.packageinstaller.PermissionControllerStatsLog.APP_PERMISSIONS_FRAGMENT_VIEWED__CATEGORY__ALLOWED;
+import static com.android.packageinstaller.PermissionControllerStatsLog.APP_PERMISSIONS_FRAGMENT_VIEWED__CATEGORY__ALLOWED_FOREGROUND;
+import static com.android.packageinstaller.PermissionControllerStatsLog.APP_PERMISSIONS_FRAGMENT_VIEWED__CATEGORY__DENIED;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -44,6 +48,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 
+import com.android.packageinstaller.PermissionControllerStatsLog;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.utils.Utils;
@@ -52,6 +57,7 @@ import com.android.settingslib.HelpUtils;
 
 import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Show and manage permission groups for an app.
@@ -63,6 +69,9 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
     private static final String LOG_TAG = "ManagePermsFragment";
 
     static final String EXTRA_HIDE_INFO_BUTTON = "hideInfoButton";
+    static final String PREFERENCE_ALLOWED = "allowed";
+    static final String PREFERENCE_DENIED = "denied";
+    static final String PREFERENCE_ALLOWED_FOREGROUND = "allowed_foreground";
 
     private AppPermissions mAppPermissions;
     private PreferenceScreen mExtraScreen;
@@ -121,6 +130,7 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
         mCollator = Collator.getInstance(
                 getContext().getResources().getConfiguration().getLocales().get(0));
         updatePreferences();
+        logAppPermissionsFragmentView();
     }
 
     @Override
@@ -197,13 +207,13 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
             return;
         }
 
-        PreferenceCategory allowed = (PreferenceCategory) findPreference("allowed");
-        PreferenceCategory denied = (PreferenceCategory) findPreference("denied");
+        PreferenceCategory allowed = (PreferenceCategory) findPreference(PREFERENCE_ALLOWED);
+        PreferenceCategory denied = (PreferenceCategory) findPreference(PREFERENCE_DENIED);
 
         allowed.removeAll();
         denied.removeAll();
 
-        findPreference("allowed_foreground").setVisible(false);
+        findPreference(PREFERENCE_ALLOWED_FOREGROUND).setVisible(false);
 
         if (mExtraScreen != null) {
             mExtraScreen.removeAll();
@@ -290,6 +300,53 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
         }
 
         setLoading(false /* loading */, true /* animate */);
+    }
+
+    private void logAppPermissionsFragmentView() {
+        Context context = getPreferenceManager().getContext();
+        if (context == null) {
+            return;
+        }
+        String permissionSubtitleOnlyInForeground =
+                context.getString(R.string.permission_subtitle_only_in_foreground);
+
+
+        long sessionId = getArguments().getLong(EXTRA_SESSION_ID, INVALID_SESSION_ID);
+        long viewId = new Random().nextLong();
+
+        PreferenceCategory allowed = findPreference(PREFERENCE_ALLOWED);
+
+        int numAllowed = allowed.getPreferenceCount();
+        for (int i = 0; i < numAllowed; i++) {
+            Preference preference = allowed.getPreference(i);
+
+            int category = APP_PERMISSIONS_FRAGMENT_VIEWED__CATEGORY__ALLOWED;
+            if (permissionSubtitleOnlyInForeground.contentEquals(preference.getSummary())) {
+                category = APP_PERMISSIONS_FRAGMENT_VIEWED__CATEGORY__ALLOWED_FOREGROUND;
+            }
+
+            logAppPermissionsFragmentViewEntry(sessionId, viewId, preference.getKey(), category);
+        }
+
+        PreferenceCategory denied = findPreference(PREFERENCE_DENIED);
+
+        int numDenied = denied.getPreferenceCount();
+        for (int i = 0; i < numDenied; i++) {
+            Preference preference = denied.getPreference(i);
+            logAppPermissionsFragmentViewEntry(sessionId, viewId, preference.getKey(),
+                    APP_PERMISSIONS_FRAGMENT_VIEWED__CATEGORY__DENIED);
+        }
+    }
+
+    private void logAppPermissionsFragmentViewEntry(
+            long sessionId, long viewId, String permissionGroupName, int category) {
+        PermissionControllerStatsLog.write(APP_PERMISSIONS_FRAGMENT_VIEWED, sessionId, viewId,
+                permissionGroupName, mAppPermissions.getPackageInfo().applicationInfo.uid,
+                mAppPermissions.getPackageInfo().packageName, category);
+        Log.v(LOG_TAG, "AppPermissionFragment view logged with sessionId=" + sessionId + " viewId="
+                + viewId + " permissionGroupName=" + permissionGroupName + " uid="
+                + mAppPermissions.getPackageInfo().applicationInfo.uid + " packageName="
+                + mAppPermissions.getPackageInfo().packageName + " category=" + category);
     }
 
     private static PackageInfo getPackageInfo(Activity activity, @NonNull String packageName,
