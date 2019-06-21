@@ -17,6 +17,11 @@ package com.android.packageinstaller.permission.ui.handheld;
 
 import static com.android.packageinstaller.Constants.EXTRA_SESSION_ID;
 import static com.android.packageinstaller.Constants.INVALID_SESSION_ID;
+import static com.android.packageinstaller.PermissionControllerStatsLog.PERMISSION_APPS_FRAGMENT_VIEWED;
+import static com.android.packageinstaller.PermissionControllerStatsLog.PERMISSION_APPS_FRAGMENT_VIEWED__CATEGORY__ALLOWED;
+import static com.android.packageinstaller.PermissionControllerStatsLog.PERMISSION_APPS_FRAGMENT_VIEWED__CATEGORY__ALLOWED_FOREGROUND;
+import static com.android.packageinstaller.PermissionControllerStatsLog.PERMISSION_APPS_FRAGMENT_VIEWED__CATEGORY__DENIED;
+import static com.android.packageinstaller.PermissionControllerStatsLog.PERMISSION_APPS_FRAGMENT_VIEWED__CATEGORY__UNDEFINED;
 
 import android.app.ActionBar;
 import android.content.Context;
@@ -24,6 +29,7 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.ArrayMap;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -37,6 +43,7 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.packageinstaller.DeviceUtils;
+import com.android.packageinstaller.PermissionControllerStatsLog;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionApps;
 import com.android.packageinstaller.permission.model.PermissionApps.Callback;
@@ -49,6 +56,7 @@ import com.android.settingslib.HelpUtils;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Random;
 
 /**
  * Show and manage apps which request a single permission group.
@@ -58,10 +66,15 @@ import java.util.Map;
 public final class PermissionAppsFragment extends SettingsWithLargeHeader implements Callback {
 
     private static final String KEY_SHOW_SYSTEM_PREFS = "_showSystem";
+    private static final String CREATION_LOGGED_SYSTEM_PREFS = "_creationLogged";
     private static final String KEY_FOOTER = "_footer";
+    private static final String LOG_TAG = "PermissionAppsFragment";
 
     private static final String SHOW_SYSTEM_KEY = PermissionAppsFragment.class.getName()
             + KEY_SHOW_SYSTEM_PREFS;
+
+    private static final String CREATION_LOGGED = PermissionAppsFragment.class.getName()
+            + CREATION_LOGGED_SYSTEM_PREFS;
 
     /**
      * @return A new fragment
@@ -85,6 +98,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
     private PreferenceScreen mExtraScreen;
 
     private boolean mShowSystem;
+    private boolean mCreationLogged;
     private boolean mHasSystemApps;
     private MenuItem mShowSystemMenu;
     private MenuItem mHideSystemMenu;
@@ -99,6 +113,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
 
         if (savedInstanceState != null) {
             mShowSystem = savedInstanceState.getBoolean(SHOW_SYSTEM_KEY);
+            mCreationLogged = savedInstanceState.getBoolean(CREATION_LOGGED);
         }
 
         setLoading(true /* loading */, false /* animate */);
@@ -123,6 +138,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
         super.onSaveInstanceState(outState);
 
         outState.putBoolean(SHOW_SYSTEM_KEY, mShowSystem);
+        outState.putBoolean(CREATION_LOGGED, mCreationLogged);
     }
 
     @Override
@@ -254,6 +270,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
             return result;
         });
 
+        long viewIdForLogging = new Random().nextLong();
         long sessionId = getArguments().getLong(EXTRA_SESSION_ID, INVALID_SESSION_ID);
 
         for (int i = 0; i < sortedApps.size(); i++) {
@@ -328,8 +345,13 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
                 mExtraScreen.addPreference(pref);
             } else {
                 category.addPreference(pref);
+                if (!mCreationLogged) {
+                    logPermissionAppsFragmentCreated(app, viewIdForLogging, category == allowed,
+                            category == allowedForeground, category == denied);
+                }
             }
         }
+        mCreationLogged = true;
 
         if (mExtraScreen != null) {
             Preference pref = allowed.findPreference(KEY_SHOW_SYSTEM_PREFS);
@@ -435,6 +457,28 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
             }
         }
     }
+
+    private void logPermissionAppsFragmentCreated(PermissionApp permissionApp, long viewId,
+            boolean isAllowed, boolean isAllowedForeground, boolean isDenied) {
+        long sessionId = getArguments().getLong(EXTRA_SESSION_ID, 0);
+
+        int category = PERMISSION_APPS_FRAGMENT_VIEWED__CATEGORY__UNDEFINED;
+        if (isAllowed) {
+            category = PERMISSION_APPS_FRAGMENT_VIEWED__CATEGORY__ALLOWED;
+        } else if (isAllowedForeground) {
+            category = PERMISSION_APPS_FRAGMENT_VIEWED__CATEGORY__ALLOWED_FOREGROUND;
+        } else if (isDenied) {
+            category = PERMISSION_APPS_FRAGMENT_VIEWED__CATEGORY__DENIED;
+        }
+
+        PermissionControllerStatsLog.write(PERMISSION_APPS_FRAGMENT_VIEWED, sessionId, viewId,
+                mPermissionApps.getGroupName(), permissionApp.getUid(),
+                permissionApp.getPackageName(), category);
+        Log.v(LOG_TAG, "PermissionAppsFragment created with sessionId=" + sessionId
+                + " permissionGroupName=" + mPermissionApps.getGroupName() + " appUid="
+                + permissionApp.getUid() + " packageName=" + permissionApp.getPackageName()
+                + " category=" + category);
+    };
 
     public static class SystemAppsFragment extends SettingsWithLargeHeader implements Callback {
         PermissionAppsFragment mOuterFragment;
