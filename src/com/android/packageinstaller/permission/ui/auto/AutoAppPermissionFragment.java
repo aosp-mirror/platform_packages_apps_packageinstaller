@@ -31,6 +31,7 @@ import android.os.Bundle;
 import android.os.UserHandle;
 import android.util.Log;
 import android.view.View;
+import android.widget.RadioButton;
 
 import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
@@ -41,6 +42,7 @@ import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceScreen;
+import androidx.preference.PreferenceViewHolder;
 import androidx.preference.TwoStatePreference;
 
 import com.android.packageinstaller.auto.AutoSettingsFrameFragment;
@@ -749,12 +751,16 @@ public class AutoAppPermissionFragment extends AutoSettingsFrameFragment {
             super(context, null, TypedArrayUtils.getAttr(context, R.attr.preferenceStyle,
                     android.R.attr.preferenceStyle));
             setPersistent(false);
+            setLayoutResource(R.layout.car_radio_button_preference);
+            setWidgetLayoutResource(R.layout.radio_button_preference_widget);
         }
 
         @Override
-        public void setChecked(boolean checked) {
-            super.setChecked(checked);
-            setSummary(checked ? getContext().getString(R.string.car_permission_selected) : null);
+        public void onBindViewHolder(PreferenceViewHolder holder) {
+            super.onBindViewHolder(holder);
+
+            RadioButton radioButton = (RadioButton) holder.findViewById(R.id.radio_button);
+            radioButton.setChecked(isChecked());
         }
     }
 
