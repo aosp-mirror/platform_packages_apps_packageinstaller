@@ -84,8 +84,6 @@ class RuntimePermissionsUpgradeController {
         final int appCount = apps.size();
 
         final boolean sdkUpgradedFromP;
-        boolean isFreshInstall = false;
-
         if (currentVersion <= -1) {
             Log.i(LOG_TAG, "Upgrading from Android P");
 
@@ -97,10 +95,6 @@ class RuntimePermissionsUpgradeController {
         }
 
         if (currentVersion == 0) {
-            if (!sdkUpgradedFromP) {
-                isFreshInstall = true;
-            }
-
             Log.i(LOG_TAG, "Grandfathering SMS and CallLog permissions");
 
             final List<String> smsPermissions = Utils.getPlatformPermissionNamesOfGroup(
@@ -189,7 +183,7 @@ class RuntimePermissionsUpgradeController {
         }
 
         if (currentVersion == 6) {
-            if (!isFreshInstall || sdkUpgradedFromP) {
+            if (sdkUpgradedFromP) {
                 Log.i(LOG_TAG, "Expanding location permissions");
 
                 for (int i = 0; i < appCount; i++) {
@@ -211,7 +205,7 @@ class RuntimePermissionsUpgradeController {
 
                         if (group.areRuntimePermissionsGranted()
                                 && bgGroup != null
-                                && !bgGroup.isSystemFixed()
+                                && !bgGroup.isUserSet() && !bgGroup.isSystemFixed()
                                 && !bgGroup.isPolicyFixed()) {
                             bgGroup.grantRuntimePermissions(group.isUserFixed());
 
