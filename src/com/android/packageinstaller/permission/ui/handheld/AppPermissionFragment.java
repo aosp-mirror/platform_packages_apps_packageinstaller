@@ -16,6 +16,11 @@
 
 package com.android.packageinstaller.permission.ui.handheld;
 
+import static com.android.packageinstaller.Constants.EXTRA_SESSION_ID;
+import static com.android.packageinstaller.Constants.INVALID_SESSION_ID;
+import static com.android.packageinstaller.PermissionControllerStatsLog.APP_PERMISSION_FRAGMENT_ACTION_REPORTED;
+import static com.android.packageinstaller.PermissionControllerStatsLog.APP_PERMISSION_FRAGMENT_VIEWED;
+
 import static java.lang.annotation.RetentionPolicy.SOURCE;
 
 import android.Manifest;
@@ -52,7 +57,7 @@ import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
-import com.android.packageinstaller.Constants;
+import com.android.packageinstaller.PermissionControllerStatsLog;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.model.PermissionUsages;
@@ -67,7 +72,9 @@ import com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 import com.android.settingslib.widget.ActionBarShadowController;
 
 import java.lang.annotation.Retention;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Show and manage a single permission group for an app.
@@ -125,7 +132,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         }
         arguments.putParcelable(Intent.EXTRA_USER, userHandle);
         arguments.putString(AppPermissionActivity.EXTRA_CALLER_NAME, caller);
-        arguments.putLong(Constants.EXTRA_SESSION_ID, sessionId);
+        arguments.putLong(EXTRA_SESSION_ID, sessionId);
         fragment.setArguments(arguments);
         return fragment;
     }
@@ -147,6 +154,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
             getActivity().setTitle(
                     getPreferenceManager().getContext().getString(R.string.app_permission_title,
                             mGroup.getFullLabel()));
+            logAppPermissionFragmentViewed();
         }
     }
 
@@ -197,21 +205,8 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         ((TextView) root.requireViewById(R.id.permission_message)).setText(
                 context.getString(R.string.app_permission_header, mGroup.getFullLabel()));
 
-        if (!Utils.isPermissionsHubEnabled()) {
-            root.requireViewById(R.id.usage_summary).setVisibility(View.GONE);
-        } else if (Utils.isModernPermissionGroup(mGroup.getName())) {
-            if (!Utils.shouldShowPermissionUsage(mGroup.getName())) {
-                ((TextView) root.requireViewById(R.id.usage_summary)).setText(
-                        context.getString(R.string.app_permission_footer_not_available));
-            } else {
-                ((TextView) root.requireViewById(R.id.usage_summary)).setText(
-                        getUsageSummary(context, appLabel));
-            }
-        } else {
-            root.requireViewById(R.id.usage_summary).setVisibility(View.GONE);
-        }
-
-        long sessionId = getArguments().getLong(Constants.EXTRA_SESSION_ID);
+        root.requireViewById(R.id.usage_summary).setVisibility(View.GONE);
+        long sessionId = getArguments().getLong(EXTRA_SESSION_ID);
 
         TextView footer1Link = root.requireViewById(R.id.footer_link_1);
         footer1Link.setText(context.getString(R.string.app_permission_footer_app_permissions_link,
@@ -220,7 +215,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
             UserHandle user = UserHandle.getUserHandleForUid(mGroup.getApp().applicationInfo.uid);
             Intent intent = new Intent(Intent.ACTION_MANAGE_APP_PERMISSIONS);
             intent.putExtra(Intent.EXTRA_PACKAGE_NAME, mGroup.getApp().packageName);
-            intent.putExtra(Constants.EXTRA_SESSION_ID, sessionId);
+            intent.putExtra(EXTRA_SESSION_ID, sessionId);
             intent.putExtra(Intent.EXTRA_USER, user);
             context.startActivity(intent);
         });
@@ -230,7 +225,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         footer2Link.setOnClickListener((v) -> {
             Intent intent = new Intent(Intent.ACTION_MANAGE_PERMISSION_APPS);
             intent.putExtra(Intent.EXTRA_PERMISSION_NAME, mGroup.getName());
-            intent.putExtra(Constants.EXTRA_SESSION_ID, sessionId);
+            intent.putExtra(EXTRA_SESSION_ID, sessionId);
             context.startActivity(intent);
         });
 
@@ -397,6 +392,15 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         updateButtons();
     }
 
+    void logAppPermissionFragmentViewed() {
+        long sessionId = getArguments().getLong(EXTRA_SESSION_ID, INVALID_SESSION_ID);
+        PermissionControllerStatsLog.write(APP_PERMISSION_FRAGMENT_VIEWED, sessionId,
+                mGroup.getApp().applicationInfo.uid, mGroup.getApp().packageName, mGroup.getName());
+        Log.v(LOG_TAG, "AppPermission fragment viewed with sessionId=" + sessionId + " uid="
+                + mGroup.getApp().applicationInfo.uid + " packageName="
+                + mGroup.getApp().packageName + " permissionGroupName=" + mGroup.getName());
+    }
+
     @Override
     public void onStop() {
         super.onStop();
@@ -420,6 +424,73 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private ArrayList<PermissionState> createPermissionSnapshot() {
+        ArrayList<PermissionState> permissionSnapshot = new ArrayList<>();
+        ArrayList<Permission> permissions = mGroup.getPermissions();
+        int numPermissions = permissions.size();
+
+        for (int i = 0; i < numPermissions; i++) {
+            Permission permission = permissions.get(i);
+            permissionSnapshot.add(new PermissionState(permission.getName(),
+                    permission.isGrantedIncludingAppOp()));
+        }
+
+        AppPermissionGroup permissionGroup = mGroup.getBackgroundPermissions();
+
+        if (permissionGroup == null) {
+            return permissionSnapshot;
+        }
+
+        permissions = mGroup.getPermissions();
+        numPermissions = permissions.size();
+
+        for (int i = 0; i < numPermissions; i++) {
+            Permission permission = permissions.get(i);
+            permissionSnapshot.add(new PermissionState(permission.getName(),
+                    permission.isGrantedIncludingAppOp()));
+        }
+
+        return permissionSnapshot;
+    }
+
+    private void logPermissionChanges(ArrayList<PermissionState> previousPermissionSnapshot) {
+        long changeId = new Random().nextLong();
+        int numPermissions = previousPermissionSnapshot.size();
+        long sessionId = getArguments().getLong(EXTRA_SESSION_ID, INVALID_SESSION_ID);
+
+        for (int i = 0; i < numPermissions; i++) {
+            PermissionState permissionState = previousPermissionSnapshot.get(i);
+            boolean wasGranted = permissionState.permissionGranted;
+            Permission permission = mGroup.getPermission(permissionState.permissionName);
+
+            if (permission == null) {
+                if (mGroup.getBackgroundPermissions() == null) {
+                    continue;
+                }
+                permission = mGroup.getBackgroundPermissions().getPermission(
+                        permissionState.permissionName);
+            }
+
+            boolean isGranted = permission.isGrantedIncludingAppOp();
+
+            if (wasGranted != isGranted) {
+                logAppPermissionFragmentActionReported(sessionId, changeId,
+                        permissionState.permissionName, isGranted);
+            }
+        }
+    }
+
+    private void logAppPermissionFragmentActionReported(
+            long sessionId, long changeId, String permissionName, boolean isGranted) {
+        PermissionControllerStatsLog.write(APP_PERMISSION_FRAGMENT_ACTION_REPORTED, sessionId,
+                changeId, mGroup.getApp().applicationInfo.uid, mGroup.getApp().packageName,
+                permissionName, isGranted);
+        Log.v(LOG_TAG, "Permission changed via UI with sessionId=" + sessionId + " changeId="
+                + changeId + " uid=" + mGroup.getApp().applicationInfo.uid + " packageName="
+                + mGroup.getApp().packageName + " permission="
+                + permissionName + " isGranted=" + isGranted);
     }
 
     private void updateButtons() {
@@ -805,6 +876,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         }
 
         if (requestGrant) {
+            ArrayList<PermissionState> stateBefore = createPermissionSnapshot();
             if ((changeTarget & CHANGE_FOREGROUND) != 0) {
                 if (!mGroup.areRuntimePermissionsGranted()) {
                     SafetyNetLogger.logPermissionToggled(mGroup);
@@ -821,6 +893,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
                     mGroup.getBackgroundPermissions().grantRuntimePermissions(false);
                 }
             }
+            logPermissionChanges(stateBefore);
         } else {
             boolean showDefaultDenyDialog = false;
 
@@ -845,6 +918,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
                 updateButtons();
                 return false;
             } else {
+                ArrayList<PermissionState> stateBefore = createPermissionSnapshot();
                 if ((changeTarget & CHANGE_FOREGROUND) != 0
                         && mGroup.areRuntimePermissionsGranted()) {
                     if (mGroup.areRuntimePermissionsGranted()) {
@@ -863,6 +937,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
                         mGroup.getBackgroundPermissions().revokeRuntimePermissions(false);
                     }
                 }
+                logPermissionChanges(stateBefore);
             }
         }
 
@@ -919,6 +994,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
      */
     void onDenyAnyWay(@ChangeTarget int changeTarget) {
         boolean hasDefaultPermissions = false;
+        ArrayList<PermissionState> stateBefore = createPermissionSnapshot();
         if ((changeTarget & CHANGE_FOREGROUND) != 0) {
             if (mGroup.areRuntimePermissionsGranted()) {
                 SafetyNetLogger.logPermissionToggled(mGroup);
@@ -938,6 +1014,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
                         mGroup.getBackgroundPermissions().hasGrantedByDefaultPermission();
             }
         }
+        logPermissionChanges(stateBefore);
 
         if (hasDefaultPermissions || !mGroup.doesSupportRuntimePermissions()) {
             mHasConfirmedRevoke = true;
@@ -991,4 +1068,15 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
             }
         }
     }
+
+    private static class PermissionState {
+        @NonNull public final String permissionName;
+        public final boolean permissionGranted;
+
+        PermissionState(@NonNull String permissionName, boolean permissionGranted) {
+            this.permissionName = permissionName;
+            this.permissionGranted = permissionGranted;
+        }
+    }
+
 }
