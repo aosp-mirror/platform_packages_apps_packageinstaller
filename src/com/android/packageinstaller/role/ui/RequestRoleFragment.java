@@ -76,7 +76,9 @@ public class RequestRoleFragment extends DialogFragment {
 
     private Role mRole;
 
+    private ListView mListView;
     private Adapter mAdapter;
+    @Nullable
     private CheckBox mDontAskAgainCheck;
 
     private RequestRoleViewModel mViewModel;
@@ -145,20 +147,27 @@ public class RequestRoleFragment extends DialogFragment {
 
         LayoutInflater inflater = LayoutInflater.from(context);
         View titleLayout = inflater.inflate(R.layout.request_role_title, null);
-        ImageView iconImage = titleLayout.findViewById(R.id.icon);
+        ImageView iconImage = titleLayout.requireViewById(R.id.icon);
         iconImage.setImageDrawable(icon);
-        TextView titleText = titleLayout.findViewById(R.id.title);
+        TextView titleText = titleLayout.requireViewById(R.id.title);
         titleText.setText(title);
 
-        mAdapter = new Adapter(mRole);
+        View viewLayout = inflater.inflate(R.layout.request_role_view, null);
+        mListView = viewLayout.requireViewById(R.id.list);
+        mListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        mListView.setOnItemClickListener((parent, view, position, id) -> onItemClicked(position));
+        mAdapter = new Adapter(mListView, mRole);
         if (savedInstanceState != null) {
             mAdapter.onRestoreInstanceState(savedInstanceState);
         }
+        mListView.setAdapter(mAdapter);
 
-        View viewLayout = null;
-        if (UserDeniedManager.getInstance(context).isDeniedOnce(mRoleName, mPackageName)) {
-            viewLayout = inflater.inflate(R.layout.request_role_view, null);
-            mDontAskAgainCheck = viewLayout.findViewById(R.id.dont_ask_again);
+        CheckBox dontAskAgainCheck = viewLayout.requireViewById(R.id.dont_ask_again);
+        boolean isDeniedOnce = UserDeniedManager.getInstance(context).isDeniedOnce(mRoleName,
+                mPackageName);
+        dontAskAgainCheck.setVisibility(isDeniedOnce ? View.VISIBLE : View.GONE);
+        if (isDeniedOnce) {
+            mDontAskAgainCheck = dontAskAgainCheck;
             mDontAskAgainCheck.setOnClickListener(view -> updateUi());
             if (savedInstanceState != null) {
                 boolean dontAskAgain = savedInstanceState.getBoolean(STATE_DONT_ASK_AGAIN);
@@ -169,8 +178,6 @@ public class RequestRoleFragment extends DialogFragment {
 
         AlertDialog dialog = builder
                 .setCustomTitle(titleLayout)
-                .setSingleChoiceItems(mAdapter, AdapterView.INVALID_POSITION, (dialog2, which) ->
-                        onItemClicked(which))
                 .setView(viewLayout)
                 // Set the positive button listener later to avoid the automatic dismiss behavior.
                 .setPositiveButton(R.string.request_role_set_as_default, null)
@@ -215,8 +222,6 @@ public class RequestRoleFragment extends DialogFragment {
             }
         };
         mPackageRemovalMonitor.register();
-
-        mAdapter.setListView(getDialog().getListView());
 
         // Postponed to onStart() so that the list view in dialog is created.
         mViewModel = ViewModelProviders.of(this, new RequestRoleViewModel.Factory(mRole,
@@ -333,12 +338,12 @@ public class RequestRoleFragment extends DialogFragment {
     }
 
     private void updateUi() {
-        AlertDialog dialog = getDialog();
         boolean enabled = mViewModel.getManageRoleHolderStateLiveData().getValue()
                 == ManageRoleHolderStateLiveData.STATE_IDLE;
-        dialog.getListView().setEnabled(enabled);
+        mListView.setEnabled(enabled);
         boolean dontAskAgain = mDontAskAgainCheck != null && mDontAskAgainCheck.isChecked();
         mAdapter.setDontAskAgain(dontAskAgain);
+        AlertDialog dialog = getDialog();
         dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(enabled && (dontAskAgain
                 || !mAdapter.isHolderApplicationChecked()));
         dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setEnabled(enabled);
@@ -465,6 +470,9 @@ public class RequestRoleFragment extends DialogFragment {
         private static final int LAYOUT_TRANSITION_DURATION_MILLIS = 150;
 
         @NonNull
+        private final ListView mListView;
+
+        @NonNull
         private final Role mRole;
 
         // We'll use a null to represent the "None" item.
@@ -473,8 +481,6 @@ public class RequestRoleFragment extends DialogFragment {
                 new ArrayList<>();
 
         private boolean mHasHolderApplication;
-
-        private ListView mListView;
 
         private boolean mDontAskAgain;
 
@@ -487,7 +493,8 @@ public class RequestRoleFragment extends DialogFragment {
         @Nullable
         private String mPendingUserCheckedPackageName;
 
-        Adapter(@NonNull Role role) {
+        Adapter(@NonNull ListView listView, @NonNull Role role) {
+            mListView = listView;
             mRole = role;
         }
 
@@ -504,10 +511,6 @@ public class RequestRoleFragment extends DialogFragment {
                 mPendingUserCheckedPackageName = savedInstanceState.getString(
                         STATE_USER_CHECKED_PACKAGE_NAME);
             }
-        }
-
-        public void setListView(@NonNull ListView listView) {
-            mListView = listView;
         }
 
         public void setDontAskAgain(boolean dontAskAgain) {
@@ -732,11 +735,10 @@ public class RequestRoleFragment extends DialogFragment {
             public final TextView subtitleText;
 
             ViewHolder(@NonNull View view) {
-                iconImage = Objects.requireNonNull(view.findViewById(R.id.icon));
-                titleAndSubtitleLayout = Objects.requireNonNull(view.findViewById(
-                        R.id.title_and_subtitle));
-                titleText = Objects.requireNonNull(view.findViewById(R.id.title));
-                subtitleText = Objects.requireNonNull(view.findViewById(R.id.subtitle));
+                iconImage = view.requireViewById(R.id.icon);
+                titleAndSubtitleLayout = view.requireViewById(R.id.title_and_subtitle);
+                titleText = view.requireViewById(R.id.title);
+                subtitleText = view.requireViewById(R.id.subtitle);
             }
         }
     }
