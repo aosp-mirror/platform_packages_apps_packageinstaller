@@ -320,6 +320,11 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
         for (int i = 0; i < numAllowed; i++) {
             Preference preference = allowed.getPreference(i);
 
+            if (preference.getSummary() == null) {
+                // R.string.no_permission_allowed was added to PreferenceCategory
+                continue;
+            }
+
             int category = APP_PERMISSIONS_FRAGMENT_VIEWED__CATEGORY__ALLOWED;
             if (permissionSubtitleOnlyInForeground.contentEquals(preference.getSummary())) {
                 category = APP_PERMISSIONS_FRAGMENT_VIEWED__CATEGORY__ALLOWED_FOREGROUND;
@@ -333,6 +338,10 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
         int numDenied = denied.getPreferenceCount();
         for (int i = 0; i < numDenied; i++) {
             Preference preference = denied.getPreference(i);
+            if (preference.getSummary() == null) {
+                // R.string.no_permission_denied was added to PreferenceCategory
+                continue;
+            }
             logAppPermissionsFragmentViewEntry(sessionId, viewId, preference.getKey(),
                     APP_PERMISSIONS_FRAGMENT_VIEWED__CATEGORY__DENIED);
         }
