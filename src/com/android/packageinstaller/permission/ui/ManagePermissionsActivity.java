@@ -36,9 +36,7 @@ import com.android.packageinstaller.permission.ui.auto.AutoAppPermissionsFragmen
 import com.android.packageinstaller.permission.ui.auto.AutoManageStandardPermissionsFragment;
 import com.android.packageinstaller.permission.ui.auto.AutoPermissionAppsFragment;
 import com.android.packageinstaller.permission.ui.handheld.ManageStandardPermissionsFragment;
-import com.android.packageinstaller.permission.ui.handheld.PermissionUsageFragment;
 import com.android.packageinstaller.permission.ui.wear.AppPermissionsFragmentWear;
-import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 
 import java.util.Random;
@@ -88,35 +86,9 @@ public final class ManagePermissionsActivity extends FragmentActivity {
                 }
                 break;
 
-            case Intent.ACTION_REVIEW_PERMISSION_USAGE: {
-                if (!Utils.isPermissionsHubEnabled()) {
-                    finish();
-                    return;
-                }
-
-                permissionName = getIntent().getStringExtra(Intent.EXTRA_PERMISSION_NAME);
-                String groupName = getIntent().getStringExtra(Intent.EXTRA_PERMISSION_GROUP_NAME);
-                long numMillis = getIntent().getLongExtra(Intent.EXTRA_DURATION_MILLIS,
-                        Long.MAX_VALUE);
-
-                if (permissionName != null) {
-                    String permGroupName = Utils.getGroupOfPlatformPermission(permissionName);
-                    if (permGroupName == null) {
-                        Log.w(LOG_TAG, "Invalid platform permission: " + permissionName);
-                    }
-                    if (groupName != null && !groupName.equals(permGroupName)) {
-                        Log.i(LOG_TAG,
-                                "Inconsistent EXTRA_PERMISSION_NAME / EXTRA_PERMISSION_GROUP_NAME");
-                        finish();
-                        return;
-                    }
-                    if (groupName == null) {
-                        groupName = permGroupName;
-                    }
-                }
-
-                androidXFragment = PermissionUsageFragment.newInstance(groupName, numMillis);
-            } break;
+            case Intent.ACTION_REVIEW_PERMISSION_USAGE:
+                finish();
+                return;
 
             case Intent.ACTION_MANAGE_APP_PERMISSIONS: {
                 String packageName = getIntent().getStringExtra(Intent.EXTRA_PACKAGE_NAME);

@@ -23,7 +23,6 @@ import static com.android.packageinstaller.PermissionControllerStatsLog.APP_PERM
 
 import static java.lang.annotation.RetentionPolicy.SOURCE;
 
-import android.Manifest;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -60,7 +59,6 @@ import androidx.fragment.app.Fragment;
 import com.android.packageinstaller.PermissionControllerStatsLog;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.Permission;
-import com.android.packageinstaller.permission.model.PermissionUsages;
 import com.android.packageinstaller.permission.ui.AppPermissionActivity;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.PackageRemovalMonitor;
@@ -247,93 +245,6 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         mNestedScrollView = root.requireViewById(R.id.nested_scroll_view);
 
         return root;
-    }
-
-    private @NonNull String getUsageSummary(@NonNull Context context, @NonNull String appLabel) {
-        String timeDiffStr = Utils.getRelativeLastUsageString(context,
-                PermissionUsages.loadLastGroupUsage(context, mGroup));
-        int strResId;
-        if (timeDiffStr == null) {
-            switch (mGroup.getName()) {
-                case Manifest.permission_group.ACTIVITY_RECOGNITION:
-                    strResId = R.string.app_permission_footer_no_usages_activity_recognition;
-                    break;
-                case Manifest.permission_group.CALENDAR:
-                    strResId = R.string.app_permission_footer_no_usages_calendar;
-                    break;
-                case Manifest.permission_group.CALL_LOG:
-                    strResId = R.string.app_permission_footer_no_usages_call_log;
-                    break;
-                case Manifest.permission_group.CAMERA:
-                    strResId = R.string.app_permission_footer_no_usages_camera;
-                    break;
-                case Manifest.permission_group.CONTACTS:
-                    strResId = R.string.app_permission_footer_no_usages_contacts;
-                    break;
-                case Manifest.permission_group.LOCATION:
-                    strResId = R.string.app_permission_footer_no_usages_location;
-                    break;
-                case Manifest.permission_group.MICROPHONE:
-                    strResId = R.string.app_permission_footer_no_usages_microphone;
-                    break;
-                case Manifest.permission_group.PHONE:
-                    strResId = R.string.app_permission_footer_no_usages_phone;
-                    break;
-                case Manifest.permission_group.SENSORS:
-                    strResId = R.string.app_permission_footer_no_usages_sensors;
-                    break;
-                case Manifest.permission_group.SMS:
-                    strResId = R.string.app_permission_footer_no_usages_sms;
-                    break;
-                case Manifest.permission_group.STORAGE:
-                    strResId = R.string.app_permission_footer_no_usages_storage;
-                    break;
-                default:
-                    return context.getString(R.string.app_permission_footer_no_usages_generic,
-                            appLabel, mGroup.getLabel().toString().toLowerCase());
-            }
-            return context.getString(strResId, appLabel);
-        } else {
-            switch (mGroup.getName()) {
-                case Manifest.permission_group.ACTIVITY_RECOGNITION:
-                    strResId = R.string.app_permission_footer_usage_summary_activity_recognition;
-                    break;
-                case Manifest.permission_group.CALENDAR:
-                    strResId = R.string.app_permission_footer_usage_summary_calendar;
-                    break;
-                case Manifest.permission_group.CALL_LOG:
-                    strResId = R.string.app_permission_footer_usage_summary_call_log;
-                    break;
-                case Manifest.permission_group.CAMERA:
-                    strResId = R.string.app_permission_footer_usage_summary_camera;
-                    break;
-                case Manifest.permission_group.CONTACTS:
-                    strResId = R.string.app_permission_footer_usage_summary_contacts;
-                    break;
-                case Manifest.permission_group.LOCATION:
-                    strResId = R.string.app_permission_footer_usage_summary_location;
-                    break;
-                case Manifest.permission_group.MICROPHONE:
-                    strResId = R.string.app_permission_footer_usage_summary_microphone;
-                    break;
-                case Manifest.permission_group.PHONE:
-                    strResId = R.string.app_permission_footer_usage_summary_phone;
-                    break;
-                case Manifest.permission_group.SENSORS:
-                    strResId = R.string.app_permission_footer_usage_summary_sensors;
-                    break;
-                case Manifest.permission_group.SMS:
-                    strResId = R.string.app_permission_footer_usage_summary_sms;
-                    break;
-                case Manifest.permission_group.STORAGE:
-                    strResId = R.string.app_permission_footer_usage_summary_storage;
-                    break;
-                default:
-                    return context.getString(R.string.app_permission_footer_usage_summary_generic,
-                            appLabel, mGroup.getLabel().toString().toLowerCase(), timeDiffStr);
-            }
-            return context.getString(strResId, appLabel, timeDiffStr);
-        }
     }
 
     @Override
