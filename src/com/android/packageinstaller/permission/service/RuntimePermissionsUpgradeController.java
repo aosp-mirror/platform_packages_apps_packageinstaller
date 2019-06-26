@@ -22,6 +22,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.PermissionInfo;
 import android.permission.PermissionManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -54,6 +55,8 @@ class RuntimePermissionsUpgradeController {
                 PermissionManager.class);
         final int currentVersion = permissionManager.getRuntimePermissionsVersion();
 
+        whitelistAllSystemAppPermissions(context);
+
         final int upgradedVersion = onUpgradeLocked(context, currentVersion);
 
         if (upgradedVersion != LATEST_VERSION) {
@@ -66,6 +69,51 @@ class RuntimePermissionsUpgradeController {
 
         if (currentVersion != upgradedVersion) {
             permissionManager.setRuntimePermissionsVersion(LATEST_VERSION);
+        }
+    }
+
+    /**
+     * Whitelist permissions of system-apps.
+     *
+     * <p>Apps that are updated via OTAs are never installed. Hence their permission are never
+     * whitelisted. This code replaces that by always whitelisting them.
+     *
+     * @param context A context to talk to the platform
+     */
+    private static void whitelistAllSystemAppPermissions(@NonNull Context context) {
+        // Only whitelist permissions that are in the OTA. For non-OTA updates the installer should
+        // do the white-listing
+        final List<PackageInfo> apps = context.getPackageManager()
+                .getInstalledPackages(PackageManager.GET_PERMISSIONS
+                        | PackageManager.MATCH_UNINSTALLED_PACKAGES
+                        | PackageManager.MATCH_FACTORY_ONLY);
+
+        final int appCount = apps.size();
+        for (int i = 0; i < appCount; i++) {
+            final PackageInfo app = apps.get(i);
+
+            if (app.requestedPermissions == null) {
+                continue;
+            }
+
+            for (String requestedPermission : app.requestedPermissions) {
+                final PermissionInfo permInfo;
+                try {
+                    permInfo = context.getPackageManager().getPermissionInfo(
+                            requestedPermission, 0);
+                } catch (PackageManager.NameNotFoundException e) {
+                    continue;
+                }
+
+                if ((permInfo.flags & (PermissionInfo.FLAG_HARD_RESTRICTED
+                        | PermissionInfo.FLAG_SOFT_RESTRICTED)) == 0) {
+                    continue;
+                }
+
+                context.getPackageManager().addWhitelistedRestrictedPermission(
+                        app.packageName, requestedPermission,
+                        PackageManager.FLAG_PERMISSION_WHITELIST_UPGRADE);
+            }
         }
     }
 
@@ -84,8 +132,6 @@ class RuntimePermissionsUpgradeController {
         final int appCount = apps.size();
 
         final boolean sdkUpgradedFromP;
-        boolean isFreshInstall = false;
-
         if (currentVersion <= -1) {
             Log.i(LOG_TAG, "Upgrading from Android P");
 
@@ -97,10 +143,6 @@ class RuntimePermissionsUpgradeController {
         }
 
         if (currentVersion == 0) {
-            if (!sdkUpgradedFromP) {
-                isFreshInstall = true;
-            }
-
             Log.i(LOG_TAG, "Grandfathering SMS and CallLog permissions");
 
             final List<String> smsPermissions = Utils.getPlatformPermissionNamesOfGroup(
@@ -189,7 +231,7 @@ class RuntimePermissionsUpgradeController {
         }
 
         if (currentVersion == 6) {
-            if (!isFreshInstall || sdkUpgradedFromP) {
+            if (sdkUpgradedFromP) {
                 Log.i(LOG_TAG, "Expanding location permissions");
 
                 for (int i = 0; i < appCount; i++) {
@@ -211,7 +253,7 @@ class RuntimePermissionsUpgradeController {
 
                         if (group.areRuntimePermissionsGranted()
                                 && bgGroup != null
-                                && !bgGroup.isSystemFixed()
+                                && !bgGroup.isUserSet() && !bgGroup.isSystemFixed()
                                 && !bgGroup.isPolicyFixed()) {
                             bgGroup.grantRuntimePermissions(group.isUserFixed());
 

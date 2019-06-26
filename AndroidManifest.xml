@@ -4,8 +4,8 @@
   xmlns:tools="http://schemas.android.com/tools"
   package="com.android.permissioncontroller"
   coreApp="true"
-  android:versionCode="291502900"
-  android:versionName="q_release_aml_291502900"
+  android:versionCode="291503000"
+  android:versionName="q_release_aml_291503000"
 >
 
     <original-package android:name="com.android.permissioncontroller" />
@@ -39,8 +39,6 @@
     <uses-permission android:name="android.permission.OPEN_ACCESSIBILITY_DETAILS_SETTINGS" />
     <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
     <uses-permission android:name="android.permission.SUBSTITUTE_NOTIFICATION_APP_NAME" />
-    <!-- This permission will be removed in R. -->
-    <uses-permission android:name="android.permission.START_ACTIVITIES_FROM_BACKGROUND" />
 
     <uses-sdk android:minSdkVersion="29" android:targetSdkVersion="29" />
 
