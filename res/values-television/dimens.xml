@@ -15,6 +15,10 @@
 -->
 
 <resources>
+    <!-- FIXME: b/112446546 should use the new theme/style attributes with new supportlib prebuilt -->
+    <dimen name="lb_preference_decor_title_margin_start">24dp</dimen>
+    <dimen name="lb_preference_decor_title_margin_end">56dp</dimen>
+
     <dimen name="grant_permissions_app_icon_size">64dp</dimen>
     <dimen name="grant_permissions_app_icon_margin_top">19dp</dimen>
 

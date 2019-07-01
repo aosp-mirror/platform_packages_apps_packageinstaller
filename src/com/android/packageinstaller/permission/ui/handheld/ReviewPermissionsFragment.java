@@ -16,46 +16,59 @@
 
 package com.android.packageinstaller.permission.ui.handheld;
 
+import static android.content.pm.PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED;
+
+import static com.android.packageinstaller.PermissionControllerStatsLog.REVIEW_PERMISSIONS_FRAGMENT_RESULT_REPORTED;
+
 import android.app.Activity;
-import android.app.DialogFragment;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.RemoteCallback;
-import android.preference.Preference;
-import android.preference.PreferenceCategory;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceGroup;
-import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
-import android.preference.TwoStatePreference;
+import android.os.UserHandle;
 import android.text.Html;
 import android.text.Spanned;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.packageinstaller.R;
+import androidx.annotation.NonNull;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceGroup;
+import androidx.preference.PreferenceScreen;
+
+import com.android.packageinstaller.PermissionControllerStatsLog;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.model.Permission;
-import com.android.packageinstaller.permission.ui.ConfirmActionDialogFragment;
 import com.android.packageinstaller.permission.ui.ManagePermissionsActivity;
 import com.android.packageinstaller.permission.utils.ArrayUtils;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.permissioncontroller.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
-public final class ReviewPermissionsFragment extends PreferenceFragment
-        implements View.OnClickListener, Preference.OnPreferenceChangeListener,
-        ConfirmActionDialogFragment.OnActionConfirmedListener {
+/**
+ * If an app does not support runtime permissions the user is prompted via this fragment to select
+ * which permissions to grant to the app before first use and if an update changed the permissions.
+ */
+public final class ReviewPermissionsFragment extends PreferenceFragmentCompat
+        implements View.OnClickListener, PermissionPreference.PermissionPreferenceChangeListener,
+        PermissionPreference.PermissionPreferenceOwnerFragment {
 
-    public static final String EXTRA_PACKAGE_INFO =
+    private static final String EXTRA_PACKAGE_INFO =
             "com.android.packageinstaller.permission.ui.extra.PACKAGE_INFO";
+    private static final String LOG_TAG = ReviewPermissionsFragment.class.getSimpleName();
 
     private AppPermissions mAppPermissions;
 
@@ -92,34 +105,33 @@ public final class ReviewPermissionsFragment extends PreferenceFragment
             return;
         }
 
-        mAppPermissions = new AppPermissions(activity, packageInfo, null, false,
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        getActivity().finish();
-                    }
-                });
-
-        if (mAppPermissions.getPermissionGroups().isEmpty()) {
-            activity.finish();
-            return;
-        }
+        mAppPermissions = new AppPermissions(activity, packageInfo, false, true,
+                () -> getActivity().finish());
 
         boolean reviewRequired = false;
         for (AppPermissionGroup group : mAppPermissions.getPermissionGroups()) {
-            if (group.isReviewRequired()) {
+            if (group.isReviewRequired() || (group.getBackgroundPermissions() != null
+                    && group.getBackgroundPermissions().isReviewRequired())) {
                 reviewRequired = true;
                 break;
             }
         }
 
         if (!reviewRequired) {
+            // If the system called for a review but no groups are found, this means that all groups
+            // are restricted. Hence there is nothing to review and instantly continue.
+            confirmPermissionsReview();
             activity.finish();
         }
     }
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
+    public void onCreatePreferences(Bundle bundle, String s) {
+        // empty
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         bindUi();
     }
@@ -147,42 +159,27 @@ public final class ReviewPermissionsFragment extends PreferenceFragment
             Intent intent = new Intent(Intent.ACTION_MANAGE_APP_PERMISSIONS);
             intent.putExtra(Intent.EXTRA_PACKAGE_NAME,
                     mAppPermissions.getPackageInfo().packageName);
+            intent.putExtra(Intent.EXTRA_USER, UserHandle.getUserHandleForUid(
+                    mAppPermissions.getPackageInfo().applicationInfo.uid));
             intent.putExtra(ManagePermissionsActivity.EXTRA_ALL_PERMISSIONS, true);
             getActivity().startActivity(intent);
         }
         activity.finish();
     }
 
-    @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (mHasConfirmedRevoke) {
-            return true;
-        }
-        if (preference instanceof SwitchPreference) {
-            SwitchPreference switchPreference = (SwitchPreference) preference;
-            if (switchPreference.isChecked()) {
-                showWarnRevokeDialog(switchPreference.getKey());
-            } else {
-                return true;
+    private void grantReviewedPermission(AppPermissionGroup group) {
+        String[] permissionsToGrant = null;
+        final int permissionCount = group.getPermissions().size();
+        for (int j = 0; j < permissionCount; j++) {
+            final Permission permission = group.getPermissions().get(j);
+            if (permission.isReviewRequired()) {
+                permissionsToGrant = ArrayUtils.appendString(
+                        permissionsToGrant, permission.getName());
             }
         }
-        return false;
-    }
-
-    @Override
-    public void onActionConfirmed(String action) {
-        Preference preference = getPreferenceManager().findPreference(action);
-        if (preference instanceof SwitchPreference) {
-            SwitchPreference switchPreference = (SwitchPreference) preference;
-            switchPreference.setChecked(false);
-            mHasConfirmedRevoke = true;
+        if (permissionsToGrant != null) {
+            group.grantRuntimePermissions(false, permissionsToGrant);
         }
-    }
-
-    private void showWarnRevokeDialog(final String groupName) {
-        DialogFragment fragment = ConfirmActionDialogFragment.newInstance(
-                getString(R.string.old_sdk_deny_warning), groupName);
-        fragment.show(getFragmentManager(), fragment.getClass().getName());
     }
 
     private void confirmPermissionsReview() {
@@ -195,35 +192,64 @@ public final class ReviewPermissionsFragment extends PreferenceFragment
         }
 
         final int preferenceGroupCount = preferenceGroups.size();
+        long changeIdForLogging = new Random().nextLong();
+
         for (int groupNum = 0; groupNum < preferenceGroupCount; groupNum++) {
             final PreferenceGroup preferenceGroup = preferenceGroups.get(groupNum);
 
             final int preferenceCount = preferenceGroup.getPreferenceCount();
             for (int prefNum = 0; prefNum < preferenceCount; prefNum++) {
                 Preference preference = preferenceGroup.getPreference(prefNum);
-                if (preference instanceof TwoStatePreference) {
-                    TwoStatePreference twoStatePreference = (TwoStatePreference) preference;
-                    String groupName = preference.getKey();
-                    AppPermissionGroup group = mAppPermissions.getPermissionGroup(groupName);
-                    if (twoStatePreference.isChecked()) {
-                        String[] permissionsToGrant = null;
-                        final int permissionCount = group.getPermissions().size();
-                        for (int j = 0; j < permissionCount; j++) {
-                            final Permission permission = group.getPermissions().get(j);
-                            if (permission.isReviewRequired()) {
-                                permissionsToGrant = ArrayUtils.appendString(
-                                        permissionsToGrant, permission.getName());
-                            }
-                        }
-                        if (permissionsToGrant != null) {
-                            group.grantRuntimePermissions(false, permissionsToGrant);
-                        }
-                    } else {
-                        group.revokeRuntimePermissions(false);
+                if (preference instanceof PermissionReviewPreference) {
+                    PermissionReviewPreference permPreference =
+                            (PermissionReviewPreference) preference;
+                    AppPermissionGroup group = permPreference.getGroup();
+
+                    // If the preference wasn't toggled we show it as "granted"
+                    if (group.isReviewRequired() && !permPreference.wasChanged()) {
+                        grantReviewedPermission(group);
                     }
-                    group.resetReviewRequired();
+                    logReviewPermissionsFragmentResult(changeIdForLogging, group);
+
+                    AppPermissionGroup backgroundGroup = group.getBackgroundPermissions();
+                    if (backgroundGroup != null) {
+                        // If the preference wasn't toggled we show it as "fully granted"
+                        if (backgroundGroup.isReviewRequired() && !permPreference.wasChanged()) {
+                            grantReviewedPermission(backgroundGroup);
+                        }
+                        logReviewPermissionsFragmentResult(changeIdForLogging, backgroundGroup);
+                    }
                 }
             }
+        }
+        mAppPermissions.persistChanges(true);
+
+        // Some permission might be restricted and hence there is no AppPermissionGroup for it.
+        // Manually unset all review-required flags, regardless of restriction.
+        PackageManager pm = getContext().getPackageManager();
+        PackageInfo pkg = mAppPermissions.getPackageInfo();
+        UserHandle user = UserHandle.getUserHandleForUid(pkg.applicationInfo.uid);
+
+        for (String perm : pkg.requestedPermissions) {
+            pm.updatePermissionFlags(perm, pkg.packageName, FLAG_PERMISSION_REVIEW_REQUIRED,
+                    0, user);
+        }
+    }
+
+    private void logReviewPermissionsFragmentResult(long changeId, AppPermissionGroup group) {
+        ArrayList<Permission> permissions = group.getPermissions();
+
+        int numPermissions = permissions.size();
+        for (int i = 0; i < numPermissions; i++) {
+            Permission permission = permissions.get(i);
+
+            PermissionControllerStatsLog.write(REVIEW_PERMISSIONS_FRAGMENT_RESULT_REPORTED,
+                    changeId, group.getApp().applicationInfo.uid, group.getApp().packageName,
+                    permission.getName(), permission.isGrantedIncludingAppOp());
+            Log.v(LOG_TAG, "Permission grant via permission review changeId=" + changeId + " uid="
+                    + group.getApp().applicationInfo.uid + " packageName="
+                    + group.getApp().packageName + " permission="
+                    + permission.getName() + " granted=" + permission.isGrantedIncludingAppOp());
         }
     }
 
@@ -236,7 +262,7 @@ public final class ReviewPermissionsFragment extends PreferenceFragment
         // Set icon
         Drawable icon = mAppPermissions.getPackageInfo().applicationInfo.loadIcon(
                 activity.getPackageManager());
-        ImageView iconView = (ImageView) activity.findViewById(R.id.app_icon);
+        ImageView iconView = activity.requireViewById(R.id.app_icon);
         iconView.setImageDrawable(icon);
 
         // Set message
@@ -250,19 +276,37 @@ public final class ReviewPermissionsFragment extends PreferenceFragment
         activity.setTitle(message.toString());
 
         // Color the app name.
-        TextView permissionsMessageView = (TextView) activity.findViewById(
+        TextView permissionsMessageView = activity.requireViewById(
                 R.id.permissions_message);
         permissionsMessageView.setText(message);
 
-        mContinueButton = (Button) getActivity().findViewById(R.id.continue_button);
+        mContinueButton = getActivity().requireViewById(R.id.continue_button);
         mContinueButton.setOnClickListener(this);
 
-        mCancelButton = (Button) getActivity().findViewById(R.id.cancel_button);
+        mCancelButton = getActivity().requireViewById(R.id.cancel_button);
         mCancelButton.setOnClickListener(this);
 
-        mMoreInfoButton = (Button) getActivity().findViewById(
-                R.id.permission_more_info_button);
-        mMoreInfoButton.setOnClickListener(this);
+        if (activity.getPackageManager().arePermissionsIndividuallyControlled()) {
+            mMoreInfoButton = getActivity().requireViewById(
+                    R.id.permission_more_info_button);
+            mMoreInfoButton.setOnClickListener(this);
+            mMoreInfoButton.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private PermissionReviewPreference getPreference(String key) {
+        if (mNewPermissionsCategory != null) {
+            PermissionReviewPreference pref =
+                    (PermissionReviewPreference) mNewPermissionsCategory.findPreference(key);
+
+            if (pref == null && mCurrentPermissionsCategory != null) {
+                return (PermissionReviewPreference) mCurrentPermissionsCategory.findPreference(key);
+            } else {
+                return pref;
+            }
+        } else {
+            return (PermissionReviewPreference) getPreferenceScreen().findPreference(key);
+        }
     }
 
     private void loadPreferences() {
@@ -273,31 +317,26 @@ public final class ReviewPermissionsFragment extends PreferenceFragment
 
         PreferenceScreen screen = getPreferenceScreen();
         if (screen == null) {
-            screen = getPreferenceManager().createPreferenceScreen(getActivity());
+            screen = getPreferenceManager().createPreferenceScreen(getContext());
             setPreferenceScreen(screen);
         } else {
             screen.removeAll();
         }
 
         mCurrentPermissionsCategory = null;
-        PreferenceGroup oldNewPermissionsCategory = mNewPermissionsCategory;
         mNewPermissionsCategory = null;
 
         final boolean isPackageUpdated = isPackageUpdated();
 
         for (AppPermissionGroup group : mAppPermissions.getPermissionGroups()) {
-            if (!Utils.shouldShowPermission(group, mAppPermissions.getPackageInfo().packageName)
+            if (!Utils.shouldShowPermission(getContext(), group)
                     || !Utils.OS_PKG.equals(group.getDeclaringPackage())) {
                 continue;
             }
 
-            final SwitchPreference preference;
-            Preference cachedPreference = oldNewPermissionsCategory != null
-                    ? oldNewPermissionsCategory.findPreference(group.getName()) : null;
-            if (cachedPreference instanceof SwitchPreference) {
-                preference = (SwitchPreference) cachedPreference;
-            } else {
-                preference = new SwitchPreference(getActivity());
+            PermissionReviewPreference preference = getPreference(group.getName());
+            if (preference == null) {
+                preference = new PermissionReviewPreference(this, group, this);
 
                 preference.setKey(group.getName());
                 Drawable icon = Utils.loadDrawable(activity.getPackageManager(),
@@ -305,25 +344,12 @@ public final class ReviewPermissionsFragment extends PreferenceFragment
                 preference.setIcon(Utils.applyTint(getContext(), icon,
                         android.R.attr.colorControlNormal));
                 preference.setTitle(group.getLabel());
-                preference.setSummary(group.getDescription());
-                preference.setPersistent(false);
-
-                preference.setOnPreferenceChangeListener(this);
-            }
-
-            preference.setChecked(group.areRuntimePermissionsGranted()
-                    || group.isReviewRequired());
-
-            // Mutable state
-            if (group.isPolicyFixed()) {
-                preference.setEnabled(false);
-                preference.setSummary(getString(
-                        R.string.permission_summary_enforced_by_policy));
             } else {
-                preference.setEnabled(true);
+                preference.updateUi();
             }
 
-            if (group.isReviewRequired()) {
+            if (group.isReviewRequired() || (group.getBackgroundPermissions() != null
+                    && group.getBackgroundPermissions().isReviewRequired())) {
                 if (!isPackageUpdated) {
                     screen.addPreference(preference);
                 } else {
@@ -352,7 +378,8 @@ public final class ReviewPermissionsFragment extends PreferenceFragment
         final int groupCount = groups.size();
         for (int i = 0; i < groupCount; i++) {
             AppPermissionGroup group = groups.get(i);
-            if (!group.isReviewRequired()) {
+            if (!(group.isReviewRequired() || (group.getBackgroundPermissions() != null
+                    && group.getBackgroundPermissions().isReviewRequired()))) {
                 return true;
             }
         }
@@ -389,6 +416,93 @@ public final class ReviewPermissionsFragment extends PreferenceFragment
             Bundle result = new Bundle();
             result.putBoolean(Intent.EXTRA_RETURN_RESULT, success);
             callback.sendResult(result);
+        }
+    }
+
+    @Override
+    public boolean shouldConfirmDefaultPermissionRevoke() {
+        return !mHasConfirmedRevoke;
+    }
+
+    @Override
+    public void hasConfirmDefaultPermissionRevoke() {
+        mHasConfirmedRevoke = true;
+    }
+
+    @Override
+    public void onPreferenceChanged(String key) {
+        getPreference(key).setChanged();
+    }
+
+    @Override
+    public void onDenyAnyWay(String key, int changeTarget) {
+        getPreference(key).onDenyAnyWay(changeTarget);
+    }
+
+    @Override
+    public void onBackgroundAccessChosen(String key, int chosenItem) {
+        getPreference(key).onBackgroundAccessChosen(chosenItem);
+    }
+
+    /**
+     * Extend the {@link PermissionPreference}:
+     * <ul>
+     *     <li>Show the description of the permission group</li>
+     *     <li>Show the permission group as granted if the user has not toggled it yet. This means
+     *     that if the user does not touch the preference, we will later grant the permission
+     *     in {@link #confirmPermissionsReview()}.</li>
+     * </ul>
+     */
+    private static class PermissionReviewPreference extends PermissionPreference {
+        private final AppPermissionGroup mGroup;
+        private boolean mWasChanged;
+
+        PermissionReviewPreference(PreferenceFragmentCompat fragment, AppPermissionGroup group,
+                PermissionPreferenceChangeListener callbacks) {
+            super(fragment, group, callbacks, 0);
+
+            mGroup = group;
+            updateUi();
+        }
+
+        AppPermissionGroup getGroup() {
+            return mGroup;
+        }
+
+        /**
+         * Mark the permission as changed by the user
+         */
+        void setChanged() {
+            mWasChanged = true;
+            updateUi();
+        }
+
+        /**
+         * @return {@code true} iff the permission was changed by the user
+         */
+        boolean wasChanged() {
+            return mWasChanged;
+        }
+
+        @Override
+        void updateUi() {
+            // updateUi might be called in super-constructor before group is initialized
+            if (mGroup == null) {
+                return;
+            }
+
+            super.updateUi();
+
+            if (isEnabled()) {
+                if (mGroup.isReviewRequired() && !mWasChanged) {
+                    setSummary(mGroup.getDescription());
+                    setCheckedOverride(true);
+                } else if (TextUtils.isEmpty(getSummary())) {
+                    // Sometimes the summary is already used, e.g. when this for a
+                    // foreground/background group. In this case show leave the original summary.
+                    setSummary(mGroup.getDescription());
+                }
+            }
         }
     }
 }

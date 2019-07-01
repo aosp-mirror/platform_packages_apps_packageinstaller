@@ -1,0 +1,38 @@
+{
+    "postsubmit": [
+        {
+            "name": "CtsAppSecurityHostTestCases",
+            "options": [
+                {
+                    "include-filter": "android.appsecurity.cts.PermissionsHostTest"
+                }
+            ]
+        },
+        {
+            "name": "CtsDevicePolicyManagerTestCases",
+            "options": [
+                {
+                    "include-filter": "com.android.cts.devicepolicy.MixedManagedProfileOwnerTest#testPermissionGrantOfDisallowedPermissionWhileOtherPermIsGranted"
+                },
+                {
+                    "include-filter": "com.android.cts.devicepolicy.MixedManagedProfileOwnerTest#testPermissionGrant"
+                },
+                {
+                    "include-filter": "com.android.cts.devicepolicy.MixedManagedProfileOwnerTest#testPermissionPolicy"
+                },
+                {
+                    "include-filter": "com.android.cts.devicepolicy.MixedManagedProfileOwnerTest#testPermissionMixedPolicies"
+                },
+                {
+                    "include-filter": "com.android.cts.devicepolicy.MixedManagedProfileOwnerTest#testPermissionAppUpdate"
+                },
+                {
+                    "include-filter": "com.android.cts.devicepolicy.MixedManagedProfileOwnerTest#testPermissionGrantPreMApp"
+                },
+                {
+                    "include-filter": "com.android.cts.devicepolicy.MixedManagedProfileOwnerTestApi25#testPermissionGrantPreMApp"
+                }
+            ]
+        }
+    ]
+}

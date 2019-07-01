@@ -33,19 +33,20 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import androidx.preference.SwitchPreference;
+import android.util.Log;
+import android.view.MenuItem;
+
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.Preference.OnPreferenceClickListener;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceGroup;
-import android.util.Log;
-import android.view.MenuItem;
+import androidx.preference.SwitchPreference;
 
-import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.permissioncontroller.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -87,7 +88,7 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
             getActivity().finish();
         }
 
-        mAppPermissions = new AppPermissions(getActivity(), mPackageInfo, null, false,
+        mAppPermissions = new AppPermissions(getActivity(), mPackageInfo, false,
                 new Runnable() {
             @Override
             public void run() {
@@ -166,8 +167,7 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
                     continue;
                 }
 
-
-                PermissionGroupInfo group = getGroup(perm.group, pm);
+                PermissionGroupInfo group = getGroup(Utils.getGroupOfPermission(perm), pm);
                 if ((perm.protectionLevel & PermissionInfo.PROTECTION_MASK_BASE)
                         == PermissionInfo.PROTECTION_DANGEROUS) {
                     PreferenceGroup pref = findOrCreate(group != null ? group : perm, pm, prefs);
@@ -301,7 +301,7 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
     }
 
     private boolean isMutableGranularPermission(String name) {
-        if (!getContext().getPackageManager().isPermissionReviewModeEnabled()) {
+        if (!getContext().getPackageManager().arePermissionsIndividuallyControlled()) {
             return false;
         }
         switch (name) {

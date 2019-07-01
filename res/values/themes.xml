@@ -19,43 +19,69 @@
 
     <style name="Settings"
            parent="@android:style/Theme.DeviceDefault.Settings">
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
+        <item name="preferenceCategoryTitleTextAppearance">@style/TextAppearance.CategoryTitle</item>
     </style>
 
-    <style name="CarSettingTheme" parent="Theme.Car.Light.NoActionBar">
-        <item name="android:background">@color/car_card</item>
+    <style name="TextAppearance.CategoryTitle"
+           parent="@android:style/TextAppearance.DeviceDefault.Medium">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">11sp</item>
+        <!-- 0.8 Spacing, 0.8/11 = 0.072727273 -->
+        <item name="android:letterSpacing">0.072727273</item>
     </style>
 
-    <style name="Settings.NoActionBar" parent="@style/Settings">
+    <style name="ReviewPermissions"
+           parent="@android:style/Theme.DeviceDefault.Settings">
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
+        <item name="android:switchStyle">@style/PermissionReviewSwitchStyle</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
     </style>
 
     <style name="GrantPermissions"
-           parent="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar">
-        <item name="*android:windowFixedHeightMajor">100%</item>
-        <item name="*android:windowFixedHeightMinor">100%</item>
+           parent="@android:style/Theme.DeviceDefault.Light.Dialog.Alert">
+        <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
-    </style>
-
-    <style name="DialogWhenLarge"
-            parent="@android:style/Theme.DeviceDefault.Light.NoActionBar">
-        <item name="android:textAppearanceMedium">@style/MediumText</item>
-        <item name="android:textAppearanceSmall">@style/SmallText</item>
-        <item name="android:titleTextStyle">@style/TitleText</item>
-    </style>
-
-    <style name="DialogWhenLargeNoAnimation" parent="DialogWhenLarge">
-        <item name="android:windowAnimationStyle">@null</item>
-    </style>
-
-    <style name="AlertDialogActivity"
-            parent="@android:style/Theme.DeviceDefault.Light.Panel">
-        <item name="android:backgroundDimEnabled">true</item>
+        <!-- The following attributes change the behavior of the dialog, hence they should not be
+             themed -->
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 
     <style name="Header.Settings"
             parent="@android:style/Theme.DeviceDefault.Settings">
     </style>
 
+    <style name="RequestRole" parent="android:Theme.DeviceDefault.Settings">
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.PermissionGrantDialog"
+           parent="@android:style/Theme.DeviceDefault.Light.Dialog">
+        <item name="android:divider">@drawable/list_divider</item>
+    </style>
+
+    <style name="PermissionDialog"
+           parent="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar">
+    </style>
+
+    <style name="CarSettings" parent="@android:style/Theme.DeviceDefault.NoActionBar">
+        <item name="preferenceTheme">@style/CarPreferenceTheme</item>
+        <item name="carDividerColor">@*android:color/car_list_divider</item>
+    </style>
+
+    <style name="CarPreferenceTheme">
+        <item name="preferenceFragmentCompatStyle">@style/CarPreferenceFragment</item>
+        <item name="preferenceFragmentListStyle">@style/CarPreferenceFragmentList</item>
+    </style>
 
 </resources>
