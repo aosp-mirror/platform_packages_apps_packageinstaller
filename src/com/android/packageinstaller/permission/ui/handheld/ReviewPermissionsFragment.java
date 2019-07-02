@@ -231,8 +231,13 @@ public final class ReviewPermissionsFragment extends PreferenceFragmentCompat
         UserHandle user = UserHandle.getUserHandleForUid(pkg.applicationInfo.uid);
 
         for (String perm : pkg.requestedPermissions) {
-            pm.updatePermissionFlags(perm, pkg.packageName, FLAG_PERMISSION_REVIEW_REQUIRED,
-                    0, user);
+            try {
+                pm.updatePermissionFlags(perm, pkg.packageName, FLAG_PERMISSION_REVIEW_REQUIRED,
+                        0, user);
+            } catch (IllegalArgumentException e) {
+                Log.e(LOG_TAG, "Cannot unmark " + perm + " requested by " + pkg.packageName
+                        + " as review required", e);
+            }
         }
     }
 
