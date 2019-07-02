@@ -80,4 +80,6 @@ android_app {
     optimize: {
         proguard_flags_files: ["proguard.flags"],
     },
+
+    plugins: ["java_api_finder"],
 }
