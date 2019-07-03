@@ -19,6 +19,7 @@ package com.android.packageinstaller.role.service;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.MatrixCursor;
+import android.os.Binder;
 import android.provider.SearchIndexablesContract;
 import android.util.ArrayMap;
 
@@ -50,8 +51,13 @@ public class RoleSearchIndexablesProvider extends BaseSearchIndexablesProvider {
         for (int i = 0; i < rolesSize; i++) {
             Role role = roles.valueAt(i);
 
-            if (!role.isAvailable(context) || !role.isVisible(context)) {
-                continue;
+            long token = Binder.clearCallingIdentity();
+            try {
+                if (!role.isAvailable(context) || !role.isVisible(context)) {
+                    continue;
+                }
+            } finally {
+                Binder.restoreCallingIdentity(token);
             }
 
             String label = context.getString(role.getLabelResource());
