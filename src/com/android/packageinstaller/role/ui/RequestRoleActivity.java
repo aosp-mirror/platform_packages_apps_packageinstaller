@@ -199,7 +199,9 @@ public class RequestRoleActivity extends FragmentActivity {
         mRoleName = RoleManager.ROLE_DIALER;
         mPackageName = null;
 
-        String callingPackageName = getCallingPackage();
+        // Intent.EXTRA_CALLING_PACKAGE is set in PermissionPolicyService.Internal
+        // .isActionRemovedForCallingPackage() and can be trusted.
+        String callingPackageName = intent.getStringExtra(Intent.EXTRA_CALLING_PACKAGE);
         String extraPackageName = intent.getStringExtra(
                 TelecomManager.EXTRA_CHANGE_DEFAULT_DIALER_PACKAGE_NAME);
         if (Objects.equals(extraPackageName, callingPackageName)) {
@@ -240,7 +242,9 @@ public class RequestRoleActivity extends FragmentActivity {
         mRoleName = RoleManager.ROLE_SMS;
         mPackageName = null;
 
-        String callingPackageName = getCallingPackage();
+        // Intent.EXTRA_CALLING_PACKAGE is set in PermissionPolicyService.Internal
+        // .isActionRemovedForCallingPackage() and can be trusted.
+        String callingPackageName = intent.getStringExtra(Intent.EXTRA_CALLING_PACKAGE);
         String extraPackageName = intent.getStringExtra(Telephony.Sms.Intents.EXTRA_PACKAGE_NAME);
         if (extraPackageName == null) {
             // Launch the settings activity to show the list.
