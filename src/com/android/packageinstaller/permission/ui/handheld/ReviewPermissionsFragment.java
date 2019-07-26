@@ -188,7 +188,10 @@ public final class ReviewPermissionsFragment extends PreferenceFragmentCompat
             preferenceGroups.add(mNewPermissionsCategory);
             preferenceGroups.add(mCurrentPermissionsCategory);
         } else {
-            preferenceGroups.add(getPreferenceScreen());
+            PreferenceScreen preferenceScreen = getPreferenceScreen();
+            if (preferenceScreen != null) {
+                preferenceGroups.add(preferenceScreen);
+            }
         }
 
         final int preferenceGroupCount = preferenceGroups.size();
