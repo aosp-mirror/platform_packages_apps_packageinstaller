@@ -32,6 +32,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageItemInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.pm.PermissionInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -51,7 +56,6 @@ import androidx.annotation.Nullable;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.android.packageinstaller.PermissionControllerStatsLog;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
@@ -59,6 +63,7 @@ import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.model.PermissionUsages;
 import com.android.packageinstaller.permission.ui.AppPermissionActivity;
 import com.android.packageinstaller.permission.utils.LocationUtils;
+import com.android.packageinstaller.permission.utils.PackageRemovalMonitor;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
@@ -87,7 +92,6 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
     static final int CHANGE_BOTH = CHANGE_FOREGROUND | CHANGE_BACKGROUND;
 
     private @NonNull AppPermissionGroup mGroup;
-    private @NonNull AppPermissionViewModel mViewModel;
 
     private @NonNull RadioGroup mRadioGroup;
     private @NonNull RadioButton mAlwaysButton;
@@ -99,6 +103,18 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
     private @NonNull NestedScrollView mNestedScrollView;
 
     private boolean mHasConfirmedRevoke;
+
+    /**
+     * Listens for changes to the permission of the app the permission is currently getting
+     * granted to. {@code null} when unregistered.
+     */
+    private @Nullable PackageManager.OnPermissionsChangedListener mPermissionChangeListener;
+
+    /**
+     * Listens for changes to the app the permission is currently getting granted to. {@code null}
+     * when unregistered.
+     */
+    private @Nullable PackageRemovalMonitor mPackageRemovalMonitor;
 
     /**
      * @return A new fragment
@@ -132,30 +148,44 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
 
         mHasConfirmedRevoke = false;
 
+        createAppPermissionGroup();
+
+        if (mGroup != null) {
+            getActivity().setTitle(
+                    getPreferenceManager().getContext().getString(R.string.app_permission_title,
+                            mGroup.getFullLabel()));
+            logAppPermissionFragmentViewed();
+        }
+    }
+
+    private void createAppPermissionGroup() {
+        Activity activity = getActivity();
+        Context context = getPreferenceManager().getContext();
+
         String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
         String groupName = getArguments().getString(Intent.EXTRA_PERMISSION_GROUP_NAME);
         if (groupName == null) {
             groupName = getArguments().getString(Intent.EXTRA_PERMISSION_NAME);
         }
-        UserHandle userHandle = getArguments().getParcelable(Intent.EXTRA_USER);
-
-        AppPermissionViewModelFactory factory = new AppPermissionViewModelFactory(
-                getActivity().getApplication(), packageName, groupName, userHandle);
-        mViewModel = ViewModelProviders.of(this, factory)
-                .get(AppPermissionViewModel.class);
-
-        AppPermissionGroup group = mViewModel.getLiveData().getValue();
-        if (group == null) {
+        PackageItemInfo groupInfo = Utils.getGroupInfo(groupName, context);
+        List<PermissionInfo> groupPermInfos = Utils.getGroupPermissionInfos(groupName, context);
+        if (groupInfo == null || groupPermInfos == null) {
             Log.i(LOG_TAG, "Illegal group: " + groupName);
-            getActivity().setResult(Activity.RESULT_CANCELED);
-            getActivity().finish();
+            activity.setResult(Activity.RESULT_CANCELED);
+            activity.finish();
             return;
         }
-        mGroup = group;
-        getActivity().setTitle(
-                getPreferenceManager().getContext().getString(R.string.app_permission_title,
-                        mGroup.getFullLabel()));
-        logAppPermissionFragmentViewed();
+        UserHandle userHandle = getArguments().getParcelable(Intent.EXTRA_USER);
+        mGroup = AppPermissionGroup.create(context,
+                getPackageInfo(activity, packageName, userHandle),
+                groupInfo, groupPermInfos, false);
+
+        if (mGroup == null || !Utils.shouldShowPermission(context, mGroup)) {
+            Log.i(LOG_TAG, "Illegal group: " + (mGroup == null ? "null" : mGroup.getName()));
+            activity.setResult(Activity.RESULT_CANCELED);
+            activity.finish();
+            return;
+        }
     }
 
     @Override
@@ -215,19 +245,6 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         mPermissionDetails = root.requireViewById(R.id.permission_details);
 
         mNestedScrollView = root.requireViewById(R.id.nested_scroll_view);
-
-        mViewModel.getLiveData().observe(this, appGroup -> {
-            AppPermissionGroup group = mViewModel.getLiveData().getValue();
-            if (group == null) {
-                Log.i(LOG_TAG, "AppPermissionGroup package or group invalidated for "
-                        + mGroup.getName());
-                getActivity().setResult(Activity.RESULT_CANCELED);
-                getActivity().finish();
-            } else {
-                mGroup = group;
-                updateButtons();
-            }
-        });
 
         return root;
     }
@@ -323,12 +340,56 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
     public void onStart() {
         super.onStart();
 
+        if (mGroup == null) {
+            return;
+        }
+
+        String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
+        UserHandle userHandle = getArguments().getParcelable(Intent.EXTRA_USER);
+        Activity activity = getActivity();
+
+        // Get notified when permissions change.
+        try {
+            mPermissionChangeListener = new PermissionChangeListener(
+                    mGroup.getApp().applicationInfo.uid);
+        } catch (NameNotFoundException e) {
+            activity.setResult(Activity.RESULT_CANCELED);
+            activity.finish();
+            return;
+        }
+        PackageManager pm = activity.getPackageManager();
+        pm.addOnPermissionsChangeListener(mPermissionChangeListener);
+
+        // Get notified when the package is removed.
+        mPackageRemovalMonitor = new PackageRemovalMonitor(getContext(), packageName) {
+            @Override
+            public void onPackageRemoved() {
+                Log.w(LOG_TAG, packageName + " was uninstalled");
+                activity.setResult(Activity.RESULT_CANCELED);
+                activity.finish();
+            }
+        };
+        mPackageRemovalMonitor.register();
+
+        // Check if the package was removed while this activity was not started.
+        try {
+            activity.createPackageContextAsUser(
+                    packageName, 0, userHandle).getPackageManager().getPackageInfo(packageName, 0);
+        } catch (NameNotFoundException e) {
+            Log.w(LOG_TAG, packageName + " was uninstalled while this activity was stopped", e);
+            activity.setResult(Activity.RESULT_CANCELED);
+            activity.finish();
+        }
+
         ActionBar ab = getActivity().getActionBar();
         if (ab != null) {
             ab.setElevation(0);
         }
+        ActionBarShadowController.attachToView(activity, getLifecycle(), mNestedScrollView);
 
-        ActionBarShadowController.attachToView(getActivity(), getLifecycle(), mNestedScrollView);
+        // Re-create the permission group in case permissions have changed and update the UI.
+        createAppPermissionGroup();
+        updateButtons();
     }
 
     void logAppPermissionFragmentViewed() {
@@ -338,6 +399,22 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         Log.v(LOG_TAG, "AppPermission fragment viewed with sessionId=" + sessionId + " uid="
                 + mGroup.getApp().applicationInfo.uid + " packageName="
                 + mGroup.getApp().packageName + " permissionGroupName=" + mGroup.getName());
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        if (mPackageRemovalMonitor != null) {
+            mPackageRemovalMonitor.unregister();
+            mPackageRemovalMonitor = null;
+        }
+
+        if (mPermissionChangeListener != null) {
+            getActivity().getPackageManager().removeOnPermissionsChangeListener(
+                    mPermissionChangeListener);
+            mPermissionChangeListener = null;
+        }
     }
 
     @Override
@@ -366,7 +443,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
             return permissionSnapshot;
         }
 
-        permissions = permissionGroup.getPermissions();
+        permissions = mGroup.getPermissions();
         numPermissions = permissions.size();
 
         for (int i = 0; i < numPermissions; i++) {
@@ -559,6 +636,20 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         mWidgetFrame.setVisibility(View.VISIBLE);
     }
 
+    private static @Nullable PackageInfo getPackageInfo(@NonNull Activity activity,
+            @NonNull String packageName, @NonNull UserHandle userHandle) {
+        try {
+            return activity.createPackageContextAsUser(packageName, 0,
+                    userHandle).getPackageManager().getPackageInfo(packageName,
+                    PackageManager.GET_PERMISSIONS);
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.i(LOG_TAG, "No package: " + activity.getCallingPackage(), e);
+            activity.setResult(Activity.RESULT_CANCELED);
+            activity.finish();
+            return null;
+        }
+    }
+
     /**
      * Are any permissions of this group fixed by the system, i.e. not changeable by the user.
      *
@@ -726,7 +817,6 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
 
     /**
      * Show the given string as informative text below the radio buttons.
-     *
      * @param strId the resourceId of the string to display.
      */
     private void setDetail(int strId) {
@@ -780,6 +870,8 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
             LocationUtils.showLocationDialog(getContext(),
                     Utils.getAppLabel(mGroup.getApp().applicationInfo, getContext()));
 
+            // The request was denied, so update the buttons.
+            updateButtons();
             return false;
         }
 
@@ -823,6 +915,7 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
 
             if (showDefaultDenyDialog && !mHasConfirmedRevoke) {
                 showDefaultDenyDialog(changeTarget);
+                updateButtons();
                 return false;
             } else {
                 ArrayList<PermissionState> stateBefore = createPermissionSnapshot();
@@ -847,6 +940,8 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
                 logPermissionChanges(stateBefore);
             }
         }
+
+        updateButtons();
 
         return true;
     }
@@ -954,9 +1049,28 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         }
     }
 
+    /**
+     * A listener for permission changes.
+     */
+    private class PermissionChangeListener implements PackageManager.OnPermissionsChangedListener {
+        private final int mUid;
+
+        PermissionChangeListener(int uid) throws NameNotFoundException {
+            mUid = uid;
+        }
+
+        @Override
+        public void onPermissionsChanged(int uid) {
+            if (uid == mUid) {
+                Log.w(LOG_TAG, "Permissions changed.");
+                createAppPermissionGroup();
+                updateButtons();
+            }
+        }
+    }
+
     private static class PermissionState {
-        @NonNull
-        public final String permissionName;
+        @NonNull public final String permissionName;
         public final boolean permissionGranted;
 
         PermissionState(@NonNull String permissionName, boolean permissionGranted) {
