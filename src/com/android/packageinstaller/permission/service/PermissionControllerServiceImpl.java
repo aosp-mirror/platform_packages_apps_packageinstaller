@@ -70,9 +70,8 @@ import java.util.function.IntConsumer;
 /**
  * Calls from the system into the permission controller.
  *
- * All methods are called async beside the backup related method. For these we force to use the
- * async-task single thread executor so that multiple parallel backups don't override the delayed
- * the backup state racily.
+ * All reading methods are called async, and all writing method are called on the AsyncTask single
+ * thread executor so that multiple writes won't override each other concurrently.
  */
 public final class PermissionControllerServiceImpl extends PermissionControllerService {
     private static final String LOG_TAG = PermissionControllerServiceImpl.class.getSimpleName();
@@ -213,8 +212,8 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
     public void onRevokeRuntimePermissions(@NonNull Map<String, List<String>> request,
             boolean doDryRun, int reason, @NonNull String callerPackageName,
             @NonNull Consumer<Map<String, List<String>>> callback) {
-        AsyncTask.THREAD_POOL_EXECUTOR.execute(() -> callback.accept(
-                onRevokeRuntimePermissions(request, doDryRun, reason, callerPackageName)));
+        AsyncTask.execute(() -> callback.accept(onRevokeRuntimePermissions(request, doDryRun,
+                reason, callerPackageName)));
     }
 
     private @NonNull Map<String, List<String>> onRevokeRuntimePermissions(
@@ -406,7 +405,7 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
     @Override
     public void onRevokeRuntimePermission(@NonNull String packageName,
             @NonNull String permissionName, @NonNull Runnable callback) {
-        AsyncTask.THREAD_POOL_EXECUTOR.execute(() -> {
+        AsyncTask.execute(() -> {
             onRevokeRuntimePermission(packageName, permissionName);
             callback.run();
         });
@@ -551,9 +550,8 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
     public void onSetRuntimePermissionGrantStateByDeviceAdmin(@NonNull String callerPackageName,
             @NonNull String packageName, @NonNull String unexpandedPermission, int grantState,
             @NonNull Consumer<Boolean> callback) {
-        AsyncTask.THREAD_POOL_EXECUTOR.execute(() -> callback.accept(
-                onSetRuntimePermissionGrantStateByDeviceAdmin(callerPackageName, packageName,
-                        unexpandedPermission, grantState)));
+        AsyncTask.execute(() -> callback.accept(onSetRuntimePermissionGrantStateByDeviceAdmin(
+                callerPackageName, packageName, unexpandedPermission, grantState)));
     }
 
     private boolean onSetRuntimePermissionGrantStateByDeviceAdmin(@NonNull String callerPackageName,
@@ -616,7 +614,7 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
 
     @Override
     public void onGrantOrUpgradeDefaultRuntimePermissions(@NonNull Runnable callback) {
-        AsyncTask.THREAD_POOL_EXECUTOR.execute(() -> {
+        AsyncTask.execute(() -> {
             onGrantOrUpgradeDefaultRuntimePermissions();
             callback.run();
         });
