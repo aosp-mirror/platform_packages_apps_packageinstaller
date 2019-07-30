@@ -42,6 +42,12 @@ object PackageInfoRepository : DataRepository<Pair<String, UserHandle>, PackageI
     }
 
     /**
+     * Used by the PackageInfoLiveData objects. Must be instantiated if used before
+     * getPackageInfoLiveData is called for the first time.
+     */
+    var permissionListenerMultiplexer: PermissionListenerMultiplexer? = null
+
+    /**
      * Gets the PackageInfoLiveData associated with the provided package name and user,
      * creating it if need be.
      *
@@ -53,6 +59,10 @@ object PackageInfoRepository : DataRepository<Pair<String, UserHandle>, PackageI
      */
     fun getPackageInfoLiveData(app: Application, packageName: String, user: UserHandle):
         PackageInfoLiveData {
+        if (permissionListenerMultiplexer == null) {
+            permissionListenerMultiplexer =
+                PermissionListenerMultiplexer(app)
+        }
         return getDataObject(app, packageName to user)
     }
 

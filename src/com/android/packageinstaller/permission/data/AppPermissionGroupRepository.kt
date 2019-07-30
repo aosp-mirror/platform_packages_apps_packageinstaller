@@ -28,12 +28,6 @@ object AppPermissionGroupRepository
     : DataRepository<Triple<String, String, UserHandle>, AppPermissionGroupLiveData>() {
 
     /**
-     * Used by the AppPermissionGroupLiveData objects. Must be instantiated if used before
-     * getAppPermissionGroupLiveData is called for the first time.
-     */
-    var permissionListenerMultiplexer: PermissionListenerMultiplexer? = null
-
-    /**
      * Gets the AppPermissionGroupLiveData associated with the provided group name and user,
      * creating it if need be.
      *
@@ -50,10 +44,6 @@ object AppPermissionGroupRepository
         permissionGroup: String,
         user: UserHandle
     ): AppPermissionGroupLiveData {
-        if (permissionListenerMultiplexer == null) {
-            permissionListenerMultiplexer =
-                PermissionListenerMultiplexer(app)
-        }
         return getDataObject(app, Triple(packageName, permissionGroup, user))
     }
 

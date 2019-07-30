@@ -36,9 +36,11 @@ class PackageInfoLiveData(
     private val user: UserHandle
 ) : LiveData<PackageInfo>(),
     PackageBroadcastReceiver.PackageBroadcastListener,
+    PermissionListenerMultiplexer.PermissionChangeCallback,
     DataRepository.InactiveTimekeeper {
 
-    val context: Context = app.applicationContext
+    private val context: Context = app.applicationContext
+    private var uid = context.packageManager.getPackageUid(packageName, 0)
 
     override var timeWentInactive: Long? = null
 
@@ -61,8 +63,9 @@ class PackageInfoLiveData(
     /**
      * Generates a PackageInfo for our given package.
      */
-    fun generatePackageData() {
+    private fun generatePackageData() {
         try {
+            uid = context.packageManager.getPackageUid(packageName, 0)
             this.value = context.packageManager.getPackageInfo(packageName,
                 PackageManager.GET_PERMISSIONS)
         } catch (e: PackageManager.NameNotFoundException) {
@@ -70,11 +73,16 @@ class PackageInfoLiveData(
         }
     }
 
+    override fun onPermissionChange() {
+        generatePackageData()
+    }
+
     override fun onActive() {
         super.onActive()
 
         PackageInfoRepository.getPackageBroadcastReceiver(app)
             .addChangeCallback(packageName, this)
+        PackageInfoRepository.permissionListenerMultiplexer?.addCallback(uid, this)
     }
 
     override fun onInactive() {
@@ -83,5 +91,6 @@ class PackageInfoLiveData(
         timeWentInactive = System.nanoTime()
         PackageInfoRepository.getPackageBroadcastReceiver(app)
             .removeChangeCallback(packageName, this)
+        PackageInfoRepository.permissionListenerMultiplexer?.removeCallback(uid, this)
     }
 }

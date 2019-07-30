@@ -87,7 +87,7 @@ class AppOpsLiveData(
             return
         }
         for ((_, permissionInfo) in permissionInfos) {
-            val opName = AppOpsManager.permissionToOp(permissionInfo.name)
+            val opName = AppOpsManager.permissionToOp(permissionInfo.name) ?: continue
             val opMode = appOpsManager.unsafeCheckOpNoThrow(opName, uid, packageName)
             ops[opName] = opMode
         }

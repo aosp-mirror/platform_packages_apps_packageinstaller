@@ -37,7 +37,6 @@ class AppPermissionGroupLiveData(
     private val permissionGroupName: String,
     private val user: UserHandle
 ) : MediatorLiveData<AppPermissionGroup>(),
-    PermissionListenerMultiplexer.PermissionChangeCallback,
     DataRepository.InactiveTimekeeper {
 
     private val context = app.applicationContext
@@ -84,6 +83,8 @@ class AppPermissionGroupLiveData(
         if (packageInfo == null || groupInfo == null || permissionInfos == null) {
             value = null
         } else {
+            // TODO: AppPermissionGroup.grantRuntimePermission silently updates the values.
+            // Is this desired behavior?
             value = AppPermissionGroup.create(context, packageInfo, groupInfo,
                 permissionInfos, false)
         }
@@ -92,17 +93,6 @@ class AppPermissionGroupLiveData(
     override fun onInactive() {
         super.onInactive()
 
-        AppPermissionGroupRepository.permissionListenerMultiplexer?.removeCallback(uid, this)
         timeWentInactive = System.nanoTime()
-    }
-
-    override fun onActive() {
-        super.onActive()
-
-        AppPermissionGroupRepository.permissionListenerMultiplexer?.addCallback(uid, this)
-    }
-
-    override fun onPermissionChange() {
-        generateNewPermissionGroup()
     }
 }
