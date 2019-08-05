@@ -36,16 +36,10 @@ class AppOpsLiveData(
     private val packageName: String,
     private val permissionGroupName: String,
     user: UserHandle
-) : MediatorLiveData<Map<String, Int>>(),
+) : MediatorLiveData<Map<String, Int>?>(),
     AppOpModeChangeListenerMultiplexer.OnAppOpModeChangeListener {
 
     private val context = app.applicationContext
-
-    /**
-     * Note- user parameter must be the same as the currently running user in order for the correct
-     * uid to be resolved.
-     */
-    private val uid = context.packageManager.getPackageUid(packageName, 0)
 
     /**
      * Maps an String op name to its current mode (Int).
@@ -55,6 +49,9 @@ class AppOpsLiveData(
         context.getSystemService(AppOpsManager::class.java)
     private val groupLiveData =
         PermissionGroupRepository.getPermissionGroupLiveData(app, permissionGroupName, user)
+    private val packageLiveData =
+        PackageInfoRepository.getPackageInfoLiveData(app, packageName, user)
+    private val uid = packageLiveData.value!!.applicationInfo.uid
 
     init {
         populateOps()

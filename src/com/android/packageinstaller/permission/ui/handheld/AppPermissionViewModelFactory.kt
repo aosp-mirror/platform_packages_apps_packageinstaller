@@ -25,10 +25,11 @@ class AppPermissionViewModelFactory(
     private val app: Application,
     private val packageName: String,
     private val permissionGroupName: String,
-    private val user: UserHandle
+    private val user: UserHandle,
+    private val sessionId: Long
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         @Suppress("UNCHECKED_CAST")
-        return AppPermissionViewModel(app, packageName, permissionGroupName, user) as T
+        return AppPermissionViewModel(app, packageName, permissionGroupName, user, sessionId) as T
     }
 }

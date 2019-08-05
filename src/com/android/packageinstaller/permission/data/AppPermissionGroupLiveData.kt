@@ -17,7 +17,6 @@
 package com.android.packageinstaller.permission.data
 
 import android.app.Application
-import android.os.Process
 import android.os.UserHandle
 import androidx.lifecycle.MediatorLiveData
 import com.android.packageinstaller.permission.model.AppPermissionGroup
@@ -36,44 +35,50 @@ class AppPermissionGroupLiveData(
     private val packageName: String,
     private val permissionGroupName: String,
     private val user: UserHandle
-) : MediatorLiveData<AppPermissionGroup>(),
+) : MediatorLiveData<AppPermissionGroup?>(),
     DataRepository.InactiveTimekeeper {
 
     private val context = app.applicationContext
-    private val appOpsLiveData = AppOpsLiveData(app, packageName, permissionGroupName, user)
+    private lateinit var appOpsLiveData: AppOpsLiveData
     private val packageInfoLiveData =
         PackageInfoRepository.getPackageInfoLiveData(app, packageName, user)
     private val groupLiveData =
         PermissionGroupRepository.getPermissionGroupLiveData(app, permissionGroupName, user)
 
-    private var uid = context.packageManager.getPackageUid(packageName, 0)
-
     override var timeWentInactive: Long? = null
 
+    /**
+     * If package and permission group are valid, then initialize appOpsLiveData, add all liveDatas
+     * as source, and generate value.
+     */
     init {
-        /**
-         * Since the AppPermissionGroup only keeps a reference to the AppOpManager, it is not
-         * immediately affected by app op changes. Regenerate the AppPermissionGroup
-         */
-        addSource(appOpsLiveData) {
-            generateNewPermissionGroup()
-        }
-
-        addSource(groupLiveData) {
-            generateNewPermissionGroup()
-        }
-
-        addSource(packageInfoLiveData) {
-            generateNewPermissionGroup()
-            if (Process.myUserHandle() == user) {
-                uid = context.packageManager.getPackageUid(packageName, 0)
+        if (packageInfoLiveData.value == null || groupLiveData.value == null) {
+            value = null
+        } else {
+            appOpsLiveData = AppOpsLiveData(app, packageName, permissionGroupName, user)
+            /**
+             * Since the AppPermissionGroup only keeps a reference to the AppOpManager, it is not
+             * immediately affected by app op changes. Regenerate the AppPermissionGroup
+             */
+            addSource(appOpsLiveData) {
+                generateNewPermissionGroup()
             }
+
+            addSource(groupLiveData) {
+                generateNewPermissionGroup()
+            }
+
+            addSource(packageInfoLiveData) {
+                generateNewPermissionGroup()
+            }
+
+            generateNewPermissionGroup()
         }
-        generateNewPermissionGroup()
     }
 
     /**
-     * Create a new AppPermissionGroup.
+     * Create a new AppPermissionGroup. If the package or permission group has become invalid,
+     * set value to null, and remove all sources
      */
     private fun generateNewPermissionGroup() {
         val packageInfo = packageInfoLiveData.value
@@ -81,6 +86,9 @@ class AppPermissionGroupLiveData(
         val permissionInfos = groupLiveData.value?.permissionInfos?.values?.toList()
 
         if (packageInfo == null || groupInfo == null || permissionInfos == null) {
+            removeSource(appOpsLiveData)
+            removeSource(groupLiveData)
+            removeSource(packageInfoLiveData)
             value = null
         } else {
             // TODO: AppPermissionGroup.grantRuntimePermission silently updates the values.

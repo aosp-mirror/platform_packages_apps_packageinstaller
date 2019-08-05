@@ -38,7 +38,7 @@ object AppOpRepository : DataRepository<String, AppOpModeChangeListenerMultiplex
         return getDataObject(app, op)
     }
 
-    override fun newValue(app: Application, op: String): AppOpModeChangeListenerMultiplexer {
-        return AppOpModeChangeListenerMultiplexer(app, op)
+    override fun newValue(app: Application, key: String): AppOpModeChangeListenerMultiplexer {
+        return AppOpModeChangeListenerMultiplexer(app, key)
     }
 }
