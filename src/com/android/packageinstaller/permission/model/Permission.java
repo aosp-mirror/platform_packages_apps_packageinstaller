@@ -22,6 +22,7 @@ import android.content.pm.PermissionInfo;
 import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * A permission and it's properties.
@@ -284,5 +285,63 @@ public final class Permission {
     public boolean isGrantingAllowed(boolean isEphemeralApp, boolean supportsRuntimePermissions) {
         return (!isEphemeralApp || isEphemeral())
                 && (supportsRuntimePermissions || !isRuntimeOnly());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Permission)) {
+            return false;
+        }
+
+        Permission other = (Permission) o;
+
+        if (!Objects.equals(getName(), other.getName()) || getFlags() != other.getFlags()
+                || isGranted() != other.isGranted()) {
+            return false;
+        }
+
+
+        // Only compare permission names, in order to avoid recursion
+        if (getBackgroundPermission() != null && other.getBackgroundPermission() != null) {
+            if (!Objects.equals(getBackgroundPermissionName(),
+                    other.getBackgroundPermissionName())) {
+                return false;
+            }
+        } else if (getBackgroundPermission() != other.getBackgroundPermission()) {
+            return false;
+        }
+
+        if (getForegroundPermissions() != null && other.getForegroundPermissions() != null) {
+            ArrayList<Permission> others = other.getForegroundPermissions();
+            if (getForegroundPermissions().size() != others.size()) {
+                return false;
+            }
+            for (int i = 0; i < others.size(); i++) {
+                if (!getForegroundPermissions().get(i).getName().equals(others.get(i).getName())) {
+                    return false;
+                }
+            }
+        } else if (getForegroundPermissions() != null || other.getForegroundPermissions() != null) {
+            return false;
+        }
+
+        return Objects.equals(getAppOp(), other.getAppOp())
+                && isAppOpAllowed() == other.isAppOpAllowed();
+    }
+
+    @Override
+    public int hashCode() {
+        ArrayList<String> linkedPermissionNames = new ArrayList<>();
+        if (mBackgroundPermission != null) {
+            linkedPermissionNames.add(mBackgroundPermission.getName());
+        }
+        if (mForegroundPermissions != null) {
+            for (Permission linkedPermission: mForegroundPermissions) {
+                if (linkedPermission != null) {
+                    linkedPermissionNames.add(linkedPermission.getName());
+                }
+            }
+        }
+        return Objects.hash(mName, mFlags, mGranted, mAppOp, mAppOpAllowed, linkedPermissionNames);
     }
 }

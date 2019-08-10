@@ -54,6 +54,7 @@ import com.android.permissioncontroller.R;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -1170,19 +1171,35 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
     @Override
     public boolean equals(Object o) {
-        if (o == null || !(o instanceof AppPermissionGroup)) {
+        if (!(o instanceof AppPermissionGroup)) {
             return false;
         }
 
         AppPermissionGroup other = (AppPermissionGroup) o;
-        return mName.equals(other.mName)
+
+        boolean equal = mName.equals(other.mName)
                 && mPackageInfo.packageName.equals(other.mPackageInfo.packageName)
-                && mUserHandle.equals(other.mUserHandle);
+                && mUserHandle.equals(other.mUserHandle)
+                && mPermissions.equals(other.mPermissions);
+        if (!equal) {
+            return false;
+        }
+
+        if (mBackgroundPermissions != null && other.getBackgroundPermissions() != null) {
+            return mBackgroundPermissions.getPermissions().equals(
+                    other.getBackgroundPermissions().getPermissions());
+        }
+        return mBackgroundPermissions == other.getBackgroundPermissions();
     }
 
     @Override
     public int hashCode() {
-        return mName.hashCode() + mPackageInfo.packageName.hashCode() + mUserHandle.hashCode();
+        ArrayList<Permission> backgroundPermissions = new ArrayList<>();
+        if (mBackgroundPermissions != null) {
+            backgroundPermissions = mBackgroundPermissions.getPermissions();
+        }
+        return Objects.hash(mName, mPackageInfo.packageName, mUserHandle, mPermissions,
+                backgroundPermissions);
     }
 
     @Override
