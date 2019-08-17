@@ -20,6 +20,7 @@ import android.app.Application
 import android.content.pm.PackageInfo
 import android.content.pm.PackageItemInfo
 import android.content.pm.PackageManager
+import android.content.pm.PermissionGroupInfo
 import android.content.pm.PermissionInfo
 import android.os.UserHandle
 import androidx.lifecycle.MediatorLiveData
@@ -198,16 +199,26 @@ class PermissionGroupLiveData(
             return
         }
 
-        val permInfos = try {
-            Utils.getPermissionInfosForGroup(context.packageManager, groupName)
-        } catch (e: PackageManager.NameNotFoundException) {
-            value = null
-            return
+        when (groupInfo) {
+            is PermissionGroupInfo -> {
+                try {
+                    val permInfos =
+                        Utils.getPermissionInfosForGroup(context.packageManager, groupName)
+                    for (permInfo in permInfos) {
+                        permissionInfos[permInfo.name] = permInfo
+                    }
+                } catch (e: PackageManager.NameNotFoundException) {
+                    value = null
+                    return
+                }
+            }
+            is PermissionInfo -> permissionInfos[groupName] = groupInfo as PermissionInfo
+            else -> {
+                value = null
+                return
+            }
         }
 
-        for (permInfo in permInfos) {
-            permissionInfos[permInfo.name] = permInfo
-        }
         value = PermissionGroup(groupInfo, permissionInfos)
 
         addPackageLiveData(groupInfo.packageName,
