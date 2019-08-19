@@ -27,6 +27,7 @@ import androidx.lifecycle.MediatorLiveData
 import com.android.packageinstaller.permission.data.PackageInfoRepository.getPackageInfoLiveData
 import com.android.packageinstaller.permission.data.PackageInfoRepository.getPackageBroadcastReceiver
 import com.android.packageinstaller.permission.utils.Utils
+import com.android.packageinstaller.permission.utils.Utils.OS_PKG
 
 /**
  * LiveData for a Permission Group. Contains GroupInfo and a list of PermissionInfos
@@ -100,8 +101,13 @@ class PermissionGroupLiveData(
         }
         removePackagePermissions(packageInfo.packageName)
 
+        val permissions = if (packageInfo.packageName == OS_PKG) {
+            Utils.getPermissionInfosForGroup(context.packageManager, groupName)
+        } else {
+            packageInfo.permissions.toList()
+        }
         var hasPackagePermissions = false
-        for (newPermission in packageInfo.permissions) {
+        for (newPermission in permissions) {
             if (Utils.getGroupOfPermission(newPermission) == groupInfo.name) {
                 permissionInfos[newPermission.name] = newPermission
                 hasPackagePermissions = true
@@ -199,11 +205,11 @@ class PermissionGroupLiveData(
             return
         }
 
+        var permInfos = mutableListOf<PermissionInfo>()
         when (groupInfo) {
             is PermissionGroupInfo -> {
                 try {
-                    val permInfos =
-                        Utils.getPermissionInfosForGroup(context.packageManager, groupName)
+                    permInfos = Utils.getPermissionInfosForGroup(context.packageManager, groupName)
                     for (permInfo in permInfos) {
                         permissionInfos[permInfo.name] = permInfo
                     }
@@ -223,12 +229,9 @@ class PermissionGroupLiveData(
 
         addPackageLiveData(groupInfo.packageName,
             getPackageInfoLiveData(app, groupInfo.packageName, user))
-
-        for ((_, permissionInfo) in permissionInfos) {
-            val pkgName = permissionInfo.packageName
-            if (!liveDatas.contains(pkgName)) {
-                addPackageLiveData(pkgName, getPackageInfoLiveData(app, pkgName, user))
-            }
+        for (permInfo in permInfos) {
+            addPackageLiveData(permInfo.packageName,
+                getPackageInfoLiveData(app, permInfo.packageName, user))
         }
     }
 
