@@ -17,6 +17,7 @@
 package com.android.packageinstaller.permission.data
 
 import android.app.Application
+import android.content.Context
 import android.os.UserHandle
 
 /**
@@ -26,6 +27,7 @@ import android.os.UserHandle
 object PackageInfoRepository : DataRepository<Pair<String, UserHandle>, PackageInfoLiveData>() {
 
     private var broadcastReceiver: PackageBroadcastReceiver? = null
+    private val userContexts = mutableMapOf<UserHandle, Context>()
 
     /**
      * Gets the PackageBroadcastReceiver, instantiating it if need be.
@@ -34,6 +36,7 @@ object PackageInfoRepository : DataRepository<Pair<String, UserHandle>, PackageI
      *
      * @return The cached or newly created PackageBroadcastReceiver
      */
+    @JvmStatic
     fun getPackageBroadcastReceiver(app: Application): PackageBroadcastReceiver {
         if (broadcastReceiver == null) {
             broadcastReceiver = PackageBroadcastReceiver(app)
@@ -57,6 +60,7 @@ object PackageInfoRepository : DataRepository<Pair<String, UserHandle>, PackageI
      *
      * @return The cached or newly created PackageInfoLiveData
      */
+    @JvmStatic
     fun getPackageInfoLiveData(app: Application, packageName: String, user: UserHandle):
         PackageInfoLiveData {
         if (permissionListenerMultiplexer == null) {
@@ -64,6 +68,13 @@ object PackageInfoRepository : DataRepository<Pair<String, UserHandle>, PackageI
                 PermissionListenerMultiplexer(app)
         }
         return getDataObject(app, packageName to user)
+    }
+
+    @JvmStatic
+    fun getUserContext(app: Application, user: UserHandle): Context {
+        return userContexts.getOrPut(user) {
+            app.applicationContext.createPackageContextAsUser(app.packageName, 0, user)
+        }
     }
 
     override fun newValue(app: Application, key: Pair<String, UserHandle>): PackageInfoLiveData {

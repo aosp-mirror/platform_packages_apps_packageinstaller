@@ -17,10 +17,10 @@
 package com.android.packageinstaller.permission.data
 
 import android.app.Application
-import android.content.Context
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.os.UserHandle
+import android.util.Log
 import androidx.lifecycle.LiveData
 
 /**
@@ -39,8 +39,15 @@ class PackageInfoLiveData(
     PermissionListenerMultiplexer.PermissionChangeCallback,
     DataRepository.InactiveTimekeeper {
 
-    private val context: Context = app.applicationContext
-    private var uid = context.packageManager.getPackageUid(packageName, 0)
+    private val LOG_TAG = PackageInfoLiveData::class.java.simpleName
+
+    private var context = PackageInfoRepository.getUserContext(app, user)
+    private var uid: Int? = null
+
+    /**
+     * The currently registered UID on which this LiveData is listening for permission changes
+     */
+    private var registeredUid: Int? = null
 
     override var timeWentInactive: Long? = null
 
@@ -65,12 +72,64 @@ class PackageInfoLiveData(
      */
     private fun generatePackageData() {
         try {
-            uid = context.packageManager.getPackageUid(packageName, 0)
-            this.value = context.packageManager.getPackageInfo(packageName,
+            val packageInfo = context.packageManager.getPackageInfo(packageName,
                 PackageManager.GET_PERMISSIONS)
+            if (relevantPackageInfoFieldsEqual(packageInfo, super.getValue())) {
+                return
+            }
+            uid = packageInfo.applicationInfo.uid
+            value = packageInfo
+            return
         } catch (e: PackageManager.NameNotFoundException) {
-            this.value = null
+            Log.w(LOG_TAG, "Package \"$packageName\" not found")
+            if (super.getValue() != null) {
+                value = null
+            }
         }
+        return
+    }
+
+    private fun relevantPackageInfoFieldsEqual(
+        newPkg: PackageInfo?,
+        oldPkg: PackageInfo?
+    ): Boolean {
+        if (oldPkg == null && newPkg == null) {
+            return true
+        }
+        if (oldPkg == null || newPkg == null) {
+            return false
+        }
+
+        if (oldPkg.packageName != newPkg.packageName || oldPkg.applicationInfo.uid !=
+            newPkg.applicationInfo.uid) {
+            return false
+        }
+
+        val oldPerms = oldPkg.requestedPermissions
+        val newPerms = newPkg.requestedPermissions
+        if (oldPerms != null) {
+            if (!oldPerms.contentEquals(newPerms)) {
+                return false
+            }
+        } else {
+            if (newPerms != null) {
+                return false
+            }
+        }
+
+        val oldFlags = oldPkg.requestedPermissionsFlags
+        val newFlags = newPkg.requestedPermissionsFlags
+        if (oldFlags != null) {
+            if (!oldFlags.contentEquals(newFlags)) {
+                return false
+            }
+        } else {
+            if (newFlags == null) {
+                return false
+            }
+        }
+
+        return true
     }
 
     override fun onPermissionChange() {
@@ -82,7 +141,12 @@ class PackageInfoLiveData(
 
         PackageInfoRepository.getPackageBroadcastReceiver(app)
             .addChangeCallback(packageName, this)
-        PackageInfoRepository.permissionListenerMultiplexer?.addCallback(uid, this)
+        generatePackageData()
+        value?.applicationInfo?.uid?.let { newUid ->
+            uid = newUid
+            registeredUid = newUid
+            PackageInfoRepository.permissionListenerMultiplexer?.addCallback(newUid, this)
+        }
     }
 
     override fun onInactive() {
@@ -91,6 +155,10 @@ class PackageInfoLiveData(
         timeWentInactive = System.nanoTime()
         PackageInfoRepository.getPackageBroadcastReceiver(app)
             .removeChangeCallback(packageName, this)
-        PackageInfoRepository.permissionListenerMultiplexer?.removeCallback(uid, this)
+        registeredUid?.let { regUid ->
+            PackageInfoRepository.permissionListenerMultiplexer
+                ?.removeCallback(regUid, this)
+            registeredUid = null
+        }
     }
 }
