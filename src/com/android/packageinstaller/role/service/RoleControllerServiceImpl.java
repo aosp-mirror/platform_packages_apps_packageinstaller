@@ -29,7 +29,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
 
 import com.android.packageinstaller.permission.utils.CollectionUtils;
-import com.android.packageinstaller.permission.utils.Utils;
 import com.android.packageinstaller.role.model.Role;
 import com.android.packageinstaller.role.model.Roles;
 import com.android.packageinstaller.role.utils.PackageUtils;
@@ -168,10 +167,6 @@ public class RoleControllerServiceImpl extends RoleControllerService {
                 }
             }
         }
-
-        // Load data on this thread instead of background.
-        // TODO: Move out of this thread
-        Utils.updateUserSensitive(getApplication(), Process.myUserHandle());
 
         return true;
     }
