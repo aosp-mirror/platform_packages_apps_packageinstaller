@@ -25,6 +25,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PermissionInfo;
 import android.permission.PermissionManager;
 import android.text.TextUtils;
+import android.util.ArrayMap;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -88,6 +89,9 @@ class RuntimePermissionsUpgradeController {
                         | PackageManager.MATCH_UNINSTALLED_PACKAGES
                         | PackageManager.MATCH_FACTORY_ONLY);
 
+        // Cache permissionInfos
+        final ArrayMap<String, PermissionInfo> permissionInfos = new ArrayMap<>();
+
         final int appCount = apps.size();
         for (int i = 0; i < appCount; i++) {
             final PackageInfo app = apps.get(i);
@@ -97,12 +101,16 @@ class RuntimePermissionsUpgradeController {
             }
 
             for (String requestedPermission : app.requestedPermissions) {
-                final PermissionInfo permInfo;
-                try {
-                    permInfo = context.getPackageManager().getPermissionInfo(
-                            requestedPermission, 0);
-                } catch (PackageManager.NameNotFoundException e) {
-                    continue;
+                PermissionInfo permInfo = permissionInfos.get(requestedPermission);
+                if (permInfo == null) {
+                    try {
+                        permInfo = context.getPackageManager().getPermissionInfo(
+                                requestedPermission, 0);
+                    } catch (PackageManager.NameNotFoundException e) {
+                        continue;
+                    }
+
+                    permissionInfos.put(requestedPermission, permInfo);
                 }
 
                 if ((permInfo.flags & (PermissionInfo.FLAG_HARD_RESTRICTED
