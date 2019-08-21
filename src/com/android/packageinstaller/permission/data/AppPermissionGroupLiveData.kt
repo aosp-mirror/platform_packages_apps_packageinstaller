@@ -38,7 +38,7 @@ class AppPermissionGroupLiveData(
 ) : MediatorLiveData<AppPermissionGroup?>(),
     DataRepository.InactiveTimekeeper {
 
-    private val context = app.applicationContext
+    private val context = PackageInfoRepository.getUserContext(app, user)
     private lateinit var appOpsLiveData: AppOpsLiveData
     private val packageInfoLiveData =
         PackageInfoRepository.getPackageInfoLiveData(app, packageName, user)
@@ -52,15 +52,10 @@ class AppPermissionGroupLiveData(
      * as source, and generate value.
      */
     init {
-        if (packageInfoLiveData.value == null || groupLiveData.value == null) {
-            value = null
-        } else {
+        if (packageInfoLiveData.value != null && groupLiveData.value != null) {
             appOpsLiveData = AppOpsLiveData(app, packageName, permissionGroupName, user)
-            /**
-             * Since the AppPermissionGroup only keeps a reference to the AppOpManager, it is not
-             * immediately affected by app op changes. Regenerate the AppPermissionGroup
-             */
-            addSource(appOpsLiveData) {
+
+            addSource(packageInfoLiveData) {
                 generateNewPermissionGroup()
             }
 
@@ -68,7 +63,11 @@ class AppPermissionGroupLiveData(
                 generateNewPermissionGroup()
             }
 
-            addSource(packageInfoLiveData) {
+            /**
+             * Since the AppPermissionGroup only keeps a reference to the AppOpManager, it is not
+             * immediately affected by app op changes. Regenerate the AppPermissionGroup
+             */
+            addSource(appOpsLiveData) {
                 generateNewPermissionGroup()
             }
 
@@ -91,8 +90,6 @@ class AppPermissionGroupLiveData(
             removeSource(packageInfoLiveData)
             value = null
         } else {
-            // TODO: AppPermissionGroup.grantRuntimePermission silently updates the values.
-            // Is this desired behavior?
             value = AppPermissionGroup.create(context, packageInfo, groupInfo,
                 permissionInfos, false)
         }
