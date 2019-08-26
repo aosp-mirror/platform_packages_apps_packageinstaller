@@ -410,6 +410,27 @@ public class RoleControllerServiceImpl extends RoleControllerService {
     }
 
     @Override
+    public boolean onIsApplicationVisibleForRole(@NonNull String roleName,
+            @NonNull String packageName) {
+        Role role = Roles.get(this).get(roleName);
+        if (role == null) {
+            return false;
+        }
+        if (!role.isAvailable(this)) {
+            return false;
+        }
+        if (!role.isPackageQualified(packageName, this)) {
+            return false;
+        }
+        ApplicationInfo applicationInfo = PackageUtils.getApplicationInfo(packageName, this);
+        if (applicationInfo == null || !role.isApplicationVisibleAsUser(applicationInfo,
+                Process.myUserHandle(), this)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
     public boolean onIsRoleVisible(@NonNull String roleName) {
         Role role = Roles.get(this).get(roleName);
         if (role == null) {
