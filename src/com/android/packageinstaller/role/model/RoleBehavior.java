@@ -84,6 +84,15 @@ public interface RoleBehavior {
             @NonNull Context context) {}
 
     /**
+     * @see Role#isApplicationVisibleAsUser(ApplicationInfo, UserHandle, Context)
+     */
+    default boolean isApplicationVisibleAsUser(@NonNull Role role,
+            @NonNull ApplicationInfo applicationInfo, @NonNull UserHandle user,
+            @NonNull Context context) {
+        return true;
+    }
+
+    /**
      * @see Role#prepareApplicationPreferenceAsUser(Preference, ApplicationInfo, UserHandle,
      *      Context)
      */
