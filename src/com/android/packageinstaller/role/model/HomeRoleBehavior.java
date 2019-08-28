@@ -126,12 +126,17 @@ public class HomeRoleBehavior implements RoleBehavior {
     }
 
     @Override
+    public boolean isApplicationVisibleAsUser(@NonNull Role role,
+            @NonNull ApplicationInfo applicationInfo, @NonNull UserHandle user,
+            @NonNull Context context) {
+        // Home is not available for work profile, so we can just use the current user.
+        return !isSettingsApplication(applicationInfo, context);
+    }
+
+    @Override
     public void prepareApplicationPreferenceAsUser(@NonNull Role role,
             @NonNull Preference preference, @NonNull ApplicationInfo applicationInfo,
             @NonNull UserHandle user, @NonNull Context context) {
-        // Home is not available for work profile, so we can just use the current user.
-        boolean isSettingsApplication = isSettingsApplication(applicationInfo, context);
-        preference.setVisible(!isSettingsApplication);
         boolean missingWorkProfileSupport = isMissingWorkProfileSupport(applicationInfo, context);
         preference.setEnabled(!missingWorkProfileSupport);
         preference.setSummary(missingWorkProfileSupport ? context.getString(

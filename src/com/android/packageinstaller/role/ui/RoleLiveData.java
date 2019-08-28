@@ -94,6 +94,9 @@ public class RoleLiveData extends AsyncTaskLiveData<List<Pair<ApplicationInfo, B
                         + qualifyingPackageName);
                 continue;
             }
+            if (!mRole.isApplicationVisibleAsUser(qualifyingApplicationInfo, mUser, mContext)) {
+                continue;
+            }
             boolean isHolderApplication = holderPackageNames.contains(qualifyingPackageName);
             qualifyingApplications.add(new Pair<>(qualifyingApplicationInfo, isHolderApplication));
         }
