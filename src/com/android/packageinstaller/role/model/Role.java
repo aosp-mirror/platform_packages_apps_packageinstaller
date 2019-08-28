@@ -369,6 +369,23 @@ public class Role {
     }
 
     /**
+     * Check whether a qualifying application should be visible to user.
+     *
+     * @param applicationInfo the {@link ApplicationInfo} for the application
+     * @param user the user for the application
+     * @param context the {@code Context} to retrieve system services
+     *
+     * @return whether the qualifying application should be visible to user
+     */
+    public boolean isApplicationVisibleAsUser(@NonNull ApplicationInfo applicationInfo,
+            @NonNull UserHandle user, @NonNull Context context) {
+        if (mBehavior != null) {
+            return mBehavior.isApplicationVisibleAsUser(this, applicationInfo, user, context);
+        }
+        return true;
+    }
+
+    /**
      * Prepare a {@link Preference} for an application.
      *
      * @param preference the {@link Preference} for the application
