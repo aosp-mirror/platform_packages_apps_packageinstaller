@@ -16,6 +16,7 @@
 
 package com.android.packageinstaller.permission.data
 
+import android.app.ActivityManager
 import android.app.Application
 import android.content.ComponentCallbacks2
 import android.content.res.Configuration
@@ -41,20 +42,30 @@ abstract class DataRepository<K, V : DataRepository.InactiveTimekeeper> : Compon
      * Whether or not this data repository has been registered as a component callback yet
      */
     private var registered = false
+    /**
+     * Whether or not this device is a low-RAM device.
+     */
+    private var isLowMemoryDevice = false
+
+    private fun registerCallbacks(app: Application) {
+        if (!registered) {
+            app.registerComponentCallbacks(this)
+            isLowMemoryDevice =
+                app.getSystemService(ActivityManager::class.java)?.isLowRamDevice ?: false
+            registered = true
+        }
+    }
 
     /**
      * Get a value from this repository, creating it if needed
      *
-     * @param app: The application this is being called from
+     * @param app: The current application
      * @param key: The key associated with the desired Value
      *
      * @return The cached or newly created Value for the given Key
      */
     protected fun getDataObject(app: Application, key: K): V {
-        if (!registered) {
-            app.registerComponentCallbacks(this)
-            registered = true
-        }
+        registerCallbacks(app)
 
         return data.getOrPut(key) { newValue(app, key) }
     }
@@ -62,7 +73,7 @@ abstract class DataRepository<K, V : DataRepository.InactiveTimekeeper> : Compon
     /**
      * Generate a new value type from the given data
      *
-     * @param app: The application this is being called from
+     * @param app: The current application
      * @param key: Information about this value object, used to instantiate it
      *
      * @return The generated Value
@@ -70,11 +81,16 @@ abstract class DataRepository<K, V : DataRepository.InactiveTimekeeper> : Compon
     protected abstract fun newValue(app: Application, key: K): V
 
     /**
-     * Remove LiveData objects with no observer based on the severity of the memory pressure.
+     * Remove LiveData objects with no observer based on the severity of the memory pressure. If
+     * this is a low RAM device, eject all caches always, including upon the UI closing.
      *
      * @param level The severity of the current memory pressure
      */
     override fun onTrimMemory(level: Int) {
+        if (isLowMemoryDevice) {
+            trimInactiveData(TIME_THRESHOLD_ALL_NANOS)
+            return
+        }
 
         trimInactiveData(threshold = when (level) {
             ComponentCallbacks2.TRIM_MEMORY_BACKGROUND -> TIME_THRESHOLD_LAX_NANOS
@@ -120,18 +136,8 @@ abstract class DataRepository<K, V : DataRepository.InactiveTimekeeper> : Compon
          */
         val timeInactive: Long?
             get() {
-                if (hasObservers()) {
-                    return null
-                }
                 val time = timeWentInactive ?: return null
                 return System.nanoTime() - time
             }
-
-        /**
-         * Whether or not this object has any objects observing it (observers need not be active).
-         *
-         * @return Whether or not this object has any Observers
-         */
-        fun hasObservers(): Boolean
     }
 }

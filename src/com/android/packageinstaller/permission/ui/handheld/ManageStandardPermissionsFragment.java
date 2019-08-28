@@ -18,24 +18,26 @@ package com.android.packageinstaller.permission.ui.handheld;
 import static com.android.packageinstaller.Constants.EXTRA_SESSION_ID;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 
-import com.android.packageinstaller.permission.model.PermissionGroup;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 
-import java.util.List;
 
 /**
  * Fragment that allows the user to manage standard permissions.
  */
 public final class ManageStandardPermissionsFragment extends ManagePermissionsFragment {
     private static final String EXTRA_PREFS_KEY = "extra_prefs_key";
-    private static final int MAXIMUM_APP_COUNT = 3;
+    private static final String LOG_TAG = "ManageStandardPermissionsFragment";
+
+    private ManageStandardPermissionsViewModel mViewModel;
 
     /**
      * @return A new fragment
@@ -51,6 +53,24 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+
+        ManageStandardPermissionsViewModelFactory factory =
+                new ManageStandardPermissionsViewModelFactory(getActivity().getApplication());
+        mViewModel = ViewModelProviders.of(this, factory)
+                .get(ManageStandardPermissionsViewModel.class);
+        mPermissionGroups = mViewModel.getUiDataLiveData().getValue();
+
+        mViewModel.getUiDataLiveData().observe(this, permissionGroups -> {
+            if (permissionGroups != null) {
+                mPermissionGroups = permissionGroups;
+                updatePermissionsUi();
+            } else {
+                Log.e(LOG_TAG, "ViewModel returned null data, exiting");
+                getActivity().finish();
+            }
+        });
+
+        mViewModel.getNumCustomPermGroups().observe(this, permNames -> updatePermissionsUi());
     }
 
     @Override
@@ -70,19 +90,16 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
     }
 
     @Override
-    protected void updatePermissionsUi() {
-        PreferenceScreen screen = updatePermissionsUi(true);
+    protected PreferenceScreen updatePermissionsUi() {
+        PreferenceScreen screen = super.updatePermissionsUi();
         if (screen == null) {
-            return;
+            return null;
         }
 
         // Check if we need an additional permissions preference
-        List<PermissionGroup> groups = getPermissions().getGroups();
         int numExtraPermissions = 0;
-        for (PermissionGroup group : groups) {
-            if (!group.getDeclaringPackage().equals(ManagePermissionsFragment.OS_PKG)) {
-                numExtraPermissions++;
-            }
+        if (mViewModel.getNumCustomPermGroups().getValue() != null) {
+            numExtraPermissions = mViewModel.getNumCustomPermGroups().getValue();
         }
 
         Preference additionalPermissionsPreference = screen.findPreference(EXTRA_PREFS_KEY);
@@ -118,5 +135,6 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
                     R.plurals.additional_permissions_more, numExtraPermissions,
                     numExtraPermissions));
         }
+        return screen;
     }
 }

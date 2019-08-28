@@ -21,25 +21,24 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.util.ArrayMap
 
 /**
  * Listens for package additions, replacements, and removals, and notifies listeners.
  *
- * @param app: The application this receiver is being instantiated in
+ * @param app: The current application
  */
-class PackageBroadcastReceiver(val app: Application) : BroadcastReceiver() {
+class PackageBroadcastReceiver(private val app: Application) : BroadcastReceiver() {
 
     private val intentFilter = IntentFilter(Intent.ACTION_PACKAGE_ADDED).apply {
         addAction(Intent.ACTION_PACKAGE_REMOVED)
         addAction(Intent.ACTION_PACKAGE_REPLACED)
+        addAction(Intent.ACTION_PACKAGE_CHANGED)
     }
 
     /**
-     * A map of callbacks for a specific package change.
+     * Map<packageName, callbacks listenening to package>
      */
-    private val changeCallbacks: ArrayMap<String, MutableList<PackageBroadcastListener>> =
-        ArrayMap()
+    private val changeCallbacks = mutableMapOf<String, MutableList<PackageBroadcastListener>>()
     /**
      * A list of listener IDs, which listen to all package additions, changes, and removals.
      */
