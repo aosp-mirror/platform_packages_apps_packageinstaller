@@ -379,7 +379,8 @@
         label="@string/role_call_redirection_label"
         requestDescription="@string/role_call_redirection_request_description"
         requestTitle="@string/role_call_redirection_request_title"
-        shortLabel="@string/role_call_redirection_short_label">
+        shortLabel="@string/role_call_redirection_short_label"
+        showNone="true">
         <required-components>
             <service permission="android.permission.BIND_CALL_REDIRECTION_SERVICE">
                 <intent-filter>
@@ -397,7 +398,8 @@
         label="@string/role_call_screening_label"
         requestDescription="@string/role_call_screening_request_description"
         requestTitle="@string/role_call_screening_request_title"
-        shortLabel="@string/role_call_screening_short_label">
+        shortLabel="@string/role_call_screening_short_label"
+        showNone="true">
         <required-components>
             <service permission="android.permission.BIND_SCREENING_SERVICE">
                 <intent-filter>
