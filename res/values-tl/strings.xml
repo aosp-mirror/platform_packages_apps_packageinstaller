@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,136 +16,208 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2738748390251381682">"Installer ng package"</string>
-    <string name="next" msgid="3057143178373252333">"Susunod"</string>
-    <string name="install" msgid="5896438203900042068">"Mag-install"</string>
-    <string name="done" msgid="3889387558374211719">"Tapos na"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"Payagan ang app na ito na:"</string>
-    <string name="cancel" msgid="8360346460165114585">"Kanselahin"</string>
-    <string name="unknown" msgid="4742479012767208045">"Hindi Kilala"</string>
-    <string name="installing" msgid="8613631001631998372">"Nag-i-install…"</string>
-    <string name="installing_app" msgid="4097935682329028894">"Ini-install ang <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
-    <string name="install_done" msgid="3682715442154357097">"Na-install ang app."</string>
-    <string name="install_confirm_question" msgid="7295206719219043890">"Nais mo bang i-install ang application na ito? Magkakaroon ito ng access sa:"</string>
-    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Nais mo bang i-install ang application na ito? Hindi ito nangangailangan ng anumang espesyal na access."</string>
-    <string name="install_confirm_question_update" msgid="4624159567361487964">"Nais mo bang mag-install ng update sa umiiral nang application na ito? Hindi mawawala ang iyong umiiral nang data. Magkakaroon ng access ang na-update na application sa:"</string>
-    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Nais mo bang mag-install ng update sa built-in na application na ito? Hindi mawawala ang iyong umiiral na data. Magkakaroon ng access ang na-update na application sa:"</string>
-    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Nais mo bang mag-install ng update sa umiiral na application na ito? Hindi mawawala ang iyong umiiral na data. Hindi ito nangangailangan ng anumang espesyal na access."</string>
-    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Nais mo bang mag-install ng update sa built-in na application na ito? Hindi mawawala ang iyong umiiral na data. Hindi ito nangangailangan ng anumang espesyal na access."</string>
-    <string name="install_failed" msgid="6579998651498970899">"Hindi na-install ang app."</string>
-    <string name="install_failed_blocked" msgid="1606870930588770025">"Na-block ang pag-install sa package."</string>
-    <string name="install_failed_conflict" msgid="5336045235168070954">"Hindi na-install ang app dahil nagkakaproblema ang package sa isang dati nang package."</string>
-    <string name="install_failed_incompatible" product="tablet" msgid="6682387386242708974">"Hindi na-install ang app dahil hindi tugma ang app sa iyong tablet."</string>
-    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Hindi compatible ang app na ito sa iyong TV."</string>
-    <string name="install_failed_incompatible" product="default" msgid="7917996365659426872">"Hindi na-install ang app dahil hindi tugma ang app sa iyong telepono."</string>
-    <string name="install_failed_invalid_apk" msgid="269885385245534742">"Hindi na-install ang app dahil lumalabas na di-wasto ang package."</string>
-    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Hindi ma-install ang <xliff:g id="APP_NAME">%1$s</xliff:g> sa iyong tablet."</string>
-    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Ang <xliff:g id="APP_NAME">%1$s</xliff:g> ay hindi ma-install sa iyong TV."</string>
-    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Hindi ma-install ang <xliff:g id="APP_NAME">%1$s</xliff:g> sa iyong telepono."</string>
-    <string name="launch" msgid="4826921505917605463">"Buksan"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"Hindi pinapayagan ng iyong admin ang pag-install ng mga app na nakuha mula sa mga hindi kilalang pinagmulan"</string>
-    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Hindi maaaring mag-install ang user na ito ng mga hindi kilalang app"</string>
-    <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"Hindi pinapayagan ang user na mag-install ng mga app"</string>
-    <string name="ok" msgid="3468756155452870475">"OK"</string>
-    <string name="settings" msgid="6743583734099755409">"Mga Setting"</string>
-    <string name="manage_applications" msgid="4033876279091996596">"Pamahalaan ang apps"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Palitan ang app?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Papalitan ng app na iyong ini-install ang isa pang app.\n\nMase-save ang lahat ng iyong nakaraang data ng user."</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Isa itong app ng system.\n\nMase-save ang lahat ng iyong nakaraang data ng user."</string>
-    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Wala ng espasyo"</string>
-    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"Hindi ma-install ang <xliff:g id="APP_NAME">%1$s</xliff:g>. Magbakante ng ilang espasyo at subukang muli."</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
-    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Hindi makita ang app"</string>
-    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Hindi makita ang app sa listahan ng naka-install na apps."</string>
-    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"Hindi pinapayagan"</string>
-    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"Hindi pinapayagan ang kasalukuyang user na gawin ang pag-uninstall na ito."</string>
-    <string name="generic_error_dlg_title" msgid="2684806600635296961">"Error"</string>
-    <string name="generic_error_dlg_text" msgid="4288738047825333954">"Hindi ma-uninstall ang app."</string>
-    <string name="uninstall_application_title" msgid="1860074100811653963">"I-uninstall ang app"</string>
-    <string name="uninstall_update_title" msgid="4146940097553335390">"I-uninstall ang update"</string>
-    <string name="uninstall_activity_text" msgid="6680688689803932550">"Bahagi ang <xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> ng sumusunod na app:"</string>
-    <string name="uninstall_application_text" msgid="6691975835951187030">"Nais mo bang i-uninstall ang app na ito?"</string>
-    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Nais mo bang i-uninstall ang app na ito para sa "<b>"lahat"</b>" ng user? Aalisin ang application at ang data nito mula sa "<b>"lahat"</b>" ng user sa device."</string>
-    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Gusto mo bang i-uninstall ang app na ito para sa user na si <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
-    <string name="uninstall_update_text" msgid="1394549691152728409">"Gusto mo bang palitan ang app na ito ng factory na bersyon? Maaalis ang lahat ng data."</string>
-    <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Gusto mo bang palitan ang app na ito ng factory na bersyon? Maaalis ang lahat ng data. Nakakaapekto ito sa lahat ng user ng device na ito, kasama ang mga may profile sa trabaho."</string>
-    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"Mga nasa proseso ng pag-uninstall"</string>
-    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"Mga hindi na-uninstall"</string>
-    <string name="uninstalling" msgid="5556217435895938250">"Ina-uninstall…"</string>
-    <string name="uninstalling_app" msgid="2773617614877719294">"Ina-uninstall ang <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
-    <string name="uninstall_done" msgid="3792487853420281888">"Natapos ang pag-uninstall."</string>
-    <string name="uninstall_done_app" msgid="775837862728680479">"Na-uninstall ang <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>"</string>
-    <string name="uninstall_failed" msgid="631122574306299512">"Di-matagumpay ang pag-uninstall."</string>
-    <string name="uninstall_failed_app" msgid="945277834056527022">"Hindi na-uninstall ang <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"Hindi ma-uninstall ang aktibong app ng admin ng device"</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"Hindi ma-uninstall ang aktibong app ng admin ng device para kay  <xliff:g id="USERNAME">%1$s</xliff:g>"</string>
-    <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Ang app na ito ay kailangan ng ilang user o profile at na-uninstall na ito sa iba pa"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"Ang app na ito ay kailangan para sa iyong profile at hindi maaaring i-uninstall."</string>
-    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Kinakailangan app na ito ng administrator ng device mo at di maaari i-uninstall."</string>
-    <string name="manage_device_administrators" msgid="118178632652346535">"Pamahalaan ang mga app ng admin ng device"</string>
-    <string name="manage_users" msgid="3125018886835668847">"Pamahalaan ang mga user"</string>
-    <string name="uninstall_failed_msg" msgid="8969754702803951175">"Hindi ma-install ang <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
-    <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Nagkaroon ng problema sa pag-parse sa package."</string>
-    <string name="newPerms" msgid="6039428254474104210">"Bago"</string>
-    <string name="allPerms" msgid="1024385515840703981">"Lahat"</string>
-    <string name="privacyPerms" msgid="1850527049572617">"Privacy"</string>
-    <string name="devicePerms" msgid="6733560207731294504">"Access sa Device"</string>
-    <string name="no_new_perms" msgid="6657813692169565975">"Walang kinakailangang mga bagong pagpapahintulot ang update na ito."</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"Gusto mo bang ibigay ang mga sumusunod na pahintulot? Magkakaroon ito ng access sa:"</string>
-    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Tanggihan"</string>
-    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Higit pang impormasyon"</string>
-    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Tanggihan pa rin"</string>
-    <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> ng <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="7332275268559121742">"Payagan ang &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; na <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
-    <string name="permission_revoked_count" msgid="7386129423432613024">"<xliff:g id="COUNT">%1$d</xliff:g> ang naka-disable"</string>
-    <string name="permission_revoked_all" msgid="8595742638132863678">"naka-disable lahat"</string>
-    <string name="permission_revoked_none" msgid="2059511550181271342">"walang naka-disable"</string>
-    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Payagan"</string>
-    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Mga App"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"Mga pahintulot sa app"</string>
-    <string name="never_ask_again" msgid="1089938738199748687">"Huwag nang tatanunging muli"</string>
-    <string name="no_permissions" msgid="3210542466245591574">"Walang mga pahintulot"</string>
-    <string name="additional_permissions" msgid="6667573114240111763">"Mga karagdagang pahintulot"</string>
-    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+    <string name="app_name" msgid="2792757108872430971">"Controller ng pahintulot"</string>
+    <string name="ok" msgid="4417794827535157922">"OK"</string>
+    <string name="permission_search_keyword" msgid="1652964722383449182">"mga pahintulot"</string>
+    <string name="cancel" msgid="7279939269964834974">"Kanselahin"</string>
+    <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Hindi makita ang app"</string>
+    <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Tanggihan"</string>
+    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Tanggihan at huwag nang itanong muli"</string>
+    <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Higit pang info"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Tanggihan"</string>
+    <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> sa <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
+    <string name="permission_warning_template" msgid="1353228984024423745">"Payagan ang &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; na <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_add_background_warning_template" msgid="1046864917164159751">"Palaging payagan ang &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; na <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="allow_permission_foreground_only" msgid="7444689446874060511">"Habang ginagamit lang ang app"</string>
+    <string name="allow_permission_always" msgid="4089537686339013930">"Palagi"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8131547398883397878">"Tanggihan at huwag nang itanong muli"</string>
+    <string name="permission_revoked_count" msgid="5556125174203696709">"<xliff:g id="COUNT">%1$d</xliff:g> ang naka-disable"</string>
+    <string name="permission_revoked_all" msgid="6356577996164232918">"naka-disable lahat"</string>
+    <string name="permission_revoked_none" msgid="266013103540772023">"walang naka-disable"</string>
+    <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Payagan"</string>
+    <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"Payagan sa lahat ng oras"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Payagan lang habang ginagamit ang app"</string>
+    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Mga App"</string>
+    <string name="app_permissions" msgid="2778362347879465223">"Mga pahintulot sa app"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"Manager ng pahintulot"</string>
+    <string name="never_ask_again" msgid="7645304182523160030">"Huwag nang itanong muli"</string>
+    <string name="no_permissions" msgid="2193893107241172888">"Walang pahintulot"</string>
+    <string name="additional_permissions" msgid="7124470111123472154">"Mga karagdagang pahintulot"</string>
+    <string name="app_permissions_info_button_label" msgid="6566057048862462066">"Buksan ang impormasyon ng app"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
       <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> pa</item>
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> pa</item>
     </plurals>
-    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Ang app na ito ay idinisenyo para sa mas lumang bersyon ng Android. Kapag tinanggihan ang pahintulot, maaaring hindi na ito gumana ayon sa inaasahan."</string>
-    <string name="default_permission_description" msgid="4992892207044156668">"gumawa ng hindi kilalang pagkilos"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"Pinapayagan ang <xliff:g id="COUNT_0">%1$d</xliff:g> sa <xliff:g id="COUNT_1">%2$d</xliff:g> (na) app"</string>
-    <string name="menu_show_system" msgid="6773743421743728921">"Ipakita ang system"</string>
-    <string name="menu_hide_system" msgid="7595471742649432977">"Itago ang system"</string>
-    <string name="permission_title" msgid="6495415273398916381">"Mga pahintulot sa <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
-    <string name="no_apps" msgid="1965493419005012569">"Walang mga app"</string>
-    <string name="location_settings" msgid="1774875730854491297">"Mga Setting ng Lokasyon"</string>
-    <string name="location_warning" msgid="8778701356292735971">"Ang <xliff:g id="APP_NAME">%1$s</xliff:g> ay isang provider ng mga serbisyo sa lokasyon para sa device na ito. Mababago ang access sa lokasyon mula sa mga setting ng lokasyon."</string>
-    <string name="system_warning" msgid="7103819124542305179">"Kung tatanggihan mo ang pahintulot na ito, maaaring hindi na gumana ang mga pangunahing feature ng iyong device gaya ng inaasahan."</string>
-    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Ipinapatupad sa pamamagitan ng patakaran"</string>
-    <string name="loading" msgid="7811651799620593731">"Naglo-load..."</string>
-    <string name="all_permissions" msgid="5156669007784613042">"Lahat ng pahintulot"</string>
-    <string name="other_permissions" msgid="2016192512386091933">"Iba pang mga kakayahan ng app"</string>
-    <string name="permission_request_title" msgid="1204446718549121199">"Kahilingan sa pagpapahintulot"</string>
-    <string name="screen_overlay_title" msgid="3021729846864038529">"Natukoy ang overlay ng screen"</string>
-    <string name="screen_overlay_message" msgid="2141944461571677331">"Upang baguhin ang setting ng pahintulot na ito, kailangan mo munang i-off ang overlay ng screen mula sa Mga Setting &gt; Mga App"</string>
-    <string name="screen_overlay_button" msgid="4344544843349937743">"Buksan ang mga setting"</string>
-    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Ang mga pagkilos na I-install/I-uninstall ay hindi sinusuportahan sa Wear."</string>
-    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"Na-update na ang <xliff:g id="APP_NAME_0">%1$s</xliff:g>. Papayagan ang <xliff:g id="APP_NAME_1">%1$s</xliff:g> na i-access ang sumusunod?"</string>
-    <string name="permission_review_title_template_install" msgid="6819338441305295479">"Piliin kung ano ang papayagang i-access ng &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;"</string>
-    <string name="permission_review_title_template_update" msgid="8632233603161669426">"Na-update na ang &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;. Piliin kung ano ang papayagang i-access ng app na ito."</string>
-    <string name="review_button_cancel" msgid="957906817733578877">"Kanselahin"</string>
-    <string name="review_button_continue" msgid="4809162078179371370">"Magpatuloy"</string>
-    <string name="new_permissions_category" msgid="3213523410139204183">"Mga bagong pahintulot"</string>
-    <string name="current_permissions_category" msgid="998210994450606094">"Mga kasalukuyang pahintulot"</string>
-    <string name="message_staging" msgid="6151794817691100003">"Inihahanda ang app…"</string>
-    <string name="app_name_unknown" msgid="8931522764510159105">"Hindi Alam"</string>
-    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Para sa iyong seguridad, hindi pinapayagan ang tablet mo na mag-install ng mga hindi alam na app mula sa pinagmulang ito."</string>
-    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Para sa iyong seguridad, hindi pinapayagan ang TV mo na mag-install ng mga hindi alam na app mula sa pinagmulang ito."</string>
-    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Para sa iyong seguridad, hindi pinapayagan ang telepono mo na mag-install ng mga hindi alam na app mula sa pinagmulang ito."</string>
-    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"Mas nanganganib ang iyong telepono at personal na data sa mga pag-atake mula sa mga hindi kilalang app. Sa pamamagitan ng pag-install ng app na ito, sumasang-ayon ka na ikaw ang responsable sa anumang pinsala sa telepono mo o pagkawala ng data na maaaring magresulta mula sa paggamit nito."</string>
-    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"Mas nanganganib ang iyong tablet at personal na data sa mga pag-atake mula sa mga hindi kilalang app. Sa pamamagitan ng pag-install ng app na ito, sumasang-ayon ka na ikaw ang responsable sa anumang pinsala sa tablet mo o pagkawala ng data na maaaring magresulta mula sa paggamit nito."</string>
-    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Mas nanganganib ang iyong TV at personal na data sa mga pag-atake mula sa mga hindi kilalang app. Sa pamamagitan ng pag-install ng app na ito, sumasang-ayon ka na ikaw ang responsable sa anumang pinsala sa TV mo o pagkawala ng data na maaaring magresulta mula sa paggamit nito."</string>
-    <string name="anonymous_source_continue" msgid="2094381167954332292">"Magpatuloy"</string>
-    <string name="external_sources_settings" msgid="8601453744517291632">"Mga Setting"</string>
-    <string name="wear_app_channel" msgid="6200840123672949356">"Ini-install/ina-uninstall ang wear apps"</string>
+    <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Ang app na ito ay idinisenyo para sa mas lumang bersyon ng Android. Kapag tinanggihan ang pahintulot, maaaring hindi na ito gumana gaya ng inaasahan."</string>
+    <string name="default_permission_description" msgid="692254823411049573">"magsagawa ng hindi kilalang pagkilos"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"Pinapayagan ang <xliff:g id="COUNT_0">%1$d</xliff:g> sa <xliff:g id="COUNT_1">%2$d</xliff:g> (na) app"</string>
+    <string name="permission_usage_header" msgid="8802963718365732792">"Kamakailang paggamit"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"Tingnan ang Dashboard ng Mga Pahintulot"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"Ipakita ang system"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"Itago ang system"</string>
+    <string name="no_apps" msgid="2377153782338039463">"Walang app"</string>
+    <string name="location_settings" msgid="547378321761364906">"Mga Setting ng Lokasyon"</string>
+    <string name="location_warning" msgid="4687406043150343369">"Ang <xliff:g id="APP_NAME">%1$s</xliff:g> ay isang provider ng mga serbisyo ng lokasyon para sa device na ito. Maaaring baguhin ang access sa lokasyon sa mga setting ng lokasyon."</string>
+    <string name="system_warning" msgid="6868290533389195836">"Kung tatanggihan mo ang pahintulot na ito, maaaring hindi na gumana ang mga pangunahing feature ng iyong device gaya ng inaasahan."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"Ipinapatupad ayon sa patakaran"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"Na-disable ayon sa patakaran: access habang nasa background"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"Na-enable ayon sa patakaran: access habang nasa background"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="8652417310534780420">"Na-enable ayon sa patakaran: access habang nasa foreground"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="5156952484229154563">"Kinokontrol ng admin"</string>
+    <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"Na-disable ng admin ang access habang nasa background"</string>
+    <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"Na-enable ng admin ang access habang nasa background"</string>
+    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"Na-enable ng admin ang access habang nasa foreground"</string>
+    <string name="permission_summary_enabled_system_fixed" msgid="1648259601814176611">"System ang nagtakda ng pahintulot"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
+    <string name="permission_access_always" msgid="2315256378850460955">"Palagi"</string>
+    <string name="permission_access_only_foreground" msgid="8109903552082630801">"Habang ginagamit lang ang app"</string>
+    <string name="permission_access_never" msgid="4717648645876576508">"Huwag Kailanman"</string>
+    <string name="loading" msgid="323483393167148377">"Naglo-load…"</string>
+    <string name="all_permissions" msgid="7813580062403112957">"Lahat ng pahintulot"</string>
+    <string name="other_permissions" msgid="1956312685853070715">"Iba pang kakayahan ng app"</string>
+    <string name="permission_request_title" msgid="6779348653783761548">"Kahilingan sa pagpapahintulot"</string>
+    <string name="screen_overlay_title" msgid="1632732130312696010">"Natukoy ang screen overlay"</string>
+    <string name="screen_overlay_message" msgid="3222033787364955006">"Para baguhin ang setting ng pahintulot na ito, kailangan mo munang i-off ang screen overlay sa Mga Setting &gt; Mga App"</string>
+    <string name="screen_overlay_button" msgid="3554849308322944411">"Buksan ang mga setting"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="6923880912091041609">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="8731817202551430387">"Ang mga pagkilos na I-install/I-uninstall ay hindi sinusuportahan sa Wear."</string>
+    <string name="permission_review_title_template_install" msgid="8131698354985303888">"Piliin kung ano ang papayagang i-access ng &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;"</string>
+    <string name="permission_review_title_template_update" msgid="7597155653571395485">"Na-update na ang &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;. Piliin kung ano ang papayagang i-access ng app na ito."</string>
+    <string name="review_button_cancel" msgid="7108377593627664194">"Kanselahin"</string>
+    <string name="review_button_continue" msgid="1367925420132212571">"Magpatuloy"</string>
+    <string name="new_permissions_category" msgid="7242713808413888679">"Mga bagong pahintulot"</string>
+    <string name="current_permissions_category" msgid="3835461245150972589">"Mga kasalukuyang pahintulot"</string>
+    <string name="message_staging" msgid="641286607664721291">"Inihahanda ang app…"</string>
+    <string name="app_name_unknown" msgid="8288360585728122735">"Hindi alam"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Dashboard"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="one">Huling pag-access: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> pag-access</item>
+      <item quantity="other">Huling pag-access: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> na pag-access</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="one">Huling pag-access: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> pag-access (<xliff:g id="NUM_5">%3$s</xliff:g> sa background)</item>
+      <item quantity="other">Huling pag-access: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> na pag-access (<xliff:g id="NUM_5">%3$s</xliff:g> sa background)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="one">Huling pag-access: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> pag-access\nTagal: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="other">Huling pag-access: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> na pag-access\nTagal: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="one">Huling pag-access: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> pag-access (<xliff:g id="NUM_6">%3$s</xliff:g> sa background)\nTagal: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="other">Huling pag-access: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> na pag-access (<xliff:g id="NUM_6">%3$s</xliff:g> sa background)\nTagal: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+    </plurals>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Anumang pahintulot"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"Anumang oras"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Nakalipas na 7 araw"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"Nakalipas na 24 na oras"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Nakalipas na 1 oras"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Nakalipas na 15 minuto"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Nakalipas na 1 minuto"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"Walang paggamit ng pahintulot"</string>
+    <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"Pag-access anumang oras"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"Pag-access sa huling 7 araw"</string>
+    <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"Pag-access sa huling 24 na oras"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"Pag-access sa nakalipas na oras"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"Pag-access sa nakalipas na 15 minuto"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="8035799852985876841">"Pag-access sa nakalipas na 1 minuto"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"Pinakamadalas gamiting pahintulot anumang oras"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"Pinakamadalas gamiting pahintulot sa huling 7 araw"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"Pinakamadalas gamiting pahintulot, huling 24 oras"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"Pinakamadalas gamiting pahintulot sa huling 1 oras"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"Pinakamadalas gamiting pahintulot sa huling 15 min"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"Pinakamadalas gamiting pahintulot sa huling 1 oras"</string>
+    <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"Mga App"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Na-filter ng: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"Alisin ang filter"</string>
+    <string name="filter_by_title" msgid="5940302511365561845">"I-filter ayon sa"</string>
+    <string name="filter_by_permissions" msgid="7761207093643478436">"I-filter ayon sa mga pahintulot"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Pinakamaraming pahintulot"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Pinakamaraming pag-access"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"Kamakailan Lang"</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"I-refresh"</string>
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"Paggamit ng pahintulot sa app"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"Na-access nang: <xliff:g id="NUM">%1$s</xliff:g> (na) beses. Kabuuang tagal: <xliff:g id="DURATION">%2$s</xliff:g>. Huling ginamit <xliff:g id="TIME">%3$s</xliff:g> ang nakalipas."</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Na-access nang: <xliff:g id="NUM">%1$s</xliff:g> (na) beses. Huling ginamit <xliff:g id="TIME">%2$s</xliff:g> ang nakalipas."</string>
+    <string name="app_permission_button_allow" msgid="1358817292836175593">"Payagan"</string>
+    <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Payagan sa lahat ng oras"</string>
+    <string name="app_permission_button_allow_foreground" msgid="6366222217615376397">"Payagan lang habang ginagamit ang app"</string>
+    <string name="app_permission_button_deny" msgid="5716368368650638408">"Tanggihan"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> na pahintulot"</string>
+    <string name="app_permission_header" msgid="5704679725169517493">"<xliff:g id="PERM">%1$s</xliff:g> na access para sa <xliff:g id="APP">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"Na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong <xliff:g id="PERM">%2$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g> ang nakalipas."</string>
+    <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"Hindi na-access ng <xliff:g id="APP">%1$s</xliff:g> ang iyong <xliff:g id="PERM">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Tingnan ang detalyadong paggamit sa mga pahintulot"</string>
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Huling na-access: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Hindi na-access kahit kailan"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"Pinapayagan"</string>
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"Pinapayagan lang habang ginagamit"</string>
+    <string name="denied_header" msgid="2277998574238617699">"Tinanggihan"</string>
+    <string name="detailed_usage_link" msgid="3990452346369247944">"Tingnan ang detalyadong paggamit"</string>
+    <plurals name="days" formatted="false" msgid="3903419301028414979">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> araw</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> na araw</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="2123927014975877155">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> oras</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> na oras</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="4331145652577957044">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> minuto</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> na minuto</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="1632909606956324957">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> segundo</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> na segundo</item>
+    </plurals>
+    <string name="role_request_message_add" msgid="1977772335648650272">"Gamitin ang &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; bilang iyong <xliff:g id="ROLE_NAME">%2$s</xliff:g>?"</string>
+    <string name="role_request_message_replace" msgid="6367571247558110210">"Gamitin ang &lt;b&gt;<xliff:g id="NEW_APP_NAME">%1$s</xliff:g>&lt;/b&gt; sa halip na ang &lt;b&gt;<xliff:g id="CURRENT_APP_NAME">%1$s</xliff:g>&lt;/b&gt; bilang iyong <xliff:g id="ROLE_NAME">%2$s</xliff:g>?"</string>
+    <string name="permission_reminders" msgid="8040710767178843151">"Mga paalala sa pahintulot"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"Ginagamit ng <xliff:g id="APP_NAME">%s</xliff:g> ang iyong lokasyon"</string>
+    <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Maa-access ng app na ito ang iyong lokasyon anumang oras. I-tap para baguhin."</string>
+    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Habang ginagamit lang ang app"</string>
+    <string name="no_permissions_allowed" msgid="5781278485002145993">"Walang pinayagang pahintulot"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"Walang tinanggihang pahintulot"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"Walang pinayagang app"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"Walang tinanggihang app"</string>
+    <string name="launch_app" msgid="5641437562665039291">"Buksan"</string>
+    <string name="uninstall_app" msgid="8756507666995809214">"I-uninstall"</string>
+    <string name="force_stop_app" msgid="4253426323145479826">"Sapilitang ihinto"</string>
+    <string name="settings" msgid="2884124136779508907">"Mga Setting"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"May kumpletong access ang <xliff:g id="SERVICE_NAME">%s</xliff:g> sa iyong device"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> (na) serbisyo sa pagiging naa-access ang may kumpletong access sa iyong device"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"Magagawa ng <xliff:g id="SERVICE_NAME">%s</xliff:g> na tingnan ang iyong screen, mga pagkilos, at mga input, magsagawa ng mga pagkilos, at kontrolin ang display."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"Magagawa ng mga serbisyong ito na tingnan ang iyong screen, mga pagkilos, at mga input, magsagawa ng mga pagkilos, at kontrolin ang display."</string>
+    <string name="default_apps" msgid="8554530939151957828">"Mga default na app"</string>
+    <string name="no_default_apps" msgid="5642715159090903032">"Walang default na app"</string>
+    <string name="default_apps_for_work" msgid="8582151955372061208">"Default para sa trabaho"</string>
+    <string name="default_app_none" msgid="7671097769303174666">"Wala"</string>
+    <string name="default_app_no_apps" msgid="5344668465735677271">"Walang app"</string>
+    <string name="special_app_access" msgid="2561673957499408877">"Espesyal na app access"</string>
+    <string name="no_special_app_access" msgid="994977666694457811">"Walang espesyal na app access"</string>
+    <string name="special_app_access_no_apps" msgid="3934763650592564818">"Walang app"</string>
+    <string name="role_label_assistant" msgid="456685142560727172">"Assist app"</string>
+    <string name="role_label_browser" msgid="6266502234308421457">"Browser app"</string>
+    <string name="role_label_dialer" msgid="3345895090725237533">"Phone app"</string>
+    <string name="role_label_sms" msgid="2262769075496017522">"SMS app"</string>
+    <string name="role_label_emergency" msgid="2226651888638211616">"Emergency app"</string>
+    <string name="role_label_home" msgid="7672863812639457378">"App sa home"</string>
+    <string name="role_label_music" msgid="5900245414865932272">"Music app"</string>
+    <string name="role_label_gallery" msgid="6939560238495155209">"Gallery app"</string>
+    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"App na telepono ng car mode"</string>
+    <string name="role_label_call_redirection" msgid="8902197181113231577">"App sa pag-redirect ng tawag"</string>
+    <string name="role_label_call_screening" msgid="411212589764916370">"App ng pag-screen ng tawag"</string>
+    <string name="role_label_call_companion" msgid="7369723859682076467">"Kasamang app sa pagtawag"</string>
+    <string name="role_label_car_projection" msgid="3792929094325391213">"Car Projection app"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"Hindi sinusuportahan ang profile sa trabaho"</string>
+    <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Tandaan: Kung ire-restart mo ang iyong device at may nakatakdang lock ng screen, hindi makakapagsimula ang app na ito hanggang sa i-unlock mo ang iyong device."</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"Mababasa ng assistant ang impormasyon tungkol sa mga app na ginagamit sa iyong system, kasama ang impormasyong makikita sa screen mo o maa-access sa mga app."</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"Ibahagi ang Data sa Pag-debug"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"Ibahagi ang nakadetalyeng data sa pag-debug?"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"Gustong mag-upload ng <xliff:g id="APP_NAME">%1$s</xliff:g> ng impormasyon sa pag-debug."</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Ibahagi ang Data sa Pag-debug"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"Hinihiling ng <xliff:g id="APP_NAME_0">%1$s</xliff:g> na mag-upload ng ulat ng bug mula sa device na ito na kinuha noong <xliff:g id="DATE">%2$s</xliff:g> sa ganap na <xliff:g id="TIME">%3$s</xliff:g>. Kabilang sa mga ulat ng bug ang personal na impormasyon tungkol sa iyong device o naka-log ayon sa mga app, halimbawa, mga user name, data ng lokasyon, pagkakakilanlan ng device, at impormasyon ng network. Magbahagi lang ng mga ulat ng bug sa mga tao at app na pinagkakatiwalaan mo ng impormasyong ito. Payagan ang <xliff:g id="APP_NAME_1">%4$s</xliff:g> na mag-upload ng ulat ng bug?"</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Payagan"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Tanggihan"</string>
 </resources>

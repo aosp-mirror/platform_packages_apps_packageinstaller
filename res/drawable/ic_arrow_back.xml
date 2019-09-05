@@ -18,9 +18,9 @@
   ~  does not provide a way to customize it. Here to center the icon in action bar, we make up
   ~  the margin by add the extra space in the icon itself -->
 <vector
-    android:height="@dimen/car_primary_icon_size"
-    android:width="@dimen/car_primary_icon_size"
-    android:tint="@color/car_accent"
+    android:height="@*android:dimen/car_primary_icon_size"
+    android:width="@*android:dimen/car_primary_icon_size"
+    android:tint="@*android:color/car_accent"
     android:viewportHeight="24.0"
     android:viewportWidth="24.0"
     xmlns:android="http://schemas.android.com/apk/res/android">

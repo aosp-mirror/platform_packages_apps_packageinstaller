@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,205 +16,208 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2738748390251381682">"পেকেজ ইনষ্টলাৰ"</string>
-    <string name="next" msgid="3057143178373252333">"পৰৱৰ্তী"</string>
-    <string name="install" msgid="5896438203900042068">"ইনষ্টল কৰক"</string>
-    <string name="done" msgid="3889387558374211719">"সম্পন্ন হ\'ল"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"এই এপটোক এইবোৰৰ অনুমতি দিয়ক:"</string>
-    <string name="cancel" msgid="8360346460165114585">"বাতিল কৰক"</string>
-    <string name="unknown" msgid="4742479012767208045">"অজ্ঞাত"</string>
-    <string name="installing" msgid="8613631001631998372">"ইনষ্টল কৰি থকা হৈছে…"</string>
-    <!-- no translation found for installing_app (4097935682329028894) -->
-    <skip />
-    <string name="install_done" msgid="3682715442154357097">"এপ্ ইনষ্টল কৰা হ\'ল।"</string>
-    <string name="install_confirm_question" msgid="7295206719219043890">"আপুনি এই এপ্লিকেশ্বন ইনষ্টল কৰিব বিচাৰেনে? ই এইবোৰ ব্যৱহাৰ কৰিব পাৰিব:"</string>
-    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"আপুনি এই এপ্লিকেশ্বন ইনষ্টল কৰিব বিচাৰেনে? ইয়াক ব্য়ৱহাৰ সম্পৰ্কীয় কোনো অনুমতিৰ প্ৰয়োজন নাই।"</string>
-    <string name="install_confirm_question_update" msgid="4624159567361487964">"আপুনি পূর্বৰে পৰা থকা এপ্লিকেশ্বন আপডেট কৰিব বিচাৰেনে? আপুনি কোনো পুৰণি ডেটা নেহেৰুৱাই। আপডেট হোৱা এপ্লিকেশ্বনে এইবোৰ ব্যৱহাৰ কৰিব পাৰিব:"</string>
-    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"আপুনি এই অন্তনির্মিত এপ্লিকেশ্বন আপডেট কৰিব বিচাৰেনে? আপুনি কোনো পুৰণি ডেটা নেহেৰুৱাই। আপডেট হোৱা এপ্লিকেশ্বনে এইবোৰ ব্যৱহাৰ কৰিব পাৰিব:"</string>
-    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"আপুনি পূর্বৰে পৰা থকা এপ্লিকেশ্বন আপডেট কৰিব বিচাৰেনে? আপুনি কোনো পুৰণি ডেটা নেহেৰুৱাব। ব্যৱহাৰৰ বাবে ইয়াক কোনো বিশেষ অনুমতিৰ প্ৰয়োজন নাই৷"</string>
-    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"আপুনি এই অন্তনির্মিত এপ্লিকেশ্বন আপডেট কৰিব বিচাৰেনে? আপুনি নিজৰ পুৰণি ডেটা নেহেৰুৱাব৷ ব্যৱহাৰৰ বাবে ইয়াক কোনো বিশেষ অনুমতিৰ প্ৰয়োজন নাই৷"</string>
-    <string name="install_failed" msgid="6579998651498970899">"এপ্ ইনষ্টল কৰা হোৱা নাই।"</string>
-    <!-- no translation found for install_failed_blocked (1606870930588770025) -->
-    <skip />
-    <!-- no translation found for install_failed_conflict (5336045235168070954) -->
-    <skip />
-    <!-- no translation found for install_failed_incompatible (6682387386242708974) -->
-    <skip />
-    <!-- no translation found for install_failed_incompatible (3553367270510072729) -->
-    <skip />
-    <!-- no translation found for install_failed_incompatible (7917996365659426872) -->
-    <skip />
-    <!-- no translation found for install_failed_invalid_apk (269885385245534742) -->
-    <skip />
-    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g>ক আপোনাৰ টে\'বলেটত ইনষ্টল কৰিব পৰা নগ\'ল৷"</string>
-    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"আপোনাৰ টিভিত <xliff:g id="APP_NAME">%1$s</xliff:g> ইনষ্টল কৰিব পৰা নগ\'ল।"</string>
-    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g>ক আপোনাৰ ফ\'নত ইনষ্টল কৰিব পৰা নগ\'ল৷"</string>
-    <string name="launch" msgid="4826921505917605463">"খোলক"</string>
-    <!-- no translation found for unknown_apps_admin_dlg_text (7488386758312008790) -->
-    <skip />
-    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"এই ব্যৱহাৰকাৰীয়ে অজ্ঞাত উৎসৰপৰা লাভ কৰা এপসমূহ ইনষ্টল কৰিব নোৱাৰে"</string>
-    <!-- no translation found for install_apps_user_restriction_dlg_text (5041150186260066212) -->
-    <skip />
-    <string name="ok" msgid="3468756155452870475">"ঠিক আছে"</string>
-    <string name="settings" msgid="6743583734099755409">"ছেটিংসমূহ"</string>
-    <string name="manage_applications" msgid="4033876279091996596">"এপসমূহ পৰিচালনা কৰক"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"এপ্ সলনি কৰিবনে?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"আপুনি ইনষ্টল কৰা এপে অন্য এটা এপক সলনি কৰিব।\n\nআপোনাৰ পূৰ্বৰ সকলো ডেটা ছেভ কৰা হ\'ব।"</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"এইটো এটা ছিষ্টেম এপ্।\n\nআপোনাৰ পূৰ্বৰ সকলো ডেটা ছেভ কৰা হ\'ব।"</string>
-    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"পৰ্যাপ্ত খালী ঠাই নাই"</string>
-    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g>ক ইনষ্টল কৰিব পৰা নগ\'ল। কিছু খালী ঠাই উলিয়াই পুনৰ চেষ্টা কৰক৷"</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"ঠিক আছে"</string>
-    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"এপ্ পোৱা নগ\'ল"</string>
-    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"ইনষ্টল হৈ থকা এপসমূহৰ তালিকাত এই এপটো পোৱা নগ\'ল।"</string>
-    <!-- no translation found for user_is_not_allowed_dlg_title (118128026847201582) -->
-    <skip />
-    <!-- no translation found for user_is_not_allowed_dlg_text (739716827677987545) -->
-    <skip />
-    <!-- no translation found for generic_error_dlg_title (2684806600635296961) -->
-    <skip />
-    <!-- no translation found for generic_error_dlg_text (4288738047825333954) -->
-    <skip />
-    <string name="uninstall_application_title" msgid="1860074100811653963">"এপ্ আনইনষ্টল কৰক"</string>
-    <string name="uninstall_update_title" msgid="4146940097553335390">"আপডেট আনইনষ্টল কৰক"</string>
-    <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> হৈছে তলৰ এপটোৰ এটা অংশ:"</string>
-    <string name="uninstall_application_text" msgid="6691975835951187030">"আপুনি এই এপটো আনইনষ্টল কৰিব বিচাৰেনে?"</string>
-    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"আপুনি "<b>"সকলো"</b>" ব্যৱহাৰকাৰীৰ বাবে এই এপটো আনইনষ্টল কৰিবলৈ বিচাৰেনে? এপ্লিকেশ্বন আৰু ইয়াৰ ডেটাক ডিভাইচটোত থকা "<b>"সকলো"</b>" ব্যৱহাৰকাৰীৰ পৰা আঁতৰোৱা হ\'ব৷"</string>
-    <string name="uninstall_application_text_user" msgid="8766882355635485733">"আপুনি ব্যৱহাৰকাৰী <xliff:g id="USERNAME">%1$s</xliff:g>ৰ বাবে এই এপটো আনইনষ্টল কৰিব বিচাৰেনে?"</string>
-    <!-- no translation found for uninstall_update_text (1394549691152728409) -->
-    <skip />
-    <!-- no translation found for uninstall_update_text_multiuser (2083665452990861991) -->
-    <skip />
-    <!-- no translation found for uninstalling_notification_channel (5698369661583525583) -->
-    <skip />
-    <!-- no translation found for uninstall_failure_notification_channel (8224276726364132314) -->
-    <skip />
-    <string name="uninstalling" msgid="5556217435895938250">"আনইনষ্টল কৰি থকা হৈছে…"</string>
-    <!-- no translation found for uninstalling_app (2773617614877719294) -->
-    <skip />
-    <string name="uninstall_done" msgid="3792487853420281888">"আনইনষ্টল কাৰ্যটো সমাপ্ত হ\'ল৷"</string>
-    <!-- no translation found for uninstall_done_app (775837862728680479) -->
-    <skip />
-    <string name="uninstall_failed" msgid="631122574306299512">"আনইনষ্টল কৰিব পৰা নগ\'ল।"</string>
-    <!-- no translation found for uninstall_failed_app (945277834056527022) -->
-    <skip />
-    <!-- no translation found for uninstall_failed_device_policy_manager (2727361164694743362) -->
-    <skip />
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"<xliff:g id="USERNAME">%1$s</xliff:g>ৰ সক্ৰিয় ডিভাইচৰ প্ৰশাসকীয় এপ্ আনইনষ্টল কৰিব নোৱাৰি"</string>
-    <!-- no translation found for uninstall_all_blocked_profile_owner (3544933038594382346) -->
-    <skip />
-    <!-- no translation found for uninstall_blocked_profile_owner (6912141045528994954) -->
-    <skip />
-    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"আপোনাৰ ডিভাইচৰ প্ৰশাসকে এই এপটো ৰখাটো বাধ্যতামূলক কৰি ৰাখিছে, গতিকে ইয়াক আনইনষ্টল কৰিব পৰা নাযায়।"</string>
-    <string name="manage_device_administrators" msgid="118178632652346535">"ডিভাইচৰ প্ৰশাসকীয় এপসমূহ পৰিচালনা কৰক"</string>
-    <!-- no translation found for manage_users (3125018886835668847) -->
-    <skip />
-    <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g>ক আনইনষ্টল কৰিব নোৱাৰি৷"</string>
-    <string name="Parse_error_dlg_text" msgid="7623286983621067011">"পেকেজটো পাৰ্ছ কৰোঁতে এটা সমস্যাই দেখা দিছিল।"</string>
-    <string name="newPerms" msgid="6039428254474104210">"নতুন"</string>
-    <string name="allPerms" msgid="1024385515840703981">"সকলো"</string>
-    <string name="privacyPerms" msgid="1850527049572617">"গোপনীয়তা"</string>
-    <string name="devicePerms" msgid="6733560207731294504">"ডিভাইচৰ ব্যৱহাৰ"</string>
-    <string name="no_new_perms" msgid="6657813692169565975">"এই আপডেটক কোনো নতুন অনুমতিৰ প্ৰয়োজন নাই।"</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"আপুনি তলৰ অনুমতিসমূহৰ অনুমোদন জনাব বিচাৰেনে? ই এই প্ৰৱেশাধিকাৰ লাভ কৰিব:"</string>
-    <!-- no translation found for grant_dialog_button_deny (2176510645406614340) -->
-    <skip />
-    <!-- no translation found for grant_dialog_button_more_info (2218220771432058426) -->
-    <skip />
-    <!-- no translation found for grant_dialog_button_deny_anyway (847960499284125250) -->
-    <skip />
-    <!-- no translation found for current_permission_template (6378304249516652817) -->
-    <skip />
-    <!-- no translation found for permission_warning_template (7332275268559121742) -->
-    <skip />
-    <!-- no translation found for permission_revoked_count (7386129423432613024) -->
-    <skip />
-    <!-- no translation found for permission_revoked_all (8595742638132863678) -->
-    <skip />
-    <!-- no translation found for permission_revoked_none (2059511550181271342) -->
-    <skip />
-    <!-- no translation found for grant_dialog_button_allow (4616529495342337095) -->
-    <skip />
-    <!-- no translation found for app_permissions_breadcrumb (3390836200791539264) -->
-    <skip />
-    <!-- no translation found for app_permissions (3146758905824597178) -->
-    <skip />
-    <!-- no translation found for never_ask_again (1089938738199748687) -->
-    <skip />
-    <!-- no translation found for no_permissions (3210542466245591574) -->
-    <skip />
-    <!-- no translation found for additional_permissions (6667573114240111763) -->
-    <skip />
-    <!-- no translation found for additional_permissions_more (945127158155064388) -->
-    <!-- no translation found for old_sdk_deny_warning (3872277112584842615) -->
-    <skip />
-    <!-- no translation found for default_permission_description (4992892207044156668) -->
-    <skip />
-    <!-- no translation found for app_permissions_group_summary (4787239772223699263) -->
-    <skip />
-    <!-- no translation found for menu_show_system (6773743421743728921) -->
-    <skip />
-    <!-- no translation found for menu_hide_system (7595471742649432977) -->
-    <skip />
-    <!-- no translation found for permission_title (6495415273398916381) -->
-    <skip />
-    <!-- no translation found for no_apps (1965493419005012569) -->
-    <skip />
-    <!-- no translation found for location_settings (1774875730854491297) -->
-    <skip />
-    <!-- no translation found for location_warning (8778701356292735971) -->
-    <skip />
-    <!-- no translation found for system_warning (7103819124542305179) -->
-    <skip />
-    <!-- no translation found for permission_summary_enforced_by_policy (3418617316188986205) -->
-    <skip />
-    <!-- no translation found for loading (7811651799620593731) -->
-    <skip />
-    <!-- no translation found for all_permissions (5156669007784613042) -->
-    <skip />
-    <!-- no translation found for other_permissions (2016192512386091933) -->
-    <skip />
-    <!-- no translation found for permission_request_title (1204446718549121199) -->
-    <skip />
-    <!-- no translation found for screen_overlay_title (3021729846864038529) -->
-    <skip />
-    <!-- no translation found for screen_overlay_message (2141944461571677331) -->
-    <skip />
-    <!-- no translation found for screen_overlay_button (4344544843349937743) -->
-    <skip />
-    <!-- no translation found for wear_not_allowed_dlg_title (8104666773577525713) -->
-    <skip />
-    <!-- no translation found for wear_not_allowed_dlg_text (1322352525843583064) -->
-    <skip />
-    <!-- no translation found for permission_review_warning_title_template_update (2569412700408535872) -->
-    <skip />
-    <!-- no translation found for permission_review_title_template_install (6819338441305295479) -->
-    <skip />
-    <!-- no translation found for permission_review_title_template_update (8632233603161669426) -->
-    <skip />
-    <!-- no translation found for review_button_cancel (957906817733578877) -->
-    <skip />
-    <!-- no translation found for review_button_continue (4809162078179371370) -->
-    <skip />
-    <!-- no translation found for new_permissions_category (3213523410139204183) -->
-    <skip />
-    <!-- no translation found for current_permissions_category (998210994450606094) -->
-    <skip />
-    <!-- no translation found for message_staging (6151794817691100003) -->
-    <skip />
-    <!-- no translation found for app_name_unknown (8931522764510159105) -->
-    <skip />
-    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"আপোনাৰ টেবলেটটো যাতে সুৰক্ষিত থাকে তাৰ বাবে আপোনাৰ টেবলেটটোক এই উৎসৰ পৰা অজ্ঞাত এপসমূহ ইনষ্টল কৰিবলৈ অনুমতি দিয়া হোৱা নাই।"</string>
-    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"আপোনাৰ টিভিটো যাতে সুৰক্ষিত থাকে তাৰ বাবে আপোনাৰ টিভিটোক এই উৎসৰ পৰা অজ্ঞাত এপসমূহ ইনষ্টল কৰিবলৈ অনুমতি দিয়া হোৱা নাই।"</string>
-    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"আপোনাৰ ফ\'নটো যাতে সুৰক্ষিত থাকে তাৰ বাবে আপোনাৰ ফ\'নটোক এই উৎসৰ পৰা অজ্ঞাত এপসমূহ ইনষ্টল কৰিবলৈ অনুমতি দিয়া হোৱা নাই।"</string>
-    <!-- no translation found for anonymous_source_warning (7700263729981815614) -->
-    <skip />
-    <!-- no translation found for anonymous_source_warning (8854462805499848630) -->
-    <skip />
-    <!-- no translation found for anonymous_source_warning (1291472686734385872) -->
-    <skip />
-    <!-- no translation found for anonymous_source_continue (2094381167954332292) -->
-    <skip />
-    <string name="external_sources_settings" msgid="8601453744517291632">"ছেটিংবোৰ"</string>
-    <!-- no translation found for wear_app_channel (6200840123672949356) -->
-    <skip />
+    <string name="app_name" msgid="2792757108872430971">"অনুমতি নিয়ন্ত্ৰক"</string>
+    <string name="ok" msgid="4417794827535157922">"ঠিক আছে"</string>
+    <string name="permission_search_keyword" msgid="1652964722383449182">"অনুমতি"</string>
+    <string name="cancel" msgid="7279939269964834974">"বাতিল কৰক"</string>
+    <string name="app_not_found_dlg_title" msgid="8897078571059217849">"এপ্ পোৱা নগ\'ল"</string>
+    <string name="grant_dialog_button_deny" msgid="1649644200597601964">"অস্বীকাৰ কৰক"</string>
+    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"অস্বীকাৰ কৰক, পুনৰাই নুসুধিব"</string>
+    <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"অধিক তথ্য"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"অস্বীকাৰেই কৰক"</string>
+    <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>ৰ ভিতৰত <xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>টা"</string>
+    <string name="permission_warning_template" msgid="1353228984024423745">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ক <xliff:g id="ACTION">%2$s</xliff:g>ৰ বাবে অনুমতি দিবনে?"</string>
+    <string name="permission_add_background_warning_template" msgid="1046864917164159751">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ক সদায় <xliff:g id="ACTION">%2$s</xliff:g> কৰাৰ অনুমতি দিবনে?"</string>
+    <string name="allow_permission_foreground_only" msgid="7444689446874060511">"এপ্ ব্য়ৱহাৰ কৰি থাকোঁতে মাত্ৰ"</string>
+    <string name="allow_permission_always" msgid="4089537686339013930">"সদায়"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8131547398883397878">"অস্বীকাৰ কৰক আৰু পুনৰাই নুসুধিব"</string>
+    <string name="permission_revoked_count" msgid="5556125174203696709">"<xliff:g id="COUNT">%1$d</xliff:g>টা অক্ষম কৰা হ’ল"</string>
+    <string name="permission_revoked_all" msgid="6356577996164232918">"সকলো অক্ষম কৰা হ’ল"</string>
+    <string name="permission_revoked_none" msgid="266013103540772023">"একো অক্ষম কৰা হোৱা নাই"</string>
+    <string name="grant_dialog_button_allow" msgid="2137542756625939532">"অনুমতি দিয়ক"</string>
+    <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"সদায় অনুমতি দিয়ক"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"কেৱল এপটো ব্যৱহাৰ হৈ থকা সময়ত অনুমতি দিয়ক"</string>
+    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"এপ্"</string>
+    <string name="app_permissions" msgid="2778362347879465223">"এপ্‌ৰ অনুমতি"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"অনুমতি পৰিচালক"</string>
+    <string name="never_ask_again" msgid="7645304182523160030">"পুনৰাই নুসুধিব"</string>
+    <string name="no_permissions" msgid="2193893107241172888">"কোনো অনুমতি নাই"</string>
+    <string name="additional_permissions" msgid="7124470111123472154">"অতিৰিক্ত অনুমতি"</string>
+    <string name="app_permissions_info_button_label" msgid="6566057048862462066">"এপৰ তথ্য় খোলক"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
+      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> অধিক</item>
+      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> অধিক</item>
+    </plurals>
+    <string name="old_sdk_deny_warning" msgid="6018489265342857714">"এই এপটো Androidৰ এটা পুৰণা সংস্কৰণৰ বাবে প্ৰস্তুত কৰা হৈছিল। অনুমতি নিদিলে ই বিচৰা ধৰণে কাম নকৰিবও পাৰে।"</string>
+    <string name="default_permission_description" msgid="692254823411049573">"অজ্ঞাত কাৰ্য কৰিব পাৰে"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_1">%2$d</xliff:g>ৰ ভিতৰত <xliff:g id="COUNT_0">%1$d</xliff:g>টা এপক অনুমতি দিয়া হৈছে"</string>
+    <string name="permission_usage_header" msgid="8802963718365732792">"শেহতীয়া ব্যৱহাৰৰ তথ্য"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"অনুমতিৰ ডেশ্বব’ৰ্ড চাওক"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"ছিষ্টেম দেখুৱাওক"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"ছিষ্টেম লুকুৱাওক"</string>
+    <string name="no_apps" msgid="2377153782338039463">"কোনো এপে এই অনুমতি বিচৰা নাই"</string>
+    <string name="location_settings" msgid="547378321761364906">"অৱস্থান ছেটিংসমূহ"</string>
+    <string name="location_warning" msgid="4687406043150343369">"<xliff:g id="APP_NAME">%1$s</xliff:g> হ’ল এই ডিভাইচৰ অৱস্থান সেৱা প্ৰদানকাৰী। অৱস্থানৰ ছেটিংসমূহত অৱস্থানৰ এক্সেছ সলনি কৰিব পাৰি।"</string>
+    <string name="system_warning" msgid="6868290533389195836">"আপুনি যদি এই অনুমতি প্ৰদান নকৰে, তেন্তে আপোনাৰ ডিভাইচৰ মৌলিক সুবিধাসমূহে বিচৰা ধৰণে কাম নকৰিবও পাৰে।"</string>
+    <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"নীতিৰ যোগেদি বলৱৎ কৰা"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"নীতি অনুসৰি নেপথ্য়ৰ এক্সেছ অক্ষম কৰা হ’ল"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"নীতি অনুসৰি নেপথ্য়ৰ এক্সেছ সক্ষম কৰা হ’ল"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="8652417310534780420">"নীতি অনুসৰি অগ্ৰভূমিৰ এক্সেছ সক্ষম কৰা হ’ল"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="5156952484229154563">"প্ৰশাসকে নিয়ন্ত্ৰিত কৰা"</string>
+    <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"প্ৰশাসকে নেপথ্যৰ এক্সেছ অক্ষম কৰি ৰাখিছে"</string>
+    <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"প্ৰশাসকে নেপথ্যৰ এক্সেছ সক্ষম কৰি ৰাখিছে"</string>
+    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"প্ৰশাসকে অগ্ৰভূমিৰ এক্সেছ সক্ষম কৰি ৰাখিছে"</string>
+    <string name="permission_summary_enabled_system_fixed" msgid="1648259601814176611">"ছিষ্টেমে অনুমতি ছেট কৰিছে"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
+    <string name="permission_access_always" msgid="2315256378850460955">"সদায়"</string>
+    <string name="permission_access_only_foreground" msgid="8109903552082630801">"এপ্ ব্য়ৱহাৰ কৰি থাকোঁতে মাত্ৰ"</string>
+    <string name="permission_access_never" msgid="4717648645876576508">"কেতিয়াও নহয়"</string>
+    <string name="loading" msgid="323483393167148377">"ল’ড হৈ আছে…"</string>
+    <string name="all_permissions" msgid="7813580062403112957">"সকলো অনুমতি"</string>
+    <string name="other_permissions" msgid="1956312685853070715">"অন্য এপৰ কার্যক্ষমতা"</string>
+    <string name="permission_request_title" msgid="6779348653783761548">"অনুমতি বিচাৰি কৰা অনুৰোধ"</string>
+    <string name="screen_overlay_title" msgid="1632732130312696010">"স্ক্ৰীণ অভাৰলে\' চিনাক্ত কৰা হৈছে"</string>
+    <string name="screen_overlay_message" msgid="3222033787364955006">"এই অনুমতিৰ ছেটিং সলনি কৰিবলৈ আপুনি প্ৰথমে ছেটিংসমূহ &gt; এপসমূহলৈ গৈ স্ক্ৰীণ অভাৰলে\' অফ কৰিব লাগিব"</string>
+    <string name="screen_overlay_button" msgid="3554849308322944411">"ছেটিংসমূহ খোলক"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="6923880912091041609">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="8731817202551430387">"ইনষ্টল/আনইনষ্টল কাৰ্য Wearত কৰিব নোৱাৰি।"</string>
+    <string name="permission_review_title_template_install" msgid="8131698354985303888">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ক ক’ত এক্সেছ দিব লাগে বাছনি কৰক"</string>
+    <string name="permission_review_title_template_update" msgid="7597155653571395485">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; আপডে’ট কৰা হৈছে। এই এপক ক’ত এক্সেছ দিব লাগে বাছনি কৰক।"</string>
+    <string name="review_button_cancel" msgid="7108377593627664194">"বাতিল কৰক"</string>
+    <string name="review_button_continue" msgid="1367925420132212571">"অব্যাহত ৰাখক"</string>
+    <string name="new_permissions_category" msgid="7242713808413888679">"নতুন অনুমতি"</string>
+    <string name="current_permissions_category" msgid="3835461245150972589">"সাম্প্ৰতিক অনুমতি"</string>
+    <string name="message_staging" msgid="641286607664721291">"এপৰ অন্তিম পর্যায়ৰ পৰীক্ষণ চলি আছে…"</string>
+    <string name="app_name_unknown" msgid="8288360585728122735">"অজ্ঞাত"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"ডেশ্বব’ৰ্ড"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="one">শেহতীয়া এক্সেছৰ সংখ্যা: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g>টা এক্সেছ</item>
+      <item quantity="other">শেহতীয়া এক্সেছৰ সংখ্যা: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g>টা এক্সেছ</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="one">শেহতীয়া এক্সেছৰ সংখ্যা: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g>টা এক্সেছ (নেপথ্যত <xliff:g id="NUM_5">%3$s</xliff:g>টা)</item>
+      <item quantity="other">শেহতীয়া এক্সেছৰ সংখ্যা: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g>টা এক্সেছ (নেপথ্যত <xliff:g id="NUM_5">%3$s</xliff:g>টা)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="one">শেহতীয়া এক্সেছৰ সংখ্যা: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g>টা এক্সেছ\nদৈৰ্ঘ্য: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="other">শেহতীয়া এক্সেছৰ সংখ্যা: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g>টা এক্সেছ\nদৈৰ্ঘ্য: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="one">শেহতীয়া এক্সেছৰ সংখ্যা: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g>টা এক্সেছ (নেপথ্যত <xliff:g id="NUM_6">%3$s</xliff:g>টা)\nদৈৰ্ঘ্য: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="other">শেহতীয়া এক্সেছৰ সংখ্যা: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g>টা এক্সেছ (নেপথ্যত <xliff:g id="NUM_6">%3$s</xliff:g>টা)\nদৈৰ্ঘ্য: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+    </plurals>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"যিকোনো অনুমতি"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"যিকোনো সময়ত"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"যোৱা ৭ দিনত"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"যোৱা ২৪ ঘণ্টাত"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"যোৱা ১ ঘণ্টাত"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"যোৱা ১৫ মিনিটত"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"যোৱা ১ মিনিটত"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"অনুমতি ব্যৱহাৰ কৰা হোৱা নাই"</string>
+    <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"যিকোনো সময়ত কৰা এক্সেছ"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"যোৱা ৭ দিনত কৰা এক্সেছ"</string>
+    <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"যোৱা ২৪ ঘণ্টাত কৰা এক্সেছ"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"যোৱা এঘণ্টাত কৰা এক্সেছ"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"যোৱা ১৫ মিনিটত কৰা এক্সেছ"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="8035799852985876841">"যোৱা ১ মিনিটত কৰা এক্সেছ"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"যিকোনো সময়ত আটাইতকৈ বেছি অনুমতিৰ ব্যৱহাৰ"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"যোৱা ৭ দিনত আটাইতকৈ বেছি অনুমতিৰ ব্যৱহাৰ"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"যোৱা ২৪ ঘণ্টাত আটাইতকৈ বেছি অনুমতিৰ ব্যৱহাৰ"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"যোৱা ১ ঘণ্টাত আটাইতকৈ বেছি অনুমতিৰ ব্যৱহাৰ"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"যোৱা ১৫ মিনিটত আটাইতকৈ বেছি অনুমতিৰ ব্যৱহাৰ"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"যোৱা ১ মিনিটত আটাইতকৈ বেছিকৈ বিচৰা অনুমতি"</string>
+    <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"এপ্"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"এই অনুসৰি ফিল্টাৰ কৰা: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"ফিল্টাৰ আঁতৰাওক"</string>
+    <string name="filter_by_title" msgid="5940302511365561845">"এই অনুসৰি ফিল্টাৰ কৰক"</string>
+    <string name="filter_by_permissions" msgid="7761207093643478436">"অনুমতি অনুসৰি ফিল্টাৰ কৰক"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"আটাইতকৈ বেছি অনুমতি"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"আটাইতকৈ বেছি এক্সেছ"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"শেহতীয়া"</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"ৰিফ্ৰে’শ্ব কৰক"</string>
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"এপৰ অনুমতিৰ ব্যৱহাৰ"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"এক্সেছ কৰা হৈছে: <xliff:g id="NUM">%1$s</xliff:g> বাৰ। মুঠ সময়: <xliff:g id="DURATION">%2$s</xliff:g>। অন্তিমবাৰ <xliff:g id="TIME">%3$s</xliff:g> আগত ব্যৱহাৰ কৰা হৈছিল।"</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"এক্সেছ কৰা হৈছে: <xliff:g id="NUM">%1$s</xliff:g> বাৰ। অন্তিমবাৰ <xliff:g id="TIME">%2$s</xliff:g> আগত ব্যৱহাৰ কৰা হৈছিল।"</string>
+    <string name="app_permission_button_allow" msgid="1358817292836175593">"অনুমতি দিয়ক"</string>
+    <string name="app_permission_button_allow_always" msgid="4313513946865105788">"সকলো সময়ৰ বাবে অনুমতি দিয়ক"</string>
+    <string name="app_permission_button_allow_foreground" msgid="6366222217615376397">"কেৱল এপটো ব্যৱহাৰ হৈ থকা সময়ত অনুমতি দিয়ক"</string>
+    <string name="app_permission_button_deny" msgid="5716368368650638408">"অস্বীকাৰ কৰক"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> অনুমতি"</string>
+    <string name="app_permission_header" msgid="5704679725169517493">"<xliff:g id="APP">%2$s</xliff:g>ৰ <xliff:g id="PERM">%1$s</xliff:g> এক্সেছ"</string>
+    <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="APP">%1$s</xliff:g>এ আপোনাৰ <xliff:g id="PERM">%2$s</xliff:g>ত <xliff:g id="TIME">%3$s</xliff:g> পূর্বে এক্সেছ পাইছিল।"</string>
+    <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g>এ আপোনাৰ <xliff:g id="PERM">%2$s</xliff:g> এক্সেছ কৰা নাই।"</string>
+    <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"অনুমতিৰ ব্যৱহাৰৰ সবিশেষ চাওক"</string>
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"অন্তিমবাৰ এক্সেছ কৰা হৈছিল: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"কেতিয়াও এক্সেছ কৰা নাই"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"অনুমতি দিয়া হৈছে"</string>
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"কেৱল ব্যৱহাৰ হৈ থকা সময়ত অনুমতি দিয়া হয়"</string>
+    <string name="denied_header" msgid="2277998574238617699">"অস্বীকাৰ কৰা হৈছে"</string>
+    <string name="detailed_usage_link" msgid="3990452346369247944">"ব্যৱহাৰৰ সবিশেষ তথ্য চাওক"</string>
+    <plurals name="days" formatted="false" msgid="3903419301028414979">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> দিন</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> দিন</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="2123927014975877155">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> ঘণ্টা</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ঘণ্টা</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="4331145652577957044">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> মিনিট</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> মিনিট</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="1632909606956324957">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> ছেকেণ্ড</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ছেকেণ্ড</item>
+    </plurals>
+    <string name="role_request_message_add" msgid="1977772335648650272">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;ক আপোনাৰ <xliff:g id="ROLE_NAME">%2$s</xliff:g>হিচাপে ব্যৱহাৰ কৰিবনে?"</string>
+    <string name="role_request_message_replace" msgid="6367571247558110210">"&lt;b&gt;<xliff:g id="CURRENT_APP_NAME">%1$s</xliff:g>&lt;/b&gt;ৰ পৰিৱৰ্তে &lt;b&gt;<xliff:g id="NEW_APP_NAME">%1$s</xliff:g>&lt;/b&gt;ক আপোনাৰ <xliff:g id="ROLE_NAME">%2$s</xliff:g>হিচাপে ব্যৱহাৰ কৰিবনে?"</string>
+    <string name="permission_reminders" msgid="8040710767178843151">"অনুমতি বিষয়ক ৰিমাইণ্ডাৰ"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g>এ আপোনাৰ অৱস্থান ব্যৱহাৰ কৰি আছে"</string>
+    <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"এই এপটোৱে সদায় আপোনাৰ অৱস্থান এক্সেছ কৰিব পাৰে। সলনি কৰিবলৈ টিপক।"</string>
+    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"কেৱল এপটো ব্যৱহাৰ হৈ থকা সময়ত"</string>
+    <string name="no_permissions_allowed" msgid="5781278485002145993">"কোনো অনুমতি দিয়া নাই"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"কোনো অনুমতি প্ৰত্যাখ্যান কৰা নাই"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"কোনো এপক অনুমতি দিয়া নাই"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"কোনো এপ্ প্ৰত্যাখ্যান কৰা নাই"</string>
+    <string name="launch_app" msgid="5641437562665039291">"খোলক"</string>
+    <string name="uninstall_app" msgid="8756507666995809214">"আনইনষ্টল কৰক"</string>
+    <string name="force_stop_app" msgid="4253426323145479826">"বলেৰে বন্ধ কৰক"</string>
+    <string name="settings" msgid="2884124136779508907">"ছেটিংসমূহ"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g>এ আপোনাৰ ডিভাইচটো সম্পূৰ্ণভাৱে এক্সেছ কৰিব পাৰে"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> সাধ্য সুবিধাসমূহে আপোনাৰ ডিভাইচটো সম্পূৰ্ণভাৱে এক্সেছ কৰিব পাৰে"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g>এ আপোনাৰ স্ক্ৰীণ, কাৰ্য আৰু ইনপুট চাব পাৰে, কাৰ্য সম্পন্ন কৰিব পাৰে আৰু ডিছপ্লে’ নিয়ন্ত্ৰণ কৰিব পাৰে।"</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"এই সেৱাবোৰে আপোনাৰ স্ক্ৰীণ, কাৰ্য আৰু ইনপুট চাব পাৰে, কাৰ্য সম্পন্ন কৰিব পাৰে আৰু ডিছপ্লে’ নিয়ন্ত্ৰণ কৰিব পাৰে।"</string>
+    <string name="default_apps" msgid="8554530939151957828">"ডিফ’ল্ট এপ্"</string>
+    <string name="no_default_apps" msgid="5642715159090903032">"কোনো ডিফ’ল্ট এপ্ নাই"</string>
+    <string name="default_apps_for_work" msgid="8582151955372061208">"কৰ্মস্থানৰ বাবে ডিফ’ল্ট"</string>
+    <string name="default_app_none" msgid="7671097769303174666">"নাই"</string>
+    <string name="default_app_no_apps" msgid="5344668465735677271">"কোনো এপ্‌ নাই"</string>
+    <string name="special_app_access" msgid="2561673957499408877">"বিশেষ এপ্ এক্সেছ"</string>
+    <string name="no_special_app_access" msgid="994977666694457811">"কোনো বিশেষ এপ্ এক্সেছ নাই"</string>
+    <string name="special_app_access_no_apps" msgid="3934763650592564818">"কোনো এপ্‌ নাই"</string>
+    <string name="role_label_assistant" msgid="456685142560727172">"সহায়ক এপ্"</string>
+    <string name="role_label_browser" msgid="6266502234308421457">"ব্ৰাউজাৰ এপ্"</string>
+    <string name="role_label_dialer" msgid="3345895090725237533">"ফ\'ন এপ্"</string>
+    <string name="role_label_sms" msgid="2262769075496017522">"এছএমএছ এপ্"</string>
+    <string name="role_label_emergency" msgid="2226651888638211616">"জৰুৰীকালীন এপ্"</string>
+    <string name="role_label_home" msgid="7672863812639457378">"হ’ম এপ্"</string>
+    <string name="role_label_music" msgid="5900245414865932272">"Music এপ্‌"</string>
+    <string name="role_label_gallery" msgid="6939560238495155209">"Gallery এপ্"</string>
+    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"গাড়ী ম’ড ফ’ন এপ্"</string>
+    <string name="role_label_call_redirection" msgid="8902197181113231577">"কল ৰিডাইৰেক্ট কৰা এপ্"</string>
+    <string name="role_label_call_screening" msgid="411212589764916370">"কল স্ক্ৰীণ কৰা এপ্"</string>
+    <string name="role_label_call_companion" msgid="7369723859682076467">"কল সহযোগী এপ্"</string>
+    <string name="role_label_car_projection" msgid="3792929094325391213">"গাড়ীৰ প্ৰজেকশ্বন এপ্‌"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"কৰ্মস্থানৰ প্ৰ’ফাইল সমৰ্থন নকৰে"</string>
+    <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"টোকা: যদি আপুনি আপোনাৰ ডিভাইচটো ৰিষ্টাৰ্ট কৰে আৰু আপোনাৰ এটা স্ক্ৰীণ লক ছেট কৰি থোৱা আছে, তেন্তে এই এপটো আপুনি ডিভাইচটো আনলক নকৰালৈকে আৰম্ভ নহ’ব।"</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"এই সহায়কটোৱে আপোনাৰ ছিষ্টেমত ব্যৱহৃত হৈ থকা এপ্‌সমূহৰ বিষয়ে তথ্য পঢ়িব পাৰিব। সেই তথ্যসমূহৰ ভিতৰত আপোনাৰ স্ক্ৰীণত দেখা পোৱা বা এপে চাব পৰা তথ্যসমূহ অন্তৰ্ভুক্ত।"</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"ডিবাগ ডেটা শ্বেয়াৰ কৰক"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"ডিবাগৰ সবিশেষ ডেটা শ্বেয়াৰ কৰিবনে?"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g>এ ডিবাগ তথ্য আপল’ড কৰিব বিচাৰিছে।"</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"ডিবাগ ডেটা শ্বেয়াৰ কৰক"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g>এ এই ডিভাইচটোৰ <xliff:g id="DATE">%2$s</xliff:g> তাৰিখে <xliff:g id="TIME">%3$s</xliff:g>ত সংগ্ৰহ কৰা এটা বাগ ৰিপ’ৰ্ট আপল’ড কৰাৰ অনুমতি বিচাৰিছে। সেই বাগ ৰিপ’ৰ্টটোত আপোনাৰ ডিভাইচটোৰ বিষয়ে ব্যক্তিগত তথ্য বা এপে লগ কৰা তথ্য, যেনে ব্যৱহাৰকাৰীৰ নাম, অৱস্থান ডেটা, ডিভাইচ পৰিচায়ক আৰু নেটৱৰ্ক সম্পৰ্কীয় তথ্য ইত্যাদি অন্তৰ্ভুক্ত থাকিব। এইখিনি তথ্যৰ ক্ষেত্ৰত কেৱল আপুনি বিশ্বাস কৰা ব্যক্তি বা এপৰ সৈতেহে বাগ ৰিপ’ৰ্ট শ্বেয়াৰ কৰক। <xliff:g id="APP_NAME_1">%4$s</xliff:g>ক বাগ ৰিপ’ৰ্ট আপল’ড কৰাৰ অনুমতি দিবনে?"</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"অনুমতি দিয়ক"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"অস্বীকাৰ কৰক"</string>
 </resources>

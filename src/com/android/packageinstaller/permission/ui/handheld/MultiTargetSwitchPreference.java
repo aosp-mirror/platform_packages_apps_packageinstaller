@@ -17,9 +17,11 @@
 package com.android.packageinstaller.permission.ui.handheld;
 
 import android.content.Context;
-import android.preference.SwitchPreference;
 import android.view.View;
 import android.widget.Switch;
+
+import androidx.preference.PreferenceViewHolder;
+import androidx.preference.SwitchPreference;
 
 class MultiTargetSwitchPreference extends SwitchPreference {
     private View.OnClickListener mSwitchOnClickLister;
@@ -45,15 +47,17 @@ class MultiTargetSwitchPreference extends SwitchPreference {
     }
 
     @Override
-    protected void onBindView(View view) {
-        super.onBindView(view);
-        Switch switchView = (Switch) view.findViewById(
-                com.android.internal.R.id.switch_widget);
-        if (mSwitchOnClickLister != null) {
+    public void onBindViewHolder(PreferenceViewHolder holder) {
+        super.onBindViewHolder(holder);
+        Switch switchView = holder.itemView.findViewById(android.R.id.switch_widget);
+        if (switchView != null) {
             switchView.setOnClickListener(mSwitchOnClickLister);
-            final int padding = (int) ((view.getMeasuredHeight()
-                    - switchView.getMeasuredHeight()) / 2 + 0.5f);
-            switchView.setPadding(padding, padding, 0, padding);
+
+            if (mSwitchOnClickLister != null) {
+                final int padding = (int) ((holder.itemView.getMeasuredHeight()
+                        - switchView.getMeasuredHeight()) / 2 + 0.5f);
+                switchView.setPaddingRelative(padding, padding, 0, padding);
+            }
         }
     }
 }
