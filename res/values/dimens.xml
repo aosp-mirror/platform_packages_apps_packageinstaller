@@ -23,6 +23,9 @@
     <dimen name="header_margin_start">16dp</dimen>
     <dimen name="header_margin_end">16dp</dimen>
 
+    <dimen name="permission_icon_size">24dp</dimen>
+    <dimen name="permission_icon_header_size">32dp</dimen>
+
     <dimen name="lb_action_section_width">384dp</dimen>
 
     <dimen name="lb_content_section_width">576dp</dimen>
@@ -41,4 +44,22 @@
 
     <dimen name="wear_permission_review_pref_padding">8dp</dimen>
     <dimen name="wear_permission_review_icon_size">24dp</dimen>
+
+    <!-- Dialog button bar width -->
+    <dimen name="alert_dialog_button_bar_width">64dp</dimen>
+    <!-- Dialog button bar height -->
+    <dimen name="alert_dialog_button_bar_height">48dp</dimen>
+
+    <!-- Incident report confirmation -->
+    <dimen name="incident_image_width">150dp</dimen>
+    <dimen name="incident_image_height">200dp</dimen>
+    <dimen name="incident_reason_padding">32dp</dimen>
+    <dimen name="incident_reason_bullet_size">3dp</dimen>
+    <dimen name="incident_reason_bullet_indent">10dp</dimen>
+
+    <!-- Auto related dimensions -->
+    <dimen name="car_action_bar_height">@*android:dimen/car_app_bar_height</dimen>
+    <dimen name="car_margin">@*android:dimen/car_margin</dimen>
+    <dimen name="car_icon_size">@*android:dimen/car_primary_icon_size</dimen>
+
 </resources>

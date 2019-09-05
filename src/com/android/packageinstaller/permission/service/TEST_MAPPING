@@ -1,0 +1,65 @@
+{
+    "presubmit": [
+        {
+            "name": "CtsPermissionTestCases",
+            "options": [
+                {
+                    "include-filter": "android.permission.cts.PermissionControllerTest"
+                },
+                {
+                    "exclude-annotation": "androidx.test.filters.FlakyTest"
+                }
+            ]
+        },
+        {
+            "name": "CtsBackupTestCases",
+            "options": [
+                {
+                    "include-filter": "android.backup.cts.PermissionTest"
+                },
+                {
+                    "exclude-annotation": "androidx.test.filters.FlakyTest"
+                }
+            ]
+        }
+    ],
+    "postsubmit": [
+        {
+            "name": "CtsPermissionTestCases",
+            "options": [
+                {
+                    "include-filter": "android.permission.cts.LocationAccessCheckTest"
+                },
+                {
+                    "exclude-annotation": "androidx.test.filters.FlakyTest"
+                }
+            ]
+        },
+        {
+            "name": "CtsDevicePolicyManagerTestCases",
+            "options": [
+                {
+                    "include-filter": "com.android.cts.devicepolicy.MixedManagedProfileOwnerTest#testPermissionGrant"
+                },
+                {
+                    "include-filter": "com.android.cts.devicepolicy.MixedManagedProfileOwnerTest#testPermissionPolicy"
+                },
+                {
+                    "include-filter": "com.android.cts.devicepolicy.MixedManagedProfileOwnerTest#testPermissionMixedPolicies"
+                },
+                {
+                    "include-filter": "com.android.cts.devicepolicy.MixedManagedProfileOwnerTest#testPermissionAppUpdate"
+                },
+                {
+                    "include-filter": "com.android.cts.devicepolicy.MixedManagedProfileOwnerTest#testPermissionGrantPreMApp"
+                },
+                {
+                    "include-filter": "com.android.cts.devicepolicy.MixedManagedProfileOwnerTestApi25#testPermissionGrantPreMApp"
+                },
+                {
+                    "exclude-annotation": "androidx.test.filters.FlakyTest"
+                }
+            ]
+        }
+    ]
+}

@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,136 +16,208 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2738748390251381682">"Paketiinstaller"</string>
-    <string name="next" msgid="3057143178373252333">"Järgmine"</string>
-    <string name="install" msgid="5896438203900042068">"Installi"</string>
-    <string name="done" msgid="3889387558374211719">"Valmis"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"Lubage sel rakendusel teha järgmist."</string>
-    <string name="cancel" msgid="8360346460165114585">"Tühista"</string>
-    <string name="unknown" msgid="4742479012767208045">"Tundmatu"</string>
-    <string name="installing" msgid="8613631001631998372">"Installimine ..."</string>
-    <string name="installing_app" msgid="4097935682329028894">"Paketi <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> installimine …"</string>
-    <string name="install_done" msgid="3682715442154357097">"Rakendus on installitud."</string>
-    <string name="install_confirm_question" msgid="7295206719219043890">"Kas soovite rakenduse installida? See pääseb järgmiste üksuste juurde:"</string>
-    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Kas soovite rakenduse installida? See ei nõua spetsiaalseid juurdepääsuõigusi."</string>
-    <string name="install_confirm_question_update" msgid="4624159567361487964">"Kas soovite olemasoleva rakenduse värskenduse installida? Teie olemasolevad andmed jäävad alles. Värskendatud rakendus pääseb järgmiste funktsioonide juurde:"</string>
-    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Kas soovite sisseehitatud rakenduse värskenduse installida? Teie olemasolevad andmed jäävad alles. Värskendatud rakendus pääseb järgmiste funktsioonide juurde:"</string>
-    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Kas soovite installida olemasoleva rakenduse värskenduse? Olemasolevad andmed ei lähe kaduma. See ei nõua erijuurdepääsu."</string>
-    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Kas soovite installida sisseehitatud rakenduse värskenduse? Olemasolevad andmed ei lähe kaduma. See ei nõua erijuurdepääsu."</string>
-    <string name="install_failed" msgid="6579998651498970899">"Rakendus pole installitud."</string>
-    <string name="install_failed_blocked" msgid="1606870930588770025">"Paketi installimine blokeeriti."</string>
-    <string name="install_failed_conflict" msgid="5336045235168070954">"Rakendust ei installitud, kuna pakett on olemasoleva paketiga vastuolus."</string>
-    <string name="install_failed_incompatible" product="tablet" msgid="6682387386242708974">"Rakendust ei installitud, kuna rakendus ei ühildu teie tahvelarvutiga."</string>
-    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Rakendus ei ühildu teie teleriga."</string>
-    <string name="install_failed_incompatible" product="default" msgid="7917996365659426872">"Rakendust ei installitud, kuna rakendus ei ühildu teie telefoniga."</string>
-    <string name="install_failed_invalid_apk" msgid="269885385245534742">"Rakendust ei installitud, kuna pakett näib olevat sobimatu."</string>
-    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Rakendust <xliff:g id="APP_NAME">%1$s</xliff:g> ei saa teie tahvelarvutisse installida."</string>
-    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Rakendust <xliff:g id="APP_NAME">%1$s</xliff:g> ei saa teie telerisse installida."</string>
-    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Rakendust <xliff:g id="APP_NAME">%1$s</xliff:g> ei saa teie telefoni installida."</string>
-    <string name="launch" msgid="4826921505917605463">"Ava"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"Administraator ei luba installida tundmatutest allikatest pärinevaid rakendusi"</string>
-    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"See kasutaja ei saa installida tundmatuid rakendusi"</string>
-    <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"Kasutajal ei ole lubatud rakendusi installida"</string>
-    <string name="ok" msgid="3468756155452870475">"OK"</string>
-    <string name="settings" msgid="6743583734099755409">"Seaded"</string>
-    <string name="manage_applications" msgid="4033876279091996596">"Rakenduste haldamine"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Kas asendada rakendus?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Installitav rakendus asendab teise rakenduse.\n\nKõik teie varasemad kasutajaandmed salvestatakse."</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"See on süsteemirakendus.\n\nKõik teie varasemad kasutajaandmed salvestatakse."</string>
-    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Pole ruumi"</string>
-    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"Rakendust <xliff:g id="APP_NAME">%1$s</xliff:g> ei saa installida. Vabastage mälu ja proovige uuesti."</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
-    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Rakendust ei leitud"</string>
-    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Rakendust ei leitud installitud rakenduste loendist."</string>
-    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"Ei ole lubatud"</string>
-    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"Praegusel kasutajal ei ole lubatud seda desinstallimist teha."</string>
-    <string name="generic_error_dlg_title" msgid="2684806600635296961">"Viga"</string>
-    <string name="generic_error_dlg_text" msgid="4288738047825333954">"Rakendust ei saanud desinstallida."</string>
-    <string name="uninstall_application_title" msgid="1860074100811653963">"Rakenduse desinstallimine"</string>
-    <string name="uninstall_update_title" msgid="4146940097553335390">"Värskenduse desinstallimine"</string>
-    <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> on osa järgmisest rakendusest:"</string>
-    <string name="uninstall_application_text" msgid="6691975835951187030">"Kas soovite selle rakenduse desinstallida?"</string>
-    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Kas soovite desinstallida selle rakenduse "<b>"kõikidelt"</b>" kasutajatelt? Rakendus ja selle andmed eemaldatakse "<b>"kõikidelt"</b>" seadme kasutajatelt."</string>
-    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Kas soovite kasutaja <xliff:g id="USERNAME">%1$s</xliff:g> puhul rakenduse desinstallida?"</string>
-    <string name="uninstall_update_text" msgid="1394549691152728409">"Kas asendada see rakendus tehaseversiooniga? Kõik andmed eemaldatakse."</string>
-    <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Kas asendada see rakendus tehaseversiooniga? Kõik andmed eemaldatakse. See mõjutab kõiki seadme kasutajaid, sh neid, kellel on tööprofiilid."</string>
-    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"Käimasolevad desinstallimised"</string>
-    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"Ebaõnnestunud desinstallimised"</string>
-    <string name="uninstalling" msgid="5556217435895938250">"Desinstallimine ..."</string>
-    <string name="uninstalling_app" msgid="2773617614877719294">"Üksuse <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> desinstallimine …"</string>
-    <string name="uninstall_done" msgid="3792487853420281888">"Desinstallimine on lõpetatud."</string>
-    <string name="uninstall_done_app" msgid="775837862728680479">"Üksus <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> on desinstallitud"</string>
-    <string name="uninstall_failed" msgid="631122574306299512">"Desinstallimine ebaõnnestus."</string>
-    <string name="uninstall_failed_app" msgid="945277834056527022">"Üksuse <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> desinstallimine ebaõnnestus."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"Aktiivset seadme administraatori rakendust ei saa desinstallida"</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"Kasutaja <xliff:g id="USERNAME">%1$s</xliff:g> puhul ei saa aktiivset seadme administraatori rakendust desinstallida"</string>
-    <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Rakendus on mõne kasutaja ja profiili puhul vajalik, teiste puhul see desinstalliti"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"See rakendus on vajalik teie profiili jaoks ja seda ei saa desinstallida."</string>
-    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Seadme administraator vajab seda rakendust ja seda ei saa desinstallida."</string>
-    <string name="manage_device_administrators" msgid="118178632652346535">"Halda seadme administraatori rakendusi"</string>
-    <string name="manage_users" msgid="3125018886835668847">"Halda kasutajaid"</string>
-    <string name="uninstall_failed_msg" msgid="8969754702803951175">"Rakendust <xliff:g id="APP_NAME">%1$s</xliff:g> ei saanud desinstallida."</string>
-    <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Probleem paketi sõelumisel."</string>
-    <string name="newPerms" msgid="6039428254474104210">"Uus"</string>
-    <string name="allPerms" msgid="1024385515840703981">"Kõik"</string>
-    <string name="privacyPerms" msgid="1850527049572617">"Privaatsus"</string>
-    <string name="devicePerms" msgid="6733560207731294504">"Seadme juurdepääs"</string>
-    <string name="no_new_perms" msgid="6657813692169565975">"See värskendus ei nõua uusi lube."</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"Kas soovite anda järgmise loa? See annab juurdepääsu järgmisele:"</string>
-    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Keela"</string>
-    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Lisateave"</string>
-    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Keela ikkagi"</string>
-    <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>/<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>-st"</string>
-    <string name="permission_warning_template" msgid="7332275268559121742">"Kas lubada rakendusel &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
-    <string name="permission_revoked_count" msgid="7386129423432613024">"<xliff:g id="COUNT">%1$d</xliff:g> on keelatud"</string>
-    <string name="permission_revoked_all" msgid="8595742638132863678">"kõik on keelatud"</string>
-    <string name="permission_revoked_none" msgid="2059511550181271342">"mitte ükski pole keelatud"</string>
-    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Luba"</string>
-    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Rakendused"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"Rakenduste load"</string>
-    <string name="never_ask_again" msgid="1089938738199748687">"Ära enam küsi"</string>
-    <string name="no_permissions" msgid="3210542466245591574">"Lube ei ole"</string>
-    <string name="additional_permissions" msgid="6667573114240111763">"Täiendavad load"</string>
-    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+    <string name="app_name" msgid="2792757108872430971">"Lubade kontroller"</string>
+    <string name="ok" msgid="4417794827535157922">"OK"</string>
+    <string name="permission_search_keyword" msgid="1652964722383449182">"load"</string>
+    <string name="cancel" msgid="7279939269964834974">"Tühista"</string>
+    <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Rakendust ei leitud"</string>
+    <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Keela"</string>
+    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Keela ja ära enam küsi"</string>
+    <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Lisateave"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Keela ikkagi"</string>
+    <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g>/<xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
+    <string name="permission_warning_template" msgid="1353228984024423745">"Kas lubada rakenduse &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; puhul toiming <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_add_background_warning_template" msgid="1046864917164159751">"Kas lubada rakenduse &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; puhul alati toiming <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="allow_permission_foreground_only" msgid="7444689446874060511">"Ainult rakenduse kasutamisel"</string>
+    <string name="allow_permission_always" msgid="4089537686339013930">"Alati"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8131547398883397878">"Keela ja ära enam küsi"</string>
+    <string name="permission_revoked_count" msgid="5556125174203696709">"<xliff:g id="COUNT">%1$d</xliff:g> on keelatud"</string>
+    <string name="permission_revoked_all" msgid="6356577996164232918">"kõik on keelatud"</string>
+    <string name="permission_revoked_none" msgid="266013103540772023">"mitte ükski pole keelatud"</string>
+    <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Luba"</string>
+    <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"Luba alati"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Luba ainult rakenduse kasutamise ajal"</string>
+    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Rakendused"</string>
+    <string name="app_permissions" msgid="2778362347879465223">"Rakenduse load"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"Lubade haldur"</string>
+    <string name="never_ask_again" msgid="7645304182523160030">"Ära enam küsi"</string>
+    <string name="no_permissions" msgid="2193893107241172888">"Lube pole"</string>
+    <string name="additional_permissions" msgid="7124470111123472154">"Lisaload"</string>
+    <string name="app_permissions_info_button_label" msgid="6566057048862462066">"Ava rakenduse teave"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
       <item quantity="other">Veel <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="one">Veel <xliff:g id="COUNT_0">%1$d</xliff:g></item>
     </plurals>
-    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Rakendus on mõeldud Androidi vanemale versioonile. Kui keeldute loa andmisest, ei pruugi see ootuspäraselt töötada."</string>
-    <string name="default_permission_description" msgid="4992892207044156668">"tundmatu toiming"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> rakendust <xliff:g id="COUNT_1">%2$d</xliff:g>-st on lubatud"</string>
-    <string name="menu_show_system" msgid="6773743421743728921">"Kuva süsteem"</string>
-    <string name="menu_hide_system" msgid="7595471742649432977">"Peida süsteem"</string>
-    <string name="permission_title" msgid="6495415273398916381">"Teenuse <xliff:g id="PERMISSION">%1$s</xliff:g> load"</string>
-    <string name="no_apps" msgid="1965493419005012569">"Rakendusi pole"</string>
-    <string name="location_settings" msgid="1774875730854491297">"Asukohaseaded"</string>
-    <string name="location_warning" msgid="8778701356292735971">"Rakendus <xliff:g id="APP_NAME">%1$s</xliff:g> on selle seadme asukohateenuste pakkuja. Asukoha juurdepääsu saab muuta asukohaseadetes."</string>
-    <string name="system_warning" msgid="7103819124542305179">"Kui keelate loa, ei pruugi seadme põhifunktsioonid enam ootuspäraselt töötada."</string>
-    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Eeskirjadega jõustatud"</string>
-    <string name="loading" msgid="7811651799620593731">"Laadimine ..."</string>
-    <string name="all_permissions" msgid="5156669007784613042">"Kõik load"</string>
-    <string name="other_permissions" msgid="2016192512386091933">"Rakenduse muud funktsioonid"</string>
-    <string name="permission_request_title" msgid="1204446718549121199">"Loa taotlus"</string>
-    <string name="screen_overlay_title" msgid="3021729846864038529">"Tuvastati ekraani ülekate"</string>
-    <string name="screen_overlay_message" msgid="2141944461571677331">"Selle loa seade muutmiseks peate esmalt välja lülitama ekraani ülekatte menüüs Seaded &gt; Rakendused"</string>
-    <string name="screen_overlay_button" msgid="4344544843349937743">"Ava seaded"</string>
-    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Wear ei toeta installimist/desinstallimist."</string>
-    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"Rakendust <xliff:g id="APP_NAME_0">%1$s</xliff:g> värskendati. Kas anda rakendusele <xliff:g id="APP_NAME_1">%1$s</xliff:g> juurdepääs järgmisele?"</string>
-    <string name="permission_review_title_template_install" msgid="6819338441305295479">"Valige, millele lubate rakendusel &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; juurde pääseda"</string>
-    <string name="permission_review_title_template_update" msgid="8632233603161669426">"Rakendust &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; värskendati. Valige, millele lubate sellel rakendusel juurde pääseda."</string>
-    <string name="review_button_cancel" msgid="957906817733578877">"Tühista"</string>
-    <string name="review_button_continue" msgid="4809162078179371370">"Jätka"</string>
-    <string name="new_permissions_category" msgid="3213523410139204183">"Uued load"</string>
-    <string name="current_permissions_category" msgid="998210994450606094">"Praegused load"</string>
-    <string name="message_staging" msgid="6151794817691100003">"Rakenduse ettevalmistamine …"</string>
-    <string name="app_name_unknown" msgid="8931522764510159105">"Tundmatu"</string>
-    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Teie turvalisuse huvides ei ole tahvelarvutil lubatud installida sellest allikast tundmatuid rakendusi."</string>
-    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Teie turvalisuse huvides ei ole TV-l lubatud installida sellest allikast tundmatuid rakendusi."</string>
-    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Teie turvalisuse huvides ei ole telefonil lubatud installida sellest allikast tundmatuid rakendusi."</string>
-    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"Teie telefon ja isiklikud andmed on tundmatute rakenduste rünnakute suhtes haavatavamad. Selle rakenduse installimisel nõustute, et vastutate telefoni kahjude ja andmekao eest, mis võivad tuleneda selliste rakenduste kasutamisest."</string>
-    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"Teie tahvelarvuti ja isiklikud andmed on tundmatute rakenduste rünnakute suhtes haavatavamad. Selle rakenduse installimisel nõustute, et vastutate tahvelarvuti kahjude ja andmekao eest, mis võivad tuleneda selliste rakenduste kasutamisest."</string>
-    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Teie teler ja isiklikud andmed on tundmatute rakenduste rünnakute suhtes haavatavamad. Selle rakenduse installimisel nõustute, et vastutate teleri kahjude ja andmekao eest, mis võivad tuleneda selliste rakenduste kasutamisest."</string>
-    <string name="anonymous_source_continue" msgid="2094381167954332292">"Jätka"</string>
-    <string name="external_sources_settings" msgid="8601453744517291632">"Seaded"</string>
-    <string name="wear_app_channel" msgid="6200840123672949356">"Weari rak. installimine/desinstallimine"</string>
+    <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Rakendus on mõeldud Androidi vanemale versioonile. Kui keeldute loa andmisest, ei pruugi see ootuspäraselt töötada."</string>
+    <string name="default_permission_description" msgid="692254823411049573">"teeb tundmatu toimingu"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> rakendust <xliff:g id="COUNT_1">%2$d</xliff:g>-st on lubatud"</string>
+    <string name="permission_usage_header" msgid="8802963718365732792">"Hiljutine kasutus"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"Kuva lubade juhtpaneel"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"Kuva süsteem"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"Peida süsteem"</string>
+    <string name="no_apps" msgid="2377153782338039463">"Rakendusi pole"</string>
+    <string name="location_settings" msgid="547378321761364906">"Asukohaseaded"</string>
+    <string name="location_warning" msgid="4687406043150343369">"Rakendus <xliff:g id="APP_NAME">%1$s</xliff:g> on selle seadme asukohateenuste pakkuja. Asukoha juurdepääsu saab muuta asukohaseadetes."</string>
+    <string name="system_warning" msgid="6868290533389195836">"Kui keelate selle loa, ei pruugi seadme põhifunktsioonid enam ootuspäraselt töötada."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"Reegliga jõustatud"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"Taustale juurdepääs on reegli alusel keelatud"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"Taustale juurdepääs on reegli alusel lubatud"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="8652417310534780420">"Esiplaanile juurdepääs on reegli alusel lubatud"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="5156952484229154563">"Juhib administraator"</string>
+    <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"Administraator keelas juurdepääsu taustale"</string>
+    <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"Administraator lubas juurdepääsu taustale"</string>
+    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"Administraator lubas juurdepääsu esiplaanile"</string>
+    <string name="permission_summary_enabled_system_fixed" msgid="1648259601814176611">"Süsteemi määratud luba"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
+    <string name="permission_access_always" msgid="2315256378850460955">"Alati"</string>
+    <string name="permission_access_only_foreground" msgid="8109903552082630801">"Ainult rakenduse kasutamisel"</string>
+    <string name="permission_access_never" msgid="4717648645876576508">"Mitte kunagi"</string>
+    <string name="loading" msgid="323483393167148377">"Laadimine …"</string>
+    <string name="all_permissions" msgid="7813580062403112957">"Kõik load"</string>
+    <string name="other_permissions" msgid="1956312685853070715">"Rakenduse muud funktsioonid"</string>
+    <string name="permission_request_title" msgid="6779348653783761548">"Loa taotlus"</string>
+    <string name="screen_overlay_title" msgid="1632732130312696010">"Tuvastati ekraani ülekate"</string>
+    <string name="screen_overlay_message" msgid="3222033787364955006">"Selle loaseade muutmiseks peate esmalt välja lülitama ekraani ülekatte menüüs Seaded &gt; Rakendused"</string>
+    <string name="screen_overlay_button" msgid="3554849308322944411">"Ava seaded"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="6923880912091041609">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="8731817202551430387">"Wear ei toeta installimist/desinstallimist."</string>
+    <string name="permission_review_title_template_install" msgid="8131698354985303888">"Valige, millele lubate rakendusel &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; juurde pääseda"</string>
+    <string name="permission_review_title_template_update" msgid="7597155653571395485">"Rakendust &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; värskendati. Valige, millele lubate sellel rakendusel juurde pääseda."</string>
+    <string name="review_button_cancel" msgid="7108377593627664194">"Tühista"</string>
+    <string name="review_button_continue" msgid="1367925420132212571">"Jätka"</string>
+    <string name="new_permissions_category" msgid="7242713808413888679">"Uued load"</string>
+    <string name="current_permissions_category" msgid="3835461245150972589">"Praegused load"</string>
+    <string name="message_staging" msgid="641286607664721291">"Rakenduse koondamine …"</string>
+    <string name="app_name_unknown" msgid="8288360585728122735">"Tundmatu"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Juhtpaneel"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">Viimane juurdepääs: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> juurdepääsu</item>
+      <item quantity="one">Viimane juurdepääs: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> juurdepääs</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">Viimane juurdepääs: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> juurdepääsu (<xliff:g id="NUM_5">%3$s</xliff:g> taustal)</item>
+      <item quantity="one">Viimane juurdepääs: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> juurdepääs (<xliff:g id="NUM_2">%3$s</xliff:g> taustal)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">Viimane juurdepääs: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> juurdepääsu\nKestus: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">Viimane juurdepääs: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> juurdepääs\nKestus: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">Viimane juurdepääs: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> juurdepääsu (<xliff:g id="NUM_6">%3$s</xliff:g> taustal)\nKestus: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">Viimane juurdepääs: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> juurdepääs (<xliff:g id="NUM_2">%3$s</xliff:g> taustal)\nKestus: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Mis tahes luba"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"Mis tahes ajal"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Viimased seitse päeva"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"Viimased 24 tundi"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Viimane tund"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Viimased 15 minutit"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Viimane 1 minut"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"Lube pole kasutatud"</string>
+    <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"Juurdepääs mis tahes ajal"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"Juurdepääs viimase seitsme päeva jooksul"</string>
+    <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"Juurdepääs viimase 24 tunni jooksul"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"Juurdepääs viimase tunni jooksul"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"Juurdepääs viimase 15 minuti jooksul"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="8035799852985876841">"Juurdepääs viimase 1 minuti jooksul"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"Populaarseima loa kasutus mis tahes ajal"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"Populaarseima loa kasutus viimase 7 päeva jooksul"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"Populaarseima loa kasutus viimase 24 tunni jooksul"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"Populaarseima loa kasutus viimase tunni jooksul"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"Populaarseima loa kasutus viimase 15 min jooksul"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"Populaarseima loa kasutus viimase 1 minuti jooksul"</string>
+    <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"Rakendused"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Filtreerimisalus: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"Eemalda filter"</string>
+    <string name="filter_by_title" msgid="5940302511365561845">"Filter:"</string>
+    <string name="filter_by_permissions" msgid="7761207093643478436">"Filtreeri lubade järgi"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Enim lube"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Kõige rohkem juurdepääsemisi"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"Hiljutised"</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"Värskenda"</string>
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"Rakenduse lubade kasutus"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"Juurdepääs: <xliff:g id="NUM">%1$s</xliff:g> korda. Kogukestus: <xliff:g id="DURATION">%2$s</xliff:g>. Viimati kasutati <xliff:g id="TIME">%3$s</xliff:g> tagasi."</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Juurdepääs: <xliff:g id="NUM">%1$s</xliff:g> korda. Viimati kasutati <xliff:g id="TIME">%2$s</xliff:g> tagasi."</string>
+    <string name="app_permission_button_allow" msgid="1358817292836175593">"Luba"</string>
+    <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Luba alati"</string>
+    <string name="app_permission_button_allow_foreground" msgid="6366222217615376397">"Luba ainult rakenduse kasutamise ajal"</string>
+    <string name="app_permission_button_deny" msgid="5716368368650638408">"Keela"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"Luba <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_header" msgid="5704679725169517493">"Rakenduse <xliff:g id="APP">%2$s</xliff:g> juurdepääs loale <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"Rakendus <xliff:g id="APP">%1$s</xliff:g> pääses loale <xliff:g id="PERM">%2$s</xliff:g> juurde <xliff:g id="TIME">%3$s</xliff:g> tagasi."</string>
+    <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> pole teie loale <xliff:g id="PERM">%2$s</xliff:g> juurde pääsenud."</string>
+    <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Kuva lubade kasutamise üksikasjad"</string>
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Viimane juurdepääs: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Pole kunagi juurde pääsetud"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"Lubatud"</string>
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"Lubatud ainult kasutuses olles"</string>
+    <string name="denied_header" msgid="2277998574238617699">"Keeldutud"</string>
+    <string name="detailed_usage_link" msgid="3990452346369247944">"Kuva üksikasjalik kasutus"</string>
+    <plurals name="days" formatted="false" msgid="3903419301028414979">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> päeva</item>
+      <item quantity="one">1 päev</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="2123927014975877155">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> tundi</item>
+      <item quantity="one">1 tund</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="4331145652577957044">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> minutit</item>
+      <item quantity="one">1 minut</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="1632909606956324957">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sekundit</item>
+      <item quantity="one">1 sekund</item>
+    </plurals>
+    <string name="role_request_message_add" msgid="1977772335648650272">"Kas kasutada rakendust &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; järgmisena: <xliff:g id="ROLE_NAME">%2$s</xliff:g>?"</string>
+    <string name="role_request_message_replace" msgid="6367571247558110210">"Kas kasutada rakendust &lt;b&gt;<xliff:g id="NEW_APP_NAME">%1$s</xliff:g>&lt;/b&gt; rakenduse &lt;b&gt;<xliff:g id="CURRENT_APP_NAME">%1$s</xliff:g>&lt;/b&gt; asemel järgmisena: <xliff:g id="ROLE_NAME">%2$s</xliff:g>?"</string>
+    <string name="permission_reminders" msgid="8040710767178843151">"Loa meeldetuletused"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> on kasutanud teie asukohta"</string>
+    <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"See rakendus pääseb teie asukohale alati juurde. Puudutage muutmiseks."</string>
+    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Ainult rakenduse kasutamise ajal"</string>
+    <string name="no_permissions_allowed" msgid="5781278485002145993">"Ühtegi luba pole antud"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"Ükski luba pole keelatud"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"Ükski rakendus pole lubatud"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"Ükski rakendus pole keelatud"</string>
+    <string name="launch_app" msgid="5641437562665039291">"Ava"</string>
+    <string name="uninstall_app" msgid="8756507666995809214">"Desinstalli"</string>
+    <string name="force_stop_app" msgid="4253426323145479826">"Sundpeata"</string>
+    <string name="settings" msgid="2884124136779508907">"Seaded"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"Teenusel <xliff:g id="SERVICE_NAME">%s</xliff:g> on täielik juurdepääs teie seadmele"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> juurdepääsetavusteenusel on täielik juurdepääs teie seadmele"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> saab vaadata teie ekraanikuva, toiminguid ja sisendeid, teha toiminguid ning juhtida ekraani."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"Need teenused saavad vaadata teie ekraanikuva, toiminguid ja sisendeid, teha toiminguid ning juhtida ekraani."</string>
+    <string name="default_apps" msgid="8554530939151957828">"Vaikerakendused"</string>
+    <string name="no_default_apps" msgid="5642715159090903032">"Vaikerakendusi pole"</string>
+    <string name="default_apps_for_work" msgid="8582151955372061208">"Vaikerakendused töö jaoks"</string>
+    <string name="default_app_none" msgid="7671097769303174666">"Puudub"</string>
+    <string name="default_app_no_apps" msgid="5344668465735677271">"Rakendusi pole"</string>
+    <string name="special_app_access" msgid="2561673957499408877">"Rakenduste erijuurdepääs"</string>
+    <string name="no_special_app_access" msgid="994977666694457811">"Rakenduse erijuurdepääs puudub"</string>
+    <string name="special_app_access_no_apps" msgid="3934763650592564818">"Rakendusi pole"</string>
+    <string name="role_label_assistant" msgid="456685142560727172">"Abirakendus"</string>
+    <string name="role_label_browser" msgid="6266502234308421457">"Brauserirakendus"</string>
+    <string name="role_label_dialer" msgid="3345895090725237533">"Telefonirakendus"</string>
+    <string name="role_label_sms" msgid="2262769075496017522">"SMS-i rakendus"</string>
+    <string name="role_label_emergency" msgid="2226651888638211616">"Hädaabirakendus"</string>
+    <string name="role_label_home" msgid="7672863812639457378">"Avaekraani rakendus"</string>
+    <string name="role_label_music" msgid="5900245414865932272">"Muusikarakendus"</string>
+    <string name="role_label_gallery" msgid="6939560238495155209">"Galeriirakendus"</string>
+    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"Autorežiimi telefonirakendus"</string>
+    <string name="role_label_call_redirection" msgid="8902197181113231577">"Kõnede ümbersuunamise rakendus"</string>
+    <string name="role_label_call_screening" msgid="411212589764916370">"Kõnede filtreerimise rakendus"</string>
+    <string name="role_label_call_companion" msgid="7369723859682076467">"Helistamise kaasrakendus"</string>
+    <string name="role_label_car_projection" msgid="3792929094325391213">"Auto projektsiooni rakendus"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"Ei toeta tööprofiili"</string>
+    <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Märkus Kui taaskäivitate seadme ja olete määranud ekraaniluku, ei saa see rakendus käivituda enne, kui oma seadme avate."</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"Assistent saab teie süsteemis kasutatavate rakenduste kohta teavet (sh teie ekraanil kuvatud või rakendustes juurdepääsetavat teavet) lugeda."</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"Silumisandmete jagamine"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"Kas jagada üksikasjalikke silumisandmeid?"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> soovib üles laadida silumisteavet."</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Silumisandmete jagamine"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> palub luba sellest seadmest veaaruande üleslaadimiseks (jäädvustati <xliff:g id="DATE">%2$s</xliff:g> kell <xliff:g id="TIME">%3$s</xliff:g>). Veaaruanded hõlmavad teie seadmega seotud isiklikke andmeid või rakenduste logitud isiklikke andmeid (nt kasutajanimesid, asukohaandmeid, seadme ID-sid ja võrguteavet). Jagage veaaruandeid ainult inimeste ja rakendustega, keda/mida usaldate. Kas lubada rakendusel <xliff:g id="APP_NAME_1">%4$s</xliff:g> veaaruanne üles laadida?"</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Luba"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Keela"</string>
 </resources>

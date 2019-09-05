@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,136 +16,208 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2738748390251381682">"កម្មវិធី​ដំឡើង​កញ្ចប់"</string>
-    <string name="next" msgid="3057143178373252333">"បន្ទាប់​"</string>
-    <string name="install" msgid="5896438203900042068">"ដំឡើង"</string>
-    <string name="done" msgid="3889387558374211719">"រួចរាល់"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"ឲ្យ​កម្មវិធី​នេះ​៖"</string>
-    <string name="cancel" msgid="8360346460165114585">"បោះ​បង់​"</string>
-    <string name="unknown" msgid="4742479012767208045">"មិន​ស្គាល់"</string>
-    <string name="installing" msgid="8613631001631998372">"កំពុង​ដំឡើង..."</string>
-    <string name="installing_app" msgid="4097935682329028894">"កំពុង​ដំឡើង <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
-    <string name="install_done" msgid="3682715442154357097">"បាន​ដំឡើង​កម្មវិធី។"</string>
-    <string name="install_confirm_question" msgid="7295206719219043890">"តើ​អ្នក​ចង់​ដំឡើង​កម្មវិធី​នេះ? វា​នឹង​មាន​សិទ្ធិ​ចូល៖"</string>
-    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"តើ​អ្នក​ចង់​ដំឡើង​កម្មវិធី​នេះ? វា​មិន​ទាមទារ​សិទ្ធិ​ចូល​ពិសេស​ទេ។"</string>
-    <string name="install_confirm_question_update" msgid="4624159567361487964">"តើ​អ្នក​ចង់​ដំឡើង​បច្ចុប្បន្នភាព​កម្មវិធី​ដែល​មាន​ស្រាប់​នេះ? ទិន្នន័យ​ដែល​មាន​ស្រាប់​របស់​អ្នក​នឹង​មិន​បាត់បង់​ទេ។ កម្មវិធី​បាន​ធ្វើ​បច្ចុប្បន្នភាព​នឹង​ចូល​ដំណើរការ​ទៅ៖"</string>
-    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"តើ​អ្នក​ចង់​ដំឡើង​បច្ចុប្បន្នភាព​កម្មវិធី​ដែល​ជាប់​ជា​មួយនេះ? ទិន្នន័យ​ដែល​មាន​ស្រាប់​របស់​អ្នក​នឹង​មិនបាត់បង់ទេ។ កម្មវិធី​បាន​ធ្វើ​បច្ចុប្បន្នភាពហើយ​នឹង​មានសិទ្ធិចូល​៖"</string>
-    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"តើ​អ្នក​ចង់​ដំឡើង​បច្ចុប្បន្នភាព​កម្មវិធី​ដែល​មាន​ស្រាប់​នេះ? ​ទិន្នន័យ​ដែល​មាន​ស្រាប់​របស់​អ្នក​នឹង​មិន​បាត់បង់​ទេ។ វា​មិន​ទាមទារ​ការ​ចូល​ដំណើរការ​ពិសេស​ណាមួយ​ទេ។"</string>
-    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"តើ​អ្នក​ចង់​ដំឡើង​បច្ចុប្បន្នភាព​កម្មវិធី​ដែល​ជាប់​ជា​មួយ? ​ទិន្នន័យ​ដែល​មាន​ស្រាប់​របស់​អ្នក​នឹង​មិន​បាត់បង់​ទេ។ វា​មិន​ទាមទារ​ការ​ចូល​ដំណើរការ​ពិសេស​ណាមួយ​ទេ។"</string>
-    <string name="install_failed" msgid="6579998651498970899">"មិន​បាន​ដំឡើង​កម្មវិធី។"</string>
-    <string name="install_failed_blocked" msgid="1606870930588770025">"កញ្ចប់នេះត្រូវបានរារាំងមិនឲ្យដំឡើង"</string>
-    <string name="install_failed_conflict" msgid="5336045235168070954">"កម្មវិធីមិនបានដំឡើងទេ ដោយសារកញ្ចប់កម្មវិធីមិនត្រូវគ្នាជាមួយកញ្ចប់ដែលមានស្រាប់។"</string>
-    <string name="install_failed_incompatible" product="tablet" msgid="6682387386242708974">"កម្មវិធីមិនបានដំឡើងទេ ដោយសារកម្មវិធីមិនត្រូវគ្នាជាមួយថេប្លេតរបស់អ្នក។"</string>
-    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"កម្មវិធីនេះមិនត្រូវគ្នាជាមួយទូរទស្សន៍របស់អ្នកទេ"</string>
-    <string name="install_failed_incompatible" product="default" msgid="7917996365659426872">"កម្មវិធីមិនបានដំឡើងទេ ដោយសារកម្មវិធីមិនត្រូវគ្នាជាមួយទូរសព្ទរបស់អ្នក។"</string>
-    <string name="install_failed_invalid_apk" msgid="269885385245534742">"កម្មវិធីមិនបានដំឡើងទេ ដោយសារកញ្ចប់គ្មានសុពលភាព។"</string>
-    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"មិន​អាច​ដំឡើង <xliff:g id="APP_NAME">%1$s</xliff:g> ក្នុង​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក។"</string>
-    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> មិនអាចដំឡើងនៅលើទូរទស្សន៍របស់អ្នកទេ។"</string>
-    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"មិន​អាច​ដំឡើង <xliff:g id="APP_NAME">%1$s</xliff:g> ក្នុង​ទូរស័ព្ទ​របស់​អ្នក។"</string>
-    <string name="launch" msgid="4826921505917605463">"បើក"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"អ្នក​គ្រប់គ្រង​របស់​អ្នក​មិន​អនុញ្ញាត​ឲ្យ​ដំឡើង​កម្មវិធី​ដែល​បាន​មក​ពី​ប្រភព​ដែលមិន​ស្គាល់ទេ"</string>
-    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"កម្មវិធី​ដែល​មិនស្គាល់​មិនអាច​ដំឡើង​ដោយ​អ្នកប្រើប្រាស់​នេះ​បាន​ទេ"</string>
-    <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"អ្នក​ប្រើ​ប្រាស់នេះ​មិនត្រូវបាន​អនុញ្ញាត​ឲ្យ​ដំឡើងកម្មវិធីទេ"</string>
-    <string name="ok" msgid="3468756155452870475">"យល់​ព្រម​"</string>
-    <string name="settings" msgid="6743583734099755409">"ការ​កំណត់"</string>
-    <string name="manage_applications" msgid="4033876279091996596">"គ្រប់គ្រង​កម្មវិធី"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"ជំនួស​កម្មវិធី​?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"កម្មវិធី​ដែល​អ្នក​កំពុង​ដំឡើង​នឹង​ជំនួយ​កម្មវិធី​ផ្សេង។\n\nទិន្នន័យ​អ្នក​ពី​មុន​របស់​អ្នក​ទាំងអស់​នឹង​ត្រូវ​បាន​រក្សាទុក។"</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"នេះ​ជា​កម្មវិធី​ប្រព័ន្ធ។\n\nទិន្នន័យ​អ្នក​ប្រើ​ពី​មុន​របស់​អ្នក​ទាំងអស់​នឹង​ត្រូវ​បាន​រក្សាទុក។"</string>
-    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"អស់​ទំហំ"</string>
-    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"មិន​អាច​ដំឡើង <xliff:g id="APP_NAME">%1$s</xliff:g> ។ លុប​ឯកសារ​ខ្លះ ហើយ​ព្យាយាម​ម្ដង​ទៀត។"</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"យល់​ព្រម​"</string>
-    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"រក​មិន​ឃើញ​កម្មវិធី"</string>
-    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"រក​មិន​ឃើញ​កម្មវិធី​ក្នុង​បញ្ជី​កម្មវិធី​បាន​ដំឡើង។"</string>
-    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"មិន​បាន​អនុញ្ញាត"</string>
-    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"អ្នកប្រើបច្ចុប្បន្នមិនមានការអនុញ្ញាតឱ្យ​ធ្វើការលុបនេះទេ។"</string>
-    <string name="generic_error_dlg_title" msgid="2684806600635296961">"បញ្ហា"</string>
-    <string name="generic_error_dlg_text" msgid="4288738047825333954">"មិនអាចលុបកម្មវិធីនេះបានទេ។"</string>
-    <string name="uninstall_application_title" msgid="1860074100811653963">"លុប​កម្មវិធី"</string>
-    <string name="uninstall_update_title" msgid="4146940097553335390">"លុប​បច្ចុប្បន្នភាព"</string>
-    <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g>​ ​ជា​ផ្នែក​មួយ​នៃ​កម្មវិធី​ដូច​ខាង​ក្រោម​នេះ​៖"</string>
-    <string name="uninstall_application_text" msgid="6691975835951187030">"តើ​អ្នក​ចង់​លុប​កម្មវិធី​នេះ​ឬ?"</string>
-    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"តើ​អ្នក​ចង់​លុប​កម្មវិធី​នេះ​សម្រាប់​អ្នកប្រើ "<b>"ទាំងអស់"</b>"? កម្មវិធី និង​ទិន្នន័យ​របស់​វា​នឹង​ត្រូវ​បាន​លុប​ចេញ​ពី​អ្នកប្រើ "<b>"ទាំងអស់"</b>" ក្នុង​ឧបករណ៍​នេះ។"</string>
-    <string name="uninstall_application_text_user" msgid="8766882355635485733">"តើ​អ្នក​ចង់​លុប​កម្មវិធី​នេះ​សម្រាប់​អ្នកប្រើ <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
-    <string name="uninstall_update_text" msgid="1394549691152728409">"ជំនួសកម្មវិធីនេះដោយកំណែរោងចក្រឬ? ទិន្នន័យទាំងអស់នឹងត្រូវបានលុបចេញ។"</string>
-    <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"ជំនួយកម្មវិធីនេះដោយកំណែរោងចក្រឬ? ទិន្នន័យទាំងអស់នឹងត្រូវបានលុបចេញ។ វាប៉ះពាល់ដល់អ្នកប្រើឧបករណ៍នេះទាំងអស់ ដោយរាប់បញ្ចូលទាំងអ្នកប្រើដែលមានប្រវត្តិរូបការងារផងដែរ។"</string>
-    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"កំពុង​ដំណើរការ​ការលុប"</string>
-    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"មិន​អាច​ធ្វើការលុប​បានទេ"</string>
-    <string name="uninstalling" msgid="5556217435895938250">"កំពុង​លុប..."</string>
-    <string name="uninstalling_app" msgid="2773617614877719294">"កំពុងលុប <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
-    <string name="uninstall_done" msgid="3792487853420281888">"បាន​បញ្ចប់​ការ​លុប។"</string>
-    <string name="uninstall_done_app" msgid="775837862728680479">"បានលុប <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>"</string>
-    <string name="uninstall_failed" msgid="631122574306299512">"ការ​លុប​បរាជ័យ។"</string>
-    <string name="uninstall_failed_app" msgid="945277834056527022">"មិនអាចលុប <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> បាន។"</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"មិនអាច​លុប​កម្មវិធី​អ្នកគ្រប់គ្រង​ឧបករណ៍​ដែល​បាន​ដំណើរការ​បានទេ"</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"មិនអាច​លុប​កម្មវិធី​អ្នកគ្រប់គ្រង​ឧបករណ៍​សម្រាប់ <xliff:g id="USERNAME">%1$s</xliff:g> ដែល​បាន​ដំណើរការ​បាន​ទេ"</string>
-    <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"កម្មវិធីនេះតម្រូវឲ្យមានសម្រាប់អ្នកប្រើ ឬប្រវត្តិរូបមួយចំនួន និងត្រូវបានលុបសម្រាប់អ្នកប្រើផ្សេងទៀត"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"កម្មវិធីនេះចាំបាច់សម្រាប់ប្រវតិ្តការងាររបស់អ្នក ហើយវាមិនអាចលុបបានទេ។"</string>
-    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"កម្មវិធីនេះត្រូវបានទាមទារដោយអ្នកគ្រប់គ្រងឧបករណ៍របស់អ្នក ហើយមិនអាចលុប​ចេញបាន​ទេ។"</string>
-    <string name="manage_device_administrators" msgid="118178632652346535">"គ្រប់គ្រង​កម្មវិធី​អ្នកគ្រប់គ្រង​ឧបករណ៍"</string>
-    <string name="manage_users" msgid="3125018886835668847">"គ្រប់គ្រងអ្នកប្រើ"</string>
-    <string name="uninstall_failed_msg" msgid="8969754702803951175">"មិន​អាច​លុប <xliff:g id="APP_NAME">%1$s</xliff:g> ។"</string>
-    <string name="Parse_error_dlg_text" msgid="7623286983621067011">"មាន​បញ្ហា​ក្នុង​ការ​ញែក​​កញ្ចប់។"</string>
-    <string name="newPerms" msgid="6039428254474104210">"ថ្មី"</string>
-    <string name="allPerms" msgid="1024385515840703981">"ទាំងអស់"</string>
-    <string name="privacyPerms" msgid="1850527049572617">"ភាព​​ឯកជន"</string>
-    <string name="devicePerms" msgid="6733560207731294504">"ការ​ចូល​ដំណើរការ​ឧបករណ៍"</string>
-    <string name="no_new_perms" msgid="6657813692169565975">"បច្ចុប្បន្នភាព​នេះ​មិន​ទាមទារ​សិទ្ធិ​ថ្មី​ទេ។"</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"តើ​អ្នក​ចង់​ផ្ដល់​សិទ្ធិ​ដូច​ខាងក្រោម? វា​នឹង​ចូល​ទៅ៖"</string>
-    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"បដិសេធ"</string>
-    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"ព័ត៌មានបន្ថែម"</string>
-    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"បដិសេធទោះយ៉ាងណាក៏ដោយ"</string>
-    <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> នៃ <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="7332275268559121742">"អនុញ្ញាតឲ្យ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
-    <string name="permission_revoked_count" msgid="7386129423432613024">"បានបិទ <xliff:g id="COUNT">%1$d</xliff:g>"</string>
-    <string name="permission_revoked_all" msgid="8595742638132863678">"បានបិទទាំងអស់"</string>
-    <string name="permission_revoked_none" msgid="2059511550181271342">"មិនបានបិទអ្វីទាំងអស់"</string>
-    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"អនុញ្ញាត"</string>
-    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"កម្មវិធី"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"ការអនុញ្ញាតកម្មវិធី"</string>
-    <string name="never_ask_again" msgid="1089938738199748687">"កុំសួរទៀត"</string>
-    <string name="no_permissions" msgid="3210542466245591574">"គ្មានសិទ្ធិអនុញ្ញាត"</string>
-    <string name="additional_permissions" msgid="6667573114240111763">"សិទ្ធិអនុញ្ញាតបន្ថែម"</string>
-    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+    <string name="app_name" msgid="2792757108872430971">"កម្មវិធីគ្រប់គ្រង​ការអនុញ្ញាត"</string>
+    <string name="ok" msgid="4417794827535157922">"យល់ព្រម"</string>
+    <string name="permission_search_keyword" msgid="1652964722383449182">"ការអនុញ្ញាត"</string>
+    <string name="cancel" msgid="7279939269964834974">"បោះបង់"</string>
+    <string name="app_not_found_dlg_title" msgid="8897078571059217849">"រក​មិន​ឃើញ​កម្មវិធីទេ"</string>
+    <string name="grant_dialog_button_deny" msgid="1649644200597601964">"បដិសេធ"</string>
+    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"បដិសេធ ហើយកុំ​សួរម្តងទៀត"</string>
+    <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"ព័ត៌មាន​បន្ថែម"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"បដិសេធចុះមិនអីទេ"</string>
+    <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> ក្នុងចំណោម <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
+    <string name="permission_warning_template" msgid="1353228984024423745">"អនុញ្ញាតឱ្យ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g> មែនទេ?"</string>
+    <string name="permission_add_background_warning_template" msgid="1046864917164159751">"អនុញ្ញាតឱ្យ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g> ជានិច្ចមែនទេ?"</string>
+    <string name="allow_permission_foreground_only" msgid="7444689446874060511">"ខណៈពេលប្រើ​កម្មវិធីតែប៉ុណ្ណោះ"</string>
+    <string name="allow_permission_always" msgid="4089537686339013930">"ជានិច្ច"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8131547398883397878">"បដិសេធ ហើយកុំ​សួរម្តងទៀត"</string>
+    <string name="permission_revoked_count" msgid="5556125174203696709">"បានបិទ <xliff:g id="COUNT">%1$d</xliff:g>"</string>
+    <string name="permission_revoked_all" msgid="6356577996164232918">"បានបិទទាំងអស់"</string>
+    <string name="permission_revoked_none" msgid="266013103540772023">"មិនបានបិទអ្វីទាំងអស់"</string>
+    <string name="grant_dialog_button_allow" msgid="2137542756625939532">"អនុញ្ញាត"</string>
+    <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"អនុញ្ញាតគ្រប់ពេល"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"អនុញ្ញាត​ពេល​កំពុង​ប្រើប្រាស់​កម្មវិធីតែ​ប៉ុណ្ណោះ"</string>
+    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"កម្មវិធី"</string>
+    <string name="app_permissions" msgid="2778362347879465223">"ការអនុញ្ញាតកម្មវិធី"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"កម្មវិធីគ្រប់គ្រង​ការអនុញ្ញាត"</string>
+    <string name="never_ask_again" msgid="7645304182523160030">"កុំសួរ​ម្ដងទៀត"</string>
+    <string name="no_permissions" msgid="2193893107241172888">"គ្មានការអនុញ្ញាតទេ"</string>
+    <string name="additional_permissions" msgid="7124470111123472154">"ការអនុញ្ញាតបន្ថែម"</string>
+    <string name="app_permissions_info_button_label" msgid="6566057048862462066">"បើក​ព័ត៌មាន​កម្មវិធី"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> ទៀត</item>
       <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> ទៀត</item>
     </plurals>
-    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"កម្មវិធីនេះត្រូវបានរចនាឡើងសម្រាប់កំណែចាស់របស់ Android។ ការបដិសេធសិទ្ធិអនុញ្ញាតអាចបណ្តាលឲ្យវាបំពេញមុខងារមិនដូចអ្វីដែលគេរំពឹងទុកតទៅទៀតទេ។"</string>
-    <string name="default_permission_description" msgid="4992892207044156668">"ប្រតិបត្តិការសកម្មភាពមិនស្គាល់"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"បានអនុញ្ញាតកម្មវិធី <xliff:g id="COUNT_0">%1$d</xliff:g> នៃ <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
-    <string name="menu_show_system" msgid="6773743421743728921">"បង្ហាញប្រព័ន្ធ"</string>
-    <string name="menu_hide_system" msgid="7595471742649432977">"លាក់ប្រព័ន្ធ"</string>
-    <string name="permission_title" msgid="6495415273398916381">"ការអនុញ្ញាត <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
-    <string name="no_apps" msgid="1965493419005012569">"គ្មានកម្មវិធី"</string>
-    <string name="location_settings" msgid="1774875730854491297">"ការកំណត់ទីតាំង"</string>
-    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> គឺជាអ្នកផ្តល់សេវាកម្មទីតាំងសម្រាប់ឧបករណ៍នេះ។ ការចូលដំណើរការទីតាំងអាចកែសម្រួលបានចេញពីការកំណត់ទីតាំង។"</string>
-    <string name="system_warning" msgid="7103819124542305179">"ប្រសិនបើអ្នកបដិសេធសិទ្ធិអនុញ្ញាតនេះ លក្ខណៈពិសេសគោលនៃឧបករណ៍របស់អ្នកអាចមិនដំណើរការដូចដែលអ្នកចង់បានតទៅទៀតទេ។"</string>
-    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"អនុវត្តតាមគោលការណ៍"</string>
-    <string name="loading" msgid="7811651799620593731">"កំពុងដំណើរការ..."</string>
-    <string name="all_permissions" msgid="5156669007784613042">"សិទ្ធិអនុញ្ញាតទាំងអស់"</string>
-    <string name="other_permissions" msgid="2016192512386091933">"សមត្ថភាពកម្មវិធីផ្សេងទៀត"</string>
-    <string name="permission_request_title" msgid="1204446718549121199">"សំណើសុំសិទ្ធិអនុញ្ញាត"</string>
-    <string name="screen_overlay_title" msgid="3021729846864038529">"បានរកឃើញអេក្រង់ត្រួតគ្នា"</string>
-    <string name="screen_overlay_message" msgid="2141944461571677331">"ដើម្បីប្តូរការកំណត់សិទ្ធិអនុញ្ញាតនេះ ជាដំបូងអ្នកត្រូវបិទអេក្រង់ត្រួតគ្នានៅក្នុង ការកំណត់ &gt; កម្មវិធី"</string>
-    <string name="screen_overlay_button" msgid="4344544843349937743">"បើកការកំណត់"</string>
-    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"សកម្មភាពដំឡើង/លុបការដំឡើងមិនគាំទ្រនៅលើ Wear ទេ"</string>
-    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> ត្រូវបានអាប់ដេតហើយ។ អនុញ្ញាតឲ្យ <xliff:g id="APP_NAME_1">%1$s</xliff:g> ចូលដំណើរការធាតុខាងក្រោមឬ?"</string>
-    <string name="permission_review_title_template_install" msgid="6819338441305295479">"ជ្រើសរើសអ្វីដែលត្រូវអនុញ្ញាតឲ្យ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ចូលដំណើរការ"</string>
-    <string name="permission_review_title_template_update" msgid="8632233603161669426">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ត្រូវបានអាប់ដេត។ ជ្រើសរើសអ្វីដែលត្រូវអនុញ្ញាតឲ្យកម្មវិធីនេះចូលដំណើរការ។"</string>
-    <string name="review_button_cancel" msgid="957906817733578877">"បោះបង់"</string>
-    <string name="review_button_continue" msgid="4809162078179371370">"បន្ត"</string>
-    <string name="new_permissions_category" msgid="3213523410139204183">"សិទ្ធិអនុញ្ញាតថ្មី"</string>
-    <string name="current_permissions_category" msgid="998210994450606094">"សិទ្ធិអនុញ្ញាតបច្ចុប្បន្ន"</string>
-    <string name="message_staging" msgid="6151794817691100003">"កំពុងសាកល្បងកម្មវិធី…"</string>
-    <string name="app_name_unknown" msgid="8931522764510159105">"មិនស្គាល់"</string>
-    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"ដើម្បីការពារសុវតិ្ថភាពរបស់អ្នក ថេប្លេតរបស់អ្នកមិនត្រូវបានអនុញ្ញាតឲ្យដំឡើងកម្មវិធីដែលមិនស្គាល់ពីប្រភពនេះទេ។"</string>
-    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"ដើម្បីការពារសុវតិ្ថភាពរបស់អ្នក ទូរទស្សន៍របស់អ្នកមិនត្រូវបានអនុញ្ញាតឲ្យដំឡើងកម្មវិធីដែលមិនស្គាល់ពីប្រភពនេះទេ។"</string>
-    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"ដើម្បីការពារសុវតិ្ថភាពរបស់អ្នក ទូរសព្ទរបស់អ្នកមិនត្រូវបានអនុញ្ញាតឲ្យដំឡើងកម្មវិធីដែលមិនស្គាល់ពីប្រភពនេះទេ។"</string>
-    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"ទូរសព្ទ និងទិន្នន័យផ្ទាល់ខ្លួនរបស់អ្នកងាយនឹងរងគ្រោះពីការវាយប្រហារពីកម្មវិធីដែលមិនស្គាល់។ ប្រសិនបើដំឡើងកម្មវិធីនេះ មានន័យថាអ្នកទទួលខុសត្រូវលើការខូចខាតណាមួយចំពោះទូរសព្ទ ឬការបាត់បង់ទិន្នន័យរបស់អ្នក ដែលអាចបណ្តាលមកពីការប្រើប្រាស់កម្មវិធីនោះ។"</string>
-    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"ថេប្លេត និងទិន្នន័យផ្ទាល់ខ្លួនរបស់អ្នកងាយនឹងរងគ្រោះពីការវាយប្រហារពីកម្មវិធីដែលមិនស្គាល់។ ប្រសិនបើដំឡើងកម្មវិធីនេះ មានន័យថាអ្នកទទួលខុសត្រូវលើការខូចខាតណាមួយចំពោះថេប្លេត ឬការបាត់បង់ទិន្នន័យរបស់អ្នក ដែលអាចបណ្តាលមកពីការប្រើប្រាស់កម្មវិធីនោះ។"</string>
-    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"ទូរទស្សន៍ និងទិន្នន័យផ្ទាល់ខ្លួនរបស់អ្នកងាយនឹងរងគ្រោះពីការវាយប្រហារពីកម្មវិធីដែលមិនស្គាល់។ ប្រសិនបើដំឡើងកម្មវិធីនេះ មានន័យថាអ្នកទទួលខុសត្រូវលើការខូចខាតណាមួយចំពោះទូរទស្សន៍ ឬការបាត់បង់ទិន្នន័យរបស់អ្នក ដែលអាចបណ្តាលមកពីការប្រើប្រាស់កម្មវិធីនោះ។"</string>
-    <string name="anonymous_source_continue" msgid="2094381167954332292">"បន្ត"</string>
-    <string name="external_sources_settings" msgid="8601453744517291632">"ការ​កំណត់"</string>
-    <string name="wear_app_channel" msgid="6200840123672949356">"ការដំឡើង/ការលុបកម្មវិធីឧបករណ៍​ពាក់​"</string>
+    <string name="old_sdk_deny_warning" msgid="6018489265342857714">"កម្មវិធីនេះ​ត្រូវបាន​រចនាឡើង​សម្រាប់​កំណែចាស់ជាងនេះ​របស់ Android ។ ការបដិសេធ​ការអនុញ្ញាត​អាចបណ្តាលឱ្យ​វាបំពេញ​មុខងារ​មិនដូចការគ្រោងទុក​តទៅទៀតទេ។"</string>
+    <string name="default_permission_description" msgid="692254823411049573">"ប្រតិបត្តិការសកម្មភាពមិនស្គាល់"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"បានអនុញ្ញាត​កម្មវិធី <xliff:g id="COUNT_0">%1$d</xliff:g> ក្នុងចំណោម​ <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
+    <string name="permission_usage_header" msgid="8802963718365732792">"ការប្រើប្រាស់ថ្មីៗ"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"មើល​ផ្ទាំងគ្រប់គ្រង​ការអនុញ្ញាត"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"បង្ហាញ​ប្រព័ន្ធ"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"លាក់ប្រព័ន្ធ"</string>
+    <string name="no_apps" msgid="2377153782338039463">"គ្មានកម្មវិធី"</string>
+    <string name="location_settings" msgid="547378321761364906">"ការកំណត់ទីតាំង"</string>
+    <string name="location_warning" msgid="4687406043150343369">"<xliff:g id="APP_NAME">%1$s</xliff:g> គឺជាកម្មវិធី​ផ្តល់សេវាកម្ម​ទីតាំង​សម្រាប់​ឧបករណ៍នេះ។ ការចូលប្រើ​ទីតាំងអាច​កែសម្រួល​បានពីការកំណត់​ទីតាំង។"</string>
+    <string name="system_warning" msgid="6868290533389195836">"ប្រសិនបើ​អ្នកបដិសេធ​ការអនុញ្ញាត​នេះ មុខងារសំខាន់ៗ​នៃឧបករណ៍​របស់អ្នក​ប្រហែលជាមិនដំណើរការ​ដូចការគ្រោងទុកតទៅទៀតទេ។"</string>
+    <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"អនុវត្តតាមគោលការណ៍"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"ការចូលប្រើផ្ទៃខាងក្រោយ​ត្រូវបានបិទដោយគោលការណ៍"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"ការចូលប្រើផ្ទៃខាងក្រោយ​ត្រូវបានបើកដោយគោលការណ៍"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="8652417310534780420">"ការចូលប្រើផ្ទៃខាងមុខ​ត្រូវបានបើកដោយគោលការណ៍"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="5156952484229154563">"គ្រប់គ្រងដោយអ្នកគ្រប់គ្រង"</string>
+    <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"ការចូល​ប្រើ​ផ្ទៃខាងក្រោយ​ត្រូវបានបិទដោយ​អ្នកគ្រប់គ្រង"</string>
+    <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"ការចូល​ប្រើ​ផ្ទៃខាងក្រោយ​ត្រូវបានបើកដោយ​អ្នកគ្រប់គ្រង"</string>
+    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"ការចូល​ប្រើ​ផ្ទៃខាងមុខ​ត្រូវបានបើកដោយ​អ្នកគ្រប់គ្រង"</string>
+    <string name="permission_summary_enabled_system_fixed" msgid="1648259601814176611">"ការអនុញ្ញាត​ដែលបានកំណត់​ដោយប្រព័ន្ធ"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
+    <string name="permission_access_always" msgid="2315256378850460955">"ជានិច្ច"</string>
+    <string name="permission_access_only_foreground" msgid="8109903552082630801">"ខណៈពេលប្រើ​កម្មវិធីតែប៉ុណ្ណោះ"</string>
+    <string name="permission_access_never" msgid="4717648645876576508">"កុំឱ្យសោះ"</string>
+    <string name="loading" msgid="323483393167148377">"កំពុងផ្ទុក…"</string>
+    <string name="all_permissions" msgid="7813580062403112957">"ការអនុញ្ញាត​ទាំងអស់"</string>
+    <string name="other_permissions" msgid="1956312685853070715">"សមត្ថភាពកម្មវិធីផ្សេងទៀត"</string>
+    <string name="permission_request_title" msgid="6779348653783761548">"សំណើសុំ​ការអនុញ្ញាត"</string>
+    <string name="screen_overlay_title" msgid="1632732130312696010">"បានរកឃើញ​ការត្រួតគ្នា​លើអេក្រង់"</string>
+    <string name="screen_overlay_message" msgid="3222033787364955006">"ដើម្បី​ប្តូរការកំណត់​ការអនុញ្ញាតនេះ មុនដំបូងអ្នកត្រូវបិទ​ការត្រួតគ្នា​លើអេក្រង់​នៅក្នុង ការកំណត់ &gt; កម្មវិធី​"</string>
+    <string name="screen_overlay_button" msgid="3554849308322944411">"បើកការកំណត់"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="6923880912091041609">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="8731817202551430387">"សកម្មភាព​ដំឡើង/លុបចេញមិនអាចប្រើ​នៅលើ Wear បានទេ។"</string>
+    <string name="permission_review_title_template_install" msgid="8131698354985303888">"ជ្រើសរើស​អ្វីដែលត្រូវ​អនុញ្ញាតឱ្យ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ចូលប្រើ"</string>
+    <string name="permission_review_title_template_update" msgid="7597155653571395485">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ត្រូវបាន​ដំឡើងជំនាន់។ ជ្រើសរើស​អ្វីដែលត្រូវ​អនុញ្ញាតឱ្យ​កម្មវិធីនេះ​ចូលប្រើ។"</string>
+    <string name="review_button_cancel" msgid="7108377593627664194">"បោះបង់"</string>
+    <string name="review_button_continue" msgid="1367925420132212571">"បន្ត"</string>
+    <string name="new_permissions_category" msgid="7242713808413888679">"ការអនុញ្ញាតថ្មី"</string>
+    <string name="current_permissions_category" msgid="3835461245150972589">"ការអនុញ្ញាត​បច្ចុប្បន្ន"</string>
+    <string name="message_staging" msgid="641286607664721291">"កំពុងសាកល្បងកម្មវិធី…"</string>
+    <string name="app_name_unknown" msgid="8288360585728122735">"មិនស្គាល់"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"ផ្ទាំង​គ្រប់គ្រង"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">ការចូលប្រើ​ចុងក្រោយ៖ <xliff:g id="TIME_2">%1$s</xliff:g>\nការចូលប្រើ <xliff:g id="NUM_3">%2$s</xliff:g> ដង</item>
+      <item quantity="one">ការចូលប្រើ​ចុងក្រោយ៖ <xliff:g id="TIME_0">%1$s</xliff:g>\nការចូលប្រើ <xliff:g id="NUM_1">%2$s</xliff:g> ដង</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">ការចូលប្រើ​ចុងក្រោយ៖ <xliff:g id="TIME_3">%1$s</xliff:g>\nការចូលប្រើ <xliff:g id="NUM_4">%2$s</xliff:g> ដង (<xliff:g id="NUM_5">%3$s</xliff:g> ដងនៅផ្ទៃខាងក្រោយ)</item>
+      <item quantity="one">ការចូលប្រើ​ចុងក្រោយ៖ <xliff:g id="TIME_0">%1$s</xliff:g>\nការចូលប្រើ <xliff:g id="NUM_1">%2$s</xliff:g> ដង (<xliff:g id="NUM_2">%3$s</xliff:g> ដងនៅផ្ទៃខាងក្រោយ)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">ការចូលប្រើចុងក្រោយ៖ <xliff:g id="TIME_3">%1$s</xliff:g>\nការចូលប្រើ <xliff:g id="NUM_4">%2$s</xliff:g> ដង\nរយៈពេល៖ <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">ការចូលប្រើ​ចុងក្រោយ៖ <xliff:g id="TIME_0">%1$s</xliff:g>\nការចូលប្រើ <xliff:g id="NUM_1">%2$s</xliff:g> ដង\nរយៈពេល៖ <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">ការចូលប្រើ​ចុងក្រោយ៖ <xliff:g id="TIME_4">%1$s</xliff:g>\nការចូលប្រើ <xliff:g id="NUM_5">%2$s</xliff:g> ដង (<xliff:g id="NUM_6">%3$s</xliff:g> ដងនៅផ្ទៃខាងក្រោយ)\nរយៈពេល៖ <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">ការចូលប្រើ​ចុងក្រោយ៖ <xliff:g id="TIME_0">%1$s</xliff:g>\nការចូលប្រើ <xliff:g id="NUM_1">%2$s</xliff:g> ដង (<xliff:g id="NUM_2">%3$s</xliff:g> ដងនៅផ្ទៃខាងក្រោយ)\nរយៈពេល៖ <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"ការអនុញ្ញាត​ណាមួយ"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"ពេល​ណា​ក៏​បាន"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"7 ថ្ងៃ​ចុងក្រោយ"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"24 ម៉ោង​ចុងក្រោយ"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"1 ម៉ោង​ចុងក្រោយ"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"15 នាទី​ចុងក្រោយ"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"1 នាទី​ចុងក្រោយ"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"គ្មាន​ការប្រើប្រាស់​ការអនុញ្ញាត​ទេ"</string>
+    <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"ចូលប្រើ​បានគ្រប់ពេល"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"ការចូលប្រើ​ក្នុងរយៈពេល 7 ថ្ងៃចុងក្រោយ"</string>
+    <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"ការចូលប្រើ​ក្នុងរយៈពេល 24 ម៉ោងចុងក្រោយ"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"ការចូលប្រើ​នៅម៉ោងចុងក្រោយ"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"ការចូលប្រើ​ក្នុងរយៈពេល 15 នាទីចុងក្រោយ"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="8035799852985876841">"ការចូលប្រើ​ក្នុង​រយៈពេល 1 នាទី​ចុងក្រោយ"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"ការប្រើប្រាស់ការ​អនុញ្ញាតច្រើនបំផុត​គ្រប់ពេល"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"ការប្រើប្រាស់ការ​អនុញ្ញាតច្រើនបំផុតក្នុងរយៈពេល 7 ថ្ងៃចុងក្រោយ"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"ការប្រើប្រាស់ការ​អនុញ្ញាតច្រើនបំផុត​ក្នុងរយៈពេល 24 ម៉ោងចុងក្រោយ"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"ការប្រើប្រាស់ការ​អនុញ្ញាតច្រើនបំផុតក្នុងរយៈពេល 1 ម៉ោងចុងក្រោយ"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"ការប្រើប្រាស់ការ​អនុញ្ញាតច្រើនបំផុតក្នុងរយៈពេល 15 នាទីចុងក្រោយ"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"ការប្រើការអនុញ្ញាតច្រើនបំផុតរយៈពេល 1 នាទីចុងក្រោយ"</string>
+    <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"កម្មវិធី"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"ត្រង​តាម៖ <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"លុប​តម្រង"</string>
+    <string name="filter_by_title" msgid="5940302511365561845">"ត្រងតាម"</string>
+    <string name="filter_by_permissions" msgid="7761207093643478436">"ត្រង​តាមការ​អនុញ្ញាត"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"ការ​អនុញ្ញាតច្រើនបំផុត"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"ការចូលប្រើ​ច្រើនបំផុត"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"ថ្មីៗ"</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"ផ្ទុកឡើងវិញ"</string>
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"ការប្រើប្រាស់​ការអនុញ្ញាត​កម្មវិធី"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"ចូលប្រើ៖ <xliff:g id="NUM">%1$s</xliff:g> ដង។ រយៈពេល​សរុប៖ <xliff:g id="DURATION">%2$s</xliff:g>។ បានប្រើចុងក្រោយ <xliff:g id="TIME">%3$s</xliff:g> មុន។"</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"ចូលប្រើ៖ <xliff:g id="NUM">%1$s</xliff:g> ដង។ បានប្រើចុងក្រោយ <xliff:g id="TIME">%2$s</xliff:g> មុន។"</string>
+    <string name="app_permission_button_allow" msgid="1358817292836175593">"អនុញ្ញាត"</string>
+    <string name="app_permission_button_allow_always" msgid="4313513946865105788">"អនុញ្ញាតគ្រប់ពេល"</string>
+    <string name="app_permission_button_allow_foreground" msgid="6366222217615376397">"អនុញ្ញាត​ពេល​កំពុង​ប្រើប្រាស់​កម្មវិធីតែ​ប៉ុណ្ណោះ"</string>
+    <string name="app_permission_button_deny" msgid="5716368368650638408">"បដិសេធ"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"ការអនុញ្ញាត <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_header" msgid="5704679725169517493">"ការចូលប្រើ <xliff:g id="PERM">%1$s</xliff:g> សម្រាប់ <xliff:g id="APP">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="APP">%1$s</xliff:g> បាន​ចូលប្រើ <xliff:g id="PERM">%2$s</xliff:g> របស់អ្នកកាលពី <xliff:g id="TIME">%3$s</xliff:g> មុន។"</string>
+    <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> មិន​បាន​ចូលប្រើ <xliff:g id="PERM">%2$s</xliff:g> របស់អ្នក​ទេ។"</string>
+    <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"មើល​ការ​ប្រើប្រាស់​ការអនុញ្ញាត​លម្អិត"</string>
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"ការចូលប្រើ​ចុងក្រោយ៖ <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"មិនធ្លាប់​ចូលប្រើ"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"បាន​អនុញ្ញាត"</string>
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"អនុញ្ញាត​ខណៈពេល​ប្រើប្រាស់តែ​ប៉ុណ្ណោះ"</string>
+    <string name="denied_header" msgid="2277998574238617699">"បានបដិសេធ"</string>
+    <string name="detailed_usage_link" msgid="3990452346369247944">"មើល​ការប្រើប្រាស់​លម្អិត"</string>
+    <plurals name="days" formatted="false" msgid="3903419301028414979">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ថ្ងៃ</item>
+      <item quantity="one">1 ថ្ងៃ</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="2123927014975877155">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ម៉ោង</item>
+      <item quantity="one">1 ម៉ោង</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="4331145652577957044">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> នាទី</item>
+      <item quantity="one">1 នាទី</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="1632909606956324957">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> វិនាទី</item>
+      <item quantity="one">1 វិនាទី</item>
+    </plurals>
+    <string name="role_request_message_add" msgid="1977772335648650272">"ប្រើ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ជា​ <xliff:g id="ROLE_NAME">%2$s</xliff:g> របស់អ្នក?"</string>
+    <string name="role_request_message_replace" msgid="6367571247558110210">"ប្រើ &lt;b&gt;<xliff:g id="NEW_APP_NAME">%1$s</xliff:g>&lt;/b&gt; ជំនួសឱ្យ​ &lt;b&gt;<xliff:g id="CURRENT_APP_NAME">%1$s</xliff:g>&lt;/b&gt;​ ជា <xliff:g id="ROLE_NAME">%2$s</xliff:g> របស់អ្នក?"</string>
+    <string name="permission_reminders" msgid="8040710767178843151">"ការរំលឹក​អំពី​ការអនុញ្ញាត"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> បានប្រើប្រាស់​ទីតាំង​របស់អ្នក"</string>
+    <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"កម្មវិធី​នេះ​អាច​ចូលប្រើប្រាស់​ទីតាំង​របស់អ្នក​បានជា​និច្ច។ សូម​ចុច​ដើម្បី​ប្ដូរ។"</string>
+    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"ពេល​កំពុង​ប្រើប្រាស់​កម្មវិធីតែ​ប៉ុណ្ណោះ"</string>
+    <string name="no_permissions_allowed" msgid="5781278485002145993">"មិន​បាន​ផ្ដល់ការអនុញ្ញាតទេ"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"មិន​បានបដិសេធការ​អនុញ្ញាតទេ"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"មិន​បានផ្ដល់​ការអនុញ្ញាត​ឱ្យ​កម្មវិធី​ទេ"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"មិន​បានបដិសេធ​កម្មវិធីទេ"</string>
+    <string name="launch_app" msgid="5641437562665039291">"បើក"</string>
+    <string name="uninstall_app" msgid="8756507666995809214">"លុប"</string>
+    <string name="force_stop_app" msgid="4253426323145479826">"បង្ខំ​ឱ្យ​បញ្ឈប់"</string>
+    <string name="settings" msgid="2884124136779508907">"ការកំណត់"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> មានសិទ្ធិ​ពេញលេញ​ក្នុងការ​ចូលប្រើ​ឧបករណ៍​របស់អ្នក"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"សេវាកម្ម​ភាពងាយស្រួល <xliff:g id="NUM_SERVICES">%s</xliff:g> មានសិទ្ធិ​ពេញលេញ​ក្នុងការ​ចូលប្រើ​ឧបករណ៍​របស់អ្នក"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> អាចមើល​អេក្រង់ សកម្មភាព និង​ការវាយបញ្ចូល​របស់អ្នក ធ្វើ​សកម្មភាព និង​គ្រប់គ្រង​ផ្ទាំងអេក្រង់​បាន។"</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"សេវាកម្ម​ទាំងនេះ​អាចមើល​អេក្រង់ សកម្មភាព និង​ការវាយបញ្ចូល​របស់អ្នក ធ្វើ​សកម្មភាព និង​គ្រប់គ្រង​ផ្ទាំងអេក្រង់​បាន។"</string>
+    <string name="default_apps" msgid="8554530939151957828">"កម្មវិធី​លំនាំដើម"</string>
+    <string name="no_default_apps" msgid="5642715159090903032">"គ្មានកម្មវិធីលំនាំដើមទេ"</string>
+    <string name="default_apps_for_work" msgid="8582151955372061208">"លំនាំដើម​សម្រាប់ការងារ"</string>
+    <string name="default_app_none" msgid="7671097769303174666">"គ្មាន"</string>
+    <string name="default_app_no_apps" msgid="5344668465735677271">"គ្មានកម្មវិធី​ទេ​"</string>
+    <string name="special_app_access" msgid="2561673957499408877">"ការចូលប្រើកម្មវិធីពិសេស"</string>
+    <string name="no_special_app_access" msgid="994977666694457811">"គ្មានការចូលប្រើ​កម្មវិធី​ពិសេសទេ"</string>
+    <string name="special_app_access_no_apps" msgid="3934763650592564818">"គ្មានកម្មវិធី​ទេ​"</string>
+    <string name="role_label_assistant" msgid="456685142560727172">"កម្មវិធី​ជំនួយ"</string>
+    <string name="role_label_browser" msgid="6266502234308421457">"កម្មវិធីរុករកតាមអ៊ីនធឺណិត"</string>
+    <string name="role_label_dialer" msgid="3345895090725237533">"កម្មវិធីទូរសព្ទ"</string>
+    <string name="role_label_sms" msgid="2262769075496017522">"កម្មវិធីផ្ញើសារ SMS"</string>
+    <string name="role_label_emergency" msgid="2226651888638211616">"កម្មវិធី​អាសន្ន"</string>
+    <string name="role_label_home" msgid="7672863812639457378">"កម្មវិធីទំព័រដើម"</string>
+    <string name="role_label_music" msgid="5900245414865932272">"កម្មវិធី​តន្រី្ត"</string>
+    <string name="role_label_gallery" msgid="6939560238495155209">"កម្មវិធីសាល​រូបភាព"</string>
+    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"កម្មវិធី​ទូរសព្ទ​នៃមុខងារ​រថយន្ត"</string>
+    <string name="role_label_call_redirection" msgid="8902197181113231577">"កម្មវិធី​បញ្ជូនបន្ត​ការហៅទូរសព្ទ"</string>
+    <string name="role_label_call_screening" msgid="411212589764916370">"កម្មវិធីត្រួតពិនិត្យការហៅទូរសព្ទ"</string>
+    <string name="role_label_call_companion" msgid="7369723859682076467">"កម្មវិធី​ដៃគូ​សម្រាប់​ហៅទូរសព្ទ"</string>
+    <string name="role_label_car_projection" msgid="3792929094325391213">"កម្មវិធី​បញ្ចាំង​របស់​រថយន្ត"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"មិនស្គាល់​កម្រងព័ត៌មាន​ការងារ​ទេ"</string>
+    <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"ចំណាំ៖ ប្រសិនបើ​អ្នកចាប់ផ្ដើម​ឧបករណ៍​​របស់អ្នក​ឡើងវិញ និងបានកំណត់​ការចាក់សោ​អេក្រង់ កម្មវិធីនេះ​មិនអាច​ចាប់ផ្តើម​បានទេ រហូតទាល់តែ​អ្នកដោះសោ​ឧបករណ៍របស់អ្នក។"</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"ជំនួយការនឹងអាចអានព័ត៌មានអំពីកម្មវិធីដែលកំពុងប្រើនៅក្នុងប្រព័ន្ធរបស់អ្នក រួម​ទាំងព័ត៌មានដែលអាចមើលឃើញនៅលើអេក្រង់របស់អ្នក ឬព័ត៌មានដែលអាចចូលប្រើនៅក្នុងកម្មវិធី​នោះផងដែរ​។"</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"ចែករំលែក​ទិន្នន័យ​នៃការ​ជួសជុល"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"ចែករំលែក​ទិន្នន័យ​លម្អិត​នៃការជួសជុល?"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> ចង់​បង្ហោះ​ព័ត៌មាននៃ​ការជួសជុល។"</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"ចែករំលែក​ទិន្នន័យ​នៃការ​ជួសជុល"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> កំពុង​ស្នើសុំ​បង្ហោះ​របាយការណ៍​អំពី​បញ្ហាពី​ឧបករណ៍​នេះ ដែល​បាន​ធ្វើឡើង​នៅថ្ងៃទី <xliff:g id="DATE">%2$s</xliff:g> ម៉ោង <xliff:g id="TIME">%3$s</xliff:g>។ របាយការណ៍​អំពី​បញ្ហា​រួមមាន​ព័ត៌មាន​អំពី​ឧបករណ៍​របស់អ្នក​ ឬព័ត៌មាន​ដែលបាន​កត់ត្រា​ដោយ​កម្មវិធី​ដូចជា ឈ្មោះ​អ្នកប្រើប្រាស់ ទិន្នន័យទីតាំង ព័ត៌មាន​សម្គាល់​ឧបករណ៍ និង​ព័ត៌មាន​បណ្ដាញ​ជាដើម។ ចែករំលែក​របាយការណ៍​អំពី​បញ្ហា​ជាមួយ​កម្មវិធី និង​មនុស្សដែល​អ្នកទុកចិត្ត​ប៉ុណ្ណោះ ពាក់ព័ន្ធនឹង​ព័ត៌មាន​នេះ។ អនុញ្ញាត​ឱ្យ <xliff:g id="APP_NAME_1">%4$s</xliff:g> បង្ហោះ​របាយការណ៍​អំពី​បញ្ហា?"</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"អនុញ្ញាត"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"បដិសេធ"</string>
 </resources>

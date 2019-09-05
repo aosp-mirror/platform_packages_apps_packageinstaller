@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,137 +16,217 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2738748390251381682">"Alat za instaliranje paketa"</string>
-    <string name="next" msgid="3057143178373252333">"Sljedeća"</string>
-    <string name="install" msgid="5896438203900042068">"Instaliraj"</string>
-    <string name="done" msgid="3889387558374211719">"Gotovo"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"Dopusti ovoj aplikaciji da:"</string>
-    <string name="cancel" msgid="8360346460165114585">"Odustani"</string>
-    <string name="unknown" msgid="4742479012767208045">"Nepoznato"</string>
-    <string name="installing" msgid="8613631001631998372">"Instaliranje..."</string>
-    <string name="installing_app" msgid="4097935682329028894">"Instaliranje paketa <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
-    <string name="install_done" msgid="3682715442154357097">"Aplikacija je instalirana."</string>
-    <string name="install_confirm_question" msgid="7295206719219043890">"Želite li instalirati ovu aplikaciju? Aplikacija će moći sljedeće:"</string>
-    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Želite li instalirati ovu aplikaciju? Aplikacija ne zahtijeva nikakav poseban pristup."</string>
-    <string name="install_confirm_question_update" msgid="4624159567361487964">"Želite li instalirati ažuriranje postojeće aplikacije? Vaši postojeći podaci neće biti izgubljeni. Ažurirana aplikacija dobit će pristup sljedećem:"</string>
-    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Želite li instalirati ažuriranje za ovu ugrađenu aplikaciju? Vaši postojeći podaci neće biti izgubljeni. Ažurirana aplikacija dobit će pristup sljedećem:"</string>
-    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Želite li instalirati ažuriranje postojeće aplikacije? Vaši postojeći podaci neće se izgubiti. Nije potreban nikakav poseban pristup."</string>
-    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Želite li instalirati ažuriranje te ugrađene aplikacije? Vaši postojeći podaci neće se izgubiti. Nije potreban nikakav poseban pristup."</string>
-    <string name="install_failed" msgid="6579998651498970899">"Aplikacija nije instalirana."</string>
-    <string name="install_failed_blocked" msgid="1606870930588770025">"Instaliranje paketa blokirano je."</string>
-    <string name="install_failed_conflict" msgid="5336045235168070954">"Aplikacija koja nije instalirana kao paket u sukobu je s postojećim paketom."</string>
-    <string name="install_failed_incompatible" product="tablet" msgid="6682387386242708974">"Aplikacija koja nije instalirana kao aplikacija nije kompatibilna s vašim tabletom."</string>
-    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Aplikacija nije kompatibilna s vašim televizorom."</string>
-    <string name="install_failed_incompatible" product="default" msgid="7917996365659426872">"Aplikacija koja nije instalirana kao aplikacija nije kompatibilna s vašim telefonom."</string>
-    <string name="install_failed_invalid_apk" msgid="269885385245534742">"Aplikacija koja nije instalirana kao paket vjerojatno nije važeća."</string>
-    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"Aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> nije moguće instalirati na ovo tabletno računalo."</string>
-    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"Nije bilo moguće instalirati aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> na vaš televizor."</string>
-    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"Aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> nije moguće instalirati na vaš telefon."</string>
-    <string name="launch" msgid="4826921505917605463">"Otvori"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"Vaš administrator ne dopušta instaliranje aplikacija iz nepoznatih izvora"</string>
-    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Ovaj korisnik ne može instalirati nepoznate aplikacije"</string>
-    <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"Ovaj korisnik nema dopuštenje za instaliranje aplikacija"</string>
-    <string name="ok" msgid="3468756155452870475">"U redu"</string>
-    <string name="settings" msgid="6743583734099755409">"Postavke"</string>
-    <string name="manage_applications" msgid="4033876279091996596">"Upravljanje aplikacijama"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Zamijeniti aplikaciju?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Aplikacija koju instalirate zamijenit će drugu aplikaciju.\n\nBit će spremljeni svi vaši prethodni korisnički podaci."</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"To je aplikacija sustava.\n\nBit će spremljeni svi vaši prethodni korisnički podaci."</string>
-    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Nema dovoljno mjesta"</string>
-    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"Aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> nije moguće instalirati. Oslobodite dio prostora i pokušajte ponovo."</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"U redu"</string>
-    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Aplikacija nije pronađena"</string>
-    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Na popisu instaliranih aplikacija ova aplikacija nije pronađena."</string>
-    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"Nije dopušteno"</string>
-    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"Trenutačni korisnik nema dopuštenje za to deinstaliranje."</string>
-    <string name="generic_error_dlg_title" msgid="2684806600635296961">"Pogreška"</string>
-    <string name="generic_error_dlg_text" msgid="4288738047825333954">"Deinstaliranje aplikacije nije uspjelo."</string>
-    <string name="uninstall_application_title" msgid="1860074100811653963">"Deinstaliraj aplikaciju"</string>
-    <string name="uninstall_update_title" msgid="4146940097553335390">"Deinstalacija ažuriranja"</string>
-    <string name="uninstall_activity_text" msgid="6680688689803932550">"Aktivnost <xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> dio je sljedeće aplikacije:"</string>
-    <string name="uninstall_application_text" msgid="6691975835951187030">"Želite li deinstalirati ovu aplikaciju?"</string>
-    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Želite li deinstalirati tu aplikaciju za "<b>"sve"</b>" korisnike? Aplikacija i njezini podaci bit će uklonjeni sa "<b>"svih"</b>" korisnika na uređaju."</string>
-    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Želite li deinstalirati tu aplikaciju za korisnika <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
-    <string name="uninstall_update_text" msgid="1394549691152728409">"Želite li tu aplikaciju zamijeniti tvorničkom verzijom? Izgubit ćete sve podatke."</string>
-    <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Želite li tu aplikaciju zamijeniti tvorničkom verzijom? Izgubit ćete sve podatke. To se odnosi na sve korisnike uređaja, uključujući one s radnim profilima."</string>
-    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"Deinstaliranja u tijeku"</string>
-    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"Neuspjela deinstaliranja"</string>
-    <string name="uninstalling" msgid="5556217435895938250">"Deinstaliranje..."</string>
-    <string name="uninstalling_app" msgid="2773617614877719294">"Deinstaliranje aplikacije <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
-    <string name="uninstall_done" msgid="3792487853420281888">"Deinstalacija je završena."</string>
-    <string name="uninstall_done_app" msgid="775837862728680479">"Aplikacija <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> deinstalirana"</string>
-    <string name="uninstall_failed" msgid="631122574306299512">"Deinstalacija nije uspjela."</string>
-    <string name="uninstall_failed_app" msgid="945277834056527022">"Deinstaliranje aplikacije <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> nije uspjelo."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"Deinstaliranje aktivne aplikacije administratora uređaja nije uspjelo"</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"Nije uspjelo deinstaliranje aktivne aplikacije administratora uređaja za <xliff:g id="USERNAME">%1$s</xliff:g>"</string>
-    <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Ta je aplikacija obavezna za neke korisnike ili profile, deinstalirana je za ostale"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"Ta je aplikacija potrebna za vaš profil i ne može se deinstalirati."</string>
-    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Ta je aplikacija neophodna administratoru uređaja i nije ju moguće deinstalirati."</string>
-    <string name="manage_device_administrators" msgid="118178632652346535">"Upravljaj aplikacijama administratora uređaja"</string>
-    <string name="manage_users" msgid="3125018886835668847">"Upravljaj korisnicima"</string>
-    <string name="uninstall_failed_msg" msgid="8969754702803951175">"Aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> nije moguće instalirati."</string>
-    <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Došlo je do problema pri analiziranju paketa."</string>
-    <string name="newPerms" msgid="6039428254474104210">"Novo"</string>
-    <string name="allPerms" msgid="1024385515840703981">"Sve"</string>
-    <string name="privacyPerms" msgid="1850527049572617">"Privatnost"</string>
-    <string name="devicePerms" msgid="6733560207731294504">"Pristup uređaja"</string>
-    <string name="no_new_perms" msgid="6657813692169565975">"Ovo ažuriranje ne zahtijeva nove dozvole."</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"Želite li dati sljedeće dozvole? Odobrit će se pristup sljedećem:"</string>
-    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Odbij"</string>
-    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Više informacija"</string>
-    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Svejedno odbij"</string>
-    <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> od <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="7332275268559121742">"Želite li aplikaciji &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; dopustiti da može <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
-    <string name="permission_revoked_count" msgid="7386129423432613024">"Onemogućeno: <xliff:g id="COUNT">%1$d</xliff:g>"</string>
-    <string name="permission_revoked_all" msgid="8595742638132863678">"sve onemogućeno"</string>
-    <string name="permission_revoked_none" msgid="2059511550181271342">"ništa nije onemogućeno"</string>
-    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Dopusti"</string>
-    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Aplikacije"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"Dopuštenja aplikacije"</string>
-    <string name="never_ask_again" msgid="1089938738199748687">"Više me ne pitaj"</string>
-    <string name="no_permissions" msgid="3210542466245591574">"Nema dopuštenja"</string>
-    <string name="additional_permissions" msgid="6667573114240111763">"Dodatna dopuštenja"</string>
-    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+    <string name="app_name" msgid="2792757108872430971">"Upravljač dopuštenjima"</string>
+    <string name="ok" msgid="4417794827535157922">"U redu"</string>
+    <string name="permission_search_keyword" msgid="1652964722383449182">"dopuštenja"</string>
+    <string name="cancel" msgid="7279939269964834974">"Odustani"</string>
+    <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Aplikacija nije pronađena"</string>
+    <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Odbij"</string>
+    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Odbij i više ne pitaj"</string>
+    <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Više podataka"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Svejedno odbij"</string>
+    <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> od <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
+    <string name="permission_warning_template" msgid="1353228984024423745">"Želite li aplikaciji &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; dopustiti sljedeće: <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_add_background_warning_template" msgid="1046864917164159751">"Želite li uvijek dopustiti aplikaciji &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; sljedeće: <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="allow_permission_foreground_only" msgid="7444689446874060511">"Samo dok se aplikacija koristi"</string>
+    <string name="allow_permission_always" msgid="4089537686339013930">"Uvijek"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8131547398883397878">"Odbij i više ne pitaj"</string>
+    <string name="permission_revoked_count" msgid="5556125174203696709">"Onemogućeno: <xliff:g id="COUNT">%1$d</xliff:g>"</string>
+    <string name="permission_revoked_all" msgid="6356577996164232918">"sve onemogućeno"</string>
+    <string name="permission_revoked_none" msgid="266013103540772023">"ništa nije onemogućeno"</string>
+    <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Dopusti"</string>
+    <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"Dopusti cijelo vrijeme"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Dopusti samo dok je aplikacija u upotrebi"</string>
+    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Aplikacije"</string>
+    <string name="app_permissions" msgid="2778362347879465223">"Dopuštenja aplikacije"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"Upravitelj dopuštenja"</string>
+    <string name="never_ask_again" msgid="7645304182523160030">"Više me ne pitaj"</string>
+    <string name="no_permissions" msgid="2193893107241172888">"Nema dopuštenja"</string>
+    <string name="additional_permissions" msgid="7124470111123472154">"Dodatna dopuštenja"</string>
+    <string name="app_permissions_info_button_label" msgid="6566057048862462066">"Otvori informacije o aplikaciji"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
       <item quantity="one">Još <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="few">Još <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="other">Još <xliff:g id="COUNT_1">%1$d</xliff:g></item>
     </plurals>
-    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Ova je aplikacija napravljena za stariju verziju Androida. Ako ne dobije dopuštenje, možda više neće funkcionirati kako treba."</string>
-    <string name="default_permission_description" msgid="4992892207044156668">"izvršiti nepoznatu radnju"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"Aplikacije s dopuštenjem: <xliff:g id="COUNT_0">%1$d</xliff:g> od <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
-    <string name="menu_show_system" msgid="6773743421743728921">"Prikaži sustav"</string>
-    <string name="menu_hide_system" msgid="7595471742649432977">"Sakrij sustav"</string>
-    <string name="permission_title" msgid="6495415273398916381">"Dopuštenja – <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
-    <string name="no_apps" msgid="1965493419005012569">"Nema aplikacija"</string>
-    <string name="location_settings" msgid="1774875730854491297">"Postavke lokacije"</string>
-    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> pruža usluge lokacije za ovaj uređaj. Pristup lokaciji može se izmijeniti u postavkama lokacije."</string>
-    <string name="system_warning" msgid="7103819124542305179">"Ako ne odobrite ovo dopuštenje, osnovne značajke vašeg uređaja možda više neće funkcionirati pravilno."</string>
-    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Provoditi se na temelju pravila"</string>
-    <string name="loading" msgid="7811651799620593731">"Učitavanje…"</string>
-    <string name="all_permissions" msgid="5156669007784613042">"Sva dopuštenja"</string>
-    <string name="other_permissions" msgid="2016192512386091933">"Ostale mogućnosti aplikacije"</string>
-    <string name="permission_request_title" msgid="1204446718549121199">"Zahtijevanje dopuštenja"</string>
-    <string name="screen_overlay_title" msgid="3021729846864038529">"Otkriveno je preklapanje na zaslonu"</string>
-    <string name="screen_overlay_message" msgid="2141944461571677331">"Da biste promijenili tu postavku dopuštenja, prvo morate isključiti preklapanje na zaslonu u Postavkama &gt; Aplikacije"</string>
-    <string name="screen_overlay_button" msgid="4344544843349937743">"Otvori postavke"</string>
-    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Radnje instaliranja i deinstaliranja nisu podržane na Wearu."</string>
-    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"Aplikacija <xliff:g id="APP_NAME_0">%1$s</xliff:g> ažurirana je. Želite li dopustiti da <xliff:g id="APP_NAME_1">%1$s</xliff:g> pristupa sljedećem?"</string>
-    <string name="permission_review_title_template_install" msgid="6819338441305295479">"Odaberite čemu će &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; moći pristupiti"</string>
-    <string name="permission_review_title_template_update" msgid="8632233603161669426">"Aplikacija &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ažurirana je. Odaberite čemu će moći pristupiti."</string>
-    <string name="review_button_cancel" msgid="957906817733578877">"Otkaži"</string>
-    <string name="review_button_continue" msgid="4809162078179371370">"Nastavi"</string>
-    <string name="new_permissions_category" msgid="3213523410139204183">"Nova dopuštenja"</string>
-    <string name="current_permissions_category" msgid="998210994450606094">"Trenutačna dopuštenja"</string>
-    <string name="message_staging" msgid="6151794817691100003">"Postavljanje aplikacije…"</string>
-    <string name="app_name_unknown" msgid="8931522764510159105">"Nepoznato"</string>
-    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Iz sigurnosnih razloga tablet nema dopuštenje za instaliranje nepoznatih aplikacija iz ovog izvora."</string>
-    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Iz sigurnosnih razloga televizor nema dopuštenje za instaliranje nepoznatih aplikacija iz ovog izvora."</string>
-    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Iz sigurnosnih razloga telefon nema dopuštenje za instaliranje nepoznatih aplikacija iz ovog izvora."</string>
-    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"Vaš telefon i osobni podaci podložniji su napadima nepoznatih aplikacija. Instaliranjem te aplikacije prihvaćate odgovornost za oštećenje telefona ili gubitak podataka do kojih može doći uslijed njezine upotrebe."</string>
-    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"Vaš tablet i osobni podaci podložniji su napadima nepoznatih aplikacija. Instaliranjem te aplikacije prihvaćate odgovornost za oštećenje tableta ili gubitak podataka do kojih može doći uslijed njezine upotrebe."</string>
-    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Vaš TV i osobni podaci podložniji su napadima nepoznatih aplikacija. Instaliranjem te aplikacije prihvaćate odgovornost za oštećenje televizora ili gubitak podataka do kojih može doći uslijed njezine upotrebe."</string>
-    <string name="anonymous_source_continue" msgid="2094381167954332292">"Nastavi"</string>
-    <string name="external_sources_settings" msgid="8601453744517291632">"Postavke"</string>
-    <string name="wear_app_channel" msgid="6200840123672949356">"Instaliranje/deinstaliranje Wear apl."</string>
+    <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Ova je aplikacija napravljena za stariju verziju Androida. Ako ne dobije dopuštenje, možda više neće funkcionirati kako treba."</string>
+    <string name="default_permission_description" msgid="692254823411049573">"izvršiti nepoznatu radnju"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"Aplikacije s dopuštenjem: <xliff:g id="COUNT_0">%1$d</xliff:g> od <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
+    <string name="permission_usage_header" msgid="8802963718365732792">"Nedavna upotreba"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"Prikaz nadzorne ploče s dopuštenjima"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"Prikaži sustav"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"Sakrij sustav"</string>
+    <string name="no_apps" msgid="2377153782338039463">"Nema aplikacija"</string>
+    <string name="location_settings" msgid="547378321761364906">"Postavke lokacije"</string>
+    <string name="location_warning" msgid="4687406043150343369">"<xliff:g id="APP_NAME">%1$s</xliff:g> pruža usluge lokacije za ovaj uređaj. Pristup lokaciji može se izmijeniti u postavkama lokacije."</string>
+    <string name="system_warning" msgid="6868290533389195836">"Ako ne odobrite ovo dopuštenje, osnovne značajke vašeg uređaja možda više neće funkcionirati pravilno."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"Provoditi se na temelju pravila"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"Pristup u pozadini onemogućen je pravilima"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"Pristup u pozadini omogućen je pravilima"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="8652417310534780420">"Pristup u prednjem planu omogućen je pravilima"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="5156952484229154563">"Kontrolira administrator"</string>
+    <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"Pristup iz pozadine onemogućio je administrator"</string>
+    <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"Pristup iz pozadine omogućio je administrator"</string>
+    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"Pristup iz prednjeg plana omogućio je administrator"</string>
+    <string name="permission_summary_enabled_system_fixed" msgid="1648259601814176611">"Dopuštenje koje je postavio sustav"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
+    <string name="permission_access_always" msgid="2315256378850460955">"Uvijek"</string>
+    <string name="permission_access_only_foreground" msgid="8109903552082630801">"Samo dok se aplikacija koristi"</string>
+    <string name="permission_access_never" msgid="4717648645876576508">"Nikad"</string>
+    <string name="loading" msgid="323483393167148377">"Učitavanje…"</string>
+    <string name="all_permissions" msgid="7813580062403112957">"Sva dopuštenja"</string>
+    <string name="other_permissions" msgid="1956312685853070715">"Ostale mogućnosti aplikacije"</string>
+    <string name="permission_request_title" msgid="6779348653783761548">"Zahtijevanje dopuštenja"</string>
+    <string name="screen_overlay_title" msgid="1632732130312696010">"Otkriveno je preklapanje na zaslonu"</string>
+    <string name="screen_overlay_message" msgid="3222033787364955006">"Da biste promijenili tu postavku dopuštenja, prvo morate isključiti preklapanje na zaslonu u Postavkama &gt; Aplikacije"</string>
+    <string name="screen_overlay_button" msgid="3554849308322944411">"Otvori postavke"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="6923880912091041609">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="8731817202551430387">"Radnje instaliranja i deinstaliranja nisu podržane na Wearu."</string>
+    <string name="permission_review_title_template_install" msgid="8131698354985303888">"Odaberite čemu će &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; moći pristupiti"</string>
+    <string name="permission_review_title_template_update" msgid="7597155653571395485">"Aplikacija &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ažurirana je. Odaberite čemu će moći pristupiti."</string>
+    <string name="review_button_cancel" msgid="7108377593627664194">"Otkaži"</string>
+    <string name="review_button_continue" msgid="1367925420132212571">"Nastavi"</string>
+    <string name="new_permissions_category" msgid="7242713808413888679">"Nova dopuštenja"</string>
+    <string name="current_permissions_category" msgid="3835461245150972589">"Trenutačna dopuštenja"</string>
+    <string name="message_staging" msgid="641286607664721291">"Postavljanje aplikacije…"</string>
+    <string name="app_name_unknown" msgid="8288360585728122735">"Nepoznato"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Nadzorna ploča"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="one">Zadnji pristup: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> pristup</item>
+      <item quantity="few">Zadnji pristup: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> pristupa</item>
+      <item quantity="other">Zadnji pristup: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> pristupa</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="one">Zadnji pristup: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> pristup (<xliff:g id="NUM_5">%3$s</xliff:g> u pozadini)</item>
+      <item quantity="few">Zadnji pristup: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> pristupa (<xliff:g id="NUM_5">%3$s</xliff:g> u pozadini)</item>
+      <item quantity="other">Zadnji pristup: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> pristupa (<xliff:g id="NUM_5">%3$s</xliff:g> u pozadini)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="one">Zadnji pristup: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> pristup\nTrajanje: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="few">Zadnji pristup: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> pristupa\nTrajanje: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="other">Zadnji pristup: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> pristupa\nTrajanje: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="one">Zadnji pristup: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> pristupa (<xliff:g id="NUM_6">%3$s</xliff:g> u pozadini)\nTrajanje: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="few">Zadnji pristup: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> pristupa (<xliff:g id="NUM_6">%3$s</xliff:g> u pozadini)\nTrajanje: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="other">Zadnji pristup: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> pristupa (<xliff:g id="NUM_6">%3$s</xliff:g> u pozadini)\nTrajanje: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+    </plurals>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Bilo koje dopuštenje"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"Bilo kad"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Posljednjih tjedan dana"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"Posljednja 24 sata"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Posljednjih sat vremena"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Posljednjih 15 minuta"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Posljednja minuta"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"Nema upotreba dopuštenja"</string>
+    <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"Pristup bilo kada"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"Pristup u posljednjih sedam dana"</string>
+    <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"Pristup u posljednja 24 sata"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"Pristup u posljednjih sat vremena"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"Pristupa u posljednjih 15 minuta"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="8035799852985876841">"Pristup u posljednjoj minuti"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"Upotreba dopuštenja bilo kada"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"Upotreba dopuštenja u posljednjih sedam dana"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"Upotreba dopuštenja u posljednja 24 sata"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"Upotreba dopuštenja u posljednjih sat vremena"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"Upotreba dopuštenja u posljednjih 15 minuta"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"Upotreba dopuštenja u posljednjoj minuti"</string>
+    <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"Aplikacije"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Filtrirano po: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"Ukloni filtar"</string>
+    <string name="filter_by_title" msgid="5940302511365561845">"Kriterij filtriranja"</string>
+    <string name="filter_by_permissions" msgid="7761207093643478436">"Filtriraj prema dopuštenjima"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Najviše dopuštenja"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Najviše pristupa"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"Nedavno"</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"Osvježi"</string>
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"Upotreba dopuštenja aplikacije"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"Pristup: <xliff:g id="NUM">%1$s</xliff:g> puta. Ukupno trajanje: <xliff:g id="DURATION">%2$s</xliff:g>. Posljednji put korišteno prije <xliff:g id="TIME">%3$s</xliff:g>."</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Pristup: <xliff:g id="NUM">%1$s</xliff:g> puta. Posljednji put korišteno prije <xliff:g id="TIME">%2$s</xliff:g>."</string>
+    <string name="app_permission_button_allow" msgid="1358817292836175593">"Dopusti"</string>
+    <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Dopusti cijelo vrijeme"</string>
+    <string name="app_permission_button_allow_foreground" msgid="6366222217615376397">"Dopusti samo dok je aplikacija u upotrebi"</string>
+    <string name="app_permission_button_deny" msgid="5716368368650638408">"Odbij"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"Dopuštenje <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_header" msgid="5704679725169517493">"Pristup dopuštenju <xliff:g id="PERM">%1$s</xliff:g> za aplikaciju <xliff:g id="APP">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> pristupila je dopuštenju <xliff:g id="PERM">%2$s</xliff:g> prije <xliff:g id="TIME">%3$s</xliff:g>."</string>
+    <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"Aplikacija <xliff:g id="APP">%1$s</xliff:g> nije pristupila vašem dopuštenju <xliff:g id="PERM">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Pregledajte detaljnu upotrebu dopuštenja"</string>
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Zadnji pristup: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Bez pristupa"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"Dopušteno"</string>
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"Dopušteno samo tijekom upotrebe"</string>
+    <string name="denied_header" msgid="2277998574238617699">"Odbijeno"</string>
+    <string name="detailed_usage_link" msgid="3990452346369247944">"Pogledajte detaljnu upotrebu"</string>
+    <plurals name="days" formatted="false" msgid="3903419301028414979">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> dana</item>
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> dana</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> dana</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="2123927014975877155">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> sata</item>
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> sata</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sati</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="4331145652577957044">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> minute</item>
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> minute</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> minuta</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="1632909606956324957">
+      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> sekunde</item>
+      <item quantity="few"><xliff:g id="NUMBER">%s</xliff:g> sekunde</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sekundi</item>
+    </plurals>
+    <string name="role_request_message_add" msgid="1977772335648650272">"Upotrijebiti naziv aplikacije &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; kao <xliff:g id="ROLE_NAME">%2$s</xliff:g>?"</string>
+    <string name="role_request_message_replace" msgid="6367571247558110210">"Upotrijebiti novi naziv aplikacije &lt;b&gt;<xliff:g id="NEW_APP_NAME">%1$s</xliff:g>&lt;/b&gt; umjesto trenutačnog &lt;b&gt;<xliff:g id="CURRENT_APP_NAME">%1$s</xliff:g>&lt;/b&gt; kao <xliff:g id="ROLE_NAME">%2$s</xliff:g>?"</string>
+    <string name="permission_reminders" msgid="8040710767178843151">"Podsjetnici za dopuštenja"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"Aplikacija <xliff:g id="APP_NAME">%s</xliff:g> koristi vašu lokaciju"</string>
+    <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Ova aplikacija može uvijek pristupiti vašoj lokaciji. Dodirnite za promjenu."</string>
+    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Samo dok je aplikacija u upotrebi"</string>
+    <string name="no_permissions_allowed" msgid="5781278485002145993">"Nije odobreno nijedno dopuštenje"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"Nije odbijeno nijedno dopuštenje"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"Nije dopuštena nijedna aplikacija"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"Nije odbijena nijedna aplikacija"</string>
+    <string name="launch_app" msgid="5641437562665039291">"Otvori"</string>
+    <string name="uninstall_app" msgid="8756507666995809214">"Deinstaliraj"</string>
+    <string name="force_stop_app" msgid="4253426323145479826">"Prisilno zaustavi"</string>
+    <string name="settings" msgid="2884124136779508907">"Postavke"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> ima potpuni pristup uređaju"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"Usluge pristupačnosti s potpunim pristupom uređaju (<xliff:g id="NUM_SERVICES">%s</xliff:g>)"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> može vidjeti vaš zaslon, radnje i unose, izvršavati radnje i upravljati zaslonom."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"Te usluge mogu vidjeti vaš zaslon, radnje i unose, izvršavati radnje i upravljati zaslonom."</string>
+    <string name="default_apps" msgid="8554530939151957828">"Zadane aplikacije"</string>
+    <string name="no_default_apps" msgid="5642715159090903032">"Nema zadanih aplikacija"</string>
+    <string name="default_apps_for_work" msgid="8582151955372061208">"Zadano za posao"</string>
+    <string name="default_app_none" msgid="7671097769303174666">"Nijedna"</string>
+    <string name="default_app_no_apps" msgid="5344668465735677271">"Nema aplikacija"</string>
+    <string name="special_app_access" msgid="2561673957499408877">"Poseban pristup aplikaciji"</string>
+    <string name="no_special_app_access" msgid="994977666694457811">"Bez poseb. pristupa aplikaciji"</string>
+    <string name="special_app_access_no_apps" msgid="3934763650592564818">"Nema aplikacija"</string>
+    <string name="role_label_assistant" msgid="456685142560727172">"Aplikacija pomoćnik"</string>
+    <string name="role_label_browser" msgid="6266502234308421457">"Aplikacija preglednika"</string>
+    <string name="role_label_dialer" msgid="3345895090725237533">"Aplikacija Telefon"</string>
+    <string name="role_label_sms" msgid="2262769075496017522">"Aplikacija za SMS"</string>
+    <string name="role_label_emergency" msgid="2226651888638211616">"Aplikacija za hitne slučajeve"</string>
+    <string name="role_label_home" msgid="7672863812639457378">"Aplikacija početnog zaslona"</string>
+    <string name="role_label_music" msgid="5900245414865932272">"Aplikacija Glazba"</string>
+    <string name="role_label_gallery" msgid="6939560238495155209">"Aplikacija Galerija"</string>
+    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"Ap. za način rada u automobilu"</string>
+    <string name="role_label_call_redirection" msgid="8902197181113231577">"Apl. za preusmjeravanje poziva"</string>
+    <string name="role_label_call_screening" msgid="411212589764916370">"Ap. za filtriranje poziva"</string>
+    <string name="role_label_call_companion" msgid="7369723859682076467">"Popratna aplikacija za pozive"</string>
+    <string name="role_label_car_projection" msgid="3792929094325391213">"Apl. Projekcija u automobilu"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"Ne podržava radni profil"</string>
+    <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Napomena: ako ponovo pokrenete uređaj, a na njemu je postavljeno zaključavanje zaslona, ova se aplikacija ne može pokrenuti dok ne otključate uređaj."</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"Pomoćnik će moći čitati podatke o aplikacijama koje se upotrebljavaju na vašem sustavu, uključujući podatke vidljive na zaslonu ili podatke kojima se može pristupiti u aplikacijama."</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"Dijeli podatke o otklanjanju pogrešaka"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"Dijeliti detaljne podatke o otklanjanju pogrešaka?"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> želi prenijeti informacije o otklanjanju pogrešaka."</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Dijeli podatke o otklanjanju pogrešaka"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> zahtijeva prijenos izvješća o programskoj pogrešci s ovog uređaja od <xliff:g id="DATE">%2$s</xliff:g> u <xliff:g id="TIME">%3$s</xliff:g>. Izvješća o programskim pogreškama sadržavaju osobne podatke o uređaju ili one koje su zabilježile aplikacije, kao što su korisnička imena, podaci o lokaciji, alati za identifikaciju uređaja i podaci o mreži. Izvješća o programskim pogreškama dijelite samo s osobama i aplikacijama koje smatrate pouzdanima. Dopustiti aplikaciji <xliff:g id="APP_NAME_1">%4$s</xliff:g> prijenos izvješća o programskoj pogrešci?"</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Dopusti"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Odbij"</string>
 </resources>

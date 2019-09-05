@@ -15,23 +15,28 @@
  */
 package com.android.packageinstaller.permission.ui.handheld;
 
+import static com.android.packageinstaller.Constants.EXTRA_SESSION_ID;
+import static com.android.packageinstaller.Constants.INVALID_SESSION_ID;
+
 import android.app.ActionBar;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceScreen;
-import android.util.ArraySet;
 import android.util.Log;
+import android.widget.ImageView;
 
-import com.android.packageinstaller.R;
-import com.android.packageinstaller.permission.model.PermissionApps.PmCache;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.PreferenceViewHolder;
+
 import com.android.packageinstaller.permission.model.PermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionGroups;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.permissioncontroller.R;
 
-import java.util.List;
+import java.text.Collator;
+import java.util.ArrayList;
 
 /**
  * Superclass for fragments allowing the user to manage permissions.
@@ -43,9 +48,9 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
 
     static final String OS_PKG = "android";
 
-    private ArraySet<String> mLauncherPkgs;
-
     private PermissionGroups mPermissions;
+
+    private Collator mCollator;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -56,8 +61,11 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
         if (ab != null) {
             ab.setDisplayHomeAsUpEnabled(true);
         }
-        mLauncherPkgs = Utils.getLauncherPackages(getContext());
-        mPermissions = new PermissionGroups(getContext(), getLoaderManager(), this);
+
+        mPermissions = new PermissionGroups(getContext(), getActivity().getLoaderManager(), this,
+                false, true);
+        mCollator = Collator.getInstance(
+                getContext().getResources().getConfiguration().getLocales().get(0));
     }
 
     @Override
@@ -70,7 +78,9 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
         }
 
         Intent intent = new Intent(Intent.ACTION_MANAGE_PERMISSION_APPS)
-                .putExtra(Intent.EXTRA_PERMISSION_NAME, key);
+                .putExtra(Intent.EXTRA_PERMISSION_NAME, key)
+                .putExtra(EXTRA_SESSION_ID,
+                        getArguments().getLong(EXTRA_SESSION_ID, INVALID_SESSION_ID));
         try {
             getActivity().startActivity(intent);
         } catch (ActivityNotFoundException e) {
@@ -105,31 +115,33 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
      * @return The preference screen the permissions were added to
      */
     protected PreferenceScreen updatePermissionsUi(boolean addSystemPermissions) {
-        Context context = getActivity();
-        if (context == null) {
+        Context context = getPreferenceManager().getContext();
+        if (context == null || getActivity() == null) {
             return null;
         }
 
-        List<PermissionGroup> groups = mPermissions.getGroups();
+        ArrayList<PermissionGroup> groups = new ArrayList<>(mPermissions.getGroups());
+        groups.sort((x, y) -> mCollator.compare(x.getLabel(), y.getLabel()));
         PreferenceScreen screen = getPreferenceScreen();
         if (screen == null) {
-            screen = getPreferenceManager().createPreferenceScreen(getActivity());
+            screen = getPreferenceManager().createPreferenceScreen(context);
             setPreferenceScreen(screen);
         } else {
             screen.removeAll();
         }
+        screen.setOrderingAsAdded(true);
 
         // Use this to speed up getting the info for all of the PermissionApps below.
         // Create a new one for each refresh to make sure it has fresh data.
-        PmCache cache = new PmCache(getContext().getPackageManager());
-        for (PermissionGroup group : groups) {
+        for (int i = 0; i < groups.size(); i++) {
+            PermissionGroup group = groups.get(i);
             boolean isSystemPermission = group.getDeclaringPackage().equals(OS_PKG);
 
             if (addSystemPermissions == isSystemPermission) {
                 Preference preference = findPreference(group.getName());
 
                 if (preference == null) {
-                    preference = new Preference(context);
+                    preference = new FixedSizeIconPreference(context);
                     preference.setOnPreferenceClickListener(this);
                     preference.setKey(group.getName());
                     preference.setIcon(Utils.applyTint(context, group.getIcon(),
@@ -150,5 +162,28 @@ abstract class ManagePermissionsFragment extends PermissionsFrameFragment
         }
 
         return screen;
+    }
+
+    /**
+     * A preference whose icons have the same fixed size.
+     */
+    private static final class FixedSizeIconPreference extends Preference {
+        FixedSizeIconPreference(Context context) {
+            super(context);
+        }
+
+        @Override
+        public void onBindViewHolder(PreferenceViewHolder holder) {
+            super.onBindViewHolder(holder);
+            ImageView icon = ((ImageView) holder.findViewById(android.R.id.icon));
+            icon.setAdjustViewBounds(true);
+            int size = getContext().getResources().getDimensionPixelSize(
+                    R.dimen.permission_icon_size);
+            icon.setMaxWidth(size);
+            icon.setMaxHeight(size);
+            icon.getLayoutParams().width = size;
+            icon.getLayoutParams().height = size;
+            icon.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        }
     }
 }

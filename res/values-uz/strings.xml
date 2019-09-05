@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,136 +16,208 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2738748390251381682">"Paket o‘rnatish vositasi"</string>
-    <string name="next" msgid="3057143178373252333">"Keyingisi"</string>
-    <string name="install" msgid="5896438203900042068">"O‘rnatish"</string>
-    <string name="done" msgid="3889387558374211719">"Tayyor"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"Ushbu ilovaga quyidagi amallar uchun ruxsat berish:"</string>
-    <string name="cancel" msgid="8360346460165114585">"Bekor qilish"</string>
-    <string name="unknown" msgid="4742479012767208045">"Noma’lum"</string>
-    <string name="installing" msgid="8613631001631998372">"O‘rnatilmoqda…"</string>
-    <string name="installing_app" msgid="4097935682329028894">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> o‘rnatilmoqda…"</string>
-    <string name="install_done" msgid="3682715442154357097">"Ilova o‘rnatildi."</string>
-    <string name="install_confirm_question" msgid="7295206719219043890">"Bu ilovani o‘rnatmoqchimisiz? U quyidagi ruxsatlarga ega:"</string>
-    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Bu ilovani o‘rnatmoqchimisiz? U hech qanday maxsus ruxsat talab qilmaydi."</string>
-    <string name="install_confirm_question_update" msgid="4624159567361487964">"Bu ilova uchun yangilanishni o‘rnatmoqchimisiz? Yangilanganidan keyin u quyidagi ruxsatlarga ega bo‘ladi:"</string>
-    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Bu ilova uchun yangilanishni o‘rnatmoqchimisiz? Yangilanganidan keyin u quyidagi ruxsatlarga ega bo‘ladi:"</string>
-    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Ushbu mavjud ilovaga yangilanish o‘rnatilsinmi? Mavjud ma’lumotlaringiz o‘chib ketmaydi. U hech qanday maxsus ruxsat talab qilmaydi."</string>
-    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Ushbu tizim ilovasiga yangilanish o‘rnatilsinmi? Mavjud ma’lumotlaringiz o‘chib ketmaydi. U hech qanday maxsus ruxsat talab qilmaydi."</string>
-    <string name="install_failed" msgid="6579998651498970899">"Ilova o‘rnatilmadi."</string>
-    <string name="install_failed_blocked" msgid="1606870930588770025">"Paket o‘rnatilishga qarshi bloklangan."</string>
-    <string name="install_failed_conflict" msgid="5336045235168070954">"Paket mavjud paket bilan zid kelganligi uchun ilovani o‘rnatib bo‘lmadi."</string>
-    <string name="install_failed_incompatible" product="tablet" msgid="6682387386242708974">"Ilova planshetingizga mos kelmaganligi uchun uni o‘rnatib bo‘lmadi."</string>
-    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Bu ilova televizoringiz bilan mos emas."</string>
-    <string name="install_failed_incompatible" product="default" msgid="7917996365659426872">"Ilova telefoningizga mos kelmaganligi uchun uni o‘rnatib bo‘lmadi."</string>
-    <string name="install_failed_invalid_apk" msgid="269885385245534742">"Paket yaroqsiz bo‘lganligi uchun ilovani o‘rnatib bo‘lmadi."</string>
-    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> planshetingizga o‘rnatilmadi."</string>
-    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> ilovasini televizoringizga o‘rnatib bo‘lmadi."</string>
-    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> telefoningizga o‘rnatilmadi."</string>
-    <string name="launch" msgid="4826921505917605463">"Ochish"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"Administratoringiz begona manbalardan olingan ilovalarni o‘rnatishga ruxsat bermagan"</string>
-    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Notanish ilovalarni bu foydalanuvchi tomonidan o‘rnatib bo‘lmaydi"</string>
-    <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"Bu foydalanuvchiga ilovalarni o‘rnatish uchun ruxsat berilmagan"</string>
-    <string name="ok" msgid="3468756155452870475">"OK"</string>
-    <string name="settings" msgid="6743583734099755409">"Sozlamalar"</string>
-    <string name="manage_applications" msgid="4033876279091996596">"Ilovalarni boshqarish"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Ilova almashtirilsinmi?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Siz o‘rnatayotgan ilova boshqa ilovaning o‘rnini almashtiradi.\n\nBarcha eski ma’lumotlaringiz saqlanib qoladi."</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Bu tizim ilovasi.\n\nBarcha eski ma’lumotlaringiz saqlanib qoladi."</string>
-    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Joy qolmadi"</string>
-    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> o‘rnatilmadi. Xotiradan biroz joy bo‘shating va qaytadan urinib ko‘ring."</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
-    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Ilova topilmadi"</string>
-    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Ilova o‘rnatilgan ilovalar ro‘yxatidan topilmadi."</string>
-    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"Ruxsat berilmagan"</string>
-    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"Joriy foydalanuvchiga bu o‘chirishni amalga oshirishi uchun ruxsat berilmagan."</string>
-    <string name="generic_error_dlg_title" msgid="2684806600635296961">"Xato"</string>
-    <string name="generic_error_dlg_text" msgid="4288738047825333954">"Ilovani o‘chirib bo‘lmadi"</string>
-    <string name="uninstall_application_title" msgid="1860074100811653963">"Ilovani o‘chirish"</string>
-    <string name="uninstall_update_title" msgid="4146940097553335390">"Yangilanishni o‘chirish"</string>
-    <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> quyidagi ilovaning bir qismidir:"</string>
-    <string name="uninstall_application_text" msgid="6691975835951187030">"Bu ilova o‘chirib tashlansinmi?"</string>
-    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Ushbu ilova "<b>"barcha"</b>" foydalanuvchilar uchun o‘chirilsinmi? Ilova va uning ma’lumotlari qurilmadagi "<b>"barcha"</b>" foydalanuvchilardan o‘chib ketadi."</string>
-    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Haqiqatdan ham <xliff:g id="USERNAME">%1$s</xliff:g> foydalanuvchi uchun ushbu ilovani olib tashlamoqchimisiz?"</string>
-    <string name="uninstall_update_text" msgid="1394549691152728409">"Bu ilova boshlang‘ich versiyasi bilan almashtirilsinmi? Barcha ma’lumotlar o‘chirib tashlanadi."</string>
-    <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Bu ilova boshlang‘ich versiyasi bilan almashtirilsinmi? Barcha ma’lumotlar o‘chirib tashlanadi. Bu qurilmaning barcha foydalanuvchilariga, jumladan, ularning ishchi profillariga ham ta’sir qiladi."</string>
-    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"Davom etayotganlar"</string>
-    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"Amalga oshmaganlar"</string>
-    <string name="uninstalling" msgid="5556217435895938250">"O‘chirilmoqda…"</string>
-    <string name="uninstalling_app" msgid="2773617614877719294">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> o‘chirilmoqda…"</string>
-    <string name="uninstall_done" msgid="3792487853420281888">"O‘chirib tashlandi."</string>
-    <string name="uninstall_done_app" msgid="775837862728680479">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> o‘chirib tashlandi"</string>
-    <string name="uninstall_failed" msgid="631122574306299512">"O‘chirish muvaffaqiyatsizlikka uchradi."</string>
-    <string name="uninstall_failed_app" msgid="945277834056527022">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ilovasini o‘chirib bo‘lmadi."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"Faol qurilma administratori ilovasini o‘chirib bo‘lmaydi"</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"<xliff:g id="USERNAME">%1$s</xliff:g> profilida faol qurilma administratori ilovasini o‘chirib bo‘lmaydi"</string>
-    <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Bu ilova ba’zi foydalanuvchi yoki profillar uchun zarur, boshqalar uchun esa o‘chirib tashlangan"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"Bu ilova profilingiz uchun kerak va uni o‘chirib bo‘lmaydi."</string>
-    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Ushbu ilova qurilmangiz ma\'muri tomonidan ishlatiladi, shuning uchun uni olib tashlab bo\'lmaydi."</string>
-    <string name="manage_device_administrators" msgid="118178632652346535">"Qurilma administratori ilovalarini boshqarish"</string>
-    <string name="manage_users" msgid="3125018886835668847">"Foydalanuvchilarni boshqarish"</string>
-    <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> o‘chirilmadi."</string>
-    <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Paketni tahlil qilishda muammo yuz berdi."</string>
-    <string name="newPerms" msgid="6039428254474104210">"Yangi"</string>
-    <string name="allPerms" msgid="1024385515840703981">"Barchasi"</string>
-    <string name="privacyPerms" msgid="1850527049572617">"Maxfiylik"</string>
-    <string name="devicePerms" msgid="6733560207731294504">"Qurilmalardan foydalanish"</string>
-    <string name="no_new_perms" msgid="6657813692169565975">"Ushbu yangilanish hech qanday yangi ruxsatlarni talab qilmaydi."</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"Quyidagi ruxsatlar berilishiga rozimisiz? U quyidagilarga ruxsat beradi:"</string>
-    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Rad etish"</string>
-    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Qo‘shimcha ma’lumot"</string>
-    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Baribir rad etilsin"</string>
-    <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> / <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="7332275268559121742">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ilovasiga <xliff:g id="ACTION">%2$s</xliff:g> uchun ruxsat berilsinmi?"</string>
-    <string name="permission_revoked_count" msgid="7386129423432613024">"<xliff:g id="COUNT">%1$d</xliff:g> tasi o‘chiq"</string>
-    <string name="permission_revoked_all" msgid="8595742638132863678">"hammasi o‘chiq"</string>
-    <string name="permission_revoked_none" msgid="2059511550181271342">"hech qaysi o‘chirilmagan"</string>
-    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Ruxsat berish"</string>
-    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Ilovalar"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"Ilovalar uchun ruxsatlar"</string>
-    <string name="never_ask_again" msgid="1089938738199748687">"Boshqa so‘ralmasin"</string>
-    <string name="no_permissions" msgid="3210542466245591574">"Hech qanday ruxsat talab qilinmaydi"</string>
-    <string name="additional_permissions" msgid="6667573114240111763">"Qo‘shimcha ruxsatlar"</string>
-    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+    <string name="app_name" msgid="2792757108872430971">"Ruxsatlar kontrolleri"</string>
+    <string name="ok" msgid="4417794827535157922">"OK"</string>
+    <string name="permission_search_keyword" msgid="1652964722383449182">"ruxsatlar"</string>
+    <string name="cancel" msgid="7279939269964834974">"Bekor qilish"</string>
+    <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Ilova topilmadi"</string>
+    <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Rad etish"</string>
+    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Rad etilsin va boshqa soʻralmasin"</string>
+    <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Batafsil"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Rad etilsin"</string>
+    <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> / <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
+    <string name="permission_warning_template" msgid="1353228984024423745">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ilovasiga <xliff:g id="ACTION">%2$s</xliff:g> uchun ruxsat berilsinmi?"</string>
+    <string name="permission_add_background_warning_template" msgid="1046864917164159751">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ilovasiga bu amalga bajarishga doim ruxsat berilsinmi: <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="allow_permission_foreground_only" msgid="7444689446874060511">"Faqat ilova ishlatilayotganda"</string>
+    <string name="allow_permission_always" msgid="4089537686339013930">"Har doim"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8131547398883397878">"Rad etilsin va boshqa so‘ralmasin"</string>
+    <string name="permission_revoked_count" msgid="5556125174203696709">"<xliff:g id="COUNT">%1$d</xliff:g> ta nofaol"</string>
+    <string name="permission_revoked_all" msgid="6356577996164232918">"hammasi o‘chiq"</string>
+    <string name="permission_revoked_none" msgid="266013103540772023">"hech biri o‘chirilmagan"</string>
+    <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Ruxsat"</string>
+    <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"Har qanday rejimda ruxsat berish"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Faqat ilova faolligida ruxsat berish"</string>
+    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Ilovalar"</string>
+    <string name="app_permissions" msgid="2778362347879465223">"Ilovalar uchun ruxsatlar"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"Ruxsatlar menejeri"</string>
+    <string name="never_ask_again" msgid="7645304182523160030">"Boshqa so‘ralmasin"</string>
+    <string name="no_permissions" msgid="2193893107241172888">"Ruxsat talab qilinmaydi"</string>
+    <string name="additional_permissions" msgid="7124470111123472154">"Qo‘shimcha ruxsatlar"</string>
+    <string name="app_permissions_info_button_label" msgid="6566057048862462066">"Ilovaga oid axborotni ochish"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
       <item quantity="other">Yana <xliff:g id="COUNT_1">%1$d</xliff:g> ta</item>
       <item quantity="one">Yana <xliff:g id="COUNT_0">%1$d</xliff:g> ta</item>
     </plurals>
-    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Bu ilova Androidning eskiroq versiyasiga mo‘ljallab ishlab chiqilgan. Agar ruxsat bermasangiz, u kutilganidek ishlamasligi mumkin."</string>
-    <string name="default_permission_description" msgid="4992892207044156668">"noma’lum amalni bajarish"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"Ruxsat berilgan: <xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
-    <string name="menu_show_system" msgid="6773743421743728921">"Tizimga oid jarayonlar"</string>
-    <string name="menu_hide_system" msgid="7595471742649432977">"Tizimga oid jarayonlarni berkitish"</string>
-    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g> uchun ruxsatlar"</string>
-    <string name="no_apps" msgid="1965493419005012569">"Hech qanday ilova yo‘q"</string>
-    <string name="location_settings" msgid="1774875730854491297">"Joylashuv sozlamalari"</string>
-    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> bu qurilma uchun joylashuvni aniqlash xizmatini taqdim etuvchi ilova hisoblanadi. Joylashuv ma’lumotlariga kirish vakolatini joylashuv sozlamalaridan o‘zgartirish mumkin."</string>
-    <string name="system_warning" msgid="7103819124542305179">"Agar bu ruxsatni rad qilsangiz, qurilmangizning asosiy funksiyalari bundan buyon kutilganidek ishlamasligi mumkin."</string>
-    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Qoidaga muvofiq"</string>
-    <string name="loading" msgid="7811651799620593731">"Yuklanmoqda…"</string>
-    <string name="all_permissions" msgid="5156669007784613042">"Barcha ruxsatnomalar"</string>
-    <string name="other_permissions" msgid="2016192512386091933">"Ilovaning boshqa imkoniyatlari"</string>
-    <string name="permission_request_title" msgid="1204446718549121199">"Ruxsatnoma so‘rovi"</string>
-    <string name="screen_overlay_title" msgid="3021729846864038529">"Boshqa oynalar ustidan ochiladigan ilova aniqlandi"</string>
-    <string name="screen_overlay_message" msgid="2141944461571677331">"Bu ruxsatnoma parametrini o‘zgartirish uchun avval Sozlamalar &gt; Ilovalar bo‘limidan ekran ustidan ochilish funksiyasini o‘chirib qo‘ying"</string>
-    <string name="screen_overlay_button" msgid="4344544843349937743">"Sozlamalarni ochish"</string>
-    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Wear qurilmasi o‘rnatish/o‘chirish amallarini qo‘llab-quvvatlamaydi."</string>
-    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> ilovasi yangilandi. <xliff:g id="APP_NAME_1">%1$s</xliff:g> ilovasiga quyidagi ruxsatnomalar taqdim etilsinmi?"</string>
-    <string name="permission_review_title_template_install" msgid="6819338441305295479">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; uchun beriladigan ruxsatlarni tanlang"</string>
-    <string name="permission_review_title_template_update" msgid="8632233603161669426">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; yangilandi. Unga beriladigan ruxsatlarni tanlang."</string>
-    <string name="review_button_cancel" msgid="957906817733578877">"Bekor qilish"</string>
-    <string name="review_button_continue" msgid="4809162078179371370">"Davom etish"</string>
-    <string name="new_permissions_category" msgid="3213523410139204183">"Yangi ruxsatnomalar"</string>
-    <string name="current_permissions_category" msgid="998210994450606094">"Joriy ruxsatnomalar"</string>
-    <string name="message_staging" msgid="6151794817691100003">"Kutib turing…"</string>
-    <string name="app_name_unknown" msgid="8931522764510159105">"Noma’lum"</string>
-    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Xavfsizlik yuzasidan, planshetingizga bu manbadan notanish ilovalarni o‘rnatishga ruxsat berilmagan."</string>
-    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Xavfsizlik yuzasidan, televizoringizga bu manbadan notanish ilovalarni o‘rnatishga ruxsat berilmagan."</string>
-    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Xavfsizlik yuzasidan, telefoningizga bu manbadan notanish ilovalarni o‘rnatishga ruxsat berilmagan."</string>
-    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"Telefoningiz va shaxsiy ma‘lumotlaringiz notanish ilovalar xujumiga zaif bo‘ladi. Bu ilovani o‘rnatish bilan telefoningizga yetkaziladigan shikast va ma‘lumotlaringizni o‘chirib yuborilishiga javobgarlikni o‘z zimmangizga olasiz."</string>
-    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"Planshetingiz va shaxsiy ma‘lumotlaringiz notanish ilovalar xujumiga zaif bo‘ladi. Bu ilovani o‘rnatish bilan planshetingizga yetkaziladigan shikast va ma‘lumotlaringizni o‘chirib yuborilishiga javobgarlikni o‘z zimmangizga olasiz."</string>
-    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"TV va shaxsiy ma‘lumotlaringiz notanish ilovalar xujumiga zaif bo‘ladi. Bu ilovani o‘rnatish bilan televizoringizga yetkaziladigan shikast va ma‘lumotlaringizni o‘chirib yuborilishiga javobgarlikni o‘z zimmangizga olasiz."</string>
-    <string name="anonymous_source_continue" msgid="2094381167954332292">"Davom etish"</string>
-    <string name="external_sources_settings" msgid="8601453744517291632">"Sozlamalar"</string>
-    <string name="wear_app_channel" msgid="6200840123672949356">"Wear ilovalarini o‘rnatish/o‘chirish"</string>
+    <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Bu ilova Androidning eskiroq versiyasiga mo‘ljallab ishlab chiqilgan. Agar ruxsat bermasangiz, u kutilganidek ishlamasligi mumkin."</string>
+    <string name="default_permission_description" msgid="692254823411049573">"noma’lum amalni bajarish"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"Ruxsat berilgan ilovalar: <xliff:g id="COUNT_0">%1$d</xliff:g> / <xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
+    <string name="permission_usage_header" msgid="8802963718365732792">"Oxirgi statistika"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"Ruxsatlar panelini ochish"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"Tizimga oid jarayonlar"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"Tizimga oid jarayonlarni berkitish"</string>
+    <string name="no_apps" msgid="2377153782338039463">"Hech qanday ilova topilmadi"</string>
+    <string name="location_settings" msgid="547378321761364906">"Joylashuv sozlamalari"</string>
+    <string name="location_warning" msgid="4687406043150343369">"<xliff:g id="APP_NAME">%1$s</xliff:g> bu qurilma uchun joylashuvni aniqlash xizmatini taqdim etuvchi ilova hisoblanadi. Joylashuv haqidagi axborotga kirish vakolatini joylashuv sozlamalaridan o‘zgartirish mumkin."</string>
+    <string name="system_warning" msgid="6868290533389195836">"Agar bu ruxsatni rad qilsangiz, qurilmangizning asosiy funksiyalari bundan buyon kutilganidek ishlamasligi mumkin."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"Qoidaga muvofiq"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"Fon rejimida kirish qoidaga muvofiq taqiqlangan"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"Fon rejimida kirish qoidaga muvofiq yoqilgan"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="8652417310534780420">"Faol rejimda kirish qoidaga muvofiq yoqilgan"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="5156952484229154563">"Administrator tomonidan boshqariladi"</string>
+    <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"Fon rejimida kirish administrator tomonidan taqiqlangan"</string>
+    <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"Fon rejimida kirish administrator tomonidan yoqilgan"</string>
+    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"Faol rejimda kirish administrator tomonidan yoqilgan"</string>
+    <string name="permission_summary_enabled_system_fixed" msgid="1648259601814176611">"Ruxsatni tizim sozlagan"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
+    <string name="permission_access_always" msgid="2315256378850460955">"Har doim"</string>
+    <string name="permission_access_only_foreground" msgid="8109903552082630801">"Faqat ilova ishlatilayotganda"</string>
+    <string name="permission_access_never" msgid="4717648645876576508">"Hech qachon"</string>
+    <string name="loading" msgid="323483393167148377">"Yuklanmoqda…"</string>
+    <string name="all_permissions" msgid="7813580062403112957">"Barcha ruxsatlar"</string>
+    <string name="other_permissions" msgid="1956312685853070715">"Ilovaning boshqa imkoniyatlari"</string>
+    <string name="permission_request_title" msgid="6779348653783761548">"Ruxsat olish talabi"</string>
+    <string name="screen_overlay_title" msgid="1632732130312696010">"Ekran ustidan ochiladigan ilova aniqlandi"</string>
+    <string name="screen_overlay_message" msgid="3222033787364955006">"Bu ruxsat parametrini o‘zgartirish uchun avval Sozlamalar &gt; Ilovalar ruknidan ekran ustidan ochilish funksiyasini faolsizlantiring"</string>
+    <string name="screen_overlay_button" msgid="3554849308322944411">"Sozlamalarni ochish"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="6923880912091041609">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="8731817202551430387">"Wear qurilmasi o‘rnatish/o‘chirish amallarini qo‘llab-quvvatlamaydi."</string>
+    <string name="permission_review_title_template_install" msgid="8131698354985303888">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; uchun beriladigan ruxsatlarni tanlang"</string>
+    <string name="permission_review_title_template_update" msgid="7597155653571395485">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; yangilandi. Unga beriladigan ruxsatlarni tanlang."</string>
+    <string name="review_button_cancel" msgid="7108377593627664194">"Bekor qilish"</string>
+    <string name="review_button_continue" msgid="1367925420132212571">"Keyingisi"</string>
+    <string name="new_permissions_category" msgid="7242713808413888679">"Yangi ruxsatlar"</string>
+    <string name="current_permissions_category" msgid="3835461245150972589">"Joriy ruxsatlar"</string>
+    <string name="message_staging" msgid="641286607664721291">"Kutib turing…"</string>
+    <string name="app_name_unknown" msgid="8288360585728122735">"Noaniq"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Shaxsiy kabinet"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">Oxirgi ishlatish: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> marta</item>
+      <item quantity="one">Oxirgi ishlatish: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> marta</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">Oxirgi ishlatish: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> marta (fonda <xliff:g id="NUM_5">%3$s</xliff:g> marta)</item>
+      <item quantity="one">Oxirgi ishlatish: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> marta (fonda: <xliff:g id="NUM_2">%3$s</xliff:g> marta)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">Oxirgi ishlatish: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> marta \nDavomiyligi: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">Oxirgi ishlatish: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> marta \nDavomiyligi: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">Oxirgi ishlatish: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> marta (fonda: <xliff:g id="NUM_6">%3$s</xliff:g> ta)\nDavomiyligi:<xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">Oxirgi ishlatish: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> marta (fonda: <xliff:g id="NUM_2">%3$s</xliff:g> ta)\nDavomiyligi: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Har qanday ruxsat"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"Har qanday vaqt"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Oxirgi 7 kun"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"Oxirgi 24 soat"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Oxirgi 1 soat"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Oxirgi 15 daqiqa"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Oxirgi 1 daqiqa"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"Ruxsatlardan foydalanilmagan"</string>
+    <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"Har qachon ishlatilganlar"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"Oxirgi 7 kunda ishlatilganlar"</string>
+    <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"Oxirgi 24 soatda ishlatilganlar"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"Oxirgi soatda ishlatilganlar"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"Oxirgi 15 daqiqada ishlatilganlar"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="8035799852985876841">"Oxirgi daqiqada ishlatilgan ruxsat"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"Har qachon eng koʻp ishlatilganlar"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"Oxirgi 7 kunda eng koʻp ishlatilganlar"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"Oxirgi 24 soatda eng koʻp ishlatilganlar"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"Oxirgi 1 soatda eng koʻp ishlatilganlar"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"Oxirgi 15 daqiqada eng koʻp ishlatilganlar"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"Oxirgi 1 daqiqada eng koʻp ishlatilganlar"</string>
+    <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"Ilovalar"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Filtrlar: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"Filtrni olib tashlash"</string>
+    <string name="filter_by_title" msgid="5940302511365561845">"Filtrlash"</string>
+    <string name="filter_by_permissions" msgid="7761207093643478436">"Ruxsatlar asosida filtrlash"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Eng koʻp ishlatilganlar"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Eng koʻp ishlatilganlar"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"Yaqinda"</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"Yangilash"</string>
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"Ilovalar uchun ruxsatlar"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"Kirish talabi: <xliff:g id="NUM">%1$s</xliff:g> marta. Jami foydalanish vaqti: <xliff:g id="DURATION">%2$s</xliff:g>. Oxirgi marta <xliff:g id="TIME">%3$s</xliff:g> oldin foydalanilgan."</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Kirish talabi: <xliff:g id="NUM">%1$s</xliff:g> marta. Oxirgi marta <xliff:g id="TIME">%2$s</xliff:g> oldin foydalanilgan."</string>
+    <string name="app_permission_button_allow" msgid="1358817292836175593">"Ruxsat berish"</string>
+    <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Har qanday rejimda ruxsat berish"</string>
+    <string name="app_permission_button_allow_foreground" msgid="6366222217615376397">"Faqat faol rejimda ruxsat berish"</string>
+    <string name="app_permission_button_deny" msgid="5716368368650638408">"Rad etish"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g> ruxsati"</string>
+    <string name="app_permission_header" msgid="5704679725169517493">"<xliff:g id="APP">%2$s</xliff:g> uchun <xliff:g id="PERM">%1$s</xliff:g> ruxsati"</string>
+    <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="TIME">%3$s</xliff:g> oldin <xliff:g id="PERM">%2$s</xliff:g> ruxsatidan foydalandi."</string>
+    <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> ilovasi uchun <xliff:g id="PERM">%2$s</xliff:g> ruxsati berilmagan."</string>
+    <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Ruxsatlardan foydalanish haqida batafsil axborotni ochish"</string>
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Oxirgi marta ishlatilgan: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Hech qachon ishlatilmagan"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"Taqdim etilgan ruxsat"</string>
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"Foydalanilayotganda ruxsat beriladi"</string>
+    <string name="denied_header" msgid="2277998574238617699">"Taqdim etilmagan ruxsatlar"</string>
+    <string name="detailed_usage_link" msgid="3990452346369247944">"Batafsil statistika"</string>
+    <plurals name="days" formatted="false" msgid="3903419301028414979">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> kun</item>
+      <item quantity="one">1 kun</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="2123927014975877155">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> soat</item>
+      <item quantity="one">1 soat</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="4331145652577957044">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> daqiqa</item>
+      <item quantity="one">1 daqiqa</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="1632909606956324957">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> soniya</item>
+      <item quantity="one">1 soniya</item>
+    </plurals>
+    <string name="role_request_message_add" msgid="1977772335648650272">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; ilovasidan <xliff:g id="ROLE_NAME">%2$s</xliff:g> rolida foydalanasizmi?"</string>
+    <string name="role_request_message_replace" msgid="6367571247558110210">"&lt;b&gt;<xliff:g id="CURRENT_APP_NAME">%1$s</xliff:g>&lt;/b&gt; oʻrniga <b><xliff:g id="NEW_APP_NAME">%1$s</xliff:g></b> ilovasidan <xliff:g id="ROLE_NAME">%2$s</xliff:g> rolida foydalanasizmi?"</string>
+    <string name="permission_reminders" msgid="8040710767178843151">"Ruxsat eslatmalari"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> joylashuvingiz axborotidan foydalanmoqda"</string>
+    <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Bu ilova joylashuv axborotingizdan foydalana oladi. Oʻzgartirish uchun bosing."</string>
+    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Faqat ilova faolligida ruxsat berish"</string>
+    <string name="no_permissions_allowed" msgid="5781278485002145993">"Hech qanday ruxsat berilmagan"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"Hech qanday taqiq yoʻq"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"Hech qaysi ilovaga ruxsat berilmagan"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"Hech qaysi ilova taqiqlanmagan"</string>
+    <string name="launch_app" msgid="5641437562665039291">"Ochiq"</string>
+    <string name="uninstall_app" msgid="8756507666995809214">"Olib tashlash"</string>
+    <string name="force_stop_app" msgid="4253426323145479826">"Majburan toʻxtatish"</string>
+    <string name="settings" msgid="2884124136779508907">"Sozlamalar"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> xizmati qurilmangizdan butunlay foydalana oladi"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> ta maxsus xizmat qurilmangizdan butunlay foydalana oladi"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> ekran, bajargan amallaringiz va kiritgan matnlaringizni koʻra oladi hamda ekraningizni boshqa oladi."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"Bu xizmatlar ekran, bajargan amallaringiz va kiritgan matnlaringizni koʻra oladi hamda ekraningizni boshqara oladi"</string>
+    <string name="default_apps" msgid="8554530939151957828">"Birlamchi ilovalar"</string>
+    <string name="no_default_apps" msgid="5642715159090903032">"Birlamchi ilovalar mavjud emas"</string>
+    <string name="default_apps_for_work" msgid="8582151955372061208">"Ish uchun birlamchi"</string>
+    <string name="default_app_none" msgid="7671097769303174666">"Hech qanday"</string>
+    <string name="default_app_no_apps" msgid="5344668465735677271">"Hech qanday ilova topilmadi"</string>
+    <string name="special_app_access" msgid="2561673957499408877">"Maxsus ruxsatlar"</string>
+    <string name="no_special_app_access" msgid="994977666694457811">"Maxsus ilova ruxsatlari yoʻq"</string>
+    <string name="special_app_access_no_apps" msgid="3934763650592564818">"Hech qanday ilova topilmadi"</string>
+    <string name="role_label_assistant" msgid="456685142560727172">"Yordamchi ilova"</string>
+    <string name="role_label_browser" msgid="6266502234308421457">"Brauzer ilovasi"</string>
+    <string name="role_label_dialer" msgid="3345895090725237533">"Telefon ilovasi"</string>
+    <string name="role_label_sms" msgid="2262769075496017522">"SMS ilovasi"</string>
+    <string name="role_label_emergency" msgid="2226651888638211616">"Favqulodda holatlar ilovasi"</string>
+    <string name="role_label_home" msgid="7672863812639457378">"Home ilovasi"</string>
+    <string name="role_label_music" msgid="5900245414865932272">"Musiqa ilovasi"</string>
+    <string name="role_label_gallery" msgid="6939560238495155209">"Galereya ilovasi"</string>
+    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"Mashina uchun telefon ilovasi"</string>
+    <string name="role_label_call_redirection" msgid="8902197181113231577">"Chaqiruvlarni uzatish ilovasi"</string>
+    <string name="role_label_call_screening" msgid="411212589764916370">"Kiruvchi chaqiruvlar ilovasi"</string>
+    <string name="role_label_call_companion" msgid="7369723859682076467">"Chaqiruvlar ilovasiga sherik"</string>
+    <string name="role_label_car_projection" msgid="3792929094325391213">"Car Projection ilovasi"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"Ishchi profildan foydalanish imkonsiz"</string>
+    <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Eslatma: Agar qurilmani qayta ishga tushirsangiz va ekran qulfi sozlangan boʻlsa, bu ilova to qurilmangiz qulfdan chiqarilmaguncha ishga tushmaydi."</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"Assistent tizimda ishlatilayotgan ilovalar haqidagi axborotni, masalan, ekranga chiqib turgan yoki ilovalar orqali kiriladigan axborotlarni oʻqiy oladi."</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"Nosozliklarni aniqlash axborotini ulashish"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"Nosozliklarni aniqlashga oid axborot ulashilsinmi?"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> ilovasi nosozliklarni aniqlash axborotini yuklamoqchi."</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Nosozliklarni aniqlash axborotini ulashish"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> ilovasi bu qurilmadan <xliff:g id="DATE">%2$s</xliff:g> sanasida <xliff:g id="TIME">%3$s</xliff:g> da olingan xatoliklar hisobotini yuklashni talab etmoqda. Xatoliklar hisobotiga foydalanuvchi nomlari, joylashuv axboroti, qurilma identifikatorlari va tarmoq maʼlumotlari kabi qurilmangiz yoki qayd qilingan ilovalar haqida shaxsiy maʼlumotlar kiradi. Bunday maʼlumotlarni faqat ishonchli odamlar va ilovalarga yuboring. <xliff:g id="APP_NAME_1">%4$s</xliff:g> ilovasiga xatoliklar hisobotini yuklashga ruxsat berilsinmi?"</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Ruxsat"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Rad etish"</string>
 </resources>

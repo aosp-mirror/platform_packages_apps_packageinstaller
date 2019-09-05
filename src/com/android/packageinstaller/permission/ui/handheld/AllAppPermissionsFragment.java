@@ -31,69 +31,75 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceCategory;
-import android.preference.PreferenceGroup;
+import android.os.UserHandle;
 import android.provider.Settings;
-import android.util.IconDrawableFactory;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Switch;
 
-import com.android.packageinstaller.R;
+import androidx.annotation.NonNull;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceGroup;
+
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.Permission;
 import com.android.packageinstaller.permission.utils.ArrayUtils;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.permissioncontroller.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public final class AllAppPermissionsFragment extends SettingsWithHeader {
+/**
+ * Show and manage individual permissions for an app.
+ *
+ * <p>Shows the list of individual runtime and non-runtime permissions the app has requested.
+ */
+public final class AllAppPermissionsFragment extends SettingsWithLargeHeader {
 
     private static final String LOG_TAG = "AllAppPermissionsFragment";
 
     private static final String KEY_OTHER = "other_perms";
 
-    private static final String EXTRA_FILTER_GROUP =
-            "com.android.packageinstaller.extra.FILTER_GROUP";
-
     private List<AppPermissionGroup> mGroups;
 
-    public static AllAppPermissionsFragment newInstance(String packageName) {
-        return newInstance(packageName, null);
+    public static AllAppPermissionsFragment newInstance(@NonNull String packageName,
+            @NonNull UserHandle userHandle) {
+        return newInstance(packageName, null, userHandle);
     }
 
-    public static AllAppPermissionsFragment newInstance(String packageName, String filterGroup) {
+    public static AllAppPermissionsFragment newInstance(@NonNull String packageName,
+            @NonNull String filterGroup, @NonNull UserHandle userHandle) {
         AllAppPermissionsFragment instance = new AllAppPermissionsFragment();
         Bundle arguments = new Bundle();
         arguments.putString(Intent.EXTRA_PACKAGE_NAME, packageName);
-        arguments.putString(EXTRA_FILTER_GROUP, filterGroup);
+        arguments.putString(Intent.EXTRA_PERMISSION_GROUP_NAME, filterGroup);
+        arguments.putParcelable(Intent.EXTRA_USER, userHandle);
         instance.setArguments(arguments);
         return instance;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
+    public void onStart() {
+        super.onStart();
+
         final ActionBar ab = getActivity().getActionBar();
         if (ab != null) {
             // If we target a group make this look like app permissions.
-            if (getArguments().getString(EXTRA_FILTER_GROUP) == null) {
+            if (getArguments().getString(Intent.EXTRA_PERMISSION_GROUP_NAME) == null) {
                 ab.setTitle(R.string.all_permissions);
             } else {
                 ab.setTitle(R.string.app_permissions);
             }
             ab.setDisplayHomeAsUpEnabled(true);
         }
-    }
 
-    @Override
-    public void onResume() {
-        super.onResume();
+        setHasOptionsMenu(true);
+
         updateUi();
     }
 
@@ -117,16 +123,17 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
         ArrayList<Preference> prefs = new ArrayList<>(); // Used for sorting.
         prefs.add(otherGroup);
         String pkg = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
-        String filterGroup = getArguments().getString(EXTRA_FILTER_GROUP);
+        String filterGroup = getArguments().getString(Intent.EXTRA_PERMISSION_GROUP_NAME);
+        UserHandle userHandle = getArguments().getParcelable(Intent.EXTRA_USER);
         otherGroup.removeAll();
         PackageManager pm = getContext().getPackageManager();
 
         try {
-            PackageInfo info = pm.getPackageInfo(pkg, PackageManager.GET_PERMISSIONS);
+            PackageInfo info = getActivity().createPackageContextAsUser(pkg, 0, userHandle)
+                    .getPackageManager().getPackageInfo(pkg, PackageManager.GET_PERMISSIONS);
 
             ApplicationInfo appInfo = info.applicationInfo;
-            final Drawable icon =
-                    IconDrawableFactory.newInstance(getContext()).getBadgedIcon(appInfo);
+            final Drawable icon = Utils.getBadgedIcon(getContext(), appInfo);
             final CharSequence label = appInfo.loadLabel(pm);
             Intent infoIntent = null;
             if (!getActivity().getIntent().getBooleanExtra(
@@ -134,7 +141,7 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
                 infoIntent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
                         .setData(Uri.fromParts("package", pkg, null));
             }
-            setHeader(icon, label, infoIntent);
+            setHeader(icon, label, infoIntent, userHandle, false);
 
             if (info.requestedPermissions != null) {
                 for (int i = 0; i < info.requestedPermissions.length; i++) {
@@ -165,7 +172,7 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
 
                     if ((perm.protectionLevel & PermissionInfo.PROTECTION_MASK_BASE)
                             == PermissionInfo.PROTECTION_DANGEROUS) {
-                        PackageItemInfo group = getGroup(perm.group, pm);
+                        PackageItemInfo group = getGroup(Utils.getGroupOfPermission(perm), pm);
                         if (group == null) {
                             group = perm;
                         }
@@ -227,7 +234,7 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
             ArrayList<Preference> prefs) {
         PreferenceGroup pref = (PreferenceGroup) findPreference(group.name);
         if (pref == null) {
-            pref = new PreferenceCategory(getContext());
+            pref = new PreferenceCategory(getPreferenceManager().getContext());
             pref.setKey(group.name);
             pref.setTitle(group.loadLabel(pm));
             prefs.add(pref);
@@ -239,26 +246,27 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
     private Preference getPreference(PackageInfo packageInfo, PermissionInfo perm,
             PackageItemInfo group, PackageManager pm) {
         final Preference pref;
+        Context context = getPreferenceManager().getContext();
 
         // We allow individual permission control for some permissions if review enabled
         final boolean mutable = Utils.isPermissionIndividuallyControlled(getContext(), perm.name);
         if (mutable) {
-            pref = new MyMultiTargetSwitchPreference(getContext(), perm.name,
-                    getPermissionGroup(packageInfo, perm.name));
+            pref = new MyMultiTargetSwitchPreference(context, perm.name,
+                    getPermissionForegroundGroup(packageInfo, perm.name));
         } else {
-            pref = new Preference(getContext());
+            pref = new Preference(context);
         }
 
         Drawable icon = null;
         if (perm.icon != 0) {
-            icon = perm.loadIcon(pm);
+            icon = perm.loadUnbadgedIcon(pm);
         } else if (group != null && group.icon != 0) {
-            icon = group.loadIcon(pm);
+            icon = group.loadUnbadgedIcon(pm);
         } else {
-            icon = getContext().getDrawable(R.drawable.ic_perm_device_info);
+            icon = context.getDrawable(R.drawable.ic_perm_device_info);
         }
-        pref.setIcon(Utils.applyTint(getContext(), icon, android.R.attr.colorControlNormal));
-        pref.setTitle(perm.loadSafeLabel(pm, 20000, PackageItemInfo.SAFE_LABEL_FLAG_TRIM));
+        pref.setIcon(Utils.applyTint(context, icon, android.R.attr.colorControlNormal));
+        pref.setTitle(perm.loadSafeLabel(pm, 20000, TextUtils.SAFE_STRING_FLAG_TRIM));
         pref.setSingleLineTitle(false);
         final CharSequence desc = perm.loadDescription(pm);
 
@@ -273,7 +281,19 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
         return pref;
     }
 
-    private AppPermissionGroup getPermissionGroup(PackageInfo packageInfo,
+    /**
+     * Return the (foreground-) {@link AppPermissionGroup group} a permission belongs to.
+     *
+     * <p>For foreground or non background-foreground permissions this returns the group
+     * {@link AppPermissionGroup} the permission is in. For background permisisons this returns
+     * the group the matching foreground
+     *
+     * @param packageInfo Package information about the app
+     * @param permission The permission that belongs to a group
+     *
+     * @return the group the permissions belongs to
+     */
+    private AppPermissionGroup getPermissionForegroundGroup(PackageInfo packageInfo,
             String permission) {
         AppPermissionGroup appPermissionGroup = null;
         if (mGroups != null) {
@@ -284,11 +304,17 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
                     appPermissionGroup = currentPermissionGroup;
                     break;
                 }
+                if (currentPermissionGroup.getBackgroundPermissions() != null
+                        && currentPermissionGroup.getBackgroundPermissions().hasPermission(
+                        permission)) {
+                    appPermissionGroup = currentPermissionGroup.getBackgroundPermissions();
+                    break;
+                }
             }
         }
         if (appPermissionGroup == null) {
             appPermissionGroup = AppPermissionGroup.create(
-                    getContext(), packageInfo, permission);
+                    getContext(), packageInfo, permission, false);
             if (mGroups == null) {
                 mGroups = new ArrayList<>();
             }
@@ -322,7 +348,7 @@ public final class AllAppPermissionsFragment extends SettingsWithHeader {
                         final int permissionCount = appPermissionGroup.getPermissions().size();
                         for (int i = 0; i < permissionCount; i++) {
                             Permission current = appPermissionGroup.getPermissions().get(i);
-                            if (!current.isGranted()) {
+                            if (!current.isGrantedIncludingAppOp()) {
                                 if (!current.isUserFixed()) {
                                     revokedPermissionsToFix = ArrayUtils.appendString(
                                             revokedPermissionsToFix, current.getName());

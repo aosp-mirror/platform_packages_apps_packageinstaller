@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Copyright (C) 2018 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License"" />
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<roles>
+
+    <permission-set name="phone">
+        <permission name="android.permission.READ_PHONE_STATE" />
+        <permission name="android.permission.CALL_PHONE" />
+        <permission name="android.permission.READ_CALL_LOG" />
+        <permission name="android.permission.WRITE_CALL_LOG" />
+        <permission name="com.android.voicemail.permission.ADD_VOICEMAIL" />
+        <permission name="android.permission.USE_SIP" />
+        <permission name="android.permission.PROCESS_OUTGOING_CALLS" />
+    </permission-set>
+
+    <permission-set name="contacts">
+        <permission name="android.permission.READ_CONTACTS" />
+        <permission name="android.permission.WRITE_CONTACTS" />
+        <permission name="android.permission.GET_ACCOUNTS" />
+    </permission-set>
+
+    <permission-set name="location">
+        <permission name="android.permission.ACCESS_FINE_LOCATION" />
+        <permission name="android.permission.ACCESS_COARSE_LOCATION" />
+    </permission-set>
+
+    <permission-set name="coarse_location">
+        <permission name="android.permission.ACCESS_COARSE_LOCATION" />
+    </permission-set>
+
+    <permission-set name="calendar">
+        <permission name="android.permission.READ_CALENDAR" />
+        <permission name="android.permission.WRITE_CALENDAR" />
+    </permission-set>
+
+    <permission-set name="sms">
+        <permission name="android.permission.SEND_SMS" />
+        <permission name="android.permission.RECEIVE_SMS" />
+        <permission name="android.permission.READ_SMS" />
+        <permission name="android.permission.RECEIVE_WAP_PUSH" />
+        <permission name="android.permission.RECEIVE_MMS" />
+        <permission name="android.permission.READ_CELL_BROADCASTS" />
+    </permission-set>
+
+    <permission-set name="microphone">
+        <permission name="android.permission.RECORD_AUDIO" />
+    </permission-set>
+
+    <permission-set name="camera">
+        <permission name="android.permission.CAMERA" />
+    </permission-set>
+
+    <permission-set name="sensors">
+        <permission name="android.permission.BODY_SENSORS" />
+    </permission-set>
+
+    <permission-set name="storage">
+        <permission name="android.permission.READ_EXTERNAL_STORAGE" />
+        <permission name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    </permission-set>
+
+    <role
+        name="android.app.role.ASSISTANT"
+        behavior="AssistantRoleBehavior"
+        description="@string/role_assistant_description"
+        exclusive="true"
+        showNone="true"
+        label="@string/role_assistant_label"
+        requestable="false"
+        shortLabel="@string/role_assistant_short_label">
+        <required-components>
+            <!-- Qualified components are determined int AssistantRoleBehavior. This comment here is
+                 ignored and represents just a rough description
+
+            <any-of>
+                <service permission="android.permission.BIND_VOICE_INTERACTION"
+                         supportsAssist="true">
+                    <intent-filter>
+                        <action name="android.service.voice.VoiceInteractionService" />
+                    </intent-filter>
+                    <meta-data name="android.voice_interaction"
+                               optional="false">
+                        required tag in metadata xml: sessionService
+                        required tag in metadata xml: recognitionService
+                        required tag in metadata xml: supportsAssist = true
+                    </meta-data>
+                </service>
+                <activity>
+                    <intent-filter>
+                        <action name="android.intent.action.ASSIST" />
+                    </intent-filter>
+                </activity>
+            </ any-of>
+
+            -->
+        </required-components>
+        <permissions>
+            <permission-set name="sms" />
+            <permission name="android.permission.READ_CALL_LOG" />
+        </permissions>
+    </role>
+
+    <!---
+      ~ @see com.android.settings.applications.defaultapps.DefaultBrowserPreferenceController
+      ~ @see com.android.settings.applications.defaultapps.DefaultBrowserPicker
+      ~ @see com.android.server.pm.PackageManagerService.resolveAllBrowserApps(int)
+      ~ @see com.android.server.pm.PackageManagerService.setDefaultBrowserPackageName(String, int)
+      ~ @see com.android.server.pm.permission.DefaultPermissionGrantPolicy.grantDefaultPermissionsToDefaultBrowser(String, int)
+      -->
+    <role
+        name="android.app.role.BROWSER"
+        behavior="BrowserRoleBehavior"
+        description="@string/role_browser_description"
+        exclusive="true"
+        label="@string/role_browser_label"
+        requestDescription="@string/role_browser_request_description"
+        requestTitle="@string/role_browser_request_title"
+        shortLabel="@string/role_browser_short_label">
+        <!--
+          ~ Required components matching is handled in BrowserRoleBehavior because it needs the
+          ~ PackageManager.MATCH_ALL flag and other manual filtering, which cannot fit in our
+          ~ current mechanism easily.
+          -->
+        <!--
+        <required-components>
+            <activity>
+                <intent-filter>
+                    <action name="android.intent.action.VIEW" />
+                    <category name="android.intent.category.BROWSABLE" />
+                    <data scheme="http" />
+                </intent-filter>
+            </activity>
+        </required-components>
+        -->
+        <!--
+          ~ Not need to set preferred activity because PackageManager handles browser intents
+          ~ specially.
+          -->
+    </role>
+
+    <!--
+      ~ @see com.android.settings.applications.defaultapps.DefaultPhonePreferenceController
+      ~ @see com.android.settings.applications.defaultapps.DefaultPhonePicker
+      ~ @see android.telecom.DefaultDialerManager
+      ~ @see com.android.server.pm.permission.DefaultPermissionGrantPolicy.grantDefaultPermissionsToDefaultDialerApp(String, int)
+      ~ @see com.android.server.pm.Settings.setDefaultDialerPackageNameLPw(String, int)
+      -->
+    <role
+        name="android.app.role.DIALER"
+        behavior="DialerRoleBehavior"
+        description="@string/role_dialer_description"
+        exclusive="true"
+        label="@string/role_dialer_label"
+        requestDescription="@string/role_dialer_request_description"
+        requestTitle="@string/role_dialer_request_title"
+        shortLabel="@string/role_dialer_short_label">
+        <required-components>
+            <activity>
+                <intent-filter>
+                    <action name="android.intent.action.DIAL" />
+                </intent-filter>
+            </activity>
+            <activity>
+                <intent-filter>
+                    <action name="android.intent.action.DIAL" />
+                    <data scheme="tel" />
+                </intent-filter>
+            </activity>
+        </required-components>
+        <permissions>
+            <permission-set name="phone" />
+            <permission-set name="contacts" />
+            <permission-set name="sms" />
+            <permission-set name="microphone" />
+            <permission-set name="camera" />
+        </permissions>
+        <app-ops>
+            <!--
+              ~ @see com.android.settings.applications.defaultapps.DefaultPhonePicker#setDefaultKey(String)
+              ~ @see com.android.settings.fuelgauge.BatteryUtils#setForceAppStandby(int, String, int)
+              -->
+            <app-op name="android:run_in_background" maxTargetSdkVersion="25" mode="allowed" />
+            <app-op name="android:run_any_in_background" mode="allowed" />
+        </app-ops>
+        <preferred-activities>
+            <preferred-activity>
+                <activity>
+                    <intent-filter>
+                        <action name="android.intent.action.DIAL" />
+                    </intent-filter>
+                </activity>
+                <intent-filter>
+                    <action name="android.intent.action.DIAL" />
+                </intent-filter>
+            </preferred-activity>
+            <preferred-activity>
+                <activity>
+                    <intent-filter>
+                        <action name="android.intent.action.DIAL" />
+                        <data scheme="tel" />
+                    </intent-filter>
+                </activity>
+                <intent-filter>
+                    <action name="android.intent.action.DIAL" />
+                    <data scheme="tel" />
+                </intent-filter>
+            </preferred-activity>
+        </preferred-activities>
+    </role>
+
+    <!--
+      ~ @see com.android.settings.applications.defaultapps.DefaultSmsPreferenceController
+      ~ @see com.android.settings.applications.defaultapps.DefaultSmsPicker
+      ~ @see com.android.internal.telephony.SmsApplication
+      ~ @see com.android.server.pm.permission.DefaultPermissionGrantPolicy.grantDefaultPermissionsToDefaultSmsApp(String, int)
+      -->
+    <role
+        name="android.app.role.SMS"
+        behavior="SmsRoleBehavior"
+        description="@string/role_sms_description"
+        exclusive="true"
+        label="@string/role_sms_label"
+        requestDescription="@string/role_sms_request_description"
+        requestTitle="@string/role_sms_request_title"
+        shortLabel="@string/role_sms_short_label">
+        <required-components>
+            <receiver permission="android.permission.BROADCAST_SMS">
+                <intent-filter>
+                    <action name="android.provider.Telephony.SMS_DELIVER" />
+                </intent-filter>
+            </receiver>
+            <receiver permission="android.permission.BROADCAST_WAP_PUSH">
+                <intent-filter>
+                    <action name="android.provider.Telephony.WAP_PUSH_DELIVER" />
+                    <data mimeType="application/vnd.wap.mms-message" />
+                </intent-filter>
+            </receiver>
+            <service permission="android.permission.SEND_RESPOND_VIA_MESSAGE">
+                <intent-filter>
+                    <action name="android.intent.action.RESPOND_VIA_MESSAGE" />
+                    <data scheme="smsto" />
+                </intent-filter>
+            </service>
+            <activity>
+                <intent-filter>
+                    <action name="android.intent.action.SENDTO" />
+                    <data scheme="smsto" />
+                </intent-filter>
+            </activity>
+        </required-components>
+        <permissions>
+            <permission-set name="phone" />
+            <permission-set name="contacts" />
+            <permission-set name="sms" />
+            <permission-set name="storage" />
+            <permission-set name="microphone" />
+            <permission-set name="camera" />
+        </permissions>
+        <app-ops>
+            <app-op name="android:write_sms" mode="allowed" />
+            <!--
+              ~ @see com.android.settings.applications.defaultapps.DefaultSmsPicker#setDefaultKey(String)
+              ~ @see com.android.settings.fuelgauge.BatteryUtils#setForceAppStandby(int, String, int)
+              -->
+            <app-op name="android:run_in_background" maxTargetSdkVersion="25" mode="allowed" />
+            <app-op name="android:run_any_in_background" mode="allowed" />
+            <app-op name="android:read_device_identifiers" mode="allowed" />
+        </app-ops>
+        <preferred-activities>
+            <preferred-activity>
+                <activity>
+                    <intent-filter>
+                        <action name="android.intent.action.SENDTO" />
+                        <data scheme="smsto" />
+                    </intent-filter>
+                </activity>
+                <intent-filter>
+                    <action name="android.intent.action.SENDTO" />
+                    <data scheme="sms" />
+                </intent-filter>
+                <intent-filter>
+                    <action name="android.intent.action.SENDTO" />
+                    <data scheme="smsto" />
+                </intent-filter>
+                <intent-filter>
+                    <action name="android.intent.action.SENDTO" />
+                    <data scheme="mms" />
+                </intent-filter>
+                <intent-filter>
+                    <action name="android.intent.action.SENDTO" />
+                    <data scheme="mmsto" />
+                </intent-filter>
+            </preferred-activity>
+        </preferred-activities>
+    </role>
+
+    <!---
+      ~ @see com.android.settings.applications.defaultapps.DefaultEmergencyPreferenceController
+      ~ @see com.android.settings.applications.defaultapps.DefaultEmergencyPicker
+      ~ @see com.android.phone.EmergencyAssistanceHelper
+      -->
+    <role
+        name="android.app.role.EMERGENCY"
+        behavior="EmergencyRoleBehavior"
+        description="@string/role_emergency_description"
+        exclusive="true"
+        label="@string/role_emergency_label"
+        requestDescription="@string/role_emergency_request_description"
+        requestTitle="@string/role_emergency_request_title"
+        shortLabel="@string/role_emergency_short_label"
+        systemOnly="true">
+        <required-components>
+            <activity>
+                <intent-filter>
+                    <action name="android.telephony.action.EMERGENCY_ASSISTANCE" />
+                </intent-filter>
+            </activity>
+        </required-components>
+    </role>
+
+    <!---
+      ~ @see com.android.settings.applications.defaultapps.DefaultHomePreferenceController
+      ~ @see com.android.settings.applications.defaultapps.DefaultHomePicker
+      ~ @see com.android.server.pm.PackageManagerService#setHomeActivity(ComponentName, int)
+      -->
+    <role
+        name="android.app.role.HOME"
+        behavior="HomeRoleBehavior"
+        description="@string/role_home_description"
+        exclusive="true"
+        label="@string/role_home_label"
+        requestDescription="@string/role_home_request_description"
+        requestTitle="@string/role_home_request_title"
+        shortLabel="@string/role_home_short_label">
+        <!-- Also used by HomeRoleBehavior.getFallbackHolder(). -->
+        <required-components>
+            <activity>
+                <intent-filter>
+                    <action name="android.intent.action.MAIN" />
+                    <category name="android.intent.category.HOME" />
+                </intent-filter>
+            </activity>
+        </required-components>
+        <preferred-activities>
+            <preferred-activity>
+                <activity>
+                    <intent-filter>
+                        <action name="android.intent.action.MAIN" />
+                        <category name="android.intent.category.HOME" />
+                    </intent-filter>
+                </activity>
+                <intent-filter>
+                    <action name="android.intent.action.MAIN" />
+                    <category name="android.intent.category.HOME" />
+                </intent-filter>
+            </preferred-activity>
+        </preferred-activities>
+    </role>
+
+    <!--- @see android.telecom.CallRedirectionService -->
+    <role
+        name="android.app.role.CALL_REDIRECTION"
+        description="@string/role_call_redirection_description"
+        exclusive="true"
+        label="@string/role_call_redirection_label"
+        requestDescription="@string/role_call_redirection_request_description"
+        requestTitle="@string/role_call_redirection_request_title"
+        shortLabel="@string/role_call_redirection_short_label">
+        <required-components>
+            <service permission="android.permission.BIND_CALL_REDIRECTION_SERVICE">
+                <intent-filter>
+                    <action name="android.telecom.CallRedirectionService" />
+                </intent-filter>
+            </service>
+        </required-components>
+    </role>
+
+    <!--- @see android.telecom.CallScreeningService -->
+    <role
+        name="android.app.role.CALL_SCREENING"
+        description="@string/role_call_screening_description"
+        exclusive="true"
+        label="@string/role_call_screening_label"
+        requestDescription="@string/role_call_screening_request_description"
+        requestTitle="@string/role_call_screening_request_title"
+        shortLabel="@string/role_call_screening_short_label">
+        <required-components>
+            <service permission="android.permission.BIND_SCREENING_SERVICE">
+                <intent-filter>
+                    <action name="android.telecom.CallScreeningService" />
+                </intent-filter>
+            </service>
+        </required-components>
+    </role>
+</roles>

@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,136 +16,286 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2738748390251381682">"Instalador de paquetes"</string>
-    <string name="next" msgid="3057143178373252333">"Siguiente"</string>
-    <string name="install" msgid="5896438203900042068">"Instalar"</string>
-    <string name="done" msgid="3889387558374211719">"Listo"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"Permitir que esta aplicación:"</string>
-    <string name="cancel" msgid="8360346460165114585">"Cancelar"</string>
-    <string name="unknown" msgid="4742479012767208045">"Desconocida"</string>
-    <string name="installing" msgid="8613631001631998372">"Instalando…"</string>
-    <string name="installing_app" msgid="4097935682329028894">"Instalando <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
-    <string name="install_done" msgid="3682715442154357097">"Aplicación instalada"</string>
-    <string name="install_confirm_question" msgid="7295206719219043890">"¿Quieres instalar esta aplicación? Tendrá los siguientes permisos:"</string>
-    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"¿Quieres instalar esta aplicación? No requiere accesos especiales."</string>
-    <string name="install_confirm_question_update" msgid="4624159567361487964">"¿Quieres instalar una actualización de la aplicación? Tus datos no se perderán. La aplicación actualizada podrá acceder a:"</string>
-    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"¿Quieres instalar una actualización de esta aplicación integrada? Tus datos no se perderán. La aplicación actualizada podrá acceder a:"</string>
-    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"¿Quieres instalar una actualización de esta aplicación? Tus datos no se perderán. No requiere ningún acceso especial."</string>
-    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"¿Quieres instalar una actualización de esta aplicación integrada? Tus datos no se perderán. No requiere ningún acceso especial."</string>
-    <string name="install_failed" msgid="6579998651498970899">"Aplicación no instalada"</string>
-    <string name="install_failed_blocked" msgid="1606870930588770025">"Se ha bloqueado la instalación del paquete."</string>
-    <string name="install_failed_conflict" msgid="5336045235168070954">"La aplicación no se ha instalado debido a un conflicto con un paquete actual."</string>
-    <string name="install_failed_incompatible" product="tablet" msgid="6682387386242708974">"La aplicación no se ha instalado porque no es compatible con tu tablet."</string>
-    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Esta aplicación no es compatible con tu TV."</string>
-    <string name="install_failed_incompatible" product="default" msgid="7917996365659426872">"La aplicación no se ha instalado porque no es compatible con tu teléfono."</string>
-    <string name="install_failed_invalid_apk" msgid="269885385245534742">"La aplicación no se ha instalado porque parece que el paquete no es válido."</string>
-    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"No se ha podido instalar <xliff:g id="APP_NAME">%1$s</xliff:g> en el tablet."</string>
-    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> no se ha podido instalar en tu TV."</string>
-    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"No se ha podido instalar <xliff:g id="APP_NAME">%1$s</xliff:g> en el teléfono."</string>
-    <string name="launch" msgid="4826921505917605463">"Abrir"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"El administrador no permite instalar aplicaciones de fuentes desconocidas"</string>
-    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Este usuario no puede instalar aplicaciones desconocidas"</string>
-    <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"Este usuario no tiene permiso para instalar aplicaciones"</string>
-    <string name="ok" msgid="3468756155452870475">"Aceptar"</string>
-    <string name="settings" msgid="6743583734099755409">"Ajustes"</string>
-    <string name="manage_applications" msgid="4033876279091996596">"Administrar aplicaciones"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"¿Sustituir aplicación?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"La aplicación que estás instalando sustituirá a otra aplicación.\n\nSe guardarán todos los datos de usuario anteriores."</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Es una aplicación del sistema.\n\nSe guardarán todos los datos de usuario anteriores."</string>
-    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Sin espacio"</string>
-    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"No se ha podido instalar la aplicación <xliff:g id="APP_NAME">%1$s</xliff:g>. Libera espacio y vuelve a intentarlo."</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"Aceptar"</string>
-    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Aplicación no encontrada"</string>
-    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"No se ha encontrado la aplicación en la lista de aplicaciones instaladas."</string>
-    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"No permitido"</string>
-    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"El usuario actual no puede iniciar el proceso de desinstalación."</string>
-    <string name="generic_error_dlg_title" msgid="2684806600635296961">"Error"</string>
-    <string name="generic_error_dlg_text" msgid="4288738047825333954">"No se ha podido desinstalar la aplicación."</string>
-    <string name="uninstall_application_title" msgid="1860074100811653963">"Desinstalar aplicación"</string>
-    <string name="uninstall_update_title" msgid="4146940097553335390">"Desinstalar actualización"</string>
-    <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> forma parte de esta aplicación:"</string>
-    <string name="uninstall_application_text" msgid="6691975835951187030">"¿Quieres desinstalar esta aplicación?"</string>
-    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"¿Quieres desinstalar esta aplicación para "<b>"todos"</b>" los usuarios? La aplicación y sus datos se eliminarán de "<b>"todos"</b>" los usuarios del dispositivo."</string>
-    <string name="uninstall_application_text_user" msgid="8766882355635485733">"¿Quieres desinstalar esta aplicación para el usuario <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
-    <string name="uninstall_update_text" msgid="1394549691152728409">"¿Quieres sustituir esta aplicación con la versión de fábrica? Ten en cuenta que se eliminarán todos los datos."</string>
-    <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"¿Quieres sustituir esta aplicación con la versión de fábrica? Ten en cuenta que se eliminarán todos los datos. Esto afecta a todos los usuarios del dispositivo, incluidos los que tienen perfiles de trabajo."</string>
-    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"Desinstalaciones en curso"</string>
-    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"Desinstalaciones fallidas"</string>
-    <string name="uninstalling" msgid="5556217435895938250">"Desinstalando..."</string>
-    <string name="uninstalling_app" msgid="2773617614877719294">"Desinstalando <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
-    <string name="uninstall_done" msgid="3792487853420281888">"Desinstalación completada"</string>
-    <string name="uninstall_done_app" msgid="775837862728680479">"Se ha desinstalado <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>"</string>
-    <string name="uninstall_failed" msgid="631122574306299512">"Desinstalación correcta"</string>
-    <string name="uninstall_failed_app" msgid="945277834056527022">"No se ha podido desinstalar <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"No se puede desinstalar la aplicación de administración de dispositivos activa"</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"No se ha podido desinstalar la aplicación de administración de dispositivos activa de <xliff:g id="USERNAME">%1$s</xliff:g>"</string>
-    <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Aplicación necesaria para algunos usuarios o perfiles y desinstalada en otros casos"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"Esta aplicación es necesaria para tu perfil y no se puede desinstalar."</string>
-    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Esta aplicación es necesaria para el administrador de tu dispositivo y no se puede desinstalar."</string>
-    <string name="manage_device_administrators" msgid="118178632652346535">"Gestionar aplicaciones de admón. de dispositivos"</string>
-    <string name="manage_users" msgid="3125018886835668847">"Administrar usuarios"</string>
-    <string name="uninstall_failed_msg" msgid="8969754702803951175">"No se ha podido desinstalar <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
-    <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Se ha producido un error al analizar el paquete."</string>
-    <string name="newPerms" msgid="6039428254474104210">"Nuevo"</string>
-    <string name="allPerms" msgid="1024385515840703981">"Todos"</string>
-    <string name="privacyPerms" msgid="1850527049572617">"Privacidad"</string>
-    <string name="devicePerms" msgid="6733560207731294504">"Acceso al dispositivo"</string>
-    <string name="no_new_perms" msgid="6657813692169565975">"Esta actualización no requiere permisos nuevos."</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"¿Quieres conceder los siguientes permisos? Podrá acceder a:"</string>
-    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Denegar"</string>
-    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Más información"</string>
-    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Denegar de todos modos"</string>
-    <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> de <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="7332275268559121742">"¿Permitir a &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
-    <string name="permission_revoked_count" msgid="7386129423432613024">"Inhabilitados: <xliff:g id="COUNT">%1$d</xliff:g>"</string>
-    <string name="permission_revoked_all" msgid="8595742638132863678">"todos inhabilitados"</string>
-    <string name="permission_revoked_none" msgid="2059511550181271342">"ninguno inhabilitado"</string>
-    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Permitir"</string>
-    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Aplicaciones"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"Permisos de aplicaciones"</string>
-    <string name="never_ask_again" msgid="1089938738199748687">"No volver a preguntar"</string>
-    <string name="no_permissions" msgid="3210542466245591574">"Sin permisos"</string>
-    <string name="additional_permissions" msgid="6667573114240111763">"Permisos adicionales"</string>
-    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+    <string name="app_name" msgid="2792757108872430971">"Controlador de permisos"</string>
+    <string name="ok" msgid="4417794827535157922">"Aceptar"</string>
+    <string name="permission_search_keyword" msgid="1652964722383449182">"permisos"</string>
+    <string name="cancel" msgid="7279939269964834974">"Cancelar"</string>
+    <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Aplicación no encontrada"</string>
+    <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Denegar"</string>
+    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Denegar y no volver a preguntar"</string>
+    <!-- no translation found for grant_dialog_button_deny_background (5378693207810841555) -->
+    <skip />
+    <!-- no translation found for grant_dialog_button_deny_background_and_dont_ask_again (1032019626928637454) -->
+    <skip />
+    <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Más información"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Denegar"</string>
+    <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> de <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
+    <string name="permission_warning_template" msgid="1353228984024423745">"¿Permitir a &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_add_background_warning_template" msgid="1046864917164159751">"¿Quieres permitir siempre a &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="allow_permission_foreground_only" msgid="7444689446874060511">"Solo mientras se usa la aplicación"</string>
+    <string name="allow_permission_always" msgid="4089537686339013930">"Siempre"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8131547398883397878">"Denegar y no volver a preguntar"</string>
+    <string name="permission_revoked_count" msgid="5556125174203696709">"Inhabilitados: <xliff:g id="COUNT">%1$d</xliff:g>"</string>
+    <string name="permission_revoked_all" msgid="6356577996164232918">"todos inhabilitados"</string>
+    <string name="permission_revoked_none" msgid="266013103540772023">"ninguno inhabilitado"</string>
+    <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Permitir"</string>
+    <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"Permitir siempre"</string>
+    <!-- no translation found for grant_dialog_button_allow_foreground (8090382319222429427) -->
+    <skip />
+    <!-- no translation found for grant_dialog_button_allow_background (3190568549032350790) -->
+    <skip />
+    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Aplicaciones"</string>
+    <string name="app_permissions" msgid="2778362347879465223">"Permisos de aplicaciones"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"Gestor de permisos"</string>
+    <string name="never_ask_again" msgid="7645304182523160030">"No volver a preguntar"</string>
+    <string name="no_permissions" msgid="2193893107241172888">"Sin permisos"</string>
+    <string name="additional_permissions" msgid="7124470111123472154">"Permisos adicionales"</string>
+    <string name="app_permissions_info_button_label" msgid="6566057048862462066">"Abrir la información de la aplicación"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> más</item>
       <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> más</item>
     </plurals>
-    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Esta aplicación está diseñada para una versión anterior de Android. Si se le deniega el permiso, puede dejar de funcionar de la forma prevista."</string>
-    <string name="default_permission_description" msgid="4992892207044156668">"realizar una acción desconocida"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> de <xliff:g id="COUNT_1">%2$d</xliff:g> aplicaciones permitidas"</string>
-    <string name="menu_show_system" msgid="6773743421743728921">"Mostrar aplicaciones del sistema"</string>
-    <string name="menu_hide_system" msgid="7595471742649432977">"Ocultar aplicaciones del sistema"</string>
-    <string name="permission_title" msgid="6495415273398916381">"Permisos: <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
-    <string name="no_apps" msgid="1965493419005012569">"No hay aplicaciones"</string>
-    <string name="location_settings" msgid="1774875730854491297">"Ajustes de ubicación"</string>
-    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> es un proveedor de servicios de ubicación de este dispositivo. El acceso a la ubicación se puede modificar en los ajustes de ubicación."</string>
-    <string name="system_warning" msgid="7103819124542305179">"Si rechazas este permiso, es posible que funciones básicas de tu dispositivo dejen de funcionar correctamente."</string>
-    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Aplicado por política"</string>
-    <string name="loading" msgid="7811651799620593731">"Cargando..."</string>
-    <string name="all_permissions" msgid="5156669007784613042">"Todos los permisos"</string>
-    <string name="other_permissions" msgid="2016192512386091933">"Otras funciones de la aplicación"</string>
-    <string name="permission_request_title" msgid="1204446718549121199">"Solicitud de permiso"</string>
-    <string name="screen_overlay_title" msgid="3021729846864038529">"Superposición de pantalla detectada"</string>
-    <string name="screen_overlay_message" msgid="2141944461571677331">"Para cambiar la configuración de este permiso, desactiva la superposición de pantalla en Ajustes &gt; Aplicaciones"</string>
-    <string name="screen_overlay_button" msgid="4344544843349937743">"Abrir ajustes"</string>
-    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Las acciones de instalar y desinstalar no pueden realizarse en Wear"</string>
-    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> se ha actualizado. ¿Quieres conceder a <xliff:g id="APP_NAME_1">%1$s</xliff:g> los siguientes permisos de acceso?"</string>
-    <string name="permission_review_title_template_install" msgid="6819338441305295479">"Elige los permisos de acceso que quieres conceder a &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;"</string>
-    <string name="permission_review_title_template_update" msgid="8632233603161669426">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; se ha actualizado. Elige los permisos de acceso que quieres conceder a esta aplicación."</string>
-    <string name="review_button_cancel" msgid="957906817733578877">"Cancelar"</string>
-    <string name="review_button_continue" msgid="4809162078179371370">"Continuar"</string>
-    <string name="new_permissions_category" msgid="3213523410139204183">"Permisos nuevos"</string>
-    <string name="current_permissions_category" msgid="998210994450606094">"Permisos actuales"</string>
-    <string name="message_staging" msgid="6151794817691100003">"Preparando aplicación…"</string>
-    <string name="app_name_unknown" msgid="8931522764510159105">"Desconocido"</string>
-    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Por motivos de seguridad, tu tablet no puede instalar aplicaciones desconocidas de esta fuente."</string>
-    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"Por motivos de seguridad, tu TV no puede instalar aplicaciones desconocidas de esta fuente."</string>
-    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Por motivos de seguridad, tu teléfono no puede instalar aplicaciones desconocidas de esta fuente."</string>
-    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"Tu teléfono y tus datos personales son más vulnerables a los ataques de aplicaciones desconocidas. Al instalar esta aplicación, aceptas ser responsable de cualquier daño que sufra tu teléfono o la pérdida de datos que se pueda derivar de su uso."</string>
-    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"Tu tablet y tus datos personales son más vulnerables a los ataques de aplicaciones desconocidas. Al instalar esta aplicación, aceptas ser responsable de cualquier daño que sufra tu tablet o la pérdida de datos que se pueda derivar de su uso."</string>
-    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Tu TV y tus datos personales son más vulnerables a los ataques de aplicaciones desconocidas. Al instalar esta aplicación, aceptas ser responsable de cualquier daño que sufra tu TV o la pérdida de datos que se pueda derivar de su uso."</string>
-    <string name="anonymous_source_continue" msgid="2094381167954332292">"Continuar"</string>
-    <string name="external_sources_settings" msgid="8601453744517291632">"Ajustes"</string>
-    <string name="wear_app_channel" msgid="6200840123672949356">"Instalando/desinstalando apps para Wear"</string>
+    <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Esta aplicación está diseñada para una versión anterior de Android. Si se le deniega el permiso, puede dejar de funcionar de la forma prevista."</string>
+    <string name="default_permission_description" msgid="692254823411049573">"realizar una acción desconocida"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> de <xliff:g id="COUNT_1">%2$d</xliff:g> aplicaciones permitidas"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"Mostrar aplicaciones del sistema"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"Ocultar aplicaciones del sistema"</string>
+    <string name="no_apps" msgid="2377153782338039463">"No hay aplicaciones"</string>
+    <string name="location_settings" msgid="547378321761364906">"Ajustes de ubicación"</string>
+    <string name="location_warning" msgid="4687406043150343369">"<xliff:g id="APP_NAME">%1$s</xliff:g> es un proveedor de servicios de ubicación de este dispositivo. El acceso a la ubicación se puede modificar en los ajustes de ubicación."</string>
+    <string name="system_warning" msgid="6868290533389195836">"Si rechazas este permiso, es posible que funciones básicas de tu dispositivo dejen de funcionar correctamente."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"Aplicado por política"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"Acceso en segundo plano inhabilitado por política"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"Acceso en segundo plano habilitado por política"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="8652417310534780420">"Acceso en primer plano habilitado por política"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="5156952484229154563">"Controlado por el administrador"</string>
+    <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"El administrador ha inhabilitado el acceso en segundo plano"</string>
+    <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"El administrador ha habilitado el acceso en segundo plano"</string>
+    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"El administrador ha habilitado el acceso en primer plano"</string>
+    <!-- no translation found for permission_summary_enabled_system_fixed (5463084832974856683) -->
+    <skip />
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
+    <!-- no translation found for permission_access_always (5419580764084361573) -->
+    <skip />
+    <!-- no translation found for permission_access_only_foreground (2857031150724321567) -->
+    <skip />
+    <!-- no translation found for permission_access_never (425385910378172045) -->
+    <skip />
+    <string name="loading" msgid="323483393167148377">"Cargando…"</string>
+    <string name="all_permissions" msgid="7813580062403112957">"Todos los permisos"</string>
+    <string name="other_permissions" msgid="1956312685853070715">"Otras funciones de la aplicación"</string>
+    <string name="permission_request_title" msgid="6779348653783761548">"Solicitud de permiso"</string>
+    <string name="screen_overlay_title" msgid="1632732130312696010">"Superposición de pantalla detectada"</string>
+    <string name="screen_overlay_message" msgid="3222033787364955006">"Para cambiar la configuración de este permiso, desactiva la superposición de pantalla en Ajustes &gt; Aplicaciones"</string>
+    <string name="screen_overlay_button" msgid="3554849308322944411">"Abrir ajustes"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="6923880912091041609">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="8731817202551430387">"Las acciones de instalar y desinstalar no pueden realizarse en Wear"</string>
+    <string name="permission_review_title_template_install" msgid="8131698354985303888">"Elige los permisos de acceso que quieres conceder a &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;"</string>
+    <string name="permission_review_title_template_update" msgid="7597155653571395485">"&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; se ha actualizado. Elige los permisos de acceso que quieres conceder a esta aplicación."</string>
+    <string name="review_button_cancel" msgid="7108377593627664194">"Cancelar"</string>
+    <string name="review_button_continue" msgid="1367925420132212571">"Continuar"</string>
+    <string name="new_permissions_category" msgid="7242713808413888679">"Permisos nuevos"</string>
+    <string name="current_permissions_category" msgid="3835461245150972589">"Permisos actuales"</string>
+    <string name="message_staging" msgid="641286607664721291">"Preparando aplicación…"</string>
+    <string name="app_name_unknown" msgid="8288360585728122735">"Desconocida"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Panel"</string>
+    <!-- no translation found for permission_usage_summary_foreground (3203419920107457274) -->
+    <skip />
+    <!-- no translation found for permission_usage_summary_background (5719598203265078254) -->
+    <skip />
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Cualquier permiso"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"Cualquier fecha"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Últimos 7 días"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"Últimas 24 horas"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Última hora"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Últimos 15 minutos"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Último minuto"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"No se han usado los permisos"</string>
+    <!-- no translation found for permission_usage_list_title_any_time (5641676869304328239) -->
+    <skip />
+    <!-- no translation found for permission_usage_list_title_last_7_days (2972289322203714509) -->
+    <skip />
+    <!-- no translation found for permission_usage_list_title_last_day (6298662604046093174) -->
+    <skip />
+    <!-- no translation found for permission_usage_list_title_last_hour (7224982939487774388) -->
+    <skip />
+    <!-- no translation found for permission_usage_list_title_last_15_minutes (49045607172810502) -->
+    <skip />
+    <!-- no translation found for permission_usage_list_title_last_minute (7716966405942817635) -->
+    <skip />
+    <!-- no translation found for permission_usage_bar_chart_title_any_time (862654449303514044) -->
+    <skip />
+    <!-- no translation found for permission_usage_bar_chart_title_last_7_days (5393381637937213483) -->
+    <skip />
+    <!-- no translation found for permission_usage_bar_chart_title_last_day (7202567658282481259) -->
+    <skip />
+    <!-- no translation found for permission_usage_bar_chart_title_last_hour (4672313408976666479) -->
+    <skip />
+    <!-- no translation found for permission_usage_bar_chart_title_last_15_minutes (1776918144361651860) -->
+    <skip />
+    <!-- no translation found for permission_usage_bar_chart_title_last_minute (236300476767668315) -->
+    <skip />
+    <!-- no translation found for app_permission_usage_bar_label (7261634017833698654) -->
+    <!-- no translation found for permission_usage_view_details (4728049344017619500) -->
+    <skip />
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Filtrados por: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"Quitar filtro"</string>
+    <string name="filter_by_title" msgid="5940302511365561845">"Filtrar por"</string>
+    <string name="filter_by_permissions" msgid="7761207093643478436">"Filtrar por permisos"</string>
+    <!-- no translation found for filter_by_time (1763143592970195407) -->
+    <skip />
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Mayor número de permisos"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Mayor número de accesos"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"Recientes"</string>
+    <!-- no translation found for sort_by_app (1912228966803416485) -->
+    <skip />
+    <!-- no translation found for sort_by_time (8280378662234104410) -->
+    <skip />
+    <!-- no translation found for item_separator (8266062815210378175) -->
+    <skip />
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"Actualizar"</string>
+    <!-- no translation found for permission_usage_permission_filter_subtitle (5539392196389332769) -->
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"Uso permisos de la aplicación"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"Acceso: <xliff:g id="NUM">%1$s</xliff:g> veces. Duración total: <xliff:g id="DURATION">%2$s</xliff:g>. Último uso: hace <xliff:g id="TIME">%3$s</xliff:g>."</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Acceso: <xliff:g id="NUM">%1$s</xliff:g> veces. Último uso: hace <xliff:g id="TIME">%2$s</xliff:g>."</string>
+    <string name="app_permission_button_allow" msgid="1358817292836175593">"Permitir"</string>
+    <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Permitir siempre"</string>
+    <!-- no translation found for app_permission_button_allow_foreground (2303741829613210541) -->
+    <skip />
+    <string name="app_permission_button_deny" msgid="5716368368650638408">"Denegar"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"Permiso de <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <!-- no translation found for app_permission_header (228974007660007656) -->
+    <skip />
+    <!-- no translation found for app_permission_footer_usage_summary (1034436308858219976) -->
+    <skip />
+    <!-- no translation found for app_permission_footer_no_usages (4444374134047275841) -->
+    <skip />
+    <!-- no translation found for app_permission_footer_app_permissions_link (8033278634020892918) -->
+    <skip />
+    <!-- no translation found for app_permission_footer_permission_apps_link (8759141212929298774) -->
+    <skip />
+    <!-- no translation found for permission_description_summary_generic (5479202003136667039) -->
+    <skip />
+    <!-- no translation found for permission_description_summary_activity_recognition (2022880340017289990) -->
+    <skip />
+    <!-- no translation found for permission_description_summary_calendar (2846128908236787586) -->
+    <skip />
+    <!-- no translation found for permission_description_summary_call_log (2429916962093948340) -->
+    <skip />
+    <!-- no translation found for permission_description_summary_camera (6699611334403400091) -->
+    <skip />
+    <!-- no translation found for permission_description_summary_contacts (5169995707720233126) -->
+    <skip />
+    <!-- no translation found for permission_description_summary_location (687820658574645201) -->
+    <skip />
+    <!-- no translation found for permission_description_summary_media_aural (2102206495149326019) -->
+    <skip />
+    <!-- no translation found for permission_description_summary_media_visual (3105938942794669520) -->
+    <skip />
+    <!-- no translation found for permission_description_summary_microphone (2300290217308759293) -->
+    <skip />
+    <!-- no translation found for permission_description_summary_phone (3773977614654088578) -->
+    <skip />
+    <!-- no translation found for permission_description_summary_sensors (6733606479604624853) -->
+    <skip />
+    <!-- no translation found for permission_description_summary_sms (8850213022386508528) -->
+    <skip />
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Último acceso: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"No se ha accedido nunca"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"Permitidos"</string>
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"Solo se permite mientras se usa"</string>
+    <string name="denied_header" msgid="2277998574238617699">"Denegados"</string>
+    <string name="detailed_usage_link" msgid="3990452346369247944">"Ver uso detallado"</string>
+    <plurals name="days" formatted="false" msgid="3903419301028414979">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> días</item>
+      <item quantity="one">1 día</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="2123927014975877155">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> horas</item>
+      <item quantity="one">1 hora</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="4331145652577957044">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> minutos</item>
+      <item quantity="one">1 minuto</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="1632909606956324957">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> segundos</item>
+      <item quantity="one">1 segundo</item>
+    </plurals>
+    <string name="permission_reminders" msgid="8040710767178843151">"Recordatorios de permisos"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> ha estado usando tu ubicación"</string>
+    <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Esta aplicación puede acceder siempre a tu ubicación. Toca para cambiarlo."</string>
+    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Solo mientras la aplicación está en uso"</string>
+    <string name="no_permissions_allowed" msgid="5781278485002145993">"No se ha concedido ningún permiso"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"No se ha denegado ningún permiso"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"Ninguna aplicación tiene permiso"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"A ninguna aplicación se le ha denegado el permiso"</string>
+    <string name="settings" msgid="2884124136779508907">"Ajustes"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> tiene acceso completo a tu dispositivo"</string>
+    <!-- no translation found for accessibility_service_dialog_title_multiple (8129325613496173909) -->
+    <skip />
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> puede ver tu pantalla, lo que haces y lo que introduces; realizar acciones; y controlar la pantalla."</string>
+    <!-- no translation found for accessibility_service_dialog_bottom_text_multiple (1387803460488775887) -->
+    <skip />
+    <!-- no translation found for request_role_title (3611734134669430568) -->
+    <skip />
+    <!-- no translation found for request_role_current_default (7512045433655289638) -->
+    <skip />
+    <!-- no translation found for request_role_set_as_default (5706081295230541240) -->
+    <skip />
+    <!-- no translation found for default_app_search_keyword (6938709626391437391) -->
+    <skip />
+    <!-- no translation found for ongoing_usage_dialog_ok (3007005536659549573) -->
+    <skip />
+    <!-- no translation found for ongoing_usage_dialog_open_settings (3368892579319881043) -->
+    <skip />
+    <!-- no translation found for ongoing_usage_dialog_title (7173961211414061803) -->
+    <skip />
+    <!-- no translation found for ongoing_usage_dialog_separator (9008030412869423988) -->
+    <skip />
+    <!-- no translation found for ongoing_usage_dialog_last_separator (7455459775266515801) -->
+    <skip />
+    <string name="default_apps" msgid="8554530939151957828">"Aplicaciones predeterminadas"</string>
+    <string name="no_default_apps" msgid="5642715159090903032">"Ninguna app predeterminada"</string>
+    <!-- no translation found for default_apps_manage_domain_urls (3146379064445013719) -->
+    <skip />
+    <string name="default_apps_for_work" msgid="8582151955372061208">"Predeterminadas para trabajo"</string>
+    <string name="default_app_none" msgid="7671097769303174666">"Ninguna"</string>
+    <string name="default_app_no_apps" msgid="5344668465735677271">"No hay aplicaciones"</string>
+    <!-- no translation found for special_app_access_search_keyword (462008045110320714) -->
+    <skip />
+    <string name="special_app_access" msgid="2561673957499408877">"Acceso especial de apps"</string>
+    <string name="no_special_app_access" msgid="994977666694457811">"Sin acceso especial de apps"</string>
+    <string name="special_app_access_no_apps" msgid="3934763650592564818">"No hay aplicaciones"</string>
+    <string name="role_label_assistant" msgid="456685142560727172">"Aplicación de asistencia"</string>
+    <string name="role_label_browser" msgid="6266502234308421457">"Aplicación de navegador"</string>
+    <string name="role_label_dialer" msgid="3345895090725237533">"Aplicación de teléfono"</string>
+    <string name="role_label_sms" msgid="2262769075496017522">"Aplicación de SMS"</string>
+    <string name="role_label_emergency" msgid="2226651888638211616">"Aplicación de emergencia"</string>
+    <string name="role_label_home" msgid="7672863812639457378">"Aplicación de inicio"</string>
+    <string name="role_label_music" msgid="5900245414865932272">"Aplicación de música"</string>
+    <string name="role_label_gallery" msgid="6939560238495155209">"Aplicación de galería"</string>
+    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"App de llamadas en modo coche"</string>
+    <string name="role_label_call_redirection" msgid="8902197181113231577">"App de redirección de llamadas"</string>
+    <!-- no translation found for role_label_call_screening (1089966334646538858) -->
+    <skip />
+    <string name="role_label_call_companion" msgid="7369723859682076467">"App complementaria de llamadas"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"No admite perfiles de trabajo"</string>
+    <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Nota: Si reinicias el dispositivo y y has definido un bloqueo de pantalla, esta aplicación no se podrá iniciar hasta que desbloquees el dispositivo."</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"El asistente podrá consultar información sobre las aplicaciones en uso del sistema, como la que aparezca en pantalla o a la que se pueda acceder a través de las aplicaciones."</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"Compartir datos de depuración"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"¿Quieres compartir datos de depuración detallados?"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> quiere subir información de depuración."</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Compartir datos de depuración"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> quiere subir el informe de errores de este dispositivo, generado el <xliff:g id="DATE">%2$s</xliff:g> a las <xliff:g id="TIME">%3$s</xliff:g>. Los informes de errores incluyen información personal sobre el dispositivo o datos registrados por las aplicaciones, como nombres de usuario, datos de ubicación, identificadores del dispositivo e información de red. Comparte estos informes únicamente con personas y aplicaciones de confianza. ¿Quieres permitir que <xliff:g id="APP_NAME_1">%4$s</xliff:g> suba un informe de errores?"</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Permitir"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Denegar"</string>
+    <!-- no translation found for grandfathered_modern_storage_permission_deny_warning_title (5699953608028268176) -->
+    <skip />
+    <!-- no translation found for grandfathered_modern_storage_permission_deny_warning_content (6960592986228883592) -->
+    <skip />
+    <!-- no translation found for dismiss_with_acknowledgment (2879819713128822468) -->
+    <skip />
 </resources>
