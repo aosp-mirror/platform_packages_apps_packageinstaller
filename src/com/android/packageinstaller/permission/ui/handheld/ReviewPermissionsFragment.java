@@ -121,6 +121,7 @@ public final class ReviewPermissionsFragment extends PreferenceFragmentCompat
             // If the system called for a review but no groups are found, this means that all groups
             // are restricted. Hence there is nothing to review and instantly continue.
             confirmPermissionsReview();
+            executeCallback(true);
             activity.finish();
         }
     }
@@ -188,7 +189,10 @@ public final class ReviewPermissionsFragment extends PreferenceFragmentCompat
             preferenceGroups.add(mNewPermissionsCategory);
             preferenceGroups.add(mCurrentPermissionsCategory);
         } else {
-            preferenceGroups.add(getPreferenceScreen());
+            PreferenceScreen preferenceScreen = getPreferenceScreen();
+            if (preferenceScreen != null) {
+                preferenceGroups.add(preferenceScreen);
+            }
         }
 
         final int preferenceGroupCount = preferenceGroups.size();

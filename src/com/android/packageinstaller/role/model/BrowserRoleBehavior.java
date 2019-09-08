@@ -105,9 +105,7 @@ public class BrowserRoleBehavior implements RoleBehavior {
         for (int i = 0; i < resolveInfosSize; i++) {
             ResolveInfo resolveInfo = resolveInfos.get(i);
 
-            if (!resolveInfo.handleAllWebDataURI || !resolveInfo.activityInfo.enabled
-                    || !resolveInfo.activityInfo.applicationInfo.enabled
-                    || resolveInfo.activityInfo.applicationInfo.isInstantApp()) {
+            if (!resolveInfo.handleAllWebDataURI) {
                 continue;
             }
             packageNames.add(resolveInfo.activityInfo.packageName);
