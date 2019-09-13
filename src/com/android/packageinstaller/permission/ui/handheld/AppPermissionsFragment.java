@@ -43,6 +43,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
@@ -137,6 +138,10 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
     @Override
     public void onResume() {
         super.onResume();
+        refreshAndUpdatePreferences();
+    }
+
+    private void refreshAndUpdatePreferences() {
         mAppPermissions.refresh();
         updatePreferences();
     }
@@ -216,14 +221,28 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
 
         findPreference(PREFERENCE_ALLOWED_FOREGROUND).setVisible(false);
 
-        if (mExtraScreen != null) {
-            mExtraScreen.removeAll();
+        if (mExtraScreen == null) {
+            mExtraScreen = getPreferenceManager().inflateFromResource(context,
+                    R.xml.allowed_denied, mExtraScreen);
         }
 
-        final Preference extraPerms = new Preference(context);
-        extraPerms.setIcon(R.drawable.ic_toc);
-        extraPerms.setTitle(R.string.additional_permissions);
-        boolean extraPermsAreAllowed = false;
+        PreferenceCategory allowedExtra =
+                (PreferenceCategory) mExtraScreen.findPreference(PREFERENCE_ALLOWED);
+        PreferenceCategory deniedExtra =
+                (PreferenceCategory) mExtraScreen.findPreference(PREFERENCE_DENIED);
+
+        allowedExtra.removeAll();
+        deniedExtra.removeAll();
+
+        mExtraScreen.findPreference(PREFERENCE_ALLOWED_FOREGROUND).setVisible(false);
+
+        final Preference extraAllowPerms = new Preference(context);
+        extraAllowPerms.setIcon(R.drawable.ic_toc);
+        extraAllowPerms.setTitle(R.string.additional_permissions);
+
+        final Preference extraDenyPerms = new Preference(context);
+        extraDenyPerms.setIcon(R.drawable.ic_toc);
+        extraDenyPerms.setTitle(R.string.additional_permissions);
 
         ArrayList<AppPermissionGroup> groups = new ArrayList<>(
                 mAppPermissions.getPermissionGroups());
@@ -283,51 +302,62 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
                         group.areRuntimePermissionsGranted() ? allowed : denied;
                 category.addPreference(preference);
             } else {
-                if (mExtraScreen == null) {
-                    mExtraScreen = getPreferenceManager().createPreferenceScreen(context);
-                }
-                mExtraScreen.addPreference(preference);
-                if (group.areRuntimePermissionsGranted()) {
-                    extraPermsAreAllowed = true;
-                }
+                PreferenceCategory category =
+                        group.areRuntimePermissionsGranted() ? allowedExtra : deniedExtra;
+                category.addPreference(preference);
             }
         }
 
-        if (mExtraScreen != null) {
-            extraPerms.setOnPreferenceClickListener(preference -> {
-                AdditionalPermissionsFragment frag = new AdditionalPermissionsFragment();
-                setPackageNameAndUserHandleAndSessionId(frag,
-                        getArguments().getString(Intent.EXTRA_PACKAGE_NAME),
-                        getArguments().getParcelable(Intent.EXTRA_USER),
-                        getArguments().getLong(EXTRA_SESSION_ID, INVALID_SESSION_ID));
-                frag.setTargetFragment(AppPermissionsFragment.this, 0);
-                getFragmentManager().beginTransaction()
-                        .replace(android.R.id.content, frag)
-                        .addToBackStack(null)
-                        .commit();
-                return true;
-            });
-            int count = mExtraScreen.getPreferenceCount();
-            extraPerms.setSummary(getResources().getQuantityString(
-                    R.plurals.additional_permissions_more, count, count));
-            PreferenceCategory category = extraPermsAreAllowed ? allowed : denied;
-            category.addPreference(extraPerms);
+        AdditionalPermissionsFragment frag = new AdditionalPermissionsFragment();
+        if (allowedExtra.getPreferenceCount() > 0) {
+            setUpCustomPermissionsScreen(extraAllowPerms, frag, allowedExtra.getPreferenceCount());
+            allowed.addPreference(extraAllowPerms);
+        } else {
+            setNoPermissionPreference(allowedExtra, R.string.no_permissions_allowed, context);
+        }
+
+        if (deniedExtra.getPreferenceCount() > 0) {
+            setUpCustomPermissionsScreen(extraDenyPerms, frag, deniedExtra.getPreferenceCount());
+            denied.addPreference(extraDenyPerms);
+        } else {
+            setNoPermissionPreference(deniedExtra, R.string.no_permissions_denied, context);
         }
 
         if (allowed.getPreferenceCount() == 0) {
-            Preference empty = new Preference(context);
-            empty.setTitle(getString(R.string.no_permissions_allowed));
-            empty.setSelectable(false);
-            allowed.addPreference(empty);
+            setNoPermissionPreference(allowed, R.string.no_permissions_allowed, context);
         }
         if (denied.getPreferenceCount() == 0) {
-            Preference empty = new Preference(context);
-            empty.setTitle(getString(R.string.no_permissions_denied));
-            empty.setSelectable(false);
-            denied.addPreference(empty);
+            setNoPermissionPreference(denied, R.string.no_permissions_denied, context);
         }
 
         setLoading(false /* loading */, true /* animate */);
+    }
+
+    private void setUpCustomPermissionsScreen(Preference extraPerms,
+            AdditionalPermissionsFragment frag, int count) {
+        extraPerms.setOnPreferenceClickListener(preference -> {
+            setPackageNameAndUserHandleAndSessionId(frag,
+                    getArguments().getString(Intent.EXTRA_PACKAGE_NAME),
+                    getArguments().getParcelable(Intent.EXTRA_USER),
+                    getArguments().getLong(EXTRA_SESSION_ID, INVALID_SESSION_ID));
+            frag.setTargetFragment(AppPermissionsFragment.this, 0);
+            getFragmentManager().beginTransaction()
+                    .replace(android.R.id.content, frag)
+                    .addToBackStack(null)
+                    .commit();
+            return true;
+        });
+
+        extraPerms.setSummary(getResources().getQuantityString(
+                R.plurals.additional_permissions_more, count, count));
+    }
+
+    private void setNoPermissionPreference(PreferenceCategory category, @StringRes int stringId,
+            Context context) {
+        Preference empty = new Preference(context);
+        empty.setTitle(getString(stringId));
+        empty.setSelectable(false);
+        category.addPreference(empty);
     }
 
     private void logAppPermissionsFragmentView() {
@@ -408,14 +438,17 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
         public void onCreate(Bundle savedInstanceState) {
             mOuterFragment = (AppPermissionsFragment) getTargetFragment();
             super.onCreate(savedInstanceState);
+
             setHeader(mOuterFragment.mIcon, mOuterFragment.mLabel, null, null, false);
             setHasOptionsMenu(true);
             setPreferenceScreen(mOuterFragment.mExtraScreen);
         }
 
         @Override
-        public void onViewCreated(View view, Bundle savedInstanceState) {
-            super.onViewCreated(view, savedInstanceState);
+        public void onResume() {
+            super.onResume();
+
+            mOuterFragment.refreshAndUpdatePreferences();
             String packageName = getArguments().getString(Intent.EXTRA_PACKAGE_NAME);
             UserHandle userHandle = getArguments().getParcelable(Intent.EXTRA_USER);
             bindUi(this, getPackageInfo(getActivity(), packageName, userHandle));
@@ -423,8 +456,7 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
 
         @Override
         public boolean onOptionsItemSelected(MenuItem item) {
-            switch (item.getItemId()) {
-            case android.R.id.home:
+            if (item.getItemId() == android.R.id.home) {
                 getFragmentManager().popBackStack();
                 return true;
             }
