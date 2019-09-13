@@ -628,4 +628,9 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
         // TODO: Default permission grants should go here
         RuntimePermissionsUpgradeController.upgradeIfNeeded(this);
     }
+
+    @Override
+    public void onUpdateUserSensitive() {
+        Utils.updateUserSensitive(getApplication(), Process.myUserHandle());
+    }
 }
