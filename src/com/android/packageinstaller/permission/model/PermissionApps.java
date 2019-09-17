@@ -120,6 +120,9 @@ public class PermissionApps {
     public int getGrantedCount() {
         int count = 0;
         for (PermissionApp app : mPermApps) {
+            if (!app.getAppInfo().enabled) {
+                continue;
+            }
             if (!Utils.shouldShowPermission(mContext, app.getPermissionGroup())) {
                 continue;
             }
@@ -137,6 +140,9 @@ public class PermissionApps {
     public int getTotalCount() {
         int count = 0;
         for (PermissionApp app : mPermApps) {
+            if (!app.getAppInfo().enabled) {
+                continue;
+            }
             if (!Utils.shouldShowPermission(mContext, app.getPermissionGroup())) {
                 continue;
             }
