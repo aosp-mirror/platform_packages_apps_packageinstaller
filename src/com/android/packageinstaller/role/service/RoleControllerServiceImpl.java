@@ -19,6 +19,7 @@ package com.android.packageinstaller.role.service;
 import android.app.role.RoleControllerService;
 import android.app.role.RoleManager;
 import android.content.pm.ApplicationInfo;
+import android.os.AsyncTask;
 import android.os.Process;
 import android.os.UserHandle;
 import android.util.ArrayMap;
@@ -29,6 +30,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
 
 import com.android.packageinstaller.permission.utils.CollectionUtils;
+import com.android.packageinstaller.permission.utils.Utils;
 import com.android.packageinstaller.role.model.Role;
 import com.android.packageinstaller.role.model.Roles;
 import com.android.packageinstaller.role.utils.PackageUtils;
@@ -167,6 +169,9 @@ public class RoleControllerServiceImpl extends RoleControllerService {
                 }
             }
         }
+
+        AsyncTask.execute(
+                () -> Utils.updateUserSensitive(getApplication(), Process.myUserHandle()));
 
         return true;
     }
