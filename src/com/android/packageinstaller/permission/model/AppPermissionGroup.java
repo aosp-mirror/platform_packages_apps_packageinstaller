@@ -831,10 +831,9 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                         killApp = true;
                     }
 
-                    // Mark that the permission should not be be granted on upgrade
-                    // when the app begins supporting runtime permissions.
-                    if (permission.shouldRevokeOnUpgrade()) {
-                        permission.setRevokeOnUpgrade(false);
+                    // Mark that the permission is not kept granted only for compatibility.
+                    if (permission.isRevokedCompat()) {
+                        permission.setRevokedCompat(false);
                     }
                 }
 
@@ -1004,10 +1003,9 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                         killApp = true;
                     }
 
-                    // Mark that the permission should not be granted on upgrade
-                    // when the app begins supporting runtime permissions.
-                    if (!permission.shouldRevokeOnUpgrade()) {
-                        permission.setRevokeOnUpgrade(true);
+                    // Mark that the permission is kept granted only for compatibility.
+                    if (!permission.isRevokedCompat()) {
+                        permission.setRevokedCompat(true);
                     }
                 }
             }
@@ -1261,8 +1259,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
 
             int flags = (permission.isUserSet() ? PackageManager.FLAG_PERMISSION_USER_SET : 0)
                     | (permission.isUserFixed() ? PackageManager.FLAG_PERMISSION_USER_FIXED : 0)
-                    | (permission.shouldRevokeOnUpgrade()
-                    ? PackageManager.FLAG_PERMISSION_REVOKE_ON_UPGRADE : 0)
+                    | (permission.isRevokedCompat()
+                    ? PackageManager.FLAG_PERMISSION_REVOKED_COMPAT : 0)
                     | (permission.isPolicyFixed() ? PackageManager.FLAG_PERMISSION_POLICY_FIXED : 0)
                     | (permission.isReviewRequired()
                     ? PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED : 0);
@@ -1271,7 +1269,7 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                     mPackageInfo.packageName,
                     PackageManager.FLAG_PERMISSION_USER_SET
                             | PackageManager.FLAG_PERMISSION_USER_FIXED
-                            | PackageManager.FLAG_PERMISSION_REVOKE_ON_UPGRADE
+                            | PackageManager.FLAG_PERMISSION_REVOKED_COMPAT
                             | PackageManager.FLAG_PERMISSION_POLICY_FIXED
                             | PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED,
                     flags, mUserHandle);
