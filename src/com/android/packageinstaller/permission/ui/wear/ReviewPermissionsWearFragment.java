@@ -24,6 +24,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.RemoteCallback;
 import android.text.SpannableString;
+import android.text.Html;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.util.TypedValue;
@@ -273,7 +274,8 @@ public class ReviewPermissionsWearFragment extends PreferenceFragmentCompat
         final int labelTemplateResId = isPackageUpdated()
                 ?  R.string.permission_review_title_template_update
                 :  R.string.permission_review_title_template_install;
-        SpannableString message = new SpannableString(getString(labelTemplateResId, appLabel));
+        SpannableString message =
+            new SpannableString(Html.fromHtml(getString(labelTemplateResId, appLabel)));
 
         // Color the app name.
         final int appLabelStart = message.toString().indexOf(appLabel, 0);
@@ -283,8 +285,10 @@ public class ReviewPermissionsWearFragment extends PreferenceFragmentCompat
         activity.getTheme().resolveAttribute(android.R.attr.colorAccent, typedValue, true);
         final int color = activity.getColor(typedValue.resourceId);
 
-        message.setSpan(new ForegroundColorSpan(color), appLabelStart,
-                appLabelStart + appLabelLength, 0);
+        if (appLabelStart >= 0) {
+            message.setSpan(new ForegroundColorSpan(color), appLabelStart,
+                    appLabelStart + appLabelLength, 0);
+        }
 
         titlePref.setTitle(message);
 
