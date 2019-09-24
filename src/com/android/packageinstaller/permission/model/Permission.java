@@ -258,15 +258,15 @@ public final class Permission {
         }
     }
 
-    public boolean shouldRevokeOnUpgrade() {
-        return (mFlags & PackageManager.FLAG_PERMISSION_REVOKE_ON_UPGRADE) != 0;
+    public boolean isRevokedCompat() {
+        return (mFlags & PackageManager.FLAG_PERMISSION_REVOKED_COMPAT) != 0;
     }
 
-    public void setRevokeOnUpgrade(boolean revokeOnUpgrade) {
-        if (revokeOnUpgrade) {
-            mFlags |= PackageManager.FLAG_PERMISSION_REVOKE_ON_UPGRADE;
+    public void setRevokedCompat(boolean revokedCompat) {
+        if (revokedCompat) {
+            mFlags |= PackageManager.FLAG_PERMISSION_REVOKED_COMPAT;
         } else {
-            mFlags &= ~PackageManager.FLAG_PERMISSION_REVOKE_ON_UPGRADE;
+            mFlags &= ~PackageManager.FLAG_PERMISSION_REVOKED_COMPAT;
         }
     }
 
