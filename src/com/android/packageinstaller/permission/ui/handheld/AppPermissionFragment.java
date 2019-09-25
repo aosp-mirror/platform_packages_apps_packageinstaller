@@ -173,7 +173,20 @@ public class AppPermissionFragment extends SettingsWithLargeHeader {
         ((TextView) root.requireViewById(R.id.permission_message)).setText(
                 context.getString(R.string.app_permission_header, mGroup.getFullLabel()));
 
-        root.requireViewById(R.id.usage_summary).setVisibility(View.GONE);
+        if (!Utils.isPermissionsHubEnabled()) {
+            root.requireViewById(R.id.usage_summary).setVisibility(View.GONE);
+        } else if (Utils.isModernPermissionGroup(mGroup.getName())) {
+            if (!Utils.shouldShowPermissionUsage(mGroup.getName())) {
+                ((TextView) root.requireViewById(R.id.usage_summary)).setText(
+                        context.getString(R.string.app_permission_footer_not_available));
+            } else {
+                ((TextView) root.requireViewById(R.id.usage_summary)).setText(
+                        getUsageSummary(context, appLabel));
+            }
+        } else {
+            root.requireViewById(R.id.usage_summary).setVisibility(View.GONE);
+        }
+
         long sessionId = getArguments().getLong(EXTRA_SESSION_ID);
 
         TextView footer1Link = root.requireViewById(R.id.footer_link_1);
