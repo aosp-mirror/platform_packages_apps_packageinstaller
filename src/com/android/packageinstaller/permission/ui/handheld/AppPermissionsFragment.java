@@ -254,7 +254,7 @@ public final class AppPermissionsFragment extends SettingsWithLargeHeader {
 
         for (int i = 0; i < groups.size(); i++) {
             AppPermissionGroup group = groups.get(i);
-            if (!Utils.shouldShowPermission(getContext(), group)) {
+            if (!Utils.shouldShowPermission(context, group)) {
                 continue;
             }
 
