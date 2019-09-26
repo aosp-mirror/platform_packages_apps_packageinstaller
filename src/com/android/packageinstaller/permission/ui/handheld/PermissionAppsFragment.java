@@ -280,7 +280,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
             hasPermissionWithBackgroundMode =
                     hasPermissionWithBackgroundMode || group.hasPermissionWithBackgroundMode();
 
-            if (!Utils.shouldShowPermission(getContext(), group)) {
+            if (!Utils.shouldShowPermission(context, group)) {
                 continue;
             }
 
@@ -398,11 +398,7 @@ public final class PermissionAppsFragment extends SettingsWithLargeHeader implem
             empty.setSelectable(false);
             allowed.addPreference(empty);
         }
-        if (allowedForeground.getPreferenceCount() == 0) {
-            findPreference("allowed_foreground").setVisible(false);
-        } else {
-            findPreference("allowed_foreground").setVisible(true);
-        }
+        allowedForeground.setVisible(allowedForeground.getPreferenceCount() > 0);
         if (denied.getPreferenceCount() == 0) {
             Preference empty = new Preference(context);
             empty.setTitle(getString(R.string.no_apps_denied));

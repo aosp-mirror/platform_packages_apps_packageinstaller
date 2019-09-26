@@ -102,9 +102,9 @@ public class ExpandablePreferenceGroup extends PreferenceGroup {
             summaryFrame.setVisibility(View.GONE);
         } else {
             summaryFrame.removeAllViews();
+            LayoutInflater inflater = mContext.getSystemService(LayoutInflater.class);
             int numIcons = mSummaryIcons.size();
             for (int i = 0; i < numIcons; i++) {
-                LayoutInflater inflater = mContext.getSystemService(LayoutInflater.class);
                 ViewGroup group = (ViewGroup) inflater.inflate(R.layout.title_summary_image_view,
                         null);
                 ImageView imageView = group.requireViewById(R.id.icon);
