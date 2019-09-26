@@ -725,7 +725,6 @@ public class GrantPermissionsActivity extends Activity
     @Override
     public void onPermissionGrantResult(String name,
             @GrantPermissionsViewHandler.Result int result) {
-        logGrantPermissionActivityButtons(name, result);
         GroupState foregroundGroupState = getForegroundGroupState(name);
         GroupState backgroundGroupState = getBackgroundGroupState(name);
 
@@ -758,6 +757,7 @@ public class GrantPermissionsActivity extends Activity
             }
         }
 
+        logGrantPermissionActivityButtons(name, result);
         switch (result) {
             case GRANTED_ALWAYS :
                 if (foregroundGroupState != null) {
