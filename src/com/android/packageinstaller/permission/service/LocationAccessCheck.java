@@ -18,7 +18,7 @@ package com.android.packageinstaller.permission.service;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import static android.app.AppOpsManager.OPSTR_FINE_LOCATION;
-import static android.app.NotificationManager.IMPORTANCE_HIGH;
+import static android.app.NotificationManager.IMPORTANCE_LOW;
 import static android.app.PendingIntent.FLAG_ONE_SHOT;
 import static android.app.PendingIntent.FLAG_UPDATE_CURRENT;
 import static android.app.PendingIntent.getBroadcast;
@@ -42,6 +42,7 @@ import static android.provider.Settings.Secure.LOCATION_ACCESS_CHECK_INTERVAL_MI
 import static com.android.packageinstaller.Constants.EXTRA_SESSION_ID;
 import static com.android.packageinstaller.Constants.INVALID_SESSION_ID;
 import static com.android.packageinstaller.Constants.KEY_LAST_LOCATION_ACCESS_NOTIFICATION_SHOWN;
+import static com.android.packageinstaller.Constants.KEY_LOCATION_ACCESS_CHECK_ENABLED_TIME;
 import static com.android.packageinstaller.Constants.LOCATION_ACCESS_CHECK_ALREADY_NOTIFIED_FILE;
 import static com.android.packageinstaller.Constants.LOCATION_ACCESS_CHECK_JOB_ID;
 import static com.android.packageinstaller.Constants.LOCATION_ACCESS_CHECK_NOTIFICATION_ID;
@@ -57,7 +58,6 @@ import static com.android.packageinstaller.permission.utils.Utils.getParcelableE
 import static com.android.packageinstaller.permission.utils.Utils.getParentUserContext;
 import static com.android.packageinstaller.permission.utils.Utils.getStringExtraSafe;
 import static com.android.packageinstaller.permission.utils.Utils.getSystemServiceSafe;
-import static com.android.packageinstaller.permission.utils.Utils.isLocationAccessCheckEnabled;
 
 import static java.lang.System.currentTimeMillis;
 import static java.util.concurrent.TimeUnit.DAYS;
@@ -103,6 +103,7 @@ import androidx.core.util.Preconditions;
 import com.android.packageinstaller.PermissionControllerStatsLog;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.ui.AppPermissionActivity;
+import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
 
 import java.io.BufferedReader;
@@ -297,7 +298,7 @@ public class LocationAccessCheck {
 
         NotificationChannel permissionReminderChannel = new NotificationChannel(
                 PERMISSION_REMINDER_CHANNEL_ID, mContext.getString(R.string.permission_reminders),
-                IMPORTANCE_HIGH);
+                IMPORTANCE_LOW);
         notificationManager.createNotificationChannel(permissionReminderChannel);
     }
 
@@ -338,7 +339,7 @@ public class LocationAccessCheck {
     @WorkerThread
     private void addLocationNotificationIfNeeded(@NonNull JobParameters params,
             @NonNull LocationAccessCheckJobService service) {
-        if (!isLocationAccessCheckEnabled()) {
+        if (!checkLocationAccessCheckEnabledAndUpdateEnabledTime()) {
             service.jobFinished(params, false);
             return;
         }
@@ -480,9 +481,25 @@ public class LocationAccessCheck {
             for (int opNum = 0; opNum < numOps; opNum++) {
                 OpEntry entry = packageOps.getOps().get(opNum);
 
-                if (entry.getLastAccessBackgroundTime(AppOpsManager.OP_FLAGS_ALL_TRUSTED) > 0) {
-                    pkgsWithLocationAccess.add(userPkg);
+                // To protect against OEM apps that accidentally blame app ops on other packages
+                // since they can hold the privileged UPDATE_APP_OPS_STATS permission for location
+                // access in the background we trust only the OS and the location providers. Note
+                // that this mitigation only handles usage of AppOpsManager#noteProxyOp and not
+                // direct usage of AppOpsManager#noteOp, i.e. handles bad blaming and not bad
+                // attribution.
+                String proxyPackageName = entry.getProxyPackageName();
+                if (proxyPackageName != null && !proxyPackageName.equals(OS_PKG)
+                        && !lm.isProviderPackage(proxyPackageName)) {
+                    continue;
+                }
 
+                // We show only bg accesses since the location access check feature was enabled
+                // to handle cases where the feature is remotely toggled since we don't want to
+                // notify for accesses before the feature was turned on.
+                long featureEnabledTime = getLocationAccessCheckEnabledTime();
+                if (featureEnabledTime >= 0 && entry.getLastAccessBackgroundTime(
+                        AppOpsManager.OP_FLAGS_ALL_TRUSTED) > featureEnabledTime) {
+                    pkgsWithLocationAccess.add(userPkg);
                     break;
                 }
             }
@@ -495,6 +512,39 @@ public class LocationAccessCheck {
 
         pkgsWithLocationAccess.removeAll(alreadyNotifiedPkgs);
         return pkgsWithLocationAccess;
+    }
+
+    /**
+     * Checks whether the location access check feature is enabled and updates the
+     * time when the feature was first enabled. If the feature is enabled and no
+     * enabled time persisted we persist the current time as the enabled time. If
+     * the feature is disabled and an enabled time is persisted we delete the
+     * persisted time.
+     *
+     * @return Whether the location access feature is enabled.
+     */
+    private boolean checkLocationAccessCheckEnabledAndUpdateEnabledTime() {
+        final long enabledTime = getLocationAccessCheckEnabledTime();
+        if (Utils.isLocationAccessCheckEnabled()) {
+            if (enabledTime <= 0) {
+                mSharedPrefs.edit().putLong(KEY_LOCATION_ACCESS_CHECK_ENABLED_TIME,
+                        currentTimeMillis()).commit();
+            }
+            return true;
+        } else {
+            if (enabledTime > 0) {
+                mSharedPrefs.edit().remove(KEY_LOCATION_ACCESS_CHECK_ENABLED_TIME)
+                        .commit();
+            }
+            return false;
+        }
+    }
+
+    /**
+     * @return The time the location access check was enabled, or 0 if not enabled.
+     */
+    private long getLocationAccessCheckEnabledTime() {
+        return mSharedPrefs.getLong(KEY_LOCATION_ACCESS_CHECK_ENABLED_TIME, 0);
     }
 
     /**
