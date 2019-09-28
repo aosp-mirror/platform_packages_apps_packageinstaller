@@ -87,18 +87,21 @@ class AppPermissionViewModel(
         if (requestGrant) {
             val stateBefore = createPermissionSnapshot()!!
             if (changeTarget and CHANGE_FOREGROUND != 0) {
-                if (!group.areRuntimePermissionsGranted()) {
+                val runtimePermissionsGranted = group.areRuntimePermissionsGranted()
+                group.grantRuntimePermissions(false)
+
+                if (!runtimePermissionsGranted) {
                     SafetyNetLogger.logPermissionToggled(group)
                 }
-
-                group.grantRuntimePermissions(false)
             }
             if (changeTarget and CHANGE_BACKGROUND != 0 && group.backgroundPermissions != null) {
-                if (!group.backgroundPermissions.areRuntimePermissionsGranted()) {
+                val runtimePermissionsGranted =
+                        group.backgroundPermissions.areRuntimePermissionsGranted()
+                group.backgroundPermissions.grantRuntimePermissions(false)
+
+                if (!runtimePermissionsGranted) {
                     SafetyNetLogger.logPermissionToggled(group.backgroundPermissions)
                 }
-
-                group.backgroundPermissions.grantRuntimePermissions(false)
             }
             logPermissionChanges(stateBefore)
         } else {
@@ -126,16 +129,16 @@ class AppPermissionViewModel(
                 val stateBefore = createPermissionSnapshot()!!
                 if (changeTarget and CHANGE_FOREGROUND != 0 &&
                     group.areRuntimePermissionsGranted()) {
-                    SafetyNetLogger.logPermissionToggled(group)
-
                     group.revokeRuntimePermissions(false)
+
+                    SafetyNetLogger.logPermissionToggled(group)
                 }
                 if (changeTarget and CHANGE_BACKGROUND != 0 &&
                     group.backgroundPermissions != null &&
                     group.backgroundPermissions.areRuntimePermissionsGranted()) {
-                    SafetyNetLogger.logPermissionToggled(group.backgroundPermissions)
-
                     group.backgroundPermissions.revokeRuntimePermissions(false)
+
+                    SafetyNetLogger.logPermissionToggled(group.backgroundPermissions)
                 }
                 logPermissionChanges(stateBefore)
             }
@@ -155,19 +158,22 @@ class AppPermissionViewModel(
         var hasDefaultPermissions = false
         val stateBefore = createPermissionSnapshot()
         if (changeTarget and CHANGE_FOREGROUND != 0) {
-            if (group.areRuntimePermissionsGranted()) {
+            val runtimePermissionsGranted = group.areRuntimePermissionsGranted()
+            group.revokeRuntimePermissions(false)
+
+            if (runtimePermissionsGranted) {
                 SafetyNetLogger.logPermissionToggled(group)
             }
-
-            group.revokeRuntimePermissions(false)
             hasDefaultPermissions = group.hasGrantedByDefaultPermission()
         }
         if (changeTarget and CHANGE_BACKGROUND != 0 && group.backgroundPermissions != null) {
-            if (group.backgroundPermissions.areRuntimePermissionsGranted()) {
+            val runtimePermissionsGranted =
+                    group.backgroundPermissions.areRuntimePermissionsGranted()
+            group.backgroundPermissions.revokeRuntimePermissions(false)
+
+            if (runtimePermissionsGranted) {
                 SafetyNetLogger.logPermissionToggled(group.backgroundPermissions)
             }
-
-            group.backgroundPermissions.revokeRuntimePermissions(false)
             hasDefaultPermissions = hasDefaultPermissions ||
                 group.backgroundPermissions.hasGrantedByDefaultPermission()
         }
