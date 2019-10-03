@@ -1271,7 +1271,8 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup> 
                             | PackageManager.FLAG_PERMISSION_USER_FIXED
                             | PackageManager.FLAG_PERMISSION_REVOKED_COMPAT
                             | PackageManager.FLAG_PERMISSION_POLICY_FIXED
-                            | PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED,
+                            | (permission.isReviewRequired()
+                            ? 0 : PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED),
                     flags, mUserHandle);
 
             if (permission.affectsAppOp()) {
