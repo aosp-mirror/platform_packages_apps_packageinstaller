@@ -21,7 +21,9 @@
                     "exclude-annotation": "androidx.test.filters.FlakyTest"
                 }
             ]
-        },
+        }
+    ],
+    "presubmit-devicepolicy": [
         {
             "name": "CtsDevicePolicyManagerTestCases",
             "options": [
