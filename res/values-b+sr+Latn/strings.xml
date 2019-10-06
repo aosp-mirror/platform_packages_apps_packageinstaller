@@ -21,7 +21,7 @@
     <string name="permission_search_keyword" msgid="3970416730023831175">"dozvole"</string>
     <string name="cancel" msgid="8360346460165114585">"Otkaži"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Aplikacija nije pronađena"</string>
-    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Odbaci"</string>
+    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Odbij"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="7583601276815031679">"Odbij i ne pitaj ponovo"</string>
     <string name="grant_dialog_button_deny_background" msgid="4054411855048240271">"Zadrži pristup tokom korišćenja"</string>
     <string name="grant_dialog_button_deny_background_and_dont_ask_again" msgid="999878458921486616">"Zadrži i ne pitaj ponovo"</string>
@@ -38,7 +38,7 @@
     <string name="permission_revoked_none" msgid="2059511550181271342">"nijedna nije onemogućena"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Dozvoli"</string>
     <string name="grant_dialog_button_allow_always" msgid="6276498220009293138">"Dozvoli uvek"</string>
-    <string name="grant_dialog_button_allow_foreground" msgid="3906778905426475934">"Dozv. samo dok se apl. koristi"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="3906778905426475934">"Dozvoli samo dok se apl. koristi"</string>
     <string name="grant_dialog_button_allow_background" msgid="7108882589014856771">"Dozvoli uvek"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Aplikacije"</string>
     <string name="app_permissions" msgid="3146758905824597178">"Dozvole za aplikacije"</string>
@@ -74,7 +74,7 @@
     <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
     <string name="permission_access_always" msgid="8746815855070494802">"Dozvoli uvek"</string>
-    <string name="permission_access_only_foreground" msgid="1653942358383006807">"Dozv. samo dok se apl. koristi"</string>
+    <string name="permission_access_only_foreground" msgid="1653942358383006807">"Dozvoli samo dok se apl. koristi"</string>
     <string name="permission_access_never" msgid="6189440007697689967">"Odbij"</string>
     <string name="loading" msgid="7811651799620593731">"Učitava se…"</string>
     <string name="all_permissions" msgid="5156669007784613042">"Sve dozvole"</string>
@@ -144,7 +144,7 @@
     <string name="app_permission_usage_summary_no_duration" msgid="2632566955455027044">"Pristup: <xliff:g id="NUM">%1$s</xliff:g> put(a). Poslednji put korišćena pre <xliff:g id="TIME">%2$s</xliff:g>."</string>
     <string name="app_permission_button_allow" msgid="7196632414370900342">"Dozvoli"</string>
     <string name="app_permission_button_allow_always" msgid="865855803108309194">"Dozvoli uvek"</string>
-    <string name="app_permission_button_allow_foreground" msgid="5274626376926140236">"Dozv. samo dok se apl. koristi"</string>
+    <string name="app_permission_button_allow_foreground" msgid="5274626376926140236">"Dozvoli samo dok se apl. koristi"</string>
     <string name="app_permission_button_deny" msgid="6476351587498235802">"Odbij"</string>
     <string name="app_permission_title" msgid="5335967448269243651">"<xliff:g id="PERM">%1$s</xliff:g> - dozvola"</string>
     <string name="app_permission_header" msgid="6247289774554173809">"Pristup ove aplikacije funkciji „<xliff:g id="PERM">%1$s</xliff:g>“"</string>
@@ -313,5 +313,5 @@
     <string name="adjust_user_sensitive_per_app_header" msgid="3463088084190391428">"Istakni korišćenje za sledeće"</string>
     <string name="assistant_record_audio_user_sensitive_title" msgid="4527980682419054323">"Prikazuj otkrivanje aktiviranja Pomoćnika"</string>
     <string name="assistant_record_audio_user_sensitive_summary" msgid="4952742951700902553">"Prikazuje ikonu na statusnoj traci kada se mikrofon koristi za aktiviranje glasovnog pomoćnika"</string>
-    <string name="permgrouprequest_storage_isolated" msgid="6769845877344258537">"Želite li da dozvolite da &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;pristupa slikama i medijima na uređaju?"</string>
+    <string name="permgrouprequest_storage_isolated" msgid="6769845877344258537">"Želite li da dozvolite da &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; pristupa slikama i medijima na uređaju?"</string>
 </resources>

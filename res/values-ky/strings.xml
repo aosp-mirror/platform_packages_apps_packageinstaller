@@ -21,7 +21,7 @@
     <string name="permission_search_keyword" msgid="3970416730023831175">"уруксаттар"</string>
     <string name="cancel" msgid="8360346460165114585">"Жокко чыгаруу"</string>
     <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Колдонмо табылган жок"</string>
-    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Жок"</string>
+    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Уруксат берилбейт"</string>
     <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="7583601276815031679">"Баш тартам жана экинчи суралбасын"</string>
     <string name="grant_dialog_button_deny_background" msgid="4054411855048240271">"Колдонуу учурунда кирүү мүмкүнчүлүгүн сактоо"</string>
     <string name="grant_dialog_button_deny_background_and_dont_ask_again" msgid="999878458921486616">"Ушул боюнча калсын жана экинчи суралбасын"</string>
@@ -37,9 +37,9 @@
     <string name="permission_revoked_all" msgid="8595742638132863678">"баары өчүрүлгөн"</string>
     <string name="permission_revoked_none" msgid="2059511550181271342">"эч бири өчүрүлгөн жок"</string>
     <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Уруксат берүү"</string>
-    <string name="grant_dialog_button_allow_always" msgid="6276498220009293138">"Бардык учурда уруксат берүү"</string>
-    <string name="grant_dialog_button_allow_foreground" msgid="3906778905426475934">"Колдонмо колдонулуп жатканда гана уруксат берүү"</string>
-    <string name="grant_dialog_button_allow_background" msgid="7108882589014856771">"Бардык учурда уруксат берүү"</string>
+    <string name="grant_dialog_button_allow_always" msgid="6276498220009293138">"Бардык учурда уруксат берилет"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="3906778905426475934">"Колдонмо колдонулуп жатканда гана уруксат берилет"</string>
+    <string name="grant_dialog_button_allow_background" msgid="7108882589014856771">"Бардык учурда уруксат берилет"</string>
     <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Колдонмолор"</string>
     <string name="app_permissions" msgid="3146758905824597178">"Колдонмо уруксаттары"</string>
     <string name="app_permission_manager" msgid="5714101012506837810">"Уруксаттарды башкаргыч"</string>
@@ -72,9 +72,9 @@
     <!-- no translation found for background_access_chooser_dialog_choices:0 (7142769853837915143) -->
     <!-- no translation found for background_access_chooser_dialog_choices:1 (7804653189249679164) -->
     <!-- no translation found for background_access_chooser_dialog_choices:2 (1131794379787779680) -->
-    <string name="permission_access_always" msgid="8746815855070494802">"Бардык учурда уруксат берүү"</string>
-    <string name="permission_access_only_foreground" msgid="1653942358383006807">"Колдонмо колдонулуп жатканда гана уруксат берүү"</string>
-    <string name="permission_access_never" msgid="6189440007697689967">"Жок"</string>
+    <string name="permission_access_always" msgid="8746815855070494802">"Бардык учурда уруксат берилет"</string>
+    <string name="permission_access_only_foreground" msgid="1653942358383006807">"Колдонмо колдонулуп жатканда гана уруксат берилет"</string>
+    <string name="permission_access_never" msgid="6189440007697689967">"Тыюу салынат"</string>
     <string name="loading" msgid="7811651799620593731">"Жүктөлүүдө…"</string>
     <string name="all_permissions" msgid="5156669007784613042">"Бардык уруксаттар"</string>
     <string name="other_permissions" msgid="2016192512386091933">"Колдонмонун башка жөндөмдөрү"</string>
@@ -140,9 +140,9 @@
     <string name="app_permission_usage_summary" msgid="5658348946460016420">"Кирүү: <xliff:g id="NUM">%1$s</xliff:g> жолу. Жалпы колдонулган убакыт: <xliff:g id="DURATION">%2$s</xliff:g>. Акыркы жолу <xliff:g id="TIME">%3$s</xliff:g> колдонулган."</string>
     <string name="app_permission_usage_summary_no_duration" msgid="2632566955455027044">"Кирүү: <xliff:g id="NUM">%1$s</xliff:g> жолу. Акыркы жолу <xliff:g id="TIME">%2$s</xliff:g> колдонулган."</string>
     <string name="app_permission_button_allow" msgid="7196632414370900342">"Уруксат берүү"</string>
-    <string name="app_permission_button_allow_always" msgid="865855803108309194">"Бардык учурда уруксат берүү"</string>
-    <string name="app_permission_button_allow_foreground" msgid="5274626376926140236">"Колдонмо колдонулуп жатканда гана уруксат берүү"</string>
-    <string name="app_permission_button_deny" msgid="6476351587498235802">"Жок"</string>
+    <string name="app_permission_button_allow_always" msgid="865855803108309194">"Бардык учурда уруксат берилет"</string>
+    <string name="app_permission_button_allow_foreground" msgid="5274626376926140236">"Колдонмо колдонулуп жатканда гана уруксат берилет"</string>
+    <string name="app_permission_button_deny" msgid="6476351587498235802">"Уруксат берилбейт"</string>
     <string name="app_permission_title" msgid="5335967448269243651">"<xliff:g id="PERM">%1$s</xliff:g> дайындарына уруксаттар"</string>
     <string name="app_permission_header" msgid="6247289774554173809">"<xliff:g id="PERM">%1$s</xliff:g>: бул колдонмого уруксат берүү"</string>
     <string name="app_permission_footer_usage_summary_generic" msgid="8066565238703750648">"<xliff:g id="APP">%1$s</xliff:g> <xliff:g id="PERM">%2$s</xliff:g> уруксатын <xliff:g id="TIME">%3$s</xliff:g> мурун колдонду"</string>
@@ -298,7 +298,7 @@
     <string name="incident_report_dialog_text" msgid="4831945625929455288">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> бул түзмөктөн <xliff:g id="DATE">%2$s</xliff:g> саат <xliff:g id="TIME">%3$s</xliff:g> алынган мүчүлүштүк тууралуу кабарды жүктөп берүүнү суранды. Мүчүлүштүк тууралуу кабарларда түзмөгүңүз тууралуу маалымат, ошондой эле колдонуучу аттары, жайгашкан жер дайындары, түзмөктүн идентификаторлору жана тармак маалыматтары сыяктуу колдонмолор аркылуу киргизилген дайындар камтылат. Мүчүлүштүк тууралуу кабарларды өзүңүз ишенген адамдар жана колдонмолор менен гана бөлүшүңүз. <xliff:g id="APP_NAME_1">%4$s</xliff:g> колдонмосуна мүчүлүштүк тууралуу кабарды жүктөп берүүгө уруксат бересизби?"</string>
     <string name="incident_report_error_dialog_text" msgid="7571987324653854729">"<xliff:g id="APP_NAME">%1$s</xliff:g> колдонмосундагы мүчүлүштүк тууралуу кабарды иштетүүдө ката кетти. Мүчүлүштүктөрдү оңдоо тууралуу кеңири дайындарды бөлүшүү сурамы четке кагылды. Ыңгайсыздык үчүн кечирим сурайбыз."</string>
     <string name="incident_report_dialog_allow_label" msgid="39628365401477149">"Уруксат берүү"</string>
-    <string name="incident_report_dialog_deny_label" msgid="3613078094039859343">"Жок"</string>
+    <string name="incident_report_dialog_deny_label" msgid="3613078094039859343">"Тыюу салынат"</string>
     <string name="adjust_user_sensitive_title" msgid="6181325993919599745">"Өркүндөтүлгөн жөндөөлөр"</string>
     <string name="menu_adjust_user_sensitive" msgid="277984416700153328">"Өркүндөтүлгөн жөндөөлөр"</string>
     <string name="adjust_user_sensitive_globally_title" msgid="7250948764129867522">"Тутум колдонмолору тарабынан колдонулушун көрсөтүү"</string>
