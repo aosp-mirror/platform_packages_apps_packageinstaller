@@ -17,7 +17,9 @@
 package com.android.packageinstaller.permission.data
 
 import android.app.Application
+import android.os.UserHandle
 import androidx.lifecycle.LiveData
+import com.android.packageinstaller.permission.model.livedatatypes.AppPermGroupUiInfo
 import com.android.packageinstaller.permission.model.livedatatypes.PermGroupPackagesUiInfo
 import com.android.packageinstaller.permission.utils.KotlinUtils
 
@@ -32,18 +34,14 @@ class PermGroupsPackagesUiInfoLiveData(
     private val app: Application,
     groupNamesLiveData: LiveData<List<String>>
 ) : SmartUpdateMediatorLiveData<
-    @kotlin.jvm.JvmSuppressWildcards Map<String, PermGroupPackagesUiInfo>>() {
+    @kotlin.jvm.JvmSuppressWildcards Map<String, PermGroupPackagesUiInfo?>>() {
 
-    private data class PermGroupUiLiveDatas(
-        val packagesLiveData: SinglePermGroupPackagesUiInfoLiveData,
-        val iconLiveData: IconLiveData<*>,
-        val labelLiveData: LabelLiveData<*>
-    )
     /**
      * Map<permission group name, PermGroupUiLiveDatas>
      */
-    private val permGroupUiLiveDatas = mutableMapOf<String, PermGroupUiLiveDatas>()
-    private val allPackageData = mutableMapOf<String, PermGroupPackagesUiInfo>()
+    private val permGroupPackagesLiveDatas = mutableMapOf<String,
+        SinglePermGroupPackagesUiInfoLiveData>()
+    private val allPackageData = mutableMapOf<String, PermGroupPackagesUiInfo?>()
 
     private lateinit var groupNames: List<String>
 
@@ -56,15 +54,13 @@ class PermGroupsPackagesUiInfoLiveData(
 
     private fun update() {
         val (toAdd, toRemove) = KotlinUtils.getMapAndListDifferences(groupNames,
-            permGroupUiLiveDatas)
+            permGroupPackagesLiveDatas)
 
         for (groupToRemove in toRemove) {
-            with(permGroupUiLiveDatas[groupToRemove]!!) {
-                removeSource(packagesLiveData)
-                removeSource(iconLiveData)
-                removeSource(labelLiveData)
+            permGroupPackagesLiveDatas[groupToRemove]?.let {
+                removeSource(it)
             }
-            permGroupUiLiveDatas.remove(groupToRemove)
+            permGroupPackagesLiveDatas.remove(groupToRemove)
             allPackageData.remove(groupToRemove)
         }
 
@@ -84,37 +80,27 @@ class PermGroupsPackagesUiInfoLiveData(
     ) {
         val groupsAdded = mutableListOf<String>()
         for (groupName in groupNames) {
-            if (!permGroupUiLiveDatas.containsKey(groupName)) {
+            if (!permGroupPackagesLiveDatas.containsKey(groupName)) {
                 groupsAdded.add(groupName)
 
                 val singlePermGroupPackagesUiInfoLiveData =
                     PermGroupPackagesUiInfoRepository.getSinglePermGroupPackagesUiInfoLiveData(app,
                         groupName)
-                val iconLiveData = IconRepository.getPermGroupIconLiveData(app, groupName)
-                val labelLiveData = LabelRepository.getPermGroupLabelLiveData(app, groupName)
-                val uiLiveDatas = PermGroupUiLiveDatas(singlePermGroupPackagesUiInfoLiveData,
-                    iconLiveData, labelLiveData)
-                permGroupUiLiveDatas[groupName] = uiLiveDatas
+                permGroupPackagesLiveDatas[groupName] = singlePermGroupPackagesUiInfoLiveData
             }
         }
 
         for (groupName in groupsAdded) {
-            with(permGroupUiLiveDatas[groupName]!!) {
-                addSource(iconLiveData) {
-                    checkForLabelOrIconUpdate(groupName)
+            allPackageData[groupName] = null
+            addSource(permGroupPackagesLiveDatas[groupName]!!) { uiInfo ->
+                if (uiInfo == null) {
+                    allPackageData[groupName] = null
+                } else {
+                    allPackageData[groupName] = PermGroupPackagesUiInfo(groupName,
+                        getNonSystemTotal(uiInfo), getNonSystemGranted(uiInfo))
                 }
-                addSource(labelLiveData) {
-                    checkForLabelOrIconUpdate(groupName)
-                }
-                addSource(packagesLiveData) { packagesUiInfo ->
-                    // If we have already initialized the label and icon for this group, set its
-                    // package data
-                    allPackageData[groupName]?.let { currUiInfo ->
-                        allPackageData[groupName] = PermGroupPackagesUiInfo(currUiInfo.name,
-                            packagesUiInfo, currUiInfo.label, currUiInfo.icon)
-                    }
-                    checkShouldUpdate()
-                }
+
+                checkShouldUpdate()
             }
         }
 
@@ -128,26 +114,37 @@ class PermGroupsPackagesUiInfoLiveData(
         }
     }
 
-    private fun checkForLabelOrIconUpdate(groupName: String) {
-        permGroupUiLiveDatas[groupName]?.labelLiveData?.value?.let { label ->
-            permGroupUiLiveDatas[groupName]?.iconLiveData?.value?.let { icon ->
-                val currPackages = allPackageData[groupName]?.packages
-                allPackageData[groupName] = PermGroupPackagesUiInfo(groupName, currPackages, label,
-                    icon)
-                checkShouldUpdate()
+    private fun getNonSystemTotal(uiInfo: Map<Pair<String, UserHandle>, AppPermGroupUiInfo>): Int {
+        var shownNonSystem = 0
+        for ((_, appPermGroup) in uiInfo) {
+            if (appPermGroup.shouldShow && !appPermGroup.isSystem) {
+                shownNonSystem++
             }
         }
+        return shownNonSystem
+    }
+
+    private fun getNonSystemGranted(
+        uiInfo: Map<Pair<String, UserHandle>, AppPermGroupUiInfo>
+    ): Int {
+        var granted = 0
+        for ((_, appPermGroup) in uiInfo) {
+            if (appPermGroup.shouldShow && !appPermGroup.isSystem &&
+                appPermGroup.isGranted != AppPermGroupUiInfo.PermGrantState.PERMS_DENIED) {
+                granted++
+            }
+        }
+        return granted
     }
 
     private fun checkShouldUpdate() {
         /**
          * Only update when either-
-         * All packages have loaded their icons and labels, and none have loaded their data, or
+         * We have a list of groups, and none have loaded their data, or
          * All packages have loaded their data
          */
-        if (permGroupUiLiveDatas.all { allPackageData.containsKey(it.key) &&
-                allPackageData[it.key]?.packages == null } ||
-            permGroupUiLiveDatas.all { allPackageData[it.key]?.packages != null }) {
+        if (groupNames.all { allPackageData.containsKey(it) && allPackageData[it] == null } ||
+            groupNames.all { allPackageData[it] != null }) {
             value = allPackageData.toMap()
         }
     }
