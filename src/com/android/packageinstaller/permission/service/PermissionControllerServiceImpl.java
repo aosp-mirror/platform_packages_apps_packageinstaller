@@ -328,8 +328,8 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
     }
 
     @Override
-    public void onRestoreRuntimePermissionsBackup(@NonNull UserHandle user,
-            @NonNull InputStream backup, Runnable callback) {
+    public void onStageAndApplyRuntimePermissionsBackup(@NonNull UserHandle user,
+            @NonNull InputStream backup, @NonNull Runnable callback) {
         AsyncTask.execute(() -> {
             onRestoreRuntimePermissionsBackup(user, backup);
             callback.run();
@@ -349,7 +349,7 @@ public final class PermissionControllerServiceImpl extends PermissionControllerS
     }
 
     @Override
-    public void onRestoreDelayedRuntimePermissionsBackup(@NonNull String packageName,
+    public void onApplyStagedRuntimePermissionBackup(@NonNull String packageName,
             @NonNull UserHandle user, @NonNull Consumer<Boolean> callback) {
         AsyncTask.execute(() -> callback.accept(
                 onRestoreDelayedRuntimePermissionsBackup(packageName, user)));
