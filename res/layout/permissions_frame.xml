@@ -14,27 +14,39 @@
      limitations under the License.
 -->
 
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/progress_header" />
 
     <FrameLayout
-        android:id="@+id/prefs_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/no_permissions"
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nested_scroll_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/no_permissions"
-            android:gravity="center"
-            style="?android:attr/textAppearanceLarge">
-        </TextView>
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/prefs_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/no_permissions"
+                    style="@style/PermissionsFrameNoPermissionsText" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <include layout="@layout/loading_container" />
 
     </FrameLayout>
 
-    <include layout="@layout/loading_container" />
-
-</FrameLayout>
+</LinearLayout>

@@ -1,0 +1,12 @@
+{
+    "presubmit": [
+        {
+            "name": "CtsRoleTestCases",
+            "options": [
+                {
+                    "exclude-annotation": "androidx.test.filters.FlakyTest"
+                }
+            ]
+        }
+    ]
+}

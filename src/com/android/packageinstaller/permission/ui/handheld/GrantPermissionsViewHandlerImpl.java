@@ -16,10 +16,19 @@
 
 package com.android.packageinstaller.permission.ui.handheld;
 
+import static com.android.packageinstaller.permission.ui.GrantPermissionsActivity.LABEL_ALLOW_ALWAYS_BUTTON;
+import static com.android.packageinstaller.permission.ui.GrantPermissionsActivity.LABEL_ALLOW_BUTTON;
+import static com.android.packageinstaller.permission.ui.GrantPermissionsActivity.LABEL_ALLOW_FOREGROUND_BUTTON;
+import static com.android.packageinstaller.permission.ui.GrantPermissionsActivity.LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON;
+import static com.android.packageinstaller.permission.ui.GrantPermissionsActivity.LABEL_DENY_BUTTON;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Icon;
 import android.os.Bundle;
+import android.os.UserHandle;
+import android.transition.ChangeBounds;
+import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -27,17 +36,15 @@ import android.view.ViewGroup;
 import android.view.WindowManager.LayoutParams;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.animation.AnimationUtils;
-import android.view.animation.Interpolator;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.packageinstaller.R;
-import com.android.packageinstaller.permission.ui.ButtonBarLayout;
+import androidx.annotation.NonNull;
+
 import com.android.packageinstaller.permission.ui.GrantPermissionsViewHandler;
 import com.android.packageinstaller.permission.ui.ManagePermissionsActivity;
-import com.android.packageinstaller.permission.ui.ManualLayoutFrame;
+import com.android.permissioncontroller.R;
 
 public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHandler,
         OnClickListener {
@@ -47,46 +54,44 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
     public static final String ARG_GROUP_INDEX = "ARG_GROUP_INDEX";
     public static final String ARG_GROUP_ICON = "ARG_GROUP_ICON";
     public static final String ARG_GROUP_MESSAGE = "ARG_GROUP_MESSAGE";
-    public static final String ARG_GROUP_SHOW_DO_NOT_ASK = "ARG_GROUP_SHOW_DO_NOT_ASK";
-    public static final String ARG_GROUP_DO_NOT_ASK_CHECKED = "ARG_GROUP_DO_NOT_ASK_CHECKED";
+    private static final String ARG_GROUP_DETAIL_MESSAGE = "ARG_GROUP_DETAIL_MESSAGE";
+    private static final String ARG_DIALOG_BUTTON_LABELS = "ARG_DIALOG_BUTTON_LABELS";
 
     // Animation parameters.
-    private static final long OUT_DURATION = 200;
-    private static final long IN_DURATION = 300;
+    private static final long SWITCH_TIME_MILLIS = 75;
+    private static final long ANIMATION_DURATION_MILLIS = 200;
 
     private final Activity mActivity;
     private final String mAppPackageName;
-    private final boolean mPermissionReviewRequired;
+    private final UserHandle mUserHandle;
 
     private ResultListener mResultListener;
 
+    // Configuration of the current dialog
     private String mGroupName;
     private int mGroupCount;
     private int mGroupIndex;
     private Icon mGroupIcon;
     private CharSequence mGroupMessage;
-    private boolean mShowDonNotAsk;
-    private boolean mDoNotAskChecked;
+    private CharSequence mDetailMessage;
+    private CharSequence[] mButtonLabels;
 
+    // Views
     private ImageView mIconView;
-    private TextView mCurrentGroupView;
     private TextView mMessageView;
-    private CheckBox mDoNotAskCheckbox;
+    private TextView mDetailMessageView;
     private Button mAllowButton;
-    private Button mMoreInfoButton;
+    private Button mAllowAlwaysButton;
+    private Button mAllowForegroundButton;
+    private Button mDenyButton;
+    private Button mDenyAndDontAskAgainButton;
+    private ViewGroup mRootView;
 
-    private ManualLayoutFrame mRootView;
-
-    // Needed for animation
-    private ViewGroup mDescContainer;
-    private ViewGroup mCurrentDesc;
-    private ViewGroup mDialogContainer;
-    private ButtonBarLayout mButtonBar;
-
-    public GrantPermissionsViewHandlerImpl(Activity activity, String appPackageName) {
+    public GrantPermissionsViewHandlerImpl(Activity activity, String appPackageName,
+            @NonNull UserHandle userHandle) {
         mActivity = activity;
         mAppPackageName = appPackageName;
-        mPermissionReviewRequired = activity.getPackageManager().isPermissionReviewModeEnabled();
+        mUserHandle = userHandle;
     }
 
     @Override
@@ -102,8 +107,9 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         arguments.putInt(ARG_GROUP_INDEX, mGroupIndex);
         arguments.putParcelable(ARG_GROUP_ICON, mGroupIcon);
         arguments.putCharSequence(ARG_GROUP_MESSAGE, mGroupMessage);
-        arguments.putBoolean(ARG_GROUP_SHOW_DO_NOT_ASK, mShowDonNotAsk);
-        arguments.putBoolean(ARG_GROUP_DO_NOT_ASK_CHECKED, mDoNotAskCheckbox.isChecked());
+        arguments.putCharSequence(ARG_GROUP_DETAIL_MESSAGE, mDetailMessage);
+        arguments.putCharSequenceArray(ARG_DIALOG_BUTTON_LABELS, mButtonLabels);
+
     }
 
     @Override
@@ -113,194 +119,73 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         mGroupIcon = savedInstanceState.getParcelable(ARG_GROUP_ICON);
         mGroupCount = savedInstanceState.getInt(ARG_GROUP_COUNT);
         mGroupIndex = savedInstanceState.getInt(ARG_GROUP_INDEX);
-        mShowDonNotAsk = savedInstanceState.getBoolean(ARG_GROUP_SHOW_DO_NOT_ASK);
-        mDoNotAskChecked = savedInstanceState.getBoolean(ARG_GROUP_DO_NOT_ASK_CHECKED);
+        mDetailMessage = savedInstanceState.getCharSequence(ARG_GROUP_DETAIL_MESSAGE);
+        mButtonLabels = savedInstanceState.getCharSequenceArray(ARG_DIALOG_BUTTON_LABELS);
 
-        updateDoNotAskCheckBox();
+        updateAll();
     }
 
     @Override
     public void updateUi(String groupName, int groupCount, int groupIndex, Icon icon,
-            CharSequence message, boolean showDonNotAsk) {
+            CharSequence message, CharSequence detailMessage, CharSequence[] buttonLabels) {
+        boolean isNewGroup = mGroupIndex != groupIndex;
+
         mGroupName = groupName;
         mGroupCount = groupCount;
         mGroupIndex = groupIndex;
         mGroupIcon = icon;
         mGroupMessage = message;
-        mShowDonNotAsk = showDonNotAsk;
-        mDoNotAskChecked = false;
+        mDetailMessage = detailMessage;
+        mButtonLabels = buttonLabels;
+
         // If this is a second (or later) permission and the views exist, then animate.
         if (mIconView != null) {
-            if (mGroupIndex > 0) {
-                animateToPermission();
-            } else {
-                updateDescription();
-                updateGroup();
-                updateDoNotAskCheckBox();
-            }
+            updateAll();
         }
     }
 
-    public void onConfigurationChanged() {
-        mRootView.onConfigurationChanged();
-    }
-
-    private void animateOldContent(Runnable callback) {
-        // Fade out old description group and scale out the icon for it.
-        Interpolator interpolator = AnimationUtils.loadInterpolator(mActivity,
-                android.R.interpolator.fast_out_linear_in);
-
-        // Icon scale to zero
-        mIconView.animate()
-                .scaleX(0)
-                .scaleY(0)
-                .setDuration(OUT_DURATION)
-                .setInterpolator(interpolator)
-                .start();
-
-        // Description fade out
-        mCurrentDesc.animate()
-                .alpha(0)
-                .setDuration(OUT_DURATION)
-                .setInterpolator(interpolator)
-                .withEndAction(callback)
-                .start();
-
-        // Checkbox fade out if needed
-        if (!mShowDonNotAsk && mDoNotAskCheckbox.getVisibility() == View.VISIBLE) {
-            mDoNotAskCheckbox.animate()
-                    .alpha(0)
-                    .setDuration(OUT_DURATION)
-                    .setInterpolator(interpolator)
-                    .start();
-        }
-    }
-
-    private void attachNewContent(final Runnable callback) {
-        mCurrentDesc = (ViewGroup) LayoutInflater.from(mActivity).inflate(
-                R.layout.permission_description, mDescContainer, false);
-        mDescContainer.removeAllViews();
-        mDescContainer.addView(mCurrentDesc);
-
-        mDialogContainer.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
-                @Override
-                public void onLayoutChange(View v, int left, int top, int right, int bottom,
-                        int oldLeft, int oldTop, int oldRight, int oldBottom) {
-                    mDialogContainer.removeOnLayoutChangeListener(this);
-
-                    // Prepare new content to the right to be moved in
-                    final int containerWidth = mDescContainer.getWidth();
-                    mCurrentDesc.setTranslationX(containerWidth);
-
-                    // How much scale for the dialog to appear the same?
-                    final int oldDynamicHeight = oldBottom - oldTop - mButtonBar.getHeight();
-                    final float scaleY = (float) oldDynamicHeight / mDescContainer.getHeight();
-
-                    // How much to translate for the dialog to appear the same?
-                    final int translationCompensatingScale = (int) (scaleY
-                            * mDescContainer.getHeight() - mDescContainer.getHeight()) / 2;
-                    final int translationY = (oldTop - top) + translationCompensatingScale;
-
-                    // Animate to the current layout
-                    mDescContainer.setScaleY(scaleY);
-                    mDescContainer.setTranslationY(translationY);
-                    mDescContainer.animate()
-                            .translationY(0)
-                            .scaleY(1.0f)
-                            .setInterpolator(AnimationUtils.loadInterpolator(mActivity,
-                                    android.R.interpolator.linear_out_slow_in))
-                            .setDuration(IN_DURATION)
-                            .withEndAction(callback)
-                            .start();
-                }
-            }
-        );
-
-        mMessageView = (TextView) mCurrentDesc.findViewById(R.id.permission_message);
-        mIconView = (ImageView) mCurrentDesc.findViewById(R.id.permission_icon);
-
-        final boolean doNotAskWasShown = mDoNotAskCheckbox.getVisibility() == View.VISIBLE;
-
+    private void updateAll() {
         updateDescription();
-        updateGroup();
-        updateDoNotAskCheckBox();
+        updateDetailDescription();
+        updateButtons();
 
-        if (!doNotAskWasShown && mShowDonNotAsk) {
-            mDoNotAskCheckbox.setAlpha(0);
-        }
-    }
-
-    private void animateNewContent() {
-        Interpolator interpolator = AnimationUtils.loadInterpolator(mActivity,
-                android.R.interpolator.linear_out_slow_in);
-
-        // Description slide in
-        mCurrentDesc.animate()
-                .translationX(0)
-                .setDuration(IN_DURATION)
-                .setInterpolator(interpolator)
-                .start();
-
-        // Checkbox fade in if needed
-        if (mShowDonNotAsk && mDoNotAskCheckbox.getVisibility() == View.VISIBLE
-                && mDoNotAskCheckbox.getAlpha() < 1.0f) {
-            mDoNotAskCheckbox.setAlpha(0);
-            mDoNotAskCheckbox.animate()
-                    .alpha(1.0f)
-                    .setDuration(IN_DURATION)
-                    .setInterpolator(interpolator)
-                    .start();
-        }
-    }
-
-    private void animateToPermission() {
-        // Remove the old content
-        animateOldContent(new Runnable() {
-            @Override
-            public void run() {
-                // Add the new content
-                attachNewContent(new Runnable() {
-                    @Override
-                    public void run() {
-                        // Animate the new content
-                        animateNewContent();
-                    }
-                });
-            }
-        });
+//      Animate change in size
+//      Grow or shrink the content container to size of new content
+        ChangeBounds growShrinkToNewContentSize = new ChangeBounds();
+        growShrinkToNewContentSize.setDuration(ANIMATION_DURATION_MILLIS);
+        growShrinkToNewContentSize.setInterpolator(AnimationUtils.loadInterpolator(mActivity,
+                android.R.interpolator.fast_out_slow_in));
+        TransitionManager.beginDelayedTransition(mRootView, growShrinkToNewContentSize);
     }
 
     @Override
     public View createView() {
-        mRootView = (ManualLayoutFrame) LayoutInflater.from(mActivity)
+        mRootView = (ViewGroup) LayoutInflater.from(mActivity)
                 .inflate(R.layout.grant_permissions, null);
-        mButtonBar = (ButtonBarLayout) mRootView.findViewById(R.id.button_group);
-        mButtonBar.setAllowStacking(true);
-        mMessageView = (TextView) mRootView.findViewById(R.id.permission_message);
-        mIconView = (ImageView) mRootView.findViewById(R.id.permission_icon);
-        mCurrentGroupView = (TextView) mRootView.findViewById(R.id.current_page_text);
-        mDoNotAskCheckbox = (CheckBox) mRootView.findViewById(R.id.do_not_ask_checkbox);
 
+        int h = mActivity.getResources().getDisplayMetrics().heightPixels;
+        mRootView.setMinimumHeight(h);
+
+        mMessageView = (TextView) mRootView.findViewById(R.id.permission_message);
+        mDetailMessageView = (TextView) mRootView.findViewById(R.id.detail_message);
+        mIconView = (ImageView) mRootView.findViewById(R.id.permission_icon);
         mAllowButton = (Button) mRootView.findViewById(R.id.permission_allow_button);
         mAllowButton.setOnClickListener(this);
-
-        if (mPermissionReviewRequired) {
-            mMoreInfoButton = (Button) mRootView.findViewById(R.id.permission_more_info_button);
-            mMoreInfoButton.setVisibility(View.VISIBLE);
-            mMoreInfoButton.setOnClickListener(this);
-        }
-
-        mDialogContainer = (ViewGroup) mRootView.findViewById(R.id.dialog_container);
-        mDescContainer = (ViewGroup) mRootView.findViewById(R.id.desc_container);
-        mCurrentDesc = (ViewGroup) mRootView.findViewById(R.id.perm_desc_root);
+        mAllowAlwaysButton = (Button) mRootView.findViewById(R.id.permission_allow_always_button);
+        mAllowAlwaysButton.setOnClickListener(this);
+        mAllowForegroundButton =
+                (Button) mRootView.findViewById(R.id.permission_allow_foreground_only_button);
+        mAllowForegroundButton.setOnClickListener(this);
+        mDenyButton = (Button) mRootView.findViewById(R.id.permission_deny_button);
+        mDenyButton.setOnClickListener(this);
+        mDenyAndDontAskAgainButton =
+                (Button) mRootView.findViewById(R.id.permission_deny_and_dont_ask_again_button);
+        mDenyAndDontAskAgainButton.setOnClickListener(this);
 
         mRootView.findViewById(R.id.permission_deny_button).setOnClickListener(this);
-        mDoNotAskCheckbox.setOnClickListener(this);
 
         if (mGroupName != null) {
-            updateDescription();
-            updateGroup();
-            updateDoNotAskCheckBox();
+            updateAll();
         }
 
         return mRootView;
@@ -318,27 +203,51 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
         mMessageView.setText(mGroupMessage);
     }
 
-    private void updateGroup() {
-        if (mGroupCount > 1) {
-            mCurrentGroupView.setVisibility(View.VISIBLE);
-            mCurrentGroupView.setText(mActivity.getString(R.string.current_permission_template,
-                    mGroupIndex + 1, mGroupCount));
+    private void updateDetailDescription() {
+        if (mDetailMessage == null) {
+            mDetailMessageView.setVisibility(View.GONE);
         } else {
-            mCurrentGroupView.setVisibility(View.GONE);
+            mDetailMessageView.setText(mDetailMessage);
+            mDetailMessageView.setVisibility(View.VISIBLE);
         }
     }
 
-    private void updateDoNotAskCheckBox() {
-        if (mShowDonNotAsk) {
-            mDoNotAskCheckbox.setVisibility(View.VISIBLE);
-            mDoNotAskCheckbox.setOnClickListener(this);
-            mDoNotAskCheckbox.setChecked(mDoNotAskChecked);
-            mAllowButton.setEnabled(!mDoNotAskChecked);
+    private void updateButtons() {
+        if (mButtonLabels[LABEL_ALLOW_BUTTON] == null) {
+            mAllowButton.setVisibility(View.GONE);
         } else {
-            mDoNotAskCheckbox.setVisibility(View.GONE);
-            mDoNotAskCheckbox.setOnClickListener(null);
-            mAllowButton.setEnabled(true);
+            mAllowButton.setVisibility(View.VISIBLE);
+            mAllowButton.setText(mButtonLabels[LABEL_ALLOW_BUTTON]);
         }
+
+        if (mButtonLabels[LABEL_ALLOW_ALWAYS_BUTTON] == null) {
+            mAllowAlwaysButton.setVisibility(View.GONE);
+        } else {
+            mAllowAlwaysButton.setVisibility(View.VISIBLE);
+            mAllowAlwaysButton.setText(mButtonLabels[LABEL_ALLOW_ALWAYS_BUTTON]);
+        }
+
+        if (mButtonLabels[LABEL_ALLOW_FOREGROUND_BUTTON] == null) {
+            mAllowForegroundButton.setVisibility(View.GONE);
+        } else {
+            mAllowForegroundButton.setVisibility(View.VISIBLE);
+            mAllowForegroundButton.setText(mButtonLabels[LABEL_ALLOW_FOREGROUND_BUTTON]);
+        }
+
+        if (mButtonLabels[LABEL_DENY_BUTTON] == null) {
+            mDenyButton.setVisibility(View.GONE);
+        } else {
+            mDenyButton.setVisibility(View.VISIBLE);
+            mDenyButton.setText(mButtonLabels[LABEL_DENY_BUTTON]);
+        }
+
+        if (mButtonLabels[LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON] == null) {
+            mDenyAndDontAskAgainButton.setVisibility(View.GONE);
+        } else {
+            mDenyAndDontAskAgainButton.setVisibility(View.VISIBLE);
+            mDenyAndDontAskAgainButton.setText(mButtonLabels[LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON]);
+        }
+
     }
 
     @Override
@@ -348,35 +257,55 @@ public class GrantPermissionsViewHandlerImpl implements GrantPermissionsViewHand
                 if (mResultListener != null) {
                     view.performAccessibilityAction(
                             AccessibilityNodeInfo.ACTION_CLEAR_ACCESSIBILITY_FOCUS, null);
-                    mResultListener.onPermissionGrantResult(mGroupName, true, false);
+                    mResultListener.onPermissionGrantResult(mGroupName, GRANTED_ALWAYS);
                 }
                 break;
-            case R.id.permission_deny_button:
-                mAllowButton.setEnabled(true);
+            case R.id.permission_allow_always_button:
                 if (mResultListener != null) {
                     view.performAccessibilityAction(
                             AccessibilityNodeInfo.ACTION_CLEAR_ACCESSIBILITY_FOCUS, null);
-                    mResultListener.onPermissionGrantResult(mGroupName, false,
-                            mShowDonNotAsk && mDoNotAskCheckbox.isChecked());
+                    mResultListener.onPermissionGrantResult(mGroupName, GRANTED_ALWAYS);
+                }
+                break;
+            case R.id.permission_allow_foreground_only_button:
+                if (mResultListener != null) {
+                    view.performAccessibilityAction(
+                            AccessibilityNodeInfo.ACTION_CLEAR_ACCESSIBILITY_FOCUS, null);
+                    mResultListener.onPermissionGrantResult(mGroupName,
+                            GRANTED_FOREGROUND_ONLY);
+                }
+                break;
+            case R.id.permission_deny_button:
+                if (mResultListener != null) {
+                    view.performAccessibilityAction(
+                            AccessibilityNodeInfo.ACTION_CLEAR_ACCESSIBILITY_FOCUS, null);
+                    mResultListener.onPermissionGrantResult(mGroupName, DENIED);
+                }
+                break;
+            case R.id.permission_deny_and_dont_ask_again_button:
+                if (mResultListener != null) {
+                    view.performAccessibilityAction(
+                            AccessibilityNodeInfo.ACTION_CLEAR_ACCESSIBILITY_FOCUS, null);
+                    mResultListener.onPermissionGrantResult(mGroupName,
+                            DENIED_DO_NOT_ASK_AGAIN);
                 }
                 break;
             case R.id.permission_more_info_button:
                 Intent intent = new Intent(Intent.ACTION_MANAGE_APP_PERMISSIONS);
                 intent.putExtra(Intent.EXTRA_PACKAGE_NAME, mAppPackageName);
+                intent.putExtra(Intent.EXTRA_USER, mUserHandle);
                 intent.putExtra(ManagePermissionsActivity.EXTRA_ALL_PERMISSIONS, true);
                 mActivity.startActivity(intent);
                 break;
-            case R.id.do_not_ask_checkbox:
-                mAllowButton.setEnabled(!mDoNotAskCheckbox.isChecked());
-                break;
         }
+
     }
 
     @Override
     public void onBackPressed() {
         if (mResultListener != null) {
-            final boolean doNotAskAgain = mDoNotAskCheckbox.isChecked();
-            mResultListener.onPermissionGrantResult(mGroupName, false, doNotAskAgain);
+            mResultListener.onPermissionGrantResult(mGroupName, DENIED);
         }
     }
+
 }

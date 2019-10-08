@@ -29,11 +29,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
-import androidx.preference.SwitchPreference;
-import androidx.preference.Preference;
-import androidx.preference.Preference.OnPreferenceChangeListener;
-import androidx.preference.PreferenceScreen;
-import androidx.preference.PreferenceViewHolder;
+import android.util.ArraySet;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -41,16 +37,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.android.packageinstaller.R;
+import androidx.preference.Preference;
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.PreferenceViewHolder;
+import androidx.preference.SwitchPreference;
+
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.AppPermissions;
 import com.android.packageinstaller.permission.ui.ReviewPermissionsActivity;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.packageinstaller.permission.utils.Utils;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.android.permissioncontroller.R;
 
 public final class AppPermissionsFragment extends SettingsWithHeader
         implements OnPreferenceChangeListener {
@@ -61,7 +60,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
 
     private static final int MENU_ALL_PERMS = 0;
 
-    private List<AppPermissionGroup> mToggledGroups;
+    private ArraySet<AppPermissionGroup> mToggledGroups;
     private AppPermissions mAppPermissions;
     private PreferenceScreen mExtraScreen;
 
@@ -98,7 +97,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         }
 
 
-        mAppPermissions = new AppPermissions(activity, packageInfo, null, true,
+        mAppPermissions = new AppPermissions(activity, packageInfo, true,
                 () -> getActivity().finish());
 
         if (mAppPermissions.isReviewRequired()) {
@@ -191,7 +190,7 @@ public final class AppPermissionsFragment extends SettingsWithHeader
         extraPerms.setTitle(R.string.additional_permissions);
 
         for (AppPermissionGroup group : mAppPermissions.getPermissionGroups()) {
-            if (!Utils.shouldShowPermission(group, mAppPermissions.getPackageInfo().packageName)) {
+            if (!Utils.shouldShowPermission(getContext(), group)) {
                 continue;
             }
 
@@ -205,11 +204,13 @@ public final class AppPermissionsFragment extends SettingsWithHeader
             preference.setIcon(Utils.applyTint(getContext(), icon,
                     android.R.attr.colorControlNormal));
             preference.setTitle(group.getLabel());
-            if (group.isPolicyFixed()) {
+            if (group.isSystemFixed()) {
+                preference.setSummary(getString(R.string.permission_summary_enabled_system_fixed));
+            } else if (group.isPolicyFixed()) {
                 preference.setSummary(getString(R.string.permission_summary_enforced_by_policy));
             }
             preference.setPersistent(false);
-            preference.setEnabled(!group.isPolicyFixed());
+            preference.setEnabled(!group.isSystemFixed() && !group.isPolicyFixed());
             preference.setChecked(group.areRuntimePermissionsGranted());
 
             if (isPlatform) {
@@ -278,7 +279,8 @@ public final class AppPermissionsFragment extends SettingsWithHeader
 
         addToggledGroup(group);
 
-        if (LocationUtils.isLocationGroupAndProvider(group.getName(), group.getApp().packageName)) {
+        if (LocationUtils.isLocationGroupAndProvider(getContext(), group.getName(),
+                group.getApp().packageName)) {
             LocationUtils.showLocationDialog(getContext(), mAppPermissions.getAppLabel());
             return false;
         }
@@ -318,20 +320,14 @@ public final class AppPermissionsFragment extends SettingsWithHeader
 
     private void addToggledGroup(AppPermissionGroup group) {
         if (mToggledGroups == null) {
-            mToggledGroups = new ArrayList<>();
+            mToggledGroups = new ArraySet<>();
         }
-        // Double toggle is back to initial state.
-        if (mToggledGroups.contains(group)) {
-            mToggledGroups.remove(group);
-        } else {
-            mToggledGroups.add(group);
-        }
+        mToggledGroups.add(group);
     }
 
     private void logToggledGroups() {
         if (mToggledGroups != null) {
-            String packageName = mAppPermissions.getPackageInfo().packageName;
-            SafetyNetLogger.logPermissionsToggled(packageName, mToggledGroups);
+            SafetyNetLogger.logPermissionsToggled(mToggledGroups);
             mToggledGroups = null;
         }
     }

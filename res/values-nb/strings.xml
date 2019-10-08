@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,136 +16,208 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2738748390251381682">"Pakkeinstallasjon"</string>
-    <string name="next" msgid="3057143178373252333">"Neste"</string>
-    <string name="install" msgid="5896438203900042068">"Installer"</string>
-    <string name="done" msgid="3889387558374211719">"Ferdig"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"Gi appen følgende tillatelser:"</string>
-    <string name="cancel" msgid="8360346460165114585">"Avbryt"</string>
-    <string name="unknown" msgid="4742479012767208045">"Ukjent"</string>
-    <string name="installing" msgid="8613631001631998372">"Installerer…"</string>
-    <string name="installing_app" msgid="4097935682329028894">"Installerer <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> …"</string>
-    <string name="install_done" msgid="3682715442154357097">"Appen er installert."</string>
-    <string name="install_confirm_question" msgid="7295206719219043890">"Ønsker du å installere denne appen? Den får tilgang til følgende:"</string>
-    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Ønsker du å installere denne appen? Den krever ingen spesiell tilgang."</string>
-    <string name="install_confirm_question_update" msgid="4624159567361487964">"Ønsker du å installere en oppdatering for denne eksisterende appen? Du mister ingen eksisterende data. Den oppdaterte appen får tilgangen spesifisert nedenfor."</string>
-    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Ønsker du å installere en oppdatering for denne innebygde appen? Du mister ingen eksisterende data. Den oppdaterte appen får tilgangen spesifisert nedenfor."</string>
-    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Vil du installere en oppdatering av denne eksisterende appen? De eksisterende dataene dine går ikke tapt. Dette krever ingen spesiell tilgang."</string>
-    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Vil du installere en oppdatering av denne innebygde appen? De eksisterende dataene dine går ikke tapt. Dette krever ingen spesiell tilgang."</string>
-    <string name="install_failed" msgid="6579998651498970899">"Appen ble ikke installert."</string>
-    <string name="install_failed_blocked" msgid="1606870930588770025">"Pakken er blokkert fra å bli installert."</string>
-    <string name="install_failed_conflict" msgid="5336045235168070954">"Appen ble ikke installert fordi pakken er i konflikt med en eksisterende pakke."</string>
-    <string name="install_failed_incompatible" product="tablet" msgid="6682387386242708974">"Appen ble ikke installert fordi appen ikke er kompatibel med nettbrettet ditt."</string>
-    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Denne appen er ikke kompatibel med TV-en din."</string>
-    <string name="install_failed_incompatible" product="default" msgid="7917996365659426872">"Appen ble ikke installert fordi appen ikke er kompatibel med telefonen din."</string>
-    <string name="install_failed_invalid_apk" msgid="269885385245534742">"Appen ble ikke installert fordi pakken ser ut til å være ugyldig."</string>
-    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunne ikke installeres på nettbrettet ditt."</string>
-    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunne ikke installeres på TV-en."</string>
-    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunne ikke installeres på telefonen din."</string>
-    <string name="launch" msgid="4826921505917605463">"Åpne"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"Administratoren din tillater ikke installering av apper som er hentet fra ukjente kilder"</string>
-    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Ukjente apper kan ikke installeres av denne brukeren"</string>
-    <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"Brukeren har ikke tillatelse til å installere apper"</string>
-    <string name="ok" msgid="3468756155452870475">"OK"</string>
-    <string name="settings" msgid="6743583734099755409">"Innstillinger"</string>
-    <string name="manage_applications" msgid="4033876279091996596">"Administrer apper"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Vil du erstatte appen?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Appen du installerer erstatter en annen app.\n\nAlle de tidligere brukerdataene dine blir lagret."</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Dette er en systemapp.\n\nAlle de tidligere brukerdataene dine blir lagret."</string>
-    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Tom for plass"</string>
-    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunne ikke installeres. Frigjør plass og prøv på nytt."</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
-    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Appen ble ikke funnet"</string>
-    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Finner ikke appen i listen over installerte apper."</string>
-    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"Ikke tillatt"</string>
-    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"Denne brukeren har ikke tillatelse til å utføre denne avinstalleringen."</string>
-    <string name="generic_error_dlg_title" msgid="2684806600635296961">"Feil"</string>
-    <string name="generic_error_dlg_text" msgid="4288738047825333954">"Kunne ikke avinstallere appen."</string>
-    <string name="uninstall_application_title" msgid="1860074100811653963">"Avinstaller appen"</string>
-    <string name="uninstall_update_title" msgid="4146940097553335390">"Avinstaller oppdateringen"</string>
-    <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> er del av følgende app:"</string>
-    <string name="uninstall_application_text" msgid="6691975835951187030">"Vil du avinstallere denne appen?"</string>
-    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Vil du avinstallere denne appen for "<b>"alle"</b>" brukere? Appen og tilhørende data blir fjernet fra "<b>"alle"</b>" brukere på enheten."</string>
-    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Ønsker du å avinstallere denne appen for brukeren <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
-    <string name="uninstall_update_text" msgid="1394549691152728409">"Vil du erstatte denne appen med den opprinnelige versjonen? Alle dataene fjernes."</string>
-    <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Vil du erstatte denne appen med den opprinnelige versjonen? Alle dataene fjernes. Dette påvirker alle som bruker denne enheten – også personer med jobbprofiler."</string>
-    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"Avinstalleringer som er i gang"</string>
-    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"Mislykkede avinstalleringer"</string>
-    <string name="uninstalling" msgid="5556217435895938250">"Avinstallerer…"</string>
-    <string name="uninstalling_app" msgid="2773617614877719294">"Avinstallerer <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> …"</string>
-    <string name="uninstall_done" msgid="3792487853420281888">"Avinstalleringen er  fullført."</string>
-    <string name="uninstall_done_app" msgid="775837862728680479">"Avinstallerte <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>"</string>
-    <string name="uninstall_failed" msgid="631122574306299512">"Avinstalleringen mislyktes."</string>
-    <string name="uninstall_failed_app" msgid="945277834056527022">"Kunne ikke avinstallere <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"Kan ikke avinstallere den aktive appen for enhetsadministrator"</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"Kan ikke avinstallere den aktive appen for enhetsadministrator for <xliff:g id="USERNAME">%1$s</xliff:g>"</string>
-    <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Appen er nødvendig for noen brukere eller profiler, og den er avinstallert for andre"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"Denne appen er nødvendig for profilen din og kan ikke avinstalleres."</string>
-    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Denne appen kreves av enhetsadministratoren din og kan ikke avinstalleres."</string>
-    <string name="manage_device_administrators" msgid="118178632652346535">"Administrer apper for enhetsadministrator"</string>
-    <string name="manage_users" msgid="3125018886835668847">"Administrer brukere"</string>
-    <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> kunne ikke installeres."</string>
-    <string name="Parse_error_dlg_text" msgid="7623286983621067011">"Det oppsto et problem med analysen av pakken."</string>
-    <string name="newPerms" msgid="6039428254474104210">"Nye"</string>
-    <string name="allPerms" msgid="1024385515840703981">"Alle"</string>
-    <string name="privacyPerms" msgid="1850527049572617">"Personvern"</string>
-    <string name="devicePerms" msgid="6733560207731294504">"Enhetstilgang"</string>
-    <string name="no_new_perms" msgid="6657813692169565975">"Denne oppdateringen krever ingen nye tillatelser."</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"Ønsker du å gi følgende tillatelser? Dette gir tilgang til:"</string>
-    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Ikke tillat"</string>
-    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Finn ut mer"</string>
-    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Avvis likevel"</string>
-    <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> av <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="7332275268559121742">"Vil du gi &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; tillatelse til å <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
-    <string name="permission_revoked_count" msgid="7386129423432613024">"<xliff:g id="COUNT">%1$d</xliff:g> er slått av"</string>
-    <string name="permission_revoked_all" msgid="8595742638132863678">"alt er slått av"</string>
-    <string name="permission_revoked_none" msgid="2059511550181271342">"ingen er slått av"</string>
-    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Tillat"</string>
-    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Apper"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"Apptillatelser"</string>
-    <string name="never_ask_again" msgid="1089938738199748687">"Ikke spør igjen"</string>
-    <string name="no_permissions" msgid="3210542466245591574">"Ingen tillatelser"</string>
-    <string name="additional_permissions" msgid="6667573114240111763">"Flere tillatelser"</string>
-    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+    <string name="app_name" msgid="2792757108872430971">"Tillatelsekontrollør"</string>
+    <string name="ok" msgid="4417794827535157922">"OK"</string>
+    <string name="permission_search_keyword" msgid="1652964722383449182">"tillatelser"</string>
+    <string name="cancel" msgid="7279939269964834974">"Avbryt"</string>
+    <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Appen ble ikke funnet"</string>
+    <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Avvis"</string>
+    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Avvis, og ikke spør igjen"</string>
+    <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Mer info"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Avvis likevel"</string>
+    <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> av <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
+    <string name="permission_warning_template" msgid="1353228984024423745">"Vil du gi &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; tillatelse til å <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_add_background_warning_template" msgid="1046864917164159751">"Vil du alltid tillate at &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; kan <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="allow_permission_foreground_only" msgid="7444689446874060511">"Bare når appen brukes"</string>
+    <string name="allow_permission_always" msgid="4089537686339013930">"Alltid"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8131547398883397878">"Avvis, og ikke spør igjen"</string>
+    <string name="permission_revoked_count" msgid="5556125174203696709">"<xliff:g id="COUNT">%1$d</xliff:g> er slått av"</string>
+    <string name="permission_revoked_all" msgid="6356577996164232918">"alt er slått av"</string>
+    <string name="permission_revoked_none" msgid="266013103540772023">"ingen er slått av"</string>
+    <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Ja"</string>
+    <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"Tillat hele tiden"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Bare tillat mens appen er i bruk"</string>
+    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Apper"</string>
+    <string name="app_permissions" msgid="2778362347879465223">"Apptillatelser"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"Tillatelsesadministrator"</string>
+    <string name="never_ask_again" msgid="7645304182523160030">"Ikke spør igjen"</string>
+    <string name="no_permissions" msgid="2193893107241172888">"Ingen tillatelser"</string>
+    <string name="additional_permissions" msgid="7124470111123472154">"Flere tillatelser"</string>
+    <string name="app_permissions_info_button_label" msgid="6566057048862462066">"Åpne info om appen"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> til</item>
       <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> til</item>
     </plurals>
-    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Denne appen er designet for en eldre versjon av Android. Hvis du nekter å gi tillatelse, kan det føre til at den ikke lenger fungerer etter hensikten."</string>
-    <string name="default_permission_description" msgid="4992892207044156668">"utfør en ukjent handling"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> av <xliff:g id="COUNT_1">%2$d</xliff:g> apper er tillatt"</string>
-    <string name="menu_show_system" msgid="6773743421743728921">"Vis systemapper"</string>
-    <string name="menu_hide_system" msgid="7595471742649432977">"Skjul systemet"</string>
-    <string name="permission_title" msgid="6495415273398916381">"<xliff:g id="PERMISSION">%1$s</xliff:g>-tillatelser"</string>
-    <string name="no_apps" msgid="1965493419005012569">"Ingen apper"</string>
-    <string name="location_settings" msgid="1774875730854491297">"Posisjonsinnstillinger"</string>
-    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> er en leverandør av posisjonstjenester for denne enheten. Tilgang til posisjon kan endres fra posisjonsinnstillingene."</string>
-    <string name="system_warning" msgid="7103819124542305179">"Hvis du ikke gir denne tillatelsen, kan grunnleggende funksjoner på enheten slutte å fungere som de skal."</string>
-    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Påkrevd ifølge retningslinjene"</string>
-    <string name="loading" msgid="7811651799620593731">"Laster inn …"</string>
-    <string name="all_permissions" msgid="5156669007784613042">"Alle tillatelser"</string>
-    <string name="other_permissions" msgid="2016192512386091933">"Andre appfunksjoner"</string>
-    <string name="permission_request_title" msgid="1204446718549121199">"Forespørsel om tillatelse"</string>
-    <string name="screen_overlay_title" msgid="3021729846864038529">"Skjermoverlegg oppdaget"</string>
-    <string name="screen_overlay_message" msgid="2141944461571677331">"For å endre denne tillatelsesinnstilingen må du først slå av skjermoverlegget fra Innstillinger &gt; Apper"</string>
-    <string name="screen_overlay_button" msgid="4344544843349937743">"Åpne innstillingene"</string>
-    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Handlinger for å installere og avinstallere er ikke støttet på Wear."</string>
-    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> er oppdatert. Vil du gi <xliff:g id="APP_NAME_1">%1$s</xliff:g> tilgang til følgende?"</string>
-    <string name="permission_review_title_template_install" msgid="6819338441305295479">"Velg hva du vil gi <xliff:g id="APP_NAME">%1$s</xliff:g> tilgang til"</string>
-    <string name="permission_review_title_template_update" msgid="8632233603161669426">"<xliff:g id="APP_NAME">%1$s</xliff:g> er oppdatert. Velg hva du vil gi denne appen tilgang til."</string>
-    <string name="review_button_cancel" msgid="957906817733578877">"Avbryt"</string>
-    <string name="review_button_continue" msgid="4809162078179371370">"Fortsett"</string>
-    <string name="new_permissions_category" msgid="3213523410139204183">"Nye tillatelser"</string>
-    <string name="current_permissions_category" msgid="998210994450606094">"Gjeldende tillatelser"</string>
-    <string name="message_staging" msgid="6151794817691100003">"Setter opp appen …"</string>
-    <string name="app_name_unknown" msgid="8931522764510159105">"Ukjent"</string>
-    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"Nettbrettet ditt har ikke tillatelse til å installere ukjente apper fra denne kilden, for å ivareta sikkerheten din."</string>
-    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"TV-en din har ikke tillatelse til å installere ukjente apper fra denne kilden, for å ivareta sikkerheten din."</string>
-    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"Telefonen din har ikke tillatelse til å installere ukjente apper fra denne kilden, for å ivareta sikkerheten din."</string>
-    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"Telefonen din og de personlige dataene dine er mer sårbare for angrep fra ukjente apper. Når du installerer denne appen, samtykker du i at du er ansvarlig for eventuelle skader på telefonen eller tap av data bruk av appen forårsaker."</string>
-    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"Nettbrettet ditt og de personlige dataene dine er mer sårbare for angrep fra ukjente apper. Når du installerer denne appen, samtykker du i at du er ansvarlig for eventuelle skader på nettbrettet eller tap av data bruk av appen forårsaker."</string>
-    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"TV-en din og de personlige dataene dine er mer sårbare for angrep fra ukjente apper. Når du installerer denne appen, samtykker du i at du er ansvarlig for eventuelle skader på TV-en eller tap av data bruk av appen forårsaker."</string>
-    <string name="anonymous_source_continue" msgid="2094381167954332292">"Fortsett"</string>
-    <string name="external_sources_settings" msgid="8601453744517291632">"Innstillinger"</string>
-    <string name="wear_app_channel" msgid="6200840123672949356">"Installerer/avinstallerer wear-apper"</string>
+    <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Denne appen er laget for en eldre versjon av Android. Hvis du ikke gir tillatelse, kan det føre til at den ikke lenger fungerer som den skal."</string>
+    <string name="default_permission_description" msgid="692254823411049573">"utføre en ukjent handling"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> av <xliff:g id="COUNT_1">%2$d</xliff:g> apper er tillatt"</string>
+    <string name="permission_usage_header" msgid="8802963718365732792">"Nylig bruk"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"Se tillatelsesoversikten"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"Vis systemapper"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"Skjul systemapper"</string>
+    <string name="no_apps" msgid="2377153782338039463">"Ingen apper"</string>
+    <string name="location_settings" msgid="547378321761364906">"Posisjonsinnstillinger"</string>
+    <string name="location_warning" msgid="4687406043150343369">"<xliff:g id="APP_NAME">%1$s</xliff:g> er en leverandør av posisjonstjenester for denne enheten. Tilgang til posisjon kan endres fra posisjonsinnstillingene."</string>
+    <string name="system_warning" msgid="6868290533389195836">"Hvis du ikke gir denne tillatelsen, kan grunnleggende funksjoner på enheten slutte å fungere som de skal."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"Påkrevd ifølge retningslinjene"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"Tilgang i bakgrunnen er slått av pga. retningslinjene"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"Tilgang i bakgrunnen er slått på pga. retningslinjene"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="8652417310534780420">"Tilgang i forgrunnen er slått på pga. retningslinjene"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="5156952484229154563">"Kontrollert av administratoren"</string>
+    <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"Administratoren har slått av tilgang i bakgrunnen"</string>
+    <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"Administratoren har slått på tilgang i bakgrunnen"</string>
+    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"Administratoren har slått på tilgang i forgrunnen"</string>
+    <string name="permission_summary_enabled_system_fixed" msgid="1648259601814176611">"Tillatelse er angitt av systemet"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
+    <string name="permission_access_always" msgid="2315256378850460955">"Alltid"</string>
+    <string name="permission_access_only_foreground" msgid="8109903552082630801">"Bare når appen brukes"</string>
+    <string name="permission_access_never" msgid="4717648645876576508">"Aldri"</string>
+    <string name="loading" msgid="323483393167148377">"Laster inn …"</string>
+    <string name="all_permissions" msgid="7813580062403112957">"Alle tillatelser"</string>
+    <string name="other_permissions" msgid="1956312685853070715">"Andre appfunksjoner"</string>
+    <string name="permission_request_title" msgid="6779348653783761548">"Forespørsel om tillatelse"</string>
+    <string name="screen_overlay_title" msgid="1632732130312696010">"Skjermoverlegg oppdaget"</string>
+    <string name="screen_overlay_message" msgid="3222033787364955006">"For å endre denne tillatelsesinnstillingen må du først slå av skjermoverlegget fra Innstillinger &gt; Apper"</string>
+    <string name="screen_overlay_button" msgid="3554849308322944411">"Åpne Innstillinger"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="6923880912091041609">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="8731817202551430387">"Handlinger for å installere og avinstallere støttes ikke på Wear."</string>
+    <string name="permission_review_title_template_install" msgid="8131698354985303888">"Velg hva du vil gi <xliff:g id="APP_NAME">%1$s</xliff:g> tilgang til"</string>
+    <string name="permission_review_title_template_update" msgid="7597155653571395485">"<xliff:g id="APP_NAME">%1$s</xliff:g> er oppdatert. Velg hva du vil gi denne appen tilgang til."</string>
+    <string name="review_button_cancel" msgid="7108377593627664194">"Avbryt"</string>
+    <string name="review_button_continue" msgid="1367925420132212571">"Fortsett"</string>
+    <string name="new_permissions_category" msgid="7242713808413888679">"Nye tillatelser"</string>
+    <string name="current_permissions_category" msgid="3835461245150972589">"Gjeldende tillatelser"</string>
+    <string name="message_staging" msgid="641286607664721291">"Klargjør appen …"</string>
+    <string name="app_name_unknown" msgid="8288360585728122735">"Ukjent"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Oversikt"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">Sist brukt: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> ganger</item>
+      <item quantity="one">Sist brukt: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> gang</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">Sist brukt: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> ganger (<xliff:g id="NUM_5">%3$s</xliff:g> i bakgrunnen)</item>
+      <item quantity="one">Sist brukt: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> gang (<xliff:g id="NUM_2">%3$s</xliff:g> i bakgrunnen)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">Sist brukt: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> ganger\nVarighet: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">Sist brukt: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> gang\nVarighet: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">Sist brukt: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> ganger (<xliff:g id="NUM_6">%3$s</xliff:g> i bakgrunnen)\nVarighet: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">Sist brukt: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> gang (<xliff:g id="NUM_2">%3$s</xliff:g> i bakgrunnen)\nVarighet: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Hvilken som helst tillatelse"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"Når som helst"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"De siste 7 dagene"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"De siste 24 timene"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Den siste timen"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"De siste 15 minuttene"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Det siste minuttet"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"Ingen bruk av tillatelsen"</string>
+    <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"Bruk til enhver tid"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"Bruk i løpet av de siste syv dagene"</string>
+    <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"Bruk i løpet av de siste 24 timene"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"Bruk i løpet av den siste timen"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"Brukt i løpet av de siste 15 minuttene"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="8035799852985876841">"Bruk i løpet av det siste minuttet"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"Hyppigste bruk av tillatelser til enhver tid"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"Hyppigste bruk av tillatelser de siste syv dagene"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"Hyppigste bruk av tillatelser de siste 24 timene"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"Hyppigste bruk av tillatelser den siste timen"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"Hyppigste bruk av tillatelse de siste 15 minuttene"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"Hyppigste bruk av tillatelser det siste minuttet"</string>
+    <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"Apper"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Filtrert etter: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"Fjern filteret"</string>
+    <string name="filter_by_title" msgid="5940302511365561845">"Filtrér etter"</string>
+    <string name="filter_by_permissions" msgid="7761207093643478436">"Filtrér etter tillatelser"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Flest tillatelser"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Mest brukt"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"Nylig"</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"Last inn på nytt"</string>
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"Bruk av apptillatelser"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"Tilgang: <xliff:g id="NUM">%1$s</xliff:g> ganger. Total varighet: <xliff:g id="DURATION">%2$s</xliff:g>. Sist brukt for <xliff:g id="TIME">%3$s</xliff:g> siden."</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Tilgang: <xliff:g id="NUM">%1$s</xliff:g> ganger. Sist brukt for <xliff:g id="TIME">%2$s</xliff:g> siden."</string>
+    <string name="app_permission_button_allow" msgid="1358817292836175593">"Tillat"</string>
+    <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Tillat hele tiden"</string>
+    <string name="app_permission_button_allow_foreground" msgid="6366222217615376397">"Bare tillat mens appen er i bruk"</string>
+    <string name="app_permission_button_deny" msgid="5716368368650638408">"Avvis"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"<xliff:g id="PERM">%1$s</xliff:g>-tillatelse"</string>
+    <string name="app_permission_header" msgid="5704679725169517493">"<xliff:g id="PERM">%1$s</xliff:g>-tilgang for <xliff:g id="APP">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="APP">%1$s</xliff:g> har brukt <xliff:g id="PERM">%2$s</xliff:g> for <xliff:g id="TIME">%3$s</xliff:g> siden."</string>
+    <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> har ikke brukt <xliff:g id="PERM">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Vis detaljert bruk av tillatelser"</string>
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Siste tilgang: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Aldri brukt"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"Tillatt"</string>
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"Tillates bare når appen brukes"</string>
+    <string name="denied_header" msgid="2277998574238617699">"Avvist"</string>
+    <string name="detailed_usage_link" msgid="3990452346369247944">"Se detaljert bruk"</string>
+    <plurals name="days" formatted="false" msgid="3903419301028414979">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> dager</item>
+      <item quantity="one">1 dag</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="2123927014975877155">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> timer</item>
+      <item quantity="one">1 time</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="4331145652577957044">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> minutter</item>
+      <item quantity="one">1 minutt</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="1632909606956324957">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> sekunder</item>
+      <item quantity="one">1 sekund</item>
+    </plurals>
+    <string name="role_request_message_add" msgid="1977772335648650272">"Vil du bruke &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; som <xliff:g id="ROLE_NAME">%2$s</xliff:g>?"</string>
+    <string name="role_request_message_replace" msgid="6367571247558110210">"Vil du bruke &lt;b&gt;<xliff:g id="NEW_APP_NAME">%1$s</xliff:g>&lt;/b&gt; i stedet for &lt;b&gt;<xliff:g id="CURRENT_APP_NAME">%1$s</xliff:g>&lt;/b&gt; som <xliff:g id="ROLE_NAME">%2$s</xliff:g>?"</string>
+    <string name="permission_reminders" msgid="8040710767178843151">"Påminnelser om tillatelser"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> har brukt posisjonen din"</string>
+    <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Denne appen har alltid tilgang til posisjonen din. Trykk for å endre."</string>
+    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Bare mens appen er i bruk"</string>
+    <string name="no_permissions_allowed" msgid="5781278485002145993">"Ingen tillatelser er gitt"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"Ingen tillatelser er nektet"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"Ingen apper har fått tillatelsen"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"Ingen apper er nektet"</string>
+    <string name="launch_app" msgid="5641437562665039291">"Åpne"</string>
+    <string name="uninstall_app" msgid="8756507666995809214">"Avinstaller"</string>
+    <string name="force_stop_app" msgid="4253426323145479826">"Tving til å avslutte"</string>
+    <string name="settings" msgid="2884124136779508907">"Innstillinger"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> har full tilgang til enheten din"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> tilgjengelighetstjenester har full tilgang til enheten din"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> kan se skjermen, handlinger og inndata, utføre handlinger og kontrollere skjermen."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"Disse tjenestene kan se skjermen, handlinger og inndata, utføre handlinger og kontrollere skjermen."</string>
+    <string name="default_apps" msgid="8554530939151957828">"Standardapper"</string>
+    <string name="no_default_apps" msgid="5642715159090903032">"Ingen standardapper"</string>
+    <string name="default_apps_for_work" msgid="8582151955372061208">"Jobbstandard"</string>
+    <string name="default_app_none" msgid="7671097769303174666">"Ingen"</string>
+    <string name="default_app_no_apps" msgid="5344668465735677271">"Ingen apper"</string>
+    <string name="special_app_access" msgid="2561673957499408877">"Spesiell apptilgang"</string>
+    <string name="no_special_app_access" msgid="994977666694457811">"Ingen spesiell apptilgang"</string>
+    <string name="special_app_access_no_apps" msgid="3934763650592564818">"Ingen apper"</string>
+    <string name="role_label_assistant" msgid="456685142560727172">"Assistentapp"</string>
+    <string name="role_label_browser" msgid="6266502234308421457">"Nettleserapp"</string>
+    <string name="role_label_dialer" msgid="3345895090725237533">"Telefon-app"</string>
+    <string name="role_label_sms" msgid="2262769075496017522">"SMS-app"</string>
+    <string name="role_label_emergency" msgid="2226651888638211616">"Nødapp"</string>
+    <string name="role_label_home" msgid="7672863812639457378">"Startsideapp"</string>
+    <string name="role_label_music" msgid="5900245414865932272">"Musikk-appen"</string>
+    <string name="role_label_gallery" msgid="6939560238495155209">"Galleri-appen"</string>
+    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"Telefonapp for bilmodus"</string>
+    <string name="role_label_call_redirection" msgid="8902197181113231577">"App for viderekobling av anrop"</string>
+    <string name="role_label_call_screening" msgid="411212589764916370">"App for anropsutvelgelse"</string>
+    <string name="role_label_call_companion" msgid="7369723859682076467">"Følgeapp for ringing"</string>
+    <string name="role_label_car_projection" msgid="3792929094325391213">"App for speiling i bilen"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"Støtter ikke jobbprofiler"</string>
+    <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Merk: Hvis du starter enheten din på nytt og har en skjermlås angitt, kan ikke denne appen starte før du låser opp enheten."</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"Assistenten kan lese informasjon om appene du bruker i systemet ditt, inkludert informasjon som er synlig på skjermen eller tilgjengelig i appene."</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"Del feilsøkingsdata"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"Vil du dele detaljerte feilsøkingsdata?"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> vil laste opp feilsøkingsinformasjon."</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Del feilsøkingsdata"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> ber om å laste opp en feilrapport fra denne enheten fra <xliff:g id="DATE">%2$s</xliff:g> klokken <xliff:g id="TIME">%3$s</xliff:g>. Feilrapporter inkluderer personopplysninger om enheten eller opplysninger som er loggført av apper, for eksempel brukernavn, posisjonsdata, enhetsidentifikatorer og nettverksinformasjon. Du bør bare dele feilrapporter med personer og apper du stoler på. Vil du gi <xliff:g id="APP_NAME_1">%4$s</xliff:g> tillatelse til å laste opp en feilrapport?"</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Tillat"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Avvis"</string>
 </resources>

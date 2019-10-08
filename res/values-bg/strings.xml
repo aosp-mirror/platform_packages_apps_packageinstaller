@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,136 +16,208 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2738748390251381682">"Инсталираща програма за пакети"</string>
-    <string name="next" msgid="3057143178373252333">"Напред"</string>
-    <string name="install" msgid="5896438203900042068">"Инсталиране"</string>
-    <string name="done" msgid="3889387558374211719">"Готово"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"Да се разреши на това приложение следното:"</string>
-    <string name="cancel" msgid="8360346460165114585">"Назад"</string>
-    <string name="unknown" msgid="4742479012767208045">"Неизвестно"</string>
-    <string name="installing" msgid="8613631001631998372">"Инсталира се..."</string>
-    <string name="installing_app" msgid="4097935682329028894">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> се инсталира…"</string>
-    <string name="install_done" msgid="3682715442154357097">"Приложението бе инсталирано."</string>
-    <string name="install_confirm_question" msgid="7295206719219043890">"Искате ли да инсталирате това приложение? То ще получи достъп до:"</string>
-    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"Искате ли да инсталирате това приложение? То не изисква никакъв специален достъп."</string>
-    <string name="install_confirm_question_update" msgid="4624159567361487964">"Искате ли да инсталирате актуализация за това съществуващо приложение? Съществуващите ви данни няма да бъдат загубени. Актуализираното приложение ще получи достъп до:"</string>
-    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"Искате ли да инсталирате актуализация за това вградено приложение? Съществуващите ви данни няма да бъдат загубени. Актуализираното приложение ще получи достъп до:"</string>
-    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"Искате ли да инсталирате актуализация за това съществуващо приложение? Съществуващите ви данни няма да бъдат загубени. Не се изисква специален достъп."</string>
-    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"Искате ли да инсталирате актуализация за това вградено приложение? Съществуващите ви данни няма да бъдат загубени. Не се изисква специален достъп."</string>
-    <string name="install_failed" msgid="6579998651498970899">"Приложението не бе инсталирано."</string>
-    <string name="install_failed_blocked" msgid="1606870930588770025">"Инсталирането на пакета бе блокирано."</string>
-    <string name="install_failed_conflict" msgid="5336045235168070954">"Приложението не бе инсталирано, тъй като пакетът е в конфликт със съществуващ пакет."</string>
-    <string name="install_failed_incompatible" product="tablet" msgid="6682387386242708974">"Приложението не бе инсталирано, тъй като не е съвместимо с таблета ви."</string>
-    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"Това приложение не е съвместимо с телевизора ви."</string>
-    <string name="install_failed_incompatible" product="default" msgid="7917996365659426872">"Приложението не бе инсталирано, тъй като не е съвместимо с телефона ви."</string>
-    <string name="install_failed_invalid_apk" msgid="269885385245534742">"Приложението не бе инсталирано, тъй като изглежда, че пакетът е невалиден."</string>
-    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"<xliff:g id="APP_NAME">%1$s</xliff:g> не можа да се инсталира на таблета ви."</string>
-    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> не можа да се инсталира на телевизора ви."</string>
-    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"<xliff:g id="APP_NAME">%1$s</xliff:g> не можа да се инсталира на телефона ви."</string>
-    <string name="launch" msgid="4826921505917605463">"Отваряне"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"Администраторът ви не разрешава инсталирането на приложения, получени от неизвестни източници"</string>
-    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"Този потребител не може да инсталира неизвестни приложения"</string>
-    <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"Този потребител няма разрешение да инсталира приложения"</string>
-    <string name="ok" msgid="3468756155452870475">"OK"</string>
-    <string name="settings" msgid="6743583734099755409">"Настройки"</string>
-    <string name="manage_applications" msgid="4033876279091996596">"Управление на приложенията"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"Да се замени ли приложението?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"Приложението, което инсталирате, ще замени друго.\n\nВсичките ви досегашни потребителски данни ще бъдат запазени."</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"Това е системно приложение.\n\nВсичките ви досегашни потребителски данни ще бъдат запазени."</string>
-    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"Няма място"</string>
-    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"<xliff:g id="APP_NAME">%1$s</xliff:g> не можа да се инсталира. Освободете място и опитайте отново."</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"OK"</string>
-    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"Приложението не бе намерено"</string>
-    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"Приложението не бе намерено в списъка с инсталирани приложения."</string>
-    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"Няма разрешение"</string>
-    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"Текущият потребител няма разрешение да извърши това деинсталиране."</string>
-    <string name="generic_error_dlg_title" msgid="2684806600635296961">"Грешка"</string>
-    <string name="generic_error_dlg_text" msgid="4288738047825333954">"Приложението не можа да бъде деинсталирано."</string>
-    <string name="uninstall_application_title" msgid="1860074100811653963">"Деинсталиране на приложението"</string>
-    <string name="uninstall_update_title" msgid="4146940097553335390">"Деинсталиране на актуализацията"</string>
-    <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> е част от следното приложение:"</string>
-    <string name="uninstall_application_text" msgid="6691975835951187030">"Искате ли да деинсталирате това приложение?"</string>
-    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"Искате ли да деинсталирате това приложение за "<b>"всички"</b>" потребители? Приложението и данните му ще бъдат премахнати от "<b>"всички"</b>" потребители на устройството."</string>
-    <string name="uninstall_application_text_user" msgid="8766882355635485733">"Искате ли да деинсталирате това приложение за потребителя <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
-    <string name="uninstall_update_text" msgid="1394549691152728409">"Това приложение да се замени ли с фабричната версия? Всички данни ще бъдат премахнати."</string>
-    <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"Това приложение да се замени ли с фабричната версия? Всички данни ще бъдат премахнати. Промяната ще засегне всеки потребител на устройството, включително тези със служебни потребителски профили."</string>
-    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"Активни деинсталирания"</string>
-    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"Неуспешни деинсталирания"</string>
-    <string name="uninstalling" msgid="5556217435895938250">"Деинсталира се..."</string>
-    <string name="uninstalling_app" msgid="2773617614877719294">"<xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> се деинсталира…"</string>
-    <string name="uninstall_done" msgid="3792487853420281888">"Деинсталирането завърши."</string>
-    <string name="uninstall_done_app" msgid="775837862728680479">"Деинсталирахте <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>"</string>
-    <string name="uninstall_failed" msgid="631122574306299512">"Деинсталирането не бе успешно."</string>
-    <string name="uninstall_failed_app" msgid="945277834056527022">"Деинсталирането на <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> бе неуспешно."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"Активното приложение за администриране на устройството не може да се деинсталира"</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"Активното приложение за администриране на устройството не може да се деинсталира за <xliff:g id="USERNAME">%1$s</xliff:g>"</string>
-    <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"Това приложение е необходимо за някои потребители или потребителски профили и бе деинсталирано за други."</string>
-    <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"Това приложение е необходимо за потребителския ви профил и не може да се деинсталира."</string>
-    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"Приложението се изисква от администратора на у-вото и не може да се деинсталира."</string>
-    <string name="manage_device_administrators" msgid="118178632652346535">"Управление на прилож. за администриране на у-вото"</string>
-    <string name="manage_users" msgid="3125018886835668847">"Управление на потребителите"</string>
-    <string name="uninstall_failed_msg" msgid="8969754702803951175">"<xliff:g id="APP_NAME">%1$s</xliff:g> не можа да се деинсталира."</string>
-    <string name="Parse_error_dlg_text" msgid="7623286983621067011">"При синтактичния анализ на пакета възникна проблем."</string>
-    <string name="newPerms" msgid="6039428254474104210">"Нови"</string>
-    <string name="allPerms" msgid="1024385515840703981">"Всички"</string>
-    <string name="privacyPerms" msgid="1850527049572617">"Поверителност"</string>
-    <string name="devicePerms" msgid="6733560207731294504">"Достъп до у-вото"</string>
-    <string name="no_new_perms" msgid="6657813692169565975">"Тази актуализация не изисква нови разрешения."</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"Искате ли да предоставите следните разрешения? Така ще се получи достъп до:"</string>
-    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"Отказване"</string>
-    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"Още информация"</string>
-    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"Отказване въпреки това"</string>
-    <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> от <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="7332275268559121742">"Разрешаване на &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; да <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
-    <string name="permission_revoked_count" msgid="7386129423432613024">"Деактивирахте <xliff:g id="COUNT">%1$d</xliff:g>"</string>
-    <string name="permission_revoked_all" msgid="8595742638132863678">"всички са деактивирани"</string>
-    <string name="permission_revoked_none" msgid="2059511550181271342">"няма деактивирани"</string>
-    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"Разрешаване"</string>
-    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"Приложения"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"Разрешения за приложения"</string>
-    <string name="never_ask_again" msgid="1089938738199748687">"Без повторно питане"</string>
-    <string name="no_permissions" msgid="3210542466245591574">"Няма разрешения"</string>
-    <string name="additional_permissions" msgid="6667573114240111763">"Допълнителни разрешения"</string>
-    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+    <string name="app_name" msgid="2792757108872430971">"Управление на разрешения"</string>
+    <string name="ok" msgid="4417794827535157922">"OK"</string>
+    <string name="permission_search_keyword" msgid="1652964722383449182">"разрешения"</string>
+    <string name="cancel" msgid="7279939269964834974">"Отказ"</string>
+    <string name="app_not_found_dlg_title" msgid="8897078571059217849">"Приложението не бе намерено"</string>
+    <string name="grant_dialog_button_deny" msgid="1649644200597601964">"Отказ"</string>
+    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"Отказване, без повторно запитване"</string>
+    <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"Още информация"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"Отказване"</string>
+    <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> от <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
+    <string name="permission_warning_template" msgid="1353228984024423745">"Да се разреши ли на &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; следното действие: <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_add_background_warning_template" msgid="1046864917164159751">"Винаги ли да се разрешава на &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; да <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="allow_permission_foreground_only" msgid="7444689446874060511">"Само при използване на приложението"</string>
+    <string name="allow_permission_always" msgid="4089537686339013930">"Винаги"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8131547398883397878">"Отказване, без повторно запитване"</string>
+    <string name="permission_revoked_count" msgid="5556125174203696709">"Деактивирахте <xliff:g id="COUNT">%1$d</xliff:g>"</string>
+    <string name="permission_revoked_all" msgid="6356577996164232918">"всички са деактивирани"</string>
+    <string name="permission_revoked_none" msgid="266013103540772023">"няма деактивирани"</string>
+    <string name="grant_dialog_button_allow" msgid="2137542756625939532">"Разрешаване"</string>
+    <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"Разрешаване във всички случаи"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"Разрешаване само докато приложението се използва"</string>
+    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"Приложения"</string>
+    <string name="app_permissions" msgid="2778362347879465223">"Разрешения за приложенията"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"Мениджър на разрешенията"</string>
+    <string name="never_ask_again" msgid="7645304182523160030">"Без повторно запитване"</string>
+    <string name="no_permissions" msgid="2193893107241172888">"Няма разрешения"</string>
+    <string name="additional_permissions" msgid="7124470111123472154">"Допълнителни разрешения"</string>
+    <string name="app_permissions_info_button_label" msgid="6566057048862462066">"Отваряне на информацията за приложението"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
       <item quantity="other">Още <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="one">Още <xliff:g id="COUNT_0">%1$d</xliff:g></item>
     </plurals>
-    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"Това приложение е създадено за по-стара версия на Android. То може да спре да функционира нормално при отказване на разрешението."</string>
-    <string name="default_permission_description" msgid="4992892207044156668">"извършване на неизвестно действие"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> от <xliff:g id="COUNT_1">%2$d</xliff:g> приложения имат разрешение"</string>
-    <string name="menu_show_system" msgid="6773743421743728921">"Системни приложения"</string>
-    <string name="menu_hide_system" msgid="7595471742649432977">"Скриване на системните"</string>
-    <string name="permission_title" msgid="6495415273398916381">"Разрешения за <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
-    <string name="no_apps" msgid="1965493419005012569">"Няма приложения"</string>
-    <string name="location_settings" msgid="1774875730854491297">"Настройки за местоположението"</string>
-    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> е доставчик на услуги за местоположението за това устройство. Достъпът до местоположението може да бъде променен от съответните настройки."</string>
-    <string name="system_warning" msgid="7103819124542305179">"Ако откажете това разрешение, основни функции на устройството ви може да спрат да работят както трябва."</string>
-    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"Наложено чрез правило"</string>
-    <string name="loading" msgid="7811651799620593731">"Зарежда се…"</string>
-    <string name="all_permissions" msgid="5156669007784613042">"Всички разрешения"</string>
-    <string name="other_permissions" msgid="2016192512386091933">"Други възможности на приложението"</string>
-    <string name="permission_request_title" msgid="1204446718549121199">"Заявка за разрешение"</string>
-    <string name="screen_overlay_title" msgid="3021729846864038529">"Открито е екранно наслагване"</string>
-    <string name="screen_overlay_message" msgid="2141944461571677331">"За да промените настройката за това разрешение, трябва първо да изключите екранното наслагване от „Настройки“ &gt; „Приложения“"</string>
-    <string name="screen_overlay_button" msgid="4344544843349937743">"Отваряне на настройките"</string>
-    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"Действията инсталиране и деинсталиране не се поддържат на устройства с Wear."</string>
-    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"Приложението <xliff:g id="APP_NAME_0">%1$s</xliff:g> е актуализирано. Искате ли да разрешите на <xliff:g id="APP_NAME_1">%1$s</xliff:g> достъп до следните неща?"</string>
-    <string name="permission_review_title_template_install" msgid="6819338441305295479">"Изберете до какво да има достъп &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;"</string>
-    <string name="permission_review_title_template_update" msgid="8632233603161669426">"Приложението &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; е актуализирано. Изберете до какво да има достъп."</string>
-    <string name="review_button_cancel" msgid="957906817733578877">"Отказ"</string>
-    <string name="review_button_continue" msgid="4809162078179371370">"Напред"</string>
-    <string name="new_permissions_category" msgid="3213523410139204183">"Нови разрешения"</string>
-    <string name="current_permissions_category" msgid="998210994450606094">"Текущи разрешения"</string>
-    <string name="message_staging" msgid="6151794817691100003">"Приложението се подготвя…"</string>
-    <string name="app_name_unknown" msgid="8931522764510159105">"Неизвестно"</string>
-    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"От съображения за сигурност на таблета ви не могат да се инсталират неизвестни приложения от този източник."</string>
-    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"От съображения за сигурност на телевизора ви не могат да се инсталират неизвестни приложения от този източник."</string>
-    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"От съображения за сигурност на телефона ви не могат да се инсталират неизвестни приложения от този източник."</string>
-    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"Телефонът и личните ви данни са по-уязвими към атаки от неизвестни приложения. С инсталирането на това приложение приемате, че носите отговорност при евентуална повреда на телефона или загуба на информация вследствие на използването на приложението."</string>
-    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"Таблетът и личните ви данни са по-уязвими към атаки от неизвестни приложения. С инсталирането на това приложение приемате, че носите отговорност при евентуална повреда на таблета или загуба на информация вследствие на използването на приложението."</string>
-    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"Телевизорът и личните ви данни са по-уязвими към атаки от неизвестни приложения. С инсталирането на това приложение приемате, че носите отговорност при евентуална повреда на телевизора или загуба на информация вследствие на използването на приложението."</string>
-    <string name="anonymous_source_continue" msgid="2094381167954332292">"Напред"</string>
-    <string name="external_sources_settings" msgid="8601453744517291632">"Настройки"</string>
-    <string name="wear_app_channel" msgid="6200840123672949356">"Инсталир./деинсталир. на прилож. за Wear"</string>
+    <string name="old_sdk_deny_warning" msgid="6018489265342857714">"Това приложение е създадено за по-стара версия на Android. То може да спре да функционира нормално при отказване на разрешението."</string>
+    <string name="default_permission_description" msgid="692254823411049573">"извършване на неизвестно действие"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> от <xliff:g id="COUNT_1">%2$d</xliff:g> приложения имат разрешение"</string>
+    <string name="permission_usage_header" msgid="8802963718365732792">"Скорошна употреба"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"Табло за управл. на разреш.: Преглед"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"Показване на системните приложения"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"Скриване на системните приложения"</string>
+    <string name="no_apps" msgid="2377153782338039463">"Няма приложения"</string>
+    <string name="location_settings" msgid="547378321761364906">"Настройки за местоположението"</string>
+    <string name="location_warning" msgid="4687406043150343369">"<xliff:g id="APP_NAME">%1$s</xliff:g> е доставчик на услуги за местоположението за това устройство. Достъпът до местоположението може да бъде променен от съответните настройки."</string>
+    <string name="system_warning" msgid="6868290533389195836">"Ако откажете това разрешение, основни функции на устройството ви може да спрат да работят както трябва."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"Наложено чрез правило"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"Достъпът на заден план е деактивиран от правилата"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"Достъпът на заден план е активиран от правилата"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="8652417310534780420">"Достъпът на преден план е активиран от правилата"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="5156952484229154563">"Контролира се от администратор"</string>
+    <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"Достъпът на заден план е деактивиран от администратора"</string>
+    <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"Достъпът на заден план е активиран от администратора"</string>
+    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"Достъпът на преден план е активиран от администратора"</string>
+    <string name="permission_summary_enabled_system_fixed" msgid="1648259601814176611">"Разрешението е зададено от системата"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
+    <string name="permission_access_always" msgid="2315256378850460955">"Винаги"</string>
+    <string name="permission_access_only_foreground" msgid="8109903552082630801">"Само при използване на прилож."</string>
+    <string name="permission_access_never" msgid="4717648645876576508">"Никога"</string>
+    <string name="loading" msgid="323483393167148377">"Зарежда се…"</string>
+    <string name="all_permissions" msgid="7813580062403112957">"Всички разрешения"</string>
+    <string name="other_permissions" msgid="1956312685853070715">"Други възможности на приложението"</string>
+    <string name="permission_request_title" msgid="6779348653783761548">"Заявка за разрешение"</string>
+    <string name="screen_overlay_title" msgid="1632732130312696010">"Открито е екранно наслагване"</string>
+    <string name="screen_overlay_message" msgid="3222033787364955006">"За да промените настройката за това разрешение, трябва първо да изключите екранното наслагване от „Настройки“ &gt; „Приложения“"</string>
+    <string name="screen_overlay_button" msgid="3554849308322944411">"Отваряне на настройките"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="6923880912091041609">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="8731817202551430387">"Действията инсталиране и деинсталиране не се поддържат на устройства с Wear."</string>
+    <string name="permission_review_title_template_install" msgid="8131698354985303888">"Изберете до какво да има достъп &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;"</string>
+    <string name="permission_review_title_template_update" msgid="7597155653571395485">"Приложението &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; е актуализирано. Изберете до какво да има достъп."</string>
+    <string name="review_button_cancel" msgid="7108377593627664194">"Отказ"</string>
+    <string name="review_button_continue" msgid="1367925420132212571">"Напред"</string>
+    <string name="new_permissions_category" msgid="7242713808413888679">"Нови разрешения"</string>
+    <string name="current_permissions_category" msgid="3835461245150972589">"Текущи разрешения"</string>
+    <string name="message_staging" msgid="641286607664721291">"Приложението се подготвя…"</string>
+    <string name="app_name_unknown" msgid="8288360585728122735">"Неизвестно"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"Табло за управление"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">Последен достъп: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> осъществявания на достъп</item>
+      <item quantity="one">Последен достъп: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> осъществяване на достъп</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">Последен достъп: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> осъществявания на достъп (<xliff:g id="NUM_5">%3$s</xliff:g> на заден план)</item>
+      <item quantity="one">Последен достъп: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> осъществяване на достъп (<xliff:g id="NUM_2">%3$s</xliff:g> на заден план)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">Последен достъп: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> осъществявания на достъп\nПродължителност: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">Последен достъп: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> осъществяване на достъп\nПродължителност: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">Последен достъп: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> осъществявания на достъп (<xliff:g id="NUM_6">%3$s</xliff:g> на заден план)\nПродължителност: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">Последен достъп: <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> осъществяване на достъп (<xliff:g id="NUM_2">%3$s</xliff:g> на заден план)\nПродължителност: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"Всички разрешения"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"По всяко време"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"Последните 7 дни"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"Последните 24 часа"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"Последният 1 час"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"Последните 15 минути"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"Последната минута"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"Разрешенията не са използвани"</string>
+    <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"Достъп по всяко време"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"Достъп през последните 7 дни"</string>
+    <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"Достъп през последните 24 часа"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"Достъп през последния час"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"Достъп през последните 15 минути"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="8035799852985876841">"Достъп през последната минута"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"Най-използваните разрешения по всяко време"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"Най-използваните разрешения през последните 7 дни"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"Най-използваните разрешения през последните 24 ч"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"Най-използваните разрешения през последния 1 час"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"Най-използвани разрешения през последните 15 мин"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"Най-използваните разрешения през последната минута"</string>
+    <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"Приложения"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"Филтрирано по: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"Премахване на филтъра"</string>
+    <string name="filter_by_title" msgid="5940302511365561845">"Филтриране по"</string>
+    <string name="filter_by_permissions" msgid="7761207093643478436">"Филтриране по разрешения"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"Най-много разрешения"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"Най-много осъществ. на достъп"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"Скорошни"</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"Опресняване"</string>
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"Използване на разрешенията"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"Достъп: <xliff:g id="NUM">%1$s</xliff:g> пъти. Обща продължителност: <xliff:g id="DURATION">%2$s</xliff:g>. Последно използване преди <xliff:g id="TIME">%3$s</xliff:g>."</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"Достъп: <xliff:g id="NUM">%1$s</xliff:g> пъти. Последно използване преди <xliff:g id="TIME">%2$s</xliff:g>."</string>
+    <string name="app_permission_button_allow" msgid="1358817292836175593">"Разрешаване"</string>
+    <string name="app_permission_button_allow_always" msgid="4313513946865105788">"Разрешаване във всички случаи"</string>
+    <string name="app_permission_button_allow_foreground" msgid="6366222217615376397">"Разрешаване само докато приложението се използва"</string>
+    <string name="app_permission_button_deny" msgid="5716368368650638408">"Отказ"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"Разрешение за <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_header" msgid="5704679725169517493">"Достъп до <xliff:g id="PERM">%1$s</xliff:g> за <xliff:g id="APP">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="APP">%1$s</xliff:g> осъществи достъп до <xliff:g id="PERM">%2$s</xliff:g> ви преди <xliff:g id="TIME">%3$s</xliff:g>."</string>
+    <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"Приложението <xliff:g id="APP">%1$s</xliff:g> не е осъществило достъп до <xliff:g id="PERM">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"Преглед на подробности за използването на разрешенията"</string>
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"Последен достъп: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"Никога не е осъществяван достъп"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"Разрешено"</string>
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"Разрешено само при използване"</string>
+    <string name="denied_header" msgid="2277998574238617699">"Отказано"</string>
+    <string name="detailed_usage_link" msgid="3990452346369247944">"Преглед на подробната употреба"</string>
+    <plurals name="days" formatted="false" msgid="3903419301028414979">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> дни</item>
+      <item quantity="one">1 ден</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="2123927014975877155">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> часа</item>
+      <item quantity="one">1 час</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="4331145652577957044">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> минути</item>
+      <item quantity="one">1 минута</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="1632909606956324957">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> секунди</item>
+      <item quantity="one">1 секунда</item>
+    </plurals>
+    <string name="role_request_message_add" msgid="1977772335648650272">"Да се използва ли &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; като <xliff:g id="ROLE_NAME">%2$s</xliff:g>?"</string>
+    <string name="role_request_message_replace" msgid="6367571247558110210">"Да се използва ли &lt;b&gt;<xliff:g id="NEW_APP_NAME">%1$s</xliff:g>&lt;/b&gt; вместо &lt;b&gt;<xliff:g id="CURRENT_APP_NAME">%1$s</xliff:g>&lt;/b&gt; като <xliff:g id="ROLE_NAME">%2$s</xliff:g>?"</string>
+    <string name="permission_reminders" msgid="8040710767178843151">"Напомняния за разрешения"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> използва местоположението ви"</string>
+    <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"Приложението винаги има достъп до местоположението ви. Докоснете, за да промените това."</string>
+    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"Само докато приложението се използва"</string>
+    <string name="no_permissions_allowed" msgid="5781278485002145993">"Няма позволени разрешения"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"Няма отказани разрешения"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"Няма разрешени приложения"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"Няма отказани приложения"</string>
+    <string name="launch_app" msgid="5641437562665039291">"Отваряне"</string>
+    <string name="uninstall_app" msgid="8756507666995809214">"Деинсталиране"</string>
+    <string name="force_stop_app" msgid="4253426323145479826">"Принудително спиране"</string>
+    <string name="settings" msgid="2884124136779508907">"Настройки"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> има пълен достъп до устройството ви"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"<xliff:g id="NUM_SERVICES">%s</xliff:g> услуги за достъпност имат пълен достъп до устройството ви"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> може да вижда екрана, действията ви и данните, които въвеждате, както и да извършва действия и да контролира дисплея."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"Тези услуги могат да виждат екрана, действията ви и данните, които въвеждате, както и да извършват действия и да контролират дисплея."</string>
+    <string name="default_apps" msgid="8554530939151957828">"Приложения по подразбиране"</string>
+    <string name="no_default_apps" msgid="5642715159090903032">"Няма стандартни приложия"</string>
+    <string name="default_apps_for_work" msgid="8582151955372061208">"По подразбиране за работа"</string>
+    <string name="default_app_none" msgid="7671097769303174666">"Няма"</string>
+    <string name="default_app_no_apps" msgid="5344668465735677271">"Няма приложения"</string>
+    <string name="special_app_access" msgid="2561673957499408877">"Специален достъп за прилож."</string>
+    <string name="no_special_app_access" msgid="994977666694457811">"Няма спец. достъп за прилож."</string>
+    <string name="special_app_access_no_apps" msgid="3934763650592564818">"Няма приложения"</string>
+    <string name="role_label_assistant" msgid="456685142560727172">"Помощно приложение"</string>
+    <string name="role_label_browser" msgid="6266502234308421457">"Приложение за браузър"</string>
+    <string name="role_label_dialer" msgid="3345895090725237533">"Приложение за телефон"</string>
+    <string name="role_label_sms" msgid="2262769075496017522">"Приложение за SMS"</string>
+    <string name="role_label_emergency" msgid="2226651888638211616">"Приложение за спешни случаи"</string>
+    <string name="role_label_home" msgid="7672863812639457378">"Приложение за начален екран"</string>
+    <string name="role_label_music" msgid="5900245414865932272">"Приложение за музика"</string>
+    <string name="role_label_gallery" msgid="6939560238495155209">"Приложение за галерия"</string>
+    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"Прил. за телефон в моторежим"</string>
+    <string name="role_label_call_redirection" msgid="8902197181113231577">"Прил. за пренас. на обаждания"</string>
+    <string name="role_label_call_screening" msgid="411212589764916370">"Прил. за отсяване на обажд."</string>
+    <string name="role_label_call_companion" msgid="7369723859682076467">"Придружаващо прил. за обажд."</string>
+    <string name="role_label_car_projection" msgid="3792929094325391213">"Прожектиране в автомобила"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"Не се поддържат служебни потребителски профили"</string>
+    <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"Забележка: Ако рестартирате устройството си и сте задали опция за заключване на екрана, това приложение не може да стартира, докато не отключите устройството си."</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"Асистентът ще може да чете информацията за използваните в системата приложения, включително данните, видими на екрана или достъпни в тях."</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"Споделяне на данните за отстраняване на грешки"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"Споделяне на подробни данни за отстран. на грешки?"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> иска да качи информация за отстраняване на грешки."</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"Споделяне на данните за отстраняване на грешки"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> иска да качи сигнал за програмна грешка от това устройство, създаден на <xliff:g id="DATE">%2$s</xliff:g> в <xliff:g id="TIME">%3$s</xliff:g>. Сигналите за програмни грешки включват лична информация за устройството ви или регистрирана от приложенията, като например потребителски имена, данни за местоположението, идентификатори на устройството и информация за мрежата. Споделяйте сигналите за програмни грешки само с хора и приложения, на които бихте доверили тази информация. Да се разреши ли на <xliff:g id="APP_NAME_1">%4$s</xliff:g> да качи сигнал за програмна грешка?"</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"Разрешаване"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"Отказ"</string>
 </resources>

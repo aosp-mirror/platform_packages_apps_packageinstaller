@@ -16,19 +16,33 @@
 
 package com.android.packageinstaller.permission.ui;
 
-import android.app.Fragment;
+import static android.view.WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS;
+
+import static com.android.packageinstaller.Constants.INVALID_SESSION_ID;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.util.Log;
 import android.view.MenuItem;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+
+import com.android.packageinstaller.Constants;
 import com.android.packageinstaller.DeviceUtils;
-import com.android.packageinstaller.R;
+import com.android.packageinstaller.permission.ui.auto.AutoAllAppPermissionsFragment;
+import com.android.packageinstaller.permission.ui.auto.AutoAppPermissionsFragment;
+import com.android.packageinstaller.permission.ui.auto.AutoManageStandardPermissionsFragment;
+import com.android.packageinstaller.permission.ui.auto.AutoPermissionAppsFragment;
 import com.android.packageinstaller.permission.ui.handheld.ManageStandardPermissionsFragment;
 import com.android.packageinstaller.permission.ui.wear.AppPermissionsFragmentWear;
+import com.android.permissioncontroller.R;
 
-public final class ManagePermissionsActivity extends OverlayTouchActivity {
-    private static final String LOG_TAG = "ManagePermissionsActivity";
+import java.util.Random;
+
+public final class ManagePermissionsActivity extends FragmentActivity {
+    private static final String LOG_TAG = ManagePermissionsActivity.class.getSimpleName();
 
     public static final String EXTRA_ALL_PERMISSIONS =
             "com.android.packageinstaller.extra.ALL_PERMISSIONS";
@@ -36,26 +50,45 @@ public final class ManagePermissionsActivity extends OverlayTouchActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         if (DeviceUtils.isAuto(this)) {
-            setTheme(R.style.CarSettingTheme);
+            // Automotive relies on a different theme. Apply before calling super so that
+            // fragments are restored properly on configuration changes.
+            setTheme(R.style.CarSettings);
         }
         super.onCreate(savedInstanceState);
 
+        // If there is a previous instance, re-use its Fragment instead of making a new one.
         if (savedInstanceState != null) {
             return;
         }
 
-        Fragment fragment;
+        android.app.Fragment fragment = null;
+        Fragment androidXFragment = null;
         String action = getIntent().getAction();
 
+        getWindow().addSystemFlags(SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
+
+        long sessionId = getIntent().getLongExtra(Constants.EXTRA_SESSION_ID, INVALID_SESSION_ID);
+        while (sessionId == INVALID_SESSION_ID) {
+            sessionId = new Random().nextLong();
+        }
+
+        String permissionName;
         switch (action) {
-            case Intent.ACTION_MANAGE_PERMISSIONS: {
-                if (DeviceUtils.isTelevision(this)) {
-                    fragment = com.android.packageinstaller.permission.ui.television
-                            .ManagePermissionsFragment.newInstance();
+            case Intent.ACTION_MANAGE_PERMISSIONS:
+                if (DeviceUtils.isAuto(this)) {
+                    androidXFragment = AutoManageStandardPermissionsFragment.newInstance();
+                } else if (DeviceUtils.isTelevision(this)) {
+                    fragment =
+                            com.android.packageinstaller.permission.ui.television
+                                    .ManagePermissionsFragment.newInstance();
                 } else {
-                    fragment = ManageStandardPermissionsFragment.newInstance();
+                    androidXFragment = ManageStandardPermissionsFragment.newInstance(sessionId);
                 }
-            } break;
+                break;
+
+            case Intent.ACTION_REVIEW_PERMISSION_USAGE:
+                finish();
+                return;
 
             case Intent.ACTION_MANAGE_APP_PERMISSIONS: {
                 String packageName = getIntent().getStringExtra(Intent.EXTRA_PACKAGE_NAME);
@@ -64,40 +97,56 @@ public final class ManagePermissionsActivity extends OverlayTouchActivity {
                     finish();
                     return;
                 }
+
+                final boolean allPermissions = getIntent().getBooleanExtra(
+                        EXTRA_ALL_PERMISSIONS, false);
+
+                UserHandle userHandle = getIntent().getParcelableExtra(Intent.EXTRA_USER);
+                if (userHandle == null) {
+                    userHandle = UserHandle.of(UserHandle.myUserId());
+                }
+
                 if (DeviceUtils.isAuto(this)) {
-                    fragment = com.android.packageinstaller.permission.ui.auto
-                            .AppPermissionsFragment.newInstance(packageName);
+                    if (allPermissions) {
+                        androidXFragment = AutoAllAppPermissionsFragment.newInstance(packageName,
+                                userHandle);
+                    } else {
+                        androidXFragment = AutoAppPermissionsFragment.newInstance(packageName,
+                                userHandle);
+                    }
                 } else if (DeviceUtils.isWear(this)) {
-                    fragment = AppPermissionsFragmentWear.newInstance(packageName);
+                    androidXFragment = AppPermissionsFragmentWear.newInstance(packageName);
                 } else if (DeviceUtils.isTelevision(this)) {
                     fragment = com.android.packageinstaller.permission.ui.television
                             .AppPermissionsFragment.newInstance(packageName);
                 } else {
-                    final boolean allPermissions = getIntent().getBooleanExtra(
-                            EXTRA_ALL_PERMISSIONS, false);
                     if (allPermissions) {
-                        fragment = com.android.packageinstaller.permission.ui.handheld
-                                .AllAppPermissionsFragment.newInstance(packageName);
+                        androidXFragment = com.android.packageinstaller.permission.ui.handheld
+                                .AllAppPermissionsFragment.newInstance(packageName, userHandle);
                     } else {
-                        fragment = com.android.packageinstaller.permission.ui.handheld
-                                .AppPermissionsFragment.newInstance(packageName);
+                        androidXFragment = com.android.packageinstaller.permission.ui.handheld
+                                .AppPermissionsFragment.newInstance(
+                                        packageName, userHandle, sessionId);
                     }
                 }
             } break;
 
             case Intent.ACTION_MANAGE_PERMISSION_APPS: {
-                String permissionName = getIntent().getStringExtra(Intent.EXTRA_PERMISSION_NAME);
+                permissionName = getIntent().getStringExtra(Intent.EXTRA_PERMISSION_NAME);
+
                 if (permissionName == null) {
                     Log.i(LOG_TAG, "Missing mandatory argument EXTRA_PERMISSION_NAME");
                     finish();
                     return;
                 }
-                if (DeviceUtils.isTelevision(this)) {
+                if (DeviceUtils.isAuto(this)) {
+                    androidXFragment = AutoPermissionAppsFragment.newInstance(permissionName);
+                } else if (DeviceUtils.isTelevision(this)) {
                     fragment = com.android.packageinstaller.permission.ui.television
                             .PermissionAppsFragment.newInstance(permissionName);
                 } else {
-                    fragment = com.android.packageinstaller.permission.ui.handheld
-                            .PermissionAppsFragment.newInstance(permissionName);
+                    androidXFragment = com.android.packageinstaller.permission.ui.handheld
+                            .PermissionAppsFragment.newInstance(permissionName, sessionId);
                 }
             } break;
 
@@ -108,7 +157,13 @@ public final class ManagePermissionsActivity extends OverlayTouchActivity {
             }
         }
 
-        getFragmentManager().beginTransaction().replace(android.R.id.content, fragment).commit();
+        if (fragment != null) {
+            getFragmentManager().beginTransaction().replace(android.R.id.content, fragment)
+                    .commit();
+        } else {
+            getSupportFragmentManager().beginTransaction().replace(android.R.id.content,
+                    androidXFragment).commit();
+        }
     }
 
     @Override
