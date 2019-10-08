@@ -194,6 +194,28 @@ public final class Utils {
         /* do nothing - hide constructor */
     }
 
+    private static ArrayMap<UserHandle, Context> sUserContexts = new ArrayMap<>();
+
+    /**
+     * Creates and caches a PackageContext for the requested user, or returns the previously cached
+     * value. The package of the PackageContext is the application's package.
+     *
+     * @param app The currently running application
+     * @param user The desired user for the context
+     *
+     * @return The generated or cached Context for the requested user
+     *
+     * @throws PackageManager.NameNotFoundException If the app has no package name attached
+     */
+    public static @NonNull Context getUserContext(Application app, UserHandle user) throws
+            PackageManager.NameNotFoundException {
+        if (!sUserContexts.containsKey(user)) {
+            sUserContexts.put(user, app.getApplicationContext()
+                    .createPackageContextAsUser(app.getPackageName(), 0, user));
+        }
+        return sUserContexts.get(user);
+    }
+
     /**
      * {@code @NonNull} version of {@link Context#getSystemService(Class)}
      */
@@ -235,7 +257,8 @@ public final class Utils {
     }
 
     /**
-     * Get permission group a platform permission belongs to.
+     * Get permission group a platform permission belongs to, or null if the permission is not a
+     * platform permission.
      *
      * @param permission the permission to resolve
      *
@@ -323,7 +346,67 @@ public final class Utils {
         List<PermissionInfo> permissions = pm.queryPermissionsByGroup(group, 0);
         permissions.addAll(getPlatformPermissionsOfGroup(pm, group));
 
+        /*
+         * If the undefined group is requested, the package manager will return all platform
+         * permissions, since they are marked as Undefined in the manifest. Do not return these
+         * permissions.
+         */
+        if (group.equals(Manifest.permission_group.UNDEFINED)) {
+            List<PermissionInfo> undefinedPerms = new ArrayList<>();
+            for (PermissionInfo permissionInfo : permissions) {
+                String permGroup = getGroupOfPlatformPermission(permissionInfo.name);
+                if (permGroup == null || permGroup.equals(Manifest.permission_group.UNDEFINED)) {
+                    undefinedPerms.add(permissionInfo);
+                }
+            }
+            return undefinedPerms;
+        }
+
         return permissions;
+    }
+
+    /**
+     * Get the {@link PermissionInfo infos} for all runtime installed permission infos belonging to
+     * a group.
+     *
+     * @param pm    Package manager to use to resolve permission infos
+     * @param group the group
+     *
+     * @return The infos of installed runtime permissions belonging to the group or an empty list
+     * if the group does not have runtime permissions
+     */
+    public static @NonNull List<PermissionInfo> getInstalledRuntimePermissionInfosForGroup(
+            @NonNull PackageManager pm, @NonNull String group)
+            throws PackageManager.NameNotFoundException {
+        List<PermissionInfo> permissions = pm.queryPermissionsByGroup(group, 0);
+        permissions.addAll(getPlatformPermissionsOfGroup(pm, group));
+
+        List<PermissionInfo> installedRuntime = new ArrayList<>();
+        for (PermissionInfo permissionInfo: permissions) {
+            if (permissionInfo.getProtection() == PermissionInfo.PROTECTION_DANGEROUS
+                    && (permissionInfo.flags & PermissionInfo.FLAG_INSTALLED) != 0
+                    && (permissionInfo.flags & PermissionInfo.FLAG_REMOVED) == 0) {
+                installedRuntime.add(permissionInfo);
+            }
+        }
+
+        /*
+         * If the undefined group is requested, the package manager will return all platform
+         * permissions, since they are marked as Undefined in the manifest. Do not return these
+         * permissions.
+         */
+        if (group.equals(Manifest.permission_group.UNDEFINED)) {
+            List<PermissionInfo> undefinedPerms = new ArrayList<>();
+            for (PermissionInfo permissionInfo : installedRuntime) {
+                String permGroup = getGroupOfPlatformPermission(permissionInfo.name);
+                if (permGroup == null || permGroup.equals(Manifest.permission_group.UNDEFINED)) {
+                    undefinedPerms.add(permissionInfo);
+                }
+            }
+            return undefinedPerms;
+        }
+
+        return installedRuntime;
     }
 
     /**
