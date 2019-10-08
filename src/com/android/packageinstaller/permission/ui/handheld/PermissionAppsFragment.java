@@ -15,60 +15,79 @@
  */
 package com.android.packageinstaller.permission.ui.handheld;
 
-import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
+import static com.android.packageinstaller.Constants.EXTRA_SESSION_ID;
+import static com.android.packageinstaller.Constants.INVALID_SESSION_ID;
+import static com.android.packageinstaller.PermissionControllerStatsLog.PERMISSION_APPS_FRAGMENT_VIEWED;
+import static com.android.packageinstaller.PermissionControllerStatsLog.PERMISSION_APPS_FRAGMENT_VIEWED__CATEGORY__ALLOWED;
+import static com.android.packageinstaller.PermissionControllerStatsLog.PERMISSION_APPS_FRAGMENT_VIEWED__CATEGORY__ALLOWED_FOREGROUND;
+import static com.android.packageinstaller.PermissionControllerStatsLog.PERMISSION_APPS_FRAGMENT_VIEWED__CATEGORY__DENIED;
+import static com.android.packageinstaller.PermissionControllerStatsLog.PERMISSION_APPS_FRAGMENT_VIEWED__CATEGORY__UNDEFINED;
 
 import android.app.ActionBar;
-import android.app.AlertDialog;
-import android.app.Fragment;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceClickListener;
-import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
 import android.util.ArrayMap;
-import android.util.ArraySet;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreferenceCompat;
+
 import com.android.packageinstaller.DeviceUtils;
-import com.android.packageinstaller.R;
+import com.android.packageinstaller.PermissionControllerStatsLog;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionApps;
 import com.android.packageinstaller.permission.model.PermissionApps.Callback;
 import com.android.packageinstaller.permission.model.PermissionApps.PermissionApp;
-import com.android.packageinstaller.permission.utils.LocationUtils;
-import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.permissioncontroller.R;
 import com.android.settingslib.HelpUtils;
-import com.android.settingslib.RestrictedLockUtils;
 
+import java.text.Collator;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
-public final class PermissionAppsFragment extends PermissionsFrameFragment implements Callback,
-        Preference.OnPreferenceChangeListener {
+/**
+ * Show and manage apps which request a single permission group.
+ *
+ * <p>Shows a list of apps which request at least on permission of this group.
+ */
+public final class PermissionAppsFragment extends SettingsWithLargeHeader implements Callback {
 
-    private static final int MENU_SHOW_SYSTEM = Menu.FIRST;
-    private static final int MENU_HIDE_SYSTEM = Menu.FIRST + 1;
     private static final String KEY_SHOW_SYSTEM_PREFS = "_showSystem";
+    private static final String CREATION_LOGGED_SYSTEM_PREFS = "_creationLogged";
+    private static final String KEY_FOOTER = "_footer";
+    private static final String LOG_TAG = "PermissionAppsFragment";
 
     private static final String SHOW_SYSTEM_KEY = PermissionAppsFragment.class.getName()
             + KEY_SHOW_SYSTEM_PREFS;
 
-    public static PermissionAppsFragment newInstance(String permissionName) {
-        return setPermissionName(new PermissionAppsFragment(), permissionName);
+    private static final String CREATION_LOGGED = PermissionAppsFragment.class.getName()
+            + CREATION_LOGGED_SYSTEM_PREFS;
+
+    /**
+     * @return A new fragment
+     */
+    public static PermissionAppsFragment newInstance(String permissionName, long sessionId) {
+        return setPermissionNameAndSessionId(
+                new PermissionAppsFragment(), permissionName, sessionId);
     }
 
-    private static <T extends Fragment> T setPermissionName(T fragment, String permissionName) {
+    private static <T extends Fragment> T setPermissionNameAndSessionId(
+            T fragment, String permissionName, long sessionId) {
         Bundle arguments = new Bundle();
         arguments.putString(Intent.EXTRA_PERMISSION_NAME, permissionName);
+        arguments.putLong(EXTRA_SESSION_ID, sessionId);
         fragment.setArguments(arguments);
         return fragment;
     }
@@ -77,16 +96,15 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
 
     private PreferenceScreen mExtraScreen;
 
-    private ArrayMap<String, AppPermissionGroup> mToggledGroups;
-    private ArraySet<String> mLauncherPkgs;
-    private boolean mHasConfirmedRevoke;
-
     private boolean mShowSystem;
+    private boolean mCreationLogged;
     private boolean mHasSystemApps;
     private MenuItem mShowSystemMenu;
     private MenuItem mHideSystemMenu;
 
     private Callback mOnPermissionsLoadedListener;
+
+    private Collator mCollator;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -94,6 +112,7 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
 
         if (savedInstanceState != null) {
             mShowSystem = savedInstanceState.getBoolean(SHOW_SYSTEM_KEY);
+            mCreationLogged = savedInstanceState.getBoolean(CREATION_LOGGED);
         }
 
         setLoading(true /* loading */, false /* animate */);
@@ -102,11 +121,15 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
         if (ab != null) {
             ab.setDisplayHomeAsUpEnabled(true);
         }
-        mLauncherPkgs = Utils.getLauncherPackages(getContext());
 
         String groupName = getArguments().getString(Intent.EXTRA_PERMISSION_NAME);
         mPermissionApps = new PermissionApps(getActivity(), groupName, this);
         mPermissionApps.refresh(true);
+
+        mCollator = Collator.getInstance(
+                getContext().getResources().getConfiguration().getLocales().get(0));
+
+        addPreferencesFromResource(R.xml.allowed_denied);
     }
 
     @Override
@@ -114,6 +137,7 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
         super.onSaveInstanceState(outState);
 
         outState.putBoolean(SHOW_SYSTEM_KEY, mShowSystem);
+        outState.putBoolean(CREATION_LOGGED, mCreationLogged);
     }
 
     @Override
@@ -124,6 +148,8 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+
         if (mHasSystemApps) {
             mShowSystemMenu = menu.add(Menu.NONE, MENU_SHOW_SYSTEM, Menu.NONE,
                     R.string.menu_show_system);
@@ -162,15 +188,22 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        bindUi(this, mPermissionApps);
+        bindUi(this, mPermissionApps,
+                getArguments().getString(Intent.EXTRA_PERMISSION_NAME));
     }
 
-    private static void bindUi(Fragment fragment, PermissionApps permissionApps) {
+    private static void bindUi(SettingsWithLargeHeader fragment, PermissionApps permissionApps,
+            @NonNull String groupName) {
         final Drawable icon = permissionApps.getIcon();
-        final CharSequence label = permissionApps.getLabel();
+        final CharSequence label = permissionApps.getFullLabel();
+
+        fragment.setHeader(icon, label, null, null, true);
+        fragment.setSummary(Utils.getPermissionGroupDescriptionString(fragment.getActivity(),
+                groupName, permissionApps.getDescription()), null);
+
         final ActionBar ab = fragment.getActivity().getActionBar();
         if (ab != null) {
-            ab.setTitle(fragment.getString(R.string.permission_title, label));
+            ab.setTitle(label);
         }
     }
 
@@ -180,36 +213,73 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
 
     @Override
     public void onPermissionsLoaded(PermissionApps permissionApps) {
-        Context context = getActivity();
+        Context context = getPreferenceManager().getContext();
 
-        if (context == null) {
+        if (context == null || getActivity() == null) {
             return;
         }
 
         boolean isTelevision = DeviceUtils.isTelevision(context);
-        PreferenceScreen screen = getPreferenceScreen();
-        if (screen == null) {
-            screen = getPreferenceManager().createPreferenceScreen(getActivity());
-            setPreferenceScreen(screen);
-        }
 
-        screen.setOrderingAsAdded(false);
+        PreferenceCategory allowed = (PreferenceCategory) findPreference("allowed");
+        PreferenceCategory allowedForeground = findPreference("allowed_foreground");
+        PreferenceCategory denied = (PreferenceCategory) findPreference("denied");
 
-        ArraySet<String> preferencesToRemove = new ArraySet<>();
-        for (int i = 0, n = screen.getPreferenceCount(); i < n; i++) {
-            preferencesToRemove.add(screen.getPreference(i).getKey());
+        allowed.setOrderingAsAdded(true);
+        allowedForeground.setOrderingAsAdded(true);
+        denied.setOrderingAsAdded(true);
+
+        Map<String, Preference> existingPrefs = new ArrayMap<>();
+        int numPreferences = allowed.getPreferenceCount();
+        for (int i = 0; i < numPreferences; i++) {
+            Preference preference = allowed.getPreference(i);
+            existingPrefs.put(preference.getKey(), preference);
         }
+        allowed.removeAll();
+        numPreferences = allowedForeground.getPreferenceCount();
+        for (int i = 0; i < numPreferences; i++) {
+            Preference preference = allowedForeground.getPreference(i);
+            existingPrefs.put(preference.getKey(), preference);
+        }
+        allowedForeground.removeAll();
+        numPreferences = denied.getPreferenceCount();
+        for (int i = 0; i < numPreferences; i++) {
+            Preference preference = denied.getPreference(i);
+            existingPrefs.put(preference.getKey(), preference);
+        }
+        denied.removeAll();
         if (mExtraScreen != null) {
             for (int i = 0, n = mExtraScreen.getPreferenceCount(); i < n; i++) {
-                preferencesToRemove.add(mExtraScreen.getPreference(i).getKey());
+                Preference preference = mExtraScreen.getPreference(i);
+                existingPrefs.put(preference.getKey(), preference);
             }
+            mExtraScreen.removeAll();
         }
 
         mHasSystemApps = false;
         boolean menuOptionsInvalided = false;
+        boolean hasPermissionWithBackgroundMode = false;
 
-        for (PermissionApp app : permissionApps.getApps()) {
-            if (!Utils.shouldShowPermission(app)) {
+        ArrayList<PermissionApp> sortedApps = new ArrayList<>(permissionApps.getApps());
+        sortedApps.sort((x, y) -> {
+            int result = mCollator.compare(x.getLabel(), y.getLabel());
+            if (result == 0) {
+                result = x.getUid() - y.getUid();
+            }
+            return result;
+        });
+
+        long viewIdForLogging = new Random().nextLong();
+        long sessionId = getArguments().getLong(EXTRA_SESSION_ID, INVALID_SESSION_ID);
+
+        for (int i = 0; i < sortedApps.size(); i++) {
+            PermissionApp app = sortedApps.get(i);
+            AppPermissionGroup group = app.getPermissionGroup();
+
+            hasPermissionWithBackgroundMode =
+                    hasPermissionWithBackgroundMode || group.hasPermissionWithBackgroundMode();
+
+            if (!Utils.shouldShowPermission(getContext(), group)) {
                 continue;
             }
 
@@ -218,13 +288,13 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
             }
 
             String key = app.getKey();
-            preferencesToRemove.remove(key);
-            Preference existingPref = screen.findPreference(key);
-            if (existingPref == null && mExtraScreen != null) {
-                existingPref = mExtraScreen.findPreference(key);
+            Preference existingPref = existingPrefs.get(key);
+            if (existingPref != null) {
+                // Without this, existing preferences remember their old order.
+                existingPref.setOrder(Preference.DEFAULT_ORDER);
             }
 
-            boolean isSystemApp = Utils.isSystem(app, mLauncherPkgs);
+            boolean isSystemApp = !Utils.isGroupOrBgGroupUserSensitive(group);
 
             if (isSystemApp && !menuOptionsInvalided) {
                 mHasSystemApps = true;
@@ -233,53 +303,34 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
             }
 
             if (isSystemApp && !isTelevision && !mShowSystem) {
-                if (existingPref != null) {
-                    screen.removePreference(existingPref);
-                }
                 continue;
+            }
+
+            PreferenceCategory category = null;
+            if (group.areRuntimePermissionsGranted()) {
+                if (!group.hasPermissionWithBackgroundMode()
+                        || (group.getBackgroundPermissions() != null
+                        && group.getBackgroundPermissions().areRuntimePermissionsGranted())) {
+                    category = allowed;
+                } else {
+                    category = allowedForeground;
+                }
+            } else {
+                category = denied;
             }
 
             if (existingPref != null) {
-                // If existing preference - only update its state.
-                final boolean isPolicyFixed = app.isPolicyFixed();
-                EnforcedAdmin enforcedAdmin = RestrictedLockUtils.getProfileOrDeviceOwner(
-                        getActivity(), app.getUserId());
-                if (!isTelevision && (existingPref instanceof RestrictedSwitchPreference)) {
-                    ((RestrictedSwitchPreference) existingPref).setDisabledByAdmin(
-                            isPolicyFixed ? enforcedAdmin : null);
-                    existingPref.setSummary(isPolicyFixed ?
-                            getString(R.string.disabled_by_admin_summary_text) : null);
-                } else {
-                    existingPref.setEnabled(!isPolicyFixed);
-                    existingPref.setSummary(isPolicyFixed ?
-                            getString(R.string.permission_summary_enforced_by_policy) : null);
-                }
-                existingPref.setPersistent(false);
-                if (existingPref instanceof SwitchPreference) {
-                    ((SwitchPreference) existingPref)
-                            .setChecked(app.areRuntimePermissionsGranted());
-                }
+                category.addPreference(existingPref);
                 continue;
             }
 
-            RestrictedSwitchPreference pref = new RestrictedSwitchPreference(context);
-            pref.setOnPreferenceChangeListener(this);
-            pref.setKey(app.getKey());
+            PermissionControlPreference pref = new PermissionControlPreference(context, group,
+                    PermissionAppsFragment.class.getName(), sessionId);
+            pref.setKey(key);
             pref.setIcon(app.getIcon());
-            pref.setTitle(app.getLabel());
-            EnforcedAdmin enforcedAdmin = RestrictedLockUtils.getProfileOrDeviceOwner(
-                    getActivity(), app.getUserId());
-            if (app.isPolicyFixed()) {
-                if (!isTelevision && enforcedAdmin != null) {
-                    pref.setDisabledByAdmin(enforcedAdmin);
-                    pref.setSummary(R.string.disabled_by_admin_summary_text);
-                } else {
-                    pref.setEnabled(false);
-                    pref.setSummary(R.string.permission_summary_enforced_by_policy);
-                }
-            }
-            pref.setPersistent(false);
-            pref.setChecked(app.areRuntimePermissionsGranted());
+            pref.setTitle(Utils.getFullAppLabel(app.getAppInfo(), context));
+            pref.setEllipsizeEnd();
+            pref.useSmallerIcon();
 
             if (isSystemApp && isTelevision) {
                 if (mExtraScreen == null) {
@@ -287,13 +338,24 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
                 }
                 mExtraScreen.addPreference(pref);
             } else {
-                screen.addPreference(pref);
+                category.addPreference(pref);
+                if (!mCreationLogged) {
+                    logPermissionAppsFragmentCreated(app, viewIdForLogging, category == allowed,
+                            category == allowedForeground, category == denied);
+                }
             }
         }
+        mCreationLogged = true;
 
         if (mExtraScreen != null) {
-            preferencesToRemove.remove(KEY_SHOW_SYSTEM_PREFS);
-            Preference pref = screen.findPreference(KEY_SHOW_SYSTEM_PREFS);
+            Preference pref = allowed.findPreference(KEY_SHOW_SYSTEM_PREFS);
+
+            int grantedCount = 0;
+            for (int i = 0, n = mExtraScreen.getPreferenceCount(); i < n; i++) {
+                if (((SwitchPreferenceCompat) mExtraScreen.getPreference(i)).isChecked()) {
+                    grantedCount++;
+                }
+            }
 
             if (pref == null) {
                 pref = new Preference(context);
@@ -301,42 +363,45 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
                 pref.setIcon(Utils.applyTint(context, R.drawable.ic_toc,
                         android.R.attr.colorControlNormal));
                 pref.setTitle(R.string.preference_show_system_apps);
-                pref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-                    @Override
-                    public boolean onPreferenceClick(Preference preference) {
-                        SystemAppsFragment frag = new SystemAppsFragment();
-                        setPermissionName(frag, getArguments().getString(Intent.EXTRA_PERMISSION_NAME));
-                        frag.setTargetFragment(PermissionAppsFragment.this, 0);
-                        getFragmentManager().beginTransaction()
-                            .replace(android.R.id.content, frag)
-                            .addToBackStack("SystemApps")
-                            .commit();
-                        return true;
-                    }
+                pref.setOnPreferenceClickListener(preference -> {
+                    SystemAppsFragment frag = new SystemAppsFragment();
+                    setPermissionNameAndSessionId(frag,
+                            getArguments().getString(Intent.EXTRA_PERMISSION_NAME), sessionId);
+                    frag.setTargetFragment(PermissionAppsFragment.this, 0);
+                    getFragmentManager().beginTransaction()
+                        .replace(android.R.id.content, frag)
+                        .addToBackStack("SystemApps")
+                        .commit();
+                    return true;
                 });
-                screen.addPreference(pref);
+                PreferenceCategory category = grantedCount > 0 ? allowed : denied;
+                category.addPreference(pref);
             }
 
-            int grantedCount = 0;
-            for (int i = 0, n = mExtraScreen.getPreferenceCount(); i < n; i++) {
-                if (((SwitchPreference) mExtraScreen.getPreference(i)).isChecked()) {
-                    grantedCount++;
-                }
-            }
             pref.setSummary(getString(R.string.app_permissions_group_summary,
                     grantedCount, mExtraScreen.getPreferenceCount()));
         }
 
-        for (String key : preferencesToRemove) {
-            Preference pref = screen.findPreference(key);
-            if (pref != null) {
-                screen.removePreference(pref);
-            } else if (mExtraScreen != null) {
-                pref = mExtraScreen.findPreference(key);
-                if (pref != null) {
-                    mExtraScreen.removePreference(pref);
-                }
-            }
+        if (hasPermissionWithBackgroundMode) {
+            allowed.setTitle(R.string.allowed_always_header);
+        }
+
+        if (allowed.getPreferenceCount() == 0) {
+            Preference empty = new Preference(context);
+            empty.setTitle(getString(R.string.no_apps_allowed));
+            empty.setSelectable(false);
+            allowed.addPreference(empty);
+        }
+        if (allowedForeground.getPreferenceCount() == 0) {
+            findPreference("allowed_foreground").setVisible(false);
+        } else {
+            findPreference("allowed_foreground").setVisible(true);
+        }
+        if (denied.getPreferenceCount() == 0) {
+            Preference empty = new Preference(context);
+            empty.setTitle(getString(R.string.no_apps_denied));
+            empty.setSelectable(false);
+            denied.addPreference(empty);
         }
 
         setLoading(false /* loading */, true /* animate */);
@@ -346,84 +411,29 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
         }
     }
 
-    @Override
-    public boolean onPreferenceChange(final Preference preference, Object newValue) {
-        String pkg = preference.getKey();
-        final PermissionApp app = mPermissionApps.getApp(pkg);
+    private void logPermissionAppsFragmentCreated(PermissionApp permissionApp, long viewId,
+            boolean isAllowed, boolean isAllowedForeground, boolean isDenied) {
+        long sessionId = getArguments().getLong(EXTRA_SESSION_ID, 0);
 
-        if (app == null) {
-            return false;
+        int category = PERMISSION_APPS_FRAGMENT_VIEWED__CATEGORY__UNDEFINED;
+        if (isAllowed) {
+            category = PERMISSION_APPS_FRAGMENT_VIEWED__CATEGORY__ALLOWED;
+        } else if (isAllowedForeground) {
+            category = PERMISSION_APPS_FRAGMENT_VIEWED__CATEGORY__ALLOWED_FOREGROUND;
+        } else if (isDenied) {
+            category = PERMISSION_APPS_FRAGMENT_VIEWED__CATEGORY__DENIED;
         }
 
-        addToggledGroup(app.getPackageName(), app.getPermissionGroup());
+        PermissionControllerStatsLog.write(PERMISSION_APPS_FRAGMENT_VIEWED, sessionId, viewId,
+                mPermissionApps.getGroupName(), permissionApp.getUid(),
+                permissionApp.getPackageName(), category);
+        Log.v(LOG_TAG, "PermissionAppsFragment created with sessionId=" + sessionId
+                + " permissionGroupName=" + mPermissionApps.getGroupName() + " appUid="
+                + permissionApp.getUid() + " packageName=" + permissionApp.getPackageName()
+                + " category=" + category);
+    };
 
-        if (LocationUtils.isLocationGroupAndProvider(mPermissionApps.getGroupName(),
-                app.getPackageName())) {
-            LocationUtils.showLocationDialog(getContext(), app.getLabel());
-            return false;
-        }
-        if (newValue == Boolean.TRUE) {
-            app.grantRuntimePermissions();
-        } else {
-            final boolean grantedByDefault = app.hasGrantedByDefaultPermissions();
-            if (grantedByDefault || (!app.doesSupportRuntimePermissions()
-                    && !mHasConfirmedRevoke)) {
-                new AlertDialog.Builder(getContext())
-                        .setMessage(grantedByDefault ? R.string.system_warning
-                                : R.string.old_sdk_deny_warning)
-                        .setNegativeButton(R.string.cancel, null)
-                        .setPositiveButton(R.string.grant_dialog_button_deny_anyway,
-                                new OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                ((SwitchPreference) preference).setChecked(false);
-                                app.revokeRuntimePermissions();
-                                if (!grantedByDefault) {
-                                    mHasConfirmedRevoke = true;
-                                }
-                            }
-                        })
-                        .show();
-                return false;
-            } else {
-                app.revokeRuntimePermissions();
-            }
-        }
-        return true;
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        logToggledGroups();
-    }
-
-    private void addToggledGroup(String packageName, AppPermissionGroup group) {
-        if (mToggledGroups == null) {
-            mToggledGroups = new ArrayMap<>();
-        }
-        // Double toggle is back to initial state.
-        if (mToggledGroups.containsKey(packageName)) {
-            mToggledGroups.remove(packageName);
-        } else {
-            mToggledGroups.put(packageName, group);
-        }
-    }
-
-    private void logToggledGroups() {
-        if (mToggledGroups != null) {
-            final int groupCount = mToggledGroups.size();
-            for (int i = 0; i < groupCount; i++) {
-                String packageName = mToggledGroups.keyAt(i);
-                List<AppPermissionGroup> groups = new ArrayList<>();
-                groups.add(mToggledGroups.valueAt(i));
-                SafetyNetLogger.logPermissionsToggled(packageName, groups);
-            }
-            mToggledGroups = null;
-        }
-    }
-
-    public static class SystemAppsFragment extends PermissionsFrameFragment implements Callback {
+    public static class SystemAppsFragment extends SettingsWithLargeHeader implements Callback {
         PermissionAppsFragment mOuterFragment;
 
         @Override
@@ -431,6 +441,7 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
             mOuterFragment = (PermissionAppsFragment) getTargetFragment();
             setLoading(true /* loading */, false /* animate */);
             super.onCreate(savedInstanceState);
+            setHeader(mOuterFragment.mIcon, mOuterFragment.mLabel, null, null, true);
             if (mOuterFragment.mExtraScreen != null) {
                 setPreferenceScreen();
             } else {
@@ -442,8 +453,9 @@ public final class PermissionAppsFragment extends PermissionsFrameFragment imple
         public void onViewCreated(View view, Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
             String groupName = getArguments().getString(Intent.EXTRA_PERMISSION_NAME);
-            PermissionApps permissionApps = new PermissionApps(getActivity(), groupName, null);
-            bindUi(this, permissionApps);
+            PermissionApps permissionApps = new PermissionApps(getActivity(),
+                    groupName, (Callback) null);
+            bindUi(this, permissionApps, groupName);
         }
 
         @Override

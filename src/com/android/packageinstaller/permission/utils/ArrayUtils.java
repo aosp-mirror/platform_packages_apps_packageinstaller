@@ -18,10 +18,23 @@ package com.android.packageinstaller.permission.utils;
 
 import android.text.TextUtils;
 
+import androidx.annotation.Nullable;
+
 import java.util.Objects;
 
 public final class ArrayUtils {
     private ArrayUtils() { /* cannot be instantiated */ }
+
+    /**
+     * Checks if an array is null or has no elements.
+     *
+     * @param array the array to check for
+     *
+     * @return whether the array is null or has no elements.
+     */
+    public static <T> boolean isEmpty(@Nullable T[] array) {
+        return array == null || array.length == 0;
+    }
 
     /**
      * Checks that value is present as at least one of the elements of the array.

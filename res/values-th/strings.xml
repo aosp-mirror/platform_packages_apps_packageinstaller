@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,136 +16,208 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2738748390251381682">"โปรแกรมติดตั้งแพ็กเกจ"</string>
-    <string name="next" msgid="3057143178373252333">"ถัดไป"</string>
-    <string name="install" msgid="5896438203900042068">"ติดตั้ง"</string>
-    <string name="done" msgid="3889387558374211719">"เสร็จสิ้น"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"อนุญาตให้แอปพลิเคชันนี้:"</string>
-    <string name="cancel" msgid="8360346460165114585">"ยกเลิก"</string>
-    <string name="unknown" msgid="4742479012767208045">"ไม่ทราบ"</string>
-    <string name="installing" msgid="8613631001631998372">"กำลังติดตั้ง..."</string>
-    <string name="installing_app" msgid="4097935682329028894">"กำลังติดตั้ง <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
-    <string name="install_done" msgid="3682715442154357097">"ติดตั้งแอปพลิเคชันแล้ว"</string>
-    <string name="install_confirm_question" msgid="7295206719219043890">"คุณต้องการติดตั้งแอปพลิเคชันนี้หรือไม่ แอปพลิเคชันจะเข้าถึง:"</string>
-    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"คุณต้องการจะติดตั้งแอปพลิเคชันนี้หรือไม่ แอปพลิเคชันไม่ต้องมีการเข้าถึงพิเศษใดๆ"</string>
-    <string name="install_confirm_question_update" msgid="4624159567361487964">"คุณต้องการติดตั้งการอัปเดตของแอปพลิเคชันที่มีอยู่นี้หรือไม่ ข้อมูลที่มีอยู่ของคุณจะไม่สูญหายไป แอปพลิเคชันที่อัปเดตแล้วจะเข้าถึง:"</string>
-    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"คุณต้องการจะติดตั้งการอัปเดตของแอปพลิเคชันในระบบนี้หรือไม่ ข้อมูลที่มีอยู่ของคุณจะไม่สูญหาย แอปพลิเคชันที่อัปเดตแล้วจะเข้าถึง:"</string>
-    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"คุณต้องการติดตั้งการอัปเดตไปยังแอปพลิเคชันที่มีอยู่นี้หรือไม่ ข้อมูลที่มีอยู่ของคุณจะไม่สูญหาย การอัปเดตนี้ไม่จำเป็นต้องใช้การเข้าถึงใดๆ เป็นพิเศษ"</string>
-    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"คุณต้องการติดตั้งการอัปเดตไปยังแอปพลิเคชันในตัวนี้หรือไม่ ข้อมูลที่มีอยู่ของคุณจะไม่สูญหาย การอัปเดตนี้ไม่จำเป็นต้องใช้การเข้าถึงใดๆ เป็นพิเศษ"</string>
-    <string name="install_failed" msgid="6579998651498970899">"ไม่ได้ติดตั้งแอปพลิเคชัน"</string>
-    <string name="install_failed_blocked" msgid="1606870930588770025">"มีการบล็อกแพ็กเกจไม่ให้ติดตั้ง"</string>
-    <string name="install_failed_conflict" msgid="5336045235168070954">"ไม่ได้ติดตั้งแอปเพราะแพ็กเกจขัดแย้งกับแพ็กเกจที่มีอยู่"</string>
-    <string name="install_failed_incompatible" product="tablet" msgid="6682387386242708974">"ไม่ได้ติดตั้งแอปเพราะแอปใช้งานไม่ได้กับแท็บเล็ตของคุณ"</string>
-    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"แอปนี้ไม่สามารถใช้งานกับทีวีของคุณ"</string>
-    <string name="install_failed_incompatible" product="default" msgid="7917996365659426872">"ไม่ได้ติดตั้งแอปเพราะแอปใช้งานไม่ได้กับโทรศัพท์ของคุณ"</string>
-    <string name="install_failed_invalid_apk" msgid="269885385245534742">"ไม่ได้ติดตั้งแอปเพราะดูเหมือนว่าแพ็กเกจจะไม่ถูกต้อง"</string>
-    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"ไม่สามารถติดตั้ง <xliff:g id="APP_NAME">%1$s</xliff:g> บนแท็บเล็ตของคุณ"</string>
-    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"<xliff:g id="APP_NAME">%1$s</xliff:g> ไม่สามารถติดตั้งบนทีวีได้"</string>
-    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"ไม่สามารถติดตั้ง <xliff:g id="APP_NAME">%1$s</xliff:g> บนโทรศัพท์ของคุณ"</string>
-    <string name="launch" msgid="4826921505917605463">"เปิด"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"ผู้ดูแลระบบของคุณไม่อนุญาตให้ติดตั้งแอปที่ได้มาจากแหล่งที่มาที่ไม่รู้จัก"</string>
-    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"ผู้ใช้รายนี้ไม่สามารถติดตั้งแอปที่ไม่รู้จัก"</string>
-    <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"ผู้ใช้รายนี้ไม่ได้รับอนุญาตให้ติดตั้งแอป"</string>
-    <string name="ok" msgid="3468756155452870475">"ตกลง"</string>
-    <string name="settings" msgid="6743583734099755409">"การตั้งค่า"</string>
-    <string name="manage_applications" msgid="4033876279091996596">"จัดการแอปพลิเคชัน"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"แทนที่แอปพลิเคชันหรือไม่"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"แอปพลิเคชันที่คุณกำลังติดตั้งจะไปแทนที่แอปพลิเคชันอื่น\n\nข้อมูลผู้ใช้ทั้งหมดของคุณก่อนหน้านี้จะได้รับการบันทึกไว้"</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"นี่เป็นแอปพลิเคชันระบบ\n\nข้อมูลผู้ใช้ทั้งหมดของคุณก่อนหน้านี้จะได้รับการบันทึกไว้"</string>
-    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"ไม่มีพื้นที่"</string>
-    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"ติดตั้ง <xliff:g id="APP_NAME">%1$s</xliff:g> ไม่ได้ เพิ่มพื้นที่ว่างแล้วลองอีกครั้ง"</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"ตกลง"</string>
-    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"ไม่พบแอปพลิเคชัน"</string>
-    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"ไม่พบแอปพลิเคชันนี้ในรายการแอปพลิเคชันที่ติดตั้งไว้"</string>
-    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"ไม่ได้รับอนุญาต"</string>
-    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"ผู้ใช้ปัจจุบันไม่ได้รับอนุญาตให้ทำการถอนการติดตั้งนี้"</string>
-    <string name="generic_error_dlg_title" msgid="2684806600635296961">"พบข้อผิดพลาด"</string>
-    <string name="generic_error_dlg_text" msgid="4288738047825333954">"ไม่สามารถถอนการติดตั้งแอป"</string>
-    <string name="uninstall_application_title" msgid="1860074100811653963">"ถอนการติดตั้งแอปพลิเคชัน"</string>
-    <string name="uninstall_update_title" msgid="4146940097553335390">"ถอนการติดตั้งการอัปเดต"</string>
-    <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> เป็นส่วนหนึ่งของแอปพลิเคชันต่อไปนี้:"</string>
-    <string name="uninstall_application_text" msgid="6691975835951187030">"คุณต้องการถอนการติดตั้งแอปพลิเคชันนี้หรือไม่"</string>
-    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"คุณต้องการถอนการติดตั้งแอปพลิเคชันนี้สำหรับผู้ใช้"<b>"ทั้งหมด"</b>"หรือไม่ แอปพลิเคชันนี้และข้อมูลในแอปพลิเคชันจะถูกลบจากผู้ใช้"<b>"ทั้งหมด"</b>"ในอุปกรณ์"</string>
-    <string name="uninstall_application_text_user" msgid="8766882355635485733">"คุณต้องการถอนการติดตั้งแอปนี้สำหรับผู้ใช้ <xliff:g id="USERNAME">%1$s</xliff:g> ไหม"</string>
-    <string name="uninstall_update_text" msgid="1394549691152728409">"แทนที่แอปนี้ด้วยเวอร์ชันเริ่มต้นไหม ระบบจะนำข้อมูลทั้งหมดออก"</string>
-    <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"แทนที่แอปนี้ด้วยเวอร์ชันเริ่มต้นไหม ระบบจะนำข้อมูลทั้งหมดออก วิธีนี้ส่งผลต่อผู้ใช้ทุกคนที่ใช้อุปกรณ์เครื่องนี้ รวมทั้งผู้ที่มีโปรไฟล์งาน"</string>
-    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"กำลังเรียกใช้การถอนการติดตั้ง"</string>
-    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"การถอนการติดตั้งที่ล้มเหลว"</string>
-    <string name="uninstalling" msgid="5556217435895938250">"กำลังถอนการติดตั้ง..."</string>
-    <string name="uninstalling_app" msgid="2773617614877719294">"กำลังถอนการติดตั้ง <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
-    <string name="uninstall_done" msgid="3792487853420281888">"ถอนการติดตั้งเสร็จแล้ว"</string>
-    <string name="uninstall_done_app" msgid="775837862728680479">"ถอนการติดตั้ง <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> แล้ว"</string>
-    <string name="uninstall_failed" msgid="631122574306299512">"ถอนการติดตั้งไม่สำเร็จ"</string>
-    <string name="uninstall_failed_app" msgid="945277834056527022">"การถอนการติดตั้ง <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> ไม่สำเร็จ"</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"ไม่สามารถถอนการติดตั้งแอปผู้ดูแลระบบอุปกรณ์ที่มีการใช้งาน"</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"ไม่สามารถถอนการติดตั้งแอปผู้ดูแลระบบอุปกรณ์ที่มีการใช้งานสำหรับ <xliff:g id="USERNAME">%1$s</xliff:g>"</string>
-    <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"แอปนี้จำเป็นสำหรับผู้ใช้หรือโปรไฟล์บางส่วน และถอนการติดตั้งไปแล้วสำหรับส่วนอื่น"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"แอปนี้จำเป็นสำหรับโปรไฟล์ของคุณและไม่สามารถถอนการติดตั้งได้"</string>
-    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"ผู้ดูแลระบบอุปกรณ์กำหนดให้ใช้แอปนี้ และไม่สามารถถอนการติดตั้งได้"</string>
-    <string name="manage_device_administrators" msgid="118178632652346535">"จัดการแอปผู้ดูแลระบบอุปกรณ์"</string>
-    <string name="manage_users" msgid="3125018886835668847">"จัดการผู้ใช้"</string>
-    <string name="uninstall_failed_msg" msgid="8969754702803951175">"ไม่สามารถถอดการติดตั้ง <xliff:g id="APP_NAME">%1$s</xliff:g>"</string>
-    <string name="Parse_error_dlg_text" msgid="7623286983621067011">"พบปัญหาในการแยกวิเคราะห์แพ็กเกจ"</string>
-    <string name="newPerms" msgid="6039428254474104210">"ใหม่"</string>
-    <string name="allPerms" msgid="1024385515840703981">"ทั้งหมด"</string>
-    <string name="privacyPerms" msgid="1850527049572617">"ข้อมูลส่วนบุคคล"</string>
-    <string name="devicePerms" msgid="6733560207731294504">"การเข้าถึงอุปกรณ์"</string>
-    <string name="no_new_perms" msgid="6657813692169565975">"การอัปเดตนี้ไม่จำเป็นต้องมีการอนุญาตใหม่"</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"คุณต้องการให้อนุญาตรายการต่อไปนี้หรือไม่ ระบบจะให้สิทธิ์การเข้าถึงแก่"</string>
-    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"ปฏิเสธ"</string>
-    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"ข้อมูลเพิ่มเติม"</string>
-    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"ยืนยันการปฏิเสธ"</string>
-    <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> จาก <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> รายการ"</string>
-    <string name="permission_warning_template" msgid="7332275268559121742">"อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>ไหม"</string>
-    <string name="permission_revoked_count" msgid="7386129423432613024">"ปิดใช้ <xliff:g id="COUNT">%1$d</xliff:g> สิทธิ์"</string>
-    <string name="permission_revoked_all" msgid="8595742638132863678">"ปิดใช้สิทธิ์ทั้งหมด"</string>
-    <string name="permission_revoked_none" msgid="2059511550181271342">"ไม่มีการปิดใช้สิทธิ์"</string>
-    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"อนุญาต"</string>
-    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"แอป"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"สิทธิ์ของแอป"</string>
-    <string name="never_ask_again" msgid="1089938738199748687">"ไม่ต้องถามอีก"</string>
-    <string name="no_permissions" msgid="3210542466245591574">"ไม่มีสิทธิ์"</string>
-    <string name="additional_permissions" msgid="6667573114240111763">"สิทธิ์เพิ่มเติม"</string>
-    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+    <string name="app_name" msgid="2792757108872430971">"ตัวควบคุมสิทธิ์"</string>
+    <string name="ok" msgid="4417794827535157922">"ตกลง"</string>
+    <string name="permission_search_keyword" msgid="1652964722383449182">"สิทธิ์"</string>
+    <string name="cancel" msgid="7279939269964834974">"ยกเลิก"</string>
+    <string name="app_not_found_dlg_title" msgid="8897078571059217849">"ไม่พบแอปพลิเคชัน"</string>
+    <string name="grant_dialog_button_deny" msgid="1649644200597601964">"ปฏิเสธ"</string>
+    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"ปฏิเสธและไม่ต้องถามอีก"</string>
+    <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"ข้อมูลเพิ่มเติม"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"ปฏิเสธอยู่ต่อไป"</string>
+    <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> จาก <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g> รายการ"</string>
+    <string name="permission_warning_template" msgid="1353228984024423745">"อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>ไหม"</string>
+    <string name="permission_add_background_warning_template" msgid="1046864917164159751">"อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; <xliff:g id="ACTION">%2$s</xliff:g>ทุกครั้งใช่ไหม"</string>
+    <string name="allow_permission_foreground_only" msgid="7444689446874060511">"ขณะใช้แอปเท่านั้น"</string>
+    <string name="allow_permission_always" msgid="4089537686339013930">"ได้เสมอ"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8131547398883397878">"ปฏิเสธและไม่ต้องถามอีก"</string>
+    <string name="permission_revoked_count" msgid="5556125174203696709">"ปิดใช้ <xliff:g id="COUNT">%1$d</xliff:g> สิทธิ์"</string>
+    <string name="permission_revoked_all" msgid="6356577996164232918">"ปิดใช้สิทธิ์ทั้งหมด"</string>
+    <string name="permission_revoked_none" msgid="266013103540772023">"ไม่มีการปิดใช้สิทธิ์"</string>
+    <string name="grant_dialog_button_allow" msgid="2137542756625939532">"อนุญาต"</string>
+    <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"อนุญาตตลอด"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"อนุญาตเมื่อมีการใช้แอปเท่านั้น"</string>
+    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"แอป"</string>
+    <string name="app_permissions" msgid="2778362347879465223">"สิทธิ์ของแอป"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"เครื่องมือจัดการสิทธิ์"</string>
+    <string name="never_ask_again" msgid="7645304182523160030">"ไม่ต้องถามอีก"</string>
+    <string name="no_permissions" msgid="2193893107241172888">"ไม่มีสิทธิ์"</string>
+    <string name="additional_permissions" msgid="7124470111123472154">"สิทธิ์เพิ่มเติม"</string>
+    <string name="app_permissions_info_button_label" msgid="6566057048862462066">"เปิดข้อมูลแอป"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
       <item quantity="other">อีก <xliff:g id="COUNT_1">%1$d</xliff:g> รายการ</item>
       <item quantity="one">อีก <xliff:g id="COUNT_0">%1$d</xliff:g> รายการ</item>
     </plurals>
-    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"แอปนี้ออกแบบมาเพื่อ Android เวอร์ชันเก่า การปฏิเสธสิทธิ์อาจทำให้แอปไม่ทำงานตามที่ต้องการอีกต่อไป"</string>
-    <string name="default_permission_description" msgid="4992892207044156668">"ดำเนินการทำงานที่ไม่รู้จัก"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"อนุญาตแล้ว <xliff:g id="COUNT_0">%1$d</xliff:g> จาก <xliff:g id="COUNT_1">%2$d</xliff:g> แอป"</string>
-    <string name="menu_show_system" msgid="6773743421743728921">"แสดงระบบ"</string>
-    <string name="menu_hide_system" msgid="7595471742649432977">"ซ่อนระบบ"</string>
-    <string name="permission_title" msgid="6495415273398916381">"สิทธิ์ในการใช้ <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
-    <string name="no_apps" msgid="1965493419005012569">"ไม่มีแอป"</string>
-    <string name="location_settings" msgid="1774875730854491297">"การตั้งค่าตำแหน่ง"</string>
-    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> เป็นผู้ให้บริการตำแหน่งสำหรับอุปกรณ์นี้ คุณสามารถแก้ไขสิทธิ์เข้าถึงตำแหน่งได้จากการตั้งค่าตำแหน่ง"</string>
-    <string name="system_warning" msgid="7103819124542305179">"หากคุณปฏิเสธสิทธิ์นี้ ฟีเจอร์พื้นฐานของอุปกรณ์อาจไม่ทำงานตามที่ควรจะเป็นอีกต่อไป"</string>
-    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"บังคับใช้โดยนโยบาย"</string>
-    <string name="loading" msgid="7811651799620593731">"กำลังโหลด…"</string>
-    <string name="all_permissions" msgid="5156669007784613042">"สิทธิ์ทั้งหมด"</string>
-    <string name="other_permissions" msgid="2016192512386091933">"ความสามารถอื่นๆ ของแอป"</string>
-    <string name="permission_request_title" msgid="1204446718549121199">"คำขอสิทธิ์"</string>
-    <string name="screen_overlay_title" msgid="3021729846864038529">"ตรวจพบการวางซ้อนหน้าจอ"</string>
-    <string name="screen_overlay_message" msgid="2141944461571677331">"ในการเปลี่ยนแปลงการตั้งค่าสิทธิ์นี้ ก่อนอื่น คุณต้องปิดการวางซ้อนหน้าจอที่การตั้งค่า &gt; แอป"</string>
-    <string name="screen_overlay_button" msgid="4344544843349937743">"เปิดการตั้งค่า"</string>
-    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"ไม่สามารถติดตั้ง/ถอนการติดตั้งบน Wear"</string>
-    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"อัปเดต <xliff:g id="APP_NAME_0">%1$s</xliff:g> แล้ว อนุญาตให้ <xliff:g id="APP_NAME_1">%1$s</xliff:g> เข้าถึงข้อมูลต่อไปนี้ใช่ไหม"</string>
-    <string name="permission_review_title_template_install" msgid="6819338441305295479">"โปรดเลือกข้อมูลที่อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; เข้าถึง"</string>
-    <string name="permission_review_title_template_update" msgid="8632233603161669426">"อัปเดต &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; แล้ว โปรดเลือกข้อมูลที่อนุญาตให้แอปนี้เข้าถึง"</string>
-    <string name="review_button_cancel" msgid="957906817733578877">"ยกเลิก"</string>
-    <string name="review_button_continue" msgid="4809162078179371370">"ต่อไป"</string>
-    <string name="new_permissions_category" msgid="3213523410139204183">"สิทธิ์ใหม่"</string>
-    <string name="current_permissions_category" msgid="998210994450606094">"สิทธิ์ปัจจุบัน"</string>
-    <string name="message_staging" msgid="6151794817691100003">"กำลังปรับสภาพแวดล้อมของแอป…"</string>
-    <string name="app_name_unknown" msgid="8931522764510159105">"ไม่ทราบ"</string>
-    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"เพื่อความปลอดภัย ไม่อนุญาตให้ติดตั้งแอปที่ไม่รู้จักจากแหล่งที่มานี้ในแท็บเล็ต"</string>
-    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"เพื่อความปลอดภัย ไม่อนุญาตให้ติดตั้งแอปที่ไม่รู้จักจากแหล่งที่มานี้ในทีวี"</string>
-    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"เพื่อความปลอดภัย ไม่อนุญาตให้ติดตั้งแอปที่ไม่รู้จักจากแหล่งที่มานี้ในโทรศัพท์"</string>
-    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"โทรศัพท์และข้อมูลส่วนบุคคลของคุณมีความเสี่ยงมากขึ้นที่จะถูกโจมตีจากแอปที่ไม่รู้จัก การติดตั้งแอปนี้เป็นการยอมรับว่าคุณจะรับผิดชอบความเสียหายต่อเครื่องโทรศัพท์หรือการสูญเสียข้อมูลที่อาจเกิดจากการใช้งานแอปดังกล่าว"</string>
-    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"แท็บเล็ตและข้อมูลส่วนบุคคลของคุณมีความเสี่ยงมากขึ้นที่จะถูกโจมตีจากแอปที่ไม่รู้จัก การติดตั้งแอปนี้เป็นการยอมรับว่าคุณจะรับผิดชอบความเสียหายต่อเครื่องแท็บเล็ตหรือการสูญเสียข้อมูลที่อาจเกิดจากการใช้งานแอปดังกล่าว"</string>
-    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"ทีวีและข้อมูลส่วนบุคคลของคุณมีความเสี่ยงมากขึ้นที่จะถูกโจมตีจากแอปที่ไม่รู้จัก การติดตั้งแอปนี้เป็นการยอมรับว่าคุณจะรับผิดชอบความเสียหายต่อเครื่องทีวีหรือการสูญเสียข้อมูลที่อาจเกิดจากการใช้งานแอปดังกล่าว"</string>
-    <string name="anonymous_source_continue" msgid="2094381167954332292">"ต่อไป"</string>
-    <string name="external_sources_settings" msgid="8601453744517291632">"การตั้งค่า"</string>
-    <string name="wear_app_channel" msgid="6200840123672949356">"กำลังติดตั้ง/ถอนการติดตั้งแอป Wear"</string>
+    <string name="old_sdk_deny_warning" msgid="6018489265342857714">"แอปนี้ออกแบบมาเพื่อ Android เวอร์ชันเก่า การปฏิเสธสิทธิ์อาจทำให้แอปไม่ทำงานตามที่ต้องการอีกต่อไป"</string>
+    <string name="default_permission_description" msgid="692254823411049573">"ดำเนินการทำงานที่ไม่รู้จัก"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"อนุญาตแล้ว <xliff:g id="COUNT_0">%1$d</xliff:g> จาก <xliff:g id="COUNT_1">%2$d</xliff:g> แอป"</string>
+    <string name="permission_usage_header" msgid="8802963718365732792">"การใช้งานล่าสุด"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"ดูหน้าแดชบอร์ดของสิทธิ์"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"แสดงระบบ"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"ซ่อนระบบ"</string>
+    <string name="no_apps" msgid="2377153782338039463">"ไม่มีแอป"</string>
+    <string name="location_settings" msgid="547378321761364906">"การตั้งค่าตำแหน่ง"</string>
+    <string name="location_warning" msgid="4687406043150343369">"<xliff:g id="APP_NAME">%1$s</xliff:g> เป็นผู้ให้บริการตำแหน่งสำหรับอุปกรณ์นี้ คุณสามารถแก้ไขสิทธิ์เข้าถึงตำแหน่งได้จากการตั้งค่าตำแหน่ง"</string>
+    <string name="system_warning" msgid="6868290533389195836">"หากคุณปฏิเสธสิทธิ์นี้ ฟีเจอร์พื้นฐานของอุปกรณ์อาจไม่ทำงานตามที่ควรจะเป็นอีกต่อไป"</string>
+    <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"บังคับใช้โดยนโยบาย"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"ปิดใช้การเข้าถึงในเบื้องหลังโดยนโยบาย"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"เปิดใช้การเข้าถึงในเบื้องหลังโดยนโยบาย"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="8652417310534780420">"เปิดใช้การเข้าถึงในเบื้องหน้าโดยนโยบาย"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="5156952484229154563">"ผู้ดูแลระบบเป็นผู้ควบคุม"</string>
+    <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"ปิดใช้การเข้าถึงเมื่ออยู่เบื้องหลังโดยผู้ดูแลระบบ"</string>
+    <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"เปิดใช้การเข้าถึงเมื่ออยู่เบื้องหลังโดยผู้ดูแลระบบ"</string>
+    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"เปิดใช้การเข้าถึงเมื่ออยู่เบื้องหน้าโดยผู้ดูแลระบบ"</string>
+    <string name="permission_summary_enabled_system_fixed" msgid="1648259601814176611">"สิทธิ์ที่กำหนดโดยระบบ"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
+    <string name="permission_access_always" msgid="2315256378850460955">"ได้เสมอ"</string>
+    <string name="permission_access_only_foreground" msgid="8109903552082630801">"ขณะใช้แอปเท่านั้น"</string>
+    <string name="permission_access_never" msgid="4717648645876576508">"ไม่เลย"</string>
+    <string name="loading" msgid="323483393167148377">"กำลังโหลด…"</string>
+    <string name="all_permissions" msgid="7813580062403112957">"สิทธิ์ทั้งหมด"</string>
+    <string name="other_permissions" msgid="1956312685853070715">"ความสามารถอื่นๆ ของแอป"</string>
+    <string name="permission_request_title" msgid="6779348653783761548">"คำขอสิทธิ์"</string>
+    <string name="screen_overlay_title" msgid="1632732130312696010">"ตรวจพบการวางซ้อนหน้าจอ"</string>
+    <string name="screen_overlay_message" msgid="3222033787364955006">"หากต้องการเปลี่ยนแปลงการตั้งค่าสิทธิ์นี้ ก่อนอื่น คุณต้องปิดการวางซ้อนหน้าจอที่การตั้งค่า &gt; แอป"</string>
+    <string name="screen_overlay_button" msgid="3554849308322944411">"เปิดการตั้งค่า"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="6923880912091041609">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="8731817202551430387">"ไม่สามารถติดตั้ง/ถอนการติดตั้งบน Wear"</string>
+    <string name="permission_review_title_template_install" msgid="8131698354985303888">"โปรดเลือกข้อมูลที่อนุญาตให้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; เข้าถึง"</string>
+    <string name="permission_review_title_template_update" msgid="7597155653571395485">"อัปเดต &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; แล้ว โปรดเลือกข้อมูลที่อนุญาตให้แอปนี้เข้าถึง"</string>
+    <string name="review_button_cancel" msgid="7108377593627664194">"ยกเลิก"</string>
+    <string name="review_button_continue" msgid="1367925420132212571">"ต่อไป"</string>
+    <string name="new_permissions_category" msgid="7242713808413888679">"สิทธิ์ใหม่"</string>
+    <string name="current_permissions_category" msgid="3835461245150972589">"สิทธิ์ปัจจุบัน"</string>
+    <string name="message_staging" msgid="641286607664721291">"กำลังปรับสภาพแวดล้อมของแอป…"</string>
+    <string name="app_name_unknown" msgid="8288360585728122735">"ไม่ทราบ"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"หน้าแดชบอร์ด"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="other">เข้าถึงล่าสุด: การเข้าถึง <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> รายการ</item>
+      <item quantity="one">เข้าถึงล่าสุด: การเข้าถึง <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> รายการ</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="other">เข้าถึงล่าสุด: การเข้าถึง <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> รายการ (<xliff:g id="NUM_5">%3$s</xliff:g> รายการในพื้นหลัง)</item>
+      <item quantity="one">เข้าถึงล่าสุด: การเข้าถึง <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> รายการ (<xliff:g id="NUM_2">%3$s</xliff:g> รายการในพื้นหลัง)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="other">เข้าถึงล่าสุด: การเข้าถึง <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> รายการ\nระยะเวลา: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">เข้าถึงล่าสุด: การเข้าถึง <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> รายการ\nระยะเวลา: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="other">เข้าถึงล่าสุด: การเข้าถึง <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> รายการ (<xliff:g id="NUM_6">%3$s</xliff:g> รายการในพื้นหลัง)\nระยะเวลา: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">เข้าถึงล่าสุด: การเข้าถึง <xliff:g id="TIME_0">%1$s</xliff:g>\n<xliff:g id="NUM_1">%2$s</xliff:g> รายการ (<xliff:g id="NUM_2">%3$s</xliff:g> รายการในพื้นหลัง)\nระยะเวลา: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"สิทธิ์ใดก็ได้"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"ทุกเวลา"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"7 วันที่ผ่านมา"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"24 ชั่วโมงที่ผ่านมา"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"1 ชั่วโมงที่ผ่านมา"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"15 นาทีที่ผ่านมา"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"1 นาทีที่ผ่านมา"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"ไม่มีการใช้สิทธิ์"</string>
+    <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"เข้าถึงได้ทุกเมื่อ"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"การเข้าถึงในช่วง 7 วันที่ผ่านมา"</string>
+    <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"เข้าถึงในช่วง 24 ชั่วโมงที่ผ่านมา"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"การเข้าถึงในชั่วโมงที่ผ่านมา"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"การเข้าถึงในช่วง 15 นาทีที่ผ่านมา"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="8035799852985876841">"การเข้าถึงใน 1 นาทีที่ผ่านมา"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"การใช้สิทธิ์สูงสุดในทุกเวลา"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"การใช้สิทธิ์สูงสุดในช่วง 7 วันที่ผ่านมา"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"การใช้สิทธิ์สูงสุดในช่วง 24 ชั่วโมงที่ผ่านมา"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"การใช้สิทธิ์สูงสุดในช่วง 1 ชั่วโมงที่ผ่านมา"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"การใช้สิทธิ์สูงสุดในช่วง 15 นาทีที่ผ่านมา"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"การใช้สิทธิ์สูงสุดในช่วง 1 นาทีที่ผ่านมา"</string>
+    <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"แอป"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"กรองตาม: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"นำตัวกรองออก"</string>
+    <string name="filter_by_title" msgid="5940302511365561845">"กรองตาม"</string>
+    <string name="filter_by_permissions" msgid="7761207093643478436">"กรองตามสิทธิ์"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"สิทธิ์ที่ใช้มากที่สุด"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"การเข้าถึงมากที่สุด"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"ล่าสุด"</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"รีเฟรช"</string>
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"การใช้สิทธิ์ของแอป"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"เข้าถึง: <xliff:g id="NUM">%1$s</xliff:g> ครั้ง ระยะเวลารวม: <xliff:g id="DURATION">%2$s</xliff:g> ใช้ล่าสุดเมื่อ <xliff:g id="TIME">%3$s</xliff:g>ที่ผ่านมา"</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"เข้าถึง: <xliff:g id="NUM">%1$s</xliff:g> ครั้ง ใช้ล่าสุดเมื่อ <xliff:g id="TIME">%2$s</xliff:g>ที่ผ่านมา"</string>
+    <string name="app_permission_button_allow" msgid="1358817292836175593">"อนุญาต"</string>
+    <string name="app_permission_button_allow_always" msgid="4313513946865105788">"อนุญาตตลอด"</string>
+    <string name="app_permission_button_allow_foreground" msgid="6366222217615376397">"อนุญาตเมื่อมีการใช้แอปเท่านั้น"</string>
+    <string name="app_permission_button_deny" msgid="5716368368650638408">"ปฏิเสธ"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"สิทธิ์เกี่ยวกับ<xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_header" msgid="5704679725169517493">"สิทธิ์การเข้าถึง<xliff:g id="PERM">%1$s</xliff:g>ของ <xliff:g id="APP">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"<xliff:g id="APP">%1$s</xliff:g> เข้าถึง<xliff:g id="PERM">%2$s</xliff:g>ของคุณเมื่อ <xliff:g id="TIME">%3$s</xliff:g> ที่ผ่านมา"</string>
+    <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"<xliff:g id="APP">%1$s</xliff:g> ไม่ได้เข้าถึง <xliff:g id="PERM">%2$s</xliff:g> ของคุณ"</string>
+    <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"ดูรายละเอียดการใช้สิทธิ์"</string>
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"เข้าถึงล่าสุด: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"ไม่เคยเข้าถึง"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"ได้รับอนุญาตแล้ว"</string>
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"อนุญาตขณะใช้งานอยู่เท่านั้น"</string>
+    <string name="denied_header" msgid="2277998574238617699">"ถูกปฏิเสธ"</string>
+    <string name="detailed_usage_link" msgid="3990452346369247944">"ดูการใช้งานโดยละเอียด"</string>
+    <plurals name="days" formatted="false" msgid="3903419301028414979">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> วัน</item>
+      <item quantity="one">1 วัน</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="2123927014975877155">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ชั่วโมง</item>
+      <item quantity="one">1 ชั่วโมง</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="4331145652577957044">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> นาที</item>
+      <item quantity="one">1 นาที</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="1632909606956324957">
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> วินาที</item>
+      <item quantity="one">1 วินาที</item>
+    </plurals>
+    <string name="role_request_message_add" msgid="1977772335648650272">"ใช้ &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; เป็น<xliff:g id="ROLE_NAME">%2$s</xliff:g> ไหม"</string>
+    <string name="role_request_message_replace" msgid="6367571247558110210">"ใช้ &lt;b&gt;<xliff:g id="NEW_APP_NAME">%1$s</xliff:g>&lt;/b&gt; แทนที่ &lt;b&gt;<xliff:g id="CURRENT_APP_NAME">%1$s</xliff:g>&lt;/b&gt; เป็น<xliff:g id="ROLE_NAME">%2$s</xliff:g> ไหม"</string>
+    <string name="permission_reminders" msgid="8040710767178843151">"การช่วยเตือนเกี่ยวกับสิทธิ์"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"<xliff:g id="APP_NAME">%s</xliff:g> ใช้ตำแหน่งของคุณ"</string>
+    <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"แอปนี้เข้าถึงตำแหน่งของคุณได้ตลอดเวลา แตะเพื่อเปลี่ยน"</string>
+    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"เมื่อมีการใช้แอปเท่านั้น"</string>
+    <string name="no_permissions_allowed" msgid="5781278485002145993">"ไม่ได้ให้สิทธิ์ใดเลย"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"ไม่ได้ปฏิเสธสิทธิ์ใดเลย"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"ไม่ได้อนุญาตแอปใดเลย"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"ไม่ได้ปฏิเสธแอปใดเลย"</string>
+    <string name="launch_app" msgid="5641437562665039291">"เปิด"</string>
+    <string name="uninstall_app" msgid="8756507666995809214">"ถอนการติดตั้ง"</string>
+    <string name="force_stop_app" msgid="4253426323145479826">"บังคับให้หยุด"</string>
+    <string name="settings" msgid="2884124136779508907">"การตั้งค่า"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"<xliff:g id="SERVICE_NAME">%s</xliff:g> มีสิทธิ์เข้าถึงอุปกรณ์ได้โดยสมบูรณ์"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"บริการช่วยเหลือพิเศษ <xliff:g id="NUM_SERVICES">%s</xliff:g> รายการมีสิทธิ์เข้าถึงอุปกรณ์ได้โดยสมบูรณ์"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"<xliff:g id="SERVICE_NAME">%s</xliff:g> จะดูหน้าจอ การทำงาน และอินพุตของคุณได้ รวมถึงดำเนินการต่างๆ และควบคุมหน้าจอ"</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"บริการเหล่านี้จะดูหน้าจอ การทำงาน และอินพุตของคุณได้ รวมถึงดำเนินการต่างๆ และควบคุมหน้าจอ"</string>
+    <string name="default_apps" msgid="8554530939151957828">"แอปเริ่มต้น"</string>
+    <string name="no_default_apps" msgid="5642715159090903032">"ไม่มีแอปเริ่มต้น"</string>
+    <string name="default_apps_for_work" msgid="8582151955372061208">"ค่าเริ่มต้นสำหรับงาน"</string>
+    <string name="default_app_none" msgid="7671097769303174666">"ไม่มี"</string>
+    <string name="default_app_no_apps" msgid="5344668465735677271">"ไม่มีแอป"</string>
+    <string name="special_app_access" msgid="2561673957499408877">"สิทธิ์เข้าถึงพิเศษของแอป"</string>
+    <string name="no_special_app_access" msgid="994977666694457811">"ไม่มีสิทธิ์เข้าถึงพิเศษของแอป"</string>
+    <string name="special_app_access_no_apps" msgid="3934763650592564818">"ไม่มีแอป"</string>
+    <string name="role_label_assistant" msgid="456685142560727172">"แอปผู้ช่วย"</string>
+    <string name="role_label_browser" msgid="6266502234308421457">"แอปเบราว์เซอร์"</string>
+    <string name="role_label_dialer" msgid="3345895090725237533">"แอปโทรศัพท์"</string>
+    <string name="role_label_sms" msgid="2262769075496017522">"แอป SMS"</string>
+    <string name="role_label_emergency" msgid="2226651888638211616">"แอปฉุกเฉิน"</string>
+    <string name="role_label_home" msgid="7672863812639457378">"แอปหน้าแรก"</string>
+    <string name="role_label_music" msgid="5900245414865932272">"แอปเพลง"</string>
+    <string name="role_label_gallery" msgid="6939560238495155209">"แอปแกลเลอรี"</string>
+    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"แอปโทรศัพท์ในโหมดรถยนต์"</string>
+    <string name="role_label_call_redirection" msgid="8902197181113231577">"แอปเปลี่ยนเส้นทางสายเรียกเข้า"</string>
+    <string name="role_label_call_screening" msgid="411212589764916370">"แอปสกรีนสายเรียกเข้า"</string>
+    <string name="role_label_call_companion" msgid="7369723859682076467">"แอปที่ใช้ร่วมกับการโทร"</string>
+    <string name="role_label_car_projection" msgid="3792929094325391213">"แอป Car Projection"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"ไม่รองรับโปรไฟล์งาน"</string>
+    <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"หมายเหตุ: หากคุณรีสตาร์ทอุปกรณ์และตั้งการล็อกหน้าจอไว้ แอปนี้จะเริ่มทำงานไม่ได้จนกว่าคุณจะปลดล็อกอุปกรณ์"</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"Assistant จะอ่านข้อมูลเกี่ยวกับแอปที่ใช้งานอยู่ในระบบของคุณได้ รวมถึงข้อมูลที่ปรากฏบนหน้าจอหรือที่เข้าถึงได้ภายในแอป"</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"แชร์ข้อมูลการแก้ไขข้อบกพร่อง"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"แชร์ร์ข้อมูลการแก้ไขข้อบกพร่องโดยละเอียดไหม"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"<xliff:g id="APP_NAME">%1$s</xliff:g> ต้องการอัปโหลดข้อมูลการแก้ไขข้อบกพร่อง"</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"แชร์ข้อมูลการแก้ไขข้อบกพร่อง"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> กำลังขออัปโหลดรายงานข้อบกพร่องจากอุปกรณ์นี้ซึ่งบันทึกไว้เมื่อวันที่ <xliff:g id="DATE">%2$s</xliff:g> เวลา <xliff:g id="TIME">%3$s</xliff:g> รายงานข้อบกพร่องมีข้อมูลส่วนบุคคลเกี่ยวกับอุปกรณ์ของคุณหรือที่แอปต่างๆ บันทึกไว้ เช่น ชื่อผู้ใช้ ข้อมูลตำแหน่ง ตัวระบุอุปกรณ์ และข้อมูลเครือข่าย โปรดแชร์รายงานข้อบกพร่องกับบุคคลและแอปที่คุณไว้วางใจให้เห็นข้อมูลนี้เท่านั้น อนุญาตให้ <xliff:g id="APP_NAME_1">%4$s</xliff:g> อัปโหลดรายงานข้อบกพร่องไหม"</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"อนุญาต"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"ปฏิเสธ"</string>
 </resources>

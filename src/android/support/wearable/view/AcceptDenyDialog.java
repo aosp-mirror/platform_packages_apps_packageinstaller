@@ -28,7 +28,7 @@ import android.widget.ImageView;
 import android.widget.Space;
 import android.widget.TextView;
 
-import com.android.packageinstaller.R;
+import com.android.permissioncontroller.R;
 
 /**
  * A dialog to display a title, a message, and/or an icon with a positive and a negative button.

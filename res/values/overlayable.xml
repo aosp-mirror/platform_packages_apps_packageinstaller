@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2019 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <!-- TODO(evanseverson) rename this overlayable -->
+    <overlayable name="PermissionControllerStyles">
+
+        <policy type="product|system|vendor">
+
+            <!-- START HELP LINKS -->
+            <item type="string" name="help_app_permissions" />
+            <item type="string" name="help_permission_usage" />
+            <!-- END HELP LINKS -->
+
+            <!-- START PERMISSION GRANT DIALOG -->
+            <item type="style" name="PermissionGrantScrollView" />
+            <item type="style" name="PermissionGrantSingleton" />
+            <item type="style" name="PermissionGrantDialog" />
+
+            <item type="style" name="PermissionGrantContent" />
+            <item type="style" name="PermissionGrantDescription" />
+            <item type="style" name="PermissionGrantTitleIcon" />
+            <item type="style" name="PermissionGrantTitleMessage" />
+            <item type="style" name="PermissionGrantDetailMessage" />
+
+            <item type="style" name="PermissionGrantButtonList" />
+            <item type="style" name="PermissionGrantButtonBarSpace" />
+            <item type="style" name="PermissionGrantButton" />
+            <item type="style" name="PermissionGrantButtonAllow" />
+            <item type="style" name="PermissionGrantButtonAllowAlways" />
+            <item type="style" name="PermissionGrantButtonAllowForeground" />
+            <item type="style" name="PermissionGrantButtonDeny" />
+            <item type="style" name="PermissionGrantButtonDenyDontAskAgain" />
+            <!-- END PERMISSION GRANT DIALOG -->
+
+
+            <!-- START PERMISSION REVIEW SCREEN -->
+            <item type="style" name="PermissionReview" />
+
+            <item type="style" name="PermissionReviewDescription" />
+            <item type="style" name="PermissionReviewTitleIcon" />
+            <item type="style" name="PermissionReviewTitleMessage" />
+
+            <item type="style" name="PermissionReviewSettings" />
+            <item type="style" name="PermissionReviewSwitchStyle" />
+
+            <item type="style" name="PermissionReviewButtonBar" />
+            <item type="style" name="PermissionReviewButtonBarSpace" />
+            <item type="style" name="PermissionReviewButton" />
+            <item type="style" name="PermissionReviewButtonMoreInfo" />
+            <item type="style" name="PermissionReviewButtonCancel" />
+            <item type="style" name="PermissionReviewButtonContinue" />
+            <!-- END PERMISSION REVIEW SCREEN -->
+
+            <!-- START PERMISSIONS FRAME -->
+            <item type="style" name="PermissionsFrameNoPermissionsText" />
+            <!-- END PERMISSIONS FRAME -->
+
+            <!-- START HEADER -->
+            <item type="style" name="Header" />
+            <item type="style" name="HeaderIcon" />
+            <item type="style" name="HeaderName" />
+            <item type="style" name="HeaderInfo" />
+            <!-- END HEADER -->
+
+            <!-- START APP PERMISSION SCREEN -->
+            <item type="style" name="AppPermission" />
+
+            <item type="style" name="LargeHeader" />
+            <item type="style" name="LargeHeaderText" />
+            <item type="style" name="LargeHeaderLink" />
+            <item type="style" name="LargeHeaderDivider" />
+
+            <item type="style" name="AppPermissionSelection" />
+            <item type="style" name="AppPermissionMessage" />
+            <item type="style" name="AppPermissionRadioButton" />
+            <item type="style" name="AppPermissionDetails" />
+            <item type="style" name="AppPermissionTwoTargetDivider" />
+            <item type="style" name="AppPermissionWidgetFrame" />
+
+            <item type="style" name="AppPermissionFooter" />
+            <item type="style" name="AppPermissionFooterDivider" />
+            <item type="style" name="AppPermissionFooterText" />
+            <item type="style" name="AppPermissionFooterLink" />
+            <!-- END APP PERMISSION SCREEN -->
+
+            <!-- START PERMISSION FILTER SCREEN -->
+            <item type="style" name="PermissionFilterDialogContainer" />
+            <item type="style" name="PermissionFilterDialogTitleContainer" />
+            <item type="style" name="PermissionFilterDialogTitle" />
+            <item type="style" name="PermissionFilterDialogScrollView" />
+            <item type="style" name="PermissionFilterDialogInnerContainer" />
+            <item type="style" name="PermissionFilterDialogItemsContainer" />
+            <item type="style" name="PermissionFilterDialogItemContainer" />
+            <item type="style" name="PermissionFilterDialogItemTextFrame" />
+            <item type="style" name="PermissionFilterDialogItemTitle" />
+            <item type="style" name="PermissionFilterDialogItemSummary" />
+            <!-- END PERMISSION FILTER SCREEN -->
+
+            <!-- START PREFERENCE USAGE -->
+            <item type="style" name="PreferenceUsage" />
+            <item type="style" name="PreferenceUsageTitleWidgetFrame" />
+            <item type="style" name="PreferenceUsageImageFrame" />
+            <item type="style" name="PreferenceUsageTitle" />
+            <item type="style" name="PreferenceUsageSummaryWidgetFrame" />
+            <item type="style" name="PreferenceUsageSummary" />
+            <item type="style" name="PreferenceUsageWidgetFrame" />
+            <!-- END PREFERENCE USAGE -->
+
+            <!-- START TITLE SUMMARY IMAGE VIEW -->
+            <item type="style" name="TitleSummaryImageViewIcon" />
+            <!-- END TITLE SUMMARY IMAGE VIEW -->
+
+            <!-- START IMAGE VIEW -->
+            <item type="style" name="ImageView" />
+            <item type="style" name="ImageViewIcon" />
+            <!-- END IMAGE VIEW -->
+
+            <!-- START LOADING CONTAINER -->
+            <item type="style" name="LoadingContainerTextView" />
+            <!-- END LOADING CONTAINER -->
+
+            <!-- START ONGOING USAGE DIALOG -->
+            <item type="style" name="PermissionUsageDialogContainerScrollView" />
+            <item type="style" name="PermissionUsageDialogContainerLayout" />
+            <item type="style" name="PermissionUsageDialogTitle" />
+            <item type="style" name="PermissionUsageDialogItemsContainer" />
+
+            <item type="style" name="PermissionUsageDialogItemContainer" />
+            <item type="style" name="PermissionUsageDialogItemIconFrame" />
+            <item type="style" name="PermissionUsageDialogItemIcon" />
+            <item type="style" name="PermissionUsageDialogItemAppName" />
+            <item type="style" name="PermissionUsageDialogItemIconsContainer" />
+            <!-- END ONGOING USAGE DIALOG -->
+
+            <!-- START REQUEST ROLE DIALOG TITLE -->
+            <item type="style" name="RequestRoleTitle" />
+            <item type="style" name="RequestRoleTitleIcon" />
+            <item type="style" name="RequestRoleTitleText" />
+            <!-- END REQUEST ROLE DIALOG TITLE -->
+
+            <!-- START REQUEST ROLE DIALOG ITEM -->
+            <item type="style" name="RequestRoleItem" />
+            <item type="style" name="RequestRoleItemIcon" />
+            <item type="style" name="RequestRoleItemTitleLayout" />
+            <item type="style" name="RequestRoleItemTitleText" />
+            <item type="style" name="RequestRoleItemSubtitleText" />
+            <item type="style" name="RequestRoleItemRadioButton" />
+            <!-- END REQUEST ROLE DIALOG ITEM -->
+
+            <!-- START REQUEST ROLE DIALOG VIEW -->
+            <item type="style" name="RequestRoleView" />
+            <item type="style" name="RequestRoleViewCheckbox" />
+            <!-- END REQUEST ROLE DIALOG VIEW -->
+
+            <!-- START SETTINGS BUTTON PREFERENCE WIDGET -->
+            <item type="style" name="SettingsButtonPreferenceWidgetDivider" />
+            <item type="style" name="SettingsButtonPreferenceWidgetButton" />
+            <!-- END SETTINGS BUTTON PREFERENCE WIDGET -->
+
+            <!-- START ACCESSIBILITY SERVICE DIALOG -->
+            <item type="style" name="AccessibilityServiceDialogScrollView" />
+            <item type="style" name="AccessibilityServiceDialog" />
+            <item type="style" name="AccessibilityServiceDialogHeader" />
+            <item type="style" name="AccessibilityServiceDialogHeaderIcon" />
+            <item type="style" name="AccessibilityServiceDialogTitle" />
+
+            <item type="style" name="AccessibilityServiceDialogItemsContainer" />
+            <item type="style" name="AccessibilityServiceDialogMiddleText" />
+            <item type="style" name="AccessibilityServiceDialogBottomText" />
+            <!-- END ACCESSIBILITY SERVICE DIALOG -->
+
+            <!-- START ACCESSIBILITY SERVICE DIALOG ITEM -->
+            <item type="style" name="AccessibilityServiceDialogItem" />
+            <item type="style" name="AccessibilityServiceDialogItemIcon" />
+            <item type="style" name="AccessibilityServiceDialogItemDescription" />
+            <item type="style" name="AccessibilityServiceDialogItemTitle" />
+            <item type="style" name="AccessibilityServiceDialogItemSummary" />
+            <!-- END ACCESSIBILITY SERVICE DIALOG ITEM -->
+
+            <!-- START LOCATION ACCESS CHECK PIN DROP -->
+            <item type="color" name="system_notification_accent_color" />
+            <!-- END LOCATION ACCESS CHECK PIN DROP -->
+
+            <!-- START SETTINGSLIB BARCHARTPREFERENCE -->
+            <item type="style" name="SettingsBarChart" />
+            <item type="style" name="SettingsBarChartTitle" />
+
+            <item type="style" name="SettingsBarViewStyle" />
+            <!-- COLORS -->
+            <item type="color" name="settings_bar_view_1_color" />
+            <item type="color" name="settings_bar_view_2_color" />
+            <item type="color" name="settings_bar_view_3_color" />
+            <item type="color" name="settings_bar_view_4_color" />
+
+            <item type="style" name="SettingsBarChartDetailsButton" />
+            <item type="style" name="SettingsBarChartEmptyText" />
+
+            <item type="style" name="SettingsBarChartBar" />
+            <item type="style" name="SettingsBarChartBarIcon" />
+            <item type="style" name="SettingsBarChartBarTitle" />
+            <item type="style" name="SettingsBarChartBarSummary" />
+            <!-- END SETTINGSLIB BARCHARTPREFERENCE -->
+
+            <!-- START SETTINGSLIB APPPREFERENCE -->
+            <!-- DIMEN -->
+            <item type="dimen" name="secondary_app_icon_size" />
+            <!-- END SETTINGSLIB APPPREFERENCE -->
+
+            <!-- START THEMES -->
+            <item type="style" name="Settings" />
+            <item type="style" name="TextAppearance.CategoryTitle" />
+            <item type="style" name="ReviewPermissions" />
+            <item type="style" name="GrantPermissions" />
+            <item type="style" name="Header.Settings" />
+            <item type="style" name="RequestRole" />
+            <item type="style" name="Theme.PermissionGrantDialog" />
+            <item type="style" name="PermissionDialog" />
+            <!-- END THEMES -->
+
+            <!-- START VISIBILITY CONFIGS -->
+            <!-- Assistant role uses: config_showDefaultAssistant -->
+            <!-- Home role uses: config_showDefaultHome -->
+            <!-- Emergency role uses: config_showDefaultEmergency -->
+            <item type="bool" name="config_showBrowserRole" />
+            <item type="bool" name="config_showDialerRole" />
+            <item type="bool" name="config_showSmsRole" />
+            <!-- END VISIBILITY CONFIGS -->
+
+            <!-- START CAR DIMENS -->
+            <item type="dimen" name="car_action_bar_height" />
+            <item type="dimen" name="car_margin" />
+            <item type="dimen" name="car_icon_size" />
+            <!-- END CAR DIMENS -->
+
+            <!-- START CAR STYLES -->
+            <item type="style" name="CarPreferenceFragment" />
+            <item type="style" name="CarPreferenceFragmentList" />
+            <!-- END CAR STYLES -->
+
+            <!-- START CAR THEMES -->
+            <item type="style" name="CarSettings" />
+            <item type="style" name="CarPreferenceTheme" />
+            <!-- END CAR THEMES -->
+
+        </policy>
+
+    </overlayable>
+
+</resources>

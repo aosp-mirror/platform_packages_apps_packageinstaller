@@ -16,21 +16,23 @@
 
 package com.android.packageinstaller.permission.ui;
 
-import android.app.Activity;
-
-import android.app.Fragment;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.android.packageinstaller.DeviceUtils;
-import com.android.packageinstaller.R;
-import com.android.packageinstaller.permission.ui.handheld.ReviewPermissionsFragment;
-import com.android.packageinstaller.permission.ui.ConfirmActionDialogFragment.OnActionConfirmedListener;
-import com.android.packageinstaller.permission.ui.wear.ReviewPermissionsWearFragment;
 
-public final class ReviewPermissionsActivity extends Activity
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+
+import com.android.packageinstaller.DeviceUtils;
+import com.android.packageinstaller.permission.ui.ConfirmActionDialogFragment
+        .OnActionConfirmedListener;
+import com.android.packageinstaller.permission.ui.handheld.ReviewPermissionsFragment;
+import com.android.packageinstaller.permission.ui.wear.ReviewPermissionsWearFragment;
+import com.android.permissioncontroller.R;
+
+public final class ReviewPermissionsActivity extends FragmentActivity
         implements OnActionConfirmedListener {
 
     @Override
@@ -45,12 +47,12 @@ public final class ReviewPermissionsActivity extends Activity
 
         if (DeviceUtils.isWear(this)) {
             Fragment fragment = ReviewPermissionsWearFragment.newInstance(packageInfo);
-            getFragmentManager().beginTransaction()
+            getSupportFragmentManager().beginTransaction()
                     .replace(android.R.id.content, fragment).commit();
         } else {
             setContentView(R.layout.review_permissions);
-            if (getFragmentManager().findFragmentById(R.id.preferences_frame) == null) {
-                getFragmentManager().beginTransaction().add(R.id.preferences_frame,
+            if (getSupportFragmentManager().findFragmentById(R.id.preferences_frame) == null) {
+                getSupportFragmentManager().beginTransaction().add(R.id.preferences_frame,
                         ReviewPermissionsFragment.newInstance(packageInfo)).commit();
             }
         }
@@ -58,7 +60,7 @@ public final class ReviewPermissionsActivity extends Activity
 
     @Override
     public void onActionConfirmed(String action) {
-        Fragment fragment = getFragmentManager().findFragmentById(R.id.preferences_frame);
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.preferences_frame);
         if (fragment instanceof OnActionConfirmedListener) {
             ((OnActionConfirmedListener) fragment).onActionConfirmed(action);
         }
