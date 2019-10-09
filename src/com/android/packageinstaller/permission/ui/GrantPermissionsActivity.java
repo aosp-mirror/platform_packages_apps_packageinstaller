@@ -1001,6 +1001,8 @@ public class GrantPermissionsActivity extends Activity
             case DENIED_DO_NOT_ASK_AGAIN:
                 clickedButton = 1 << LABEL_DENY_AND_DONT_ASK_AGAIN_BUTTON;
                 break;
+            case GRANTED_ONE_TIME:
+                clickedButton = 1 << LABEL_ALLOW_ONE_TIME;
             default:
                 break;
         }
