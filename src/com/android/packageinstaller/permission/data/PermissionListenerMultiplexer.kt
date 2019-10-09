@@ -22,13 +22,13 @@ import android.content.pm.PackageManager
 /**
  * Serves as a single shared Permission Change Listener for all AppPermissionGroupLiveDatas.
  *
- * @param app: The application this multiplexer is being instantiated from
+ * @param app: The current application
  */
 class PermissionListenerMultiplexer(private val app: Application)
     : PackageManager.OnPermissionsChangedListener {
     /**
-     * Maps an Int uid to a list of PermissionChangeCallbacks that wish to be informed when
-     * permissions are updated for that UID.
+     * Map<UID, list of PermissionChangeCallbacks that wish to be informed when
+     * permissions are updated for that UID>
      */
     private val callbacks = mutableMapOf<Int, MutableList<PermissionChangeCallback>>()
     private val pm = app.applicationContext.packageManager
@@ -37,6 +37,13 @@ class PermissionListenerMultiplexer(private val app: Application)
         callbacks[uid]?.forEach { callback ->
             callback.onPermissionChange()
         }
+    }
+
+    fun addOrReplaceCallback(oldUid: Int?, newUid: Int, callback: PermissionChangeCallback) {
+        if (oldUid != null) {
+            removeCallback(oldUid, callback)
+        }
+        addCallback(newUid, callback)
     }
 
     fun addCallback(uid: Int, callback: PermissionChangeCallback) {

@@ -21,10 +21,16 @@ import static com.android.packageinstaller.Constants.EXTRA_SESSION_ID;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import androidx.lifecycle.ViewModelProviders;
+
+import java.util.HashMap;
+
 /**
  * Fragment that allows the user to manage custom permissions.
  */
 public class ManageCustomPermissionsFragment extends ManagePermissionsFragment {
+
+    private ManageCustomPermissionsViewModel mViewModel;
 
     /**
      * @return A new fragment
@@ -35,6 +41,26 @@ public class ManageCustomPermissionsFragment extends ManagePermissionsFragment {
         arguments.putLong(EXTRA_SESSION_ID, sessionId);
         fragment.setArguments(arguments);
         return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle icicle) {
+        super.onCreate(icicle);
+
+        ManageCustomPermissionsViewModelFactory factory =
+                new ManageCustomPermissionsViewModelFactory(getActivity().getApplication());
+        mViewModel = ViewModelProviders.of(this, factory)
+                .get(ManageCustomPermissionsViewModel.class);
+        mPermissionGroups = mViewModel.getUiDataLiveData().getValue();
+
+        mViewModel.getUiDataLiveData().observe(this, permissionGroups -> {
+            if (permissionGroups == null) {
+                mPermissionGroups = new HashMap<>();
+            } else {
+                mPermissionGroups = permissionGroups;
+            }
+            updatePermissionsUi();
+        });
     }
 
     @Override
@@ -52,10 +78,5 @@ public class ManageCustomPermissionsFragment extends ManagePermissionsFragment {
                 return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    protected void updatePermissionsUi() {
-        updatePermissionsUi(false);
     }
 }

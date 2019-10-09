@@ -21,6 +21,9 @@ import static android.view.WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTE
 import static com.android.packageinstaller.Constants.INVALID_SESSION_ID;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.PermissionGroupInfo;
+import android.content.pm.PermissionInfo;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.util.Log;
@@ -36,6 +39,8 @@ import com.android.packageinstaller.permission.ui.handheld.AppPermissionFragment
 import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.Utils;
 import com.android.permissioncontroller.R;
+
+import java.util.List;
 
 /**
  * Manage a single permission of a single app
@@ -71,6 +76,22 @@ public final class AppPermissionActivity extends FragmentActivity {
             return;
         }
         String groupName = Utils.getGroupOfPlatformPermission(permissionName);
+        PermissionInfo permission;
+        try {
+            permission = getPackageManager().getPermissionInfo(permissionName, 0);
+            if (!permission.packageName.equals(Utils.OS_PKG)) {
+                List<PermissionGroupInfo> groupInfos =
+                        getPackageManager().getAllPermissionGroups(0);
+                for (PermissionGroupInfo groupInfo: groupInfos) {
+                    if (groupInfo.name.equals(permission.group)) {
+                        groupName = permission.group;
+                    }
+                }
+
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            groupName = null;
+        }
 
         UserHandle userHandle = getIntent().getParcelableExtra(Intent.EXTRA_USER);
         if (userHandle == null) {
