@@ -28,7 +28,6 @@ import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
-import androidx.core.widget.NestedScrollView;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -50,7 +49,6 @@ public abstract class PermissionsFrameFragment extends PreferenceFragmentCompat 
     private View mProgressHeader;
     private View mProgressView;
     private ViewGroup mPrefsView;
-    private NestedScrollView mNestedScrollView;
     private boolean mIsLoading;
 
     /**
@@ -84,7 +82,6 @@ public abstract class PermissionsFrameFragment extends PreferenceFragmentCompat 
                 inflater, mPrefsView, savedInstanceState);
         setLoading(mIsLoading, false, true /* force */);
         mPrefsView.addView(mPreferencesContainer, 0);
-        mNestedScrollView = rootView.requireViewById(R.id.nested_scroll_view);
         mProgressHeader = rootView.requireViewById(R.id.progress_bar_animation);
         mProgressView = rootView.requireViewById(R.id.progress_bar_background);
         setProgressBarVisible(false);
@@ -96,13 +93,13 @@ public abstract class PermissionsFrameFragment extends PreferenceFragmentCompat 
     public void onStart() {
         super.onStart();
 
-        if (mNestedScrollView != null) {
+        if (getListView() != null) {
             ActionBar ab = getActivity().getActionBar();
             if (ab != null) {
                 ab.setElevation(0);
             }
             ActionBarShadowController.attachToView(getActivity(), getLifecycle(),
-                    mNestedScrollView);
+                    getListView());
         }
     }
 
