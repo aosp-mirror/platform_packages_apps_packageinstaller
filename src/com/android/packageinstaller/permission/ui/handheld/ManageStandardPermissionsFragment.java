@@ -15,14 +15,18 @@
  */
 package com.android.packageinstaller.permission.ui.handheld;
 
-import android.app.FragmentTransaction;
-import android.preference.Preference;
-import android.preference.PreferenceScreen;
+import static com.android.packageinstaller.Constants.EXTRA_SESSION_ID;
+
+import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.android.packageinstaller.R;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
+
 import com.android.packageinstaller.permission.model.PermissionGroup;
 import com.android.packageinstaller.permission.utils.Utils;
+import com.android.permissioncontroller.R;
 
 import java.util.List;
 
@@ -31,21 +35,30 @@ import java.util.List;
  */
 public final class ManageStandardPermissionsFragment extends ManagePermissionsFragment {
     private static final String EXTRA_PREFS_KEY = "extra_prefs_key";
+    private static final int MAXIMUM_APP_COUNT = 3;
 
     /**
      * @return A new fragment
      */
-    public static ManageStandardPermissionsFragment newInstance() {
-        return new ManageStandardPermissionsFragment();
+    public static ManageStandardPermissionsFragment newInstance(long sessionId) {
+        ManageStandardPermissionsFragment fragment = new ManageStandardPermissionsFragment();
+        Bundle arguments = new Bundle();
+        arguments.putLong(EXTRA_SESSION_ID, sessionId);
+        fragment.setArguments(arguments);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle icicle) {
+        super.onCreate(icicle);
     }
 
     @Override
     public void onStart() {
         super.onStart();
 
-        getActivity().setTitle(com.android.packageinstaller.R.string.app_permissions);
+        getActivity().setTitle(com.android.permissioncontroller.R.string.app_permission_manager);
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -79,15 +92,17 @@ public final class ManageStandardPermissionsFragment extends ManagePermissionsFr
             }
         } else {
             if (additionalPermissionsPreference == null) {
-                additionalPermissionsPreference = new Preference(getActivity());
+                additionalPermissionsPreference = new Preference(
+                        getPreferenceManager().getContext());
                 additionalPermissionsPreference.setKey(EXTRA_PREFS_KEY);
                 additionalPermissionsPreference.setIcon(Utils.applyTint(getActivity(),
                         R.drawable.ic_more_items,
                         android.R.attr.colorControlNormal));
                 additionalPermissionsPreference.setTitle(R.string.additional_permissions);
                 additionalPermissionsPreference.setOnPreferenceClickListener(preference -> {
+                    long sessionId = getArguments().getLong(EXTRA_SESSION_ID);
                     ManageCustomPermissionsFragment frag =
-                            new ManageCustomPermissionsFragment();
+                            ManageCustomPermissionsFragment.newInstance(sessionId);
                     frag.setTargetFragment(ManageStandardPermissionsFragment.this, 0);
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
                     ft.replace(android.R.id.content, frag);

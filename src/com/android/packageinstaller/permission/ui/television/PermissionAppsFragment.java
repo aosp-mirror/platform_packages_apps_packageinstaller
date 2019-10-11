@@ -24,12 +24,6 @@ import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import androidx.preference.SwitchPreference;
-import androidx.collection.ArrayMap;
-import androidx.preference.Preference;
-import androidx.preference.Preference.OnPreferenceChangeListener;
-import androidx.preference.Preference.OnPreferenceClickListener;
-import androidx.preference.PreferenceScreen;
 import android.util.ArraySet;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -37,8 +31,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.preference.Preference;
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.Preference.OnPreferenceClickListener;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreference;
+
 import com.android.packageinstaller.DeviceUtils;
-import com.android.packageinstaller.R;
 import com.android.packageinstaller.permission.model.AppPermissionGroup;
 import com.android.packageinstaller.permission.model.PermissionApps;
 import com.android.packageinstaller.permission.model.PermissionApps.Callback;
@@ -47,9 +46,7 @@ import com.android.packageinstaller.permission.ui.ReviewPermissionsActivity;
 import com.android.packageinstaller.permission.utils.LocationUtils;
 import com.android.packageinstaller.permission.utils.SafetyNetLogger;
 import com.android.packageinstaller.permission.utils.Utils;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.android.permissioncontroller.R;
 
 public final class PermissionAppsFragment extends SettingsWithHeader implements Callback,
         OnPreferenceChangeListener {
@@ -73,8 +70,7 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
 
     private PreferenceScreen mExtraScreen;
 
-    private ArrayMap<String, AppPermissionGroup> mToggledGroups;
-    private ArraySet<String> mLauncherPkgs;
+    private ArraySet<AppPermissionGroup> mToggledGroups;
     private boolean mHasConfirmedRevoke;
 
     private boolean mShowSystem;
@@ -88,21 +84,20 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setLoading(true /* loading */, false /* animate */);
+        String groupName = getArguments().getString(Intent.EXTRA_PERMISSION_NAME);
+        mPermissionApps = new PermissionApps(getActivity(), groupName, this);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
         setHasOptionsMenu(true);
         final ActionBar ab = getActivity().getActionBar();
         if (ab != null) {
             ab.setDisplayHomeAsUpEnabled(true);
         }
-        mLauncherPkgs = Utils.getLauncherPackages(getContext());
 
-        String groupName = getArguments().getString(Intent.EXTRA_PERMISSION_NAME);
-        mPermissionApps = new PermissionApps(getActivity(), groupName, this);
-        mPermissionApps.refresh(true);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
         mPermissionApps.refresh(true);
     }
 
@@ -188,7 +183,7 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
         boolean menuOptionsInvalided = false;
 
         for (PermissionApp app : permissionApps.getApps()) {
-            if (!Utils.shouldShowPermission(app)) {
+            if (!Utils.shouldShowPermission(getContext(), app.getPermissionGroup())) {
                 continue;
             }
 
@@ -199,7 +194,7 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
                 existingPref = mExtraScreen.findPreference(key);
             }
 
-            boolean isSystemApp = Utils.isSystem(app, mLauncherPkgs);
+            boolean isSystemApp = !Utils.isGroupOrBgGroupUserSensitive(app.getPermissionGroup());
 
             if (isSystemApp && !menuOptionsInvalided) {
                 mHasSystemApps = true;
@@ -216,12 +211,15 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
 
             if (existingPref != null) {
                 // If existing preference - only update its state.
-                if (app.isPolicyFixed()) {
+                if (app.isSystemFixed()) {
+                    existingPref.setSummary(getString(
+                            R.string.permission_summary_enabled_system_fixed));
+                } else if (app.isPolicyFixed()) {
                     existingPref.setSummary(getString(
                             R.string.permission_summary_enforced_by_policy));
                 }
                 existingPref.setPersistent(false);
-                existingPref.setEnabled(!app.isPolicyFixed());
+                existingPref.setEnabled(!app.isSystemFixed() && !app.isPolicyFixed());
                 if (existingPref instanceof SwitchPreference) {
                     ((SwitchPreference) existingPref)
                             .setChecked(app.areRuntimePermissionsGranted());
@@ -234,11 +232,13 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
             pref.setKey(app.getKey());
             pref.setIcon(app.getIcon());
             pref.setTitle(app.getLabel());
-            if (app.isPolicyFixed()) {
+            if (app.isSystemFixed()) {
+                pref.setSummary(getString(R.string.permission_summary_enabled_system_fixed));
+            } else if (app.isPolicyFixed()) {
                 pref.setSummary(getString(R.string.permission_summary_enforced_by_policy));
             }
             pref.setPersistent(false);
-            pref.setEnabled(!app.isPolicyFixed());
+            pref.setEnabled(!app.isSystemFixed() && !app.isPolicyFixed());
             pref.setChecked(app.areRuntimePermissionsGranted());
 
             if (isSystemApp && isTelevision) {
@@ -316,7 +316,7 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
             return false;
         }
 
-        if (LocationUtils.isLocationGroupAndProvider(mPermissionApps.getGroupName(),
+        if (LocationUtils.isLocationGroupAndProvider(getContext(), mPermissionApps.getGroupName(),
                 app.getPackageName())) {
             LocationUtils.showLocationDialog(getContext(), app.getLabel());
             return false;
@@ -362,32 +362,22 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
     }
 
     @Override
-    public void onPause() {
-        super.onPause();
+    public void onStop() {
+        super.onStop();
         logToggledGroups();
     }
 
     private void addToggledGroup(String packageName, AppPermissionGroup group) {
         if (mToggledGroups == null) {
-            mToggledGroups = new ArrayMap<>();
+            mToggledGroups = new ArraySet<>();
         }
-        // Double toggle is back to initial state.
-        if (mToggledGroups.containsKey(packageName)) {
-            mToggledGroups.remove(packageName);
-        } else {
-            mToggledGroups.put(packageName, group);
-        }
+
+        mToggledGroups.add(group);
     }
 
     private void logToggledGroups() {
         if (mToggledGroups != null) {
-            final int groupCount = mToggledGroups.size();
-            for (int i = 0; i < groupCount; i++) {
-                String packageName = mToggledGroups.keyAt(i);
-                List<AppPermissionGroup> groups = new ArrayList<>();
-                groups.add(mToggledGroups.valueAt(i));
-                SafetyNetLogger.logPermissionsToggled(packageName, groups);
-            }
+            SafetyNetLogger.logPermissionsToggled(mToggledGroups);
             mToggledGroups = null;
         }
     }
@@ -415,7 +405,8 @@ public final class PermissionAppsFragment extends SettingsWithHeader implements 
         public void onViewCreated(View view, Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
             String groupName = getArguments().getString(Intent.EXTRA_PERMISSION_NAME);
-            PermissionApps permissionApps = new PermissionApps(getActivity(), groupName, null);
+            PermissionApps permissionApps = new PermissionApps(getActivity(), groupName,
+                    (Callback) null);
             bindUi(this, permissionApps);
         }
 

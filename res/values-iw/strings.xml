@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,138 +16,226 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="2738748390251381682">"מתקין החבילה"</string>
-    <string name="next" msgid="3057143178373252333">"הבא"</string>
-    <string name="install" msgid="5896438203900042068">"התקן"</string>
-    <string name="done" msgid="3889387558374211719">"סיום"</string>
-    <string name="security_settings_desc" msgid="2706691034244052604">"אפשר לאפליקציה זו:"</string>
-    <string name="cancel" msgid="8360346460165114585">"ביטול"</string>
-    <string name="unknown" msgid="4742479012767208045">"לא ידוע"</string>
-    <string name="installing" msgid="8613631001631998372">"מתקין..."</string>
-    <string name="installing_app" msgid="4097935682329028894">"מתקין את <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
-    <string name="install_done" msgid="3682715442154357097">"האפליקציה הותקנה."</string>
-    <string name="install_confirm_question" msgid="7295206719219043890">"האם ברצונך להתקין את האפליקציה? היא תקבל גישה אל:"</string>
-    <string name="install_confirm_question_no_perms" msgid="5918305641302873520">"האם ברצונך להתקין את האפליקציה? היא אינה דורשת גישה מיוחדת."</string>
-    <string name="install_confirm_question_update" msgid="4624159567361487964">"האם ברצונך להתקין עדכון לאפליקציה קיימת זו? הנתונים הקיימים שלך לא יאבדו. האפליקציה המעודכנת תקבל גישה אל:"</string>
-    <string name="install_confirm_question_update_system" msgid="1302330093676416336">"האם ברצונך להתקין עדכון לאפליקציה מובנית זו? הנתונים הקיימים שלך לא יאבדו. האפליקציה המעודכנת תקבל גישה אל:"</string>
-    <string name="install_confirm_question_update_no_perms" msgid="4885928136844618944">"האם ברצונך להתקין עדכון עבור אפליקציה קיימת זו? הנתונים הקיימים שלך לא יאבדו. אין צורך בגישה מיוחדת."</string>
-    <string name="install_confirm_question_update_system_no_perms" msgid="7676593512694724374">"האם ברצונך להתקין עדכון עבור אפליקציה מובנית זו? הנתונים הקיימים שלך לא יאבדו. אין צורך בגישה מיוחדת."</string>
-    <string name="install_failed" msgid="6579998651498970899">"האפליקציה לא הותקנה."</string>
-    <string name="install_failed_blocked" msgid="1606870930588770025">"החבילה נחסמה להתקנה."</string>
-    <string name="install_failed_conflict" msgid="5336045235168070954">"האפליקציה לא הותקנה כי החבילה מתנגשת עם חבילה קיימת."</string>
-    <string name="install_failed_incompatible" product="tablet" msgid="6682387386242708974">"האפליקציה לא הותקנה כי האפליקציה אינה תואמת לטאבלט."</string>
-    <string name="install_failed_incompatible" product="tv" msgid="3553367270510072729">"האפליקציה הזו אינה תואמת לטלוויזיה שלך."</string>
-    <string name="install_failed_incompatible" product="default" msgid="7917996365659426872">"האפליקציה לא הותקנה כי האפליקציה אינה תואמת לטלפון."</string>
-    <string name="install_failed_invalid_apk" msgid="269885385245534742">"האפליקציה לא הותקנה כי נראה שהחבילה לא תקפה."</string>
-    <string name="install_failed_msg" product="tablet" msgid="8368835262605608787">"לא ניתן להתקין את <xliff:g id="APP_NAME">%1$s</xliff:g> בטאבלט שלך."</string>
-    <string name="install_failed_msg" product="tv" msgid="3990457938384021566">"לא ניתן להתקין את <xliff:g id="APP_NAME">%1$s</xliff:g> בטלוויזיה שלך."</string>
-    <string name="install_failed_msg" product="default" msgid="8554909560982962052">"לא ניתן להתקין את <xliff:g id="APP_NAME">%1$s</xliff:g> בטלפון שלך."</string>
-    <string name="launch" msgid="4826921505917605463">"פתח"</string>
-    <string name="unknown_apps_admin_dlg_text" msgid="7488386758312008790">"מנהל המערכת שלך לא מתיר התקנה של אפליקציות ממקורות לא ידועים"</string>
-    <string name="unknown_apps_user_restriction_dlg_text" msgid="5785226253054083336">"למשתמש זה אין הרשאה להתקין אפליקציות שאינן מוכרות"</string>
-    <string name="install_apps_user_restriction_dlg_text" msgid="5041150186260066212">"למשתמש הזה אין הרשאה להתקין אפליקציות"</string>
-    <string name="ok" msgid="3468756155452870475">"אישור"</string>
-    <string name="settings" msgid="6743583734099755409">"הגדרות"</string>
-    <string name="manage_applications" msgid="4033876279091996596">"נהל אפליקציות"</string>
-    <string name="dlg_app_replacement_title" msgid="1232230739563820951">"להחליף אפליקציה?"</string>
-    <string name="dlg_app_replacement_statement" msgid="2992911899989907492">"האפליקציה שאתה מתקין תחליף אפליקציה אחרת.\n\nכל נתוני המשתמש הקודמים שלך יישמרו."</string>
-    <string name="dlg_sys_app_replacement_statement" msgid="1900046590819605929">"זוהי אפליקציית מערכת.\n\nכל נתוני המשתמש הקודמים שלך יישמרו."</string>
-    <string name="out_of_space_dlg_title" msgid="7843674437613797326">"אין מספיק שטח"</string>
-    <string name="out_of_space_dlg_text" msgid="4774775404294282216">"לא ניתן להתקין את <xliff:g id="APP_NAME">%1$s</xliff:g>. פנה שטח ונסה שוב."</string>
-    <string name="dlg_ok" msgid="6944357727705699232">"אישור"</string>
-    <string name="app_not_found_dlg_title" msgid="2692335460569505484">"האפליקציה לא נמצא"</string>
-    <string name="app_not_found_dlg_text" msgid="6107465056055095930">"האפליקציה לא נמצאה ברשימת האפליקציות המותקנות."</string>
-    <string name="user_is_not_allowed_dlg_title" msgid="118128026847201582">"לא מורשה"</string>
-    <string name="user_is_not_allowed_dlg_text" msgid="739716827677987545">"המשתמש הנוכחי אינו מורשה להסיר את ההתקנה הזו."</string>
-    <string name="generic_error_dlg_title" msgid="2684806600635296961">"שגיאה"</string>
-    <string name="generic_error_dlg_text" msgid="4288738047825333954">"לא ניתן היה להסיר את התקנת האפליקציה."</string>
-    <string name="uninstall_application_title" msgid="1860074100811653963">"הסר את התקנת האפליקציה"</string>
-    <string name="uninstall_update_title" msgid="4146940097553335390">"הסר את התקנת העדכון"</string>
-    <string name="uninstall_activity_text" msgid="6680688689803932550">"<xliff:g id="ACTIVITY_NAME">%1$s</xliff:g> הוא חלק מהאפליקציה הבאה:"</string>
-    <string name="uninstall_application_text" msgid="6691975835951187030">"האם ברצונך להסיר את ההתקנה של אפליקציה זו?"</string>
-    <string name="uninstall_application_text_all_users" msgid="5574704453233525222">"האם אתה רוצה להסיר את האפליקציה הזו עבור "<b>"כל"</b>" המשתמשים? האפליקציה והנתונים שלה יוסרו מ"<b>"כל"</b>" המשתמשים במכשיר."</string>
-    <string name="uninstall_application_text_user" msgid="8766882355635485733">"האם ברצונך להסיר את התקנתה של אפליקציה זו עבור המשתמש <xliff:g id="USERNAME">%1$s</xliff:g>?"</string>
-    <string name="uninstall_update_text" msgid="1394549691152728409">"האם להחליף את האפליקציה הזאת בגירסת היצרן? כל הנתונים יוסרו."</string>
-    <string name="uninstall_update_text_multiuser" msgid="2083665452990861991">"האם להחליף את האפליקציה הזאת בגירסת היצרן? כל הנתונים יוסרו. הפעולה תשפיע על כל משתמשי המכשיר, כולל משתמשים בעלי פרופיל עבודה."</string>
-    <string name="uninstalling_notification_channel" msgid="5698369661583525583">"התקנות בתהליכי הסרה"</string>
-    <string name="uninstall_failure_notification_channel" msgid="8224276726364132314">"הסרות התקנה שנכשלו"</string>
-    <string name="uninstalling" msgid="5556217435895938250">"מסיר התקנה..."</string>
-    <string name="uninstalling_app" msgid="2773617614877719294">"מסיר את ההתקנה של <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>…"</string>
-    <string name="uninstall_done" msgid="3792487853420281888">"הסרת ההתקנה הסתיימה."</string>
-    <string name="uninstall_done_app" msgid="775837862728680479">"ההתקנה של <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> הוסרה"</string>
-    <string name="uninstall_failed" msgid="631122574306299512">"הסרת התקנה נכשלה."</string>
-    <string name="uninstall_failed_app" msgid="945277834056527022">"נכשלה הסרת ההתקנה של <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>."</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="2727361164694743362">"לא ניתן להסיר את ההתקנה של אפליקציה פעילה של מנהל המכשיר"</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="2161462242935805756">"לא ניתן להסיר את ההתקנה של אפליקציה פעילה של מנהל המכשיר של <xliff:g id="USERNAME">%1$s</xliff:g>"</string>
-    <string name="uninstall_all_blocked_profile_owner" msgid="3544933038594382346">"אפליקציה זו נדרשת לחלק מהמשתמשים או מהפרופילים והתקנתה הוסרה למשתמשים אחרים"</string>
-    <string name="uninstall_blocked_profile_owner" msgid="6912141045528994954">"האפליקציה הזו נחוצה לפרופיל שלך ולא ניתן להסיר את ההתקנה שלה."</string>
-    <string name="uninstall_blocked_device_owner" msgid="7074175526413453063">"מנהל המכשיר שלך מחייב את קיומה של אפליקציה זו, ולא ניתן להסירה."</string>
-    <string name="manage_device_administrators" msgid="118178632652346535">"אפליקציות למנהל המערכת של מכשיר מנוהל"</string>
-    <string name="manage_users" msgid="3125018886835668847">"ניהול משתמשים"</string>
-    <string name="uninstall_failed_msg" msgid="8969754702803951175">"לא ניתן להסיר את ההתקנה של <xliff:g id="APP_NAME">%1$s</xliff:g>."</string>
-    <string name="Parse_error_dlg_text" msgid="7623286983621067011">"אירעה בעיה בניתוח החבילה."</string>
-    <string name="newPerms" msgid="6039428254474104210">"חדש"</string>
-    <string name="allPerms" msgid="1024385515840703981">"הכל"</string>
-    <string name="privacyPerms" msgid="1850527049572617">"פרטיות"</string>
-    <string name="devicePerms" msgid="6733560207731294504">"גישה למכשיר"</string>
-    <string name="no_new_perms" msgid="6657813692169565975">"עדכון זה לא דורש הרשאות חדשות."</string>
-    <string name="grant_confirm_question" msgid="4690289297029223742">"האם ברצונך להעניק את ההרשאות הבאות? תוענק גישה אל:"</string>
-    <string name="grant_dialog_button_deny" msgid="2176510645406614340">"לא, אין מצב"</string>
-    <string name="grant_dialog_button_more_info" msgid="2218220771432058426">"למידע נוסף"</string>
-    <string name="grant_dialog_button_deny_anyway" msgid="847960499284125250">"לדחות בכל מקרה"</string>
-    <string name="current_permission_template" msgid="6378304249516652817">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> מתוך <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
-    <string name="permission_warning_template" msgid="7332275268559121742">"‏האם לאשר ל&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; לבצע <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
-    <string name="permission_revoked_count" msgid="7386129423432613024">"<xliff:g id="COUNT">%1$d</xliff:g> הרשאות מושבתות"</string>
-    <string name="permission_revoked_all" msgid="8595742638132863678">"כל ההרשאות מושבתות"</string>
-    <string name="permission_revoked_none" msgid="2059511550181271342">"אין הרשאות מושבתות"</string>
-    <string name="grant_dialog_button_allow" msgid="4616529495342337095">"כן, זה בסדר"</string>
-    <string name="app_permissions_breadcrumb" msgid="3390836200791539264">"אפליקציות"</string>
-    <string name="app_permissions" msgid="3146758905824597178">"הרשאות לאפליקציות"</string>
-    <string name="never_ask_again" msgid="1089938738199748687">"ראיתי פעם אחת, זה מספיק"</string>
-    <string name="no_permissions" msgid="3210542466245591574">"אין הרשאות"</string>
-    <string name="additional_permissions" msgid="6667573114240111763">"הרשאות נוספות"</string>
-    <plurals name="additional_permissions_more" formatted="false" msgid="945127158155064388">
+    <string name="app_name" msgid="2792757108872430971">"בקר הרשאות"</string>
+    <string name="ok" msgid="4417794827535157922">"אישור"</string>
+    <string name="permission_search_keyword" msgid="1652964722383449182">"הרשאות"</string>
+    <string name="cancel" msgid="7279939269964834974">"ביטול"</string>
+    <string name="app_not_found_dlg_title" msgid="8897078571059217849">"האפליקציה לא נמצאה"</string>
+    <string name="grant_dialog_button_deny" msgid="1649644200597601964">"אני לא מרשה"</string>
+    <string name="grant_dialog_button_deny_and_dont_ask_again" msgid="5716583584580362144">"יש לדחות ואין לשאול שוב"</string>
+    <string name="grant_dialog_button_more_info" msgid="6933952978344714007">"מידע נוסף"</string>
+    <string name="grant_dialog_button_deny_anyway" msgid="6134672842863824171">"לדחות בכל מקרה"</string>
+    <string name="current_permission_template" msgid="5642540253562598515">"<xliff:g id="CURRENT_PERMISSION_INDEX">%1$s</xliff:g> מתוך <xliff:g id="PERMISSION_COUNT">%2$s</xliff:g>"</string>
+    <string name="permission_warning_template" msgid="1353228984024423745">"‏האם לאשר לאפליקציה &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; לבצע <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="permission_add_background_warning_template" msgid="1046864917164159751">"‏תמיד לאשר לאפליקציה &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; לבצע <xliff:g id="ACTION">%2$s</xliff:g>?"</string>
+    <string name="allow_permission_foreground_only" msgid="7444689446874060511">"רק בזמן השימוש באפליקציה"</string>
+    <string name="allow_permission_always" msgid="4089537686339013930">"תמיד"</string>
+    <string name="deny_permission_deny_and_dont_ask_again" msgid="8131547398883397878">"דחה ואל תשאל שוב"</string>
+    <string name="permission_revoked_count" msgid="5556125174203696709">"<xliff:g id="COUNT">%1$d</xliff:g> הרשאות מושבתות"</string>
+    <string name="permission_revoked_all" msgid="6356577996164232918">"כל ההרשאות מושבתות"</string>
+    <string name="permission_revoked_none" msgid="266013103540772023">"אין הרשאות מושבתות"</string>
+    <string name="grant_dialog_button_allow" msgid="2137542756625939532">"יש אישור"</string>
+    <string name="grant_dialog_button_allow_always" msgid="4201473810650722162">"לאישור כל הזמן"</string>
+    <string name="grant_dialog_button_allow_foreground" msgid="2929490670369819475">"לאישור רק בזמן שהאפליקציה בשימוש"</string>
+    <string name="app_permissions_breadcrumb" msgid="6174723486639913311">"אפליקציות"</string>
+    <string name="app_permissions" msgid="2778362347879465223">"הרשאות לאפליקציה"</string>
+    <string name="app_permission_manager" msgid="3802609813311662642">"מנהל הרשאות"</string>
+    <string name="never_ask_again" msgid="7645304182523160030">"אל תשאל שוב"</string>
+    <string name="no_permissions" msgid="2193893107241172888">"אין הרשאות"</string>
+    <string name="additional_permissions" msgid="7124470111123472154">"הרשאות נוספות"</string>
+    <string name="app_permissions_info_button_label" msgid="6566057048862462066">"פתיחה של פרטי האפליקציה"</string>
+    <plurals name="additional_permissions_more" formatted="false" msgid="2232860610746920222">
       <item quantity="two">עוד <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="many">עוד <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="other">עוד <xliff:g id="COUNT_1">%1$d</xliff:g></item>
       <item quantity="one">עוד <xliff:g id="COUNT_0">%1$d</xliff:g></item>
     </plurals>
-    <string name="old_sdk_deny_warning" msgid="3872277112584842615">"‏האפליקציה הזו עוצבה בשביל גרסה ישנה יותר של Android. דחיית ההרשאה עשויה לגרום לה לתפקד בצורה לקויה."</string>
-    <string name="default_permission_description" msgid="4992892207044156668">"ביצוע פעולה לא ידועה"</string>
-    <string name="app_permissions_group_summary" msgid="4787239772223699263">"<xliff:g id="COUNT_0">%1$d</xliff:g> מתוך <xliff:g id="COUNT_1">%2$d</xliff:g> אפליקציות קיבלו הרשאה"</string>
-    <string name="menu_show_system" msgid="6773743421743728921">"הרשאות המערכת"</string>
-    <string name="menu_hide_system" msgid="7595471742649432977">"הסתר מערכת"</string>
-    <string name="permission_title" msgid="6495415273398916381">"הרשאות <xliff:g id="PERMISSION">%1$s</xliff:g>"</string>
-    <string name="no_apps" msgid="1965493419005012569">"אין אפליקציות"</string>
-    <string name="location_settings" msgid="1774875730854491297">"הגדרות מיקום"</string>
-    <string name="location_warning" msgid="8778701356292735971">"<xliff:g id="APP_NAME">%1$s</xliff:g> הוא ספק של שירותי מיקום בשביל המכשיר הזה. אפשר לשנות את גישת המיקום בהגדרות המיקום."</string>
-    <string name="system_warning" msgid="7103819124542305179">"אם תדחה את ההרשאה הזו, ייתכן שתכונות בסיסיות במכשיר לא יפעלו כצפוי."</string>
-    <string name="permission_summary_enforced_by_policy" msgid="3418617316188986205">"נאכף באמצעות מדיניות"</string>
-    <string name="loading" msgid="7811651799620593731">"טוען..."</string>
-    <string name="all_permissions" msgid="5156669007784613042">"כל ההרשאות"</string>
-    <string name="other_permissions" msgid="2016192512386091933">"הרשאות אחרות של האפליקציה"</string>
-    <string name="permission_request_title" msgid="1204446718549121199">"בקשת הרשאה"</string>
-    <string name="screen_overlay_title" msgid="3021729846864038529">"זוהתה שכבת על במסך"</string>
-    <string name="screen_overlay_message" msgid="2141944461571677331">"‏כדי לשנות את הגדרת ההרשאה הזו, ראשית עליך לכבות את שכבת העל במסך ב\'הגדרות\' &gt; \'אפליקציות\'"</string>
-    <string name="screen_overlay_button" msgid="4344544843349937743">"פתח הגדרות"</string>
-    <string name="wear_not_allowed_dlg_title" msgid="8104666773577525713">"Android Wear"</string>
-    <string name="wear_not_allowed_dlg_text" msgid="1322352525843583064">"‏פעולות התקנה/הסרת התקנה אינן נתמכות ב-Wear."</string>
-    <string name="permission_review_warning_title_template_update" msgid="2569412700408535872">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> עודכנה. לתת ל-<xliff:g id="APP_NAME_1">%1$s</xliff:g>‏ את הרשאות הגישה הבאות?"</string>
-    <string name="permission_review_title_template_install" msgid="6819338441305295479">"‏בחר אילו הרשאות גישה ברצונך לתת ל &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;"</string>
-    <string name="permission_review_title_template_update" msgid="8632233603161669426">"‏&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; עודכנה. בחר אילו הרשאות גישה יהיו לאפליקציה זו."</string>
-    <string name="review_button_cancel" msgid="957906817733578877">"ביטול"</string>
-    <string name="review_button_continue" msgid="4809162078179371370">"המשך"</string>
-    <string name="new_permissions_category" msgid="3213523410139204183">"הרשאות חדשות"</string>
-    <string name="current_permissions_category" msgid="998210994450606094">"הרשאות קיימות"</string>
-    <string name="message_staging" msgid="6151794817691100003">"מכין אפליקציה להתקנה…"</string>
-    <string name="app_name_unknown" msgid="8931522764510159105">"לא ידוע"</string>
-    <string name="untrusted_external_source_warning" product="tablet" msgid="1483151219938173935">"לצורכי אבטחה, הטאבלט שלך חסום להתקנת אפליקציות בלתי מוכרות המגיעות ממקור זה."</string>
-    <string name="untrusted_external_source_warning" product="tv" msgid="5373768281884328560">"לצורכי אבטחה, מכשיר הטלוויזיה שלך חסום להתקנת אפליקציות בלתי מוכרות המגיעות ממקור זה."</string>
-    <string name="untrusted_external_source_warning" product="default" msgid="2223486836232706553">"לצורכי אבטחה, הטלפון שלך חסום להתקנת אפליקציות בלתי מוכרות המגיעות ממקור זה."</string>
-    <string name="anonymous_source_warning" product="default" msgid="7700263729981815614">"נתוני הטלפון והנתונים האישיים שלך חשופים יותר בפני התקפות על ידי אפליקציות ממקורות לא ידועים. אם תתקין אפליקציה זו, אתה מסכים לכך שאתה האחראי הבלעדי במקרה של אובדן נתונים או אם ייגרם נזק לטלפון שלך בעקבות השימוש באפליקציה."</string>
-    <string name="anonymous_source_warning" product="tablet" msgid="8854462805499848630">"נתוני הטאבלט והנתונים האישיים שלך חשופים יותר בפני התקפות על ידי אפליקציות ממקורות לא ידועים. אם תתקין אפליקציה זו, אתה מסכים לכך שאתה האחראי הבלעדי במקרה של אובדן נתונים או אם ייגרם נזק לטאבלט שלך בעקבות השימוש באפליקציה."</string>
-    <string name="anonymous_source_warning" product="tv" msgid="1291472686734385872">"נתוני הטלוויזיה והנתונים האישיים שלך חשופים יותר בפני התקפות על ידי אפליקציות ממקורות לא ידועים. אם תתקין אפליקציה זו, אתה מסכים לכך שאתה האחראי הבלעדי במקרה של אובדן נתונים או אם ייגרם נזק לטלוויזיה שלך בעקבות השימוש באפליקציה."</string>
-    <string name="anonymous_source_continue" msgid="2094381167954332292">"המשך"</string>
-    <string name="external_sources_settings" msgid="8601453744517291632">"הגדרות"</string>
-    <string name="wear_app_channel" msgid="6200840123672949356">"‏מתקין/מסיר התקנה של אפליקציות Wear"</string>
+    <string name="old_sdk_deny_warning" msgid="6018489265342857714">"‏האפליקציה הזו תוכננה לגרסה ישנה יותר של Android. דחיית ההרשאה עשויה לגרום לה לתפקד בצורה לקויה."</string>
+    <string name="default_permission_description" msgid="692254823411049573">"ביצוע פעולה לא ידועה"</string>
+    <string name="app_permissions_group_summary" msgid="5019625174481872207">"<xliff:g id="COUNT_0">%1$d</xliff:g> מתוך <xliff:g id="COUNT_1">%2$d</xliff:g> אפליקציות קיבלו הרשאה"</string>
+    <string name="permission_usage_header" msgid="8802963718365732792">"נתוני שימוש אחרונים בהרשאות"</string>
+    <string name="permission_usage_view_details" msgid="7398825662321010957">"למרכז השליטה של ההרשאות"</string>
+    <string name="menu_show_system" msgid="7623002570829860709">"הצגת המערכת"</string>
+    <string name="menu_hide_system" msgid="2274204366405029090">"הסתרת המערכת"</string>
+    <string name="no_apps" msgid="2377153782338039463">"אין אפליקציות"</string>
+    <string name="location_settings" msgid="547378321761364906">"הגדרות מיקום"</string>
+    <string name="location_warning" msgid="4687406043150343369">"<xliff:g id="APP_NAME">%1$s</xliff:g> הוא ספק של שירותי מיקום בשביל המכשיר הזה. אפשר לשנות את גישת המיקום בהגדרות המיקום."</string>
+    <string name="system_warning" msgid="6868290533389195836">"אם ההרשאה הזו תידחה, ייתכן שתכונות בסיסיות במכשיר לא יפעלו כצפוי."</string>
+    <string name="permission_summary_enforced_by_policy" msgid="632945329450867948">"נאכף באמצעות מדיניות"</string>
+    <string name="permission_summary_disabled_by_policy_background_only" msgid="137178879402491132">"הגישה ברקע מושבתת על ידי מדיניות"</string>
+    <string name="permission_summary_enabled_by_policy_background_only" msgid="2699118232240494204">"הגישה ברקע מופעלת על ידי מדיניות"</string>
+    <string name="permission_summary_enabled_by_policy_foreground_only" msgid="8652417310534780420">"הגישה במצב פעיל מופעלת על ידי מדיניות"</string>
+    <string name="permission_summary_enforced_by_admin" msgid="5156952484229154563">"בשליטת מנהל מערכת"</string>
+    <string name="permission_summary_disabled_by_admin_background_only" msgid="3580805532594984554">"הגישה ברקע מושבתת על ידי מנהל מערכת"</string>
+    <string name="permission_summary_enabled_by_admin_background_only" msgid="5087543391647053237">"הגישה ברקע מופעלת על ידי מנהל מערכת"</string>
+    <string name="permission_summary_enabled_by_admin_foreground_only" msgid="4566755547230479934">"הגישה במצב פעיל מופעלת על ידי מנהל מערכת"</string>
+    <string name="permission_summary_enabled_system_fixed" msgid="1648259601814176611">"ההרשאה הוגדרה על ידי המערכת"</string>
+    <!-- no translation found for background_access_chooser_dialog_choices:0 (2093938392538894210) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:1 (3927338369513373750) -->
+    <!-- no translation found for background_access_chooser_dialog_choices:2 (8438068599173343936) -->
+    <string name="permission_access_always" msgid="2315256378850460955">"תמיד"</string>
+    <string name="permission_access_only_foreground" msgid="8109903552082630801">"רק בזמן השימוש באפליקציה"</string>
+    <string name="permission_access_never" msgid="4717648645876576508">"אף פעם"</string>
+    <string name="loading" msgid="323483393167148377">"טוען…"</string>
+    <string name="all_permissions" msgid="7813580062403112957">"כל ההרשאות"</string>
+    <string name="other_permissions" msgid="1956312685853070715">"הרשאות אחרות של האפליקציה"</string>
+    <string name="permission_request_title" msgid="6779348653783761548">"בקשת הרשאה"</string>
+    <string name="screen_overlay_title" msgid="1632732130312696010">"זוהתה שכבת-על במסך"</string>
+    <string name="screen_overlay_message" msgid="3222033787364955006">"‏כדי לשנות את הגדרת ההרשאה הזו, ראשית עליך לכבות את שכבת העל במסך ב\'הגדרות\' &gt; \'אפליקציות\'"</string>
+    <string name="screen_overlay_button" msgid="3554849308322944411">"פתיחת ההגדרות"</string>
+    <string name="wear_not_allowed_dlg_title" msgid="6923880912091041609">"Android Wear"</string>
+    <string name="wear_not_allowed_dlg_text" msgid="8731817202551430387">"‏פעולות התקנה/הסרת התקנה אינן נתמכות ב-Wear."</string>
+    <string name="permission_review_title_template_install" msgid="8131698354985303888">"‏בחירה בהרשאות הגישה שברצונך לתת לאפליקציה &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt;"</string>
+    <string name="permission_review_title_template_update" msgid="7597155653571395485">"‏&lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; עודכנה. יש לבחור בהרשאות הגישה לאפליקציה זו."</string>
+    <string name="review_button_cancel" msgid="7108377593627664194">"ביטול"</string>
+    <string name="review_button_continue" msgid="1367925420132212571">"המשך"</string>
+    <string name="new_permissions_category" msgid="7242713808413888679">"הרשאות חדשות"</string>
+    <string name="current_permissions_category" msgid="3835461245150972589">"הרשאות קיימות"</string>
+    <string name="message_staging" msgid="641286607664721291">"מכין אפליקציה להתקנה…"</string>
+    <string name="app_name_unknown" msgid="8288360585728122735">"לא ידוע"</string>
+    <string name="permission_usage_title" msgid="6808284837306026819">"מרכז שליטה"</string>
+    <plurals name="permission_usage_summary" formatted="false" msgid="5323807746329287417">
+      <item quantity="two">גישה אחרונה: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> קבלות גישה</item>
+      <item quantity="many">גישה אחרונה: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> קבלות גישה</item>
+      <item quantity="other">גישה אחרונה: <xliff:g id="TIME_2">%1$s</xliff:g>\n<xliff:g id="NUM_3">%2$s</xliff:g> קבלות גישה</item>
+      <item quantity="one">גישה אחרונה: <xliff:g id="TIME_0">%1$s</xliff:g>\nגישה אחת (<xliff:g id="NUM_1">%2$s</xliff:g>)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_background" formatted="false" msgid="7596001658859120646">
+      <item quantity="two">גישה אחרונה: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> קבלות גישה (<xliff:g id="NUM_5">%3$s</xliff:g> ברקע)</item>
+      <item quantity="many">גישה אחרונה: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> קבלות גישה (<xliff:g id="NUM_5">%3$s</xliff:g> ברקע)</item>
+      <item quantity="other">גישה אחרונה: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> קבלות גישה (<xliff:g id="NUM_5">%3$s</xliff:g> ברקע)</item>
+      <item quantity="one">גישה אחרונה: <xliff:g id="TIME_0">%1$s</xliff:g>\nגישה אחת (<xliff:g id="NUM_1">%2$s</xliff:g>, <xliff:g id="NUM_2">%3$s</xliff:g> ברקע)</item>
+    </plurals>
+    <plurals name="permission_usage_summary_duration" formatted="false" msgid="896006189476160370">
+      <item quantity="two">גישה אחרונה: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> קבלות גישה\nמשך הזמן: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="many">גישה אחרונה: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> קבלות גישה\nמשך הזמן: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="other">גישה אחרונה: <xliff:g id="TIME_3">%1$s</xliff:g>\n<xliff:g id="NUM_4">%2$s</xliff:g> קבלות גישה\nמשך הזמן: <xliff:g id="TIME_5">%3$s</xliff:g></item>
+      <item quantity="one">גישה אחרונה: <xliff:g id="TIME_0">%1$s</xliff:g>\nגישה אחת (<xliff:g id="NUM_1">%2$s</xliff:g>)\nמשך הזמן: <xliff:g id="TIME_2">%3$s</xliff:g></item>
+    </plurals>
+    <plurals name="permission_usage_summary_background_duration" formatted="false" msgid="6112860268441134618">
+      <item quantity="two">גישה אחרונה: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> קבלות גישה (<xliff:g id="NUM_6">%3$s</xliff:g> ברקע)\nמשך הזמן: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="many">גישה אחרונה: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> קבלות גישה (<xliff:g id="NUM_6">%3$s</xliff:g> ברקע)\nמשך הזמן: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="other">גישה אחרונה: <xliff:g id="TIME_4">%1$s</xliff:g>\n<xliff:g id="NUM_5">%2$s</xliff:g> קבלות גישה (<xliff:g id="NUM_6">%3$s</xliff:g> ברקע)\nמשך הזמן: <xliff:g id="TIME_7">%3$s</xliff:g></item>
+      <item quantity="one">גישה אחרונה: <xliff:g id="TIME_0">%1$s</xliff:g>\nגישה אחת (<xliff:g id="NUM_1">%2$s</xliff:g>, <xliff:g id="NUM_2">%3$s</xliff:g> ברקע)\nמשך הזמן: <xliff:g id="TIME_3">%3$s</xliff:g></item>
+    </plurals>
+    <string name="permission_usage_any_permission" msgid="7824062114364689751">"כל הרשאה שהיא"</string>
+    <string name="permission_usage_any_time" msgid="313857697004329939">"בכל עת"</string>
+    <string name="permission_usage_last_7_days" msgid="4553199171543115540">"7 הימים האחרונים"</string>
+    <string name="permission_usage_last_day" msgid="4149912805759768249">"ב-24 השעות החולפות"</string>
+    <string name="permission_usage_last_hour" msgid="2907717357748648755">"בשעה האחרונה"</string>
+    <string name="permission_usage_last_15_minutes" msgid="8092341409350314280">"15 הדקות האחרונות"</string>
+    <string name="permission_usage_last_minute" msgid="1712931459994781087">"הדקה האחרונה"</string>
+    <string name="no_permission_usages" msgid="698858628357371611">"אין שימוש בהרשאות"</string>
+    <string name="permission_usage_list_title_any_time" msgid="3769244144339672988">"קבלת גישה בכל זמן שהוא"</string>
+    <string name="permission_usage_list_title_last_7_days" msgid="3727861046378775818">"קבלת גישה במהלך 7 הימים האחרונים"</string>
+    <string name="permission_usage_list_title_last_day" msgid="5342320924730492471">"קבלת גישה במהלך 24 השעות האחרונות"</string>
+    <string name="permission_usage_list_title_last_hour" msgid="2815783501799574220">"קבלת גישה במהלך השעה האחרונה"</string>
+    <string name="permission_usage_list_title_last_15_minutes" msgid="6355340673284923840">"קבלת גישה במהלך 15 הדקות האחרונות"</string>
+    <string name="permission_usage_list_title_last_minute" msgid="8035799852985876841">"קבלת גישה במהלך הדקה האחרונה"</string>
+    <string name="permission_usage_bar_chart_title_any_time" msgid="8198031767207481138">"השימוש המוביל בהרשאות בכל זמן שהוא"</string>
+    <string name="permission_usage_bar_chart_title_last_7_days" msgid="1383253721624697737">"השימוש המוביל בהרשאות במהלך 7 הימים האחרונים"</string>
+    <string name="permission_usage_bar_chart_title_last_day" msgid="4961033178274179547">"השימוש המוביל בהרשאות במהלך 24 השעות האחרונות"</string>
+    <string name="permission_usage_bar_chart_title_last_hour" msgid="652067970457696948">"השימוש המוביל בהרשאות במהלך השעה האחרונה"</string>
+    <string name="permission_usage_bar_chart_title_last_15_minutes" msgid="605482005070580571">"השימוש המוביל בהרשאות במהלך 15 הדקות האחרונות"</string>
+    <string name="permission_usage_bar_chart_title_last_minute" msgid="7503220317255343929">"השימוש המוביל בהרשאות בדקה האחרונה"</string>
+    <string name="app_permission_usage_bar_label" msgid="5471180291634450396">"אפליקציות"</string>
+    <string name="app_permission_usage_filter_label" msgid="8700139296200468389">"סינון לפי: <xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_usage_remove_filter" msgid="2046234519591857627">"הסרת המסנן"</string>
+    <string name="filter_by_title" msgid="5940302511365561845">"סינון לפי"</string>
+    <string name="filter_by_permissions" msgid="7761207093643478436">"סינון לפי הרשאות"</string>
+    <string name="sort_spinner_most_permissions" msgid="7512752810135216720">"הכי הרבה הרשאות"</string>
+    <string name="sort_spinner_most_accesses" msgid="8939431242431209447">"הכי הרבה קבלות גישה"</string>
+    <string name="sort_spinner_recent" msgid="8391312947480880412">"מהזמן האחרון"</string>
+    <string name="permission_usage_refresh" msgid="2182775682810005148">"רענון"</string>
+    <string name="app_permission_usage_title" msgid="5641038589468666526">"שימוש בהרשאות האפליקציה"</string>
+    <string name="app_permission_usage_summary" msgid="8560461104458882198">"גישה: <xliff:g id="NUM">%1$s</xliff:g> פעמים. משך זמן כולל: <xliff:g id="DURATION">%2$s</xliff:g>. שימוש אחרון לפני <xliff:g id="TIME">%3$s</xliff:g>."</string>
+    <string name="app_permission_usage_summary_no_duration" msgid="4040424337831328212">"גישה: <xliff:g id="NUM">%1$s</xliff:g> פעמים. שימוש אחרון לפני <xliff:g id="TIME">%2$s</xliff:g>."</string>
+    <string name="app_permission_button_allow" msgid="1358817292836175593">"לאישור"</string>
+    <string name="app_permission_button_allow_always" msgid="4313513946865105788">"לאישור כל הזמן"</string>
+    <string name="app_permission_button_allow_foreground" msgid="6366222217615376397">"לאישור רק בזמן שהאפליקציה בשימוש"</string>
+    <string name="app_permission_button_deny" msgid="5716368368650638408">"אני לא מרשה"</string>
+    <string name="app_permission_title" msgid="2453000050669052385">"הרשאה ל<xliff:g id="PERM">%1$s</xliff:g>"</string>
+    <string name="app_permission_header" msgid="5704679725169517493">"גישה ל<xliff:g id="PERM">%1$s</xliff:g> עבור <xliff:g id="APP">%2$s</xliff:g>"</string>
+    <string name="app_permission_footer_usage_summary" msgid="2944747878556477852">"נעשתה גישה ל<xliff:g id="PERM">%2$s</xliff:g> על ידי <xliff:g id="APP">%1$s</xliff:g> לפני <xliff:g id="TIME">%3$s</xliff:g>."</string>
+    <string name="app_permission_footer_no_usages" msgid="8176256750330679454">"לאפליקציה <xliff:g id="APP">%1$s</xliff:g> לא הייתה גישה אל <xliff:g id="PERM">%2$s</xliff:g>."</string>
+    <string name="app_permission_footer_usage_link" msgid="5912236275600923326">"הצגת שימוש מפורט בהרשאות"</string>
+    <string name="app_permission_most_recent_summary" msgid="7435245857128891808">"גישה אחרונה: <xliff:g id="TIME_DATE">%1$s</xliff:g>"</string>
+    <string name="app_permission_never_accessed_summary" msgid="594285912530635023">"אף פעם לא בוצעה גישה"</string>
+    <string name="allowed_header" msgid="6279244592227088158">"יש הרשאה"</string>
+    <string name="allowed_foreground_header" msgid="7553595563464819175">"מורשית רק בזמן שימוש"</string>
+    <string name="denied_header" msgid="2277998574238617699">"אין הרשאה"</string>
+    <string name="detailed_usage_link" msgid="3990452346369247944">"הצגת נתוני שימוש מפורטים בהרשאות"</string>
+    <plurals name="days" formatted="false" msgid="3903419301028414979">
+      <item quantity="two">יומיים (<xliff:g id="NUMBER">%s</xliff:g>)</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> ימים</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ימים</item>
+      <item quantity="one">יום אחד</item>
+    </plurals>
+    <plurals name="hours" formatted="false" msgid="2123927014975877155">
+      <item quantity="two">שעתיים (<xliff:g id="NUMBER">%s</xliff:g>)</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> שעות</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> שעות</item>
+      <item quantity="one">שעה אחת</item>
+    </plurals>
+    <plurals name="minutes" formatted="false" msgid="4331145652577957044">
+      <item quantity="two"><xliff:g id="NUMBER">%s</xliff:g> דקות</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> דקות</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> דקות</item>
+      <item quantity="one">דקה אחת</item>
+    </plurals>
+    <plurals name="seconds" formatted="false" msgid="1632909606956324957">
+      <item quantity="two"><xliff:g id="NUMBER">%s</xliff:g> שניות</item>
+      <item quantity="many"><xliff:g id="NUMBER">%s</xliff:g> שניות</item>
+      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> שניות</item>
+      <item quantity="one">שנייה אחת</item>
+    </plurals>
+    <string name="role_request_message_add" msgid="1977772335648650272">"‏האם להשתמש באפליקציה &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; בתור <xliff:g id="ROLE_NAME">%2$s</xliff:g>?"</string>
+    <string name="role_request_message_replace" msgid="6367571247558110210">"‏האם להשתמש באפליקציה &lt;b&gt;<xliff:g id="NEW_APP_NAME">%1$s</xliff:g>&lt;/b&gt; בתור <xliff:g id="ROLE_NAME">%2$s</xliff:g> במקום <b><xliff:g id="CURRENT_APP_NAME">%1$s</xliff:g></b>?"</string>
+    <string name="permission_reminders" msgid="8040710767178843151">"תזכורות להרשאות"</string>
+    <string name="background_location_access_reminder_notification_title" msgid="3986986240015907758">"נעשה שימוש במיקום שלך על ידי <xliff:g id="APP_NAME">%s</xliff:g>"</string>
+    <string name="background_location_access_reminder_notification_content" msgid="2715202570602748060">"האפליקציה הזו יכולה תמיד לגשת למיקום שלך. יש להקיש כדי לשנות הגדרה זו."</string>
+    <string name="permission_subtitle_only_in_foreground" msgid="3101936262905298459">"רק בזמן שהאפליקציה בשימוש"</string>
+    <string name="no_permissions_allowed" msgid="5781278485002145993">"לא ניתנו הרשאות"</string>
+    <string name="no_permissions_denied" msgid="2449583707612365442">"אין הרשאות שנדחו"</string>
+    <string name="no_apps_allowed" msgid="4529095928504611810">"אין אפליקציות מורשות"</string>
+    <string name="no_apps_denied" msgid="2736758388618487796">"אין אפליקציות ללא ההרשאה"</string>
+    <string name="launch_app" msgid="5641437562665039291">"פתיחה"</string>
+    <string name="uninstall_app" msgid="8756507666995809214">"הסרת התקנה"</string>
+    <string name="force_stop_app" msgid="4253426323145479826">"סגירה ידנית"</string>
+    <string name="settings" msgid="2884124136779508907">"הגדרות"</string>
+    <string name="accessibility_service_dialog_title_single" msgid="1613456964930225277">"לשירות <xliff:g id="SERVICE_NAME">%s</xliff:g> יש גישה מלאה למכשיר שלך"</string>
+    <string name="accessibility_service_dialog_title_multiple" msgid="1262608280562255761">"ל-<xliff:g id="NUM_SERVICES">%s</xliff:g> שירותי נגישות יש גישה מלאה למכשיר שלך"</string>
+    <string name="accessibility_service_dialog_bottom_text_single" msgid="6932810943462703517">"השירות <xliff:g id="SERVICE_NAME">%s</xliff:g> יכול להציג את המסך, הפעולות ופריטי הפלט שלך, וכן לבצע פעולות ולשלוט בתצוגה."</string>
+    <string name="accessibility_service_dialog_bottom_text_multiple" msgid="817809209968536329">"השירותים האלה יכולים להציג את המסך, הפעולות ופריטי הפלט שלך, וכן לבצע פעולות ולשלוט בתצוגה."</string>
+    <string name="default_apps" msgid="8554530939151957828">"אפליקציות ברירת מחדל"</string>
+    <string name="no_default_apps" msgid="5642715159090903032">"אין אפליקציות ברירת מחדל"</string>
+    <string name="default_apps_for_work" msgid="8582151955372061208">"ברירת מחדל לעבודה"</string>
+    <string name="default_app_none" msgid="7671097769303174666">"ללא"</string>
+    <string name="default_app_no_apps" msgid="5344668465735677271">"אין אפליקציות"</string>
+    <string name="special_app_access" msgid="2561673957499408877">"גישה מיוחדת לאפליקציה"</string>
+    <string name="no_special_app_access" msgid="994977666694457811">"אין גישה מיוחדת לאפליקציה"</string>
+    <string name="special_app_access_no_apps" msgid="3934763650592564818">"אין אפליקציות"</string>
+    <string name="role_label_assistant" msgid="456685142560727172">"אפליקציית עזרה"</string>
+    <string name="role_label_browser" msgid="6266502234308421457">"אפליקציית דפדפן"</string>
+    <string name="role_label_dialer" msgid="3345895090725237533">"אפליקציית \'טלפון\'"</string>
+    <string name="role_label_sms" msgid="2262769075496017522">"‏אפליקציית SMS"</string>
+    <string name="role_label_emergency" msgid="2226651888638211616">"אפליקציה לשעת חירום"</string>
+    <string name="role_label_home" msgid="7672863812639457378">"אפליקציית דף הבית"</string>
+    <string name="role_label_music" msgid="5900245414865932272">"אפליקציית מוזיקה"</string>
+    <string name="role_label_gallery" msgid="6939560238495155209">"גלריית האפליקציות"</string>
+    <string name="role_label_car_mode_dialer" msgid="5807291243320384807">"אפליקציית \'טלפון\' במצב נהיגה"</string>
+    <string name="role_label_call_redirection" msgid="8902197181113231577">"אפליקציה להפניית שיחות"</string>
+    <string name="role_label_call_screening" msgid="411212589764916370">"אפליקציה לסינון שיחות"</string>
+    <string name="role_label_call_companion" msgid="7369723859682076467">"אפליקציה נלווית לשיחות"</string>
+    <string name="role_label_car_projection" msgid="3792929094325391213">"אפליקציית ההקרנה של הרכב"</string>
+    <string name="home_missing_work_profile_support" msgid="1439466272746259937">"לא תומכת בפרופיל עבודה"</string>
+    <string name="encryption_unaware_confirmation_message" msgid="1366058948707595596">"הערה: אם ביצעת הפעלה מחדש למכשיר ונעילת המסך מוגדרת, ניתן יהיה להפעיל את האפליקציה הזו רק לאחר ביטול נעילת המכשיר."</string>
+    <string name="assistant_confirmation_message" msgid="4529925223796676824">"‏ה-Assistant יוכל לקרוא מידע על אפליקציות שבהן נעשה שימוש במערכת שלך, כולל מידע המופיע במסך או שניתן לגשת אליו באפליקציות."</string>
+    <string name="incident_report_channel_name" msgid="2405001892012870358">"שיתוף נתונים של ניפוי באגים"</string>
+    <string name="incident_report_notification_title" msgid="8506385602505147862">"לשתף נתונים מפורטים של ניפוי באגים?"</string>
+    <string name="incident_report_notification_text" msgid="8316657912290049576">"האפליקציה <xliff:g id="APP_NAME">%1$s</xliff:g> מבקשת להעלות נתונים של ניפוי באגים."</string>
+    <string name="incident_report_dialog_title" msgid="6147075171471634629">"שיתוף נתונים של ניפוי באגים"</string>
+    <string name="incident_report_dialog_text" msgid="6838105320223101131">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> מבקשת להעלות דוח על באגים ממכשיר זה, שנוצר בתאריך <xliff:g id="DATE">%2$s</xliff:g> בשעה <xliff:g id="TIME">%3$s</xliff:g>. דוחות על באגים כוללים מידע אישי על המכשיר או מידע אישי שנשמר באמצעות אפליקציות. למשל, שמות משתמשים, נתוני מיקום, מזהי מכשיר ופרטי רשת. יש לשתף דוחות על באגים רק עם אנשים ואפליקציות מהימנים. לאפשר לאפליקציה <xliff:g id="APP_NAME_1">%4$s</xliff:g> להעלות דוח על באגים?"</string>
+    <string name="incident_report_dialog_allow_label" msgid="6863130835544805205">"כן, זה בסדר"</string>
+    <string name="incident_report_dialog_deny_label" msgid="1297192379930944676">"אני לא מרשה"</string>
 </resources>

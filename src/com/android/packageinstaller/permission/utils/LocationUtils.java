@@ -17,24 +17,24 @@ package com.android.packageinstaller.permission.utils;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.location.ILocationManager;
 import android.location.LocationManager;
-import android.os.RemoteException;
-import android.os.ServiceManager;
 import android.provider.Settings;
+import android.util.Log;
 
-import com.android.packageinstaller.R;
+import androidx.annotation.NonNull;
 
-import java.util.ArrayList;
+import com.android.permissioncontroller.R;
 
 public class LocationUtils {
 
     public static final String LOCATION_PERMISSION = Manifest.permission_group.LOCATION;
+
+    private static final String TAG = LocationUtils.class.getSimpleName();
 
     public static void showLocationDialog(final Context context, CharSequence label) {
         new AlertDialog.Builder(context)
@@ -51,22 +51,46 @@ public class LocationUtils {
                 .show();
     }
 
-    public static boolean isLocationEnabled(Context context) {
-        return Settings.Secure.getInt(context.getContentResolver(), Settings.Secure.LOCATION_MODE,
-                Settings.Secure.LOCATION_MODE_OFF) != Settings.Secure.LOCATION_MODE_OFF;
-    }
-
-    public static boolean isLocationGroupAndProvider(String groupName, String packageName) {
-        return LOCATION_PERMISSION.equals(groupName) && isNetworkLocationProvider(packageName);
-    }
-
-    private static boolean isNetworkLocationProvider(String packageName) {
-        ILocationManager locationService = ILocationManager.Stub.asInterface(
-                ServiceManager.getService(Context.LOCATION_SERVICE));
+    /** Start the settings page for the location controller extra package. */
+    public static void startLocationControllerExtraPackageSettings(@NonNull Context context) {
         try {
-            return packageName.equals(locationService.getNetworkProviderPackage());
-        } catch (RemoteException e) {
+            context.startActivity(new Intent(
+                        Settings.ACTION_LOCATION_CONTROLLER_EXTRA_PACKAGE_SETTINGS));
+            return;
+        } catch (ActivityNotFoundException e) {
+            // In rare cases where location controller extra package is set, but
+            // no activity exists to handle the location controller extra package settings
+            // intent, log an error instead of crashing permission controller.
+            Log.e(TAG, "No activity to handle "
+                        + "android.settings.LOCATION_CONTROLLER_EXTRA_PACKAGE_SETTINGS");
+        }
+    }
+
+    public static boolean isLocationEnabled(Context context) {
+        return context.getSystemService(LocationManager.class).isLocationEnabled();
+    }
+
+    public static boolean isLocationGroupAndProvider(Context context, String groupName,
+            String packageName) {
+        return LOCATION_PERMISSION.equals(groupName)
+                && context.getSystemService(LocationManager.class).isProviderPackage(packageName);
+    }
+
+    public static boolean isLocationGroupAndControllerExtraPackage(@NonNull Context context,
+            @NonNull String groupName, @NonNull String packageName) {
+        return LOCATION_PERMISSION.equals(groupName)
+                && packageName.equals(context.getSystemService(LocationManager.class)
+                        .getExtraLocationControllerPackage());
+    }
+
+    /** Returns whether the location controller extra package is enabled. */
+    public static boolean isExtraLocationControllerPackageEnabled(Context context) {
+        try {
+            return context.getSystemService(LocationManager.class)
+                    .isExtraLocationControllerPackageEnabled();
+        } catch (Exception e) {
             return false;
         }
+
     }
 }

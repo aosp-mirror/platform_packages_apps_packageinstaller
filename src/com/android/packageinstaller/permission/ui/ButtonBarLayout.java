@@ -21,7 +21,8 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
-import com.android.packageinstaller.R;
+
+import com.android.permissioncontroller.R;
 
 /**
  * An extension of LinearLayout that automatically switches to vertical
@@ -96,18 +97,13 @@ public class ButtonBarLayout extends LinearLayout {
 
     private void setStacked(boolean stacked) {
         setOrientation(stacked ? LinearLayout.VERTICAL : LinearLayout.HORIZONTAL);
-        setGravity(stacked ? Gravity.END : Gravity.BOTTOM);
+        if (getGravity() != Gravity.CENTER) {
+            setGravity(stacked ? Gravity.END : Gravity.BOTTOM);
+        }
 
         final View spacer = findViewById(R.id.spacer);
         if (spacer != null) {
             spacer.setVisibility(stacked ? View.GONE : View.INVISIBLE);
-        }
-
-        // Reverse the child order. This is specific to the Material button
-        // bar's layout XML and will probably not generalize.
-        final int childCount = getChildCount();
-        for (int i = childCount - 2; i >= 0; i--) {
-            bringChildToFront(getChildAt(i));
         }
     }
 

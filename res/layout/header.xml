@@ -15,40 +15,19 @@
 -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="?android:attr/actionBarSize"
-    android:background="?android:attr/colorSecondary"
-    android:gravity="center_vertical" >
+        style="@style/Header">
 
     <ImageView android:id="@+id/icon"
-        android:layout_width="@dimen/header_subsettings_margin_start"
-        android:layout_height="40dp"
-        android:gravity="end"
-        android:layout_centerVertical="true" />
+        style="@style/HeaderIcon" />
 
     <TextView
         android:id="@+id/name"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:layout_marginStart="@dimen/header_subsettings_margin_start"
-        android:layout_alignWithParentIfMissing="true"
-        android:layout_centerVertical="true"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="?android:attr/textColorPrimary"
-        android:textAlignment="viewStart" />
+        style="@style/HeaderName" />
 
     <ImageView
         android:id="@+id/info"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="@dimen/header_subsettings_margin_end"
-        android:layout_centerVertical="true"
-        android:minHeight="0dp"
-        android:minWidth="0dp"
-        android:scaleType="center"
-        android:src="@drawable/ic_info_outline"
+        android:src="@drawable/ic_info_outline_accent"
         android:contentDescription="@string/app_permissions_info_button_label"
-        style="?android:attr/borderlessButtonStyle" />
+        style="@style/HeaderInfo" />
 
 </RelativeLayout>
